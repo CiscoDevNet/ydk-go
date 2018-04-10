@@ -1,0 +1,3 @@
+<cdp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-cdp-cfg">
+  <enable>true</enable>
+</cdp>

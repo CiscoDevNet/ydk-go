@@ -1,0 +1,13 @@
+<routing-policy xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-cfg">
+  <route-policies>
+    <route-policy>
+      <route-policy-name>PASS-ALL</route-policy-name>
+      <rpl-route-policy>
+        route-policy PASS-ALL
+          #statement-name pass-all
+          pass
+        end-policy
+        </rpl-route-policy>
+    </route-policy>
+  </route-policies>
+</routing-policy>
