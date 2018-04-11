@@ -22,25 +22,6 @@ func init() {
     ydk.RegisterEntity("LLDP-MIB:LLDP-MIB", reflect.TypeOf(LLDPMIB{}))
 }
 
-// LldpPortIdSubtype represents based on a value locally assigned.
-type LldpPortIdSubtype string
-
-const (
-    LldpPortIdSubtype_interfaceAlias LldpPortIdSubtype = "interfaceAlias"
-
-    LldpPortIdSubtype_portComponent LldpPortIdSubtype = "portComponent"
-
-    LldpPortIdSubtype_macAddress LldpPortIdSubtype = "macAddress"
-
-    LldpPortIdSubtype_networkAddress LldpPortIdSubtype = "networkAddress"
-
-    LldpPortIdSubtype_interfaceName LldpPortIdSubtype = "interfaceName"
-
-    LldpPortIdSubtype_agentCircuitId LldpPortIdSubtype = "agentCircuitId"
-
-    LldpPortIdSubtype_local LldpPortIdSubtype = "local"
-)
-
 // LldpChassisIdSubtype represents based on a locally defined value.
 type LldpChassisIdSubtype string
 
@@ -60,6 +41,25 @@ const (
     LldpChassisIdSubtype_local LldpChassisIdSubtype = "local"
 )
 
+// LldpPortIdSubtype represents based on a value locally assigned.
+type LldpPortIdSubtype string
+
+const (
+    LldpPortIdSubtype_interfaceAlias LldpPortIdSubtype = "interfaceAlias"
+
+    LldpPortIdSubtype_portComponent LldpPortIdSubtype = "portComponent"
+
+    LldpPortIdSubtype_macAddress LldpPortIdSubtype = "macAddress"
+
+    LldpPortIdSubtype_networkAddress LldpPortIdSubtype = "networkAddress"
+
+    LldpPortIdSubtype_interfaceName LldpPortIdSubtype = "interfaceName"
+
+    LldpPortIdSubtype_agentCircuitId LldpPortIdSubtype = "agentCircuitId"
+
+    LldpPortIdSubtype_local LldpPortIdSubtype = "local"
+)
+
 // LldpManAddrIfSubtype represents identifier based on the system port numbering convention.
 type LldpManAddrIfSubtype string
 
@@ -73,7 +73,7 @@ const (
 
 // LLDPMIB
 type LLDPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -164,113 +164,36 @@ type LLDPMIB struct {
     Lldpremorgdefinfotable LLDPMIB_Lldpremorgdefinfotable
 }
 
-func (lLDPMIB *LLDPMIB) GetFilter() yfilter.YFilter { return lLDPMIB.YFilter }
+func (lLDPMIB *LLDPMIB) GetEntityData() *types.CommonEntityData {
+    lLDPMIB.EntityData.YFilter = lLDPMIB.YFilter
+    lLDPMIB.EntityData.YangName = "LLDP-MIB"
+    lLDPMIB.EntityData.BundleName = "cisco_ios_xe"
+    lLDPMIB.EntityData.ParentYangName = "LLDP-MIB"
+    lLDPMIB.EntityData.SegmentPath = "LLDP-MIB:LLDP-MIB"
+    lLDPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lLDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lLDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lLDPMIB *LLDPMIB) SetFilter(yf yfilter.YFilter) { lLDPMIB.YFilter = yf }
-
-func (lLDPMIB *LLDPMIB) GetGoName(yname string) string {
-    if yname == "lldpConfiguration" { return "Lldpconfiguration" }
-    if yname == "lldpStatistics" { return "Lldpstatistics" }
-    if yname == "lldpLocalSystemData" { return "Lldplocalsystemdata" }
-    if yname == "lldpPortConfigTable" { return "Lldpportconfigtable" }
-    if yname == "lldpStatsTxPortTable" { return "Lldpstatstxporttable" }
-    if yname == "lldpStatsRxPortTable" { return "Lldpstatsrxporttable" }
-    if yname == "lldpLocPortTable" { return "Lldplocporttable" }
-    if yname == "lldpLocManAddrTable" { return "Lldplocmanaddrtable" }
-    if yname == "lldpRemTable" { return "Lldpremtable" }
-    if yname == "lldpRemManAddrTable" { return "Lldpremmanaddrtable" }
-    if yname == "lldpRemUnknownTLVTable" { return "Lldpremunknowntlvtable" }
-    if yname == "lldpRemOrgDefInfoTable" { return "Lldpremorgdefinfotable" }
-    return ""
+    lLDPMIB.EntityData.Children = make(map[string]types.YChild)
+    lLDPMIB.EntityData.Children["lldpConfiguration"] = types.YChild{"Lldpconfiguration", &lLDPMIB.Lldpconfiguration}
+    lLDPMIB.EntityData.Children["lldpStatistics"] = types.YChild{"Lldpstatistics", &lLDPMIB.Lldpstatistics}
+    lLDPMIB.EntityData.Children["lldpLocalSystemData"] = types.YChild{"Lldplocalsystemdata", &lLDPMIB.Lldplocalsystemdata}
+    lLDPMIB.EntityData.Children["lldpPortConfigTable"] = types.YChild{"Lldpportconfigtable", &lLDPMIB.Lldpportconfigtable}
+    lLDPMIB.EntityData.Children["lldpStatsTxPortTable"] = types.YChild{"Lldpstatstxporttable", &lLDPMIB.Lldpstatstxporttable}
+    lLDPMIB.EntityData.Children["lldpStatsRxPortTable"] = types.YChild{"Lldpstatsrxporttable", &lLDPMIB.Lldpstatsrxporttable}
+    lLDPMIB.EntityData.Children["lldpLocPortTable"] = types.YChild{"Lldplocporttable", &lLDPMIB.Lldplocporttable}
+    lLDPMIB.EntityData.Children["lldpLocManAddrTable"] = types.YChild{"Lldplocmanaddrtable", &lLDPMIB.Lldplocmanaddrtable}
+    lLDPMIB.EntityData.Children["lldpRemTable"] = types.YChild{"Lldpremtable", &lLDPMIB.Lldpremtable}
+    lLDPMIB.EntityData.Children["lldpRemManAddrTable"] = types.YChild{"Lldpremmanaddrtable", &lLDPMIB.Lldpremmanaddrtable}
+    lLDPMIB.EntityData.Children["lldpRemUnknownTLVTable"] = types.YChild{"Lldpremunknowntlvtable", &lLDPMIB.Lldpremunknowntlvtable}
+    lLDPMIB.EntityData.Children["lldpRemOrgDefInfoTable"] = types.YChild{"Lldpremorgdefinfotable", &lLDPMIB.Lldpremorgdefinfotable}
+    lLDPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lLDPMIB.EntityData)
 }
-
-func (lLDPMIB *LLDPMIB) GetSegmentPath() string {
-    return "LLDP-MIB:LLDP-MIB"
-}
-
-func (lLDPMIB *LLDPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpConfiguration" {
-        return &lLDPMIB.Lldpconfiguration
-    }
-    if childYangName == "lldpStatistics" {
-        return &lLDPMIB.Lldpstatistics
-    }
-    if childYangName == "lldpLocalSystemData" {
-        return &lLDPMIB.Lldplocalsystemdata
-    }
-    if childYangName == "lldpPortConfigTable" {
-        return &lLDPMIB.Lldpportconfigtable
-    }
-    if childYangName == "lldpStatsTxPortTable" {
-        return &lLDPMIB.Lldpstatstxporttable
-    }
-    if childYangName == "lldpStatsRxPortTable" {
-        return &lLDPMIB.Lldpstatsrxporttable
-    }
-    if childYangName == "lldpLocPortTable" {
-        return &lLDPMIB.Lldplocporttable
-    }
-    if childYangName == "lldpLocManAddrTable" {
-        return &lLDPMIB.Lldplocmanaddrtable
-    }
-    if childYangName == "lldpRemTable" {
-        return &lLDPMIB.Lldpremtable
-    }
-    if childYangName == "lldpRemManAddrTable" {
-        return &lLDPMIB.Lldpremmanaddrtable
-    }
-    if childYangName == "lldpRemUnknownTLVTable" {
-        return &lLDPMIB.Lldpremunknowntlvtable
-    }
-    if childYangName == "lldpRemOrgDefInfoTable" {
-        return &lLDPMIB.Lldpremorgdefinfotable
-    }
-    return nil
-}
-
-func (lLDPMIB *LLDPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lldpConfiguration"] = &lLDPMIB.Lldpconfiguration
-    children["lldpStatistics"] = &lLDPMIB.Lldpstatistics
-    children["lldpLocalSystemData"] = &lLDPMIB.Lldplocalsystemdata
-    children["lldpPortConfigTable"] = &lLDPMIB.Lldpportconfigtable
-    children["lldpStatsTxPortTable"] = &lLDPMIB.Lldpstatstxporttable
-    children["lldpStatsRxPortTable"] = &lLDPMIB.Lldpstatsrxporttable
-    children["lldpLocPortTable"] = &lLDPMIB.Lldplocporttable
-    children["lldpLocManAddrTable"] = &lLDPMIB.Lldplocmanaddrtable
-    children["lldpRemTable"] = &lLDPMIB.Lldpremtable
-    children["lldpRemManAddrTable"] = &lLDPMIB.Lldpremmanaddrtable
-    children["lldpRemUnknownTLVTable"] = &lLDPMIB.Lldpremunknowntlvtable
-    children["lldpRemOrgDefInfoTable"] = &lLDPMIB.Lldpremorgdefinfotable
-    return children
-}
-
-func (lLDPMIB *LLDPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lLDPMIB *LLDPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lLDPMIB *LLDPMIB) GetYangName() string { return "LLDP-MIB" }
-
-func (lLDPMIB *LLDPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lLDPMIB *LLDPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lLDPMIB *LLDPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lLDPMIB *LLDPMIB) SetParent(parent types.Entity) { lLDPMIB.parent = parent }
-
-func (lLDPMIB *LLDPMIB) GetParent() types.Entity { return lLDPMIB.parent }
-
-func (lLDPMIB *LLDPMIB) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpconfiguration
 type LLDPMIB_Lldpconfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The interval at which LLDP frames are transmitted on behalf of this LLDP
@@ -328,63 +251,29 @@ type LLDPMIB_Lldpconfiguration struct {
     Lldpnotificationinterval interface{}
 }
 
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetFilter() yfilter.YFilter { return lldpconfiguration.YFilter }
+func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetEntityData() *types.CommonEntityData {
+    lldpconfiguration.EntityData.YFilter = lldpconfiguration.YFilter
+    lldpconfiguration.EntityData.YangName = "lldpConfiguration"
+    lldpconfiguration.EntityData.BundleName = "cisco_ios_xe"
+    lldpconfiguration.EntityData.ParentYangName = "LLDP-MIB"
+    lldpconfiguration.EntityData.SegmentPath = "lldpConfiguration"
+    lldpconfiguration.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpconfiguration.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpconfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) SetFilter(yf yfilter.YFilter) { lldpconfiguration.YFilter = yf }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetGoName(yname string) string {
-    if yname == "lldpMessageTxInterval" { return "Lldpmessagetxinterval" }
-    if yname == "lldpMessageTxHoldMultiplier" { return "Lldpmessagetxholdmultiplier" }
-    if yname == "lldpReinitDelay" { return "Lldpreinitdelay" }
-    if yname == "lldpTxDelay" { return "Lldptxdelay" }
-    if yname == "lldpNotificationInterval" { return "Lldpnotificationinterval" }
-    return ""
+    lldpconfiguration.EntityData.Children = make(map[string]types.YChild)
+    lldpconfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpconfiguration.EntityData.Leafs["lldpMessageTxInterval"] = types.YLeaf{"Lldpmessagetxinterval", lldpconfiguration.Lldpmessagetxinterval}
+    lldpconfiguration.EntityData.Leafs["lldpMessageTxHoldMultiplier"] = types.YLeaf{"Lldpmessagetxholdmultiplier", lldpconfiguration.Lldpmessagetxholdmultiplier}
+    lldpconfiguration.EntityData.Leafs["lldpReinitDelay"] = types.YLeaf{"Lldpreinitdelay", lldpconfiguration.Lldpreinitdelay}
+    lldpconfiguration.EntityData.Leafs["lldpTxDelay"] = types.YLeaf{"Lldptxdelay", lldpconfiguration.Lldptxdelay}
+    lldpconfiguration.EntityData.Leafs["lldpNotificationInterval"] = types.YLeaf{"Lldpnotificationinterval", lldpconfiguration.Lldpnotificationinterval}
+    return &(lldpconfiguration.EntityData)
 }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetSegmentPath() string {
-    return "lldpConfiguration"
-}
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpMessageTxInterval"] = lldpconfiguration.Lldpmessagetxinterval
-    leafs["lldpMessageTxHoldMultiplier"] = lldpconfiguration.Lldpmessagetxholdmultiplier
-    leafs["lldpReinitDelay"] = lldpconfiguration.Lldpreinitdelay
-    leafs["lldpTxDelay"] = lldpconfiguration.Lldptxdelay
-    leafs["lldpNotificationInterval"] = lldpconfiguration.Lldpnotificationinterval
-    return leafs
-}
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetYangName() string { return "lldpConfiguration" }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) SetParent(parent types.Entity) { lldpconfiguration.parent = parent }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetParent() types.Entity { return lldpconfiguration.parent }
-
-func (lldpconfiguration *LLDPMIB_Lldpconfiguration) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpstatistics
 type LLDPMIB_Lldpstatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of sysUpTime object (defined in IETF RFC 3418) at the time an
@@ -440,63 +329,29 @@ type LLDPMIB_Lldpstatistics struct {
     Lldpstatsremtablesageouts interface{}
 }
 
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetFilter() yfilter.YFilter { return lldpstatistics.YFilter }
+func (lldpstatistics *LLDPMIB_Lldpstatistics) GetEntityData() *types.CommonEntityData {
+    lldpstatistics.EntityData.YFilter = lldpstatistics.YFilter
+    lldpstatistics.EntityData.YangName = "lldpStatistics"
+    lldpstatistics.EntityData.BundleName = "cisco_ios_xe"
+    lldpstatistics.EntityData.ParentYangName = "LLDP-MIB"
+    lldpstatistics.EntityData.SegmentPath = "lldpStatistics"
+    lldpstatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpstatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpstatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpstatistics *LLDPMIB_Lldpstatistics) SetFilter(yf yfilter.YFilter) { lldpstatistics.YFilter = yf }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetGoName(yname string) string {
-    if yname == "lldpStatsRemTablesLastChangeTime" { return "Lldpstatsremtableslastchangetime" }
-    if yname == "lldpStatsRemTablesInserts" { return "Lldpstatsremtablesinserts" }
-    if yname == "lldpStatsRemTablesDeletes" { return "Lldpstatsremtablesdeletes" }
-    if yname == "lldpStatsRemTablesDrops" { return "Lldpstatsremtablesdrops" }
-    if yname == "lldpStatsRemTablesAgeouts" { return "Lldpstatsremtablesageouts" }
-    return ""
+    lldpstatistics.EntityData.Children = make(map[string]types.YChild)
+    lldpstatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpstatistics.EntityData.Leafs["lldpStatsRemTablesLastChangeTime"] = types.YLeaf{"Lldpstatsremtableslastchangetime", lldpstatistics.Lldpstatsremtableslastchangetime}
+    lldpstatistics.EntityData.Leafs["lldpStatsRemTablesInserts"] = types.YLeaf{"Lldpstatsremtablesinserts", lldpstatistics.Lldpstatsremtablesinserts}
+    lldpstatistics.EntityData.Leafs["lldpStatsRemTablesDeletes"] = types.YLeaf{"Lldpstatsremtablesdeletes", lldpstatistics.Lldpstatsremtablesdeletes}
+    lldpstatistics.EntityData.Leafs["lldpStatsRemTablesDrops"] = types.YLeaf{"Lldpstatsremtablesdrops", lldpstatistics.Lldpstatsremtablesdrops}
+    lldpstatistics.EntityData.Leafs["lldpStatsRemTablesAgeouts"] = types.YLeaf{"Lldpstatsremtablesageouts", lldpstatistics.Lldpstatsremtablesageouts}
+    return &(lldpstatistics.EntityData)
 }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetSegmentPath() string {
-    return "lldpStatistics"
-}
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpStatsRemTablesLastChangeTime"] = lldpstatistics.Lldpstatsremtableslastchangetime
-    leafs["lldpStatsRemTablesInserts"] = lldpstatistics.Lldpstatsremtablesinserts
-    leafs["lldpStatsRemTablesDeletes"] = lldpstatistics.Lldpstatsremtablesdeletes
-    leafs["lldpStatsRemTablesDrops"] = lldpstatistics.Lldpstatsremtablesdrops
-    leafs["lldpStatsRemTablesAgeouts"] = lldpstatistics.Lldpstatsremtablesageouts
-    return leafs
-}
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetYangName() string { return "lldpStatistics" }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) SetParent(parent types.Entity) { lldpstatistics.parent = parent }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetParent() types.Entity { return lldpstatistics.parent }
-
-func (lldpstatistics *LLDPMIB_Lldpstatistics) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldplocalsystemdata
 type LLDPMIB_Lldplocalsystemdata struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type of encoding used to identify the chassis associated with the local
@@ -527,67 +382,32 @@ type LLDPMIB_Lldplocalsystemdata struct {
     Lldplocsyscapenabled interface{}
 }
 
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetFilter() yfilter.YFilter { return lldplocalsystemdata.YFilter }
+func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetEntityData() *types.CommonEntityData {
+    lldplocalsystemdata.EntityData.YFilter = lldplocalsystemdata.YFilter
+    lldplocalsystemdata.EntityData.YangName = "lldpLocalSystemData"
+    lldplocalsystemdata.EntityData.BundleName = "cisco_ios_xe"
+    lldplocalsystemdata.EntityData.ParentYangName = "LLDP-MIB"
+    lldplocalsystemdata.EntityData.SegmentPath = "lldpLocalSystemData"
+    lldplocalsystemdata.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldplocalsystemdata.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldplocalsystemdata.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) SetFilter(yf yfilter.YFilter) { lldplocalsystemdata.YFilter = yf }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetGoName(yname string) string {
-    if yname == "lldpLocChassisIdSubtype" { return "Lldplocchassisidsubtype" }
-    if yname == "lldpLocChassisId" { return "Lldplocchassisid" }
-    if yname == "lldpLocSysName" { return "Lldplocsysname" }
-    if yname == "lldpLocSysDesc" { return "Lldplocsysdesc" }
-    if yname == "lldpLocSysCapSupported" { return "Lldplocsyscapsupported" }
-    if yname == "lldpLocSysCapEnabled" { return "Lldplocsyscapenabled" }
-    return ""
+    lldplocalsystemdata.EntityData.Children = make(map[string]types.YChild)
+    lldplocalsystemdata.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldplocalsystemdata.EntityData.Leafs["lldpLocChassisIdSubtype"] = types.YLeaf{"Lldplocchassisidsubtype", lldplocalsystemdata.Lldplocchassisidsubtype}
+    lldplocalsystemdata.EntityData.Leafs["lldpLocChassisId"] = types.YLeaf{"Lldplocchassisid", lldplocalsystemdata.Lldplocchassisid}
+    lldplocalsystemdata.EntityData.Leafs["lldpLocSysName"] = types.YLeaf{"Lldplocsysname", lldplocalsystemdata.Lldplocsysname}
+    lldplocalsystemdata.EntityData.Leafs["lldpLocSysDesc"] = types.YLeaf{"Lldplocsysdesc", lldplocalsystemdata.Lldplocsysdesc}
+    lldplocalsystemdata.EntityData.Leafs["lldpLocSysCapSupported"] = types.YLeaf{"Lldplocsyscapsupported", lldplocalsystemdata.Lldplocsyscapsupported}
+    lldplocalsystemdata.EntityData.Leafs["lldpLocSysCapEnabled"] = types.YLeaf{"Lldplocsyscapenabled", lldplocalsystemdata.Lldplocsyscapenabled}
+    return &(lldplocalsystemdata.EntityData)
 }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetSegmentPath() string {
-    return "lldpLocalSystemData"
-}
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpLocChassisIdSubtype"] = lldplocalsystemdata.Lldplocchassisidsubtype
-    leafs["lldpLocChassisId"] = lldplocalsystemdata.Lldplocchassisid
-    leafs["lldpLocSysName"] = lldplocalsystemdata.Lldplocsysname
-    leafs["lldpLocSysDesc"] = lldplocalsystemdata.Lldplocsysdesc
-    leafs["lldpLocSysCapSupported"] = lldplocalsystemdata.Lldplocsyscapsupported
-    leafs["lldpLocSysCapEnabled"] = lldplocalsystemdata.Lldplocsyscapenabled
-    return leafs
-}
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetYangName() string { return "lldpLocalSystemData" }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) SetParent(parent types.Entity) { lldplocalsystemdata.parent = parent }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetParent() types.Entity { return lldplocalsystemdata.parent }
-
-func (lldplocalsystemdata *LLDPMIB_Lldplocalsystemdata) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpportconfigtable
 // The table that controls LLDP frame transmission on individual
 // ports.
 type LLDPMIB_Lldpportconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LLDP configuration information for a particular port. This configuration
@@ -597,63 +417,24 @@ type LLDPMIB_Lldpportconfigtable struct {
     Lldpportconfigentry []LLDPMIB_Lldpportconfigtable_Lldpportconfigentry
 }
 
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetFilter() yfilter.YFilter { return lldpportconfigtable.YFilter }
+func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetEntityData() *types.CommonEntityData {
+    lldpportconfigtable.EntityData.YFilter = lldpportconfigtable.YFilter
+    lldpportconfigtable.EntityData.YangName = "lldpPortConfigTable"
+    lldpportconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    lldpportconfigtable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpportconfigtable.EntityData.SegmentPath = "lldpPortConfigTable"
+    lldpportconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpportconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpportconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) SetFilter(yf yfilter.YFilter) { lldpportconfigtable.YFilter = yf }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetGoName(yname string) string {
-    if yname == "lldpPortConfigEntry" { return "Lldpportconfigentry" }
-    return ""
-}
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetSegmentPath() string {
-    return "lldpPortConfigTable"
-}
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpPortConfigEntry" {
-        for _, c := range lldpportconfigtable.Lldpportconfigentry {
-            if lldpportconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpportconfigtable_Lldpportconfigentry{}
-        lldpportconfigtable.Lldpportconfigentry = append(lldpportconfigtable.Lldpportconfigentry, child)
-        return &lldpportconfigtable.Lldpportconfigentry[len(lldpportconfigtable.Lldpportconfigentry)-1]
-    }
-    return nil
-}
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpportconfigtable.EntityData.Children = make(map[string]types.YChild)
+    lldpportconfigtable.EntityData.Children["lldpPortConfigEntry"] = types.YChild{"Lldpportconfigentry", nil}
     for i := range lldpportconfigtable.Lldpportconfigentry {
-        children[lldpportconfigtable.Lldpportconfigentry[i].GetSegmentPath()] = &lldpportconfigtable.Lldpportconfigentry[i]
+        lldpportconfigtable.EntityData.Children[types.GetSegmentPath(&lldpportconfigtable.Lldpportconfigentry[i])] = types.YChild{"Lldpportconfigentry", &lldpportconfigtable.Lldpportconfigentry[i]}
     }
-    return children
+    lldpportconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpportconfigtable.EntityData)
 }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetYangName() string { return "lldpPortConfigTable" }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) SetParent(parent types.Entity) { lldpportconfigtable.parent = parent }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetParent() types.Entity { return lldpportconfigtable.parent }
-
-func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpportconfigtable_Lldpportconfigentry
 // LLDP configuration information for a particular port.
@@ -661,7 +442,7 @@ func (lldpportconfigtable *LLDPMIB_Lldpportconfigtable) GetParentYangName() stri
 // the reception of LLDP frames on those ports whose rows are
 // created in this table.
 type LLDPMIB_Lldpportconfigtable_Lldpportconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value used to identify the port
@@ -714,57 +495,24 @@ type LLDPMIB_Lldpportconfigtable_Lldpportconfigentry struct {
     Lldpportconfigtlvstxenable interface{}
 }
 
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetFilter() yfilter.YFilter { return lldpportconfigentry.YFilter }
+func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetEntityData() *types.CommonEntityData {
+    lldpportconfigentry.EntityData.YFilter = lldpportconfigentry.YFilter
+    lldpportconfigentry.EntityData.YangName = "lldpPortConfigEntry"
+    lldpportconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    lldpportconfigentry.EntityData.ParentYangName = "lldpPortConfigTable"
+    lldpportconfigentry.EntityData.SegmentPath = "lldpPortConfigEntry" + "[lldpPortConfigPortNum='" + fmt.Sprintf("%v", lldpportconfigentry.Lldpportconfigportnum) + "']"
+    lldpportconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpportconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpportconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) SetFilter(yf yfilter.YFilter) { lldpportconfigentry.YFilter = yf }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetGoName(yname string) string {
-    if yname == "lldpPortConfigPortNum" { return "Lldpportconfigportnum" }
-    if yname == "lldpPortConfigAdminStatus" { return "Lldpportconfigadminstatus" }
-    if yname == "lldpPortConfigNotificationEnable" { return "Lldpportconfignotificationenable" }
-    if yname == "lldpPortConfigTLVsTxEnable" { return "Lldpportconfigtlvstxenable" }
-    return ""
+    lldpportconfigentry.EntityData.Children = make(map[string]types.YChild)
+    lldpportconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpportconfigentry.EntityData.Leafs["lldpPortConfigPortNum"] = types.YLeaf{"Lldpportconfigportnum", lldpportconfigentry.Lldpportconfigportnum}
+    lldpportconfigentry.EntityData.Leafs["lldpPortConfigAdminStatus"] = types.YLeaf{"Lldpportconfigadminstatus", lldpportconfigentry.Lldpportconfigadminstatus}
+    lldpportconfigentry.EntityData.Leafs["lldpPortConfigNotificationEnable"] = types.YLeaf{"Lldpportconfignotificationenable", lldpportconfigentry.Lldpportconfignotificationenable}
+    lldpportconfigentry.EntityData.Leafs["lldpPortConfigTLVsTxEnable"] = types.YLeaf{"Lldpportconfigtlvstxenable", lldpportconfigentry.Lldpportconfigtlvstxenable}
+    return &(lldpportconfigentry.EntityData)
 }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetSegmentPath() string {
-    return "lldpPortConfigEntry" + "[lldpPortConfigPortNum='" + fmt.Sprintf("%v", lldpportconfigentry.Lldpportconfigportnum) + "']"
-}
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpPortConfigPortNum"] = lldpportconfigentry.Lldpportconfigportnum
-    leafs["lldpPortConfigAdminStatus"] = lldpportconfigentry.Lldpportconfigadminstatus
-    leafs["lldpPortConfigNotificationEnable"] = lldpportconfigentry.Lldpportconfignotificationenable
-    leafs["lldpPortConfigTLVsTxEnable"] = lldpportconfigentry.Lldpportconfigtlvstxenable
-    return leafs
-}
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetYangName() string { return "lldpPortConfigEntry" }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) SetParent(parent types.Entity) { lldpportconfigentry.parent = parent }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetParent() types.Entity { return lldpportconfigentry.parent }
-
-func (lldpportconfigentry *LLDPMIB_Lldpportconfigtable_Lldpportconfigentry) GetParentYangName() string { return "lldpPortConfigTable" }
 
 // LLDPMIB_Lldpportconfigtable_Lldpportconfigentry_Lldpportconfigadminstatus represents becomes disabled, then the information will naturally age out.
 type LLDPMIB_Lldpportconfigtable_Lldpportconfigentry_Lldpportconfigadminstatus string
@@ -785,7 +533,7 @@ const (
 // this table while the lldpPortConfigEntry object is equal to
 // 'disabled(4)'.
 type LLDPMIB_Lldpstatstxporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LLDP frame transmission statistics for a particular port. The port must be
@@ -800,63 +548,24 @@ type LLDPMIB_Lldpstatstxporttable struct {
     Lldpstatstxportentry []LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry
 }
 
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetFilter() yfilter.YFilter { return lldpstatstxporttable.YFilter }
+func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetEntityData() *types.CommonEntityData {
+    lldpstatstxporttable.EntityData.YFilter = lldpstatstxporttable.YFilter
+    lldpstatstxporttable.EntityData.YangName = "lldpStatsTxPortTable"
+    lldpstatstxporttable.EntityData.BundleName = "cisco_ios_xe"
+    lldpstatstxporttable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpstatstxporttable.EntityData.SegmentPath = "lldpStatsTxPortTable"
+    lldpstatstxporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpstatstxporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpstatstxporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) SetFilter(yf yfilter.YFilter) { lldpstatstxporttable.YFilter = yf }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetGoName(yname string) string {
-    if yname == "lldpStatsTxPortEntry" { return "Lldpstatstxportentry" }
-    return ""
-}
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetSegmentPath() string {
-    return "lldpStatsTxPortTable"
-}
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpStatsTxPortEntry" {
-        for _, c := range lldpstatstxporttable.Lldpstatstxportentry {
-            if lldpstatstxporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry{}
-        lldpstatstxporttable.Lldpstatstxportentry = append(lldpstatstxporttable.Lldpstatstxportentry, child)
-        return &lldpstatstxporttable.Lldpstatstxportentry[len(lldpstatstxporttable.Lldpstatstxportentry)-1]
-    }
-    return nil
-}
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpstatstxporttable.EntityData.Children = make(map[string]types.YChild)
+    lldpstatstxporttable.EntityData.Children["lldpStatsTxPortEntry"] = types.YChild{"Lldpstatstxportentry", nil}
     for i := range lldpstatstxporttable.Lldpstatstxportentry {
-        children[lldpstatstxporttable.Lldpstatstxportentry[i].GetSegmentPath()] = &lldpstatstxporttable.Lldpstatstxportentry[i]
+        lldpstatstxporttable.EntityData.Children[types.GetSegmentPath(&lldpstatstxporttable.Lldpstatstxportentry[i])] = types.YChild{"Lldpstatstxportentry", &lldpstatstxporttable.Lldpstatstxportentry[i]}
     }
-    return children
+    lldpstatstxporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpstatstxporttable.EntityData)
 }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetYangName() string { return "lldpStatsTxPortTable" }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) SetParent(parent types.Entity) { lldpstatstxporttable.parent = parent }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetParent() types.Entity { return lldpstatstxporttable.parent }
-
-func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry
 // LLDP frame transmission statistics for a particular port.
@@ -873,7 +582,7 @@ func (lldpstatstxporttable *LLDPMIB_Lldpstatstxporttable) GetParentYangName() st
 // port on the local LLDP agent become frozen whenever the
 // adminStatus is disabled for the same port.
 type LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value used to identify the port
@@ -887,60 +596,29 @@ type LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry struct {
     Lldpstatstxportframestotal interface{}
 }
 
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetFilter() yfilter.YFilter { return lldpstatstxportentry.YFilter }
+func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetEntityData() *types.CommonEntityData {
+    lldpstatstxportentry.EntityData.YFilter = lldpstatstxportentry.YFilter
+    lldpstatstxportentry.EntityData.YangName = "lldpStatsTxPortEntry"
+    lldpstatstxportentry.EntityData.BundleName = "cisco_ios_xe"
+    lldpstatstxportentry.EntityData.ParentYangName = "lldpStatsTxPortTable"
+    lldpstatstxportentry.EntityData.SegmentPath = "lldpStatsTxPortEntry" + "[lldpStatsTxPortNum='" + fmt.Sprintf("%v", lldpstatstxportentry.Lldpstatstxportnum) + "']"
+    lldpstatstxportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpstatstxportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpstatstxportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) SetFilter(yf yfilter.YFilter) { lldpstatstxportentry.YFilter = yf }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetGoName(yname string) string {
-    if yname == "lldpStatsTxPortNum" { return "Lldpstatstxportnum" }
-    if yname == "lldpStatsTxPortFramesTotal" { return "Lldpstatstxportframestotal" }
-    return ""
+    lldpstatstxportentry.EntityData.Children = make(map[string]types.YChild)
+    lldpstatstxportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpstatstxportentry.EntityData.Leafs["lldpStatsTxPortNum"] = types.YLeaf{"Lldpstatstxportnum", lldpstatstxportentry.Lldpstatstxportnum}
+    lldpstatstxportentry.EntityData.Leafs["lldpStatsTxPortFramesTotal"] = types.YLeaf{"Lldpstatstxportframestotal", lldpstatstxportentry.Lldpstatstxportframestotal}
+    return &(lldpstatstxportentry.EntityData)
 }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetSegmentPath() string {
-    return "lldpStatsTxPortEntry" + "[lldpStatsTxPortNum='" + fmt.Sprintf("%v", lldpstatstxportentry.Lldpstatstxportnum) + "']"
-}
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpStatsTxPortNum"] = lldpstatstxportentry.Lldpstatstxportnum
-    leafs["lldpStatsTxPortFramesTotal"] = lldpstatstxportentry.Lldpstatstxportframestotal
-    return leafs
-}
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetYangName() string { return "lldpStatsTxPortEntry" }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) SetParent(parent types.Entity) { lldpstatstxportentry.parent = parent }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetParent() types.Entity { return lldpstatstxportentry.parent }
-
-func (lldpstatstxportentry *LLDPMIB_Lldpstatstxporttable_Lldpstatstxportentry) GetParentYangName() string { return "lldpStatsTxPortTable" }
 
 // LLDPMIB_Lldpstatsrxporttable
 // A table containing LLDP reception statistics for individual
 // ports.  Entries are not required to exist in this table while
 // the lldpPortConfigEntry object is equal to 'disabled(4)'.
 type LLDPMIB_Lldpstatsrxporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LLDP frame reception statistics for a particular port. The port must be
@@ -955,63 +633,24 @@ type LLDPMIB_Lldpstatsrxporttable struct {
     Lldpstatsrxportentry []LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry
 }
 
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetFilter() yfilter.YFilter { return lldpstatsrxporttable.YFilter }
+func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetEntityData() *types.CommonEntityData {
+    lldpstatsrxporttable.EntityData.YFilter = lldpstatsrxporttable.YFilter
+    lldpstatsrxporttable.EntityData.YangName = "lldpStatsRxPortTable"
+    lldpstatsrxporttable.EntityData.BundleName = "cisco_ios_xe"
+    lldpstatsrxporttable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpstatsrxporttable.EntityData.SegmentPath = "lldpStatsRxPortTable"
+    lldpstatsrxporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpstatsrxporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpstatsrxporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) SetFilter(yf yfilter.YFilter) { lldpstatsrxporttable.YFilter = yf }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetGoName(yname string) string {
-    if yname == "lldpStatsRxPortEntry" { return "Lldpstatsrxportentry" }
-    return ""
-}
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetSegmentPath() string {
-    return "lldpStatsRxPortTable"
-}
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpStatsRxPortEntry" {
-        for _, c := range lldpstatsrxporttable.Lldpstatsrxportentry {
-            if lldpstatsrxporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry{}
-        lldpstatsrxporttable.Lldpstatsrxportentry = append(lldpstatsrxporttable.Lldpstatsrxportentry, child)
-        return &lldpstatsrxporttable.Lldpstatsrxportentry[len(lldpstatsrxporttable.Lldpstatsrxportentry)-1]
-    }
-    return nil
-}
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpstatsrxporttable.EntityData.Children = make(map[string]types.YChild)
+    lldpstatsrxporttable.EntityData.Children["lldpStatsRxPortEntry"] = types.YChild{"Lldpstatsrxportentry", nil}
     for i := range lldpstatsrxporttable.Lldpstatsrxportentry {
-        children[lldpstatsrxporttable.Lldpstatsrxportentry[i].GetSegmentPath()] = &lldpstatsrxporttable.Lldpstatsrxportentry[i]
+        lldpstatsrxporttable.EntityData.Children[types.GetSegmentPath(&lldpstatsrxporttable.Lldpstatsrxportentry[i])] = types.YChild{"Lldpstatsrxportentry", &lldpstatsrxporttable.Lldpstatsrxportentry[i]}
     }
-    return children
+    lldpstatsrxporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpstatsrxporttable.EntityData)
 }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetYangName() string { return "lldpStatsRxPortTable" }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) SetParent(parent types.Entity) { lldpstatsrxporttable.parent = parent }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetParent() types.Entity { return lldpstatsrxporttable.parent }
-
-func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry
 // LLDP frame reception statistics for a particular port.
@@ -1028,7 +667,7 @@ func (lldpstatsrxporttable *LLDPMIB_Lldpstatsrxporttable) GetParentYangName() st
 // port on the local LLDP agent become frozen whenever the
 // adminStatus is disabled for the same port.
 type LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value used to identify the port
@@ -1088,69 +727,33 @@ type LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry struct {
     Lldpstatsrxportageoutstotal interface{}
 }
 
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetFilter() yfilter.YFilter { return lldpstatsrxportentry.YFilter }
+func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetEntityData() *types.CommonEntityData {
+    lldpstatsrxportentry.EntityData.YFilter = lldpstatsrxportentry.YFilter
+    lldpstatsrxportentry.EntityData.YangName = "lldpStatsRxPortEntry"
+    lldpstatsrxportentry.EntityData.BundleName = "cisco_ios_xe"
+    lldpstatsrxportentry.EntityData.ParentYangName = "lldpStatsRxPortTable"
+    lldpstatsrxportentry.EntityData.SegmentPath = "lldpStatsRxPortEntry" + "[lldpStatsRxPortNum='" + fmt.Sprintf("%v", lldpstatsrxportentry.Lldpstatsrxportnum) + "']"
+    lldpstatsrxportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpstatsrxportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpstatsrxportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) SetFilter(yf yfilter.YFilter) { lldpstatsrxportentry.YFilter = yf }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetGoName(yname string) string {
-    if yname == "lldpStatsRxPortNum" { return "Lldpstatsrxportnum" }
-    if yname == "lldpStatsRxPortFramesDiscardedTotal" { return "Lldpstatsrxportframesdiscardedtotal" }
-    if yname == "lldpStatsRxPortFramesErrors" { return "Lldpstatsrxportframeserrors" }
-    if yname == "lldpStatsRxPortFramesTotal" { return "Lldpstatsrxportframestotal" }
-    if yname == "lldpStatsRxPortTLVsDiscardedTotal" { return "Lldpstatsrxporttlvsdiscardedtotal" }
-    if yname == "lldpStatsRxPortTLVsUnrecognizedTotal" { return "Lldpstatsrxporttlvsunrecognizedtotal" }
-    if yname == "lldpStatsRxPortAgeoutsTotal" { return "Lldpstatsrxportageoutstotal" }
-    return ""
+    lldpstatsrxportentry.EntityData.Children = make(map[string]types.YChild)
+    lldpstatsrxportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortNum"] = types.YLeaf{"Lldpstatsrxportnum", lldpstatsrxportentry.Lldpstatsrxportnum}
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortFramesDiscardedTotal"] = types.YLeaf{"Lldpstatsrxportframesdiscardedtotal", lldpstatsrxportentry.Lldpstatsrxportframesdiscardedtotal}
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortFramesErrors"] = types.YLeaf{"Lldpstatsrxportframeserrors", lldpstatsrxportentry.Lldpstatsrxportframeserrors}
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortFramesTotal"] = types.YLeaf{"Lldpstatsrxportframestotal", lldpstatsrxportentry.Lldpstatsrxportframestotal}
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortTLVsDiscardedTotal"] = types.YLeaf{"Lldpstatsrxporttlvsdiscardedtotal", lldpstatsrxportentry.Lldpstatsrxporttlvsdiscardedtotal}
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortTLVsUnrecognizedTotal"] = types.YLeaf{"Lldpstatsrxporttlvsunrecognizedtotal", lldpstatsrxportentry.Lldpstatsrxporttlvsunrecognizedtotal}
+    lldpstatsrxportentry.EntityData.Leafs["lldpStatsRxPortAgeoutsTotal"] = types.YLeaf{"Lldpstatsrxportageoutstotal", lldpstatsrxportentry.Lldpstatsrxportageoutstotal}
+    return &(lldpstatsrxportentry.EntityData)
 }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetSegmentPath() string {
-    return "lldpStatsRxPortEntry" + "[lldpStatsRxPortNum='" + fmt.Sprintf("%v", lldpstatsrxportentry.Lldpstatsrxportnum) + "']"
-}
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpStatsRxPortNum"] = lldpstatsrxportentry.Lldpstatsrxportnum
-    leafs["lldpStatsRxPortFramesDiscardedTotal"] = lldpstatsrxportentry.Lldpstatsrxportframesdiscardedtotal
-    leafs["lldpStatsRxPortFramesErrors"] = lldpstatsrxportentry.Lldpstatsrxportframeserrors
-    leafs["lldpStatsRxPortFramesTotal"] = lldpstatsrxportentry.Lldpstatsrxportframestotal
-    leafs["lldpStatsRxPortTLVsDiscardedTotal"] = lldpstatsrxportentry.Lldpstatsrxporttlvsdiscardedtotal
-    leafs["lldpStatsRxPortTLVsUnrecognizedTotal"] = lldpstatsrxportentry.Lldpstatsrxporttlvsunrecognizedtotal
-    leafs["lldpStatsRxPortAgeoutsTotal"] = lldpstatsrxportentry.Lldpstatsrxportageoutstotal
-    return leafs
-}
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetYangName() string { return "lldpStatsRxPortEntry" }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) SetParent(parent types.Entity) { lldpstatsrxportentry.parent = parent }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetParent() types.Entity { return lldpstatsrxportentry.parent }
-
-func (lldpstatsrxportentry *LLDPMIB_Lldpstatsrxporttable_Lldpstatsrxportentry) GetParentYangName() string { return "lldpStatsRxPortTable" }
 
 // LLDPMIB_Lldplocporttable
 // This table contains one or more rows per port information
 // associated with the local system known to this agent.
 type LLDPMIB_Lldplocporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular port component.  Entries may be created and
@@ -1159,63 +762,24 @@ type LLDPMIB_Lldplocporttable struct {
     Lldplocportentry []LLDPMIB_Lldplocporttable_Lldplocportentry
 }
 
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetFilter() yfilter.YFilter { return lldplocporttable.YFilter }
+func (lldplocporttable *LLDPMIB_Lldplocporttable) GetEntityData() *types.CommonEntityData {
+    lldplocporttable.EntityData.YFilter = lldplocporttable.YFilter
+    lldplocporttable.EntityData.YangName = "lldpLocPortTable"
+    lldplocporttable.EntityData.BundleName = "cisco_ios_xe"
+    lldplocporttable.EntityData.ParentYangName = "LLDP-MIB"
+    lldplocporttable.EntityData.SegmentPath = "lldpLocPortTable"
+    lldplocporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldplocporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldplocporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldplocporttable *LLDPMIB_Lldplocporttable) SetFilter(yf yfilter.YFilter) { lldplocporttable.YFilter = yf }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetGoName(yname string) string {
-    if yname == "lldpLocPortEntry" { return "Lldplocportentry" }
-    return ""
-}
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetSegmentPath() string {
-    return "lldpLocPortTable"
-}
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpLocPortEntry" {
-        for _, c := range lldplocporttable.Lldplocportentry {
-            if lldplocporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldplocporttable_Lldplocportentry{}
-        lldplocporttable.Lldplocportentry = append(lldplocporttable.Lldplocportentry, child)
-        return &lldplocporttable.Lldplocportentry[len(lldplocporttable.Lldplocportentry)-1]
-    }
-    return nil
-}
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldplocporttable.EntityData.Children = make(map[string]types.YChild)
+    lldplocporttable.EntityData.Children["lldpLocPortEntry"] = types.YChild{"Lldplocportentry", nil}
     for i := range lldplocporttable.Lldplocportentry {
-        children[lldplocporttable.Lldplocportentry[i].GetSegmentPath()] = &lldplocporttable.Lldplocportentry[i]
+        lldplocporttable.EntityData.Children[types.GetSegmentPath(&lldplocporttable.Lldplocportentry[i])] = types.YChild{"Lldplocportentry", &lldplocporttable.Lldplocportentry[i]}
     }
-    return children
+    lldplocporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldplocporttable.EntityData)
 }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetYangName() string { return "lldpLocPortTable" }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) SetParent(parent types.Entity) { lldplocporttable.parent = parent }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetParent() types.Entity { return lldplocporttable.parent }
-
-func (lldplocporttable *LLDPMIB_Lldplocporttable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldplocporttable_Lldplocportentry
 // Information about a particular port component.
@@ -1223,7 +787,7 @@ func (lldplocporttable *LLDPMIB_Lldplocporttable) GetParentYangName() string { r
 // Entries may be created and deleted in this table by the
 // agent.
 type LLDPMIB_Lldplocporttable_Lldplocportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value used to identify the port
@@ -1247,63 +811,30 @@ type LLDPMIB_Lldplocporttable_Lldplocportentry struct {
     Lldplocportdesc interface{}
 }
 
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetFilter() yfilter.YFilter { return lldplocportentry.YFilter }
+func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetEntityData() *types.CommonEntityData {
+    lldplocportentry.EntityData.YFilter = lldplocportentry.YFilter
+    lldplocportentry.EntityData.YangName = "lldpLocPortEntry"
+    lldplocportentry.EntityData.BundleName = "cisco_ios_xe"
+    lldplocportentry.EntityData.ParentYangName = "lldpLocPortTable"
+    lldplocportentry.EntityData.SegmentPath = "lldpLocPortEntry" + "[lldpLocPortNum='" + fmt.Sprintf("%v", lldplocportentry.Lldplocportnum) + "']"
+    lldplocportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldplocportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldplocportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) SetFilter(yf yfilter.YFilter) { lldplocportentry.YFilter = yf }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetGoName(yname string) string {
-    if yname == "lldpLocPortNum" { return "Lldplocportnum" }
-    if yname == "lldpLocPortIdSubtype" { return "Lldplocportidsubtype" }
-    if yname == "lldpLocPortId" { return "Lldplocportid" }
-    if yname == "lldpLocPortDesc" { return "Lldplocportdesc" }
-    return ""
+    lldplocportentry.EntityData.Children = make(map[string]types.YChild)
+    lldplocportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldplocportentry.EntityData.Leafs["lldpLocPortNum"] = types.YLeaf{"Lldplocportnum", lldplocportentry.Lldplocportnum}
+    lldplocportentry.EntityData.Leafs["lldpLocPortIdSubtype"] = types.YLeaf{"Lldplocportidsubtype", lldplocportentry.Lldplocportidsubtype}
+    lldplocportentry.EntityData.Leafs["lldpLocPortId"] = types.YLeaf{"Lldplocportid", lldplocportentry.Lldplocportid}
+    lldplocportentry.EntityData.Leafs["lldpLocPortDesc"] = types.YLeaf{"Lldplocportdesc", lldplocportentry.Lldplocportdesc}
+    return &(lldplocportentry.EntityData)
 }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetSegmentPath() string {
-    return "lldpLocPortEntry" + "[lldpLocPortNum='" + fmt.Sprintf("%v", lldplocportentry.Lldplocportnum) + "']"
-}
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpLocPortNum"] = lldplocportentry.Lldplocportnum
-    leafs["lldpLocPortIdSubtype"] = lldplocportentry.Lldplocportidsubtype
-    leafs["lldpLocPortId"] = lldplocportentry.Lldplocportid
-    leafs["lldpLocPortDesc"] = lldplocportentry.Lldplocportdesc
-    return leafs
-}
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetYangName() string { return "lldpLocPortEntry" }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) SetParent(parent types.Entity) { lldplocportentry.parent = parent }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetParent() types.Entity { return lldplocportentry.parent }
-
-func (lldplocportentry *LLDPMIB_Lldplocporttable_Lldplocportentry) GetParentYangName() string { return "lldpLocPortTable" }
 
 // LLDPMIB_Lldplocmanaddrtable
 // This table contains management address information on the
 // local system known to this agent.
 type LLDPMIB_Lldplocmanaddrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Management address information about a particular chassis component.  There
@@ -1316,63 +847,24 @@ type LLDPMIB_Lldplocmanaddrtable struct {
     Lldplocmanaddrentry []LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry
 }
 
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetFilter() yfilter.YFilter { return lldplocmanaddrtable.YFilter }
+func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetEntityData() *types.CommonEntityData {
+    lldplocmanaddrtable.EntityData.YFilter = lldplocmanaddrtable.YFilter
+    lldplocmanaddrtable.EntityData.YangName = "lldpLocManAddrTable"
+    lldplocmanaddrtable.EntityData.BundleName = "cisco_ios_xe"
+    lldplocmanaddrtable.EntityData.ParentYangName = "LLDP-MIB"
+    lldplocmanaddrtable.EntityData.SegmentPath = "lldpLocManAddrTable"
+    lldplocmanaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldplocmanaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldplocmanaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) SetFilter(yf yfilter.YFilter) { lldplocmanaddrtable.YFilter = yf }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetGoName(yname string) string {
-    if yname == "lldpLocManAddrEntry" { return "Lldplocmanaddrentry" }
-    return ""
-}
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetSegmentPath() string {
-    return "lldpLocManAddrTable"
-}
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpLocManAddrEntry" {
-        for _, c := range lldplocmanaddrtable.Lldplocmanaddrentry {
-            if lldplocmanaddrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry{}
-        lldplocmanaddrtable.Lldplocmanaddrentry = append(lldplocmanaddrtable.Lldplocmanaddrentry, child)
-        return &lldplocmanaddrtable.Lldplocmanaddrentry[len(lldplocmanaddrtable.Lldplocmanaddrentry)-1]
-    }
-    return nil
-}
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldplocmanaddrtable.EntityData.Children = make(map[string]types.YChild)
+    lldplocmanaddrtable.EntityData.Children["lldpLocManAddrEntry"] = types.YChild{"Lldplocmanaddrentry", nil}
     for i := range lldplocmanaddrtable.Lldplocmanaddrentry {
-        children[lldplocmanaddrtable.Lldplocmanaddrentry[i].GetSegmentPath()] = &lldplocmanaddrtable.Lldplocmanaddrentry[i]
+        lldplocmanaddrtable.EntityData.Children[types.GetSegmentPath(&lldplocmanaddrtable.Lldplocmanaddrentry[i])] = types.YChild{"Lldplocmanaddrentry", &lldplocmanaddrtable.Lldplocmanaddrentry[i]}
     }
-    return children
+    lldplocmanaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldplocmanaddrtable.EntityData)
 }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetYangName() string { return "lldpLocManAddrTable" }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) SetParent(parent types.Entity) { lldplocmanaddrtable.parent = parent }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetParent() types.Entity { return lldplocmanaddrtable.parent }
-
-func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry
 // Management address information about a particular chassis
@@ -1385,7 +877,7 @@ func (lldplocmanaddrtable *LLDPMIB_Lldplocmanaddrtable) GetParentYangName() stri
 // Entries may be created and deleted in this table by the
 // agent.
 type LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of management address identifier encoding
@@ -1420,7 +912,7 @@ type LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry struct {
     // The OID value used to identify the type of hardware component or protocol
     // entity associated with the management address advertised by the local
     // system agent. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Lldplocmanaddroid interface{}
 
     // A set of ports that are identified by a PortList, in which each port is
@@ -1433,63 +925,27 @@ type LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry struct {
     Lldpconfigmanaddrportstxenable interface{}
 }
 
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetFilter() yfilter.YFilter { return lldplocmanaddrentry.YFilter }
+func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetEntityData() *types.CommonEntityData {
+    lldplocmanaddrentry.EntityData.YFilter = lldplocmanaddrentry.YFilter
+    lldplocmanaddrentry.EntityData.YangName = "lldpLocManAddrEntry"
+    lldplocmanaddrentry.EntityData.BundleName = "cisco_ios_xe"
+    lldplocmanaddrentry.EntityData.ParentYangName = "lldpLocManAddrTable"
+    lldplocmanaddrentry.EntityData.SegmentPath = "lldpLocManAddrEntry" + "[lldpLocManAddrSubtype='" + fmt.Sprintf("%v", lldplocmanaddrentry.Lldplocmanaddrsubtype) + "']" + "[lldpLocManAddr='" + fmt.Sprintf("%v", lldplocmanaddrentry.Lldplocmanaddr) + "']"
+    lldplocmanaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldplocmanaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldplocmanaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) SetFilter(yf yfilter.YFilter) { lldplocmanaddrentry.YFilter = yf }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetGoName(yname string) string {
-    if yname == "lldpLocManAddrSubtype" { return "Lldplocmanaddrsubtype" }
-    if yname == "lldpLocManAddr" { return "Lldplocmanaddr" }
-    if yname == "lldpLocManAddrLen" { return "Lldplocmanaddrlen" }
-    if yname == "lldpLocManAddrIfSubtype" { return "Lldplocmanaddrifsubtype" }
-    if yname == "lldpLocManAddrIfId" { return "Lldplocmanaddrifid" }
-    if yname == "lldpLocManAddrOID" { return "Lldplocmanaddroid" }
-    if yname == "lldpConfigManAddrPortsTxEnable" { return "Lldpconfigmanaddrportstxenable" }
-    return ""
+    lldplocmanaddrentry.EntityData.Children = make(map[string]types.YChild)
+    lldplocmanaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldplocmanaddrentry.EntityData.Leafs["lldpLocManAddrSubtype"] = types.YLeaf{"Lldplocmanaddrsubtype", lldplocmanaddrentry.Lldplocmanaddrsubtype}
+    lldplocmanaddrentry.EntityData.Leafs["lldpLocManAddr"] = types.YLeaf{"Lldplocmanaddr", lldplocmanaddrentry.Lldplocmanaddr}
+    lldplocmanaddrentry.EntityData.Leafs["lldpLocManAddrLen"] = types.YLeaf{"Lldplocmanaddrlen", lldplocmanaddrentry.Lldplocmanaddrlen}
+    lldplocmanaddrentry.EntityData.Leafs["lldpLocManAddrIfSubtype"] = types.YLeaf{"Lldplocmanaddrifsubtype", lldplocmanaddrentry.Lldplocmanaddrifsubtype}
+    lldplocmanaddrentry.EntityData.Leafs["lldpLocManAddrIfId"] = types.YLeaf{"Lldplocmanaddrifid", lldplocmanaddrentry.Lldplocmanaddrifid}
+    lldplocmanaddrentry.EntityData.Leafs["lldpLocManAddrOID"] = types.YLeaf{"Lldplocmanaddroid", lldplocmanaddrentry.Lldplocmanaddroid}
+    lldplocmanaddrentry.EntityData.Leafs["lldpConfigManAddrPortsTxEnable"] = types.YLeaf{"Lldpconfigmanaddrportstxenable", lldplocmanaddrentry.Lldpconfigmanaddrportstxenable}
+    return &(lldplocmanaddrentry.EntityData)
 }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetSegmentPath() string {
-    return "lldpLocManAddrEntry" + "[lldpLocManAddrSubtype='" + fmt.Sprintf("%v", lldplocmanaddrentry.Lldplocmanaddrsubtype) + "']" + "[lldpLocManAddr='" + fmt.Sprintf("%v", lldplocmanaddrentry.Lldplocmanaddr) + "']"
-}
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpLocManAddrSubtype"] = lldplocmanaddrentry.Lldplocmanaddrsubtype
-    leafs["lldpLocManAddr"] = lldplocmanaddrentry.Lldplocmanaddr
-    leafs["lldpLocManAddrLen"] = lldplocmanaddrentry.Lldplocmanaddrlen
-    leafs["lldpLocManAddrIfSubtype"] = lldplocmanaddrentry.Lldplocmanaddrifsubtype
-    leafs["lldpLocManAddrIfId"] = lldplocmanaddrentry.Lldplocmanaddrifid
-    leafs["lldpLocManAddrOID"] = lldplocmanaddrentry.Lldplocmanaddroid
-    leafs["lldpConfigManAddrPortsTxEnable"] = lldplocmanaddrentry.Lldpconfigmanaddrportstxenable
-    return leafs
-}
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetYangName() string { return "lldpLocManAddrEntry" }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) SetParent(parent types.Entity) { lldplocmanaddrentry.parent = parent }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetParent() types.Entity { return lldplocmanaddrentry.parent }
-
-func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetParentYangName() string { return "lldpLocManAddrTable" }
 
 // LLDPMIB_Lldpremtable
 // This table contains one or more rows per physical network
@@ -1542,7 +998,7 @@ func (lldplocmanaddrentry *LLDPMIB_Lldplocmanaddrtable_Lldplocmanaddrentry) GetP
 //       lldpStatsRemTablesDeletes and lldpStatsRemTablesDrops
 //       objects are provided for informational purposes.
 type LLDPMIB_Lldpremtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular physical network connection. Entries may be
@@ -1552,70 +1008,31 @@ type LLDPMIB_Lldpremtable struct {
     Lldprementry []LLDPMIB_Lldpremtable_Lldprementry
 }
 
-func (lldpremtable *LLDPMIB_Lldpremtable) GetFilter() yfilter.YFilter { return lldpremtable.YFilter }
+func (lldpremtable *LLDPMIB_Lldpremtable) GetEntityData() *types.CommonEntityData {
+    lldpremtable.EntityData.YFilter = lldpremtable.YFilter
+    lldpremtable.EntityData.YangName = "lldpRemTable"
+    lldpremtable.EntityData.BundleName = "cisco_ios_xe"
+    lldpremtable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpremtable.EntityData.SegmentPath = "lldpRemTable"
+    lldpremtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremtable *LLDPMIB_Lldpremtable) SetFilter(yf yfilter.YFilter) { lldpremtable.YFilter = yf }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetGoName(yname string) string {
-    if yname == "lldpRemEntry" { return "Lldprementry" }
-    return ""
-}
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetSegmentPath() string {
-    return "lldpRemTable"
-}
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpRemEntry" {
-        for _, c := range lldpremtable.Lldprementry {
-            if lldpremtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpremtable_Lldprementry{}
-        lldpremtable.Lldprementry = append(lldpremtable.Lldprementry, child)
-        return &lldpremtable.Lldprementry[len(lldpremtable.Lldprementry)-1]
-    }
-    return nil
-}
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpremtable.EntityData.Children = make(map[string]types.YChild)
+    lldpremtable.EntityData.Children["lldpRemEntry"] = types.YChild{"Lldprementry", nil}
     for i := range lldpremtable.Lldprementry {
-        children[lldpremtable.Lldprementry[i].GetSegmentPath()] = &lldpremtable.Lldprementry[i]
+        lldpremtable.EntityData.Children[types.GetSegmentPath(&lldpremtable.Lldprementry[i])] = types.YChild{"Lldprementry", &lldpremtable.Lldprementry[i]}
     }
-    return children
+    lldpremtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpremtable.EntityData)
 }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetYangName() string { return "lldpRemTable" }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) SetParent(parent types.Entity) { lldpremtable.parent = parent }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetParent() types.Entity { return lldpremtable.parent }
-
-func (lldpremtable *LLDPMIB_Lldpremtable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpremtable_Lldprementry
 // Information about a particular physical network connection.
 // Entries may be created and deleted in this table by the agent,
 // if a physical topology discovery process is active.
 type LLDPMIB_Lldpremtable_Lldprementry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A TimeFilter for this entry.  See the TimeFilter
@@ -1678,80 +1095,39 @@ type LLDPMIB_Lldpremtable_Lldprementry struct {
     Lldpremsyscapenabled interface{}
 }
 
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetFilter() yfilter.YFilter { return lldprementry.YFilter }
+func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetEntityData() *types.CommonEntityData {
+    lldprementry.EntityData.YFilter = lldprementry.YFilter
+    lldprementry.EntityData.YangName = "lldpRemEntry"
+    lldprementry.EntityData.BundleName = "cisco_ios_xe"
+    lldprementry.EntityData.ParentYangName = "lldpRemTable"
+    lldprementry.EntityData.SegmentPath = "lldpRemEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldprementry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldprementry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldprementry.Lldpremindex) + "']"
+    lldprementry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldprementry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldprementry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) SetFilter(yf yfilter.YFilter) { lldprementry.YFilter = yf }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetGoName(yname string) string {
-    if yname == "lldpRemTimeMark" { return "Lldpremtimemark" }
-    if yname == "lldpRemLocalPortNum" { return "Lldpremlocalportnum" }
-    if yname == "lldpRemIndex" { return "Lldpremindex" }
-    if yname == "lldpRemChassisIdSubtype" { return "Lldpremchassisidsubtype" }
-    if yname == "lldpRemChassisId" { return "Lldpremchassisid" }
-    if yname == "lldpRemPortIdSubtype" { return "Lldpremportidsubtype" }
-    if yname == "lldpRemPortId" { return "Lldpremportid" }
-    if yname == "lldpRemPortDesc" { return "Lldpremportdesc" }
-    if yname == "lldpRemSysName" { return "Lldpremsysname" }
-    if yname == "lldpRemSysDesc" { return "Lldpremsysdesc" }
-    if yname == "lldpRemSysCapSupported" { return "Lldpremsyscapsupported" }
-    if yname == "lldpRemSysCapEnabled" { return "Lldpremsyscapenabled" }
-    return ""
+    lldprementry.EntityData.Children = make(map[string]types.YChild)
+    lldprementry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldprementry.EntityData.Leafs["lldpRemTimeMark"] = types.YLeaf{"Lldpremtimemark", lldprementry.Lldpremtimemark}
+    lldprementry.EntityData.Leafs["lldpRemLocalPortNum"] = types.YLeaf{"Lldpremlocalportnum", lldprementry.Lldpremlocalportnum}
+    lldprementry.EntityData.Leafs["lldpRemIndex"] = types.YLeaf{"Lldpremindex", lldprementry.Lldpremindex}
+    lldprementry.EntityData.Leafs["lldpRemChassisIdSubtype"] = types.YLeaf{"Lldpremchassisidsubtype", lldprementry.Lldpremchassisidsubtype}
+    lldprementry.EntityData.Leafs["lldpRemChassisId"] = types.YLeaf{"Lldpremchassisid", lldprementry.Lldpremchassisid}
+    lldprementry.EntityData.Leafs["lldpRemPortIdSubtype"] = types.YLeaf{"Lldpremportidsubtype", lldprementry.Lldpremportidsubtype}
+    lldprementry.EntityData.Leafs["lldpRemPortId"] = types.YLeaf{"Lldpremportid", lldprementry.Lldpremportid}
+    lldprementry.EntityData.Leafs["lldpRemPortDesc"] = types.YLeaf{"Lldpremportdesc", lldprementry.Lldpremportdesc}
+    lldprementry.EntityData.Leafs["lldpRemSysName"] = types.YLeaf{"Lldpremsysname", lldprementry.Lldpremsysname}
+    lldprementry.EntityData.Leafs["lldpRemSysDesc"] = types.YLeaf{"Lldpremsysdesc", lldprementry.Lldpremsysdesc}
+    lldprementry.EntityData.Leafs["lldpRemSysCapSupported"] = types.YLeaf{"Lldpremsyscapsupported", lldprementry.Lldpremsyscapsupported}
+    lldprementry.EntityData.Leafs["lldpRemSysCapEnabled"] = types.YLeaf{"Lldpremsyscapenabled", lldprementry.Lldpremsyscapenabled}
+    return &(lldprementry.EntityData)
 }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetSegmentPath() string {
-    return "lldpRemEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldprementry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldprementry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldprementry.Lldpremindex) + "']"
-}
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpRemTimeMark"] = lldprementry.Lldpremtimemark
-    leafs["lldpRemLocalPortNum"] = lldprementry.Lldpremlocalportnum
-    leafs["lldpRemIndex"] = lldprementry.Lldpremindex
-    leafs["lldpRemChassisIdSubtype"] = lldprementry.Lldpremchassisidsubtype
-    leafs["lldpRemChassisId"] = lldprementry.Lldpremchassisid
-    leafs["lldpRemPortIdSubtype"] = lldprementry.Lldpremportidsubtype
-    leafs["lldpRemPortId"] = lldprementry.Lldpremportid
-    leafs["lldpRemPortDesc"] = lldprementry.Lldpremportdesc
-    leafs["lldpRemSysName"] = lldprementry.Lldpremsysname
-    leafs["lldpRemSysDesc"] = lldprementry.Lldpremsysdesc
-    leafs["lldpRemSysCapSupported"] = lldprementry.Lldpremsyscapsupported
-    leafs["lldpRemSysCapEnabled"] = lldprementry.Lldpremsyscapenabled
-    return leafs
-}
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetYangName() string { return "lldpRemEntry" }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) SetParent(parent types.Entity) { lldprementry.parent = parent }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetParent() types.Entity { return lldprementry.parent }
-
-func (lldprementry *LLDPMIB_Lldpremtable_Lldprementry) GetParentYangName() string { return "lldpRemTable" }
 
 // LLDPMIB_Lldpremmanaddrtable
 // This table contains one or more rows per management address
 // information on the remote system learned on a particular port
 // contained in the local chassis known to this agent.
 type LLDPMIB_Lldpremmanaddrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Management address information about a particular chassis component.  There
@@ -1765,63 +1141,24 @@ type LLDPMIB_Lldpremmanaddrtable struct {
     Lldpremmanaddrentry []LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry
 }
 
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetFilter() yfilter.YFilter { return lldpremmanaddrtable.YFilter }
+func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetEntityData() *types.CommonEntityData {
+    lldpremmanaddrtable.EntityData.YFilter = lldpremmanaddrtable.YFilter
+    lldpremmanaddrtable.EntityData.YangName = "lldpRemManAddrTable"
+    lldpremmanaddrtable.EntityData.BundleName = "cisco_ios_xe"
+    lldpremmanaddrtable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpremmanaddrtable.EntityData.SegmentPath = "lldpRemManAddrTable"
+    lldpremmanaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremmanaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremmanaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) SetFilter(yf yfilter.YFilter) { lldpremmanaddrtable.YFilter = yf }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetGoName(yname string) string {
-    if yname == "lldpRemManAddrEntry" { return "Lldpremmanaddrentry" }
-    return ""
-}
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetSegmentPath() string {
-    return "lldpRemManAddrTable"
-}
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpRemManAddrEntry" {
-        for _, c := range lldpremmanaddrtable.Lldpremmanaddrentry {
-            if lldpremmanaddrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry{}
-        lldpremmanaddrtable.Lldpremmanaddrentry = append(lldpremmanaddrtable.Lldpremmanaddrentry, child)
-        return &lldpremmanaddrtable.Lldpremmanaddrentry[len(lldpremmanaddrtable.Lldpremmanaddrentry)-1]
-    }
-    return nil
-}
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpremmanaddrtable.EntityData.Children = make(map[string]types.YChild)
+    lldpremmanaddrtable.EntityData.Children["lldpRemManAddrEntry"] = types.YChild{"Lldpremmanaddrentry", nil}
     for i := range lldpremmanaddrtable.Lldpremmanaddrentry {
-        children[lldpremmanaddrtable.Lldpremmanaddrentry[i].GetSegmentPath()] = &lldpremmanaddrtable.Lldpremmanaddrentry[i]
+        lldpremmanaddrtable.EntityData.Children[types.GetSegmentPath(&lldpremmanaddrtable.Lldpremmanaddrentry[i])] = types.YChild{"Lldpremmanaddrentry", &lldpremmanaddrtable.Lldpremmanaddrentry[i]}
     }
-    return children
+    lldpremmanaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpremmanaddrtable.EntityData)
 }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetYangName() string { return "lldpRemManAddrTable" }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) SetParent(parent types.Entity) { lldpremmanaddrtable.parent = parent }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetParent() types.Entity { return lldpremmanaddrtable.parent }
-
-func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry
 // Management address information about a particular chassis
@@ -1836,7 +1173,7 @@ func (lldpremmanaddrtable *LLDPMIB_Lldpremmanaddrtable) GetParentYangName() stri
 // Entries may be created and deleted in this table by the
 // agent.
 type LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1875,69 +1212,32 @@ type LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry struct {
     // The OID value used to identify the type of hardware component or protocol
     // entity associated with the management address advertised by the remote
     // system agent. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Lldpremmanaddroid interface{}
 }
 
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetFilter() yfilter.YFilter { return lldpremmanaddrentry.YFilter }
+func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetEntityData() *types.CommonEntityData {
+    lldpremmanaddrentry.EntityData.YFilter = lldpremmanaddrentry.YFilter
+    lldpremmanaddrentry.EntityData.YangName = "lldpRemManAddrEntry"
+    lldpremmanaddrentry.EntityData.BundleName = "cisco_ios_xe"
+    lldpremmanaddrentry.EntityData.ParentYangName = "lldpRemManAddrTable"
+    lldpremmanaddrentry.EntityData.SegmentPath = "lldpRemManAddrEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremindex) + "']" + "[lldpRemManAddrSubtype='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremmanaddrsubtype) + "']" + "[lldpRemManAddr='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremmanaddr) + "']"
+    lldpremmanaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremmanaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremmanaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) SetFilter(yf yfilter.YFilter) { lldpremmanaddrentry.YFilter = yf }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetGoName(yname string) string {
-    if yname == "lldpRemTimeMark" { return "Lldpremtimemark" }
-    if yname == "lldpRemLocalPortNum" { return "Lldpremlocalportnum" }
-    if yname == "lldpRemIndex" { return "Lldpremindex" }
-    if yname == "lldpRemManAddrSubtype" { return "Lldpremmanaddrsubtype" }
-    if yname == "lldpRemManAddr" { return "Lldpremmanaddr" }
-    if yname == "lldpRemManAddrIfSubtype" { return "Lldpremmanaddrifsubtype" }
-    if yname == "lldpRemManAddrIfId" { return "Lldpremmanaddrifid" }
-    if yname == "lldpRemManAddrOID" { return "Lldpremmanaddroid" }
-    return ""
+    lldpremmanaddrentry.EntityData.Children = make(map[string]types.YChild)
+    lldpremmanaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemTimeMark"] = types.YLeaf{"Lldpremtimemark", lldpremmanaddrentry.Lldpremtimemark}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemLocalPortNum"] = types.YLeaf{"Lldpremlocalportnum", lldpremmanaddrentry.Lldpremlocalportnum}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemIndex"] = types.YLeaf{"Lldpremindex", lldpremmanaddrentry.Lldpremindex}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemManAddrSubtype"] = types.YLeaf{"Lldpremmanaddrsubtype", lldpremmanaddrentry.Lldpremmanaddrsubtype}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemManAddr"] = types.YLeaf{"Lldpremmanaddr", lldpremmanaddrentry.Lldpremmanaddr}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemManAddrIfSubtype"] = types.YLeaf{"Lldpremmanaddrifsubtype", lldpremmanaddrentry.Lldpremmanaddrifsubtype}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemManAddrIfId"] = types.YLeaf{"Lldpremmanaddrifid", lldpremmanaddrentry.Lldpremmanaddrifid}
+    lldpremmanaddrentry.EntityData.Leafs["lldpRemManAddrOID"] = types.YLeaf{"Lldpremmanaddroid", lldpremmanaddrentry.Lldpremmanaddroid}
+    return &(lldpremmanaddrentry.EntityData)
 }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetSegmentPath() string {
-    return "lldpRemManAddrEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremindex) + "']" + "[lldpRemManAddrSubtype='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremmanaddrsubtype) + "']" + "[lldpRemManAddr='" + fmt.Sprintf("%v", lldpremmanaddrentry.Lldpremmanaddr) + "']"
-}
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpRemTimeMark"] = lldpremmanaddrentry.Lldpremtimemark
-    leafs["lldpRemLocalPortNum"] = lldpremmanaddrentry.Lldpremlocalportnum
-    leafs["lldpRemIndex"] = lldpremmanaddrentry.Lldpremindex
-    leafs["lldpRemManAddrSubtype"] = lldpremmanaddrentry.Lldpremmanaddrsubtype
-    leafs["lldpRemManAddr"] = lldpremmanaddrentry.Lldpremmanaddr
-    leafs["lldpRemManAddrIfSubtype"] = lldpremmanaddrentry.Lldpremmanaddrifsubtype
-    leafs["lldpRemManAddrIfId"] = lldpremmanaddrentry.Lldpremmanaddrifid
-    leafs["lldpRemManAddrOID"] = lldpremmanaddrentry.Lldpremmanaddroid
-    return leafs
-}
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetYangName() string { return "lldpRemManAddrEntry" }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) SetParent(parent types.Entity) { lldpremmanaddrentry.parent = parent }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetParent() types.Entity { return lldpremmanaddrentry.parent }
-
-func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetParentYangName() string { return "lldpRemManAddrTable" }
 
 // LLDPMIB_Lldpremunknowntlvtable
 // This table contains information about an incoming TLV which
@@ -1954,7 +1254,7 @@ func (lldpremmanaddrentry *LLDPMIB_Lldpremmanaddrtable_Lldpremmanaddrentry) GetP
 // or they will naturally age out when the rxInfoTTL timer
 // (associated with the MSAP) expires.
 type LLDPMIB_Lldpremunknowntlvtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about an unrecognized TLV received from a physical network
@@ -1964,63 +1264,24 @@ type LLDPMIB_Lldpremunknowntlvtable struct {
     Lldpremunknowntlventry []LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry
 }
 
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetFilter() yfilter.YFilter { return lldpremunknowntlvtable.YFilter }
+func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetEntityData() *types.CommonEntityData {
+    lldpremunknowntlvtable.EntityData.YFilter = lldpremunknowntlvtable.YFilter
+    lldpremunknowntlvtable.EntityData.YangName = "lldpRemUnknownTLVTable"
+    lldpremunknowntlvtable.EntityData.BundleName = "cisco_ios_xe"
+    lldpremunknowntlvtable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpremunknowntlvtable.EntityData.SegmentPath = "lldpRemUnknownTLVTable"
+    lldpremunknowntlvtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremunknowntlvtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremunknowntlvtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) SetFilter(yf yfilter.YFilter) { lldpremunknowntlvtable.YFilter = yf }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetGoName(yname string) string {
-    if yname == "lldpRemUnknownTLVEntry" { return "Lldpremunknowntlventry" }
-    return ""
-}
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetSegmentPath() string {
-    return "lldpRemUnknownTLVTable"
-}
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpRemUnknownTLVEntry" {
-        for _, c := range lldpremunknowntlvtable.Lldpremunknowntlventry {
-            if lldpremunknowntlvtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry{}
-        lldpremunknowntlvtable.Lldpremunknowntlventry = append(lldpremunknowntlvtable.Lldpremunknowntlventry, child)
-        return &lldpremunknowntlvtable.Lldpremunknowntlventry[len(lldpremunknowntlvtable.Lldpremunknowntlventry)-1]
-    }
-    return nil
-}
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpremunknowntlvtable.EntityData.Children = make(map[string]types.YChild)
+    lldpremunknowntlvtable.EntityData.Children["lldpRemUnknownTLVEntry"] = types.YChild{"Lldpremunknowntlventry", nil}
     for i := range lldpremunknowntlvtable.Lldpremunknowntlventry {
-        children[lldpremunknowntlvtable.Lldpremunknowntlventry[i].GetSegmentPath()] = &lldpremunknowntlvtable.Lldpremunknowntlventry[i]
+        lldpremunknowntlvtable.EntityData.Children[types.GetSegmentPath(&lldpremunknowntlvtable.Lldpremunknowntlventry[i])] = types.YChild{"Lldpremunknowntlventry", &lldpremunknowntlvtable.Lldpremunknowntlventry[i]}
     }
-    return children
+    lldpremunknowntlvtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpremunknowntlvtable.EntityData)
 }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetYangName() string { return "lldpRemUnknownTLVTable" }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) SetParent(parent types.Entity) { lldpremunknowntlvtable.parent = parent }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetParent() types.Entity { return lldpremunknowntlvtable.parent }
-
-func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry
 // Information about an unrecognized TLV received from a
@@ -2028,7 +1289,7 @@ func (lldpremunknowntlvtable *LLDPMIB_Lldpremunknowntlvtable) GetParentYangName(
 // deleted in this table by the agent, if a physical topology
 // discovery process is active.
 type LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -2052,59 +1313,25 @@ type LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry struct {
     Lldpremunknowntlvinfo interface{}
 }
 
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetFilter() yfilter.YFilter { return lldpremunknowntlventry.YFilter }
+func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetEntityData() *types.CommonEntityData {
+    lldpremunknowntlventry.EntityData.YFilter = lldpremunknowntlventry.YFilter
+    lldpremunknowntlventry.EntityData.YangName = "lldpRemUnknownTLVEntry"
+    lldpremunknowntlventry.EntityData.BundleName = "cisco_ios_xe"
+    lldpremunknowntlventry.EntityData.ParentYangName = "lldpRemUnknownTLVTable"
+    lldpremunknowntlventry.EntityData.SegmentPath = "lldpRemUnknownTLVEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremindex) + "']" + "[lldpRemUnknownTLVType='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremunknowntlvtype) + "']"
+    lldpremunknowntlventry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremunknowntlventry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremunknowntlventry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) SetFilter(yf yfilter.YFilter) { lldpremunknowntlventry.YFilter = yf }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetGoName(yname string) string {
-    if yname == "lldpRemTimeMark" { return "Lldpremtimemark" }
-    if yname == "lldpRemLocalPortNum" { return "Lldpremlocalportnum" }
-    if yname == "lldpRemIndex" { return "Lldpremindex" }
-    if yname == "lldpRemUnknownTLVType" { return "Lldpremunknowntlvtype" }
-    if yname == "lldpRemUnknownTLVInfo" { return "Lldpremunknowntlvinfo" }
-    return ""
+    lldpremunknowntlventry.EntityData.Children = make(map[string]types.YChild)
+    lldpremunknowntlventry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpremunknowntlventry.EntityData.Leafs["lldpRemTimeMark"] = types.YLeaf{"Lldpremtimemark", lldpremunknowntlventry.Lldpremtimemark}
+    lldpremunknowntlventry.EntityData.Leafs["lldpRemLocalPortNum"] = types.YLeaf{"Lldpremlocalportnum", lldpremunknowntlventry.Lldpremlocalportnum}
+    lldpremunknowntlventry.EntityData.Leafs["lldpRemIndex"] = types.YLeaf{"Lldpremindex", lldpremunknowntlventry.Lldpremindex}
+    lldpremunknowntlventry.EntityData.Leafs["lldpRemUnknownTLVType"] = types.YLeaf{"Lldpremunknowntlvtype", lldpremunknowntlventry.Lldpremunknowntlvtype}
+    lldpremunknowntlventry.EntityData.Leafs["lldpRemUnknownTLVInfo"] = types.YLeaf{"Lldpremunknowntlvinfo", lldpremunknowntlventry.Lldpremunknowntlvinfo}
+    return &(lldpremunknowntlventry.EntityData)
 }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetSegmentPath() string {
-    return "lldpRemUnknownTLVEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremindex) + "']" + "[lldpRemUnknownTLVType='" + fmt.Sprintf("%v", lldpremunknowntlventry.Lldpremunknowntlvtype) + "']"
-}
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpRemTimeMark"] = lldpremunknowntlventry.Lldpremtimemark
-    leafs["lldpRemLocalPortNum"] = lldpremunknowntlventry.Lldpremlocalportnum
-    leafs["lldpRemIndex"] = lldpremunknowntlventry.Lldpremindex
-    leafs["lldpRemUnknownTLVType"] = lldpremunknowntlventry.Lldpremunknowntlvtype
-    leafs["lldpRemUnknownTLVInfo"] = lldpremunknowntlventry.Lldpremunknowntlvinfo
-    return leafs
-}
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetYangName() string { return "lldpRemUnknownTLVEntry" }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) SetParent(parent types.Entity) { lldpremunknowntlventry.parent = parent }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetParent() types.Entity { return lldpremunknowntlventry.parent }
-
-func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlventry) GetParentYangName() string { return "lldpRemUnknownTLVTable" }
 
 // LLDPMIB_Lldpremorgdefinfotable
 // This table contains one or more rows per physical network
@@ -2120,7 +1347,7 @@ func (lldpremunknowntlventry *LLDPMIB_Lldpremunknowntlvtable_Lldpremunknowntlven
 // MIBs from the organization should be used for information
 // retrieval.
 type LLDPMIB_Lldpremorgdefinfotable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about the unrecognized organizationally defined information
@@ -2138,63 +1365,24 @@ type LLDPMIB_Lldpremorgdefinfotable struct {
     Lldpremorgdefinfoentry []LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry
 }
 
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetFilter() yfilter.YFilter { return lldpremorgdefinfotable.YFilter }
+func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetEntityData() *types.CommonEntityData {
+    lldpremorgdefinfotable.EntityData.YFilter = lldpremorgdefinfotable.YFilter
+    lldpremorgdefinfotable.EntityData.YangName = "lldpRemOrgDefInfoTable"
+    lldpremorgdefinfotable.EntityData.BundleName = "cisco_ios_xe"
+    lldpremorgdefinfotable.EntityData.ParentYangName = "LLDP-MIB"
+    lldpremorgdefinfotable.EntityData.SegmentPath = "lldpRemOrgDefInfoTable"
+    lldpremorgdefinfotable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremorgdefinfotable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremorgdefinfotable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) SetFilter(yf yfilter.YFilter) { lldpremorgdefinfotable.YFilter = yf }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetGoName(yname string) string {
-    if yname == "lldpRemOrgDefInfoEntry" { return "Lldpremorgdefinfoentry" }
-    return ""
-}
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetSegmentPath() string {
-    return "lldpRemOrgDefInfoTable"
-}
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldpRemOrgDefInfoEntry" {
-        for _, c := range lldpremorgdefinfotable.Lldpremorgdefinfoentry {
-            if lldpremorgdefinfotable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry{}
-        lldpremorgdefinfotable.Lldpremorgdefinfoentry = append(lldpremorgdefinfotable.Lldpremorgdefinfoentry, child)
-        return &lldpremorgdefinfotable.Lldpremorgdefinfoentry[len(lldpremorgdefinfotable.Lldpremorgdefinfoentry)-1]
-    }
-    return nil
-}
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpremorgdefinfotable.EntityData.Children = make(map[string]types.YChild)
+    lldpremorgdefinfotable.EntityData.Children["lldpRemOrgDefInfoEntry"] = types.YChild{"Lldpremorgdefinfoentry", nil}
     for i := range lldpremorgdefinfotable.Lldpremorgdefinfoentry {
-        children[lldpremorgdefinfotable.Lldpremorgdefinfoentry[i].GetSegmentPath()] = &lldpremorgdefinfotable.Lldpremorgdefinfoentry[i]
+        lldpremorgdefinfotable.EntityData.Children[types.GetSegmentPath(&lldpremorgdefinfotable.Lldpremorgdefinfoentry[i])] = types.YChild{"Lldpremorgdefinfoentry", &lldpremorgdefinfotable.Lldpremorgdefinfoentry[i]}
     }
-    return children
+    lldpremorgdefinfotable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpremorgdefinfotable.EntityData)
 }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetYangName() string { return "lldpRemOrgDefInfoTable" }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) SetParent(parent types.Entity) { lldpremorgdefinfotable.parent = parent }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetParent() types.Entity { return lldpremorgdefinfotable.parent }
-
-func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetParentYangName() string { return "LLDP-MIB" }
 
 // LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry
 // Information about the unrecognized organizationally
@@ -2213,7 +1401,7 @@ func (lldpremorgdefinfotable *LLDPMIB_Lldpremorgdefinfotable) GetParentYangName(
 // Entries may be created and deleted in this table by the
 // agent.
 type LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -2259,61 +1447,25 @@ type LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry struct {
     Lldpremorgdefinfo interface{}
 }
 
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetFilter() yfilter.YFilter { return lldpremorgdefinfoentry.YFilter }
+func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetEntityData() *types.CommonEntityData {
+    lldpremorgdefinfoentry.EntityData.YFilter = lldpremorgdefinfoentry.YFilter
+    lldpremorgdefinfoentry.EntityData.YangName = "lldpRemOrgDefInfoEntry"
+    lldpremorgdefinfoentry.EntityData.BundleName = "cisco_ios_xe"
+    lldpremorgdefinfoentry.EntityData.ParentYangName = "lldpRemOrgDefInfoTable"
+    lldpremorgdefinfoentry.EntityData.SegmentPath = "lldpRemOrgDefInfoEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremindex) + "']" + "[lldpRemOrgDefInfoOUI='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremorgdefinfooui) + "']" + "[lldpRemOrgDefInfoSubtype='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremorgdefinfosubtype) + "']" + "[lldpRemOrgDefInfoIndex='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremorgdefinfoindex) + "']"
+    lldpremorgdefinfoentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpremorgdefinfoentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpremorgdefinfoentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) SetFilter(yf yfilter.YFilter) { lldpremorgdefinfoentry.YFilter = yf }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetGoName(yname string) string {
-    if yname == "lldpRemTimeMark" { return "Lldpremtimemark" }
-    if yname == "lldpRemLocalPortNum" { return "Lldpremlocalportnum" }
-    if yname == "lldpRemIndex" { return "Lldpremindex" }
-    if yname == "lldpRemOrgDefInfoOUI" { return "Lldpremorgdefinfooui" }
-    if yname == "lldpRemOrgDefInfoSubtype" { return "Lldpremorgdefinfosubtype" }
-    if yname == "lldpRemOrgDefInfoIndex" { return "Lldpremorgdefinfoindex" }
-    if yname == "lldpRemOrgDefInfo" { return "Lldpremorgdefinfo" }
-    return ""
+    lldpremorgdefinfoentry.EntityData.Children = make(map[string]types.YChild)
+    lldpremorgdefinfoentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemTimeMark"] = types.YLeaf{"Lldpremtimemark", lldpremorgdefinfoentry.Lldpremtimemark}
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemLocalPortNum"] = types.YLeaf{"Lldpremlocalportnum", lldpremorgdefinfoentry.Lldpremlocalportnum}
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemIndex"] = types.YLeaf{"Lldpremindex", lldpremorgdefinfoentry.Lldpremindex}
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemOrgDefInfoOUI"] = types.YLeaf{"Lldpremorgdefinfooui", lldpremorgdefinfoentry.Lldpremorgdefinfooui}
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemOrgDefInfoSubtype"] = types.YLeaf{"Lldpremorgdefinfosubtype", lldpremorgdefinfoentry.Lldpremorgdefinfosubtype}
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemOrgDefInfoIndex"] = types.YLeaf{"Lldpremorgdefinfoindex", lldpremorgdefinfoentry.Lldpremorgdefinfoindex}
+    lldpremorgdefinfoentry.EntityData.Leafs["lldpRemOrgDefInfo"] = types.YLeaf{"Lldpremorgdefinfo", lldpremorgdefinfoentry.Lldpremorgdefinfo}
+    return &(lldpremorgdefinfoentry.EntityData)
 }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetSegmentPath() string {
-    return "lldpRemOrgDefInfoEntry" + "[lldpRemTimeMark='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremlocalportnum) + "']" + "[lldpRemIndex='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremindex) + "']" + "[lldpRemOrgDefInfoOUI='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremorgdefinfooui) + "']" + "[lldpRemOrgDefInfoSubtype='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremorgdefinfosubtype) + "']" + "[lldpRemOrgDefInfoIndex='" + fmt.Sprintf("%v", lldpremorgdefinfoentry.Lldpremorgdefinfoindex) + "']"
-}
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lldpRemTimeMark"] = lldpremorgdefinfoentry.Lldpremtimemark
-    leafs["lldpRemLocalPortNum"] = lldpremorgdefinfoentry.Lldpremlocalportnum
-    leafs["lldpRemIndex"] = lldpremorgdefinfoentry.Lldpremindex
-    leafs["lldpRemOrgDefInfoOUI"] = lldpremorgdefinfoentry.Lldpremorgdefinfooui
-    leafs["lldpRemOrgDefInfoSubtype"] = lldpremorgdefinfoentry.Lldpremorgdefinfosubtype
-    leafs["lldpRemOrgDefInfoIndex"] = lldpremorgdefinfoentry.Lldpremorgdefinfoindex
-    leafs["lldpRemOrgDefInfo"] = lldpremorgdefinfoentry.Lldpremorgdefinfo
-    return leafs
-}
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetYangName() string { return "lldpRemOrgDefInfoEntry" }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) SetParent(parent types.Entity) { lldpremorgdefinfoentry.parent = parent }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetParent() types.Entity { return lldpremorgdefinfoentry.parent }
-
-func (lldpremorgdefinfoentry *LLDPMIB_Lldpremorgdefinfotable_Lldpremorgdefinfoentry) GetParentYangName() string { return "lldpRemOrgDefInfoTable" }
 

@@ -27,233 +27,104 @@ func init() {
 // HardwareModule
 // HardwareModule
 type HardwareModule struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Loadbalance option.
     Loadbalancing HardwareModule_Loadbalancing
 }
 
-func (hardwareModule *HardwareModule) GetFilter() yfilter.YFilter { return hardwareModule.YFilter }
+func (hardwareModule *HardwareModule) GetEntityData() *types.CommonEntityData {
+    hardwareModule.EntityData.YFilter = hardwareModule.YFilter
+    hardwareModule.EntityData.YangName = "hardware-module"
+    hardwareModule.EntityData.BundleName = "cisco_ios_xr"
+    hardwareModule.EntityData.ParentYangName = "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg"
+    hardwareModule.EntityData.SegmentPath = "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg:hardware-module"
+    hardwareModule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareModule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareModule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hardwareModule *HardwareModule) SetFilter(yf yfilter.YFilter) { hardwareModule.YFilter = yf }
-
-func (hardwareModule *HardwareModule) GetGoName(yname string) string {
-    if yname == "loadbalancing" { return "Loadbalancing" }
-    return ""
+    hardwareModule.EntityData.Children = make(map[string]types.YChild)
+    hardwareModule.EntityData.Children["loadbalancing"] = types.YChild{"Loadbalancing", &hardwareModule.Loadbalancing}
+    hardwareModule.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hardwareModule.EntityData)
 }
-
-func (hardwareModule *HardwareModule) GetSegmentPath() string {
-    return "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg:hardware-module"
-}
-
-func (hardwareModule *HardwareModule) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "loadbalancing" {
-        return &hardwareModule.Loadbalancing
-    }
-    return nil
-}
-
-func (hardwareModule *HardwareModule) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["loadbalancing"] = &hardwareModule.Loadbalancing
-    return children
-}
-
-func (hardwareModule *HardwareModule) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hardwareModule *HardwareModule) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hardwareModule *HardwareModule) GetYangName() string { return "hardware-module" }
-
-func (hardwareModule *HardwareModule) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hardwareModule *HardwareModule) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hardwareModule *HardwareModule) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hardwareModule *HardwareModule) SetParent(parent types.Entity) { hardwareModule.parent = parent }
-
-func (hardwareModule *HardwareModule) GetParent() types.Entity { return hardwareModule.parent }
-
-func (hardwareModule *HardwareModule) GetParentYangName() string { return "Cisco-IOS-XR-prm-hwmod-loadbalance-cfg" }
 
 // HardwareModule_Loadbalancing
 // Loadbalance option
 type HardwareModule_Loadbalancing struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // BGP LU.
     Bgp3107 HardwareModule_Loadbalancing_Bgp3107
 }
 
-func (loadbalancing *HardwareModule_Loadbalancing) GetFilter() yfilter.YFilter { return loadbalancing.YFilter }
+func (loadbalancing *HardwareModule_Loadbalancing) GetEntityData() *types.CommonEntityData {
+    loadbalancing.EntityData.YFilter = loadbalancing.YFilter
+    loadbalancing.EntityData.YangName = "loadbalancing"
+    loadbalancing.EntityData.BundleName = "cisco_ios_xr"
+    loadbalancing.EntityData.ParentYangName = "hardware-module"
+    loadbalancing.EntityData.SegmentPath = "loadbalancing"
+    loadbalancing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loadbalancing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loadbalancing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (loadbalancing *HardwareModule_Loadbalancing) SetFilter(yf yfilter.YFilter) { loadbalancing.YFilter = yf }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetGoName(yname string) string {
-    if yname == "bgp3107" { return "Bgp3107" }
-    return ""
+    loadbalancing.EntityData.Children = make(map[string]types.YChild)
+    loadbalancing.EntityData.Children["bgp3107"] = types.YChild{"Bgp3107", &loadbalancing.Bgp3107}
+    loadbalancing.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(loadbalancing.EntityData)
 }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetSegmentPath() string {
-    return "loadbalancing"
-}
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp3107" {
-        return &loadbalancing.Bgp3107
-    }
-    return nil
-}
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bgp3107"] = &loadbalancing.Bgp3107
-    return children
-}
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetBundleName() string { return "cisco_ios_xr" }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetYangName() string { return "loadbalancing" }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (loadbalancing *HardwareModule_Loadbalancing) SetParent(parent types.Entity) { loadbalancing.parent = parent }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetParent() types.Entity { return loadbalancing.parent }
-
-func (loadbalancing *HardwareModule_Loadbalancing) GetParentYangName() string { return "hardware-module" }
 
 // HardwareModule_Loadbalancing_Bgp3107
 // BGP LU
 type HardwareModule_Loadbalancing_Bgp3107 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ECMP .
     Ecmp HardwareModule_Loadbalancing_Bgp3107_Ecmp
 }
 
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetFilter() yfilter.YFilter { return bgp3107.YFilter }
+func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetEntityData() *types.CommonEntityData {
+    bgp3107.EntityData.YFilter = bgp3107.YFilter
+    bgp3107.EntityData.YangName = "bgp3107"
+    bgp3107.EntityData.BundleName = "cisco_ios_xr"
+    bgp3107.EntityData.ParentYangName = "loadbalancing"
+    bgp3107.EntityData.SegmentPath = "bgp3107"
+    bgp3107.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bgp3107.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bgp3107.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) SetFilter(yf yfilter.YFilter) { bgp3107.YFilter = yf }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetGoName(yname string) string {
-    if yname == "ecmp" { return "Ecmp" }
-    return ""
+    bgp3107.EntityData.Children = make(map[string]types.YChild)
+    bgp3107.EntityData.Children["ecmp"] = types.YChild{"Ecmp", &bgp3107.Ecmp}
+    bgp3107.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bgp3107.EntityData)
 }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetSegmentPath() string {
-    return "bgp3107"
-}
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ecmp" {
-        return &bgp3107.Ecmp
-    }
-    return nil
-}
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ecmp"] = &bgp3107.Ecmp
-    return children
-}
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetYangName() string { return "bgp3107" }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) SetParent(parent types.Entity) { bgp3107.parent = parent }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetParent() types.Entity { return bgp3107.parent }
-
-func (bgp3107 *HardwareModule_Loadbalancing_Bgp3107) GetParentYangName() string { return "loadbalancing" }
 
 // HardwareModule_Loadbalancing_Bgp3107_Ecmp
 // ECMP 
 type HardwareModule_Loadbalancing_Bgp3107_Ecmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable Option. The type is interface{}.
     Enable interface{}
 }
 
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetFilter() yfilter.YFilter { return ecmp.YFilter }
+func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetEntityData() *types.CommonEntityData {
+    ecmp.EntityData.YFilter = ecmp.YFilter
+    ecmp.EntityData.YangName = "ecmp"
+    ecmp.EntityData.BundleName = "cisco_ios_xr"
+    ecmp.EntityData.ParentYangName = "bgp3107"
+    ecmp.EntityData.SegmentPath = "ecmp"
+    ecmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ecmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ecmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) SetFilter(yf yfilter.YFilter) { ecmp.YFilter = yf }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    ecmp.EntityData.Children = make(map[string]types.YChild)
+    ecmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ecmp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ecmp.Enable}
+    return &(ecmp.EntityData)
 }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetSegmentPath() string {
-    return "ecmp"
-}
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = ecmp.Enable
-    return leafs
-}
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetYangName() string { return "ecmp" }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) SetParent(parent types.Entity) { ecmp.parent = parent }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetParent() types.Entity { return ecmp.parent }
-
-func (ecmp *HardwareModule_Loadbalancing_Bgp3107_Ecmp) GetParentYangName() string { return "bgp3107" }
 

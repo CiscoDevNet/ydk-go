@@ -23,65 +23,32 @@ func init() {
 // HwModuleSubslot
 // Execute subslot h/w module operations
 type HwModuleSubslot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Input HwModuleSubslot_Input
 }
 
-func (hwModuleSubslot *HwModuleSubslot) GetFilter() yfilter.YFilter { return hwModuleSubslot.YFilter }
+func (hwModuleSubslot *HwModuleSubslot) GetEntityData() *types.CommonEntityData {
+    hwModuleSubslot.EntityData.YFilter = hwModuleSubslot.YFilter
+    hwModuleSubslot.EntityData.YangName = "hw-module-subslot"
+    hwModuleSubslot.EntityData.BundleName = "cisco_ios_xr"
+    hwModuleSubslot.EntityData.ParentYangName = "Cisco-IOS-XR-hwmod-mpa-reload-act"
+    hwModuleSubslot.EntityData.SegmentPath = "Cisco-IOS-XR-hwmod-mpa-reload-act:hw-module-subslot"
+    hwModuleSubslot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwModuleSubslot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwModuleSubslot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwModuleSubslot *HwModuleSubslot) SetFilter(yf yfilter.YFilter) { hwModuleSubslot.YFilter = yf }
-
-func (hwModuleSubslot *HwModuleSubslot) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    hwModuleSubslot.EntityData.Children = make(map[string]types.YChild)
+    hwModuleSubslot.EntityData.Children["input"] = types.YChild{"Input", &hwModuleSubslot.Input}
+    hwModuleSubslot.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hwModuleSubslot.EntityData)
 }
-
-func (hwModuleSubslot *HwModuleSubslot) GetSegmentPath() string {
-    return "Cisco-IOS-XR-hwmod-mpa-reload-act:hw-module-subslot"
-}
-
-func (hwModuleSubslot *HwModuleSubslot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &hwModuleSubslot.Input
-    }
-    return nil
-}
-
-func (hwModuleSubslot *HwModuleSubslot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &hwModuleSubslot.Input
-    return children
-}
-
-func (hwModuleSubslot *HwModuleSubslot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hwModuleSubslot *HwModuleSubslot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwModuleSubslot *HwModuleSubslot) GetYangName() string { return "hw-module-subslot" }
-
-func (hwModuleSubslot *HwModuleSubslot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwModuleSubslot *HwModuleSubslot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwModuleSubslot *HwModuleSubslot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwModuleSubslot *HwModuleSubslot) SetParent(parent types.Entity) { hwModuleSubslot.parent = parent }
-
-func (hwModuleSubslot *HwModuleSubslot) GetParent() types.Entity { return hwModuleSubslot.parent }
-
-func (hwModuleSubslot *HwModuleSubslot) GetParentYangName() string { return "Cisco-IOS-XR-hwmod-mpa-reload-act" }
 
 // HwModuleSubslot_Input
 type HwModuleSubslot_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Fully qualified location specification. The type is string.
@@ -91,51 +58,20 @@ type HwModuleSubslot_Input struct {
     Reload interface{}
 }
 
-func (input *HwModuleSubslot_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *HwModuleSubslot_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "hw-module-subslot"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *HwModuleSubslot_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *HwModuleSubslot_Input) GetGoName(yname string) string {
-    if yname == "subslot" { return "Subslot" }
-    if yname == "reload" { return "Reload" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["subslot"] = types.YLeaf{"Subslot", input.Subslot}
+    input.EntityData.Leafs["reload"] = types.YLeaf{"Reload", input.Reload}
+    return &(input.EntityData)
 }
-
-func (input *HwModuleSubslot_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *HwModuleSubslot_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *HwModuleSubslot_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *HwModuleSubslot_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subslot"] = input.Subslot
-    leafs["reload"] = input.Reload
-    return leafs
-}
-
-func (input *HwModuleSubslot_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *HwModuleSubslot_Input) GetYangName() string { return "input" }
-
-func (input *HwModuleSubslot_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *HwModuleSubslot_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *HwModuleSubslot_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *HwModuleSubslot_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *HwModuleSubslot_Input) GetParent() types.Entity { return input.parent }
-
-func (input *HwModuleSubslot_Input) GetParentYangName() string { return "hw-module-subslot" }
 

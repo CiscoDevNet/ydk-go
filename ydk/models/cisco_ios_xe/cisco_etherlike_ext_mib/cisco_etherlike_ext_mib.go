@@ -23,7 +23,7 @@ func init() {
 
 // CISCOETHERLIKEEXTMIB
 type CISCOETHERLIKEEXTMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of additional descriptive and status information about the MAC
@@ -42,59 +42,22 @@ type CISCOETHERLIKEEXTMIB struct {
     Ceesubinterfacetable CISCOETHERLIKEEXTMIB_Ceesubinterfacetable
 }
 
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetFilter() yfilter.YFilter { return cISCOETHERLIKEEXTMIB.YFilter }
+func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetEntityData() *types.CommonEntityData {
+    cISCOETHERLIKEEXTMIB.EntityData.YFilter = cISCOETHERLIKEEXTMIB.YFilter
+    cISCOETHERLIKEEXTMIB.EntityData.YangName = "CISCO-ETHERLIKE-EXT-MIB"
+    cISCOETHERLIKEEXTMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOETHERLIKEEXTMIB.EntityData.ParentYangName = "CISCO-ETHERLIKE-EXT-MIB"
+    cISCOETHERLIKEEXTMIB.EntityData.SegmentPath = "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB"
+    cISCOETHERLIKEEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOETHERLIKEEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOETHERLIKEEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) SetFilter(yf yfilter.YFilter) { cISCOETHERLIKEEXTMIB.YFilter = yf }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetGoName(yname string) string {
-    if yname == "ceeDot3PauseExtTable" { return "Ceedot3Pauseexttable" }
-    if yname == "ceeSubInterfaceTable" { return "Ceesubinterfacetable" }
-    return ""
+    cISCOETHERLIKEEXTMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOETHERLIKEEXTMIB.EntityData.Children["ceeDot3PauseExtTable"] = types.YChild{"Ceedot3Pauseexttable", &cISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable}
+    cISCOETHERLIKEEXTMIB.EntityData.Children["ceeSubInterfaceTable"] = types.YChild{"Ceesubinterfacetable", &cISCOETHERLIKEEXTMIB.Ceesubinterfacetable}
+    cISCOETHERLIKEEXTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOETHERLIKEEXTMIB.EntityData)
 }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetSegmentPath() string {
-    return "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB"
-}
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceeDot3PauseExtTable" {
-        return &cISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable
-    }
-    if childYangName == "ceeSubInterfaceTable" {
-        return &cISCOETHERLIKEEXTMIB.Ceesubinterfacetable
-    }
-    return nil
-}
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ceeDot3PauseExtTable"] = &cISCOETHERLIKEEXTMIB.Ceedot3Pauseexttable
-    children["ceeSubInterfaceTable"] = &cISCOETHERLIKEEXTMIB.Ceesubinterfacetable
-    return children
-}
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetYangName() string { return "CISCO-ETHERLIKE-EXT-MIB" }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) SetParent(parent types.Entity) { cISCOETHERLIKEEXTMIB.parent = parent }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetParent() types.Entity { return cISCOETHERLIKEEXTMIB.parent }
-
-func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetParentYangName() string { return "CISCO-ETHERLIKE-EXT-MIB" }
 
 // CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable
 // A list of additional descriptive and status
@@ -106,7 +69,7 @@ func (cISCOETHERLIKEEXTMIB *CISCOETHERLIKEEXTMIB) GetParentYangName() string { r
 // interface in the system which supports the MAC 
 // Control PAUSE function.
 type CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing additional information about the MAC
@@ -116,63 +79,24 @@ type CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable struct {
     Ceedot3Pauseextentry []CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry
 }
 
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetFilter() yfilter.YFilter { return ceedot3Pauseexttable.YFilter }
+func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetEntityData() *types.CommonEntityData {
+    ceedot3Pauseexttable.EntityData.YFilter = ceedot3Pauseexttable.YFilter
+    ceedot3Pauseexttable.EntityData.YangName = "ceeDot3PauseExtTable"
+    ceedot3Pauseexttable.EntityData.BundleName = "cisco_ios_xe"
+    ceedot3Pauseexttable.EntityData.ParentYangName = "CISCO-ETHERLIKE-EXT-MIB"
+    ceedot3Pauseexttable.EntityData.SegmentPath = "ceeDot3PauseExtTable"
+    ceedot3Pauseexttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceedot3Pauseexttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceedot3Pauseexttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) SetFilter(yf yfilter.YFilter) { ceedot3Pauseexttable.YFilter = yf }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetGoName(yname string) string {
-    if yname == "ceeDot3PauseExtEntry" { return "Ceedot3Pauseextentry" }
-    return ""
-}
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetSegmentPath() string {
-    return "ceeDot3PauseExtTable"
-}
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceeDot3PauseExtEntry" {
-        for _, c := range ceedot3Pauseexttable.Ceedot3Pauseextentry {
-            if ceedot3Pauseexttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry{}
-        ceedot3Pauseexttable.Ceedot3Pauseextentry = append(ceedot3Pauseexttable.Ceedot3Pauseextentry, child)
-        return &ceedot3Pauseexttable.Ceedot3Pauseextentry[len(ceedot3Pauseexttable.Ceedot3Pauseextentry)-1]
-    }
-    return nil
-}
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceedot3Pauseexttable.EntityData.Children = make(map[string]types.YChild)
+    ceedot3Pauseexttable.EntityData.Children["ceeDot3PauseExtEntry"] = types.YChild{"Ceedot3Pauseextentry", nil}
     for i := range ceedot3Pauseexttable.Ceedot3Pauseextentry {
-        children[ceedot3Pauseexttable.Ceedot3Pauseextentry[i].GetSegmentPath()] = &ceedot3Pauseexttable.Ceedot3Pauseextentry[i]
+        ceedot3Pauseexttable.EntityData.Children[types.GetSegmentPath(&ceedot3Pauseexttable.Ceedot3Pauseextentry[i])] = types.YChild{"Ceedot3Pauseextentry", &ceedot3Pauseexttable.Ceedot3Pauseextentry[i]}
     }
-    return children
+    ceedot3Pauseexttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceedot3Pauseexttable.EntityData)
 }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetYangName() string { return "ceeDot3PauseExtTable" }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) SetParent(parent types.Entity) { ceedot3Pauseexttable.parent = parent }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetParent() types.Entity { return ceedot3Pauseexttable.parent }
-
-func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetParentYangName() string { return "CISCO-ETHERLIKE-EXT-MIB" }
 
 // CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry
 // An entry in the table, containing additional
@@ -180,7 +104,7 @@ func (ceedot3Pauseexttable *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable) GetParent
 // on a single ethernet-like interface, in extension 
 // to dot3PauseEntry in Etherlike-MIB.
 type CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -213,55 +137,23 @@ type CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry struct {
     Ceedot3Pauseextopermode interface{}
 }
 
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetFilter() yfilter.YFilter { return ceedot3Pauseextentry.YFilter }
+func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetEntityData() *types.CommonEntityData {
+    ceedot3Pauseextentry.EntityData.YFilter = ceedot3Pauseextentry.YFilter
+    ceedot3Pauseextentry.EntityData.YangName = "ceeDot3PauseExtEntry"
+    ceedot3Pauseextentry.EntityData.BundleName = "cisco_ios_xe"
+    ceedot3Pauseextentry.EntityData.ParentYangName = "ceeDot3PauseExtTable"
+    ceedot3Pauseextentry.EntityData.SegmentPath = "ceeDot3PauseExtEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", ceedot3Pauseextentry.Dot3Statsindex) + "']"
+    ceedot3Pauseextentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceedot3Pauseextentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceedot3Pauseextentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) SetFilter(yf yfilter.YFilter) { ceedot3Pauseextentry.YFilter = yf }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetGoName(yname string) string {
-    if yname == "dot3StatsIndex" { return "Dot3Statsindex" }
-    if yname == "ceeDot3PauseExtAdminMode" { return "Ceedot3Pauseextadminmode" }
-    if yname == "ceeDot3PauseExtOperMode" { return "Ceedot3Pauseextopermode" }
-    return ""
+    ceedot3Pauseextentry.EntityData.Children = make(map[string]types.YChild)
+    ceedot3Pauseextentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceedot3Pauseextentry.EntityData.Leafs["dot3StatsIndex"] = types.YLeaf{"Dot3Statsindex", ceedot3Pauseextentry.Dot3Statsindex}
+    ceedot3Pauseextentry.EntityData.Leafs["ceeDot3PauseExtAdminMode"] = types.YLeaf{"Ceedot3Pauseextadminmode", ceedot3Pauseextentry.Ceedot3Pauseextadminmode}
+    ceedot3Pauseextentry.EntityData.Leafs["ceeDot3PauseExtOperMode"] = types.YLeaf{"Ceedot3Pauseextopermode", ceedot3Pauseextentry.Ceedot3Pauseextopermode}
+    return &(ceedot3Pauseextentry.EntityData)
 }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetSegmentPath() string {
-    return "ceeDot3PauseExtEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", ceedot3Pauseextentry.Dot3Statsindex) + "']"
-}
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot3StatsIndex"] = ceedot3Pauseextentry.Dot3Statsindex
-    leafs["ceeDot3PauseExtAdminMode"] = ceedot3Pauseextentry.Ceedot3Pauseextadminmode
-    leafs["ceeDot3PauseExtOperMode"] = ceedot3Pauseextentry.Ceedot3Pauseextopermode
-    return leafs
-}
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetYangName() string { return "ceeDot3PauseExtEntry" }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) SetParent(parent types.Entity) { ceedot3Pauseextentry.parent = parent }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetParent() types.Entity { return ceedot3Pauseextentry.parent }
-
-func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pauseextentry) GetParentYangName() string { return "ceeDot3PauseExtTable" }
 
 // CISCOETHERLIKEEXTMIB_Ceesubinterfacetable
 // This table provides the subinterface related information
@@ -274,7 +166,7 @@ func (ceedot3Pauseextentry *CISCOETHERLIKEEXTMIB_Ceedot3Pauseexttable_Ceedot3Pau
 // into Gi0/0.1, Gi0/0.2, Gi0/0.3 and so on, each one performing as
 // if it were a separate interface.
 type CISCOETHERLIKEEXTMIB_Ceesubinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains a row for each Ethernet-like interface by it's ifTable
@@ -287,63 +179,24 @@ type CISCOETHERLIKEEXTMIB_Ceesubinterfacetable struct {
     Ceesubinterfaceentry []CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry
 }
 
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetFilter() yfilter.YFilter { return ceesubinterfacetable.YFilter }
+func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetEntityData() *types.CommonEntityData {
+    ceesubinterfacetable.EntityData.YFilter = ceesubinterfacetable.YFilter
+    ceesubinterfacetable.EntityData.YangName = "ceeSubInterfaceTable"
+    ceesubinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    ceesubinterfacetable.EntityData.ParentYangName = "CISCO-ETHERLIKE-EXT-MIB"
+    ceesubinterfacetable.EntityData.SegmentPath = "ceeSubInterfaceTable"
+    ceesubinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceesubinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceesubinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) SetFilter(yf yfilter.YFilter) { ceesubinterfacetable.YFilter = yf }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetGoName(yname string) string {
-    if yname == "ceeSubInterfaceEntry" { return "Ceesubinterfaceentry" }
-    return ""
-}
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetSegmentPath() string {
-    return "ceeSubInterfaceTable"
-}
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceeSubInterfaceEntry" {
-        for _, c := range ceesubinterfacetable.Ceesubinterfaceentry {
-            if ceesubinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry{}
-        ceesubinterfacetable.Ceesubinterfaceentry = append(ceesubinterfacetable.Ceesubinterfaceentry, child)
-        return &ceesubinterfacetable.Ceesubinterfaceentry[len(ceesubinterfacetable.Ceesubinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceesubinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    ceesubinterfacetable.EntityData.Children["ceeSubInterfaceEntry"] = types.YChild{"Ceesubinterfaceentry", nil}
     for i := range ceesubinterfacetable.Ceesubinterfaceentry {
-        children[ceesubinterfacetable.Ceesubinterfaceentry[i].GetSegmentPath()] = &ceesubinterfacetable.Ceesubinterfaceentry[i]
+        ceesubinterfacetable.EntityData.Children[types.GetSegmentPath(&ceesubinterfacetable.Ceesubinterfaceentry[i])] = types.YChild{"Ceesubinterfaceentry", &ceesubinterfacetable.Ceesubinterfaceentry[i]}
     }
-    return children
+    ceesubinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceesubinterfacetable.EntityData)
 }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetYangName() string { return "ceeSubInterfaceTable" }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) SetParent(parent types.Entity) { ceesubinterfacetable.parent = parent }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetParent() types.Entity { return ceesubinterfacetable.parent }
-
-func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetParentYangName() string { return "CISCO-ETHERLIKE-EXT-MIB" }
 
 // CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry
 // This table contains a row for each Ethernet-like interface
@@ -358,7 +211,7 @@ func (ceesubinterfacetable *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable) GetParent
 // associated to the Ethernet-like interface is deleted.
 // Typically, when the card is removed from the device.
 type CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -371,51 +224,20 @@ type CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry struct {
     Ceesubinterfacecount interface{}
 }
 
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetFilter() yfilter.YFilter { return ceesubinterfaceentry.YFilter }
+func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetEntityData() *types.CommonEntityData {
+    ceesubinterfaceentry.EntityData.YFilter = ceesubinterfaceentry.YFilter
+    ceesubinterfaceentry.EntityData.YangName = "ceeSubInterfaceEntry"
+    ceesubinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    ceesubinterfaceentry.EntityData.ParentYangName = "ceeSubInterfaceTable"
+    ceesubinterfaceentry.EntityData.SegmentPath = "ceeSubInterfaceEntry" + "[ifIndex='" + fmt.Sprintf("%v", ceesubinterfaceentry.Ifindex) + "']"
+    ceesubinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceesubinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceesubinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) SetFilter(yf yfilter.YFilter) { ceesubinterfaceentry.YFilter = yf }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "ceeSubInterfaceCount" { return "Ceesubinterfacecount" }
-    return ""
+    ceesubinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    ceesubinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceesubinterfaceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ceesubinterfaceentry.Ifindex}
+    ceesubinterfaceentry.EntityData.Leafs["ceeSubInterfaceCount"] = types.YLeaf{"Ceesubinterfacecount", ceesubinterfaceentry.Ceesubinterfacecount}
+    return &(ceesubinterfaceentry.EntityData)
 }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetSegmentPath() string {
-    return "ceeSubInterfaceEntry" + "[ifIndex='" + fmt.Sprintf("%v", ceesubinterfaceentry.Ifindex) + "']"
-}
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = ceesubinterfaceentry.Ifindex
-    leafs["ceeSubInterfaceCount"] = ceesubinterfaceentry.Ceesubinterfacecount
-    return leafs
-}
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetYangName() string { return "ceeSubInterfaceEntry" }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) SetParent(parent types.Entity) { ceesubinterfaceentry.parent = parent }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetParent() types.Entity { return ceesubinterfaceentry.parent }
-
-func (ceesubinterfaceentry *CISCOETHERLIKEEXTMIB_Ceesubinterfacetable_Ceesubinterfaceentry) GetParentYangName() string { return "ceeSubInterfaceTable" }
 

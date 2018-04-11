@@ -23,7 +23,7 @@ func init() {
 // Traceroute
 // Trace route to destination
 type Traceroute struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -33,63 +33,26 @@ type Traceroute struct {
     Output Traceroute_Output
 }
 
-func (traceroute *Traceroute) GetFilter() yfilter.YFilter { return traceroute.YFilter }
+func (traceroute *Traceroute) GetEntityData() *types.CommonEntityData {
+    traceroute.EntityData.YFilter = traceroute.YFilter
+    traceroute.EntityData.YangName = "traceroute"
+    traceroute.EntityData.BundleName = "cisco_ios_xr"
+    traceroute.EntityData.ParentYangName = "Cisco-IOS-XR-traceroute-act"
+    traceroute.EntityData.SegmentPath = "Cisco-IOS-XR-traceroute-act:traceroute"
+    traceroute.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    traceroute.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    traceroute.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (traceroute *Traceroute) SetFilter(yf yfilter.YFilter) { traceroute.YFilter = yf }
-
-func (traceroute *Traceroute) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    traceroute.EntityData.Children = make(map[string]types.YChild)
+    traceroute.EntityData.Children["input"] = types.YChild{"Input", &traceroute.Input}
+    traceroute.EntityData.Children["output"] = types.YChild{"Output", &traceroute.Output}
+    traceroute.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(traceroute.EntityData)
 }
-
-func (traceroute *Traceroute) GetSegmentPath() string {
-    return "Cisco-IOS-XR-traceroute-act:traceroute"
-}
-
-func (traceroute *Traceroute) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &traceroute.Input
-    }
-    if childYangName == "output" {
-        return &traceroute.Output
-    }
-    return nil
-}
-
-func (traceroute *Traceroute) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &traceroute.Input
-    children["output"] = &traceroute.Output
-    return children
-}
-
-func (traceroute *Traceroute) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (traceroute *Traceroute) GetBundleName() string { return "cisco_ios_xr" }
-
-func (traceroute *Traceroute) GetYangName() string { return "traceroute" }
-
-func (traceroute *Traceroute) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (traceroute *Traceroute) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (traceroute *Traceroute) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (traceroute *Traceroute) SetParent(parent types.Entity) { traceroute.parent = parent }
-
-func (traceroute *Traceroute) GetParent() types.Entity { return traceroute.parent }
-
-func (traceroute *Traceroute) GetParentYangName() string { return "Cisco-IOS-XR-traceroute-act" }
 
 // Traceroute_Input
 type Traceroute_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -102,68 +65,27 @@ type Traceroute_Input struct {
     Ipv6 Traceroute_Input_Ipv6
 }
 
-func (input *Traceroute_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Traceroute_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "traceroute"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *Traceroute_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Traceroute_Input) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "ipv6" { return "Ipv6" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["destination"] = types.YChild{"Destination", &input.Destination}
+    input.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &input.Ipv4}
+    input.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &input.Ipv6}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(input.EntityData)
 }
-
-func (input *Traceroute_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Traceroute_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        return &input.Destination
-    }
-    if childYangName == "ipv4" {
-        return &input.Ipv4
-    }
-    if childYangName == "ipv6" {
-        return &input.Ipv6
-    }
-    return nil
-}
-
-func (input *Traceroute_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination"] = &input.Destination
-    children["ipv4"] = &input.Ipv4
-    children["ipv6"] = &input.Ipv6
-    return children
-}
-
-func (input *Traceroute_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (input *Traceroute_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *Traceroute_Input) GetYangName() string { return "input" }
-
-func (input *Traceroute_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *Traceroute_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *Traceroute_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *Traceroute_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Traceroute_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Traceroute_Input) GetParentYangName() string { return "traceroute" }
 
 // Traceroute_Input_Destination
 type Traceroute_Input_Destination struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination address or hostname. The type is string. This attribute is
@@ -209,77 +131,36 @@ type Traceroute_Input_Destination struct {
     OutgoingInterface interface{}
 }
 
-func (destination *Traceroute_Input_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination *Traceroute_Input_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "input"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *Traceroute_Input_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *Traceroute_Input_Destination) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "source" { return "Source" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "probe" { return "Probe" }
-    if yname == "numeric" { return "Numeric" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "min-ttl" { return "MinTtl" }
-    if yname == "max-ttl" { return "MaxTtl" }
-    if yname == "port" { return "Port" }
-    if yname == "verbose" { return "Verbose" }
-    if yname == "priority" { return "Priority" }
-    if yname == "outgoing-interface" { return "OutgoingInterface" }
-    return ""
+    destination.EntityData.Children = make(map[string]types.YChild)
+    destination.EntityData.Leafs = make(map[string]types.YLeaf)
+    destination.EntityData.Leafs["destination"] = types.YLeaf{"Destination", destination.Destination}
+    destination.EntityData.Leafs["source"] = types.YLeaf{"Source", destination.Source}
+    destination.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", destination.Timeout}
+    destination.EntityData.Leafs["probe"] = types.YLeaf{"Probe", destination.Probe}
+    destination.EntityData.Leafs["numeric"] = types.YLeaf{"Numeric", destination.Numeric}
+    destination.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", destination.VrfName}
+    destination.EntityData.Leafs["min-ttl"] = types.YLeaf{"MinTtl", destination.MinTtl}
+    destination.EntityData.Leafs["max-ttl"] = types.YLeaf{"MaxTtl", destination.MaxTtl}
+    destination.EntityData.Leafs["port"] = types.YLeaf{"Port", destination.Port}
+    destination.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", destination.Verbose}
+    destination.EntityData.Leafs["priority"] = types.YLeaf{"Priority", destination.Priority}
+    destination.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", destination.OutgoingInterface}
+    return &(destination.EntityData)
 }
-
-func (destination *Traceroute_Input_Destination) GetSegmentPath() string {
-    return "destination"
-}
-
-func (destination *Traceroute_Input_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destination *Traceroute_Input_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destination *Traceroute_Input_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = destination.Destination
-    leafs["source"] = destination.Source
-    leafs["timeout"] = destination.Timeout
-    leafs["probe"] = destination.Probe
-    leafs["numeric"] = destination.Numeric
-    leafs["vrf-name"] = destination.VrfName
-    leafs["min-ttl"] = destination.MinTtl
-    leafs["max-ttl"] = destination.MaxTtl
-    leafs["port"] = destination.Port
-    leafs["verbose"] = destination.Verbose
-    leafs["priority"] = destination.Priority
-    leafs["outgoing-interface"] = destination.OutgoingInterface
-    return leafs
-}
-
-func (destination *Traceroute_Input_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *Traceroute_Input_Destination) GetYangName() string { return "destination" }
-
-func (destination *Traceroute_Input_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *Traceroute_Input_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *Traceroute_Input_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *Traceroute_Input_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *Traceroute_Input_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *Traceroute_Input_Destination) GetParentYangName() string { return "input" }
 
 // Traceroute_Input_Ipv4
 type Traceroute_Input_Ipv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination address or hostname. The type is string. This attribute is
@@ -318,73 +199,34 @@ type Traceroute_Input_Ipv4 struct {
     Verbose interface{}
 }
 
-func (ipv4 *Traceroute_Input_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
+func (ipv4 *Traceroute_Input_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "input"
+    ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4 *Traceroute_Input_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "source" { return "Source" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "probe" { return "Probe" }
-    if yname == "numeric" { return "Numeric" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "min-ttl" { return "MinTtl" }
-    if yname == "max-ttl" { return "MaxTtl" }
-    if yname == "port" { return "Port" }
-    if yname == "verbose" { return "Verbose" }
-    return ""
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv4.Destination}
+    ipv4.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv4.Source}
+    ipv4.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv4.Timeout}
+    ipv4.EntityData.Leafs["probe"] = types.YLeaf{"Probe", ipv4.Probe}
+    ipv4.EntityData.Leafs["numeric"] = types.YLeaf{"Numeric", ipv4.Numeric}
+    ipv4.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4.VrfName}
+    ipv4.EntityData.Leafs["min-ttl"] = types.YLeaf{"MinTtl", ipv4.MinTtl}
+    ipv4.EntityData.Leafs["max-ttl"] = types.YLeaf{"MaxTtl", ipv4.MaxTtl}
+    ipv4.EntityData.Leafs["port"] = types.YLeaf{"Port", ipv4.Port}
+    ipv4.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", ipv4.Verbose}
+    return &(ipv4.EntityData)
 }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetSegmentPath() string {
-    return "ipv4"
-}
-
-func (ipv4 *Traceroute_Input_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4 *Traceroute_Input_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4 *Traceroute_Input_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv4.Destination
-    leafs["source"] = ipv4.Source
-    leafs["timeout"] = ipv4.Timeout
-    leafs["probe"] = ipv4.Probe
-    leafs["numeric"] = ipv4.Numeric
-    leafs["vrf-name"] = ipv4.VrfName
-    leafs["min-ttl"] = ipv4.MinTtl
-    leafs["max-ttl"] = ipv4.MaxTtl
-    leafs["port"] = ipv4.Port
-    leafs["verbose"] = ipv4.Verbose
-    return leafs
-}
-
-func (ipv4 *Traceroute_Input_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *Traceroute_Input_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *Traceroute_Input_Ipv4) GetParentYangName() string { return "input" }
 
 // Traceroute_Input_Ipv6
 type Traceroute_Input_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination address or hostname. The type is string. This attribute is
@@ -430,135 +272,61 @@ type Traceroute_Input_Ipv6 struct {
     OutgoingInterface interface{}
 }
 
-func (ipv6 *Traceroute_Input_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *Traceroute_Input_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "input"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *Traceroute_Input_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "source" { return "Source" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "probe" { return "Probe" }
-    if yname == "numeric" { return "Numeric" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "min-ttl" { return "MinTtl" }
-    if yname == "max-ttl" { return "MaxTtl" }
-    if yname == "port" { return "Port" }
-    if yname == "verbose" { return "Verbose" }
-    if yname == "priority" { return "Priority" }
-    if yname == "outgoing-interface" { return "OutgoingInterface" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv6.Destination}
+    ipv6.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv6.Source}
+    ipv6.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv6.Timeout}
+    ipv6.EntityData.Leafs["probe"] = types.YLeaf{"Probe", ipv6.Probe}
+    ipv6.EntityData.Leafs["numeric"] = types.YLeaf{"Numeric", ipv6.Numeric}
+    ipv6.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6.VrfName}
+    ipv6.EntityData.Leafs["min-ttl"] = types.YLeaf{"MinTtl", ipv6.MinTtl}
+    ipv6.EntityData.Leafs["max-ttl"] = types.YLeaf{"MaxTtl", ipv6.MaxTtl}
+    ipv6.EntityData.Leafs["port"] = types.YLeaf{"Port", ipv6.Port}
+    ipv6.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", ipv6.Verbose}
+    ipv6.EntityData.Leafs["priority"] = types.YLeaf{"Priority", ipv6.Priority}
+    ipv6.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", ipv6.OutgoingInterface}
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *Traceroute_Input_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6 *Traceroute_Input_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6 *Traceroute_Input_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv6.Destination
-    leafs["source"] = ipv6.Source
-    leafs["timeout"] = ipv6.Timeout
-    leafs["probe"] = ipv6.Probe
-    leafs["numeric"] = ipv6.Numeric
-    leafs["vrf-name"] = ipv6.VrfName
-    leafs["min-ttl"] = ipv6.MinTtl
-    leafs["max-ttl"] = ipv6.MaxTtl
-    leafs["port"] = ipv6.Port
-    leafs["verbose"] = ipv6.Verbose
-    leafs["priority"] = ipv6.Priority
-    leafs["outgoing-interface"] = ipv6.OutgoingInterface
-    return leafs
-}
-
-func (ipv6 *Traceroute_Input_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *Traceroute_Input_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *Traceroute_Input_Ipv6) GetParentYangName() string { return "input" }
 
 // Traceroute_Output
 type Traceroute_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     TracerouteResponse Traceroute_Output_TracerouteResponse
 }
 
-func (output *Traceroute_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Traceroute_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "traceroute"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *Traceroute_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Traceroute_Output) GetGoName(yname string) string {
-    if yname == "traceroute-response" { return "TracerouteResponse" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Children["traceroute-response"] = types.YChild{"TracerouteResponse", &output.TracerouteResponse}
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(output.EntityData)
 }
-
-func (output *Traceroute_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Traceroute_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "traceroute-response" {
-        return &output.TracerouteResponse
-    }
-    return nil
-}
-
-func (output *Traceroute_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["traceroute-response"] = &output.TracerouteResponse
-    return children
-}
-
-func (output *Traceroute_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (output *Traceroute_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *Traceroute_Output) GetYangName() string { return "output" }
-
-func (output *Traceroute_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *Traceroute_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *Traceroute_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *Traceroute_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Traceroute_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Traceroute_Output) GetParentYangName() string { return "traceroute" }
 
 // Traceroute_Output_TracerouteResponse
 type Traceroute_Output_TracerouteResponse struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -568,63 +336,26 @@ type Traceroute_Output_TracerouteResponse struct {
     Ipv6 Traceroute_Output_TracerouteResponse_Ipv6
 }
 
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetFilter() yfilter.YFilter { return tracerouteResponse.YFilter }
+func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetEntityData() *types.CommonEntityData {
+    tracerouteResponse.EntityData.YFilter = tracerouteResponse.YFilter
+    tracerouteResponse.EntityData.YangName = "traceroute-response"
+    tracerouteResponse.EntityData.BundleName = "cisco_ios_xr"
+    tracerouteResponse.EntityData.ParentYangName = "output"
+    tracerouteResponse.EntityData.SegmentPath = "traceroute-response"
+    tracerouteResponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tracerouteResponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tracerouteResponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) SetFilter(yf yfilter.YFilter) { tracerouteResponse.YFilter = yf }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetGoName(yname string) string {
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "ipv6" { return "Ipv6" }
-    return ""
+    tracerouteResponse.EntityData.Children = make(map[string]types.YChild)
+    tracerouteResponse.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &tracerouteResponse.Ipv4}
+    tracerouteResponse.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &tracerouteResponse.Ipv6}
+    tracerouteResponse.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tracerouteResponse.EntityData)
 }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetSegmentPath() string {
-    return "traceroute-response"
-}
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4" {
-        return &tracerouteResponse.Ipv4
-    }
-    if childYangName == "ipv6" {
-        return &tracerouteResponse.Ipv6
-    }
-    return nil
-}
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4"] = &tracerouteResponse.Ipv4
-    children["ipv6"] = &tracerouteResponse.Ipv6
-    return children
-}
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetYangName() string { return "traceroute-response" }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) SetParent(parent types.Entity) { tracerouteResponse.parent = parent }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetParent() types.Entity { return tracerouteResponse.parent }
-
-func (tracerouteResponse *Traceroute_Output_TracerouteResponse) GetParentYangName() string { return "output" }
 
 // Traceroute_Output_TracerouteResponse_Ipv4
 type Traceroute_Output_TracerouteResponse_Ipv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination address or hostname. The type is string.
@@ -633,75 +364,59 @@ type Traceroute_Output_TracerouteResponse_Ipv4 struct {
     // Verbose output. The type is string.
     VerboseOutput interface{}
 
-    // The type is slice of Traceroute_Output_TracerouteResponse_Ipv4_Hops.
-    Hops []Traceroute_Output_TracerouteResponse_Ipv4_Hops
+    
+    Hops Traceroute_Output_TracerouteResponse_Ipv4_Hops
 }
 
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
+func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "traceroute-response"
+    ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "verbose-output" { return "VerboseOutput" }
-    if yname == "hops" { return "Hops" }
-    return ""
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Children["hops"] = types.YChild{"Hops", &ipv4.Hops}
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv4.Destination}
+    ipv4.EntityData.Leafs["verbose-output"] = types.YLeaf{"VerboseOutput", ipv4.VerboseOutput}
+    return &(ipv4.EntityData)
 }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetSegmentPath() string {
-    return "ipv4"
-}
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hops" {
-        for _, c := range ipv4.Hops {
-            if ipv4.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Traceroute_Output_TracerouteResponse_Ipv4_Hops{}
-        ipv4.Hops = append(ipv4.Hops, child)
-        return &ipv4.Hops[len(ipv4.Hops)-1]
-    }
-    return nil
-}
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range ipv4.Hops {
-        children[ipv4.Hops[i].GetSegmentPath()] = &ipv4.Hops[i]
-    }
-    return children
-}
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv4.Destination
-    leafs["verbose-output"] = ipv4.VerboseOutput
-    return leafs
-}
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *Traceroute_Output_TracerouteResponse_Ipv4) GetParentYangName() string { return "traceroute-response" }
 
 // Traceroute_Output_TracerouteResponse_Ipv4_Hops
 type Traceroute_Output_TracerouteResponse_Ipv4_Hops struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop.
+    Hop []Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop
+}
+
+func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetEntityData() *types.CommonEntityData {
+    hops.EntityData.YFilter = hops.YFilter
+    hops.EntityData.YangName = "hops"
+    hops.EntityData.BundleName = "cisco_ios_xr"
+    hops.EntityData.ParentYangName = "ipv4"
+    hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hops.EntityData.Children = make(map[string]types.YChild)
+    hops.EntityData.Children["hop"] = types.YChild{"Hop", nil}
+    for i := range hops.Hop {
+        hops.EntityData.Children[types.GetSegmentPath(&hops.Hop[i])] = types.YChild{"Hop", &hops.Hop[i]}
+    }
+    hops.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hops.EntityData)
+}
+
+// Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop
+type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of the hop. The type is interface{} with
@@ -714,77 +429,61 @@ type Traceroute_Output_TracerouteResponse_Ipv4_Hops struct {
     // Hostname of the hop. The type is string.
     HopHostname interface{}
 
-    // The type is slice of Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes.
-    Probes []Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes
+    
+    Probes Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetFilter() yfilter.YFilter { return hops.YFilter }
+func (hop *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop) GetEntityData() *types.CommonEntityData {
+    hop.EntityData.YFilter = hop.YFilter
+    hop.EntityData.YangName = "hop"
+    hop.EntityData.BundleName = "cisco_ios_xr"
+    hop.EntityData.ParentYangName = "hops"
+    hop.EntityData.SegmentPath = "hop" + "[hop-index='" + fmt.Sprintf("%v", hop.HopIndex) + "']"
+    hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) SetFilter(yf yfilter.YFilter) { hops.YFilter = yf }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetGoName(yname string) string {
-    if yname == "hop-index" { return "HopIndex" }
-    if yname == "hop-address" { return "HopAddress" }
-    if yname == "hop-hostname" { return "HopHostname" }
-    if yname == "probes" { return "Probes" }
-    return ""
+    hop.EntityData.Children = make(map[string]types.YChild)
+    hop.EntityData.Children["probes"] = types.YChild{"Probes", &hop.Probes}
+    hop.EntityData.Leafs = make(map[string]types.YLeaf)
+    hop.EntityData.Leafs["hop-index"] = types.YLeaf{"HopIndex", hop.HopIndex}
+    hop.EntityData.Leafs["hop-address"] = types.YLeaf{"HopAddress", hop.HopAddress}
+    hop.EntityData.Leafs["hop-hostname"] = types.YLeaf{"HopHostname", hop.HopHostname}
+    return &(hop.EntityData)
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetSegmentPath() string {
-    return "hops" + "[hop-index='" + fmt.Sprintf("%v", hops.HopIndex) + "']"
+// Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes
+type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of
+    // Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe.
+    Probe []Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "probes" {
-        for _, c := range hops.Probes {
-            if hops.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes{}
-        hops.Probes = append(hops.Probes, child)
-        return &hops.Probes[len(hops.Probes)-1]
+func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes) GetEntityData() *types.CommonEntityData {
+    probes.EntityData.YFilter = probes.YFilter
+    probes.EntityData.YangName = "probes"
+    probes.EntityData.BundleName = "cisco_ios_xr"
+    probes.EntityData.ParentYangName = "hop"
+    probes.EntityData.SegmentPath = "probes"
+    probes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    probes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    probes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    probes.EntityData.Children = make(map[string]types.YChild)
+    probes.EntityData.Children["probe"] = types.YChild{"Probe", nil}
+    for i := range probes.Probe {
+        probes.EntityData.Children[types.GetSegmentPath(&probes.Probe[i])] = types.YChild{"Probe", &probes.Probe[i]}
     }
-    return nil
+    probes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(probes.EntityData)
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range hops.Probes {
-        children[hops.Probes[i].GetSegmentPath()] = &hops.Probes[i]
-    }
-    return children
-}
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hop-index"] = hops.HopIndex
-    leafs["hop-address"] = hops.HopAddress
-    leafs["hop-hostname"] = hops.HopHostname
-    return leafs
-}
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetYangName() string { return "hops" }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) SetParent(parent types.Entity) { hops.parent = parent }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetParent() types.Entity { return hops.parent }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv4_Hops) GetParentYangName() string { return "ipv4" }
-
-// Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes
-type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes struct {
-    parent types.Entity
+// Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe
+type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of the probe. The type is interface{} with
@@ -804,63 +503,29 @@ type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes struct {
     HopHostname interface{}
 }
 
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetFilter() yfilter.YFilter { return probes.YFilter }
+func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) GetEntityData() *types.CommonEntityData {
+    probe.EntityData.YFilter = probe.YFilter
+    probe.EntityData.YangName = "probe"
+    probe.EntityData.BundleName = "cisco_ios_xr"
+    probe.EntityData.ParentYangName = "probes"
+    probe.EntityData.SegmentPath = "probe" + "[probe-index='" + fmt.Sprintf("%v", probe.ProbeIndex) + "']"
+    probe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    probe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) SetFilter(yf yfilter.YFilter) { probes.YFilter = yf }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetGoName(yname string) string {
-    if yname == "probe-index" { return "ProbeIndex" }
-    if yname == "result" { return "Result" }
-    if yname == "delta-time" { return "DeltaTime" }
-    if yname == "hop-address" { return "HopAddress" }
-    if yname == "hop-hostname" { return "HopHostname" }
-    return ""
+    probe.EntityData.Children = make(map[string]types.YChild)
+    probe.EntityData.Leafs = make(map[string]types.YLeaf)
+    probe.EntityData.Leafs["probe-index"] = types.YLeaf{"ProbeIndex", probe.ProbeIndex}
+    probe.EntityData.Leafs["result"] = types.YLeaf{"Result", probe.Result}
+    probe.EntityData.Leafs["delta-time"] = types.YLeaf{"DeltaTime", probe.DeltaTime}
+    probe.EntityData.Leafs["hop-address"] = types.YLeaf{"HopAddress", probe.HopAddress}
+    probe.EntityData.Leafs["hop-hostname"] = types.YLeaf{"HopHostname", probe.HopHostname}
+    return &(probe.EntityData)
 }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetSegmentPath() string {
-    return "probes" + "[probe-index='" + fmt.Sprintf("%v", probes.ProbeIndex) + "']"
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["probe-index"] = probes.ProbeIndex
-    leafs["result"] = probes.Result
-    leafs["delta-time"] = probes.DeltaTime
-    leafs["hop-address"] = probes.HopAddress
-    leafs["hop-hostname"] = probes.HopHostname
-    return leafs
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetYangName() string { return "probes" }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) SetParent(parent types.Entity) { probes.parent = parent }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetParent() types.Entity { return probes.parent }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Probes) GetParentYangName() string { return "hops" }
 
 // Traceroute_Output_TracerouteResponse_Ipv6
 type Traceroute_Output_TracerouteResponse_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Destination address or hostname. The type is string.
@@ -869,75 +534,59 @@ type Traceroute_Output_TracerouteResponse_Ipv6 struct {
     // Verbose output. The type is string.
     VerboseOutput interface{}
 
-    // The type is slice of Traceroute_Output_TracerouteResponse_Ipv6_Hops.
-    Hops []Traceroute_Output_TracerouteResponse_Ipv6_Hops
+    
+    Hops Traceroute_Output_TracerouteResponse_Ipv6_Hops
 }
 
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "traceroute-response"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "verbose-output" { return "VerboseOutput" }
-    if yname == "hops" { return "Hops" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Children["hops"] = types.YChild{"Hops", &ipv6.Hops}
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv6.Destination}
+    ipv6.EntityData.Leafs["verbose-output"] = types.YLeaf{"VerboseOutput", ipv6.VerboseOutput}
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hops" {
-        for _, c := range ipv6.Hops {
-            if ipv6.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Traceroute_Output_TracerouteResponse_Ipv6_Hops{}
-        ipv6.Hops = append(ipv6.Hops, child)
-        return &ipv6.Hops[len(ipv6.Hops)-1]
-    }
-    return nil
-}
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range ipv6.Hops {
-        children[ipv6.Hops[i].GetSegmentPath()] = &ipv6.Hops[i]
-    }
-    return children
-}
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv6.Destination
-    leafs["verbose-output"] = ipv6.VerboseOutput
-    return leafs
-}
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *Traceroute_Output_TracerouteResponse_Ipv6) GetParentYangName() string { return "traceroute-response" }
 
 // Traceroute_Output_TracerouteResponse_Ipv6_Hops
 type Traceroute_Output_TracerouteResponse_Ipv6_Hops struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop.
+    Hop []Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop
+}
+
+func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetEntityData() *types.CommonEntityData {
+    hops.EntityData.YFilter = hops.YFilter
+    hops.EntityData.YangName = "hops"
+    hops.EntityData.BundleName = "cisco_ios_xr"
+    hops.EntityData.ParentYangName = "ipv6"
+    hops.EntityData.SegmentPath = "hops"
+    hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hops.EntityData.Children = make(map[string]types.YChild)
+    hops.EntityData.Children["hop"] = types.YChild{"Hop", nil}
+    for i := range hops.Hop {
+        hops.EntityData.Children[types.GetSegmentPath(&hops.Hop[i])] = types.YChild{"Hop", &hops.Hop[i]}
+    }
+    hops.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hops.EntityData)
+}
+
+// Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop
+type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of the hop. The type is interface{} with
@@ -950,77 +599,61 @@ type Traceroute_Output_TracerouteResponse_Ipv6_Hops struct {
     // Hostname of the hop. The type is string.
     HopHostname interface{}
 
-    // The type is slice of Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes.
-    Probes []Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes
+    
+    Probes Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetFilter() yfilter.YFilter { return hops.YFilter }
+func (hop *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop) GetEntityData() *types.CommonEntityData {
+    hop.EntityData.YFilter = hop.YFilter
+    hop.EntityData.YangName = "hop"
+    hop.EntityData.BundleName = "cisco_ios_xr"
+    hop.EntityData.ParentYangName = "hops"
+    hop.EntityData.SegmentPath = "hop" + "[hop-index='" + fmt.Sprintf("%v", hop.HopIndex) + "']"
+    hop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) SetFilter(yf yfilter.YFilter) { hops.YFilter = yf }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetGoName(yname string) string {
-    if yname == "hop-index" { return "HopIndex" }
-    if yname == "hop-address" { return "HopAddress" }
-    if yname == "hop-hostname" { return "HopHostname" }
-    if yname == "probes" { return "Probes" }
-    return ""
+    hop.EntityData.Children = make(map[string]types.YChild)
+    hop.EntityData.Children["probes"] = types.YChild{"Probes", &hop.Probes}
+    hop.EntityData.Leafs = make(map[string]types.YLeaf)
+    hop.EntityData.Leafs["hop-index"] = types.YLeaf{"HopIndex", hop.HopIndex}
+    hop.EntityData.Leafs["hop-address"] = types.YLeaf{"HopAddress", hop.HopAddress}
+    hop.EntityData.Leafs["hop-hostname"] = types.YLeaf{"HopHostname", hop.HopHostname}
+    return &(hop.EntityData)
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetSegmentPath() string {
-    return "hops" + "[hop-index='" + fmt.Sprintf("%v", hops.HopIndex) + "']"
+// Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes
+type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is slice of
+    // Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe.
+    Probe []Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "probes" {
-        for _, c := range hops.Probes {
-            if hops.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes{}
-        hops.Probes = append(hops.Probes, child)
-        return &hops.Probes[len(hops.Probes)-1]
+func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes) GetEntityData() *types.CommonEntityData {
+    probes.EntityData.YFilter = probes.YFilter
+    probes.EntityData.YangName = "probes"
+    probes.EntityData.BundleName = "cisco_ios_xr"
+    probes.EntityData.ParentYangName = "hop"
+    probes.EntityData.SegmentPath = "probes"
+    probes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    probes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    probes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    probes.EntityData.Children = make(map[string]types.YChild)
+    probes.EntityData.Children["probe"] = types.YChild{"Probe", nil}
+    for i := range probes.Probe {
+        probes.EntityData.Children[types.GetSegmentPath(&probes.Probe[i])] = types.YChild{"Probe", &probes.Probe[i]}
     }
-    return nil
+    probes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(probes.EntityData)
 }
 
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range hops.Probes {
-        children[hops.Probes[i].GetSegmentPath()] = &hops.Probes[i]
-    }
-    return children
-}
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hop-index"] = hops.HopIndex
-    leafs["hop-address"] = hops.HopAddress
-    leafs["hop-hostname"] = hops.HopHostname
-    return leafs
-}
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetYangName() string { return "hops" }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) SetParent(parent types.Entity) { hops.parent = parent }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetParent() types.Entity { return hops.parent }
-
-func (hops *Traceroute_Output_TracerouteResponse_Ipv6_Hops) GetParentYangName() string { return "ipv6" }
-
-// Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes
-type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes struct {
-    parent types.Entity
+// Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe
+type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of the probe. The type is interface{} with
@@ -1040,57 +673,23 @@ type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes struct {
     HopHostname interface{}
 }
 
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetFilter() yfilter.YFilter { return probes.YFilter }
+func (probe *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe) GetEntityData() *types.CommonEntityData {
+    probe.EntityData.YFilter = probe.YFilter
+    probe.EntityData.YangName = "probe"
+    probe.EntityData.BundleName = "cisco_ios_xr"
+    probe.EntityData.ParentYangName = "probes"
+    probe.EntityData.SegmentPath = "probe" + "[probe-index='" + fmt.Sprintf("%v", probe.ProbeIndex) + "']"
+    probe.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    probe.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) SetFilter(yf yfilter.YFilter) { probes.YFilter = yf }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetGoName(yname string) string {
-    if yname == "probe-index" { return "ProbeIndex" }
-    if yname == "result" { return "Result" }
-    if yname == "delta-time" { return "DeltaTime" }
-    if yname == "hop-address" { return "HopAddress" }
-    if yname == "hop-hostname" { return "HopHostname" }
-    return ""
+    probe.EntityData.Children = make(map[string]types.YChild)
+    probe.EntityData.Leafs = make(map[string]types.YLeaf)
+    probe.EntityData.Leafs["probe-index"] = types.YLeaf{"ProbeIndex", probe.ProbeIndex}
+    probe.EntityData.Leafs["result"] = types.YLeaf{"Result", probe.Result}
+    probe.EntityData.Leafs["delta-time"] = types.YLeaf{"DeltaTime", probe.DeltaTime}
+    probe.EntityData.Leafs["hop-address"] = types.YLeaf{"HopAddress", probe.HopAddress}
+    probe.EntityData.Leafs["hop-hostname"] = types.YLeaf{"HopHostname", probe.HopHostname}
+    return &(probe.EntityData)
 }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetSegmentPath() string {
-    return "probes" + "[probe-index='" + fmt.Sprintf("%v", probes.ProbeIndex) + "']"
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["probe-index"] = probes.ProbeIndex
-    leafs["result"] = probes.Result
-    leafs["delta-time"] = probes.DeltaTime
-    leafs["hop-address"] = probes.HopAddress
-    leafs["hop-hostname"] = probes.HopHostname
-    return leafs
-}
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetYangName() string { return "probes" }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) SetParent(parent types.Entity) { probes.parent = parent }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetParent() types.Entity { return probes.parent }
-
-func (probes *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Probes) GetParentYangName() string { return "hops" }
 

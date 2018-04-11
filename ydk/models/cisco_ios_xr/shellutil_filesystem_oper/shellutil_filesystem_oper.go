@@ -27,149 +27,70 @@ func init() {
 // FileSystem
 // List of filesystems
 type FileSystem struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node ID. The type is slice of FileSystem_Node.
     Node []FileSystem_Node
 }
 
-func (fileSystem *FileSystem) GetFilter() yfilter.YFilter { return fileSystem.YFilter }
+func (fileSystem *FileSystem) GetEntityData() *types.CommonEntityData {
+    fileSystem.EntityData.YFilter = fileSystem.YFilter
+    fileSystem.EntityData.YangName = "file-system"
+    fileSystem.EntityData.BundleName = "cisco_ios_xr"
+    fileSystem.EntityData.ParentYangName = "Cisco-IOS-XR-shellutil-filesystem-oper"
+    fileSystem.EntityData.SegmentPath = "Cisco-IOS-XR-shellutil-filesystem-oper:file-system"
+    fileSystem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fileSystem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fileSystem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fileSystem *FileSystem) SetFilter(yf yfilter.YFilter) { fileSystem.YFilter = yf }
-
-func (fileSystem *FileSystem) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (fileSystem *FileSystem) GetSegmentPath() string {
-    return "Cisco-IOS-XR-shellutil-filesystem-oper:file-system"
-}
-
-func (fileSystem *FileSystem) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range fileSystem.Node {
-            if fileSystem.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := FileSystem_Node{}
-        fileSystem.Node = append(fileSystem.Node, child)
-        return &fileSystem.Node[len(fileSystem.Node)-1]
-    }
-    return nil
-}
-
-func (fileSystem *FileSystem) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    fileSystem.EntityData.Children = make(map[string]types.YChild)
+    fileSystem.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range fileSystem.Node {
-        children[fileSystem.Node[i].GetSegmentPath()] = &fileSystem.Node[i]
+        fileSystem.EntityData.Children[types.GetSegmentPath(&fileSystem.Node[i])] = types.YChild{"Node", &fileSystem.Node[i]}
     }
-    return children
+    fileSystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fileSystem.EntityData)
 }
-
-func (fileSystem *FileSystem) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fileSystem *FileSystem) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fileSystem *FileSystem) GetYangName() string { return "file-system" }
-
-func (fileSystem *FileSystem) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fileSystem *FileSystem) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fileSystem *FileSystem) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fileSystem *FileSystem) SetParent(parent types.Entity) { fileSystem.parent = parent }
-
-func (fileSystem *FileSystem) GetParent() types.Entity { return fileSystem.parent }
-
-func (fileSystem *FileSystem) GetParentYangName() string { return "Cisco-IOS-XR-shellutil-filesystem-oper" }
 
 // FileSystem_Node
 // Node ID
 type FileSystem_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Available file systems. The type is slice of FileSystem_Node_FileSystem.
-    FileSystem []FileSystem_Node_FileSystem
+    FileSystem []FileSystem_Node_FileSystem_
 }
 
-func (node *FileSystem_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *FileSystem_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "file-system"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *FileSystem_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *FileSystem_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "file-system" { return "FileSystem" }
-    return ""
-}
-
-func (node *FileSystem_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *FileSystem_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "file-system" {
-        for _, c := range node.FileSystem {
-            if node.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := FileSystem_Node_FileSystem{}
-        node.FileSystem = append(node.FileSystem, child)
-        return &node.FileSystem[len(node.FileSystem)-1]
-    }
-    return nil
-}
-
-func (node *FileSystem_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["file-system"] = types.YChild{"FileSystem", nil}
     for i := range node.FileSystem {
-        children[node.FileSystem[i].GetSegmentPath()] = &node.FileSystem[i]
+        node.EntityData.Children[types.GetSegmentPath(&node.FileSystem[i])] = types.YChild{"FileSystem", &node.FileSystem[i]}
     }
-    return children
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
 
-func (node *FileSystem_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *FileSystem_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *FileSystem_Node) GetYangName() string { return "node" }
-
-func (node *FileSystem_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *FileSystem_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *FileSystem_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *FileSystem_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *FileSystem_Node) GetParent() types.Entity { return node.parent }
-
-func (node *FileSystem_Node) GetParentYangName() string { return "file-system" }
-
-// FileSystem_Node_FileSystem
+// FileSystem_Node_FileSystem_
 // Available file systems
-type FileSystem_Node_FileSystem struct {
-    parent types.Entity
+type FileSystem_Node_FileSystem_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Size of the file system in bytes. The type is string. Units are byte.
@@ -179,7 +100,7 @@ type FileSystem_Node_FileSystem struct {
     Free interface{}
 
     // Type of file system. The type is string.
-    Type interface{}
+    Type_ interface{}
 
     // Flags of file system. The type is string.
     Flags interface{}
@@ -188,57 +109,23 @@ type FileSystem_Node_FileSystem struct {
     Prefixes interface{}
 }
 
-func (fileSystem *FileSystem_Node_FileSystem) GetFilter() yfilter.YFilter { return fileSystem.YFilter }
+func (fileSystem_ *FileSystem_Node_FileSystem_) GetEntityData() *types.CommonEntityData {
+    fileSystem_.EntityData.YFilter = fileSystem_.YFilter
+    fileSystem_.EntityData.YangName = "file-system"
+    fileSystem_.EntityData.BundleName = "cisco_ios_xr"
+    fileSystem_.EntityData.ParentYangName = "node"
+    fileSystem_.EntityData.SegmentPath = "file-system"
+    fileSystem_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fileSystem_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fileSystem_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fileSystem *FileSystem_Node_FileSystem) SetFilter(yf yfilter.YFilter) { fileSystem.YFilter = yf }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetGoName(yname string) string {
-    if yname == "size" { return "Size" }
-    if yname == "free" { return "Free" }
-    if yname == "type" { return "Type" }
-    if yname == "flags" { return "Flags" }
-    if yname == "prefixes" { return "Prefixes" }
-    return ""
+    fileSystem_.EntityData.Children = make(map[string]types.YChild)
+    fileSystem_.EntityData.Leafs = make(map[string]types.YLeaf)
+    fileSystem_.EntityData.Leafs["size"] = types.YLeaf{"Size", fileSystem_.Size}
+    fileSystem_.EntityData.Leafs["free"] = types.YLeaf{"Free", fileSystem_.Free}
+    fileSystem_.EntityData.Leafs["type"] = types.YLeaf{"Type_", fileSystem_.Type_}
+    fileSystem_.EntityData.Leafs["flags"] = types.YLeaf{"Flags", fileSystem_.Flags}
+    fileSystem_.EntityData.Leafs["prefixes"] = types.YLeaf{"Prefixes", fileSystem_.Prefixes}
+    return &(fileSystem_.EntityData)
 }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetSegmentPath() string {
-    return "file-system"
-}
-
-func (fileSystem *FileSystem_Node_FileSystem) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fileSystem *FileSystem_Node_FileSystem) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fileSystem *FileSystem_Node_FileSystem) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["size"] = fileSystem.Size
-    leafs["free"] = fileSystem.Free
-    leafs["type"] = fileSystem.Type
-    leafs["flags"] = fileSystem.Flags
-    leafs["prefixes"] = fileSystem.Prefixes
-    return leafs
-}
-
-func (fileSystem *FileSystem_Node_FileSystem) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetYangName() string { return "file-system" }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fileSystem *FileSystem_Node_FileSystem) SetParent(parent types.Entity) { fileSystem.parent = parent }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetParent() types.Entity { return fileSystem.parent }
-
-func (fileSystem *FileSystem_Node_FileSystem) GetParentYangName() string { return "node" }
 

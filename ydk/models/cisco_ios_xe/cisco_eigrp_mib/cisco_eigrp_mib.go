@@ -59,7 +59,7 @@ func init() {
 
 // CISCOEIGRPMIB
 type CISCOEIGRPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains information on those VPN's configured to run EIGRP. 
@@ -93,74 +93,25 @@ type CISCOEIGRPMIB struct {
     Ceigrpinterfacetable CISCOEIGRPMIB_Ceigrpinterfacetable
 }
 
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetFilter() yfilter.YFilter { return cISCOEIGRPMIB.YFilter }
+func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOEIGRPMIB.EntityData.YFilter = cISCOEIGRPMIB.YFilter
+    cISCOEIGRPMIB.EntityData.YangName = "CISCO-EIGRP-MIB"
+    cISCOEIGRPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOEIGRPMIB.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
+    cISCOEIGRPMIB.EntityData.SegmentPath = "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB"
+    cISCOEIGRPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOEIGRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOEIGRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) SetFilter(yf yfilter.YFilter) { cISCOEIGRPMIB.YFilter = yf }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetGoName(yname string) string {
-    if yname == "cEigrpVpnTable" { return "Ceigrpvpntable" }
-    if yname == "cEigrpTraffStatsTable" { return "Ceigrptraffstatstable" }
-    if yname == "cEigrpTopoTable" { return "Ceigrptopotable" }
-    if yname == "cEigrpPeerTable" { return "Ceigrppeertable" }
-    if yname == "cEigrpInterfaceTable" { return "Ceigrpinterfacetable" }
-    return ""
+    cISCOEIGRPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOEIGRPMIB.EntityData.Children["cEigrpVpnTable"] = types.YChild{"Ceigrpvpntable", &cISCOEIGRPMIB.Ceigrpvpntable}
+    cISCOEIGRPMIB.EntityData.Children["cEigrpTraffStatsTable"] = types.YChild{"Ceigrptraffstatstable", &cISCOEIGRPMIB.Ceigrptraffstatstable}
+    cISCOEIGRPMIB.EntityData.Children["cEigrpTopoTable"] = types.YChild{"Ceigrptopotable", &cISCOEIGRPMIB.Ceigrptopotable}
+    cISCOEIGRPMIB.EntityData.Children["cEigrpPeerTable"] = types.YChild{"Ceigrppeertable", &cISCOEIGRPMIB.Ceigrppeertable}
+    cISCOEIGRPMIB.EntityData.Children["cEigrpInterfaceTable"] = types.YChild{"Ceigrpinterfacetable", &cISCOEIGRPMIB.Ceigrpinterfacetable}
+    cISCOEIGRPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOEIGRPMIB.EntityData)
 }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetSegmentPath() string {
-    return "CISCO-EIGRP-MIB:CISCO-EIGRP-MIB"
-}
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEigrpVpnTable" {
-        return &cISCOEIGRPMIB.Ceigrpvpntable
-    }
-    if childYangName == "cEigrpTraffStatsTable" {
-        return &cISCOEIGRPMIB.Ceigrptraffstatstable
-    }
-    if childYangName == "cEigrpTopoTable" {
-        return &cISCOEIGRPMIB.Ceigrptopotable
-    }
-    if childYangName == "cEigrpPeerTable" {
-        return &cISCOEIGRPMIB.Ceigrppeertable
-    }
-    if childYangName == "cEigrpInterfaceTable" {
-        return &cISCOEIGRPMIB.Ceigrpinterfacetable
-    }
-    return nil
-}
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cEigrpVpnTable"] = &cISCOEIGRPMIB.Ceigrpvpntable
-    children["cEigrpTraffStatsTable"] = &cISCOEIGRPMIB.Ceigrptraffstatstable
-    children["cEigrpTopoTable"] = &cISCOEIGRPMIB.Ceigrptopotable
-    children["cEigrpPeerTable"] = &cISCOEIGRPMIB.Ceigrppeertable
-    children["cEigrpInterfaceTable"] = &cISCOEIGRPMIB.Ceigrpinterfacetable
-    return children
-}
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetYangName() string { return "CISCO-EIGRP-MIB" }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) SetParent(parent types.Entity) { cISCOEIGRPMIB.parent = parent }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetParent() types.Entity { return cISCOEIGRPMIB.parent }
-
-func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetParentYangName() string { return "CISCO-EIGRP-MIB" }
 
 // CISCOEIGRPMIB_Ceigrpvpntable
 // This table contains information on those VPN's configured
@@ -170,7 +121,7 @@ func (cISCOEIGRPMIB *CISCOEIGRPMIB) GetParentYangName() string { return "CISCO-E
 // with it.  This routing table is identified internally
 // by a unique integer value.
 type CISCOEIGRPMIB_Ceigrpvpntable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information relating to a single VPN which is configured to run EIGRP. The
@@ -178,69 +129,30 @@ type CISCOEIGRPMIB_Ceigrpvpntable struct {
     Ceigrpvpnentry []CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry
 }
 
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetFilter() yfilter.YFilter { return ceigrpvpntable.YFilter }
+func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetEntityData() *types.CommonEntityData {
+    ceigrpvpntable.EntityData.YFilter = ceigrpvpntable.YFilter
+    ceigrpvpntable.EntityData.YangName = "cEigrpVpnTable"
+    ceigrpvpntable.EntityData.BundleName = "cisco_ios_xe"
+    ceigrpvpntable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
+    ceigrpvpntable.EntityData.SegmentPath = "cEigrpVpnTable"
+    ceigrpvpntable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrpvpntable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrpvpntable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) SetFilter(yf yfilter.YFilter) { ceigrpvpntable.YFilter = yf }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetGoName(yname string) string {
-    if yname == "cEigrpVpnEntry" { return "Ceigrpvpnentry" }
-    return ""
-}
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetSegmentPath() string {
-    return "cEigrpVpnTable"
-}
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEigrpVpnEntry" {
-        for _, c := range ceigrpvpntable.Ceigrpvpnentry {
-            if ceigrpvpntable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry{}
-        ceigrpvpntable.Ceigrpvpnentry = append(ceigrpvpntable.Ceigrpvpnentry, child)
-        return &ceigrpvpntable.Ceigrpvpnentry[len(ceigrpvpntable.Ceigrpvpnentry)-1]
-    }
-    return nil
-}
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceigrpvpntable.EntityData.Children = make(map[string]types.YChild)
+    ceigrpvpntable.EntityData.Children["cEigrpVpnEntry"] = types.YChild{"Ceigrpvpnentry", nil}
     for i := range ceigrpvpntable.Ceigrpvpnentry {
-        children[ceigrpvpntable.Ceigrpvpnentry[i].GetSegmentPath()] = &ceigrpvpntable.Ceigrpvpnentry[i]
+        ceigrpvpntable.EntityData.Children[types.GetSegmentPath(&ceigrpvpntable.Ceigrpvpnentry[i])] = types.YChild{"Ceigrpvpnentry", &ceigrpvpntable.Ceigrpvpnentry[i]}
     }
-    return children
+    ceigrpvpntable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceigrpvpntable.EntityData)
 }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetYangName() string { return "cEigrpVpnTable" }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) SetParent(parent types.Entity) { ceigrpvpntable.parent = parent }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetParent() types.Entity { return ceigrpvpntable.parent }
-
-func (ceigrpvpntable *CISCOEIGRPMIB_Ceigrpvpntable) GetParentYangName() string { return "CISCO-EIGRP-MIB" }
 
 // CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry
 // Information relating to a single VPN which is configured
 // to run EIGRP.
 type CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The unique VPN identifier.  This is a unique
@@ -253,59 +165,28 @@ type CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry struct {
     Ceigrpvpnname interface{}
 }
 
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetFilter() yfilter.YFilter { return ceigrpvpnentry.YFilter }
+func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetEntityData() *types.CommonEntityData {
+    ceigrpvpnentry.EntityData.YFilter = ceigrpvpnentry.YFilter
+    ceigrpvpnentry.EntityData.YangName = "cEigrpVpnEntry"
+    ceigrpvpnentry.EntityData.BundleName = "cisco_ios_xe"
+    ceigrpvpnentry.EntityData.ParentYangName = "cEigrpVpnTable"
+    ceigrpvpnentry.EntityData.SegmentPath = "cEigrpVpnEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrpvpnentry.Ceigrpvpnid) + "']"
+    ceigrpvpnentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrpvpnentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrpvpnentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) SetFilter(yf yfilter.YFilter) { ceigrpvpnentry.YFilter = yf }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetGoName(yname string) string {
-    if yname == "cEigrpVpnId" { return "Ceigrpvpnid" }
-    if yname == "cEigrpVpnName" { return "Ceigrpvpnname" }
-    return ""
+    ceigrpvpnentry.EntityData.Children = make(map[string]types.YChild)
+    ceigrpvpnentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceigrpvpnentry.EntityData.Leafs["cEigrpVpnId"] = types.YLeaf{"Ceigrpvpnid", ceigrpvpnentry.Ceigrpvpnid}
+    ceigrpvpnentry.EntityData.Leafs["cEigrpVpnName"] = types.YLeaf{"Ceigrpvpnname", ceigrpvpnentry.Ceigrpvpnname}
+    return &(ceigrpvpnentry.EntityData)
 }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetSegmentPath() string {
-    return "cEigrpVpnEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrpvpnentry.Ceigrpvpnid) + "']"
-}
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEigrpVpnId"] = ceigrpvpnentry.Ceigrpvpnid
-    leafs["cEigrpVpnName"] = ceigrpvpnentry.Ceigrpvpnname
-    return leafs
-}
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetYangName() string { return "cEigrpVpnEntry" }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) SetParent(parent types.Entity) { ceigrpvpnentry.parent = parent }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetParent() types.Entity { return ceigrpvpnentry.parent }
-
-func (ceigrpvpnentry *CISCOEIGRPMIB_Ceigrpvpntable_Ceigrpvpnentry) GetParentYangName() string { return "cEigrpVpnTable" }
 
 // CISCOEIGRPMIB_Ceigrptraffstatstable
 // Table of EIGRP traffic statistics and information
 // associated with all EIGRP autonomous systems.
 type CISCOEIGRPMIB_Ceigrptraffstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The set of statistics and information for a single EIGRP Autonomous System.
@@ -314,69 +195,30 @@ type CISCOEIGRPMIB_Ceigrptraffstatstable struct {
     Ceigrptraffstatsentry []CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry
 }
 
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetFilter() yfilter.YFilter { return ceigrptraffstatstable.YFilter }
+func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetEntityData() *types.CommonEntityData {
+    ceigrptraffstatstable.EntityData.YFilter = ceigrptraffstatstable.YFilter
+    ceigrptraffstatstable.EntityData.YangName = "cEigrpTraffStatsTable"
+    ceigrptraffstatstable.EntityData.BundleName = "cisco_ios_xe"
+    ceigrptraffstatstable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
+    ceigrptraffstatstable.EntityData.SegmentPath = "cEigrpTraffStatsTable"
+    ceigrptraffstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrptraffstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrptraffstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) SetFilter(yf yfilter.YFilter) { ceigrptraffstatstable.YFilter = yf }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetGoName(yname string) string {
-    if yname == "cEigrpTraffStatsEntry" { return "Ceigrptraffstatsentry" }
-    return ""
-}
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetSegmentPath() string {
-    return "cEigrpTraffStatsTable"
-}
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEigrpTraffStatsEntry" {
-        for _, c := range ceigrptraffstatstable.Ceigrptraffstatsentry {
-            if ceigrptraffstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry{}
-        ceigrptraffstatstable.Ceigrptraffstatsentry = append(ceigrptraffstatstable.Ceigrptraffstatsentry, child)
-        return &ceigrptraffstatstable.Ceigrptraffstatsentry[len(ceigrptraffstatstable.Ceigrptraffstatsentry)-1]
-    }
-    return nil
-}
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceigrptraffstatstable.EntityData.Children = make(map[string]types.YChild)
+    ceigrptraffstatstable.EntityData.Children["cEigrpTraffStatsEntry"] = types.YChild{"Ceigrptraffstatsentry", nil}
     for i := range ceigrptraffstatstable.Ceigrptraffstatsentry {
-        children[ceigrptraffstatstable.Ceigrptraffstatsentry[i].GetSegmentPath()] = &ceigrptraffstatstable.Ceigrptraffstatsentry[i]
+        ceigrptraffstatstable.EntityData.Children[types.GetSegmentPath(&ceigrptraffstatstable.Ceigrptraffstatsentry[i])] = types.YChild{"Ceigrptraffstatsentry", &ceigrptraffstatstable.Ceigrptraffstatsentry[i]}
     }
-    return children
+    ceigrptraffstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceigrptraffstatstable.EntityData)
 }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetYangName() string { return "cEigrpTraffStatsTable" }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) SetParent(parent types.Entity) { ceigrptraffstatstable.parent = parent }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetParent() types.Entity { return ceigrptraffstatstable.parent }
-
-func (ceigrptraffstatstable *CISCOEIGRPMIB_Ceigrptraffstatstable) GetParentYangName() string { return "CISCO-EIGRP-MIB" }
 
 // CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry
 // The set of statistics and information for a single EIGRP
 // Autonomous System.
 type CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -515,97 +357,44 @@ type CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry struct {
     Ceigrpxmitdummies interface{}
 }
 
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetFilter() yfilter.YFilter { return ceigrptraffstatsentry.YFilter }
+func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetEntityData() *types.CommonEntityData {
+    ceigrptraffstatsentry.EntityData.YFilter = ceigrptraffstatsentry.YFilter
+    ceigrptraffstatsentry.EntityData.YangName = "cEigrpTraffStatsEntry"
+    ceigrptraffstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    ceigrptraffstatsentry.EntityData.ParentYangName = "cEigrpTraffStatsTable"
+    ceigrptraffstatsentry.EntityData.SegmentPath = "cEigrpTraffStatsEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrptraffstatsentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrptraffstatsentry.Ceigrpasnumber) + "']"
+    ceigrptraffstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrptraffstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrptraffstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) SetFilter(yf yfilter.YFilter) { ceigrptraffstatsentry.YFilter = yf }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetGoName(yname string) string {
-    if yname == "cEigrpVpnId" { return "Ceigrpvpnid" }
-    if yname == "cEigrpAsNumber" { return "Ceigrpasnumber" }
-    if yname == "cEigrpNbrCount" { return "Ceigrpnbrcount" }
-    if yname == "cEigrpHellosSent" { return "Ceigrphellossent" }
-    if yname == "cEigrpHellosRcvd" { return "Ceigrphellosrcvd" }
-    if yname == "cEigrpUpdatesSent" { return "Ceigrpupdatessent" }
-    if yname == "cEigrpUpdatesRcvd" { return "Ceigrpupdatesrcvd" }
-    if yname == "cEigrpQueriesSent" { return "Ceigrpqueriessent" }
-    if yname == "cEigrpQueriesRcvd" { return "Ceigrpqueriesrcvd" }
-    if yname == "cEigrpRepliesSent" { return "Ceigrprepliessent" }
-    if yname == "cEigrpRepliesRcvd" { return "Ceigrprepliesrcvd" }
-    if yname == "cEigrpAcksSent" { return "Ceigrpackssent" }
-    if yname == "cEigrpAcksRcvd" { return "Ceigrpacksrcvd" }
-    if yname == "cEigrpInputQHighMark" { return "Ceigrpinputqhighmark" }
-    if yname == "cEigrpInputQDrops" { return "Ceigrpinputqdrops" }
-    if yname == "cEigrpSiaQueriesSent" { return "Ceigrpsiaqueriessent" }
-    if yname == "cEigrpSiaQueriesRcvd" { return "Ceigrpsiaqueriesrcvd" }
-    if yname == "cEigrpAsRouterIdType" { return "Ceigrpasrouteridtype" }
-    if yname == "cEigrpAsRouterId" { return "Ceigrpasrouterid" }
-    if yname == "cEigrpTopoRoutes" { return "Ceigrptoporoutes" }
-    if yname == "cEigrpHeadSerial" { return "Ceigrpheadserial" }
-    if yname == "cEigrpNextSerial" { return "Ceigrpnextserial" }
-    if yname == "cEigrpXmitPendReplies" { return "Ceigrpxmitpendreplies" }
-    if yname == "cEigrpXmitDummies" { return "Ceigrpxmitdummies" }
-    return ""
+    ceigrptraffstatsentry.EntityData.Children = make(map[string]types.YChild)
+    ceigrptraffstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpVpnId"] = types.YLeaf{"Ceigrpvpnid", ceigrptraffstatsentry.Ceigrpvpnid}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpAsNumber"] = types.YLeaf{"Ceigrpasnumber", ceigrptraffstatsentry.Ceigrpasnumber}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpNbrCount"] = types.YLeaf{"Ceigrpnbrcount", ceigrptraffstatsentry.Ceigrpnbrcount}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpHellosSent"] = types.YLeaf{"Ceigrphellossent", ceigrptraffstatsentry.Ceigrphellossent}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpHellosRcvd"] = types.YLeaf{"Ceigrphellosrcvd", ceigrptraffstatsentry.Ceigrphellosrcvd}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpUpdatesSent"] = types.YLeaf{"Ceigrpupdatessent", ceigrptraffstatsentry.Ceigrpupdatessent}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpUpdatesRcvd"] = types.YLeaf{"Ceigrpupdatesrcvd", ceigrptraffstatsentry.Ceigrpupdatesrcvd}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpQueriesSent"] = types.YLeaf{"Ceigrpqueriessent", ceigrptraffstatsentry.Ceigrpqueriessent}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpQueriesRcvd"] = types.YLeaf{"Ceigrpqueriesrcvd", ceigrptraffstatsentry.Ceigrpqueriesrcvd}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpRepliesSent"] = types.YLeaf{"Ceigrprepliessent", ceigrptraffstatsentry.Ceigrprepliessent}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpRepliesRcvd"] = types.YLeaf{"Ceigrprepliesrcvd", ceigrptraffstatsentry.Ceigrprepliesrcvd}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpAcksSent"] = types.YLeaf{"Ceigrpackssent", ceigrptraffstatsentry.Ceigrpackssent}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpAcksRcvd"] = types.YLeaf{"Ceigrpacksrcvd", ceigrptraffstatsentry.Ceigrpacksrcvd}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpInputQHighMark"] = types.YLeaf{"Ceigrpinputqhighmark", ceigrptraffstatsentry.Ceigrpinputqhighmark}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpInputQDrops"] = types.YLeaf{"Ceigrpinputqdrops", ceigrptraffstatsentry.Ceigrpinputqdrops}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpSiaQueriesSent"] = types.YLeaf{"Ceigrpsiaqueriessent", ceigrptraffstatsentry.Ceigrpsiaqueriessent}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpSiaQueriesRcvd"] = types.YLeaf{"Ceigrpsiaqueriesrcvd", ceigrptraffstatsentry.Ceigrpsiaqueriesrcvd}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpAsRouterIdType"] = types.YLeaf{"Ceigrpasrouteridtype", ceigrptraffstatsentry.Ceigrpasrouteridtype}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpAsRouterId"] = types.YLeaf{"Ceigrpasrouterid", ceigrptraffstatsentry.Ceigrpasrouterid}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpTopoRoutes"] = types.YLeaf{"Ceigrptoporoutes", ceigrptraffstatsentry.Ceigrptoporoutes}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpHeadSerial"] = types.YLeaf{"Ceigrpheadserial", ceigrptraffstatsentry.Ceigrpheadserial}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpNextSerial"] = types.YLeaf{"Ceigrpnextserial", ceigrptraffstatsentry.Ceigrpnextserial}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpXmitPendReplies"] = types.YLeaf{"Ceigrpxmitpendreplies", ceigrptraffstatsentry.Ceigrpxmitpendreplies}
+    ceigrptraffstatsentry.EntityData.Leafs["cEigrpXmitDummies"] = types.YLeaf{"Ceigrpxmitdummies", ceigrptraffstatsentry.Ceigrpxmitdummies}
+    return &(ceigrptraffstatsentry.EntityData)
 }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetSegmentPath() string {
-    return "cEigrpTraffStatsEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrptraffstatsentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrptraffstatsentry.Ceigrpasnumber) + "']"
-}
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEigrpVpnId"] = ceigrptraffstatsentry.Ceigrpvpnid
-    leafs["cEigrpAsNumber"] = ceigrptraffstatsentry.Ceigrpasnumber
-    leafs["cEigrpNbrCount"] = ceigrptraffstatsentry.Ceigrpnbrcount
-    leafs["cEigrpHellosSent"] = ceigrptraffstatsentry.Ceigrphellossent
-    leafs["cEigrpHellosRcvd"] = ceigrptraffstatsentry.Ceigrphellosrcvd
-    leafs["cEigrpUpdatesSent"] = ceigrptraffstatsentry.Ceigrpupdatessent
-    leafs["cEigrpUpdatesRcvd"] = ceigrptraffstatsentry.Ceigrpupdatesrcvd
-    leafs["cEigrpQueriesSent"] = ceigrptraffstatsentry.Ceigrpqueriessent
-    leafs["cEigrpQueriesRcvd"] = ceigrptraffstatsentry.Ceigrpqueriesrcvd
-    leafs["cEigrpRepliesSent"] = ceigrptraffstatsentry.Ceigrprepliessent
-    leafs["cEigrpRepliesRcvd"] = ceigrptraffstatsentry.Ceigrprepliesrcvd
-    leafs["cEigrpAcksSent"] = ceigrptraffstatsentry.Ceigrpackssent
-    leafs["cEigrpAcksRcvd"] = ceigrptraffstatsentry.Ceigrpacksrcvd
-    leafs["cEigrpInputQHighMark"] = ceigrptraffstatsentry.Ceigrpinputqhighmark
-    leafs["cEigrpInputQDrops"] = ceigrptraffstatsentry.Ceigrpinputqdrops
-    leafs["cEigrpSiaQueriesSent"] = ceigrptraffstatsentry.Ceigrpsiaqueriessent
-    leafs["cEigrpSiaQueriesRcvd"] = ceigrptraffstatsentry.Ceigrpsiaqueriesrcvd
-    leafs["cEigrpAsRouterIdType"] = ceigrptraffstatsentry.Ceigrpasrouteridtype
-    leafs["cEigrpAsRouterId"] = ceigrptraffstatsentry.Ceigrpasrouterid
-    leafs["cEigrpTopoRoutes"] = ceigrptraffstatsentry.Ceigrptoporoutes
-    leafs["cEigrpHeadSerial"] = ceigrptraffstatsentry.Ceigrpheadserial
-    leafs["cEigrpNextSerial"] = ceigrptraffstatsentry.Ceigrpnextserial
-    leafs["cEigrpXmitPendReplies"] = ceigrptraffstatsentry.Ceigrpxmitpendreplies
-    leafs["cEigrpXmitDummies"] = ceigrptraffstatsentry.Ceigrpxmitdummies
-    return leafs
-}
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetYangName() string { return "cEigrpTraffStatsEntry" }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) SetParent(parent types.Entity) { ceigrptraffstatsentry.parent = parent }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetParent() types.Entity { return ceigrptraffstatsentry.parent }
-
-func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstatsentry) GetParentYangName() string { return "cEigrpTraffStatsTable" }
 
 // CISCOEIGRPMIB_Ceigrptopotable
 // The table of EIGRP routes and their associated
@@ -614,7 +403,7 @@ func (ceigrptraffstatsentry *CISCOEIGRPMIB_Ceigrptraffstatstable_Ceigrptraffstat
 // the topology table will be indexed by IP network type,
 // IP network number and network mask (prefix) size.
 type CISCOEIGRPMIB_Ceigrptopotable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The entry for a single EIGRP topology table in the given AS. The type is
@@ -622,69 +411,30 @@ type CISCOEIGRPMIB_Ceigrptopotable struct {
     Ceigrptopoentry []CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry
 }
 
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetFilter() yfilter.YFilter { return ceigrptopotable.YFilter }
+func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetEntityData() *types.CommonEntityData {
+    ceigrptopotable.EntityData.YFilter = ceigrptopotable.YFilter
+    ceigrptopotable.EntityData.YangName = "cEigrpTopoTable"
+    ceigrptopotable.EntityData.BundleName = "cisco_ios_xe"
+    ceigrptopotable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
+    ceigrptopotable.EntityData.SegmentPath = "cEigrpTopoTable"
+    ceigrptopotable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrptopotable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrptopotable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) SetFilter(yf yfilter.YFilter) { ceigrptopotable.YFilter = yf }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetGoName(yname string) string {
-    if yname == "cEigrpTopoEntry" { return "Ceigrptopoentry" }
-    return ""
-}
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetSegmentPath() string {
-    return "cEigrpTopoTable"
-}
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEigrpTopoEntry" {
-        for _, c := range ceigrptopotable.Ceigrptopoentry {
-            if ceigrptopotable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry{}
-        ceigrptopotable.Ceigrptopoentry = append(ceigrptopotable.Ceigrptopoentry, child)
-        return &ceigrptopotable.Ceigrptopoentry[len(ceigrptopotable.Ceigrptopoentry)-1]
-    }
-    return nil
-}
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceigrptopotable.EntityData.Children = make(map[string]types.YChild)
+    ceigrptopotable.EntityData.Children["cEigrpTopoEntry"] = types.YChild{"Ceigrptopoentry", nil}
     for i := range ceigrptopotable.Ceigrptopoentry {
-        children[ceigrptopotable.Ceigrptopoentry[i].GetSegmentPath()] = &ceigrptopotable.Ceigrptopoentry[i]
+        ceigrptopotable.EntityData.Children[types.GetSegmentPath(&ceigrptopotable.Ceigrptopoentry[i])] = types.YChild{"Ceigrptopoentry", &ceigrptopotable.Ceigrptopoentry[i]}
     }
-    return children
+    ceigrptopotable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceigrptopotable.EntityData)
 }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetYangName() string { return "cEigrpTopoTable" }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) SetParent(parent types.Entity) { ceigrptopotable.parent = parent }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetParent() types.Entity { return ceigrptopotable.parent }
-
-func (ceigrptopotable *CISCOEIGRPMIB_Ceigrptopotable) GetParentYangName() string { return "CISCO-EIGRP-MIB" }
 
 // CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry
 // The entry for a single EIGRP topology table in the given
 // AS.
 type CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -778,83 +528,37 @@ type CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry struct {
     Ceigrpreportdistance interface{}
 }
 
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetFilter() yfilter.YFilter { return ceigrptopoentry.YFilter }
+func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetEntityData() *types.CommonEntityData {
+    ceigrptopoentry.EntityData.YFilter = ceigrptopoentry.YFilter
+    ceigrptopoentry.EntityData.YangName = "cEigrpTopoEntry"
+    ceigrptopoentry.EntityData.BundleName = "cisco_ios_xe"
+    ceigrptopoentry.EntityData.ParentYangName = "cEigrpTopoTable"
+    ceigrptopoentry.EntityData.SegmentPath = "cEigrpTopoEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpasnumber) + "']" + "[cEigrpDestNetType='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpdestnettype) + "']" + "[cEigrpDestNet='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpdestnet) + "']" + "[cEigrpDestNetPrefixLen='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpdestnetprefixlen) + "']"
+    ceigrptopoentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrptopoentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrptopoentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) SetFilter(yf yfilter.YFilter) { ceigrptopoentry.YFilter = yf }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetGoName(yname string) string {
-    if yname == "cEigrpVpnId" { return "Ceigrpvpnid" }
-    if yname == "cEigrpAsNumber" { return "Ceigrpasnumber" }
-    if yname == "cEigrpDestNetType" { return "Ceigrpdestnettype" }
-    if yname == "cEigrpDestNet" { return "Ceigrpdestnet" }
-    if yname == "cEigrpDestNetPrefixLen" { return "Ceigrpdestnetprefixlen" }
-    if yname == "cEigrpActive" { return "Ceigrpactive" }
-    if yname == "cEigrpStuckInActive" { return "Ceigrpstuckinactive" }
-    if yname == "cEigrpDestSuccessors" { return "Ceigrpdestsuccessors" }
-    if yname == "cEigrpFdistance" { return "Ceigrpfdistance" }
-    if yname == "cEigrpRouteOriginType" { return "Ceigrprouteorigintype" }
-    if yname == "cEigrpRouteOriginAddrType" { return "Ceigrprouteoriginaddrtype" }
-    if yname == "cEigrpRouteOriginAddr" { return "Ceigrprouteoriginaddr" }
-    if yname == "cEigrpNextHopAddressType" { return "Ceigrpnexthopaddresstype" }
-    if yname == "cEigrpNextHopAddress" { return "Ceigrpnexthopaddress" }
-    if yname == "cEigrpNextHopInterface" { return "Ceigrpnexthopinterface" }
-    if yname == "cEigrpDistance" { return "Ceigrpdistance" }
-    if yname == "cEigrpReportDistance" { return "Ceigrpreportdistance" }
-    return ""
+    ceigrptopoentry.EntityData.Children = make(map[string]types.YChild)
+    ceigrptopoentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceigrptopoentry.EntityData.Leafs["cEigrpVpnId"] = types.YLeaf{"Ceigrpvpnid", ceigrptopoentry.Ceigrpvpnid}
+    ceigrptopoentry.EntityData.Leafs["cEigrpAsNumber"] = types.YLeaf{"Ceigrpasnumber", ceigrptopoentry.Ceigrpasnumber}
+    ceigrptopoentry.EntityData.Leafs["cEigrpDestNetType"] = types.YLeaf{"Ceigrpdestnettype", ceigrptopoentry.Ceigrpdestnettype}
+    ceigrptopoentry.EntityData.Leafs["cEigrpDestNet"] = types.YLeaf{"Ceigrpdestnet", ceigrptopoentry.Ceigrpdestnet}
+    ceigrptopoentry.EntityData.Leafs["cEigrpDestNetPrefixLen"] = types.YLeaf{"Ceigrpdestnetprefixlen", ceigrptopoentry.Ceigrpdestnetprefixlen}
+    ceigrptopoentry.EntityData.Leafs["cEigrpActive"] = types.YLeaf{"Ceigrpactive", ceigrptopoentry.Ceigrpactive}
+    ceigrptopoentry.EntityData.Leafs["cEigrpStuckInActive"] = types.YLeaf{"Ceigrpstuckinactive", ceigrptopoentry.Ceigrpstuckinactive}
+    ceigrptopoentry.EntityData.Leafs["cEigrpDestSuccessors"] = types.YLeaf{"Ceigrpdestsuccessors", ceigrptopoentry.Ceigrpdestsuccessors}
+    ceigrptopoentry.EntityData.Leafs["cEigrpFdistance"] = types.YLeaf{"Ceigrpfdistance", ceigrptopoentry.Ceigrpfdistance}
+    ceigrptopoentry.EntityData.Leafs["cEigrpRouteOriginType"] = types.YLeaf{"Ceigrprouteorigintype", ceigrptopoentry.Ceigrprouteorigintype}
+    ceigrptopoentry.EntityData.Leafs["cEigrpRouteOriginAddrType"] = types.YLeaf{"Ceigrprouteoriginaddrtype", ceigrptopoentry.Ceigrprouteoriginaddrtype}
+    ceigrptopoentry.EntityData.Leafs["cEigrpRouteOriginAddr"] = types.YLeaf{"Ceigrprouteoriginaddr", ceigrptopoentry.Ceigrprouteoriginaddr}
+    ceigrptopoentry.EntityData.Leafs["cEigrpNextHopAddressType"] = types.YLeaf{"Ceigrpnexthopaddresstype", ceigrptopoentry.Ceigrpnexthopaddresstype}
+    ceigrptopoentry.EntityData.Leafs["cEigrpNextHopAddress"] = types.YLeaf{"Ceigrpnexthopaddress", ceigrptopoentry.Ceigrpnexthopaddress}
+    ceigrptopoentry.EntityData.Leafs["cEigrpNextHopInterface"] = types.YLeaf{"Ceigrpnexthopinterface", ceigrptopoentry.Ceigrpnexthopinterface}
+    ceigrptopoentry.EntityData.Leafs["cEigrpDistance"] = types.YLeaf{"Ceigrpdistance", ceigrptopoentry.Ceigrpdistance}
+    ceigrptopoentry.EntityData.Leafs["cEigrpReportDistance"] = types.YLeaf{"Ceigrpreportdistance", ceigrptopoentry.Ceigrpreportdistance}
+    return &(ceigrptopoentry.EntityData)
 }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetSegmentPath() string {
-    return "cEigrpTopoEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpasnumber) + "']" + "[cEigrpDestNetType='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpdestnettype) + "']" + "[cEigrpDestNet='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpdestnet) + "']" + "[cEigrpDestNetPrefixLen='" + fmt.Sprintf("%v", ceigrptopoentry.Ceigrpdestnetprefixlen) + "']"
-}
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEigrpVpnId"] = ceigrptopoentry.Ceigrpvpnid
-    leafs["cEigrpAsNumber"] = ceigrptopoentry.Ceigrpasnumber
-    leafs["cEigrpDestNetType"] = ceigrptopoentry.Ceigrpdestnettype
-    leafs["cEigrpDestNet"] = ceigrptopoentry.Ceigrpdestnet
-    leafs["cEigrpDestNetPrefixLen"] = ceigrptopoentry.Ceigrpdestnetprefixlen
-    leafs["cEigrpActive"] = ceigrptopoentry.Ceigrpactive
-    leafs["cEigrpStuckInActive"] = ceigrptopoentry.Ceigrpstuckinactive
-    leafs["cEigrpDestSuccessors"] = ceigrptopoentry.Ceigrpdestsuccessors
-    leafs["cEigrpFdistance"] = ceigrptopoentry.Ceigrpfdistance
-    leafs["cEigrpRouteOriginType"] = ceigrptopoentry.Ceigrprouteorigintype
-    leafs["cEigrpRouteOriginAddrType"] = ceigrptopoentry.Ceigrprouteoriginaddrtype
-    leafs["cEigrpRouteOriginAddr"] = ceigrptopoentry.Ceigrprouteoriginaddr
-    leafs["cEigrpNextHopAddressType"] = ceigrptopoentry.Ceigrpnexthopaddresstype
-    leafs["cEigrpNextHopAddress"] = ceigrptopoentry.Ceigrpnexthopaddress
-    leafs["cEigrpNextHopInterface"] = ceigrptopoentry.Ceigrpnexthopinterface
-    leafs["cEigrpDistance"] = ceigrptopoentry.Ceigrpdistance
-    leafs["cEigrpReportDistance"] = ceigrptopoentry.Ceigrpreportdistance
-    return leafs
-}
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetYangName() string { return "cEigrpTopoEntry" }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) SetParent(parent types.Entity) { ceigrptopoentry.parent = parent }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetParent() types.Entity { return ceigrptopoentry.parent }
-
-func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetParentYangName() string { return "cEigrpTopoTable" }
 
 // CISCOEIGRPMIB_Ceigrppeertable
 // The table of established EIGRP peers (neighbors) in the
@@ -863,7 +567,7 @@ func (ceigrptopoentry *CISCOEIGRPMIB_Ceigrptopotable_Ceigrptopoentry) GetParentY
 // VPN id.   The peer entry is removed from the table if
 // the peer is declared down.
 type CISCOEIGRPMIB_Ceigrppeertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics and operational parameters for a single peer in the AS. The type
@@ -871,69 +575,30 @@ type CISCOEIGRPMIB_Ceigrppeertable struct {
     Ceigrppeerentry []CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry
 }
 
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetFilter() yfilter.YFilter { return ceigrppeertable.YFilter }
+func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetEntityData() *types.CommonEntityData {
+    ceigrppeertable.EntityData.YFilter = ceigrppeertable.YFilter
+    ceigrppeertable.EntityData.YangName = "cEigrpPeerTable"
+    ceigrppeertable.EntityData.BundleName = "cisco_ios_xe"
+    ceigrppeertable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
+    ceigrppeertable.EntityData.SegmentPath = "cEigrpPeerTable"
+    ceigrppeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrppeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrppeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) SetFilter(yf yfilter.YFilter) { ceigrppeertable.YFilter = yf }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetGoName(yname string) string {
-    if yname == "cEigrpPeerEntry" { return "Ceigrppeerentry" }
-    return ""
-}
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetSegmentPath() string {
-    return "cEigrpPeerTable"
-}
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEigrpPeerEntry" {
-        for _, c := range ceigrppeertable.Ceigrppeerentry {
-            if ceigrppeertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry{}
-        ceigrppeertable.Ceigrppeerentry = append(ceigrppeertable.Ceigrppeerentry, child)
-        return &ceigrppeertable.Ceigrppeerentry[len(ceigrppeertable.Ceigrppeerentry)-1]
-    }
-    return nil
-}
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceigrppeertable.EntityData.Children = make(map[string]types.YChild)
+    ceigrppeertable.EntityData.Children["cEigrpPeerEntry"] = types.YChild{"Ceigrppeerentry", nil}
     for i := range ceigrppeertable.Ceigrppeerentry {
-        children[ceigrppeertable.Ceigrppeerentry[i].GetSegmentPath()] = &ceigrppeertable.Ceigrppeerentry[i]
+        ceigrppeertable.EntityData.Children[types.GetSegmentPath(&ceigrppeertable.Ceigrppeerentry[i])] = types.YChild{"Ceigrppeerentry", &ceigrppeertable.Ceigrppeerentry[i]}
     }
-    return children
+    ceigrppeertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceigrppeertable.EntityData)
 }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetYangName() string { return "cEigrpPeerTable" }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) SetParent(parent types.Entity) { ceigrppeertable.parent = parent }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetParent() types.Entity { return ceigrppeertable.parent }
-
-func (ceigrppeertable *CISCOEIGRPMIB_Ceigrppeertable) GetParentYangName() string { return "CISCO-EIGRP-MIB" }
 
 // CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry
 // Statistics and operational parameters for a single peer
 // in the AS.
 type CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1011,79 +676,35 @@ type CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry struct {
     Ceigrpretries interface{}
 }
 
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetFilter() yfilter.YFilter { return ceigrppeerentry.YFilter }
+func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetEntityData() *types.CommonEntityData {
+    ceigrppeerentry.EntityData.YFilter = ceigrppeerentry.YFilter
+    ceigrppeerentry.EntityData.YangName = "cEigrpPeerEntry"
+    ceigrppeerentry.EntityData.BundleName = "cisco_ios_xe"
+    ceigrppeerentry.EntityData.ParentYangName = "cEigrpPeerTable"
+    ceigrppeerentry.EntityData.SegmentPath = "cEigrpPeerEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrppeerentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrppeerentry.Ceigrpasnumber) + "']" + "[cEigrpHandle='" + fmt.Sprintf("%v", ceigrppeerentry.Ceigrphandle) + "']"
+    ceigrppeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrppeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrppeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) SetFilter(yf yfilter.YFilter) { ceigrppeerentry.YFilter = yf }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetGoName(yname string) string {
-    if yname == "cEigrpVpnId" { return "Ceigrpvpnid" }
-    if yname == "cEigrpAsNumber" { return "Ceigrpasnumber" }
-    if yname == "cEigrpHandle" { return "Ceigrphandle" }
-    if yname == "cEigrpPeerAddrType" { return "Ceigrppeeraddrtype" }
-    if yname == "cEigrpPeerAddr" { return "Ceigrppeeraddr" }
-    if yname == "cEigrpPeerIfIndex" { return "Ceigrppeerifindex" }
-    if yname == "cEigrpHoldTime" { return "Ceigrpholdtime" }
-    if yname == "cEigrpUpTime" { return "Ceigrpuptime" }
-    if yname == "cEigrpSrtt" { return "Ceigrpsrtt" }
-    if yname == "cEigrpRto" { return "Ceigrprto" }
-    if yname == "cEigrpPktsEnqueued" { return "Ceigrppktsenqueued" }
-    if yname == "cEigrpLastSeq" { return "Ceigrplastseq" }
-    if yname == "cEigrpVersion" { return "Ceigrpversion" }
-    if yname == "cEigrpRetrans" { return "Ceigrpretrans" }
-    if yname == "cEigrpRetries" { return "Ceigrpretries" }
-    return ""
+    ceigrppeerentry.EntityData.Children = make(map[string]types.YChild)
+    ceigrppeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceigrppeerentry.EntityData.Leafs["cEigrpVpnId"] = types.YLeaf{"Ceigrpvpnid", ceigrppeerentry.Ceigrpvpnid}
+    ceigrppeerentry.EntityData.Leafs["cEigrpAsNumber"] = types.YLeaf{"Ceigrpasnumber", ceigrppeerentry.Ceigrpasnumber}
+    ceigrppeerentry.EntityData.Leafs["cEigrpHandle"] = types.YLeaf{"Ceigrphandle", ceigrppeerentry.Ceigrphandle}
+    ceigrppeerentry.EntityData.Leafs["cEigrpPeerAddrType"] = types.YLeaf{"Ceigrppeeraddrtype", ceigrppeerentry.Ceigrppeeraddrtype}
+    ceigrppeerentry.EntityData.Leafs["cEigrpPeerAddr"] = types.YLeaf{"Ceigrppeeraddr", ceigrppeerentry.Ceigrppeeraddr}
+    ceigrppeerentry.EntityData.Leafs["cEigrpPeerIfIndex"] = types.YLeaf{"Ceigrppeerifindex", ceigrppeerentry.Ceigrppeerifindex}
+    ceigrppeerentry.EntityData.Leafs["cEigrpHoldTime"] = types.YLeaf{"Ceigrpholdtime", ceigrppeerentry.Ceigrpholdtime}
+    ceigrppeerentry.EntityData.Leafs["cEigrpUpTime"] = types.YLeaf{"Ceigrpuptime", ceigrppeerentry.Ceigrpuptime}
+    ceigrppeerentry.EntityData.Leafs["cEigrpSrtt"] = types.YLeaf{"Ceigrpsrtt", ceigrppeerentry.Ceigrpsrtt}
+    ceigrppeerentry.EntityData.Leafs["cEigrpRto"] = types.YLeaf{"Ceigrprto", ceigrppeerentry.Ceigrprto}
+    ceigrppeerentry.EntityData.Leafs["cEigrpPktsEnqueued"] = types.YLeaf{"Ceigrppktsenqueued", ceigrppeerentry.Ceigrppktsenqueued}
+    ceigrppeerentry.EntityData.Leafs["cEigrpLastSeq"] = types.YLeaf{"Ceigrplastseq", ceigrppeerentry.Ceigrplastseq}
+    ceigrppeerentry.EntityData.Leafs["cEigrpVersion"] = types.YLeaf{"Ceigrpversion", ceigrppeerentry.Ceigrpversion}
+    ceigrppeerentry.EntityData.Leafs["cEigrpRetrans"] = types.YLeaf{"Ceigrpretrans", ceigrppeerentry.Ceigrpretrans}
+    ceigrppeerentry.EntityData.Leafs["cEigrpRetries"] = types.YLeaf{"Ceigrpretries", ceigrppeerentry.Ceigrpretries}
+    return &(ceigrppeerentry.EntityData)
 }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetSegmentPath() string {
-    return "cEigrpPeerEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrppeerentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrppeerentry.Ceigrpasnumber) + "']" + "[cEigrpHandle='" + fmt.Sprintf("%v", ceigrppeerentry.Ceigrphandle) + "']"
-}
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEigrpVpnId"] = ceigrppeerentry.Ceigrpvpnid
-    leafs["cEigrpAsNumber"] = ceigrppeerentry.Ceigrpasnumber
-    leafs["cEigrpHandle"] = ceigrppeerentry.Ceigrphandle
-    leafs["cEigrpPeerAddrType"] = ceigrppeerentry.Ceigrppeeraddrtype
-    leafs["cEigrpPeerAddr"] = ceigrppeerentry.Ceigrppeeraddr
-    leafs["cEigrpPeerIfIndex"] = ceigrppeerentry.Ceigrppeerifindex
-    leafs["cEigrpHoldTime"] = ceigrppeerentry.Ceigrpholdtime
-    leafs["cEigrpUpTime"] = ceigrppeerentry.Ceigrpuptime
-    leafs["cEigrpSrtt"] = ceigrppeerentry.Ceigrpsrtt
-    leafs["cEigrpRto"] = ceigrppeerentry.Ceigrprto
-    leafs["cEigrpPktsEnqueued"] = ceigrppeerentry.Ceigrppktsenqueued
-    leafs["cEigrpLastSeq"] = ceigrppeerentry.Ceigrplastseq
-    leafs["cEigrpVersion"] = ceigrppeerentry.Ceigrpversion
-    leafs["cEigrpRetrans"] = ceigrppeerentry.Ceigrpretrans
-    leafs["cEigrpRetries"] = ceigrppeerentry.Ceigrpretries
-    return leafs
-}
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetYangName() string { return "cEigrpPeerEntry" }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) SetParent(parent types.Entity) { ceigrppeerentry.parent = parent }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetParent() types.Entity { return ceigrppeerentry.parent }
-
-func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetParentYangName() string { return "cEigrpPeerTable" }
 
 // CISCOEIGRPMIB_Ceigrpinterfacetable
 // The table of interfaces over which EIGRP is running, and
@@ -1093,7 +714,7 @@ func (ceigrppeerentry *CISCOEIGRPMIB_Ceigrppeertable_Ceigrppeerentry) GetParentY
 // determined by whether their assigned IP addresses fall
 // within configured EIGRP network statements.
 type CISCOEIGRPMIB_Ceigrpinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information for a single interface running EIGRP in the AS and VPN. The
@@ -1101,69 +722,30 @@ type CISCOEIGRPMIB_Ceigrpinterfacetable struct {
     Ceigrpinterfaceentry []CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry
 }
 
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetFilter() yfilter.YFilter { return ceigrpinterfacetable.YFilter }
+func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetEntityData() *types.CommonEntityData {
+    ceigrpinterfacetable.EntityData.YFilter = ceigrpinterfacetable.YFilter
+    ceigrpinterfacetable.EntityData.YangName = "cEigrpInterfaceTable"
+    ceigrpinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    ceigrpinterfacetable.EntityData.ParentYangName = "CISCO-EIGRP-MIB"
+    ceigrpinterfacetable.EntityData.SegmentPath = "cEigrpInterfaceTable"
+    ceigrpinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrpinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrpinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) SetFilter(yf yfilter.YFilter) { ceigrpinterfacetable.YFilter = yf }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetGoName(yname string) string {
-    if yname == "cEigrpInterfaceEntry" { return "Ceigrpinterfaceentry" }
-    return ""
-}
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetSegmentPath() string {
-    return "cEigrpInterfaceTable"
-}
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cEigrpInterfaceEntry" {
-        for _, c := range ceigrpinterfacetable.Ceigrpinterfaceentry {
-            if ceigrpinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry{}
-        ceigrpinterfacetable.Ceigrpinterfaceentry = append(ceigrpinterfacetable.Ceigrpinterfaceentry, child)
-        return &ceigrpinterfacetable.Ceigrpinterfaceentry[len(ceigrpinterfacetable.Ceigrpinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ceigrpinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    ceigrpinterfacetable.EntityData.Children["cEigrpInterfaceEntry"] = types.YChild{"Ceigrpinterfaceentry", nil}
     for i := range ceigrpinterfacetable.Ceigrpinterfaceentry {
-        children[ceigrpinterfacetable.Ceigrpinterfaceentry[i].GetSegmentPath()] = &ceigrpinterfacetable.Ceigrpinterfaceentry[i]
+        ceigrpinterfacetable.EntityData.Children[types.GetSegmentPath(&ceigrpinterfacetable.Ceigrpinterfaceentry[i])] = types.YChild{"Ceigrpinterfaceentry", &ceigrpinterfacetable.Ceigrpinterfaceentry[i]}
     }
-    return children
+    ceigrpinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ceigrpinterfacetable.EntityData)
 }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetYangName() string { return "cEigrpInterfaceTable" }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) SetParent(parent types.Entity) { ceigrpinterfacetable.parent = parent }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetParent() types.Entity { return ceigrpinterfacetable.parent }
-
-func (ceigrpinterfacetable *CISCOEIGRPMIB_Ceigrpinterfacetable) GetParentYangName() string { return "CISCO-EIGRP-MIB" }
 
 // CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry
 // Information for a single interface running EIGRP in the
 // AS and VPN.
 type CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1281,97 +863,44 @@ type CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry struct {
     Ceigrpauthkeychain interface{}
 }
 
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetFilter() yfilter.YFilter { return ceigrpinterfaceentry.YFilter }
+func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetEntityData() *types.CommonEntityData {
+    ceigrpinterfaceentry.EntityData.YFilter = ceigrpinterfaceentry.YFilter
+    ceigrpinterfaceentry.EntityData.YangName = "cEigrpInterfaceEntry"
+    ceigrpinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    ceigrpinterfaceentry.EntityData.ParentYangName = "cEigrpInterfaceTable"
+    ceigrpinterfaceentry.EntityData.SegmentPath = "cEigrpInterfaceEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrpinterfaceentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrpinterfaceentry.Ceigrpasnumber) + "']" + "[ifIndex='" + fmt.Sprintf("%v", ceigrpinterfaceentry.Ifindex) + "']"
+    ceigrpinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ceigrpinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ceigrpinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) SetFilter(yf yfilter.YFilter) { ceigrpinterfaceentry.YFilter = yf }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetGoName(yname string) string {
-    if yname == "cEigrpVpnId" { return "Ceigrpvpnid" }
-    if yname == "cEigrpAsNumber" { return "Ceigrpasnumber" }
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cEigrpPeerCount" { return "Ceigrppeercount" }
-    if yname == "cEigrpXmitReliableQ" { return "Ceigrpxmitreliableq" }
-    if yname == "cEigrpXmitUnreliableQ" { return "Ceigrpxmitunreliableq" }
-    if yname == "cEigrpMeanSrtt" { return "Ceigrpmeansrtt" }
-    if yname == "cEigrpPacingReliable" { return "Ceigrppacingreliable" }
-    if yname == "cEigrpPacingUnreliable" { return "Ceigrppacingunreliable" }
-    if yname == "cEigrpMFlowTimer" { return "Ceigrpmflowtimer" }
-    if yname == "cEigrpPendingRoutes" { return "Ceigrppendingroutes" }
-    if yname == "cEigrpHelloInterval" { return "Ceigrphellointerval" }
-    if yname == "cEigrpXmitNextSerial" { return "Ceigrpxmitnextserial" }
-    if yname == "cEigrpUMcasts" { return "Ceigrpumcasts" }
-    if yname == "cEigrpRMcasts" { return "Ceigrprmcasts" }
-    if yname == "cEigrpUUcasts" { return "Ceigrpuucasts" }
-    if yname == "cEigrpRUcasts" { return "Ceigrprucasts" }
-    if yname == "cEigrpMcastExcepts" { return "Ceigrpmcastexcepts" }
-    if yname == "cEigrpCRpkts" { return "Ceigrpcrpkts" }
-    if yname == "cEigrpAcksSuppressed" { return "Ceigrpackssuppressed" }
-    if yname == "cEigrpRetransSent" { return "Ceigrpretranssent" }
-    if yname == "cEigrpOOSrvcd" { return "Ceigrpoosrvcd" }
-    if yname == "cEigrpAuthMode" { return "Ceigrpauthmode" }
-    if yname == "cEigrpAuthKeyChain" { return "Ceigrpauthkeychain" }
-    return ""
+    ceigrpinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    ceigrpinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpVpnId"] = types.YLeaf{"Ceigrpvpnid", ceigrpinterfaceentry.Ceigrpvpnid}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpAsNumber"] = types.YLeaf{"Ceigrpasnumber", ceigrpinterfaceentry.Ceigrpasnumber}
+    ceigrpinterfaceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", ceigrpinterfaceentry.Ifindex}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpPeerCount"] = types.YLeaf{"Ceigrppeercount", ceigrpinterfaceentry.Ceigrppeercount}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpXmitReliableQ"] = types.YLeaf{"Ceigrpxmitreliableq", ceigrpinterfaceentry.Ceigrpxmitreliableq}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpXmitUnreliableQ"] = types.YLeaf{"Ceigrpxmitunreliableq", ceigrpinterfaceentry.Ceigrpxmitunreliableq}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpMeanSrtt"] = types.YLeaf{"Ceigrpmeansrtt", ceigrpinterfaceentry.Ceigrpmeansrtt}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpPacingReliable"] = types.YLeaf{"Ceigrppacingreliable", ceigrpinterfaceentry.Ceigrppacingreliable}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpPacingUnreliable"] = types.YLeaf{"Ceigrppacingunreliable", ceigrpinterfaceentry.Ceigrppacingunreliable}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpMFlowTimer"] = types.YLeaf{"Ceigrpmflowtimer", ceigrpinterfaceentry.Ceigrpmflowtimer}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpPendingRoutes"] = types.YLeaf{"Ceigrppendingroutes", ceigrpinterfaceentry.Ceigrppendingroutes}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpHelloInterval"] = types.YLeaf{"Ceigrphellointerval", ceigrpinterfaceentry.Ceigrphellointerval}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpXmitNextSerial"] = types.YLeaf{"Ceigrpxmitnextserial", ceigrpinterfaceentry.Ceigrpxmitnextserial}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpUMcasts"] = types.YLeaf{"Ceigrpumcasts", ceigrpinterfaceentry.Ceigrpumcasts}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpRMcasts"] = types.YLeaf{"Ceigrprmcasts", ceigrpinterfaceentry.Ceigrprmcasts}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpUUcasts"] = types.YLeaf{"Ceigrpuucasts", ceigrpinterfaceentry.Ceigrpuucasts}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpRUcasts"] = types.YLeaf{"Ceigrprucasts", ceigrpinterfaceentry.Ceigrprucasts}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpMcastExcepts"] = types.YLeaf{"Ceigrpmcastexcepts", ceigrpinterfaceentry.Ceigrpmcastexcepts}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpCRpkts"] = types.YLeaf{"Ceigrpcrpkts", ceigrpinterfaceentry.Ceigrpcrpkts}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpAcksSuppressed"] = types.YLeaf{"Ceigrpackssuppressed", ceigrpinterfaceentry.Ceigrpackssuppressed}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpRetransSent"] = types.YLeaf{"Ceigrpretranssent", ceigrpinterfaceentry.Ceigrpretranssent}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpOOSrvcd"] = types.YLeaf{"Ceigrpoosrvcd", ceigrpinterfaceentry.Ceigrpoosrvcd}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpAuthMode"] = types.YLeaf{"Ceigrpauthmode", ceigrpinterfaceentry.Ceigrpauthmode}
+    ceigrpinterfaceentry.EntityData.Leafs["cEigrpAuthKeyChain"] = types.YLeaf{"Ceigrpauthkeychain", ceigrpinterfaceentry.Ceigrpauthkeychain}
+    return &(ceigrpinterfaceentry.EntityData)
 }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetSegmentPath() string {
-    return "cEigrpInterfaceEntry" + "[cEigrpVpnId='" + fmt.Sprintf("%v", ceigrpinterfaceentry.Ceigrpvpnid) + "']" + "[cEigrpAsNumber='" + fmt.Sprintf("%v", ceigrpinterfaceentry.Ceigrpasnumber) + "']" + "[ifIndex='" + fmt.Sprintf("%v", ceigrpinterfaceentry.Ifindex) + "']"
-}
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cEigrpVpnId"] = ceigrpinterfaceentry.Ceigrpvpnid
-    leafs["cEigrpAsNumber"] = ceigrpinterfaceentry.Ceigrpasnumber
-    leafs["ifIndex"] = ceigrpinterfaceentry.Ifindex
-    leafs["cEigrpPeerCount"] = ceigrpinterfaceentry.Ceigrppeercount
-    leafs["cEigrpXmitReliableQ"] = ceigrpinterfaceentry.Ceigrpxmitreliableq
-    leafs["cEigrpXmitUnreliableQ"] = ceigrpinterfaceentry.Ceigrpxmitunreliableq
-    leafs["cEigrpMeanSrtt"] = ceigrpinterfaceentry.Ceigrpmeansrtt
-    leafs["cEigrpPacingReliable"] = ceigrpinterfaceentry.Ceigrppacingreliable
-    leafs["cEigrpPacingUnreliable"] = ceigrpinterfaceentry.Ceigrppacingunreliable
-    leafs["cEigrpMFlowTimer"] = ceigrpinterfaceentry.Ceigrpmflowtimer
-    leafs["cEigrpPendingRoutes"] = ceigrpinterfaceentry.Ceigrppendingroutes
-    leafs["cEigrpHelloInterval"] = ceigrpinterfaceentry.Ceigrphellointerval
-    leafs["cEigrpXmitNextSerial"] = ceigrpinterfaceentry.Ceigrpxmitnextserial
-    leafs["cEigrpUMcasts"] = ceigrpinterfaceentry.Ceigrpumcasts
-    leafs["cEigrpRMcasts"] = ceigrpinterfaceentry.Ceigrprmcasts
-    leafs["cEigrpUUcasts"] = ceigrpinterfaceentry.Ceigrpuucasts
-    leafs["cEigrpRUcasts"] = ceigrpinterfaceentry.Ceigrprucasts
-    leafs["cEigrpMcastExcepts"] = ceigrpinterfaceentry.Ceigrpmcastexcepts
-    leafs["cEigrpCRpkts"] = ceigrpinterfaceentry.Ceigrpcrpkts
-    leafs["cEigrpAcksSuppressed"] = ceigrpinterfaceentry.Ceigrpackssuppressed
-    leafs["cEigrpRetransSent"] = ceigrpinterfaceentry.Ceigrpretranssent
-    leafs["cEigrpOOSrvcd"] = ceigrpinterfaceentry.Ceigrpoosrvcd
-    leafs["cEigrpAuthMode"] = ceigrpinterfaceentry.Ceigrpauthmode
-    leafs["cEigrpAuthKeyChain"] = ceigrpinterfaceentry.Ceigrpauthkeychain
-    return leafs
-}
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetYangName() string { return "cEigrpInterfaceEntry" }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) SetParent(parent types.Entity) { ceigrpinterfaceentry.parent = parent }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetParent() types.Entity { return ceigrpinterfaceentry.parent }
-
-func (ceigrpinterfaceentry *CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry) GetParentYangName() string { return "cEigrpInterfaceTable" }
 
 // CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry_Ceigrpauthmode represents md5   :  MD5 authentication enabled on the interface
 type CISCOEIGRPMIB_Ceigrpinterfacetable_Ceigrpinterfaceentry_Ceigrpauthmode string

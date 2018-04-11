@@ -27,7 +27,7 @@ func init() {
 // Accounting
 // Global Accounting configuration commands
 type Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable Accounting. The type is interface{}.
@@ -37,61 +37,27 @@ type Accounting struct {
     Interfaces Accounting_Interfaces
 }
 
-func (accounting *Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "Cisco-IOS-XR-accounting-cfg"
+    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-accounting-cfg:accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *Accounting) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &accounting.Interfaces}
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs["enable"] = types.YLeaf{"Enable", accounting.Enable}
+    return &(accounting.EntityData)
 }
-
-func (accounting *Accounting) GetSegmentPath() string {
-    return "Cisco-IOS-XR-accounting-cfg:accounting"
-}
-
-func (accounting *Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &accounting.Interfaces
-    }
-    return nil
-}
-
-func (accounting *Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &accounting.Interfaces
-    return children
-}
-
-func (accounting *Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = accounting.Enable
-    return leafs
-}
-
-func (accounting *Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *Accounting) GetParentYangName() string { return "Cisco-IOS-XR-accounting-cfg" }
 
 // Accounting_Interfaces
 // Interfaces configuration
 type Accounting_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable accounting on Interfaces. The type is interface{}.
@@ -104,66 +70,28 @@ type Accounting_Interfaces struct {
     SegmentRouting Accounting_Interfaces_SegmentRouting
 }
 
-func (interfaces *Accounting_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Accounting_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "accounting"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *Accounting_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Accounting_Interfaces) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "mpls" { return "Mpls" }
-    if yname == "segment-routing" { return "SegmentRouting" }
-    return ""
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["mpls"] = types.YChild{"Mpls", &interfaces.Mpls}
+    interfaces.EntityData.Children["segment-routing"] = types.YChild{"SegmentRouting", &interfaces.SegmentRouting}
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaces.EntityData.Leafs["enable"] = types.YLeaf{"Enable", interfaces.Enable}
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Accounting_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Accounting_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpls" {
-        return &interfaces.Mpls
-    }
-    if childYangName == "segment-routing" {
-        return &interfaces.SegmentRouting
-    }
-    return nil
-}
-
-func (interfaces *Accounting_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpls"] = &interfaces.Mpls
-    children["segment-routing"] = &interfaces.SegmentRouting
-    return children
-}
-
-func (interfaces *Accounting_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = interfaces.Enable
-    return leafs
-}
-
-func (interfaces *Accounting_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Accounting_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Accounting_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Accounting_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Accounting_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Accounting_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Accounting_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Accounting_Interfaces) GetParentYangName() string { return "accounting" }
 
 // Accounting_Interfaces_Mpls
 // Interfaces MPLS configuration
 type Accounting_Interfaces_Mpls struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable accounting on MPLS. The type is interface{}.
@@ -173,58 +101,27 @@ type Accounting_Interfaces_Mpls struct {
     EnableV4Rsvpte interface{}
 }
 
-func (mpls *Accounting_Interfaces_Mpls) GetFilter() yfilter.YFilter { return mpls.YFilter }
+func (mpls *Accounting_Interfaces_Mpls) GetEntityData() *types.CommonEntityData {
+    mpls.EntityData.YFilter = mpls.YFilter
+    mpls.EntityData.YangName = "mpls"
+    mpls.EntityData.BundleName = "cisco_ios_xr"
+    mpls.EntityData.ParentYangName = "interfaces"
+    mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpls *Accounting_Interfaces_Mpls) SetFilter(yf yfilter.YFilter) { mpls.YFilter = yf }
-
-func (mpls *Accounting_Interfaces_Mpls) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "enable-v4rsvpte" { return "EnableV4Rsvpte" }
-    return ""
+    mpls.EntityData.Children = make(map[string]types.YChild)
+    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpls.EntityData.Leafs["enable"] = types.YLeaf{"Enable", mpls.Enable}
+    mpls.EntityData.Leafs["enable-v4rsvpte"] = types.YLeaf{"EnableV4Rsvpte", mpls.EnableV4Rsvpte}
+    return &(mpls.EntityData)
 }
-
-func (mpls *Accounting_Interfaces_Mpls) GetSegmentPath() string {
-    return "mpls"
-}
-
-func (mpls *Accounting_Interfaces_Mpls) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mpls *Accounting_Interfaces_Mpls) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mpls *Accounting_Interfaces_Mpls) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = mpls.Enable
-    leafs["enable-v4rsvpte"] = mpls.EnableV4Rsvpte
-    return leafs
-}
-
-func (mpls *Accounting_Interfaces_Mpls) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpls *Accounting_Interfaces_Mpls) GetYangName() string { return "mpls" }
-
-func (mpls *Accounting_Interfaces_Mpls) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpls *Accounting_Interfaces_Mpls) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpls *Accounting_Interfaces_Mpls) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpls *Accounting_Interfaces_Mpls) SetParent(parent types.Entity) { mpls.parent = parent }
-
-func (mpls *Accounting_Interfaces_Mpls) GetParent() types.Entity { return mpls.parent }
-
-func (mpls *Accounting_Interfaces_Mpls) GetParentYangName() string { return "interfaces" }
 
 // Accounting_Interfaces_SegmentRouting
 // Interfaces Segment Routing configuration
 type Accounting_Interfaces_SegmentRouting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable accounting on Segment Routing. The type is interface{}.
@@ -237,53 +134,21 @@ type Accounting_Interfaces_SegmentRouting struct {
     EnableMplsv6 interface{}
 }
 
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetFilter() yfilter.YFilter { return segmentRouting.YFilter }
+func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetEntityData() *types.CommonEntityData {
+    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
+    segmentRouting.EntityData.YangName = "segment-routing"
+    segmentRouting.EntityData.BundleName = "cisco_ios_xr"
+    segmentRouting.EntityData.ParentYangName = "interfaces"
+    segmentRouting.EntityData.SegmentPath = "segment-routing"
+    segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) SetFilter(yf yfilter.YFilter) { segmentRouting.YFilter = yf }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "enable-mplsv4" { return "EnableMplsv4" }
-    if yname == "enable-mplsv6" { return "EnableMplsv6" }
-    return ""
+    segmentRouting.EntityData.Children = make(map[string]types.YChild)
+    segmentRouting.EntityData.Leafs = make(map[string]types.YLeaf)
+    segmentRouting.EntityData.Leafs["enable"] = types.YLeaf{"Enable", segmentRouting.Enable}
+    segmentRouting.EntityData.Leafs["enable-mplsv4"] = types.YLeaf{"EnableMplsv4", segmentRouting.EnableMplsv4}
+    segmentRouting.EntityData.Leafs["enable-mplsv6"] = types.YLeaf{"EnableMplsv6", segmentRouting.EnableMplsv6}
+    return &(segmentRouting.EntityData)
 }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetSegmentPath() string {
-    return "segment-routing"
-}
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = segmentRouting.Enable
-    leafs["enable-mplsv4"] = segmentRouting.EnableMplsv4
-    leafs["enable-mplsv6"] = segmentRouting.EnableMplsv6
-    return leafs
-}
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetYangName() string { return "segment-routing" }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) SetParent(parent types.Entity) { segmentRouting.parent = parent }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetParent() types.Entity { return segmentRouting.parent }
-
-func (segmentRouting *Accounting_Interfaces_SegmentRouting) GetParentYangName() string { return "interfaces" }
 

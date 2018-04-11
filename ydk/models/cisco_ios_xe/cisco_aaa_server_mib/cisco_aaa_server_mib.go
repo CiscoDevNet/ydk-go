@@ -38,7 +38,7 @@ const (
 
 // CISCOAAASERVERMIB
 type CISCOAAASERVERMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -49,63 +49,26 @@ type CISCOAAASERVERMIB struct {
     Casconfigtable CISCOAAASERVERMIB_Casconfigtable
 }
 
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetFilter() yfilter.YFilter { return cISCOAAASERVERMIB.YFilter }
+func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetEntityData() *types.CommonEntityData {
+    cISCOAAASERVERMIB.EntityData.YFilter = cISCOAAASERVERMIB.YFilter
+    cISCOAAASERVERMIB.EntityData.YangName = "CISCO-AAA-SERVER-MIB"
+    cISCOAAASERVERMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOAAASERVERMIB.EntityData.ParentYangName = "CISCO-AAA-SERVER-MIB"
+    cISCOAAASERVERMIB.EntityData.SegmentPath = "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB"
+    cISCOAAASERVERMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOAAASERVERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOAAASERVERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) SetFilter(yf yfilter.YFilter) { cISCOAAASERVERMIB.YFilter = yf }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetGoName(yname string) string {
-    if yname == "casConfig" { return "Casconfig" }
-    if yname == "casConfigTable" { return "Casconfigtable" }
-    return ""
+    cISCOAAASERVERMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOAAASERVERMIB.EntityData.Children["casConfig"] = types.YChild{"Casconfig", &cISCOAAASERVERMIB.Casconfig}
+    cISCOAAASERVERMIB.EntityData.Children["casConfigTable"] = types.YChild{"Casconfigtable", &cISCOAAASERVERMIB.Casconfigtable}
+    cISCOAAASERVERMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOAAASERVERMIB.EntityData)
 }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetSegmentPath() string {
-    return "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB"
-}
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "casConfig" {
-        return &cISCOAAASERVERMIB.Casconfig
-    }
-    if childYangName == "casConfigTable" {
-        return &cISCOAAASERVERMIB.Casconfigtable
-    }
-    return nil
-}
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["casConfig"] = &cISCOAAASERVERMIB.Casconfig
-    children["casConfigTable"] = &cISCOAAASERVERMIB.Casconfigtable
-    return children
-}
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetYangName() string { return "CISCO-AAA-SERVER-MIB" }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) SetParent(parent types.Entity) { cISCOAAASERVERMIB.parent = parent }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetParent() types.Entity { return cISCOAAASERVERMIB.parent }
-
-func (cISCOAAASERVERMIB *CISCOAAASERVERMIB) GetParentYangName() string { return "CISCO-AAA-SERVER-MIB" }
 
 // CISCOAAASERVERMIB_Casconfig
 type CISCOAAASERVERMIB_Casconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This variable controls the	generation of casServerStateChange notification.
@@ -116,58 +79,28 @@ type CISCOAAASERVERMIB_Casconfig struct {
     Casserverstatechangeenable interface{}
 }
 
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetFilter() yfilter.YFilter { return casconfig.YFilter }
+func (casconfig *CISCOAAASERVERMIB_Casconfig) GetEntityData() *types.CommonEntityData {
+    casconfig.EntityData.YFilter = casconfig.YFilter
+    casconfig.EntityData.YangName = "casConfig"
+    casconfig.EntityData.BundleName = "cisco_ios_xe"
+    casconfig.EntityData.ParentYangName = "CISCO-AAA-SERVER-MIB"
+    casconfig.EntityData.SegmentPath = "casConfig"
+    casconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casconfig *CISCOAAASERVERMIB_Casconfig) SetFilter(yf yfilter.YFilter) { casconfig.YFilter = yf }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetGoName(yname string) string {
-    if yname == "casServerStateChangeEnable" { return "Casserverstatechangeenable" }
-    return ""
+    casconfig.EntityData.Children = make(map[string]types.YChild)
+    casconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    casconfig.EntityData.Leafs["casServerStateChangeEnable"] = types.YLeaf{"Casserverstatechangeenable", casconfig.Casserverstatechangeenable}
+    return &(casconfig.EntityData)
 }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetSegmentPath() string {
-    return "casConfig"
-}
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["casServerStateChangeEnable"] = casconfig.Casserverstatechangeenable
-    return leafs
-}
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetYangName() string { return "casConfig" }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) SetParent(parent types.Entity) { casconfig.parent = parent }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetParent() types.Entity { return casconfig.parent }
-
-func (casconfig *CISCOAAASERVERMIB_Casconfig) GetParentYangName() string { return "CISCO-AAA-SERVER-MIB" }
 
 // CISCOAAASERVERMIB_Casconfigtable
 // This table shows current configurations for each
 // AAA server, allows existing servers to	be removed
 // and new ones to be created.
 type CISCOAAASERVERMIB_Casconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An	AAA server configuration identified by its protocol and its index. 
@@ -206,63 +139,24 @@ type CISCOAAASERVERMIB_Casconfigtable struct {
     Casconfigentry []CISCOAAASERVERMIB_Casconfigtable_Casconfigentry
 }
 
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetFilter() yfilter.YFilter { return casconfigtable.YFilter }
+func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetEntityData() *types.CommonEntityData {
+    casconfigtable.EntityData.YFilter = casconfigtable.YFilter
+    casconfigtable.EntityData.YangName = "casConfigTable"
+    casconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    casconfigtable.EntityData.ParentYangName = "CISCO-AAA-SERVER-MIB"
+    casconfigtable.EntityData.SegmentPath = "casConfigTable"
+    casconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) SetFilter(yf yfilter.YFilter) { casconfigtable.YFilter = yf }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetGoName(yname string) string {
-    if yname == "casConfigEntry" { return "Casconfigentry" }
-    return ""
-}
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetSegmentPath() string {
-    return "casConfigTable"
-}
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "casConfigEntry" {
-        for _, c := range casconfigtable.Casconfigentry {
-            if casconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOAAASERVERMIB_Casconfigtable_Casconfigentry{}
-        casconfigtable.Casconfigentry = append(casconfigtable.Casconfigentry, child)
-        return &casconfigtable.Casconfigentry[len(casconfigtable.Casconfigentry)-1]
-    }
-    return nil
-}
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    casconfigtable.EntityData.Children = make(map[string]types.YChild)
+    casconfigtable.EntityData.Children["casConfigEntry"] = types.YChild{"Casconfigentry", nil}
     for i := range casconfigtable.Casconfigentry {
-        children[casconfigtable.Casconfigentry[i].GetSegmentPath()] = &casconfigtable.Casconfigentry[i]
+        casconfigtable.EntityData.Children[types.GetSegmentPath(&casconfigtable.Casconfigentry[i])] = types.YChild{"Casconfigentry", &casconfigtable.Casconfigentry[i]}
     }
-    return children
+    casconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(casconfigtable.EntityData)
 }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetYangName() string { return "casConfigTable" }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) SetParent(parent types.Entity) { casconfigtable.parent = parent }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetParent() types.Entity { return casconfigtable.parent }
-
-func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetParentYangName() string { return "CISCO-AAA-SERVER-MIB" }
 
 // CISCOAAASERVERMIB_Casconfigtable_Casconfigentry
 // An	AAA server configuration identified by its protocol
@@ -322,7 +216,7 @@ func (casconfigtable *CISCOAAASERVERMIB_Casconfigtable) GetParentYangName() stri
 // with lowest priority number corresponding to the higher
 // priority servers.
 type CISCOAAASERVERMIB_Casconfigtable_Casconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The variable denotes the protocol used by the
@@ -340,7 +234,7 @@ type CISCOAAASERVERMIB_Casconfigtable_Casconfigentry struct {
     Casindex interface{}
 
     // The IP address of the server. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Casaddress interface{}
 
     // UDP/TCP port used for authentication in the configuration  For TACACS+,
@@ -557,123 +451,57 @@ type CISCOAAASERVERMIB_Casconfigtable_Casconfigentry struct {
     Casdeadcount interface{}
 }
 
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetFilter() yfilter.YFilter { return casconfigentry.YFilter }
+func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetEntityData() *types.CommonEntityData {
+    casconfigentry.EntityData.YFilter = casconfigentry.YFilter
+    casconfigentry.EntityData.YangName = "casConfigEntry"
+    casconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    casconfigentry.EntityData.ParentYangName = "casConfigTable"
+    casconfigentry.EntityData.SegmentPath = "casConfigEntry" + "[casProtocol='" + fmt.Sprintf("%v", casconfigentry.Casprotocol) + "']" + "[casIndex='" + fmt.Sprintf("%v", casconfigentry.Casindex) + "']"
+    casconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    casconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    casconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) SetFilter(yf yfilter.YFilter) { casconfigentry.YFilter = yf }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetGoName(yname string) string {
-    if yname == "casProtocol" { return "Casprotocol" }
-    if yname == "casIndex" { return "Casindex" }
-    if yname == "casAddress" { return "Casaddress" }
-    if yname == "casAuthenPort" { return "Casauthenport" }
-    if yname == "casAcctPort" { return "Casacctport" }
-    if yname == "casKey" { return "Caskey" }
-    if yname == "casPriority" { return "Caspriority" }
-    if yname == "casConfigRowStatus" { return "Casconfigrowstatus" }
-    if yname == "casAuthenRequests" { return "Casauthenrequests" }
-    if yname == "casAuthenRequestTimeouts" { return "Casauthenrequesttimeouts" }
-    if yname == "casAuthenUnexpectedResponses" { return "Casauthenunexpectedresponses" }
-    if yname == "casAuthenServerErrorResponses" { return "Casauthenservererrorresponses" }
-    if yname == "casAuthenIncorrectResponses" { return "Casauthenincorrectresponses" }
-    if yname == "casAuthenResponseTime" { return "Casauthenresponsetime" }
-    if yname == "casAuthenTransactionSuccesses" { return "Casauthentransactionsuccesses" }
-    if yname == "casAuthenTransactionFailures" { return "Casauthentransactionfailures" }
-    if yname == "casAuthorRequests" { return "Casauthorrequests" }
-    if yname == "casAuthorRequestTimeouts" { return "Casauthorrequesttimeouts" }
-    if yname == "casAuthorUnexpectedResponses" { return "Casauthorunexpectedresponses" }
-    if yname == "casAuthorServerErrorResponses" { return "Casauthorservererrorresponses" }
-    if yname == "casAuthorIncorrectResponses" { return "Casauthorincorrectresponses" }
-    if yname == "casAuthorResponseTime" { return "Casauthorresponsetime" }
-    if yname == "casAuthorTransactionSuccesses" { return "Casauthortransactionsuccesses" }
-    if yname == "casAuthorTransactionFailures" { return "Casauthortransactionfailures" }
-    if yname == "casAcctRequests" { return "Casacctrequests" }
-    if yname == "casAcctRequestTimeouts" { return "Casacctrequesttimeouts" }
-    if yname == "casAcctUnexpectedResponses" { return "Casacctunexpectedresponses" }
-    if yname == "casAcctServerErrorResponses" { return "Casacctservererrorresponses" }
-    if yname == "casAcctIncorrectResponses" { return "Casacctincorrectresponses" }
-    if yname == "casAcctResponseTime" { return "Casacctresponsetime" }
-    if yname == "casAcctTransactionSuccesses" { return "Casaccttransactionsuccesses" }
-    if yname == "casAcctTransactionFailures" { return "Casaccttransactionfailures" }
-    if yname == "casState" { return "Casstate" }
-    if yname == "casCurrentStateDuration" { return "Cascurrentstateduration" }
-    if yname == "casPreviousStateDuration" { return "Caspreviousstateduration" }
-    if yname == "casTotalDeadTime" { return "Castotaldeadtime" }
-    if yname == "casDeadCount" { return "Casdeadcount" }
-    return ""
+    casconfigentry.EntityData.Children = make(map[string]types.YChild)
+    casconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    casconfigentry.EntityData.Leafs["casProtocol"] = types.YLeaf{"Casprotocol", casconfigentry.Casprotocol}
+    casconfigentry.EntityData.Leafs["casIndex"] = types.YLeaf{"Casindex", casconfigentry.Casindex}
+    casconfigentry.EntityData.Leafs["casAddress"] = types.YLeaf{"Casaddress", casconfigentry.Casaddress}
+    casconfigentry.EntityData.Leafs["casAuthenPort"] = types.YLeaf{"Casauthenport", casconfigentry.Casauthenport}
+    casconfigentry.EntityData.Leafs["casAcctPort"] = types.YLeaf{"Casacctport", casconfigentry.Casacctport}
+    casconfigentry.EntityData.Leafs["casKey"] = types.YLeaf{"Caskey", casconfigentry.Caskey}
+    casconfigentry.EntityData.Leafs["casPriority"] = types.YLeaf{"Caspriority", casconfigentry.Caspriority}
+    casconfigentry.EntityData.Leafs["casConfigRowStatus"] = types.YLeaf{"Casconfigrowstatus", casconfigentry.Casconfigrowstatus}
+    casconfigentry.EntityData.Leafs["casAuthenRequests"] = types.YLeaf{"Casauthenrequests", casconfigentry.Casauthenrequests}
+    casconfigentry.EntityData.Leafs["casAuthenRequestTimeouts"] = types.YLeaf{"Casauthenrequesttimeouts", casconfigentry.Casauthenrequesttimeouts}
+    casconfigentry.EntityData.Leafs["casAuthenUnexpectedResponses"] = types.YLeaf{"Casauthenunexpectedresponses", casconfigentry.Casauthenunexpectedresponses}
+    casconfigentry.EntityData.Leafs["casAuthenServerErrorResponses"] = types.YLeaf{"Casauthenservererrorresponses", casconfigentry.Casauthenservererrorresponses}
+    casconfigentry.EntityData.Leafs["casAuthenIncorrectResponses"] = types.YLeaf{"Casauthenincorrectresponses", casconfigentry.Casauthenincorrectresponses}
+    casconfigentry.EntityData.Leafs["casAuthenResponseTime"] = types.YLeaf{"Casauthenresponsetime", casconfigentry.Casauthenresponsetime}
+    casconfigentry.EntityData.Leafs["casAuthenTransactionSuccesses"] = types.YLeaf{"Casauthentransactionsuccesses", casconfigentry.Casauthentransactionsuccesses}
+    casconfigentry.EntityData.Leafs["casAuthenTransactionFailures"] = types.YLeaf{"Casauthentransactionfailures", casconfigentry.Casauthentransactionfailures}
+    casconfigentry.EntityData.Leafs["casAuthorRequests"] = types.YLeaf{"Casauthorrequests", casconfigentry.Casauthorrequests}
+    casconfigentry.EntityData.Leafs["casAuthorRequestTimeouts"] = types.YLeaf{"Casauthorrequesttimeouts", casconfigentry.Casauthorrequesttimeouts}
+    casconfigentry.EntityData.Leafs["casAuthorUnexpectedResponses"] = types.YLeaf{"Casauthorunexpectedresponses", casconfigentry.Casauthorunexpectedresponses}
+    casconfigentry.EntityData.Leafs["casAuthorServerErrorResponses"] = types.YLeaf{"Casauthorservererrorresponses", casconfigentry.Casauthorservererrorresponses}
+    casconfigentry.EntityData.Leafs["casAuthorIncorrectResponses"] = types.YLeaf{"Casauthorincorrectresponses", casconfigentry.Casauthorincorrectresponses}
+    casconfigentry.EntityData.Leafs["casAuthorResponseTime"] = types.YLeaf{"Casauthorresponsetime", casconfigentry.Casauthorresponsetime}
+    casconfigentry.EntityData.Leafs["casAuthorTransactionSuccesses"] = types.YLeaf{"Casauthortransactionsuccesses", casconfigentry.Casauthortransactionsuccesses}
+    casconfigentry.EntityData.Leafs["casAuthorTransactionFailures"] = types.YLeaf{"Casauthortransactionfailures", casconfigentry.Casauthortransactionfailures}
+    casconfigentry.EntityData.Leafs["casAcctRequests"] = types.YLeaf{"Casacctrequests", casconfigentry.Casacctrequests}
+    casconfigentry.EntityData.Leafs["casAcctRequestTimeouts"] = types.YLeaf{"Casacctrequesttimeouts", casconfigentry.Casacctrequesttimeouts}
+    casconfigentry.EntityData.Leafs["casAcctUnexpectedResponses"] = types.YLeaf{"Casacctunexpectedresponses", casconfigentry.Casacctunexpectedresponses}
+    casconfigentry.EntityData.Leafs["casAcctServerErrorResponses"] = types.YLeaf{"Casacctservererrorresponses", casconfigentry.Casacctservererrorresponses}
+    casconfigentry.EntityData.Leafs["casAcctIncorrectResponses"] = types.YLeaf{"Casacctincorrectresponses", casconfigentry.Casacctincorrectresponses}
+    casconfigentry.EntityData.Leafs["casAcctResponseTime"] = types.YLeaf{"Casacctresponsetime", casconfigentry.Casacctresponsetime}
+    casconfigentry.EntityData.Leafs["casAcctTransactionSuccesses"] = types.YLeaf{"Casaccttransactionsuccesses", casconfigentry.Casaccttransactionsuccesses}
+    casconfigentry.EntityData.Leafs["casAcctTransactionFailures"] = types.YLeaf{"Casaccttransactionfailures", casconfigentry.Casaccttransactionfailures}
+    casconfigentry.EntityData.Leafs["casState"] = types.YLeaf{"Casstate", casconfigentry.Casstate}
+    casconfigentry.EntityData.Leafs["casCurrentStateDuration"] = types.YLeaf{"Cascurrentstateduration", casconfigentry.Cascurrentstateduration}
+    casconfigentry.EntityData.Leafs["casPreviousStateDuration"] = types.YLeaf{"Caspreviousstateduration", casconfigentry.Caspreviousstateduration}
+    casconfigentry.EntityData.Leafs["casTotalDeadTime"] = types.YLeaf{"Castotaldeadtime", casconfigentry.Castotaldeadtime}
+    casconfigentry.EntityData.Leafs["casDeadCount"] = types.YLeaf{"Casdeadcount", casconfigentry.Casdeadcount}
+    return &(casconfigentry.EntityData)
 }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetSegmentPath() string {
-    return "casConfigEntry" + "[casProtocol='" + fmt.Sprintf("%v", casconfigentry.Casprotocol) + "']" + "[casIndex='" + fmt.Sprintf("%v", casconfigentry.Casindex) + "']"
-}
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["casProtocol"] = casconfigentry.Casprotocol
-    leafs["casIndex"] = casconfigentry.Casindex
-    leafs["casAddress"] = casconfigentry.Casaddress
-    leafs["casAuthenPort"] = casconfigentry.Casauthenport
-    leafs["casAcctPort"] = casconfigentry.Casacctport
-    leafs["casKey"] = casconfigentry.Caskey
-    leafs["casPriority"] = casconfigentry.Caspriority
-    leafs["casConfigRowStatus"] = casconfigentry.Casconfigrowstatus
-    leafs["casAuthenRequests"] = casconfigentry.Casauthenrequests
-    leafs["casAuthenRequestTimeouts"] = casconfigentry.Casauthenrequesttimeouts
-    leafs["casAuthenUnexpectedResponses"] = casconfigentry.Casauthenunexpectedresponses
-    leafs["casAuthenServerErrorResponses"] = casconfigentry.Casauthenservererrorresponses
-    leafs["casAuthenIncorrectResponses"] = casconfigentry.Casauthenincorrectresponses
-    leafs["casAuthenResponseTime"] = casconfigentry.Casauthenresponsetime
-    leafs["casAuthenTransactionSuccesses"] = casconfigentry.Casauthentransactionsuccesses
-    leafs["casAuthenTransactionFailures"] = casconfigentry.Casauthentransactionfailures
-    leafs["casAuthorRequests"] = casconfigentry.Casauthorrequests
-    leafs["casAuthorRequestTimeouts"] = casconfigentry.Casauthorrequesttimeouts
-    leafs["casAuthorUnexpectedResponses"] = casconfigentry.Casauthorunexpectedresponses
-    leafs["casAuthorServerErrorResponses"] = casconfigentry.Casauthorservererrorresponses
-    leafs["casAuthorIncorrectResponses"] = casconfigentry.Casauthorincorrectresponses
-    leafs["casAuthorResponseTime"] = casconfigentry.Casauthorresponsetime
-    leafs["casAuthorTransactionSuccesses"] = casconfigentry.Casauthortransactionsuccesses
-    leafs["casAuthorTransactionFailures"] = casconfigentry.Casauthortransactionfailures
-    leafs["casAcctRequests"] = casconfigentry.Casacctrequests
-    leafs["casAcctRequestTimeouts"] = casconfigentry.Casacctrequesttimeouts
-    leafs["casAcctUnexpectedResponses"] = casconfigentry.Casacctunexpectedresponses
-    leafs["casAcctServerErrorResponses"] = casconfigentry.Casacctservererrorresponses
-    leafs["casAcctIncorrectResponses"] = casconfigentry.Casacctincorrectresponses
-    leafs["casAcctResponseTime"] = casconfigentry.Casacctresponsetime
-    leafs["casAcctTransactionSuccesses"] = casconfigentry.Casaccttransactionsuccesses
-    leafs["casAcctTransactionFailures"] = casconfigentry.Casaccttransactionfailures
-    leafs["casState"] = casconfigentry.Casstate
-    leafs["casCurrentStateDuration"] = casconfigentry.Cascurrentstateduration
-    leafs["casPreviousStateDuration"] = casconfigentry.Caspreviousstateduration
-    leafs["casTotalDeadTime"] = casconfigentry.Castotaldeadtime
-    leafs["casDeadCount"] = casconfigentry.Casdeadcount
-    return leafs
-}
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetYangName() string { return "casConfigEntry" }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) SetParent(parent types.Entity) { casconfigentry.parent = parent }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetParent() types.Entity { return casconfigentry.parent }
-
-func (casconfigentry *CISCOAAASERVERMIB_Casconfigtable_Casconfigentry) GetParentYangName() string { return "casConfigTable" }
 
 // CISCOAAASERVERMIB_Casconfigtable_Casconfigentry_Casstate represents if	an attempt to communicate fails.
 type CISCOAAASERVERMIB_Casconfigtable_Casconfigentry_Casstate string

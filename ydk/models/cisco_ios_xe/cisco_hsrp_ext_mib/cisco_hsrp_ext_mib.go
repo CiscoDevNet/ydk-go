@@ -46,7 +46,7 @@ func init() {
 
 // CISCOHSRPEXTMIB
 type CISCOHSRPEXTMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table containing information about tracked interfaces per HSRP group.
@@ -63,75 +63,30 @@ type CISCOHSRPEXTMIB struct {
     Chsrpextiftable CISCOHSRPEXTMIB_Chsrpextiftable
 }
 
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetFilter() yfilter.YFilter { return cISCOHSRPEXTMIB.YFilter }
+func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetEntityData() *types.CommonEntityData {
+    cISCOHSRPEXTMIB.EntityData.YFilter = cISCOHSRPEXTMIB.YFilter
+    cISCOHSRPEXTMIB.EntityData.YangName = "CISCO-HSRP-EXT-MIB"
+    cISCOHSRPEXTMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOHSRPEXTMIB.EntityData.ParentYangName = "CISCO-HSRP-EXT-MIB"
+    cISCOHSRPEXTMIB.EntityData.SegmentPath = "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB"
+    cISCOHSRPEXTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOHSRPEXTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOHSRPEXTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) SetFilter(yf yfilter.YFilter) { cISCOHSRPEXTMIB.YFilter = yf }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetGoName(yname string) string {
-    if yname == "cHsrpExtIfTrackedTable" { return "Chsrpextiftrackedtable" }
-    if yname == "cHsrpExtSecAddrTable" { return "Chsrpextsecaddrtable" }
-    if yname == "cHsrpExtIfStandbyTable" { return "Chsrpextifstandbytable" }
-    if yname == "cHsrpExtIfTable" { return "Chsrpextiftable" }
-    return ""
+    cISCOHSRPEXTMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOHSRPEXTMIB.EntityData.Children["cHsrpExtIfTrackedTable"] = types.YChild{"Chsrpextiftrackedtable", &cISCOHSRPEXTMIB.Chsrpextiftrackedtable}
+    cISCOHSRPEXTMIB.EntityData.Children["cHsrpExtSecAddrTable"] = types.YChild{"Chsrpextsecaddrtable", &cISCOHSRPEXTMIB.Chsrpextsecaddrtable}
+    cISCOHSRPEXTMIB.EntityData.Children["cHsrpExtIfStandbyTable"] = types.YChild{"Chsrpextifstandbytable", &cISCOHSRPEXTMIB.Chsrpextifstandbytable}
+    cISCOHSRPEXTMIB.EntityData.Children["cHsrpExtIfTable"] = types.YChild{"Chsrpextiftable", &cISCOHSRPEXTMIB.Chsrpextiftable}
+    cISCOHSRPEXTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOHSRPEXTMIB.EntityData)
 }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetSegmentPath() string {
-    return "CISCO-HSRP-EXT-MIB:CISCO-HSRP-EXT-MIB"
-}
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpExtIfTrackedTable" {
-        return &cISCOHSRPEXTMIB.Chsrpextiftrackedtable
-    }
-    if childYangName == "cHsrpExtSecAddrTable" {
-        return &cISCOHSRPEXTMIB.Chsrpextsecaddrtable
-    }
-    if childYangName == "cHsrpExtIfStandbyTable" {
-        return &cISCOHSRPEXTMIB.Chsrpextifstandbytable
-    }
-    if childYangName == "cHsrpExtIfTable" {
-        return &cISCOHSRPEXTMIB.Chsrpextiftable
-    }
-    return nil
-}
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cHsrpExtIfTrackedTable"] = &cISCOHSRPEXTMIB.Chsrpextiftrackedtable
-    children["cHsrpExtSecAddrTable"] = &cISCOHSRPEXTMIB.Chsrpextsecaddrtable
-    children["cHsrpExtIfStandbyTable"] = &cISCOHSRPEXTMIB.Chsrpextifstandbytable
-    children["cHsrpExtIfTable"] = &cISCOHSRPEXTMIB.Chsrpextiftable
-    return children
-}
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetYangName() string { return "CISCO-HSRP-EXT-MIB" }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) SetParent(parent types.Entity) { cISCOHSRPEXTMIB.parent = parent }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetParent() types.Entity { return cISCOHSRPEXTMIB.parent }
-
-func (cISCOHSRPEXTMIB *CISCOHSRPEXTMIB) GetParentYangName() string { return "CISCO-HSRP-EXT-MIB" }
 
 // CISCOHSRPEXTMIB_Chsrpextiftrackedtable
 // A table containing information about tracked interfaces per
 // HSRP group.
 type CISCOHSRPEXTMIB_Chsrpextiftrackedtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each row of this table allows the tracking of one interface of the HSRP
@@ -159,63 +114,24 @@ type CISCOHSRPEXTMIB_Chsrpextiftrackedtable struct {
     Chsrpextiftrackedentry []CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry
 }
 
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetFilter() yfilter.YFilter { return chsrpextiftrackedtable.YFilter }
+func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetEntityData() *types.CommonEntityData {
+    chsrpextiftrackedtable.EntityData.YFilter = chsrpextiftrackedtable.YFilter
+    chsrpextiftrackedtable.EntityData.YangName = "cHsrpExtIfTrackedTable"
+    chsrpextiftrackedtable.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextiftrackedtable.EntityData.ParentYangName = "CISCO-HSRP-EXT-MIB"
+    chsrpextiftrackedtable.EntityData.SegmentPath = "cHsrpExtIfTrackedTable"
+    chsrpextiftrackedtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextiftrackedtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextiftrackedtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) SetFilter(yf yfilter.YFilter) { chsrpextiftrackedtable.YFilter = yf }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetGoName(yname string) string {
-    if yname == "cHsrpExtIfTrackedEntry" { return "Chsrpextiftrackedentry" }
-    return ""
-}
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetSegmentPath() string {
-    return "cHsrpExtIfTrackedTable"
-}
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpExtIfTrackedEntry" {
-        for _, c := range chsrpextiftrackedtable.Chsrpextiftrackedentry {
-            if chsrpextiftrackedtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry{}
-        chsrpextiftrackedtable.Chsrpextiftrackedentry = append(chsrpextiftrackedtable.Chsrpextiftrackedentry, child)
-        return &chsrpextiftrackedtable.Chsrpextiftrackedentry[len(chsrpextiftrackedtable.Chsrpextiftrackedentry)-1]
-    }
-    return nil
-}
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    chsrpextiftrackedtable.EntityData.Children = make(map[string]types.YChild)
+    chsrpextiftrackedtable.EntityData.Children["cHsrpExtIfTrackedEntry"] = types.YChild{"Chsrpextiftrackedentry", nil}
     for i := range chsrpextiftrackedtable.Chsrpextiftrackedentry {
-        children[chsrpextiftrackedtable.Chsrpextiftrackedentry[i].GetSegmentPath()] = &chsrpextiftrackedtable.Chsrpextiftrackedentry[i]
+        chsrpextiftrackedtable.EntityData.Children[types.GetSegmentPath(&chsrpextiftrackedtable.Chsrpextiftrackedentry[i])] = types.YChild{"Chsrpextiftrackedentry", &chsrpextiftrackedtable.Chsrpextiftrackedentry[i]}
     }
-    return children
+    chsrpextiftrackedtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(chsrpextiftrackedtable.EntityData)
 }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetYangName() string { return "cHsrpExtIfTrackedTable" }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) SetParent(parent types.Entity) { chsrpextiftrackedtable.parent = parent }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetParent() types.Entity { return chsrpextiftrackedtable.parent }
-
-func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetParentYangName() string { return "CISCO-HSRP-EXT-MIB" }
 
 // CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry
 // Each row of this table allows the tracking of one
@@ -254,7 +170,7 @@ func (chsrpextiftrackedtable *CISCOHSRPEXTMIB_Chsrpextiftrackedtable) GetParentY
 // configurable period (five minutes by default). This timeout
 // period can be changed by setting cHsrpConfigTimeout.
 type CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -291,67 +207,32 @@ type CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry struct {
     Chsrpextiftrackedipnone interface{}
 }
 
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetFilter() yfilter.YFilter { return chsrpextiftrackedentry.YFilter }
+func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetEntityData() *types.CommonEntityData {
+    chsrpextiftrackedentry.EntityData.YFilter = chsrpextiftrackedentry.YFilter
+    chsrpextiftrackedentry.EntityData.YangName = "cHsrpExtIfTrackedEntry"
+    chsrpextiftrackedentry.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextiftrackedentry.EntityData.ParentYangName = "cHsrpExtIfTrackedTable"
+    chsrpextiftrackedentry.EntityData.SegmentPath = "cHsrpExtIfTrackedEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextiftrackedentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpextiftrackedentry.Chsrpgrpnumber) + "']" + "[cHsrpExtIfTracked='" + fmt.Sprintf("%v", chsrpextiftrackedentry.Chsrpextiftracked) + "']"
+    chsrpextiftrackedentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextiftrackedentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextiftrackedentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) SetFilter(yf yfilter.YFilter) { chsrpextiftrackedentry.YFilter = yf }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cHsrpGrpNumber" { return "Chsrpgrpnumber" }
-    if yname == "cHsrpExtIfTracked" { return "Chsrpextiftracked" }
-    if yname == "cHsrpExtIfTrackedPriority" { return "Chsrpextiftrackedpriority" }
-    if yname == "cHsrpExtIfTrackedRowStatus" { return "Chsrpextiftrackedrowstatus" }
-    if yname == "cHsrpExtIfTrackedIpNone" { return "Chsrpextiftrackedipnone" }
-    return ""
+    chsrpextiftrackedentry.EntityData.Children = make(map[string]types.YChild)
+    chsrpextiftrackedentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    chsrpextiftrackedentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", chsrpextiftrackedentry.Ifindex}
+    chsrpextiftrackedentry.EntityData.Leafs["cHsrpGrpNumber"] = types.YLeaf{"Chsrpgrpnumber", chsrpextiftrackedentry.Chsrpgrpnumber}
+    chsrpextiftrackedentry.EntityData.Leafs["cHsrpExtIfTracked"] = types.YLeaf{"Chsrpextiftracked", chsrpextiftrackedentry.Chsrpextiftracked}
+    chsrpextiftrackedentry.EntityData.Leafs["cHsrpExtIfTrackedPriority"] = types.YLeaf{"Chsrpextiftrackedpriority", chsrpextiftrackedentry.Chsrpextiftrackedpriority}
+    chsrpextiftrackedentry.EntityData.Leafs["cHsrpExtIfTrackedRowStatus"] = types.YLeaf{"Chsrpextiftrackedrowstatus", chsrpextiftrackedentry.Chsrpextiftrackedrowstatus}
+    chsrpextiftrackedentry.EntityData.Leafs["cHsrpExtIfTrackedIpNone"] = types.YLeaf{"Chsrpextiftrackedipnone", chsrpextiftrackedentry.Chsrpextiftrackedipnone}
+    return &(chsrpextiftrackedentry.EntityData)
 }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetSegmentPath() string {
-    return "cHsrpExtIfTrackedEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextiftrackedentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpextiftrackedentry.Chsrpgrpnumber) + "']" + "[cHsrpExtIfTracked='" + fmt.Sprintf("%v", chsrpextiftrackedentry.Chsrpextiftracked) + "']"
-}
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = chsrpextiftrackedentry.Ifindex
-    leafs["cHsrpGrpNumber"] = chsrpextiftrackedentry.Chsrpgrpnumber
-    leafs["cHsrpExtIfTracked"] = chsrpextiftrackedentry.Chsrpextiftracked
-    leafs["cHsrpExtIfTrackedPriority"] = chsrpextiftrackedentry.Chsrpextiftrackedpriority
-    leafs["cHsrpExtIfTrackedRowStatus"] = chsrpextiftrackedentry.Chsrpextiftrackedrowstatus
-    leafs["cHsrpExtIfTrackedIpNone"] = chsrpextiftrackedentry.Chsrpextiftrackedipnone
-    return leafs
-}
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetYangName() string { return "cHsrpExtIfTrackedEntry" }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) SetParent(parent types.Entity) { chsrpextiftrackedentry.parent = parent }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetParent() types.Entity { return chsrpextiftrackedentry.parent }
-
-func (chsrpextiftrackedentry *CISCOHSRPEXTMIB_Chsrpextiftrackedtable_Chsrpextiftrackedentry) GetParentYangName() string { return "cHsrpExtIfTrackedTable" }
 
 // CISCOHSRPEXTMIB_Chsrpextsecaddrtable
 // A table containing information about secondary HSRP IP
 // Addresses per interface and group.
 type CISCOHSRPEXTMIB_Chsrpextsecaddrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The CHsrpExtSecAddrEntry allows creation of secondary IP Addresses for each
@@ -380,63 +261,24 @@ type CISCOHSRPEXTMIB_Chsrpextsecaddrtable struct {
     Chsrpextsecaddrentry []CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry
 }
 
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetFilter() yfilter.YFilter { return chsrpextsecaddrtable.YFilter }
+func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetEntityData() *types.CommonEntityData {
+    chsrpextsecaddrtable.EntityData.YFilter = chsrpextsecaddrtable.YFilter
+    chsrpextsecaddrtable.EntityData.YangName = "cHsrpExtSecAddrTable"
+    chsrpextsecaddrtable.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextsecaddrtable.EntityData.ParentYangName = "CISCO-HSRP-EXT-MIB"
+    chsrpextsecaddrtable.EntityData.SegmentPath = "cHsrpExtSecAddrTable"
+    chsrpextsecaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextsecaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextsecaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) SetFilter(yf yfilter.YFilter) { chsrpextsecaddrtable.YFilter = yf }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetGoName(yname string) string {
-    if yname == "cHsrpExtSecAddrEntry" { return "Chsrpextsecaddrentry" }
-    return ""
-}
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetSegmentPath() string {
-    return "cHsrpExtSecAddrTable"
-}
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpExtSecAddrEntry" {
-        for _, c := range chsrpextsecaddrtable.Chsrpextsecaddrentry {
-            if chsrpextsecaddrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry{}
-        chsrpextsecaddrtable.Chsrpextsecaddrentry = append(chsrpextsecaddrtable.Chsrpextsecaddrentry, child)
-        return &chsrpextsecaddrtable.Chsrpextsecaddrentry[len(chsrpextsecaddrtable.Chsrpextsecaddrentry)-1]
-    }
-    return nil
-}
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    chsrpextsecaddrtable.EntityData.Children = make(map[string]types.YChild)
+    chsrpextsecaddrtable.EntityData.Children["cHsrpExtSecAddrEntry"] = types.YChild{"Chsrpextsecaddrentry", nil}
     for i := range chsrpextsecaddrtable.Chsrpextsecaddrentry {
-        children[chsrpextsecaddrtable.Chsrpextsecaddrentry[i].GetSegmentPath()] = &chsrpextsecaddrtable.Chsrpextsecaddrentry[i]
+        chsrpextsecaddrtable.EntityData.Children[types.GetSegmentPath(&chsrpextsecaddrtable.Chsrpextsecaddrentry[i])] = types.YChild{"Chsrpextsecaddrentry", &chsrpextsecaddrtable.Chsrpextsecaddrentry[i]}
     }
-    return children
+    chsrpextsecaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(chsrpextsecaddrtable.EntityData)
 }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetYangName() string { return "cHsrpExtSecAddrTable" }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) SetParent(parent types.Entity) { chsrpextsecaddrtable.parent = parent }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetParent() types.Entity { return chsrpextsecaddrtable.parent }
-
-func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetParentYangName() string { return "CISCO-HSRP-EXT-MIB" }
 
 // CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry
 // The CHsrpExtSecAddrEntry allows creation of secondary
@@ -480,7 +322,7 @@ func (chsrpextsecaddrtable *CISCOHSRPEXTMIB_Chsrpextsecaddrtable) GetParentYangN
 // will delete all secondary addresses for the same
 // {ifIndex, cHsrpGrpNumber} pair.
 type CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -496,7 +338,7 @@ type CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry struct {
     // cHsrpExtSecAddrEntry, a primary address must exist before a secondary
     // address for  the same {ifIndex, cHsrpGrpNumber} pair can be created. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Chsrpextsecaddraddress interface{}
 
     // The control that allows modification, creation, and deletion of entries.
@@ -505,63 +347,30 @@ type CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry struct {
     Chsrpextsecaddrrowstatus interface{}
 }
 
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetFilter() yfilter.YFilter { return chsrpextsecaddrentry.YFilter }
+func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetEntityData() *types.CommonEntityData {
+    chsrpextsecaddrentry.EntityData.YFilter = chsrpextsecaddrentry.YFilter
+    chsrpextsecaddrentry.EntityData.YangName = "cHsrpExtSecAddrEntry"
+    chsrpextsecaddrentry.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextsecaddrentry.EntityData.ParentYangName = "cHsrpExtSecAddrTable"
+    chsrpextsecaddrentry.EntityData.SegmentPath = "cHsrpExtSecAddrEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextsecaddrentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpextsecaddrentry.Chsrpgrpnumber) + "']" + "[cHsrpExtSecAddrAddress='" + fmt.Sprintf("%v", chsrpextsecaddrentry.Chsrpextsecaddraddress) + "']"
+    chsrpextsecaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextsecaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextsecaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) SetFilter(yf yfilter.YFilter) { chsrpextsecaddrentry.YFilter = yf }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cHsrpGrpNumber" { return "Chsrpgrpnumber" }
-    if yname == "cHsrpExtSecAddrAddress" { return "Chsrpextsecaddraddress" }
-    if yname == "cHsrpExtSecAddrRowStatus" { return "Chsrpextsecaddrrowstatus" }
-    return ""
+    chsrpextsecaddrentry.EntityData.Children = make(map[string]types.YChild)
+    chsrpextsecaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    chsrpextsecaddrentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", chsrpextsecaddrentry.Ifindex}
+    chsrpextsecaddrentry.EntityData.Leafs["cHsrpGrpNumber"] = types.YLeaf{"Chsrpgrpnumber", chsrpextsecaddrentry.Chsrpgrpnumber}
+    chsrpextsecaddrentry.EntityData.Leafs["cHsrpExtSecAddrAddress"] = types.YLeaf{"Chsrpextsecaddraddress", chsrpextsecaddrentry.Chsrpextsecaddraddress}
+    chsrpextsecaddrentry.EntityData.Leafs["cHsrpExtSecAddrRowStatus"] = types.YLeaf{"Chsrpextsecaddrrowstatus", chsrpextsecaddrentry.Chsrpextsecaddrrowstatus}
+    return &(chsrpextsecaddrentry.EntityData)
 }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetSegmentPath() string {
-    return "cHsrpExtSecAddrEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextsecaddrentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpextsecaddrentry.Chsrpgrpnumber) + "']" + "[cHsrpExtSecAddrAddress='" + fmt.Sprintf("%v", chsrpextsecaddrentry.Chsrpextsecaddraddress) + "']"
-}
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = chsrpextsecaddrentry.Ifindex
-    leafs["cHsrpGrpNumber"] = chsrpextsecaddrentry.Chsrpgrpnumber
-    leafs["cHsrpExtSecAddrAddress"] = chsrpextsecaddrentry.Chsrpextsecaddraddress
-    leafs["cHsrpExtSecAddrRowStatus"] = chsrpextsecaddrentry.Chsrpextsecaddrrowstatus
-    return leafs
-}
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetYangName() string { return "cHsrpExtSecAddrEntry" }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) SetParent(parent types.Entity) { chsrpextsecaddrentry.parent = parent }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetParent() types.Entity { return chsrpextsecaddrentry.parent }
-
-func (chsrpextsecaddrentry *CISCOHSRPEXTMIB_Chsrpextsecaddrtable_Chsrpextsecaddrentry) GetParentYangName() string { return "cHsrpExtSecAddrTable" }
 
 // CISCOHSRPEXTMIB_Chsrpextifstandbytable
 // A table containing information about standby
 // interfaces per HSRP group.
 type CISCOHSRPEXTMIB_Chsrpextifstandbytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The cHsrpExtIfStandbyEntry allows an HSRP group interface to track one or
@@ -573,63 +382,24 @@ type CISCOHSRPEXTMIB_Chsrpextifstandbytable struct {
     Chsrpextifstandbyentry []CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry
 }
 
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetFilter() yfilter.YFilter { return chsrpextifstandbytable.YFilter }
+func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetEntityData() *types.CommonEntityData {
+    chsrpextifstandbytable.EntityData.YFilter = chsrpextifstandbytable.YFilter
+    chsrpextifstandbytable.EntityData.YangName = "cHsrpExtIfStandbyTable"
+    chsrpextifstandbytable.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextifstandbytable.EntityData.ParentYangName = "CISCO-HSRP-EXT-MIB"
+    chsrpextifstandbytable.EntityData.SegmentPath = "cHsrpExtIfStandbyTable"
+    chsrpextifstandbytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextifstandbytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextifstandbytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) SetFilter(yf yfilter.YFilter) { chsrpextifstandbytable.YFilter = yf }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetGoName(yname string) string {
-    if yname == "cHsrpExtIfStandbyEntry" { return "Chsrpextifstandbyentry" }
-    return ""
-}
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetSegmentPath() string {
-    return "cHsrpExtIfStandbyTable"
-}
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpExtIfStandbyEntry" {
-        for _, c := range chsrpextifstandbytable.Chsrpextifstandbyentry {
-            if chsrpextifstandbytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry{}
-        chsrpextifstandbytable.Chsrpextifstandbyentry = append(chsrpextifstandbytable.Chsrpextifstandbyentry, child)
-        return &chsrpextifstandbytable.Chsrpextifstandbyentry[len(chsrpextifstandbytable.Chsrpextifstandbyentry)-1]
-    }
-    return nil
-}
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    chsrpextifstandbytable.EntityData.Children = make(map[string]types.YChild)
+    chsrpextifstandbytable.EntityData.Children["cHsrpExtIfStandbyEntry"] = types.YChild{"Chsrpextifstandbyentry", nil}
     for i := range chsrpextifstandbytable.Chsrpextifstandbyentry {
-        children[chsrpextifstandbytable.Chsrpextifstandbyentry[i].GetSegmentPath()] = &chsrpextifstandbytable.Chsrpextifstandbyentry[i]
+        chsrpextifstandbytable.EntityData.Children[types.GetSegmentPath(&chsrpextifstandbytable.Chsrpextifstandbyentry[i])] = types.YChild{"Chsrpextifstandbyentry", &chsrpextifstandbytable.Chsrpextifstandbyentry[i]}
     }
-    return children
+    chsrpextifstandbytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(chsrpextifstandbytable.EntityData)
 }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetYangName() string { return "cHsrpExtIfStandbyTable" }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) SetParent(parent types.Entity) { chsrpextifstandbytable.parent = parent }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetParent() types.Entity { return chsrpextifstandbytable.parent }
-
-func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetParentYangName() string { return "CISCO-HSRP-EXT-MIB" }
 
 // CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry
 // The cHsrpExtIfStandbyEntry allows an HSRP group
@@ -641,7 +411,7 @@ func (chsrpextifstandbytable *CISCOHSRPEXTMIB_Chsrpextifstandbytable) GetParentY
 // HSRP group. Also, an HSRP group number and a
 // cHsrpExtIfStandbyIndex should be chosen.
 type CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -679,70 +449,33 @@ type CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry struct {
     Chsrpextifstandbyrowstatus interface{}
 }
 
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetFilter() yfilter.YFilter { return chsrpextifstandbyentry.YFilter }
+func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetEntityData() *types.CommonEntityData {
+    chsrpextifstandbyentry.EntityData.YFilter = chsrpextifstandbyentry.YFilter
+    chsrpextifstandbyentry.EntityData.YangName = "cHsrpExtIfStandbyEntry"
+    chsrpextifstandbyentry.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextifstandbyentry.EntityData.ParentYangName = "cHsrpExtIfStandbyTable"
+    chsrpextifstandbyentry.EntityData.SegmentPath = "cHsrpExtIfStandbyEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextifstandbyentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpextifstandbyentry.Chsrpgrpnumber) + "']" + "[cHsrpExtIfStandbyIndex='" + fmt.Sprintf("%v", chsrpextifstandbyentry.Chsrpextifstandbyindex) + "']"
+    chsrpextifstandbyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextifstandbyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextifstandbyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) SetFilter(yf yfilter.YFilter) { chsrpextifstandbyentry.YFilter = yf }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cHsrpGrpNumber" { return "Chsrpgrpnumber" }
-    if yname == "cHsrpExtIfStandbyIndex" { return "Chsrpextifstandbyindex" }
-    if yname == "cHsrpExtIfStandbyDestAddrType" { return "Chsrpextifstandbydestaddrtype" }
-    if yname == "cHsrpExtIfStandbyDestAddr" { return "Chsrpextifstandbydestaddr" }
-    if yname == "cHsrpExtIfStandbySourceAddrType" { return "Chsrpextifstandbysourceaddrtype" }
-    if yname == "cHsrpExtIfStandbySourceAddr" { return "Chsrpextifstandbysourceaddr" }
-    if yname == "cHsrpExtIfStandbyRowStatus" { return "Chsrpextifstandbyrowstatus" }
-    return ""
+    chsrpextifstandbyentry.EntityData.Children = make(map[string]types.YChild)
+    chsrpextifstandbyentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    chsrpextifstandbyentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", chsrpextifstandbyentry.Ifindex}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpGrpNumber"] = types.YLeaf{"Chsrpgrpnumber", chsrpextifstandbyentry.Chsrpgrpnumber}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpExtIfStandbyIndex"] = types.YLeaf{"Chsrpextifstandbyindex", chsrpextifstandbyentry.Chsrpextifstandbyindex}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpExtIfStandbyDestAddrType"] = types.YLeaf{"Chsrpextifstandbydestaddrtype", chsrpextifstandbyentry.Chsrpextifstandbydestaddrtype}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpExtIfStandbyDestAddr"] = types.YLeaf{"Chsrpextifstandbydestaddr", chsrpextifstandbyentry.Chsrpextifstandbydestaddr}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpExtIfStandbySourceAddrType"] = types.YLeaf{"Chsrpextifstandbysourceaddrtype", chsrpextifstandbyentry.Chsrpextifstandbysourceaddrtype}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpExtIfStandbySourceAddr"] = types.YLeaf{"Chsrpextifstandbysourceaddr", chsrpextifstandbyentry.Chsrpextifstandbysourceaddr}
+    chsrpextifstandbyentry.EntityData.Leafs["cHsrpExtIfStandbyRowStatus"] = types.YLeaf{"Chsrpextifstandbyrowstatus", chsrpextifstandbyentry.Chsrpextifstandbyrowstatus}
+    return &(chsrpextifstandbyentry.EntityData)
 }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetSegmentPath() string {
-    return "cHsrpExtIfStandbyEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextifstandbyentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpextifstandbyentry.Chsrpgrpnumber) + "']" + "[cHsrpExtIfStandbyIndex='" + fmt.Sprintf("%v", chsrpextifstandbyentry.Chsrpextifstandbyindex) + "']"
-}
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = chsrpextifstandbyentry.Ifindex
-    leafs["cHsrpGrpNumber"] = chsrpextifstandbyentry.Chsrpgrpnumber
-    leafs["cHsrpExtIfStandbyIndex"] = chsrpextifstandbyentry.Chsrpextifstandbyindex
-    leafs["cHsrpExtIfStandbyDestAddrType"] = chsrpextifstandbyentry.Chsrpextifstandbydestaddrtype
-    leafs["cHsrpExtIfStandbyDestAddr"] = chsrpextifstandbyentry.Chsrpextifstandbydestaddr
-    leafs["cHsrpExtIfStandbySourceAddrType"] = chsrpextifstandbyentry.Chsrpextifstandbysourceaddrtype
-    leafs["cHsrpExtIfStandbySourceAddr"] = chsrpextifstandbyentry.Chsrpextifstandbysourceaddr
-    leafs["cHsrpExtIfStandbyRowStatus"] = chsrpextifstandbyentry.Chsrpextifstandbyrowstatus
-    return leafs
-}
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetYangName() string { return "cHsrpExtIfStandbyEntry" }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) SetParent(parent types.Entity) { chsrpextifstandbyentry.parent = parent }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetParent() types.Entity { return chsrpextifstandbyentry.parent }
-
-func (chsrpextifstandbyentry *CISCOHSRPEXTMIB_Chsrpextifstandbytable_Chsrpextifstandbyentry) GetParentYangName() string { return "cHsrpExtIfStandbyTable" }
 
 // CISCOHSRPEXTMIB_Chsrpextiftable
 // HSRP-specific configurations for each physical interface.
 type CISCOHSRPEXTMIB_Chsrpextiftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // If HSRP entries on this interface must use the BIA (Burned In Address),
@@ -765,63 +498,24 @@ type CISCOHSRPEXTMIB_Chsrpextiftable struct {
     Chsrpextifentry []CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry
 }
 
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetFilter() yfilter.YFilter { return chsrpextiftable.YFilter }
+func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetEntityData() *types.CommonEntityData {
+    chsrpextiftable.EntityData.YFilter = chsrpextiftable.YFilter
+    chsrpextiftable.EntityData.YangName = "cHsrpExtIfTable"
+    chsrpextiftable.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextiftable.EntityData.ParentYangName = "CISCO-HSRP-EXT-MIB"
+    chsrpextiftable.EntityData.SegmentPath = "cHsrpExtIfTable"
+    chsrpextiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) SetFilter(yf yfilter.YFilter) { chsrpextiftable.YFilter = yf }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetGoName(yname string) string {
-    if yname == "cHsrpExtIfEntry" { return "Chsrpextifentry" }
-    return ""
-}
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetSegmentPath() string {
-    return "cHsrpExtIfTable"
-}
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpExtIfEntry" {
-        for _, c := range chsrpextiftable.Chsrpextifentry {
-            if chsrpextiftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry{}
-        chsrpextiftable.Chsrpextifentry = append(chsrpextiftable.Chsrpextifentry, child)
-        return &chsrpextiftable.Chsrpextifentry[len(chsrpextiftable.Chsrpextifentry)-1]
-    }
-    return nil
-}
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    chsrpextiftable.EntityData.Children = make(map[string]types.YChild)
+    chsrpextiftable.EntityData.Children["cHsrpExtIfEntry"] = types.YChild{"Chsrpextifentry", nil}
     for i := range chsrpextiftable.Chsrpextifentry {
-        children[chsrpextiftable.Chsrpextifentry[i].GetSegmentPath()] = &chsrpextiftable.Chsrpextifentry[i]
+        chsrpextiftable.EntityData.Children[types.GetSegmentPath(&chsrpextiftable.Chsrpextifentry[i])] = types.YChild{"Chsrpextifentry", &chsrpextiftable.Chsrpextifentry[i]}
     }
-    return children
+    chsrpextiftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(chsrpextiftable.EntityData)
 }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetYangName() string { return "cHsrpExtIfTable" }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) SetParent(parent types.Entity) { chsrpextiftable.parent = parent }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetParent() types.Entity { return chsrpextiftable.parent }
-
-func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetParentYangName() string { return "CISCO-HSRP-EXT-MIB" }
 
 // CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry
 // If HSRP entries on this interface must use the BIA (Burned
@@ -851,7 +545,7 @@ func (chsrpextiftable *CISCOHSRPEXTMIB_Chsrpextiftable) GetParentYangName() stri
 // configurable period (five minutes by default). This timeout
 // period can be changed by setting cHsrpConfigTimeout.
 type CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -871,53 +565,21 @@ type CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry struct {
     Chsrpextifrowstatus interface{}
 }
 
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetFilter() yfilter.YFilter { return chsrpextifentry.YFilter }
+func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetEntityData() *types.CommonEntityData {
+    chsrpextifentry.EntityData.YFilter = chsrpextifentry.YFilter
+    chsrpextifentry.EntityData.YangName = "cHsrpExtIfEntry"
+    chsrpextifentry.EntityData.BundleName = "cisco_ios_xe"
+    chsrpextifentry.EntityData.ParentYangName = "cHsrpExtIfTable"
+    chsrpextifentry.EntityData.SegmentPath = "cHsrpExtIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextifentry.Ifindex) + "']"
+    chsrpextifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpextifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpextifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) SetFilter(yf yfilter.YFilter) { chsrpextifentry.YFilter = yf }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cHsrpExtIfUseBIA" { return "Chsrpextifusebia" }
-    if yname == "cHsrpExtIfRowStatus" { return "Chsrpextifrowstatus" }
-    return ""
+    chsrpextifentry.EntityData.Children = make(map[string]types.YChild)
+    chsrpextifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    chsrpextifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", chsrpextifentry.Ifindex}
+    chsrpextifentry.EntityData.Leafs["cHsrpExtIfUseBIA"] = types.YLeaf{"Chsrpextifusebia", chsrpextifentry.Chsrpextifusebia}
+    chsrpextifentry.EntityData.Leafs["cHsrpExtIfRowStatus"] = types.YLeaf{"Chsrpextifrowstatus", chsrpextifentry.Chsrpextifrowstatus}
+    return &(chsrpextifentry.EntityData)
 }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetSegmentPath() string {
-    return "cHsrpExtIfEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpextifentry.Ifindex) + "']"
-}
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = chsrpextifentry.Ifindex
-    leafs["cHsrpExtIfUseBIA"] = chsrpextifentry.Chsrpextifusebia
-    leafs["cHsrpExtIfRowStatus"] = chsrpextifentry.Chsrpextifrowstatus
-    return leafs
-}
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetYangName() string { return "cHsrpExtIfEntry" }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) SetParent(parent types.Entity) { chsrpextifentry.parent = parent }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetParent() types.Entity { return chsrpextifentry.parent }
-
-func (chsrpextifentry *CISCOHSRPEXTMIB_Chsrpextiftable_Chsrpextifentry) GetParentYangName() string { return "cHsrpExtIfTable" }
 

@@ -21,21 +21,6 @@ func init() {
     ydk.RegisterEntity("IP-MIB:IP-MIB", reflect.TypeOf(IPMIB{}))
 }
 
-// IpAddressPrefixOriginTC represents prefix was found.
-type IpAddressPrefixOriginTC string
-
-const (
-    IpAddressPrefixOriginTC_other IpAddressPrefixOriginTC = "other"
-
-    IpAddressPrefixOriginTC_manual IpAddressPrefixOriginTC = "manual"
-
-    IpAddressPrefixOriginTC_wellknown IpAddressPrefixOriginTC = "wellknown"
-
-    IpAddressPrefixOriginTC_dhcp IpAddressPrefixOriginTC = "dhcp"
-
-    IpAddressPrefixOriginTC_routeradv IpAddressPrefixOriginTC = "routeradv"
-)
-
 // IpAddressOriginTC represents 3041 privacy address.
 type IpAddressOriginTC string
 
@@ -72,9 +57,24 @@ const (
     IpAddressStatusTC_optimistic IpAddressStatusTC = "optimistic"
 )
 
+// IpAddressPrefixOriginTC represents prefix was found.
+type IpAddressPrefixOriginTC string
+
+const (
+    IpAddressPrefixOriginTC_other IpAddressPrefixOriginTC = "other"
+
+    IpAddressPrefixOriginTC_manual IpAddressPrefixOriginTC = "manual"
+
+    IpAddressPrefixOriginTC_wellknown IpAddressPrefixOriginTC = "wellknown"
+
+    IpAddressPrefixOriginTC_dhcp IpAddressPrefixOriginTC = "dhcp"
+
+    IpAddressPrefixOriginTC_routeradv IpAddressPrefixOriginTC = "routeradv"
+)
+
 // IPMIB
 type IPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -177,138 +177,41 @@ type IPMIB struct {
     Icmpmsgstatstable IPMIB_Icmpmsgstatstable
 }
 
-func (iPMIB *IPMIB) GetFilter() yfilter.YFilter { return iPMIB.YFilter }
+func (iPMIB *IPMIB) GetEntityData() *types.CommonEntityData {
+    iPMIB.EntityData.YFilter = iPMIB.YFilter
+    iPMIB.EntityData.YangName = "IP-MIB"
+    iPMIB.EntityData.BundleName = "cisco_ios_xe"
+    iPMIB.EntityData.ParentYangName = "IP-MIB"
+    iPMIB.EntityData.SegmentPath = "IP-MIB:IP-MIB"
+    iPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iPMIB *IPMIB) SetFilter(yf yfilter.YFilter) { iPMIB.YFilter = yf }
-
-func (iPMIB *IPMIB) GetGoName(yname string) string {
-    if yname == "ip" { return "Ip" }
-    if yname == "ipTrafficStats" { return "Iptrafficstats" }
-    if yname == "icmp" { return "Icmp" }
-    if yname == "ipAddrTable" { return "Ipaddrtable" }
-    if yname == "ipNetToMediaTable" { return "Ipnettomediatable" }
-    if yname == "ipv4InterfaceTable" { return "Ipv4Interfacetable" }
-    if yname == "ipv6InterfaceTable" { return "Ipv6Interfacetable" }
-    if yname == "ipSystemStatsTable" { return "Ipsystemstatstable" }
-    if yname == "ipIfStatsTable" { return "Ipifstatstable" }
-    if yname == "ipAddressPrefixTable" { return "Ipaddressprefixtable" }
-    if yname == "ipAddressTable" { return "Ipaddresstable" }
-    if yname == "ipNetToPhysicalTable" { return "Ipnettophysicaltable" }
-    if yname == "ipv6ScopeZoneIndexTable" { return "Ipv6Scopezoneindextable" }
-    if yname == "ipDefaultRouterTable" { return "Ipdefaultroutertable" }
-    if yname == "ipv6RouterAdvertTable" { return "Ipv6Routeradverttable" }
-    if yname == "icmpStatsTable" { return "Icmpstatstable" }
-    if yname == "icmpMsgStatsTable" { return "Icmpmsgstatstable" }
-    return ""
+    iPMIB.EntityData.Children = make(map[string]types.YChild)
+    iPMIB.EntityData.Children["ip"] = types.YChild{"Ip", &iPMIB.Ip}
+    iPMIB.EntityData.Children["ipTrafficStats"] = types.YChild{"Iptrafficstats", &iPMIB.Iptrafficstats}
+    iPMIB.EntityData.Children["icmp"] = types.YChild{"Icmp", &iPMIB.Icmp}
+    iPMIB.EntityData.Children["ipAddrTable"] = types.YChild{"Ipaddrtable", &iPMIB.Ipaddrtable}
+    iPMIB.EntityData.Children["ipNetToMediaTable"] = types.YChild{"Ipnettomediatable", &iPMIB.Ipnettomediatable}
+    iPMIB.EntityData.Children["ipv4InterfaceTable"] = types.YChild{"Ipv4Interfacetable", &iPMIB.Ipv4Interfacetable}
+    iPMIB.EntityData.Children["ipv6InterfaceTable"] = types.YChild{"Ipv6Interfacetable", &iPMIB.Ipv6Interfacetable}
+    iPMIB.EntityData.Children["ipSystemStatsTable"] = types.YChild{"Ipsystemstatstable", &iPMIB.Ipsystemstatstable}
+    iPMIB.EntityData.Children["ipIfStatsTable"] = types.YChild{"Ipifstatstable", &iPMIB.Ipifstatstable}
+    iPMIB.EntityData.Children["ipAddressPrefixTable"] = types.YChild{"Ipaddressprefixtable", &iPMIB.Ipaddressprefixtable}
+    iPMIB.EntityData.Children["ipAddressTable"] = types.YChild{"Ipaddresstable", &iPMIB.Ipaddresstable}
+    iPMIB.EntityData.Children["ipNetToPhysicalTable"] = types.YChild{"Ipnettophysicaltable", &iPMIB.Ipnettophysicaltable}
+    iPMIB.EntityData.Children["ipv6ScopeZoneIndexTable"] = types.YChild{"Ipv6Scopezoneindextable", &iPMIB.Ipv6Scopezoneindextable}
+    iPMIB.EntityData.Children["ipDefaultRouterTable"] = types.YChild{"Ipdefaultroutertable", &iPMIB.Ipdefaultroutertable}
+    iPMIB.EntityData.Children["ipv6RouterAdvertTable"] = types.YChild{"Ipv6Routeradverttable", &iPMIB.Ipv6Routeradverttable}
+    iPMIB.EntityData.Children["icmpStatsTable"] = types.YChild{"Icmpstatstable", &iPMIB.Icmpstatstable}
+    iPMIB.EntityData.Children["icmpMsgStatsTable"] = types.YChild{"Icmpmsgstatstable", &iPMIB.Icmpmsgstatstable}
+    iPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iPMIB.EntityData)
 }
-
-func (iPMIB *IPMIB) GetSegmentPath() string {
-    return "IP-MIB:IP-MIB"
-}
-
-func (iPMIB *IPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ip" {
-        return &iPMIB.Ip
-    }
-    if childYangName == "ipTrafficStats" {
-        return &iPMIB.Iptrafficstats
-    }
-    if childYangName == "icmp" {
-        return &iPMIB.Icmp
-    }
-    if childYangName == "ipAddrTable" {
-        return &iPMIB.Ipaddrtable
-    }
-    if childYangName == "ipNetToMediaTable" {
-        return &iPMIB.Ipnettomediatable
-    }
-    if childYangName == "ipv4InterfaceTable" {
-        return &iPMIB.Ipv4Interfacetable
-    }
-    if childYangName == "ipv6InterfaceTable" {
-        return &iPMIB.Ipv6Interfacetable
-    }
-    if childYangName == "ipSystemStatsTable" {
-        return &iPMIB.Ipsystemstatstable
-    }
-    if childYangName == "ipIfStatsTable" {
-        return &iPMIB.Ipifstatstable
-    }
-    if childYangName == "ipAddressPrefixTable" {
-        return &iPMIB.Ipaddressprefixtable
-    }
-    if childYangName == "ipAddressTable" {
-        return &iPMIB.Ipaddresstable
-    }
-    if childYangName == "ipNetToPhysicalTable" {
-        return &iPMIB.Ipnettophysicaltable
-    }
-    if childYangName == "ipv6ScopeZoneIndexTable" {
-        return &iPMIB.Ipv6Scopezoneindextable
-    }
-    if childYangName == "ipDefaultRouterTable" {
-        return &iPMIB.Ipdefaultroutertable
-    }
-    if childYangName == "ipv6RouterAdvertTable" {
-        return &iPMIB.Ipv6Routeradverttable
-    }
-    if childYangName == "icmpStatsTable" {
-        return &iPMIB.Icmpstatstable
-    }
-    if childYangName == "icmpMsgStatsTable" {
-        return &iPMIB.Icmpmsgstatstable
-    }
-    return nil
-}
-
-func (iPMIB *IPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ip"] = &iPMIB.Ip
-    children["ipTrafficStats"] = &iPMIB.Iptrafficstats
-    children["icmp"] = &iPMIB.Icmp
-    children["ipAddrTable"] = &iPMIB.Ipaddrtable
-    children["ipNetToMediaTable"] = &iPMIB.Ipnettomediatable
-    children["ipv4InterfaceTable"] = &iPMIB.Ipv4Interfacetable
-    children["ipv6InterfaceTable"] = &iPMIB.Ipv6Interfacetable
-    children["ipSystemStatsTable"] = &iPMIB.Ipsystemstatstable
-    children["ipIfStatsTable"] = &iPMIB.Ipifstatstable
-    children["ipAddressPrefixTable"] = &iPMIB.Ipaddressprefixtable
-    children["ipAddressTable"] = &iPMIB.Ipaddresstable
-    children["ipNetToPhysicalTable"] = &iPMIB.Ipnettophysicaltable
-    children["ipv6ScopeZoneIndexTable"] = &iPMIB.Ipv6Scopezoneindextable
-    children["ipDefaultRouterTable"] = &iPMIB.Ipdefaultroutertable
-    children["ipv6RouterAdvertTable"] = &iPMIB.Ipv6Routeradverttable
-    children["icmpStatsTable"] = &iPMIB.Icmpstatstable
-    children["icmpMsgStatsTable"] = &iPMIB.Icmpmsgstatstable
-    return children
-}
-
-func (iPMIB *IPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iPMIB *IPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iPMIB *IPMIB) GetYangName() string { return "IP-MIB" }
-
-func (iPMIB *IPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iPMIB *IPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iPMIB *IPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iPMIB *IPMIB) SetParent(parent types.Entity) { iPMIB.parent = parent }
-
-func (iPMIB *IPMIB) GetParent() types.Entity { return iPMIB.parent }
-
-func (iPMIB *IPMIB) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ip
 type IPMIB_Ip struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The indication of whether this entity is acting as an IPv4 router in
@@ -542,101 +445,46 @@ type IPMIB_Ip struct {
     Ipv6Routeradvertspinlock interface{}
 }
 
-func (ip *IPMIB_Ip) GetFilter() yfilter.YFilter { return ip.YFilter }
+func (ip *IPMIB_Ip) GetEntityData() *types.CommonEntityData {
+    ip.EntityData.YFilter = ip.YFilter
+    ip.EntityData.YangName = "ip"
+    ip.EntityData.BundleName = "cisco_ios_xe"
+    ip.EntityData.ParentYangName = "IP-MIB"
+    ip.EntityData.SegmentPath = "ip"
+    ip.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ip.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ip.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ip *IPMIB_Ip) SetFilter(yf yfilter.YFilter) { ip.YFilter = yf }
-
-func (ip *IPMIB_Ip) GetGoName(yname string) string {
-    if yname == "ipForwarding" { return "Ipforwarding" }
-    if yname == "ipDefaultTTL" { return "Ipdefaultttl" }
-    if yname == "ipInReceives" { return "Ipinreceives" }
-    if yname == "ipInHdrErrors" { return "Ipinhdrerrors" }
-    if yname == "ipInAddrErrors" { return "Ipinaddrerrors" }
-    if yname == "ipForwDatagrams" { return "Ipforwdatagrams" }
-    if yname == "ipInUnknownProtos" { return "Ipinunknownprotos" }
-    if yname == "ipInDiscards" { return "Ipindiscards" }
-    if yname == "ipInDelivers" { return "Ipindelivers" }
-    if yname == "ipOutRequests" { return "Ipoutrequests" }
-    if yname == "ipOutDiscards" { return "Ipoutdiscards" }
-    if yname == "ipOutNoRoutes" { return "Ipoutnoroutes" }
-    if yname == "ipReasmTimeout" { return "Ipreasmtimeout" }
-    if yname == "ipReasmReqds" { return "Ipreasmreqds" }
-    if yname == "ipReasmOKs" { return "Ipreasmoks" }
-    if yname == "ipReasmFails" { return "Ipreasmfails" }
-    if yname == "ipFragOKs" { return "Ipfragoks" }
-    if yname == "ipFragFails" { return "Ipfragfails" }
-    if yname == "ipFragCreates" { return "Ipfragcreates" }
-    if yname == "ipRoutingDiscards" { return "Iproutingdiscards" }
-    if yname == "ipv6IpForwarding" { return "Ipv6Ipforwarding" }
-    if yname == "ipv6IpDefaultHopLimit" { return "Ipv6Ipdefaulthoplimit" }
-    if yname == "ipv4InterfaceTableLastChange" { return "Ipv4Interfacetablelastchange" }
-    if yname == "ipv6InterfaceTableLastChange" { return "Ipv6Interfacetablelastchange" }
-    if yname == "ipAddressSpinLock" { return "Ipaddressspinlock" }
-    if yname == "ipv6RouterAdvertSpinLock" { return "Ipv6Routeradvertspinlock" }
-    return ""
+    ip.EntityData.Children = make(map[string]types.YChild)
+    ip.EntityData.Leafs = make(map[string]types.YLeaf)
+    ip.EntityData.Leafs["ipForwarding"] = types.YLeaf{"Ipforwarding", ip.Ipforwarding}
+    ip.EntityData.Leafs["ipDefaultTTL"] = types.YLeaf{"Ipdefaultttl", ip.Ipdefaultttl}
+    ip.EntityData.Leafs["ipInReceives"] = types.YLeaf{"Ipinreceives", ip.Ipinreceives}
+    ip.EntityData.Leafs["ipInHdrErrors"] = types.YLeaf{"Ipinhdrerrors", ip.Ipinhdrerrors}
+    ip.EntityData.Leafs["ipInAddrErrors"] = types.YLeaf{"Ipinaddrerrors", ip.Ipinaddrerrors}
+    ip.EntityData.Leafs["ipForwDatagrams"] = types.YLeaf{"Ipforwdatagrams", ip.Ipforwdatagrams}
+    ip.EntityData.Leafs["ipInUnknownProtos"] = types.YLeaf{"Ipinunknownprotos", ip.Ipinunknownprotos}
+    ip.EntityData.Leafs["ipInDiscards"] = types.YLeaf{"Ipindiscards", ip.Ipindiscards}
+    ip.EntityData.Leafs["ipInDelivers"] = types.YLeaf{"Ipindelivers", ip.Ipindelivers}
+    ip.EntityData.Leafs["ipOutRequests"] = types.YLeaf{"Ipoutrequests", ip.Ipoutrequests}
+    ip.EntityData.Leafs["ipOutDiscards"] = types.YLeaf{"Ipoutdiscards", ip.Ipoutdiscards}
+    ip.EntityData.Leafs["ipOutNoRoutes"] = types.YLeaf{"Ipoutnoroutes", ip.Ipoutnoroutes}
+    ip.EntityData.Leafs["ipReasmTimeout"] = types.YLeaf{"Ipreasmtimeout", ip.Ipreasmtimeout}
+    ip.EntityData.Leafs["ipReasmReqds"] = types.YLeaf{"Ipreasmreqds", ip.Ipreasmreqds}
+    ip.EntityData.Leafs["ipReasmOKs"] = types.YLeaf{"Ipreasmoks", ip.Ipreasmoks}
+    ip.EntityData.Leafs["ipReasmFails"] = types.YLeaf{"Ipreasmfails", ip.Ipreasmfails}
+    ip.EntityData.Leafs["ipFragOKs"] = types.YLeaf{"Ipfragoks", ip.Ipfragoks}
+    ip.EntityData.Leafs["ipFragFails"] = types.YLeaf{"Ipfragfails", ip.Ipfragfails}
+    ip.EntityData.Leafs["ipFragCreates"] = types.YLeaf{"Ipfragcreates", ip.Ipfragcreates}
+    ip.EntityData.Leafs["ipRoutingDiscards"] = types.YLeaf{"Iproutingdiscards", ip.Iproutingdiscards}
+    ip.EntityData.Leafs["ipv6IpForwarding"] = types.YLeaf{"Ipv6Ipforwarding", ip.Ipv6Ipforwarding}
+    ip.EntityData.Leafs["ipv6IpDefaultHopLimit"] = types.YLeaf{"Ipv6Ipdefaulthoplimit", ip.Ipv6Ipdefaulthoplimit}
+    ip.EntityData.Leafs["ipv4InterfaceTableLastChange"] = types.YLeaf{"Ipv4Interfacetablelastchange", ip.Ipv4Interfacetablelastchange}
+    ip.EntityData.Leafs["ipv6InterfaceTableLastChange"] = types.YLeaf{"Ipv6Interfacetablelastchange", ip.Ipv6Interfacetablelastchange}
+    ip.EntityData.Leafs["ipAddressSpinLock"] = types.YLeaf{"Ipaddressspinlock", ip.Ipaddressspinlock}
+    ip.EntityData.Leafs["ipv6RouterAdvertSpinLock"] = types.YLeaf{"Ipv6Routeradvertspinlock", ip.Ipv6Routeradvertspinlock}
+    return &(ip.EntityData)
 }
-
-func (ip *IPMIB_Ip) GetSegmentPath() string {
-    return "ip"
-}
-
-func (ip *IPMIB_Ip) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ip *IPMIB_Ip) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ip *IPMIB_Ip) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipForwarding"] = ip.Ipforwarding
-    leafs["ipDefaultTTL"] = ip.Ipdefaultttl
-    leafs["ipInReceives"] = ip.Ipinreceives
-    leafs["ipInHdrErrors"] = ip.Ipinhdrerrors
-    leafs["ipInAddrErrors"] = ip.Ipinaddrerrors
-    leafs["ipForwDatagrams"] = ip.Ipforwdatagrams
-    leafs["ipInUnknownProtos"] = ip.Ipinunknownprotos
-    leafs["ipInDiscards"] = ip.Ipindiscards
-    leafs["ipInDelivers"] = ip.Ipindelivers
-    leafs["ipOutRequests"] = ip.Ipoutrequests
-    leafs["ipOutDiscards"] = ip.Ipoutdiscards
-    leafs["ipOutNoRoutes"] = ip.Ipoutnoroutes
-    leafs["ipReasmTimeout"] = ip.Ipreasmtimeout
-    leafs["ipReasmReqds"] = ip.Ipreasmreqds
-    leafs["ipReasmOKs"] = ip.Ipreasmoks
-    leafs["ipReasmFails"] = ip.Ipreasmfails
-    leafs["ipFragOKs"] = ip.Ipfragoks
-    leafs["ipFragFails"] = ip.Ipfragfails
-    leafs["ipFragCreates"] = ip.Ipfragcreates
-    leafs["ipRoutingDiscards"] = ip.Iproutingdiscards
-    leafs["ipv6IpForwarding"] = ip.Ipv6Ipforwarding
-    leafs["ipv6IpDefaultHopLimit"] = ip.Ipv6Ipdefaulthoplimit
-    leafs["ipv4InterfaceTableLastChange"] = ip.Ipv4Interfacetablelastchange
-    leafs["ipv6InterfaceTableLastChange"] = ip.Ipv6Interfacetablelastchange
-    leafs["ipAddressSpinLock"] = ip.Ipaddressspinlock
-    leafs["ipv6RouterAdvertSpinLock"] = ip.Ipv6Routeradvertspinlock
-    return leafs
-}
-
-func (ip *IPMIB_Ip) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ip *IPMIB_Ip) GetYangName() string { return "ip" }
-
-func (ip *IPMIB_Ip) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ip *IPMIB_Ip) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ip *IPMIB_Ip) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ip *IPMIB_Ip) SetParent(parent types.Entity) { ip.parent = parent }
-
-func (ip *IPMIB_Ip) GetParent() types.Entity { return ip.parent }
-
-func (ip *IPMIB_Ip) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ip_Ipforwarding represents was previously defined.
 type IPMIB_Ip_Ipforwarding string
@@ -658,7 +506,7 @@ const (
 
 // IPMIB_Iptrafficstats
 type IPMIB_Iptrafficstats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of sysUpTime on the most recent occasion at which a row in the
@@ -669,55 +517,25 @@ type IPMIB_Iptrafficstats struct {
     Ipifstatstablelastchange interface{}
 }
 
-func (iptrafficstats *IPMIB_Iptrafficstats) GetFilter() yfilter.YFilter { return iptrafficstats.YFilter }
+func (iptrafficstats *IPMIB_Iptrafficstats) GetEntityData() *types.CommonEntityData {
+    iptrafficstats.EntityData.YFilter = iptrafficstats.YFilter
+    iptrafficstats.EntityData.YangName = "ipTrafficStats"
+    iptrafficstats.EntityData.BundleName = "cisco_ios_xe"
+    iptrafficstats.EntityData.ParentYangName = "IP-MIB"
+    iptrafficstats.EntityData.SegmentPath = "ipTrafficStats"
+    iptrafficstats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iptrafficstats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iptrafficstats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iptrafficstats *IPMIB_Iptrafficstats) SetFilter(yf yfilter.YFilter) { iptrafficstats.YFilter = yf }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetGoName(yname string) string {
-    if yname == "ipIfStatsTableLastChange" { return "Ipifstatstablelastchange" }
-    return ""
+    iptrafficstats.EntityData.Children = make(map[string]types.YChild)
+    iptrafficstats.EntityData.Leafs = make(map[string]types.YLeaf)
+    iptrafficstats.EntityData.Leafs["ipIfStatsTableLastChange"] = types.YLeaf{"Ipifstatstablelastchange", iptrafficstats.Ipifstatstablelastchange}
+    return &(iptrafficstats.EntityData)
 }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetSegmentPath() string {
-    return "ipTrafficStats"
-}
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipIfStatsTableLastChange"] = iptrafficstats.Ipifstatstablelastchange
-    return leafs
-}
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetYangName() string { return "ipTrafficStats" }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) SetParent(parent types.Entity) { iptrafficstats.parent = parent }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetParent() types.Entity { return iptrafficstats.parent }
-
-func (iptrafficstats *IPMIB_Iptrafficstats) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Icmp
 type IPMIB_Icmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of ICMP messages which the entity received. Note that this
@@ -885,101 +703,46 @@ type IPMIB_Icmp struct {
     Icmpoutaddrmaskreps interface{}
 }
 
-func (icmp *IPMIB_Icmp) GetFilter() yfilter.YFilter { return icmp.YFilter }
+func (icmp *IPMIB_Icmp) GetEntityData() *types.CommonEntityData {
+    icmp.EntityData.YFilter = icmp.YFilter
+    icmp.EntityData.YangName = "icmp"
+    icmp.EntityData.BundleName = "cisco_ios_xe"
+    icmp.EntityData.ParentYangName = "IP-MIB"
+    icmp.EntityData.SegmentPath = "icmp"
+    icmp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icmp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icmp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icmp *IPMIB_Icmp) SetFilter(yf yfilter.YFilter) { icmp.YFilter = yf }
-
-func (icmp *IPMIB_Icmp) GetGoName(yname string) string {
-    if yname == "icmpInMsgs" { return "Icmpinmsgs" }
-    if yname == "icmpInErrors" { return "Icmpinerrors" }
-    if yname == "icmpInDestUnreachs" { return "Icmpindestunreachs" }
-    if yname == "icmpInTimeExcds" { return "Icmpintimeexcds" }
-    if yname == "icmpInParmProbs" { return "Icmpinparmprobs" }
-    if yname == "icmpInSrcQuenchs" { return "Icmpinsrcquenchs" }
-    if yname == "icmpInRedirects" { return "Icmpinredirects" }
-    if yname == "icmpInEchos" { return "Icmpinechos" }
-    if yname == "icmpInEchoReps" { return "Icmpinechoreps" }
-    if yname == "icmpInTimestamps" { return "Icmpintimestamps" }
-    if yname == "icmpInTimestampReps" { return "Icmpintimestampreps" }
-    if yname == "icmpInAddrMasks" { return "Icmpinaddrmasks" }
-    if yname == "icmpInAddrMaskReps" { return "Icmpinaddrmaskreps" }
-    if yname == "icmpOutMsgs" { return "Icmpoutmsgs" }
-    if yname == "icmpOutErrors" { return "Icmpouterrors" }
-    if yname == "icmpOutDestUnreachs" { return "Icmpoutdestunreachs" }
-    if yname == "icmpOutTimeExcds" { return "Icmpouttimeexcds" }
-    if yname == "icmpOutParmProbs" { return "Icmpoutparmprobs" }
-    if yname == "icmpOutSrcQuenchs" { return "Icmpoutsrcquenchs" }
-    if yname == "icmpOutRedirects" { return "Icmpoutredirects" }
-    if yname == "icmpOutEchos" { return "Icmpoutechos" }
-    if yname == "icmpOutEchoReps" { return "Icmpoutechoreps" }
-    if yname == "icmpOutTimestamps" { return "Icmpouttimestamps" }
-    if yname == "icmpOutTimestampReps" { return "Icmpouttimestampreps" }
-    if yname == "icmpOutAddrMasks" { return "Icmpoutaddrmasks" }
-    if yname == "icmpOutAddrMaskReps" { return "Icmpoutaddrmaskreps" }
-    return ""
+    icmp.EntityData.Children = make(map[string]types.YChild)
+    icmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmp.EntityData.Leafs["icmpInMsgs"] = types.YLeaf{"Icmpinmsgs", icmp.Icmpinmsgs}
+    icmp.EntityData.Leafs["icmpInErrors"] = types.YLeaf{"Icmpinerrors", icmp.Icmpinerrors}
+    icmp.EntityData.Leafs["icmpInDestUnreachs"] = types.YLeaf{"Icmpindestunreachs", icmp.Icmpindestunreachs}
+    icmp.EntityData.Leafs["icmpInTimeExcds"] = types.YLeaf{"Icmpintimeexcds", icmp.Icmpintimeexcds}
+    icmp.EntityData.Leafs["icmpInParmProbs"] = types.YLeaf{"Icmpinparmprobs", icmp.Icmpinparmprobs}
+    icmp.EntityData.Leafs["icmpInSrcQuenchs"] = types.YLeaf{"Icmpinsrcquenchs", icmp.Icmpinsrcquenchs}
+    icmp.EntityData.Leafs["icmpInRedirects"] = types.YLeaf{"Icmpinredirects", icmp.Icmpinredirects}
+    icmp.EntityData.Leafs["icmpInEchos"] = types.YLeaf{"Icmpinechos", icmp.Icmpinechos}
+    icmp.EntityData.Leafs["icmpInEchoReps"] = types.YLeaf{"Icmpinechoreps", icmp.Icmpinechoreps}
+    icmp.EntityData.Leafs["icmpInTimestamps"] = types.YLeaf{"Icmpintimestamps", icmp.Icmpintimestamps}
+    icmp.EntityData.Leafs["icmpInTimestampReps"] = types.YLeaf{"Icmpintimestampreps", icmp.Icmpintimestampreps}
+    icmp.EntityData.Leafs["icmpInAddrMasks"] = types.YLeaf{"Icmpinaddrmasks", icmp.Icmpinaddrmasks}
+    icmp.EntityData.Leafs["icmpInAddrMaskReps"] = types.YLeaf{"Icmpinaddrmaskreps", icmp.Icmpinaddrmaskreps}
+    icmp.EntityData.Leafs["icmpOutMsgs"] = types.YLeaf{"Icmpoutmsgs", icmp.Icmpoutmsgs}
+    icmp.EntityData.Leafs["icmpOutErrors"] = types.YLeaf{"Icmpouterrors", icmp.Icmpouterrors}
+    icmp.EntityData.Leafs["icmpOutDestUnreachs"] = types.YLeaf{"Icmpoutdestunreachs", icmp.Icmpoutdestunreachs}
+    icmp.EntityData.Leafs["icmpOutTimeExcds"] = types.YLeaf{"Icmpouttimeexcds", icmp.Icmpouttimeexcds}
+    icmp.EntityData.Leafs["icmpOutParmProbs"] = types.YLeaf{"Icmpoutparmprobs", icmp.Icmpoutparmprobs}
+    icmp.EntityData.Leafs["icmpOutSrcQuenchs"] = types.YLeaf{"Icmpoutsrcquenchs", icmp.Icmpoutsrcquenchs}
+    icmp.EntityData.Leafs["icmpOutRedirects"] = types.YLeaf{"Icmpoutredirects", icmp.Icmpoutredirects}
+    icmp.EntityData.Leafs["icmpOutEchos"] = types.YLeaf{"Icmpoutechos", icmp.Icmpoutechos}
+    icmp.EntityData.Leafs["icmpOutEchoReps"] = types.YLeaf{"Icmpoutechoreps", icmp.Icmpoutechoreps}
+    icmp.EntityData.Leafs["icmpOutTimestamps"] = types.YLeaf{"Icmpouttimestamps", icmp.Icmpouttimestamps}
+    icmp.EntityData.Leafs["icmpOutTimestampReps"] = types.YLeaf{"Icmpouttimestampreps", icmp.Icmpouttimestampreps}
+    icmp.EntityData.Leafs["icmpOutAddrMasks"] = types.YLeaf{"Icmpoutaddrmasks", icmp.Icmpoutaddrmasks}
+    icmp.EntityData.Leafs["icmpOutAddrMaskReps"] = types.YLeaf{"Icmpoutaddrmaskreps", icmp.Icmpoutaddrmaskreps}
+    return &(icmp.EntityData)
 }
-
-func (icmp *IPMIB_Icmp) GetSegmentPath() string {
-    return "icmp"
-}
-
-func (icmp *IPMIB_Icmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (icmp *IPMIB_Icmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (icmp *IPMIB_Icmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icmpInMsgs"] = icmp.Icmpinmsgs
-    leafs["icmpInErrors"] = icmp.Icmpinerrors
-    leafs["icmpInDestUnreachs"] = icmp.Icmpindestunreachs
-    leafs["icmpInTimeExcds"] = icmp.Icmpintimeexcds
-    leafs["icmpInParmProbs"] = icmp.Icmpinparmprobs
-    leafs["icmpInSrcQuenchs"] = icmp.Icmpinsrcquenchs
-    leafs["icmpInRedirects"] = icmp.Icmpinredirects
-    leafs["icmpInEchos"] = icmp.Icmpinechos
-    leafs["icmpInEchoReps"] = icmp.Icmpinechoreps
-    leafs["icmpInTimestamps"] = icmp.Icmpintimestamps
-    leafs["icmpInTimestampReps"] = icmp.Icmpintimestampreps
-    leafs["icmpInAddrMasks"] = icmp.Icmpinaddrmasks
-    leafs["icmpInAddrMaskReps"] = icmp.Icmpinaddrmaskreps
-    leafs["icmpOutMsgs"] = icmp.Icmpoutmsgs
-    leafs["icmpOutErrors"] = icmp.Icmpouterrors
-    leafs["icmpOutDestUnreachs"] = icmp.Icmpoutdestunreachs
-    leafs["icmpOutTimeExcds"] = icmp.Icmpouttimeexcds
-    leafs["icmpOutParmProbs"] = icmp.Icmpoutparmprobs
-    leafs["icmpOutSrcQuenchs"] = icmp.Icmpoutsrcquenchs
-    leafs["icmpOutRedirects"] = icmp.Icmpoutredirects
-    leafs["icmpOutEchos"] = icmp.Icmpoutechos
-    leafs["icmpOutEchoReps"] = icmp.Icmpoutechoreps
-    leafs["icmpOutTimestamps"] = icmp.Icmpouttimestamps
-    leafs["icmpOutTimestampReps"] = icmp.Icmpouttimestampreps
-    leafs["icmpOutAddrMasks"] = icmp.Icmpoutaddrmasks
-    leafs["icmpOutAddrMaskReps"] = icmp.Icmpoutaddrmaskreps
-    return leafs
-}
-
-func (icmp *IPMIB_Icmp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icmp *IPMIB_Icmp) GetYangName() string { return "icmp" }
-
-func (icmp *IPMIB_Icmp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icmp *IPMIB_Icmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icmp *IPMIB_Icmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icmp *IPMIB_Icmp) SetParent(parent types.Entity) { icmp.parent = parent }
-
-func (icmp *IPMIB_Icmp) GetParent() types.Entity { return icmp.parent }
-
-func (icmp *IPMIB_Icmp) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipaddrtable
 // The table of addressing information relevant to this
@@ -991,7 +754,7 @@ func (icmp *IPMIB_Icmp) GetParentYangName() string { return "IP-MIB" }
 // useful weren't carried forward while another
 // (ipAdEntReasmMaxSize) was moved to the ipv4InterfaceTable.
 type IPMIB_Ipaddrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The addressing information for one of this entity's IPv4 addresses. The
@@ -999,74 +762,35 @@ type IPMIB_Ipaddrtable struct {
     Ipaddrentry []IPMIB_Ipaddrtable_Ipaddrentry
 }
 
-func (ipaddrtable *IPMIB_Ipaddrtable) GetFilter() yfilter.YFilter { return ipaddrtable.YFilter }
+func (ipaddrtable *IPMIB_Ipaddrtable) GetEntityData() *types.CommonEntityData {
+    ipaddrtable.EntityData.YFilter = ipaddrtable.YFilter
+    ipaddrtable.EntityData.YangName = "ipAddrTable"
+    ipaddrtable.EntityData.BundleName = "cisco_ios_xe"
+    ipaddrtable.EntityData.ParentYangName = "IP-MIB"
+    ipaddrtable.EntityData.SegmentPath = "ipAddrTable"
+    ipaddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipaddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipaddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipaddrtable *IPMIB_Ipaddrtable) SetFilter(yf yfilter.YFilter) { ipaddrtable.YFilter = yf }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetGoName(yname string) string {
-    if yname == "ipAddrEntry" { return "Ipaddrentry" }
-    return ""
-}
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetSegmentPath() string {
-    return "ipAddrTable"
-}
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipAddrEntry" {
-        for _, c := range ipaddrtable.Ipaddrentry {
-            if ipaddrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipaddrtable_Ipaddrentry{}
-        ipaddrtable.Ipaddrentry = append(ipaddrtable.Ipaddrentry, child)
-        return &ipaddrtable.Ipaddrentry[len(ipaddrtable.Ipaddrentry)-1]
-    }
-    return nil
-}
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipaddrtable.EntityData.Children = make(map[string]types.YChild)
+    ipaddrtable.EntityData.Children["ipAddrEntry"] = types.YChild{"Ipaddrentry", nil}
     for i := range ipaddrtable.Ipaddrentry {
-        children[ipaddrtable.Ipaddrentry[i].GetSegmentPath()] = &ipaddrtable.Ipaddrentry[i]
+        ipaddrtable.EntityData.Children[types.GetSegmentPath(&ipaddrtable.Ipaddrentry[i])] = types.YChild{"Ipaddrentry", &ipaddrtable.Ipaddrentry[i]}
     }
-    return children
+    ipaddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipaddrtable.EntityData)
 }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetYangName() string { return "ipAddrTable" }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) SetParent(parent types.Entity) { ipaddrtable.parent = parent }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetParent() types.Entity { return ipaddrtable.parent }
-
-func (ipaddrtable *IPMIB_Ipaddrtable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipaddrtable_Ipaddrentry
 // The addressing information for one of this entity's IPv4
 // addresses.
 type IPMIB_Ipaddrtable_Ipaddrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IPv4 address to which this entry's addressing
     // information pertains. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipadentaddr interface{}
 
     // The index value which uniquely identifies the interface to which this entry
@@ -1078,7 +802,7 @@ type IPMIB_Ipaddrtable_Ipaddrentry struct {
     // The subnet mask associated with the IPv4 address of this entry.  The value
     // of the mask is an IPv4 address with all the network bits set to 1 and all
     // the hosts bits set to 0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipadentnetmask interface{}
 
     // The value of the least-significant bit in the IPv4 broadcast address used
@@ -1095,59 +819,25 @@ type IPMIB_Ipaddrtable_Ipaddrentry struct {
     Ipadentreasmmaxsize interface{}
 }
 
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetFilter() yfilter.YFilter { return ipaddrentry.YFilter }
+func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetEntityData() *types.CommonEntityData {
+    ipaddrentry.EntityData.YFilter = ipaddrentry.YFilter
+    ipaddrentry.EntityData.YangName = "ipAddrEntry"
+    ipaddrentry.EntityData.BundleName = "cisco_ios_xe"
+    ipaddrentry.EntityData.ParentYangName = "ipAddrTable"
+    ipaddrentry.EntityData.SegmentPath = "ipAddrEntry" + "[ipAdEntAddr='" + fmt.Sprintf("%v", ipaddrentry.Ipadentaddr) + "']"
+    ipaddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipaddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipaddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) SetFilter(yf yfilter.YFilter) { ipaddrentry.YFilter = yf }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetGoName(yname string) string {
-    if yname == "ipAdEntAddr" { return "Ipadentaddr" }
-    if yname == "ipAdEntIfIndex" { return "Ipadentifindex" }
-    if yname == "ipAdEntNetMask" { return "Ipadentnetmask" }
-    if yname == "ipAdEntBcastAddr" { return "Ipadentbcastaddr" }
-    if yname == "ipAdEntReasmMaxSize" { return "Ipadentreasmmaxsize" }
-    return ""
+    ipaddrentry.EntityData.Children = make(map[string]types.YChild)
+    ipaddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipaddrentry.EntityData.Leafs["ipAdEntAddr"] = types.YLeaf{"Ipadentaddr", ipaddrentry.Ipadentaddr}
+    ipaddrentry.EntityData.Leafs["ipAdEntIfIndex"] = types.YLeaf{"Ipadentifindex", ipaddrentry.Ipadentifindex}
+    ipaddrentry.EntityData.Leafs["ipAdEntNetMask"] = types.YLeaf{"Ipadentnetmask", ipaddrentry.Ipadentnetmask}
+    ipaddrentry.EntityData.Leafs["ipAdEntBcastAddr"] = types.YLeaf{"Ipadentbcastaddr", ipaddrentry.Ipadentbcastaddr}
+    ipaddrentry.EntityData.Leafs["ipAdEntReasmMaxSize"] = types.YLeaf{"Ipadentreasmmaxsize", ipaddrentry.Ipadentreasmmaxsize}
+    return &(ipaddrentry.EntityData)
 }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetSegmentPath() string {
-    return "ipAddrEntry" + "[ipAdEntAddr='" + fmt.Sprintf("%v", ipaddrentry.Ipadentaddr) + "']"
-}
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipAdEntAddr"] = ipaddrentry.Ipadentaddr
-    leafs["ipAdEntIfIndex"] = ipaddrentry.Ipadentifindex
-    leafs["ipAdEntNetMask"] = ipaddrentry.Ipadentnetmask
-    leafs["ipAdEntBcastAddr"] = ipaddrentry.Ipadentbcastaddr
-    leafs["ipAdEntReasmMaxSize"] = ipaddrentry.Ipadentreasmmaxsize
-    return leafs
-}
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetYangName() string { return "ipAddrEntry" }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) SetParent(parent types.Entity) { ipaddrentry.parent = parent }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetParent() types.Entity { return ipaddrentry.parent }
-
-func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetParentYangName() string { return "ipAddrTable" }
 
 // IPMIB_Ipnettomediatable
 // The IPv4 Address Translation table used for mapping from
@@ -1157,7 +847,7 @@ func (ipaddrentry *IPMIB_Ipaddrtable_Ipaddrentry) GetParentYangName() string { r
 // table has been added.  It is loosely replaced by the
 // ipNetToPhysicalTable.
 type IPMIB_Ipnettomediatable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains one IpAddress to `physical' address equivalence. The
@@ -1165,69 +855,30 @@ type IPMIB_Ipnettomediatable struct {
     Ipnettomediaentry []IPMIB_Ipnettomediatable_Ipnettomediaentry
 }
 
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetFilter() yfilter.YFilter { return ipnettomediatable.YFilter }
+func (ipnettomediatable *IPMIB_Ipnettomediatable) GetEntityData() *types.CommonEntityData {
+    ipnettomediatable.EntityData.YFilter = ipnettomediatable.YFilter
+    ipnettomediatable.EntityData.YangName = "ipNetToMediaTable"
+    ipnettomediatable.EntityData.BundleName = "cisco_ios_xe"
+    ipnettomediatable.EntityData.ParentYangName = "IP-MIB"
+    ipnettomediatable.EntityData.SegmentPath = "ipNetToMediaTable"
+    ipnettomediatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipnettomediatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipnettomediatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipnettomediatable *IPMIB_Ipnettomediatable) SetFilter(yf yfilter.YFilter) { ipnettomediatable.YFilter = yf }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetGoName(yname string) string {
-    if yname == "ipNetToMediaEntry" { return "Ipnettomediaentry" }
-    return ""
-}
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetSegmentPath() string {
-    return "ipNetToMediaTable"
-}
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipNetToMediaEntry" {
-        for _, c := range ipnettomediatable.Ipnettomediaentry {
-            if ipnettomediatable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipnettomediatable_Ipnettomediaentry{}
-        ipnettomediatable.Ipnettomediaentry = append(ipnettomediatable.Ipnettomediaentry, child)
-        return &ipnettomediatable.Ipnettomediaentry[len(ipnettomediatable.Ipnettomediaentry)-1]
-    }
-    return nil
-}
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipnettomediatable.EntityData.Children = make(map[string]types.YChild)
+    ipnettomediatable.EntityData.Children["ipNetToMediaEntry"] = types.YChild{"Ipnettomediaentry", nil}
     for i := range ipnettomediatable.Ipnettomediaentry {
-        children[ipnettomediatable.Ipnettomediaentry[i].GetSegmentPath()] = &ipnettomediatable.Ipnettomediaentry[i]
+        ipnettomediatable.EntityData.Children[types.GetSegmentPath(&ipnettomediatable.Ipnettomediaentry[i])] = types.YChild{"Ipnettomediaentry", &ipnettomediatable.Ipnettomediaentry[i]}
     }
-    return children
+    ipnettomediatable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipnettomediatable.EntityData)
 }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetYangName() string { return "ipNetToMediaTable" }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) SetParent(parent types.Entity) { ipnettomediatable.parent = parent }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetParent() types.Entity { return ipnettomediatable.parent }
-
-func (ipnettomediatable *IPMIB_Ipnettomediatable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipnettomediatable_Ipnettomediaentry
 // Each entry contains one IpAddress to `physical' address
 // equivalence.
 type IPMIB_Ipnettomediatable_Ipnettomediaentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface on which this entry's equivalence is
@@ -1242,7 +893,7 @@ type IPMIB_Ipnettomediatable_Ipnettomediaentry struct {
     // `physical' address.  This object predates the rule limiting index objects
     // to a max access value of 'not-accessible' and so continues to use a value
     // of 'read-create'. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipnettomedianetaddress interface{}
 
     // The media-dependent `physical' address.  This object should return 0 when
@@ -1269,57 +920,24 @@ type IPMIB_Ipnettomediatable_Ipnettomediaentry struct {
     Ipnettomediatype interface{}
 }
 
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetFilter() yfilter.YFilter { return ipnettomediaentry.YFilter }
+func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetEntityData() *types.CommonEntityData {
+    ipnettomediaentry.EntityData.YFilter = ipnettomediaentry.YFilter
+    ipnettomediaentry.EntityData.YangName = "ipNetToMediaEntry"
+    ipnettomediaentry.EntityData.BundleName = "cisco_ios_xe"
+    ipnettomediaentry.EntityData.ParentYangName = "ipNetToMediaTable"
+    ipnettomediaentry.EntityData.SegmentPath = "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + fmt.Sprintf("%v", ipnettomediaentry.Ipnettomediaifindex) + "']" + "[ipNetToMediaNetAddress='" + fmt.Sprintf("%v", ipnettomediaentry.Ipnettomedianetaddress) + "']"
+    ipnettomediaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipnettomediaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipnettomediaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) SetFilter(yf yfilter.YFilter) { ipnettomediaentry.YFilter = yf }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetGoName(yname string) string {
-    if yname == "ipNetToMediaIfIndex" { return "Ipnettomediaifindex" }
-    if yname == "ipNetToMediaNetAddress" { return "Ipnettomedianetaddress" }
-    if yname == "ipNetToMediaPhysAddress" { return "Ipnettomediaphysaddress" }
-    if yname == "ipNetToMediaType" { return "Ipnettomediatype" }
-    return ""
+    ipnettomediaentry.EntityData.Children = make(map[string]types.YChild)
+    ipnettomediaentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipnettomediaentry.EntityData.Leafs["ipNetToMediaIfIndex"] = types.YLeaf{"Ipnettomediaifindex", ipnettomediaentry.Ipnettomediaifindex}
+    ipnettomediaentry.EntityData.Leafs["ipNetToMediaNetAddress"] = types.YLeaf{"Ipnettomedianetaddress", ipnettomediaentry.Ipnettomedianetaddress}
+    ipnettomediaentry.EntityData.Leafs["ipNetToMediaPhysAddress"] = types.YLeaf{"Ipnettomediaphysaddress", ipnettomediaentry.Ipnettomediaphysaddress}
+    ipnettomediaentry.EntityData.Leafs["ipNetToMediaType"] = types.YLeaf{"Ipnettomediatype", ipnettomediaentry.Ipnettomediatype}
+    return &(ipnettomediaentry.EntityData)
 }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetSegmentPath() string {
-    return "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + fmt.Sprintf("%v", ipnettomediaentry.Ipnettomediaifindex) + "']" + "[ipNetToMediaNetAddress='" + fmt.Sprintf("%v", ipnettomediaentry.Ipnettomedianetaddress) + "']"
-}
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipNetToMediaIfIndex"] = ipnettomediaentry.Ipnettomediaifindex
-    leafs["ipNetToMediaNetAddress"] = ipnettomediaentry.Ipnettomedianetaddress
-    leafs["ipNetToMediaPhysAddress"] = ipnettomediaentry.Ipnettomediaphysaddress
-    leafs["ipNetToMediaType"] = ipnettomediaentry.Ipnettomediatype
-    return leafs
-}
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetYangName() string { return "ipNetToMediaEntry" }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) SetParent(parent types.Entity) { ipnettomediaentry.parent = parent }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetParent() types.Entity { return ipnettomediaentry.parent }
-
-func (ipnettomediaentry *IPMIB_Ipnettomediatable_Ipnettomediaentry) GetParentYangName() string { return "ipNetToMediaTable" }
 
 // IPMIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype represents defined.
 type IPMIB_Ipnettomediatable_Ipnettomediaentry_Ipnettomediatype string
@@ -1338,7 +956,7 @@ const (
 // The table containing per-interface IPv4-specific
 // information.
 type IPMIB_Ipv4Interfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing IPv4-specific information for a specific interface. The
@@ -1346,69 +964,30 @@ type IPMIB_Ipv4Interfacetable struct {
     Ipv4Interfaceentry []IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry
 }
 
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetFilter() yfilter.YFilter { return ipv4Interfacetable.YFilter }
+func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetEntityData() *types.CommonEntityData {
+    ipv4Interfacetable.EntityData.YFilter = ipv4Interfacetable.YFilter
+    ipv4Interfacetable.EntityData.YangName = "ipv4InterfaceTable"
+    ipv4Interfacetable.EntityData.BundleName = "cisco_ios_xe"
+    ipv4Interfacetable.EntityData.ParentYangName = "IP-MIB"
+    ipv4Interfacetable.EntityData.SegmentPath = "ipv4InterfaceTable"
+    ipv4Interfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv4Interfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv4Interfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) SetFilter(yf yfilter.YFilter) { ipv4Interfacetable.YFilter = yf }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetGoName(yname string) string {
-    if yname == "ipv4InterfaceEntry" { return "Ipv4Interfaceentry" }
-    return ""
-}
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetSegmentPath() string {
-    return "ipv4InterfaceTable"
-}
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4InterfaceEntry" {
-        for _, c := range ipv4Interfacetable.Ipv4Interfaceentry {
-            if ipv4Interfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry{}
-        ipv4Interfacetable.Ipv4Interfaceentry = append(ipv4Interfacetable.Ipv4Interfaceentry, child)
-        return &ipv4Interfacetable.Ipv4Interfaceentry[len(ipv4Interfacetable.Ipv4Interfaceentry)-1]
-    }
-    return nil
-}
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv4Interfacetable.EntityData.Children = make(map[string]types.YChild)
+    ipv4Interfacetable.EntityData.Children["ipv4InterfaceEntry"] = types.YChild{"Ipv4Interfaceentry", nil}
     for i := range ipv4Interfacetable.Ipv4Interfaceentry {
-        children[ipv4Interfacetable.Ipv4Interfaceentry[i].GetSegmentPath()] = &ipv4Interfacetable.Ipv4Interfaceentry[i]
+        ipv4Interfacetable.EntityData.Children[types.GetSegmentPath(&ipv4Interfacetable.Ipv4Interfaceentry[i])] = types.YChild{"Ipv4Interfaceentry", &ipv4Interfacetable.Ipv4Interfaceentry[i]}
     }
-    return children
+    ipv4Interfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4Interfacetable.EntityData)
 }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetYangName() string { return "ipv4InterfaceTable" }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) SetParent(parent types.Entity) { ipv4Interfacetable.parent = parent }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetParent() types.Entity { return ipv4Interfacetable.parent }
-
-func (ipv4Interfacetable *IPMIB_Ipv4Interfacetable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry
 // An entry containing IPv4-specific information for a specific
 // interface.
 type IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value that uniquely identifies the
@@ -1435,57 +1014,24 @@ type IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry struct {
     Ipv4Interfaceretransmittime interface{}
 }
 
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetFilter() yfilter.YFilter { return ipv4Interfaceentry.YFilter }
+func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetEntityData() *types.CommonEntityData {
+    ipv4Interfaceentry.EntityData.YFilter = ipv4Interfaceentry.YFilter
+    ipv4Interfaceentry.EntityData.YangName = "ipv4InterfaceEntry"
+    ipv4Interfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    ipv4Interfaceentry.EntityData.ParentYangName = "ipv4InterfaceTable"
+    ipv4Interfaceentry.EntityData.SegmentPath = "ipv4InterfaceEntry" + "[ipv4InterfaceIfIndex='" + fmt.Sprintf("%v", ipv4Interfaceentry.Ipv4Interfaceifindex) + "']"
+    ipv4Interfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv4Interfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv4Interfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) SetFilter(yf yfilter.YFilter) { ipv4Interfaceentry.YFilter = yf }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetGoName(yname string) string {
-    if yname == "ipv4InterfaceIfIndex" { return "Ipv4Interfaceifindex" }
-    if yname == "ipv4InterfaceReasmMaxSize" { return "Ipv4Interfacereasmmaxsize" }
-    if yname == "ipv4InterfaceEnableStatus" { return "Ipv4Interfaceenablestatus" }
-    if yname == "ipv4InterfaceRetransmitTime" { return "Ipv4Interfaceretransmittime" }
-    return ""
+    ipv4Interfaceentry.EntityData.Children = make(map[string]types.YChild)
+    ipv4Interfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Interfaceentry.EntityData.Leafs["ipv4InterfaceIfIndex"] = types.YLeaf{"Ipv4Interfaceifindex", ipv4Interfaceentry.Ipv4Interfaceifindex}
+    ipv4Interfaceentry.EntityData.Leafs["ipv4InterfaceReasmMaxSize"] = types.YLeaf{"Ipv4Interfacereasmmaxsize", ipv4Interfaceentry.Ipv4Interfacereasmmaxsize}
+    ipv4Interfaceentry.EntityData.Leafs["ipv4InterfaceEnableStatus"] = types.YLeaf{"Ipv4Interfaceenablestatus", ipv4Interfaceentry.Ipv4Interfaceenablestatus}
+    ipv4Interfaceentry.EntityData.Leafs["ipv4InterfaceRetransmitTime"] = types.YLeaf{"Ipv4Interfaceretransmittime", ipv4Interfaceentry.Ipv4Interfaceretransmittime}
+    return &(ipv4Interfaceentry.EntityData)
 }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetSegmentPath() string {
-    return "ipv4InterfaceEntry" + "[ipv4InterfaceIfIndex='" + fmt.Sprintf("%v", ipv4Interfaceentry.Ipv4Interfaceifindex) + "']"
-}
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4InterfaceIfIndex"] = ipv4Interfaceentry.Ipv4Interfaceifindex
-    leafs["ipv4InterfaceReasmMaxSize"] = ipv4Interfaceentry.Ipv4Interfacereasmmaxsize
-    leafs["ipv4InterfaceEnableStatus"] = ipv4Interfaceentry.Ipv4Interfaceenablestatus
-    leafs["ipv4InterfaceRetransmitTime"] = ipv4Interfaceentry.Ipv4Interfaceretransmittime
-    return leafs
-}
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetYangName() string { return "ipv4InterfaceEntry" }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) SetParent(parent types.Entity) { ipv4Interfaceentry.parent = parent }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetParent() types.Entity { return ipv4Interfaceentry.parent }
-
-func (ipv4Interfaceentry *IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry) GetParentYangName() string { return "ipv4InterfaceTable" }
 
 // IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry_Ipv4Interfaceenablestatus represents of the interface.
 type IPMIB_Ipv4Interfacetable_Ipv4Interfaceentry_Ipv4Interfaceenablestatus string
@@ -1500,7 +1046,7 @@ const (
 // The table containing per-interface IPv6-specific
 // information.
 type IPMIB_Ipv6Interfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing IPv6-specific information for a given interface. The
@@ -1508,69 +1054,30 @@ type IPMIB_Ipv6Interfacetable struct {
     Ipv6Interfaceentry []IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry
 }
 
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetFilter() yfilter.YFilter { return ipv6Interfacetable.YFilter }
+func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetEntityData() *types.CommonEntityData {
+    ipv6Interfacetable.EntityData.YFilter = ipv6Interfacetable.YFilter
+    ipv6Interfacetable.EntityData.YangName = "ipv6InterfaceTable"
+    ipv6Interfacetable.EntityData.BundleName = "cisco_ios_xe"
+    ipv6Interfacetable.EntityData.ParentYangName = "IP-MIB"
+    ipv6Interfacetable.EntityData.SegmentPath = "ipv6InterfaceTable"
+    ipv6Interfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6Interfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6Interfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) SetFilter(yf yfilter.YFilter) { ipv6Interfacetable.YFilter = yf }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetGoName(yname string) string {
-    if yname == "ipv6InterfaceEntry" { return "Ipv6Interfaceentry" }
-    return ""
-}
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetSegmentPath() string {
-    return "ipv6InterfaceTable"
-}
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6InterfaceEntry" {
-        for _, c := range ipv6Interfacetable.Ipv6Interfaceentry {
-            if ipv6Interfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry{}
-        ipv6Interfacetable.Ipv6Interfaceentry = append(ipv6Interfacetable.Ipv6Interfaceentry, child)
-        return &ipv6Interfacetable.Ipv6Interfaceentry[len(ipv6Interfacetable.Ipv6Interfaceentry)-1]
-    }
-    return nil
-}
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv6Interfacetable.EntityData.Children = make(map[string]types.YChild)
+    ipv6Interfacetable.EntityData.Children["ipv6InterfaceEntry"] = types.YChild{"Ipv6Interfaceentry", nil}
     for i := range ipv6Interfacetable.Ipv6Interfaceentry {
-        children[ipv6Interfacetable.Ipv6Interfaceentry[i].GetSegmentPath()] = &ipv6Interfacetable.Ipv6Interfaceentry[i]
+        ipv6Interfacetable.EntityData.Children[types.GetSegmentPath(&ipv6Interfacetable.Ipv6Interfaceentry[i])] = types.YChild{"Ipv6Interfaceentry", &ipv6Interfacetable.Ipv6Interfaceentry[i]}
     }
-    return children
+    ipv6Interfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Interfacetable.EntityData)
 }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetYangName() string { return "ipv6InterfaceTable" }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) SetParent(parent types.Entity) { ipv6Interfacetable.parent = parent }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetParent() types.Entity { return ipv6Interfacetable.parent }
-
-func (ipv6Interfacetable *IPMIB_Ipv6Interfacetable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry
 // An entry containing IPv6-specific information for a given
 // interface.
 type IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value that uniquely identifies the
@@ -1627,63 +1134,27 @@ type IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry struct {
     Ipv6Interfaceforwarding interface{}
 }
 
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetFilter() yfilter.YFilter { return ipv6Interfaceentry.YFilter }
+func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetEntityData() *types.CommonEntityData {
+    ipv6Interfaceentry.EntityData.YFilter = ipv6Interfaceentry.YFilter
+    ipv6Interfaceentry.EntityData.YangName = "ipv6InterfaceEntry"
+    ipv6Interfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    ipv6Interfaceentry.EntityData.ParentYangName = "ipv6InterfaceTable"
+    ipv6Interfaceentry.EntityData.SegmentPath = "ipv6InterfaceEntry" + "[ipv6InterfaceIfIndex='" + fmt.Sprintf("%v", ipv6Interfaceentry.Ipv6Interfaceifindex) + "']"
+    ipv6Interfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6Interfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6Interfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) SetFilter(yf yfilter.YFilter) { ipv6Interfaceentry.YFilter = yf }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetGoName(yname string) string {
-    if yname == "ipv6InterfaceIfIndex" { return "Ipv6Interfaceifindex" }
-    if yname == "ipv6InterfaceReasmMaxSize" { return "Ipv6Interfacereasmmaxsize" }
-    if yname == "ipv6InterfaceIdentifier" { return "Ipv6Interfaceidentifier" }
-    if yname == "ipv6InterfaceEnableStatus" { return "Ipv6Interfaceenablestatus" }
-    if yname == "ipv6InterfaceReachableTime" { return "Ipv6Interfacereachabletime" }
-    if yname == "ipv6InterfaceRetransmitTime" { return "Ipv6Interfaceretransmittime" }
-    if yname == "ipv6InterfaceForwarding" { return "Ipv6Interfaceforwarding" }
-    return ""
+    ipv6Interfaceentry.EntityData.Children = make(map[string]types.YChild)
+    ipv6Interfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceIfIndex"] = types.YLeaf{"Ipv6Interfaceifindex", ipv6Interfaceentry.Ipv6Interfaceifindex}
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceReasmMaxSize"] = types.YLeaf{"Ipv6Interfacereasmmaxsize", ipv6Interfaceentry.Ipv6Interfacereasmmaxsize}
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceIdentifier"] = types.YLeaf{"Ipv6Interfaceidentifier", ipv6Interfaceentry.Ipv6Interfaceidentifier}
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceEnableStatus"] = types.YLeaf{"Ipv6Interfaceenablestatus", ipv6Interfaceentry.Ipv6Interfaceenablestatus}
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceReachableTime"] = types.YLeaf{"Ipv6Interfacereachabletime", ipv6Interfaceentry.Ipv6Interfacereachabletime}
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceRetransmitTime"] = types.YLeaf{"Ipv6Interfaceretransmittime", ipv6Interfaceentry.Ipv6Interfaceretransmittime}
+    ipv6Interfaceentry.EntityData.Leafs["ipv6InterfaceForwarding"] = types.YLeaf{"Ipv6Interfaceforwarding", ipv6Interfaceentry.Ipv6Interfaceforwarding}
+    return &(ipv6Interfaceentry.EntityData)
 }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetSegmentPath() string {
-    return "ipv6InterfaceEntry" + "[ipv6InterfaceIfIndex='" + fmt.Sprintf("%v", ipv6Interfaceentry.Ipv6Interfaceifindex) + "']"
-}
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6InterfaceIfIndex"] = ipv6Interfaceentry.Ipv6Interfaceifindex
-    leafs["ipv6InterfaceReasmMaxSize"] = ipv6Interfaceentry.Ipv6Interfacereasmmaxsize
-    leafs["ipv6InterfaceIdentifier"] = ipv6Interfaceentry.Ipv6Interfaceidentifier
-    leafs["ipv6InterfaceEnableStatus"] = ipv6Interfaceentry.Ipv6Interfaceenablestatus
-    leafs["ipv6InterfaceReachableTime"] = ipv6Interfaceentry.Ipv6Interfacereachabletime
-    leafs["ipv6InterfaceRetransmitTime"] = ipv6Interfaceentry.Ipv6Interfaceretransmittime
-    leafs["ipv6InterfaceForwarding"] = ipv6Interfaceentry.Ipv6Interfaceforwarding
-    return leafs
-}
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetYangName() string { return "ipv6InterfaceEntry" }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) SetParent(parent types.Entity) { ipv6Interfaceentry.parent = parent }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetParent() types.Entity { return ipv6Interfaceentry.parent }
-
-func (ipv6Interfaceentry *IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry) GetParentYangName() string { return "ipv6InterfaceTable" }
 
 // IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry_Ipv6Interfaceenablestatus represents non-volatile storage upon re-initialization of the system.
 type IPMIB_Ipv6Interfacetable_Ipv6Interfaceentry_Ipv6Interfaceenablestatus string
@@ -1711,7 +1182,7 @@ const (
 // statistics, the ipIfStatsTable contains the same statistics
 // but counted on a per-interface basis.
 type IPMIB_Ipsystemstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A statistics entry containing system-wide objects for a particular IP
@@ -1719,69 +1190,30 @@ type IPMIB_Ipsystemstatstable struct {
     Ipsystemstatsentry []IPMIB_Ipsystemstatstable_Ipsystemstatsentry
 }
 
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetFilter() yfilter.YFilter { return ipsystemstatstable.YFilter }
+func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetEntityData() *types.CommonEntityData {
+    ipsystemstatstable.EntityData.YFilter = ipsystemstatstable.YFilter
+    ipsystemstatstable.EntityData.YangName = "ipSystemStatsTable"
+    ipsystemstatstable.EntityData.BundleName = "cisco_ios_xe"
+    ipsystemstatstable.EntityData.ParentYangName = "IP-MIB"
+    ipsystemstatstable.EntityData.SegmentPath = "ipSystemStatsTable"
+    ipsystemstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipsystemstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipsystemstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) SetFilter(yf yfilter.YFilter) { ipsystemstatstable.YFilter = yf }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetGoName(yname string) string {
-    if yname == "ipSystemStatsEntry" { return "Ipsystemstatsentry" }
-    return ""
-}
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetSegmentPath() string {
-    return "ipSystemStatsTable"
-}
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipSystemStatsEntry" {
-        for _, c := range ipsystemstatstable.Ipsystemstatsentry {
-            if ipsystemstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipsystemstatstable_Ipsystemstatsentry{}
-        ipsystemstatstable.Ipsystemstatsentry = append(ipsystemstatstable.Ipsystemstatsentry, child)
-        return &ipsystemstatstable.Ipsystemstatsentry[len(ipsystemstatstable.Ipsystemstatsentry)-1]
-    }
-    return nil
-}
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipsystemstatstable.EntityData.Children = make(map[string]types.YChild)
+    ipsystemstatstable.EntityData.Children["ipSystemStatsEntry"] = types.YChild{"Ipsystemstatsentry", nil}
     for i := range ipsystemstatstable.Ipsystemstatsentry {
-        children[ipsystemstatstable.Ipsystemstatsentry[i].GetSegmentPath()] = &ipsystemstatstable.Ipsystemstatsentry[i]
+        ipsystemstatstable.EntityData.Children[types.GetSegmentPath(&ipsystemstatstable.Ipsystemstatsentry[i])] = types.YChild{"Ipsystemstatsentry", &ipsystemstatstable.Ipsystemstatsentry[i]}
     }
-    return children
+    ipsystemstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipsystemstatstable.EntityData)
 }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetYangName() string { return "ipSystemStatsTable" }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) SetParent(parent types.Entity) { ipsystemstatstable.parent = parent }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetParent() types.Entity { return ipsystemstatstable.parent }
-
-func (ipsystemstatstable *IPMIB_Ipsystemstatstable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipsystemstatstable_Ipsystemstatsentry
 // A statistics entry containing system-wide objects for a
 // particular IP version.
 type IPMIB_Ipsystemstatstable_Ipsystemstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP version of this row. The type is IpVersion.
@@ -2185,141 +1617,66 @@ type IPMIB_Ipsystemstatstable_Ipsystemstatsentry struct {
     Ipsystemstatsrefreshrate interface{}
 }
 
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetFilter() yfilter.YFilter { return ipsystemstatsentry.YFilter }
+func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetEntityData() *types.CommonEntityData {
+    ipsystemstatsentry.EntityData.YFilter = ipsystemstatsentry.YFilter
+    ipsystemstatsentry.EntityData.YangName = "ipSystemStatsEntry"
+    ipsystemstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    ipsystemstatsentry.EntityData.ParentYangName = "ipSystemStatsTable"
+    ipsystemstatsentry.EntityData.SegmentPath = "ipSystemStatsEntry" + "[ipSystemStatsIPVersion='" + fmt.Sprintf("%v", ipsystemstatsentry.Ipsystemstatsipversion) + "']"
+    ipsystemstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipsystemstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipsystemstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) SetFilter(yf yfilter.YFilter) { ipsystemstatsentry.YFilter = yf }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetGoName(yname string) string {
-    if yname == "ipSystemStatsIPVersion" { return "Ipsystemstatsipversion" }
-    if yname == "ipSystemStatsInReceives" { return "Ipsystemstatsinreceives" }
-    if yname == "ipSystemStatsHCInReceives" { return "Ipsystemstatshcinreceives" }
-    if yname == "ipSystemStatsInOctets" { return "Ipsystemstatsinoctets" }
-    if yname == "ipSystemStatsHCInOctets" { return "Ipsystemstatshcinoctets" }
-    if yname == "ipSystemStatsInHdrErrors" { return "Ipsystemstatsinhdrerrors" }
-    if yname == "ipSystemStatsInNoRoutes" { return "Ipsystemstatsinnoroutes" }
-    if yname == "ipSystemStatsInAddrErrors" { return "Ipsystemstatsinaddrerrors" }
-    if yname == "ipSystemStatsInUnknownProtos" { return "Ipsystemstatsinunknownprotos" }
-    if yname == "ipSystemStatsInTruncatedPkts" { return "Ipsystemstatsintruncatedpkts" }
-    if yname == "ipSystemStatsInForwDatagrams" { return "Ipsystemstatsinforwdatagrams" }
-    if yname == "ipSystemStatsHCInForwDatagrams" { return "Ipsystemstatshcinforwdatagrams" }
-    if yname == "ipSystemStatsReasmReqds" { return "Ipsystemstatsreasmreqds" }
-    if yname == "ipSystemStatsReasmOKs" { return "Ipsystemstatsreasmoks" }
-    if yname == "ipSystemStatsReasmFails" { return "Ipsystemstatsreasmfails" }
-    if yname == "ipSystemStatsInDiscards" { return "Ipsystemstatsindiscards" }
-    if yname == "ipSystemStatsInDelivers" { return "Ipsystemstatsindelivers" }
-    if yname == "ipSystemStatsHCInDelivers" { return "Ipsystemstatshcindelivers" }
-    if yname == "ipSystemStatsOutRequests" { return "Ipsystemstatsoutrequests" }
-    if yname == "ipSystemStatsHCOutRequests" { return "Ipsystemstatshcoutrequests" }
-    if yname == "ipSystemStatsOutNoRoutes" { return "Ipsystemstatsoutnoroutes" }
-    if yname == "ipSystemStatsOutForwDatagrams" { return "Ipsystemstatsoutforwdatagrams" }
-    if yname == "ipSystemStatsHCOutForwDatagrams" { return "Ipsystemstatshcoutforwdatagrams" }
-    if yname == "ipSystemStatsOutDiscards" { return "Ipsystemstatsoutdiscards" }
-    if yname == "ipSystemStatsOutFragReqds" { return "Ipsystemstatsoutfragreqds" }
-    if yname == "ipSystemStatsOutFragOKs" { return "Ipsystemstatsoutfragoks" }
-    if yname == "ipSystemStatsOutFragFails" { return "Ipsystemstatsoutfragfails" }
-    if yname == "ipSystemStatsOutFragCreates" { return "Ipsystemstatsoutfragcreates" }
-    if yname == "ipSystemStatsOutTransmits" { return "Ipsystemstatsouttransmits" }
-    if yname == "ipSystemStatsHCOutTransmits" { return "Ipsystemstatshcouttransmits" }
-    if yname == "ipSystemStatsOutOctets" { return "Ipsystemstatsoutoctets" }
-    if yname == "ipSystemStatsHCOutOctets" { return "Ipsystemstatshcoutoctets" }
-    if yname == "ipSystemStatsInMcastPkts" { return "Ipsystemstatsinmcastpkts" }
-    if yname == "ipSystemStatsHCInMcastPkts" { return "Ipsystemstatshcinmcastpkts" }
-    if yname == "ipSystemStatsInMcastOctets" { return "Ipsystemstatsinmcastoctets" }
-    if yname == "ipSystemStatsHCInMcastOctets" { return "Ipsystemstatshcinmcastoctets" }
-    if yname == "ipSystemStatsOutMcastPkts" { return "Ipsystemstatsoutmcastpkts" }
-    if yname == "ipSystemStatsHCOutMcastPkts" { return "Ipsystemstatshcoutmcastpkts" }
-    if yname == "ipSystemStatsOutMcastOctets" { return "Ipsystemstatsoutmcastoctets" }
-    if yname == "ipSystemStatsHCOutMcastOctets" { return "Ipsystemstatshcoutmcastoctets" }
-    if yname == "ipSystemStatsInBcastPkts" { return "Ipsystemstatsinbcastpkts" }
-    if yname == "ipSystemStatsHCInBcastPkts" { return "Ipsystemstatshcinbcastpkts" }
-    if yname == "ipSystemStatsOutBcastPkts" { return "Ipsystemstatsoutbcastpkts" }
-    if yname == "ipSystemStatsHCOutBcastPkts" { return "Ipsystemstatshcoutbcastpkts" }
-    if yname == "ipSystemStatsDiscontinuityTime" { return "Ipsystemstatsdiscontinuitytime" }
-    if yname == "ipSystemStatsRefreshRate" { return "Ipsystemstatsrefreshrate" }
-    return ""
+    ipsystemstatsentry.EntityData.Children = make(map[string]types.YChild)
+    ipsystemstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsIPVersion"] = types.YLeaf{"Ipsystemstatsipversion", ipsystemstatsentry.Ipsystemstatsipversion}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInReceives"] = types.YLeaf{"Ipsystemstatsinreceives", ipsystemstatsentry.Ipsystemstatsinreceives}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInReceives"] = types.YLeaf{"Ipsystemstatshcinreceives", ipsystemstatsentry.Ipsystemstatshcinreceives}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInOctets"] = types.YLeaf{"Ipsystemstatsinoctets", ipsystemstatsentry.Ipsystemstatsinoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInOctets"] = types.YLeaf{"Ipsystemstatshcinoctets", ipsystemstatsentry.Ipsystemstatshcinoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInHdrErrors"] = types.YLeaf{"Ipsystemstatsinhdrerrors", ipsystemstatsentry.Ipsystemstatsinhdrerrors}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInNoRoutes"] = types.YLeaf{"Ipsystemstatsinnoroutes", ipsystemstatsentry.Ipsystemstatsinnoroutes}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInAddrErrors"] = types.YLeaf{"Ipsystemstatsinaddrerrors", ipsystemstatsentry.Ipsystemstatsinaddrerrors}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInUnknownProtos"] = types.YLeaf{"Ipsystemstatsinunknownprotos", ipsystemstatsentry.Ipsystemstatsinunknownprotos}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInTruncatedPkts"] = types.YLeaf{"Ipsystemstatsintruncatedpkts", ipsystemstatsentry.Ipsystemstatsintruncatedpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInForwDatagrams"] = types.YLeaf{"Ipsystemstatsinforwdatagrams", ipsystemstatsentry.Ipsystemstatsinforwdatagrams}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInForwDatagrams"] = types.YLeaf{"Ipsystemstatshcinforwdatagrams", ipsystemstatsentry.Ipsystemstatshcinforwdatagrams}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsReasmReqds"] = types.YLeaf{"Ipsystemstatsreasmreqds", ipsystemstatsentry.Ipsystemstatsreasmreqds}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsReasmOKs"] = types.YLeaf{"Ipsystemstatsreasmoks", ipsystemstatsentry.Ipsystemstatsreasmoks}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsReasmFails"] = types.YLeaf{"Ipsystemstatsreasmfails", ipsystemstatsentry.Ipsystemstatsreasmfails}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInDiscards"] = types.YLeaf{"Ipsystemstatsindiscards", ipsystemstatsentry.Ipsystemstatsindiscards}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInDelivers"] = types.YLeaf{"Ipsystemstatsindelivers", ipsystemstatsentry.Ipsystemstatsindelivers}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInDelivers"] = types.YLeaf{"Ipsystemstatshcindelivers", ipsystemstatsentry.Ipsystemstatshcindelivers}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutRequests"] = types.YLeaf{"Ipsystemstatsoutrequests", ipsystemstatsentry.Ipsystemstatsoutrequests}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutRequests"] = types.YLeaf{"Ipsystemstatshcoutrequests", ipsystemstatsentry.Ipsystemstatshcoutrequests}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutNoRoutes"] = types.YLeaf{"Ipsystemstatsoutnoroutes", ipsystemstatsentry.Ipsystemstatsoutnoroutes}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutForwDatagrams"] = types.YLeaf{"Ipsystemstatsoutforwdatagrams", ipsystemstatsentry.Ipsystemstatsoutforwdatagrams}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutForwDatagrams"] = types.YLeaf{"Ipsystemstatshcoutforwdatagrams", ipsystemstatsentry.Ipsystemstatshcoutforwdatagrams}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutDiscards"] = types.YLeaf{"Ipsystemstatsoutdiscards", ipsystemstatsentry.Ipsystemstatsoutdiscards}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutFragReqds"] = types.YLeaf{"Ipsystemstatsoutfragreqds", ipsystemstatsentry.Ipsystemstatsoutfragreqds}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutFragOKs"] = types.YLeaf{"Ipsystemstatsoutfragoks", ipsystemstatsentry.Ipsystemstatsoutfragoks}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutFragFails"] = types.YLeaf{"Ipsystemstatsoutfragfails", ipsystemstatsentry.Ipsystemstatsoutfragfails}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutFragCreates"] = types.YLeaf{"Ipsystemstatsoutfragcreates", ipsystemstatsentry.Ipsystemstatsoutfragcreates}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutTransmits"] = types.YLeaf{"Ipsystemstatsouttransmits", ipsystemstatsentry.Ipsystemstatsouttransmits}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutTransmits"] = types.YLeaf{"Ipsystemstatshcouttransmits", ipsystemstatsentry.Ipsystemstatshcouttransmits}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutOctets"] = types.YLeaf{"Ipsystemstatsoutoctets", ipsystemstatsentry.Ipsystemstatsoutoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutOctets"] = types.YLeaf{"Ipsystemstatshcoutoctets", ipsystemstatsentry.Ipsystemstatshcoutoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInMcastPkts"] = types.YLeaf{"Ipsystemstatsinmcastpkts", ipsystemstatsentry.Ipsystemstatsinmcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInMcastPkts"] = types.YLeaf{"Ipsystemstatshcinmcastpkts", ipsystemstatsentry.Ipsystemstatshcinmcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInMcastOctets"] = types.YLeaf{"Ipsystemstatsinmcastoctets", ipsystemstatsentry.Ipsystemstatsinmcastoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInMcastOctets"] = types.YLeaf{"Ipsystemstatshcinmcastoctets", ipsystemstatsentry.Ipsystemstatshcinmcastoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutMcastPkts"] = types.YLeaf{"Ipsystemstatsoutmcastpkts", ipsystemstatsentry.Ipsystemstatsoutmcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutMcastPkts"] = types.YLeaf{"Ipsystemstatshcoutmcastpkts", ipsystemstatsentry.Ipsystemstatshcoutmcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutMcastOctets"] = types.YLeaf{"Ipsystemstatsoutmcastoctets", ipsystemstatsentry.Ipsystemstatsoutmcastoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutMcastOctets"] = types.YLeaf{"Ipsystemstatshcoutmcastoctets", ipsystemstatsentry.Ipsystemstatshcoutmcastoctets}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsInBcastPkts"] = types.YLeaf{"Ipsystemstatsinbcastpkts", ipsystemstatsentry.Ipsystemstatsinbcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCInBcastPkts"] = types.YLeaf{"Ipsystemstatshcinbcastpkts", ipsystemstatsentry.Ipsystemstatshcinbcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsOutBcastPkts"] = types.YLeaf{"Ipsystemstatsoutbcastpkts", ipsystemstatsentry.Ipsystemstatsoutbcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsHCOutBcastPkts"] = types.YLeaf{"Ipsystemstatshcoutbcastpkts", ipsystemstatsentry.Ipsystemstatshcoutbcastpkts}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsDiscontinuityTime"] = types.YLeaf{"Ipsystemstatsdiscontinuitytime", ipsystemstatsentry.Ipsystemstatsdiscontinuitytime}
+    ipsystemstatsentry.EntityData.Leafs["ipSystemStatsRefreshRate"] = types.YLeaf{"Ipsystemstatsrefreshrate", ipsystemstatsentry.Ipsystemstatsrefreshrate}
+    return &(ipsystemstatsentry.EntityData)
 }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetSegmentPath() string {
-    return "ipSystemStatsEntry" + "[ipSystemStatsIPVersion='" + fmt.Sprintf("%v", ipsystemstatsentry.Ipsystemstatsipversion) + "']"
-}
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipSystemStatsIPVersion"] = ipsystemstatsentry.Ipsystemstatsipversion
-    leafs["ipSystemStatsInReceives"] = ipsystemstatsentry.Ipsystemstatsinreceives
-    leafs["ipSystemStatsHCInReceives"] = ipsystemstatsentry.Ipsystemstatshcinreceives
-    leafs["ipSystemStatsInOctets"] = ipsystemstatsentry.Ipsystemstatsinoctets
-    leafs["ipSystemStatsHCInOctets"] = ipsystemstatsentry.Ipsystemstatshcinoctets
-    leafs["ipSystemStatsInHdrErrors"] = ipsystemstatsentry.Ipsystemstatsinhdrerrors
-    leafs["ipSystemStatsInNoRoutes"] = ipsystemstatsentry.Ipsystemstatsinnoroutes
-    leafs["ipSystemStatsInAddrErrors"] = ipsystemstatsentry.Ipsystemstatsinaddrerrors
-    leafs["ipSystemStatsInUnknownProtos"] = ipsystemstatsentry.Ipsystemstatsinunknownprotos
-    leafs["ipSystemStatsInTruncatedPkts"] = ipsystemstatsentry.Ipsystemstatsintruncatedpkts
-    leafs["ipSystemStatsInForwDatagrams"] = ipsystemstatsentry.Ipsystemstatsinforwdatagrams
-    leafs["ipSystemStatsHCInForwDatagrams"] = ipsystemstatsentry.Ipsystemstatshcinforwdatagrams
-    leafs["ipSystemStatsReasmReqds"] = ipsystemstatsentry.Ipsystemstatsreasmreqds
-    leafs["ipSystemStatsReasmOKs"] = ipsystemstatsentry.Ipsystemstatsreasmoks
-    leafs["ipSystemStatsReasmFails"] = ipsystemstatsentry.Ipsystemstatsreasmfails
-    leafs["ipSystemStatsInDiscards"] = ipsystemstatsentry.Ipsystemstatsindiscards
-    leafs["ipSystemStatsInDelivers"] = ipsystemstatsentry.Ipsystemstatsindelivers
-    leafs["ipSystemStatsHCInDelivers"] = ipsystemstatsentry.Ipsystemstatshcindelivers
-    leafs["ipSystemStatsOutRequests"] = ipsystemstatsentry.Ipsystemstatsoutrequests
-    leafs["ipSystemStatsHCOutRequests"] = ipsystemstatsentry.Ipsystemstatshcoutrequests
-    leafs["ipSystemStatsOutNoRoutes"] = ipsystemstatsentry.Ipsystemstatsoutnoroutes
-    leafs["ipSystemStatsOutForwDatagrams"] = ipsystemstatsentry.Ipsystemstatsoutforwdatagrams
-    leafs["ipSystemStatsHCOutForwDatagrams"] = ipsystemstatsentry.Ipsystemstatshcoutforwdatagrams
-    leafs["ipSystemStatsOutDiscards"] = ipsystemstatsentry.Ipsystemstatsoutdiscards
-    leafs["ipSystemStatsOutFragReqds"] = ipsystemstatsentry.Ipsystemstatsoutfragreqds
-    leafs["ipSystemStatsOutFragOKs"] = ipsystemstatsentry.Ipsystemstatsoutfragoks
-    leafs["ipSystemStatsOutFragFails"] = ipsystemstatsentry.Ipsystemstatsoutfragfails
-    leafs["ipSystemStatsOutFragCreates"] = ipsystemstatsentry.Ipsystemstatsoutfragcreates
-    leafs["ipSystemStatsOutTransmits"] = ipsystemstatsentry.Ipsystemstatsouttransmits
-    leafs["ipSystemStatsHCOutTransmits"] = ipsystemstatsentry.Ipsystemstatshcouttransmits
-    leafs["ipSystemStatsOutOctets"] = ipsystemstatsentry.Ipsystemstatsoutoctets
-    leafs["ipSystemStatsHCOutOctets"] = ipsystemstatsentry.Ipsystemstatshcoutoctets
-    leafs["ipSystemStatsInMcastPkts"] = ipsystemstatsentry.Ipsystemstatsinmcastpkts
-    leafs["ipSystemStatsHCInMcastPkts"] = ipsystemstatsentry.Ipsystemstatshcinmcastpkts
-    leafs["ipSystemStatsInMcastOctets"] = ipsystemstatsentry.Ipsystemstatsinmcastoctets
-    leafs["ipSystemStatsHCInMcastOctets"] = ipsystemstatsentry.Ipsystemstatshcinmcastoctets
-    leafs["ipSystemStatsOutMcastPkts"] = ipsystemstatsentry.Ipsystemstatsoutmcastpkts
-    leafs["ipSystemStatsHCOutMcastPkts"] = ipsystemstatsentry.Ipsystemstatshcoutmcastpkts
-    leafs["ipSystemStatsOutMcastOctets"] = ipsystemstatsentry.Ipsystemstatsoutmcastoctets
-    leafs["ipSystemStatsHCOutMcastOctets"] = ipsystemstatsentry.Ipsystemstatshcoutmcastoctets
-    leafs["ipSystemStatsInBcastPkts"] = ipsystemstatsentry.Ipsystemstatsinbcastpkts
-    leafs["ipSystemStatsHCInBcastPkts"] = ipsystemstatsentry.Ipsystemstatshcinbcastpkts
-    leafs["ipSystemStatsOutBcastPkts"] = ipsystemstatsentry.Ipsystemstatsoutbcastpkts
-    leafs["ipSystemStatsHCOutBcastPkts"] = ipsystemstatsentry.Ipsystemstatshcoutbcastpkts
-    leafs["ipSystemStatsDiscontinuityTime"] = ipsystemstatsentry.Ipsystemstatsdiscontinuitytime
-    leafs["ipSystemStatsRefreshRate"] = ipsystemstatsentry.Ipsystemstatsrefreshrate
-    return leafs
-}
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetYangName() string { return "ipSystemStatsEntry" }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) SetParent(parent types.Entity) { ipsystemstatsentry.parent = parent }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetParent() types.Entity { return ipsystemstatsentry.parent }
-
-func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetParentYangName() string { return "ipSystemStatsTable" }
 
 // IPMIB_Ipifstatstable
 // The table containing per-interface traffic statistics.  This
@@ -2329,7 +1686,7 @@ func (ipsystemstatsentry *IPMIB_Ipsystemstatstable_Ipsystemstatsentry) GetParent
 // contains the same statistics, but counted on a system wide
 // basis.
 type IPMIB_Ipifstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An interface statistics entry containing objects for a particular interface
@@ -2338,69 +1695,30 @@ type IPMIB_Ipifstatstable struct {
     Ipifstatsentry []IPMIB_Ipifstatstable_Ipifstatsentry
 }
 
-func (ipifstatstable *IPMIB_Ipifstatstable) GetFilter() yfilter.YFilter { return ipifstatstable.YFilter }
+func (ipifstatstable *IPMIB_Ipifstatstable) GetEntityData() *types.CommonEntityData {
+    ipifstatstable.EntityData.YFilter = ipifstatstable.YFilter
+    ipifstatstable.EntityData.YangName = "ipIfStatsTable"
+    ipifstatstable.EntityData.BundleName = "cisco_ios_xe"
+    ipifstatstable.EntityData.ParentYangName = "IP-MIB"
+    ipifstatstable.EntityData.SegmentPath = "ipIfStatsTable"
+    ipifstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipifstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipifstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipifstatstable *IPMIB_Ipifstatstable) SetFilter(yf yfilter.YFilter) { ipifstatstable.YFilter = yf }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetGoName(yname string) string {
-    if yname == "ipIfStatsEntry" { return "Ipifstatsentry" }
-    return ""
-}
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetSegmentPath() string {
-    return "ipIfStatsTable"
-}
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipIfStatsEntry" {
-        for _, c := range ipifstatstable.Ipifstatsentry {
-            if ipifstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipifstatstable_Ipifstatsentry{}
-        ipifstatstable.Ipifstatsentry = append(ipifstatstable.Ipifstatsentry, child)
-        return &ipifstatstable.Ipifstatsentry[len(ipifstatstable.Ipifstatsentry)-1]
-    }
-    return nil
-}
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipifstatstable.EntityData.Children = make(map[string]types.YChild)
+    ipifstatstable.EntityData.Children["ipIfStatsEntry"] = types.YChild{"Ipifstatsentry", nil}
     for i := range ipifstatstable.Ipifstatsentry {
-        children[ipifstatstable.Ipifstatsentry[i].GetSegmentPath()] = &ipifstatstable.Ipifstatsentry[i]
+        ipifstatstable.EntityData.Children[types.GetSegmentPath(&ipifstatstable.Ipifstatsentry[i])] = types.YChild{"Ipifstatsentry", &ipifstatstable.Ipifstatsentry[i]}
     }
-    return children
+    ipifstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipifstatstable.EntityData)
 }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetYangName() string { return "ipIfStatsTable" }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) SetParent(parent types.Entity) { ipifstatstable.parent = parent }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetParent() types.Entity { return ipifstatstable.parent }
-
-func (ipifstatstable *IPMIB_Ipifstatstable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipifstatstable_Ipifstatsentry
 // An interface statistics entry containing objects for a
 // particular interface and version of IP.
 type IPMIB_Ipifstatstable_Ipifstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP version of this row. The type is IpVersion.
@@ -2799,141 +2117,66 @@ type IPMIB_Ipifstatstable_Ipifstatsentry struct {
     Ipifstatsrefreshrate interface{}
 }
 
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetFilter() yfilter.YFilter { return ipifstatsentry.YFilter }
+func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetEntityData() *types.CommonEntityData {
+    ipifstatsentry.EntityData.YFilter = ipifstatsentry.YFilter
+    ipifstatsentry.EntityData.YangName = "ipIfStatsEntry"
+    ipifstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    ipifstatsentry.EntityData.ParentYangName = "ipIfStatsTable"
+    ipifstatsentry.EntityData.SegmentPath = "ipIfStatsEntry" + "[ipIfStatsIPVersion='" + fmt.Sprintf("%v", ipifstatsentry.Ipifstatsipversion) + "']" + "[ipIfStatsIfIndex='" + fmt.Sprintf("%v", ipifstatsentry.Ipifstatsifindex) + "']"
+    ipifstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipifstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipifstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) SetFilter(yf yfilter.YFilter) { ipifstatsentry.YFilter = yf }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetGoName(yname string) string {
-    if yname == "ipIfStatsIPVersion" { return "Ipifstatsipversion" }
-    if yname == "ipIfStatsIfIndex" { return "Ipifstatsifindex" }
-    if yname == "ipIfStatsInReceives" { return "Ipifstatsinreceives" }
-    if yname == "ipIfStatsHCInReceives" { return "Ipifstatshcinreceives" }
-    if yname == "ipIfStatsInOctets" { return "Ipifstatsinoctets" }
-    if yname == "ipIfStatsHCInOctets" { return "Ipifstatshcinoctets" }
-    if yname == "ipIfStatsInHdrErrors" { return "Ipifstatsinhdrerrors" }
-    if yname == "ipIfStatsInNoRoutes" { return "Ipifstatsinnoroutes" }
-    if yname == "ipIfStatsInAddrErrors" { return "Ipifstatsinaddrerrors" }
-    if yname == "ipIfStatsInUnknownProtos" { return "Ipifstatsinunknownprotos" }
-    if yname == "ipIfStatsInTruncatedPkts" { return "Ipifstatsintruncatedpkts" }
-    if yname == "ipIfStatsInForwDatagrams" { return "Ipifstatsinforwdatagrams" }
-    if yname == "ipIfStatsHCInForwDatagrams" { return "Ipifstatshcinforwdatagrams" }
-    if yname == "ipIfStatsReasmReqds" { return "Ipifstatsreasmreqds" }
-    if yname == "ipIfStatsReasmOKs" { return "Ipifstatsreasmoks" }
-    if yname == "ipIfStatsReasmFails" { return "Ipifstatsreasmfails" }
-    if yname == "ipIfStatsInDiscards" { return "Ipifstatsindiscards" }
-    if yname == "ipIfStatsInDelivers" { return "Ipifstatsindelivers" }
-    if yname == "ipIfStatsHCInDelivers" { return "Ipifstatshcindelivers" }
-    if yname == "ipIfStatsOutRequests" { return "Ipifstatsoutrequests" }
-    if yname == "ipIfStatsHCOutRequests" { return "Ipifstatshcoutrequests" }
-    if yname == "ipIfStatsOutForwDatagrams" { return "Ipifstatsoutforwdatagrams" }
-    if yname == "ipIfStatsHCOutForwDatagrams" { return "Ipifstatshcoutforwdatagrams" }
-    if yname == "ipIfStatsOutDiscards" { return "Ipifstatsoutdiscards" }
-    if yname == "ipIfStatsOutFragReqds" { return "Ipifstatsoutfragreqds" }
-    if yname == "ipIfStatsOutFragOKs" { return "Ipifstatsoutfragoks" }
-    if yname == "ipIfStatsOutFragFails" { return "Ipifstatsoutfragfails" }
-    if yname == "ipIfStatsOutFragCreates" { return "Ipifstatsoutfragcreates" }
-    if yname == "ipIfStatsOutTransmits" { return "Ipifstatsouttransmits" }
-    if yname == "ipIfStatsHCOutTransmits" { return "Ipifstatshcouttransmits" }
-    if yname == "ipIfStatsOutOctets" { return "Ipifstatsoutoctets" }
-    if yname == "ipIfStatsHCOutOctets" { return "Ipifstatshcoutoctets" }
-    if yname == "ipIfStatsInMcastPkts" { return "Ipifstatsinmcastpkts" }
-    if yname == "ipIfStatsHCInMcastPkts" { return "Ipifstatshcinmcastpkts" }
-    if yname == "ipIfStatsInMcastOctets" { return "Ipifstatsinmcastoctets" }
-    if yname == "ipIfStatsHCInMcastOctets" { return "Ipifstatshcinmcastoctets" }
-    if yname == "ipIfStatsOutMcastPkts" { return "Ipifstatsoutmcastpkts" }
-    if yname == "ipIfStatsHCOutMcastPkts" { return "Ipifstatshcoutmcastpkts" }
-    if yname == "ipIfStatsOutMcastOctets" { return "Ipifstatsoutmcastoctets" }
-    if yname == "ipIfStatsHCOutMcastOctets" { return "Ipifstatshcoutmcastoctets" }
-    if yname == "ipIfStatsInBcastPkts" { return "Ipifstatsinbcastpkts" }
-    if yname == "ipIfStatsHCInBcastPkts" { return "Ipifstatshcinbcastpkts" }
-    if yname == "ipIfStatsOutBcastPkts" { return "Ipifstatsoutbcastpkts" }
-    if yname == "ipIfStatsHCOutBcastPkts" { return "Ipifstatshcoutbcastpkts" }
-    if yname == "ipIfStatsDiscontinuityTime" { return "Ipifstatsdiscontinuitytime" }
-    if yname == "ipIfStatsRefreshRate" { return "Ipifstatsrefreshrate" }
-    return ""
+    ipifstatsentry.EntityData.Children = make(map[string]types.YChild)
+    ipifstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipifstatsentry.EntityData.Leafs["ipIfStatsIPVersion"] = types.YLeaf{"Ipifstatsipversion", ipifstatsentry.Ipifstatsipversion}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsIfIndex"] = types.YLeaf{"Ipifstatsifindex", ipifstatsentry.Ipifstatsifindex}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInReceives"] = types.YLeaf{"Ipifstatsinreceives", ipifstatsentry.Ipifstatsinreceives}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInReceives"] = types.YLeaf{"Ipifstatshcinreceives", ipifstatsentry.Ipifstatshcinreceives}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInOctets"] = types.YLeaf{"Ipifstatsinoctets", ipifstatsentry.Ipifstatsinoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInOctets"] = types.YLeaf{"Ipifstatshcinoctets", ipifstatsentry.Ipifstatshcinoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInHdrErrors"] = types.YLeaf{"Ipifstatsinhdrerrors", ipifstatsentry.Ipifstatsinhdrerrors}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInNoRoutes"] = types.YLeaf{"Ipifstatsinnoroutes", ipifstatsentry.Ipifstatsinnoroutes}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInAddrErrors"] = types.YLeaf{"Ipifstatsinaddrerrors", ipifstatsentry.Ipifstatsinaddrerrors}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInUnknownProtos"] = types.YLeaf{"Ipifstatsinunknownprotos", ipifstatsentry.Ipifstatsinunknownprotos}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInTruncatedPkts"] = types.YLeaf{"Ipifstatsintruncatedpkts", ipifstatsentry.Ipifstatsintruncatedpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInForwDatagrams"] = types.YLeaf{"Ipifstatsinforwdatagrams", ipifstatsentry.Ipifstatsinforwdatagrams}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInForwDatagrams"] = types.YLeaf{"Ipifstatshcinforwdatagrams", ipifstatsentry.Ipifstatshcinforwdatagrams}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsReasmReqds"] = types.YLeaf{"Ipifstatsreasmreqds", ipifstatsentry.Ipifstatsreasmreqds}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsReasmOKs"] = types.YLeaf{"Ipifstatsreasmoks", ipifstatsentry.Ipifstatsreasmoks}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsReasmFails"] = types.YLeaf{"Ipifstatsreasmfails", ipifstatsentry.Ipifstatsreasmfails}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInDiscards"] = types.YLeaf{"Ipifstatsindiscards", ipifstatsentry.Ipifstatsindiscards}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInDelivers"] = types.YLeaf{"Ipifstatsindelivers", ipifstatsentry.Ipifstatsindelivers}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInDelivers"] = types.YLeaf{"Ipifstatshcindelivers", ipifstatsentry.Ipifstatshcindelivers}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutRequests"] = types.YLeaf{"Ipifstatsoutrequests", ipifstatsentry.Ipifstatsoutrequests}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutRequests"] = types.YLeaf{"Ipifstatshcoutrequests", ipifstatsentry.Ipifstatshcoutrequests}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutForwDatagrams"] = types.YLeaf{"Ipifstatsoutforwdatagrams", ipifstatsentry.Ipifstatsoutforwdatagrams}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutForwDatagrams"] = types.YLeaf{"Ipifstatshcoutforwdatagrams", ipifstatsentry.Ipifstatshcoutforwdatagrams}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutDiscards"] = types.YLeaf{"Ipifstatsoutdiscards", ipifstatsentry.Ipifstatsoutdiscards}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutFragReqds"] = types.YLeaf{"Ipifstatsoutfragreqds", ipifstatsentry.Ipifstatsoutfragreqds}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutFragOKs"] = types.YLeaf{"Ipifstatsoutfragoks", ipifstatsentry.Ipifstatsoutfragoks}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutFragFails"] = types.YLeaf{"Ipifstatsoutfragfails", ipifstatsentry.Ipifstatsoutfragfails}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutFragCreates"] = types.YLeaf{"Ipifstatsoutfragcreates", ipifstatsentry.Ipifstatsoutfragcreates}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutTransmits"] = types.YLeaf{"Ipifstatsouttransmits", ipifstatsentry.Ipifstatsouttransmits}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutTransmits"] = types.YLeaf{"Ipifstatshcouttransmits", ipifstatsentry.Ipifstatshcouttransmits}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutOctets"] = types.YLeaf{"Ipifstatsoutoctets", ipifstatsentry.Ipifstatsoutoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutOctets"] = types.YLeaf{"Ipifstatshcoutoctets", ipifstatsentry.Ipifstatshcoutoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInMcastPkts"] = types.YLeaf{"Ipifstatsinmcastpkts", ipifstatsentry.Ipifstatsinmcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInMcastPkts"] = types.YLeaf{"Ipifstatshcinmcastpkts", ipifstatsentry.Ipifstatshcinmcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInMcastOctets"] = types.YLeaf{"Ipifstatsinmcastoctets", ipifstatsentry.Ipifstatsinmcastoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInMcastOctets"] = types.YLeaf{"Ipifstatshcinmcastoctets", ipifstatsentry.Ipifstatshcinmcastoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutMcastPkts"] = types.YLeaf{"Ipifstatsoutmcastpkts", ipifstatsentry.Ipifstatsoutmcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutMcastPkts"] = types.YLeaf{"Ipifstatshcoutmcastpkts", ipifstatsentry.Ipifstatshcoutmcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutMcastOctets"] = types.YLeaf{"Ipifstatsoutmcastoctets", ipifstatsentry.Ipifstatsoutmcastoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutMcastOctets"] = types.YLeaf{"Ipifstatshcoutmcastoctets", ipifstatsentry.Ipifstatshcoutmcastoctets}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsInBcastPkts"] = types.YLeaf{"Ipifstatsinbcastpkts", ipifstatsentry.Ipifstatsinbcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCInBcastPkts"] = types.YLeaf{"Ipifstatshcinbcastpkts", ipifstatsentry.Ipifstatshcinbcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsOutBcastPkts"] = types.YLeaf{"Ipifstatsoutbcastpkts", ipifstatsentry.Ipifstatsoutbcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsHCOutBcastPkts"] = types.YLeaf{"Ipifstatshcoutbcastpkts", ipifstatsentry.Ipifstatshcoutbcastpkts}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsDiscontinuityTime"] = types.YLeaf{"Ipifstatsdiscontinuitytime", ipifstatsentry.Ipifstatsdiscontinuitytime}
+    ipifstatsentry.EntityData.Leafs["ipIfStatsRefreshRate"] = types.YLeaf{"Ipifstatsrefreshrate", ipifstatsentry.Ipifstatsrefreshrate}
+    return &(ipifstatsentry.EntityData)
 }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetSegmentPath() string {
-    return "ipIfStatsEntry" + "[ipIfStatsIPVersion='" + fmt.Sprintf("%v", ipifstatsentry.Ipifstatsipversion) + "']" + "[ipIfStatsIfIndex='" + fmt.Sprintf("%v", ipifstatsentry.Ipifstatsifindex) + "']"
-}
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipIfStatsIPVersion"] = ipifstatsentry.Ipifstatsipversion
-    leafs["ipIfStatsIfIndex"] = ipifstatsentry.Ipifstatsifindex
-    leafs["ipIfStatsInReceives"] = ipifstatsentry.Ipifstatsinreceives
-    leafs["ipIfStatsHCInReceives"] = ipifstatsentry.Ipifstatshcinreceives
-    leafs["ipIfStatsInOctets"] = ipifstatsentry.Ipifstatsinoctets
-    leafs["ipIfStatsHCInOctets"] = ipifstatsentry.Ipifstatshcinoctets
-    leafs["ipIfStatsInHdrErrors"] = ipifstatsentry.Ipifstatsinhdrerrors
-    leafs["ipIfStatsInNoRoutes"] = ipifstatsentry.Ipifstatsinnoroutes
-    leafs["ipIfStatsInAddrErrors"] = ipifstatsentry.Ipifstatsinaddrerrors
-    leafs["ipIfStatsInUnknownProtos"] = ipifstatsentry.Ipifstatsinunknownprotos
-    leafs["ipIfStatsInTruncatedPkts"] = ipifstatsentry.Ipifstatsintruncatedpkts
-    leafs["ipIfStatsInForwDatagrams"] = ipifstatsentry.Ipifstatsinforwdatagrams
-    leafs["ipIfStatsHCInForwDatagrams"] = ipifstatsentry.Ipifstatshcinforwdatagrams
-    leafs["ipIfStatsReasmReqds"] = ipifstatsentry.Ipifstatsreasmreqds
-    leafs["ipIfStatsReasmOKs"] = ipifstatsentry.Ipifstatsreasmoks
-    leafs["ipIfStatsReasmFails"] = ipifstatsentry.Ipifstatsreasmfails
-    leafs["ipIfStatsInDiscards"] = ipifstatsentry.Ipifstatsindiscards
-    leafs["ipIfStatsInDelivers"] = ipifstatsentry.Ipifstatsindelivers
-    leafs["ipIfStatsHCInDelivers"] = ipifstatsentry.Ipifstatshcindelivers
-    leafs["ipIfStatsOutRequests"] = ipifstatsentry.Ipifstatsoutrequests
-    leafs["ipIfStatsHCOutRequests"] = ipifstatsentry.Ipifstatshcoutrequests
-    leafs["ipIfStatsOutForwDatagrams"] = ipifstatsentry.Ipifstatsoutforwdatagrams
-    leafs["ipIfStatsHCOutForwDatagrams"] = ipifstatsentry.Ipifstatshcoutforwdatagrams
-    leafs["ipIfStatsOutDiscards"] = ipifstatsentry.Ipifstatsoutdiscards
-    leafs["ipIfStatsOutFragReqds"] = ipifstatsentry.Ipifstatsoutfragreqds
-    leafs["ipIfStatsOutFragOKs"] = ipifstatsentry.Ipifstatsoutfragoks
-    leafs["ipIfStatsOutFragFails"] = ipifstatsentry.Ipifstatsoutfragfails
-    leafs["ipIfStatsOutFragCreates"] = ipifstatsentry.Ipifstatsoutfragcreates
-    leafs["ipIfStatsOutTransmits"] = ipifstatsentry.Ipifstatsouttransmits
-    leafs["ipIfStatsHCOutTransmits"] = ipifstatsentry.Ipifstatshcouttransmits
-    leafs["ipIfStatsOutOctets"] = ipifstatsentry.Ipifstatsoutoctets
-    leafs["ipIfStatsHCOutOctets"] = ipifstatsentry.Ipifstatshcoutoctets
-    leafs["ipIfStatsInMcastPkts"] = ipifstatsentry.Ipifstatsinmcastpkts
-    leafs["ipIfStatsHCInMcastPkts"] = ipifstatsentry.Ipifstatshcinmcastpkts
-    leafs["ipIfStatsInMcastOctets"] = ipifstatsentry.Ipifstatsinmcastoctets
-    leafs["ipIfStatsHCInMcastOctets"] = ipifstatsentry.Ipifstatshcinmcastoctets
-    leafs["ipIfStatsOutMcastPkts"] = ipifstatsentry.Ipifstatsoutmcastpkts
-    leafs["ipIfStatsHCOutMcastPkts"] = ipifstatsentry.Ipifstatshcoutmcastpkts
-    leafs["ipIfStatsOutMcastOctets"] = ipifstatsentry.Ipifstatsoutmcastoctets
-    leafs["ipIfStatsHCOutMcastOctets"] = ipifstatsentry.Ipifstatshcoutmcastoctets
-    leafs["ipIfStatsInBcastPkts"] = ipifstatsentry.Ipifstatsinbcastpkts
-    leafs["ipIfStatsHCInBcastPkts"] = ipifstatsentry.Ipifstatshcinbcastpkts
-    leafs["ipIfStatsOutBcastPkts"] = ipifstatsentry.Ipifstatsoutbcastpkts
-    leafs["ipIfStatsHCOutBcastPkts"] = ipifstatsentry.Ipifstatshcoutbcastpkts
-    leafs["ipIfStatsDiscontinuityTime"] = ipifstatsentry.Ipifstatsdiscontinuitytime
-    leafs["ipIfStatsRefreshRate"] = ipifstatsentry.Ipifstatsrefreshrate
-    return leafs
-}
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetYangName() string { return "ipIfStatsEntry" }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) SetParent(parent types.Entity) { ipifstatsentry.parent = parent }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetParent() types.Entity { return ipifstatsentry.parent }
-
-func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetParentYangName() string { return "ipIfStatsTable" }
 
 // IPMIB_Ipaddressprefixtable
 // This table allows the user to determine the source of an IP
@@ -2960,7 +2203,7 @@ func (ipifstatsentry *IPMIB_Ipifstatstable_Ipifstatsentry) GetParentYangName() s
 // 
 // advertisements.)
 type IPMIB_Ipaddressprefixtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the ipAddressPrefixTable. The type is slice of
@@ -2968,68 +2211,29 @@ type IPMIB_Ipaddressprefixtable struct {
     Ipaddressprefixentry []IPMIB_Ipaddressprefixtable_Ipaddressprefixentry
 }
 
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetFilter() yfilter.YFilter { return ipaddressprefixtable.YFilter }
+func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetEntityData() *types.CommonEntityData {
+    ipaddressprefixtable.EntityData.YFilter = ipaddressprefixtable.YFilter
+    ipaddressprefixtable.EntityData.YangName = "ipAddressPrefixTable"
+    ipaddressprefixtable.EntityData.BundleName = "cisco_ios_xe"
+    ipaddressprefixtable.EntityData.ParentYangName = "IP-MIB"
+    ipaddressprefixtable.EntityData.SegmentPath = "ipAddressPrefixTable"
+    ipaddressprefixtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipaddressprefixtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipaddressprefixtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) SetFilter(yf yfilter.YFilter) { ipaddressprefixtable.YFilter = yf }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetGoName(yname string) string {
-    if yname == "ipAddressPrefixEntry" { return "Ipaddressprefixentry" }
-    return ""
-}
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetSegmentPath() string {
-    return "ipAddressPrefixTable"
-}
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipAddressPrefixEntry" {
-        for _, c := range ipaddressprefixtable.Ipaddressprefixentry {
-            if ipaddressprefixtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipaddressprefixtable_Ipaddressprefixentry{}
-        ipaddressprefixtable.Ipaddressprefixentry = append(ipaddressprefixtable.Ipaddressprefixentry, child)
-        return &ipaddressprefixtable.Ipaddressprefixentry[len(ipaddressprefixtable.Ipaddressprefixentry)-1]
-    }
-    return nil
-}
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipaddressprefixtable.EntityData.Children = make(map[string]types.YChild)
+    ipaddressprefixtable.EntityData.Children["ipAddressPrefixEntry"] = types.YChild{"Ipaddressprefixentry", nil}
     for i := range ipaddressprefixtable.Ipaddressprefixentry {
-        children[ipaddressprefixtable.Ipaddressprefixentry[i].GetSegmentPath()] = &ipaddressprefixtable.Ipaddressprefixentry[i]
+        ipaddressprefixtable.EntityData.Children[types.GetSegmentPath(&ipaddressprefixtable.Ipaddressprefixentry[i])] = types.YChild{"Ipaddressprefixentry", &ipaddressprefixtable.Ipaddressprefixentry[i]}
     }
-    return children
+    ipaddressprefixtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipaddressprefixtable.EntityData)
 }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetYangName() string { return "ipAddressPrefixTable" }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) SetParent(parent types.Entity) { ipaddressprefixtable.parent = parent }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetParent() types.Entity { return ipaddressprefixtable.parent }
-
-func (ipaddressprefixtable *IPMIB_Ipaddressprefixtable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipaddressprefixtable_Ipaddressprefixentry
 // An entry in the ipAddressPrefixTable.
 type IPMIB_Ipaddressprefixtable_Ipaddressprefixentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value that uniquely identifies the
@@ -3091,67 +2295,29 @@ type IPMIB_Ipaddressprefixtable_Ipaddressprefixentry struct {
     Ipaddressprefixadvvalidlifetime interface{}
 }
 
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetFilter() yfilter.YFilter { return ipaddressprefixentry.YFilter }
+func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetEntityData() *types.CommonEntityData {
+    ipaddressprefixentry.EntityData.YFilter = ipaddressprefixentry.YFilter
+    ipaddressprefixentry.EntityData.YangName = "ipAddressPrefixEntry"
+    ipaddressprefixentry.EntityData.BundleName = "cisco_ios_xe"
+    ipaddressprefixentry.EntityData.ParentYangName = "ipAddressPrefixTable"
+    ipaddressprefixentry.EntityData.SegmentPath = "ipAddressPrefixEntry" + "[ipAddressPrefixIfIndex='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixifindex) + "']" + "[ipAddressPrefixType='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixtype) + "']" + "[ipAddressPrefixPrefix='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixprefix) + "']" + "[ipAddressPrefixLength='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixlength) + "']"
+    ipaddressprefixentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipaddressprefixentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipaddressprefixentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) SetFilter(yf yfilter.YFilter) { ipaddressprefixentry.YFilter = yf }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetGoName(yname string) string {
-    if yname == "ipAddressPrefixIfIndex" { return "Ipaddressprefixifindex" }
-    if yname == "ipAddressPrefixType" { return "Ipaddressprefixtype" }
-    if yname == "ipAddressPrefixPrefix" { return "Ipaddressprefixprefix" }
-    if yname == "ipAddressPrefixLength" { return "Ipaddressprefixlength" }
-    if yname == "ipAddressPrefixOrigin" { return "Ipaddressprefixorigin" }
-    if yname == "ipAddressPrefixOnLinkFlag" { return "Ipaddressprefixonlinkflag" }
-    if yname == "ipAddressPrefixAutonomousFlag" { return "Ipaddressprefixautonomousflag" }
-    if yname == "ipAddressPrefixAdvPreferredLifetime" { return "Ipaddressprefixadvpreferredlifetime" }
-    if yname == "ipAddressPrefixAdvValidLifetime" { return "Ipaddressprefixadvvalidlifetime" }
-    return ""
+    ipaddressprefixentry.EntityData.Children = make(map[string]types.YChild)
+    ipaddressprefixentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixIfIndex"] = types.YLeaf{"Ipaddressprefixifindex", ipaddressprefixentry.Ipaddressprefixifindex}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixType"] = types.YLeaf{"Ipaddressprefixtype", ipaddressprefixentry.Ipaddressprefixtype}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixPrefix"] = types.YLeaf{"Ipaddressprefixprefix", ipaddressprefixentry.Ipaddressprefixprefix}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixLength"] = types.YLeaf{"Ipaddressprefixlength", ipaddressprefixentry.Ipaddressprefixlength}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixOrigin"] = types.YLeaf{"Ipaddressprefixorigin", ipaddressprefixentry.Ipaddressprefixorigin}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixOnLinkFlag"] = types.YLeaf{"Ipaddressprefixonlinkflag", ipaddressprefixentry.Ipaddressprefixonlinkflag}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixAutonomousFlag"] = types.YLeaf{"Ipaddressprefixautonomousflag", ipaddressprefixentry.Ipaddressprefixautonomousflag}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixAdvPreferredLifetime"] = types.YLeaf{"Ipaddressprefixadvpreferredlifetime", ipaddressprefixentry.Ipaddressprefixadvpreferredlifetime}
+    ipaddressprefixentry.EntityData.Leafs["ipAddressPrefixAdvValidLifetime"] = types.YLeaf{"Ipaddressprefixadvvalidlifetime", ipaddressprefixentry.Ipaddressprefixadvvalidlifetime}
+    return &(ipaddressprefixentry.EntityData)
 }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetSegmentPath() string {
-    return "ipAddressPrefixEntry" + "[ipAddressPrefixIfIndex='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixifindex) + "']" + "[ipAddressPrefixType='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixtype) + "']" + "[ipAddressPrefixPrefix='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixprefix) + "']" + "[ipAddressPrefixLength='" + fmt.Sprintf("%v", ipaddressprefixentry.Ipaddressprefixlength) + "']"
-}
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipAddressPrefixIfIndex"] = ipaddressprefixentry.Ipaddressprefixifindex
-    leafs["ipAddressPrefixType"] = ipaddressprefixentry.Ipaddressprefixtype
-    leafs["ipAddressPrefixPrefix"] = ipaddressprefixentry.Ipaddressprefixprefix
-    leafs["ipAddressPrefixLength"] = ipaddressprefixentry.Ipaddressprefixlength
-    leafs["ipAddressPrefixOrigin"] = ipaddressprefixentry.Ipaddressprefixorigin
-    leafs["ipAddressPrefixOnLinkFlag"] = ipaddressprefixentry.Ipaddressprefixonlinkflag
-    leafs["ipAddressPrefixAutonomousFlag"] = ipaddressprefixentry.Ipaddressprefixautonomousflag
-    leafs["ipAddressPrefixAdvPreferredLifetime"] = ipaddressprefixentry.Ipaddressprefixadvpreferredlifetime
-    leafs["ipAddressPrefixAdvValidLifetime"] = ipaddressprefixentry.Ipaddressprefixadvvalidlifetime
-    return leafs
-}
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetYangName() string { return "ipAddressPrefixEntry" }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) SetParent(parent types.Entity) { ipaddressprefixentry.parent = parent }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetParent() types.Entity { return ipaddressprefixentry.parent }
-
-func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) GetParentYangName() string { return "ipAddressPrefixTable" }
 
 // IPMIB_Ipaddresstable
 // This table contains addressing information relevant to the
@@ -3177,7 +2343,7 @@ func (ipaddressprefixentry *IPMIB_Ipaddressprefixtable_Ipaddressprefixentry) Get
 // table, the entry must use an InetAddressType of 'ipv6z' in
 // order to differentiate between the possible interfaces.
 type IPMIB_Ipaddresstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An address mapping for a particular interface. The type is slice of
@@ -3185,68 +2351,29 @@ type IPMIB_Ipaddresstable struct {
     Ipaddressentry []IPMIB_Ipaddresstable_Ipaddressentry
 }
 
-func (ipaddresstable *IPMIB_Ipaddresstable) GetFilter() yfilter.YFilter { return ipaddresstable.YFilter }
+func (ipaddresstable *IPMIB_Ipaddresstable) GetEntityData() *types.CommonEntityData {
+    ipaddresstable.EntityData.YFilter = ipaddresstable.YFilter
+    ipaddresstable.EntityData.YangName = "ipAddressTable"
+    ipaddresstable.EntityData.BundleName = "cisco_ios_xe"
+    ipaddresstable.EntityData.ParentYangName = "IP-MIB"
+    ipaddresstable.EntityData.SegmentPath = "ipAddressTable"
+    ipaddresstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipaddresstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipaddresstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipaddresstable *IPMIB_Ipaddresstable) SetFilter(yf yfilter.YFilter) { ipaddresstable.YFilter = yf }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetGoName(yname string) string {
-    if yname == "ipAddressEntry" { return "Ipaddressentry" }
-    return ""
-}
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetSegmentPath() string {
-    return "ipAddressTable"
-}
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipAddressEntry" {
-        for _, c := range ipaddresstable.Ipaddressentry {
-            if ipaddresstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipaddresstable_Ipaddressentry{}
-        ipaddresstable.Ipaddressentry = append(ipaddresstable.Ipaddressentry, child)
-        return &ipaddresstable.Ipaddressentry[len(ipaddresstable.Ipaddressentry)-1]
-    }
-    return nil
-}
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipaddresstable.EntityData.Children = make(map[string]types.YChild)
+    ipaddresstable.EntityData.Children["ipAddressEntry"] = types.YChild{"Ipaddressentry", nil}
     for i := range ipaddresstable.Ipaddressentry {
-        children[ipaddresstable.Ipaddressentry[i].GetSegmentPath()] = &ipaddresstable.Ipaddressentry[i]
+        ipaddresstable.EntityData.Children[types.GetSegmentPath(&ipaddresstable.Ipaddressentry[i])] = types.YChild{"Ipaddressentry", &ipaddresstable.Ipaddressentry[i]}
     }
-    return children
+    ipaddresstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipaddresstable.EntityData)
 }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetYangName() string { return "ipAddressTable" }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) SetParent(parent types.Entity) { ipaddresstable.parent = parent }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetParent() types.Entity { return ipaddresstable.parent }
-
-func (ipaddresstable *IPMIB_Ipaddresstable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipaddresstable_Ipaddressentry
 // An address mapping for a particular interface.
 type IPMIB_Ipaddresstable_Ipaddressentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type of ipAddressAddr. The type is
@@ -3273,7 +2400,7 @@ type IPMIB_Ipaddresstable_Ipaddressentry struct {
 
     // A pointer to the row in the prefix table to which this address belongs. 
     // May be { 0 0 } if there is no such row. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ipaddressprefix interface{}
 
     // The origin of the address. The type is IpAddressOriginTC.
@@ -3310,71 +2437,31 @@ type IPMIB_Ipaddresstable_Ipaddressentry struct {
     Ipaddressstoragetype interface{}
 }
 
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetFilter() yfilter.YFilter { return ipaddressentry.YFilter }
+func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetEntityData() *types.CommonEntityData {
+    ipaddressentry.EntityData.YFilter = ipaddressentry.YFilter
+    ipaddressentry.EntityData.YangName = "ipAddressEntry"
+    ipaddressentry.EntityData.BundleName = "cisco_ios_xe"
+    ipaddressentry.EntityData.ParentYangName = "ipAddressTable"
+    ipaddressentry.EntityData.SegmentPath = "ipAddressEntry" + "[ipAddressAddrType='" + fmt.Sprintf("%v", ipaddressentry.Ipaddressaddrtype) + "']" + "[ipAddressAddr='" + fmt.Sprintf("%v", ipaddressentry.Ipaddressaddr) + "']"
+    ipaddressentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipaddressentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipaddressentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) SetFilter(yf yfilter.YFilter) { ipaddressentry.YFilter = yf }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetGoName(yname string) string {
-    if yname == "ipAddressAddrType" { return "Ipaddressaddrtype" }
-    if yname == "ipAddressAddr" { return "Ipaddressaddr" }
-    if yname == "ipAddressIfIndex" { return "Ipaddressifindex" }
-    if yname == "ipAddressType" { return "Ipaddresstype" }
-    if yname == "ipAddressPrefix" { return "Ipaddressprefix" }
-    if yname == "ipAddressOrigin" { return "Ipaddressorigin" }
-    if yname == "ipAddressStatus" { return "Ipaddressstatus" }
-    if yname == "ipAddressCreated" { return "Ipaddresscreated" }
-    if yname == "ipAddressLastChanged" { return "Ipaddresslastchanged" }
-    if yname == "ipAddressRowStatus" { return "Ipaddressrowstatus" }
-    if yname == "ipAddressStorageType" { return "Ipaddressstoragetype" }
-    return ""
+    ipaddressentry.EntityData.Children = make(map[string]types.YChild)
+    ipaddressentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipaddressentry.EntityData.Leafs["ipAddressAddrType"] = types.YLeaf{"Ipaddressaddrtype", ipaddressentry.Ipaddressaddrtype}
+    ipaddressentry.EntityData.Leafs["ipAddressAddr"] = types.YLeaf{"Ipaddressaddr", ipaddressentry.Ipaddressaddr}
+    ipaddressentry.EntityData.Leafs["ipAddressIfIndex"] = types.YLeaf{"Ipaddressifindex", ipaddressentry.Ipaddressifindex}
+    ipaddressentry.EntityData.Leafs["ipAddressType"] = types.YLeaf{"Ipaddresstype", ipaddressentry.Ipaddresstype}
+    ipaddressentry.EntityData.Leafs["ipAddressPrefix"] = types.YLeaf{"Ipaddressprefix", ipaddressentry.Ipaddressprefix}
+    ipaddressentry.EntityData.Leafs["ipAddressOrigin"] = types.YLeaf{"Ipaddressorigin", ipaddressentry.Ipaddressorigin}
+    ipaddressentry.EntityData.Leafs["ipAddressStatus"] = types.YLeaf{"Ipaddressstatus", ipaddressentry.Ipaddressstatus}
+    ipaddressentry.EntityData.Leafs["ipAddressCreated"] = types.YLeaf{"Ipaddresscreated", ipaddressentry.Ipaddresscreated}
+    ipaddressentry.EntityData.Leafs["ipAddressLastChanged"] = types.YLeaf{"Ipaddresslastchanged", ipaddressentry.Ipaddresslastchanged}
+    ipaddressentry.EntityData.Leafs["ipAddressRowStatus"] = types.YLeaf{"Ipaddressrowstatus", ipaddressentry.Ipaddressrowstatus}
+    ipaddressentry.EntityData.Leafs["ipAddressStorageType"] = types.YLeaf{"Ipaddressstoragetype", ipaddressentry.Ipaddressstoragetype}
+    return &(ipaddressentry.EntityData)
 }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetSegmentPath() string {
-    return "ipAddressEntry" + "[ipAddressAddrType='" + fmt.Sprintf("%v", ipaddressentry.Ipaddressaddrtype) + "']" + "[ipAddressAddr='" + fmt.Sprintf("%v", ipaddressentry.Ipaddressaddr) + "']"
-}
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipAddressAddrType"] = ipaddressentry.Ipaddressaddrtype
-    leafs["ipAddressAddr"] = ipaddressentry.Ipaddressaddr
-    leafs["ipAddressIfIndex"] = ipaddressentry.Ipaddressifindex
-    leafs["ipAddressType"] = ipaddressentry.Ipaddresstype
-    leafs["ipAddressPrefix"] = ipaddressentry.Ipaddressprefix
-    leafs["ipAddressOrigin"] = ipaddressentry.Ipaddressorigin
-    leafs["ipAddressStatus"] = ipaddressentry.Ipaddressstatus
-    leafs["ipAddressCreated"] = ipaddressentry.Ipaddresscreated
-    leafs["ipAddressLastChanged"] = ipaddressentry.Ipaddresslastchanged
-    leafs["ipAddressRowStatus"] = ipaddressentry.Ipaddressrowstatus
-    leafs["ipAddressStorageType"] = ipaddressentry.Ipaddressstoragetype
-    return leafs
-}
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetYangName() string { return "ipAddressEntry" }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) SetParent(parent types.Entity) { ipaddressentry.parent = parent }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetParent() types.Entity { return ipaddressentry.parent }
-
-func (ipaddressentry *IPMIB_Ipaddresstable_Ipaddressentry) GetParentYangName() string { return "ipAddressTable" }
 
 // IPMIB_Ipaddresstable_Ipaddressentry_Ipaddresstype represents IPv6 addresses (RFC 3513).
 type IPMIB_Ipaddresstable_Ipaddressentry_Ipaddresstype string
@@ -3402,7 +2489,7 @@ const (
 // and Neighbor Discovery are the most likely
 // options.
 type IPMIB_Ipnettophysicaltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains one IP address to `physical' address equivalence. The
@@ -3410,69 +2497,30 @@ type IPMIB_Ipnettophysicaltable struct {
     Ipnettophysicalentry []IPMIB_Ipnettophysicaltable_Ipnettophysicalentry
 }
 
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetFilter() yfilter.YFilter { return ipnettophysicaltable.YFilter }
+func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetEntityData() *types.CommonEntityData {
+    ipnettophysicaltable.EntityData.YFilter = ipnettophysicaltable.YFilter
+    ipnettophysicaltable.EntityData.YangName = "ipNetToPhysicalTable"
+    ipnettophysicaltable.EntityData.BundleName = "cisco_ios_xe"
+    ipnettophysicaltable.EntityData.ParentYangName = "IP-MIB"
+    ipnettophysicaltable.EntityData.SegmentPath = "ipNetToPhysicalTable"
+    ipnettophysicaltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipnettophysicaltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipnettophysicaltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) SetFilter(yf yfilter.YFilter) { ipnettophysicaltable.YFilter = yf }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetGoName(yname string) string {
-    if yname == "ipNetToPhysicalEntry" { return "Ipnettophysicalentry" }
-    return ""
-}
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetSegmentPath() string {
-    return "ipNetToPhysicalTable"
-}
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipNetToPhysicalEntry" {
-        for _, c := range ipnettophysicaltable.Ipnettophysicalentry {
-            if ipnettophysicaltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipnettophysicaltable_Ipnettophysicalentry{}
-        ipnettophysicaltable.Ipnettophysicalentry = append(ipnettophysicaltable.Ipnettophysicalentry, child)
-        return &ipnettophysicaltable.Ipnettophysicalentry[len(ipnettophysicaltable.Ipnettophysicalentry)-1]
-    }
-    return nil
-}
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipnettophysicaltable.EntityData.Children = make(map[string]types.YChild)
+    ipnettophysicaltable.EntityData.Children["ipNetToPhysicalEntry"] = types.YChild{"Ipnettophysicalentry", nil}
     for i := range ipnettophysicaltable.Ipnettophysicalentry {
-        children[ipnettophysicaltable.Ipnettophysicalentry[i].GetSegmentPath()] = &ipnettophysicaltable.Ipnettophysicalentry[i]
+        ipnettophysicaltable.EntityData.Children[types.GetSegmentPath(&ipnettophysicaltable.Ipnettophysicalentry[i])] = types.YChild{"Ipnettophysicalentry", &ipnettophysicaltable.Ipnettophysicalentry[i]}
     }
-    return children
+    ipnettophysicaltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipnettophysicaltable.EntityData)
 }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetYangName() string { return "ipNetToPhysicalTable" }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) SetParent(parent types.Entity) { ipnettophysicaltable.parent = parent }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetParent() types.Entity { return ipnettophysicaltable.parent }
-
-func (ipnettophysicaltable *IPMIB_Ipnettophysicaltable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipnettophysicaltable_Ipnettophysicalentry
 // Each entry contains one IP address to `physical' address
 // equivalence.
 type IPMIB_Ipnettophysicaltable_Ipnettophysicalentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value that uniquely identifies the
@@ -3544,65 +2592,28 @@ type IPMIB_Ipnettophysicaltable_Ipnettophysicalentry struct {
     Ipnettophysicalrowstatus interface{}
 }
 
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetFilter() yfilter.YFilter { return ipnettophysicalentry.YFilter }
+func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetEntityData() *types.CommonEntityData {
+    ipnettophysicalentry.EntityData.YFilter = ipnettophysicalentry.YFilter
+    ipnettophysicalentry.EntityData.YangName = "ipNetToPhysicalEntry"
+    ipnettophysicalentry.EntityData.BundleName = "cisco_ios_xe"
+    ipnettophysicalentry.EntityData.ParentYangName = "ipNetToPhysicalTable"
+    ipnettophysicalentry.EntityData.SegmentPath = "ipNetToPhysicalEntry" + "[ipNetToPhysicalIfIndex='" + fmt.Sprintf("%v", ipnettophysicalentry.Ipnettophysicalifindex) + "']" + "[ipNetToPhysicalNetAddressType='" + fmt.Sprintf("%v", ipnettophysicalentry.Ipnettophysicalnetaddresstype) + "']" + "[ipNetToPhysicalNetAddress='" + fmt.Sprintf("%v", ipnettophysicalentry.Ipnettophysicalnetaddress) + "']"
+    ipnettophysicalentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipnettophysicalentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipnettophysicalentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) SetFilter(yf yfilter.YFilter) { ipnettophysicalentry.YFilter = yf }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetGoName(yname string) string {
-    if yname == "ipNetToPhysicalIfIndex" { return "Ipnettophysicalifindex" }
-    if yname == "ipNetToPhysicalNetAddressType" { return "Ipnettophysicalnetaddresstype" }
-    if yname == "ipNetToPhysicalNetAddress" { return "Ipnettophysicalnetaddress" }
-    if yname == "ipNetToPhysicalPhysAddress" { return "Ipnettophysicalphysaddress" }
-    if yname == "ipNetToPhysicalLastUpdated" { return "Ipnettophysicallastupdated" }
-    if yname == "ipNetToPhysicalType" { return "Ipnettophysicaltype" }
-    if yname == "ipNetToPhysicalState" { return "Ipnettophysicalstate" }
-    if yname == "ipNetToPhysicalRowStatus" { return "Ipnettophysicalrowstatus" }
-    return ""
+    ipnettophysicalentry.EntityData.Children = make(map[string]types.YChild)
+    ipnettophysicalentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalIfIndex"] = types.YLeaf{"Ipnettophysicalifindex", ipnettophysicalentry.Ipnettophysicalifindex}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalNetAddressType"] = types.YLeaf{"Ipnettophysicalnetaddresstype", ipnettophysicalentry.Ipnettophysicalnetaddresstype}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalNetAddress"] = types.YLeaf{"Ipnettophysicalnetaddress", ipnettophysicalentry.Ipnettophysicalnetaddress}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalPhysAddress"] = types.YLeaf{"Ipnettophysicalphysaddress", ipnettophysicalentry.Ipnettophysicalphysaddress}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalLastUpdated"] = types.YLeaf{"Ipnettophysicallastupdated", ipnettophysicalentry.Ipnettophysicallastupdated}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalType"] = types.YLeaf{"Ipnettophysicaltype", ipnettophysicalentry.Ipnettophysicaltype}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalState"] = types.YLeaf{"Ipnettophysicalstate", ipnettophysicalentry.Ipnettophysicalstate}
+    ipnettophysicalentry.EntityData.Leafs["ipNetToPhysicalRowStatus"] = types.YLeaf{"Ipnettophysicalrowstatus", ipnettophysicalentry.Ipnettophysicalrowstatus}
+    return &(ipnettophysicalentry.EntityData)
 }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetSegmentPath() string {
-    return "ipNetToPhysicalEntry" + "[ipNetToPhysicalIfIndex='" + fmt.Sprintf("%v", ipnettophysicalentry.Ipnettophysicalifindex) + "']" + "[ipNetToPhysicalNetAddressType='" + fmt.Sprintf("%v", ipnettophysicalentry.Ipnettophysicalnetaddresstype) + "']" + "[ipNetToPhysicalNetAddress='" + fmt.Sprintf("%v", ipnettophysicalentry.Ipnettophysicalnetaddress) + "']"
-}
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipNetToPhysicalIfIndex"] = ipnettophysicalentry.Ipnettophysicalifindex
-    leafs["ipNetToPhysicalNetAddressType"] = ipnettophysicalentry.Ipnettophysicalnetaddresstype
-    leafs["ipNetToPhysicalNetAddress"] = ipnettophysicalentry.Ipnettophysicalnetaddress
-    leafs["ipNetToPhysicalPhysAddress"] = ipnettophysicalentry.Ipnettophysicalphysaddress
-    leafs["ipNetToPhysicalLastUpdated"] = ipnettophysicalentry.Ipnettophysicallastupdated
-    leafs["ipNetToPhysicalType"] = ipnettophysicalentry.Ipnettophysicaltype
-    leafs["ipNetToPhysicalState"] = ipnettophysicalentry.Ipnettophysicalstate
-    leafs["ipNetToPhysicalRowStatus"] = ipnettophysicalentry.Ipnettophysicalrowstatus
-    return leafs
-}
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetYangName() string { return "ipNetToPhysicalEntry" }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) SetParent(parent types.Entity) { ipnettophysicalentry.parent = parent }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetParent() types.Entity { return ipnettophysicalentry.parent }
-
-func (ipnettophysicalentry *IPMIB_Ipnettophysicaltable_Ipnettophysicalentry) GetParentYangName() string { return "ipNetToPhysicalTable" }
 
 // IPMIB_Ipnettophysicaltable_Ipnettophysicalentry_Ipnettophysicalstate represents IPv4), this object is always unknown(6).
 type IPMIB_Ipnettophysicaltable_Ipnettophysicalentry_Ipnettophysicalstate string
@@ -3646,7 +2657,7 @@ const (
 // names were chosen to coincide with the names used in the
 // IPv6 address architecture document. 
 type IPMIB_Ipv6Scopezoneindextable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the list of scope identifiers on a given interface. The
@@ -3654,69 +2665,30 @@ type IPMIB_Ipv6Scopezoneindextable struct {
     Ipv6Scopezoneindexentry []IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry
 }
 
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetFilter() yfilter.YFilter { return ipv6Scopezoneindextable.YFilter }
+func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetEntityData() *types.CommonEntityData {
+    ipv6Scopezoneindextable.EntityData.YFilter = ipv6Scopezoneindextable.YFilter
+    ipv6Scopezoneindextable.EntityData.YangName = "ipv6ScopeZoneIndexTable"
+    ipv6Scopezoneindextable.EntityData.BundleName = "cisco_ios_xe"
+    ipv6Scopezoneindextable.EntityData.ParentYangName = "IP-MIB"
+    ipv6Scopezoneindextable.EntityData.SegmentPath = "ipv6ScopeZoneIndexTable"
+    ipv6Scopezoneindextable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6Scopezoneindextable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6Scopezoneindextable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) SetFilter(yf yfilter.YFilter) { ipv6Scopezoneindextable.YFilter = yf }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetGoName(yname string) string {
-    if yname == "ipv6ScopeZoneIndexEntry" { return "Ipv6Scopezoneindexentry" }
-    return ""
-}
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetSegmentPath() string {
-    return "ipv6ScopeZoneIndexTable"
-}
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6ScopeZoneIndexEntry" {
-        for _, c := range ipv6Scopezoneindextable.Ipv6Scopezoneindexentry {
-            if ipv6Scopezoneindextable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry{}
-        ipv6Scopezoneindextable.Ipv6Scopezoneindexentry = append(ipv6Scopezoneindextable.Ipv6Scopezoneindexentry, child)
-        return &ipv6Scopezoneindextable.Ipv6Scopezoneindexentry[len(ipv6Scopezoneindextable.Ipv6Scopezoneindexentry)-1]
-    }
-    return nil
-}
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv6Scopezoneindextable.EntityData.Children = make(map[string]types.YChild)
+    ipv6Scopezoneindextable.EntityData.Children["ipv6ScopeZoneIndexEntry"] = types.YChild{"Ipv6Scopezoneindexentry", nil}
     for i := range ipv6Scopezoneindextable.Ipv6Scopezoneindexentry {
-        children[ipv6Scopezoneindextable.Ipv6Scopezoneindexentry[i].GetSegmentPath()] = &ipv6Scopezoneindextable.Ipv6Scopezoneindexentry[i]
+        ipv6Scopezoneindextable.EntityData.Children[types.GetSegmentPath(&ipv6Scopezoneindextable.Ipv6Scopezoneindexentry[i])] = types.YChild{"Ipv6Scopezoneindexentry", &ipv6Scopezoneindextable.Ipv6Scopezoneindexentry[i]}
     }
-    return children
+    ipv6Scopezoneindextable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Scopezoneindextable.EntityData)
 }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetYangName() string { return "ipv6ScopeZoneIndexTable" }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) SetParent(parent types.Entity) { ipv6Scopezoneindextable.parent = parent }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetParent() types.Entity { return ipv6Scopezoneindextable.parent }
-
-func (ipv6Scopezoneindextable *IPMIB_Ipv6Scopezoneindextable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry
 // Each entry contains the list of scope identifiers on a given
 // interface.
 type IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value that uniquely identifies the
@@ -3775,75 +2747,33 @@ type IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry struct {
     Ipv6Scopezoneindexd interface{}
 }
 
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetFilter() yfilter.YFilter { return ipv6Scopezoneindexentry.YFilter }
+func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetEntityData() *types.CommonEntityData {
+    ipv6Scopezoneindexentry.EntityData.YFilter = ipv6Scopezoneindexentry.YFilter
+    ipv6Scopezoneindexentry.EntityData.YangName = "ipv6ScopeZoneIndexEntry"
+    ipv6Scopezoneindexentry.EntityData.BundleName = "cisco_ios_xe"
+    ipv6Scopezoneindexentry.EntityData.ParentYangName = "ipv6ScopeZoneIndexTable"
+    ipv6Scopezoneindexentry.EntityData.SegmentPath = "ipv6ScopeZoneIndexEntry" + "[ipv6ScopeZoneIndexIfIndex='" + fmt.Sprintf("%v", ipv6Scopezoneindexentry.Ipv6Scopezoneindexifindex) + "']"
+    ipv6Scopezoneindexentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6Scopezoneindexentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6Scopezoneindexentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) SetFilter(yf yfilter.YFilter) { ipv6Scopezoneindexentry.YFilter = yf }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetGoName(yname string) string {
-    if yname == "ipv6ScopeZoneIndexIfIndex" { return "Ipv6Scopezoneindexifindex" }
-    if yname == "ipv6ScopeZoneIndexLinkLocal" { return "Ipv6Scopezoneindexlinklocal" }
-    if yname == "ipv6ScopeZoneIndex3" { return "Ipv6Scopezoneindex3" }
-    if yname == "ipv6ScopeZoneIndexAdminLocal" { return "Ipv6Scopezoneindexadminlocal" }
-    if yname == "ipv6ScopeZoneIndexSiteLocal" { return "Ipv6Scopezoneindexsitelocal" }
-    if yname == "ipv6ScopeZoneIndex6" { return "Ipv6Scopezoneindex6" }
-    if yname == "ipv6ScopeZoneIndex7" { return "Ipv6Scopezoneindex7" }
-    if yname == "ipv6ScopeZoneIndexOrganizationLocal" { return "Ipv6Scopezoneindexorganizationlocal" }
-    if yname == "ipv6ScopeZoneIndex9" { return "Ipv6Scopezoneindex9" }
-    if yname == "ipv6ScopeZoneIndexA" { return "Ipv6Scopezoneindexa" }
-    if yname == "ipv6ScopeZoneIndexB" { return "Ipv6Scopezoneindexb" }
-    if yname == "ipv6ScopeZoneIndexC" { return "Ipv6Scopezoneindexc" }
-    if yname == "ipv6ScopeZoneIndexD" { return "Ipv6Scopezoneindexd" }
-    return ""
+    ipv6Scopezoneindexentry.EntityData.Children = make(map[string]types.YChild)
+    ipv6Scopezoneindexentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexIfIndex"] = types.YLeaf{"Ipv6Scopezoneindexifindex", ipv6Scopezoneindexentry.Ipv6Scopezoneindexifindex}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexLinkLocal"] = types.YLeaf{"Ipv6Scopezoneindexlinklocal", ipv6Scopezoneindexentry.Ipv6Scopezoneindexlinklocal}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndex3"] = types.YLeaf{"Ipv6Scopezoneindex3", ipv6Scopezoneindexentry.Ipv6Scopezoneindex3}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexAdminLocal"] = types.YLeaf{"Ipv6Scopezoneindexadminlocal", ipv6Scopezoneindexentry.Ipv6Scopezoneindexadminlocal}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexSiteLocal"] = types.YLeaf{"Ipv6Scopezoneindexsitelocal", ipv6Scopezoneindexentry.Ipv6Scopezoneindexsitelocal}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndex6"] = types.YLeaf{"Ipv6Scopezoneindex6", ipv6Scopezoneindexentry.Ipv6Scopezoneindex6}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndex7"] = types.YLeaf{"Ipv6Scopezoneindex7", ipv6Scopezoneindexentry.Ipv6Scopezoneindex7}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexOrganizationLocal"] = types.YLeaf{"Ipv6Scopezoneindexorganizationlocal", ipv6Scopezoneindexentry.Ipv6Scopezoneindexorganizationlocal}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndex9"] = types.YLeaf{"Ipv6Scopezoneindex9", ipv6Scopezoneindexentry.Ipv6Scopezoneindex9}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexA"] = types.YLeaf{"Ipv6Scopezoneindexa", ipv6Scopezoneindexentry.Ipv6Scopezoneindexa}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexB"] = types.YLeaf{"Ipv6Scopezoneindexb", ipv6Scopezoneindexentry.Ipv6Scopezoneindexb}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexC"] = types.YLeaf{"Ipv6Scopezoneindexc", ipv6Scopezoneindexentry.Ipv6Scopezoneindexc}
+    ipv6Scopezoneindexentry.EntityData.Leafs["ipv6ScopeZoneIndexD"] = types.YLeaf{"Ipv6Scopezoneindexd", ipv6Scopezoneindexentry.Ipv6Scopezoneindexd}
+    return &(ipv6Scopezoneindexentry.EntityData)
 }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetSegmentPath() string {
-    return "ipv6ScopeZoneIndexEntry" + "[ipv6ScopeZoneIndexIfIndex='" + fmt.Sprintf("%v", ipv6Scopezoneindexentry.Ipv6Scopezoneindexifindex) + "']"
-}
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6ScopeZoneIndexIfIndex"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexifindex
-    leafs["ipv6ScopeZoneIndexLinkLocal"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexlinklocal
-    leafs["ipv6ScopeZoneIndex3"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindex3
-    leafs["ipv6ScopeZoneIndexAdminLocal"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexadminlocal
-    leafs["ipv6ScopeZoneIndexSiteLocal"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexsitelocal
-    leafs["ipv6ScopeZoneIndex6"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindex6
-    leafs["ipv6ScopeZoneIndex7"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindex7
-    leafs["ipv6ScopeZoneIndexOrganizationLocal"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexorganizationlocal
-    leafs["ipv6ScopeZoneIndex9"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindex9
-    leafs["ipv6ScopeZoneIndexA"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexa
-    leafs["ipv6ScopeZoneIndexB"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexb
-    leafs["ipv6ScopeZoneIndexC"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexc
-    leafs["ipv6ScopeZoneIndexD"] = ipv6Scopezoneindexentry.Ipv6Scopezoneindexd
-    return leafs
-}
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetYangName() string { return "ipv6ScopeZoneIndexEntry" }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) SetParent(parent types.Entity) { ipv6Scopezoneindexentry.parent = parent }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetParent() types.Entity { return ipv6Scopezoneindexentry.parent }
-
-func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexentry) GetParentYangName() string { return "ipv6ScopeZoneIndexTable" }
 
 // IPMIB_Ipdefaultroutertable
 // The table used to describe the default routers known to this
@@ -3851,7 +2781,7 @@ func (ipv6Scopezoneindexentry *IPMIB_Ipv6Scopezoneindextable_Ipv6Scopezoneindexe
 // 
 // entity.
 type IPMIB_Ipdefaultroutertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains information about a default router known to this
@@ -3860,69 +2790,30 @@ type IPMIB_Ipdefaultroutertable struct {
     Ipdefaultrouterentry []IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry
 }
 
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetFilter() yfilter.YFilter { return ipdefaultroutertable.YFilter }
+func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetEntityData() *types.CommonEntityData {
+    ipdefaultroutertable.EntityData.YFilter = ipdefaultroutertable.YFilter
+    ipdefaultroutertable.EntityData.YangName = "ipDefaultRouterTable"
+    ipdefaultroutertable.EntityData.BundleName = "cisco_ios_xe"
+    ipdefaultroutertable.EntityData.ParentYangName = "IP-MIB"
+    ipdefaultroutertable.EntityData.SegmentPath = "ipDefaultRouterTable"
+    ipdefaultroutertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipdefaultroutertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipdefaultroutertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) SetFilter(yf yfilter.YFilter) { ipdefaultroutertable.YFilter = yf }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetGoName(yname string) string {
-    if yname == "ipDefaultRouterEntry" { return "Ipdefaultrouterentry" }
-    return ""
-}
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetSegmentPath() string {
-    return "ipDefaultRouterTable"
-}
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipDefaultRouterEntry" {
-        for _, c := range ipdefaultroutertable.Ipdefaultrouterentry {
-            if ipdefaultroutertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry{}
-        ipdefaultroutertable.Ipdefaultrouterentry = append(ipdefaultroutertable.Ipdefaultrouterentry, child)
-        return &ipdefaultroutertable.Ipdefaultrouterentry[len(ipdefaultroutertable.Ipdefaultrouterentry)-1]
-    }
-    return nil
-}
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipdefaultroutertable.EntityData.Children = make(map[string]types.YChild)
+    ipdefaultroutertable.EntityData.Children["ipDefaultRouterEntry"] = types.YChild{"Ipdefaultrouterentry", nil}
     for i := range ipdefaultroutertable.Ipdefaultrouterentry {
-        children[ipdefaultroutertable.Ipdefaultrouterentry[i].GetSegmentPath()] = &ipdefaultroutertable.Ipdefaultrouterentry[i]
+        ipdefaultroutertable.EntityData.Children[types.GetSegmentPath(&ipdefaultroutertable.Ipdefaultrouterentry[i])] = types.YChild{"Ipdefaultrouterentry", &ipdefaultroutertable.Ipdefaultrouterentry[i]}
     }
-    return children
+    ipdefaultroutertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipdefaultroutertable.EntityData)
 }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetYangName() string { return "ipDefaultRouterTable" }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) SetParent(parent types.Entity) { ipdefaultroutertable.parent = parent }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetParent() types.Entity { return ipdefaultroutertable.parent }
-
-func (ipdefaultroutertable *IPMIB_Ipdefaultroutertable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry
 // Each entry contains information about a default router known
 // to this entity.
 type IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type for this row. The type is
@@ -3963,59 +2854,25 @@ type IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry struct {
     Ipdefaultrouterpreference interface{}
 }
 
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetFilter() yfilter.YFilter { return ipdefaultrouterentry.YFilter }
+func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetEntityData() *types.CommonEntityData {
+    ipdefaultrouterentry.EntityData.YFilter = ipdefaultrouterentry.YFilter
+    ipdefaultrouterentry.EntityData.YangName = "ipDefaultRouterEntry"
+    ipdefaultrouterentry.EntityData.BundleName = "cisco_ios_xe"
+    ipdefaultrouterentry.EntityData.ParentYangName = "ipDefaultRouterTable"
+    ipdefaultrouterentry.EntityData.SegmentPath = "ipDefaultRouterEntry" + "[ipDefaultRouterAddressType='" + fmt.Sprintf("%v", ipdefaultrouterentry.Ipdefaultrouteraddresstype) + "']" + "[ipDefaultRouterAddress='" + fmt.Sprintf("%v", ipdefaultrouterentry.Ipdefaultrouteraddress) + "']" + "[ipDefaultRouterIfIndex='" + fmt.Sprintf("%v", ipdefaultrouterentry.Ipdefaultrouterifindex) + "']"
+    ipdefaultrouterentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipdefaultrouterentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipdefaultrouterentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) SetFilter(yf yfilter.YFilter) { ipdefaultrouterentry.YFilter = yf }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetGoName(yname string) string {
-    if yname == "ipDefaultRouterAddressType" { return "Ipdefaultrouteraddresstype" }
-    if yname == "ipDefaultRouterAddress" { return "Ipdefaultrouteraddress" }
-    if yname == "ipDefaultRouterIfIndex" { return "Ipdefaultrouterifindex" }
-    if yname == "ipDefaultRouterLifetime" { return "Ipdefaultrouterlifetime" }
-    if yname == "ipDefaultRouterPreference" { return "Ipdefaultrouterpreference" }
-    return ""
+    ipdefaultrouterentry.EntityData.Children = make(map[string]types.YChild)
+    ipdefaultrouterentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipdefaultrouterentry.EntityData.Leafs["ipDefaultRouterAddressType"] = types.YLeaf{"Ipdefaultrouteraddresstype", ipdefaultrouterentry.Ipdefaultrouteraddresstype}
+    ipdefaultrouterentry.EntityData.Leafs["ipDefaultRouterAddress"] = types.YLeaf{"Ipdefaultrouteraddress", ipdefaultrouterentry.Ipdefaultrouteraddress}
+    ipdefaultrouterentry.EntityData.Leafs["ipDefaultRouterIfIndex"] = types.YLeaf{"Ipdefaultrouterifindex", ipdefaultrouterentry.Ipdefaultrouterifindex}
+    ipdefaultrouterentry.EntityData.Leafs["ipDefaultRouterLifetime"] = types.YLeaf{"Ipdefaultrouterlifetime", ipdefaultrouterentry.Ipdefaultrouterlifetime}
+    ipdefaultrouterentry.EntityData.Leafs["ipDefaultRouterPreference"] = types.YLeaf{"Ipdefaultrouterpreference", ipdefaultrouterentry.Ipdefaultrouterpreference}
+    return &(ipdefaultrouterentry.EntityData)
 }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetSegmentPath() string {
-    return "ipDefaultRouterEntry" + "[ipDefaultRouterAddressType='" + fmt.Sprintf("%v", ipdefaultrouterentry.Ipdefaultrouteraddresstype) + "']" + "[ipDefaultRouterAddress='" + fmt.Sprintf("%v", ipdefaultrouterentry.Ipdefaultrouteraddress) + "']" + "[ipDefaultRouterIfIndex='" + fmt.Sprintf("%v", ipdefaultrouterentry.Ipdefaultrouterifindex) + "']"
-}
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipDefaultRouterAddressType"] = ipdefaultrouterentry.Ipdefaultrouteraddresstype
-    leafs["ipDefaultRouterAddress"] = ipdefaultrouterentry.Ipdefaultrouteraddress
-    leafs["ipDefaultRouterIfIndex"] = ipdefaultrouterentry.Ipdefaultrouterifindex
-    leafs["ipDefaultRouterLifetime"] = ipdefaultrouterentry.Ipdefaultrouterlifetime
-    leafs["ipDefaultRouterPreference"] = ipdefaultrouterentry.Ipdefaultrouterpreference
-    return leafs
-}
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetYangName() string { return "ipDefaultRouterEntry" }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) SetParent(parent types.Entity) { ipdefaultrouterentry.parent = parent }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetParent() types.Entity { return ipdefaultrouterentry.parent }
-
-func (ipdefaultrouterentry *IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry) GetParentYangName() string { return "ipDefaultRouterTable" }
 
 // IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry_Ipdefaultrouterpreference represents medium (0).
 type IPMIB_Ipdefaultroutertable_Ipdefaultrouterentry_Ipdefaultrouterpreference string
@@ -4034,7 +2891,7 @@ const (
 // The table containing information used to construct router
 // advertisements.
 type IPMIB_Ipv6Routeradverttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing information used to construct router advertisements. 
@@ -4044,63 +2901,24 @@ type IPMIB_Ipv6Routeradverttable struct {
     Ipv6Routeradvertentry []IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry
 }
 
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetFilter() yfilter.YFilter { return ipv6Routeradverttable.YFilter }
+func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetEntityData() *types.CommonEntityData {
+    ipv6Routeradverttable.EntityData.YFilter = ipv6Routeradverttable.YFilter
+    ipv6Routeradverttable.EntityData.YangName = "ipv6RouterAdvertTable"
+    ipv6Routeradverttable.EntityData.BundleName = "cisco_ios_xe"
+    ipv6Routeradverttable.EntityData.ParentYangName = "IP-MIB"
+    ipv6Routeradverttable.EntityData.SegmentPath = "ipv6RouterAdvertTable"
+    ipv6Routeradverttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6Routeradverttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6Routeradverttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) SetFilter(yf yfilter.YFilter) { ipv6Routeradverttable.YFilter = yf }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetGoName(yname string) string {
-    if yname == "ipv6RouterAdvertEntry" { return "Ipv6Routeradvertentry" }
-    return ""
-}
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetSegmentPath() string {
-    return "ipv6RouterAdvertTable"
-}
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6RouterAdvertEntry" {
-        for _, c := range ipv6Routeradverttable.Ipv6Routeradvertentry {
-            if ipv6Routeradverttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry{}
-        ipv6Routeradverttable.Ipv6Routeradvertentry = append(ipv6Routeradverttable.Ipv6Routeradvertentry, child)
-        return &ipv6Routeradverttable.Ipv6Routeradvertentry[len(ipv6Routeradverttable.Ipv6Routeradvertentry)-1]
-    }
-    return nil
-}
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv6Routeradverttable.EntityData.Children = make(map[string]types.YChild)
+    ipv6Routeradverttable.EntityData.Children["ipv6RouterAdvertEntry"] = types.YChild{"Ipv6Routeradvertentry", nil}
     for i := range ipv6Routeradverttable.Ipv6Routeradvertentry {
-        children[ipv6Routeradverttable.Ipv6Routeradvertentry[i].GetSegmentPath()] = &ipv6Routeradverttable.Ipv6Routeradvertentry[i]
+        ipv6Routeradverttable.EntityData.Children[types.GetSegmentPath(&ipv6Routeradverttable.Ipv6Routeradvertentry[i])] = types.YChild{"Ipv6Routeradvertentry", &ipv6Routeradverttable.Ipv6Routeradvertentry[i]}
     }
-    return children
+    ipv6Routeradverttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Routeradverttable.EntityData)
 }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetYangName() string { return "ipv6RouterAdvertTable" }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) SetParent(parent types.Entity) { ipv6Routeradverttable.parent = parent }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetParent() types.Entity { return ipv6Routeradverttable.parent }
-
-func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry
 // An entry containing information used to construct router
@@ -4110,7 +2928,7 @@ func (ipv6Routeradverttable *IPMIB_Ipv6Routeradverttable) GetParentYangName() st
 // object is written, the entity SHOULD save the change to
 // non-volatile storage.
 type IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index value that uniquely identifies the
@@ -4191,78 +3009,37 @@ type IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry struct {
     Ipv6Routeradvertrowstatus interface{}
 }
 
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetFilter() yfilter.YFilter { return ipv6Routeradvertentry.YFilter }
+func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetEntityData() *types.CommonEntityData {
+    ipv6Routeradvertentry.EntityData.YFilter = ipv6Routeradvertentry.YFilter
+    ipv6Routeradvertentry.EntityData.YangName = "ipv6RouterAdvertEntry"
+    ipv6Routeradvertentry.EntityData.BundleName = "cisco_ios_xe"
+    ipv6Routeradvertentry.EntityData.ParentYangName = "ipv6RouterAdvertTable"
+    ipv6Routeradvertentry.EntityData.SegmentPath = "ipv6RouterAdvertEntry" + "[ipv6RouterAdvertIfIndex='" + fmt.Sprintf("%v", ipv6Routeradvertentry.Ipv6Routeradvertifindex) + "']"
+    ipv6Routeradvertentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipv6Routeradvertentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipv6Routeradvertentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) SetFilter(yf yfilter.YFilter) { ipv6Routeradvertentry.YFilter = yf }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetGoName(yname string) string {
-    if yname == "ipv6RouterAdvertIfIndex" { return "Ipv6Routeradvertifindex" }
-    if yname == "ipv6RouterAdvertSendAdverts" { return "Ipv6Routeradvertsendadverts" }
-    if yname == "ipv6RouterAdvertMaxInterval" { return "Ipv6Routeradvertmaxinterval" }
-    if yname == "ipv6RouterAdvertMinInterval" { return "Ipv6Routeradvertmininterval" }
-    if yname == "ipv6RouterAdvertManagedFlag" { return "Ipv6Routeradvertmanagedflag" }
-    if yname == "ipv6RouterAdvertOtherConfigFlag" { return "Ipv6Routeradvertotherconfigflag" }
-    if yname == "ipv6RouterAdvertLinkMTU" { return "Ipv6Routeradvertlinkmtu" }
-    if yname == "ipv6RouterAdvertReachableTime" { return "Ipv6Routeradvertreachabletime" }
-    if yname == "ipv6RouterAdvertRetransmitTime" { return "Ipv6Routeradvertretransmittime" }
-    if yname == "ipv6RouterAdvertCurHopLimit" { return "Ipv6Routeradvertcurhoplimit" }
-    if yname == "ipv6RouterAdvertDefaultLifetime" { return "Ipv6Routeradvertdefaultlifetime" }
-    if yname == "ipv6RouterAdvertRowStatus" { return "Ipv6Routeradvertrowstatus" }
-    return ""
+    ipv6Routeradvertentry.EntityData.Children = make(map[string]types.YChild)
+    ipv6Routeradvertentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertIfIndex"] = types.YLeaf{"Ipv6Routeradvertifindex", ipv6Routeradvertentry.Ipv6Routeradvertifindex}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertSendAdverts"] = types.YLeaf{"Ipv6Routeradvertsendadverts", ipv6Routeradvertentry.Ipv6Routeradvertsendadverts}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertMaxInterval"] = types.YLeaf{"Ipv6Routeradvertmaxinterval", ipv6Routeradvertentry.Ipv6Routeradvertmaxinterval}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertMinInterval"] = types.YLeaf{"Ipv6Routeradvertmininterval", ipv6Routeradvertentry.Ipv6Routeradvertmininterval}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertManagedFlag"] = types.YLeaf{"Ipv6Routeradvertmanagedflag", ipv6Routeradvertentry.Ipv6Routeradvertmanagedflag}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertOtherConfigFlag"] = types.YLeaf{"Ipv6Routeradvertotherconfigflag", ipv6Routeradvertentry.Ipv6Routeradvertotherconfigflag}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertLinkMTU"] = types.YLeaf{"Ipv6Routeradvertlinkmtu", ipv6Routeradvertentry.Ipv6Routeradvertlinkmtu}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertReachableTime"] = types.YLeaf{"Ipv6Routeradvertreachabletime", ipv6Routeradvertentry.Ipv6Routeradvertreachabletime}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertRetransmitTime"] = types.YLeaf{"Ipv6Routeradvertretransmittime", ipv6Routeradvertentry.Ipv6Routeradvertretransmittime}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertCurHopLimit"] = types.YLeaf{"Ipv6Routeradvertcurhoplimit", ipv6Routeradvertentry.Ipv6Routeradvertcurhoplimit}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertDefaultLifetime"] = types.YLeaf{"Ipv6Routeradvertdefaultlifetime", ipv6Routeradvertentry.Ipv6Routeradvertdefaultlifetime}
+    ipv6Routeradvertentry.EntityData.Leafs["ipv6RouterAdvertRowStatus"] = types.YLeaf{"Ipv6Routeradvertrowstatus", ipv6Routeradvertentry.Ipv6Routeradvertrowstatus}
+    return &(ipv6Routeradvertentry.EntityData)
 }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetSegmentPath() string {
-    return "ipv6RouterAdvertEntry" + "[ipv6RouterAdvertIfIndex='" + fmt.Sprintf("%v", ipv6Routeradvertentry.Ipv6Routeradvertifindex) + "']"
-}
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6RouterAdvertIfIndex"] = ipv6Routeradvertentry.Ipv6Routeradvertifindex
-    leafs["ipv6RouterAdvertSendAdverts"] = ipv6Routeradvertentry.Ipv6Routeradvertsendadverts
-    leafs["ipv6RouterAdvertMaxInterval"] = ipv6Routeradvertentry.Ipv6Routeradvertmaxinterval
-    leafs["ipv6RouterAdvertMinInterval"] = ipv6Routeradvertentry.Ipv6Routeradvertmininterval
-    leafs["ipv6RouterAdvertManagedFlag"] = ipv6Routeradvertentry.Ipv6Routeradvertmanagedflag
-    leafs["ipv6RouterAdvertOtherConfigFlag"] = ipv6Routeradvertentry.Ipv6Routeradvertotherconfigflag
-    leafs["ipv6RouterAdvertLinkMTU"] = ipv6Routeradvertentry.Ipv6Routeradvertlinkmtu
-    leafs["ipv6RouterAdvertReachableTime"] = ipv6Routeradvertentry.Ipv6Routeradvertreachabletime
-    leafs["ipv6RouterAdvertRetransmitTime"] = ipv6Routeradvertentry.Ipv6Routeradvertretransmittime
-    leafs["ipv6RouterAdvertCurHopLimit"] = ipv6Routeradvertentry.Ipv6Routeradvertcurhoplimit
-    leafs["ipv6RouterAdvertDefaultLifetime"] = ipv6Routeradvertentry.Ipv6Routeradvertdefaultlifetime
-    leafs["ipv6RouterAdvertRowStatus"] = ipv6Routeradvertentry.Ipv6Routeradvertrowstatus
-    return leafs
-}
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetYangName() string { return "ipv6RouterAdvertEntry" }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) SetParent(parent types.Entity) { ipv6Routeradvertentry.parent = parent }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetParent() types.Entity { return ipv6Routeradvertentry.parent }
-
-func (ipv6Routeradvertentry *IPMIB_Ipv6Routeradverttable_Ipv6Routeradvertentry) GetParentYangName() string { return "ipv6RouterAdvertTable" }
 
 // IPMIB_Icmpstatstable
 // The table of generic system-wide ICMP counters.
 type IPMIB_Icmpstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the icmpStatsTable. The type is slice of
@@ -4270,68 +3047,29 @@ type IPMIB_Icmpstatstable struct {
     Icmpstatsentry []IPMIB_Icmpstatstable_Icmpstatsentry
 }
 
-func (icmpstatstable *IPMIB_Icmpstatstable) GetFilter() yfilter.YFilter { return icmpstatstable.YFilter }
+func (icmpstatstable *IPMIB_Icmpstatstable) GetEntityData() *types.CommonEntityData {
+    icmpstatstable.EntityData.YFilter = icmpstatstable.YFilter
+    icmpstatstable.EntityData.YangName = "icmpStatsTable"
+    icmpstatstable.EntityData.BundleName = "cisco_ios_xe"
+    icmpstatstable.EntityData.ParentYangName = "IP-MIB"
+    icmpstatstable.EntityData.SegmentPath = "icmpStatsTable"
+    icmpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icmpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icmpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icmpstatstable *IPMIB_Icmpstatstable) SetFilter(yf yfilter.YFilter) { icmpstatstable.YFilter = yf }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetGoName(yname string) string {
-    if yname == "icmpStatsEntry" { return "Icmpstatsentry" }
-    return ""
-}
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetSegmentPath() string {
-    return "icmpStatsTable"
-}
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "icmpStatsEntry" {
-        for _, c := range icmpstatstable.Icmpstatsentry {
-            if icmpstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Icmpstatstable_Icmpstatsentry{}
-        icmpstatstable.Icmpstatsentry = append(icmpstatstable.Icmpstatsentry, child)
-        return &icmpstatstable.Icmpstatsentry[len(icmpstatstable.Icmpstatsentry)-1]
-    }
-    return nil
-}
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    icmpstatstable.EntityData.Children = make(map[string]types.YChild)
+    icmpstatstable.EntityData.Children["icmpStatsEntry"] = types.YChild{"Icmpstatsentry", nil}
     for i := range icmpstatstable.Icmpstatsentry {
-        children[icmpstatstable.Icmpstatsentry[i].GetSegmentPath()] = &icmpstatstable.Icmpstatsentry[i]
+        icmpstatstable.EntityData.Children[types.GetSegmentPath(&icmpstatstable.Icmpstatsentry[i])] = types.YChild{"Icmpstatsentry", &icmpstatstable.Icmpstatsentry[i]}
     }
-    return children
+    icmpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(icmpstatstable.EntityData)
 }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetYangName() string { return "icmpStatsTable" }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) SetParent(parent types.Entity) { icmpstatstable.parent = parent }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetParent() types.Entity { return icmpstatstable.parent }
-
-func (icmpstatstable *IPMIB_Icmpstatstable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Icmpstatstable_Icmpstatsentry
 // A conceptual row in the icmpStatsTable.
 type IPMIB_Icmpstatstable_Icmpstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP version of the statistics. The type is
@@ -4362,65 +3100,31 @@ type IPMIB_Icmpstatstable_Icmpstatsentry struct {
     Icmpstatsouterrors interface{}
 }
 
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetFilter() yfilter.YFilter { return icmpstatsentry.YFilter }
+func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetEntityData() *types.CommonEntityData {
+    icmpstatsentry.EntityData.YFilter = icmpstatsentry.YFilter
+    icmpstatsentry.EntityData.YangName = "icmpStatsEntry"
+    icmpstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    icmpstatsentry.EntityData.ParentYangName = "icmpStatsTable"
+    icmpstatsentry.EntityData.SegmentPath = "icmpStatsEntry" + "[icmpStatsIPVersion='" + fmt.Sprintf("%v", icmpstatsentry.Icmpstatsipversion) + "']"
+    icmpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icmpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icmpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) SetFilter(yf yfilter.YFilter) { icmpstatsentry.YFilter = yf }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetGoName(yname string) string {
-    if yname == "icmpStatsIPVersion" { return "Icmpstatsipversion" }
-    if yname == "icmpStatsInMsgs" { return "Icmpstatsinmsgs" }
-    if yname == "icmpStatsInErrors" { return "Icmpstatsinerrors" }
-    if yname == "icmpStatsOutMsgs" { return "Icmpstatsoutmsgs" }
-    if yname == "icmpStatsOutErrors" { return "Icmpstatsouterrors" }
-    return ""
+    icmpstatsentry.EntityData.Children = make(map[string]types.YChild)
+    icmpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmpstatsentry.EntityData.Leafs["icmpStatsIPVersion"] = types.YLeaf{"Icmpstatsipversion", icmpstatsentry.Icmpstatsipversion}
+    icmpstatsentry.EntityData.Leafs["icmpStatsInMsgs"] = types.YLeaf{"Icmpstatsinmsgs", icmpstatsentry.Icmpstatsinmsgs}
+    icmpstatsentry.EntityData.Leafs["icmpStatsInErrors"] = types.YLeaf{"Icmpstatsinerrors", icmpstatsentry.Icmpstatsinerrors}
+    icmpstatsentry.EntityData.Leafs["icmpStatsOutMsgs"] = types.YLeaf{"Icmpstatsoutmsgs", icmpstatsentry.Icmpstatsoutmsgs}
+    icmpstatsentry.EntityData.Leafs["icmpStatsOutErrors"] = types.YLeaf{"Icmpstatsouterrors", icmpstatsentry.Icmpstatsouterrors}
+    return &(icmpstatsentry.EntityData)
 }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetSegmentPath() string {
-    return "icmpStatsEntry" + "[icmpStatsIPVersion='" + fmt.Sprintf("%v", icmpstatsentry.Icmpstatsipversion) + "']"
-}
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icmpStatsIPVersion"] = icmpstatsentry.Icmpstatsipversion
-    leafs["icmpStatsInMsgs"] = icmpstatsentry.Icmpstatsinmsgs
-    leafs["icmpStatsInErrors"] = icmpstatsentry.Icmpstatsinerrors
-    leafs["icmpStatsOutMsgs"] = icmpstatsentry.Icmpstatsoutmsgs
-    leafs["icmpStatsOutErrors"] = icmpstatsentry.Icmpstatsouterrors
-    return leafs
-}
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetYangName() string { return "icmpStatsEntry" }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) SetParent(parent types.Entity) { icmpstatsentry.parent = parent }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetParent() types.Entity { return icmpstatsentry.parent }
-
-func (icmpstatsentry *IPMIB_Icmpstatstable_Icmpstatsentry) GetParentYangName() string { return "icmpStatsTable" }
 
 // IPMIB_Icmpmsgstatstable
 // The table of system-wide per-version, per-message type ICMP
 // counters.
 type IPMIB_Icmpmsgstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the icmpMsgStatsTable.  The system should track each
@@ -4434,63 +3138,24 @@ type IPMIB_Icmpmsgstatstable struct {
     Icmpmsgstatsentry []IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry
 }
 
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetFilter() yfilter.YFilter { return icmpmsgstatstable.YFilter }
+func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetEntityData() *types.CommonEntityData {
+    icmpmsgstatstable.EntityData.YFilter = icmpmsgstatstable.YFilter
+    icmpmsgstatstable.EntityData.YangName = "icmpMsgStatsTable"
+    icmpmsgstatstable.EntityData.BundleName = "cisco_ios_xe"
+    icmpmsgstatstable.EntityData.ParentYangName = "IP-MIB"
+    icmpmsgstatstable.EntityData.SegmentPath = "icmpMsgStatsTable"
+    icmpmsgstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icmpmsgstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icmpmsgstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) SetFilter(yf yfilter.YFilter) { icmpmsgstatstable.YFilter = yf }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetGoName(yname string) string {
-    if yname == "icmpMsgStatsEntry" { return "Icmpmsgstatsentry" }
-    return ""
-}
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetSegmentPath() string {
-    return "icmpMsgStatsTable"
-}
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "icmpMsgStatsEntry" {
-        for _, c := range icmpmsgstatstable.Icmpmsgstatsentry {
-            if icmpmsgstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry{}
-        icmpmsgstatstable.Icmpmsgstatsentry = append(icmpmsgstatstable.Icmpmsgstatsentry, child)
-        return &icmpmsgstatstable.Icmpmsgstatsentry[len(icmpmsgstatstable.Icmpmsgstatsentry)-1]
-    }
-    return nil
-}
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    icmpmsgstatstable.EntityData.Children = make(map[string]types.YChild)
+    icmpmsgstatstable.EntityData.Children["icmpMsgStatsEntry"] = types.YChild{"Icmpmsgstatsentry", nil}
     for i := range icmpmsgstatstable.Icmpmsgstatsentry {
-        children[icmpmsgstatstable.Icmpmsgstatsentry[i].GetSegmentPath()] = &icmpmsgstatstable.Icmpmsgstatsentry[i]
+        icmpmsgstatstable.EntityData.Children[types.GetSegmentPath(&icmpmsgstatstable.Icmpmsgstatsentry[i])] = types.YChild{"Icmpmsgstatsentry", &icmpmsgstatstable.Icmpmsgstatsentry[i]}
     }
-    return children
+    icmpmsgstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(icmpmsgstatstable.EntityData)
 }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetYangName() string { return "icmpMsgStatsTable" }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) SetParent(parent types.Entity) { icmpmsgstatstable.parent = parent }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetParent() types.Entity { return icmpmsgstatstable.parent }
-
-func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetParentYangName() string { return "IP-MIB" }
 
 // IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry
 // A conceptual row in the icmpMsgStatsTable.
@@ -4505,7 +3170,7 @@ func (icmpmsgstatstable *IPMIB_Icmpmsgstatstable) GetParentYangName() string { r
 // any succeeding messages with Type=X, the relevant counter
 // must be incremented.
 type IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP version of the statistics. The type is
@@ -4526,55 +3191,22 @@ type IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry struct {
     Icmpmsgstatsoutpkts interface{}
 }
 
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetFilter() yfilter.YFilter { return icmpmsgstatsentry.YFilter }
+func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetEntityData() *types.CommonEntityData {
+    icmpmsgstatsentry.EntityData.YFilter = icmpmsgstatsentry.YFilter
+    icmpmsgstatsentry.EntityData.YangName = "icmpMsgStatsEntry"
+    icmpmsgstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    icmpmsgstatsentry.EntityData.ParentYangName = "icmpMsgStatsTable"
+    icmpmsgstatsentry.EntityData.SegmentPath = "icmpMsgStatsEntry" + "[icmpMsgStatsIPVersion='" + fmt.Sprintf("%v", icmpmsgstatsentry.Icmpmsgstatsipversion) + "']" + "[icmpMsgStatsType='" + fmt.Sprintf("%v", icmpmsgstatsentry.Icmpmsgstatstype) + "']"
+    icmpmsgstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icmpmsgstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icmpmsgstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) SetFilter(yf yfilter.YFilter) { icmpmsgstatsentry.YFilter = yf }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetGoName(yname string) string {
-    if yname == "icmpMsgStatsIPVersion" { return "Icmpmsgstatsipversion" }
-    if yname == "icmpMsgStatsType" { return "Icmpmsgstatstype" }
-    if yname == "icmpMsgStatsInPkts" { return "Icmpmsgstatsinpkts" }
-    if yname == "icmpMsgStatsOutPkts" { return "Icmpmsgstatsoutpkts" }
-    return ""
+    icmpmsgstatsentry.EntityData.Children = make(map[string]types.YChild)
+    icmpmsgstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    icmpmsgstatsentry.EntityData.Leafs["icmpMsgStatsIPVersion"] = types.YLeaf{"Icmpmsgstatsipversion", icmpmsgstatsentry.Icmpmsgstatsipversion}
+    icmpmsgstatsentry.EntityData.Leafs["icmpMsgStatsType"] = types.YLeaf{"Icmpmsgstatstype", icmpmsgstatsentry.Icmpmsgstatstype}
+    icmpmsgstatsentry.EntityData.Leafs["icmpMsgStatsInPkts"] = types.YLeaf{"Icmpmsgstatsinpkts", icmpmsgstatsentry.Icmpmsgstatsinpkts}
+    icmpmsgstatsentry.EntityData.Leafs["icmpMsgStatsOutPkts"] = types.YLeaf{"Icmpmsgstatsoutpkts", icmpmsgstatsentry.Icmpmsgstatsoutpkts}
+    return &(icmpmsgstatsentry.EntityData)
 }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetSegmentPath() string {
-    return "icmpMsgStatsEntry" + "[icmpMsgStatsIPVersion='" + fmt.Sprintf("%v", icmpmsgstatsentry.Icmpmsgstatsipversion) + "']" + "[icmpMsgStatsType='" + fmt.Sprintf("%v", icmpmsgstatsentry.Icmpmsgstatstype) + "']"
-}
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icmpMsgStatsIPVersion"] = icmpmsgstatsentry.Icmpmsgstatsipversion
-    leafs["icmpMsgStatsType"] = icmpmsgstatsentry.Icmpmsgstatstype
-    leafs["icmpMsgStatsInPkts"] = icmpmsgstatsentry.Icmpmsgstatsinpkts
-    leafs["icmpMsgStatsOutPkts"] = icmpmsgstatsentry.Icmpmsgstatsoutpkts
-    return leafs
-}
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetYangName() string { return "icmpMsgStatsEntry" }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) SetParent(parent types.Entity) { icmpmsgstatsentry.parent = parent }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetParent() types.Entity { return icmpmsgstatsentry.parent }
-
-func (icmpmsgstatsentry *IPMIB_Icmpmsgstatstable_Icmpmsgstatsentry) GetParentYangName() string { return "icmpMsgStatsTable" }
 

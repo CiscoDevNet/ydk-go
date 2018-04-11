@@ -11,20 +11,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package vlan_types"))
 }
 
-type TPID0X9200 struct {
-}
-
-func (id TPID0X9200) String() string {
-	return "openconfig-vlan-types:TPID_0X9200"
-}
-
-type TPID0x8A88 struct {
-}
-
-func (id TPID0x8A88) String() string {
-	return "openconfig-vlan-types:TPID_0x8A88"
-}
-
 type TPIDTYPES struct {
 }
 
@@ -39,11 +25,25 @@ func (id TPID0x8100) String() string {
 	return "openconfig-vlan-types:TPID_0x8100"
 }
 
+type TPID0x8A88 struct {
+}
+
+func (id TPID0x8A88) String() string {
+	return "openconfig-vlan-types:TPID_0x8A88"
+}
+
 type TPID0x9100 struct {
 }
 
 func (id TPID0x9100) String() string {
 	return "openconfig-vlan-types:TPID_0x9100"
+}
+
+type TPID0X9200 struct {
+}
+
+func (id TPID0X9200) String() string {
+	return "openconfig-vlan-types:TPID_0X9200"
 }
 
 // VlanModeType represents VLAN interface mode (trunk or access)

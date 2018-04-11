@@ -41,134 +41,62 @@ const (
 // Aaa
 // Admin plane AAA configuration
 type Aaa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure local username.
     Usernames Aaa_Usernames
 }
 
-func (aaa *Aaa) GetFilter() yfilter.YFilter { return aaa.YFilter }
+func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
+    aaa.EntityData.YFilter = aaa.YFilter
+    aaa.EntityData.YangName = "aaa"
+    aaa.EntityData.BundleName = "cisco_ios_xr"
+    aaa.EntityData.ParentYangName = "Cisco-IOS-XR-aaa-locald-admin-cfg"
+    aaa.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa"
+    aaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (aaa *Aaa) SetFilter(yf yfilter.YFilter) { aaa.YFilter = yf }
-
-func (aaa *Aaa) GetGoName(yname string) string {
-    if yname == "usernames" { return "Usernames" }
-    return ""
+    aaa.EntityData.Children = make(map[string]types.YChild)
+    aaa.EntityData.Children["usernames"] = types.YChild{"Usernames", &aaa.Usernames}
+    aaa.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(aaa.EntityData)
 }
-
-func (aaa *Aaa) GetSegmentPath() string {
-    return "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa"
-}
-
-func (aaa *Aaa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "usernames" {
-        return &aaa.Usernames
-    }
-    return nil
-}
-
-func (aaa *Aaa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["usernames"] = &aaa.Usernames
-    return children
-}
-
-func (aaa *Aaa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (aaa *Aaa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (aaa *Aaa) GetYangName() string { return "aaa" }
-
-func (aaa *Aaa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (aaa *Aaa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (aaa *Aaa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (aaa *Aaa) SetParent(parent types.Entity) { aaa.parent = parent }
-
-func (aaa *Aaa) GetParent() types.Entity { return aaa.parent }
-
-func (aaa *Aaa) GetParentYangName() string { return "Cisco-IOS-XR-aaa-locald-admin-cfg" }
 
 // Aaa_Usernames
 // Configure local username
 type Aaa_Usernames struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Admin Username. The type is slice of Aaa_Usernames_Username.
     Username []Aaa_Usernames_Username
 }
 
-func (usernames *Aaa_Usernames) GetFilter() yfilter.YFilter { return usernames.YFilter }
+func (usernames *Aaa_Usernames) GetEntityData() *types.CommonEntityData {
+    usernames.EntityData.YFilter = usernames.YFilter
+    usernames.EntityData.YangName = "usernames"
+    usernames.EntityData.BundleName = "cisco_ios_xr"
+    usernames.EntityData.ParentYangName = "aaa"
+    usernames.EntityData.SegmentPath = "usernames"
+    usernames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    usernames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    usernames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (usernames *Aaa_Usernames) SetFilter(yf yfilter.YFilter) { usernames.YFilter = yf }
-
-func (usernames *Aaa_Usernames) GetGoName(yname string) string {
-    if yname == "username" { return "Username" }
-    return ""
-}
-
-func (usernames *Aaa_Usernames) GetSegmentPath() string {
-    return "usernames"
-}
-
-func (usernames *Aaa_Usernames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "username" {
-        for _, c := range usernames.Username {
-            if usernames.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Aaa_Usernames_Username{}
-        usernames.Username = append(usernames.Username, child)
-        return &usernames.Username[len(usernames.Username)-1]
-    }
-    return nil
-}
-
-func (usernames *Aaa_Usernames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    usernames.EntityData.Children = make(map[string]types.YChild)
+    usernames.EntityData.Children["username"] = types.YChild{"Username", nil}
     for i := range usernames.Username {
-        children[usernames.Username[i].GetSegmentPath()] = &usernames.Username[i]
+        usernames.EntityData.Children[types.GetSegmentPath(&usernames.Username[i])] = types.YChild{"Username", &usernames.Username[i]}
     }
-    return children
+    usernames.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(usernames.EntityData)
 }
-
-func (usernames *Aaa_Usernames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (usernames *Aaa_Usernames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (usernames *Aaa_Usernames) GetYangName() string { return "usernames" }
-
-func (usernames *Aaa_Usernames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (usernames *Aaa_Usernames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (usernames *Aaa_Usernames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (usernames *Aaa_Usernames) SetParent(parent types.Entity) { usernames.parent = parent }
-
-func (usernames *Aaa_Usernames) GetParent() types.Entity { return usernames.parent }
-
-func (usernames *Aaa_Usernames) GetParentYangName() string { return "aaa" }
 
 // Aaa_Usernames_Username
 // Admin Username
 type Aaa_Usernames_Username struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Username. The type is string.
@@ -181,67 +109,29 @@ type Aaa_Usernames_Username struct {
     Secret Aaa_Usernames_Username_Secret
 }
 
-func (username *Aaa_Usernames_Username) GetFilter() yfilter.YFilter { return username.YFilter }
+func (username *Aaa_Usernames_Username) GetEntityData() *types.CommonEntityData {
+    username.EntityData.YFilter = username.YFilter
+    username.EntityData.YangName = "username"
+    username.EntityData.BundleName = "cisco_ios_xr"
+    username.EntityData.ParentYangName = "usernames"
+    username.EntityData.SegmentPath = "username" + "[name='" + fmt.Sprintf("%v", username.Name) + "']"
+    username.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    username.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    username.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (username *Aaa_Usernames_Username) SetFilter(yf yfilter.YFilter) { username.YFilter = yf }
-
-func (username *Aaa_Usernames_Username) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "usergroup-under-usernames" { return "UsergroupUnderUsernames" }
-    if yname == "secret" { return "Secret" }
-    return ""
+    username.EntityData.Children = make(map[string]types.YChild)
+    username.EntityData.Children["usergroup-under-usernames"] = types.YChild{"UsergroupUnderUsernames", &username.UsergroupUnderUsernames}
+    username.EntityData.Children["secret"] = types.YChild{"Secret", &username.Secret}
+    username.EntityData.Leafs = make(map[string]types.YLeaf)
+    username.EntityData.Leafs["name"] = types.YLeaf{"Name", username.Name}
+    return &(username.EntityData)
 }
-
-func (username *Aaa_Usernames_Username) GetSegmentPath() string {
-    return "username" + "[name='" + fmt.Sprintf("%v", username.Name) + "']"
-}
-
-func (username *Aaa_Usernames_Username) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "usergroup-under-usernames" {
-        return &username.UsergroupUnderUsernames
-    }
-    if childYangName == "secret" {
-        return &username.Secret
-    }
-    return nil
-}
-
-func (username *Aaa_Usernames_Username) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["usergroup-under-usernames"] = &username.UsergroupUnderUsernames
-    children["secret"] = &username.Secret
-    return children
-}
-
-func (username *Aaa_Usernames_Username) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = username.Name
-    return leafs
-}
-
-func (username *Aaa_Usernames_Username) GetBundleName() string { return "cisco_ios_xr" }
-
-func (username *Aaa_Usernames_Username) GetYangName() string { return "username" }
-
-func (username *Aaa_Usernames_Username) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (username *Aaa_Usernames_Username) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (username *Aaa_Usernames_Username) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (username *Aaa_Usernames_Username) SetParent(parent types.Entity) { username.parent = parent }
-
-func (username *Aaa_Usernames_Username) GetParent() types.Entity { return username.parent }
-
-func (username *Aaa_Usernames_Username) GetParentYangName() string { return "usernames" }
 
 // Aaa_Usernames_Username_UsergroupUnderUsernames
 // Specify the usergroup to which this admin user
 // belongs
 type Aaa_Usernames_Username_UsergroupUnderUsernames struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of the usergroup. The type is slice of
@@ -249,190 +139,88 @@ type Aaa_Usernames_Username_UsergroupUnderUsernames struct {
     UsergroupUnderUsername []Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername
 }
 
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetFilter() yfilter.YFilter { return usergroupUnderUsernames.YFilter }
+func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetEntityData() *types.CommonEntityData {
+    usergroupUnderUsernames.EntityData.YFilter = usergroupUnderUsernames.YFilter
+    usergroupUnderUsernames.EntityData.YangName = "usergroup-under-usernames"
+    usergroupUnderUsernames.EntityData.BundleName = "cisco_ios_xr"
+    usergroupUnderUsernames.EntityData.ParentYangName = "username"
+    usergroupUnderUsernames.EntityData.SegmentPath = "usergroup-under-usernames"
+    usergroupUnderUsernames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    usergroupUnderUsernames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    usergroupUnderUsernames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) SetFilter(yf yfilter.YFilter) { usergroupUnderUsernames.YFilter = yf }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetGoName(yname string) string {
-    if yname == "usergroup-under-username" { return "UsergroupUnderUsername" }
-    return ""
-}
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetSegmentPath() string {
-    return "usergroup-under-usernames"
-}
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "usergroup-under-username" {
-        for _, c := range usergroupUnderUsernames.UsergroupUnderUsername {
-            if usergroupUnderUsernames.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername{}
-        usergroupUnderUsernames.UsergroupUnderUsername = append(usergroupUnderUsernames.UsergroupUnderUsername, child)
-        return &usergroupUnderUsernames.UsergroupUnderUsername[len(usergroupUnderUsernames.UsergroupUnderUsername)-1]
-    }
-    return nil
-}
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    usergroupUnderUsernames.EntityData.Children = make(map[string]types.YChild)
+    usergroupUnderUsernames.EntityData.Children["usergroup-under-username"] = types.YChild{"UsergroupUnderUsername", nil}
     for i := range usergroupUnderUsernames.UsergroupUnderUsername {
-        children[usergroupUnderUsernames.UsergroupUnderUsername[i].GetSegmentPath()] = &usergroupUnderUsernames.UsergroupUnderUsername[i]
+        usergroupUnderUsernames.EntityData.Children[types.GetSegmentPath(&usergroupUnderUsernames.UsergroupUnderUsername[i])] = types.YChild{"UsergroupUnderUsername", &usergroupUnderUsernames.UsergroupUnderUsername[i]}
     }
-    return children
+    usergroupUnderUsernames.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(usergroupUnderUsernames.EntityData)
 }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetYangName() string { return "usergroup-under-usernames" }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) SetParent(parent types.Entity) { usergroupUnderUsernames.parent = parent }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetParent() types.Entity { return usergroupUnderUsernames.parent }
-
-func (usergroupUnderUsernames *Aaa_Usernames_Username_UsergroupUnderUsernames) GetParentYangName() string { return "username" }
 
 // Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername
 // Name of the usergroup
 type Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the usergroup. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 }
 
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetFilter() yfilter.YFilter { return usergroupUnderUsername.YFilter }
+func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetEntityData() *types.CommonEntityData {
+    usergroupUnderUsername.EntityData.YFilter = usergroupUnderUsername.YFilter
+    usergroupUnderUsername.EntityData.YangName = "usergroup-under-username"
+    usergroupUnderUsername.EntityData.BundleName = "cisco_ios_xr"
+    usergroupUnderUsername.EntityData.ParentYangName = "usergroup-under-usernames"
+    usergroupUnderUsername.EntityData.SegmentPath = "usergroup-under-username" + "[name='" + fmt.Sprintf("%v", usergroupUnderUsername.Name) + "']"
+    usergroupUnderUsername.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    usergroupUnderUsername.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    usergroupUnderUsername.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) SetFilter(yf yfilter.YFilter) { usergroupUnderUsername.YFilter = yf }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    return ""
+    usergroupUnderUsername.EntityData.Children = make(map[string]types.YChild)
+    usergroupUnderUsername.EntityData.Leafs = make(map[string]types.YLeaf)
+    usergroupUnderUsername.EntityData.Leafs["name"] = types.YLeaf{"Name", usergroupUnderUsername.Name}
+    return &(usergroupUnderUsername.EntityData)
 }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetSegmentPath() string {
-    return "usergroup-under-username" + "[name='" + fmt.Sprintf("%v", usergroupUnderUsername.Name) + "']"
-}
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = usergroupUnderUsername.Name
-    return leafs
-}
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetBundleName() string { return "cisco_ios_xr" }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetYangName() string { return "usergroup-under-username" }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) SetParent(parent types.Entity) { usergroupUnderUsername.parent = parent }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetParent() types.Entity { return usergroupUnderUsername.parent }
-
-func (usergroupUnderUsername *Aaa_Usernames_Username_UsergroupUnderUsernames_UsergroupUnderUsername) GetParentYangName() string { return "usergroup-under-usernames" }
 
 // Aaa_Usernames_Username_Secret
 // Specify the secret for the admin user
 type Aaa_Usernames_Username_Secret struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Password type. The type is AaaAdminPassword.
-    Type interface{}
+    Type_ interface{}
 
     // The user's secret password. The type is string with pattern:
-    // (!.+)|([^!].+).
+    // b'(!.+)|([^!].+)'.
     Secret5 interface{}
 
-    // Type 8 password. The type is string with pattern: (!.+)|([^!].+).
+    // Type 8 password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Secret8 interface{}
 
-    // Type 9 password. The type is string with pattern: (!.+)|([^!].+).
+    // Type 9 password. The type is string with pattern: b'(!.+)|([^!].+)'.
     Secret9 interface{}
 }
 
-func (secret *Aaa_Usernames_Username_Secret) GetFilter() yfilter.YFilter { return secret.YFilter }
+func (secret *Aaa_Usernames_Username_Secret) GetEntityData() *types.CommonEntityData {
+    secret.EntityData.YFilter = secret.YFilter
+    secret.EntityData.YangName = "secret"
+    secret.EntityData.BundleName = "cisco_ios_xr"
+    secret.EntityData.ParentYangName = "username"
+    secret.EntityData.SegmentPath = "secret"
+    secret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    secret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    secret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (secret *Aaa_Usernames_Username_Secret) SetFilter(yf yfilter.YFilter) { secret.YFilter = yf }
-
-func (secret *Aaa_Usernames_Username_Secret) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "secret5" { return "Secret5" }
-    if yname == "secret8" { return "Secret8" }
-    if yname == "secret9" { return "Secret9" }
-    return ""
+    secret.EntityData.Children = make(map[string]types.YChild)
+    secret.EntityData.Leafs = make(map[string]types.YLeaf)
+    secret.EntityData.Leafs["type"] = types.YLeaf{"Type_", secret.Type_}
+    secret.EntityData.Leafs["secret5"] = types.YLeaf{"Secret5", secret.Secret5}
+    secret.EntityData.Leafs["secret8"] = types.YLeaf{"Secret8", secret.Secret8}
+    secret.EntityData.Leafs["secret9"] = types.YLeaf{"Secret9", secret.Secret9}
+    return &(secret.EntityData)
 }
-
-func (secret *Aaa_Usernames_Username_Secret) GetSegmentPath() string {
-    return "secret"
-}
-
-func (secret *Aaa_Usernames_Username_Secret) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (secret *Aaa_Usernames_Username_Secret) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (secret *Aaa_Usernames_Username_Secret) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = secret.Type
-    leafs["secret5"] = secret.Secret5
-    leafs["secret8"] = secret.Secret8
-    leafs["secret9"] = secret.Secret9
-    return leafs
-}
-
-func (secret *Aaa_Usernames_Username_Secret) GetBundleName() string { return "cisco_ios_xr" }
-
-func (secret *Aaa_Usernames_Username_Secret) GetYangName() string { return "secret" }
-
-func (secret *Aaa_Usernames_Username_Secret) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (secret *Aaa_Usernames_Username_Secret) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (secret *Aaa_Usernames_Username_Secret) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (secret *Aaa_Usernames_Username_Secret) SetParent(parent types.Entity) { secret.parent = parent }
-
-func (secret *Aaa_Usernames_Username_Secret) GetParent() types.Entity { return secret.parent }
-
-func (secret *Aaa_Usernames_Username_Secret) GetParentYangName() string { return "username" }
 

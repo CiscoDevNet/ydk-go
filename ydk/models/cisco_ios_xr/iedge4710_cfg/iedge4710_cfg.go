@@ -40,7 +40,7 @@ func init() {
 // SubscriberManager
 // iEdge subscriber manager configuration
 type SubscriberManager struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // iEdge accounting feature.
@@ -50,64 +50,27 @@ type SubscriberManager struct {
     Srg SubscriberManager_Srg
 }
 
-func (subscriberManager *SubscriberManager) GetFilter() yfilter.YFilter { return subscriberManager.YFilter }
+func (subscriberManager *SubscriberManager) GetEntityData() *types.CommonEntityData {
+    subscriberManager.EntityData.YFilter = subscriberManager.YFilter
+    subscriberManager.EntityData.YangName = "subscriber-manager"
+    subscriberManager.EntityData.BundleName = "cisco_ios_xr"
+    subscriberManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
+    subscriberManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager"
+    subscriberManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberManager *SubscriberManager) SetFilter(yf yfilter.YFilter) { subscriberManager.YFilter = yf }
-
-func (subscriberManager *SubscriberManager) GetGoName(yname string) string {
-    if yname == "accounting" { return "Accounting" }
-    if yname == "srg" { return "Srg" }
-    return ""
+    subscriberManager.EntityData.Children = make(map[string]types.YChild)
+    subscriberManager.EntityData.Children["accounting"] = types.YChild{"Accounting", &subscriberManager.Accounting}
+    subscriberManager.EntityData.Children["srg"] = types.YChild{"Srg", &subscriberManager.Srg}
+    subscriberManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberManager.EntityData)
 }
-
-func (subscriberManager *SubscriberManager) GetSegmentPath() string {
-    return "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager"
-}
-
-func (subscriberManager *SubscriberManager) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accounting" {
-        return &subscriberManager.Accounting
-    }
-    if childYangName == "srg" {
-        return &subscriberManager.Srg
-    }
-    return nil
-}
-
-func (subscriberManager *SubscriberManager) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accounting"] = &subscriberManager.Accounting
-    children["srg"] = &subscriberManager.Srg
-    return children
-}
-
-func (subscriberManager *SubscriberManager) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberManager *SubscriberManager) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberManager *SubscriberManager) GetYangName() string { return "subscriber-manager" }
-
-func (subscriberManager *SubscriberManager) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberManager *SubscriberManager) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberManager *SubscriberManager) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberManager *SubscriberManager) SetParent(parent types.Entity) { subscriberManager.parent = parent }
-
-func (subscriberManager *SubscriberManager) GetParent() types.Entity { return subscriberManager.parent }
-
-func (subscriberManager *SubscriberManager) GetParentYangName() string { return "Cisco-IOS-XR-iedge4710-cfg" }
 
 // SubscriberManager_Accounting
 // iEdge accounting feature
 type SubscriberManager_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Accounting send stop feature.
@@ -117,179 +80,79 @@ type SubscriberManager_Accounting struct {
     Interim SubscriberManager_Accounting_Interim
 }
 
-func (accounting *SubscriberManager_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *SubscriberManager_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "subscriber-manager"
+    accounting.EntityData.SegmentPath = "accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *SubscriberManager_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *SubscriberManager_Accounting) GetGoName(yname string) string {
-    if yname == "send-stop" { return "SendStop" }
-    if yname == "interim" { return "Interim" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["send-stop"] = types.YChild{"SendStop", &accounting.SendStop}
+    accounting.EntityData.Children["interim"] = types.YChild{"Interim", &accounting.Interim}
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accounting.EntityData)
 }
-
-func (accounting *SubscriberManager_Accounting) GetSegmentPath() string {
-    return "accounting"
-}
-
-func (accounting *SubscriberManager_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "send-stop" {
-        return &accounting.SendStop
-    }
-    if childYangName == "interim" {
-        return &accounting.Interim
-    }
-    return nil
-}
-
-func (accounting *SubscriberManager_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["send-stop"] = &accounting.SendStop
-    children["interim"] = &accounting.Interim
-    return children
-}
-
-func (accounting *SubscriberManager_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accounting *SubscriberManager_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *SubscriberManager_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *SubscriberManager_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *SubscriberManager_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *SubscriberManager_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *SubscriberManager_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *SubscriberManager_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *SubscriberManager_Accounting) GetParentYangName() string { return "subscriber-manager" }
 
 // SubscriberManager_Accounting_SendStop
 // Accounting send stop feature
 type SubscriberManager_Accounting_SendStop struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Setup failure feature.
     SetupFailure SubscriberManager_Accounting_SendStop_SetupFailure
 }
 
-func (sendStop *SubscriberManager_Accounting_SendStop) GetFilter() yfilter.YFilter { return sendStop.YFilter }
+func (sendStop *SubscriberManager_Accounting_SendStop) GetEntityData() *types.CommonEntityData {
+    sendStop.EntityData.YFilter = sendStop.YFilter
+    sendStop.EntityData.YangName = "send-stop"
+    sendStop.EntityData.BundleName = "cisco_ios_xr"
+    sendStop.EntityData.ParentYangName = "accounting"
+    sendStop.EntityData.SegmentPath = "send-stop"
+    sendStop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sendStop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sendStop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sendStop *SubscriberManager_Accounting_SendStop) SetFilter(yf yfilter.YFilter) { sendStop.YFilter = yf }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetGoName(yname string) string {
-    if yname == "setup-failure" { return "SetupFailure" }
-    return ""
+    sendStop.EntityData.Children = make(map[string]types.YChild)
+    sendStop.EntityData.Children["setup-failure"] = types.YChild{"SetupFailure", &sendStop.SetupFailure}
+    sendStop.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sendStop.EntityData)
 }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetSegmentPath() string {
-    return "send-stop"
-}
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "setup-failure" {
-        return &sendStop.SetupFailure
-    }
-    return nil
-}
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["setup-failure"] = &sendStop.SetupFailure
-    return children
-}
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetYangName() string { return "send-stop" }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) SetParent(parent types.Entity) { sendStop.parent = parent }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetParent() types.Entity { return sendStop.parent }
-
-func (sendStop *SubscriberManager_Accounting_SendStop) GetParentYangName() string { return "accounting" }
 
 // SubscriberManager_Accounting_SendStop_SetupFailure
 // Setup failure feature
 type SubscriberManager_Accounting_SendStop_SetupFailure struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AAA List name either default or preconfigured. The type is string.
     MethodListName interface{}
 }
 
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetFilter() yfilter.YFilter { return setupFailure.YFilter }
+func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetEntityData() *types.CommonEntityData {
+    setupFailure.EntityData.YFilter = setupFailure.YFilter
+    setupFailure.EntityData.YangName = "setup-failure"
+    setupFailure.EntityData.BundleName = "cisco_ios_xr"
+    setupFailure.EntityData.ParentYangName = "send-stop"
+    setupFailure.EntityData.SegmentPath = "setup-failure"
+    setupFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    setupFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    setupFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) SetFilter(yf yfilter.YFilter) { setupFailure.YFilter = yf }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    return ""
+    setupFailure.EntityData.Children = make(map[string]types.YChild)
+    setupFailure.EntityData.Leafs = make(map[string]types.YLeaf)
+    setupFailure.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", setupFailure.MethodListName}
+    return &(setupFailure.EntityData)
 }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetSegmentPath() string {
-    return "setup-failure"
-}
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = setupFailure.MethodListName
-    return leafs
-}
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetBundleName() string { return "cisco_ios_xr" }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetYangName() string { return "setup-failure" }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) SetParent(parent types.Entity) { setupFailure.parent = parent }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetParent() types.Entity { return setupFailure.parent }
-
-func (setupFailure *SubscriberManager_Accounting_SendStop_SetupFailure) GetParentYangName() string { return "send-stop" }
 
 // SubscriberManager_Accounting_Interim
 // interim accounting related
 type SubscriberManager_Accounting_Interim struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // variation of first session or service interim record from configured
@@ -297,60 +160,27 @@ type SubscriberManager_Accounting_Interim struct {
     Variation SubscriberManager_Accounting_Interim_Variation
 }
 
-func (interim *SubscriberManager_Accounting_Interim) GetFilter() yfilter.YFilter { return interim.YFilter }
+func (interim *SubscriberManager_Accounting_Interim) GetEntityData() *types.CommonEntityData {
+    interim.EntityData.YFilter = interim.YFilter
+    interim.EntityData.YangName = "interim"
+    interim.EntityData.BundleName = "cisco_ios_xr"
+    interim.EntityData.ParentYangName = "accounting"
+    interim.EntityData.SegmentPath = "interim"
+    interim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interim *SubscriberManager_Accounting_Interim) SetFilter(yf yfilter.YFilter) { interim.YFilter = yf }
-
-func (interim *SubscriberManager_Accounting_Interim) GetGoName(yname string) string {
-    if yname == "variation" { return "Variation" }
-    return ""
+    interim.EntityData.Children = make(map[string]types.YChild)
+    interim.EntityData.Children["variation"] = types.YChild{"Variation", &interim.Variation}
+    interim.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interim.EntityData)
 }
-
-func (interim *SubscriberManager_Accounting_Interim) GetSegmentPath() string {
-    return "interim"
-}
-
-func (interim *SubscriberManager_Accounting_Interim) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "variation" {
-        return &interim.Variation
-    }
-    return nil
-}
-
-func (interim *SubscriberManager_Accounting_Interim) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["variation"] = &interim.Variation
-    return children
-}
-
-func (interim *SubscriberManager_Accounting_Interim) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interim *SubscriberManager_Accounting_Interim) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interim *SubscriberManager_Accounting_Interim) GetYangName() string { return "interim" }
-
-func (interim *SubscriberManager_Accounting_Interim) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interim *SubscriberManager_Accounting_Interim) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interim *SubscriberManager_Accounting_Interim) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interim *SubscriberManager_Accounting_Interim) SetParent(parent types.Entity) { interim.parent = parent }
-
-func (interim *SubscriberManager_Accounting_Interim) GetParent() types.Entity { return interim.parent }
-
-func (interim *SubscriberManager_Accounting_Interim) GetParentYangName() string { return "accounting" }
 
 // SubscriberManager_Accounting_Interim_Variation
 // variation of first session or service interim
 // record from configured timeout
 type SubscriberManager_Accounting_Interim_Variation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // maximum percentage variation (maximum absolute variation is 15 minutes).
@@ -358,316 +188,147 @@ type SubscriberManager_Accounting_Interim_Variation struct {
     MaximumPercentageVariation interface{}
 }
 
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetFilter() yfilter.YFilter { return variation.YFilter }
+func (variation *SubscriberManager_Accounting_Interim_Variation) GetEntityData() *types.CommonEntityData {
+    variation.EntityData.YFilter = variation.YFilter
+    variation.EntityData.YangName = "variation"
+    variation.EntityData.BundleName = "cisco_ios_xr"
+    variation.EntityData.ParentYangName = "interim"
+    variation.EntityData.SegmentPath = "variation"
+    variation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    variation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    variation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (variation *SubscriberManager_Accounting_Interim_Variation) SetFilter(yf yfilter.YFilter) { variation.YFilter = yf }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetGoName(yname string) string {
-    if yname == "maximum-percentage-variation" { return "MaximumPercentageVariation" }
-    return ""
+    variation.EntityData.Children = make(map[string]types.YChild)
+    variation.EntityData.Leafs = make(map[string]types.YLeaf)
+    variation.EntityData.Leafs["maximum-percentage-variation"] = types.YLeaf{"MaximumPercentageVariation", variation.MaximumPercentageVariation}
+    return &(variation.EntityData)
 }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetSegmentPath() string {
-    return "variation"
-}
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["maximum-percentage-variation"] = variation.MaximumPercentageVariation
-    return leafs
-}
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetYangName() string { return "variation" }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) SetParent(parent types.Entity) { variation.parent = parent }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetParent() types.Entity { return variation.parent }
-
-func (variation *SubscriberManager_Accounting_Interim_Variation) GetParentYangName() string { return "interim" }
 
 // SubscriberManager_Srg
 // SRG specific config
 type SubscriberManager_Srg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // sync account session id from master to slave. The type is interface{}.
     SyncAccountSessionId interface{}
 }
 
-func (srg *SubscriberManager_Srg) GetFilter() yfilter.YFilter { return srg.YFilter }
+func (srg *SubscriberManager_Srg) GetEntityData() *types.CommonEntityData {
+    srg.EntityData.YFilter = srg.YFilter
+    srg.EntityData.YangName = "srg"
+    srg.EntityData.BundleName = "cisco_ios_xr"
+    srg.EntityData.ParentYangName = "subscriber-manager"
+    srg.EntityData.SegmentPath = "srg"
+    srg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (srg *SubscriberManager_Srg) SetFilter(yf yfilter.YFilter) { srg.YFilter = yf }
-
-func (srg *SubscriberManager_Srg) GetGoName(yname string) string {
-    if yname == "sync-account-session-id" { return "SyncAccountSessionId" }
-    return ""
+    srg.EntityData.Children = make(map[string]types.YChild)
+    srg.EntityData.Leafs = make(map[string]types.YLeaf)
+    srg.EntityData.Leafs["sync-account-session-id"] = types.YLeaf{"SyncAccountSessionId", srg.SyncAccountSessionId}
+    return &(srg.EntityData)
 }
-
-func (srg *SubscriberManager_Srg) GetSegmentPath() string {
-    return "srg"
-}
-
-func (srg *SubscriberManager_Srg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (srg *SubscriberManager_Srg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (srg *SubscriberManager_Srg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sync-account-session-id"] = srg.SyncAccountSessionId
-    return leafs
-}
-
-func (srg *SubscriberManager_Srg) GetBundleName() string { return "cisco_ios_xr" }
-
-func (srg *SubscriberManager_Srg) GetYangName() string { return "srg" }
-
-func (srg *SubscriberManager_Srg) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (srg *SubscriberManager_Srg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (srg *SubscriberManager_Srg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (srg *SubscriberManager_Srg) SetParent(parent types.Entity) { srg.parent = parent }
-
-func (srg *SubscriberManager_Srg) GetParent() types.Entity { return srg.parent }
-
-func (srg *SubscriberManager_Srg) GetParentYangName() string { return "subscriber-manager" }
 
 // SubscriberFeaturette
 // subscriber featurette
 type SubscriberFeaturette struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // enable identity change processing. The type is slice of
-    // SubscriberFeaturette_IdentityChange.
-    IdentityChange []SubscriberFeaturette_IdentityChange
+    // enable featurette processing. The type is slice of
+    // SubscriberFeaturette_FeaturetteName.
+    FeaturetteName []SubscriberFeaturette_FeaturetteName
 }
 
-func (subscriberFeaturette *SubscriberFeaturette) GetFilter() yfilter.YFilter { return subscriberFeaturette.YFilter }
+func (subscriberFeaturette *SubscriberFeaturette) GetEntityData() *types.CommonEntityData {
+    subscriberFeaturette.EntityData.YFilter = subscriberFeaturette.YFilter
+    subscriberFeaturette.EntityData.YangName = "subscriber-featurette"
+    subscriberFeaturette.EntityData.BundleName = "cisco_ios_xr"
+    subscriberFeaturette.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
+    subscriberFeaturette.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
+    subscriberFeaturette.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberFeaturette.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberFeaturette.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberFeaturette *SubscriberFeaturette) SetFilter(yf yfilter.YFilter) { subscriberFeaturette.YFilter = yf }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetGoName(yname string) string {
-    if yname == "identity-change" { return "IdentityChange" }
-    return ""
-}
-
-func (subscriberFeaturette *SubscriberFeaturette) GetSegmentPath() string {
-    return "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
-}
-
-func (subscriberFeaturette *SubscriberFeaturette) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "identity-change" {
-        for _, c := range subscriberFeaturette.IdentityChange {
-            if subscriberFeaturette.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubscriberFeaturette_IdentityChange{}
-        subscriberFeaturette.IdentityChange = append(subscriberFeaturette.IdentityChange, child)
-        return &subscriberFeaturette.IdentityChange[len(subscriberFeaturette.IdentityChange)-1]
+    subscriberFeaturette.EntityData.Children = make(map[string]types.YChild)
+    subscriberFeaturette.EntityData.Children["featurette-name"] = types.YChild{"FeaturetteName", nil}
+    for i := range subscriberFeaturette.FeaturetteName {
+        subscriberFeaturette.EntityData.Children[types.GetSegmentPath(&subscriberFeaturette.FeaturetteName[i])] = types.YChild{"FeaturetteName", &subscriberFeaturette.FeaturetteName[i]}
     }
-    return nil
+    subscriberFeaturette.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberFeaturette.EntityData)
 }
 
-func (subscriberFeaturette *SubscriberFeaturette) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range subscriberFeaturette.IdentityChange {
-        children[subscriberFeaturette.IdentityChange[i].GetSegmentPath()] = &subscriberFeaturette.IdentityChange[i]
-    }
-    return children
-}
-
-func (subscriberFeaturette *SubscriberFeaturette) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberFeaturette *SubscriberFeaturette) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetYangName() string { return "subscriber-featurette" }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberFeaturette *SubscriberFeaturette) SetParent(parent types.Entity) { subscriberFeaturette.parent = parent }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetParent() types.Entity { return subscriberFeaturette.parent }
-
-func (subscriberFeaturette *SubscriberFeaturette) GetParentYangName() string { return "Cisco-IOS-XR-iedge4710-cfg" }
-
-// SubscriberFeaturette_IdentityChange
-// enable identity change processing
-type SubscriberFeaturette_IdentityChange struct {
-    parent types.Entity
+// SubscriberFeaturette_FeaturetteName
+// enable featurette processing
+type SubscriberFeaturette_FeaturetteName struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. identity change. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
-    IdentityChange interface{}
+    // This attribute is a key. subscriber feature. The type is string with
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Featurette interface{}
 
-    // instance of identity-change. The type is interface{} with range:
+    // instance of featurette. The type is interface{} with range:
     // -2147483648..2147483647.
     Enable interface{}
 }
 
-func (identityChange *SubscriberFeaturette_IdentityChange) GetFilter() yfilter.YFilter { return identityChange.YFilter }
+func (featuretteName *SubscriberFeaturette_FeaturetteName) GetEntityData() *types.CommonEntityData {
+    featuretteName.EntityData.YFilter = featuretteName.YFilter
+    featuretteName.EntityData.YangName = "featurette-name"
+    featuretteName.EntityData.BundleName = "cisco_ios_xr"
+    featuretteName.EntityData.ParentYangName = "subscriber-featurette"
+    featuretteName.EntityData.SegmentPath = "featurette-name" + "[featurette='" + fmt.Sprintf("%v", featuretteName.Featurette) + "']"
+    featuretteName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    featuretteName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    featuretteName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (identityChange *SubscriberFeaturette_IdentityChange) SetFilter(yf yfilter.YFilter) { identityChange.YFilter = yf }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetGoName(yname string) string {
-    if yname == "identity-change" { return "IdentityChange" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    featuretteName.EntityData.Children = make(map[string]types.YChild)
+    featuretteName.EntityData.Leafs = make(map[string]types.YLeaf)
+    featuretteName.EntityData.Leafs["featurette"] = types.YLeaf{"Featurette", featuretteName.Featurette}
+    featuretteName.EntityData.Leafs["enable"] = types.YLeaf{"Enable", featuretteName.Enable}
+    return &(featuretteName.EntityData)
 }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetSegmentPath() string {
-    return "identity-change" + "[identity-change='" + fmt.Sprintf("%v", identityChange.IdentityChange) + "']"
-}
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["identity-change"] = identityChange.IdentityChange
-    leafs["enable"] = identityChange.Enable
-    return leafs
-}
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetYangName() string { return "identity-change" }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) SetParent(parent types.Entity) { identityChange.parent = parent }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetParent() types.Entity { return identityChange.parent }
-
-func (identityChange *SubscriberFeaturette_IdentityChange) GetParentYangName() string { return "subscriber-featurette" }
 
 // IedgeLicenseManager
 // iedge license manager
 type IedgeLicenseManager struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Location. For eg., 0/1/CPU0. The type is slice of IedgeLicenseManager_Node.
     Node []IedgeLicenseManager_Node
 }
 
-func (iedgeLicenseManager *IedgeLicenseManager) GetFilter() yfilter.YFilter { return iedgeLicenseManager.YFilter }
+func (iedgeLicenseManager *IedgeLicenseManager) GetEntityData() *types.CommonEntityData {
+    iedgeLicenseManager.EntityData.YFilter = iedgeLicenseManager.YFilter
+    iedgeLicenseManager.EntityData.YangName = "iedge-license-manager"
+    iedgeLicenseManager.EntityData.BundleName = "cisco_ios_xr"
+    iedgeLicenseManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
+    iedgeLicenseManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager"
+    iedgeLicenseManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iedgeLicenseManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iedgeLicenseManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iedgeLicenseManager *IedgeLicenseManager) SetFilter(yf yfilter.YFilter) { iedgeLicenseManager.YFilter = yf }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetSegmentPath() string {
-    return "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager"
-}
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range iedgeLicenseManager.Node {
-            if iedgeLicenseManager.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IedgeLicenseManager_Node{}
-        iedgeLicenseManager.Node = append(iedgeLicenseManager.Node, child)
-        return &iedgeLicenseManager.Node[len(iedgeLicenseManager.Node)-1]
-    }
-    return nil
-}
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    iedgeLicenseManager.EntityData.Children = make(map[string]types.YChild)
+    iedgeLicenseManager.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range iedgeLicenseManager.Node {
-        children[iedgeLicenseManager.Node[i].GetSegmentPath()] = &iedgeLicenseManager.Node[i]
+        iedgeLicenseManager.EntityData.Children[types.GetSegmentPath(&iedgeLicenseManager.Node[i])] = types.YChild{"Node", &iedgeLicenseManager.Node[i]}
     }
-    return children
+    iedgeLicenseManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iedgeLicenseManager.EntityData)
 }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetYangName() string { return "iedge-license-manager" }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iedgeLicenseManager *IedgeLicenseManager) SetParent(parent types.Entity) { iedgeLicenseManager.parent = parent }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetParent() types.Entity { return iedgeLicenseManager.parent }
-
-func (iedgeLicenseManager *IedgeLicenseManager) GetParentYangName() string { return "Cisco-IOS-XR-iedge4710-cfg" }
 
 // IedgeLicenseManager_Node
 // Location. For eg., 0/1/CPU0
 type IedgeLicenseManager_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node id to filter on. For eg., 0/1/CPU0. The
-    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NodeName interface{}
 
     // Session limit configured on linecard. The type is interface{} with range:
@@ -679,132 +340,61 @@ type IedgeLicenseManager_Node struct {
     SessionThreshold interface{}
 }
 
-func (node *IedgeLicenseManager_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *IedgeLicenseManager_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "iedge-license-manager"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *IedgeLicenseManager_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *IedgeLicenseManager_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "session-limit" { return "SessionLimit" }
-    if yname == "session-threshold" { return "SessionThreshold" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    node.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", node.SessionLimit}
+    node.EntityData.Leafs["session-threshold"] = types.YLeaf{"SessionThreshold", node.SessionThreshold}
+    return &(node.EntityData)
 }
-
-func (node *IedgeLicenseManager_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *IedgeLicenseManager_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (node *IedgeLicenseManager_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (node *IedgeLicenseManager_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    leafs["session-limit"] = node.SessionLimit
-    leafs["session-threshold"] = node.SessionThreshold
-    return leafs
-}
-
-func (node *IedgeLicenseManager_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *IedgeLicenseManager_Node) GetYangName() string { return "node" }
-
-func (node *IedgeLicenseManager_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *IedgeLicenseManager_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *IedgeLicenseManager_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *IedgeLicenseManager_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *IedgeLicenseManager_Node) GetParent() types.Entity { return node.parent }
-
-func (node *IedgeLicenseManager_Node) GetParentYangName() string { return "iedge-license-manager" }
 
 // SubManager
 // sub manager
 type SubManager struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Select location. The type is slice of SubManager_Location.
     Location []SubManager_Location
 }
 
-func (subManager *SubManager) GetFilter() yfilter.YFilter { return subManager.YFilter }
+func (subManager *SubManager) GetEntityData() *types.CommonEntityData {
+    subManager.EntityData.YFilter = subManager.YFilter
+    subManager.EntityData.YangName = "sub-manager"
+    subManager.EntityData.BundleName = "cisco_ios_xr"
+    subManager.EntityData.ParentYangName = "Cisco-IOS-XR-iedge4710-cfg"
+    subManager.EntityData.SegmentPath = "Cisco-IOS-XR-iedge4710-cfg:sub-manager"
+    subManager.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subManager.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subManager.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subManager *SubManager) SetFilter(yf yfilter.YFilter) { subManager.YFilter = yf }
-
-func (subManager *SubManager) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    return ""
-}
-
-func (subManager *SubManager) GetSegmentPath() string {
-    return "Cisco-IOS-XR-iedge4710-cfg:sub-manager"
-}
-
-func (subManager *SubManager) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "location" {
-        for _, c := range subManager.Location {
-            if subManager.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SubManager_Location{}
-        subManager.Location = append(subManager.Location, child)
-        return &subManager.Location[len(subManager.Location)-1]
-    }
-    return nil
-}
-
-func (subManager *SubManager) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subManager.EntityData.Children = make(map[string]types.YChild)
+    subManager.EntityData.Children["location"] = types.YChild{"Location", nil}
     for i := range subManager.Location {
-        children[subManager.Location[i].GetSegmentPath()] = &subManager.Location[i]
+        subManager.EntityData.Children[types.GetSegmentPath(&subManager.Location[i])] = types.YChild{"Location", &subManager.Location[i]}
     }
-    return children
+    subManager.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subManager.EntityData)
 }
-
-func (subManager *SubManager) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subManager *SubManager) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subManager *SubManager) GetYangName() string { return "sub-manager" }
-
-func (subManager *SubManager) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subManager *SubManager) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subManager *SubManager) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subManager *SubManager) SetParent(parent types.Entity) { subManager.parent = parent }
-
-func (subManager *SubManager) GetParent() types.Entity { return subManager.parent }
-
-func (subManager *SubManager) GetParentYangName() string { return "Cisco-IOS-XR-iedge4710-cfg" }
 
 // SubManager_Location
 // Select location
 type SubManager_Location struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify location. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Location1 interface{}
 
     // Disable history for subscriber manager. The type is interface{}.
@@ -814,63 +404,28 @@ type SubManager_Location struct {
     Trace SubManager_Location_Trace
 }
 
-func (location *SubManager_Location) GetFilter() yfilter.YFilter { return location.YFilter }
+func (location *SubManager_Location) GetEntityData() *types.CommonEntityData {
+    location.EntityData.YFilter = location.YFilter
+    location.EntityData.YangName = "location"
+    location.EntityData.BundleName = "cisco_ios_xr"
+    location.EntityData.ParentYangName = "sub-manager"
+    location.EntityData.SegmentPath = "location" + "[location1='" + fmt.Sprintf("%v", location.Location1) + "']"
+    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (location *SubManager_Location) SetFilter(yf yfilter.YFilter) { location.YFilter = yf }
-
-func (location *SubManager_Location) GetGoName(yname string) string {
-    if yname == "location1" { return "Location1" }
-    if yname == "history" { return "History" }
-    if yname == "trace" { return "Trace" }
-    return ""
+    location.EntityData.Children = make(map[string]types.YChild)
+    location.EntityData.Children["trace"] = types.YChild{"Trace", &location.Trace}
+    location.EntityData.Leafs = make(map[string]types.YLeaf)
+    location.EntityData.Leafs["location1"] = types.YLeaf{"Location1", location.Location1}
+    location.EntityData.Leafs["history"] = types.YLeaf{"History", location.History}
+    return &(location.EntityData)
 }
-
-func (location *SubManager_Location) GetSegmentPath() string {
-    return "location" + "[location1='" + fmt.Sprintf("%v", location.Location1) + "']"
-}
-
-func (location *SubManager_Location) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "trace" {
-        return &location.Trace
-    }
-    return nil
-}
-
-func (location *SubManager_Location) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["trace"] = &location.Trace
-    return children
-}
-
-func (location *SubManager_Location) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location1"] = location.Location1
-    leafs["history"] = location.History
-    return leafs
-}
-
-func (location *SubManager_Location) GetBundleName() string { return "cisco_ios_xr" }
-
-func (location *SubManager_Location) GetYangName() string { return "location" }
-
-func (location *SubManager_Location) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (location *SubManager_Location) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (location *SubManager_Location) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (location *SubManager_Location) SetParent(parent types.Entity) { location.parent = parent }
-
-func (location *SubManager_Location) GetParent() types.Entity { return location.parent }
-
-func (location *SubManager_Location) GetParentYangName() string { return "sub-manager" }
 
 // SubManager_Location_Trace
 // Subscriber manager trace
 type SubManager_Location_Trace struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber manager trace level. The type is interface{} with range:
@@ -878,49 +433,19 @@ type SubManager_Location_Trace struct {
     TraceLevel interface{}
 }
 
-func (trace *SubManager_Location_Trace) GetFilter() yfilter.YFilter { return trace.YFilter }
+func (trace *SubManager_Location_Trace) GetEntityData() *types.CommonEntityData {
+    trace.EntityData.YFilter = trace.YFilter
+    trace.EntityData.YangName = "trace"
+    trace.EntityData.BundleName = "cisco_ios_xr"
+    trace.EntityData.ParentYangName = "location"
+    trace.EntityData.SegmentPath = "trace"
+    trace.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trace.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trace.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trace *SubManager_Location_Trace) SetFilter(yf yfilter.YFilter) { trace.YFilter = yf }
-
-func (trace *SubManager_Location_Trace) GetGoName(yname string) string {
-    if yname == "trace-level" { return "TraceLevel" }
-    return ""
+    trace.EntityData.Children = make(map[string]types.YChild)
+    trace.EntityData.Leafs = make(map[string]types.YLeaf)
+    trace.EntityData.Leafs["trace-level"] = types.YLeaf{"TraceLevel", trace.TraceLevel}
+    return &(trace.EntityData)
 }
-
-func (trace *SubManager_Location_Trace) GetSegmentPath() string {
-    return "trace"
-}
-
-func (trace *SubManager_Location_Trace) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trace *SubManager_Location_Trace) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trace *SubManager_Location_Trace) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["trace-level"] = trace.TraceLevel
-    return leafs
-}
-
-func (trace *SubManager_Location_Trace) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trace *SubManager_Location_Trace) GetYangName() string { return "trace" }
-
-func (trace *SubManager_Location_Trace) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trace *SubManager_Location_Trace) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trace *SubManager_Location_Trace) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trace *SubManager_Location_Trace) SetParent(parent types.Entity) { trace.parent = parent }
-
-func (trace *SubManager_Location_Trace) GetParent() types.Entity { return trace.parent }
-
-func (trace *SubManager_Location_Trace) GetParentYangName() string { return "location" }
 

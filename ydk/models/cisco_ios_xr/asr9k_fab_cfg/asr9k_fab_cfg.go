@@ -35,66 +35,33 @@ const (
 // FabVqiConfig
 // Configure Fabric Operation Mode
 type FabVqiConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mode Type.
     Mode FabVqiConfig_Mode
 }
 
-func (fabVqiConfig *FabVqiConfig) GetFilter() yfilter.YFilter { return fabVqiConfig.YFilter }
+func (fabVqiConfig *FabVqiConfig) GetEntityData() *types.CommonEntityData {
+    fabVqiConfig.EntityData.YFilter = fabVqiConfig.YFilter
+    fabVqiConfig.EntityData.YangName = "fab-vqi-config"
+    fabVqiConfig.EntityData.BundleName = "cisco_ios_xr"
+    fabVqiConfig.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-fab-cfg"
+    fabVqiConfig.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-fab-cfg:fab-vqi-config"
+    fabVqiConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fabVqiConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fabVqiConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fabVqiConfig *FabVqiConfig) SetFilter(yf yfilter.YFilter) { fabVqiConfig.YFilter = yf }
-
-func (fabVqiConfig *FabVqiConfig) GetGoName(yname string) string {
-    if yname == "mode" { return "Mode" }
-    return ""
+    fabVqiConfig.EntityData.Children = make(map[string]types.YChild)
+    fabVqiConfig.EntityData.Children["mode"] = types.YChild{"Mode", &fabVqiConfig.Mode}
+    fabVqiConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fabVqiConfig.EntityData)
 }
-
-func (fabVqiConfig *FabVqiConfig) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-fab-cfg:fab-vqi-config"
-}
-
-func (fabVqiConfig *FabVqiConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mode" {
-        return &fabVqiConfig.Mode
-    }
-    return nil
-}
-
-func (fabVqiConfig *FabVqiConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mode"] = &fabVqiConfig.Mode
-    return children
-}
-
-func (fabVqiConfig *FabVqiConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fabVqiConfig *FabVqiConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fabVqiConfig *FabVqiConfig) GetYangName() string { return "fab-vqi-config" }
-
-func (fabVqiConfig *FabVqiConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fabVqiConfig *FabVqiConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fabVqiConfig *FabVqiConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fabVqiConfig *FabVqiConfig) SetParent(parent types.Entity) { fabVqiConfig.parent = parent }
-
-func (fabVqiConfig *FabVqiConfig) GetParent() types.Entity { return fabVqiConfig.parent }
-
-func (fabVqiConfig *FabVqiConfig) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-fab-cfg" }
 
 // FabVqiConfig_Mode
 // Mode Type
 type FabVqiConfig_Mode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mode Type. The type is Asr9kFabMode.
@@ -104,51 +71,20 @@ type FabVqiConfig_Mode struct {
     FabModeType interface{}
 }
 
-func (mode *FabVqiConfig_Mode) GetFilter() yfilter.YFilter { return mode.YFilter }
+func (mode *FabVqiConfig_Mode) GetEntityData() *types.CommonEntityData {
+    mode.EntityData.YFilter = mode.YFilter
+    mode.EntityData.YangName = "mode"
+    mode.EntityData.BundleName = "cisco_ios_xr"
+    mode.EntityData.ParentYangName = "fab-vqi-config"
+    mode.EntityData.SegmentPath = "mode"
+    mode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mode *FabVqiConfig_Mode) SetFilter(yf yfilter.YFilter) { mode.YFilter = yf }
-
-func (mode *FabVqiConfig_Mode) GetGoName(yname string) string {
-    if yname == "fab-mode-type-xr" { return "FabModeTypeXr" }
-    if yname == "fab-mode-type" { return "FabModeType" }
-    return ""
+    mode.EntityData.Children = make(map[string]types.YChild)
+    mode.EntityData.Leafs = make(map[string]types.YLeaf)
+    mode.EntityData.Leafs["fab-mode-type-xr"] = types.YLeaf{"FabModeTypeXr", mode.FabModeTypeXr}
+    mode.EntityData.Leafs["fab-mode-type"] = types.YLeaf{"FabModeType", mode.FabModeType}
+    return &(mode.EntityData)
 }
-
-func (mode *FabVqiConfig_Mode) GetSegmentPath() string {
-    return "mode"
-}
-
-func (mode *FabVqiConfig_Mode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mode *FabVqiConfig_Mode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mode *FabVqiConfig_Mode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fab-mode-type-xr"] = mode.FabModeTypeXr
-    leafs["fab-mode-type"] = mode.FabModeType
-    return leafs
-}
-
-func (mode *FabVqiConfig_Mode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mode *FabVqiConfig_Mode) GetYangName() string { return "mode" }
-
-func (mode *FabVqiConfig_Mode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mode *FabVqiConfig_Mode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mode *FabVqiConfig_Mode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mode *FabVqiConfig_Mode) SetParent(parent types.Entity) { mode.parent = parent }
-
-func (mode *FabVqiConfig_Mode) GetParent() types.Entity { return mode.parent }
-
-func (mode *FabVqiConfig_Mode) GetParentYangName() string { return "fab-vqi-config" }
 

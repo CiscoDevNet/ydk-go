@@ -24,34 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-tunnel-vpdn-oper:vpdn", reflect.TypeOf(Vpdn{}))
 }
 
-// SessionState represents Session states
-type SessionState string
-
-const (
-    // Idle state
-    SessionState_idle SessionState = "idle"
-
-    // Connected state
-    SessionState_connected SessionState = "connected"
-
-    // Established state
-    SessionState_established SessionState = "established"
-)
-
-// VpdnState represents Vpdn states
-type VpdnState string
-
-const (
-    // Initial state
-    VpdnState_initial_state VpdnState = "initial-state"
-
-    // Initial Sync in progress
-    VpdnState_init_sync_in_progress VpdnState = "init-sync-in-progress"
-
-    // Initial Sync Done
-    VpdnState_steady_state VpdnState = "steady-state"
-)
-
 // VpdnFailcode represents VPDN failure types
 type VpdnFailcode string
 
@@ -112,6 +84,54 @@ const (
 
     // Call parameters
     VpdnFailcode_call_prarmeters VpdnFailcode = "call-prarmeters"
+)
+
+// VpdnState represents Vpdn states
+type VpdnState string
+
+const (
+    // Initial state
+    VpdnState_initial_state VpdnState = "initial-state"
+
+    // Initial Sync in progress
+    VpdnState_init_sync_in_progress VpdnState = "init-sync-in-progress"
+
+    // Initial Sync Done
+    VpdnState_steady_state VpdnState = "steady-state"
+)
+
+// LsgStatus represents LSG Status
+type LsgStatus string
+
+const (
+    // Member not initialized.
+    LsgStatus_none LsgStatus = "none"
+
+    // Member is active.
+    LsgStatus_active LsgStatus = "active"
+
+    // Member is down, cannot create new sessions.
+    LsgStatus_down LsgStatus = "down"
+
+    // Member is ready for new sessions.
+    LsgStatus_testable LsgStatus = "testable"
+
+    // Member is being tested for new session
+    LsgStatus_testing LsgStatus = "testing"
+)
+
+// TosMode represents TOS modes
+type TosMode string
+
+const (
+    // default
+    TosMode_default_ TosMode = "default"
+
+    // set
+    TosMode_set TosMode = "set"
+
+    // reflect
+    TosMode_reflect TosMode = "reflect"
 )
 
 // VpdnNasPort represents NAS port types
@@ -206,44 +226,24 @@ const (
     VpdnNasPort_unknown VpdnNasPort = "unknown"
 )
 
-// TosMode represents TOS modes
-type TosMode string
+// SessionState represents Session states
+type SessionState string
 
 const (
-    // default
-    TosMode_default_ TosMode = "default"
+    // Idle state
+    SessionState_idle SessionState = "idle"
 
-    // set
-    TosMode_set TosMode = "set"
+    // Connected state
+    SessionState_connected SessionState = "connected"
 
-    // reflect
-    TosMode_reflect TosMode = "reflect"
-)
-
-// LsgStatus represents LSG Status
-type LsgStatus string
-
-const (
-    // Member not initialized.
-    LsgStatus_none LsgStatus = "none"
-
-    // Member is active.
-    LsgStatus_active LsgStatus = "active"
-
-    // Member is down, cannot create new sessions.
-    LsgStatus_down LsgStatus = "down"
-
-    // Member is ready for new sessions.
-    LsgStatus_testable LsgStatus = "testable"
-
-    // Member is being tested for new session
-    LsgStatus_testing LsgStatus = "testing"
+    // Established state
+    SessionState_established SessionState = "established"
 )
 
 // Vpdn
 // VPDN operational data
 type Vpdn struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VPDN session list.
@@ -262,162 +262,74 @@ type Vpdn struct {
     HistoryFailures Vpdn_HistoryFailures
 }
 
-func (vpdn *Vpdn) GetFilter() yfilter.YFilter { return vpdn.YFilter }
+func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
+    vpdn.EntityData.YFilter = vpdn.YFilter
+    vpdn.EntityData.YangName = "vpdn"
+    vpdn.EntityData.BundleName = "cisco_ios_xr"
+    vpdn.EntityData.ParentYangName = "Cisco-IOS-XR-tunnel-vpdn-oper"
+    vpdn.EntityData.SegmentPath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn"
+    vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vpdn *Vpdn) SetFilter(yf yfilter.YFilter) { vpdn.YFilter = yf }
-
-func (vpdn *Vpdn) GetGoName(yname string) string {
-    if yname == "sessions" { return "Sessions" }
-    if yname == "tunnel-destinations" { return "TunnelDestinations" }
-    if yname == "vpdn-mirroring" { return "VpdnMirroring" }
-    if yname == "vpdn-redundancy" { return "VpdnRedundancy" }
-    if yname == "history-failures" { return "HistoryFailures" }
-    return ""
+    vpdn.EntityData.Children = make(map[string]types.YChild)
+    vpdn.EntityData.Children["sessions"] = types.YChild{"Sessions", &vpdn.Sessions}
+    vpdn.EntityData.Children["tunnel-destinations"] = types.YChild{"TunnelDestinations", &vpdn.TunnelDestinations}
+    vpdn.EntityData.Children["vpdn-mirroring"] = types.YChild{"VpdnMirroring", &vpdn.VpdnMirroring}
+    vpdn.EntityData.Children["vpdn-redundancy"] = types.YChild{"VpdnRedundancy", &vpdn.VpdnRedundancy}
+    vpdn.EntityData.Children["history-failures"] = types.YChild{"HistoryFailures", &vpdn.HistoryFailures}
+    vpdn.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vpdn.EntityData)
 }
-
-func (vpdn *Vpdn) GetSegmentPath() string {
-    return "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn"
-}
-
-func (vpdn *Vpdn) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sessions" {
-        return &vpdn.Sessions
-    }
-    if childYangName == "tunnel-destinations" {
-        return &vpdn.TunnelDestinations
-    }
-    if childYangName == "vpdn-mirroring" {
-        return &vpdn.VpdnMirroring
-    }
-    if childYangName == "vpdn-redundancy" {
-        return &vpdn.VpdnRedundancy
-    }
-    if childYangName == "history-failures" {
-        return &vpdn.HistoryFailures
-    }
-    return nil
-}
-
-func (vpdn *Vpdn) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sessions"] = &vpdn.Sessions
-    children["tunnel-destinations"] = &vpdn.TunnelDestinations
-    children["vpdn-mirroring"] = &vpdn.VpdnMirroring
-    children["vpdn-redundancy"] = &vpdn.VpdnRedundancy
-    children["history-failures"] = &vpdn.HistoryFailures
-    return children
-}
-
-func (vpdn *Vpdn) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vpdn *Vpdn) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vpdn *Vpdn) GetYangName() string { return "vpdn" }
-
-func (vpdn *Vpdn) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vpdn *Vpdn) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vpdn *Vpdn) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vpdn *Vpdn) SetParent(parent types.Entity) { vpdn.parent = parent }
-
-func (vpdn *Vpdn) GetParent() types.Entity { return vpdn.parent }
-
-func (vpdn *Vpdn) GetParentYangName() string { return "Cisco-IOS-XR-tunnel-vpdn-oper" }
 
 // Vpdn_Sessions
 // VPDN session list
 type Vpdn_Sessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VPDN session information. The type is slice of Vpdn_Sessions_Session.
     Session []Vpdn_Sessions_Session
 }
 
-func (sessions *Vpdn_Sessions) GetFilter() yfilter.YFilter { return sessions.YFilter }
+func (sessions *Vpdn_Sessions) GetEntityData() *types.CommonEntityData {
+    sessions.EntityData.YFilter = sessions.YFilter
+    sessions.EntityData.YangName = "sessions"
+    sessions.EntityData.BundleName = "cisco_ios_xr"
+    sessions.EntityData.ParentYangName = "vpdn"
+    sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessions *Vpdn_Sessions) SetFilter(yf yfilter.YFilter) { sessions.YFilter = yf }
-
-func (sessions *Vpdn_Sessions) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    return ""
-}
-
-func (sessions *Vpdn_Sessions) GetSegmentPath() string {
-    return "sessions"
-}
-
-func (sessions *Vpdn_Sessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        for _, c := range sessions.Session {
-            if sessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vpdn_Sessions_Session{}
-        sessions.Session = append(sessions.Session, child)
-        return &sessions.Session[len(sessions.Session)-1]
-    }
-    return nil
-}
-
-func (sessions *Vpdn_Sessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessions.EntityData.Children = make(map[string]types.YChild)
+    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
     for i := range sessions.Session {
-        children[sessions.Session[i].GetSegmentPath()] = &sessions.Session[i]
+        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
     }
-    return children
+    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessions.EntityData)
 }
-
-func (sessions *Vpdn_Sessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessions *Vpdn_Sessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessions *Vpdn_Sessions) GetYangName() string { return "sessions" }
-
-func (sessions *Vpdn_Sessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessions *Vpdn_Sessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessions *Vpdn_Sessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessions *Vpdn_Sessions) SetParent(parent types.Entity) { sessions.parent = parent }
-
-func (sessions *Vpdn_Sessions) GetParent() types.Entity { return sessions.parent }
-
-func (sessions *Vpdn_Sessions) GetParentYangName() string { return "vpdn" }
 
 // Vpdn_Sessions_Session
 //  VPDN session information
 type Vpdn_Sessions_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session label. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     SessionLabel interface{}
 
     // Time to setup session in sec:msec. The type is interface{} with range:
     // 0..4294967295.
     SetupTime interface{}
 
-    // Parent interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Parent interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     ParentInterfaceName interface{}
 
     // Session data.
-    Session Vpdn_Sessions_Session_Session
+    Session Vpdn_Sessions_Session_Session_
 
     // L2TP data.
     L2Tp Vpdn_Sessions_Session_L2Tp
@@ -429,86 +341,39 @@ type Vpdn_Sessions_Session struct {
     Configuration Vpdn_Sessions_Session_Configuration
 }
 
-func (session *Vpdn_Sessions_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *Vpdn_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + "[session-label='" + fmt.Sprintf("%v", session.SessionLabel) + "']"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *Vpdn_Sessions_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *Vpdn_Sessions_Session) GetGoName(yname string) string {
-    if yname == "session-label" { return "SessionLabel" }
-    if yname == "setup-time" { return "SetupTime" }
-    if yname == "parent-interface-name" { return "ParentInterfaceName" }
-    if yname == "session" { return "Session" }
-    if yname == "l2tp" { return "L2Tp" }
-    if yname == "subscriber" { return "Subscriber" }
-    if yname == "configuration" { return "Configuration" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["session"] = types.YChild{"Session", &session.Session}
+    session.EntityData.Children["l2tp"] = types.YChild{"L2Tp", &session.L2Tp}
+    session.EntityData.Children["subscriber"] = types.YChild{"Subscriber", &session.Subscriber}
+    session.EntityData.Children["configuration"] = types.YChild{"Configuration", &session.Configuration}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["session-label"] = types.YLeaf{"SessionLabel", session.SessionLabel}
+    session.EntityData.Leafs["setup-time"] = types.YLeaf{"SetupTime", session.SetupTime}
+    session.EntityData.Leafs["parent-interface-name"] = types.YLeaf{"ParentInterfaceName", session.ParentInterfaceName}
+    return &(session.EntityData)
 }
 
-func (session *Vpdn_Sessions_Session) GetSegmentPath() string {
-    return "session" + "[session-label='" + fmt.Sprintf("%v", session.SessionLabel) + "']"
-}
-
-func (session *Vpdn_Sessions_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        return &session.Session
-    }
-    if childYangName == "l2tp" {
-        return &session.L2Tp
-    }
-    if childYangName == "subscriber" {
-        return &session.Subscriber
-    }
-    if childYangName == "configuration" {
-        return &session.Configuration
-    }
-    return nil
-}
-
-func (session *Vpdn_Sessions_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session"] = &session.Session
-    children["l2tp"] = &session.L2Tp
-    children["subscriber"] = &session.Subscriber
-    children["configuration"] = &session.Configuration
-    return children
-}
-
-func (session *Vpdn_Sessions_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-label"] = session.SessionLabel
-    leafs["setup-time"] = session.SetupTime
-    leafs["parent-interface-name"] = session.ParentInterfaceName
-    return leafs
-}
-
-func (session *Vpdn_Sessions_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *Vpdn_Sessions_Session) GetYangName() string { return "session" }
-
-func (session *Vpdn_Sessions_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *Vpdn_Sessions_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *Vpdn_Sessions_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *Vpdn_Sessions_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *Vpdn_Sessions_Session) GetParent() types.Entity { return session.parent }
-
-func (session *Vpdn_Sessions_Session) GetParentYangName() string { return "sessions" }
-
-// Vpdn_Sessions_Session_Session
+// Vpdn_Sessions_Session_Session_
 // Session data
-type Vpdn_Sessions_Session_Session struct {
-    parent types.Entity
+type Vpdn_Sessions_Session_Session_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Elapsed time since last change in hh:mm:ss format. The type is string.
     LastChange interface{}
 
-    // Session interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Session interface name. The type is string with pattern:
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Authentication username. The type is string.
@@ -530,78 +395,41 @@ type Vpdn_Sessions_Session_Session struct {
     SrgSlave interface{}
 }
 
-func (session *Vpdn_Sessions_Session_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session_ *Vpdn_Sessions_Session_Session_) GetEntityData() *types.CommonEntityData {
+    session_.EntityData.YFilter = session_.YFilter
+    session_.EntityData.YangName = "session"
+    session_.EntityData.BundleName = "cisco_ios_xr"
+    session_.EntityData.ParentYangName = "session"
+    session_.EntityData.SegmentPath = "session"
+    session_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *Vpdn_Sessions_Session_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *Vpdn_Sessions_Session_Session) GetGoName(yname string) string {
-    if yname == "last-change" { return "LastChange" }
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "username" { return "Username" }
-    if yname == "domain-name" { return "DomainName" }
-    if yname == "state" { return "State" }
-    if yname == "l2tp-session-id" { return "L2TpSessionId" }
-    if yname == "l2tp-tunnel-id" { return "L2TpTunnelId" }
-    if yname == "srg-slave" { return "SrgSlave" }
-    return ""
+    session_.EntityData.Children = make(map[string]types.YChild)
+    session_.EntityData.Leafs = make(map[string]types.YLeaf)
+    session_.EntityData.Leafs["last-change"] = types.YLeaf{"LastChange", session_.LastChange}
+    session_.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", session_.InterfaceName}
+    session_.EntityData.Leafs["username"] = types.YLeaf{"Username", session_.Username}
+    session_.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", session_.DomainName}
+    session_.EntityData.Leafs["state"] = types.YLeaf{"State", session_.State}
+    session_.EntityData.Leafs["l2tp-session-id"] = types.YLeaf{"L2TpSessionId", session_.L2TpSessionId}
+    session_.EntityData.Leafs["l2tp-tunnel-id"] = types.YLeaf{"L2TpTunnelId", session_.L2TpTunnelId}
+    session_.EntityData.Leafs["srg-slave"] = types.YLeaf{"SrgSlave", session_.SrgSlave}
+    return &(session_.EntityData)
 }
-
-func (session *Vpdn_Sessions_Session_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *Vpdn_Sessions_Session_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *Vpdn_Sessions_Session_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *Vpdn_Sessions_Session_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["last-change"] = session.LastChange
-    leafs["interface-name"] = session.InterfaceName
-    leafs["username"] = session.Username
-    leafs["domain-name"] = session.DomainName
-    leafs["state"] = session.State
-    leafs["l2tp-session-id"] = session.L2TpSessionId
-    leafs["l2tp-tunnel-id"] = session.L2TpTunnelId
-    leafs["srg-slave"] = session.SrgSlave
-    return leafs
-}
-
-func (session *Vpdn_Sessions_Session_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *Vpdn_Sessions_Session_Session) GetYangName() string { return "session" }
-
-func (session *Vpdn_Sessions_Session_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *Vpdn_Sessions_Session_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *Vpdn_Sessions_Session_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *Vpdn_Sessions_Session_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *Vpdn_Sessions_Session_Session) GetParent() types.Entity { return session.parent }
-
-func (session *Vpdn_Sessions_Session_Session) GetParentYangName() string { return "session" }
 
 // Vpdn_Sessions_Session_L2Tp
 // L2TP data
 type Vpdn_Sessions_Session_L2Tp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local endpoint IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     LocalEndpoint interface{}
 
     // Remote endpoint IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     RemoteEndpoint interface{}
 
     // Call serial number. The type is interface{} with range: 0..4294967295.
@@ -638,80 +466,38 @@ type Vpdn_Sessions_Session_L2Tp struct {
     IsTunnelAuthenticationEnabled interface{}
 }
 
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetFilter() yfilter.YFilter { return l2Tp.YFilter }
+func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetEntityData() *types.CommonEntityData {
+    l2Tp.EntityData.YFilter = l2Tp.YFilter
+    l2Tp.EntityData.YangName = "l2tp"
+    l2Tp.EntityData.BundleName = "cisco_ios_xr"
+    l2Tp.EntityData.ParentYangName = "session"
+    l2Tp.EntityData.SegmentPath = "l2tp"
+    l2Tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    l2Tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    l2Tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) SetFilter(yf yfilter.YFilter) { l2Tp.YFilter = yf }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetGoName(yname string) string {
-    if yname == "local-endpoint" { return "LocalEndpoint" }
-    if yname == "remote-endpoint" { return "RemoteEndpoint" }
-    if yname == "call-serial-number" { return "CallSerialNumber" }
-    if yname == "is-l2tp-class-attribute-mask-set" { return "IsL2TpClassAttributeMaskSet" }
-    if yname == "local-tunnel-id" { return "LocalTunnelId" }
-    if yname == "remote-tunnel-id" { return "RemoteTunnelId" }
-    if yname == "local-session-id" { return "LocalSessionId" }
-    if yname == "remote-session-id" { return "RemoteSessionId" }
-    if yname == "remote-port" { return "RemotePort" }
-    if yname == "tunnel-client-authentication-id" { return "TunnelClientAuthenticationId" }
-    if yname == "tunnel-server-authentication-id" { return "TunnelServerAuthenticationId" }
-    if yname == "tunnel-assignment-id" { return "TunnelAssignmentId" }
-    if yname == "is-tunnel-authentication-enabled" { return "IsTunnelAuthenticationEnabled" }
-    return ""
+    l2Tp.EntityData.Children = make(map[string]types.YChild)
+    l2Tp.EntityData.Leafs = make(map[string]types.YLeaf)
+    l2Tp.EntityData.Leafs["local-endpoint"] = types.YLeaf{"LocalEndpoint", l2Tp.LocalEndpoint}
+    l2Tp.EntityData.Leafs["remote-endpoint"] = types.YLeaf{"RemoteEndpoint", l2Tp.RemoteEndpoint}
+    l2Tp.EntityData.Leafs["call-serial-number"] = types.YLeaf{"CallSerialNumber", l2Tp.CallSerialNumber}
+    l2Tp.EntityData.Leafs["is-l2tp-class-attribute-mask-set"] = types.YLeaf{"IsL2TpClassAttributeMaskSet", l2Tp.IsL2TpClassAttributeMaskSet}
+    l2Tp.EntityData.Leafs["local-tunnel-id"] = types.YLeaf{"LocalTunnelId", l2Tp.LocalTunnelId}
+    l2Tp.EntityData.Leafs["remote-tunnel-id"] = types.YLeaf{"RemoteTunnelId", l2Tp.RemoteTunnelId}
+    l2Tp.EntityData.Leafs["local-session-id"] = types.YLeaf{"LocalSessionId", l2Tp.LocalSessionId}
+    l2Tp.EntityData.Leafs["remote-session-id"] = types.YLeaf{"RemoteSessionId", l2Tp.RemoteSessionId}
+    l2Tp.EntityData.Leafs["remote-port"] = types.YLeaf{"RemotePort", l2Tp.RemotePort}
+    l2Tp.EntityData.Leafs["tunnel-client-authentication-id"] = types.YLeaf{"TunnelClientAuthenticationId", l2Tp.TunnelClientAuthenticationId}
+    l2Tp.EntityData.Leafs["tunnel-server-authentication-id"] = types.YLeaf{"TunnelServerAuthenticationId", l2Tp.TunnelServerAuthenticationId}
+    l2Tp.EntityData.Leafs["tunnel-assignment-id"] = types.YLeaf{"TunnelAssignmentId", l2Tp.TunnelAssignmentId}
+    l2Tp.EntityData.Leafs["is-tunnel-authentication-enabled"] = types.YLeaf{"IsTunnelAuthenticationEnabled", l2Tp.IsTunnelAuthenticationEnabled}
+    return &(l2Tp.EntityData)
 }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetSegmentPath() string {
-    return "l2tp"
-}
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["local-endpoint"] = l2Tp.LocalEndpoint
-    leafs["remote-endpoint"] = l2Tp.RemoteEndpoint
-    leafs["call-serial-number"] = l2Tp.CallSerialNumber
-    leafs["is-l2tp-class-attribute-mask-set"] = l2Tp.IsL2TpClassAttributeMaskSet
-    leafs["local-tunnel-id"] = l2Tp.LocalTunnelId
-    leafs["remote-tunnel-id"] = l2Tp.RemoteTunnelId
-    leafs["local-session-id"] = l2Tp.LocalSessionId
-    leafs["remote-session-id"] = l2Tp.RemoteSessionId
-    leafs["remote-port"] = l2Tp.RemotePort
-    leafs["tunnel-client-authentication-id"] = l2Tp.TunnelClientAuthenticationId
-    leafs["tunnel-server-authentication-id"] = l2Tp.TunnelServerAuthenticationId
-    leafs["tunnel-assignment-id"] = l2Tp.TunnelAssignmentId
-    leafs["is-tunnel-authentication-enabled"] = l2Tp.IsTunnelAuthenticationEnabled
-    return leafs
-}
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetYangName() string { return "l2tp" }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) SetParent(parent types.Entity) { l2Tp.parent = parent }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetParent() types.Entity { return l2Tp.parent }
-
-func (l2Tp *Vpdn_Sessions_Session_L2Tp) GetParentYangName() string { return "session" }
 
 // Vpdn_Sessions_Session_Subscriber
 // Subscriber data
 type Vpdn_Sessions_Session_Subscriber struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NAS port type. The type is VpdnNasPort.
@@ -732,64 +518,30 @@ type Vpdn_Sessions_Session_Subscriber struct {
     NasPort []interface{}
 }
 
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetFilter() yfilter.YFilter { return subscriber.YFilter }
+func (subscriber *Vpdn_Sessions_Session_Subscriber) GetEntityData() *types.CommonEntityData {
+    subscriber.EntityData.YFilter = subscriber.YFilter
+    subscriber.EntityData.YangName = "subscriber"
+    subscriber.EntityData.BundleName = "cisco_ios_xr"
+    subscriber.EntityData.ParentYangName = "session"
+    subscriber.EntityData.SegmentPath = "subscriber"
+    subscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriber *Vpdn_Sessions_Session_Subscriber) SetFilter(yf yfilter.YFilter) { subscriber.YFilter = yf }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetGoName(yname string) string {
-    if yname == "nas-port-type" { return "NasPortType" }
-    if yname == "physical-channel-id" { return "PhysicalChannelId" }
-    if yname == "receive-connect-speed" { return "ReceiveConnectSpeed" }
-    if yname == "transmit-connect-speed" { return "TransmitConnectSpeed" }
-    if yname == "nas-port" { return "NasPort" }
-    return ""
+    subscriber.EntityData.Children = make(map[string]types.YChild)
+    subscriber.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriber.EntityData.Leafs["nas-port-type"] = types.YLeaf{"NasPortType", subscriber.NasPortType}
+    subscriber.EntityData.Leafs["physical-channel-id"] = types.YLeaf{"PhysicalChannelId", subscriber.PhysicalChannelId}
+    subscriber.EntityData.Leafs["receive-connect-speed"] = types.YLeaf{"ReceiveConnectSpeed", subscriber.ReceiveConnectSpeed}
+    subscriber.EntityData.Leafs["transmit-connect-speed"] = types.YLeaf{"TransmitConnectSpeed", subscriber.TransmitConnectSpeed}
+    subscriber.EntityData.Leafs["nas-port"] = types.YLeaf{"NasPort", subscriber.NasPort}
+    return &(subscriber.EntityData)
 }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetSegmentPath() string {
-    return "subscriber"
-}
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nas-port-type"] = subscriber.NasPortType
-    leafs["physical-channel-id"] = subscriber.PhysicalChannelId
-    leafs["receive-connect-speed"] = subscriber.ReceiveConnectSpeed
-    leafs["transmit-connect-speed"] = subscriber.TransmitConnectSpeed
-    leafs["nas-port"] = subscriber.NasPort
-    return leafs
-}
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetYangName() string { return "subscriber" }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) SetParent(parent types.Entity) { subscriber.parent = parent }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetParent() types.Entity { return subscriber.parent }
-
-func (subscriber *Vpdn_Sessions_Session_Subscriber) GetParentYangName() string { return "session" }
 
 // Vpdn_Sessions_Session_Configuration
 // Configuration data
 type Vpdn_Sessions_Session_Configuration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Template name. The type is string.
@@ -815,71 +567,32 @@ type Vpdn_Sessions_Session_Configuration struct {
     VpnId Vpdn_Sessions_Session_Configuration_VpnId
 }
 
-func (configuration *Vpdn_Sessions_Session_Configuration) GetFilter() yfilter.YFilter { return configuration.YFilter }
+func (configuration *Vpdn_Sessions_Session_Configuration) GetEntityData() *types.CommonEntityData {
+    configuration.EntityData.YFilter = configuration.YFilter
+    configuration.EntityData.YangName = "configuration"
+    configuration.EntityData.BundleName = "cisco_ios_xr"
+    configuration.EntityData.ParentYangName = "session"
+    configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuration *Vpdn_Sessions_Session_Configuration) SetFilter(yf yfilter.YFilter) { configuration.YFilter = yf }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetGoName(yname string) string {
-    if yname == "template-name" { return "TemplateName" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "l2tp-busy-timeout" { return "L2TpBusyTimeout" }
-    if yname == "tos-mode" { return "TosMode" }
-    if yname == "tos" { return "Tos" }
-    if yname == "dsl-line-forwarding" { return "DslLineForwarding" }
-    if yname == "vpn-id" { return "VpnId" }
-    return ""
+    configuration.EntityData.Children = make(map[string]types.YChild)
+    configuration.EntityData.Children["vpn-id"] = types.YChild{"VpnId", &configuration.VpnId}
+    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
+    configuration.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", configuration.TemplateName}
+    configuration.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", configuration.VrfName}
+    configuration.EntityData.Leafs["l2tp-busy-timeout"] = types.YLeaf{"L2TpBusyTimeout", configuration.L2TpBusyTimeout}
+    configuration.EntityData.Leafs["tos-mode"] = types.YLeaf{"TosMode", configuration.TosMode}
+    configuration.EntityData.Leafs["tos"] = types.YLeaf{"Tos", configuration.Tos}
+    configuration.EntityData.Leafs["dsl-line-forwarding"] = types.YLeaf{"DslLineForwarding", configuration.DslLineForwarding}
+    return &(configuration.EntityData)
 }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetSegmentPath() string {
-    return "configuration"
-}
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vpn-id" {
-        return &configuration.VpnId
-    }
-    return nil
-}
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vpn-id"] = &configuration.VpnId
-    return children
-}
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["template-name"] = configuration.TemplateName
-    leafs["vrf-name"] = configuration.VrfName
-    leafs["l2tp-busy-timeout"] = configuration.L2TpBusyTimeout
-    leafs["tos-mode"] = configuration.TosMode
-    leafs["tos"] = configuration.Tos
-    leafs["dsl-line-forwarding"] = configuration.DslLineForwarding
-    return leafs
-}
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetYangName() string { return "configuration" }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) SetParent(parent types.Entity) { configuration.parent = parent }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetParent() types.Entity { return configuration.parent }
-
-func (configuration *Vpdn_Sessions_Session_Configuration) GetParentYangName() string { return "session" }
 
 // Vpdn_Sessions_Session_Configuration_VpnId
 // VPN ID
 type Vpdn_Sessions_Session_Configuration_VpnId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OUI. The type is interface{} with range: 0..4294967295.
@@ -889,58 +602,27 @@ type Vpdn_Sessions_Session_Configuration_VpnId struct {
     Index interface{}
 }
 
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetFilter() yfilter.YFilter { return vpnId.YFilter }
+func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetEntityData() *types.CommonEntityData {
+    vpnId.EntityData.YFilter = vpnId.YFilter
+    vpnId.EntityData.YangName = "vpn-id"
+    vpnId.EntityData.BundleName = "cisco_ios_xr"
+    vpnId.EntityData.ParentYangName = "configuration"
+    vpnId.EntityData.SegmentPath = "vpn-id"
+    vpnId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpnId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpnId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) SetFilter(yf yfilter.YFilter) { vpnId.YFilter = yf }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetGoName(yname string) string {
-    if yname == "oui" { return "Oui" }
-    if yname == "index" { return "Index" }
-    return ""
+    vpnId.EntityData.Children = make(map[string]types.YChild)
+    vpnId.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpnId.EntityData.Leafs["oui"] = types.YLeaf{"Oui", vpnId.Oui}
+    vpnId.EntityData.Leafs["index"] = types.YLeaf{"Index", vpnId.Index}
+    return &(vpnId.EntityData)
 }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetSegmentPath() string {
-    return "vpn-id"
-}
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["oui"] = vpnId.Oui
-    leafs["index"] = vpnId.Index
-    return leafs
-}
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetYangName() string { return "vpn-id" }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) SetParent(parent types.Entity) { vpnId.parent = parent }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetParent() types.Entity { return vpnId.parent }
-
-func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetParentYangName() string { return "configuration" }
 
 // Vpdn_TunnelDestinations
 // VPDN tunnel Destinations
 type Vpdn_TunnelDestinations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VPDN tunnel destination information. The type is slice of
@@ -948,75 +630,36 @@ type Vpdn_TunnelDestinations struct {
     TunnelDestination []Vpdn_TunnelDestinations_TunnelDestination
 }
 
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetFilter() yfilter.YFilter { return tunnelDestinations.YFilter }
+func (tunnelDestinations *Vpdn_TunnelDestinations) GetEntityData() *types.CommonEntityData {
+    tunnelDestinations.EntityData.YFilter = tunnelDestinations.YFilter
+    tunnelDestinations.EntityData.YangName = "tunnel-destinations"
+    tunnelDestinations.EntityData.BundleName = "cisco_ios_xr"
+    tunnelDestinations.EntityData.ParentYangName = "vpdn"
+    tunnelDestinations.EntityData.SegmentPath = "tunnel-destinations"
+    tunnelDestinations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelDestinations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelDestinations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelDestinations *Vpdn_TunnelDestinations) SetFilter(yf yfilter.YFilter) { tunnelDestinations.YFilter = yf }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetGoName(yname string) string {
-    if yname == "tunnel-destination" { return "TunnelDestination" }
-    return ""
-}
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetSegmentPath() string {
-    return "tunnel-destinations"
-}
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tunnel-destination" {
-        for _, c := range tunnelDestinations.TunnelDestination {
-            if tunnelDestinations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vpdn_TunnelDestinations_TunnelDestination{}
-        tunnelDestinations.TunnelDestination = append(tunnelDestinations.TunnelDestination, child)
-        return &tunnelDestinations.TunnelDestination[len(tunnelDestinations.TunnelDestination)-1]
-    }
-    return nil
-}
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tunnelDestinations.EntityData.Children = make(map[string]types.YChild)
+    tunnelDestinations.EntityData.Children["tunnel-destination"] = types.YChild{"TunnelDestination", nil}
     for i := range tunnelDestinations.TunnelDestination {
-        children[tunnelDestinations.TunnelDestination[i].GetSegmentPath()] = &tunnelDestinations.TunnelDestination[i]
+        tunnelDestinations.EntityData.Children[types.GetSegmentPath(&tunnelDestinations.TunnelDestination[i])] = types.YChild{"TunnelDestination", &tunnelDestinations.TunnelDestination[i]}
     }
-    return children
+    tunnelDestinations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tunnelDestinations.EntityData)
 }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetYangName() string { return "tunnel-destinations" }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) SetParent(parent types.Entity) { tunnelDestinations.parent = parent }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetParent() types.Entity { return tunnelDestinations.parent }
-
-func (tunnelDestinations *Vpdn_TunnelDestinations) GetParentYangName() string { return "vpdn" }
 
 // Vpdn_TunnelDestinations_TunnelDestination
 // VPDN tunnel destination information
 type Vpdn_TunnelDestinations_TunnelDestination struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // VRF name. The type is string.
@@ -1044,72 +687,34 @@ type Vpdn_TunnelDestinations_TunnelDestination struct {
     StatusChangeTime interface{}
 }
 
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetFilter() yfilter.YFilter { return tunnelDestination.YFilter }
+func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetEntityData() *types.CommonEntityData {
+    tunnelDestination.EntityData.YFilter = tunnelDestination.YFilter
+    tunnelDestination.EntityData.YangName = "tunnel-destination"
+    tunnelDestination.EntityData.BundleName = "cisco_ios_xr"
+    tunnelDestination.EntityData.ParentYangName = "tunnel-destinations"
+    tunnelDestination.EntityData.SegmentPath = "tunnel-destination"
+    tunnelDestination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tunnelDestination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tunnelDestination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) SetFilter(yf yfilter.YFilter) { tunnelDestination.YFilter = yf }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "address" { return "Address" }
-    if yname == "vrf-name-xr" { return "VrfNameXr" }
-    if yname == "load" { return "Load" }
-    if yname == "status" { return "Status" }
-    if yname == "connects" { return "Connects" }
-    if yname == "disconnects" { return "Disconnects" }
-    if yname == "retry" { return "Retry" }
-    if yname == "status-change-time" { return "StatusChangeTime" }
-    return ""
+    tunnelDestination.EntityData.Children = make(map[string]types.YChild)
+    tunnelDestination.EntityData.Leafs = make(map[string]types.YLeaf)
+    tunnelDestination.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", tunnelDestination.VrfName}
+    tunnelDestination.EntityData.Leafs["address"] = types.YLeaf{"Address", tunnelDestination.Address}
+    tunnelDestination.EntityData.Leafs["vrf-name-xr"] = types.YLeaf{"VrfNameXr", tunnelDestination.VrfNameXr}
+    tunnelDestination.EntityData.Leafs["load"] = types.YLeaf{"Load", tunnelDestination.Load}
+    tunnelDestination.EntityData.Leafs["status"] = types.YLeaf{"Status", tunnelDestination.Status}
+    tunnelDestination.EntityData.Leafs["connects"] = types.YLeaf{"Connects", tunnelDestination.Connects}
+    tunnelDestination.EntityData.Leafs["disconnects"] = types.YLeaf{"Disconnects", tunnelDestination.Disconnects}
+    tunnelDestination.EntityData.Leafs["retry"] = types.YLeaf{"Retry", tunnelDestination.Retry}
+    tunnelDestination.EntityData.Leafs["status-change-time"] = types.YLeaf{"StatusChangeTime", tunnelDestination.StatusChangeTime}
+    return &(tunnelDestination.EntityData)
 }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetSegmentPath() string {
-    return "tunnel-destination"
-}
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = tunnelDestination.VrfName
-    leafs["address"] = tunnelDestination.Address
-    leafs["vrf-name-xr"] = tunnelDestination.VrfNameXr
-    leafs["load"] = tunnelDestination.Load
-    leafs["status"] = tunnelDestination.Status
-    leafs["connects"] = tunnelDestination.Connects
-    leafs["disconnects"] = tunnelDestination.Disconnects
-    leafs["retry"] = tunnelDestination.Retry
-    leafs["status-change-time"] = tunnelDestination.StatusChangeTime
-    return leafs
-}
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetYangName() string { return "tunnel-destination" }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) SetParent(parent types.Entity) { tunnelDestination.parent = parent }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetParent() types.Entity { return tunnelDestination.parent }
-
-func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetParentYangName() string { return "tunnel-destinations" }
 
 // Vpdn_VpdnMirroring
 // VPDN Mirroring Statistics
 type Vpdn_VpdnMirroring struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // sync not conn cnt. The type is interface{} with range: 0..4294967295.
@@ -1140,84 +745,34 @@ type Vpdn_VpdnMirroring struct {
     QadRecvStatsLastClear Vpdn_VpdnMirroring_QadRecvStatsLastClear
 }
 
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetFilter() yfilter.YFilter { return vpdnMirroring.YFilter }
+func (vpdnMirroring *Vpdn_VpdnMirroring) GetEntityData() *types.CommonEntityData {
+    vpdnMirroring.EntityData.YFilter = vpdnMirroring.YFilter
+    vpdnMirroring.EntityData.YangName = "vpdn-mirroring"
+    vpdnMirroring.EntityData.BundleName = "cisco_ios_xr"
+    vpdnMirroring.EntityData.ParentYangName = "vpdn"
+    vpdnMirroring.EntityData.SegmentPath = "vpdn-mirroring"
+    vpdnMirroring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpdnMirroring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpdnMirroring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vpdnMirroring *Vpdn_VpdnMirroring) SetFilter(yf yfilter.YFilter) { vpdnMirroring.YFilter = yf }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetGoName(yname string) string {
-    if yname == "sync-not-conn-cnt" { return "SyncNotConnCnt" }
-    if yname == "sso-err-cnt" { return "SsoErrCnt" }
-    if yname == "sso-batch-err-cnt" { return "SsoBatchErrCnt" }
-    if yname == "alloc-err-cnt" { return "AllocErrCnt" }
-    if yname == "alloc-cnt" { return "AllocCnt" }
-    if yname == "qad-send-stats" { return "QadSendStats" }
-    if yname == "qad-recv-stats" { return "QadRecvStats" }
-    if yname == "qad-send-stats-last-clear" { return "QadSendStatsLastClear" }
-    if yname == "qad-recv-stats-last-clear" { return "QadRecvStatsLastClear" }
-    return ""
+    vpdnMirroring.EntityData.Children = make(map[string]types.YChild)
+    vpdnMirroring.EntityData.Children["qad-send-stats"] = types.YChild{"QadSendStats", &vpdnMirroring.QadSendStats}
+    vpdnMirroring.EntityData.Children["qad-recv-stats"] = types.YChild{"QadRecvStats", &vpdnMirroring.QadRecvStats}
+    vpdnMirroring.EntityData.Children["qad-send-stats-last-clear"] = types.YChild{"QadSendStatsLastClear", &vpdnMirroring.QadSendStatsLastClear}
+    vpdnMirroring.EntityData.Children["qad-recv-stats-last-clear"] = types.YChild{"QadRecvStatsLastClear", &vpdnMirroring.QadRecvStatsLastClear}
+    vpdnMirroring.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpdnMirroring.EntityData.Leafs["sync-not-conn-cnt"] = types.YLeaf{"SyncNotConnCnt", vpdnMirroring.SyncNotConnCnt}
+    vpdnMirroring.EntityData.Leafs["sso-err-cnt"] = types.YLeaf{"SsoErrCnt", vpdnMirroring.SsoErrCnt}
+    vpdnMirroring.EntityData.Leafs["sso-batch-err-cnt"] = types.YLeaf{"SsoBatchErrCnt", vpdnMirroring.SsoBatchErrCnt}
+    vpdnMirroring.EntityData.Leafs["alloc-err-cnt"] = types.YLeaf{"AllocErrCnt", vpdnMirroring.AllocErrCnt}
+    vpdnMirroring.EntityData.Leafs["alloc-cnt"] = types.YLeaf{"AllocCnt", vpdnMirroring.AllocCnt}
+    return &(vpdnMirroring.EntityData)
 }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetSegmentPath() string {
-    return "vpdn-mirroring"
-}
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qad-send-stats" {
-        return &vpdnMirroring.QadSendStats
-    }
-    if childYangName == "qad-recv-stats" {
-        return &vpdnMirroring.QadRecvStats
-    }
-    if childYangName == "qad-send-stats-last-clear" {
-        return &vpdnMirroring.QadSendStatsLastClear
-    }
-    if childYangName == "qad-recv-stats-last-clear" {
-        return &vpdnMirroring.QadRecvStatsLastClear
-    }
-    return nil
-}
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["qad-send-stats"] = &vpdnMirroring.QadSendStats
-    children["qad-recv-stats"] = &vpdnMirroring.QadRecvStats
-    children["qad-send-stats-last-clear"] = &vpdnMirroring.QadSendStatsLastClear
-    children["qad-recv-stats-last-clear"] = &vpdnMirroring.QadRecvStatsLastClear
-    return children
-}
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sync-not-conn-cnt"] = vpdnMirroring.SyncNotConnCnt
-    leafs["sso-err-cnt"] = vpdnMirroring.SsoErrCnt
-    leafs["sso-batch-err-cnt"] = vpdnMirroring.SsoBatchErrCnt
-    leafs["alloc-err-cnt"] = vpdnMirroring.AllocErrCnt
-    leafs["alloc-cnt"] = vpdnMirroring.AllocCnt
-    return leafs
-}
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetYangName() string { return "vpdn-mirroring" }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) SetParent(parent types.Entity) { vpdnMirroring.parent = parent }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetParent() types.Entity { return vpdnMirroring.parent }
-
-func (vpdnMirroring *Vpdn_VpdnMirroring) GetParentYangName() string { return "vpdn" }
 
 // Vpdn_VpdnMirroring_QadSendStats
 // qad send stats
 type Vpdn_VpdnMirroring_QadSendStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // msgs sent. The type is interface{} with range: 0..4294967295.
@@ -1278,92 +833,44 @@ type Vpdn_VpdnMirroring_QadSendStats struct {
     QadRxFirstSeqNumber interface{}
 }
 
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetFilter() yfilter.YFilter { return qadSendStats.YFilter }
+func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetEntityData() *types.CommonEntityData {
+    qadSendStats.EntityData.YFilter = qadSendStats.YFilter
+    qadSendStats.EntityData.YangName = "qad-send-stats"
+    qadSendStats.EntityData.BundleName = "cisco_ios_xr"
+    qadSendStats.EntityData.ParentYangName = "vpdn-mirroring"
+    qadSendStats.EntityData.SegmentPath = "qad-send-stats"
+    qadSendStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qadSendStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qadSendStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) SetFilter(yf yfilter.YFilter) { qadSendStats.YFilter = yf }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetGoName(yname string) string {
-    if yname == "msgs-sent" { return "MsgsSent" }
-    if yname == "acks-sent" { return "AcksSent" }
-    if yname == "no-partner" { return "NoPartner" }
-    if yname == "sends-failed" { return "SendsFailed" }
-    if yname == "acks-failed" { return "AcksFailed" }
-    if yname == "pending-acks" { return "PendingAcks" }
-    if yname == "timeouts" { return "Timeouts" }
-    if yname == "suspends" { return "Suspends" }
-    if yname == "resumes" { return "Resumes" }
-    if yname == "sends-fragment" { return "SendsFragment" }
-    if yname == "qad-last-seq-number" { return "QadLastSeqNumber" }
-    if yname == "qad-frag-count" { return "QadFragCount" }
-    if yname == "qad-ack-count" { return "QadAckCount" }
-    if yname == "qad-unknown-acks" { return "QadUnknownAcks" }
-    if yname == "qad-timeouts" { return "QadTimeouts" }
-    if yname == "qad-rx-count" { return "QadRxCount" }
-    if yname == "qad-rx-list-count" { return "QadRxListCount" }
-    if yname == "qad-rx-list-q-size" { return "QadRxListQSize" }
-    if yname == "qad-rx-first-seq-number" { return "QadRxFirstSeqNumber" }
-    return ""
+    qadSendStats.EntityData.Children = make(map[string]types.YChild)
+    qadSendStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    qadSendStats.EntityData.Leafs["msgs-sent"] = types.YLeaf{"MsgsSent", qadSendStats.MsgsSent}
+    qadSendStats.EntityData.Leafs["acks-sent"] = types.YLeaf{"AcksSent", qadSendStats.AcksSent}
+    qadSendStats.EntityData.Leafs["no-partner"] = types.YLeaf{"NoPartner", qadSendStats.NoPartner}
+    qadSendStats.EntityData.Leafs["sends-failed"] = types.YLeaf{"SendsFailed", qadSendStats.SendsFailed}
+    qadSendStats.EntityData.Leafs["acks-failed"] = types.YLeaf{"AcksFailed", qadSendStats.AcksFailed}
+    qadSendStats.EntityData.Leafs["pending-acks"] = types.YLeaf{"PendingAcks", qadSendStats.PendingAcks}
+    qadSendStats.EntityData.Leafs["timeouts"] = types.YLeaf{"Timeouts", qadSendStats.Timeouts}
+    qadSendStats.EntityData.Leafs["suspends"] = types.YLeaf{"Suspends", qadSendStats.Suspends}
+    qadSendStats.EntityData.Leafs["resumes"] = types.YLeaf{"Resumes", qadSendStats.Resumes}
+    qadSendStats.EntityData.Leafs["sends-fragment"] = types.YLeaf{"SendsFragment", qadSendStats.SendsFragment}
+    qadSendStats.EntityData.Leafs["qad-last-seq-number"] = types.YLeaf{"QadLastSeqNumber", qadSendStats.QadLastSeqNumber}
+    qadSendStats.EntityData.Leafs["qad-frag-count"] = types.YLeaf{"QadFragCount", qadSendStats.QadFragCount}
+    qadSendStats.EntityData.Leafs["qad-ack-count"] = types.YLeaf{"QadAckCount", qadSendStats.QadAckCount}
+    qadSendStats.EntityData.Leafs["qad-unknown-acks"] = types.YLeaf{"QadUnknownAcks", qadSendStats.QadUnknownAcks}
+    qadSendStats.EntityData.Leafs["qad-timeouts"] = types.YLeaf{"QadTimeouts", qadSendStats.QadTimeouts}
+    qadSendStats.EntityData.Leafs["qad-rx-count"] = types.YLeaf{"QadRxCount", qadSendStats.QadRxCount}
+    qadSendStats.EntityData.Leafs["qad-rx-list-count"] = types.YLeaf{"QadRxListCount", qadSendStats.QadRxListCount}
+    qadSendStats.EntityData.Leafs["qad-rx-list-q-size"] = types.YLeaf{"QadRxListQSize", qadSendStats.QadRxListQSize}
+    qadSendStats.EntityData.Leafs["qad-rx-first-seq-number"] = types.YLeaf{"QadRxFirstSeqNumber", qadSendStats.QadRxFirstSeqNumber}
+    return &(qadSendStats.EntityData)
 }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetSegmentPath() string {
-    return "qad-send-stats"
-}
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["msgs-sent"] = qadSendStats.MsgsSent
-    leafs["acks-sent"] = qadSendStats.AcksSent
-    leafs["no-partner"] = qadSendStats.NoPartner
-    leafs["sends-failed"] = qadSendStats.SendsFailed
-    leafs["acks-failed"] = qadSendStats.AcksFailed
-    leafs["pending-acks"] = qadSendStats.PendingAcks
-    leafs["timeouts"] = qadSendStats.Timeouts
-    leafs["suspends"] = qadSendStats.Suspends
-    leafs["resumes"] = qadSendStats.Resumes
-    leafs["sends-fragment"] = qadSendStats.SendsFragment
-    leafs["qad-last-seq-number"] = qadSendStats.QadLastSeqNumber
-    leafs["qad-frag-count"] = qadSendStats.QadFragCount
-    leafs["qad-ack-count"] = qadSendStats.QadAckCount
-    leafs["qad-unknown-acks"] = qadSendStats.QadUnknownAcks
-    leafs["qad-timeouts"] = qadSendStats.QadTimeouts
-    leafs["qad-rx-count"] = qadSendStats.QadRxCount
-    leafs["qad-rx-list-count"] = qadSendStats.QadRxListCount
-    leafs["qad-rx-list-q-size"] = qadSendStats.QadRxListQSize
-    leafs["qad-rx-first-seq-number"] = qadSendStats.QadRxFirstSeqNumber
-    return leafs
-}
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetYangName() string { return "qad-send-stats" }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) SetParent(parent types.Entity) { qadSendStats.parent = parent }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetParent() types.Entity { return qadSendStats.parent }
-
-func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetParentYangName() string { return "vpdn-mirroring" }
 
 // Vpdn_VpdnMirroring_QadRecvStats
 // qad recv stats
 type Vpdn_VpdnMirroring_QadRecvStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // msgs recvd. The type is interface{} with range: 0..4294967295.
@@ -1388,68 +895,32 @@ type Vpdn_VpdnMirroring_QadRecvStats struct {
     StaleMsgs interface{}
 }
 
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetFilter() yfilter.YFilter { return qadRecvStats.YFilter }
+func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetEntityData() *types.CommonEntityData {
+    qadRecvStats.EntityData.YFilter = qadRecvStats.YFilter
+    qadRecvStats.EntityData.YangName = "qad-recv-stats"
+    qadRecvStats.EntityData.BundleName = "cisco_ios_xr"
+    qadRecvStats.EntityData.ParentYangName = "vpdn-mirroring"
+    qadRecvStats.EntityData.SegmentPath = "qad-recv-stats"
+    qadRecvStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qadRecvStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qadRecvStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) SetFilter(yf yfilter.YFilter) { qadRecvStats.YFilter = yf }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetGoName(yname string) string {
-    if yname == "msgs-recvd" { return "MsgsRecvd" }
-    if yname == "acks-recvd" { return "AcksRecvd" }
-    if yname == "recvd-acks-failed" { return "RecvdAcksFailed" }
-    if yname == "init-drops" { return "InitDrops" }
-    if yname == "msg-drops" { return "MsgDrops" }
-    if yname == "ooo-drops" { return "OooDrops" }
-    if yname == "stale-msgs" { return "StaleMsgs" }
-    return ""
+    qadRecvStats.EntityData.Children = make(map[string]types.YChild)
+    qadRecvStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    qadRecvStats.EntityData.Leafs["msgs-recvd"] = types.YLeaf{"MsgsRecvd", qadRecvStats.MsgsRecvd}
+    qadRecvStats.EntityData.Leafs["acks-recvd"] = types.YLeaf{"AcksRecvd", qadRecvStats.AcksRecvd}
+    qadRecvStats.EntityData.Leafs["recvd-acks-failed"] = types.YLeaf{"RecvdAcksFailed", qadRecvStats.RecvdAcksFailed}
+    qadRecvStats.EntityData.Leafs["init-drops"] = types.YLeaf{"InitDrops", qadRecvStats.InitDrops}
+    qadRecvStats.EntityData.Leafs["msg-drops"] = types.YLeaf{"MsgDrops", qadRecvStats.MsgDrops}
+    qadRecvStats.EntityData.Leafs["ooo-drops"] = types.YLeaf{"OooDrops", qadRecvStats.OooDrops}
+    qadRecvStats.EntityData.Leafs["stale-msgs"] = types.YLeaf{"StaleMsgs", qadRecvStats.StaleMsgs}
+    return &(qadRecvStats.EntityData)
 }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetSegmentPath() string {
-    return "qad-recv-stats"
-}
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["msgs-recvd"] = qadRecvStats.MsgsRecvd
-    leafs["acks-recvd"] = qadRecvStats.AcksRecvd
-    leafs["recvd-acks-failed"] = qadRecvStats.RecvdAcksFailed
-    leafs["init-drops"] = qadRecvStats.InitDrops
-    leafs["msg-drops"] = qadRecvStats.MsgDrops
-    leafs["ooo-drops"] = qadRecvStats.OooDrops
-    leafs["stale-msgs"] = qadRecvStats.StaleMsgs
-    return leafs
-}
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetYangName() string { return "qad-recv-stats" }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) SetParent(parent types.Entity) { qadRecvStats.parent = parent }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetParent() types.Entity { return qadRecvStats.parent }
-
-func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetParentYangName() string { return "vpdn-mirroring" }
 
 // Vpdn_VpdnMirroring_QadSendStatsLastClear
 // qad send stats last clear
 type Vpdn_VpdnMirroring_QadSendStatsLastClear struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // msgs sent. The type is interface{} with range: 0..4294967295.
@@ -1510,92 +981,44 @@ type Vpdn_VpdnMirroring_QadSendStatsLastClear struct {
     QadRxFirstSeqNumber interface{}
 }
 
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetFilter() yfilter.YFilter { return qadSendStatsLastClear.YFilter }
+func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetEntityData() *types.CommonEntityData {
+    qadSendStatsLastClear.EntityData.YFilter = qadSendStatsLastClear.YFilter
+    qadSendStatsLastClear.EntityData.YangName = "qad-send-stats-last-clear"
+    qadSendStatsLastClear.EntityData.BundleName = "cisco_ios_xr"
+    qadSendStatsLastClear.EntityData.ParentYangName = "vpdn-mirroring"
+    qadSendStatsLastClear.EntityData.SegmentPath = "qad-send-stats-last-clear"
+    qadSendStatsLastClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qadSendStatsLastClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qadSendStatsLastClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) SetFilter(yf yfilter.YFilter) { qadSendStatsLastClear.YFilter = yf }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetGoName(yname string) string {
-    if yname == "msgs-sent" { return "MsgsSent" }
-    if yname == "acks-sent" { return "AcksSent" }
-    if yname == "no-partner" { return "NoPartner" }
-    if yname == "sends-failed" { return "SendsFailed" }
-    if yname == "acks-failed" { return "AcksFailed" }
-    if yname == "pending-acks" { return "PendingAcks" }
-    if yname == "timeouts" { return "Timeouts" }
-    if yname == "suspends" { return "Suspends" }
-    if yname == "resumes" { return "Resumes" }
-    if yname == "sends-fragment" { return "SendsFragment" }
-    if yname == "qad-last-seq-number" { return "QadLastSeqNumber" }
-    if yname == "qad-frag-count" { return "QadFragCount" }
-    if yname == "qad-ack-count" { return "QadAckCount" }
-    if yname == "qad-unknown-acks" { return "QadUnknownAcks" }
-    if yname == "qad-timeouts" { return "QadTimeouts" }
-    if yname == "qad-rx-count" { return "QadRxCount" }
-    if yname == "qad-rx-list-count" { return "QadRxListCount" }
-    if yname == "qad-rx-list-q-size" { return "QadRxListQSize" }
-    if yname == "qad-rx-first-seq-number" { return "QadRxFirstSeqNumber" }
-    return ""
+    qadSendStatsLastClear.EntityData.Children = make(map[string]types.YChild)
+    qadSendStatsLastClear.EntityData.Leafs = make(map[string]types.YLeaf)
+    qadSendStatsLastClear.EntityData.Leafs["msgs-sent"] = types.YLeaf{"MsgsSent", qadSendStatsLastClear.MsgsSent}
+    qadSendStatsLastClear.EntityData.Leafs["acks-sent"] = types.YLeaf{"AcksSent", qadSendStatsLastClear.AcksSent}
+    qadSendStatsLastClear.EntityData.Leafs["no-partner"] = types.YLeaf{"NoPartner", qadSendStatsLastClear.NoPartner}
+    qadSendStatsLastClear.EntityData.Leafs["sends-failed"] = types.YLeaf{"SendsFailed", qadSendStatsLastClear.SendsFailed}
+    qadSendStatsLastClear.EntityData.Leafs["acks-failed"] = types.YLeaf{"AcksFailed", qadSendStatsLastClear.AcksFailed}
+    qadSendStatsLastClear.EntityData.Leafs["pending-acks"] = types.YLeaf{"PendingAcks", qadSendStatsLastClear.PendingAcks}
+    qadSendStatsLastClear.EntityData.Leafs["timeouts"] = types.YLeaf{"Timeouts", qadSendStatsLastClear.Timeouts}
+    qadSendStatsLastClear.EntityData.Leafs["suspends"] = types.YLeaf{"Suspends", qadSendStatsLastClear.Suspends}
+    qadSendStatsLastClear.EntityData.Leafs["resumes"] = types.YLeaf{"Resumes", qadSendStatsLastClear.Resumes}
+    qadSendStatsLastClear.EntityData.Leafs["sends-fragment"] = types.YLeaf{"SendsFragment", qadSendStatsLastClear.SendsFragment}
+    qadSendStatsLastClear.EntityData.Leafs["qad-last-seq-number"] = types.YLeaf{"QadLastSeqNumber", qadSendStatsLastClear.QadLastSeqNumber}
+    qadSendStatsLastClear.EntityData.Leafs["qad-frag-count"] = types.YLeaf{"QadFragCount", qadSendStatsLastClear.QadFragCount}
+    qadSendStatsLastClear.EntityData.Leafs["qad-ack-count"] = types.YLeaf{"QadAckCount", qadSendStatsLastClear.QadAckCount}
+    qadSendStatsLastClear.EntityData.Leafs["qad-unknown-acks"] = types.YLeaf{"QadUnknownAcks", qadSendStatsLastClear.QadUnknownAcks}
+    qadSendStatsLastClear.EntityData.Leafs["qad-timeouts"] = types.YLeaf{"QadTimeouts", qadSendStatsLastClear.QadTimeouts}
+    qadSendStatsLastClear.EntityData.Leafs["qad-rx-count"] = types.YLeaf{"QadRxCount", qadSendStatsLastClear.QadRxCount}
+    qadSendStatsLastClear.EntityData.Leafs["qad-rx-list-count"] = types.YLeaf{"QadRxListCount", qadSendStatsLastClear.QadRxListCount}
+    qadSendStatsLastClear.EntityData.Leafs["qad-rx-list-q-size"] = types.YLeaf{"QadRxListQSize", qadSendStatsLastClear.QadRxListQSize}
+    qadSendStatsLastClear.EntityData.Leafs["qad-rx-first-seq-number"] = types.YLeaf{"QadRxFirstSeqNumber", qadSendStatsLastClear.QadRxFirstSeqNumber}
+    return &(qadSendStatsLastClear.EntityData)
 }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetSegmentPath() string {
-    return "qad-send-stats-last-clear"
-}
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["msgs-sent"] = qadSendStatsLastClear.MsgsSent
-    leafs["acks-sent"] = qadSendStatsLastClear.AcksSent
-    leafs["no-partner"] = qadSendStatsLastClear.NoPartner
-    leafs["sends-failed"] = qadSendStatsLastClear.SendsFailed
-    leafs["acks-failed"] = qadSendStatsLastClear.AcksFailed
-    leafs["pending-acks"] = qadSendStatsLastClear.PendingAcks
-    leafs["timeouts"] = qadSendStatsLastClear.Timeouts
-    leafs["suspends"] = qadSendStatsLastClear.Suspends
-    leafs["resumes"] = qadSendStatsLastClear.Resumes
-    leafs["sends-fragment"] = qadSendStatsLastClear.SendsFragment
-    leafs["qad-last-seq-number"] = qadSendStatsLastClear.QadLastSeqNumber
-    leafs["qad-frag-count"] = qadSendStatsLastClear.QadFragCount
-    leafs["qad-ack-count"] = qadSendStatsLastClear.QadAckCount
-    leafs["qad-unknown-acks"] = qadSendStatsLastClear.QadUnknownAcks
-    leafs["qad-timeouts"] = qadSendStatsLastClear.QadTimeouts
-    leafs["qad-rx-count"] = qadSendStatsLastClear.QadRxCount
-    leafs["qad-rx-list-count"] = qadSendStatsLastClear.QadRxListCount
-    leafs["qad-rx-list-q-size"] = qadSendStatsLastClear.QadRxListQSize
-    leafs["qad-rx-first-seq-number"] = qadSendStatsLastClear.QadRxFirstSeqNumber
-    return leafs
-}
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetYangName() string { return "qad-send-stats-last-clear" }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) SetParent(parent types.Entity) { qadSendStatsLastClear.parent = parent }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetParent() types.Entity { return qadSendStatsLastClear.parent }
-
-func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetParentYangName() string { return "vpdn-mirroring" }
 
 // Vpdn_VpdnMirroring_QadRecvStatsLastClear
 // qad recv stats last clear
 type Vpdn_VpdnMirroring_QadRecvStatsLastClear struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // msgs recvd. The type is interface{} with range: 0..4294967295.
@@ -1620,68 +1043,32 @@ type Vpdn_VpdnMirroring_QadRecvStatsLastClear struct {
     StaleMsgs interface{}
 }
 
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetFilter() yfilter.YFilter { return qadRecvStatsLastClear.YFilter }
+func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetEntityData() *types.CommonEntityData {
+    qadRecvStatsLastClear.EntityData.YFilter = qadRecvStatsLastClear.YFilter
+    qadRecvStatsLastClear.EntityData.YangName = "qad-recv-stats-last-clear"
+    qadRecvStatsLastClear.EntityData.BundleName = "cisco_ios_xr"
+    qadRecvStatsLastClear.EntityData.ParentYangName = "vpdn-mirroring"
+    qadRecvStatsLastClear.EntityData.SegmentPath = "qad-recv-stats-last-clear"
+    qadRecvStatsLastClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qadRecvStatsLastClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qadRecvStatsLastClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) SetFilter(yf yfilter.YFilter) { qadRecvStatsLastClear.YFilter = yf }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetGoName(yname string) string {
-    if yname == "msgs-recvd" { return "MsgsRecvd" }
-    if yname == "acks-recvd" { return "AcksRecvd" }
-    if yname == "recvd-acks-failed" { return "RecvdAcksFailed" }
-    if yname == "init-drops" { return "InitDrops" }
-    if yname == "msg-drops" { return "MsgDrops" }
-    if yname == "ooo-drops" { return "OooDrops" }
-    if yname == "stale-msgs" { return "StaleMsgs" }
-    return ""
+    qadRecvStatsLastClear.EntityData.Children = make(map[string]types.YChild)
+    qadRecvStatsLastClear.EntityData.Leafs = make(map[string]types.YLeaf)
+    qadRecvStatsLastClear.EntityData.Leafs["msgs-recvd"] = types.YLeaf{"MsgsRecvd", qadRecvStatsLastClear.MsgsRecvd}
+    qadRecvStatsLastClear.EntityData.Leafs["acks-recvd"] = types.YLeaf{"AcksRecvd", qadRecvStatsLastClear.AcksRecvd}
+    qadRecvStatsLastClear.EntityData.Leafs["recvd-acks-failed"] = types.YLeaf{"RecvdAcksFailed", qadRecvStatsLastClear.RecvdAcksFailed}
+    qadRecvStatsLastClear.EntityData.Leafs["init-drops"] = types.YLeaf{"InitDrops", qadRecvStatsLastClear.InitDrops}
+    qadRecvStatsLastClear.EntityData.Leafs["msg-drops"] = types.YLeaf{"MsgDrops", qadRecvStatsLastClear.MsgDrops}
+    qadRecvStatsLastClear.EntityData.Leafs["ooo-drops"] = types.YLeaf{"OooDrops", qadRecvStatsLastClear.OooDrops}
+    qadRecvStatsLastClear.EntityData.Leafs["stale-msgs"] = types.YLeaf{"StaleMsgs", qadRecvStatsLastClear.StaleMsgs}
+    return &(qadRecvStatsLastClear.EntityData)
 }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetSegmentPath() string {
-    return "qad-recv-stats-last-clear"
-}
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["msgs-recvd"] = qadRecvStatsLastClear.MsgsRecvd
-    leafs["acks-recvd"] = qadRecvStatsLastClear.AcksRecvd
-    leafs["recvd-acks-failed"] = qadRecvStatsLastClear.RecvdAcksFailed
-    leafs["init-drops"] = qadRecvStatsLastClear.InitDrops
-    leafs["msg-drops"] = qadRecvStatsLastClear.MsgDrops
-    leafs["ooo-drops"] = qadRecvStatsLastClear.OooDrops
-    leafs["stale-msgs"] = qadRecvStatsLastClear.StaleMsgs
-    return leafs
-}
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetYangName() string { return "qad-recv-stats-last-clear" }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) SetParent(parent types.Entity) { qadRecvStatsLastClear.parent = parent }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetParent() types.Entity { return qadRecvStatsLastClear.parent }
-
-func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetParentYangName() string { return "vpdn-mirroring" }
 
 // Vpdn_VpdnRedundancy
 // Show VPDN Redundancy information
 type Vpdn_VpdnRedundancy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // session total. The type is interface{} with range: 0..4294967295.
@@ -1703,66 +1090,31 @@ type Vpdn_VpdnRedundancy struct {
     AbortTime interface{}
 }
 
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetFilter() yfilter.YFilter { return vpdnRedundancy.YFilter }
+func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetEntityData() *types.CommonEntityData {
+    vpdnRedundancy.EntityData.YFilter = vpdnRedundancy.YFilter
+    vpdnRedundancy.EntityData.YangName = "vpdn-redundancy"
+    vpdnRedundancy.EntityData.BundleName = "cisco_ios_xr"
+    vpdnRedundancy.EntityData.ParentYangName = "vpdn"
+    vpdnRedundancy.EntityData.SegmentPath = "vpdn-redundancy"
+    vpdnRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vpdnRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vpdnRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) SetFilter(yf yfilter.YFilter) { vpdnRedundancy.YFilter = yf }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetGoName(yname string) string {
-    if yname == "session-total" { return "SessionTotal" }
-    if yname == "session-synced" { return "SessionSynced" }
-    if yname == "state" { return "State" }
-    if yname == "start-time" { return "StartTime" }
-    if yname == "finish-time" { return "FinishTime" }
-    if yname == "abort-time" { return "AbortTime" }
-    return ""
+    vpdnRedundancy.EntityData.Children = make(map[string]types.YChild)
+    vpdnRedundancy.EntityData.Leafs = make(map[string]types.YLeaf)
+    vpdnRedundancy.EntityData.Leafs["session-total"] = types.YLeaf{"SessionTotal", vpdnRedundancy.SessionTotal}
+    vpdnRedundancy.EntityData.Leafs["session-synced"] = types.YLeaf{"SessionSynced", vpdnRedundancy.SessionSynced}
+    vpdnRedundancy.EntityData.Leafs["state"] = types.YLeaf{"State", vpdnRedundancy.State}
+    vpdnRedundancy.EntityData.Leafs["start-time"] = types.YLeaf{"StartTime", vpdnRedundancy.StartTime}
+    vpdnRedundancy.EntityData.Leafs["finish-time"] = types.YLeaf{"FinishTime", vpdnRedundancy.FinishTime}
+    vpdnRedundancy.EntityData.Leafs["abort-time"] = types.YLeaf{"AbortTime", vpdnRedundancy.AbortTime}
+    return &(vpdnRedundancy.EntityData)
 }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetSegmentPath() string {
-    return "vpdn-redundancy"
-}
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-total"] = vpdnRedundancy.SessionTotal
-    leafs["session-synced"] = vpdnRedundancy.SessionSynced
-    leafs["state"] = vpdnRedundancy.State
-    leafs["start-time"] = vpdnRedundancy.StartTime
-    leafs["finish-time"] = vpdnRedundancy.FinishTime
-    leafs["abort-time"] = vpdnRedundancy.AbortTime
-    return leafs
-}
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetYangName() string { return "vpdn-redundancy" }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) SetParent(parent types.Entity) { vpdnRedundancy.parent = parent }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetParent() types.Entity { return vpdnRedundancy.parent }
-
-func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetParentYangName() string { return "vpdn" }
 
 // Vpdn_HistoryFailures
 // VPDN history failure list
 type Vpdn_HistoryFailures struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VPDN history failure information. The type is slice of
@@ -1770,74 +1122,36 @@ type Vpdn_HistoryFailures struct {
     HistoryFailure []Vpdn_HistoryFailures_HistoryFailure
 }
 
-func (historyFailures *Vpdn_HistoryFailures) GetFilter() yfilter.YFilter { return historyFailures.YFilter }
+func (historyFailures *Vpdn_HistoryFailures) GetEntityData() *types.CommonEntityData {
+    historyFailures.EntityData.YFilter = historyFailures.YFilter
+    historyFailures.EntityData.YangName = "history-failures"
+    historyFailures.EntityData.BundleName = "cisco_ios_xr"
+    historyFailures.EntityData.ParentYangName = "vpdn"
+    historyFailures.EntityData.SegmentPath = "history-failures"
+    historyFailures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    historyFailures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    historyFailures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (historyFailures *Vpdn_HistoryFailures) SetFilter(yf yfilter.YFilter) { historyFailures.YFilter = yf }
-
-func (historyFailures *Vpdn_HistoryFailures) GetGoName(yname string) string {
-    if yname == "history-failure" { return "HistoryFailure" }
-    return ""
-}
-
-func (historyFailures *Vpdn_HistoryFailures) GetSegmentPath() string {
-    return "history-failures"
-}
-
-func (historyFailures *Vpdn_HistoryFailures) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "history-failure" {
-        for _, c := range historyFailures.HistoryFailure {
-            if historyFailures.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vpdn_HistoryFailures_HistoryFailure{}
-        historyFailures.HistoryFailure = append(historyFailures.HistoryFailure, child)
-        return &historyFailures.HistoryFailure[len(historyFailures.HistoryFailure)-1]
-    }
-    return nil
-}
-
-func (historyFailures *Vpdn_HistoryFailures) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    historyFailures.EntityData.Children = make(map[string]types.YChild)
+    historyFailures.EntityData.Children["history-failure"] = types.YChild{"HistoryFailure", nil}
     for i := range historyFailures.HistoryFailure {
-        children[historyFailures.HistoryFailure[i].GetSegmentPath()] = &historyFailures.HistoryFailure[i]
+        historyFailures.EntityData.Children[types.GetSegmentPath(&historyFailures.HistoryFailure[i])] = types.YChild{"HistoryFailure", &historyFailures.HistoryFailure[i]}
     }
-    return children
+    historyFailures.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(historyFailures.EntityData)
 }
-
-func (historyFailures *Vpdn_HistoryFailures) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (historyFailures *Vpdn_HistoryFailures) GetBundleName() string { return "cisco_ios_xr" }
-
-func (historyFailures *Vpdn_HistoryFailures) GetYangName() string { return "history-failures" }
-
-func (historyFailures *Vpdn_HistoryFailures) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (historyFailures *Vpdn_HistoryFailures) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (historyFailures *Vpdn_HistoryFailures) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (historyFailures *Vpdn_HistoryFailures) SetParent(parent types.Entity) { historyFailures.parent = parent }
-
-func (historyFailures *Vpdn_HistoryFailures) GetParent() types.Entity { return historyFailures.parent }
-
-func (historyFailures *Vpdn_HistoryFailures) GetParentYangName() string { return "vpdn" }
 
 // Vpdn_HistoryFailures_HistoryFailure
 // VPDN history failure information
 type Vpdn_HistoryFailures_HistoryFailure struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Username. The type is string.
     Username interface{}
 
-    // Remote name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Remote name. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RemoteName interface{}
 
     // Authentication username. The type is string.
@@ -1853,7 +1167,7 @@ type Vpdn_HistoryFailures_HistoryFailure struct {
     Nas interface{}
 
     // NAS IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationAddress interface{}
 
     // Remote client ID. The type is interface{} with range: 0..65535.
@@ -1863,7 +1177,7 @@ type Vpdn_HistoryFailures_HistoryFailure struct {
     HomeGateway interface{}
 
     // Source IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceAddress interface{}
 
     // Local client ID. The type is interface{} with range: 0..65535.
@@ -1879,75 +1193,32 @@ type Vpdn_HistoryFailures_HistoryFailure struct {
     FailureType interface{}
 }
 
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetFilter() yfilter.YFilter { return historyFailure.YFilter }
+func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetEntityData() *types.CommonEntityData {
+    historyFailure.EntityData.YFilter = historyFailure.YFilter
+    historyFailure.EntityData.YangName = "history-failure"
+    historyFailure.EntityData.BundleName = "cisco_ios_xr"
+    historyFailure.EntityData.ParentYangName = "history-failures"
+    historyFailure.EntityData.SegmentPath = "history-failure"
+    historyFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    historyFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    historyFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) SetFilter(yf yfilter.YFilter) { historyFailure.YFilter = yf }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetGoName(yname string) string {
-    if yname == "username" { return "Username" }
-    if yname == "remote-name" { return "RemoteName" }
-    if yname == "username-xr" { return "UsernameXr" }
-    if yname == "domain-name" { return "DomainName" }
-    if yname == "mid" { return "Mid" }
-    if yname == "nas" { return "Nas" }
-    if yname == "destination-address" { return "DestinationAddress" }
-    if yname == "remote-client-id" { return "RemoteClientId" }
-    if yname == "home-gateway" { return "HomeGateway" }
-    if yname == "source-address" { return "SourceAddress" }
-    if yname == "local-client-id" { return "LocalClientId" }
-    if yname == "event-time" { return "EventTime" }
-    if yname == "error-repeat-count" { return "ErrorRepeatCount" }
-    if yname == "failure-type" { return "FailureType" }
-    return ""
+    historyFailure.EntityData.Children = make(map[string]types.YChild)
+    historyFailure.EntityData.Leafs = make(map[string]types.YLeaf)
+    historyFailure.EntityData.Leafs["username"] = types.YLeaf{"Username", historyFailure.Username}
+    historyFailure.EntityData.Leafs["remote-name"] = types.YLeaf{"RemoteName", historyFailure.RemoteName}
+    historyFailure.EntityData.Leafs["username-xr"] = types.YLeaf{"UsernameXr", historyFailure.UsernameXr}
+    historyFailure.EntityData.Leafs["domain-name"] = types.YLeaf{"DomainName", historyFailure.DomainName}
+    historyFailure.EntityData.Leafs["mid"] = types.YLeaf{"Mid", historyFailure.Mid}
+    historyFailure.EntityData.Leafs["nas"] = types.YLeaf{"Nas", historyFailure.Nas}
+    historyFailure.EntityData.Leafs["destination-address"] = types.YLeaf{"DestinationAddress", historyFailure.DestinationAddress}
+    historyFailure.EntityData.Leafs["remote-client-id"] = types.YLeaf{"RemoteClientId", historyFailure.RemoteClientId}
+    historyFailure.EntityData.Leafs["home-gateway"] = types.YLeaf{"HomeGateway", historyFailure.HomeGateway}
+    historyFailure.EntityData.Leafs["source-address"] = types.YLeaf{"SourceAddress", historyFailure.SourceAddress}
+    historyFailure.EntityData.Leafs["local-client-id"] = types.YLeaf{"LocalClientId", historyFailure.LocalClientId}
+    historyFailure.EntityData.Leafs["event-time"] = types.YLeaf{"EventTime", historyFailure.EventTime}
+    historyFailure.EntityData.Leafs["error-repeat-count"] = types.YLeaf{"ErrorRepeatCount", historyFailure.ErrorRepeatCount}
+    historyFailure.EntityData.Leafs["failure-type"] = types.YLeaf{"FailureType", historyFailure.FailureType}
+    return &(historyFailure.EntityData)
 }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetSegmentPath() string {
-    return "history-failure"
-}
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["username"] = historyFailure.Username
-    leafs["remote-name"] = historyFailure.RemoteName
-    leafs["username-xr"] = historyFailure.UsernameXr
-    leafs["domain-name"] = historyFailure.DomainName
-    leafs["mid"] = historyFailure.Mid
-    leafs["nas"] = historyFailure.Nas
-    leafs["destination-address"] = historyFailure.DestinationAddress
-    leafs["remote-client-id"] = historyFailure.RemoteClientId
-    leafs["home-gateway"] = historyFailure.HomeGateway
-    leafs["source-address"] = historyFailure.SourceAddress
-    leafs["local-client-id"] = historyFailure.LocalClientId
-    leafs["event-time"] = historyFailure.EventTime
-    leafs["error-repeat-count"] = historyFailure.ErrorRepeatCount
-    leafs["failure-type"] = historyFailure.FailureType
-    return leafs
-}
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetBundleName() string { return "cisco_ios_xr" }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetYangName() string { return "history-failure" }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) SetParent(parent types.Entity) { historyFailure.parent = parent }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetParent() types.Entity { return historyFailure.parent }
-
-func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetParentYangName() string { return "history-failures" }
 

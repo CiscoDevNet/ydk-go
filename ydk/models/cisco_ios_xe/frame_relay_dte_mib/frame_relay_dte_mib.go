@@ -19,7 +19,7 @@ func init() {
 
 // FRAMERELAYDTEMIB
 type FRAMERELAYDTEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -39,73 +39,28 @@ type FRAMERELAYDTEMIB struct {
     Frerrtable FRAMERELAYDTEMIB_Frerrtable
 }
 
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetFilter() yfilter.YFilter { return fRAMERELAYDTEMIB.YFilter }
+func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetEntityData() *types.CommonEntityData {
+    fRAMERELAYDTEMIB.EntityData.YFilter = fRAMERELAYDTEMIB.YFilter
+    fRAMERELAYDTEMIB.EntityData.YangName = "FRAME-RELAY-DTE-MIB"
+    fRAMERELAYDTEMIB.EntityData.BundleName = "cisco_ios_xe"
+    fRAMERELAYDTEMIB.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
+    fRAMERELAYDTEMIB.EntityData.SegmentPath = "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB"
+    fRAMERELAYDTEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    fRAMERELAYDTEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    fRAMERELAYDTEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) SetFilter(yf yfilter.YFilter) { fRAMERELAYDTEMIB.YFilter = yf }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetGoName(yname string) string {
-    if yname == "frameRelayTrapControl" { return "Framerelaytrapcontrol" }
-    if yname == "frDlcmiTable" { return "Frdlcmitable" }
-    if yname == "frCircuitTable" { return "Frcircuittable" }
-    if yname == "frErrTable" { return "Frerrtable" }
-    return ""
+    fRAMERELAYDTEMIB.EntityData.Children = make(map[string]types.YChild)
+    fRAMERELAYDTEMIB.EntityData.Children["frameRelayTrapControl"] = types.YChild{"Framerelaytrapcontrol", &fRAMERELAYDTEMIB.Framerelaytrapcontrol}
+    fRAMERELAYDTEMIB.EntityData.Children["frDlcmiTable"] = types.YChild{"Frdlcmitable", &fRAMERELAYDTEMIB.Frdlcmitable}
+    fRAMERELAYDTEMIB.EntityData.Children["frCircuitTable"] = types.YChild{"Frcircuittable", &fRAMERELAYDTEMIB.Frcircuittable}
+    fRAMERELAYDTEMIB.EntityData.Children["frErrTable"] = types.YChild{"Frerrtable", &fRAMERELAYDTEMIB.Frerrtable}
+    fRAMERELAYDTEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fRAMERELAYDTEMIB.EntityData)
 }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetSegmentPath() string {
-    return "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB"
-}
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "frameRelayTrapControl" {
-        return &fRAMERELAYDTEMIB.Framerelaytrapcontrol
-    }
-    if childYangName == "frDlcmiTable" {
-        return &fRAMERELAYDTEMIB.Frdlcmitable
-    }
-    if childYangName == "frCircuitTable" {
-        return &fRAMERELAYDTEMIB.Frcircuittable
-    }
-    if childYangName == "frErrTable" {
-        return &fRAMERELAYDTEMIB.Frerrtable
-    }
-    return nil
-}
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["frameRelayTrapControl"] = &fRAMERELAYDTEMIB.Framerelaytrapcontrol
-    children["frDlcmiTable"] = &fRAMERELAYDTEMIB.Frdlcmitable
-    children["frCircuitTable"] = &fRAMERELAYDTEMIB.Frcircuittable
-    children["frErrTable"] = &fRAMERELAYDTEMIB.Frerrtable
-    return children
-}
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetYangName() string { return "FRAME-RELAY-DTE-MIB" }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) SetParent(parent types.Entity) { fRAMERELAYDTEMIB.parent = parent }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetParent() types.Entity { return fRAMERELAYDTEMIB.parent }
-
-func (fRAMERELAYDTEMIB *FRAMERELAYDTEMIB) GetParentYangName() string { return "FRAME-RELAY-DTE-MIB" }
 
 // FRAMERELAYDTEMIB_Framerelaytrapcontrol
 type FRAMERELAYDTEMIB_Framerelaytrapcontrol struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This variable indicates whether the system produces the frDLCIStatusChange
@@ -119,53 +74,22 @@ type FRAMERELAYDTEMIB_Framerelaytrapcontrol struct {
     Frtrapmaxrate interface{}
 }
 
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetFilter() yfilter.YFilter { return framerelaytrapcontrol.YFilter }
+func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetEntityData() *types.CommonEntityData {
+    framerelaytrapcontrol.EntityData.YFilter = framerelaytrapcontrol.YFilter
+    framerelaytrapcontrol.EntityData.YangName = "frameRelayTrapControl"
+    framerelaytrapcontrol.EntityData.BundleName = "cisco_ios_xe"
+    framerelaytrapcontrol.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
+    framerelaytrapcontrol.EntityData.SegmentPath = "frameRelayTrapControl"
+    framerelaytrapcontrol.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    framerelaytrapcontrol.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    framerelaytrapcontrol.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) SetFilter(yf yfilter.YFilter) { framerelaytrapcontrol.YFilter = yf }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetGoName(yname string) string {
-    if yname == "frTrapState" { return "Frtrapstate" }
-    if yname == "frTrapMaxRate" { return "Frtrapmaxrate" }
-    return ""
+    framerelaytrapcontrol.EntityData.Children = make(map[string]types.YChild)
+    framerelaytrapcontrol.EntityData.Leafs = make(map[string]types.YLeaf)
+    framerelaytrapcontrol.EntityData.Leafs["frTrapState"] = types.YLeaf{"Frtrapstate", framerelaytrapcontrol.Frtrapstate}
+    framerelaytrapcontrol.EntityData.Leafs["frTrapMaxRate"] = types.YLeaf{"Frtrapmaxrate", framerelaytrapcontrol.Frtrapmaxrate}
+    return &(framerelaytrapcontrol.EntityData)
 }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetSegmentPath() string {
-    return "frameRelayTrapControl"
-}
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["frTrapState"] = framerelaytrapcontrol.Frtrapstate
-    leafs["frTrapMaxRate"] = framerelaytrapcontrol.Frtrapmaxrate
-    return leafs
-}
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetBundleName() string { return "cisco_ios_xe" }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetYangName() string { return "frameRelayTrapControl" }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) SetParent(parent types.Entity) { framerelaytrapcontrol.parent = parent }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetParent() types.Entity { return framerelaytrapcontrol.parent }
-
-func (framerelaytrapcontrol *FRAMERELAYDTEMIB_Framerelaytrapcontrol) GetParentYangName() string { return "FRAME-RELAY-DTE-MIB" }
 
 // FRAMERELAYDTEMIB_Framerelaytrapcontrol_Frtrapstate represents the frDLCIStatusChange trap.
 type FRAMERELAYDTEMIB_Framerelaytrapcontrol_Frtrapstate string
@@ -181,7 +105,7 @@ const (
 // Interface for the frame relay service on this
 // interface.
 type FRAMERELAYDTEMIB_Frdlcmitable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The Parameters for a particular Data Link Connection Management Interface.
@@ -189,69 +113,30 @@ type FRAMERELAYDTEMIB_Frdlcmitable struct {
     Frdlcmientry []FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry
 }
 
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetFilter() yfilter.YFilter { return frdlcmitable.YFilter }
+func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetEntityData() *types.CommonEntityData {
+    frdlcmitable.EntityData.YFilter = frdlcmitable.YFilter
+    frdlcmitable.EntityData.YangName = "frDlcmiTable"
+    frdlcmitable.EntityData.BundleName = "cisco_ios_xe"
+    frdlcmitable.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
+    frdlcmitable.EntityData.SegmentPath = "frDlcmiTable"
+    frdlcmitable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frdlcmitable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frdlcmitable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) SetFilter(yf yfilter.YFilter) { frdlcmitable.YFilter = yf }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetGoName(yname string) string {
-    if yname == "frDlcmiEntry" { return "Frdlcmientry" }
-    return ""
-}
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetSegmentPath() string {
-    return "frDlcmiTable"
-}
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "frDlcmiEntry" {
-        for _, c := range frdlcmitable.Frdlcmientry {
-            if frdlcmitable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry{}
-        frdlcmitable.Frdlcmientry = append(frdlcmitable.Frdlcmientry, child)
-        return &frdlcmitable.Frdlcmientry[len(frdlcmitable.Frdlcmientry)-1]
-    }
-    return nil
-}
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    frdlcmitable.EntityData.Children = make(map[string]types.YChild)
+    frdlcmitable.EntityData.Children["frDlcmiEntry"] = types.YChild{"Frdlcmientry", nil}
     for i := range frdlcmitable.Frdlcmientry {
-        children[frdlcmitable.Frdlcmientry[i].GetSegmentPath()] = &frdlcmitable.Frdlcmientry[i]
+        frdlcmitable.EntityData.Children[types.GetSegmentPath(&frdlcmitable.Frdlcmientry[i])] = types.YChild{"Frdlcmientry", &frdlcmitable.Frdlcmientry[i]}
     }
-    return children
+    frdlcmitable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(frdlcmitable.EntityData)
 }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetYangName() string { return "frDlcmiTable" }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) SetParent(parent types.Entity) { frdlcmitable.parent = parent }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetParent() types.Entity { return frdlcmitable.parent }
-
-func (frdlcmitable *FRAMERELAYDTEMIB_Frdlcmitable) GetParentYangName() string { return "FRAME-RELAY-DTE-MIB" }
 
 // FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry
 // The Parameters for a particular Data Link Connection
 // Management Interface.
 type FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex value of the corresponding ifEntry.
@@ -313,73 +198,32 @@ type FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry struct {
     Frdlcmirowstatus interface{}
 }
 
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetFilter() yfilter.YFilter { return frdlcmientry.YFilter }
+func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetEntityData() *types.CommonEntityData {
+    frdlcmientry.EntityData.YFilter = frdlcmientry.YFilter
+    frdlcmientry.EntityData.YangName = "frDlcmiEntry"
+    frdlcmientry.EntityData.BundleName = "cisco_ios_xe"
+    frdlcmientry.EntityData.ParentYangName = "frDlcmiTable"
+    frdlcmientry.EntityData.SegmentPath = "frDlcmiEntry" + "[frDlcmiIfIndex='" + fmt.Sprintf("%v", frdlcmientry.Frdlcmiifindex) + "']"
+    frdlcmientry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frdlcmientry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frdlcmientry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) SetFilter(yf yfilter.YFilter) { frdlcmientry.YFilter = yf }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetGoName(yname string) string {
-    if yname == "frDlcmiIfIndex" { return "Frdlcmiifindex" }
-    if yname == "frDlcmiState" { return "Frdlcmistate" }
-    if yname == "frDlcmiAddress" { return "Frdlcmiaddress" }
-    if yname == "frDlcmiAddressLen" { return "Frdlcmiaddresslen" }
-    if yname == "frDlcmiPollingInterval" { return "Frdlcmipollinginterval" }
-    if yname == "frDlcmiFullEnquiryInterval" { return "Frdlcmifullenquiryinterval" }
-    if yname == "frDlcmiErrorThreshold" { return "Frdlcmierrorthreshold" }
-    if yname == "frDlcmiMonitoredEvents" { return "Frdlcmimonitoredevents" }
-    if yname == "frDlcmiMaxSupportedVCs" { return "Frdlcmimaxsupportedvcs" }
-    if yname == "frDlcmiMulticast" { return "Frdlcmimulticast" }
-    if yname == "frDlcmiStatus" { return "Frdlcmistatus" }
-    if yname == "frDlcmiRowStatus" { return "Frdlcmirowstatus" }
-    return ""
+    frdlcmientry.EntityData.Children = make(map[string]types.YChild)
+    frdlcmientry.EntityData.Leafs = make(map[string]types.YLeaf)
+    frdlcmientry.EntityData.Leafs["frDlcmiIfIndex"] = types.YLeaf{"Frdlcmiifindex", frdlcmientry.Frdlcmiifindex}
+    frdlcmientry.EntityData.Leafs["frDlcmiState"] = types.YLeaf{"Frdlcmistate", frdlcmientry.Frdlcmistate}
+    frdlcmientry.EntityData.Leafs["frDlcmiAddress"] = types.YLeaf{"Frdlcmiaddress", frdlcmientry.Frdlcmiaddress}
+    frdlcmientry.EntityData.Leafs["frDlcmiAddressLen"] = types.YLeaf{"Frdlcmiaddresslen", frdlcmientry.Frdlcmiaddresslen}
+    frdlcmientry.EntityData.Leafs["frDlcmiPollingInterval"] = types.YLeaf{"Frdlcmipollinginterval", frdlcmientry.Frdlcmipollinginterval}
+    frdlcmientry.EntityData.Leafs["frDlcmiFullEnquiryInterval"] = types.YLeaf{"Frdlcmifullenquiryinterval", frdlcmientry.Frdlcmifullenquiryinterval}
+    frdlcmientry.EntityData.Leafs["frDlcmiErrorThreshold"] = types.YLeaf{"Frdlcmierrorthreshold", frdlcmientry.Frdlcmierrorthreshold}
+    frdlcmientry.EntityData.Leafs["frDlcmiMonitoredEvents"] = types.YLeaf{"Frdlcmimonitoredevents", frdlcmientry.Frdlcmimonitoredevents}
+    frdlcmientry.EntityData.Leafs["frDlcmiMaxSupportedVCs"] = types.YLeaf{"Frdlcmimaxsupportedvcs", frdlcmientry.Frdlcmimaxsupportedvcs}
+    frdlcmientry.EntityData.Leafs["frDlcmiMulticast"] = types.YLeaf{"Frdlcmimulticast", frdlcmientry.Frdlcmimulticast}
+    frdlcmientry.EntityData.Leafs["frDlcmiStatus"] = types.YLeaf{"Frdlcmistatus", frdlcmientry.Frdlcmistatus}
+    frdlcmientry.EntityData.Leafs["frDlcmiRowStatus"] = types.YLeaf{"Frdlcmirowstatus", frdlcmientry.Frdlcmirowstatus}
+    return &(frdlcmientry.EntityData)
 }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetSegmentPath() string {
-    return "frDlcmiEntry" + "[frDlcmiIfIndex='" + fmt.Sprintf("%v", frdlcmientry.Frdlcmiifindex) + "']"
-}
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["frDlcmiIfIndex"] = frdlcmientry.Frdlcmiifindex
-    leafs["frDlcmiState"] = frdlcmientry.Frdlcmistate
-    leafs["frDlcmiAddress"] = frdlcmientry.Frdlcmiaddress
-    leafs["frDlcmiAddressLen"] = frdlcmientry.Frdlcmiaddresslen
-    leafs["frDlcmiPollingInterval"] = frdlcmientry.Frdlcmipollinginterval
-    leafs["frDlcmiFullEnquiryInterval"] = frdlcmientry.Frdlcmifullenquiryinterval
-    leafs["frDlcmiErrorThreshold"] = frdlcmientry.Frdlcmierrorthreshold
-    leafs["frDlcmiMonitoredEvents"] = frdlcmientry.Frdlcmimonitoredevents
-    leafs["frDlcmiMaxSupportedVCs"] = frdlcmientry.Frdlcmimaxsupportedvcs
-    leafs["frDlcmiMulticast"] = frdlcmientry.Frdlcmimulticast
-    leafs["frDlcmiStatus"] = frdlcmientry.Frdlcmistatus
-    leafs["frDlcmiRowStatus"] = frdlcmientry.Frdlcmirowstatus
-    return leafs
-}
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetYangName() string { return "frDlcmiEntry" }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) SetParent(parent types.Entity) { frdlcmientry.parent = parent }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetParent() types.Entity { return frdlcmientry.parent }
-
-func (frdlcmientry *FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry) GetParentYangName() string { return "frDlcmiTable" }
 
 // FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress represents the Frame Relay interface.
 type FRAMERELAYDTEMIB_Frdlcmitable_Frdlcmientry_Frdlcmiaddress string
@@ -446,7 +290,7 @@ const (
 // A table containing information about specific Data
 // Link Connections (DLC) or virtual circuits.
 type FRAMERELAYDTEMIB_Frcircuittable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single Data Link Connection.  Discontinuities
@@ -456,63 +300,24 @@ type FRAMERELAYDTEMIB_Frcircuittable struct {
     Frcircuitentry []FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry
 }
 
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetFilter() yfilter.YFilter { return frcircuittable.YFilter }
+func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetEntityData() *types.CommonEntityData {
+    frcircuittable.EntityData.YFilter = frcircuittable.YFilter
+    frcircuittable.EntityData.YangName = "frCircuitTable"
+    frcircuittable.EntityData.BundleName = "cisco_ios_xe"
+    frcircuittable.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
+    frcircuittable.EntityData.SegmentPath = "frCircuitTable"
+    frcircuittable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frcircuittable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frcircuittable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) SetFilter(yf yfilter.YFilter) { frcircuittable.YFilter = yf }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetGoName(yname string) string {
-    if yname == "frCircuitEntry" { return "Frcircuitentry" }
-    return ""
-}
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetSegmentPath() string {
-    return "frCircuitTable"
-}
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "frCircuitEntry" {
-        for _, c := range frcircuittable.Frcircuitentry {
-            if frcircuittable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry{}
-        frcircuittable.Frcircuitentry = append(frcircuittable.Frcircuitentry, child)
-        return &frcircuittable.Frcircuitentry[len(frcircuittable.Frcircuitentry)-1]
-    }
-    return nil
-}
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    frcircuittable.EntityData.Children = make(map[string]types.YChild)
+    frcircuittable.EntityData.Children["frCircuitEntry"] = types.YChild{"Frcircuitentry", nil}
     for i := range frcircuittable.Frcircuitentry {
-        children[frcircuittable.Frcircuitentry[i].GetSegmentPath()] = &frcircuittable.Frcircuitentry[i]
+        frcircuittable.EntityData.Children[types.GetSegmentPath(&frcircuittable.Frcircuitentry[i])] = types.YChild{"Frcircuitentry", &frcircuittable.Frcircuitentry[i]}
     }
-    return children
+    frcircuittable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(frcircuittable.EntityData)
 }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetYangName() string { return "frCircuitTable" }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) SetParent(parent types.Entity) { frcircuittable.parent = parent }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetParent() types.Entity { return frcircuittable.parent }
-
-func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetParentYangName() string { return "FRAME-RELAY-DTE-MIB" }
 
 // FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry
 // The information regarding a single Data Link
@@ -520,7 +325,7 @@ func (frcircuittable *FRAMERELAYDTEMIB_Frcircuittable) GetParentYangName() strin
 // in this table are indicated by the value in
 // frCircuitCreationTime.
 type FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex Value of the ifEntry this virtual
@@ -652,91 +457,41 @@ type FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry struct {
     Frcircuitrowstatus interface{}
 }
 
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetFilter() yfilter.YFilter { return frcircuitentry.YFilter }
+func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetEntityData() *types.CommonEntityData {
+    frcircuitentry.EntityData.YFilter = frcircuitentry.YFilter
+    frcircuitentry.EntityData.YangName = "frCircuitEntry"
+    frcircuitentry.EntityData.BundleName = "cisco_ios_xe"
+    frcircuitentry.EntityData.ParentYangName = "frCircuitTable"
+    frcircuitentry.EntityData.SegmentPath = "frCircuitEntry" + "[frCircuitIfIndex='" + fmt.Sprintf("%v", frcircuitentry.Frcircuitifindex) + "']" + "[frCircuitDlci='" + fmt.Sprintf("%v", frcircuitentry.Frcircuitdlci) + "']"
+    frcircuitentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frcircuitentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frcircuitentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) SetFilter(yf yfilter.YFilter) { frcircuitentry.YFilter = yf }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetGoName(yname string) string {
-    if yname == "frCircuitIfIndex" { return "Frcircuitifindex" }
-    if yname == "frCircuitDlci" { return "Frcircuitdlci" }
-    if yname == "frCircuitState" { return "Frcircuitstate" }
-    if yname == "frCircuitReceivedFECNs" { return "Frcircuitreceivedfecns" }
-    if yname == "frCircuitReceivedBECNs" { return "Frcircuitreceivedbecns" }
-    if yname == "frCircuitSentFrames" { return "Frcircuitsentframes" }
-    if yname == "frCircuitSentOctets" { return "Frcircuitsentoctets" }
-    if yname == "frCircuitReceivedFrames" { return "Frcircuitreceivedframes" }
-    if yname == "frCircuitReceivedOctets" { return "Frcircuitreceivedoctets" }
-    if yname == "frCircuitCreationTime" { return "Frcircuitcreationtime" }
-    if yname == "frCircuitLastTimeChange" { return "Frcircuitlasttimechange" }
-    if yname == "frCircuitCommittedBurst" { return "Frcircuitcommittedburst" }
-    if yname == "frCircuitExcessBurst" { return "Frcircuitexcessburst" }
-    if yname == "frCircuitThroughput" { return "Frcircuitthroughput" }
-    if yname == "frCircuitMulticast" { return "Frcircuitmulticast" }
-    if yname == "frCircuitType" { return "Frcircuittype" }
-    if yname == "frCircuitDiscards" { return "Frcircuitdiscards" }
-    if yname == "frCircuitReceivedDEs" { return "Frcircuitreceiveddes" }
-    if yname == "frCircuitSentDEs" { return "Frcircuitsentdes" }
-    if yname == "frCircuitLogicalIfIndex" { return "Frcircuitlogicalifindex" }
-    if yname == "frCircuitRowStatus" { return "Frcircuitrowstatus" }
-    return ""
+    frcircuitentry.EntityData.Children = make(map[string]types.YChild)
+    frcircuitentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    frcircuitentry.EntityData.Leafs["frCircuitIfIndex"] = types.YLeaf{"Frcircuitifindex", frcircuitentry.Frcircuitifindex}
+    frcircuitentry.EntityData.Leafs["frCircuitDlci"] = types.YLeaf{"Frcircuitdlci", frcircuitentry.Frcircuitdlci}
+    frcircuitentry.EntityData.Leafs["frCircuitState"] = types.YLeaf{"Frcircuitstate", frcircuitentry.Frcircuitstate}
+    frcircuitentry.EntityData.Leafs["frCircuitReceivedFECNs"] = types.YLeaf{"Frcircuitreceivedfecns", frcircuitentry.Frcircuitreceivedfecns}
+    frcircuitentry.EntityData.Leafs["frCircuitReceivedBECNs"] = types.YLeaf{"Frcircuitreceivedbecns", frcircuitentry.Frcircuitreceivedbecns}
+    frcircuitentry.EntityData.Leafs["frCircuitSentFrames"] = types.YLeaf{"Frcircuitsentframes", frcircuitentry.Frcircuitsentframes}
+    frcircuitentry.EntityData.Leafs["frCircuitSentOctets"] = types.YLeaf{"Frcircuitsentoctets", frcircuitentry.Frcircuitsentoctets}
+    frcircuitentry.EntityData.Leafs["frCircuitReceivedFrames"] = types.YLeaf{"Frcircuitreceivedframes", frcircuitentry.Frcircuitreceivedframes}
+    frcircuitentry.EntityData.Leafs["frCircuitReceivedOctets"] = types.YLeaf{"Frcircuitreceivedoctets", frcircuitentry.Frcircuitreceivedoctets}
+    frcircuitentry.EntityData.Leafs["frCircuitCreationTime"] = types.YLeaf{"Frcircuitcreationtime", frcircuitentry.Frcircuitcreationtime}
+    frcircuitentry.EntityData.Leafs["frCircuitLastTimeChange"] = types.YLeaf{"Frcircuitlasttimechange", frcircuitentry.Frcircuitlasttimechange}
+    frcircuitentry.EntityData.Leafs["frCircuitCommittedBurst"] = types.YLeaf{"Frcircuitcommittedburst", frcircuitentry.Frcircuitcommittedburst}
+    frcircuitentry.EntityData.Leafs["frCircuitExcessBurst"] = types.YLeaf{"Frcircuitexcessburst", frcircuitentry.Frcircuitexcessburst}
+    frcircuitentry.EntityData.Leafs["frCircuitThroughput"] = types.YLeaf{"Frcircuitthroughput", frcircuitentry.Frcircuitthroughput}
+    frcircuitentry.EntityData.Leafs["frCircuitMulticast"] = types.YLeaf{"Frcircuitmulticast", frcircuitentry.Frcircuitmulticast}
+    frcircuitentry.EntityData.Leafs["frCircuitType"] = types.YLeaf{"Frcircuittype", frcircuitentry.Frcircuittype}
+    frcircuitentry.EntityData.Leafs["frCircuitDiscards"] = types.YLeaf{"Frcircuitdiscards", frcircuitentry.Frcircuitdiscards}
+    frcircuitentry.EntityData.Leafs["frCircuitReceivedDEs"] = types.YLeaf{"Frcircuitreceiveddes", frcircuitentry.Frcircuitreceiveddes}
+    frcircuitentry.EntityData.Leafs["frCircuitSentDEs"] = types.YLeaf{"Frcircuitsentdes", frcircuitentry.Frcircuitsentdes}
+    frcircuitentry.EntityData.Leafs["frCircuitLogicalIfIndex"] = types.YLeaf{"Frcircuitlogicalifindex", frcircuitentry.Frcircuitlogicalifindex}
+    frcircuitentry.EntityData.Leafs["frCircuitRowStatus"] = types.YLeaf{"Frcircuitrowstatus", frcircuitentry.Frcircuitrowstatus}
+    return &(frcircuitentry.EntityData)
 }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetSegmentPath() string {
-    return "frCircuitEntry" + "[frCircuitIfIndex='" + fmt.Sprintf("%v", frcircuitentry.Frcircuitifindex) + "']" + "[frCircuitDlci='" + fmt.Sprintf("%v", frcircuitentry.Frcircuitdlci) + "']"
-}
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["frCircuitIfIndex"] = frcircuitentry.Frcircuitifindex
-    leafs["frCircuitDlci"] = frcircuitentry.Frcircuitdlci
-    leafs["frCircuitState"] = frcircuitentry.Frcircuitstate
-    leafs["frCircuitReceivedFECNs"] = frcircuitentry.Frcircuitreceivedfecns
-    leafs["frCircuitReceivedBECNs"] = frcircuitentry.Frcircuitreceivedbecns
-    leafs["frCircuitSentFrames"] = frcircuitentry.Frcircuitsentframes
-    leafs["frCircuitSentOctets"] = frcircuitentry.Frcircuitsentoctets
-    leafs["frCircuitReceivedFrames"] = frcircuitentry.Frcircuitreceivedframes
-    leafs["frCircuitReceivedOctets"] = frcircuitentry.Frcircuitreceivedoctets
-    leafs["frCircuitCreationTime"] = frcircuitentry.Frcircuitcreationtime
-    leafs["frCircuitLastTimeChange"] = frcircuitentry.Frcircuitlasttimechange
-    leafs["frCircuitCommittedBurst"] = frcircuitentry.Frcircuitcommittedburst
-    leafs["frCircuitExcessBurst"] = frcircuitentry.Frcircuitexcessburst
-    leafs["frCircuitThroughput"] = frcircuitentry.Frcircuitthroughput
-    leafs["frCircuitMulticast"] = frcircuitentry.Frcircuitmulticast
-    leafs["frCircuitType"] = frcircuitentry.Frcircuittype
-    leafs["frCircuitDiscards"] = frcircuitentry.Frcircuitdiscards
-    leafs["frCircuitReceivedDEs"] = frcircuitentry.Frcircuitreceiveddes
-    leafs["frCircuitSentDEs"] = frcircuitentry.Frcircuitsentdes
-    leafs["frCircuitLogicalIfIndex"] = frcircuitentry.Frcircuitlogicalifindex
-    leafs["frCircuitRowStatus"] = frcircuitentry.Frcircuitrowstatus
-    return leafs
-}
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetYangName() string { return "frCircuitEntry" }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) SetParent(parent types.Entity) { frcircuitentry.parent = parent }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetParent() types.Entity { return frcircuitentry.parent }
-
-func (frcircuitentry *FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry) GetParentYangName() string { return "frCircuitTable" }
 
 // FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry_Frcircuitmulticast represents subscribed to
 type FRAMERELAYDTEMIB_Frcircuittable_Frcircuitentry_Frcircuitmulticast string
@@ -777,7 +532,7 @@ const (
 // contained in this table are the same as apply to the
 // ifEntry associated with the Interface.
 type FRAMERELAYDTEMIB_Frerrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The error information for a single frame relay interface. The type is slice
@@ -785,69 +540,30 @@ type FRAMERELAYDTEMIB_Frerrtable struct {
     Frerrentry []FRAMERELAYDTEMIB_Frerrtable_Frerrentry
 }
 
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetFilter() yfilter.YFilter { return frerrtable.YFilter }
+func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetEntityData() *types.CommonEntityData {
+    frerrtable.EntityData.YFilter = frerrtable.YFilter
+    frerrtable.EntityData.YangName = "frErrTable"
+    frerrtable.EntityData.BundleName = "cisco_ios_xe"
+    frerrtable.EntityData.ParentYangName = "FRAME-RELAY-DTE-MIB"
+    frerrtable.EntityData.SegmentPath = "frErrTable"
+    frerrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frerrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frerrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) SetFilter(yf yfilter.YFilter) { frerrtable.YFilter = yf }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetGoName(yname string) string {
-    if yname == "frErrEntry" { return "Frerrentry" }
-    return ""
-}
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetSegmentPath() string {
-    return "frErrTable"
-}
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "frErrEntry" {
-        for _, c := range frerrtable.Frerrentry {
-            if frerrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := FRAMERELAYDTEMIB_Frerrtable_Frerrentry{}
-        frerrtable.Frerrentry = append(frerrtable.Frerrentry, child)
-        return &frerrtable.Frerrentry[len(frerrtable.Frerrentry)-1]
-    }
-    return nil
-}
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    frerrtable.EntityData.Children = make(map[string]types.YChild)
+    frerrtable.EntityData.Children["frErrEntry"] = types.YChild{"Frerrentry", nil}
     for i := range frerrtable.Frerrentry {
-        children[frerrtable.Frerrentry[i].GetSegmentPath()] = &frerrtable.Frerrentry[i]
+        frerrtable.EntityData.Children[types.GetSegmentPath(&frerrtable.Frerrentry[i])] = types.YChild{"Frerrentry", &frerrtable.Frerrentry[i]}
     }
-    return children
+    frerrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(frerrtable.EntityData)
 }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetYangName() string { return "frErrTable" }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) SetParent(parent types.Entity) { frerrtable.parent = parent }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetParent() types.Entity { return frerrtable.parent }
-
-func (frerrtable *FRAMERELAYDTEMIB_Frerrtable) GetParentYangName() string { return "FRAME-RELAY-DTE-MIB" }
 
 // FRAMERELAYDTEMIB_Frerrtable_Frerrentry
 // The error information for a single frame relay
 // interface.
 type FRAMERELAYDTEMIB_Frerrtable_Frerrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex Value of the corresponding ifEntry.
@@ -896,61 +612,26 @@ type FRAMERELAYDTEMIB_Frerrtable_Frerrentry struct {
     Frerrfaulttime interface{}
 }
 
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetFilter() yfilter.YFilter { return frerrentry.YFilter }
+func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetEntityData() *types.CommonEntityData {
+    frerrentry.EntityData.YFilter = frerrentry.YFilter
+    frerrentry.EntityData.YangName = "frErrEntry"
+    frerrentry.EntityData.BundleName = "cisco_ios_xe"
+    frerrentry.EntityData.ParentYangName = "frErrTable"
+    frerrentry.EntityData.SegmentPath = "frErrEntry" + "[frErrIfIndex='" + fmt.Sprintf("%v", frerrentry.Frerrifindex) + "']"
+    frerrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    frerrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    frerrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) SetFilter(yf yfilter.YFilter) { frerrentry.YFilter = yf }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetGoName(yname string) string {
-    if yname == "frErrIfIndex" { return "Frerrifindex" }
-    if yname == "frErrType" { return "Frerrtype" }
-    if yname == "frErrData" { return "Frerrdata" }
-    if yname == "frErrTime" { return "Frerrtime" }
-    if yname == "frErrFaults" { return "Frerrfaults" }
-    if yname == "frErrFaultTime" { return "Frerrfaulttime" }
-    return ""
+    frerrentry.EntityData.Children = make(map[string]types.YChild)
+    frerrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    frerrentry.EntityData.Leafs["frErrIfIndex"] = types.YLeaf{"Frerrifindex", frerrentry.Frerrifindex}
+    frerrentry.EntityData.Leafs["frErrType"] = types.YLeaf{"Frerrtype", frerrentry.Frerrtype}
+    frerrentry.EntityData.Leafs["frErrData"] = types.YLeaf{"Frerrdata", frerrentry.Frerrdata}
+    frerrentry.EntityData.Leafs["frErrTime"] = types.YLeaf{"Frerrtime", frerrentry.Frerrtime}
+    frerrentry.EntityData.Leafs["frErrFaults"] = types.YLeaf{"Frerrfaults", frerrentry.Frerrfaults}
+    frerrentry.EntityData.Leafs["frErrFaultTime"] = types.YLeaf{"Frerrfaulttime", frerrentry.Frerrfaulttime}
+    return &(frerrentry.EntityData)
 }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetSegmentPath() string {
-    return "frErrEntry" + "[frErrIfIndex='" + fmt.Sprintf("%v", frerrentry.Frerrifindex) + "']"
-}
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["frErrIfIndex"] = frerrentry.Frerrifindex
-    leafs["frErrType"] = frerrentry.Frerrtype
-    leafs["frErrData"] = frerrentry.Frerrdata
-    leafs["frErrTime"] = frerrentry.Frerrtime
-    leafs["frErrFaults"] = frerrentry.Frerrfaults
-    leafs["frErrFaultTime"] = frerrentry.Frerrfaulttime
-    return leafs
-}
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetYangName() string { return "frErrEntry" }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) SetParent(parent types.Entity) { frerrentry.parent = parent }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetParent() types.Entity { return frerrentry.parent }
-
-func (frerrentry *FRAMERELAYDTEMIB_Frerrtable_Frerrentry) GetParentYangName() string { return "frErrTable" }
 
 // FRAMERELAYDTEMIB_Frerrtable_Frerrentry_Frerrtype represents                    cold start or warm start.
 type FRAMERELAYDTEMIB_Frerrtable_Frerrentry_Frerrtype string

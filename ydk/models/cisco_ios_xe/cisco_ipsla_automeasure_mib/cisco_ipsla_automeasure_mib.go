@@ -41,7 +41,7 @@ func init() {
 
 // CISCOIPSLAAUTOMEASUREMIB
 type CISCOIPSLAAUTOMEASUREMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A table that contains IP SLA auto measure group definitions.
@@ -64,74 +64,29 @@ type CISCOIPSLAAUTOMEASUREMIB struct {
     Cipslaautogroupschedtable CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable
 }
 
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetFilter() yfilter.YFilter { return cISCOIPSLAAUTOMEASUREMIB.YFilter }
+func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.YFilter = cISCOIPSLAAUTOMEASUREMIB.YFilter
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.YangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.SegmentPath = "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB"
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) SetFilter(yf yfilter.YFilter) { cISCOIPSLAAUTOMEASUREMIB.YFilter = yf }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupTable" { return "Cipslaautogrouptable" }
-    if yname == "cipslaAutoGroupDestTable" { return "Cipslaautogroupdesttable" }
-    if yname == "cipslaReactTable" { return "Cipslareacttable" }
-    if yname == "cipslaAutoGroupSchedTable" { return "Cipslaautogroupschedtable" }
-    return ""
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.Children["cipslaAutoGroupTable"] = types.YChild{"Cipslaautogrouptable", &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable}
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.Children["cipslaAutoGroupDestTable"] = types.YChild{"Cipslaautogroupdesttable", &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable}
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.Children["cipslaReactTable"] = types.YChild{"Cipslareacttable", &cISCOIPSLAAUTOMEASUREMIB.Cipslareacttable}
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.Children["cipslaAutoGroupSchedTable"] = types.YChild{"Cipslaautogroupschedtable", &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable}
+    cISCOIPSLAAUTOMEASUREMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPSLAAUTOMEASUREMIB.EntityData)
 }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetSegmentPath() string {
-    return "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB"
-}
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaAutoGroupTable" {
-        return &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable
-    }
-    if childYangName == "cipslaAutoGroupDestTable" {
-        return &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable
-    }
-    if childYangName == "cipslaReactTable" {
-        return &cISCOIPSLAAUTOMEASUREMIB.Cipslareacttable
-    }
-    if childYangName == "cipslaAutoGroupSchedTable" {
-        return &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable
-    }
-    return nil
-}
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cipslaAutoGroupTable"] = &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogrouptable
-    children["cipslaAutoGroupDestTable"] = &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupdesttable
-    children["cipslaReactTable"] = &cISCOIPSLAAUTOMEASUREMIB.Cipslareacttable
-    children["cipslaAutoGroupSchedTable"] = &cISCOIPSLAAUTOMEASUREMIB.Cipslaautogroupschedtable
-    return children
-}
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetYangName() string { return "CISCO-IPSLA-AUTOMEASURE-MIB" }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) SetParent(parent types.Entity) { cISCOIPSLAAUTOMEASUREMIB.parent = parent }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetParent() types.Entity { return cISCOIPSLAAUTOMEASUREMIB.parent }
-
-func (cISCOIPSLAAUTOMEASUREMIB *CISCOIPSLAAUTOMEASUREMIB) GetParentYangName() string { return "CISCO-IPSLA-AUTOMEASURE-MIB" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable
 // A table that contains IP SLA auto measure group definitions.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the configurations for a particular auto measure group.
@@ -140,69 +95,30 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable struct {
     Cipslaautogroupentry []CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry
 }
 
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetFilter() yfilter.YFilter { return cipslaautogrouptable.YFilter }
+func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetEntityData() *types.CommonEntityData {
+    cipslaautogrouptable.EntityData.YFilter = cipslaautogrouptable.YFilter
+    cipslaautogrouptable.EntityData.YangName = "cipslaAutoGroupTable"
+    cipslaautogrouptable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaautogrouptable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
+    cipslaautogrouptable.EntityData.SegmentPath = "cipslaAutoGroupTable"
+    cipslaautogrouptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaautogrouptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaautogrouptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) SetFilter(yf yfilter.YFilter) { cipslaautogrouptable.YFilter = yf }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupEntry" { return "Cipslaautogroupentry" }
-    return ""
-}
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetSegmentPath() string {
-    return "cipslaAutoGroupTable"
-}
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaAutoGroupEntry" {
-        for _, c := range cipslaautogrouptable.Cipslaautogroupentry {
-            if cipslaautogrouptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry{}
-        cipslaautogrouptable.Cipslaautogroupentry = append(cipslaautogrouptable.Cipslaautogroupentry, child)
-        return &cipslaautogrouptable.Cipslaautogroupentry[len(cipslaautogrouptable.Cipslaautogroupentry)-1]
-    }
-    return nil
-}
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipslaautogrouptable.EntityData.Children = make(map[string]types.YChild)
+    cipslaautogrouptable.EntityData.Children["cipslaAutoGroupEntry"] = types.YChild{"Cipslaautogroupentry", nil}
     for i := range cipslaautogrouptable.Cipslaautogroupentry {
-        children[cipslaautogrouptable.Cipslaautogroupentry[i].GetSegmentPath()] = &cipslaautogrouptable.Cipslaautogroupentry[i]
+        cipslaautogrouptable.EntityData.Children[types.GetSegmentPath(&cipslaautogrouptable.Cipslaautogroupentry[i])] = types.YChild{"Cipslaautogroupentry", &cipslaautogrouptable.Cipslaautogroupentry[i]}
     }
-    return children
+    cipslaautogrouptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipslaautogrouptable.EntityData)
 }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetYangName() string { return "cipslaAutoGroupTable" }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) SetParent(parent types.Entity) { cipslaautogrouptable.parent = parent }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetParent() types.Entity { return cipslaautogrouptable.parent }
-
-func (cipslaautogrouptable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable) GetParentYangName() string { return "CISCO-IPSLA-AUTOMEASURE-MIB" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry
 // An entry containing the configurations for a particular
 // auto measure group.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A group name which is used by a management
@@ -276,82 +192,40 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry struct {
     Cipslaautogrouprowstatus interface{}
 }
 
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetFilter() yfilter.YFilter { return cipslaautogroupentry.YFilter }
+func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetEntityData() *types.CommonEntityData {
+    cipslaautogroupentry.EntityData.YFilter = cipslaautogroupentry.YFilter
+    cipslaautogroupentry.EntityData.YangName = "cipslaAutoGroupEntry"
+    cipslaautogroupentry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaautogroupentry.EntityData.ParentYangName = "cipslaAutoGroupTable"
+    cipslaautogroupentry.EntityData.SegmentPath = "cipslaAutoGroupEntry" + "[cipslaAutoGroupName='" + fmt.Sprintf("%v", cipslaautogroupentry.Cipslaautogroupname) + "']"
+    cipslaautogroupentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaautogroupentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaautogroupentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) SetFilter(yf yfilter.YFilter) { cipslaautogroupentry.YFilter = yf }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupName" { return "Cipslaautogroupname" }
-    if yname == "cipslaAutoGroupDescription" { return "Cipslaautogroupdescription" }
-    if yname == "cipslaAutoGroupDestinationName" { return "Cipslaautogroupdestinationname" }
-    if yname == "cipslaAutoGroupADDestPort" { return "Cipslaautogroupaddestport" }
-    if yname == "cipslaAutoGroupOperTemplateName" { return "Cipslaautogroupopertemplatename" }
-    if yname == "cipslaAutoGroupSchedulerId" { return "Cipslaautogroupschedulerid" }
-    if yname == "cipslaAutoGroupQoSEnable" { return "Cipslaautogroupqosenable" }
-    if yname == "cipslaAutoGroupOperType" { return "Cipslaautogroupopertype" }
-    if yname == "cipslaAutoGroupDestIPADEnable" { return "Cipslaautogroupdestipadenable" }
-    if yname == "cipslaAutoGroupADMeasureRetry" { return "Cipslaautogroupadmeasureretry" }
-    if yname == "cipslaAutoGroupADDestIPAgeout" { return "Cipslaautogroupaddestipageout" }
-    if yname == "cipslaAutoGroupStorageType" { return "Cipslaautogroupstoragetype" }
-    if yname == "cipslaAutoGroupRowStatus" { return "Cipslaautogrouprowstatus" }
-    return ""
+    cipslaautogroupentry.EntityData.Children = make(map[string]types.YChild)
+    cipslaautogroupentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupName"] = types.YLeaf{"Cipslaautogroupname", cipslaautogroupentry.Cipslaautogroupname}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupDescription"] = types.YLeaf{"Cipslaautogroupdescription", cipslaautogroupentry.Cipslaautogroupdescription}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupDestinationName"] = types.YLeaf{"Cipslaautogroupdestinationname", cipslaautogroupentry.Cipslaautogroupdestinationname}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupADDestPort"] = types.YLeaf{"Cipslaautogroupaddestport", cipslaautogroupentry.Cipslaautogroupaddestport}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupOperTemplateName"] = types.YLeaf{"Cipslaautogroupopertemplatename", cipslaautogroupentry.Cipslaautogroupopertemplatename}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupSchedulerId"] = types.YLeaf{"Cipslaautogroupschedulerid", cipslaautogroupentry.Cipslaautogroupschedulerid}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupQoSEnable"] = types.YLeaf{"Cipslaautogroupqosenable", cipslaautogroupentry.Cipslaautogroupqosenable}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupOperType"] = types.YLeaf{"Cipslaautogroupopertype", cipslaautogroupentry.Cipslaautogroupopertype}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupDestIPADEnable"] = types.YLeaf{"Cipslaautogroupdestipadenable", cipslaautogroupentry.Cipslaautogroupdestipadenable}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupADMeasureRetry"] = types.YLeaf{"Cipslaautogroupadmeasureretry", cipslaautogroupentry.Cipslaautogroupadmeasureretry}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupADDestIPAgeout"] = types.YLeaf{"Cipslaautogroupaddestipageout", cipslaautogroupentry.Cipslaautogroupaddestipageout}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupStorageType"] = types.YLeaf{"Cipslaautogroupstoragetype", cipslaautogroupentry.Cipslaautogroupstoragetype}
+    cipslaautogroupentry.EntityData.Leafs["cipslaAutoGroupRowStatus"] = types.YLeaf{"Cipslaautogrouprowstatus", cipslaautogroupentry.Cipslaautogrouprowstatus}
+    return &(cipslaautogroupentry.EntityData)
 }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetSegmentPath() string {
-    return "cipslaAutoGroupEntry" + "[cipslaAutoGroupName='" + fmt.Sprintf("%v", cipslaautogroupentry.Cipslaautogroupname) + "']"
-}
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipslaAutoGroupName"] = cipslaautogroupentry.Cipslaautogroupname
-    leafs["cipslaAutoGroupDescription"] = cipslaautogroupentry.Cipslaautogroupdescription
-    leafs["cipslaAutoGroupDestinationName"] = cipslaautogroupentry.Cipslaautogroupdestinationname
-    leafs["cipslaAutoGroupADDestPort"] = cipslaautogroupentry.Cipslaautogroupaddestport
-    leafs["cipslaAutoGroupOperTemplateName"] = cipslaautogroupentry.Cipslaautogroupopertemplatename
-    leafs["cipslaAutoGroupSchedulerId"] = cipslaautogroupentry.Cipslaautogroupschedulerid
-    leafs["cipslaAutoGroupQoSEnable"] = cipslaautogroupentry.Cipslaautogroupqosenable
-    leafs["cipslaAutoGroupOperType"] = cipslaautogroupentry.Cipslaautogroupopertype
-    leafs["cipslaAutoGroupDestIPADEnable"] = cipslaautogroupentry.Cipslaautogroupdestipadenable
-    leafs["cipslaAutoGroupADMeasureRetry"] = cipslaautogroupentry.Cipslaautogroupadmeasureretry
-    leafs["cipslaAutoGroupADDestIPAgeout"] = cipslaautogroupentry.Cipslaautogroupaddestipageout
-    leafs["cipslaAutoGroupStorageType"] = cipslaautogroupentry.Cipslaautogroupstoragetype
-    leafs["cipslaAutoGroupRowStatus"] = cipslaautogroupentry.Cipslaautogrouprowstatus
-    return leafs
-}
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetYangName() string { return "cipslaAutoGroupEntry" }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) SetParent(parent types.Entity) { cipslaautogroupentry.parent = parent }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetParent() types.Entity { return cipslaautogroupentry.parent }
-
-func (cipslaautogroupentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogrouptable_Cipslaautogroupentry) GetParentYangName() string { return "cipslaAutoGroupTable" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable
 // A table contains the list of destination IP
 // addresses and ports associated to the auto measure
 // group destination name.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the destination IP addresses and port configurations
@@ -360,70 +234,31 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable struct {
     Cipslaautogroupdestentry []CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry
 }
 
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetFilter() yfilter.YFilter { return cipslaautogroupdesttable.YFilter }
+func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetEntityData() *types.CommonEntityData {
+    cipslaautogroupdesttable.EntityData.YFilter = cipslaautogroupdesttable.YFilter
+    cipslaautogroupdesttable.EntityData.YangName = "cipslaAutoGroupDestTable"
+    cipslaautogroupdesttable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaautogroupdesttable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
+    cipslaautogroupdesttable.EntityData.SegmentPath = "cipslaAutoGroupDestTable"
+    cipslaautogroupdesttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaautogroupdesttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaautogroupdesttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) SetFilter(yf yfilter.YFilter) { cipslaautogroupdesttable.YFilter = yf }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupDestEntry" { return "Cipslaautogroupdestentry" }
-    return ""
-}
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetSegmentPath() string {
-    return "cipslaAutoGroupDestTable"
-}
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaAutoGroupDestEntry" {
-        for _, c := range cipslaautogroupdesttable.Cipslaautogroupdestentry {
-            if cipslaautogroupdesttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry{}
-        cipslaautogroupdesttable.Cipslaautogroupdestentry = append(cipslaautogroupdesttable.Cipslaautogroupdestentry, child)
-        return &cipslaautogroupdesttable.Cipslaautogroupdestentry[len(cipslaautogroupdesttable.Cipslaautogroupdestentry)-1]
-    }
-    return nil
-}
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipslaautogroupdesttable.EntityData.Children = make(map[string]types.YChild)
+    cipslaautogroupdesttable.EntityData.Children["cipslaAutoGroupDestEntry"] = types.YChild{"Cipslaautogroupdestentry", nil}
     for i := range cipslaautogroupdesttable.Cipslaautogroupdestentry {
-        children[cipslaautogroupdesttable.Cipslaautogroupdestentry[i].GetSegmentPath()] = &cipslaautogroupdesttable.Cipslaautogroupdestentry[i]
+        cipslaautogroupdesttable.EntityData.Children[types.GetSegmentPath(&cipslaautogroupdesttable.Cipslaautogroupdestentry[i])] = types.YChild{"Cipslaautogroupdestentry", &cipslaautogroupdesttable.Cipslaautogroupdestentry[i]}
     }
-    return children
+    cipslaautogroupdesttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipslaautogroupdesttable.EntityData)
 }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetYangName() string { return "cipslaAutoGroupDestTable" }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) SetParent(parent types.Entity) { cipslaautogroupdesttable.parent = parent }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetParent() types.Entity { return cipslaautogroupdesttable.parent }
-
-func (cipslaautogroupdesttable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable) GetParentYangName() string { return "CISCO-IPSLA-AUTOMEASURE-MIB" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry
 // An entry containing the destination IP addresses
 // and port configurations associated to auto measure
 // group destination name.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is the name for an auto measure group
@@ -456,61 +291,26 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry 
     Cipslaautogroupdestrowstatus interface{}
 }
 
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetFilter() yfilter.YFilter { return cipslaautogroupdestentry.YFilter }
+func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetEntityData() *types.CommonEntityData {
+    cipslaautogroupdestentry.EntityData.YFilter = cipslaautogroupdestentry.YFilter
+    cipslaautogroupdestentry.EntityData.YangName = "cipslaAutoGroupDestEntry"
+    cipslaautogroupdestentry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaautogroupdestentry.EntityData.ParentYangName = "cipslaAutoGroupDestTable"
+    cipslaautogroupdestentry.EntityData.SegmentPath = "cipslaAutoGroupDestEntry" + "[cipslaAutoGroupDestName='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestname) + "']" + "[cipslaAutoGroupDestIpAddrType='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestipaddrtype) + "']" + "[cipslaAutoGroupDestIpAddr='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestipaddr) + "']" + "[cipslaAutoGroupDestPort='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestport) + "']"
+    cipslaautogroupdestentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaautogroupdestentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaautogroupdestentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) SetFilter(yf yfilter.YFilter) { cipslaautogroupdestentry.YFilter = yf }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupDestName" { return "Cipslaautogroupdestname" }
-    if yname == "cipslaAutoGroupDestIpAddrType" { return "Cipslaautogroupdestipaddrtype" }
-    if yname == "cipslaAutoGroupDestIpAddr" { return "Cipslaautogroupdestipaddr" }
-    if yname == "cipslaAutoGroupDestPort" { return "Cipslaautogroupdestport" }
-    if yname == "cipslaAutoGroupDestStorageType" { return "Cipslaautogroupdeststoragetype" }
-    if yname == "cipslaAutoGroupDestRowStatus" { return "Cipslaautogroupdestrowstatus" }
-    return ""
+    cipslaautogroupdestentry.EntityData.Children = make(map[string]types.YChild)
+    cipslaautogroupdestentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipslaautogroupdestentry.EntityData.Leafs["cipslaAutoGroupDestName"] = types.YLeaf{"Cipslaautogroupdestname", cipslaautogroupdestentry.Cipslaautogroupdestname}
+    cipslaautogroupdestentry.EntityData.Leafs["cipslaAutoGroupDestIpAddrType"] = types.YLeaf{"Cipslaautogroupdestipaddrtype", cipslaautogroupdestentry.Cipslaautogroupdestipaddrtype}
+    cipslaautogroupdestentry.EntityData.Leafs["cipslaAutoGroupDestIpAddr"] = types.YLeaf{"Cipslaautogroupdestipaddr", cipslaautogroupdestentry.Cipslaautogroupdestipaddr}
+    cipslaautogroupdestentry.EntityData.Leafs["cipslaAutoGroupDestPort"] = types.YLeaf{"Cipslaautogroupdestport", cipslaautogroupdestentry.Cipslaautogroupdestport}
+    cipslaautogroupdestentry.EntityData.Leafs["cipslaAutoGroupDestStorageType"] = types.YLeaf{"Cipslaautogroupdeststoragetype", cipslaautogroupdestentry.Cipslaautogroupdeststoragetype}
+    cipslaautogroupdestentry.EntityData.Leafs["cipslaAutoGroupDestRowStatus"] = types.YLeaf{"Cipslaautogroupdestrowstatus", cipslaautogroupdestentry.Cipslaautogroupdestrowstatus}
+    return &(cipslaautogroupdestentry.EntityData)
 }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetSegmentPath() string {
-    return "cipslaAutoGroupDestEntry" + "[cipslaAutoGroupDestName='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestname) + "']" + "[cipslaAutoGroupDestIpAddrType='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestipaddrtype) + "']" + "[cipslaAutoGroupDestIpAddr='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestipaddr) + "']" + "[cipslaAutoGroupDestPort='" + fmt.Sprintf("%v", cipslaautogroupdestentry.Cipslaautogroupdestport) + "']"
-}
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipslaAutoGroupDestName"] = cipslaautogroupdestentry.Cipslaautogroupdestname
-    leafs["cipslaAutoGroupDestIpAddrType"] = cipslaautogroupdestentry.Cipslaautogroupdestipaddrtype
-    leafs["cipslaAutoGroupDestIpAddr"] = cipslaautogroupdestentry.Cipslaautogroupdestipaddr
-    leafs["cipslaAutoGroupDestPort"] = cipslaautogroupdestentry.Cipslaautogroupdestport
-    leafs["cipslaAutoGroupDestStorageType"] = cipslaautogroupdestentry.Cipslaautogroupdeststoragetype
-    leafs["cipslaAutoGroupDestRowStatus"] = cipslaautogroupdestentry.Cipslaautogroupdestrowstatus
-    return leafs
-}
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetYangName() string { return "cipslaAutoGroupDestEntry" }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) SetParent(parent types.Entity) { cipslaautogroupdestentry.parent = parent }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetParent() types.Entity { return cipslaautogroupdestentry.parent }
-
-func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttable_Cipslaautogroupdestentry) GetParentYangName() string { return "cipslaAutoGroupDestTable" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable
 // A table that contains reaction configurations for templates.
@@ -523,7 +323,7 @@ func (cipslaautogroupdestentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupdesttabl
 // specified as cipslaReactVar based upon template type as some 
 // reaction types are applicable just for specific template types.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual reaction configuration
@@ -532,69 +332,30 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable struct {
     Cipslareactentry []CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry
 }
 
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetFilter() yfilter.YFilter { return cipslareacttable.YFilter }
+func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetEntityData() *types.CommonEntityData {
+    cipslareacttable.EntityData.YFilter = cipslareacttable.YFilter
+    cipslareacttable.EntityData.YangName = "cipslaReactTable"
+    cipslareacttable.EntityData.BundleName = "cisco_ios_xe"
+    cipslareacttable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
+    cipslareacttable.EntityData.SegmentPath = "cipslaReactTable"
+    cipslareacttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslareacttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslareacttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) SetFilter(yf yfilter.YFilter) { cipslareacttable.YFilter = yf }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetGoName(yname string) string {
-    if yname == "cipslaReactEntry" { return "Cipslareactentry" }
-    return ""
-}
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetSegmentPath() string {
-    return "cipslaReactTable"
-}
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaReactEntry" {
-        for _, c := range cipslareacttable.Cipslareactentry {
-            if cipslareacttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry{}
-        cipslareacttable.Cipslareactentry = append(cipslareacttable.Cipslareactentry, child)
-        return &cipslareacttable.Cipslareactentry[len(cipslareacttable.Cipslareactentry)-1]
-    }
-    return nil
-}
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipslareacttable.EntityData.Children = make(map[string]types.YChild)
+    cipslareacttable.EntityData.Children["cipslaReactEntry"] = types.YChild{"Cipslareactentry", nil}
     for i := range cipslareacttable.Cipslareactentry {
-        children[cipslareacttable.Cipslareactentry[i].GetSegmentPath()] = &cipslareacttable.Cipslareactentry[i]
+        cipslareacttable.EntityData.Children[types.GetSegmentPath(&cipslareacttable.Cipslareactentry[i])] = types.YChild{"Cipslareactentry", &cipslareacttable.Cipslareactentry[i]}
     }
-    return children
+    cipslareacttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipslareacttable.EntityData)
 }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetYangName() string { return "cipslaReactTable" }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) SetParent(parent types.Entity) { cipslareacttable.parent = parent }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetParent() types.Entity { return cipslareacttable.parent }
-
-func (cipslareacttable *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable) GetParentYangName() string { return "CISCO-IPSLA-AUTOMEASURE-MIB" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry
 // A base list of objects that define a conceptual reaction
 // configuration control row.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is IpSlaOperType. Refers to
@@ -742,73 +503,32 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry struct {
     Cipslareactrowstatus interface{}
 }
 
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetFilter() yfilter.YFilter { return cipslareactentry.YFilter }
+func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetEntityData() *types.CommonEntityData {
+    cipslareactentry.EntityData.YFilter = cipslareactentry.YFilter
+    cipslareactentry.EntityData.YangName = "cipslaReactEntry"
+    cipslareactentry.EntityData.BundleName = "cisco_ios_xe"
+    cipslareactentry.EntityData.ParentYangName = "cipslaReactTable"
+    cipslareactentry.EntityData.SegmentPath = "cipslaReactEntry" + "[cipslaAutoGroupOperType='" + fmt.Sprintf("%v", cipslareactentry.Cipslaautogroupopertype) + "']" + "[cipslaReactConfigIndex='" + fmt.Sprintf("%v", cipslareactentry.Cipslareactconfigindex) + "']" + "[cipslaAutoGroupOperTemplateName='" + fmt.Sprintf("%v", cipslareactentry.Cipslaautogroupopertemplatename) + "']"
+    cipslareactentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslareactentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslareactentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) SetFilter(yf yfilter.YFilter) { cipslareactentry.YFilter = yf }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupOperType" { return "Cipslaautogroupopertype" }
-    if yname == "cipslaReactConfigIndex" { return "Cipslareactconfigindex" }
-    if yname == "cipslaAutoGroupOperTemplateName" { return "Cipslaautogroupopertemplatename" }
-    if yname == "cipslaReactVar" { return "Cipslareactvar" }
-    if yname == "cipslaReactThresholdType" { return "Cipslareactthresholdtype" }
-    if yname == "cipslaReactActionType" { return "Cipslareactactiontype" }
-    if yname == "cipslaReactThresholdRising" { return "Cipslareactthresholdrising" }
-    if yname == "cipslaReactThresholdFalling" { return "Cipslareactthresholdfalling" }
-    if yname == "cipslaReactThresholdCountX" { return "Cipslareactthresholdcountx" }
-    if yname == "cipslaReactThresholdCountY" { return "Cipslareactthresholdcounty" }
-    if yname == "cipslaReactStorageType" { return "Cipslareactstoragetype" }
-    if yname == "cipslaReactRowStatus" { return "Cipslareactrowstatus" }
-    return ""
+    cipslareactentry.EntityData.Children = make(map[string]types.YChild)
+    cipslareactentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipslareactentry.EntityData.Leafs["cipslaAutoGroupOperType"] = types.YLeaf{"Cipslaautogroupopertype", cipslareactentry.Cipslaautogroupopertype}
+    cipslareactentry.EntityData.Leafs["cipslaReactConfigIndex"] = types.YLeaf{"Cipslareactconfigindex", cipslareactentry.Cipslareactconfigindex}
+    cipslareactentry.EntityData.Leafs["cipslaAutoGroupOperTemplateName"] = types.YLeaf{"Cipslaautogroupopertemplatename", cipslareactentry.Cipslaautogroupopertemplatename}
+    cipslareactentry.EntityData.Leafs["cipslaReactVar"] = types.YLeaf{"Cipslareactvar", cipslareactentry.Cipslareactvar}
+    cipslareactentry.EntityData.Leafs["cipslaReactThresholdType"] = types.YLeaf{"Cipslareactthresholdtype", cipslareactentry.Cipslareactthresholdtype}
+    cipslareactentry.EntityData.Leafs["cipslaReactActionType"] = types.YLeaf{"Cipslareactactiontype", cipslareactentry.Cipslareactactiontype}
+    cipslareactentry.EntityData.Leafs["cipslaReactThresholdRising"] = types.YLeaf{"Cipslareactthresholdrising", cipslareactentry.Cipslareactthresholdrising}
+    cipslareactentry.EntityData.Leafs["cipslaReactThresholdFalling"] = types.YLeaf{"Cipslareactthresholdfalling", cipslareactentry.Cipslareactthresholdfalling}
+    cipslareactentry.EntityData.Leafs["cipslaReactThresholdCountX"] = types.YLeaf{"Cipslareactthresholdcountx", cipslareactentry.Cipslareactthresholdcountx}
+    cipslareactentry.EntityData.Leafs["cipslaReactThresholdCountY"] = types.YLeaf{"Cipslareactthresholdcounty", cipslareactentry.Cipslareactthresholdcounty}
+    cipslareactentry.EntityData.Leafs["cipslaReactStorageType"] = types.YLeaf{"Cipslareactstoragetype", cipslareactentry.Cipslareactstoragetype}
+    cipslareactentry.EntityData.Leafs["cipslaReactRowStatus"] = types.YLeaf{"Cipslareactrowstatus", cipslareactentry.Cipslareactrowstatus}
+    return &(cipslareactentry.EntityData)
 }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetSegmentPath() string {
-    return "cipslaReactEntry" + "[cipslaAutoGroupOperType='" + fmt.Sprintf("%v", cipslareactentry.Cipslaautogroupopertype) + "']" + "[cipslaReactConfigIndex='" + fmt.Sprintf("%v", cipslareactentry.Cipslareactconfigindex) + "']" + "[cipslaAutoGroupOperTemplateName='" + fmt.Sprintf("%v", cipslareactentry.Cipslaautogroupopertemplatename) + "']"
-}
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipslaAutoGroupOperType"] = cipslareactentry.Cipslaautogroupopertype
-    leafs["cipslaReactConfigIndex"] = cipslareactentry.Cipslareactconfigindex
-    leafs["cipslaAutoGroupOperTemplateName"] = cipslareactentry.Cipslaautogroupopertemplatename
-    leafs["cipslaReactVar"] = cipslareactentry.Cipslareactvar
-    leafs["cipslaReactThresholdType"] = cipslareactentry.Cipslareactthresholdtype
-    leafs["cipslaReactActionType"] = cipslareactentry.Cipslareactactiontype
-    leafs["cipslaReactThresholdRising"] = cipslareactentry.Cipslareactthresholdrising
-    leafs["cipslaReactThresholdFalling"] = cipslareactentry.Cipslareactthresholdfalling
-    leafs["cipslaReactThresholdCountX"] = cipslareactentry.Cipslareactthresholdcountx
-    leafs["cipslaReactThresholdCountY"] = cipslareactentry.Cipslareactthresholdcounty
-    leafs["cipslaReactStorageType"] = cipslareactentry.Cipslareactstoragetype
-    leafs["cipslaReactRowStatus"] = cipslareactentry.Cipslareactrowstatus
-    return leafs
-}
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetYangName() string { return "cipslaReactEntry" }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) SetParent(parent types.Entity) { cipslareactentry.parent = parent }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetParent() types.Entity { return cipslareactentry.parent }
-
-func (cipslareactentry *CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry) GetParentYangName() string { return "cipslaReactTable" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry_Cipslareactactiontype represents notificationOnly(2)    - a notification is generated
 type CISCOIPSLAAUTOMEASUREMIB_Cipslareacttable_Cipslareactentry_Cipslareactactiontype string
@@ -837,7 +557,7 @@ const (
 // CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable
 // A table of group scheduling definitions.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for group scheduling.
@@ -846,69 +566,30 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable struct {
     Cipslaautogroupschedentry []CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry
 }
 
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetFilter() yfilter.YFilter { return cipslaautogroupschedtable.YFilter }
+func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetEntityData() *types.CommonEntityData {
+    cipslaautogroupschedtable.EntityData.YFilter = cipslaautogroupschedtable.YFilter
+    cipslaautogroupschedtable.EntityData.YangName = "cipslaAutoGroupSchedTable"
+    cipslaautogroupschedtable.EntityData.BundleName = "cisco_ios_xe"
+    cipslaautogroupschedtable.EntityData.ParentYangName = "CISCO-IPSLA-AUTOMEASURE-MIB"
+    cipslaautogroupschedtable.EntityData.SegmentPath = "cipslaAutoGroupSchedTable"
+    cipslaautogroupschedtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaautogroupschedtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaautogroupschedtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) SetFilter(yf yfilter.YFilter) { cipslaautogroupschedtable.YFilter = yf }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupSchedEntry" { return "Cipslaautogroupschedentry" }
-    return ""
-}
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetSegmentPath() string {
-    return "cipslaAutoGroupSchedTable"
-}
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipslaAutoGroupSchedEntry" {
-        for _, c := range cipslaautogroupschedtable.Cipslaautogroupschedentry {
-            if cipslaautogroupschedtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry{}
-        cipslaautogroupschedtable.Cipslaautogroupschedentry = append(cipslaautogroupschedtable.Cipslaautogroupschedentry, child)
-        return &cipslaautogroupschedtable.Cipslaautogroupschedentry[len(cipslaautogroupschedtable.Cipslaautogroupschedentry)-1]
-    }
-    return nil
-}
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipslaautogroupschedtable.EntityData.Children = make(map[string]types.YChild)
+    cipslaautogroupschedtable.EntityData.Children["cipslaAutoGroupSchedEntry"] = types.YChild{"Cipslaautogroupschedentry", nil}
     for i := range cipslaautogroupschedtable.Cipslaautogroupschedentry {
-        children[cipslaautogroupschedtable.Cipslaautogroupschedentry[i].GetSegmentPath()] = &cipslaautogroupschedtable.Cipslaautogroupschedentry[i]
+        cipslaautogroupschedtable.EntityData.Children[types.GetSegmentPath(&cipslaautogroupschedtable.Cipslaautogroupschedentry[i])] = types.YChild{"Cipslaautogroupschedentry", &cipslaautogroupschedtable.Cipslaautogroupschedentry[i]}
     }
-    return children
+    cipslaautogroupschedtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipslaautogroupschedtable.EntityData)
 }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetYangName() string { return "cipslaAutoGroupSchedTable" }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) SetParent(parent types.Entity) { cipslaautogroupschedtable.parent = parent }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetParent() types.Entity { return cipslaautogroupschedtable.parent }
-
-func (cipslaautogroupschedtable *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable) GetParentYangName() string { return "CISCO-IPSLA-AUTOMEASURE-MIB" }
 
 // CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry
 // A list of objects that define specific configuration for
 // group scheduling.
 type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This string uniquely identifies a row in the
@@ -974,67 +655,28 @@ type CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentr
     Cipslaautogroupschedrowstatus interface{}
 }
 
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetFilter() yfilter.YFilter { return cipslaautogroupschedentry.YFilter }
+func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetEntityData() *types.CommonEntityData {
+    cipslaautogroupschedentry.EntityData.YFilter = cipslaautogroupschedentry.YFilter
+    cipslaautogroupschedentry.EntityData.YangName = "cipslaAutoGroupSchedEntry"
+    cipslaautogroupschedentry.EntityData.BundleName = "cisco_ios_xe"
+    cipslaautogroupschedentry.EntityData.ParentYangName = "cipslaAutoGroupSchedTable"
+    cipslaautogroupschedentry.EntityData.SegmentPath = "cipslaAutoGroupSchedEntry" + "[cipslaAutoGroupSchedId='" + fmt.Sprintf("%v", cipslaautogroupschedentry.Cipslaautogroupschedid) + "']"
+    cipslaautogroupschedentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipslaautogroupschedentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipslaautogroupschedentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) SetFilter(yf yfilter.YFilter) { cipslaautogroupschedentry.YFilter = yf }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetGoName(yname string) string {
-    if yname == "cipslaAutoGroupSchedId" { return "Cipslaautogroupschedid" }
-    if yname == "cipslaAutoGroupSchedPeriod" { return "Cipslaautogroupschedperiod" }
-    if yname == "cipslaAutoGroupSchedInterval" { return "Cipslaautogroupschedinterval" }
-    if yname == "cipslaAutoGroupSchedLife" { return "Cipslaautogroupschedlife" }
-    if yname == "cipslaAutoGroupSchedAgeout" { return "Cipslaautogroupschedageout" }
-    if yname == "cipslaAutoGroupSchedMaxInterval" { return "Cipslaautogroupschedmaxinterval" }
-    if yname == "cipslaAutoGroupSchedMinInterval" { return "Cipslaautogroupschedmininterval" }
-    if yname == "cipslaAutoGroupSchedStartTime" { return "Cipslaautogroupschedstarttime" }
-    if yname == "cipslaAutoGroupSchedStorageType" { return "Cipslaautogroupschedstoragetype" }
-    if yname == "cipslaAutoGroupSchedRowStatus" { return "Cipslaautogroupschedrowstatus" }
-    return ""
+    cipslaautogroupschedentry.EntityData.Children = make(map[string]types.YChild)
+    cipslaautogroupschedentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedId"] = types.YLeaf{"Cipslaautogroupschedid", cipslaautogroupschedentry.Cipslaautogroupschedid}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedPeriod"] = types.YLeaf{"Cipslaautogroupschedperiod", cipslaautogroupschedentry.Cipslaautogroupschedperiod}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedInterval"] = types.YLeaf{"Cipslaautogroupschedinterval", cipslaautogroupschedentry.Cipslaautogroupschedinterval}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedLife"] = types.YLeaf{"Cipslaautogroupschedlife", cipslaautogroupschedentry.Cipslaautogroupschedlife}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedAgeout"] = types.YLeaf{"Cipslaautogroupschedageout", cipslaautogroupschedentry.Cipslaautogroupschedageout}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedMaxInterval"] = types.YLeaf{"Cipslaautogroupschedmaxinterval", cipslaautogroupschedentry.Cipslaautogroupschedmaxinterval}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedMinInterval"] = types.YLeaf{"Cipslaautogroupschedmininterval", cipslaautogroupschedentry.Cipslaautogroupschedmininterval}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedStartTime"] = types.YLeaf{"Cipslaautogroupschedstarttime", cipslaautogroupschedentry.Cipslaautogroupschedstarttime}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedStorageType"] = types.YLeaf{"Cipslaautogroupschedstoragetype", cipslaautogroupschedentry.Cipslaautogroupschedstoragetype}
+    cipslaautogroupschedentry.EntityData.Leafs["cipslaAutoGroupSchedRowStatus"] = types.YLeaf{"Cipslaautogroupschedrowstatus", cipslaautogroupschedentry.Cipslaautogroupschedrowstatus}
+    return &(cipslaautogroupschedentry.EntityData)
 }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetSegmentPath() string {
-    return "cipslaAutoGroupSchedEntry" + "[cipslaAutoGroupSchedId='" + fmt.Sprintf("%v", cipslaautogroupschedentry.Cipslaautogroupschedid) + "']"
-}
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipslaAutoGroupSchedId"] = cipslaautogroupschedentry.Cipslaautogroupschedid
-    leafs["cipslaAutoGroupSchedPeriod"] = cipslaautogroupschedentry.Cipslaautogroupschedperiod
-    leafs["cipslaAutoGroupSchedInterval"] = cipslaautogroupschedentry.Cipslaautogroupschedinterval
-    leafs["cipslaAutoGroupSchedLife"] = cipslaautogroupschedentry.Cipslaautogroupschedlife
-    leafs["cipslaAutoGroupSchedAgeout"] = cipslaautogroupschedentry.Cipslaautogroupschedageout
-    leafs["cipslaAutoGroupSchedMaxInterval"] = cipslaautogroupschedentry.Cipslaautogroupschedmaxinterval
-    leafs["cipslaAutoGroupSchedMinInterval"] = cipslaautogroupschedentry.Cipslaautogroupschedmininterval
-    leafs["cipslaAutoGroupSchedStartTime"] = cipslaautogroupschedentry.Cipslaautogroupschedstarttime
-    leafs["cipslaAutoGroupSchedStorageType"] = cipslaautogroupschedentry.Cipslaautogroupschedstoragetype
-    leafs["cipslaAutoGroupSchedRowStatus"] = cipslaautogroupschedentry.Cipslaautogroupschedrowstatus
-    return leafs
-}
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetYangName() string { return "cipslaAutoGroupSchedEntry" }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) SetParent(parent types.Entity) { cipslaautogroupschedentry.parent = parent }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetParent() types.Entity { return cipslaautogroupschedentry.parent }
-
-func (cipslaautogroupschedentry *CISCOIPSLAAUTOMEASUREMIB_Cipslaautogroupschedtable_Cipslaautogroupschedentry) GetParentYangName() string { return "cipslaAutoGroupSchedTable" }
 

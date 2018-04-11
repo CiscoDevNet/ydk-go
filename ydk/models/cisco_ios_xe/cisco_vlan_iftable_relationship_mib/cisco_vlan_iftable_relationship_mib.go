@@ -24,7 +24,7 @@ func init() {
 
 // CISCOVLANIFTABLERELATIONSHIPMIB
 type CISCOVLANIFTABLERELATIONSHIPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The cviVlanInterfaceIndexTable provides a way to translate a VLAN-id in to
@@ -38,54 +38,21 @@ type CISCOVLANIFTABLERELATIONSHIPMIB struct {
     Cvivlaninterfaceindextable CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable
 }
 
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetFilter() yfilter.YFilter { return cISCOVLANIFTABLERELATIONSHIPMIB.YFilter }
+func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.YFilter = cISCOVLANIFTABLERELATIONSHIPMIB.YFilter
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.YangName = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.ParentYangName = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.SegmentPath = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) SetFilter(yf yfilter.YFilter) { cISCOVLANIFTABLERELATIONSHIPMIB.YFilter = yf }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetGoName(yname string) string {
-    if yname == "cviVlanInterfaceIndexTable" { return "Cvivlaninterfaceindextable" }
-    return ""
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.Children["cviVlanInterfaceIndexTable"] = types.YChild{"Cvivlaninterfaceindextable", &cISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable}
+    cISCOVLANIFTABLERELATIONSHIPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOVLANIFTABLERELATIONSHIPMIB.EntityData)
 }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetSegmentPath() string {
-    return "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
-}
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cviVlanInterfaceIndexTable" {
-        return &cISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable
-    }
-    return nil
-}
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cviVlanInterfaceIndexTable"] = &cISCOVLANIFTABLERELATIONSHIPMIB.Cvivlaninterfaceindextable
-    return children
-}
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetYangName() string { return "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB" }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) SetParent(parent types.Entity) { cISCOVLANIFTABLERELATIONSHIPMIB.parent = parent }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetParent() types.Entity { return cISCOVLANIFTABLERELATIONSHIPMIB.parent }
-
-func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetParentYangName() string { return "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB" }
 
 // CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable
 // The cviVlanInterfaceIndexTable provides a way to
@@ -102,7 +69,7 @@ func (cISCOVLANIFTABLERELATIONSHIPMIB *CISCOVLANIFTABLERELATIONSHIPMIB) GetParen
 // The cviVlanInterfaceIndexTable also provides a way
 // to find the VLAN-id from an ifTable VLAN's ifIndex.
 type CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents a routed VLAN interface, its corresponding physical
@@ -116,63 +83,24 @@ type CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable struct {
     Cvivlaninterfaceindexentry []CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry
 }
 
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetFilter() yfilter.YFilter { return cvivlaninterfaceindextable.YFilter }
+func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetEntityData() *types.CommonEntityData {
+    cvivlaninterfaceindextable.EntityData.YFilter = cvivlaninterfaceindextable.YFilter
+    cvivlaninterfaceindextable.EntityData.YangName = "cviVlanInterfaceIndexTable"
+    cvivlaninterfaceindextable.EntityData.BundleName = "cisco_ios_xe"
+    cvivlaninterfaceindextable.EntityData.ParentYangName = "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
+    cvivlaninterfaceindextable.EntityData.SegmentPath = "cviVlanInterfaceIndexTable"
+    cvivlaninterfaceindextable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvivlaninterfaceindextable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvivlaninterfaceindextable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) SetFilter(yf yfilter.YFilter) { cvivlaninterfaceindextable.YFilter = yf }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetGoName(yname string) string {
-    if yname == "cviVlanInterfaceIndexEntry" { return "Cvivlaninterfaceindexentry" }
-    return ""
-}
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetSegmentPath() string {
-    return "cviVlanInterfaceIndexTable"
-}
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cviVlanInterfaceIndexEntry" {
-        for _, c := range cvivlaninterfaceindextable.Cvivlaninterfaceindexentry {
-            if cvivlaninterfaceindextable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry{}
-        cvivlaninterfaceindextable.Cvivlaninterfaceindexentry = append(cvivlaninterfaceindextable.Cvivlaninterfaceindexentry, child)
-        return &cvivlaninterfaceindextable.Cvivlaninterfaceindexentry[len(cvivlaninterfaceindextable.Cvivlaninterfaceindexentry)-1]
-    }
-    return nil
-}
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvivlaninterfaceindextable.EntityData.Children = make(map[string]types.YChild)
+    cvivlaninterfaceindextable.EntityData.Children["cviVlanInterfaceIndexEntry"] = types.YChild{"Cvivlaninterfaceindexentry", nil}
     for i := range cvivlaninterfaceindextable.Cvivlaninterfaceindexentry {
-        children[cvivlaninterfaceindextable.Cvivlaninterfaceindexentry[i].GetSegmentPath()] = &cvivlaninterfaceindextable.Cvivlaninterfaceindexentry[i]
+        cvivlaninterfaceindextable.EntityData.Children[types.GetSegmentPath(&cvivlaninterfaceindextable.Cvivlaninterfaceindexentry[i])] = types.YChild{"Cvivlaninterfaceindexentry", &cvivlaninterfaceindextable.Cvivlaninterfaceindexentry[i]}
     }
-    return children
+    cvivlaninterfaceindextable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvivlaninterfaceindextable.EntityData)
 }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetYangName() string { return "cviVlanInterfaceIndexTable" }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) SetParent(parent types.Entity) { cvivlaninterfaceindextable.parent = parent }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetParent() types.Entity { return cvivlaninterfaceindextable.parent }
-
-func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable) GetParentYangName() string { return "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB" }
 
 // CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry
 // Each entry represents a routed VLAN interface, its
@@ -187,7 +115,7 @@ func (cvivlaninterfaceindextable *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfa
 // Entries are deleted by the agent when the routed VLAN interface
 // is removed from the system configuration.
 type CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The VLAN-id number of the routed VLAN interface.
@@ -205,53 +133,21 @@ type CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterface
     Cviroutedvlanifindex interface{}
 }
 
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetFilter() yfilter.YFilter { return cvivlaninterfaceindexentry.YFilter }
+func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetEntityData() *types.CommonEntityData {
+    cvivlaninterfaceindexentry.EntityData.YFilter = cvivlaninterfaceindexentry.YFilter
+    cvivlaninterfaceindexentry.EntityData.YangName = "cviVlanInterfaceIndexEntry"
+    cvivlaninterfaceindexentry.EntityData.BundleName = "cisco_ios_xe"
+    cvivlaninterfaceindexentry.EntityData.ParentYangName = "cviVlanInterfaceIndexTable"
+    cvivlaninterfaceindexentry.EntityData.SegmentPath = "cviVlanInterfaceIndexEntry" + "[cviVlanId='" + fmt.Sprintf("%v", cvivlaninterfaceindexentry.Cvivlanid) + "']" + "[cviPhysicalIfIndex='" + fmt.Sprintf("%v", cvivlaninterfaceindexentry.Cviphysicalifindex) + "']"
+    cvivlaninterfaceindexentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvivlaninterfaceindexentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvivlaninterfaceindexentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) SetFilter(yf yfilter.YFilter) { cvivlaninterfaceindexentry.YFilter = yf }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetGoName(yname string) string {
-    if yname == "cviVlanId" { return "Cvivlanid" }
-    if yname == "cviPhysicalIfIndex" { return "Cviphysicalifindex" }
-    if yname == "cviRoutedVlanIfIndex" { return "Cviroutedvlanifindex" }
-    return ""
+    cvivlaninterfaceindexentry.EntityData.Children = make(map[string]types.YChild)
+    cvivlaninterfaceindexentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvivlaninterfaceindexentry.EntityData.Leafs["cviVlanId"] = types.YLeaf{"Cvivlanid", cvivlaninterfaceindexentry.Cvivlanid}
+    cvivlaninterfaceindexentry.EntityData.Leafs["cviPhysicalIfIndex"] = types.YLeaf{"Cviphysicalifindex", cvivlaninterfaceindexentry.Cviphysicalifindex}
+    cvivlaninterfaceindexentry.EntityData.Leafs["cviRoutedVlanIfIndex"] = types.YLeaf{"Cviroutedvlanifindex", cvivlaninterfaceindexentry.Cviroutedvlanifindex}
+    return &(cvivlaninterfaceindexentry.EntityData)
 }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetSegmentPath() string {
-    return "cviVlanInterfaceIndexEntry" + "[cviVlanId='" + fmt.Sprintf("%v", cvivlaninterfaceindexentry.Cvivlanid) + "']" + "[cviPhysicalIfIndex='" + fmt.Sprintf("%v", cvivlaninterfaceindexentry.Cviphysicalifindex) + "']"
-}
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cviVlanId"] = cvivlaninterfaceindexentry.Cvivlanid
-    leafs["cviPhysicalIfIndex"] = cvivlaninterfaceindexentry.Cviphysicalifindex
-    leafs["cviRoutedVlanIfIndex"] = cvivlaninterfaceindexentry.Cviroutedvlanifindex
-    return leafs
-}
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetYangName() string { return "cviVlanInterfaceIndexEntry" }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) SetParent(parent types.Entity) { cvivlaninterfaceindexentry.parent = parent }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetParent() types.Entity { return cvivlaninterfaceindexentry.parent }
-
-func (cvivlaninterfaceindexentry *CISCOVLANIFTABLERELATIONSHIPMIB_Cvivlaninterfaceindextable_Cvivlaninterfaceindexentry) GetParentYangName() string { return "cviVlanInterfaceIndexTable" }
 

@@ -24,6 +24,92 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session", reflect.TypeOf(SpanMonitorSession{}))
 }
 
+// MirrorInterval represents Monitor-session mirror intervals
+type MirrorInterval string
+
+const (
+    // Mirror all packets
+    MirrorInterval_mirror_interval_all MirrorInterval = "mirror-interval-all"
+
+    // Mirror Interval 512
+    MirrorInterval_mirror_interval512 MirrorInterval = "mirror-interval512"
+
+    // Mirror Interval 1K
+    MirrorInterval_mirror_interval1k MirrorInterval = "mirror-interval1k"
+
+    // Mirror Interval 2K
+    MirrorInterval_mirror_interval2k MirrorInterval = "mirror-interval2k"
+
+    // Mirror Interval 4K
+    MirrorInterval_mirror_interval4k MirrorInterval = "mirror-interval4k"
+
+    // Mirror Interval 8K
+    MirrorInterval_mirror_interval8k MirrorInterval = "mirror-interval8k"
+
+    // Mirror Interval 16K
+    MirrorInterval_mirror_interval16k MirrorInterval = "mirror-interval16k"
+)
+
+// TrafficDirection represents Monitor-session traffic directions
+type TrafficDirection string
+
+const (
+    // Invalid
+    TrafficDirection_invalid TrafficDirection = "invalid"
+
+    // Received
+    TrafficDirection_rx_only TrafficDirection = "rx-only"
+
+    // Transmitted
+    TrafficDirection_tx_only TrafficDirection = "tx-only"
+
+    // Both
+    TrafficDirection_both TrafficDirection = "both"
+)
+
+// DestinationClass represents Destination class
+type DestinationClass string
+
+const (
+    // Destination is an interface
+    DestinationClass_interface_class DestinationClass = "interface-class"
+
+    // Destination is a pseudowire
+    DestinationClass_pseudowire_class DestinationClass = "pseudowire-class"
+
+    // Destination is a next-hop IPv4 address
+    DestinationClass_next_hop_ipv4_class DestinationClass = "next-hop-ipv4-class"
+
+    // Destination is a next-hop IPv6 address
+    DestinationClass_next_hop_ipv6_class DestinationClass = "next-hop-ipv6-class"
+
+    // Destination is not specified
+    DestinationClass_invalid_class DestinationClass = "invalid-class"
+)
+
+// SessionClass represents Session class
+type SessionClass string
+
+const (
+    // Ethernet mirroring session
+    SessionClass_ethernet_class SessionClass = "ethernet-class"
+
+    // IPv4 mirroring session
+    SessionClass_ipv4_class SessionClass = "ipv4-class"
+
+    // IPv6 mirroring session
+    SessionClass_ipv6_class SessionClass = "ipv6-class"
+
+    // MPLS-IPv4 mirroring session
+    SessionClass_mplsipv4_class SessionClass = "mplsipv4-class"
+
+    // MPLS-IPv6 mirroring session
+    SessionClass_mplsipv6_class SessionClass = "mplsipv6-class"
+
+    // Invalid session class
+    SessionClass_invalid_class SessionClass = "invalid-class"
+)
+
 // ImStateEnum represents Im state enum
 type ImStateEnum string
 
@@ -86,96 +172,10 @@ const (
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
 )
 
-// DestinationClass represents Destination class
-type DestinationClass string
-
-const (
-    // Destination is an interface
-    DestinationClass_interface_class DestinationClass = "interface-class"
-
-    // Destination is a pseudowire
-    DestinationClass_pseudowire_class DestinationClass = "pseudowire-class"
-
-    // Destination is a next-hop IPv4 address
-    DestinationClass_next_hop_ipv4_class DestinationClass = "next-hop-ipv4-class"
-
-    // Destination is a next-hop IPv6 address
-    DestinationClass_next_hop_ipv6_class DestinationClass = "next-hop-ipv6-class"
-
-    // Destination is not specified
-    DestinationClass_invalid_class DestinationClass = "invalid-class"
-)
-
-// TrafficDirection represents Monitor-session traffic directions
-type TrafficDirection string
-
-const (
-    // Invalid
-    TrafficDirection_invalid TrafficDirection = "invalid"
-
-    // Received
-    TrafficDirection_rx_only TrafficDirection = "rx-only"
-
-    // Transmitted
-    TrafficDirection_tx_only TrafficDirection = "tx-only"
-
-    // Both
-    TrafficDirection_both TrafficDirection = "both"
-)
-
-// SessionClass represents Session class
-type SessionClass string
-
-const (
-    // Ethernet mirroring session
-    SessionClass_ethernet_class SessionClass = "ethernet-class"
-
-    // IPv4 mirroring session
-    SessionClass_ipv4_class SessionClass = "ipv4-class"
-
-    // IPv6 mirroring session
-    SessionClass_ipv6_class SessionClass = "ipv6-class"
-
-    // MPLS-IPv4 mirroring session
-    SessionClass_mplsipv4_class SessionClass = "mplsipv4-class"
-
-    // MPLS-IPv6 mirroring session
-    SessionClass_mplsipv6_class SessionClass = "mplsipv6-class"
-
-    // Invalid session class
-    SessionClass_invalid_class SessionClass = "invalid-class"
-)
-
-// MirrorInterval represents Monitor-session mirror intervals
-type MirrorInterval string
-
-const (
-    // Mirror all packets
-    MirrorInterval_mirror_interval_all MirrorInterval = "mirror-interval-all"
-
-    // Mirror Interval 512
-    MirrorInterval_mirror_interval512 MirrorInterval = "mirror-interval512"
-
-    // Mirror Interval 1K
-    MirrorInterval_mirror_interval1k MirrorInterval = "mirror-interval1k"
-
-    // Mirror Interval 2K
-    MirrorInterval_mirror_interval2k MirrorInterval = "mirror-interval2k"
-
-    // Mirror Interval 4K
-    MirrorInterval_mirror_interval4k MirrorInterval = "mirror-interval4k"
-
-    // Mirror Interval 8K
-    MirrorInterval_mirror_interval8k MirrorInterval = "mirror-interval8k"
-
-    // Mirror Interval 16K
-    MirrorInterval_mirror_interval16k MirrorInterval = "mirror-interval16k"
-)
-
 // SpanMonitorSession
 // Monitor Session operational data
 type SpanMonitorSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Global operational data.
@@ -185,64 +185,27 @@ type SpanMonitorSession struct {
     Nodes SpanMonitorSession_Nodes
 }
 
-func (spanMonitorSession *SpanMonitorSession) GetFilter() yfilter.YFilter { return spanMonitorSession.YFilter }
+func (spanMonitorSession *SpanMonitorSession) GetEntityData() *types.CommonEntityData {
+    spanMonitorSession.EntityData.YFilter = spanMonitorSession.YFilter
+    spanMonitorSession.EntityData.YangName = "span-monitor-session"
+    spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSession.EntityData.ParentYangName = "Cisco-IOS-XR-Ethernet-SPAN-oper"
+    spanMonitorSession.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session"
+    spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSession *SpanMonitorSession) SetFilter(yf yfilter.YFilter) { spanMonitorSession.YFilter = yf }
-
-func (spanMonitorSession *SpanMonitorSession) GetGoName(yname string) string {
-    if yname == "global" { return "Global" }
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    spanMonitorSession.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSession.EntityData.Children["global"] = types.YChild{"Global", &spanMonitorSession.Global}
+    spanMonitorSession.EntityData.Children["nodes"] = types.YChild{"Nodes", &spanMonitorSession.Nodes}
+    spanMonitorSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(spanMonitorSession.EntityData)
 }
-
-func (spanMonitorSession *SpanMonitorSession) GetSegmentPath() string {
-    return "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session"
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "global" {
-        return &spanMonitorSession.Global
-    }
-    if childYangName == "nodes" {
-        return &spanMonitorSession.Nodes
-    }
-    return nil
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["global"] = &spanMonitorSession.Global
-    children["nodes"] = &spanMonitorSession.Nodes
-    return children
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSession *SpanMonitorSession) GetYangName() string { return "span-monitor-session" }
-
-func (spanMonitorSession *SpanMonitorSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSession *SpanMonitorSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSession *SpanMonitorSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSession *SpanMonitorSession) SetParent(parent types.Entity) { spanMonitorSession.parent = parent }
-
-func (spanMonitorSession *SpanMonitorSession) GetParent() types.Entity { return spanMonitorSession.parent }
-
-func (spanMonitorSession *SpanMonitorSession) GetParentYangName() string { return "Cisco-IOS-XR-Ethernet-SPAN-oper" }
 
 // SpanMonitorSession_Global
 // Global operational data
 type SpanMonitorSession_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of statistics for source interfaces.
@@ -252,64 +215,27 @@ type SpanMonitorSession_Global struct {
     GlobalSessions SpanMonitorSession_Global_GlobalSessions
 }
 
-func (global *SpanMonitorSession_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *SpanMonitorSession_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "span-monitor-session"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *SpanMonitorSession_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *SpanMonitorSession_Global) GetGoName(yname string) string {
-    if yname == "statistics" { return "Statistics" }
-    if yname == "global-sessions" { return "GlobalSessions" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Children["statistics"] = types.YChild{"Statistics", &global.Statistics}
+    global.EntityData.Children["global-sessions"] = types.YChild{"GlobalSessions", &global.GlobalSessions}
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(global.EntityData)
 }
-
-func (global *SpanMonitorSession_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *SpanMonitorSession_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &global.Statistics
-    }
-    if childYangName == "global-sessions" {
-        return &global.GlobalSessions
-    }
-    return nil
-}
-
-func (global *SpanMonitorSession_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &global.Statistics
-    children["global-sessions"] = &global.GlobalSessions
-    return children
-}
-
-func (global *SpanMonitorSession_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (global *SpanMonitorSession_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *SpanMonitorSession_Global) GetYangName() string { return "global" }
-
-func (global *SpanMonitorSession_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *SpanMonitorSession_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *SpanMonitorSession_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *SpanMonitorSession_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *SpanMonitorSession_Global) GetParent() types.Entity { return global.parent }
-
-func (global *SpanMonitorSession_Global) GetParentYangName() string { return "span-monitor-session" }
 
 // SpanMonitorSession_Global_Statistics
 // Table of statistics for source interfaces
 type SpanMonitorSession_Global_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics for a particular source interface. The type is slice of
@@ -317,68 +243,29 @@ type SpanMonitorSession_Global_Statistics struct {
     Statistic []SpanMonitorSession_Global_Statistics_Statistic
 }
 
-func (statistics *SpanMonitorSession_Global_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *SpanMonitorSession_Global_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "global"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *SpanMonitorSession_Global_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetGoName(yname string) string {
-    if yname == "statistic" { return "Statistic" }
-    return ""
-}
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistic" {
-        for _, c := range statistics.Statistic {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Global_Statistics_Statistic{}
-        statistics.Statistic = append(statistics.Statistic, child)
-        return &statistics.Statistic[len(statistics.Statistic)-1]
-    }
-    return nil
-}
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["statistic"] = types.YChild{"Statistic", nil}
     for i := range statistics.Statistic {
-        children[statistics.Statistic[i].GetSegmentPath()] = &statistics.Statistic[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.Statistic[i])] = types.YChild{"Statistic", &statistics.Statistic[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *SpanMonitorSession_Global_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *SpanMonitorSession_Global_Statistics) GetParentYangName() string { return "global" }
 
 // SpanMonitorSession_Global_Statistics_Statistic
 // Statistics for a particular source interface
 type SpanMonitorSession_Global_Statistics_Statistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Name. The type is string with length:
@@ -386,8 +273,8 @@ type SpanMonitorSession_Global_Statistics_Statistic struct {
     Session interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // RX Packets Mirrored. The type is interface{} with range:
     // 0..18446744073709551615.
@@ -414,70 +301,33 @@ type SpanMonitorSession_Global_Statistics_Statistic struct {
     OctetsNotMirrored interface{}
 }
 
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetFilter() yfilter.YFilter { return statistic.YFilter }
+func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetEntityData() *types.CommonEntityData {
+    statistic.EntityData.YFilter = statistic.YFilter
+    statistic.EntityData.YangName = "statistic"
+    statistic.EntityData.BundleName = "cisco_ios_xr"
+    statistic.EntityData.ParentYangName = "statistics"
+    statistic.EntityData.SegmentPath = "statistic" + "[session='" + fmt.Sprintf("%v", statistic.Session) + "']" + "[interface='" + fmt.Sprintf("%v", statistic.Interface_) + "']"
+    statistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) SetFilter(yf yfilter.YFilter) { statistic.YFilter = yf }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    if yname == "interface" { return "Interface" }
-    if yname == "rx-packets-mirrored" { return "RxPacketsMirrored" }
-    if yname == "rx-octets-mirrored" { return "RxOctetsMirrored" }
-    if yname == "tx-packets-mirrored" { return "TxPacketsMirrored" }
-    if yname == "tx-octets-mirrored" { return "TxOctetsMirrored" }
-    if yname == "packets-not-mirrored" { return "PacketsNotMirrored" }
-    if yname == "octets-not-mirrored" { return "OctetsNotMirrored" }
-    return ""
+    statistic.EntityData.Children = make(map[string]types.YChild)
+    statistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistic.EntityData.Leafs["session"] = types.YLeaf{"Session", statistic.Session}
+    statistic.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", statistic.Interface_}
+    statistic.EntityData.Leafs["rx-packets-mirrored"] = types.YLeaf{"RxPacketsMirrored", statistic.RxPacketsMirrored}
+    statistic.EntityData.Leafs["rx-octets-mirrored"] = types.YLeaf{"RxOctetsMirrored", statistic.RxOctetsMirrored}
+    statistic.EntityData.Leafs["tx-packets-mirrored"] = types.YLeaf{"TxPacketsMirrored", statistic.TxPacketsMirrored}
+    statistic.EntityData.Leafs["tx-octets-mirrored"] = types.YLeaf{"TxOctetsMirrored", statistic.TxOctetsMirrored}
+    statistic.EntityData.Leafs["packets-not-mirrored"] = types.YLeaf{"PacketsNotMirrored", statistic.PacketsNotMirrored}
+    statistic.EntityData.Leafs["octets-not-mirrored"] = types.YLeaf{"OctetsNotMirrored", statistic.OctetsNotMirrored}
+    return &(statistic.EntityData)
 }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetSegmentPath() string {
-    return "statistic" + "[session='" + fmt.Sprintf("%v", statistic.Session) + "']" + "[interface='" + fmt.Sprintf("%v", statistic.Interface) + "']"
-}
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session"] = statistic.Session
-    leafs["interface"] = statistic.Interface
-    leafs["rx-packets-mirrored"] = statistic.RxPacketsMirrored
-    leafs["rx-octets-mirrored"] = statistic.RxOctetsMirrored
-    leafs["tx-packets-mirrored"] = statistic.TxPacketsMirrored
-    leafs["tx-octets-mirrored"] = statistic.TxOctetsMirrored
-    leafs["packets-not-mirrored"] = statistic.PacketsNotMirrored
-    leafs["octets-not-mirrored"] = statistic.OctetsNotMirrored
-    return leafs
-}
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetYangName() string { return "statistic" }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) SetParent(parent types.Entity) { statistic.parent = parent }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetParent() types.Entity { return statistic.parent }
-
-func (statistic *SpanMonitorSession_Global_Statistics_Statistic) GetParentYangName() string { return "statistics" }
 
 // SpanMonitorSession_Global_GlobalSessions
 // Global Monitor Sessions table
 type SpanMonitorSession_Global_GlobalSessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a globally-configured monitor session. The type is slice
@@ -485,69 +335,30 @@ type SpanMonitorSession_Global_GlobalSessions struct {
     GlobalSession []SpanMonitorSession_Global_GlobalSessions_GlobalSession
 }
 
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetFilter() yfilter.YFilter { return globalSessions.YFilter }
+func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetEntityData() *types.CommonEntityData {
+    globalSessions.EntityData.YFilter = globalSessions.YFilter
+    globalSessions.EntityData.YangName = "global-sessions"
+    globalSessions.EntityData.BundleName = "cisco_ios_xr"
+    globalSessions.EntityData.ParentYangName = "global"
+    globalSessions.EntityData.SegmentPath = "global-sessions"
+    globalSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    globalSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    globalSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) SetFilter(yf yfilter.YFilter) { globalSessions.YFilter = yf }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetGoName(yname string) string {
-    if yname == "global-session" { return "GlobalSession" }
-    return ""
-}
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetSegmentPath() string {
-    return "global-sessions"
-}
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "global-session" {
-        for _, c := range globalSessions.GlobalSession {
-            if globalSessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Global_GlobalSessions_GlobalSession{}
-        globalSessions.GlobalSession = append(globalSessions.GlobalSession, child)
-        return &globalSessions.GlobalSession[len(globalSessions.GlobalSession)-1]
-    }
-    return nil
-}
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    globalSessions.EntityData.Children = make(map[string]types.YChild)
+    globalSessions.EntityData.Children["global-session"] = types.YChild{"GlobalSession", nil}
     for i := range globalSessions.GlobalSession {
-        children[globalSessions.GlobalSession[i].GetSegmentPath()] = &globalSessions.GlobalSession[i]
+        globalSessions.EntityData.Children[types.GetSegmentPath(&globalSessions.GlobalSession[i])] = types.YChild{"GlobalSession", &globalSessions.GlobalSession[i]}
     }
-    return children
+    globalSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(globalSessions.EntityData)
 }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetYangName() string { return "global-sessions" }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) SetParent(parent types.Entity) { globalSessions.parent = parent }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetParent() types.Entity { return globalSessions.parent }
-
-func (globalSessions *SpanMonitorSession_Global_GlobalSessions) GetParentYangName() string { return "global" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession
 // Information about a globally-configured
 // monitor session
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Name. The type is string with length:
@@ -573,7 +384,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession struct {
     DestinationInterfaceName interface{}
 
     // Destination interface handle (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: [a-zA-Z0-9./-]+.
+    // pseudowires). The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     DestinationInterfaceHandle interface{}
 
     // Last error observed for the destination interface (deprecated by
@@ -587,80 +398,35 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession struct {
     DestinationId SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId
 }
 
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetFilter() yfilter.YFilter { return globalSession.YFilter }
+func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetEntityData() *types.CommonEntityData {
+    globalSession.EntityData.YFilter = globalSession.YFilter
+    globalSession.EntityData.YangName = "global-session"
+    globalSession.EntityData.BundleName = "cisco_ios_xr"
+    globalSession.EntityData.ParentYangName = "global-sessions"
+    globalSession.EntityData.SegmentPath = "global-session" + "[session='" + fmt.Sprintf("%v", globalSession.Session) + "']"
+    globalSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    globalSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    globalSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) SetFilter(yf yfilter.YFilter) { globalSession.YFilter = yf }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    if yname == "name" { return "Name" }
-    if yname == "session-class" { return "SessionClass" }
-    if yname == "id" { return "Id" }
-    if yname == "destination-error" { return "DestinationError" }
-    if yname == "destination-interface-name" { return "DestinationInterfaceName" }
-    if yname == "destination-interface-handle" { return "DestinationInterfaceHandle" }
-    if yname == "interface-error" { return "InterfaceError" }
-    if yname == "destination-data" { return "DestinationData" }
-    if yname == "destination-id" { return "DestinationId" }
-    return ""
+    globalSession.EntityData.Children = make(map[string]types.YChild)
+    globalSession.EntityData.Children["destination-data"] = types.YChild{"DestinationData", &globalSession.DestinationData}
+    globalSession.EntityData.Children["destination-id"] = types.YChild{"DestinationId", &globalSession.DestinationId}
+    globalSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalSession.EntityData.Leafs["session"] = types.YLeaf{"Session", globalSession.Session}
+    globalSession.EntityData.Leafs["name"] = types.YLeaf{"Name", globalSession.Name}
+    globalSession.EntityData.Leafs["session-class"] = types.YLeaf{"SessionClass", globalSession.SessionClass}
+    globalSession.EntityData.Leafs["id"] = types.YLeaf{"Id", globalSession.Id}
+    globalSession.EntityData.Leafs["destination-error"] = types.YLeaf{"DestinationError", globalSession.DestinationError}
+    globalSession.EntityData.Leafs["destination-interface-name"] = types.YLeaf{"DestinationInterfaceName", globalSession.DestinationInterfaceName}
+    globalSession.EntityData.Leafs["destination-interface-handle"] = types.YLeaf{"DestinationInterfaceHandle", globalSession.DestinationInterfaceHandle}
+    globalSession.EntityData.Leafs["interface-error"] = types.YLeaf{"InterfaceError", globalSession.InterfaceError}
+    return &(globalSession.EntityData)
 }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetSegmentPath() string {
-    return "global-session" + "[session='" + fmt.Sprintf("%v", globalSession.Session) + "']"
-}
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination-data" {
-        return &globalSession.DestinationData
-    }
-    if childYangName == "destination-id" {
-        return &globalSession.DestinationId
-    }
-    return nil
-}
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination-data"] = &globalSession.DestinationData
-    children["destination-id"] = &globalSession.DestinationId
-    return children
-}
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session"] = globalSession.Session
-    leafs["name"] = globalSession.Name
-    leafs["session-class"] = globalSession.SessionClass
-    leafs["id"] = globalSession.Id
-    leafs["destination-error"] = globalSession.DestinationError
-    leafs["destination-interface-name"] = globalSession.DestinationInterfaceName
-    leafs["destination-interface-handle"] = globalSession.DestinationInterfaceHandle
-    leafs["interface-error"] = globalSession.InterfaceError
-    return leafs
-}
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetYangName() string { return "global-session" }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) SetParent(parent types.Entity) { globalSession.parent = parent }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetParent() types.Entity { return globalSession.parent }
-
-func (globalSession *SpanMonitorSession_Global_GlobalSessions_GlobalSession) GetParentYangName() string { return "global-sessions" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData
 // Destination data
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DestinationClass. The type is DestinationClass.
@@ -682,78 +448,31 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData stru
     NextHopIpv6Data SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data
 }
 
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetFilter() yfilter.YFilter { return destinationData.YFilter }
+func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetEntityData() *types.CommonEntityData {
+    destinationData.EntityData.YFilter = destinationData.YFilter
+    destinationData.EntityData.YangName = "destination-data"
+    destinationData.EntityData.BundleName = "cisco_ios_xr"
+    destinationData.EntityData.ParentYangName = "global-session"
+    destinationData.EntityData.SegmentPath = "destination-data"
+    destinationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) SetFilter(yf yfilter.YFilter) { destinationData.YFilter = yf }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetGoName(yname string) string {
-    if yname == "destination-class" { return "DestinationClass" }
-    if yname == "invalid-value" { return "InvalidValue" }
-    if yname == "interface-data" { return "InterfaceData" }
-    if yname == "pseudowire-data" { return "PseudowireData" }
-    if yname == "next-hop-ipv4-data" { return "NextHopIpv4Data" }
-    if yname == "next-hop-ipv6-data" { return "NextHopIpv6Data" }
-    return ""
+    destinationData.EntityData.Children = make(map[string]types.YChild)
+    destinationData.EntityData.Children["interface-data"] = types.YChild{"InterfaceData", &destinationData.InterfaceData}
+    destinationData.EntityData.Children["pseudowire-data"] = types.YChild{"PseudowireData", &destinationData.PseudowireData}
+    destinationData.EntityData.Children["next-hop-ipv4-data"] = types.YChild{"NextHopIpv4Data", &destinationData.NextHopIpv4Data}
+    destinationData.EntityData.Children["next-hop-ipv6-data"] = types.YChild{"NextHopIpv6Data", &destinationData.NextHopIpv6Data}
+    destinationData.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationData.EntityData.Leafs["destination-class"] = types.YLeaf{"DestinationClass", destinationData.DestinationClass}
+    destinationData.EntityData.Leafs["invalid-value"] = types.YLeaf{"InvalidValue", destinationData.InvalidValue}
+    return &(destinationData.EntityData)
 }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetSegmentPath() string {
-    return "destination-data"
-}
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-data" {
-        return &destinationData.InterfaceData
-    }
-    if childYangName == "pseudowire-data" {
-        return &destinationData.PseudowireData
-    }
-    if childYangName == "next-hop-ipv4-data" {
-        return &destinationData.NextHopIpv4Data
-    }
-    if childYangName == "next-hop-ipv6-data" {
-        return &destinationData.NextHopIpv6Data
-    }
-    return nil
-}
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-data"] = &destinationData.InterfaceData
-    children["pseudowire-data"] = &destinationData.PseudowireData
-    children["next-hop-ipv4-data"] = &destinationData.NextHopIpv4Data
-    children["next-hop-ipv6-data"] = &destinationData.NextHopIpv6Data
-    return children
-}
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-class"] = destinationData.DestinationClass
-    leafs["invalid-value"] = destinationData.InvalidValue
-    return leafs
-}
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetYangName() string { return "destination-data" }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) SetParent(parent types.Entity) { destinationData.parent = parent }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetParent() types.Entity { return destinationData.parent }
-
-func (destinationData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData) GetParentYangName() string { return "global-session" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData
 // Interface data
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface Name. The type is string.
@@ -763,58 +482,27 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_Inte
     InterfaceState interface{}
 }
 
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetFilter() yfilter.YFilter { return interfaceData.YFilter }
+func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetEntityData() *types.CommonEntityData {
+    interfaceData.EntityData.YFilter = interfaceData.YFilter
+    interfaceData.EntityData.YangName = "interface-data"
+    interfaceData.EntityData.BundleName = "cisco_ios_xr"
+    interfaceData.EntityData.ParentYangName = "destination-data"
+    interfaceData.EntityData.SegmentPath = "interface-data"
+    interfaceData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) SetFilter(yf yfilter.YFilter) { interfaceData.YFilter = yf }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-state" { return "InterfaceState" }
-    return ""
+    interfaceData.EntityData.Children = make(map[string]types.YChild)
+    interfaceData.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceData.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceData.InterfaceName}
+    interfaceData.EntityData.Leafs["interface-state"] = types.YLeaf{"InterfaceState", interfaceData.InterfaceState}
+    return &(interfaceData.EntityData)
 }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetSegmentPath() string {
-    return "interface-data"
-}
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = interfaceData.InterfaceName
-    leafs["interface-state"] = interfaceData.InterfaceState
-    return leafs
-}
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetYangName() string { return "interface-data" }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) SetParent(parent types.Entity) { interfaceData.parent = parent }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetParent() types.Entity { return interfaceData.parent }
-
-func (interfaceData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_InterfaceData) GetParentYangName() string { return "destination-data" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData
 // Pseudowire data
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pseudowire Name. The type is string.
@@ -824,62 +512,31 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_Pseu
     PseudowireIsUp interface{}
 }
 
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetFilter() yfilter.YFilter { return pseudowireData.YFilter }
+func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetEntityData() *types.CommonEntityData {
+    pseudowireData.EntityData.YFilter = pseudowireData.YFilter
+    pseudowireData.EntityData.YangName = "pseudowire-data"
+    pseudowireData.EntityData.BundleName = "cisco_ios_xr"
+    pseudowireData.EntityData.ParentYangName = "destination-data"
+    pseudowireData.EntityData.SegmentPath = "pseudowire-data"
+    pseudowireData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pseudowireData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pseudowireData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) SetFilter(yf yfilter.YFilter) { pseudowireData.YFilter = yf }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetGoName(yname string) string {
-    if yname == "pseudowire-name" { return "PseudowireName" }
-    if yname == "pseudowire-is-up" { return "PseudowireIsUp" }
-    return ""
+    pseudowireData.EntityData.Children = make(map[string]types.YChild)
+    pseudowireData.EntityData.Leafs = make(map[string]types.YLeaf)
+    pseudowireData.EntityData.Leafs["pseudowire-name"] = types.YLeaf{"PseudowireName", pseudowireData.PseudowireName}
+    pseudowireData.EntityData.Leafs["pseudowire-is-up"] = types.YLeaf{"PseudowireIsUp", pseudowireData.PseudowireIsUp}
+    return &(pseudowireData.EntityData)
 }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetSegmentPath() string {
-    return "pseudowire-data"
-}
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pseudowire-name"] = pseudowireData.PseudowireName
-    leafs["pseudowire-is-up"] = pseudowireData.PseudowireIsUp
-    return leafs
-}
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetYangName() string { return "pseudowire-data" }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) SetParent(parent types.Entity) { pseudowireData.parent = parent }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetParent() types.Entity { return pseudowireData.parent }
-
-func (pseudowireData *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_PseudowireData) GetParentYangName() string { return "destination-data" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data
 // Next-hop IPv4 data
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // VRF name. The type is string.
@@ -889,64 +546,32 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_Next
     AddressIsReachable interface{}
 }
 
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetFilter() yfilter.YFilter { return nextHopIpv4Data.YFilter }
+func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetEntityData() *types.CommonEntityData {
+    nextHopIpv4Data.EntityData.YFilter = nextHopIpv4Data.YFilter
+    nextHopIpv4Data.EntityData.YangName = "next-hop-ipv4-data"
+    nextHopIpv4Data.EntityData.BundleName = "cisco_ios_xr"
+    nextHopIpv4Data.EntityData.ParentYangName = "destination-data"
+    nextHopIpv4Data.EntityData.SegmentPath = "next-hop-ipv4-data"
+    nextHopIpv4Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHopIpv4Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHopIpv4Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) SetFilter(yf yfilter.YFilter) { nextHopIpv4Data.YFilter = yf }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "address-is-reachable" { return "AddressIsReachable" }
-    return ""
+    nextHopIpv4Data.EntityData.Children = make(map[string]types.YChild)
+    nextHopIpv4Data.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHopIpv4Data.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", nextHopIpv4Data.Ipv4Address}
+    nextHopIpv4Data.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", nextHopIpv4Data.VrfName}
+    nextHopIpv4Data.EntityData.Leafs["address-is-reachable"] = types.YLeaf{"AddressIsReachable", nextHopIpv4Data.AddressIsReachable}
+    return &(nextHopIpv4Data.EntityData)
 }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetSegmentPath() string {
-    return "next-hop-ipv4-data"
-}
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-address"] = nextHopIpv4Data.Ipv4Address
-    leafs["vrf-name"] = nextHopIpv4Data.VrfName
-    leafs["address-is-reachable"] = nextHopIpv4Data.AddressIsReachable
-    return leafs
-}
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetYangName() string { return "next-hop-ipv4-data" }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) SetParent(parent types.Entity) { nextHopIpv4Data.parent = parent }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetParent() types.Entity { return nextHopIpv4Data.parent }
-
-func (nextHopIpv4Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv4Data) GetParentYangName() string { return "destination-data" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data
 // Next-hop IPv6 data
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // VRF name. The type is string.
@@ -956,67 +581,35 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_Next
     AddressIsReachable interface{}
 }
 
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetFilter() yfilter.YFilter { return nextHopIpv6Data.YFilter }
+func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetEntityData() *types.CommonEntityData {
+    nextHopIpv6Data.EntityData.YFilter = nextHopIpv6Data.YFilter
+    nextHopIpv6Data.EntityData.YangName = "next-hop-ipv6-data"
+    nextHopIpv6Data.EntityData.BundleName = "cisco_ios_xr"
+    nextHopIpv6Data.EntityData.ParentYangName = "destination-data"
+    nextHopIpv6Data.EntityData.SegmentPath = "next-hop-ipv6-data"
+    nextHopIpv6Data.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nextHopIpv6Data.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nextHopIpv6Data.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) SetFilter(yf yfilter.YFilter) { nextHopIpv6Data.YFilter = yf }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "address-is-reachable" { return "AddressIsReachable" }
-    return ""
+    nextHopIpv6Data.EntityData.Children = make(map[string]types.YChild)
+    nextHopIpv6Data.EntityData.Leafs = make(map[string]types.YLeaf)
+    nextHopIpv6Data.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", nextHopIpv6Data.Ipv6Address}
+    nextHopIpv6Data.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", nextHopIpv6Data.VrfName}
+    nextHopIpv6Data.EntityData.Leafs["address-is-reachable"] = types.YLeaf{"AddressIsReachable", nextHopIpv6Data.AddressIsReachable}
+    return &(nextHopIpv6Data.EntityData)
 }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetSegmentPath() string {
-    return "next-hop-ipv6-data"
-}
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = nextHopIpv6Data.Ipv6Address
-    leafs["vrf-name"] = nextHopIpv6Data.VrfName
-    leafs["address-is-reachable"] = nextHopIpv6Data.AddressIsReachable
-    return leafs
-}
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetYangName() string { return "next-hop-ipv6-data" }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) SetParent(parent types.Entity) { nextHopIpv6Data.parent = parent }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetParent() types.Entity { return nextHopIpv6Data.parent }
-
-func (nextHopIpv6Data *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_NextHopIpv6Data) GetParentYangName() string { return "destination-data" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId
 // Destination ID
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
     PseudowireId interface{}
@@ -1031,196 +624,93 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId struct
     Ipv6AddressAndVrf SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf
 }
 
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetFilter() yfilter.YFilter { return destinationId.YFilter }
+func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetEntityData() *types.CommonEntityData {
+    destinationId.EntityData.YFilter = destinationId.YFilter
+    destinationId.EntityData.YangName = "destination-id"
+    destinationId.EntityData.BundleName = "cisco_ios_xr"
+    destinationId.EntityData.ParentYangName = "global-session"
+    destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) SetFilter(yf yfilter.YFilter) { destinationId.YFilter = yf }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetGoName(yname string) string {
-    if yname == "destination-class" { return "DestinationClass" }
-    if yname == "interface" { return "Interface" }
-    if yname == "pseudowire-id" { return "PseudowireId" }
-    if yname == "invalid-value" { return "InvalidValue" }
-    if yname == "ipv4-address-and-vrf" { return "Ipv4AddressAndVrf" }
-    if yname == "ipv6-address-and-vrf" { return "Ipv6AddressAndVrf" }
-    return ""
+    destinationId.EntityData.Children = make(map[string]types.YChild)
+    destinationId.EntityData.Children["ipv4-address-and-vrf"] = types.YChild{"Ipv4AddressAndVrf", &destinationId.Ipv4AddressAndVrf}
+    destinationId.EntityData.Children["ipv6-address-and-vrf"] = types.YChild{"Ipv6AddressAndVrf", &destinationId.Ipv6AddressAndVrf}
+    destinationId.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationId.EntityData.Leafs["destination-class"] = types.YLeaf{"DestinationClass", destinationId.DestinationClass}
+    destinationId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", destinationId.Interface_}
+    destinationId.EntityData.Leafs["pseudowire-id"] = types.YLeaf{"PseudowireId", destinationId.PseudowireId}
+    destinationId.EntityData.Leafs["invalid-value"] = types.YLeaf{"InvalidValue", destinationId.InvalidValue}
+    return &(destinationId.EntityData)
 }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetSegmentPath() string {
-    return "destination-id"
-}
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address-and-vrf" {
-        return &destinationId.Ipv4AddressAndVrf
-    }
-    if childYangName == "ipv6-address-and-vrf" {
-        return &destinationId.Ipv6AddressAndVrf
-    }
-    return nil
-}
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-address-and-vrf"] = &destinationId.Ipv4AddressAndVrf
-    children["ipv6-address-and-vrf"] = &destinationId.Ipv6AddressAndVrf
-    return children
-}
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-class"] = destinationId.DestinationClass
-    leafs["interface"] = destinationId.Interface
-    leafs["pseudowire-id"] = destinationId.PseudowireId
-    leafs["invalid-value"] = destinationId.InvalidValue
-    return leafs
-}
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetYangName() string { return "destination-id" }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) SetParent(parent types.Entity) { destinationId.parent = parent }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetParent() types.Entity { return destinationId.parent }
-
-func (destinationId *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId) GetParentYangName() string { return "global-session" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf
 // IPv4 address
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetFilter() yfilter.YFilter { return ipv4AddressAndVrf.YFilter }
+func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv4AddressAndVrf.EntityData.YFilter = ipv4AddressAndVrf.YFilter
+    ipv4AddressAndVrf.EntityData.YangName = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv4AddressAndVrf.YFilter = yf }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv4AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv4AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressAndVrf.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", ipv4AddressAndVrf.Ipv4Address}
+    ipv4AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4AddressAndVrf.VrfName}
+    return &(ipv4AddressAndVrf.EntityData)
 }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetSegmentPath() string {
-    return "ipv4-address-and-vrf"
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-address"] = ipv4AddressAndVrf.Ipv4Address
-    leafs["vrf-name"] = ipv4AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetYangName() string { return "ipv4-address-and-vrf" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) SetParent(parent types.Entity) { ipv4AddressAndVrf.parent = parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetParent() types.Entity { return ipv4AddressAndVrf.parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf
 // IPv6 address
 type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetFilter() yfilter.YFilter { return ipv6AddressAndVrf.YFilter }
+func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv6AddressAndVrf.EntityData.YFilter = ipv6AddressAndVrf.YFilter
+    ipv6AddressAndVrf.EntityData.YangName = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv6AddressAndVrf.YFilter = yf }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv6AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv6AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6AddressAndVrf.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6AddressAndVrf.Ipv6Address}
+    ipv6AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6AddressAndVrf.VrfName}
+    return &(ipv6AddressAndVrf.EntityData)
 }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetSegmentPath() string {
-    return "ipv6-address-and-vrf"
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6AddressAndVrf.Ipv6Address
-    leafs["vrf-name"] = ipv6AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetYangName() string { return "ipv6-address-and-vrf" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) SetParent(parent types.Entity) { ipv6AddressAndVrf.parent = parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetParent() types.Entity { return ipv6AddressAndVrf.parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes
 // Node table for node-specific operational data
 type SpanMonitorSession_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node-specific data for a particular node. The type is slice of
@@ -1228,72 +718,33 @@ type SpanMonitorSession_Nodes struct {
     Node []SpanMonitorSession_Nodes_Node
 }
 
-func (nodes *SpanMonitorSession_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *SpanMonitorSession_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "span-monitor-session"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *SpanMonitorSession_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *SpanMonitorSession_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *SpanMonitorSession_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *SpanMonitorSession_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *SpanMonitorSession_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *SpanMonitorSession_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *SpanMonitorSession_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *SpanMonitorSession_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *SpanMonitorSession_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *SpanMonitorSession_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *SpanMonitorSession_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *SpanMonitorSession_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *SpanMonitorSession_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *SpanMonitorSession_Nodes) GetParentYangName() string { return "span-monitor-session" }
 
 // SpanMonitorSession_Nodes_Node
 // Node-specific data for a particular node
 type SpanMonitorSession_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Table of source interfaces configured as attached to a session.
@@ -1310,72 +761,30 @@ type SpanMonitorSession_Nodes_Node struct {
     Interfaces SpanMonitorSession_Nodes_Node_Interfaces
 }
 
-func (node *SpanMonitorSession_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *SpanMonitorSession_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *SpanMonitorSession_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *SpanMonitorSession_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    if yname == "attachments" { return "Attachments" }
-    if yname == "hardware-sessions" { return "HardwareSessions" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["attachments"] = types.YChild{"Attachments", &node.Attachments}
+    node.EntityData.Children["hardware-sessions"] = types.YChild{"HardwareSessions", &node.HardwareSessions}
+    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
+    return &(node.EntityData)
 }
-
-func (node *SpanMonitorSession_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
-}
-
-func (node *SpanMonitorSession_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "attachments" {
-        return &node.Attachments
-    }
-    if childYangName == "hardware-sessions" {
-        return &node.HardwareSessions
-    }
-    if childYangName == "interfaces" {
-        return &node.Interfaces
-    }
-    return nil
-}
-
-func (node *SpanMonitorSession_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["attachments"] = &node.Attachments
-    children["hardware-sessions"] = &node.HardwareSessions
-    children["interfaces"] = &node.Interfaces
-    return children
-}
-
-func (node *SpanMonitorSession_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node"] = node.Node
-    return leafs
-}
-
-func (node *SpanMonitorSession_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *SpanMonitorSession_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *SpanMonitorSession_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *SpanMonitorSession_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *SpanMonitorSession_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *SpanMonitorSession_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *SpanMonitorSession_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *SpanMonitorSession_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // SpanMonitorSession_Nodes_Node_Attachments
 // Table of source interfaces configured as
 // attached to a session
 type SpanMonitorSession_Nodes_Node_Attachments struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular source interface configured as attached to
@@ -1384,70 +793,31 @@ type SpanMonitorSession_Nodes_Node_Attachments struct {
     Attachment []SpanMonitorSession_Nodes_Node_Attachments_Attachment
 }
 
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetFilter() yfilter.YFilter { return attachments.YFilter }
+func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetEntityData() *types.CommonEntityData {
+    attachments.EntityData.YFilter = attachments.YFilter
+    attachments.EntityData.YangName = "attachments"
+    attachments.EntityData.BundleName = "cisco_ios_xr"
+    attachments.EntityData.ParentYangName = "node"
+    attachments.EntityData.SegmentPath = "attachments"
+    attachments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attachments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attachments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) SetFilter(yf yfilter.YFilter) { attachments.YFilter = yf }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetGoName(yname string) string {
-    if yname == "attachment" { return "Attachment" }
-    return ""
-}
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetSegmentPath() string {
-    return "attachments"
-}
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "attachment" {
-        for _, c := range attachments.Attachment {
-            if attachments.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Nodes_Node_Attachments_Attachment{}
-        attachments.Attachment = append(attachments.Attachment, child)
-        return &attachments.Attachment[len(attachments.Attachment)-1]
-    }
-    return nil
-}
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    attachments.EntityData.Children = make(map[string]types.YChild)
+    attachments.EntityData.Children["attachment"] = types.YChild{"Attachment", nil}
     for i := range attachments.Attachment {
-        children[attachments.Attachment[i].GetSegmentPath()] = &attachments.Attachment[i]
+        attachments.EntityData.Children[types.GetSegmentPath(&attachments.Attachment[i])] = types.YChild{"Attachment", &attachments.Attachment[i]}
     }
-    return children
+    attachments.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(attachments.EntityData)
 }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetBundleName() string { return "cisco_ios_xr" }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetYangName() string { return "attachments" }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) SetParent(parent types.Entity) { attachments.parent = parent }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetParent() types.Entity { return attachments.parent }
-
-func (attachments *SpanMonitorSession_Nodes_Node_Attachments) GetParentYangName() string { return "node" }
 
 // SpanMonitorSession_Nodes_Node_Attachments_Attachment
 // Information about a particular source
 // interface configured as attached to monitor
 // session
 type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Name. The type is string with length:
@@ -1455,8 +825,8 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     Session interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Session Name. The type is string.
     Name interface{}
@@ -1474,7 +844,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     // The Session is configured globally. The type is bool.
     SessionIsConfigured interface{}
 
-    // Source interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Source interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 
     // Source interface state. The type is ImStateEnum.
@@ -1492,7 +862,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     SourceInterfaceIsADestination interface{}
 
     // Destination interface (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: [a-zA-Z0-9./-]+.
+    // pseudowires). The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     DestinationInterface interface{}
 
     // Traffic mirroring direction (deprecated by TrafficParameters). The type is
@@ -1506,92 +876,41 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     DestinationId SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId
 }
 
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetFilter() yfilter.YFilter { return attachment.YFilter }
+func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetEntityData() *types.CommonEntityData {
+    attachment.EntityData.YFilter = attachment.YFilter
+    attachment.EntityData.YangName = "attachment"
+    attachment.EntityData.BundleName = "cisco_ios_xr"
+    attachment.EntityData.ParentYangName = "attachments"
+    attachment.EntityData.SegmentPath = "attachment" + "[session='" + fmt.Sprintf("%v", attachment.Session) + "']" + "[interface='" + fmt.Sprintf("%v", attachment.Interface_) + "']"
+    attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) SetFilter(yf yfilter.YFilter) { attachment.YFilter = yf }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    if yname == "interface" { return "Interface" }
-    if yname == "name" { return "Name" }
-    if yname == "local-class" { return "LocalClass" }
-    if yname == "id" { return "Id" }
-    if yname == "global-class" { return "GlobalClass" }
-    if yname == "session-is-configured" { return "SessionIsConfigured" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "source-interface-state" { return "SourceInterfaceState" }
-    if yname == "pfi-error" { return "PfiError" }
-    if yname == "dest-pw-type-not-supported" { return "DestPwTypeNotSupported" }
-    if yname == "source-interface-is-a-destination" { return "SourceInterfaceIsADestination" }
-    if yname == "destination-interface" { return "DestinationInterface" }
-    if yname == "traffic-direction" { return "TrafficDirection" }
-    if yname == "traffic-parameters" { return "TrafficParameters" }
-    if yname == "destination-id" { return "DestinationId" }
-    return ""
+    attachment.EntityData.Children = make(map[string]types.YChild)
+    attachment.EntityData.Children["traffic-parameters"] = types.YChild{"TrafficParameters", &attachment.TrafficParameters}
+    attachment.EntityData.Children["destination-id"] = types.YChild{"DestinationId", &attachment.DestinationId}
+    attachment.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachment.EntityData.Leafs["session"] = types.YLeaf{"Session", attachment.Session}
+    attachment.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", attachment.Interface_}
+    attachment.EntityData.Leafs["name"] = types.YLeaf{"Name", attachment.Name}
+    attachment.EntityData.Leafs["local-class"] = types.YLeaf{"LocalClass", attachment.LocalClass}
+    attachment.EntityData.Leafs["id"] = types.YLeaf{"Id", attachment.Id}
+    attachment.EntityData.Leafs["global-class"] = types.YLeaf{"GlobalClass", attachment.GlobalClass}
+    attachment.EntityData.Leafs["session-is-configured"] = types.YLeaf{"SessionIsConfigured", attachment.SessionIsConfigured}
+    attachment.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", attachment.SourceInterface}
+    attachment.EntityData.Leafs["source-interface-state"] = types.YLeaf{"SourceInterfaceState", attachment.SourceInterfaceState}
+    attachment.EntityData.Leafs["pfi-error"] = types.YLeaf{"PfiError", attachment.PfiError}
+    attachment.EntityData.Leafs["dest-pw-type-not-supported"] = types.YLeaf{"DestPwTypeNotSupported", attachment.DestPwTypeNotSupported}
+    attachment.EntityData.Leafs["source-interface-is-a-destination"] = types.YLeaf{"SourceInterfaceIsADestination", attachment.SourceInterfaceIsADestination}
+    attachment.EntityData.Leafs["destination-interface"] = types.YLeaf{"DestinationInterface", attachment.DestinationInterface}
+    attachment.EntityData.Leafs["traffic-direction"] = types.YLeaf{"TrafficDirection", attachment.TrafficDirection}
+    return &(attachment.EntityData)
 }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetSegmentPath() string {
-    return "attachment" + "[session='" + fmt.Sprintf("%v", attachment.Session) + "']" + "[interface='" + fmt.Sprintf("%v", attachment.Interface) + "']"
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "traffic-parameters" {
-        return &attachment.TrafficParameters
-    }
-    if childYangName == "destination-id" {
-        return &attachment.DestinationId
-    }
-    return nil
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["traffic-parameters"] = &attachment.TrafficParameters
-    children["destination-id"] = &attachment.DestinationId
-    return children
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session"] = attachment.Session
-    leafs["interface"] = attachment.Interface
-    leafs["name"] = attachment.Name
-    leafs["local-class"] = attachment.LocalClass
-    leafs["id"] = attachment.Id
-    leafs["global-class"] = attachment.GlobalClass
-    leafs["session-is-configured"] = attachment.SessionIsConfigured
-    leafs["source-interface"] = attachment.SourceInterface
-    leafs["source-interface-state"] = attachment.SourceInterfaceState
-    leafs["pfi-error"] = attachment.PfiError
-    leafs["dest-pw-type-not-supported"] = attachment.DestPwTypeNotSupported
-    leafs["source-interface-is-a-destination"] = attachment.SourceInterfaceIsADestination
-    leafs["destination-interface"] = attachment.DestinationInterface
-    leafs["traffic-direction"] = attachment.TrafficDirection
-    return leafs
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetBundleName() string { return "cisco_ios_xr" }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetYangName() string { return "attachment" }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) SetParent(parent types.Entity) { attachment.parent = parent }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetParent() types.Entity { return attachment.parent }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Attachments_Attachment) GetParentYangName() string { return "attachments" }
 
 // SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters
 // Traffic mirroring parameters
 type SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Direction. The type is TrafficDirection.
@@ -1614,73 +933,38 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters stru
     AclName interface{}
 }
 
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetFilter() yfilter.YFilter { return trafficParameters.YFilter }
+func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetEntityData() *types.CommonEntityData {
+    trafficParameters.EntityData.YFilter = trafficParameters.YFilter
+    trafficParameters.EntityData.YangName = "traffic-parameters"
+    trafficParameters.EntityData.BundleName = "cisco_ios_xr"
+    trafficParameters.EntityData.ParentYangName = "attachment"
+    trafficParameters.EntityData.SegmentPath = "traffic-parameters"
+    trafficParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) SetFilter(yf yfilter.YFilter) { trafficParameters.YFilter = yf }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetGoName(yname string) string {
-    if yname == "traffic-direction" { return "TrafficDirection" }
-    if yname == "port-level" { return "PortLevel" }
-    if yname == "is-acl-enabled" { return "IsAclEnabled" }
-    if yname == "mirror-bytes" { return "MirrorBytes" }
-    if yname == "mirror-interval" { return "MirrorInterval" }
-    if yname == "acl-name" { return "AclName" }
-    return ""
+    trafficParameters.EntityData.Children = make(map[string]types.YChild)
+    trafficParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficParameters.EntityData.Leafs["traffic-direction"] = types.YLeaf{"TrafficDirection", trafficParameters.TrafficDirection}
+    trafficParameters.EntityData.Leafs["port-level"] = types.YLeaf{"PortLevel", trafficParameters.PortLevel}
+    trafficParameters.EntityData.Leafs["is-acl-enabled"] = types.YLeaf{"IsAclEnabled", trafficParameters.IsAclEnabled}
+    trafficParameters.EntityData.Leafs["mirror-bytes"] = types.YLeaf{"MirrorBytes", trafficParameters.MirrorBytes}
+    trafficParameters.EntityData.Leafs["mirror-interval"] = types.YLeaf{"MirrorInterval", trafficParameters.MirrorInterval}
+    trafficParameters.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", trafficParameters.AclName}
+    return &(trafficParameters.EntityData)
 }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetSegmentPath() string {
-    return "traffic-parameters"
-}
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["traffic-direction"] = trafficParameters.TrafficDirection
-    leafs["port-level"] = trafficParameters.PortLevel
-    leafs["is-acl-enabled"] = trafficParameters.IsAclEnabled
-    leafs["mirror-bytes"] = trafficParameters.MirrorBytes
-    leafs["mirror-interval"] = trafficParameters.MirrorInterval
-    leafs["acl-name"] = trafficParameters.AclName
-    return leafs
-}
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetYangName() string { return "traffic-parameters" }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) SetParent(parent types.Entity) { trafficParameters.parent = parent }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetParent() types.Entity { return trafficParameters.parent }
-
-func (trafficParameters *SpanMonitorSession_Nodes_Node_Attachments_Attachment_TrafficParameters) GetParentYangName() string { return "attachment" }
 
 // SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId
 // Destination ID
 type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
     PseudowireId interface{}
@@ -1695,191 +979,88 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId struct {
     Ipv6AddressAndVrf SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf
 }
 
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetFilter() yfilter.YFilter { return destinationId.YFilter }
+func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetEntityData() *types.CommonEntityData {
+    destinationId.EntityData.YFilter = destinationId.YFilter
+    destinationId.EntityData.YangName = "destination-id"
+    destinationId.EntityData.BundleName = "cisco_ios_xr"
+    destinationId.EntityData.ParentYangName = "attachment"
+    destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) SetFilter(yf yfilter.YFilter) { destinationId.YFilter = yf }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetGoName(yname string) string {
-    if yname == "destination-class" { return "DestinationClass" }
-    if yname == "interface" { return "Interface" }
-    if yname == "pseudowire-id" { return "PseudowireId" }
-    if yname == "invalid-value" { return "InvalidValue" }
-    if yname == "ipv4-address-and-vrf" { return "Ipv4AddressAndVrf" }
-    if yname == "ipv6-address-and-vrf" { return "Ipv6AddressAndVrf" }
-    return ""
+    destinationId.EntityData.Children = make(map[string]types.YChild)
+    destinationId.EntityData.Children["ipv4-address-and-vrf"] = types.YChild{"Ipv4AddressAndVrf", &destinationId.Ipv4AddressAndVrf}
+    destinationId.EntityData.Children["ipv6-address-and-vrf"] = types.YChild{"Ipv6AddressAndVrf", &destinationId.Ipv6AddressAndVrf}
+    destinationId.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationId.EntityData.Leafs["destination-class"] = types.YLeaf{"DestinationClass", destinationId.DestinationClass}
+    destinationId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", destinationId.Interface_}
+    destinationId.EntityData.Leafs["pseudowire-id"] = types.YLeaf{"PseudowireId", destinationId.PseudowireId}
+    destinationId.EntityData.Leafs["invalid-value"] = types.YLeaf{"InvalidValue", destinationId.InvalidValue}
+    return &(destinationId.EntityData)
 }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetSegmentPath() string {
-    return "destination-id"
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address-and-vrf" {
-        return &destinationId.Ipv4AddressAndVrf
-    }
-    if childYangName == "ipv6-address-and-vrf" {
-        return &destinationId.Ipv6AddressAndVrf
-    }
-    return nil
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-address-and-vrf"] = &destinationId.Ipv4AddressAndVrf
-    children["ipv6-address-and-vrf"] = &destinationId.Ipv6AddressAndVrf
-    return children
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-class"] = destinationId.DestinationClass
-    leafs["interface"] = destinationId.Interface
-    leafs["pseudowire-id"] = destinationId.PseudowireId
-    leafs["invalid-value"] = destinationId.InvalidValue
-    return leafs
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetYangName() string { return "destination-id" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) SetParent(parent types.Entity) { destinationId.parent = parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetParent() types.Entity { return destinationId.parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId) GetParentYangName() string { return "attachment" }
 
 // SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf
 // IPv4 address
 type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetFilter() yfilter.YFilter { return ipv4AddressAndVrf.YFilter }
+func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv4AddressAndVrf.EntityData.YFilter = ipv4AddressAndVrf.YFilter
+    ipv4AddressAndVrf.EntityData.YangName = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv4AddressAndVrf.YFilter = yf }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv4AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv4AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressAndVrf.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", ipv4AddressAndVrf.Ipv4Address}
+    ipv4AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4AddressAndVrf.VrfName}
+    return &(ipv4AddressAndVrf.EntityData)
 }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetSegmentPath() string {
-    return "ipv4-address-and-vrf"
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-address"] = ipv4AddressAndVrf.Ipv4Address
-    leafs["vrf-name"] = ipv4AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetYangName() string { return "ipv4-address-and-vrf" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) SetParent(parent types.Entity) { ipv4AddressAndVrf.parent = parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetParent() types.Entity { return ipv4AddressAndVrf.parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf
 // IPv6 address
 type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetFilter() yfilter.YFilter { return ipv6AddressAndVrf.YFilter }
+func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv6AddressAndVrf.EntityData.YFilter = ipv6AddressAndVrf.YFilter
+    ipv6AddressAndVrf.EntityData.YangName = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv6AddressAndVrf.YFilter = yf }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv6AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv6AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6AddressAndVrf.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6AddressAndVrf.Ipv6Address}
+    ipv6AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6AddressAndVrf.VrfName}
+    return &(ipv6AddressAndVrf.EntityData)
 }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetSegmentPath() string {
-    return "ipv6-address-and-vrf"
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6AddressAndVrf.Ipv6Address
-    leafs["vrf-name"] = ipv6AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetYangName() string { return "ipv6-address-and-vrf" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) SetParent(parent types.Entity) { ipv6AddressAndVrf.parent = parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetParent() types.Entity { return ipv6AddressAndVrf.parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions
 // Table of sessions set up in the hardware. 
@@ -1888,7 +1069,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_De
 // entries in GlobalSessionTable that have a
 // destination configured
 type SpanMonitorSession_Nodes_Node_HardwareSessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular session that is set up in the hardware. The
@@ -1897,69 +1078,30 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions struct {
     HardwareSession []SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession
 }
 
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetFilter() yfilter.YFilter { return hardwareSessions.YFilter }
+func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetEntityData() *types.CommonEntityData {
+    hardwareSessions.EntityData.YFilter = hardwareSessions.YFilter
+    hardwareSessions.EntityData.YangName = "hardware-sessions"
+    hardwareSessions.EntityData.BundleName = "cisco_ios_xr"
+    hardwareSessions.EntityData.ParentYangName = "node"
+    hardwareSessions.EntityData.SegmentPath = "hardware-sessions"
+    hardwareSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) SetFilter(yf yfilter.YFilter) { hardwareSessions.YFilter = yf }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetGoName(yname string) string {
-    if yname == "hardware-session" { return "HardwareSession" }
-    return ""
-}
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetSegmentPath() string {
-    return "hardware-sessions"
-}
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hardware-session" {
-        for _, c := range hardwareSessions.HardwareSession {
-            if hardwareSessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession{}
-        hardwareSessions.HardwareSession = append(hardwareSessions.HardwareSession, child)
-        return &hardwareSessions.HardwareSession[len(hardwareSessions.HardwareSession)-1]
-    }
-    return nil
-}
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hardwareSessions.EntityData.Children = make(map[string]types.YChild)
+    hardwareSessions.EntityData.Children["hardware-session"] = types.YChild{"HardwareSession", nil}
     for i := range hardwareSessions.HardwareSession {
-        children[hardwareSessions.HardwareSession[i].GetSegmentPath()] = &hardwareSessions.HardwareSession[i]
+        hardwareSessions.EntityData.Children[types.GetSegmentPath(&hardwareSessions.HardwareSession[i])] = types.YChild{"HardwareSession", &hardwareSessions.HardwareSession[i]}
     }
-    return children
+    hardwareSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hardwareSessions.EntityData)
 }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetYangName() string { return "hardware-sessions" }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) SetParent(parent types.Entity) { hardwareSessions.parent = parent }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetParent() types.Entity { return hardwareSessions.parent }
-
-func (hardwareSessions *SpanMonitorSession_Nodes_Node_HardwareSessions) GetParentYangName() string { return "node" }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession
 // Information about a particular session that
 // is set up in the hardware
 type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sesssion class. The type is SpanSessionClass.
@@ -1979,7 +1121,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     SessionClassXr interface{}
 
     // Destination interface (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: [a-zA-Z0-9./-]+.
+    // pseudowires). The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     DestinationInterface interface{}
 
     // Last error observed for this session while programming the hardware. The
@@ -1990,80 +1132,40 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     DestinationId SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId
 }
 
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetFilter() yfilter.YFilter { return hardwareSession.YFilter }
+func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetEntityData() *types.CommonEntityData {
+    hardwareSession.EntityData.YFilter = hardwareSession.YFilter
+    hardwareSession.EntityData.YangName = "hardware-session"
+    hardwareSession.EntityData.BundleName = "cisco_ios_xr"
+    hardwareSession.EntityData.ParentYangName = "hardware-sessions"
+    hardwareSession.EntityData.SegmentPath = "hardware-session"
+    hardwareSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardwareSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardwareSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) SetFilter(yf yfilter.YFilter) { hardwareSession.YFilter = yf }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetGoName(yname string) string {
-    if yname == "session-class" { return "SessionClass" }
-    if yname == "session-id" { return "SessionId" }
-    if yname == "id" { return "Id" }
-    if yname == "name" { return "Name" }
-    if yname == "session-class-xr" { return "SessionClassXr" }
-    if yname == "destination-interface" { return "DestinationInterface" }
-    if yname == "platform-error" { return "PlatformError" }
-    if yname == "destination-id" { return "DestinationId" }
-    return ""
+    hardwareSession.EntityData.Children = make(map[string]types.YChild)
+    hardwareSession.EntityData.Children["destination-id"] = types.YChild{"DestinationId", &hardwareSession.DestinationId}
+    hardwareSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    hardwareSession.EntityData.Leafs["session-class"] = types.YLeaf{"SessionClass", hardwareSession.SessionClass}
+    hardwareSession.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", hardwareSession.SessionId}
+    hardwareSession.EntityData.Leafs["id"] = types.YLeaf{"Id", hardwareSession.Id}
+    hardwareSession.EntityData.Leafs["name"] = types.YLeaf{"Name", hardwareSession.Name}
+    hardwareSession.EntityData.Leafs["session-class-xr"] = types.YLeaf{"SessionClassXr", hardwareSession.SessionClassXr}
+    hardwareSession.EntityData.Leafs["destination-interface"] = types.YLeaf{"DestinationInterface", hardwareSession.DestinationInterface}
+    hardwareSession.EntityData.Leafs["platform-error"] = types.YLeaf{"PlatformError", hardwareSession.PlatformError}
+    return &(hardwareSession.EntityData)
 }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetSegmentPath() string {
-    return "hardware-session"
-}
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination-id" {
-        return &hardwareSession.DestinationId
-    }
-    return nil
-}
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination-id"] = &hardwareSession.DestinationId
-    return children
-}
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-class"] = hardwareSession.SessionClass
-    leafs["session-id"] = hardwareSession.SessionId
-    leafs["id"] = hardwareSession.Id
-    leafs["name"] = hardwareSession.Name
-    leafs["session-class-xr"] = hardwareSession.SessionClassXr
-    leafs["destination-interface"] = hardwareSession.DestinationInterface
-    leafs["platform-error"] = hardwareSession.PlatformError
-    return leafs
-}
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetYangName() string { return "hardware-session" }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) SetParent(parent types.Entity) { hardwareSession.parent = parent }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetParent() types.Entity { return hardwareSession.parent }
-
-func (hardwareSession *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession) GetParentYangName() string { return "hardware-sessions" }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId
 // Destination ID
 type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
     PseudowireId interface{}
@@ -2078,191 +1180,88 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationI
     Ipv6AddressAndVrf SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf
 }
 
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetFilter() yfilter.YFilter { return destinationId.YFilter }
+func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetEntityData() *types.CommonEntityData {
+    destinationId.EntityData.YFilter = destinationId.YFilter
+    destinationId.EntityData.YangName = "destination-id"
+    destinationId.EntityData.BundleName = "cisco_ios_xr"
+    destinationId.EntityData.ParentYangName = "hardware-session"
+    destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) SetFilter(yf yfilter.YFilter) { destinationId.YFilter = yf }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetGoName(yname string) string {
-    if yname == "destination-class" { return "DestinationClass" }
-    if yname == "interface" { return "Interface" }
-    if yname == "pseudowire-id" { return "PseudowireId" }
-    if yname == "invalid-value" { return "InvalidValue" }
-    if yname == "ipv4-address-and-vrf" { return "Ipv4AddressAndVrf" }
-    if yname == "ipv6-address-and-vrf" { return "Ipv6AddressAndVrf" }
-    return ""
+    destinationId.EntityData.Children = make(map[string]types.YChild)
+    destinationId.EntityData.Children["ipv4-address-and-vrf"] = types.YChild{"Ipv4AddressAndVrf", &destinationId.Ipv4AddressAndVrf}
+    destinationId.EntityData.Children["ipv6-address-and-vrf"] = types.YChild{"Ipv6AddressAndVrf", &destinationId.Ipv6AddressAndVrf}
+    destinationId.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationId.EntityData.Leafs["destination-class"] = types.YLeaf{"DestinationClass", destinationId.DestinationClass}
+    destinationId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", destinationId.Interface_}
+    destinationId.EntityData.Leafs["pseudowire-id"] = types.YLeaf{"PseudowireId", destinationId.PseudowireId}
+    destinationId.EntityData.Leafs["invalid-value"] = types.YLeaf{"InvalidValue", destinationId.InvalidValue}
+    return &(destinationId.EntityData)
 }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetSegmentPath() string {
-    return "destination-id"
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address-and-vrf" {
-        return &destinationId.Ipv4AddressAndVrf
-    }
-    if childYangName == "ipv6-address-and-vrf" {
-        return &destinationId.Ipv6AddressAndVrf
-    }
-    return nil
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-address-and-vrf"] = &destinationId.Ipv4AddressAndVrf
-    children["ipv6-address-and-vrf"] = &destinationId.Ipv6AddressAndVrf
-    return children
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-class"] = destinationId.DestinationClass
-    leafs["interface"] = destinationId.Interface
-    leafs["pseudowire-id"] = destinationId.PseudowireId
-    leafs["invalid-value"] = destinationId.InvalidValue
-    return leafs
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetYangName() string { return "destination-id" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) SetParent(parent types.Entity) { destinationId.parent = parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetParent() types.Entity { return destinationId.parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId) GetParentYangName() string { return "hardware-session" }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf
 // IPv4 address
 type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetFilter() yfilter.YFilter { return ipv4AddressAndVrf.YFilter }
+func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv4AddressAndVrf.EntityData.YFilter = ipv4AddressAndVrf.YFilter
+    ipv4AddressAndVrf.EntityData.YangName = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv4AddressAndVrf.YFilter = yf }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv4AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv4AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressAndVrf.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", ipv4AddressAndVrf.Ipv4Address}
+    ipv4AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4AddressAndVrf.VrfName}
+    return &(ipv4AddressAndVrf.EntityData)
 }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetSegmentPath() string {
-    return "ipv4-address-and-vrf"
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-address"] = ipv4AddressAndVrf.Ipv4Address
-    leafs["vrf-name"] = ipv4AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetYangName() string { return "ipv4-address-and-vrf" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) SetParent(parent types.Entity) { ipv4AddressAndVrf.parent = parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetParent() types.Entity { return ipv4AddressAndVrf.parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv4AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf
 // IPv6 address
 type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetFilter() yfilter.YFilter { return ipv6AddressAndVrf.YFilter }
+func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv6AddressAndVrf.EntityData.YFilter = ipv6AddressAndVrf.YFilter
+    ipv6AddressAndVrf.EntityData.YangName = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv6AddressAndVrf.YFilter = yf }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv6AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv6AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6AddressAndVrf.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6AddressAndVrf.Ipv6Address}
+    ipv6AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6AddressAndVrf.VrfName}
+    return &(ipv6AddressAndVrf.EntityData)
 }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetSegmentPath() string {
-    return "ipv6-address-and-vrf"
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6AddressAndVrf.Ipv6Address
-    leafs["vrf-name"] = ipv6AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetYangName() string { return "ipv6-address-and-vrf" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) SetParent(parent types.Entity) { ipv6AddressAndVrf.parent = parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetParent() types.Entity { return ipv6AddressAndVrf.parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationId_Ipv6AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces
 // Table of source interfaces set up in the
@@ -2270,84 +1269,45 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_HardwareSessions_Hardware
 // match the entries in AttachmentTable when all
 // sessions are operating correctly
 type SpanMonitorSession_Nodes_Node_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular interface that is set up in the hardware.
-    // The type is slice of SpanMonitorSession_Nodes_Node_Interfaces_Interface.
-    Interface []SpanMonitorSession_Nodes_Node_Interfaces_Interface
+    // The type is slice of SpanMonitorSession_Nodes_Node_Interfaces_Interface_.
+    Interface_ []SpanMonitorSession_Nodes_Node_Interfaces_Interface
 }
 
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "node"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Nodes_Node_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *SpanMonitorSession_Nodes_Node_Interfaces) GetParentYangName() string { return "node" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface
 // Information about a particular interface that
 // is set up in the hardware
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
-    // Source interface. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Source interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 
     // Last error observed for this interface while programming the hardware. The
@@ -2355,7 +1315,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     PlatformError interface{}
 
     // Destination interface (deprecated by Attachment). The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     DestinationInterface interface{}
 
     // Traffic mirroring direction (deprecated by Attachment). The type is
@@ -2373,95 +1333,43 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     Attachment []SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment
 }
 
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "platform-error" { return "PlatformError" }
-    if yname == "destination-interface" { return "DestinationInterface" }
-    if yname == "traffic-direction" { return "TrafficDirection" }
-    if yname == "destination-id" { return "DestinationId" }
-    if yname == "traffic-mirroring-parameters" { return "TrafficMirroringParameters" }
-    if yname == "attachment" { return "Attachment" }
-    return ""
-}
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface='" + fmt.Sprintf("%v", self.Interface) + "']"
-}
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination-id" {
-        return &self.DestinationId
-    }
-    if childYangName == "traffic-mirroring-parameters" {
-        return &self.TrafficMirroringParameters
-    }
-    if childYangName == "attachment" {
-        for _, c := range self.Attachment {
-            if self.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment{}
-        self.Attachment = append(self.Attachment, child)
-        return &self.Attachment[len(self.Attachment)-1]
-    }
-    return nil
-}
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination-id"] = &self.DestinationId
-    children["traffic-mirroring-parameters"] = &self.TrafficMirroringParameters
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["destination-id"] = types.YChild{"DestinationId", &self.DestinationId}
+    self.EntityData.Children["traffic-mirroring-parameters"] = types.YChild{"TrafficMirroringParameters", &self.TrafficMirroringParameters}
+    self.EntityData.Children["attachment"] = types.YChild{"Attachment", nil}
     for i := range self.Attachment {
-        children[self.Attachment[i].GetSegmentPath()] = &self.Attachment[i]
+        self.EntityData.Children[types.GetSegmentPath(&self.Attachment[i])] = types.YChild{"Attachment", &self.Attachment[i]}
     }
-    return children
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", self.SourceInterface}
+    self.EntityData.Leafs["platform-error"] = types.YLeaf{"PlatformError", self.PlatformError}
+    self.EntityData.Leafs["destination-interface"] = types.YLeaf{"DestinationInterface", self.DestinationInterface}
+    self.EntityData.Leafs["traffic-direction"] = types.YLeaf{"TrafficDirection", self.TrafficDirection}
+    return &(self.EntityData)
 }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = self.Interface
-    leafs["source-interface"] = self.SourceInterface
-    leafs["platform-error"] = self.PlatformError
-    leafs["destination-interface"] = self.DestinationInterface
-    leafs["traffic-direction"] = self.TrafficDirection
-    return leafs
-}
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *SpanMonitorSession_Nodes_Node_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId
 // Destination ID (deprecated by Attachment)
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
     PseudowireId interface{}
@@ -2476,197 +1384,94 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId struct {
     Ipv6AddressAndVrf SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf
 }
 
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetFilter() yfilter.YFilter { return destinationId.YFilter }
+func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetEntityData() *types.CommonEntityData {
+    destinationId.EntityData.YFilter = destinationId.YFilter
+    destinationId.EntityData.YangName = "destination-id"
+    destinationId.EntityData.BundleName = "cisco_ios_xr"
+    destinationId.EntityData.ParentYangName = "interface"
+    destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) SetFilter(yf yfilter.YFilter) { destinationId.YFilter = yf }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetGoName(yname string) string {
-    if yname == "destination-class" { return "DestinationClass" }
-    if yname == "interface" { return "Interface" }
-    if yname == "pseudowire-id" { return "PseudowireId" }
-    if yname == "invalid-value" { return "InvalidValue" }
-    if yname == "ipv4-address-and-vrf" { return "Ipv4AddressAndVrf" }
-    if yname == "ipv6-address-and-vrf" { return "Ipv6AddressAndVrf" }
-    return ""
+    destinationId.EntityData.Children = make(map[string]types.YChild)
+    destinationId.EntityData.Children["ipv4-address-and-vrf"] = types.YChild{"Ipv4AddressAndVrf", &destinationId.Ipv4AddressAndVrf}
+    destinationId.EntityData.Children["ipv6-address-and-vrf"] = types.YChild{"Ipv6AddressAndVrf", &destinationId.Ipv6AddressAndVrf}
+    destinationId.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationId.EntityData.Leafs["destination-class"] = types.YLeaf{"DestinationClass", destinationId.DestinationClass}
+    destinationId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", destinationId.Interface_}
+    destinationId.EntityData.Leafs["pseudowire-id"] = types.YLeaf{"PseudowireId", destinationId.PseudowireId}
+    destinationId.EntityData.Leafs["invalid-value"] = types.YLeaf{"InvalidValue", destinationId.InvalidValue}
+    return &(destinationId.EntityData)
 }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetSegmentPath() string {
-    return "destination-id"
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address-and-vrf" {
-        return &destinationId.Ipv4AddressAndVrf
-    }
-    if childYangName == "ipv6-address-and-vrf" {
-        return &destinationId.Ipv6AddressAndVrf
-    }
-    return nil
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-address-and-vrf"] = &destinationId.Ipv4AddressAndVrf
-    children["ipv6-address-and-vrf"] = &destinationId.Ipv6AddressAndVrf
-    return children
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-class"] = destinationId.DestinationClass
-    leafs["interface"] = destinationId.Interface
-    leafs["pseudowire-id"] = destinationId.PseudowireId
-    leafs["invalid-value"] = destinationId.InvalidValue
-    return leafs
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetYangName() string { return "destination-id" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) SetParent(parent types.Entity) { destinationId.parent = parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetParent() types.Entity { return destinationId.parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId) GetParentYangName() string { return "interface" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf
 // IPv4 address
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetFilter() yfilter.YFilter { return ipv4AddressAndVrf.YFilter }
+func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv4AddressAndVrf.EntityData.YFilter = ipv4AddressAndVrf.YFilter
+    ipv4AddressAndVrf.EntityData.YangName = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv4AddressAndVrf.YFilter = yf }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv4AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv4AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressAndVrf.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", ipv4AddressAndVrf.Ipv4Address}
+    ipv4AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4AddressAndVrf.VrfName}
+    return &(ipv4AddressAndVrf.EntityData)
 }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetSegmentPath() string {
-    return "ipv4-address-and-vrf"
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-address"] = ipv4AddressAndVrf.Ipv4Address
-    leafs["vrf-name"] = ipv4AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetYangName() string { return "ipv4-address-and-vrf" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) SetParent(parent types.Entity) { ipv4AddressAndVrf.parent = parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetParent() types.Entity { return ipv4AddressAndVrf.parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf
 // IPv6 address
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetFilter() yfilter.YFilter { return ipv6AddressAndVrf.YFilter }
+func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv6AddressAndVrf.EntityData.YFilter = ipv6AddressAndVrf.YFilter
+    ipv6AddressAndVrf.EntityData.YangName = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv6AddressAndVrf.YFilter = yf }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv6AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv6AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6AddressAndVrf.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6AddressAndVrf.Ipv6Address}
+    ipv6AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6AddressAndVrf.VrfName}
+    return &(ipv6AddressAndVrf.EntityData)
 }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetSegmentPath() string {
-    return "ipv6-address-and-vrf"
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6AddressAndVrf.Ipv6Address
-    leafs["vrf-name"] = ipv6AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetYangName() string { return "ipv6-address-and-vrf" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) SetParent(parent types.Entity) { ipv6AddressAndVrf.parent = parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetParent() types.Entity { return ipv6AddressAndVrf.parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters
 // Traffic mirroring parameters (deprecated by
 // Attachment)
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Direction. The type is TrafficDirection.
@@ -2689,66 +1494,31 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParamete
     AclName interface{}
 }
 
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetFilter() yfilter.YFilter { return trafficMirroringParameters.YFilter }
+func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetEntityData() *types.CommonEntityData {
+    trafficMirroringParameters.EntityData.YFilter = trafficMirroringParameters.YFilter
+    trafficMirroringParameters.EntityData.YangName = "traffic-mirroring-parameters"
+    trafficMirroringParameters.EntityData.BundleName = "cisco_ios_xr"
+    trafficMirroringParameters.EntityData.ParentYangName = "interface"
+    trafficMirroringParameters.EntityData.SegmentPath = "traffic-mirroring-parameters"
+    trafficMirroringParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficMirroringParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficMirroringParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) SetFilter(yf yfilter.YFilter) { trafficMirroringParameters.YFilter = yf }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetGoName(yname string) string {
-    if yname == "traffic-direction" { return "TrafficDirection" }
-    if yname == "port-level" { return "PortLevel" }
-    if yname == "is-acl-enabled" { return "IsAclEnabled" }
-    if yname == "mirror-bytes" { return "MirrorBytes" }
-    if yname == "mirror-interval" { return "MirrorInterval" }
-    if yname == "acl-name" { return "AclName" }
-    return ""
+    trafficMirroringParameters.EntityData.Children = make(map[string]types.YChild)
+    trafficMirroringParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficMirroringParameters.EntityData.Leafs["traffic-direction"] = types.YLeaf{"TrafficDirection", trafficMirroringParameters.TrafficDirection}
+    trafficMirroringParameters.EntityData.Leafs["port-level"] = types.YLeaf{"PortLevel", trafficMirroringParameters.PortLevel}
+    trafficMirroringParameters.EntityData.Leafs["is-acl-enabled"] = types.YLeaf{"IsAclEnabled", trafficMirroringParameters.IsAclEnabled}
+    trafficMirroringParameters.EntityData.Leafs["mirror-bytes"] = types.YLeaf{"MirrorBytes", trafficMirroringParameters.MirrorBytes}
+    trafficMirroringParameters.EntityData.Leafs["mirror-interval"] = types.YLeaf{"MirrorInterval", trafficMirroringParameters.MirrorInterval}
+    trafficMirroringParameters.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", trafficMirroringParameters.AclName}
+    return &(trafficMirroringParameters.EntityData)
 }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetSegmentPath() string {
-    return "traffic-mirroring-parameters"
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["traffic-direction"] = trafficMirroringParameters.TrafficDirection
-    leafs["port-level"] = trafficMirroringParameters.PortLevel
-    leafs["is-acl-enabled"] = trafficMirroringParameters.IsAclEnabled
-    leafs["mirror-bytes"] = trafficMirroringParameters.MirrorBytes
-    leafs["mirror-interval"] = trafficMirroringParameters.MirrorInterval
-    leafs["acl-name"] = trafficMirroringParameters.AclName
-    return leafs
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetYangName() string { return "traffic-mirroring-parameters" }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) SetParent(parent types.Entity) { trafficMirroringParameters.parent = parent }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetParent() types.Entity { return trafficMirroringParameters.parent }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_TrafficMirroringParameters) GetParentYangName() string { return "interface" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment
 // Attachment information
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Attachment class. The type is SessionClass.
@@ -2761,73 +1531,35 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment struct {
     TrafficMirroringParameters SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters
 }
 
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetFilter() yfilter.YFilter { return attachment.YFilter }
+func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetEntityData() *types.CommonEntityData {
+    attachment.EntityData.YFilter = attachment.YFilter
+    attachment.EntityData.YangName = "attachment"
+    attachment.EntityData.BundleName = "cisco_ios_xr"
+    attachment.EntityData.ParentYangName = "interface"
+    attachment.EntityData.SegmentPath = "attachment"
+    attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) SetFilter(yf yfilter.YFilter) { attachment.YFilter = yf }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    if yname == "destination-id" { return "DestinationId" }
-    if yname == "traffic-mirroring-parameters" { return "TrafficMirroringParameters" }
-    return ""
+    attachment.EntityData.Children = make(map[string]types.YChild)
+    attachment.EntityData.Children["destination-id"] = types.YChild{"DestinationId", &attachment.DestinationId}
+    attachment.EntityData.Children["traffic-mirroring-parameters"] = types.YChild{"TrafficMirroringParameters", &attachment.TrafficMirroringParameters}
+    attachment.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachment.EntityData.Leafs["class"] = types.YLeaf{"Class", attachment.Class}
+    return &(attachment.EntityData)
 }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetSegmentPath() string {
-    return "attachment"
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination-id" {
-        return &attachment.DestinationId
-    }
-    if childYangName == "traffic-mirroring-parameters" {
-        return &attachment.TrafficMirroringParameters
-    }
-    return nil
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination-id"] = &attachment.DestinationId
-    children["traffic-mirroring-parameters"] = &attachment.TrafficMirroringParameters
-    return children
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class"] = attachment.Class
-    return leafs
-}
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetBundleName() string { return "cisco_ios_xr" }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetYangName() string { return "attachment" }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) SetParent(parent types.Entity) { attachment.parent = parent }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetParent() types.Entity { return attachment.parent }
-
-func (attachment *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment) GetParentYangName() string { return "interface" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId
 // Destination ID
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
     PseudowireId interface{}
@@ -2842,196 +1574,93 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId
     Ipv6AddressAndVrf SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf
 }
 
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetFilter() yfilter.YFilter { return destinationId.YFilter }
+func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetEntityData() *types.CommonEntityData {
+    destinationId.EntityData.YFilter = destinationId.YFilter
+    destinationId.EntityData.YangName = "destination-id"
+    destinationId.EntityData.BundleName = "cisco_ios_xr"
+    destinationId.EntityData.ParentYangName = "attachment"
+    destinationId.EntityData.SegmentPath = "destination-id"
+    destinationId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destinationId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destinationId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) SetFilter(yf yfilter.YFilter) { destinationId.YFilter = yf }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetGoName(yname string) string {
-    if yname == "destination-class" { return "DestinationClass" }
-    if yname == "interface" { return "Interface" }
-    if yname == "pseudowire-id" { return "PseudowireId" }
-    if yname == "invalid-value" { return "InvalidValue" }
-    if yname == "ipv4-address-and-vrf" { return "Ipv4AddressAndVrf" }
-    if yname == "ipv6-address-and-vrf" { return "Ipv6AddressAndVrf" }
-    return ""
+    destinationId.EntityData.Children = make(map[string]types.YChild)
+    destinationId.EntityData.Children["ipv4-address-and-vrf"] = types.YChild{"Ipv4AddressAndVrf", &destinationId.Ipv4AddressAndVrf}
+    destinationId.EntityData.Children["ipv6-address-and-vrf"] = types.YChild{"Ipv6AddressAndVrf", &destinationId.Ipv6AddressAndVrf}
+    destinationId.EntityData.Leafs = make(map[string]types.YLeaf)
+    destinationId.EntityData.Leafs["destination-class"] = types.YLeaf{"DestinationClass", destinationId.DestinationClass}
+    destinationId.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", destinationId.Interface_}
+    destinationId.EntityData.Leafs["pseudowire-id"] = types.YLeaf{"PseudowireId", destinationId.PseudowireId}
+    destinationId.EntityData.Leafs["invalid-value"] = types.YLeaf{"InvalidValue", destinationId.InvalidValue}
+    return &(destinationId.EntityData)
 }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetSegmentPath() string {
-    return "destination-id"
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address-and-vrf" {
-        return &destinationId.Ipv4AddressAndVrf
-    }
-    if childYangName == "ipv6-address-and-vrf" {
-        return &destinationId.Ipv6AddressAndVrf
-    }
-    return nil
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-address-and-vrf"] = &destinationId.Ipv4AddressAndVrf
-    children["ipv6-address-and-vrf"] = &destinationId.Ipv6AddressAndVrf
-    return children
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-class"] = destinationId.DestinationClass
-    leafs["interface"] = destinationId.Interface
-    leafs["pseudowire-id"] = destinationId.PseudowireId
-    leafs["invalid-value"] = destinationId.InvalidValue
-    return leafs
-}
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetYangName() string { return "destination-id" }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) SetParent(parent types.Entity) { destinationId.parent = parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetParent() types.Entity { return destinationId.parent }
-
-func (destinationId *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId) GetParentYangName() string { return "attachment" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf
 // IPv4 address
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetFilter() yfilter.YFilter { return ipv4AddressAndVrf.YFilter }
+func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv4AddressAndVrf.EntityData.YFilter = ipv4AddressAndVrf.YFilter
+    ipv4AddressAndVrf.EntityData.YangName = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv4AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv4AddressAndVrf.EntityData.SegmentPath = "ipv4-address-and-vrf"
+    ipv4AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv4AddressAndVrf.YFilter = yf }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv4AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv4AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4AddressAndVrf.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", ipv4AddressAndVrf.Ipv4Address}
+    ipv4AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4AddressAndVrf.VrfName}
+    return &(ipv4AddressAndVrf.EntityData)
 }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetSegmentPath() string {
-    return "ipv4-address-and-vrf"
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-address"] = ipv4AddressAndVrf.Ipv4Address
-    leafs["vrf-name"] = ipv4AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetYangName() string { return "ipv4-address-and-vrf" }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) SetParent(parent types.Entity) { ipv4AddressAndVrf.parent = parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetParent() types.Entity { return ipv4AddressAndVrf.parent }
-
-func (ipv4AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv4AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf
 // IPv6 address
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // VRF. The type is string.
     VrfName interface{}
 }
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetFilter() yfilter.YFilter { return ipv6AddressAndVrf.YFilter }
+func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetEntityData() *types.CommonEntityData {
+    ipv6AddressAndVrf.EntityData.YFilter = ipv6AddressAndVrf.YFilter
+    ipv6AddressAndVrf.EntityData.YangName = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6AddressAndVrf.EntityData.ParentYangName = "destination-id"
+    ipv6AddressAndVrf.EntityData.SegmentPath = "ipv6-address-and-vrf"
+    ipv6AddressAndVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6AddressAndVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6AddressAndVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) SetFilter(yf yfilter.YFilter) { ipv6AddressAndVrf.YFilter = yf }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "vrf-name" { return "VrfName" }
-    return ""
+    ipv6AddressAndVrf.EntityData.Children = make(map[string]types.YChild)
+    ipv6AddressAndVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6AddressAndVrf.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6AddressAndVrf.Ipv6Address}
+    ipv6AddressAndVrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6AddressAndVrf.VrfName}
+    return &(ipv6AddressAndVrf.EntityData)
 }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetSegmentPath() string {
-    return "ipv6-address-and-vrf"
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6AddressAndVrf.Ipv6Address
-    leafs["vrf-name"] = ipv6AddressAndVrf.VrfName
-    return leafs
-}
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetYangName() string { return "ipv6-address-and-vrf" }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) SetParent(parent types.Entity) { ipv6AddressAndVrf.parent = parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetParent() types.Entity { return ipv6AddressAndVrf.parent }
-
-func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId_Ipv6AddressAndVrf) GetParentYangName() string { return "destination-id" }
 
 // SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters
 // Traffic mirroring parameters
 type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Direction. The type is TrafficDirection.
@@ -3054,59 +1683,24 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirror
     AclName interface{}
 }
 
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetFilter() yfilter.YFilter { return trafficMirroringParameters.YFilter }
+func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetEntityData() *types.CommonEntityData {
+    trafficMirroringParameters.EntityData.YFilter = trafficMirroringParameters.YFilter
+    trafficMirroringParameters.EntityData.YangName = "traffic-mirroring-parameters"
+    trafficMirroringParameters.EntityData.BundleName = "cisco_ios_xr"
+    trafficMirroringParameters.EntityData.ParentYangName = "attachment"
+    trafficMirroringParameters.EntityData.SegmentPath = "traffic-mirroring-parameters"
+    trafficMirroringParameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trafficMirroringParameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trafficMirroringParameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) SetFilter(yf yfilter.YFilter) { trafficMirroringParameters.YFilter = yf }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetGoName(yname string) string {
-    if yname == "traffic-direction" { return "TrafficDirection" }
-    if yname == "port-level" { return "PortLevel" }
-    if yname == "is-acl-enabled" { return "IsAclEnabled" }
-    if yname == "mirror-bytes" { return "MirrorBytes" }
-    if yname == "mirror-interval" { return "MirrorInterval" }
-    if yname == "acl-name" { return "AclName" }
-    return ""
+    trafficMirroringParameters.EntityData.Children = make(map[string]types.YChild)
+    trafficMirroringParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    trafficMirroringParameters.EntityData.Leafs["traffic-direction"] = types.YLeaf{"TrafficDirection", trafficMirroringParameters.TrafficDirection}
+    trafficMirroringParameters.EntityData.Leafs["port-level"] = types.YLeaf{"PortLevel", trafficMirroringParameters.PortLevel}
+    trafficMirroringParameters.EntityData.Leafs["is-acl-enabled"] = types.YLeaf{"IsAclEnabled", trafficMirroringParameters.IsAclEnabled}
+    trafficMirroringParameters.EntityData.Leafs["mirror-bytes"] = types.YLeaf{"MirrorBytes", trafficMirroringParameters.MirrorBytes}
+    trafficMirroringParameters.EntityData.Leafs["mirror-interval"] = types.YLeaf{"MirrorInterval", trafficMirroringParameters.MirrorInterval}
+    trafficMirroringParameters.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", trafficMirroringParameters.AclName}
+    return &(trafficMirroringParameters.EntityData)
 }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetSegmentPath() string {
-    return "traffic-mirroring-parameters"
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["traffic-direction"] = trafficMirroringParameters.TrafficDirection
-    leafs["port-level"] = trafficMirroringParameters.PortLevel
-    leafs["is-acl-enabled"] = trafficMirroringParameters.IsAclEnabled
-    leafs["mirror-bytes"] = trafficMirroringParameters.MirrorBytes
-    leafs["mirror-interval"] = trafficMirroringParameters.MirrorInterval
-    leafs["acl-name"] = trafficMirroringParameters.AclName
-    return leafs
-}
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetYangName() string { return "traffic-mirroring-parameters" }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) SetParent(parent types.Entity) { trafficMirroringParameters.parent = parent }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetParent() types.Entity { return trafficMirroringParameters.parent }
-
-func (trafficMirroringParameters *SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_TrafficMirroringParameters) GetParentYangName() string { return "attachment" }
 

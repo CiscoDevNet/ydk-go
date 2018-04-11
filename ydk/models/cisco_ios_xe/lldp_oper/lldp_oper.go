@@ -22,75 +22,36 @@ func init() {
 // LldpEntries
 // Data nodes for lldp entries
 type LldpEntries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of LLDP entries. The type is slice of LldpEntries_LldpEntry.
     LldpEntry []LldpEntries_LldpEntry
 }
 
-func (lldpEntries *LldpEntries) GetFilter() yfilter.YFilter { return lldpEntries.YFilter }
+func (lldpEntries *LldpEntries) GetEntityData() *types.CommonEntityData {
+    lldpEntries.EntityData.YFilter = lldpEntries.YFilter
+    lldpEntries.EntityData.YangName = "lldp-entries"
+    lldpEntries.EntityData.BundleName = "cisco_ios_xe"
+    lldpEntries.EntityData.ParentYangName = "Cisco-IOS-XE-lldp-oper"
+    lldpEntries.EntityData.SegmentPath = "Cisco-IOS-XE-lldp-oper:lldp-entries"
+    lldpEntries.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpEntries.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpEntries.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpEntries *LldpEntries) SetFilter(yf yfilter.YFilter) { lldpEntries.YFilter = yf }
-
-func (lldpEntries *LldpEntries) GetGoName(yname string) string {
-    if yname == "lldp-entry" { return "LldpEntry" }
-    return ""
-}
-
-func (lldpEntries *LldpEntries) GetSegmentPath() string {
-    return "Cisco-IOS-XE-lldp-oper:lldp-entries"
-}
-
-func (lldpEntries *LldpEntries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lldp-entry" {
-        for _, c := range lldpEntries.LldpEntry {
-            if lldpEntries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LldpEntries_LldpEntry{}
-        lldpEntries.LldpEntry = append(lldpEntries.LldpEntry, child)
-        return &lldpEntries.LldpEntry[len(lldpEntries.LldpEntry)-1]
-    }
-    return nil
-}
-
-func (lldpEntries *LldpEntries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    lldpEntries.EntityData.Children = make(map[string]types.YChild)
+    lldpEntries.EntityData.Children["lldp-entry"] = types.YChild{"LldpEntry", nil}
     for i := range lldpEntries.LldpEntry {
-        children[lldpEntries.LldpEntry[i].GetSegmentPath()] = &lldpEntries.LldpEntry[i]
+        lldpEntries.EntityData.Children[types.GetSegmentPath(&lldpEntries.LldpEntry[i])] = types.YChild{"LldpEntry", &lldpEntries.LldpEntry[i]}
     }
-    return children
+    lldpEntries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lldpEntries.EntityData)
 }
-
-func (lldpEntries *LldpEntries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lldpEntries *LldpEntries) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpEntries *LldpEntries) GetYangName() string { return "lldp-entries" }
-
-func (lldpEntries *LldpEntries) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpEntries *LldpEntries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpEntries *LldpEntries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpEntries *LldpEntries) SetParent(parent types.Entity) { lldpEntries.parent = parent }
-
-func (lldpEntries *LldpEntries) GetParent() types.Entity { return lldpEntries.parent }
-
-func (lldpEntries *LldpEntries) GetParentYangName() string { return "Cisco-IOS-XE-lldp-oper" }
 
 // LldpEntries_LldpEntry
 // The list of LLDP entries
 type LldpEntries_LldpEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Device ID of the link. The type is string.
@@ -112,67 +73,30 @@ type LldpEntries_LldpEntry struct {
     Capabilities LldpEntries_LldpEntry_Capabilities
 }
 
-func (lldpEntry *LldpEntries_LldpEntry) GetFilter() yfilter.YFilter { return lldpEntry.YFilter }
+func (lldpEntry *LldpEntries_LldpEntry) GetEntityData() *types.CommonEntityData {
+    lldpEntry.EntityData.YFilter = lldpEntry.YFilter
+    lldpEntry.EntityData.YangName = "lldp-entry"
+    lldpEntry.EntityData.BundleName = "cisco_ios_xe"
+    lldpEntry.EntityData.ParentYangName = "lldp-entries"
+    lldpEntry.EntityData.SegmentPath = "lldp-entry" + "[device-id='" + fmt.Sprintf("%v", lldpEntry.DeviceId) + "']" + "[local-interface='" + fmt.Sprintf("%v", lldpEntry.LocalInterface) + "']" + "[connecting-interface='" + fmt.Sprintf("%v", lldpEntry.ConnectingInterface) + "']"
+    lldpEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    lldpEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    lldpEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (lldpEntry *LldpEntries_LldpEntry) SetFilter(yf yfilter.YFilter) { lldpEntry.YFilter = yf }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetGoName(yname string) string {
-    if yname == "device-id" { return "DeviceId" }
-    if yname == "local-interface" { return "LocalInterface" }
-    if yname == "connecting-interface" { return "ConnectingInterface" }
-    if yname == "ttl" { return "Ttl" }
-    if yname == "capabilities" { return "Capabilities" }
-    return ""
+    lldpEntry.EntityData.Children = make(map[string]types.YChild)
+    lldpEntry.EntityData.Children["capabilities"] = types.YChild{"Capabilities", &lldpEntry.Capabilities}
+    lldpEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldpEntry.EntityData.Leafs["device-id"] = types.YLeaf{"DeviceId", lldpEntry.DeviceId}
+    lldpEntry.EntityData.Leafs["local-interface"] = types.YLeaf{"LocalInterface", lldpEntry.LocalInterface}
+    lldpEntry.EntityData.Leafs["connecting-interface"] = types.YLeaf{"ConnectingInterface", lldpEntry.ConnectingInterface}
+    lldpEntry.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", lldpEntry.Ttl}
+    return &(lldpEntry.EntityData)
 }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetSegmentPath() string {
-    return "lldp-entry" + "[device-id='" + fmt.Sprintf("%v", lldpEntry.DeviceId) + "']" + "[local-interface='" + fmt.Sprintf("%v", lldpEntry.LocalInterface) + "']" + "[connecting-interface='" + fmt.Sprintf("%v", lldpEntry.ConnectingInterface) + "']"
-}
-
-func (lldpEntry *LldpEntries_LldpEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "capabilities" {
-        return &lldpEntry.Capabilities
-    }
-    return nil
-}
-
-func (lldpEntry *LldpEntries_LldpEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["capabilities"] = &lldpEntry.Capabilities
-    return children
-}
-
-func (lldpEntry *LldpEntries_LldpEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["device-id"] = lldpEntry.DeviceId
-    leafs["local-interface"] = lldpEntry.LocalInterface
-    leafs["connecting-interface"] = lldpEntry.ConnectingInterface
-    leafs["ttl"] = lldpEntry.Ttl
-    return leafs
-}
-
-func (lldpEntry *LldpEntries_LldpEntry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetYangName() string { return "lldp-entry" }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (lldpEntry *LldpEntries_LldpEntry) SetParent(parent types.Entity) { lldpEntry.parent = parent }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetParent() types.Entity { return lldpEntry.parent }
-
-func (lldpEntry *LldpEntries_LldpEntry) GetParentYangName() string { return "lldp-entries" }
 
 // LldpEntries_LldpEntry_Capabilities
 // LLD device capabilities
 type LldpEntries_LldpEntry_Capabilities struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Repeater. The type is interface{}.
@@ -200,63 +124,26 @@ type LldpEntries_LldpEntry_Capabilities struct {
     Other interface{}
 }
 
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetFilter() yfilter.YFilter { return capabilities.YFilter }
+func (capabilities *LldpEntries_LldpEntry_Capabilities) GetEntityData() *types.CommonEntityData {
+    capabilities.EntityData.YFilter = capabilities.YFilter
+    capabilities.EntityData.YangName = "capabilities"
+    capabilities.EntityData.BundleName = "cisco_ios_xe"
+    capabilities.EntityData.ParentYangName = "lldp-entry"
+    capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    capabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    capabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (capabilities *LldpEntries_LldpEntry_Capabilities) SetFilter(yf yfilter.YFilter) { capabilities.YFilter = yf }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetGoName(yname string) string {
-    if yname == "repeater" { return "Repeater" }
-    if yname == "bridge" { return "Bridge" }
-    if yname == "access-point" { return "AccessPoint" }
-    if yname == "router" { return "Router" }
-    if yname == "telephone" { return "Telephone" }
-    if yname == "docsis" { return "Docsis" }
-    if yname == "station" { return "Station" }
-    if yname == "other" { return "Other" }
-    return ""
+    capabilities.EntityData.Children = make(map[string]types.YChild)
+    capabilities.EntityData.Leafs = make(map[string]types.YLeaf)
+    capabilities.EntityData.Leafs["repeater"] = types.YLeaf{"Repeater", capabilities.Repeater}
+    capabilities.EntityData.Leafs["bridge"] = types.YLeaf{"Bridge", capabilities.Bridge}
+    capabilities.EntityData.Leafs["access-point"] = types.YLeaf{"AccessPoint", capabilities.AccessPoint}
+    capabilities.EntityData.Leafs["router"] = types.YLeaf{"Router", capabilities.Router}
+    capabilities.EntityData.Leafs["telephone"] = types.YLeaf{"Telephone", capabilities.Telephone}
+    capabilities.EntityData.Leafs["docsis"] = types.YLeaf{"Docsis", capabilities.Docsis}
+    capabilities.EntityData.Leafs["station"] = types.YLeaf{"Station", capabilities.Station}
+    capabilities.EntityData.Leafs["other"] = types.YLeaf{"Other", capabilities.Other}
+    return &(capabilities.EntityData)
 }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetSegmentPath() string {
-    return "capabilities"
-}
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["repeater"] = capabilities.Repeater
-    leafs["bridge"] = capabilities.Bridge
-    leafs["access-point"] = capabilities.AccessPoint
-    leafs["router"] = capabilities.Router
-    leafs["telephone"] = capabilities.Telephone
-    leafs["docsis"] = capabilities.Docsis
-    leafs["station"] = capabilities.Station
-    leafs["other"] = capabilities.Other
-    return leafs
-}
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetBundleName() string { return "cisco_ios_xe" }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetYangName() string { return "capabilities" }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) SetParent(parent types.Entity) { capabilities.parent = parent }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetParent() types.Entity { return capabilities.parent }
-
-func (capabilities *LldpEntries_LldpEntry_Capabilities) GetParentYangName() string { return "lldp-entry" }
 

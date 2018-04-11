@@ -22,7 +22,7 @@ func init() {
 // CheckpointArchives
 // Contents of the checkpoint archive information base
 type CheckpointArchives struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maxium number of archives. The type is interface{} with range: 0..255.
@@ -38,133 +38,58 @@ type CheckpointArchives struct {
     Archives CheckpointArchives_Archives
 }
 
-func (checkpointArchives *CheckpointArchives) GetFilter() yfilter.YFilter { return checkpointArchives.YFilter }
+func (checkpointArchives *CheckpointArchives) GetEntityData() *types.CommonEntityData {
+    checkpointArchives.EntityData.YFilter = checkpointArchives.YFilter
+    checkpointArchives.EntityData.YangName = "checkpoint-archives"
+    checkpointArchives.EntityData.BundleName = "cisco_ios_xe"
+    checkpointArchives.EntityData.ParentYangName = "Cisco-IOS-XE-checkpoint-archive-oper"
+    checkpointArchives.EntityData.SegmentPath = "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives"
+    checkpointArchives.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    checkpointArchives.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    checkpointArchives.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (checkpointArchives *CheckpointArchives) SetFilter(yf yfilter.YFilter) { checkpointArchives.YFilter = yf }
-
-func (checkpointArchives *CheckpointArchives) GetGoName(yname string) string {
-    if yname == "max" { return "Max" }
-    if yname == "current" { return "Current" }
-    if yname == "recent" { return "Recent" }
-    if yname == "archives" { return "Archives" }
-    return ""
+    checkpointArchives.EntityData.Children = make(map[string]types.YChild)
+    checkpointArchives.EntityData.Children["archives"] = types.YChild{"Archives", &checkpointArchives.Archives}
+    checkpointArchives.EntityData.Leafs = make(map[string]types.YLeaf)
+    checkpointArchives.EntityData.Leafs["max"] = types.YLeaf{"Max", checkpointArchives.Max}
+    checkpointArchives.EntityData.Leafs["current"] = types.YLeaf{"Current", checkpointArchives.Current}
+    checkpointArchives.EntityData.Leafs["recent"] = types.YLeaf{"Recent", checkpointArchives.Recent}
+    return &(checkpointArchives.EntityData)
 }
-
-func (checkpointArchives *CheckpointArchives) GetSegmentPath() string {
-    return "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives"
-}
-
-func (checkpointArchives *CheckpointArchives) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "archives" {
-        return &checkpointArchives.Archives
-    }
-    return nil
-}
-
-func (checkpointArchives *CheckpointArchives) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["archives"] = &checkpointArchives.Archives
-    return children
-}
-
-func (checkpointArchives *CheckpointArchives) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max"] = checkpointArchives.Max
-    leafs["current"] = checkpointArchives.Current
-    leafs["recent"] = checkpointArchives.Recent
-    return leafs
-}
-
-func (checkpointArchives *CheckpointArchives) GetBundleName() string { return "cisco_ios_xe" }
-
-func (checkpointArchives *CheckpointArchives) GetYangName() string { return "checkpoint-archives" }
-
-func (checkpointArchives *CheckpointArchives) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (checkpointArchives *CheckpointArchives) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (checkpointArchives *CheckpointArchives) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (checkpointArchives *CheckpointArchives) SetParent(parent types.Entity) { checkpointArchives.parent = parent }
-
-func (checkpointArchives *CheckpointArchives) GetParent() types.Entity { return checkpointArchives.parent }
-
-func (checkpointArchives *CheckpointArchives) GetParentYangName() string { return "Cisco-IOS-XE-checkpoint-archive-oper" }
 
 // CheckpointArchives_Archives
 // Archive information
 type CheckpointArchives_Archives struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of archives. The type is slice of CheckpointArchives_Archives_Archive.
     Archive []CheckpointArchives_Archives_Archive
 }
 
-func (archives *CheckpointArchives_Archives) GetFilter() yfilter.YFilter { return archives.YFilter }
+func (archives *CheckpointArchives_Archives) GetEntityData() *types.CommonEntityData {
+    archives.EntityData.YFilter = archives.YFilter
+    archives.EntityData.YangName = "archives"
+    archives.EntityData.BundleName = "cisco_ios_xe"
+    archives.EntityData.ParentYangName = "checkpoint-archives"
+    archives.EntityData.SegmentPath = "archives"
+    archives.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    archives.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    archives.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (archives *CheckpointArchives_Archives) SetFilter(yf yfilter.YFilter) { archives.YFilter = yf }
-
-func (archives *CheckpointArchives_Archives) GetGoName(yname string) string {
-    if yname == "archive" { return "Archive" }
-    return ""
-}
-
-func (archives *CheckpointArchives_Archives) GetSegmentPath() string {
-    return "archives"
-}
-
-func (archives *CheckpointArchives_Archives) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "archive" {
-        for _, c := range archives.Archive {
-            if archives.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CheckpointArchives_Archives_Archive{}
-        archives.Archive = append(archives.Archive, child)
-        return &archives.Archive[len(archives.Archive)-1]
-    }
-    return nil
-}
-
-func (archives *CheckpointArchives_Archives) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    archives.EntityData.Children = make(map[string]types.YChild)
+    archives.EntityData.Children["archive"] = types.YChild{"Archive", nil}
     for i := range archives.Archive {
-        children[archives.Archive[i].GetSegmentPath()] = &archives.Archive[i]
+        archives.EntityData.Children[types.GetSegmentPath(&archives.Archive[i])] = types.YChild{"Archive", &archives.Archive[i]}
     }
-    return children
+    archives.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(archives.EntityData)
 }
-
-func (archives *CheckpointArchives_Archives) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (archives *CheckpointArchives_Archives) GetBundleName() string { return "cisco_ios_xe" }
-
-func (archives *CheckpointArchives_Archives) GetYangName() string { return "archives" }
-
-func (archives *CheckpointArchives_Archives) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (archives *CheckpointArchives_Archives) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (archives *CheckpointArchives_Archives) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (archives *CheckpointArchives_Archives) SetParent(parent types.Entity) { archives.parent = parent }
-
-func (archives *CheckpointArchives_Archives) GetParent() types.Entity { return archives.parent }
-
-func (archives *CheckpointArchives_Archives) GetParentYangName() string { return "checkpoint-archives" }
 
 // CheckpointArchives_Archives_Archive
 // List of archives
 type CheckpointArchives_Archives_Archive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The archive number. The type is interface{} with
@@ -175,51 +100,20 @@ type CheckpointArchives_Archives_Archive struct {
     Name interface{}
 }
 
-func (archive *CheckpointArchives_Archives_Archive) GetFilter() yfilter.YFilter { return archive.YFilter }
+func (archive *CheckpointArchives_Archives_Archive) GetEntityData() *types.CommonEntityData {
+    archive.EntityData.YFilter = archive.YFilter
+    archive.EntityData.YangName = "archive"
+    archive.EntityData.BundleName = "cisco_ios_xe"
+    archive.EntityData.ParentYangName = "archives"
+    archive.EntityData.SegmentPath = "archive" + "[number='" + fmt.Sprintf("%v", archive.Number) + "']"
+    archive.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    archive.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    archive.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (archive *CheckpointArchives_Archives_Archive) SetFilter(yf yfilter.YFilter) { archive.YFilter = yf }
-
-func (archive *CheckpointArchives_Archives_Archive) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "name" { return "Name" }
-    return ""
+    archive.EntityData.Children = make(map[string]types.YChild)
+    archive.EntityData.Leafs = make(map[string]types.YLeaf)
+    archive.EntityData.Leafs["number"] = types.YLeaf{"Number", archive.Number}
+    archive.EntityData.Leafs["name"] = types.YLeaf{"Name", archive.Name}
+    return &(archive.EntityData)
 }
-
-func (archive *CheckpointArchives_Archives_Archive) GetSegmentPath() string {
-    return "archive" + "[number='" + fmt.Sprintf("%v", archive.Number) + "']"
-}
-
-func (archive *CheckpointArchives_Archives_Archive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (archive *CheckpointArchives_Archives_Archive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (archive *CheckpointArchives_Archives_Archive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = archive.Number
-    leafs["name"] = archive.Name
-    return leafs
-}
-
-func (archive *CheckpointArchives_Archives_Archive) GetBundleName() string { return "cisco_ios_xe" }
-
-func (archive *CheckpointArchives_Archives_Archive) GetYangName() string { return "archive" }
-
-func (archive *CheckpointArchives_Archives_Archive) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (archive *CheckpointArchives_Archives_Archive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (archive *CheckpointArchives_Archives_Archive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (archive *CheckpointArchives_Archives_Archive) SetParent(parent types.Entity) { archive.parent = parent }
-
-func (archive *CheckpointArchives_Archives_Archive) GetParent() types.Entity { return archive.parent }
-
-func (archive *CheckpointArchives_Archives_Archive) GetParentYangName() string { return "archives" }
 

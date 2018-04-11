@@ -40,6 +40,11 @@ module Cisco-IOS-XE-route-map {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-07-27 {
+    description
+      "Add model for set ip next-hop verify-availability \
+       <ipaddr> <range> track <range>";
+  }
   revision 2017-06-07 {
     description
       "Add model for named ordering route-map enable";
@@ -115,33 +120,7 @@ module Cisco-IOS-XE-route-map {
     }
   }
 
-  grouping config-route-map-grouping {
-    list route-map-seq {
-
-       key "ordering-seq";
-         leaf ordering-seq {
-            description "Ordering seq tag";
-            type string;
-         }
-
-        // route-map * permit
-        // route-map * deny
-        leaf operation {
-          type enumeration {
-            enum "deny" {
-            }
-            enum "permit" {
-            }
-          }
-        }
-
-        // route-map * #
-        leaf sequence {
-          type uint16 {
-            range "0..65535";
-          }
-        }
-
+  grouping config-route-map-common-grouping {
       // route-map * / description
       leaf description {
         description
@@ -548,6 +527,14 @@ module Cisco-IOS-XE-route-map {
                       range "1..65535";
                     }
                   }
+                  leaf track {
+                    description
+                      "set the next hop depending on the state\
+                       of a tracked object";
+                    type uint16 {
+                       range "1..1000";
+                    }
+                  } 
                 }
               }
             }
@@ -1391,6 +1378,51 @@ module Cisco-IOS-XE-route-map {
           }
         }
       }
+  }
+  grouping config-route-map-grouping {
+    list route-map-seq {
+
+      key "ordering-seq";
+      leaf ordering-seq {
+        description "Ordering seq tag";
+        type string;
+      }
+
+      // route-map * permit
+      // route-map * deny
+      leaf operation {
+        type enumeration {
+          enum "deny" {
+          }
+          enum "permit" {
+          }
+        }
+      }
+
+      // route-map * #
+      leaf sequence {
+        type uint16 {
+          range "0..65535";
+        }
+      }
+      uses config-route-map-common-grouping; 
+    }
+    list route-map-without-order-seq {
+      key "seq_no";
+      leaf seq_no {
+        type uint16 {
+          range "0..65535";
+        }
+      }
+      leaf operation {
+        type enumeration {
+          enum "deny" {
+          }
+          enum "permit" {
+          }
+        }
+      }
+      uses config-route-map-common-grouping; 
     }
   }
 

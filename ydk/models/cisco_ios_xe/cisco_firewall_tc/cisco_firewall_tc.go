@@ -13,17 +13,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_firewall_tc"))
 }
 
-// CFWUrlServerStatus represents     cannot be determined
-type CFWUrlServerStatus string
-
-const (
-    CFWUrlServerStatus_online CFWUrlServerStatus = "online"
-
-    CFWUrlServerStatus_offline CFWUrlServerStatus = "offline"
-
-    CFWUrlServerStatus_indeterminate CFWUrlServerStatus = "indeterminate"
-)
-
 // CFWNetworkProtocol represents     Denotes Transmission Control Protocol.
 type CFWNetworkProtocol string
 
@@ -41,17 +30,6 @@ const (
     CFWNetworkProtocol_udp CFWNetworkProtocol = "udp"
 
     CFWNetworkProtocol_tcp CFWNetworkProtocol = "tcp"
-)
-
-// CFWUrlfVendorId represents     http://www.n2h2.com
-type CFWUrlfVendorId string
-
-const (
-    CFWUrlfVendorId_other CFWUrlfVendorId = "other"
-
-    CFWUrlfVendorId_websense CFWUrlfVendorId = "websense"
-
-    CFWUrlfVendorId_n2h2 CFWUrlfVendorId = "n2h2"
 )
 
 // CFWApplicationProtocol represents     Denotes any protocol not listed.
@@ -418,5 +396,27 @@ const (
     CFWPolicyTargetType_usergroup CFWPolicyTargetType = "usergroup"
 
     CFWPolicyTargetType_context CFWPolicyTargetType = "context"
+)
+
+// CFWUrlfVendorId represents     http://www.n2h2.com
+type CFWUrlfVendorId string
+
+const (
+    CFWUrlfVendorId_other CFWUrlfVendorId = "other"
+
+    CFWUrlfVendorId_websense CFWUrlfVendorId = "websense"
+
+    CFWUrlfVendorId_n2h2 CFWUrlfVendorId = "n2h2"
+)
+
+// CFWUrlServerStatus represents     cannot be determined
+type CFWUrlServerStatus string
+
+const (
+    CFWUrlServerStatus_online CFWUrlServerStatus = "online"
+
+    CFWUrlServerStatus_offline CFWUrlServerStatus = "offline"
+
+    CFWUrlServerStatus_indeterminate CFWUrlServerStatus = "indeterminate"
 )
 

@@ -43,8 +43,12 @@ const (
 // MplsLsd
 // MPLS LSD configuration data
 type MplsLsd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+
+    // Multiply the MPLS LSD Ltrace buffer length. The type is interface{} with
+    // range: 2..5.
+    LtraceMultiplier interface{}
 
     // Disable LSD application reg delay. The type is interface{}.
     AppRegDelayDisable interface{}
@@ -66,75 +70,32 @@ type MplsLsd struct {
     LabelDatabases MplsLsd_LabelDatabases
 }
 
-func (mplsLsd *MplsLsd) GetFilter() yfilter.YFilter { return mplsLsd.YFilter }
+func (mplsLsd *MplsLsd) GetEntityData() *types.CommonEntityData {
+    mplsLsd.EntityData.YFilter = mplsLsd.YFilter
+    mplsLsd.EntityData.YangName = "mpls-lsd"
+    mplsLsd.EntityData.BundleName = "cisco_ios_xr"
+    mplsLsd.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-lsd-cfg"
+    mplsLsd.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd"
+    mplsLsd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsLsd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsLsd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mplsLsd *MplsLsd) SetFilter(yf yfilter.YFilter) { mplsLsd.YFilter = yf }
-
-func (mplsLsd *MplsLsd) GetGoName(yname string) string {
-    if yname == "app-reg-delay-disable" { return "AppRegDelayDisable" }
-    if yname == "mpls-entropy-label" { return "MplsEntropyLabel" }
-    if yname == "mpls-ip-ttl-propagate-disable" { return "MplsIpTtlPropagateDisable" }
-    if yname == "ipv6" { return "Ipv6" }
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "label-databases" { return "LabelDatabases" }
-    return ""
+    mplsLsd.EntityData.Children = make(map[string]types.YChild)
+    mplsLsd.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &mplsLsd.Ipv6}
+    mplsLsd.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &mplsLsd.Ipv4}
+    mplsLsd.EntityData.Children["label-databases"] = types.YChild{"LabelDatabases", &mplsLsd.LabelDatabases}
+    mplsLsd.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsLsd.EntityData.Leafs["ltrace-multiplier"] = types.YLeaf{"LtraceMultiplier", mplsLsd.LtraceMultiplier}
+    mplsLsd.EntityData.Leafs["app-reg-delay-disable"] = types.YLeaf{"AppRegDelayDisable", mplsLsd.AppRegDelayDisable}
+    mplsLsd.EntityData.Leafs["mpls-entropy-label"] = types.YLeaf{"MplsEntropyLabel", mplsLsd.MplsEntropyLabel}
+    mplsLsd.EntityData.Leafs["mpls-ip-ttl-propagate-disable"] = types.YLeaf{"MplsIpTtlPropagateDisable", mplsLsd.MplsIpTtlPropagateDisable}
+    return &(mplsLsd.EntityData)
 }
-
-func (mplsLsd *MplsLsd) GetSegmentPath() string {
-    return "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd"
-}
-
-func (mplsLsd *MplsLsd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6" {
-        return &mplsLsd.Ipv6
-    }
-    if childYangName == "ipv4" {
-        return &mplsLsd.Ipv4
-    }
-    if childYangName == "label-databases" {
-        return &mplsLsd.LabelDatabases
-    }
-    return nil
-}
-
-func (mplsLsd *MplsLsd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv6"] = &mplsLsd.Ipv6
-    children["ipv4"] = &mplsLsd.Ipv4
-    children["label-databases"] = &mplsLsd.LabelDatabases
-    return children
-}
-
-func (mplsLsd *MplsLsd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["app-reg-delay-disable"] = mplsLsd.AppRegDelayDisable
-    leafs["mpls-entropy-label"] = mplsLsd.MplsEntropyLabel
-    leafs["mpls-ip-ttl-propagate-disable"] = mplsLsd.MplsIpTtlPropagateDisable
-    return leafs
-}
-
-func (mplsLsd *MplsLsd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mplsLsd *MplsLsd) GetYangName() string { return "mpls-lsd" }
-
-func (mplsLsd *MplsLsd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mplsLsd *MplsLsd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mplsLsd *MplsLsd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mplsLsd *MplsLsd) SetParent(parent types.Entity) { mplsLsd.parent = parent }
-
-func (mplsLsd *MplsLsd) GetParent() types.Entity { return mplsLsd.parent }
-
-func (mplsLsd *MplsLsd) GetParentYangName() string { return "Cisco-IOS-XR-mpls-lsd-cfg" }
 
 // MplsLsd_Ipv6
 // Configure IPv6 parameters
 type MplsLsd_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of labels to pop upon MPLS IP TTL expiry. The type is interface{}
@@ -142,56 +103,26 @@ type MplsLsd_Ipv6 struct {
     TtlExpirationPop interface{}
 }
 
-func (ipv6 *MplsLsd_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *MplsLsd_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "mpls-lsd"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *MplsLsd_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *MplsLsd_Ipv6) GetGoName(yname string) string {
-    if yname == "ttl-expiration-pop" { return "TtlExpirationPop" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs["ttl-expiration-pop"] = types.YLeaf{"TtlExpirationPop", ipv6.TtlExpirationPop}
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *MplsLsd_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *MplsLsd_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6 *MplsLsd_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6 *MplsLsd_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ttl-expiration-pop"] = ipv6.TtlExpirationPop
-    return leafs
-}
-
-func (ipv6 *MplsLsd_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *MplsLsd_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *MplsLsd_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *MplsLsd_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *MplsLsd_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *MplsLsd_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *MplsLsd_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *MplsLsd_Ipv6) GetParentYangName() string { return "mpls-lsd" }
 
 // MplsLsd_Ipv4
 // Configure IPv4 parameters
 type MplsLsd_Ipv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of labels to pop upon MPLS IP TTL expiry. The type is interface{}
@@ -199,56 +130,26 @@ type MplsLsd_Ipv4 struct {
     TtlExpirationPop interface{}
 }
 
-func (ipv4 *MplsLsd_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
+func (ipv4 *MplsLsd_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "mpls-lsd"
+    ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4 *MplsLsd_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *MplsLsd_Ipv4) GetGoName(yname string) string {
-    if yname == "ttl-expiration-pop" { return "TtlExpirationPop" }
-    return ""
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Leafs["ttl-expiration-pop"] = types.YLeaf{"TtlExpirationPop", ipv4.TtlExpirationPop}
+    return &(ipv4.EntityData)
 }
-
-func (ipv4 *MplsLsd_Ipv4) GetSegmentPath() string {
-    return "ipv4"
-}
-
-func (ipv4 *MplsLsd_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4 *MplsLsd_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4 *MplsLsd_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ttl-expiration-pop"] = ipv4.TtlExpirationPop
-    return leafs
-}
-
-func (ipv4 *MplsLsd_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *MplsLsd_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *MplsLsd_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *MplsLsd_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *MplsLsd_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *MplsLsd_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *MplsLsd_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *MplsLsd_Ipv4) GetParentYangName() string { return "mpls-lsd" }
 
 // MplsLsd_LabelDatabases
 // Table of label databases
 type MplsLsd_LabelDatabases struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A label database. The type is slice of
@@ -256,68 +157,29 @@ type MplsLsd_LabelDatabases struct {
     LabelDatabase []MplsLsd_LabelDatabases_LabelDatabase
 }
 
-func (labelDatabases *MplsLsd_LabelDatabases) GetFilter() yfilter.YFilter { return labelDatabases.YFilter }
+func (labelDatabases *MplsLsd_LabelDatabases) GetEntityData() *types.CommonEntityData {
+    labelDatabases.EntityData.YFilter = labelDatabases.YFilter
+    labelDatabases.EntityData.YangName = "label-databases"
+    labelDatabases.EntityData.BundleName = "cisco_ios_xr"
+    labelDatabases.EntityData.ParentYangName = "mpls-lsd"
+    labelDatabases.EntityData.SegmentPath = "label-databases"
+    labelDatabases.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelDatabases.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelDatabases.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (labelDatabases *MplsLsd_LabelDatabases) SetFilter(yf yfilter.YFilter) { labelDatabases.YFilter = yf }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetGoName(yname string) string {
-    if yname == "label-database" { return "LabelDatabase" }
-    return ""
-}
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetSegmentPath() string {
-    return "label-databases"
-}
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "label-database" {
-        for _, c := range labelDatabases.LabelDatabase {
-            if labelDatabases.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLsd_LabelDatabases_LabelDatabase{}
-        labelDatabases.LabelDatabase = append(labelDatabases.LabelDatabase, child)
-        return &labelDatabases.LabelDatabase[len(labelDatabases.LabelDatabase)-1]
-    }
-    return nil
-}
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    labelDatabases.EntityData.Children = make(map[string]types.YChild)
+    labelDatabases.EntityData.Children["label-database"] = types.YChild{"LabelDatabase", nil}
     for i := range labelDatabases.LabelDatabase {
-        children[labelDatabases.LabelDatabase[i].GetSegmentPath()] = &labelDatabases.LabelDatabase[i]
+        labelDatabases.EntityData.Children[types.GetSegmentPath(&labelDatabases.LabelDatabase[i])] = types.YChild{"LabelDatabase", &labelDatabases.LabelDatabase[i]}
     }
-    return children
+    labelDatabases.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(labelDatabases.EntityData)
 }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetBundleName() string { return "cisco_ios_xr" }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetYangName() string { return "label-databases" }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (labelDatabases *MplsLsd_LabelDatabases) SetParent(parent types.Entity) { labelDatabases.parent = parent }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetParent() types.Entity { return labelDatabases.parent }
-
-func (labelDatabases *MplsLsd_LabelDatabases) GetParentYangName() string { return "mpls-lsd" }
 
 // MplsLsd_LabelDatabases_LabelDatabase
 // A label database
 type MplsLsd_LabelDatabases_LabelDatabase struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Label database identifier. The type is interface{}
@@ -328,61 +190,27 @@ type MplsLsd_LabelDatabases_LabelDatabase struct {
     LabelRange MplsLsd_LabelDatabases_LabelDatabase_LabelRange
 }
 
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetFilter() yfilter.YFilter { return labelDatabase.YFilter }
+func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetEntityData() *types.CommonEntityData {
+    labelDatabase.EntityData.YFilter = labelDatabase.YFilter
+    labelDatabase.EntityData.YangName = "label-database"
+    labelDatabase.EntityData.BundleName = "cisco_ios_xr"
+    labelDatabase.EntityData.ParentYangName = "label-databases"
+    labelDatabase.EntityData.SegmentPath = "label-database" + "[label-database-id='" + fmt.Sprintf("%v", labelDatabase.LabelDatabaseId) + "']"
+    labelDatabase.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelDatabase.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelDatabase.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) SetFilter(yf yfilter.YFilter) { labelDatabase.YFilter = yf }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetGoName(yname string) string {
-    if yname == "label-database-id" { return "LabelDatabaseId" }
-    if yname == "label-range" { return "LabelRange" }
-    return ""
+    labelDatabase.EntityData.Children = make(map[string]types.YChild)
+    labelDatabase.EntityData.Children["label-range"] = types.YChild{"LabelRange", &labelDatabase.LabelRange}
+    labelDatabase.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelDatabase.EntityData.Leafs["label-database-id"] = types.YLeaf{"LabelDatabaseId", labelDatabase.LabelDatabaseId}
+    return &(labelDatabase.EntityData)
 }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetSegmentPath() string {
-    return "label-database" + "[label-database-id='" + fmt.Sprintf("%v", labelDatabase.LabelDatabaseId) + "']"
-}
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "label-range" {
-        return &labelDatabase.LabelRange
-    }
-    return nil
-}
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["label-range"] = &labelDatabase.LabelRange
-    return children
-}
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["label-database-id"] = labelDatabase.LabelDatabaseId
-    return leafs
-}
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetBundleName() string { return "cisco_ios_xr" }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetYangName() string { return "label-database" }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) SetParent(parent types.Entity) { labelDatabase.parent = parent }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetParent() types.Entity { return labelDatabase.parent }
-
-func (labelDatabase *MplsLsd_LabelDatabases_LabelDatabase) GetParentYangName() string { return "label-databases" }
 
 // MplsLsd_LabelDatabases_LabelDatabase_LabelRange
 // Label range
 type MplsLsd_LabelDatabases_LabelDatabase_LabelRange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum label value. The type is interface{} with range: 16000..1048575.
@@ -398,55 +226,22 @@ type MplsLsd_LabelDatabases_LabelDatabase_LabelRange struct {
     MaxStaticValue interface{}
 }
 
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetFilter() yfilter.YFilter { return labelRange.YFilter }
+func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xr"
+    labelRange.EntityData.ParentYangName = "label-database"
+    labelRange.EntityData.SegmentPath = "label-range"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) SetFilter(yf yfilter.YFilter) { labelRange.YFilter = yf }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetGoName(yname string) string {
-    if yname == "minvalue" { return "Minvalue" }
-    if yname == "max-value" { return "MaxValue" }
-    if yname == "min-static-value" { return "MinStaticValue" }
-    if yname == "max-static-value" { return "MaxStaticValue" }
-    return ""
+    labelRange.EntityData.Children = make(map[string]types.YChild)
+    labelRange.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelRange.EntityData.Leafs["minvalue"] = types.YLeaf{"Minvalue", labelRange.Minvalue}
+    labelRange.EntityData.Leafs["max-value"] = types.YLeaf{"MaxValue", labelRange.MaxValue}
+    labelRange.EntityData.Leafs["min-static-value"] = types.YLeaf{"MinStaticValue", labelRange.MinStaticValue}
+    labelRange.EntityData.Leafs["max-static-value"] = types.YLeaf{"MaxStaticValue", labelRange.MaxStaticValue}
+    return &(labelRange.EntityData)
 }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetSegmentPath() string {
-    return "label-range"
-}
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minvalue"] = labelRange.Minvalue
-    leafs["max-value"] = labelRange.MaxValue
-    leafs["min-static-value"] = labelRange.MinStaticValue
-    leafs["max-static-value"] = labelRange.MaxStaticValue
-    return leafs
-}
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetBundleName() string { return "cisco_ios_xr" }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetYangName() string { return "label-range" }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) SetParent(parent types.Entity) { labelRange.parent = parent }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetParent() types.Entity { return labelRange.parent }
-
-func (labelRange *MplsLsd_LabelDatabases_LabelDatabase_LabelRange) GetParentYangName() string { return "label-database" }
 

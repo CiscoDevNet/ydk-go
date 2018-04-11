@@ -31,7 +31,7 @@ func init() {
 // Cdp
 // Global CDP configuration data
 type Cdp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the rate at which CDP packets are sent. The type is interface{}
@@ -53,57 +53,23 @@ type Cdp struct {
     LogAdjacency interface{}
 }
 
-func (cdp *Cdp) GetFilter() yfilter.YFilter { return cdp.YFilter }
+func (cdp *Cdp) GetEntityData() *types.CommonEntityData {
+    cdp.EntityData.YFilter = cdp.YFilter
+    cdp.EntityData.YangName = "cdp"
+    cdp.EntityData.BundleName = "cisco_ios_xr"
+    cdp.EntityData.ParentYangName = "Cisco-IOS-XR-cdp-cfg"
+    cdp.EntityData.SegmentPath = "Cisco-IOS-XR-cdp-cfg:cdp"
+    cdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cdp *Cdp) SetFilter(yf yfilter.YFilter) { cdp.YFilter = yf }
-
-func (cdp *Cdp) GetGoName(yname string) string {
-    if yname == "timer" { return "Timer" }
-    if yname == "advertise-v1-only" { return "AdvertiseV1Only" }
-    if yname == "enable" { return "Enable" }
-    if yname == "hold-time" { return "HoldTime" }
-    if yname == "log-adjacency" { return "LogAdjacency" }
-    return ""
+    cdp.EntityData.Children = make(map[string]types.YChild)
+    cdp.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdp.EntityData.Leafs["timer"] = types.YLeaf{"Timer", cdp.Timer}
+    cdp.EntityData.Leafs["advertise-v1-only"] = types.YLeaf{"AdvertiseV1Only", cdp.AdvertiseV1Only}
+    cdp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", cdp.Enable}
+    cdp.EntityData.Leafs["hold-time"] = types.YLeaf{"HoldTime", cdp.HoldTime}
+    cdp.EntityData.Leafs["log-adjacency"] = types.YLeaf{"LogAdjacency", cdp.LogAdjacency}
+    return &(cdp.EntityData)
 }
-
-func (cdp *Cdp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-cdp-cfg:cdp"
-}
-
-func (cdp *Cdp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdp *Cdp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdp *Cdp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timer"] = cdp.Timer
-    leafs["advertise-v1-only"] = cdp.AdvertiseV1Only
-    leafs["enable"] = cdp.Enable
-    leafs["hold-time"] = cdp.HoldTime
-    leafs["log-adjacency"] = cdp.LogAdjacency
-    return leafs
-}
-
-func (cdp *Cdp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cdp *Cdp) GetYangName() string { return "cdp" }
-
-func (cdp *Cdp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cdp *Cdp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cdp *Cdp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cdp *Cdp) SetParent(parent types.Entity) { cdp.parent = parent }
-
-func (cdp *Cdp) GetParent() types.Entity { return cdp.parent }
-
-func (cdp *Cdp) GetParentYangName() string { return "Cisco-IOS-XR-cdp-cfg" }
 

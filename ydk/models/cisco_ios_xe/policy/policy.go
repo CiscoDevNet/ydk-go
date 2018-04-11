@@ -19,31 +19,6 @@ const (
     PrecedenceType2_rsvp PrecedenceType2 = "rsvp"
 )
 
-// ClassNameType
-type ClassNameType string
-
-const (
-    ClassNameType_class_default ClassNameType = "class-default"
-)
-
-// PolicePpsBpsType
-type PolicePpsBpsType string
-
-const (
-    PolicePpsBpsType_pps PolicePpsBpsType = "pps"
-
-    PolicePpsBpsType_bps PolicePpsBpsType = "bps"
-)
-
-// PolicePacketsBytesType
-type PolicePacketsBytesType string
-
-const (
-    PolicePacketsBytesType_packets PolicePacketsBytesType = "packets"
-
-    PolicePacketsBytesType_bytes PolicePacketsBytesType = "bytes"
-)
-
 // PolicyActionType
 type PolicyActionType string
 
@@ -81,5 +56,41 @@ const (
     PolicyActionType_dbl PolicyActionType = "dbl"
 
     PolicyActionType_queue_buffers PolicyActionType = "queue-buffers"
+)
+
+// ClassNameType
+type ClassNameType string
+
+const (
+    ClassNameType_class_default ClassNameType = "class-default"
+)
+
+// PolicePacketsBytesType
+type PolicePacketsBytesType string
+
+const (
+    PolicePacketsBytesType_packets PolicePacketsBytesType = "packets"
+
+    PolicePacketsBytesType_bytes PolicePacketsBytesType = "bytes"
+)
+
+// BytesMsUsType
+type BytesMsUsType string
+
+const (
+    BytesMsUsType_bytes BytesMsUsType = "bytes"
+
+    BytesMsUsType_ms BytesMsUsType = "ms"
+
+    BytesMsUsType_us BytesMsUsType = "us"
+)
+
+// PolicePpsBpsType
+type PolicePpsBpsType string
+
+const (
+    PolicePpsBpsType_pps PolicePpsBpsType = "pps"
+
+    PolicePpsBpsType_bps PolicePpsBpsType = "bps"
 )
 

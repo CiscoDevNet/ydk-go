@@ -18,7 +18,7 @@ func init() {
 
 // IPFORWARDMIB
 type IPFORWARDMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -31,68 +31,27 @@ type IPFORWARDMIB struct {
     Ipcidrroutetable IPFORWARDMIB_Ipcidrroutetable
 }
 
-func (iPFORWARDMIB *IPFORWARDMIB) GetFilter() yfilter.YFilter { return iPFORWARDMIB.YFilter }
+func (iPFORWARDMIB *IPFORWARDMIB) GetEntityData() *types.CommonEntityData {
+    iPFORWARDMIB.EntityData.YFilter = iPFORWARDMIB.YFilter
+    iPFORWARDMIB.EntityData.YangName = "IP-FORWARD-MIB"
+    iPFORWARDMIB.EntityData.BundleName = "cisco_ios_xe"
+    iPFORWARDMIB.EntityData.ParentYangName = "IP-FORWARD-MIB"
+    iPFORWARDMIB.EntityData.SegmentPath = "IP-FORWARD-MIB:IP-FORWARD-MIB"
+    iPFORWARDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iPFORWARDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iPFORWARDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iPFORWARDMIB *IPFORWARDMIB) SetFilter(yf yfilter.YFilter) { iPFORWARDMIB.YFilter = yf }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetGoName(yname string) string {
-    if yname == "ipForward" { return "Ipforward" }
-    if yname == "ipForwardTable" { return "Ipforwardtable" }
-    if yname == "ipCidrRouteTable" { return "Ipcidrroutetable" }
-    return ""
+    iPFORWARDMIB.EntityData.Children = make(map[string]types.YChild)
+    iPFORWARDMIB.EntityData.Children["ipForward"] = types.YChild{"Ipforward", &iPFORWARDMIB.Ipforward}
+    iPFORWARDMIB.EntityData.Children["ipForwardTable"] = types.YChild{"Ipforwardtable", &iPFORWARDMIB.Ipforwardtable}
+    iPFORWARDMIB.EntityData.Children["ipCidrRouteTable"] = types.YChild{"Ipcidrroutetable", &iPFORWARDMIB.Ipcidrroutetable}
+    iPFORWARDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iPFORWARDMIB.EntityData)
 }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetSegmentPath() string {
-    return "IP-FORWARD-MIB:IP-FORWARD-MIB"
-}
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipForward" {
-        return &iPFORWARDMIB.Ipforward
-    }
-    if childYangName == "ipForwardTable" {
-        return &iPFORWARDMIB.Ipforwardtable
-    }
-    if childYangName == "ipCidrRouteTable" {
-        return &iPFORWARDMIB.Ipcidrroutetable
-    }
-    return nil
-}
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipForward"] = &iPFORWARDMIB.Ipforward
-    children["ipForwardTable"] = &iPFORWARDMIB.Ipforwardtable
-    children["ipCidrRouteTable"] = &iPFORWARDMIB.Ipcidrroutetable
-    return children
-}
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetYangName() string { return "IP-FORWARD-MIB" }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iPFORWARDMIB *IPFORWARDMIB) SetParent(parent types.Entity) { iPFORWARDMIB.parent = parent }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetParent() types.Entity { return iPFORWARDMIB.parent }
-
-func (iPFORWARDMIB *IPFORWARDMIB) GetParentYangName() string { return "IP-FORWARD-MIB" }
 
 // IPFORWARDMIB_Ipforward
 type IPFORWARDMIB_Ipforward struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of current  ipForwardTable  entries that are not invalid. The
@@ -104,58 +63,27 @@ type IPFORWARDMIB_Ipforward struct {
     Ipcidrroutenumber interface{}
 }
 
-func (ipforward *IPFORWARDMIB_Ipforward) GetFilter() yfilter.YFilter { return ipforward.YFilter }
+func (ipforward *IPFORWARDMIB_Ipforward) GetEntityData() *types.CommonEntityData {
+    ipforward.EntityData.YFilter = ipforward.YFilter
+    ipforward.EntityData.YangName = "ipForward"
+    ipforward.EntityData.BundleName = "cisco_ios_xe"
+    ipforward.EntityData.ParentYangName = "IP-FORWARD-MIB"
+    ipforward.EntityData.SegmentPath = "ipForward"
+    ipforward.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipforward.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipforward.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipforward *IPFORWARDMIB_Ipforward) SetFilter(yf yfilter.YFilter) { ipforward.YFilter = yf }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetGoName(yname string) string {
-    if yname == "ipForwardNumber" { return "Ipforwardnumber" }
-    if yname == "ipCidrRouteNumber" { return "Ipcidrroutenumber" }
-    return ""
+    ipforward.EntityData.Children = make(map[string]types.YChild)
+    ipforward.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipforward.EntityData.Leafs["ipForwardNumber"] = types.YLeaf{"Ipforwardnumber", ipforward.Ipforwardnumber}
+    ipforward.EntityData.Leafs["ipCidrRouteNumber"] = types.YLeaf{"Ipcidrroutenumber", ipforward.Ipcidrroutenumber}
+    return &(ipforward.EntityData)
 }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetSegmentPath() string {
-    return "ipForward"
-}
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipForwardNumber"] = ipforward.Ipforwardnumber
-    leafs["ipCidrRouteNumber"] = ipforward.Ipcidrroutenumber
-    return leafs
-}
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetYangName() string { return "ipForward" }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipforward *IPFORWARDMIB_Ipforward) SetParent(parent types.Entity) { ipforward.parent = parent }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetParent() types.Entity { return ipforward.parent }
-
-func (ipforward *IPFORWARDMIB_Ipforward) GetParentYangName() string { return "IP-FORWARD-MIB" }
 
 // IPFORWARDMIB_Ipforwardtable
 // This entity's IP Routing table.
 type IPFORWARDMIB_Ipforwardtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A particular route to  a  particular  destina- tion, under a particular
@@ -163,69 +91,30 @@ type IPFORWARDMIB_Ipforwardtable struct {
     Ipforwardentry []IPFORWARDMIB_Ipforwardtable_Ipforwardentry
 }
 
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetFilter() yfilter.YFilter { return ipforwardtable.YFilter }
+func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetEntityData() *types.CommonEntityData {
+    ipforwardtable.EntityData.YFilter = ipforwardtable.YFilter
+    ipforwardtable.EntityData.YangName = "ipForwardTable"
+    ipforwardtable.EntityData.BundleName = "cisco_ios_xe"
+    ipforwardtable.EntityData.ParentYangName = "IP-FORWARD-MIB"
+    ipforwardtable.EntityData.SegmentPath = "ipForwardTable"
+    ipforwardtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipforwardtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipforwardtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) SetFilter(yf yfilter.YFilter) { ipforwardtable.YFilter = yf }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetGoName(yname string) string {
-    if yname == "ipForwardEntry" { return "Ipforwardentry" }
-    return ""
-}
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetSegmentPath() string {
-    return "ipForwardTable"
-}
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipForwardEntry" {
-        for _, c := range ipforwardtable.Ipforwardentry {
-            if ipforwardtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPFORWARDMIB_Ipforwardtable_Ipforwardentry{}
-        ipforwardtable.Ipforwardentry = append(ipforwardtable.Ipforwardentry, child)
-        return &ipforwardtable.Ipforwardentry[len(ipforwardtable.Ipforwardentry)-1]
-    }
-    return nil
-}
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipforwardtable.EntityData.Children = make(map[string]types.YChild)
+    ipforwardtable.EntityData.Children["ipForwardEntry"] = types.YChild{"Ipforwardentry", nil}
     for i := range ipforwardtable.Ipforwardentry {
-        children[ipforwardtable.Ipforwardentry[i].GetSegmentPath()] = &ipforwardtable.Ipforwardentry[i]
+        ipforwardtable.EntityData.Children[types.GetSegmentPath(&ipforwardtable.Ipforwardentry[i])] = types.YChild{"Ipforwardentry", &ipforwardtable.Ipforwardentry[i]}
     }
-    return children
+    ipforwardtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipforwardtable.EntityData)
 }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetYangName() string { return "ipForwardTable" }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) SetParent(parent types.Entity) { ipforwardtable.parent = parent }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetParent() types.Entity { return ipforwardtable.parent }
-
-func (ipforwardtable *IPFORWARDMIB_Ipforwardtable) GetParentYangName() string { return "IP-FORWARD-MIB" }
 
 // IPFORWARDMIB_Ipforwardtable_Ipforwardentry
 // A particular route to  a  particular  destina-
 // tion, under a particular policy.
 type IPFORWARDMIB_Ipforwardtable_Ipforwardentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The destination IP address of this route.   An
@@ -235,7 +124,7 @@ type IPFORWARDMIB_Ipforwardtable_Ipforwardentry struct {
     // must be rejected if the bitwise logical-AND of  x  with the  value of the
     // corresponding instance of the ipForwardMask object is not equal to x. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipforwarddest interface{}
 
     // This attribute is a key. The routing mechanism via which this route was
@@ -268,7 +157,7 @@ type IPFORWARDMIB_Ipforwardtable_Ipforwardentry struct {
 
     // This attribute is a key. On remote routes, the address of the next sys- tem
     // en route; Otherwise, 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipforwardnexthop interface{}
 
     // Indicate the mask to be logical-ANDed with the destination  address  before
@@ -279,7 +168,7 @@ type IPFORWARDMIB_Ipforwardtable_Ipforwardentry struct {
     // to a value x must be rejected if the bitwise logical-AND of  x  with the 
     // value of the corresponding instance of the ipForwardDest object is not
     // equal to ipForward- Dest. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipforwardmask interface{}
 
     // The ifIndex value which identifies  the  local interface  through  which 
@@ -315,7 +204,7 @@ type IPFORWARDMIB_Ipforwardtable_Ipforwardentry struct {
     // is a syntactically valid object  identif- ier, and any implementation
     // conforming to ASN.1 and the Basic Encoding Rules must  be  able  to
     // generate and recognize this value. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ipforwardinfo interface{}
 
     // The Autonomous System Number of the Next  Hop. When  this  is  unknown  or
@@ -354,79 +243,35 @@ type IPFORWARDMIB_Ipforwardtable_Ipforwardentry struct {
     Ipforwardmetric5 interface{}
 }
 
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetFilter() yfilter.YFilter { return ipforwardentry.YFilter }
+func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetEntityData() *types.CommonEntityData {
+    ipforwardentry.EntityData.YFilter = ipforwardentry.YFilter
+    ipforwardentry.EntityData.YangName = "ipForwardEntry"
+    ipforwardentry.EntityData.BundleName = "cisco_ios_xe"
+    ipforwardentry.EntityData.ParentYangName = "ipForwardTable"
+    ipforwardentry.EntityData.SegmentPath = "ipForwardEntry" + "[ipForwardDest='" + fmt.Sprintf("%v", ipforwardentry.Ipforwarddest) + "']" + "[ipForwardProto='" + fmt.Sprintf("%v", ipforwardentry.Ipforwardproto) + "']" + "[ipForwardPolicy='" + fmt.Sprintf("%v", ipforwardentry.Ipforwardpolicy) + "']" + "[ipForwardNextHop='" + fmt.Sprintf("%v", ipforwardentry.Ipforwardnexthop) + "']"
+    ipforwardentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipforwardentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipforwardentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) SetFilter(yf yfilter.YFilter) { ipforwardentry.YFilter = yf }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetGoName(yname string) string {
-    if yname == "ipForwardDest" { return "Ipforwarddest" }
-    if yname == "ipForwardProto" { return "Ipforwardproto" }
-    if yname == "ipForwardPolicy" { return "Ipforwardpolicy" }
-    if yname == "ipForwardNextHop" { return "Ipforwardnexthop" }
-    if yname == "ipForwardMask" { return "Ipforwardmask" }
-    if yname == "ipForwardIfIndex" { return "Ipforwardifindex" }
-    if yname == "ipForwardType" { return "Ipforwardtype" }
-    if yname == "ipForwardAge" { return "Ipforwardage" }
-    if yname == "ipForwardInfo" { return "Ipforwardinfo" }
-    if yname == "ipForwardNextHopAS" { return "Ipforwardnexthopas" }
-    if yname == "ipForwardMetric1" { return "Ipforwardmetric1" }
-    if yname == "ipForwardMetric2" { return "Ipforwardmetric2" }
-    if yname == "ipForwardMetric3" { return "Ipforwardmetric3" }
-    if yname == "ipForwardMetric4" { return "Ipforwardmetric4" }
-    if yname == "ipForwardMetric5" { return "Ipforwardmetric5" }
-    return ""
+    ipforwardentry.EntityData.Children = make(map[string]types.YChild)
+    ipforwardentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipforwardentry.EntityData.Leafs["ipForwardDest"] = types.YLeaf{"Ipforwarddest", ipforwardentry.Ipforwarddest}
+    ipforwardentry.EntityData.Leafs["ipForwardProto"] = types.YLeaf{"Ipforwardproto", ipforwardentry.Ipforwardproto}
+    ipforwardentry.EntityData.Leafs["ipForwardPolicy"] = types.YLeaf{"Ipforwardpolicy", ipforwardentry.Ipforwardpolicy}
+    ipforwardentry.EntityData.Leafs["ipForwardNextHop"] = types.YLeaf{"Ipforwardnexthop", ipforwardentry.Ipforwardnexthop}
+    ipforwardentry.EntityData.Leafs["ipForwardMask"] = types.YLeaf{"Ipforwardmask", ipforwardentry.Ipforwardmask}
+    ipforwardentry.EntityData.Leafs["ipForwardIfIndex"] = types.YLeaf{"Ipforwardifindex", ipforwardentry.Ipforwardifindex}
+    ipforwardentry.EntityData.Leafs["ipForwardType"] = types.YLeaf{"Ipforwardtype", ipforwardentry.Ipforwardtype}
+    ipforwardentry.EntityData.Leafs["ipForwardAge"] = types.YLeaf{"Ipforwardage", ipforwardentry.Ipforwardage}
+    ipforwardentry.EntityData.Leafs["ipForwardInfo"] = types.YLeaf{"Ipforwardinfo", ipforwardentry.Ipforwardinfo}
+    ipforwardentry.EntityData.Leafs["ipForwardNextHopAS"] = types.YLeaf{"Ipforwardnexthopas", ipforwardentry.Ipforwardnexthopas}
+    ipforwardentry.EntityData.Leafs["ipForwardMetric1"] = types.YLeaf{"Ipforwardmetric1", ipforwardentry.Ipforwardmetric1}
+    ipforwardentry.EntityData.Leafs["ipForwardMetric2"] = types.YLeaf{"Ipforwardmetric2", ipforwardentry.Ipforwardmetric2}
+    ipforwardentry.EntityData.Leafs["ipForwardMetric3"] = types.YLeaf{"Ipforwardmetric3", ipforwardentry.Ipforwardmetric3}
+    ipforwardentry.EntityData.Leafs["ipForwardMetric4"] = types.YLeaf{"Ipforwardmetric4", ipforwardentry.Ipforwardmetric4}
+    ipforwardentry.EntityData.Leafs["ipForwardMetric5"] = types.YLeaf{"Ipforwardmetric5", ipforwardentry.Ipforwardmetric5}
+    return &(ipforwardentry.EntityData)
 }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetSegmentPath() string {
-    return "ipForwardEntry" + "[ipForwardDest='" + fmt.Sprintf("%v", ipforwardentry.Ipforwarddest) + "']" + "[ipForwardProto='" + fmt.Sprintf("%v", ipforwardentry.Ipforwardproto) + "']" + "[ipForwardPolicy='" + fmt.Sprintf("%v", ipforwardentry.Ipforwardpolicy) + "']" + "[ipForwardNextHop='" + fmt.Sprintf("%v", ipforwardentry.Ipforwardnexthop) + "']"
-}
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipForwardDest"] = ipforwardentry.Ipforwarddest
-    leafs["ipForwardProto"] = ipforwardentry.Ipforwardproto
-    leafs["ipForwardPolicy"] = ipforwardentry.Ipforwardpolicy
-    leafs["ipForwardNextHop"] = ipforwardentry.Ipforwardnexthop
-    leafs["ipForwardMask"] = ipforwardentry.Ipforwardmask
-    leafs["ipForwardIfIndex"] = ipforwardentry.Ipforwardifindex
-    leafs["ipForwardType"] = ipforwardentry.Ipforwardtype
-    leafs["ipForwardAge"] = ipforwardentry.Ipforwardage
-    leafs["ipForwardInfo"] = ipforwardentry.Ipforwardinfo
-    leafs["ipForwardNextHopAS"] = ipforwardentry.Ipforwardnexthopas
-    leafs["ipForwardMetric1"] = ipforwardentry.Ipforwardmetric1
-    leafs["ipForwardMetric2"] = ipforwardentry.Ipforwardmetric2
-    leafs["ipForwardMetric3"] = ipforwardentry.Ipforwardmetric3
-    leafs["ipForwardMetric4"] = ipforwardentry.Ipforwardmetric4
-    leafs["ipForwardMetric5"] = ipforwardentry.Ipforwardmetric5
-    return leafs
-}
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetYangName() string { return "ipForwardEntry" }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) SetParent(parent types.Entity) { ipforwardentry.parent = parent }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetParent() types.Entity { return ipforwardentry.parent }
-
-func (ipforwardentry *IPFORWARDMIB_Ipforwardtable_Ipforwardentry) GetParentYangName() string { return "ipForwardTable" }
 
 // IPFORWARDMIB_Ipforwardtable_Ipforwardentry_Ipforwardproto represents hosts should support those protocols.
 type IPFORWARDMIB_Ipforwardtable_Ipforwardentry_Ipforwardproto string
@@ -479,7 +324,7 @@ const (
 // IPFORWARDMIB_Ipcidrroutetable
 // This entity's IP Routing table.
 type IPFORWARDMIB_Ipcidrroutetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A particular route to  a  particular  destina- tion, under a particular
@@ -488,69 +333,30 @@ type IPFORWARDMIB_Ipcidrroutetable struct {
     Ipcidrrouteentry []IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry
 }
 
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetFilter() yfilter.YFilter { return ipcidrroutetable.YFilter }
+func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetEntityData() *types.CommonEntityData {
+    ipcidrroutetable.EntityData.YFilter = ipcidrroutetable.YFilter
+    ipcidrroutetable.EntityData.YangName = "ipCidrRouteTable"
+    ipcidrroutetable.EntityData.BundleName = "cisco_ios_xe"
+    ipcidrroutetable.EntityData.ParentYangName = "IP-FORWARD-MIB"
+    ipcidrroutetable.EntityData.SegmentPath = "ipCidrRouteTable"
+    ipcidrroutetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipcidrroutetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipcidrroutetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) SetFilter(yf yfilter.YFilter) { ipcidrroutetable.YFilter = yf }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetGoName(yname string) string {
-    if yname == "ipCidrRouteEntry" { return "Ipcidrrouteentry" }
-    return ""
-}
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetSegmentPath() string {
-    return "ipCidrRouteTable"
-}
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipCidrRouteEntry" {
-        for _, c := range ipcidrroutetable.Ipcidrrouteentry {
-            if ipcidrroutetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry{}
-        ipcidrroutetable.Ipcidrrouteentry = append(ipcidrroutetable.Ipcidrrouteentry, child)
-        return &ipcidrroutetable.Ipcidrrouteentry[len(ipcidrroutetable.Ipcidrrouteentry)-1]
-    }
-    return nil
-}
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipcidrroutetable.EntityData.Children = make(map[string]types.YChild)
+    ipcidrroutetable.EntityData.Children["ipCidrRouteEntry"] = types.YChild{"Ipcidrrouteentry", nil}
     for i := range ipcidrroutetable.Ipcidrrouteentry {
-        children[ipcidrroutetable.Ipcidrrouteentry[i].GetSegmentPath()] = &ipcidrroutetable.Ipcidrrouteentry[i]
+        ipcidrroutetable.EntityData.Children[types.GetSegmentPath(&ipcidrroutetable.Ipcidrrouteentry[i])] = types.YChild{"Ipcidrrouteentry", &ipcidrroutetable.Ipcidrrouteentry[i]}
     }
-    return children
+    ipcidrroutetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipcidrroutetable.EntityData)
 }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetYangName() string { return "ipCidrRouteTable" }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) SetParent(parent types.Entity) { ipcidrroutetable.parent = parent }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetParent() types.Entity { return ipcidrroutetable.parent }
-
-func (ipcidrroutetable *IPFORWARDMIB_Ipcidrroutetable) GetParentYangName() string { return "IP-FORWARD-MIB" }
 
 // IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry
 // A particular route to  a  particular  destina-
 // tion, under a particular policy.
 type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The destination IP address of this route.  This
@@ -559,7 +365,7 @@ type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry struct {
     // must be rejected if the bitwise logical-AND of  x  with the  value of the
     // corresponding instance of the ipCidrRouteMask object is not equal to x. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipcidrroutedest interface{}
 
     // This attribute is a key. Indicate the mask to be logical-ANDed with the
@@ -571,7 +377,7 @@ type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry struct {
     // must be rejected if the bitwise logical-AND of  x  with the  value of the
     // corresponding instance of the ipCidrRouteDest object is not equal to
     // ipCidrRoute- Dest. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipcidrroutemask interface{}
 
     // This attribute is a key. The policy specifier is the IP TOS Field.  The
@@ -592,7 +398,7 @@ type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry struct {
 
     // This attribute is a key. On remote routes, the address of the next sys- tem
     // en route; Otherwise, 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipcidrroutenexthop interface{}
 
     // The ifIndex value which identifies  the  local interface  through  which 
@@ -629,7 +435,7 @@ type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry struct {
     // which is a syntactically valid object  identif- ier, and any implementation
     // conforming to ASN.1 and the Basic Encoding Rules must  be  able  to
     // generate and recognize this value. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Ipcidrrouteinfo interface{}
 
     // The Autonomous System Number of the Next  Hop. The  semantics of this
@@ -674,81 +480,36 @@ type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry struct {
     Ipcidrroutestatus interface{}
 }
 
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetFilter() yfilter.YFilter { return ipcidrrouteentry.YFilter }
+func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetEntityData() *types.CommonEntityData {
+    ipcidrrouteentry.EntityData.YFilter = ipcidrrouteentry.YFilter
+    ipcidrrouteentry.EntityData.YangName = "ipCidrRouteEntry"
+    ipcidrrouteentry.EntityData.BundleName = "cisco_ios_xe"
+    ipcidrrouteentry.EntityData.ParentYangName = "ipCidrRouteTable"
+    ipcidrrouteentry.EntityData.SegmentPath = "ipCidrRouteEntry" + "[ipCidrRouteDest='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutedest) + "']" + "[ipCidrRouteMask='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutemask) + "']" + "[ipCidrRouteTos='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutetos) + "']" + "[ipCidrRouteNextHop='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutenexthop) + "']"
+    ipcidrrouteentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipcidrrouteentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipcidrrouteentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) SetFilter(yf yfilter.YFilter) { ipcidrrouteentry.YFilter = yf }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetGoName(yname string) string {
-    if yname == "ipCidrRouteDest" { return "Ipcidrroutedest" }
-    if yname == "ipCidrRouteMask" { return "Ipcidrroutemask" }
-    if yname == "ipCidrRouteTos" { return "Ipcidrroutetos" }
-    if yname == "ipCidrRouteNextHop" { return "Ipcidrroutenexthop" }
-    if yname == "ipCidrRouteIfIndex" { return "Ipcidrrouteifindex" }
-    if yname == "ipCidrRouteType" { return "Ipcidrroutetype" }
-    if yname == "ipCidrRouteProto" { return "Ipcidrrouteproto" }
-    if yname == "ipCidrRouteAge" { return "Ipcidrrouteage" }
-    if yname == "ipCidrRouteInfo" { return "Ipcidrrouteinfo" }
-    if yname == "ipCidrRouteNextHopAS" { return "Ipcidrroutenexthopas" }
-    if yname == "ipCidrRouteMetric1" { return "Ipcidrroutemetric1" }
-    if yname == "ipCidrRouteMetric2" { return "Ipcidrroutemetric2" }
-    if yname == "ipCidrRouteMetric3" { return "Ipcidrroutemetric3" }
-    if yname == "ipCidrRouteMetric4" { return "Ipcidrroutemetric4" }
-    if yname == "ipCidrRouteMetric5" { return "Ipcidrroutemetric5" }
-    if yname == "ipCidrRouteStatus" { return "Ipcidrroutestatus" }
-    return ""
+    ipcidrrouteentry.EntityData.Children = make(map[string]types.YChild)
+    ipcidrrouteentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteDest"] = types.YLeaf{"Ipcidrroutedest", ipcidrrouteentry.Ipcidrroutedest}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteMask"] = types.YLeaf{"Ipcidrroutemask", ipcidrrouteentry.Ipcidrroutemask}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteTos"] = types.YLeaf{"Ipcidrroutetos", ipcidrrouteentry.Ipcidrroutetos}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteNextHop"] = types.YLeaf{"Ipcidrroutenexthop", ipcidrrouteentry.Ipcidrroutenexthop}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteIfIndex"] = types.YLeaf{"Ipcidrrouteifindex", ipcidrrouteentry.Ipcidrrouteifindex}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteType"] = types.YLeaf{"Ipcidrroutetype", ipcidrrouteentry.Ipcidrroutetype}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteProto"] = types.YLeaf{"Ipcidrrouteproto", ipcidrrouteentry.Ipcidrrouteproto}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteAge"] = types.YLeaf{"Ipcidrrouteage", ipcidrrouteentry.Ipcidrrouteage}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteInfo"] = types.YLeaf{"Ipcidrrouteinfo", ipcidrrouteentry.Ipcidrrouteinfo}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteNextHopAS"] = types.YLeaf{"Ipcidrroutenexthopas", ipcidrrouteentry.Ipcidrroutenexthopas}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteMetric1"] = types.YLeaf{"Ipcidrroutemetric1", ipcidrrouteentry.Ipcidrroutemetric1}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteMetric2"] = types.YLeaf{"Ipcidrroutemetric2", ipcidrrouteentry.Ipcidrroutemetric2}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteMetric3"] = types.YLeaf{"Ipcidrroutemetric3", ipcidrrouteentry.Ipcidrroutemetric3}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteMetric4"] = types.YLeaf{"Ipcidrroutemetric4", ipcidrrouteentry.Ipcidrroutemetric4}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteMetric5"] = types.YLeaf{"Ipcidrroutemetric5", ipcidrrouteentry.Ipcidrroutemetric5}
+    ipcidrrouteentry.EntityData.Leafs["ipCidrRouteStatus"] = types.YLeaf{"Ipcidrroutestatus", ipcidrrouteentry.Ipcidrroutestatus}
+    return &(ipcidrrouteentry.EntityData)
 }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetSegmentPath() string {
-    return "ipCidrRouteEntry" + "[ipCidrRouteDest='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutedest) + "']" + "[ipCidrRouteMask='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutemask) + "']" + "[ipCidrRouteTos='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutetos) + "']" + "[ipCidrRouteNextHop='" + fmt.Sprintf("%v", ipcidrrouteentry.Ipcidrroutenexthop) + "']"
-}
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipCidrRouteDest"] = ipcidrrouteentry.Ipcidrroutedest
-    leafs["ipCidrRouteMask"] = ipcidrrouteentry.Ipcidrroutemask
-    leafs["ipCidrRouteTos"] = ipcidrrouteentry.Ipcidrroutetos
-    leafs["ipCidrRouteNextHop"] = ipcidrrouteentry.Ipcidrroutenexthop
-    leafs["ipCidrRouteIfIndex"] = ipcidrrouteentry.Ipcidrrouteifindex
-    leafs["ipCidrRouteType"] = ipcidrrouteentry.Ipcidrroutetype
-    leafs["ipCidrRouteProto"] = ipcidrrouteentry.Ipcidrrouteproto
-    leafs["ipCidrRouteAge"] = ipcidrrouteentry.Ipcidrrouteage
-    leafs["ipCidrRouteInfo"] = ipcidrrouteentry.Ipcidrrouteinfo
-    leafs["ipCidrRouteNextHopAS"] = ipcidrrouteentry.Ipcidrroutenexthopas
-    leafs["ipCidrRouteMetric1"] = ipcidrrouteentry.Ipcidrroutemetric1
-    leafs["ipCidrRouteMetric2"] = ipcidrrouteentry.Ipcidrroutemetric2
-    leafs["ipCidrRouteMetric3"] = ipcidrrouteentry.Ipcidrroutemetric3
-    leafs["ipCidrRouteMetric4"] = ipcidrrouteentry.Ipcidrroutemetric4
-    leafs["ipCidrRouteMetric5"] = ipcidrrouteentry.Ipcidrroutemetric5
-    leafs["ipCidrRouteStatus"] = ipcidrrouteentry.Ipcidrroutestatus
-    return leafs
-}
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetYangName() string { return "ipCidrRouteEntry" }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) SetParent(parent types.Entity) { ipcidrrouteentry.parent = parent }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetParent() types.Entity { return ipcidrrouteentry.parent }
-
-func (ipcidrrouteentry *IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry) GetParentYangName() string { return "ipCidrRouteTable" }
 
 // IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry_Ipcidrrouteproto represents hosts should support those protocols.
 type IPFORWARDMIB_Ipcidrroutetable_Ipcidrrouteentry_Ipcidrrouteproto string

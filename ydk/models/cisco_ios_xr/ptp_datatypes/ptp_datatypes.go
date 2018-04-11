@@ -14,65 +14,40 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ptp_datatypes"))
 }
 
-// PtpTelecomClock represents Ptp telecom clock
-type PtpTelecomClock string
+// PtpTime represents Ptp time
+type PtpTime string
 
 const (
-    // Telecom grandmaster clock
-    PtpTelecomClock_telecom_grandmaster PtpTelecomClock = "telecom-grandmaster"
+    // Time interval in seconds
+    PtpTime_interval PtpTime = "interval"
 
-    // Telecom boundary clock
-    PtpTelecomClock_telecom_boundary PtpTelecomClock = "telecom-boundary"
-
-    // Telecom slave clock
-    PtpTelecomClock_telecom_slave PtpTelecomClock = "telecom-slave"
+    // Frequency per second
+    PtpTime_frequency PtpTime = "frequency"
 )
 
-// PtpInvalidUnicastGrantRequestResponse represents Ptp invalid unicast grant request response
-type PtpInvalidUnicastGrantRequestResponse string
-
-const (
-    // Reduce grant parameters
-    PtpInvalidUnicastGrantRequestResponse_reduce PtpInvalidUnicastGrantRequestResponse = "reduce"
-
-    // Deny grant
-    PtpInvalidUnicastGrantRequestResponse_deny PtpInvalidUnicastGrantRequestResponse = "deny"
-)
-
-// PtpClockId represents Ptp clock id
-type PtpClockId string
-
-const (
-    // Use the router's MAC
-    PtpClockId_router_mac PtpClockId = "router-mac"
-
-    // Use a user-specified MAC
-    PtpClockId_user_mac PtpClockId = "user-mac"
-
-    // Use a user-specified EUI-64 number
-    PtpClockId_eui PtpClockId = "eui"
-)
-
-// PtpClockSelectionMode represents Ptp clock selection mode
-type PtpClockSelectionMode string
+// PtpClockAdvertisementMode represents Ptp clock advertisement mode
+type PtpClockAdvertisementMode string
 
 const (
     // Use 1588v2 clock selection
-    PtpClockSelectionMode_Y_1588v2 PtpClockSelectionMode = "1588v2"
+    PtpClockAdvertisementMode_Y_1588v2 PtpClockAdvertisementMode = "1588v2"
 
     // Use Telecom Profile clock selection
-    PtpClockSelectionMode_telecom_profile PtpClockSelectionMode = "telecom-profile"
+    PtpClockAdvertisementMode_telecom_profile PtpClockAdvertisementMode = "telecom-profile"
 )
 
-// PtpClockOperation represents Ptp clock operation
-type PtpClockOperation string
+// PtpEncap represents Ptp encap
+type PtpEncap string
 
 const (
-    // Two-step clock operation
-    PtpClockOperation_two_step PtpClockOperation = "two-step"
+    // Ethernet Encapsulation
+    PtpEncap_ethernet PtpEncap = "ethernet"
 
-    // One-step clock operation
-    PtpClockOperation_one_step PtpClockOperation = "one-step"
+    // IPv4 Encapsulation
+    PtpEncap_ipv4 PtpEncap = "ipv4"
+
+    // IPv6 Encapsulation
+    PtpEncap_ipv6 PtpEncap = "ipv6"
 )
 
 // PtpTimePeriod represents Ptp time period
@@ -104,18 +79,37 @@ const (
     PtpTimePeriod_Y_128 PtpTimePeriod = "128"
 )
 
-// PtpTransport represents Ptp transport
-type PtpTransport string
+// PtpClockOperation represents Ptp clock operation
+type PtpClockOperation string
 
 const (
-    // Unicast communication
-    PtpTransport_unicast PtpTransport = "unicast"
+    // Two-step clock operation
+    PtpClockOperation_two_step PtpClockOperation = "two-step"
 
-    // Mixed-mode communication
-    PtpTransport_mixed_mode PtpTransport = "mixed-mode"
+    // One-step clock operation
+    PtpClockOperation_one_step PtpClockOperation = "one-step"
+)
 
-    // Multicast communication
-    PtpTransport_multicast PtpTransport = "multicast"
+// PtpClockSelectionMode represents Ptp clock selection mode
+type PtpClockSelectionMode string
+
+const (
+    // Use 1588v2 clock selection
+    PtpClockSelectionMode_Y_1588v2 PtpClockSelectionMode = "1588v2"
+
+    // Use Telecom Profile clock selection
+    PtpClockSelectionMode_telecom_profile PtpClockSelectionMode = "telecom-profile"
+)
+
+// PtpTimescale represents Ptp timescale
+type PtpTimescale string
+
+const (
+    // PTP timescale
+    PtpTimescale_ptp PtpTimescale = "ptp"
+
+    // ARB timescale
+    PtpTimescale_arb PtpTimescale = "arb"
 )
 
 // PtpDelayAsymmetryUnits represents Ptp delay asymmetry units
@@ -130,48 +124,6 @@ const (
 
     // Milliseconds
     PtpDelayAsymmetryUnits_milliseconds PtpDelayAsymmetryUnits = "milliseconds"
-)
-
-// PtpTimescale represents Ptp timescale
-type PtpTimescale string
-
-const (
-    // PTP timescale
-    PtpTimescale_ptp PtpTimescale = "ptp"
-
-    // ARB timescale
-    PtpTimescale_arb PtpTimescale = "arb"
-)
-
-// PtpClockProfile represents Ptp clock profile
-type PtpClockProfile string
-
-const (
-    // Default clock profile
-    PtpClockProfile_default_ PtpClockProfile = "default"
-
-    // G.8265.1 profile
-    PtpClockProfile_g82651 PtpClockProfile = "g82651"
-
-    // G.8275.1 profile
-    PtpClockProfile_g82751 PtpClockProfile = "g82751"
-
-    // G.8275.2 profile
-    PtpClockProfile_g82752 PtpClockProfile = "g82752"
-)
-
-// PtpPortState represents Ptp port state
-type PtpPortState string
-
-const (
-    // Any port state allowed
-    PtpPortState_any PtpPortState = "any"
-
-    // Restrict to slave
-    PtpPortState_slave_only PtpPortState = "slave-only"
-
-    // Restrict to master
-    PtpPortState_master_only PtpPortState = "master-only"
 )
 
 // PtpTimeSource represents Ptp time source
@@ -206,39 +158,87 @@ const (
     PtpTimeSource_internal_oscillator PtpTimeSource = "internal-oscillator"
 )
 
-// PtpEncap represents Ptp encap
-type PtpEncap string
+// PtpPortState represents Ptp port state
+type PtpPortState string
 
 const (
-    // Ethernet Encapsulation
-    PtpEncap_ethernet PtpEncap = "ethernet"
+    // Any port state allowed
+    PtpPortState_any PtpPortState = "any"
 
-    // IPv4 Encapsulation
-    PtpEncap_ipv4 PtpEncap = "ipv4"
+    // Restrict to slave
+    PtpPortState_slave_only PtpPortState = "slave-only"
 
-    // IPv6 Encapsulation
-    PtpEncap_ipv6 PtpEncap = "ipv6"
+    // Restrict to master
+    PtpPortState_master_only PtpPortState = "master-only"
 )
 
-// PtpTime represents Ptp time
-type PtpTime string
+// PtpClockProfile represents Ptp clock profile
+type PtpClockProfile string
 
 const (
-    // Time interval in seconds
-    PtpTime_interval PtpTime = "interval"
+    // Default clock profile
+    PtpClockProfile_default_ PtpClockProfile = "default"
 
-    // Frequency per second
-    PtpTime_frequency PtpTime = "frequency"
+    // G.8265.1 profile
+    PtpClockProfile_g82651 PtpClockProfile = "g82651"
+
+    // G.8275.1 profile
+    PtpClockProfile_g82751 PtpClockProfile = "g82751"
+
+    // G.8275.2 profile
+    PtpClockProfile_g82752 PtpClockProfile = "g82752"
 )
 
-// PtpClockAdvertisementMode represents Ptp clock advertisement mode
-type PtpClockAdvertisementMode string
+// PtpTransport represents Ptp transport
+type PtpTransport string
 
 const (
-    // Use 1588v2 clock selection
-    PtpClockAdvertisementMode_Y_1588v2 PtpClockAdvertisementMode = "1588v2"
+    // Unicast communication
+    PtpTransport_unicast PtpTransport = "unicast"
 
-    // Use Telecom Profile clock selection
-    PtpClockAdvertisementMode_telecom_profile PtpClockAdvertisementMode = "telecom-profile"
+    // Mixed-mode communication
+    PtpTransport_mixed_mode PtpTransport = "mixed-mode"
+
+    // Multicast communication
+    PtpTransport_multicast PtpTransport = "multicast"
+)
+
+// PtpClockId represents Ptp clock id
+type PtpClockId string
+
+const (
+    // Use the router's MAC
+    PtpClockId_router_mac PtpClockId = "router-mac"
+
+    // Use a user-specified MAC
+    PtpClockId_user_mac PtpClockId = "user-mac"
+
+    // Use a user-specified EUI-64 number
+    PtpClockId_eui PtpClockId = "eui"
+)
+
+// PtpInvalidUnicastGrantRequestResponse represents Ptp invalid unicast grant request response
+type PtpInvalidUnicastGrantRequestResponse string
+
+const (
+    // Reduce grant parameters
+    PtpInvalidUnicastGrantRequestResponse_reduce PtpInvalidUnicastGrantRequestResponse = "reduce"
+
+    // Deny grant
+    PtpInvalidUnicastGrantRequestResponse_deny PtpInvalidUnicastGrantRequestResponse = "deny"
+)
+
+// PtpTelecomClock represents Ptp telecom clock
+type PtpTelecomClock string
+
+const (
+    // Telecom grandmaster clock
+    PtpTelecomClock_telecom_grandmaster PtpTelecomClock = "telecom-grandmaster"
+
+    // Telecom boundary clock
+    PtpTelecomClock_telecom_boundary PtpTelecomClock = "telecom-boundary"
+
+    // Telecom slave clock
+    PtpTelecomClock_telecom_slave PtpTelecomClock = "telecom-slave"
 )
 

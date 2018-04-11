@@ -115,123 +115,11 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mpls-ldp:clear-forwarding", reflect.TypeOf(ClearForwarding{}))
 }
 
-type DownNbrReasonDiscHello struct {
+type NsrSyncNackRsn struct {
 }
 
-func (id DownNbrReasonDiscHello) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-disc-hello"
-}
-
-type NsrPeerSyncErrAppFail struct {
-}
-
-func (id NsrPeerSyncErrAppFail) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-app-fail"
-}
-
-type RoutePathLblOwnerBgp struct {
-}
-
-func (id RoutePathLblOwnerBgp) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-bgp"
-}
-
-type NsrSyncNackRsnErrAppNotFound struct {
-}
-
-func (id NsrSyncNackRsnErrAppNotFound) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-not-found"
-}
-
-type LdpNsrPeerSyncStOper struct {
-}
-
-func (id LdpNsrPeerSyncStOper) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-oper"
-}
-
-type IgpSyncDownReasonNa struct {
-}
-
-func (id IgpSyncDownReasonNa) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-na"
-}
-
-type NsrSyncNackRsnNoPEndSock struct {
-}
-
-func (id NsrSyncNackRsnNoPEndSock) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-p-end-sock"
-}
-
-type NsrPeerSyncErrLdpGbl struct {
-}
-
-func (id NsrPeerSyncErrLdpGbl) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-gbl"
-}
-
-type DownNbrReasonNbrHold struct {
-}
-
-func (id DownNbrReasonNbrHold) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-nbr-hold"
-}
-
-type RoutePathLblOwner struct {
-}
-
-func (id RoutePathLblOwner) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner"
-}
-
-type IgpSyncDownReason struct {
-}
-
-func (id IgpSyncDownReason) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason"
-}
-
-type NsrPeerSyncErrTcpGbl struct {
-}
-
-func (id NsrPeerSyncErrTcpGbl) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-gbl"
-}
-
-type IgpSyncDownReasonPeerUpdateNotReceived struct {
-}
-
-func (id IgpSyncDownReasonPeerUpdateNotReceived) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-received"
-}
-
-type IcpmTypeIccp struct {
-}
-
-func (id IcpmTypeIccp) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:icpm-type-iccp"
-}
-
-type NsrStatusReady struct {
-}
-
-func (id NsrStatusReady) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-status-ready"
-}
-
-type NsrSyncNackRsnErrAdjAdd struct {
-}
-
-func (id NsrSyncNackRsnErrAdjAdd) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-adj-add"
-}
-
-type NsrSyncNackRsnErrUnexpPeerDown struct {
-}
-
-func (id NsrSyncNackRsnErrUnexpPeerDown) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-unexp-peer-down"
+func (id NsrSyncNackRsn) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn"
 }
 
 type NsrSyncNackRsnNone struct {
@@ -241,249 +129,11 @@ func (id NsrSyncNackRsnNone) String() string {
 	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-none"
 }
 
-type NsrSyncNackRsnNoCtx struct {
-}
-
-func (id NsrSyncNackRsnNoCtx) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-ctx"
-}
-
-type NsrSyncNackRsnMissingElem struct {
-}
-
-func (id NsrSyncNackRsnMissingElem) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-missing-elem"
-}
-
-type DownNbrReason struct {
-}
-
-func (id DownNbrReason) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason"
-}
-
-type NsrPeerSyncErrLdpPeer struct {
-}
-
-func (id NsrPeerSyncErrLdpPeer) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-peer"
-}
-
-type NsrSyncNackRsnErrAppInvalid struct {
-}
-
-func (id NsrSyncNackRsnErrAppInvalid) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-invalid"
-}
-
-type NsrStatusDisabled struct {
-}
-
-func (id NsrStatusDisabled) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-status-disabled"
-}
-
-type RoutePathIpNoFlag struct {
-}
-
-func (id RoutePathIpNoFlag) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-no-flag"
-}
-
-type NsrPeerSyncErrTcpPeer struct {
-}
-
-func (id NsrPeerSyncErrTcpPeer) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-peer"
-}
-
-type NsrPeerSyncErrNone struct {
-}
-
-func (id NsrPeerSyncErrNone) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-none"
-}
-
-type LdpNsrPeerSyncStNone struct {
-}
-
-func (id LdpNsrPeerSyncStNone) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-none"
-}
-
-type NsrSyncNackRsnErrPpCreate struct {
-}
-
-func (id NsrSyncNackRsnErrPpCreate) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-pp-create"
-}
-
-type NsrSyncNackRsnErrRxUnexpOpen struct {
-}
-
-func (id NsrSyncNackRsnErrRxUnexpOpen) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-unexp-open"
-}
-
-type LabelTypeUnknown struct {
-}
-
-func (id LabelTypeUnknown) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:label-type-unknown"
-}
-
-type IgpSyncDownReasonNoPeerSess struct {
-}
-
-func (id IgpSyncDownReasonNoPeerSess) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-peer-sess"
-}
-
-type RoutePathType struct {
-}
-
-func (id RoutePathType) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-type"
-}
-
-type LdpNsrPeerSyncStPrep struct {
-}
-
-func (id LdpNsrPeerSyncStPrep) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-prep"
-}
-
-type RoutePathLblOwnerStatic struct {
-}
-
-func (id RoutePathLblOwnerStatic) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-static"
-}
-
-type IcpmType struct {
-}
-
-func (id IcpmType) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:icpm-type"
-}
-
-type NsrPeerSyncErrLdpSyncNack struct {
-}
-
-func (id NsrPeerSyncErrLdpSyncNack) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-sync-nack"
-}
-
-type NsrPeerSyncErr struct {
-}
-
-func (id NsrPeerSyncErr) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err"
-}
-
 type NsrSyncNackRsnTblIdMismatch struct {
 }
 
 func (id NsrSyncNackRsnTblIdMismatch) String() string {
 	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-tbl-id-mismatch"
-}
-
-type NsrSyncNackRsnErrAddrBind struct {
-}
-
-func (id NsrSyncNackRsnErrAddrBind) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-addr-bind"
-}
-
-type RoutePathIpBackup struct {
-}
-
-func (id RoutePathIpBackup) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup"
-}
-
-type LabelTypeMpls struct {
-}
-
-func (id LabelTypeMpls) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:label-type-mpls"
-}
-
-type NsrSyncNackRsnErrDhcAdd struct {
-}
-
-func (id NsrSyncNackRsnErrDhcAdd) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-dhc-add"
-}
-
-type NsrSyncNackRsnErrRxNotif struct {
-}
-
-func (id NsrSyncNackRsnErrRxNotif) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-notif"
-}
-
-type RoutePathLblOwnerNone struct {
-}
-
-func (id RoutePathLblOwnerNone) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-none"
-}
-
-type NsrPeerSyncState struct {
-}
-
-func (id NsrPeerSyncState) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-state"
-}
-
-type LdpNsrPeerSyncStWait struct {
-}
-
-func (id LdpNsrPeerSyncStWait) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-wait"
-}
-
-type IccpType struct {
-}
-
-func (id IccpType) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:iccp-type"
-}
-
-type NsrSyncNackRsnErrTpCreate struct {
-}
-
-func (id NsrSyncNackRsnErrTpCreate) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-tp-create"
-}
-
-type LabelType struct {
-}
-
-func (id LabelType) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:label-type"
-}
-
-type NsrStatusNotReady struct {
-}
-
-func (id NsrStatusNotReady) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-status-not-ready"
-}
-
-type NsrSyncNackRsnPEndSockNotSynced struct {
-}
-
-func (id NsrSyncNackRsnPEndSockNotSynced) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-p-end-sock-not-synced"
-}
-
-type IgpSyncDownReasonInternal struct {
-}
-
-func (id IgpSyncDownReasonInternal) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-internal"
 }
 
 type NsrSyncNackRsnPpExists struct {
@@ -493,88 +143,39 @@ func (id NsrSyncNackRsnPpExists) String() string {
 	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-pp-exists"
 }
 
-type LdpNsrPeerSyncStReady struct {
+type NsrSyncNackRsnMissingElem struct {
 }
 
-func (id LdpNsrPeerSyncStReady) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-ready"
+func (id NsrSyncNackRsnMissingElem) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-missing-elem"
 }
 
-type IgpSyncDownReasonNoHelloAdj struct {
+type NsrSyncNackRsnNoPEndSock struct {
 }
 
-func (id IgpSyncDownReasonNoHelloAdj) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-hello-adj"
+func (id NsrSyncNackRsnNoPEndSock) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-p-end-sock"
 }
 
-type LabelTypeUnLabeled struct {
+type NsrSyncNackRsnPEndSockNotSynced struct {
 }
 
-func (id LabelTypeUnLabeled) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:label-type-un-labeled"
+func (id NsrSyncNackRsnPEndSockNotSynced) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-p-end-sock-not-synced"
 }
 
-type IccpTypeMlacp struct {
+type NsrSyncNackRsnErrAdjAdd struct {
 }
 
-func (id IccpTypeMlacp) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:iccp-type-mlacp"
+func (id NsrSyncNackRsnErrAdjAdd) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-adj-add"
 }
 
-type NsrPeerSyncErrSyncPrep struct {
+type NsrSyncNackRsnErrDhcAdd struct {
 }
 
-func (id NsrPeerSyncErrSyncPrep) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-sync-prep"
-}
-
-type LdpNsrPeerSyncStAppWait struct {
-}
-
-func (id LdpNsrPeerSyncStAppWait) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-app-wait"
-}
-
-type RoutePathIpBgpBackup struct {
-}
-
-func (id RoutePathIpBgpBackup) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-bgp-backup"
-}
-
-type DownNbrReasonNa struct {
-}
-
-func (id DownNbrReasonNa) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-na"
-}
-
-type NsrStatus struct {
-}
-
-func (id NsrStatus) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-status"
-}
-
-type NsrSyncNackRsnErrRxBadPie struct {
-}
-
-func (id NsrSyncNackRsnErrRxBadPie) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-bad-pie"
-}
-
-type IgpSyncDownReasonPeerUpdateNotDone struct {
-}
-
-func (id IgpSyncDownReasonPeerUpdateNotDone) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-done"
-}
-
-type NsrSyncNackRsn struct {
-}
-
-func (id NsrSyncNackRsn) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn"
+func (id NsrSyncNackRsnErrDhcAdd) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-dhc-add"
 }
 
 type NsrSyncNackRsnEnomem struct {
@@ -584,18 +185,284 @@ func (id NsrSyncNackRsnEnomem) String() string {
 	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-enomem"
 }
 
-type RoutePathIpProtected struct {
+type NsrSyncNackRsnErrTpCreate struct {
 }
 
-func (id RoutePathIpProtected) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-protected"
+func (id NsrSyncNackRsnErrTpCreate) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-tp-create"
 }
 
-type RoutePathIpBackupRemote struct {
+type NsrSyncNackRsnErrPpCreate struct {
 }
 
-func (id RoutePathIpBackupRemote) String() string {
-	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup-remote"
+func (id NsrSyncNackRsnErrPpCreate) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-pp-create"
+}
+
+type NsrSyncNackRsnErrAddrBind struct {
+}
+
+func (id NsrSyncNackRsnErrAddrBind) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-addr-bind"
+}
+
+type NsrSyncNackRsnErrRxBadPie struct {
+}
+
+func (id NsrSyncNackRsnErrRxBadPie) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-bad-pie"
+}
+
+type NsrSyncNackRsnErrRxNotif struct {
+}
+
+func (id NsrSyncNackRsnErrRxNotif) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-notif"
+}
+
+type NsrSyncNackRsnErrRxUnexpOpen struct {
+}
+
+func (id NsrSyncNackRsnErrRxUnexpOpen) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-rx-unexp-open"
+}
+
+type NsrSyncNackRsnErrUnexpPeerDown struct {
+}
+
+func (id NsrSyncNackRsnErrUnexpPeerDown) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-unexp-peer-down"
+}
+
+type NsrSyncNackRsnErrAppNotFound struct {
+}
+
+func (id NsrSyncNackRsnErrAppNotFound) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-not-found"
+}
+
+type NsrSyncNackRsnErrAppInvalid struct {
+}
+
+func (id NsrSyncNackRsnErrAppInvalid) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-err-app-invalid"
+}
+
+type NsrSyncNackRsnNoCtx struct {
+}
+
+func (id NsrSyncNackRsnNoCtx) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-sync-nack-rsn-no-ctx"
+}
+
+type NsrPeerSyncErr struct {
+}
+
+func (id NsrPeerSyncErr) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err"
+}
+
+type NsrPeerSyncErrNone struct {
+}
+
+func (id NsrPeerSyncErrNone) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-none"
+}
+
+type NsrPeerSyncErrLdpSyncNack struct {
+}
+
+func (id NsrPeerSyncErrLdpSyncNack) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-sync-nack"
+}
+
+type NsrPeerSyncErrSyncPrep struct {
+}
+
+func (id NsrPeerSyncErrSyncPrep) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-sync-prep"
+}
+
+type NsrPeerSyncErrTcpPeer struct {
+}
+
+func (id NsrPeerSyncErrTcpPeer) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-peer"
+}
+
+type NsrPeerSyncErrTcpGbl struct {
+}
+
+func (id NsrPeerSyncErrTcpGbl) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-tcp-gbl"
+}
+
+type NsrPeerSyncErrLdpPeer struct {
+}
+
+func (id NsrPeerSyncErrLdpPeer) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-peer"
+}
+
+type NsrPeerSyncErrLdpGbl struct {
+}
+
+func (id NsrPeerSyncErrLdpGbl) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-ldp-gbl"
+}
+
+type NsrPeerSyncErrAppFail struct {
+}
+
+func (id NsrPeerSyncErrAppFail) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-err-app-fail"
+}
+
+type IcpmType struct {
+}
+
+func (id IcpmType) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:icpm-type"
+}
+
+type IcpmTypeIccp struct {
+}
+
+func (id IcpmTypeIccp) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:icpm-type-iccp"
+}
+
+type IccpType struct {
+}
+
+func (id IccpType) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:iccp-type"
+}
+
+type IccpTypeMlacp struct {
+}
+
+func (id IccpTypeMlacp) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:iccp-type-mlacp"
+}
+
+type NsrPeerSyncState struct {
+}
+
+func (id NsrPeerSyncState) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-peer-sync-state"
+}
+
+type LdpNsrPeerSyncStNone struct {
+}
+
+func (id LdpNsrPeerSyncStNone) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-none"
+}
+
+type LdpNsrPeerSyncStWait struct {
+}
+
+func (id LdpNsrPeerSyncStWait) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-wait"
+}
+
+type LdpNsrPeerSyncStReady struct {
+}
+
+func (id LdpNsrPeerSyncStReady) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-ready"
+}
+
+type LdpNsrPeerSyncStPrep struct {
+}
+
+func (id LdpNsrPeerSyncStPrep) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-prep"
+}
+
+type LdpNsrPeerSyncStAppWait struct {
+}
+
+func (id LdpNsrPeerSyncStAppWait) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-app-wait"
+}
+
+type LdpNsrPeerSyncStOper struct {
+}
+
+func (id LdpNsrPeerSyncStOper) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:ldp-nsr-peer-sync-st-oper"
+}
+
+type NsrStatus struct {
+}
+
+func (id NsrStatus) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-status"
+}
+
+type NsrStatusReady struct {
+}
+
+func (id NsrStatusReady) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-status-ready"
+}
+
+type NsrStatusNotReady struct {
+}
+
+func (id NsrStatusNotReady) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-status-not-ready"
+}
+
+type NsrStatusDisabled struct {
+}
+
+func (id NsrStatusDisabled) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:nsr-status-disabled"
+}
+
+type DownNbrReason struct {
+}
+
+func (id DownNbrReason) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason"
+}
+
+type DownNbrReasonNa struct {
+}
+
+func (id DownNbrReasonNa) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-na"
+}
+
+type DownNbrReasonNbrHold struct {
+}
+
+func (id DownNbrReasonNbrHold) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-nbr-hold"
+}
+
+type DownNbrReasonDiscHello struct {
+}
+
+func (id DownNbrReasonDiscHello) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:down-nbr-reason-disc-hello"
+}
+
+type RoutePathLblOwner struct {
+}
+
+func (id RoutePathLblOwner) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner"
+}
+
+type RoutePathLblOwnerNone struct {
+}
+
+func (id RoutePathLblOwnerNone) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-none"
 }
 
 type RoutePathLblOwnerLdp struct {
@@ -605,25 +472,138 @@ func (id RoutePathLblOwnerLdp) String() string {
 	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-ldp"
 }
 
-// SessionState represents for session negotiation behavior.
-type SessionState string
+type RoutePathLblOwnerBgp struct {
+}
 
-const (
-    // LDP session state: nonexistent.
-    SessionState_nonexistent SessionState = "nonexistent"
+func (id RoutePathLblOwnerBgp) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-bgp"
+}
 
-    // LDP session state: initialized.
-    SessionState_initialized SessionState = "initialized"
+type RoutePathLblOwnerStatic struct {
+}
 
-    // LDP session state: openrec.
-    SessionState_openrec SessionState = "openrec"
+func (id RoutePathLblOwnerStatic) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-lbl-owner-static"
+}
 
-    // LDP session state: opensent.
-    SessionState_opensent SessionState = "opensent"
+type LabelType struct {
+}
 
-    // LDP session state: operational.
-    SessionState_operational SessionState = "operational"
-)
+func (id LabelType) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:label-type"
+}
+
+type LabelTypeMpls struct {
+}
+
+func (id LabelTypeMpls) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:label-type-mpls"
+}
+
+type LabelTypeUnLabeled struct {
+}
+
+func (id LabelTypeUnLabeled) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:label-type-un-labeled"
+}
+
+type LabelTypeUnknown struct {
+}
+
+func (id LabelTypeUnknown) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:label-type-unknown"
+}
+
+type RoutePathType struct {
+}
+
+func (id RoutePathType) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-type"
+}
+
+type RoutePathIpNoFlag struct {
+}
+
+func (id RoutePathIpNoFlag) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-no-flag"
+}
+
+type RoutePathIpProtected struct {
+}
+
+func (id RoutePathIpProtected) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-protected"
+}
+
+type RoutePathIpBackup struct {
+}
+
+func (id RoutePathIpBackup) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup"
+}
+
+type RoutePathIpBackupRemote struct {
+}
+
+func (id RoutePathIpBackupRemote) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-backup-remote"
+}
+
+type RoutePathIpBgpBackup struct {
+}
+
+func (id RoutePathIpBgpBackup) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:route-path-ip-bgp-backup"
+}
+
+type IgpSyncDownReason struct {
+}
+
+func (id IgpSyncDownReason) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason"
+}
+
+type IgpSyncDownReasonNa struct {
+}
+
+func (id IgpSyncDownReasonNa) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-na"
+}
+
+type IgpSyncDownReasonNoHelloAdj struct {
+}
+
+func (id IgpSyncDownReasonNoHelloAdj) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-hello-adj"
+}
+
+type IgpSyncDownReasonNoPeerSess struct {
+}
+
+func (id IgpSyncDownReasonNoPeerSess) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-no-peer-sess"
+}
+
+type IgpSyncDownReasonPeerUpdateNotDone struct {
+}
+
+func (id IgpSyncDownReasonPeerUpdateNotDone) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-done"
+}
+
+type IgpSyncDownReasonPeerUpdateNotReceived struct {
+}
+
+func (id IgpSyncDownReasonPeerUpdateNotReceived) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-peer-update-not-received"
+}
+
+type IgpSyncDownReasonInternal struct {
+}
+
+func (id IgpSyncDownReasonInternal) String() string {
+	return "Cisco-IOS-XE-mpls-ldp:igp-sync-down-reason-internal"
+}
 
 // LoopDetectionType represents the LSR or enabled on the LSR.
 type LoopDetectionType string
@@ -647,81 +627,24 @@ const (
     LoopDetectionType_hop_count_and_path_vector LoopDetectionType = "hop-count-and-path-vector"
 )
 
-// AdvLabelType represents advertise for matching prefixes and peers.
-type AdvLabelType string
+// SessionState represents for session negotiation behavior.
+type SessionState string
 
 const (
-    // Advertise the label for matching prefixes and peers.
-    AdvLabelType_use_lable AdvLabelType = "use-lable"
+    // LDP session state: nonexistent.
+    SessionState_nonexistent SessionState = "nonexistent"
 
-    // Advertise explicit null for matching prefixes and peers.
-    AdvLabelType_use_explicit AdvLabelType = "use-explicit"
+    // LDP session state: initialized.
+    SessionState_initialized SessionState = "initialized"
 
-    // Advertise imlicit null for matching prefixes and peers.
-    AdvLabelType_use_implicit AdvLabelType = "use-implicit"
+    // LDP session state: openrec.
+    SessionState_openrec SessionState = "openrec"
 
-    // Do not advertise labels for matching prefixes and peers.
-    AdvLabelType_none AdvLabelType = "none"
-)
+    // LDP session state: opensent.
+    SessionState_opensent SessionState = "opensent"
 
-// AfId represents LDP AF type
-type AfId string
-
-const (
-    // No Address Family
-    AfId_ldp_af_id_none AfId = "ldp-af-id-none"
-
-    // IPv4 AFI
-    AfId_ldp_af_id_ipv4 AfId = "ldp-af-id-ipv4"
-
-    // IPv6 AFI
-    AfId_ldp_af_id_ipv6 AfId = "ldp-af-id-ipv6"
-)
-
-// IgpSyncState represents This is the IGP Synchronization State.
-type IgpSyncState string
-
-const (
-    // Achieved
-    IgpSyncState_isync_ready IgpSyncState = "isync-ready"
-
-    // Not achieved
-    IgpSyncState_isync_not_ready IgpSyncState = "isync-not-ready"
-
-    // Deferred due to interface delay or global
-    // restart delay
-    IgpSyncState_isync_deferred IgpSyncState = "isync-deferred"
-)
-
-// Af represents LDP Address Family
-type Af string
-
-const (
-    // No Address Family
-    Af_ldp_af_none Af = "ldp-af-none"
-
-    // IPv4 AFI
-    Af_ldp_af_ipv4 Af = "ldp-af-ipv4"
-
-    // IPv6 AFI
-    Af_ldp_af_ipv6 Af = "ldp-af-ipv6"
-
-    // Both IPv4/IPv6 AFIs
-    Af_ldp_af_ipv4_ipv6 Af = "ldp-af-ipv4-ipv6"
-)
-
-// NbrBgpAdvtState represents Type.
-type NbrBgpAdvtState string
-
-const (
-    // BGP Label Advertisement is not applicable.
-    NbrBgpAdvtState_not_applicable NbrBgpAdvtState = "not-applicable"
-
-    // BGP Label Advertisement is permitted.
-    NbrBgpAdvtState_permit NbrBgpAdvtState = "permit"
-
-    // BGP Label Advertisement denied.
-    NbrBgpAdvtState_deny NbrBgpAdvtState = "deny"
+    // LDP session state: operational.
+    SessionState_operational SessionState = "operational"
 )
 
 // AdjState represents for LDP adjacency peer.
@@ -747,35 +670,35 @@ const (
     AdjState_destroyed AdjState = "destroyed"
 )
 
-// LocalLabelState represents This id the MPLS LDP Local Label State Type.
-type LocalLabelState string
+// AdvLabelType represents advertise for matching prefixes and peers.
+type AdvLabelType string
 
 const (
-    // None
-    LocalLabelState_local_label_state_none LocalLabelState = "local-label-state-none"
+    // Advertise the label for matching prefixes and peers.
+    AdvLabelType_use_lable AdvLabelType = "use-lable"
 
-    // Assigned
-    LocalLabelState_local_label_state_assigned LocalLabelState = "local-label-state-assigned"
+    // Advertise explicit null for matching prefixes and peers.
+    AdvLabelType_use_explicit AdvLabelType = "use-explicit"
 
-    // Withdrawn
-    LocalLabelState_local_label_state_withdrawn LocalLabelState = "local-label-state-withdrawn"
+    // Advertise imlicit null for matching prefixes and peers.
+    AdvLabelType_use_implicit AdvLabelType = "use-implicit"
+
+    // Do not advertise labels for matching prefixes and peers.
+    AdvLabelType_none AdvLabelType = "none"
 )
 
-// DhcState represents This is the Directed Hello Control State Type.
-type DhcState string
+// NbrBgpAdvtState represents Type.
+type NbrBgpAdvtState string
 
 const (
-    // There is no current Directed Hello Control State.
-    DhcState_none DhcState = "none"
+    // BGP Label Advertisement is not applicable.
+    NbrBgpAdvtState_not_applicable NbrBgpAdvtState = "not-applicable"
 
-    // The Directed Hello is Active.
-    DhcState_dhc_active DhcState = "dhc-active"
+    // BGP Label Advertisement is permitted.
+    NbrBgpAdvtState_permit NbrBgpAdvtState = "permit"
 
-    // The Directed Hello is Passive.
-    DhcState_dhc_passive DhcState = "dhc-passive"
-
-    // The Directed Hello is both Active and Passive.
-    DhcState_dhc_active_passive DhcState = "dhc-active-passive"
+    // BGP Label Advertisement denied.
+    NbrBgpAdvtState_deny NbrBgpAdvtState = "deny"
 )
 
 // IccpState represents IETF in TBD.
@@ -812,10 +735,87 @@ const (
     IccpState_operational IccpState = "operational"
 )
 
+// DhcState represents This is the Directed Hello Control State Type.
+type DhcState string
+
+const (
+    // There is no current Directed Hello Control State.
+    DhcState_none DhcState = "none"
+
+    // The Directed Hello is Active.
+    DhcState_dhc_active DhcState = "dhc-active"
+
+    // The Directed Hello is Passive.
+    DhcState_dhc_passive DhcState = "dhc-passive"
+
+    // The Directed Hello is both Active and Passive.
+    DhcState_dhc_active_passive DhcState = "dhc-active-passive"
+)
+
+// IgpSyncState represents This is the IGP Synchronization State.
+type IgpSyncState string
+
+const (
+    // Achieved
+    IgpSyncState_isync_ready IgpSyncState = "isync-ready"
+
+    // Not achieved
+    IgpSyncState_isync_not_ready IgpSyncState = "isync-not-ready"
+
+    // Deferred due to interface delay or global
+    // restart delay
+    IgpSyncState_isync_deferred IgpSyncState = "isync-deferred"
+)
+
+// LocalLabelState represents This id the MPLS LDP Local Label State Type.
+type LocalLabelState string
+
+const (
+    // None
+    LocalLabelState_local_label_state_none LocalLabelState = "local-label-state-none"
+
+    // Assigned
+    LocalLabelState_local_label_state_assigned LocalLabelState = "local-label-state-assigned"
+
+    // Withdrawn
+    LocalLabelState_local_label_state_withdrawn LocalLabelState = "local-label-state-withdrawn"
+)
+
+// Af represents LDP Address Family
+type Af string
+
+const (
+    // No Address Family
+    Af_ldp_af_none Af = "ldp-af-none"
+
+    // IPv4 AFI
+    Af_ldp_af_ipv4 Af = "ldp-af-ipv4"
+
+    // IPv6 AFI
+    Af_ldp_af_ipv6 Af = "ldp-af-ipv6"
+
+    // Both IPv4/IPv6 AFIs
+    Af_ldp_af_ipv4_ipv6 Af = "ldp-af-ipv4-ipv6"
+)
+
+// AfId represents LDP AF type
+type AfId string
+
+const (
+    // No Address Family
+    AfId_ldp_af_id_none AfId = "ldp-af-id-none"
+
+    // IPv4 AFI
+    AfId_ldp_af_id_ipv4 AfId = "ldp-af-id-ipv4"
+
+    // IPv6 AFI
+    AfId_ldp_af_id_ipv6 AfId = "ldp-af-id-ipv6"
+)
+
 // MplsLdp
 // MPLS LDP configuration and operational data.
 type MplsLdp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP operational data.
@@ -825,64 +825,27 @@ type MplsLdp struct {
     MplsLdpConfig MplsLdp_MplsLdpConfig
 }
 
-func (mplsLdp *MplsLdp) GetFilter() yfilter.YFilter { return mplsLdp.YFilter }
+func (mplsLdp *MplsLdp) GetEntityData() *types.CommonEntityData {
+    mplsLdp.EntityData.YFilter = mplsLdp.YFilter
+    mplsLdp.EntityData.YangName = "mpls-ldp"
+    mplsLdp.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdp.EntityData.ParentYangName = "Cisco-IOS-XE-mpls-ldp"
+    mplsLdp.EntityData.SegmentPath = "Cisco-IOS-XE-mpls-ldp:mpls-ldp"
+    mplsLdp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsLdp *MplsLdp) SetFilter(yf yfilter.YFilter) { mplsLdp.YFilter = yf }
-
-func (mplsLdp *MplsLdp) GetGoName(yname string) string {
-    if yname == "mpls-ldp-state" { return "MplsLdpState" }
-    if yname == "mpls-ldp-config" { return "MplsLdpConfig" }
-    return ""
+    mplsLdp.EntityData.Children = make(map[string]types.YChild)
+    mplsLdp.EntityData.Children["mpls-ldp-state"] = types.YChild{"MplsLdpState", &mplsLdp.MplsLdpState}
+    mplsLdp.EntityData.Children["mpls-ldp-config"] = types.YChild{"MplsLdpConfig", &mplsLdp.MplsLdpConfig}
+    mplsLdp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsLdp.EntityData)
 }
-
-func (mplsLdp *MplsLdp) GetSegmentPath() string {
-    return "Cisco-IOS-XE-mpls-ldp:mpls-ldp"
-}
-
-func (mplsLdp *MplsLdp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpls-ldp-state" {
-        return &mplsLdp.MplsLdpState
-    }
-    if childYangName == "mpls-ldp-config" {
-        return &mplsLdp.MplsLdpConfig
-    }
-    return nil
-}
-
-func (mplsLdp *MplsLdp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpls-ldp-state"] = &mplsLdp.MplsLdpState
-    children["mpls-ldp-config"] = &mplsLdp.MplsLdpConfig
-    return children
-}
-
-func (mplsLdp *MplsLdp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsLdp *MplsLdp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsLdp *MplsLdp) GetYangName() string { return "mpls-ldp" }
-
-func (mplsLdp *MplsLdp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsLdp *MplsLdp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsLdp *MplsLdp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsLdp *MplsLdp) SetParent(parent types.Entity) { mplsLdp.parent = parent }
-
-func (mplsLdp *MplsLdp) GetParent() types.Entity { return mplsLdp.parent }
-
-func (mplsLdp *MplsLdp) GetParentYangName() string { return "Cisco-IOS-XE-mpls-ldp" }
 
 // MplsLdp_MplsLdpState
 // MPLS LDP operational data.
 type MplsLdp_MplsLdpState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LDP operational data summary.
@@ -932,129 +895,40 @@ type MplsLdp_MplsLdpState struct {
     LabelRanges MplsLdp_MplsLdpState_LabelRanges
 }
 
-func (mplsLdpState *MplsLdp_MplsLdpState) GetFilter() yfilter.YFilter { return mplsLdpState.YFilter }
+func (mplsLdpState *MplsLdp_MplsLdpState) GetEntityData() *types.CommonEntityData {
+    mplsLdpState.EntityData.YFilter = mplsLdpState.YFilter
+    mplsLdpState.EntityData.YangName = "mpls-ldp-state"
+    mplsLdpState.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpState.EntityData.ParentYangName = "mpls-ldp"
+    mplsLdpState.EntityData.SegmentPath = "mpls-ldp-state"
+    mplsLdpState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsLdpState *MplsLdp_MplsLdpState) SetFilter(yf yfilter.YFilter) { mplsLdpState.YFilter = yf }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetGoName(yname string) string {
-    if yname == "oper-summary" { return "OperSummary" }
-    if yname == "forwarding-summary" { return "ForwardingSummary" }
-    if yname == "bindings-summary" { return "BindingsSummary" }
-    if yname == "nsr-summary-all" { return "NsrSummaryAll" }
-    if yname == "icpm-summary-all" { return "IcpmSummaryAll" }
-    if yname == "parameters" { return "Parameters" }
-    if yname == "capabilities" { return "Capabilities" }
-    if yname == "backoff-parameters" { return "BackoffParameters" }
-    if yname == "graceful-restart" { return "GracefulRestart" }
-    if yname == "vrfs" { return "Vrfs" }
-    if yname == "discovery" { return "Discovery" }
-    if yname == "forwarding" { return "Forwarding" }
-    if yname == "bindings" { return "Bindings" }
-    if yname == "neighbors" { return "Neighbors" }
-    if yname == "label-ranges" { return "LabelRanges" }
-    return ""
+    mplsLdpState.EntityData.Children = make(map[string]types.YChild)
+    mplsLdpState.EntityData.Children["oper-summary"] = types.YChild{"OperSummary", &mplsLdpState.OperSummary}
+    mplsLdpState.EntityData.Children["forwarding-summary"] = types.YChild{"ForwardingSummary", &mplsLdpState.ForwardingSummary}
+    mplsLdpState.EntityData.Children["bindings-summary"] = types.YChild{"BindingsSummary", &mplsLdpState.BindingsSummary}
+    mplsLdpState.EntityData.Children["nsr-summary-all"] = types.YChild{"NsrSummaryAll", &mplsLdpState.NsrSummaryAll}
+    mplsLdpState.EntityData.Children["icpm-summary-all"] = types.YChild{"IcpmSummaryAll", &mplsLdpState.IcpmSummaryAll}
+    mplsLdpState.EntityData.Children["parameters"] = types.YChild{"Parameters", &mplsLdpState.Parameters}
+    mplsLdpState.EntityData.Children["capabilities"] = types.YChild{"Capabilities", &mplsLdpState.Capabilities}
+    mplsLdpState.EntityData.Children["backoff-parameters"] = types.YChild{"BackoffParameters", &mplsLdpState.BackoffParameters}
+    mplsLdpState.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &mplsLdpState.GracefulRestart}
+    mplsLdpState.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &mplsLdpState.Vrfs}
+    mplsLdpState.EntityData.Children["discovery"] = types.YChild{"Discovery", &mplsLdpState.Discovery}
+    mplsLdpState.EntityData.Children["forwarding"] = types.YChild{"Forwarding", &mplsLdpState.Forwarding}
+    mplsLdpState.EntityData.Children["bindings"] = types.YChild{"Bindings", &mplsLdpState.Bindings}
+    mplsLdpState.EntityData.Children["neighbors"] = types.YChild{"Neighbors", &mplsLdpState.Neighbors}
+    mplsLdpState.EntityData.Children["label-ranges"] = types.YChild{"LabelRanges", &mplsLdpState.LabelRanges}
+    mplsLdpState.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsLdpState.EntityData)
 }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetSegmentPath() string {
-    return "mpls-ldp-state"
-}
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "oper-summary" {
-        return &mplsLdpState.OperSummary
-    }
-    if childYangName == "forwarding-summary" {
-        return &mplsLdpState.ForwardingSummary
-    }
-    if childYangName == "bindings-summary" {
-        return &mplsLdpState.BindingsSummary
-    }
-    if childYangName == "nsr-summary-all" {
-        return &mplsLdpState.NsrSummaryAll
-    }
-    if childYangName == "icpm-summary-all" {
-        return &mplsLdpState.IcpmSummaryAll
-    }
-    if childYangName == "parameters" {
-        return &mplsLdpState.Parameters
-    }
-    if childYangName == "capabilities" {
-        return &mplsLdpState.Capabilities
-    }
-    if childYangName == "backoff-parameters" {
-        return &mplsLdpState.BackoffParameters
-    }
-    if childYangName == "graceful-restart" {
-        return &mplsLdpState.GracefulRestart
-    }
-    if childYangName == "vrfs" {
-        return &mplsLdpState.Vrfs
-    }
-    if childYangName == "discovery" {
-        return &mplsLdpState.Discovery
-    }
-    if childYangName == "forwarding" {
-        return &mplsLdpState.Forwarding
-    }
-    if childYangName == "bindings" {
-        return &mplsLdpState.Bindings
-    }
-    if childYangName == "neighbors" {
-        return &mplsLdpState.Neighbors
-    }
-    if childYangName == "label-ranges" {
-        return &mplsLdpState.LabelRanges
-    }
-    return nil
-}
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["oper-summary"] = &mplsLdpState.OperSummary
-    children["forwarding-summary"] = &mplsLdpState.ForwardingSummary
-    children["bindings-summary"] = &mplsLdpState.BindingsSummary
-    children["nsr-summary-all"] = &mplsLdpState.NsrSummaryAll
-    children["icpm-summary-all"] = &mplsLdpState.IcpmSummaryAll
-    children["parameters"] = &mplsLdpState.Parameters
-    children["capabilities"] = &mplsLdpState.Capabilities
-    children["backoff-parameters"] = &mplsLdpState.BackoffParameters
-    children["graceful-restart"] = &mplsLdpState.GracefulRestart
-    children["vrfs"] = &mplsLdpState.Vrfs
-    children["discovery"] = &mplsLdpState.Discovery
-    children["forwarding"] = &mplsLdpState.Forwarding
-    children["bindings"] = &mplsLdpState.Bindings
-    children["neighbors"] = &mplsLdpState.Neighbors
-    children["label-ranges"] = &mplsLdpState.LabelRanges
-    return children
-}
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetYangName() string { return "mpls-ldp-state" }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) SetParent(parent types.Entity) { mplsLdpState.parent = parent }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetParent() types.Entity { return mplsLdpState.parent }
-
-func (mplsLdpState *MplsLdp_MplsLdpState) GetParentYangName() string { return "mpls-ldp" }
 
 // MplsLdp_MplsLdpState_OperSummary
 // LDP operational data summary
 type MplsLdp_MplsLdpState_OperSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of configured VRFs (including default). The type is interface{} with
@@ -1089,73 +963,33 @@ type MplsLdp_MplsLdpState_OperSummary struct {
     Common MplsLdp_MplsLdpState_OperSummary_Common
 }
 
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetFilter() yfilter.YFilter { return operSummary.YFilter }
+func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetEntityData() *types.CommonEntityData {
+    operSummary.EntityData.YFilter = operSummary.YFilter
+    operSummary.EntityData.YangName = "oper-summary"
+    operSummary.EntityData.BundleName = "cisco_ios_xe"
+    operSummary.EntityData.ParentYangName = "mpls-ldp-state"
+    operSummary.EntityData.SegmentPath = "oper-summary"
+    operSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    operSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    operSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) SetFilter(yf yfilter.YFilter) { operSummary.YFilter = yf }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetGoName(yname string) string {
-    if yname == "number-of-vrf" { return "NumberOfVrf" }
-    if yname == "number-of-vrf-oper" { return "NumberOfVrfOper" }
-    if yname == "number-of-interfaces" { return "NumberOfInterfaces" }
-    if yname == "number-of-fwd-ref-interfaces" { return "NumberOfFwdRefInterfaces" }
-    if yname == "number-of-autocfg-interfaces" { return "NumberOfAutocfgInterfaces" }
-    if yname == "no-of-ipv4-rib-tbl" { return "NoOfIpv4RibTbl" }
-    if yname == "no-of-ipv4-rib-tbl-reg" { return "NoOfIpv4RibTblReg" }
-    if yname == "common" { return "Common" }
-    return ""
+    operSummary.EntityData.Children = make(map[string]types.YChild)
+    operSummary.EntityData.Children["common"] = types.YChild{"Common", &operSummary.Common}
+    operSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    operSummary.EntityData.Leafs["number-of-vrf"] = types.YLeaf{"NumberOfVrf", operSummary.NumberOfVrf}
+    operSummary.EntityData.Leafs["number-of-vrf-oper"] = types.YLeaf{"NumberOfVrfOper", operSummary.NumberOfVrfOper}
+    operSummary.EntityData.Leafs["number-of-interfaces"] = types.YLeaf{"NumberOfInterfaces", operSummary.NumberOfInterfaces}
+    operSummary.EntityData.Leafs["number-of-fwd-ref-interfaces"] = types.YLeaf{"NumberOfFwdRefInterfaces", operSummary.NumberOfFwdRefInterfaces}
+    operSummary.EntityData.Leafs["number-of-autocfg-interfaces"] = types.YLeaf{"NumberOfAutocfgInterfaces", operSummary.NumberOfAutocfgInterfaces}
+    operSummary.EntityData.Leafs["no-of-ipv4-rib-tbl"] = types.YLeaf{"NoOfIpv4RibTbl", operSummary.NoOfIpv4RibTbl}
+    operSummary.EntityData.Leafs["no-of-ipv4-rib-tbl-reg"] = types.YLeaf{"NoOfIpv4RibTblReg", operSummary.NoOfIpv4RibTblReg}
+    return &(operSummary.EntityData)
 }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetSegmentPath() string {
-    return "oper-summary"
-}
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "common" {
-        return &operSummary.Common
-    }
-    return nil
-}
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["common"] = &operSummary.Common
-    return children
-}
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number-of-vrf"] = operSummary.NumberOfVrf
-    leafs["number-of-vrf-oper"] = operSummary.NumberOfVrfOper
-    leafs["number-of-interfaces"] = operSummary.NumberOfInterfaces
-    leafs["number-of-fwd-ref-interfaces"] = operSummary.NumberOfFwdRefInterfaces
-    leafs["number-of-autocfg-interfaces"] = operSummary.NumberOfAutocfgInterfaces
-    leafs["no-of-ipv4-rib-tbl"] = operSummary.NoOfIpv4RibTbl
-    leafs["no-of-ipv4-rib-tbl-reg"] = operSummary.NoOfIpv4RibTblReg
-    return leafs
-}
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetYangName() string { return "oper-summary" }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) SetParent(parent types.Entity) { operSummary.parent = parent }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetParent() types.Entity { return operSummary.parent }
-
-func (operSummary *MplsLdp_MplsLdpState_OperSummary) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_OperSummary_Common
 // Common Summary information
 type MplsLdp_MplsLdpState_OperSummary_Common struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address Families enabled. The type is Af.
@@ -1193,73 +1027,35 @@ type MplsLdp_MplsLdpState_OperSummary_Common struct {
     NumberOfIpv4LdpInterfaces interface{}
 }
 
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetFilter() yfilter.YFilter { return common.YFilter }
+func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetEntityData() *types.CommonEntityData {
+    common.EntityData.YFilter = common.YFilter
+    common.EntityData.YangName = "common"
+    common.EntityData.BundleName = "cisco_ios_xe"
+    common.EntityData.ParentYangName = "oper-summary"
+    common.EntityData.SegmentPath = "common"
+    common.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    common.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    common.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) SetFilter(yf yfilter.YFilter) { common.YFilter = yf }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetGoName(yname string) string {
-    if yname == "address-families" { return "AddressFamilies" }
-    if yname == "number-of-neighbors" { return "NumberOfNeighbors" }
-    if yname == "number-of-graceful-restart-neighbors" { return "NumberOfGracefulRestartNeighbors" }
-    if yname == "number-of-downstream-on-demand-neighbors" { return "NumberOfDownstreamOnDemandNeighbors" }
-    if yname == "numberof-ipv4-hello-adj" { return "NumberofIpv4HelloAdj" }
-    if yname == "number-of-ipv4-routes" { return "NumberOfIpv4Routes" }
-    if yname == "number-of-ipv4-local-addresses" { return "NumberOfIpv4LocalAddresses" }
-    if yname == "number-of-ldp-interfaces" { return "NumberOfLdpInterfaces" }
-    if yname == "number-of-ipv4ldp-interfaces" { return "NumberOfIpv4LdpInterfaces" }
-    return ""
+    common.EntityData.Children = make(map[string]types.YChild)
+    common.EntityData.Leafs = make(map[string]types.YLeaf)
+    common.EntityData.Leafs["address-families"] = types.YLeaf{"AddressFamilies", common.AddressFamilies}
+    common.EntityData.Leafs["number-of-neighbors"] = types.YLeaf{"NumberOfNeighbors", common.NumberOfNeighbors}
+    common.EntityData.Leafs["number-of-graceful-restart-neighbors"] = types.YLeaf{"NumberOfGracefulRestartNeighbors", common.NumberOfGracefulRestartNeighbors}
+    common.EntityData.Leafs["number-of-downstream-on-demand-neighbors"] = types.YLeaf{"NumberOfDownstreamOnDemandNeighbors", common.NumberOfDownstreamOnDemandNeighbors}
+    common.EntityData.Leafs["numberof-ipv4-hello-adj"] = types.YLeaf{"NumberofIpv4HelloAdj", common.NumberofIpv4HelloAdj}
+    common.EntityData.Leafs["number-of-ipv4-routes"] = types.YLeaf{"NumberOfIpv4Routes", common.NumberOfIpv4Routes}
+    common.EntityData.Leafs["number-of-ipv4-local-addresses"] = types.YLeaf{"NumberOfIpv4LocalAddresses", common.NumberOfIpv4LocalAddresses}
+    common.EntityData.Leafs["number-of-ldp-interfaces"] = types.YLeaf{"NumberOfLdpInterfaces", common.NumberOfLdpInterfaces}
+    common.EntityData.Leafs["number-of-ipv4ldp-interfaces"] = types.YLeaf{"NumberOfIpv4LdpInterfaces", common.NumberOfIpv4LdpInterfaces}
+    return &(common.EntityData)
 }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetSegmentPath() string {
-    return "common"
-}
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address-families"] = common.AddressFamilies
-    leafs["number-of-neighbors"] = common.NumberOfNeighbors
-    leafs["number-of-graceful-restart-neighbors"] = common.NumberOfGracefulRestartNeighbors
-    leafs["number-of-downstream-on-demand-neighbors"] = common.NumberOfDownstreamOnDemandNeighbors
-    leafs["numberof-ipv4-hello-adj"] = common.NumberofIpv4HelloAdj
-    leafs["number-of-ipv4-routes"] = common.NumberOfIpv4Routes
-    leafs["number-of-ipv4-local-addresses"] = common.NumberOfIpv4LocalAddresses
-    leafs["number-of-ldp-interfaces"] = common.NumberOfLdpInterfaces
-    leafs["number-of-ipv4ldp-interfaces"] = common.NumberOfIpv4LdpInterfaces
-    return leafs
-}
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetBundleName() string { return "cisco_ios_xe" }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetYangName() string { return "common" }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) SetParent(parent types.Entity) { common.parent = parent }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetParent() types.Entity { return common.parent }
-
-func (common *MplsLdp_MplsLdpState_OperSummary_Common) GetParentYangName() string { return "oper-summary" }
 
 // MplsLdp_MplsLdpState_ForwardingSummary
 // Summary information regarding LDP forwarding
 // setup
 type MplsLdp_MplsLdpState_ForwardingSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS forwarding enabled interface count. The type is interface{} with
@@ -1276,68 +1072,29 @@ type MplsLdp_MplsLdpState_ForwardingSummary struct {
     Nhs MplsLdp_MplsLdpState_ForwardingSummary_Nhs
 }
 
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetFilter() yfilter.YFilter { return forwardingSummary.YFilter }
+func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetEntityData() *types.CommonEntityData {
+    forwardingSummary.EntityData.YFilter = forwardingSummary.YFilter
+    forwardingSummary.EntityData.YangName = "forwarding-summary"
+    forwardingSummary.EntityData.BundleName = "cisco_ios_xe"
+    forwardingSummary.EntityData.ParentYangName = "mpls-ldp-state"
+    forwardingSummary.EntityData.SegmentPath = "forwarding-summary"
+    forwardingSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    forwardingSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    forwardingSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) SetFilter(yf yfilter.YFilter) { forwardingSummary.YFilter = yf }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetGoName(yname string) string {
-    if yname == "intfs-fwd-count" { return "IntfsFwdCount" }
-    if yname == "local-lbls" { return "LocalLbls" }
-    if yname == "pfxs" { return "Pfxs" }
-    if yname == "nhs" { return "Nhs" }
-    return ""
+    forwardingSummary.EntityData.Children = make(map[string]types.YChild)
+    forwardingSummary.EntityData.Children["pfxs"] = types.YChild{"Pfxs", &forwardingSummary.Pfxs}
+    forwardingSummary.EntityData.Children["nhs"] = types.YChild{"Nhs", &forwardingSummary.Nhs}
+    forwardingSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    forwardingSummary.EntityData.Leafs["intfs-fwd-count"] = types.YLeaf{"IntfsFwdCount", forwardingSummary.IntfsFwdCount}
+    forwardingSummary.EntityData.Leafs["local-lbls"] = types.YLeaf{"LocalLbls", forwardingSummary.LocalLbls}
+    return &(forwardingSummary.EntityData)
 }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetSegmentPath() string {
-    return "forwarding-summary"
-}
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pfxs" {
-        return &forwardingSummary.Pfxs
-    }
-    if childYangName == "nhs" {
-        return &forwardingSummary.Nhs
-    }
-    return nil
-}
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pfxs"] = &forwardingSummary.Pfxs
-    children["nhs"] = &forwardingSummary.Nhs
-    return children
-}
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["intfs-fwd-count"] = forwardingSummary.IntfsFwdCount
-    leafs["local-lbls"] = forwardingSummary.LocalLbls
-    return leafs
-}
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetYangName() string { return "forwarding-summary" }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) SetParent(parent types.Entity) { forwardingSummary.parent = parent }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetParent() types.Entity { return forwardingSummary.parent }
-
-func (forwardingSummary *MplsLdp_MplsLdpState_ForwardingSummary) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_ForwardingSummary_Pfxs
 // MPLS LDP forwarding prefix rewrite summary
 type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total Prefix count. The type is interface{} with range: 0..65535.
@@ -1360,75 +1117,31 @@ type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs struct {
     LabeledPfxsBackup MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup
 }
 
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetFilter() yfilter.YFilter { return pfxs.YFilter }
+func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetEntityData() *types.CommonEntityData {
+    pfxs.EntityData.YFilter = pfxs.YFilter
+    pfxs.EntityData.YangName = "pfxs"
+    pfxs.EntityData.BundleName = "cisco_ios_xe"
+    pfxs.EntityData.ParentYangName = "forwarding-summary"
+    pfxs.EntityData.SegmentPath = "pfxs"
+    pfxs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pfxs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pfxs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) SetFilter(yf yfilter.YFilter) { pfxs.YFilter = yf }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetGoName(yname string) string {
-    if yname == "total-pfxs" { return "TotalPfxs" }
-    if yname == "ecmp-pfxs" { return "EcmpPfxs" }
-    if yname == "protected-pfxs" { return "ProtectedPfxs" }
-    if yname == "labeled-pfxs-aggr" { return "LabeledPfxsAggr" }
-    if yname == "labeled-pfxs-primary" { return "LabeledPfxsPrimary" }
-    if yname == "labeled-pfxs-backup" { return "LabeledPfxsBackup" }
-    return ""
+    pfxs.EntityData.Children = make(map[string]types.YChild)
+    pfxs.EntityData.Children["labeled-pfxs-aggr"] = types.YChild{"LabeledPfxsAggr", &pfxs.LabeledPfxsAggr}
+    pfxs.EntityData.Children["labeled-pfxs-primary"] = types.YChild{"LabeledPfxsPrimary", &pfxs.LabeledPfxsPrimary}
+    pfxs.EntityData.Children["labeled-pfxs-backup"] = types.YChild{"LabeledPfxsBackup", &pfxs.LabeledPfxsBackup}
+    pfxs.EntityData.Leafs = make(map[string]types.YLeaf)
+    pfxs.EntityData.Leafs["total-pfxs"] = types.YLeaf{"TotalPfxs", pfxs.TotalPfxs}
+    pfxs.EntityData.Leafs["ecmp-pfxs"] = types.YLeaf{"EcmpPfxs", pfxs.EcmpPfxs}
+    pfxs.EntityData.Leafs["protected-pfxs"] = types.YLeaf{"ProtectedPfxs", pfxs.ProtectedPfxs}
+    return &(pfxs.EntityData)
 }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetSegmentPath() string {
-    return "pfxs"
-}
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "labeled-pfxs-aggr" {
-        return &pfxs.LabeledPfxsAggr
-    }
-    if childYangName == "labeled-pfxs-primary" {
-        return &pfxs.LabeledPfxsPrimary
-    }
-    if childYangName == "labeled-pfxs-backup" {
-        return &pfxs.LabeledPfxsBackup
-    }
-    return nil
-}
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["labeled-pfxs-aggr"] = &pfxs.LabeledPfxsAggr
-    children["labeled-pfxs-primary"] = &pfxs.LabeledPfxsPrimary
-    children["labeled-pfxs-backup"] = &pfxs.LabeledPfxsBackup
-    return children
-}
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-pfxs"] = pfxs.TotalPfxs
-    leafs["ecmp-pfxs"] = pfxs.EcmpPfxs
-    leafs["protected-pfxs"] = pfxs.ProtectedPfxs
-    return leafs
-}
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetYangName() string { return "pfxs" }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) SetParent(parent types.Entity) { pfxs.parent = parent }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetParent() types.Entity { return pfxs.parent }
-
-func (pfxs *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs) GetParentYangName() string { return "forwarding-summary" }
 
 // MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr
 // Labeled prefix count for all paths
 type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of labeled prefixes with 1 or more paths labeled. The type is
@@ -1444,61 +1157,29 @@ type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr struct {
     UnlabeledPfxs interface{}
 }
 
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetFilter() yfilter.YFilter { return labeledPfxsAggr.YFilter }
+func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetEntityData() *types.CommonEntityData {
+    labeledPfxsAggr.EntityData.YFilter = labeledPfxsAggr.YFilter
+    labeledPfxsAggr.EntityData.YangName = "labeled-pfxs-aggr"
+    labeledPfxsAggr.EntityData.BundleName = "cisco_ios_xe"
+    labeledPfxsAggr.EntityData.ParentYangName = "pfxs"
+    labeledPfxsAggr.EntityData.SegmentPath = "labeled-pfxs-aggr"
+    labeledPfxsAggr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labeledPfxsAggr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labeledPfxsAggr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) SetFilter(yf yfilter.YFilter) { labeledPfxsAggr.YFilter = yf }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetGoName(yname string) string {
-    if yname == "labeled-pfxs" { return "LabeledPfxs" }
-    if yname == "labeled-pfxs-partial" { return "LabeledPfxsPartial" }
-    if yname == "unlabeled-pfxs" { return "UnlabeledPfxs" }
-    return ""
+    labeledPfxsAggr.EntityData.Children = make(map[string]types.YChild)
+    labeledPfxsAggr.EntityData.Leafs = make(map[string]types.YLeaf)
+    labeledPfxsAggr.EntityData.Leafs["labeled-pfxs"] = types.YLeaf{"LabeledPfxs", labeledPfxsAggr.LabeledPfxs}
+    labeledPfxsAggr.EntityData.Leafs["labeled-pfxs-partial"] = types.YLeaf{"LabeledPfxsPartial", labeledPfxsAggr.LabeledPfxsPartial}
+    labeledPfxsAggr.EntityData.Leafs["unlabeled-pfxs"] = types.YLeaf{"UnlabeledPfxs", labeledPfxsAggr.UnlabeledPfxs}
+    return &(labeledPfxsAggr.EntityData)
 }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetSegmentPath() string {
-    return "labeled-pfxs-aggr"
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["labeled-pfxs"] = labeledPfxsAggr.LabeledPfxs
-    leafs["labeled-pfxs-partial"] = labeledPfxsAggr.LabeledPfxsPartial
-    leafs["unlabeled-pfxs"] = labeledPfxsAggr.UnlabeledPfxs
-    return leafs
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetYangName() string { return "labeled-pfxs-aggr" }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) SetParent(parent types.Entity) { labeledPfxsAggr.parent = parent }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetParent() types.Entity { return labeledPfxsAggr.parent }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsAggr) GetParentYangName() string { return "pfxs" }
 
 // MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary
 // Labeled prefix count related to primary paths
 // only
 type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of labeled prefixes with 1 or more paths labeled. The type is
@@ -1514,61 +1195,29 @@ type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary struct {
     UnlabeledPfxs interface{}
 }
 
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetFilter() yfilter.YFilter { return labeledPfxsPrimary.YFilter }
+func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetEntityData() *types.CommonEntityData {
+    labeledPfxsPrimary.EntityData.YFilter = labeledPfxsPrimary.YFilter
+    labeledPfxsPrimary.EntityData.YangName = "labeled-pfxs-primary"
+    labeledPfxsPrimary.EntityData.BundleName = "cisco_ios_xe"
+    labeledPfxsPrimary.EntityData.ParentYangName = "pfxs"
+    labeledPfxsPrimary.EntityData.SegmentPath = "labeled-pfxs-primary"
+    labeledPfxsPrimary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labeledPfxsPrimary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labeledPfxsPrimary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) SetFilter(yf yfilter.YFilter) { labeledPfxsPrimary.YFilter = yf }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetGoName(yname string) string {
-    if yname == "labeled-pfxs" { return "LabeledPfxs" }
-    if yname == "labeled-pfxs-partial" { return "LabeledPfxsPartial" }
-    if yname == "unlabeled-pfxs" { return "UnlabeledPfxs" }
-    return ""
+    labeledPfxsPrimary.EntityData.Children = make(map[string]types.YChild)
+    labeledPfxsPrimary.EntityData.Leafs = make(map[string]types.YLeaf)
+    labeledPfxsPrimary.EntityData.Leafs["labeled-pfxs"] = types.YLeaf{"LabeledPfxs", labeledPfxsPrimary.LabeledPfxs}
+    labeledPfxsPrimary.EntityData.Leafs["labeled-pfxs-partial"] = types.YLeaf{"LabeledPfxsPartial", labeledPfxsPrimary.LabeledPfxsPartial}
+    labeledPfxsPrimary.EntityData.Leafs["unlabeled-pfxs"] = types.YLeaf{"UnlabeledPfxs", labeledPfxsPrimary.UnlabeledPfxs}
+    return &(labeledPfxsPrimary.EntityData)
 }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetSegmentPath() string {
-    return "labeled-pfxs-primary"
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["labeled-pfxs"] = labeledPfxsPrimary.LabeledPfxs
-    leafs["labeled-pfxs-partial"] = labeledPfxsPrimary.LabeledPfxsPartial
-    leafs["unlabeled-pfxs"] = labeledPfxsPrimary.UnlabeledPfxs
-    return leafs
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetYangName() string { return "labeled-pfxs-primary" }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) SetParent(parent types.Entity) { labeledPfxsPrimary.parent = parent }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetParent() types.Entity { return labeledPfxsPrimary.parent }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsPrimary) GetParentYangName() string { return "pfxs" }
 
 // MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup
 // Labeled prefix count related to backup paths
 // only
 type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of labeled prefixes with 1 or more paths labeled. The type is
@@ -1584,60 +1233,28 @@ type MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup struct {
     UnlabeledPfxs interface{}
 }
 
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetFilter() yfilter.YFilter { return labeledPfxsBackup.YFilter }
+func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetEntityData() *types.CommonEntityData {
+    labeledPfxsBackup.EntityData.YFilter = labeledPfxsBackup.YFilter
+    labeledPfxsBackup.EntityData.YangName = "labeled-pfxs-backup"
+    labeledPfxsBackup.EntityData.BundleName = "cisco_ios_xe"
+    labeledPfxsBackup.EntityData.ParentYangName = "pfxs"
+    labeledPfxsBackup.EntityData.SegmentPath = "labeled-pfxs-backup"
+    labeledPfxsBackup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labeledPfxsBackup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labeledPfxsBackup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) SetFilter(yf yfilter.YFilter) { labeledPfxsBackup.YFilter = yf }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetGoName(yname string) string {
-    if yname == "labeled-pfxs" { return "LabeledPfxs" }
-    if yname == "labeled-pfxs-partial" { return "LabeledPfxsPartial" }
-    if yname == "unlabeled-pfxs" { return "UnlabeledPfxs" }
-    return ""
+    labeledPfxsBackup.EntityData.Children = make(map[string]types.YChild)
+    labeledPfxsBackup.EntityData.Leafs = make(map[string]types.YLeaf)
+    labeledPfxsBackup.EntityData.Leafs["labeled-pfxs"] = types.YLeaf{"LabeledPfxs", labeledPfxsBackup.LabeledPfxs}
+    labeledPfxsBackup.EntityData.Leafs["labeled-pfxs-partial"] = types.YLeaf{"LabeledPfxsPartial", labeledPfxsBackup.LabeledPfxsPartial}
+    labeledPfxsBackup.EntityData.Leafs["unlabeled-pfxs"] = types.YLeaf{"UnlabeledPfxs", labeledPfxsBackup.UnlabeledPfxs}
+    return &(labeledPfxsBackup.EntityData)
 }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetSegmentPath() string {
-    return "labeled-pfxs-backup"
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["labeled-pfxs"] = labeledPfxsBackup.LabeledPfxs
-    leafs["labeled-pfxs-partial"] = labeledPfxsBackup.LabeledPfxsPartial
-    leafs["unlabeled-pfxs"] = labeledPfxsBackup.UnlabeledPfxs
-    return leafs
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetYangName() string { return "labeled-pfxs-backup" }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) SetParent(parent types.Entity) { labeledPfxsBackup.parent = parent }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetParent() types.Entity { return labeledPfxsBackup.parent }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_ForwardingSummary_Pfxs_LabeledPfxsBackup) GetParentYangName() string { return "pfxs" }
 
 // MplsLdp_MplsLdpState_ForwardingSummary_Nhs
 // MPLS LDP forwarding rewrite next-hop/path summary
 type MplsLdp_MplsLdpState_ForwardingSummary_Nhs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total path count. The type is interface{} with range: 0..4294967295.
@@ -1664,66 +1281,31 @@ type MplsLdp_MplsLdpState_ForwardingSummary_Nhs struct {
     LabeledBackupPaths interface{}
 }
 
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetFilter() yfilter.YFilter { return nhs.YFilter }
+func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetEntityData() *types.CommonEntityData {
+    nhs.EntityData.YFilter = nhs.YFilter
+    nhs.EntityData.YangName = "nhs"
+    nhs.EntityData.BundleName = "cisco_ios_xe"
+    nhs.EntityData.ParentYangName = "forwarding-summary"
+    nhs.EntityData.SegmentPath = "nhs"
+    nhs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) SetFilter(yf yfilter.YFilter) { nhs.YFilter = yf }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetGoName(yname string) string {
-    if yname == "total-paths" { return "TotalPaths" }
-    if yname == "protected-paths" { return "ProtectedPaths" }
-    if yname == "backup-paths" { return "BackupPaths" }
-    if yname == "remote-backup-paths" { return "RemoteBackupPaths" }
-    if yname == "labeled-paths" { return "LabeledPaths" }
-    if yname == "labeled-backup-paths" { return "LabeledBackupPaths" }
-    return ""
+    nhs.EntityData.Children = make(map[string]types.YChild)
+    nhs.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhs.EntityData.Leafs["total-paths"] = types.YLeaf{"TotalPaths", nhs.TotalPaths}
+    nhs.EntityData.Leafs["protected-paths"] = types.YLeaf{"ProtectedPaths", nhs.ProtectedPaths}
+    nhs.EntityData.Leafs["backup-paths"] = types.YLeaf{"BackupPaths", nhs.BackupPaths}
+    nhs.EntityData.Leafs["remote-backup-paths"] = types.YLeaf{"RemoteBackupPaths", nhs.RemoteBackupPaths}
+    nhs.EntityData.Leafs["labeled-paths"] = types.YLeaf{"LabeledPaths", nhs.LabeledPaths}
+    nhs.EntityData.Leafs["labeled-backup-paths"] = types.YLeaf{"LabeledBackupPaths", nhs.LabeledBackupPaths}
+    return &(nhs.EntityData)
 }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetSegmentPath() string {
-    return "nhs"
-}
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-paths"] = nhs.TotalPaths
-    leafs["protected-paths"] = nhs.ProtectedPaths
-    leafs["backup-paths"] = nhs.BackupPaths
-    leafs["remote-backup-paths"] = nhs.RemoteBackupPaths
-    leafs["labeled-paths"] = nhs.LabeledPaths
-    leafs["labeled-backup-paths"] = nhs.LabeledBackupPaths
-    return leafs
-}
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetYangName() string { return "nhs" }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) SetParent(parent types.Entity) { nhs.parent = parent }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetParent() types.Entity { return nhs.parent }
-
-func (nhs *MplsLdp_MplsLdpState_ForwardingSummary_Nhs) GetParentYangName() string { return "forwarding-summary" }
 
 // MplsLdp_MplsLdpState_BindingsSummary
 // Aggregate counters for the MPLS LDP LIB.
 type MplsLdp_MplsLdpState_BindingsSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total bindings. The type is interface{} with range: 0..4294967295.
@@ -1772,78 +1354,37 @@ type MplsLdp_MplsLdpState_BindingsSummary struct {
     BindingRemote interface{}
 }
 
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetFilter() yfilter.YFilter { return bindingsSummary.YFilter }
+func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetEntityData() *types.CommonEntityData {
+    bindingsSummary.EntityData.YFilter = bindingsSummary.YFilter
+    bindingsSummary.EntityData.YangName = "bindings-summary"
+    bindingsSummary.EntityData.BundleName = "cisco_ios_xe"
+    bindingsSummary.EntityData.ParentYangName = "mpls-ldp-state"
+    bindingsSummary.EntityData.SegmentPath = "bindings-summary"
+    bindingsSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bindingsSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bindingsSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) SetFilter(yf yfilter.YFilter) { bindingsSummary.YFilter = yf }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetGoName(yname string) string {
-    if yname == "binding-total" { return "BindingTotal" }
-    if yname == "binding-no-route" { return "BindingNoRoute" }
-    if yname == "binding-local-no-route" { return "BindingLocalNoRoute" }
-    if yname == "binding-local" { return "BindingLocal" }
-    if yname == "binding-local-null" { return "BindingLocalNull" }
-    if yname == "binding-local-implicit-null" { return "BindingLocalImplicitNull" }
-    if yname == "binding-local-explicit-null" { return "BindingLocalExplicitNull" }
-    if yname == "binding-local-non-null" { return "BindingLocalNonNull" }
-    if yname == "binding-local-oor" { return "BindingLocalOor" }
-    if yname == "lowest-allocated-label" { return "LowestAllocatedLabel" }
-    if yname == "highest-allocated-label" { return "HighestAllocatedLabel" }
-    if yname == "binding-remote" { return "BindingRemote" }
-    return ""
+    bindingsSummary.EntityData.Children = make(map[string]types.YChild)
+    bindingsSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    bindingsSummary.EntityData.Leafs["binding-total"] = types.YLeaf{"BindingTotal", bindingsSummary.BindingTotal}
+    bindingsSummary.EntityData.Leafs["binding-no-route"] = types.YLeaf{"BindingNoRoute", bindingsSummary.BindingNoRoute}
+    bindingsSummary.EntityData.Leafs["binding-local-no-route"] = types.YLeaf{"BindingLocalNoRoute", bindingsSummary.BindingLocalNoRoute}
+    bindingsSummary.EntityData.Leafs["binding-local"] = types.YLeaf{"BindingLocal", bindingsSummary.BindingLocal}
+    bindingsSummary.EntityData.Leafs["binding-local-null"] = types.YLeaf{"BindingLocalNull", bindingsSummary.BindingLocalNull}
+    bindingsSummary.EntityData.Leafs["binding-local-implicit-null"] = types.YLeaf{"BindingLocalImplicitNull", bindingsSummary.BindingLocalImplicitNull}
+    bindingsSummary.EntityData.Leafs["binding-local-explicit-null"] = types.YLeaf{"BindingLocalExplicitNull", bindingsSummary.BindingLocalExplicitNull}
+    bindingsSummary.EntityData.Leafs["binding-local-non-null"] = types.YLeaf{"BindingLocalNonNull", bindingsSummary.BindingLocalNonNull}
+    bindingsSummary.EntityData.Leafs["binding-local-oor"] = types.YLeaf{"BindingLocalOor", bindingsSummary.BindingLocalOor}
+    bindingsSummary.EntityData.Leafs["lowest-allocated-label"] = types.YLeaf{"LowestAllocatedLabel", bindingsSummary.LowestAllocatedLabel}
+    bindingsSummary.EntityData.Leafs["highest-allocated-label"] = types.YLeaf{"HighestAllocatedLabel", bindingsSummary.HighestAllocatedLabel}
+    bindingsSummary.EntityData.Leafs["binding-remote"] = types.YLeaf{"BindingRemote", bindingsSummary.BindingRemote}
+    return &(bindingsSummary.EntityData)
 }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetSegmentPath() string {
-    return "bindings-summary"
-}
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["binding-total"] = bindingsSummary.BindingTotal
-    leafs["binding-no-route"] = bindingsSummary.BindingNoRoute
-    leafs["binding-local-no-route"] = bindingsSummary.BindingLocalNoRoute
-    leafs["binding-local"] = bindingsSummary.BindingLocal
-    leafs["binding-local-null"] = bindingsSummary.BindingLocalNull
-    leafs["binding-local-implicit-null"] = bindingsSummary.BindingLocalImplicitNull
-    leafs["binding-local-explicit-null"] = bindingsSummary.BindingLocalExplicitNull
-    leafs["binding-local-non-null"] = bindingsSummary.BindingLocalNonNull
-    leafs["binding-local-oor"] = bindingsSummary.BindingLocalOor
-    leafs["lowest-allocated-label"] = bindingsSummary.LowestAllocatedLabel
-    leafs["highest-allocated-label"] = bindingsSummary.HighestAllocatedLabel
-    leafs["binding-remote"] = bindingsSummary.BindingRemote
-    return leafs
-}
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetYangName() string { return "bindings-summary" }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) SetParent(parent types.Entity) { bindingsSummary.parent = parent }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetParent() types.Entity { return bindingsSummary.parent }
-
-func (bindingsSummary *MplsLdp_MplsLdpState_BindingsSummary) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_NsrSummaryAll
 // This is the LDP NSR summary for the device.
 type MplsLdp_MplsLdpState_NsrSummaryAll struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // In label Request Records created. The type is interface{} with range:
@@ -1871,66 +1412,31 @@ type MplsLdp_MplsLdpState_NsrSummaryAll struct {
     NsrSumLclAddrWithdrawCleared interface{}
 }
 
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetFilter() yfilter.YFilter { return nsrSummaryAll.YFilter }
+func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetEntityData() *types.CommonEntityData {
+    nsrSummaryAll.EntityData.YFilter = nsrSummaryAll.YFilter
+    nsrSummaryAll.EntityData.YangName = "nsr-summary-all"
+    nsrSummaryAll.EntityData.BundleName = "cisco_ios_xe"
+    nsrSummaryAll.EntityData.ParentYangName = "mpls-ldp-state"
+    nsrSummaryAll.EntityData.SegmentPath = "nsr-summary-all"
+    nsrSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nsrSummaryAll.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nsrSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) SetFilter(yf yfilter.YFilter) { nsrSummaryAll.YFilter = yf }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetGoName(yname string) string {
-    if yname == "nsr-sum-in-label-reqs-created" { return "NsrSumInLabelReqsCreated" }
-    if yname == "nsr-sum-in-label-reqs-freed" { return "NsrSumInLabelReqsFreed" }
-    if yname == "nsr-sum-in-label-withdraw-created" { return "NsrSumInLabelWithdrawCreated" }
-    if yname == "nsr-sum-in-label-withdraw-freed" { return "NsrSumInLabelWithdrawFreed" }
-    if yname == "nsr-sum-lcl-addr-withdraw-set" { return "NsrSumLclAddrWithdrawSet" }
-    if yname == "nsr-sum-lcl-addr-withdraw-cleared" { return "NsrSumLclAddrWithdrawCleared" }
-    return ""
+    nsrSummaryAll.EntityData.Children = make(map[string]types.YChild)
+    nsrSummaryAll.EntityData.Leafs = make(map[string]types.YLeaf)
+    nsrSummaryAll.EntityData.Leafs["nsr-sum-in-label-reqs-created"] = types.YLeaf{"NsrSumInLabelReqsCreated", nsrSummaryAll.NsrSumInLabelReqsCreated}
+    nsrSummaryAll.EntityData.Leafs["nsr-sum-in-label-reqs-freed"] = types.YLeaf{"NsrSumInLabelReqsFreed", nsrSummaryAll.NsrSumInLabelReqsFreed}
+    nsrSummaryAll.EntityData.Leafs["nsr-sum-in-label-withdraw-created"] = types.YLeaf{"NsrSumInLabelWithdrawCreated", nsrSummaryAll.NsrSumInLabelWithdrawCreated}
+    nsrSummaryAll.EntityData.Leafs["nsr-sum-in-label-withdraw-freed"] = types.YLeaf{"NsrSumInLabelWithdrawFreed", nsrSummaryAll.NsrSumInLabelWithdrawFreed}
+    nsrSummaryAll.EntityData.Leafs["nsr-sum-lcl-addr-withdraw-set"] = types.YLeaf{"NsrSumLclAddrWithdrawSet", nsrSummaryAll.NsrSumLclAddrWithdrawSet}
+    nsrSummaryAll.EntityData.Leafs["nsr-sum-lcl-addr-withdraw-cleared"] = types.YLeaf{"NsrSumLclAddrWithdrawCleared", nsrSummaryAll.NsrSumLclAddrWithdrawCleared}
+    return &(nsrSummaryAll.EntityData)
 }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetSegmentPath() string {
-    return "nsr-summary-all"
-}
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nsr-sum-in-label-reqs-created"] = nsrSummaryAll.NsrSumInLabelReqsCreated
-    leafs["nsr-sum-in-label-reqs-freed"] = nsrSummaryAll.NsrSumInLabelReqsFreed
-    leafs["nsr-sum-in-label-withdraw-created"] = nsrSummaryAll.NsrSumInLabelWithdrawCreated
-    leafs["nsr-sum-in-label-withdraw-freed"] = nsrSummaryAll.NsrSumInLabelWithdrawFreed
-    leafs["nsr-sum-lcl-addr-withdraw-set"] = nsrSummaryAll.NsrSumLclAddrWithdrawSet
-    leafs["nsr-sum-lcl-addr-withdraw-cleared"] = nsrSummaryAll.NsrSumLclAddrWithdrawCleared
-    return leafs
-}
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetYangName() string { return "nsr-summary-all" }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) SetParent(parent types.Entity) { nsrSummaryAll.parent = parent }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetParent() types.Entity { return nsrSummaryAll.parent }
-
-func (nsrSummaryAll *MplsLdp_MplsLdpState_NsrSummaryAll) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll
 // Summary info for LDP ICPM/ICCP.
 type MplsLdp_MplsLdpState_IcpmSummaryAll struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ICCP RG Connect count. The type is interface{} with range: 0..4294967295.
@@ -1953,72 +1459,31 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll struct {
     IcpmSessionTable MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable
 }
 
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetFilter() yfilter.YFilter { return icpmSummaryAll.YFilter }
+func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetEntityData() *types.CommonEntityData {
+    icpmSummaryAll.EntityData.YFilter = icpmSummaryAll.YFilter
+    icpmSummaryAll.EntityData.YangName = "icpm-summary-all"
+    icpmSummaryAll.EntityData.BundleName = "cisco_ios_xe"
+    icpmSummaryAll.EntityData.ParentYangName = "mpls-ldp-state"
+    icpmSummaryAll.EntityData.SegmentPath = "icpm-summary-all"
+    icpmSummaryAll.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icpmSummaryAll.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icpmSummaryAll.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) SetFilter(yf yfilter.YFilter) { icpmSummaryAll.YFilter = yf }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetGoName(yname string) string {
-    if yname == "iccp-rg-conn-count" { return "IccpRgConnCount" }
-    if yname == "iccp-rg-disconn-count" { return "IccpRgDisconnCount" }
-    if yname == "iccp-rg-notif-count" { return "IccpRgNotifCount" }
-    if yname == "iccp-rg-app-data-count" { return "IccpRgAppDataCount" }
-    if yname == "icpm-rgid-table-info" { return "IcpmRgidTableInfo" }
-    if yname == "icpm-session-table" { return "IcpmSessionTable" }
-    return ""
+    icpmSummaryAll.EntityData.Children = make(map[string]types.YChild)
+    icpmSummaryAll.EntityData.Children["icpm-rgid-table-info"] = types.YChild{"IcpmRgidTableInfo", &icpmSummaryAll.IcpmRgidTableInfo}
+    icpmSummaryAll.EntityData.Children["icpm-session-table"] = types.YChild{"IcpmSessionTable", &icpmSummaryAll.IcpmSessionTable}
+    icpmSummaryAll.EntityData.Leafs = make(map[string]types.YLeaf)
+    icpmSummaryAll.EntityData.Leafs["iccp-rg-conn-count"] = types.YLeaf{"IccpRgConnCount", icpmSummaryAll.IccpRgConnCount}
+    icpmSummaryAll.EntityData.Leafs["iccp-rg-disconn-count"] = types.YLeaf{"IccpRgDisconnCount", icpmSummaryAll.IccpRgDisconnCount}
+    icpmSummaryAll.EntityData.Leafs["iccp-rg-notif-count"] = types.YLeaf{"IccpRgNotifCount", icpmSummaryAll.IccpRgNotifCount}
+    icpmSummaryAll.EntityData.Leafs["iccp-rg-app-data-count"] = types.YLeaf{"IccpRgAppDataCount", icpmSummaryAll.IccpRgAppDataCount}
+    return &(icpmSummaryAll.EntityData)
 }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetSegmentPath() string {
-    return "icpm-summary-all"
-}
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "icpm-rgid-table-info" {
-        return &icpmSummaryAll.IcpmRgidTableInfo
-    }
-    if childYangName == "icpm-session-table" {
-        return &icpmSummaryAll.IcpmSessionTable
-    }
-    return nil
-}
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["icpm-rgid-table-info"] = &icpmSummaryAll.IcpmRgidTableInfo
-    children["icpm-session-table"] = &icpmSummaryAll.IcpmSessionTable
-    return children
-}
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["iccp-rg-conn-count"] = icpmSummaryAll.IccpRgConnCount
-    leafs["iccp-rg-disconn-count"] = icpmSummaryAll.IccpRgDisconnCount
-    leafs["iccp-rg-notif-count"] = icpmSummaryAll.IccpRgNotifCount
-    leafs["iccp-rg-app-data-count"] = icpmSummaryAll.IccpRgAppDataCount
-    return leafs
-}
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetYangName() string { return "icpm-summary-all" }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) SetParent(parent types.Entity) { icpmSummaryAll.parent = parent }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetParent() types.Entity { return icpmSummaryAll.parent }
-
-func (icpmSummaryAll *MplsLdp_MplsLdpState_IcpmSummaryAll) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo
 // This defines the ICPM RGID Table
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is the data for an individual ICPM Rredundandy Group,. The type is
@@ -2026,69 +1491,30 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo struct {
     RedGroup []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup
 }
 
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetFilter() yfilter.YFilter { return icpmRgidTableInfo.YFilter }
+func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetEntityData() *types.CommonEntityData {
+    icpmRgidTableInfo.EntityData.YFilter = icpmRgidTableInfo.YFilter
+    icpmRgidTableInfo.EntityData.YangName = "icpm-rgid-table-info"
+    icpmRgidTableInfo.EntityData.BundleName = "cisco_ios_xe"
+    icpmRgidTableInfo.EntityData.ParentYangName = "icpm-summary-all"
+    icpmRgidTableInfo.EntityData.SegmentPath = "icpm-rgid-table-info"
+    icpmRgidTableInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icpmRgidTableInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icpmRgidTableInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) SetFilter(yf yfilter.YFilter) { icpmRgidTableInfo.YFilter = yf }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetGoName(yname string) string {
-    if yname == "red-group" { return "RedGroup" }
-    return ""
-}
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetSegmentPath() string {
-    return "icpm-rgid-table-info"
-}
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "red-group" {
-        for _, c := range icpmRgidTableInfo.RedGroup {
-            if icpmRgidTableInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup{}
-        icpmRgidTableInfo.RedGroup = append(icpmRgidTableInfo.RedGroup, child)
-        return &icpmRgidTableInfo.RedGroup[len(icpmRgidTableInfo.RedGroup)-1]
-    }
-    return nil
-}
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    icpmRgidTableInfo.EntityData.Children = make(map[string]types.YChild)
+    icpmRgidTableInfo.EntityData.Children["red-group"] = types.YChild{"RedGroup", nil}
     for i := range icpmRgidTableInfo.RedGroup {
-        children[icpmRgidTableInfo.RedGroup[i].GetSegmentPath()] = &icpmRgidTableInfo.RedGroup[i]
+        icpmRgidTableInfo.EntityData.Children[types.GetSegmentPath(&icpmRgidTableInfo.RedGroup[i])] = types.YChild{"RedGroup", &icpmRgidTableInfo.RedGroup[i]}
     }
-    return children
+    icpmRgidTableInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(icpmRgidTableInfo.EntityData)
 }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetYangName() string { return "icpm-rgid-table-info" }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) SetParent(parent types.Entity) { icpmRgidTableInfo.parent = parent }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetParent() types.Entity { return icpmRgidTableInfo.parent }
-
-func (icpmRgidTableInfo *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo) GetParentYangName() string { return "icpm-summary-all" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup
 // This is the data for an individual ICPM Rredundandy
 // Group,
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is the ICPM RG identifier. The type is
@@ -2100,70 +1526,30 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup struct {
     IcpmProtocols []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols
 }
 
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetFilter() yfilter.YFilter { return redGroup.YFilter }
+func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetEntityData() *types.CommonEntityData {
+    redGroup.EntityData.YFilter = redGroup.YFilter
+    redGroup.EntityData.YangName = "red-group"
+    redGroup.EntityData.BundleName = "cisco_ios_xe"
+    redGroup.EntityData.ParentYangName = "icpm-rgid-table-info"
+    redGroup.EntityData.SegmentPath = "red-group" + "[rg-id='" + fmt.Sprintf("%v", redGroup.RgId) + "']"
+    redGroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    redGroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    redGroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) SetFilter(yf yfilter.YFilter) { redGroup.YFilter = yf }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetGoName(yname string) string {
-    if yname == "rg-id" { return "RgId" }
-    if yname == "icpm-protocols" { return "IcpmProtocols" }
-    return ""
-}
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetSegmentPath() string {
-    return "red-group" + "[rg-id='" + fmt.Sprintf("%v", redGroup.RgId) + "']"
-}
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "icpm-protocols" {
-        for _, c := range redGroup.IcpmProtocols {
-            if redGroup.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols{}
-        redGroup.IcpmProtocols = append(redGroup.IcpmProtocols, child)
-        return &redGroup.IcpmProtocols[len(redGroup.IcpmProtocols)-1]
-    }
-    return nil
-}
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    redGroup.EntityData.Children = make(map[string]types.YChild)
+    redGroup.EntityData.Children["icpm-protocols"] = types.YChild{"IcpmProtocols", nil}
     for i := range redGroup.IcpmProtocols {
-        children[redGroup.IcpmProtocols[i].GetSegmentPath()] = &redGroup.IcpmProtocols[i]
+        redGroup.EntityData.Children[types.GetSegmentPath(&redGroup.IcpmProtocols[i])] = types.YChild{"IcpmProtocols", &redGroup.IcpmProtocols[i]}
     }
-    return children
+    redGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    redGroup.EntityData.Leafs["rg-id"] = types.YLeaf{"RgId", redGroup.RgId}
+    return &(redGroup.EntityData)
 }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rg-id"] = redGroup.RgId
-    return leafs
-}
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetBundleName() string { return "cisco_ios_xe" }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetYangName() string { return "red-group" }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) SetParent(parent types.Entity) { redGroup.parent = parent }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetParent() types.Entity { return redGroup.parent }
-
-func (redGroup *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup) GetParentYangName() string { return "icpm-rgid-table-info" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols
 // This list contains all active icpm protocols.
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. ICPM Type. The type is one of the following:
@@ -2175,70 +1561,30 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocol
     RedunGroups []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups
 }
 
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetFilter() yfilter.YFilter { return icpmProtocols.YFilter }
+func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetEntityData() *types.CommonEntityData {
+    icpmProtocols.EntityData.YFilter = icpmProtocols.YFilter
+    icpmProtocols.EntityData.YangName = "icpm-protocols"
+    icpmProtocols.EntityData.BundleName = "cisco_ios_xe"
+    icpmProtocols.EntityData.ParentYangName = "red-group"
+    icpmProtocols.EntityData.SegmentPath = "icpm-protocols" + "[icpm-type='" + fmt.Sprintf("%v", icpmProtocols.IcpmType) + "']"
+    icpmProtocols.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icpmProtocols.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icpmProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) SetFilter(yf yfilter.YFilter) { icpmProtocols.YFilter = yf }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetGoName(yname string) string {
-    if yname == "icpm-type" { return "IcpmType" }
-    if yname == "redun-groups" { return "RedunGroups" }
-    return ""
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetSegmentPath() string {
-    return "icpm-protocols" + "[icpm-type='" + fmt.Sprintf("%v", icpmProtocols.IcpmType) + "']"
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "redun-groups" {
-        for _, c := range icpmProtocols.RedunGroups {
-            if icpmProtocols.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups{}
-        icpmProtocols.RedunGroups = append(icpmProtocols.RedunGroups, child)
-        return &icpmProtocols.RedunGroups[len(icpmProtocols.RedunGroups)-1]
-    }
-    return nil
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    icpmProtocols.EntityData.Children = make(map[string]types.YChild)
+    icpmProtocols.EntityData.Children["redun-groups"] = types.YChild{"RedunGroups", nil}
     for i := range icpmProtocols.RedunGroups {
-        children[icpmProtocols.RedunGroups[i].GetSegmentPath()] = &icpmProtocols.RedunGroups[i]
+        icpmProtocols.EntityData.Children[types.GetSegmentPath(&icpmProtocols.RedunGroups[i])] = types.YChild{"RedunGroups", &icpmProtocols.RedunGroups[i]}
     }
-    return children
+    icpmProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    icpmProtocols.EntityData.Leafs["icpm-type"] = types.YLeaf{"IcpmType", icpmProtocols.IcpmType}
+    return &(icpmProtocols.EntityData)
 }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icpm-type"] = icpmProtocols.IcpmType
-    return leafs
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetYangName() string { return "icpm-protocols" }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) SetParent(parent types.Entity) { icpmProtocols.parent = parent }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetParent() types.Entity { return icpmProtocols.parent }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols) GetParentYangName() string { return "red-group" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups
 // List of Redundancy Groups
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Redundancy Group Identifier. The type is
@@ -2247,9 +1593,9 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocol
 
     // LSR identifier. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerId interface{}
 
     // Client Identifier. The type is interface{} with range: 0..4294967295.
@@ -2263,76 +1609,33 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocol
     IccpApps []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps
 }
 
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetFilter() yfilter.YFilter { return redunGroups.YFilter }
+func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetEntityData() *types.CommonEntityData {
+    redunGroups.EntityData.YFilter = redunGroups.YFilter
+    redunGroups.EntityData.YangName = "redun-groups"
+    redunGroups.EntityData.BundleName = "cisco_ios_xe"
+    redunGroups.EntityData.ParentYangName = "icpm-protocols"
+    redunGroups.EntityData.SegmentPath = "redun-groups" + "[rg-id='" + fmt.Sprintf("%v", redunGroups.RgId) + "']"
+    redunGroups.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    redunGroups.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    redunGroups.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) SetFilter(yf yfilter.YFilter) { redunGroups.YFilter = yf }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetGoName(yname string) string {
-    if yname == "rg-id" { return "RgId" }
-    if yname == "peer-id" { return "PeerId" }
-    if yname == "client_id" { return "ClientId" }
-    if yname == "state" { return "State" }
-    if yname == "iccp-apps" { return "IccpApps" }
-    return ""
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetSegmentPath() string {
-    return "redun-groups" + "[rg-id='" + fmt.Sprintf("%v", redunGroups.RgId) + "']"
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "iccp-apps" {
-        for _, c := range redunGroups.IccpApps {
-            if redunGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps{}
-        redunGroups.IccpApps = append(redunGroups.IccpApps, child)
-        return &redunGroups.IccpApps[len(redunGroups.IccpApps)-1]
-    }
-    return nil
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    redunGroups.EntityData.Children = make(map[string]types.YChild)
+    redunGroups.EntityData.Children["iccp-apps"] = types.YChild{"IccpApps", nil}
     for i := range redunGroups.IccpApps {
-        children[redunGroups.IccpApps[i].GetSegmentPath()] = &redunGroups.IccpApps[i]
+        redunGroups.EntityData.Children[types.GetSegmentPath(&redunGroups.IccpApps[i])] = types.YChild{"IccpApps", &redunGroups.IccpApps[i]}
     }
-    return children
+    redunGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    redunGroups.EntityData.Leafs["rg-id"] = types.YLeaf{"RgId", redunGroups.RgId}
+    redunGroups.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", redunGroups.PeerId}
+    redunGroups.EntityData.Leafs["client_id"] = types.YLeaf{"ClientId", redunGroups.ClientId}
+    redunGroups.EntityData.Leafs["state"] = types.YLeaf{"State", redunGroups.State}
+    return &(redunGroups.EntityData)
 }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rg-id"] = redunGroups.RgId
-    leafs["peer-id"] = redunGroups.PeerId
-    leafs["client_id"] = redunGroups.ClientId
-    leafs["state"] = redunGroups.State
-    return leafs
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetBundleName() string { return "cisco_ios_xe" }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetYangName() string { return "redun-groups" }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) SetParent(parent types.Entity) { redunGroups.parent = parent }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetParent() types.Entity { return redunGroups.parent }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups) GetParentYangName() string { return "icpm-protocols" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps
 // List of apps
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. ICCP App Type. The type is one of the following:
@@ -2347,60 +1650,28 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocol
     PtclVer interface{}
 }
 
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetFilter() yfilter.YFilter { return iccpApps.YFilter }
+func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetEntityData() *types.CommonEntityData {
+    iccpApps.EntityData.YFilter = iccpApps.YFilter
+    iccpApps.EntityData.YangName = "iccp-apps"
+    iccpApps.EntityData.BundleName = "cisco_ios_xe"
+    iccpApps.EntityData.ParentYangName = "redun-groups"
+    iccpApps.EntityData.SegmentPath = "iccp-apps" + "[iccp-app='" + fmt.Sprintf("%v", iccpApps.IccpApp) + "']"
+    iccpApps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iccpApps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iccpApps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) SetFilter(yf yfilter.YFilter) { iccpApps.YFilter = yf }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetGoName(yname string) string {
-    if yname == "iccp-app" { return "IccpApp" }
-    if yname == "app-state" { return "AppState" }
-    if yname == "ptcl-ver" { return "PtclVer" }
-    return ""
+    iccpApps.EntityData.Children = make(map[string]types.YChild)
+    iccpApps.EntityData.Leafs = make(map[string]types.YLeaf)
+    iccpApps.EntityData.Leafs["iccp-app"] = types.YLeaf{"IccpApp", iccpApps.IccpApp}
+    iccpApps.EntityData.Leafs["app-state"] = types.YLeaf{"AppState", iccpApps.AppState}
+    iccpApps.EntityData.Leafs["ptcl-ver"] = types.YLeaf{"PtclVer", iccpApps.PtclVer}
+    return &(iccpApps.EntityData)
 }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetSegmentPath() string {
-    return "iccp-apps" + "[iccp-app='" + fmt.Sprintf("%v", iccpApps.IccpApp) + "']"
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["iccp-app"] = iccpApps.IccpApp
-    leafs["app-state"] = iccpApps.AppState
-    leafs["ptcl-ver"] = iccpApps.PtclVer
-    return leafs
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetYangName() string { return "iccp-apps" }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) SetParent(parent types.Entity) { iccpApps.parent = parent }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetParent() types.Entity { return iccpApps.parent }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmRgidTableInfo_RedGroup_IcpmProtocols_RedunGroups_IccpApps) GetParentYangName() string { return "redun-groups" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable
 // This is a list of ICPM sessions.
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ICPM LDP Session Table. The type is slice of
@@ -2408,68 +1679,29 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable struct {
     SessionTable []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable
 }
 
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetFilter() yfilter.YFilter { return icpmSessionTable.YFilter }
+func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetEntityData() *types.CommonEntityData {
+    icpmSessionTable.EntityData.YFilter = icpmSessionTable.YFilter
+    icpmSessionTable.EntityData.YangName = "icpm-session-table"
+    icpmSessionTable.EntityData.BundleName = "cisco_ios_xe"
+    icpmSessionTable.EntityData.ParentYangName = "icpm-summary-all"
+    icpmSessionTable.EntityData.SegmentPath = "icpm-session-table"
+    icpmSessionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icpmSessionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icpmSessionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) SetFilter(yf yfilter.YFilter) { icpmSessionTable.YFilter = yf }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetGoName(yname string) string {
-    if yname == "session-table" { return "SessionTable" }
-    return ""
-}
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetSegmentPath() string {
-    return "icpm-session-table"
-}
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session-table" {
-        for _, c := range icpmSessionTable.SessionTable {
-            if icpmSessionTable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable{}
-        icpmSessionTable.SessionTable = append(icpmSessionTable.SessionTable, child)
-        return &icpmSessionTable.SessionTable[len(icpmSessionTable.SessionTable)-1]
-    }
-    return nil
-}
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    icpmSessionTable.EntityData.Children = make(map[string]types.YChild)
+    icpmSessionTable.EntityData.Children["session-table"] = types.YChild{"SessionTable", nil}
     for i := range icpmSessionTable.SessionTable {
-        children[icpmSessionTable.SessionTable[i].GetSegmentPath()] = &icpmSessionTable.SessionTable[i]
+        icpmSessionTable.EntityData.Children[types.GetSegmentPath(&icpmSessionTable.SessionTable[i])] = types.YChild{"SessionTable", &icpmSessionTable.SessionTable[i]}
     }
-    return children
+    icpmSessionTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(icpmSessionTable.EntityData)
 }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetYangName() string { return "icpm-session-table" }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) SetParent(parent types.Entity) { icpmSessionTable.parent = parent }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetParent() types.Entity { return icpmSessionTable.parent }
-
-func (icpmSessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable) GetParentYangName() string { return "icpm-summary-all" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable
 // ICPM LDP Session Table
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is the ICPM sesion identifier. The type is
@@ -2481,70 +1713,30 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable struct {
     IcpmProtocols []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols
 }
 
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetFilter() yfilter.YFilter { return sessionTable.YFilter }
+func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetEntityData() *types.CommonEntityData {
+    sessionTable.EntityData.YFilter = sessionTable.YFilter
+    sessionTable.EntityData.YangName = "session-table"
+    sessionTable.EntityData.BundleName = "cisco_ios_xe"
+    sessionTable.EntityData.ParentYangName = "icpm-session-table"
+    sessionTable.EntityData.SegmentPath = "session-table" + "[session-id='" + fmt.Sprintf("%v", sessionTable.SessionId) + "']"
+    sessionTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sessionTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sessionTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) SetFilter(yf yfilter.YFilter) { sessionTable.YFilter = yf }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetGoName(yname string) string {
-    if yname == "session-id" { return "SessionId" }
-    if yname == "icpm-protocols" { return "IcpmProtocols" }
-    return ""
-}
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetSegmentPath() string {
-    return "session-table" + "[session-id='" + fmt.Sprintf("%v", sessionTable.SessionId) + "']"
-}
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "icpm-protocols" {
-        for _, c := range sessionTable.IcpmProtocols {
-            if sessionTable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols{}
-        sessionTable.IcpmProtocols = append(sessionTable.IcpmProtocols, child)
-        return &sessionTable.IcpmProtocols[len(sessionTable.IcpmProtocols)-1]
-    }
-    return nil
-}
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessionTable.EntityData.Children = make(map[string]types.YChild)
+    sessionTable.EntityData.Children["icpm-protocols"] = types.YChild{"IcpmProtocols", nil}
     for i := range sessionTable.IcpmProtocols {
-        children[sessionTable.IcpmProtocols[i].GetSegmentPath()] = &sessionTable.IcpmProtocols[i]
+        sessionTable.EntityData.Children[types.GetSegmentPath(&sessionTable.IcpmProtocols[i])] = types.YChild{"IcpmProtocols", &sessionTable.IcpmProtocols[i]}
     }
-    return children
+    sessionTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionTable.EntityData.Leafs["session-id"] = types.YLeaf{"SessionId", sessionTable.SessionId}
+    return &(sessionTable.EntityData)
 }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-id"] = sessionTable.SessionId
-    return leafs
-}
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetYangName() string { return "session-table" }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) SetParent(parent types.Entity) { sessionTable.parent = parent }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetParent() types.Entity { return sessionTable.parent }
-
-func (sessionTable *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable) GetParentYangName() string { return "icpm-session-table" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols
 // This list contains all active icpm protocols.
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. ICPM Type. The type is one of the following:
@@ -2556,70 +1748,30 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProto
     RedunGroups []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups
 }
 
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetFilter() yfilter.YFilter { return icpmProtocols.YFilter }
+func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetEntityData() *types.CommonEntityData {
+    icpmProtocols.EntityData.YFilter = icpmProtocols.YFilter
+    icpmProtocols.EntityData.YangName = "icpm-protocols"
+    icpmProtocols.EntityData.BundleName = "cisco_ios_xe"
+    icpmProtocols.EntityData.ParentYangName = "session-table"
+    icpmProtocols.EntityData.SegmentPath = "icpm-protocols" + "[icpm-type='" + fmt.Sprintf("%v", icpmProtocols.IcpmType) + "']"
+    icpmProtocols.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    icpmProtocols.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    icpmProtocols.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) SetFilter(yf yfilter.YFilter) { icpmProtocols.YFilter = yf }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetGoName(yname string) string {
-    if yname == "icpm-type" { return "IcpmType" }
-    if yname == "redun-groups" { return "RedunGroups" }
-    return ""
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetSegmentPath() string {
-    return "icpm-protocols" + "[icpm-type='" + fmt.Sprintf("%v", icpmProtocols.IcpmType) + "']"
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "redun-groups" {
-        for _, c := range icpmProtocols.RedunGroups {
-            if icpmProtocols.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups{}
-        icpmProtocols.RedunGroups = append(icpmProtocols.RedunGroups, child)
-        return &icpmProtocols.RedunGroups[len(icpmProtocols.RedunGroups)-1]
-    }
-    return nil
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    icpmProtocols.EntityData.Children = make(map[string]types.YChild)
+    icpmProtocols.EntityData.Children["redun-groups"] = types.YChild{"RedunGroups", nil}
     for i := range icpmProtocols.RedunGroups {
-        children[icpmProtocols.RedunGroups[i].GetSegmentPath()] = &icpmProtocols.RedunGroups[i]
+        icpmProtocols.EntityData.Children[types.GetSegmentPath(&icpmProtocols.RedunGroups[i])] = types.YChild{"RedunGroups", &icpmProtocols.RedunGroups[i]}
     }
-    return children
+    icpmProtocols.EntityData.Leafs = make(map[string]types.YLeaf)
+    icpmProtocols.EntityData.Leafs["icpm-type"] = types.YLeaf{"IcpmType", icpmProtocols.IcpmType}
+    return &(icpmProtocols.EntityData)
 }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["icpm-type"] = icpmProtocols.IcpmType
-    return leafs
-}
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetBundleName() string { return "cisco_ios_xe" }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetYangName() string { return "icpm-protocols" }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) SetParent(parent types.Entity) { icpmProtocols.parent = parent }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetParent() types.Entity { return icpmProtocols.parent }
-
-func (icpmProtocols *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols) GetParentYangName() string { return "session-table" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups
 // List of Redundancy Groups
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Redundancy Group Identifier. The type is
@@ -2628,9 +1780,9 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProto
 
     // LSR identifier. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerId interface{}
 
     // Client Identifier. The type is interface{} with range: 0..4294967295.
@@ -2644,76 +1796,33 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProto
     IccpApps []MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps
 }
 
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetFilter() yfilter.YFilter { return redunGroups.YFilter }
+func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetEntityData() *types.CommonEntityData {
+    redunGroups.EntityData.YFilter = redunGroups.YFilter
+    redunGroups.EntityData.YangName = "redun-groups"
+    redunGroups.EntityData.BundleName = "cisco_ios_xe"
+    redunGroups.EntityData.ParentYangName = "icpm-protocols"
+    redunGroups.EntityData.SegmentPath = "redun-groups" + "[rg-id='" + fmt.Sprintf("%v", redunGroups.RgId) + "']"
+    redunGroups.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    redunGroups.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    redunGroups.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) SetFilter(yf yfilter.YFilter) { redunGroups.YFilter = yf }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetGoName(yname string) string {
-    if yname == "rg-id" { return "RgId" }
-    if yname == "peer-id" { return "PeerId" }
-    if yname == "client_id" { return "ClientId" }
-    if yname == "state" { return "State" }
-    if yname == "iccp-apps" { return "IccpApps" }
-    return ""
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetSegmentPath() string {
-    return "redun-groups" + "[rg-id='" + fmt.Sprintf("%v", redunGroups.RgId) + "']"
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "iccp-apps" {
-        for _, c := range redunGroups.IccpApps {
-            if redunGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps{}
-        redunGroups.IccpApps = append(redunGroups.IccpApps, child)
-        return &redunGroups.IccpApps[len(redunGroups.IccpApps)-1]
-    }
-    return nil
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    redunGroups.EntityData.Children = make(map[string]types.YChild)
+    redunGroups.EntityData.Children["iccp-apps"] = types.YChild{"IccpApps", nil}
     for i := range redunGroups.IccpApps {
-        children[redunGroups.IccpApps[i].GetSegmentPath()] = &redunGroups.IccpApps[i]
+        redunGroups.EntityData.Children[types.GetSegmentPath(&redunGroups.IccpApps[i])] = types.YChild{"IccpApps", &redunGroups.IccpApps[i]}
     }
-    return children
+    redunGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    redunGroups.EntityData.Leafs["rg-id"] = types.YLeaf{"RgId", redunGroups.RgId}
+    redunGroups.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", redunGroups.PeerId}
+    redunGroups.EntityData.Leafs["client_id"] = types.YLeaf{"ClientId", redunGroups.ClientId}
+    redunGroups.EntityData.Leafs["state"] = types.YLeaf{"State", redunGroups.State}
+    return &(redunGroups.EntityData)
 }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rg-id"] = redunGroups.RgId
-    leafs["peer-id"] = redunGroups.PeerId
-    leafs["client_id"] = redunGroups.ClientId
-    leafs["state"] = redunGroups.State
-    return leafs
-}
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetBundleName() string { return "cisco_ios_xe" }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetYangName() string { return "redun-groups" }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) SetParent(parent types.Entity) { redunGroups.parent = parent }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetParent() types.Entity { return redunGroups.parent }
-
-func (redunGroups *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups) GetParentYangName() string { return "icpm-protocols" }
 
 // MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps
 // List of apps
 type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. ICCP App Type. The type is one of the following:
@@ -2728,60 +1837,28 @@ type MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProto
     PtclVer interface{}
 }
 
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetFilter() yfilter.YFilter { return iccpApps.YFilter }
+func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetEntityData() *types.CommonEntityData {
+    iccpApps.EntityData.YFilter = iccpApps.YFilter
+    iccpApps.EntityData.YangName = "iccp-apps"
+    iccpApps.EntityData.BundleName = "cisco_ios_xe"
+    iccpApps.EntityData.ParentYangName = "redun-groups"
+    iccpApps.EntityData.SegmentPath = "iccp-apps" + "[iccp-app='" + fmt.Sprintf("%v", iccpApps.IccpApp) + "']"
+    iccpApps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iccpApps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iccpApps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) SetFilter(yf yfilter.YFilter) { iccpApps.YFilter = yf }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetGoName(yname string) string {
-    if yname == "iccp-app" { return "IccpApp" }
-    if yname == "app-state" { return "AppState" }
-    if yname == "ptcl-ver" { return "PtclVer" }
-    return ""
+    iccpApps.EntityData.Children = make(map[string]types.YChild)
+    iccpApps.EntityData.Leafs = make(map[string]types.YLeaf)
+    iccpApps.EntityData.Leafs["iccp-app"] = types.YLeaf{"IccpApp", iccpApps.IccpApp}
+    iccpApps.EntityData.Leafs["app-state"] = types.YLeaf{"AppState", iccpApps.AppState}
+    iccpApps.EntityData.Leafs["ptcl-ver"] = types.YLeaf{"PtclVer", iccpApps.PtclVer}
+    return &(iccpApps.EntityData)
 }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetSegmentPath() string {
-    return "iccp-apps" + "[iccp-app='" + fmt.Sprintf("%v", iccpApps.IccpApp) + "']"
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["iccp-app"] = iccpApps.IccpApp
-    leafs["app-state"] = iccpApps.AppState
-    leafs["ptcl-ver"] = iccpApps.PtclVer
-    return leafs
-}
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetYangName() string { return "iccp-apps" }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) SetParent(parent types.Entity) { iccpApps.parent = parent }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetParent() types.Entity { return iccpApps.parent }
-
-func (iccpApps *MplsLdp_MplsLdpState_IcpmSummaryAll_IcpmSessionTable_SessionTable_IcpmProtocols_RedunGroups_IccpApps) GetParentYangName() string { return "redun-groups" }
 
 // MplsLdp_MplsLdpState_Parameters
 // MPLS LDP Global Parameters
 type MplsLdp_MplsLdpState_Parameters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Global MD5 password enabled. The type is bool.
@@ -2850,96 +1927,43 @@ type MplsLdp_MplsLdpState_Parameters struct {
     AddressFamilyParameter []MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter
 }
 
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetFilter() yfilter.YFilter { return parameters.YFilter }
+func (parameters *MplsLdp_MplsLdpState_Parameters) GetEntityData() *types.CommonEntityData {
+    parameters.EntityData.YFilter = parameters.YFilter
+    parameters.EntityData.YangName = "parameters"
+    parameters.EntityData.BundleName = "cisco_ios_xe"
+    parameters.EntityData.ParentYangName = "mpls-ldp-state"
+    parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    parameters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    parameters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (parameters *MplsLdp_MplsLdpState_Parameters) SetFilter(yf yfilter.YFilter) { parameters.YFilter = yf }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetGoName(yname string) string {
-    if yname == "global-md5-password-enabled" { return "GlobalMd5PasswordEnabled" }
-    if yname == "protocol-version" { return "ProtocolVersion" }
-    if yname == "keepalive-interval" { return "KeepaliveInterval" }
-    if yname == "session-hold-time" { return "SessionHoldTime" }
-    if yname == "le-no-route-timeout" { return "LeNoRouteTimeout" }
-    if yname == "af-binding-withdraw-delay" { return "AfBindingWithdrawDelay" }
-    if yname == "max-intf-attached" { return "MaxIntfAttached" }
-    if yname == "max-intf-te" { return "MaxIntfTe" }
-    if yname == "max-peer" { return "MaxPeer" }
-    if yname == "out-of-mem-state" { return "OutOfMemState" }
-    if yname == "discovery-quick-start-disabled-on-interfaces" { return "DiscoveryQuickStartDisabledOnInterfaces" }
-    if yname == "dod-max-hop" { return "DodMaxHop" }
-    if yname == "feature" { return "Feature" }
-    if yname == "loop-detection" { return "LoopDetection" }
-    if yname == "address-family-parameter" { return "AddressFamilyParameter" }
-    return ""
-}
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetSegmentPath() string {
-    return "parameters"
-}
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "address-family-parameter" {
-        for _, c := range parameters.AddressFamilyParameter {
-            if parameters.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter{}
-        parameters.AddressFamilyParameter = append(parameters.AddressFamilyParameter, child)
-        return &parameters.AddressFamilyParameter[len(parameters.AddressFamilyParameter)-1]
-    }
-    return nil
-}
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    parameters.EntityData.Children = make(map[string]types.YChild)
+    parameters.EntityData.Children["address-family-parameter"] = types.YChild{"AddressFamilyParameter", nil}
     for i := range parameters.AddressFamilyParameter {
-        children[parameters.AddressFamilyParameter[i].GetSegmentPath()] = &parameters.AddressFamilyParameter[i]
+        parameters.EntityData.Children[types.GetSegmentPath(&parameters.AddressFamilyParameter[i])] = types.YChild{"AddressFamilyParameter", &parameters.AddressFamilyParameter[i]}
     }
-    return children
+    parameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    parameters.EntityData.Leafs["global-md5-password-enabled"] = types.YLeaf{"GlobalMd5PasswordEnabled", parameters.GlobalMd5PasswordEnabled}
+    parameters.EntityData.Leafs["protocol-version"] = types.YLeaf{"ProtocolVersion", parameters.ProtocolVersion}
+    parameters.EntityData.Leafs["keepalive-interval"] = types.YLeaf{"KeepaliveInterval", parameters.KeepaliveInterval}
+    parameters.EntityData.Leafs["session-hold-time"] = types.YLeaf{"SessionHoldTime", parameters.SessionHoldTime}
+    parameters.EntityData.Leafs["le-no-route-timeout"] = types.YLeaf{"LeNoRouteTimeout", parameters.LeNoRouteTimeout}
+    parameters.EntityData.Leafs["af-binding-withdraw-delay"] = types.YLeaf{"AfBindingWithdrawDelay", parameters.AfBindingWithdrawDelay}
+    parameters.EntityData.Leafs["max-intf-attached"] = types.YLeaf{"MaxIntfAttached", parameters.MaxIntfAttached}
+    parameters.EntityData.Leafs["max-intf-te"] = types.YLeaf{"MaxIntfTe", parameters.MaxIntfTe}
+    parameters.EntityData.Leafs["max-peer"] = types.YLeaf{"MaxPeer", parameters.MaxPeer}
+    parameters.EntityData.Leafs["out-of-mem-state"] = types.YLeaf{"OutOfMemState", parameters.OutOfMemState}
+    parameters.EntityData.Leafs["discovery-quick-start-disabled-on-interfaces"] = types.YLeaf{"DiscoveryQuickStartDisabledOnInterfaces", parameters.DiscoveryQuickStartDisabledOnInterfaces}
+    parameters.EntityData.Leafs["dod-max-hop"] = types.YLeaf{"DodMaxHop", parameters.DodMaxHop}
+    parameters.EntityData.Leafs["feature"] = types.YLeaf{"Feature", parameters.Feature}
+    parameters.EntityData.Leafs["loop-detection"] = types.YLeaf{"LoopDetection", parameters.LoopDetection}
+    return &(parameters.EntityData)
 }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["global-md5-password-enabled"] = parameters.GlobalMd5PasswordEnabled
-    leafs["protocol-version"] = parameters.ProtocolVersion
-    leafs["keepalive-interval"] = parameters.KeepaliveInterval
-    leafs["session-hold-time"] = parameters.SessionHoldTime
-    leafs["le-no-route-timeout"] = parameters.LeNoRouteTimeout
-    leafs["af-binding-withdraw-delay"] = parameters.AfBindingWithdrawDelay
-    leafs["max-intf-attached"] = parameters.MaxIntfAttached
-    leafs["max-intf-te"] = parameters.MaxIntfTe
-    leafs["max-peer"] = parameters.MaxPeer
-    leafs["out-of-mem-state"] = parameters.OutOfMemState
-    leafs["discovery-quick-start-disabled-on-interfaces"] = parameters.DiscoveryQuickStartDisabledOnInterfaces
-    leafs["dod-max-hop"] = parameters.DodMaxHop
-    leafs["feature"] = parameters.Feature
-    leafs["loop-detection"] = parameters.LoopDetection
-    return leafs
-}
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetBundleName() string { return "cisco_ios_xe" }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetYangName() string { return "parameters" }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) SetParent(parent types.Entity) { parameters.parent = parent }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetParent() types.Entity { return parameters.parent }
-
-func (parameters *MplsLdp_MplsLdpState_Parameters) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter
 // Per AF parameters
 type MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address Family. The type is Af.
@@ -2947,9 +1971,9 @@ type MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter struct {
 
     // This is the Discovery transport address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DiscoveryTransportAddress interface{}
 
     // Accepting targeted Hellos. The type is bool.
@@ -2961,62 +1985,29 @@ type MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter struct {
     TargetedHelloFilter interface{}
 }
 
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetFilter() yfilter.YFilter { return addressFamilyParameter.YFilter }
+func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetEntityData() *types.CommonEntityData {
+    addressFamilyParameter.EntityData.YFilter = addressFamilyParameter.YFilter
+    addressFamilyParameter.EntityData.YangName = "address-family-parameter"
+    addressFamilyParameter.EntityData.BundleName = "cisco_ios_xe"
+    addressFamilyParameter.EntityData.ParentYangName = "parameters"
+    addressFamilyParameter.EntityData.SegmentPath = "address-family-parameter" + "[address-family='" + fmt.Sprintf("%v", addressFamilyParameter.AddressFamily) + "']"
+    addressFamilyParameter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    addressFamilyParameter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    addressFamilyParameter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) SetFilter(yf yfilter.YFilter) { addressFamilyParameter.YFilter = yf }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetGoName(yname string) string {
-    if yname == "address-family" { return "AddressFamily" }
-    if yname == "discovery-transport-address" { return "DiscoveryTransportAddress" }
-    if yname == "is-accepting-targeted-hellos" { return "IsAcceptingTargetedHellos" }
-    if yname == "targeted-hello-filter" { return "TargetedHelloFilter" }
-    return ""
+    addressFamilyParameter.EntityData.Children = make(map[string]types.YChild)
+    addressFamilyParameter.EntityData.Leafs = make(map[string]types.YLeaf)
+    addressFamilyParameter.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", addressFamilyParameter.AddressFamily}
+    addressFamilyParameter.EntityData.Leafs["discovery-transport-address"] = types.YLeaf{"DiscoveryTransportAddress", addressFamilyParameter.DiscoveryTransportAddress}
+    addressFamilyParameter.EntityData.Leafs["is-accepting-targeted-hellos"] = types.YLeaf{"IsAcceptingTargetedHellos", addressFamilyParameter.IsAcceptingTargetedHellos}
+    addressFamilyParameter.EntityData.Leafs["targeted-hello-filter"] = types.YLeaf{"TargetedHelloFilter", addressFamilyParameter.TargetedHelloFilter}
+    return &(addressFamilyParameter.EntityData)
 }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetSegmentPath() string {
-    return "address-family-parameter" + "[address-family='" + fmt.Sprintf("%v", addressFamilyParameter.AddressFamily) + "']"
-}
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address-family"] = addressFamilyParameter.AddressFamily
-    leafs["discovery-transport-address"] = addressFamilyParameter.DiscoveryTransportAddress
-    leafs["is-accepting-targeted-hellos"] = addressFamilyParameter.IsAcceptingTargetedHellos
-    leafs["targeted-hello-filter"] = addressFamilyParameter.TargetedHelloFilter
-    return leafs
-}
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetBundleName() string { return "cisco_ios_xe" }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetYangName() string { return "address-family-parameter" }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) SetParent(parent types.Entity) { addressFamilyParameter.parent = parent }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetParent() types.Entity { return addressFamilyParameter.parent }
-
-func (addressFamilyParameter *MplsLdp_MplsLdpState_Parameters_AddressFamilyParameter) GetParentYangName() string { return "parameters" }
 
 // MplsLdp_MplsLdpState_Capabilities
 // LDP capability database information
 type MplsLdp_MplsLdpState_Capabilities struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information on LDP capability. The type is slice of
@@ -3024,68 +2015,29 @@ type MplsLdp_MplsLdpState_Capabilities struct {
     Capability []MplsLdp_MplsLdpState_Capabilities_Capability
 }
 
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetFilter() yfilter.YFilter { return capabilities.YFilter }
+func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetEntityData() *types.CommonEntityData {
+    capabilities.EntityData.YFilter = capabilities.YFilter
+    capabilities.EntityData.YangName = "capabilities"
+    capabilities.EntityData.BundleName = "cisco_ios_xe"
+    capabilities.EntityData.ParentYangName = "mpls-ldp-state"
+    capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    capabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    capabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) SetFilter(yf yfilter.YFilter) { capabilities.YFilter = yf }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetGoName(yname string) string {
-    if yname == "capability" { return "Capability" }
-    return ""
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetSegmentPath() string {
-    return "capabilities"
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "capability" {
-        for _, c := range capabilities.Capability {
-            if capabilities.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Capabilities_Capability{}
-        capabilities.Capability = append(capabilities.Capability, child)
-        return &capabilities.Capability[len(capabilities.Capability)-1]
-    }
-    return nil
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    capabilities.EntityData.Children = make(map[string]types.YChild)
+    capabilities.EntityData.Children["capability"] = types.YChild{"Capability", nil}
     for i := range capabilities.Capability {
-        children[capabilities.Capability[i].GetSegmentPath()] = &capabilities.Capability[i]
+        capabilities.EntityData.Children[types.GetSegmentPath(&capabilities.Capability[i])] = types.YChild{"Capability", &capabilities.Capability[i]}
     }
-    return children
+    capabilities.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(capabilities.EntityData)
 }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetBundleName() string { return "cisco_ios_xe" }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetYangName() string { return "capabilities" }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) SetParent(parent types.Entity) { capabilities.parent = parent }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetParent() types.Entity { return capabilities.parent }
-
-func (capabilities *MplsLdp_MplsLdpState_Capabilities) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Capabilities_Capability
 // Information on LDP capability
 type MplsLdp_MplsLdpState_Capabilities_Capability struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Capability type (IANA assigned). The type is
@@ -3105,64 +2057,30 @@ type MplsLdp_MplsLdpState_Capabilities_Capability struct {
     CapabilityData interface{}
 }
 
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetFilter() yfilter.YFilter { return capability.YFilter }
+func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetEntityData() *types.CommonEntityData {
+    capability.EntityData.YFilter = capability.YFilter
+    capability.EntityData.YangName = "capability"
+    capability.EntityData.BundleName = "cisco_ios_xe"
+    capability.EntityData.ParentYangName = "capabilities"
+    capability.EntityData.SegmentPath = "capability" + "[cap-type='" + fmt.Sprintf("%v", capability.CapType) + "']"
+    capability.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    capability.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    capability.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) SetFilter(yf yfilter.YFilter) { capability.YFilter = yf }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetGoName(yname string) string {
-    if yname == "cap-type" { return "CapType" }
-    if yname == "capability-owner" { return "CapabilityOwner" }
-    if yname == "cap-des" { return "CapDes" }
-    if yname == "capability-data-length" { return "CapabilityDataLength" }
-    if yname == "capability-data" { return "CapabilityData" }
-    return ""
+    capability.EntityData.Children = make(map[string]types.YChild)
+    capability.EntityData.Leafs = make(map[string]types.YLeaf)
+    capability.EntityData.Leafs["cap-type"] = types.YLeaf{"CapType", capability.CapType}
+    capability.EntityData.Leafs["capability-owner"] = types.YLeaf{"CapabilityOwner", capability.CapabilityOwner}
+    capability.EntityData.Leafs["cap-des"] = types.YLeaf{"CapDes", capability.CapDes}
+    capability.EntityData.Leafs["capability-data-length"] = types.YLeaf{"CapabilityDataLength", capability.CapabilityDataLength}
+    capability.EntityData.Leafs["capability-data"] = types.YLeaf{"CapabilityData", capability.CapabilityData}
+    return &(capability.EntityData)
 }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetSegmentPath() string {
-    return "capability" + "[cap-type='" + fmt.Sprintf("%v", capability.CapType) + "']"
-}
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cap-type"] = capability.CapType
-    leafs["capability-owner"] = capability.CapabilityOwner
-    leafs["cap-des"] = capability.CapDes
-    leafs["capability-data-length"] = capability.CapabilityDataLength
-    leafs["capability-data"] = capability.CapabilityData
-    return leafs
-}
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetBundleName() string { return "cisco_ios_xe" }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetYangName() string { return "capability" }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) SetParent(parent types.Entity) { capability.parent = parent }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetParent() types.Entity { return capability.parent }
-
-func (capability *MplsLdp_MplsLdpState_Capabilities_Capability) GetParentYangName() string { return "capabilities" }
 
 // MplsLdp_MplsLdpState_BackoffParameters
 // MPLS LDP Session Backoff Information
 type MplsLdp_MplsLdpState_BackoffParameters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initial backoff value in seconds. The type is interface{} with range:
@@ -3182,62 +2100,29 @@ type MplsLdp_MplsLdpState_BackoffParameters struct {
     WaitingSeconds interface{}
 }
 
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetFilter() yfilter.YFilter { return backoffParameters.YFilter }
+func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetEntityData() *types.CommonEntityData {
+    backoffParameters.EntityData.YFilter = backoffParameters.YFilter
+    backoffParameters.EntityData.YangName = "backoff-parameters"
+    backoffParameters.EntityData.BundleName = "cisco_ios_xe"
+    backoffParameters.EntityData.ParentYangName = "mpls-ldp-state"
+    backoffParameters.EntityData.SegmentPath = "backoff-parameters"
+    backoffParameters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    backoffParameters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    backoffParameters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) SetFilter(yf yfilter.YFilter) { backoffParameters.YFilter = yf }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetGoName(yname string) string {
-    if yname == "initial-seconds" { return "InitialSeconds" }
-    if yname == "maximum-seconds" { return "MaximumSeconds" }
-    if yname == "backoff-seconds" { return "BackoffSeconds" }
-    if yname == "waiting-seconds" { return "WaitingSeconds" }
-    return ""
+    backoffParameters.EntityData.Children = make(map[string]types.YChild)
+    backoffParameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    backoffParameters.EntityData.Leafs["initial-seconds"] = types.YLeaf{"InitialSeconds", backoffParameters.InitialSeconds}
+    backoffParameters.EntityData.Leafs["maximum-seconds"] = types.YLeaf{"MaximumSeconds", backoffParameters.MaximumSeconds}
+    backoffParameters.EntityData.Leafs["backoff-seconds"] = types.YLeaf{"BackoffSeconds", backoffParameters.BackoffSeconds}
+    backoffParameters.EntityData.Leafs["waiting-seconds"] = types.YLeaf{"WaitingSeconds", backoffParameters.WaitingSeconds}
+    return &(backoffParameters.EntityData)
 }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetSegmentPath() string {
-    return "backoff-parameters"
-}
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["initial-seconds"] = backoffParameters.InitialSeconds
-    leafs["maximum-seconds"] = backoffParameters.MaximumSeconds
-    leafs["backoff-seconds"] = backoffParameters.BackoffSeconds
-    leafs["waiting-seconds"] = backoffParameters.WaitingSeconds
-    return leafs
-}
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetBundleName() string { return "cisco_ios_xe" }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetYangName() string { return "backoff-parameters" }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) SetParent(parent types.Entity) { backoffParameters.parent = parent }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetParent() types.Entity { return backoffParameters.parent }
-
-func (backoffParameters *MplsLdp_MplsLdpState_BackoffParameters) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_GracefulRestart
 // MPLS LDP Graceful Restart Information
 type MplsLdp_MplsLdpState_GracefulRestart struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is graceful restart configured. The type is bool.
@@ -3260,64 +2145,30 @@ type MplsLdp_MplsLdpState_GracefulRestart struct {
     ForwardingStateHoldTimerRemainingSeconds interface{}
 }
 
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetFilter() yfilter.YFilter { return gracefulRestart.YFilter }
+func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetEntityData() *types.CommonEntityData {
+    gracefulRestart.EntityData.YFilter = gracefulRestart.YFilter
+    gracefulRestart.EntityData.YangName = "graceful-restart"
+    gracefulRestart.EntityData.BundleName = "cisco_ios_xe"
+    gracefulRestart.EntityData.ParentYangName = "mpls-ldp-state"
+    gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    gracefulRestart.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) SetFilter(yf yfilter.YFilter) { gracefulRestart.YFilter = yf }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetGoName(yname string) string {
-    if yname == "is-graceful-restart-configured" { return "IsGracefulRestartConfigured" }
-    if yname == "graceful-restart-reconnect-timeout" { return "GracefulRestartReconnectTimeout" }
-    if yname == "graceful-restart-forwarding-state-hold-time" { return "GracefulRestartForwardingStateHoldTime" }
-    if yname == "is-forwarding-state-hold-timer-running" { return "IsForwardingStateHoldTimerRunning" }
-    if yname == "forwarding-state-hold-timer-remaining-seconds" { return "ForwardingStateHoldTimerRemainingSeconds" }
-    return ""
+    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
+    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Leafs["is-graceful-restart-configured"] = types.YLeaf{"IsGracefulRestartConfigured", gracefulRestart.IsGracefulRestartConfigured}
+    gracefulRestart.EntityData.Leafs["graceful-restart-reconnect-timeout"] = types.YLeaf{"GracefulRestartReconnectTimeout", gracefulRestart.GracefulRestartReconnectTimeout}
+    gracefulRestart.EntityData.Leafs["graceful-restart-forwarding-state-hold-time"] = types.YLeaf{"GracefulRestartForwardingStateHoldTime", gracefulRestart.GracefulRestartForwardingStateHoldTime}
+    gracefulRestart.EntityData.Leafs["is-forwarding-state-hold-timer-running"] = types.YLeaf{"IsForwardingStateHoldTimerRunning", gracefulRestart.IsForwardingStateHoldTimerRunning}
+    gracefulRestart.EntityData.Leafs["forwarding-state-hold-timer-remaining-seconds"] = types.YLeaf{"ForwardingStateHoldTimerRemainingSeconds", gracefulRestart.ForwardingStateHoldTimerRemainingSeconds}
+    return &(gracefulRestart.EntityData)
 }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetSegmentPath() string {
-    return "graceful-restart"
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-graceful-restart-configured"] = gracefulRestart.IsGracefulRestartConfigured
-    leafs["graceful-restart-reconnect-timeout"] = gracefulRestart.GracefulRestartReconnectTimeout
-    leafs["graceful-restart-forwarding-state-hold-time"] = gracefulRestart.GracefulRestartForwardingStateHoldTime
-    leafs["is-forwarding-state-hold-timer-running"] = gracefulRestart.IsForwardingStateHoldTimerRunning
-    leafs["forwarding-state-hold-timer-remaining-seconds"] = gracefulRestart.ForwardingStateHoldTimerRemainingSeconds
-    return leafs
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetBundleName() string { return "cisco_ios_xe" }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetYangName() string { return "graceful-restart" }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) SetParent(parent types.Entity) { gracefulRestart.parent = parent }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetParent() types.Entity { return gracefulRestart.parent }
-
-func (gracefulRestart *MplsLdp_MplsLdpState_GracefulRestart) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Vrfs
 // MPLS LDP per-VRF operational data.
 type MplsLdp_MplsLdpState_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP Operational data for a given VRF. The type is slice of
@@ -3325,68 +2176,29 @@ type MplsLdp_MplsLdpState_Vrfs struct {
     Vrf []MplsLdp_MplsLdpState_Vrfs_Vrf
 }
 
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xe"
+    vrfs.EntityData.ParentYangName = "mpls-ldp-state"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *MplsLdp_MplsLdpState_Vrfs) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf
 // MPLS LDP Operational data for a given VRF.
 type MplsLdp_MplsLdpState_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -3400,66 +2212,28 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf struct {
     Afs MplsLdp_MplsLdpState_Vrfs_Vrf_Afs
 }
 
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xe"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "vrf-summary" { return "VrfSummary" }
-    if yname == "afs" { return "Afs" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["vrf-summary"] = types.YChild{"VrfSummary", &vrf.VrfSummary}
+    vrf.EntityData.Children["afs"] = types.YChild{"Afs", &vrf.Afs}
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf-summary" {
-        return &vrf.VrfSummary
-    }
-    if childYangName == "afs" {
-        return &vrf.Afs
-    }
-    return nil
-}
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vrf-summary"] = &vrf.VrfSummary
-    children["afs"] = &vrf.Afs
-    return children
-}
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xe" }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *MplsLdp_MplsLdpState_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary
 // MPLS LDP per VRF summarized Information
 type MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address Families enabled. The type is Af.
@@ -3497,72 +2271,34 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary struct {
     NumberOfIpv4LdpInterfaces interface{}
 }
 
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetFilter() yfilter.YFilter { return vrfSummary.YFilter }
+func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetEntityData() *types.CommonEntityData {
+    vrfSummary.EntityData.YFilter = vrfSummary.YFilter
+    vrfSummary.EntityData.YangName = "vrf-summary"
+    vrfSummary.EntityData.BundleName = "cisco_ios_xe"
+    vrfSummary.EntityData.ParentYangName = "vrf"
+    vrfSummary.EntityData.SegmentPath = "vrf-summary"
+    vrfSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vrfSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vrfSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) SetFilter(yf yfilter.YFilter) { vrfSummary.YFilter = yf }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetGoName(yname string) string {
-    if yname == "address-families" { return "AddressFamilies" }
-    if yname == "number-of-neighbors" { return "NumberOfNeighbors" }
-    if yname == "number-of-graceful-restart-neighbors" { return "NumberOfGracefulRestartNeighbors" }
-    if yname == "number-of-downstream-on-demand-neighbors" { return "NumberOfDownstreamOnDemandNeighbors" }
-    if yname == "numberof-ipv4-hello-adj" { return "NumberofIpv4HelloAdj" }
-    if yname == "number-of-ipv4-routes" { return "NumberOfIpv4Routes" }
-    if yname == "number-of-ipv4-local-addresses" { return "NumberOfIpv4LocalAddresses" }
-    if yname == "number-of-ldp-interfaces" { return "NumberOfLdpInterfaces" }
-    if yname == "number-of-ipv4ldp-interfaces" { return "NumberOfIpv4LdpInterfaces" }
-    return ""
+    vrfSummary.EntityData.Children = make(map[string]types.YChild)
+    vrfSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrfSummary.EntityData.Leafs["address-families"] = types.YLeaf{"AddressFamilies", vrfSummary.AddressFamilies}
+    vrfSummary.EntityData.Leafs["number-of-neighbors"] = types.YLeaf{"NumberOfNeighbors", vrfSummary.NumberOfNeighbors}
+    vrfSummary.EntityData.Leafs["number-of-graceful-restart-neighbors"] = types.YLeaf{"NumberOfGracefulRestartNeighbors", vrfSummary.NumberOfGracefulRestartNeighbors}
+    vrfSummary.EntityData.Leafs["number-of-downstream-on-demand-neighbors"] = types.YLeaf{"NumberOfDownstreamOnDemandNeighbors", vrfSummary.NumberOfDownstreamOnDemandNeighbors}
+    vrfSummary.EntityData.Leafs["numberof-ipv4-hello-adj"] = types.YLeaf{"NumberofIpv4HelloAdj", vrfSummary.NumberofIpv4HelloAdj}
+    vrfSummary.EntityData.Leafs["number-of-ipv4-routes"] = types.YLeaf{"NumberOfIpv4Routes", vrfSummary.NumberOfIpv4Routes}
+    vrfSummary.EntityData.Leafs["number-of-ipv4-local-addresses"] = types.YLeaf{"NumberOfIpv4LocalAddresses", vrfSummary.NumberOfIpv4LocalAddresses}
+    vrfSummary.EntityData.Leafs["number-of-ldp-interfaces"] = types.YLeaf{"NumberOfLdpInterfaces", vrfSummary.NumberOfLdpInterfaces}
+    vrfSummary.EntityData.Leafs["number-of-ipv4ldp-interfaces"] = types.YLeaf{"NumberOfIpv4LdpInterfaces", vrfSummary.NumberOfIpv4LdpInterfaces}
+    return &(vrfSummary.EntityData)
 }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetSegmentPath() string {
-    return "vrf-summary"
-}
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address-families"] = vrfSummary.AddressFamilies
-    leafs["number-of-neighbors"] = vrfSummary.NumberOfNeighbors
-    leafs["number-of-graceful-restart-neighbors"] = vrfSummary.NumberOfGracefulRestartNeighbors
-    leafs["number-of-downstream-on-demand-neighbors"] = vrfSummary.NumberOfDownstreamOnDemandNeighbors
-    leafs["numberof-ipv4-hello-adj"] = vrfSummary.NumberofIpv4HelloAdj
-    leafs["number-of-ipv4-routes"] = vrfSummary.NumberOfIpv4Routes
-    leafs["number-of-ipv4-local-addresses"] = vrfSummary.NumberOfIpv4LocalAddresses
-    leafs["number-of-ldp-interfaces"] = vrfSummary.NumberOfLdpInterfaces
-    leafs["number-of-ipv4ldp-interfaces"] = vrfSummary.NumberOfIpv4LdpInterfaces
-    return leafs
-}
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetYangName() string { return "vrf-summary" }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) SetParent(parent types.Entity) { vrfSummary.parent = parent }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetParent() types.Entity { return vrfSummary.parent }
-
-func (vrfSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_VrfSummary) GetParentYangName() string { return "vrf" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_Afs
 // Address Family specific operational data
 type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP Operational data for this Address Family. The type is slice of
@@ -3570,68 +2306,29 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs struct {
     Af []MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af
 }
 
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetFilter() yfilter.YFilter { return afs.YFilter }
+func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetEntityData() *types.CommonEntityData {
+    afs.EntityData.YFilter = afs.YFilter
+    afs.EntityData.YangName = "afs"
+    afs.EntityData.BundleName = "cisco_ios_xe"
+    afs.EntityData.ParentYangName = "vrf"
+    afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    afs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    afs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) SetFilter(yf yfilter.YFilter) { afs.YFilter = yf }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetGoName(yname string) string {
-    if yname == "af" { return "Af" }
-    return ""
-}
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetSegmentPath() string {
-    return "afs"
-}
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "af" {
-        for _, c := range afs.Af {
-            if afs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af{}
-        afs.Af = append(afs.Af, child)
-        return &afs.Af[len(afs.Af)-1]
-    }
-    return nil
-}
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    afs.EntityData.Children = make(map[string]types.YChild)
+    afs.EntityData.Children["af"] = types.YChild{"Af", nil}
     for i := range afs.Af {
-        children[afs.Af[i].GetSegmentPath()] = &afs.Af[i]
+        afs.EntityData.Children[types.GetSegmentPath(&afs.Af[i])] = types.YChild{"Af", &afs.Af[i]}
     }
-    return children
+    afs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(afs.EntityData)
 }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetYangName() string { return "afs" }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) SetParent(parent types.Entity) { afs.parent = parent }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetParent() types.Entity { return afs.parent }
-
-func (afs *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs) GetParentYangName() string { return "vrf" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af
 // MPLS LDP Operational data for this Address Family.
 type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address Family name. The type is Af.
@@ -3645,67 +2342,29 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af struct {
     Igp MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp
 }
 
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetFilter() yfilter.YFilter { return af.YFilter }
+func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetEntityData() *types.CommonEntityData {
+    af.EntityData.YFilter = af.YFilter
+    af.EntityData.YangName = "af"
+    af.EntityData.BundleName = "cisco_ios_xe"
+    af.EntityData.ParentYangName = "afs"
+    af.EntityData.SegmentPath = "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
+    af.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    af.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    af.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) SetFilter(yf yfilter.YFilter) { af.YFilter = yf }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "interface-summary" { return "InterfaceSummary" }
-    if yname == "igp" { return "Igp" }
-    return ""
+    af.EntityData.Children = make(map[string]types.YChild)
+    af.EntityData.Children["interface-summary"] = types.YChild{"InterfaceSummary", &af.InterfaceSummary}
+    af.EntityData.Children["igp"] = types.YChild{"Igp", &af.Igp}
+    af.EntityData.Leafs = make(map[string]types.YLeaf)
+    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
+    return &(af.EntityData)
 }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetSegmentPath() string {
-    return "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
-}
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-summary" {
-        return &af.InterfaceSummary
-    }
-    if childYangName == "igp" {
-        return &af.Igp
-    }
-    return nil
-}
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interface-summary"] = &af.InterfaceSummary
-    children["igp"] = &af.Igp
-    return children
-}
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = af.AfName
-    return leafs
-}
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetBundleName() string { return "cisco_ios_xe" }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetYangName() string { return "af" }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) SetParent(parent types.Entity) { af.parent = parent }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetParent() types.Entity { return af.parent }
-
-func (af *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af) GetParentYangName() string { return "afs" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary
 // This container holds a summary of information
 // across all interfaces in this AF,
 type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of known IP Interfaces. The type is interface{} with range:
@@ -3740,70 +2399,33 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary struct {
     AutoConfigForwardReferenceInterfaces interface{}
 }
 
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetFilter() yfilter.YFilter { return interfaceSummary.YFilter }
+func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetEntityData() *types.CommonEntityData {
+    interfaceSummary.EntityData.YFilter = interfaceSummary.YFilter
+    interfaceSummary.EntityData.YangName = "interface-summary"
+    interfaceSummary.EntityData.BundleName = "cisco_ios_xe"
+    interfaceSummary.EntityData.ParentYangName = "af"
+    interfaceSummary.EntityData.SegmentPath = "interface-summary"
+    interfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    interfaceSummary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    interfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) SetFilter(yf yfilter.YFilter) { interfaceSummary.YFilter = yf }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetGoName(yname string) string {
-    if yname == "known-ip-interface-count" { return "KnownIpInterfaceCount" }
-    if yname == "known-ip-interface-ldp-enabled" { return "KnownIpInterfaceLdpEnabled" }
-    if yname == "configured-attached-interface" { return "ConfiguredAttachedInterface" }
-    if yname == "configured-te-interface" { return "ConfiguredTeInterface" }
-    if yname == "forward-references" { return "ForwardReferences" }
-    if yname == "auto-config-disabled" { return "AutoConfigDisabled" }
-    if yname == "auto-config" { return "AutoConfig" }
-    if yname == "auto-config-forward-reference-interfaces" { return "AutoConfigForwardReferenceInterfaces" }
-    return ""
+    interfaceSummary.EntityData.Children = make(map[string]types.YChild)
+    interfaceSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceSummary.EntityData.Leafs["known-ip-interface-count"] = types.YLeaf{"KnownIpInterfaceCount", interfaceSummary.KnownIpInterfaceCount}
+    interfaceSummary.EntityData.Leafs["known-ip-interface-ldp-enabled"] = types.YLeaf{"KnownIpInterfaceLdpEnabled", interfaceSummary.KnownIpInterfaceLdpEnabled}
+    interfaceSummary.EntityData.Leafs["configured-attached-interface"] = types.YLeaf{"ConfiguredAttachedInterface", interfaceSummary.ConfiguredAttachedInterface}
+    interfaceSummary.EntityData.Leafs["configured-te-interface"] = types.YLeaf{"ConfiguredTeInterface", interfaceSummary.ConfiguredTeInterface}
+    interfaceSummary.EntityData.Leafs["forward-references"] = types.YLeaf{"ForwardReferences", interfaceSummary.ForwardReferences}
+    interfaceSummary.EntityData.Leafs["auto-config-disabled"] = types.YLeaf{"AutoConfigDisabled", interfaceSummary.AutoConfigDisabled}
+    interfaceSummary.EntityData.Leafs["auto-config"] = types.YLeaf{"AutoConfig", interfaceSummary.AutoConfig}
+    interfaceSummary.EntityData.Leafs["auto-config-forward-reference-interfaces"] = types.YLeaf{"AutoConfigForwardReferenceInterfaces", interfaceSummary.AutoConfigForwardReferenceInterfaces}
+    return &(interfaceSummary.EntityData)
 }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetSegmentPath() string {
-    return "interface-summary"
-}
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["known-ip-interface-count"] = interfaceSummary.KnownIpInterfaceCount
-    leafs["known-ip-interface-ldp-enabled"] = interfaceSummary.KnownIpInterfaceLdpEnabled
-    leafs["configured-attached-interface"] = interfaceSummary.ConfiguredAttachedInterface
-    leafs["configured-te-interface"] = interfaceSummary.ConfiguredTeInterface
-    leafs["forward-references"] = interfaceSummary.ForwardReferences
-    leafs["auto-config-disabled"] = interfaceSummary.AutoConfigDisabled
-    leafs["auto-config"] = interfaceSummary.AutoConfig
-    leafs["auto-config-forward-reference-interfaces"] = interfaceSummary.AutoConfigForwardReferenceInterfaces
-    return leafs
-}
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetYangName() string { return "interface-summary" }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) SetParent(parent types.Entity) { interfaceSummary.parent = parent }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetParent() types.Entity { return interfaceSummary.parent }
-
-func (interfaceSummary *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_InterfaceSummary) GetParentYangName() string { return "af" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp
 // LDP IGP Synchronization related information
 type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LDP-IGP Synchronization related information for an interface. The type is
@@ -3811,75 +2433,36 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp struct {
     Sync []MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync
 }
 
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetFilter() yfilter.YFilter { return igp.YFilter }
+func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetEntityData() *types.CommonEntityData {
+    igp.EntityData.YFilter = igp.YFilter
+    igp.EntityData.YangName = "igp"
+    igp.EntityData.BundleName = "cisco_ios_xe"
+    igp.EntityData.ParentYangName = "af"
+    igp.EntityData.SegmentPath = "igp"
+    igp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    igp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    igp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) SetFilter(yf yfilter.YFilter) { igp.YFilter = yf }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetGoName(yname string) string {
-    if yname == "sync" { return "Sync" }
-    return ""
-}
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetSegmentPath() string {
-    return "igp"
-}
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sync" {
-        for _, c := range igp.Sync {
-            if igp.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync{}
-        igp.Sync = append(igp.Sync, child)
-        return &igp.Sync[len(igp.Sync)-1]
-    }
-    return nil
-}
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    igp.EntityData.Children = make(map[string]types.YChild)
+    igp.EntityData.Children["sync"] = types.YChild{"Sync", nil}
     for i := range igp.Sync {
-        children[igp.Sync[i].GetSegmentPath()] = &igp.Sync[i]
+        igp.EntityData.Children[types.GetSegmentPath(&igp.Sync[i])] = types.YChild{"Sync", &igp.Sync[i]}
     }
-    return children
+    igp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(igp.EntityData)
 }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetYangName() string { return "igp" }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) SetParent(parent types.Entity) { igp.parent = parent }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetParent() types.Entity { return igp.parent }
-
-func (igp *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp) GetParentYangName() string { return "af" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync
 // LDP-IGP Synchronization related information
 // for an interface
 type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This leaf contains the interface name for the IGP
     // Synchronization information. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // IGP Sync state. The type is IgpSyncState.
     IgpSyncState interface{}
@@ -3892,7 +2475,7 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync struct {
     DelayTimerRemaining interface{}
 
     // Reason IGP Sync Not Achieved. The type is one of the following:
-    // IgpSyncDownReasonNaIgpSyncDownReasonPeerUpdateNotReceivedIgpSyncDownReasonNoPeerSessIgpSyncDownReasonInternalIgpSyncDownReasonNoHelloAdjIgpSyncDownReasonPeerUpdateNotDone.
+    // IgpSyncDownReasonNaIgpSyncDownReasonNoHelloAdjIgpSyncDownReasonNoPeerSessIgpSyncDownReasonPeerUpdateNotDoneIgpSyncDownReasonPeerUpdateNotReceivedIgpSyncDownReasonInternal.
     IgpSyncDownReason interface{}
 
     // MPLS LDP IGP Sync Interface Peer Information. The type is slice of
@@ -3900,78 +2483,34 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync struct {
     Peers []MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers
 }
 
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetFilter() yfilter.YFilter { return sync.YFilter }
+func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetEntityData() *types.CommonEntityData {
+    sync.EntityData.YFilter = sync.YFilter
+    sync.EntityData.YangName = "sync"
+    sync.EntityData.BundleName = "cisco_ios_xe"
+    sync.EntityData.ParentYangName = "igp"
+    sync.EntityData.SegmentPath = "sync" + "[interface='" + fmt.Sprintf("%v", sync.Interface_) + "']"
+    sync.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sync.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sync.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) SetFilter(yf yfilter.YFilter) { sync.YFilter = yf }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "igp-sync-state" { return "IgpSyncState" }
-    if yname == "is-delay-timer-running" { return "IsDelayTimerRunning" }
-    if yname == "delay-timer-remaining" { return "DelayTimerRemaining" }
-    if yname == "igp-sync-down-reason" { return "IgpSyncDownReason" }
-    if yname == "peers" { return "Peers" }
-    return ""
-}
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetSegmentPath() string {
-    return "sync" + "[interface='" + fmt.Sprintf("%v", sync.Interface) + "']"
-}
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "peers" {
-        for _, c := range sync.Peers {
-            if sync.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers{}
-        sync.Peers = append(sync.Peers, child)
-        return &sync.Peers[len(sync.Peers)-1]
-    }
-    return nil
-}
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sync.EntityData.Children = make(map[string]types.YChild)
+    sync.EntityData.Children["peers"] = types.YChild{"Peers", nil}
     for i := range sync.Peers {
-        children[sync.Peers[i].GetSegmentPath()] = &sync.Peers[i]
+        sync.EntityData.Children[types.GetSegmentPath(&sync.Peers[i])] = types.YChild{"Peers", &sync.Peers[i]}
     }
-    return children
+    sync.EntityData.Leafs = make(map[string]types.YLeaf)
+    sync.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", sync.Interface_}
+    sync.EntityData.Leafs["igp-sync-state"] = types.YLeaf{"IgpSyncState", sync.IgpSyncState}
+    sync.EntityData.Leafs["is-delay-timer-running"] = types.YLeaf{"IsDelayTimerRunning", sync.IsDelayTimerRunning}
+    sync.EntityData.Leafs["delay-timer-remaining"] = types.YLeaf{"DelayTimerRemaining", sync.DelayTimerRemaining}
+    sync.EntityData.Leafs["igp-sync-down-reason"] = types.YLeaf{"IgpSyncDownReason", sync.IgpSyncDownReason}
+    return &(sync.EntityData)
 }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = sync.Interface
-    leafs["igp-sync-state"] = sync.IgpSyncState
-    leafs["is-delay-timer-running"] = sync.IsDelayTimerRunning
-    leafs["delay-timer-remaining"] = sync.DelayTimerRemaining
-    leafs["igp-sync-down-reason"] = sync.IgpSyncDownReason
-    return leafs
-}
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetYangName() string { return "sync" }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) SetParent(parent types.Entity) { sync.parent = parent }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetParent() types.Entity { return sync.parent }
-
-func (sync *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync) GetParentYangName() string { return "igp" }
 
 // MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers
 // MPLS LDP IGP Sync Interface Peer Information
 type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Peer Identifier. The type is string.
@@ -3985,60 +2524,28 @@ type MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers struct {
     IsChkptCreated interface{}
 }
 
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetFilter() yfilter.YFilter { return peers.YFilter }
+func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetEntityData() *types.CommonEntityData {
+    peers.EntityData.YFilter = peers.YFilter
+    peers.EntityData.YangName = "peers"
+    peers.EntityData.BundleName = "cisco_ios_xe"
+    peers.EntityData.ParentYangName = "sync"
+    peers.EntityData.SegmentPath = "peers"
+    peers.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    peers.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    peers.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) SetFilter(yf yfilter.YFilter) { peers.YFilter = yf }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetGoName(yname string) string {
-    if yname == "peer-id" { return "PeerId" }
-    if yname == "is-gr-enabled" { return "IsGrEnabled" }
-    if yname == "is-chkpt-created" { return "IsChkptCreated" }
-    return ""
+    peers.EntityData.Children = make(map[string]types.YChild)
+    peers.EntityData.Leafs = make(map[string]types.YLeaf)
+    peers.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", peers.PeerId}
+    peers.EntityData.Leafs["is-gr-enabled"] = types.YLeaf{"IsGrEnabled", peers.IsGrEnabled}
+    peers.EntityData.Leafs["is-chkpt-created"] = types.YLeaf{"IsChkptCreated", peers.IsChkptCreated}
+    return &(peers.EntityData)
 }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetSegmentPath() string {
-    return "peers"
-}
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["peer-id"] = peers.PeerId
-    leafs["is-gr-enabled"] = peers.IsGrEnabled
-    leafs["is-chkpt-created"] = peers.IsChkptCreated
-    return leafs
-}
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetBundleName() string { return "cisco_ios_xe" }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetYangName() string { return "peers" }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) SetParent(parent types.Entity) { peers.parent = parent }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetParent() types.Entity { return peers.parent }
-
-func (peers *MplsLdp_MplsLdpState_Vrfs_Vrf_Afs_Af_Igp_Sync_Peers) GetParentYangName() string { return "sync" }
 
 // MplsLdp_MplsLdpState_Discovery
 // The LDP Discovery operational state
 type MplsLdp_MplsLdpState_Discovery struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP Discovery Summary Information.
@@ -4054,69 +2561,28 @@ type MplsLdp_MplsLdpState_Discovery struct {
     TargetedHellos MplsLdp_MplsLdpState_Discovery_TargetedHellos
 }
 
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetFilter() yfilter.YFilter { return discovery.YFilter }
+func (discovery *MplsLdp_MplsLdpState_Discovery) GetEntityData() *types.CommonEntityData {
+    discovery.EntityData.YFilter = discovery.YFilter
+    discovery.EntityData.YangName = "discovery"
+    discovery.EntityData.BundleName = "cisco_ios_xe"
+    discovery.EntityData.ParentYangName = "mpls-ldp-state"
+    discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    discovery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    discovery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (discovery *MplsLdp_MplsLdpState_Discovery) SetFilter(yf yfilter.YFilter) { discovery.YFilter = yf }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetGoName(yname string) string {
-    if yname == "discovery-stats" { return "DiscoveryStats" }
-    if yname == "link-hello-state" { return "LinkHelloState" }
-    if yname == "targeted-hellos" { return "TargetedHellos" }
-    return ""
+    discovery.EntityData.Children = make(map[string]types.YChild)
+    discovery.EntityData.Children["discovery-stats"] = types.YChild{"DiscoveryStats", &discovery.DiscoveryStats}
+    discovery.EntityData.Children["link-hello-state"] = types.YChild{"LinkHelloState", &discovery.LinkHelloState}
+    discovery.EntityData.Children["targeted-hellos"] = types.YChild{"TargetedHellos", &discovery.TargetedHellos}
+    discovery.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(discovery.EntityData)
 }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetSegmentPath() string {
-    return "discovery"
-}
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "discovery-stats" {
-        return &discovery.DiscoveryStats
-    }
-    if childYangName == "link-hello-state" {
-        return &discovery.LinkHelloState
-    }
-    if childYangName == "targeted-hellos" {
-        return &discovery.TargetedHellos
-    }
-    return nil
-}
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["discovery-stats"] = &discovery.DiscoveryStats
-    children["link-hello-state"] = &discovery.LinkHelloState
-    children["targeted-hellos"] = &discovery.TargetedHellos
-    return children
-}
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetBundleName() string { return "cisco_ios_xe" }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetYangName() string { return "discovery" }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) SetParent(parent types.Entity) { discovery.parent = parent }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetParent() types.Entity { return discovery.parent }
-
-func (discovery *MplsLdp_MplsLdpState_Discovery) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Discovery_DiscoveryStats
 // MPLS LDP Discovery Summary Information
 type MplsLdp_MplsLdpState_Discovery_DiscoveryStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total Number of LDP configured interfaces. The type is interface{} with
@@ -4144,61 +2610,26 @@ type MplsLdp_MplsLdpState_Discovery_DiscoveryStats struct {
     NumOfTgtDiscRecv interface{}
 }
 
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetFilter() yfilter.YFilter { return discoveryStats.YFilter }
+func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetEntityData() *types.CommonEntityData {
+    discoveryStats.EntityData.YFilter = discoveryStats.YFilter
+    discoveryStats.EntityData.YangName = "discovery-stats"
+    discoveryStats.EntityData.BundleName = "cisco_ios_xe"
+    discoveryStats.EntityData.ParentYangName = "discovery"
+    discoveryStats.EntityData.SegmentPath = "discovery-stats"
+    discoveryStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    discoveryStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    discoveryStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) SetFilter(yf yfilter.YFilter) { discoveryStats.YFilter = yf }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetGoName(yname string) string {
-    if yname == "num-of-ldp-interfaces" { return "NumOfLdpInterfaces" }
-    if yname == "num-of-active-ldp-interfaces" { return "NumOfActiveLdpInterfaces" }
-    if yname == "num-of-lnk-disc-xmit" { return "NumOfLnkDiscXmit" }
-    if yname == "num-of-tgt-disc-xmit" { return "NumOfTgtDiscXmit" }
-    if yname == "num-of-lnk-disc-recv" { return "NumOfLnkDiscRecv" }
-    if yname == "num-of-tgt-disc-recv" { return "NumOfTgtDiscRecv" }
-    return ""
+    discoveryStats.EntityData.Children = make(map[string]types.YChild)
+    discoveryStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    discoveryStats.EntityData.Leafs["num-of-ldp-interfaces"] = types.YLeaf{"NumOfLdpInterfaces", discoveryStats.NumOfLdpInterfaces}
+    discoveryStats.EntityData.Leafs["num-of-active-ldp-interfaces"] = types.YLeaf{"NumOfActiveLdpInterfaces", discoveryStats.NumOfActiveLdpInterfaces}
+    discoveryStats.EntityData.Leafs["num-of-lnk-disc-xmit"] = types.YLeaf{"NumOfLnkDiscXmit", discoveryStats.NumOfLnkDiscXmit}
+    discoveryStats.EntityData.Leafs["num-of-tgt-disc-xmit"] = types.YLeaf{"NumOfTgtDiscXmit", discoveryStats.NumOfTgtDiscXmit}
+    discoveryStats.EntityData.Leafs["num-of-lnk-disc-recv"] = types.YLeaf{"NumOfLnkDiscRecv", discoveryStats.NumOfLnkDiscRecv}
+    discoveryStats.EntityData.Leafs["num-of-tgt-disc-recv"] = types.YLeaf{"NumOfTgtDiscRecv", discoveryStats.NumOfTgtDiscRecv}
+    return &(discoveryStats.EntityData)
 }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetSegmentPath() string {
-    return "discovery-stats"
-}
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["num-of-ldp-interfaces"] = discoveryStats.NumOfLdpInterfaces
-    leafs["num-of-active-ldp-interfaces"] = discoveryStats.NumOfActiveLdpInterfaces
-    leafs["num-of-lnk-disc-xmit"] = discoveryStats.NumOfLnkDiscXmit
-    leafs["num-of-tgt-disc-xmit"] = discoveryStats.NumOfTgtDiscXmit
-    leafs["num-of-lnk-disc-recv"] = discoveryStats.NumOfLnkDiscRecv
-    leafs["num-of-tgt-disc-recv"] = discoveryStats.NumOfTgtDiscRecv
-    return leafs
-}
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetYangName() string { return "discovery-stats" }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) SetParent(parent types.Entity) { discoveryStats.parent = parent }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetParent() types.Entity { return discoveryStats.parent }
-
-func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetParentYangName() string { return "discovery" }
 
 // MplsLdp_MplsLdpState_Discovery_LinkHelloState
 // This container holds information for LDP Discovery
@@ -4208,7 +2639,7 @@ func (discoveryStats *MplsLdp_MplsLdpState_Discovery_DiscoveryStats) GetParentYa
 // intefrfaces. Link Hellos can therefore form multiple
 // adjacencies with the same peer.
 type MplsLdp_MplsLdpState_Discovery_LinkHelloState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents a single LDP Hello Adjacency. An LDP Session can have
@@ -4217,81 +2648,42 @@ type MplsLdp_MplsLdpState_Discovery_LinkHelloState struct {
     LinkHellos []MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos
 }
 
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetFilter() yfilter.YFilter { return linkHelloState.YFilter }
+func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetEntityData() *types.CommonEntityData {
+    linkHelloState.EntityData.YFilter = linkHelloState.YFilter
+    linkHelloState.EntityData.YangName = "link-hello-state"
+    linkHelloState.EntityData.BundleName = "cisco_ios_xe"
+    linkHelloState.EntityData.ParentYangName = "discovery"
+    linkHelloState.EntityData.SegmentPath = "link-hello-state"
+    linkHelloState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    linkHelloState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    linkHelloState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) SetFilter(yf yfilter.YFilter) { linkHelloState.YFilter = yf }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetGoName(yname string) string {
-    if yname == "link-hellos" { return "LinkHellos" }
-    return ""
-}
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetSegmentPath() string {
-    return "link-hello-state"
-}
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "link-hellos" {
-        for _, c := range linkHelloState.LinkHellos {
-            if linkHelloState.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos{}
-        linkHelloState.LinkHellos = append(linkHelloState.LinkHellos, child)
-        return &linkHelloState.LinkHellos[len(linkHelloState.LinkHellos)-1]
-    }
-    return nil
-}
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    linkHelloState.EntityData.Children = make(map[string]types.YChild)
+    linkHelloState.EntityData.Children["link-hellos"] = types.YChild{"LinkHellos", nil}
     for i := range linkHelloState.LinkHellos {
-        children[linkHelloState.LinkHellos[i].GetSegmentPath()] = &linkHelloState.LinkHellos[i]
+        linkHelloState.EntityData.Children[types.GetSegmentPath(&linkHelloState.LinkHellos[i])] = types.YChild{"LinkHellos", &linkHelloState.LinkHellos[i]}
     }
-    return children
+    linkHelloState.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(linkHelloState.EntityData)
 }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetBundleName() string { return "cisco_ios_xe" }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetYangName() string { return "link-hello-state" }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) SetParent(parent types.Entity) { linkHelloState.parent = parent }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetParent() types.Entity { return linkHelloState.parent }
-
-func (linkHelloState *MplsLdp_MplsLdpState_Discovery_LinkHelloState) GetParentYangName() string { return "discovery" }
 
 // MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos
 // Each entry represents a single LDP Hello Adjacency.
 // An LDP Session can have one or more Hello
 // Adjacencies.
 type MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Discovery Interface. The type is string.
     // Refers to ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // This attribute is a key. This is the MPLS LDP Hello Neighbor transport
     // address. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NbrTransportAddr interface{}
 
     // Hello interval in seconds. This is the value used to send hello messages.
@@ -4300,23 +2692,23 @@ type MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos struct {
 
     // MPLS LDP Discovery Local source address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalSrcAddr interface{}
 
     // MPLS LDP Discovery Local transport address. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalTransportAddr interface{}
 
     // This is the MPLS LDP Hello Neighbor source address. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NbrSrcAddr interface{}
 
     // Neighbor LDP Identifier. The type is string.
@@ -4348,76 +2740,36 @@ type MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos struct {
     HoldTimeRemaining interface{}
 }
 
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetFilter() yfilter.YFilter { return linkHellos.YFilter }
+func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetEntityData() *types.CommonEntityData {
+    linkHellos.EntityData.YFilter = linkHellos.YFilter
+    linkHellos.EntityData.YangName = "link-hellos"
+    linkHellos.EntityData.BundleName = "cisco_ios_xe"
+    linkHellos.EntityData.ParentYangName = "link-hello-state"
+    linkHellos.EntityData.SegmentPath = "link-hellos" + "[interface='" + fmt.Sprintf("%v", linkHellos.Interface_) + "']" + "[nbr-transport-addr='" + fmt.Sprintf("%v", linkHellos.NbrTransportAddr) + "']"
+    linkHellos.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    linkHellos.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    linkHellos.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) SetFilter(yf yfilter.YFilter) { linkHellos.YFilter = yf }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "nbr-transport-addr" { return "NbrTransportAddr" }
-    if yname == "hello-interval" { return "HelloInterval" }
-    if yname == "local-src-addr" { return "LocalSrcAddr" }
-    if yname == "local-transport-addr" { return "LocalTransportAddr" }
-    if yname == "nbr-src-addr" { return "NbrSrcAddr" }
-    if yname == "nbr-ldp-id" { return "NbrLdpId" }
-    if yname == "session-up" { return "SessionUp" }
-    if yname == "nbr-hold-time" { return "NbrHoldTime" }
-    if yname == "next-hello" { return "NextHello" }
-    if yname == "hold-time-remaining" { return "HoldTimeRemaining" }
-    return ""
+    linkHellos.EntityData.Children = make(map[string]types.YChild)
+    linkHellos.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkHellos.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", linkHellos.Interface_}
+    linkHellos.EntityData.Leafs["nbr-transport-addr"] = types.YLeaf{"NbrTransportAddr", linkHellos.NbrTransportAddr}
+    linkHellos.EntityData.Leafs["hello-interval"] = types.YLeaf{"HelloInterval", linkHellos.HelloInterval}
+    linkHellos.EntityData.Leafs["local-src-addr"] = types.YLeaf{"LocalSrcAddr", linkHellos.LocalSrcAddr}
+    linkHellos.EntityData.Leafs["local-transport-addr"] = types.YLeaf{"LocalTransportAddr", linkHellos.LocalTransportAddr}
+    linkHellos.EntityData.Leafs["nbr-src-addr"] = types.YLeaf{"NbrSrcAddr", linkHellos.NbrSrcAddr}
+    linkHellos.EntityData.Leafs["nbr-ldp-id"] = types.YLeaf{"NbrLdpId", linkHellos.NbrLdpId}
+    linkHellos.EntityData.Leafs["session-up"] = types.YLeaf{"SessionUp", linkHellos.SessionUp}
+    linkHellos.EntityData.Leafs["nbr-hold-time"] = types.YLeaf{"NbrHoldTime", linkHellos.NbrHoldTime}
+    linkHellos.EntityData.Leafs["next-hello"] = types.YLeaf{"NextHello", linkHellos.NextHello}
+    linkHellos.EntityData.Leafs["hold-time-remaining"] = types.YLeaf{"HoldTimeRemaining", linkHellos.HoldTimeRemaining}
+    return &(linkHellos.EntityData)
 }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetSegmentPath() string {
-    return "link-hellos" + "[interface='" + fmt.Sprintf("%v", linkHellos.Interface) + "']" + "[nbr-transport-addr='" + fmt.Sprintf("%v", linkHellos.NbrTransportAddr) + "']"
-}
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = linkHellos.Interface
-    leafs["nbr-transport-addr"] = linkHellos.NbrTransportAddr
-    leafs["hello-interval"] = linkHellos.HelloInterval
-    leafs["local-src-addr"] = linkHellos.LocalSrcAddr
-    leafs["local-transport-addr"] = linkHellos.LocalTransportAddr
-    leafs["nbr-src-addr"] = linkHellos.NbrSrcAddr
-    leafs["nbr-ldp-id"] = linkHellos.NbrLdpId
-    leafs["session-up"] = linkHellos.SessionUp
-    leafs["nbr-hold-time"] = linkHellos.NbrHoldTime
-    leafs["next-hello"] = linkHellos.NextHello
-    leafs["hold-time-remaining"] = linkHellos.HoldTimeRemaining
-    return leafs
-}
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetBundleName() string { return "cisco_ios_xe" }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetYangName() string { return "link-hellos" }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) SetParent(parent types.Entity) { linkHellos.parent = parent }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetParent() types.Entity { return linkHellos.parent }
-
-func (linkHellos *MplsLdp_MplsLdpState_Discovery_LinkHelloState_LinkHellos) GetParentYangName() string { return "link-hello-state" }
 
 // MplsLdp_MplsLdpState_Discovery_TargetedHellos
 // The LDP Discovery Targeted Hello state.
 type MplsLdp_MplsLdpState_Discovery_TargetedHellos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local Targeted Hello interval in seconds. The type is interface{} with
@@ -4435,67 +2787,26 @@ type MplsLdp_MplsLdpState_Discovery_TargetedHellos struct {
     TargetedHello []MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello
 }
 
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetFilter() yfilter.YFilter { return targetedHellos.YFilter }
+func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetEntityData() *types.CommonEntityData {
+    targetedHellos.EntityData.YFilter = targetedHellos.YFilter
+    targetedHellos.EntityData.YangName = "targeted-hellos"
+    targetedHellos.EntityData.BundleName = "cisco_ios_xe"
+    targetedHellos.EntityData.ParentYangName = "discovery"
+    targetedHellos.EntityData.SegmentPath = "targeted-hellos"
+    targetedHellos.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    targetedHellos.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    targetedHellos.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) SetFilter(yf yfilter.YFilter) { targetedHellos.YFilter = yf }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetGoName(yname string) string {
-    if yname == "targeted-hello-interval" { return "TargetedHelloInterval" }
-    if yname == "targeted-hello-hold-time" { return "TargetedHelloHoldTime" }
-    if yname == "targeted-hello" { return "TargetedHello" }
-    return ""
-}
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetSegmentPath() string {
-    return "targeted-hellos"
-}
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "targeted-hello" {
-        for _, c := range targetedHellos.TargetedHello {
-            if targetedHellos.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello{}
-        targetedHellos.TargetedHello = append(targetedHellos.TargetedHello, child)
-        return &targetedHellos.TargetedHello[len(targetedHellos.TargetedHello)-1]
-    }
-    return nil
-}
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    targetedHellos.EntityData.Children = make(map[string]types.YChild)
+    targetedHellos.EntityData.Children["targeted-hello"] = types.YChild{"TargetedHello", nil}
     for i := range targetedHellos.TargetedHello {
-        children[targetedHellos.TargetedHello[i].GetSegmentPath()] = &targetedHellos.TargetedHello[i]
+        targetedHellos.EntityData.Children[types.GetSegmentPath(&targetedHellos.TargetedHello[i])] = types.YChild{"TargetedHello", &targetedHellos.TargetedHello[i]}
     }
-    return children
+    targetedHellos.EntityData.Leafs = make(map[string]types.YLeaf)
+    targetedHellos.EntityData.Leafs["targeted-hello-interval"] = types.YLeaf{"TargetedHelloInterval", targetedHellos.TargetedHelloInterval}
+    targetedHellos.EntityData.Leafs["targeted-hello-hold-time"] = types.YLeaf{"TargetedHelloHoldTime", targetedHellos.TargetedHelloHoldTime}
+    return &(targetedHellos.EntityData)
 }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["targeted-hello-interval"] = targetedHellos.TargetedHelloInterval
-    leafs["targeted-hello-hold-time"] = targetedHellos.TargetedHelloHoldTime
-    return leafs
-}
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetBundleName() string { return "cisco_ios_xe" }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetYangName() string { return "targeted-hellos" }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) SetParent(parent types.Entity) { targetedHellos.parent = parent }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetParent() types.Entity { return targetedHellos.parent }
-
-func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetParentYangName() string { return "discovery" }
 
 // MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello
 // The LDP targeted discovery information for a specific
@@ -4503,7 +2814,7 @@ func (targetedHellos *MplsLdp_MplsLdpState_Discovery_TargetedHellos) GetParentYa
 // between two addresses and not indiviual adjacencies
 // across physical interfaces.
 type MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -4512,16 +2823,16 @@ type MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello struct {
 
     // This attribute is a key. The target IP Address. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     TargetAddress interface{}
 
     // Local IP Address. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // Neighbor LDP Identifier. The type is string.
@@ -4553,71 +2864,34 @@ type MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello struct {
     HoldTimeRemaining interface{}
 }
 
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetFilter() yfilter.YFilter { return targetedHello.YFilter }
+func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetEntityData() *types.CommonEntityData {
+    targetedHello.EntityData.YFilter = targetedHello.YFilter
+    targetedHello.EntityData.YangName = "targeted-hello"
+    targetedHello.EntityData.BundleName = "cisco_ios_xe"
+    targetedHello.EntityData.ParentYangName = "targeted-hellos"
+    targetedHello.EntityData.SegmentPath = "targeted-hello" + "[vrf-name='" + fmt.Sprintf("%v", targetedHello.VrfName) + "']" + "[target-address='" + fmt.Sprintf("%v", targetedHello.TargetAddress) + "']"
+    targetedHello.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    targetedHello.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    targetedHello.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) SetFilter(yf yfilter.YFilter) { targetedHello.YFilter = yf }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "target-address" { return "TargetAddress" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "neighbor-ldp-identifier" { return "NeighborLdpIdentifier" }
-    if yname == "state" { return "State" }
-    if yname == "nbr-hold-time" { return "NbrHoldTime" }
-    if yname == "next-hello" { return "NextHello" }
-    if yname == "hold-time-remaining" { return "HoldTimeRemaining" }
-    return ""
+    targetedHello.EntityData.Children = make(map[string]types.YChild)
+    targetedHello.EntityData.Leafs = make(map[string]types.YLeaf)
+    targetedHello.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", targetedHello.VrfName}
+    targetedHello.EntityData.Leafs["target-address"] = types.YLeaf{"TargetAddress", targetedHello.TargetAddress}
+    targetedHello.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", targetedHello.LocalAddress}
+    targetedHello.EntityData.Leafs["neighbor-ldp-identifier"] = types.YLeaf{"NeighborLdpIdentifier", targetedHello.NeighborLdpIdentifier}
+    targetedHello.EntityData.Leafs["state"] = types.YLeaf{"State", targetedHello.State}
+    targetedHello.EntityData.Leafs["nbr-hold-time"] = types.YLeaf{"NbrHoldTime", targetedHello.NbrHoldTime}
+    targetedHello.EntityData.Leafs["next-hello"] = types.YLeaf{"NextHello", targetedHello.NextHello}
+    targetedHello.EntityData.Leafs["hold-time-remaining"] = types.YLeaf{"HoldTimeRemaining", targetedHello.HoldTimeRemaining}
+    return &(targetedHello.EntityData)
 }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetSegmentPath() string {
-    return "targeted-hello" + "[vrf-name='" + fmt.Sprintf("%v", targetedHello.VrfName) + "']" + "[target-address='" + fmt.Sprintf("%v", targetedHello.TargetAddress) + "']"
-}
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = targetedHello.VrfName
-    leafs["target-address"] = targetedHello.TargetAddress
-    leafs["local-address"] = targetedHello.LocalAddress
-    leafs["neighbor-ldp-identifier"] = targetedHello.NeighborLdpIdentifier
-    leafs["state"] = targetedHello.State
-    leafs["nbr-hold-time"] = targetedHello.NbrHoldTime
-    leafs["next-hello"] = targetedHello.NextHello
-    leafs["hold-time-remaining"] = targetedHello.HoldTimeRemaining
-    return leafs
-}
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetBundleName() string { return "cisco_ios_xe" }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetYangName() string { return "targeted-hello" }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) SetParent(parent types.Entity) { targetedHello.parent = parent }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetParent() types.Entity { return targetedHello.parent }
-
-func (targetedHello *MplsLdp_MplsLdpState_Discovery_TargetedHellos_TargetedHello) GetParentYangName() string { return "targeted-hellos" }
 
 // MplsLdp_MplsLdpState_Forwarding
 // Summary information regarding LDP forwarding
 // setup and detailed LDP Forwarding rewrites
 type MplsLdp_MplsLdpState_Forwarding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Summary of forwarding info for this VRF.
@@ -4629,73 +2903,30 @@ type MplsLdp_MplsLdpState_Forwarding struct {
     ForwardingDetail []MplsLdp_MplsLdpState_Forwarding_ForwardingDetail
 }
 
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetFilter() yfilter.YFilter { return forwarding.YFilter }
+func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetEntityData() *types.CommonEntityData {
+    forwarding.EntityData.YFilter = forwarding.YFilter
+    forwarding.EntityData.YangName = "forwarding"
+    forwarding.EntityData.BundleName = "cisco_ios_xe"
+    forwarding.EntityData.ParentYangName = "mpls-ldp-state"
+    forwarding.EntityData.SegmentPath = "forwarding"
+    forwarding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    forwarding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    forwarding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) SetFilter(yf yfilter.YFilter) { forwarding.YFilter = yf }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetGoName(yname string) string {
-    if yname == "forwarding-vrf-summs" { return "ForwardingVrfSumms" }
-    if yname == "forwarding-detail" { return "ForwardingDetail" }
-    return ""
-}
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetSegmentPath() string {
-    return "forwarding"
-}
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "forwarding-vrf-summs" {
-        return &forwarding.ForwardingVrfSumms
-    }
-    if childYangName == "forwarding-detail" {
-        for _, c := range forwarding.ForwardingDetail {
-            if forwarding.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Forwarding_ForwardingDetail{}
-        forwarding.ForwardingDetail = append(forwarding.ForwardingDetail, child)
-        return &forwarding.ForwardingDetail[len(forwarding.ForwardingDetail)-1]
-    }
-    return nil
-}
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["forwarding-vrf-summs"] = &forwarding.ForwardingVrfSumms
+    forwarding.EntityData.Children = make(map[string]types.YChild)
+    forwarding.EntityData.Children["forwarding-vrf-summs"] = types.YChild{"ForwardingVrfSumms", &forwarding.ForwardingVrfSumms}
+    forwarding.EntityData.Children["forwarding-detail"] = types.YChild{"ForwardingDetail", nil}
     for i := range forwarding.ForwardingDetail {
-        children[forwarding.ForwardingDetail[i].GetSegmentPath()] = &forwarding.ForwardingDetail[i]
+        forwarding.EntityData.Children[types.GetSegmentPath(&forwarding.ForwardingDetail[i])] = types.YChild{"ForwardingDetail", &forwarding.ForwardingDetail[i]}
     }
-    return children
+    forwarding.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(forwarding.EntityData)
 }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetBundleName() string { return "cisco_ios_xe" }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetYangName() string { return "forwarding" }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) SetParent(parent types.Entity) { forwarding.parent = parent }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetParent() types.Entity { return forwarding.parent }
-
-func (forwarding *MplsLdp_MplsLdpState_Forwarding) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms
 // Summary of forwarding info for this VRF.
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Summary of forwarding info for this VRF. The type is slice of
@@ -4703,68 +2934,29 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms struct {
     ForwardingVrfSumm []MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm
 }
 
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetFilter() yfilter.YFilter { return forwardingVrfSumms.YFilter }
+func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetEntityData() *types.CommonEntityData {
+    forwardingVrfSumms.EntityData.YFilter = forwardingVrfSumms.YFilter
+    forwardingVrfSumms.EntityData.YangName = "forwarding-vrf-summs"
+    forwardingVrfSumms.EntityData.BundleName = "cisco_ios_xe"
+    forwardingVrfSumms.EntityData.ParentYangName = "forwarding"
+    forwardingVrfSumms.EntityData.SegmentPath = "forwarding-vrf-summs"
+    forwardingVrfSumms.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    forwardingVrfSumms.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    forwardingVrfSumms.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) SetFilter(yf yfilter.YFilter) { forwardingVrfSumms.YFilter = yf }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetGoName(yname string) string {
-    if yname == "forwarding-vrf-summ" { return "ForwardingVrfSumm" }
-    return ""
-}
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetSegmentPath() string {
-    return "forwarding-vrf-summs"
-}
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "forwarding-vrf-summ" {
-        for _, c := range forwardingVrfSumms.ForwardingVrfSumm {
-            if forwardingVrfSumms.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm{}
-        forwardingVrfSumms.ForwardingVrfSumm = append(forwardingVrfSumms.ForwardingVrfSumm, child)
-        return &forwardingVrfSumms.ForwardingVrfSumm[len(forwardingVrfSumms.ForwardingVrfSumm)-1]
-    }
-    return nil
-}
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    forwardingVrfSumms.EntityData.Children = make(map[string]types.YChild)
+    forwardingVrfSumms.EntityData.Children["forwarding-vrf-summ"] = types.YChild{"ForwardingVrfSumm", nil}
     for i := range forwardingVrfSumms.ForwardingVrfSumm {
-        children[forwardingVrfSumms.ForwardingVrfSumm[i].GetSegmentPath()] = &forwardingVrfSumms.ForwardingVrfSumm[i]
+        forwardingVrfSumms.EntityData.Children[types.GetSegmentPath(&forwardingVrfSumms.ForwardingVrfSumm[i])] = types.YChild{"ForwardingVrfSumm", &forwardingVrfSumms.ForwardingVrfSumm[i]}
     }
-    return children
+    forwardingVrfSumms.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(forwardingVrfSumms.EntityData)
 }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetBundleName() string { return "cisco_ios_xe" }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetYangName() string { return "forwarding-vrf-summs" }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) SetParent(parent types.Entity) { forwardingVrfSumms.parent = parent }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetParent() types.Entity { return forwardingVrfSumms.parent }
-
-func (forwardingVrfSumms *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms) GetParentYangName() string { return "forwarding" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm
 // Summary of forwarding info for this VRF.
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -4785,70 +2977,30 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm struct
     Nhs MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs
 }
 
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetFilter() yfilter.YFilter { return forwardingVrfSumm.YFilter }
+func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetEntityData() *types.CommonEntityData {
+    forwardingVrfSumm.EntityData.YFilter = forwardingVrfSumm.YFilter
+    forwardingVrfSumm.EntityData.YangName = "forwarding-vrf-summ"
+    forwardingVrfSumm.EntityData.BundleName = "cisco_ios_xe"
+    forwardingVrfSumm.EntityData.ParentYangName = "forwarding-vrf-summs"
+    forwardingVrfSumm.EntityData.SegmentPath = "forwarding-vrf-summ" + "[vrf-name='" + fmt.Sprintf("%v", forwardingVrfSumm.VrfName) + "']"
+    forwardingVrfSumm.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    forwardingVrfSumm.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    forwardingVrfSumm.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) SetFilter(yf yfilter.YFilter) { forwardingVrfSumm.YFilter = yf }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "intfs-fwd-count" { return "IntfsFwdCount" }
-    if yname == "local-lbls" { return "LocalLbls" }
-    if yname == "pfxs" { return "Pfxs" }
-    if yname == "nhs" { return "Nhs" }
-    return ""
+    forwardingVrfSumm.EntityData.Children = make(map[string]types.YChild)
+    forwardingVrfSumm.EntityData.Children["pfxs"] = types.YChild{"Pfxs", &forwardingVrfSumm.Pfxs}
+    forwardingVrfSumm.EntityData.Children["nhs"] = types.YChild{"Nhs", &forwardingVrfSumm.Nhs}
+    forwardingVrfSumm.EntityData.Leafs = make(map[string]types.YLeaf)
+    forwardingVrfSumm.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", forwardingVrfSumm.VrfName}
+    forwardingVrfSumm.EntityData.Leafs["intfs-fwd-count"] = types.YLeaf{"IntfsFwdCount", forwardingVrfSumm.IntfsFwdCount}
+    forwardingVrfSumm.EntityData.Leafs["local-lbls"] = types.YLeaf{"LocalLbls", forwardingVrfSumm.LocalLbls}
+    return &(forwardingVrfSumm.EntityData)
 }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetSegmentPath() string {
-    return "forwarding-vrf-summ" + "[vrf-name='" + fmt.Sprintf("%v", forwardingVrfSumm.VrfName) + "']"
-}
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pfxs" {
-        return &forwardingVrfSumm.Pfxs
-    }
-    if childYangName == "nhs" {
-        return &forwardingVrfSumm.Nhs
-    }
-    return nil
-}
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pfxs"] = &forwardingVrfSumm.Pfxs
-    children["nhs"] = &forwardingVrfSumm.Nhs
-    return children
-}
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = forwardingVrfSumm.VrfName
-    leafs["intfs-fwd-count"] = forwardingVrfSumm.IntfsFwdCount
-    leafs["local-lbls"] = forwardingVrfSumm.LocalLbls
-    return leafs
-}
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetBundleName() string { return "cisco_ios_xe" }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetYangName() string { return "forwarding-vrf-summ" }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) SetParent(parent types.Entity) { forwardingVrfSumm.parent = parent }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetParent() types.Entity { return forwardingVrfSumm.parent }
-
-func (forwardingVrfSumm *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm) GetParentYangName() string { return "forwarding-vrf-summs" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs
 // MPLS LDP forwarding prefix rewrite summary
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total Prefix count. The type is interface{} with range: 0..65535.
@@ -4871,75 +3023,31 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs s
     LabeledPfxsBackup MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup
 }
 
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetFilter() yfilter.YFilter { return pfxs.YFilter }
+func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetEntityData() *types.CommonEntityData {
+    pfxs.EntityData.YFilter = pfxs.YFilter
+    pfxs.EntityData.YangName = "pfxs"
+    pfxs.EntityData.BundleName = "cisco_ios_xe"
+    pfxs.EntityData.ParentYangName = "forwarding-vrf-summ"
+    pfxs.EntityData.SegmentPath = "pfxs"
+    pfxs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pfxs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pfxs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) SetFilter(yf yfilter.YFilter) { pfxs.YFilter = yf }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetGoName(yname string) string {
-    if yname == "total-pfxs" { return "TotalPfxs" }
-    if yname == "ecmp-pfxs" { return "EcmpPfxs" }
-    if yname == "protected-pfxs" { return "ProtectedPfxs" }
-    if yname == "labeled-pfxs-aggr" { return "LabeledPfxsAggr" }
-    if yname == "labeled-pfxs-primary" { return "LabeledPfxsPrimary" }
-    if yname == "labeled-pfxs-backup" { return "LabeledPfxsBackup" }
-    return ""
+    pfxs.EntityData.Children = make(map[string]types.YChild)
+    pfxs.EntityData.Children["labeled-pfxs-aggr"] = types.YChild{"LabeledPfxsAggr", &pfxs.LabeledPfxsAggr}
+    pfxs.EntityData.Children["labeled-pfxs-primary"] = types.YChild{"LabeledPfxsPrimary", &pfxs.LabeledPfxsPrimary}
+    pfxs.EntityData.Children["labeled-pfxs-backup"] = types.YChild{"LabeledPfxsBackup", &pfxs.LabeledPfxsBackup}
+    pfxs.EntityData.Leafs = make(map[string]types.YLeaf)
+    pfxs.EntityData.Leafs["total-pfxs"] = types.YLeaf{"TotalPfxs", pfxs.TotalPfxs}
+    pfxs.EntityData.Leafs["ecmp-pfxs"] = types.YLeaf{"EcmpPfxs", pfxs.EcmpPfxs}
+    pfxs.EntityData.Leafs["protected-pfxs"] = types.YLeaf{"ProtectedPfxs", pfxs.ProtectedPfxs}
+    return &(pfxs.EntityData)
 }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetSegmentPath() string {
-    return "pfxs"
-}
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "labeled-pfxs-aggr" {
-        return &pfxs.LabeledPfxsAggr
-    }
-    if childYangName == "labeled-pfxs-primary" {
-        return &pfxs.LabeledPfxsPrimary
-    }
-    if childYangName == "labeled-pfxs-backup" {
-        return &pfxs.LabeledPfxsBackup
-    }
-    return nil
-}
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["labeled-pfxs-aggr"] = &pfxs.LabeledPfxsAggr
-    children["labeled-pfxs-primary"] = &pfxs.LabeledPfxsPrimary
-    children["labeled-pfxs-backup"] = &pfxs.LabeledPfxsBackup
-    return children
-}
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-pfxs"] = pfxs.TotalPfxs
-    leafs["ecmp-pfxs"] = pfxs.EcmpPfxs
-    leafs["protected-pfxs"] = pfxs.ProtectedPfxs
-    return leafs
-}
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetYangName() string { return "pfxs" }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) SetParent(parent types.Entity) { pfxs.parent = parent }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetParent() types.Entity { return pfxs.parent }
-
-func (pfxs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs) GetParentYangName() string { return "forwarding-vrf-summ" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr
 // Labeled prefix count for all paths
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of labeled prefixes with 1 or more paths labeled. The type is
@@ -4955,61 +3063,29 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_L
     UnlabeledPfxs interface{}
 }
 
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetFilter() yfilter.YFilter { return labeledPfxsAggr.YFilter }
+func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetEntityData() *types.CommonEntityData {
+    labeledPfxsAggr.EntityData.YFilter = labeledPfxsAggr.YFilter
+    labeledPfxsAggr.EntityData.YangName = "labeled-pfxs-aggr"
+    labeledPfxsAggr.EntityData.BundleName = "cisco_ios_xe"
+    labeledPfxsAggr.EntityData.ParentYangName = "pfxs"
+    labeledPfxsAggr.EntityData.SegmentPath = "labeled-pfxs-aggr"
+    labeledPfxsAggr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labeledPfxsAggr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labeledPfxsAggr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) SetFilter(yf yfilter.YFilter) { labeledPfxsAggr.YFilter = yf }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetGoName(yname string) string {
-    if yname == "labeled-pfxs" { return "LabeledPfxs" }
-    if yname == "labeled-pfxs-partial" { return "LabeledPfxsPartial" }
-    if yname == "unlabeled-pfxs" { return "UnlabeledPfxs" }
-    return ""
+    labeledPfxsAggr.EntityData.Children = make(map[string]types.YChild)
+    labeledPfxsAggr.EntityData.Leafs = make(map[string]types.YLeaf)
+    labeledPfxsAggr.EntityData.Leafs["labeled-pfxs"] = types.YLeaf{"LabeledPfxs", labeledPfxsAggr.LabeledPfxs}
+    labeledPfxsAggr.EntityData.Leafs["labeled-pfxs-partial"] = types.YLeaf{"LabeledPfxsPartial", labeledPfxsAggr.LabeledPfxsPartial}
+    labeledPfxsAggr.EntityData.Leafs["unlabeled-pfxs"] = types.YLeaf{"UnlabeledPfxs", labeledPfxsAggr.UnlabeledPfxs}
+    return &(labeledPfxsAggr.EntityData)
 }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetSegmentPath() string {
-    return "labeled-pfxs-aggr"
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["labeled-pfxs"] = labeledPfxsAggr.LabeledPfxs
-    leafs["labeled-pfxs-partial"] = labeledPfxsAggr.LabeledPfxsPartial
-    leafs["unlabeled-pfxs"] = labeledPfxsAggr.UnlabeledPfxs
-    return leafs
-}
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetYangName() string { return "labeled-pfxs-aggr" }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) SetParent(parent types.Entity) { labeledPfxsAggr.parent = parent }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetParent() types.Entity { return labeledPfxsAggr.parent }
-
-func (labeledPfxsAggr *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsAggr) GetParentYangName() string { return "pfxs" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary
 // Labeled prefix count related to primary paths
 // only
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of labeled prefixes with 1 or more paths labeled. The type is
@@ -5025,61 +3101,29 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_L
     UnlabeledPfxs interface{}
 }
 
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetFilter() yfilter.YFilter { return labeledPfxsPrimary.YFilter }
+func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetEntityData() *types.CommonEntityData {
+    labeledPfxsPrimary.EntityData.YFilter = labeledPfxsPrimary.YFilter
+    labeledPfxsPrimary.EntityData.YangName = "labeled-pfxs-primary"
+    labeledPfxsPrimary.EntityData.BundleName = "cisco_ios_xe"
+    labeledPfxsPrimary.EntityData.ParentYangName = "pfxs"
+    labeledPfxsPrimary.EntityData.SegmentPath = "labeled-pfxs-primary"
+    labeledPfxsPrimary.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labeledPfxsPrimary.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labeledPfxsPrimary.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) SetFilter(yf yfilter.YFilter) { labeledPfxsPrimary.YFilter = yf }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetGoName(yname string) string {
-    if yname == "labeled-pfxs" { return "LabeledPfxs" }
-    if yname == "labeled-pfxs-partial" { return "LabeledPfxsPartial" }
-    if yname == "unlabeled-pfxs" { return "UnlabeledPfxs" }
-    return ""
+    labeledPfxsPrimary.EntityData.Children = make(map[string]types.YChild)
+    labeledPfxsPrimary.EntityData.Leafs = make(map[string]types.YLeaf)
+    labeledPfxsPrimary.EntityData.Leafs["labeled-pfxs"] = types.YLeaf{"LabeledPfxs", labeledPfxsPrimary.LabeledPfxs}
+    labeledPfxsPrimary.EntityData.Leafs["labeled-pfxs-partial"] = types.YLeaf{"LabeledPfxsPartial", labeledPfxsPrimary.LabeledPfxsPartial}
+    labeledPfxsPrimary.EntityData.Leafs["unlabeled-pfxs"] = types.YLeaf{"UnlabeledPfxs", labeledPfxsPrimary.UnlabeledPfxs}
+    return &(labeledPfxsPrimary.EntityData)
 }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetSegmentPath() string {
-    return "labeled-pfxs-primary"
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["labeled-pfxs"] = labeledPfxsPrimary.LabeledPfxs
-    leafs["labeled-pfxs-partial"] = labeledPfxsPrimary.LabeledPfxsPartial
-    leafs["unlabeled-pfxs"] = labeledPfxsPrimary.UnlabeledPfxs
-    return leafs
-}
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetYangName() string { return "labeled-pfxs-primary" }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) SetParent(parent types.Entity) { labeledPfxsPrimary.parent = parent }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetParent() types.Entity { return labeledPfxsPrimary.parent }
-
-func (labeledPfxsPrimary *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsPrimary) GetParentYangName() string { return "pfxs" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup
 // Labeled prefix count related to backup paths
 // only
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of labeled prefixes with 1 or more paths labeled. The type is
@@ -5095,60 +3139,28 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_L
     UnlabeledPfxs interface{}
 }
 
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetFilter() yfilter.YFilter { return labeledPfxsBackup.YFilter }
+func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetEntityData() *types.CommonEntityData {
+    labeledPfxsBackup.EntityData.YFilter = labeledPfxsBackup.YFilter
+    labeledPfxsBackup.EntityData.YangName = "labeled-pfxs-backup"
+    labeledPfxsBackup.EntityData.BundleName = "cisco_ios_xe"
+    labeledPfxsBackup.EntityData.ParentYangName = "pfxs"
+    labeledPfxsBackup.EntityData.SegmentPath = "labeled-pfxs-backup"
+    labeledPfxsBackup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labeledPfxsBackup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labeledPfxsBackup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) SetFilter(yf yfilter.YFilter) { labeledPfxsBackup.YFilter = yf }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetGoName(yname string) string {
-    if yname == "labeled-pfxs" { return "LabeledPfxs" }
-    if yname == "labeled-pfxs-partial" { return "LabeledPfxsPartial" }
-    if yname == "unlabeled-pfxs" { return "UnlabeledPfxs" }
-    return ""
+    labeledPfxsBackup.EntityData.Children = make(map[string]types.YChild)
+    labeledPfxsBackup.EntityData.Leafs = make(map[string]types.YLeaf)
+    labeledPfxsBackup.EntityData.Leafs["labeled-pfxs"] = types.YLeaf{"LabeledPfxs", labeledPfxsBackup.LabeledPfxs}
+    labeledPfxsBackup.EntityData.Leafs["labeled-pfxs-partial"] = types.YLeaf{"LabeledPfxsPartial", labeledPfxsBackup.LabeledPfxsPartial}
+    labeledPfxsBackup.EntityData.Leafs["unlabeled-pfxs"] = types.YLeaf{"UnlabeledPfxs", labeledPfxsBackup.UnlabeledPfxs}
+    return &(labeledPfxsBackup.EntityData)
 }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetSegmentPath() string {
-    return "labeled-pfxs-backup"
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["labeled-pfxs"] = labeledPfxsBackup.LabeledPfxs
-    leafs["labeled-pfxs-partial"] = labeledPfxsBackup.LabeledPfxsPartial
-    leafs["unlabeled-pfxs"] = labeledPfxsBackup.UnlabeledPfxs
-    return leafs
-}
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetYangName() string { return "labeled-pfxs-backup" }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) SetParent(parent types.Entity) { labeledPfxsBackup.parent = parent }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetParent() types.Entity { return labeledPfxsBackup.parent }
-
-func (labeledPfxsBackup *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Pfxs_LabeledPfxsBackup) GetParentYangName() string { return "pfxs" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs
 // MPLS LDP forwarding rewrite next-hop/path summary
 type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total path count. The type is interface{} with range: 0..4294967295.
@@ -5175,67 +3187,32 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs st
     LabeledBackupPaths interface{}
 }
 
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetFilter() yfilter.YFilter { return nhs.YFilter }
+func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetEntityData() *types.CommonEntityData {
+    nhs.EntityData.YFilter = nhs.YFilter
+    nhs.EntityData.YangName = "nhs"
+    nhs.EntityData.BundleName = "cisco_ios_xe"
+    nhs.EntityData.ParentYangName = "forwarding-vrf-summ"
+    nhs.EntityData.SegmentPath = "nhs"
+    nhs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nhs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nhs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) SetFilter(yf yfilter.YFilter) { nhs.YFilter = yf }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetGoName(yname string) string {
-    if yname == "total-paths" { return "TotalPaths" }
-    if yname == "protected-paths" { return "ProtectedPaths" }
-    if yname == "backup-paths" { return "BackupPaths" }
-    if yname == "remote-backup-paths" { return "RemoteBackupPaths" }
-    if yname == "labeled-paths" { return "LabeledPaths" }
-    if yname == "labeled-backup-paths" { return "LabeledBackupPaths" }
-    return ""
+    nhs.EntityData.Children = make(map[string]types.YChild)
+    nhs.EntityData.Leafs = make(map[string]types.YLeaf)
+    nhs.EntityData.Leafs["total-paths"] = types.YLeaf{"TotalPaths", nhs.TotalPaths}
+    nhs.EntityData.Leafs["protected-paths"] = types.YLeaf{"ProtectedPaths", nhs.ProtectedPaths}
+    nhs.EntityData.Leafs["backup-paths"] = types.YLeaf{"BackupPaths", nhs.BackupPaths}
+    nhs.EntityData.Leafs["remote-backup-paths"] = types.YLeaf{"RemoteBackupPaths", nhs.RemoteBackupPaths}
+    nhs.EntityData.Leafs["labeled-paths"] = types.YLeaf{"LabeledPaths", nhs.LabeledPaths}
+    nhs.EntityData.Leafs["labeled-backup-paths"] = types.YLeaf{"LabeledBackupPaths", nhs.LabeledBackupPaths}
+    return &(nhs.EntityData)
 }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetSegmentPath() string {
-    return "nhs"
-}
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-paths"] = nhs.TotalPaths
-    leafs["protected-paths"] = nhs.ProtectedPaths
-    leafs["backup-paths"] = nhs.BackupPaths
-    leafs["remote-backup-paths"] = nhs.RemoteBackupPaths
-    leafs["labeled-paths"] = nhs.LabeledPaths
-    leafs["labeled-backup-paths"] = nhs.LabeledBackupPaths
-    return leafs
-}
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetYangName() string { return "nhs" }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) SetParent(parent types.Entity) { nhs.parent = parent }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetParent() types.Entity { return nhs.parent }
-
-func (nhs *MplsLdp_MplsLdpState_Forwarding_ForwardingVrfSumms_ForwardingVrfSumm_Nhs) GetParentYangName() string { return "forwarding-vrf-summ" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail
 // This leaf contain the individual LDP forwarding rewrite
 // for a single prefix.
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -5244,16 +3221,16 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail struct {
 
     // This attribute is a key. The IP Prefix. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     Prefix interface{}
 
     // This is the MPLS LDP Forward IP Prefix. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     FwdPrefix interface{}
 
     // Table ID associated with IP prefix. The type is interface{} with range:
@@ -5271,83 +3248,35 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail struct {
     Paths []MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths
 }
 
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetFilter() yfilter.YFilter { return forwardingDetail.YFilter }
+func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetEntityData() *types.CommonEntityData {
+    forwardingDetail.EntityData.YFilter = forwardingDetail.YFilter
+    forwardingDetail.EntityData.YangName = "forwarding-detail"
+    forwardingDetail.EntityData.BundleName = "cisco_ios_xe"
+    forwardingDetail.EntityData.ParentYangName = "forwarding"
+    forwardingDetail.EntityData.SegmentPath = "forwarding-detail" + "[vrf-name='" + fmt.Sprintf("%v", forwardingDetail.VrfName) + "']" + "[prefix='" + fmt.Sprintf("%v", forwardingDetail.Prefix) + "']"
+    forwardingDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    forwardingDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    forwardingDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) SetFilter(yf yfilter.YFilter) { forwardingDetail.YFilter = yf }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "prefix" { return "Prefix" }
-    if yname == "fwd-prefix" { return "FwdPrefix" }
-    if yname == "table-id" { return "TableId" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "route" { return "Route" }
-    if yname == "paths" { return "Paths" }
-    return ""
-}
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetSegmentPath() string {
-    return "forwarding-detail" + "[vrf-name='" + fmt.Sprintf("%v", forwardingDetail.VrfName) + "']" + "[prefix='" + fmt.Sprintf("%v", forwardingDetail.Prefix) + "']"
-}
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "route" {
-        return &forwardingDetail.Route
-    }
-    if childYangName == "paths" {
-        for _, c := range forwardingDetail.Paths {
-            if forwardingDetail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths{}
-        forwardingDetail.Paths = append(forwardingDetail.Paths, child)
-        return &forwardingDetail.Paths[len(forwardingDetail.Paths)-1]
-    }
-    return nil
-}
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["route"] = &forwardingDetail.Route
+    forwardingDetail.EntityData.Children = make(map[string]types.YChild)
+    forwardingDetail.EntityData.Children["route"] = types.YChild{"Route", &forwardingDetail.Route}
+    forwardingDetail.EntityData.Children["paths"] = types.YChild{"Paths", nil}
     for i := range forwardingDetail.Paths {
-        children[forwardingDetail.Paths[i].GetSegmentPath()] = &forwardingDetail.Paths[i]
+        forwardingDetail.EntityData.Children[types.GetSegmentPath(&forwardingDetail.Paths[i])] = types.YChild{"Paths", &forwardingDetail.Paths[i]}
     }
-    return children
+    forwardingDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    forwardingDetail.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", forwardingDetail.VrfName}
+    forwardingDetail.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", forwardingDetail.Prefix}
+    forwardingDetail.EntityData.Leafs["fwd-prefix"] = types.YLeaf{"FwdPrefix", forwardingDetail.FwdPrefix}
+    forwardingDetail.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", forwardingDetail.TableId}
+    forwardingDetail.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", forwardingDetail.PrefixLength}
+    return &(forwardingDetail.EntityData)
 }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = forwardingDetail.VrfName
-    leafs["prefix"] = forwardingDetail.Prefix
-    leafs["fwd-prefix"] = forwardingDetail.FwdPrefix
-    leafs["table-id"] = forwardingDetail.TableId
-    leafs["prefix-length"] = forwardingDetail.PrefixLength
-    return leafs
-}
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetBundleName() string { return "cisco_ios_xe" }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetYangName() string { return "forwarding-detail" }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) SetParent(parent types.Entity) { forwardingDetail.parent = parent }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetParent() types.Entity { return forwardingDetail.parent }
-
-func (forwardingDetail *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail) GetParentYangName() string { return "forwarding" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route
 // MPLS LDP Forwarding Route information
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Route RIB version. The type is interface{} with range: 0..4294967295.
@@ -5360,7 +3289,7 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route struct {
     Source interface{}
 
     // Route type. The type is interface{} with range: 0..65535.
-    Type interface{}
+    Type_ interface{}
 
     // Route metric. The type is interface{} with range: 0..4294967295.
     Metric interface{}
@@ -5396,80 +3325,38 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route struct {
     ForwardingUpdateAge interface{}
 }
 
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetFilter() yfilter.YFilter { return route.YFilter }
+func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetEntityData() *types.CommonEntityData {
+    route.EntityData.YFilter = route.YFilter
+    route.EntityData.YangName = "route"
+    route.EntityData.BundleName = "cisco_ios_xe"
+    route.EntityData.ParentYangName = "forwarding-detail"
+    route.EntityData.SegmentPath = "route"
+    route.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    route.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    route.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) SetFilter(yf yfilter.YFilter) { route.YFilter = yf }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetGoName(yname string) string {
-    if yname == "version" { return "Version" }
-    if yname == "priority" { return "Priority" }
-    if yname == "source" { return "Source" }
-    if yname == "type" { return "Type" }
-    if yname == "metric" { return "Metric" }
-    if yname == "is-local-vrf-leaked" { return "IsLocalVrfLeaked" }
-    if yname == "routing-update-count" { return "RoutingUpdateCount" }
-    if yname == "routing-update-timestamp" { return "RoutingUpdateTimestamp" }
-    if yname == "routing-update-age" { return "RoutingUpdateAge" }
-    if yname == "local-label" { return "LocalLabel" }
-    if yname == "forwarding-update-count" { return "ForwardingUpdateCount" }
-    if yname == "forwarding-update-timestamp" { return "ForwardingUpdateTimestamp" }
-    if yname == "forwarding-update-age" { return "ForwardingUpdateAge" }
-    return ""
+    route.EntityData.Children = make(map[string]types.YChild)
+    route.EntityData.Leafs = make(map[string]types.YLeaf)
+    route.EntityData.Leafs["version"] = types.YLeaf{"Version", route.Version}
+    route.EntityData.Leafs["priority"] = types.YLeaf{"Priority", route.Priority}
+    route.EntityData.Leafs["source"] = types.YLeaf{"Source", route.Source}
+    route.EntityData.Leafs["type"] = types.YLeaf{"Type_", route.Type_}
+    route.EntityData.Leafs["metric"] = types.YLeaf{"Metric", route.Metric}
+    route.EntityData.Leafs["is-local-vrf-leaked"] = types.YLeaf{"IsLocalVrfLeaked", route.IsLocalVrfLeaked}
+    route.EntityData.Leafs["routing-update-count"] = types.YLeaf{"RoutingUpdateCount", route.RoutingUpdateCount}
+    route.EntityData.Leafs["routing-update-timestamp"] = types.YLeaf{"RoutingUpdateTimestamp", route.RoutingUpdateTimestamp}
+    route.EntityData.Leafs["routing-update-age"] = types.YLeaf{"RoutingUpdateAge", route.RoutingUpdateAge}
+    route.EntityData.Leafs["local-label"] = types.YLeaf{"LocalLabel", route.LocalLabel}
+    route.EntityData.Leafs["forwarding-update-count"] = types.YLeaf{"ForwardingUpdateCount", route.ForwardingUpdateCount}
+    route.EntityData.Leafs["forwarding-update-timestamp"] = types.YLeaf{"ForwardingUpdateTimestamp", route.ForwardingUpdateTimestamp}
+    route.EntityData.Leafs["forwarding-update-age"] = types.YLeaf{"ForwardingUpdateAge", route.ForwardingUpdateAge}
+    return &(route.EntityData)
 }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetSegmentPath() string {
-    return "route"
-}
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["version"] = route.Version
-    leafs["priority"] = route.Priority
-    leafs["source"] = route.Source
-    leafs["type"] = route.Type
-    leafs["metric"] = route.Metric
-    leafs["is-local-vrf-leaked"] = route.IsLocalVrfLeaked
-    leafs["routing-update-count"] = route.RoutingUpdateCount
-    leafs["routing-update-timestamp"] = route.RoutingUpdateTimestamp
-    leafs["routing-update-age"] = route.RoutingUpdateAge
-    leafs["local-label"] = route.LocalLabel
-    leafs["forwarding-update-count"] = route.ForwardingUpdateCount
-    leafs["forwarding-update-timestamp"] = route.ForwardingUpdateTimestamp
-    leafs["forwarding-update-age"] = route.ForwardingUpdateAge
-    return leafs
-}
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetBundleName() string { return "cisco_ios_xe" }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetYangName() string { return "route" }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) SetParent(parent types.Entity) { route.parent = parent }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetParent() types.Entity { return route.parent }
-
-func (route *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Route) GetParentYangName() string { return "forwarding-detail" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths
 // MPLS LDP Forwarding Path info
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP Forwarding Path IP Routing information.
@@ -5479,78 +3366,41 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths struct {
     Mpls MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls
 }
 
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetFilter() yfilter.YFilter { return paths.YFilter }
+func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetEntityData() *types.CommonEntityData {
+    paths.EntityData.YFilter = paths.YFilter
+    paths.EntityData.YangName = "paths"
+    paths.EntityData.BundleName = "cisco_ios_xe"
+    paths.EntityData.ParentYangName = "forwarding-detail"
+    paths.EntityData.SegmentPath = "paths"
+    paths.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    paths.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    paths.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) SetFilter(yf yfilter.YFilter) { paths.YFilter = yf }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetGoName(yname string) string {
-    if yname == "routing" { return "Routing" }
-    if yname == "mpls" { return "Mpls" }
-    return ""
+    paths.EntityData.Children = make(map[string]types.YChild)
+    paths.EntityData.Children["routing"] = types.YChild{"Routing", &paths.Routing}
+    paths.EntityData.Children["mpls"] = types.YChild{"Mpls", &paths.Mpls}
+    paths.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(paths.EntityData)
 }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetSegmentPath() string {
-    return "paths"
-}
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "routing" {
-        return &paths.Routing
-    }
-    if childYangName == "mpls" {
-        return &paths.Mpls
-    }
-    return nil
-}
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["routing"] = &paths.Routing
-    children["mpls"] = &paths.Mpls
-    return children
-}
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetBundleName() string { return "cisco_ios_xe" }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetYangName() string { return "paths" }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) SetParent(parent types.Entity) { paths.parent = parent }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetParent() types.Entity { return paths.parent }
-
-func (paths *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths) GetParentYangName() string { return "forwarding-detail" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing
 // MPLS LDP Forwarding Path IP Routing information
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is the Next Hop address. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NextHop interface{}
 
     // This is the Remote/PQ node address. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     RemoteNodeId interface{}
 
     // This is true if the path has a remote LFA backup. The type is bool.
@@ -5558,7 +3408,7 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing struct {
 
     // This is the interface. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // This is set when the nexthop is overriden by LDP. The type is interface{}.
     NhIsOverriden interface{}
@@ -5581,80 +3431,40 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing struct {
     BkupPathId interface{}
 
     // Routing path type. The type is one of the following:
-    // RoutePathIpNoFlagRoutePathIpBackupRoutePathIpBgpBackupRoutePathIpProtectedRoutePathIpBackupRemote.
+    // RoutePathIpNoFlagRoutePathIpProtectedRoutePathIpBackupRoutePathIpBackupRemoteRoutePathIpBgpBackup.
     PathType interface{}
 }
 
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetFilter() yfilter.YFilter { return routing.YFilter }
+func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetEntityData() *types.CommonEntityData {
+    routing.EntityData.YFilter = routing.YFilter
+    routing.EntityData.YangName = "routing"
+    routing.EntityData.BundleName = "cisco_ios_xe"
+    routing.EntityData.ParentYangName = "paths"
+    routing.EntityData.SegmentPath = "routing"
+    routing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) SetFilter(yf yfilter.YFilter) { routing.YFilter = yf }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetGoName(yname string) string {
-    if yname == "next-hop" { return "NextHop" }
-    if yname == "remote-node-id" { return "RemoteNodeId" }
-    if yname == "has-remote-lfa-bkup" { return "HasRemoteLfaBkup" }
-    if yname == "interface" { return "Interface" }
-    if yname == "nh-is-overriden" { return "NhIsOverriden" }
-    if yname == "nexthop-id" { return "NexthopId" }
-    if yname == "next-hop-table-id" { return "NextHopTableId" }
-    if yname == "load-metric" { return "LoadMetric" }
-    if yname == "path-id" { return "PathId" }
-    if yname == "bkup-path-id" { return "BkupPathId" }
-    if yname == "path-type" { return "PathType" }
-    return ""
+    routing.EntityData.Children = make(map[string]types.YChild)
+    routing.EntityData.Leafs = make(map[string]types.YLeaf)
+    routing.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", routing.NextHop}
+    routing.EntityData.Leafs["remote-node-id"] = types.YLeaf{"RemoteNodeId", routing.RemoteNodeId}
+    routing.EntityData.Leafs["has-remote-lfa-bkup"] = types.YLeaf{"HasRemoteLfaBkup", routing.HasRemoteLfaBkup}
+    routing.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", routing.Interface_}
+    routing.EntityData.Leafs["nh-is-overriden"] = types.YLeaf{"NhIsOverriden", routing.NhIsOverriden}
+    routing.EntityData.Leafs["nexthop-id"] = types.YLeaf{"NexthopId", routing.NexthopId}
+    routing.EntityData.Leafs["next-hop-table-id"] = types.YLeaf{"NextHopTableId", routing.NextHopTableId}
+    routing.EntityData.Leafs["load-metric"] = types.YLeaf{"LoadMetric", routing.LoadMetric}
+    routing.EntityData.Leafs["path-id"] = types.YLeaf{"PathId", routing.PathId}
+    routing.EntityData.Leafs["bkup-path-id"] = types.YLeaf{"BkupPathId", routing.BkupPathId}
+    routing.EntityData.Leafs["path-type"] = types.YLeaf{"PathType", routing.PathType}
+    return &(routing.EntityData)
 }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetSegmentPath() string {
-    return "routing"
-}
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["next-hop"] = routing.NextHop
-    leafs["remote-node-id"] = routing.RemoteNodeId
-    leafs["has-remote-lfa-bkup"] = routing.HasRemoteLfaBkup
-    leafs["interface"] = routing.Interface
-    leafs["nh-is-overriden"] = routing.NhIsOverriden
-    leafs["nexthop-id"] = routing.NexthopId
-    leafs["next-hop-table-id"] = routing.NextHopTableId
-    leafs["load-metric"] = routing.LoadMetric
-    leafs["path-id"] = routing.PathId
-    leafs["bkup-path-id"] = routing.BkupPathId
-    leafs["path-type"] = routing.PathType
-    return leafs
-}
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetBundleName() string { return "cisco_ios_xe" }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetYangName() string { return "routing" }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) SetParent(parent types.Entity) { routing.parent = parent }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetParent() types.Entity { return routing.parent }
-
-func (routing *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Routing) GetParentYangName() string { return "paths" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls
 // MPLS LDP Forwarding Path MPLS information
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS nexthop info.
@@ -5664,75 +3474,38 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls struct {
     RemoteLfa MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa
 }
 
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetFilter() yfilter.YFilter { return mpls.YFilter }
+func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetEntityData() *types.CommonEntityData {
+    mpls.EntityData.YFilter = mpls.YFilter
+    mpls.EntityData.YangName = "mpls"
+    mpls.EntityData.BundleName = "cisco_ios_xe"
+    mpls.EntityData.ParentYangName = "paths"
+    mpls.EntityData.SegmentPath = "mpls"
+    mpls.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mpls.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mpls.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) SetFilter(yf yfilter.YFilter) { mpls.YFilter = yf }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetGoName(yname string) string {
-    if yname == "mpls-outgoing-info" { return "MplsOutgoingInfo" }
-    if yname == "remote-lfa" { return "RemoteLfa" }
-    return ""
+    mpls.EntityData.Children = make(map[string]types.YChild)
+    mpls.EntityData.Children["mpls-outgoing-info"] = types.YChild{"MplsOutgoingInfo", &mpls.MplsOutgoingInfo}
+    mpls.EntityData.Children["remote-lfa"] = types.YChild{"RemoteLfa", &mpls.RemoteLfa}
+    mpls.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mpls.EntityData)
 }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetSegmentPath() string {
-    return "mpls"
-}
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpls-outgoing-info" {
-        return &mpls.MplsOutgoingInfo
-    }
-    if childYangName == "remote-lfa" {
-        return &mpls.RemoteLfa
-    }
-    return nil
-}
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpls-outgoing-info"] = &mpls.MplsOutgoingInfo
-    children["remote-lfa"] = &mpls.RemoteLfa
-    return children
-}
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetYangName() string { return "mpls" }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) SetParent(parent types.Entity) { mpls.parent = parent }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetParent() types.Entity { return mpls.parent }
-
-func (mpls *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls) GetParentYangName() string { return "paths" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo
 // MPLS nexthop info
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // Outgoing Label Type. The type is one of the following:
-    // LabelTypeUnknownLabelTypeMplsLabelTypeUnLabeled.
+    // LabelTypeMplsLabelTypeUnLabeledLabelTypeUnknown.
     OutLabelType interface{}
 
     // Outgoing label owner. The type is one of the following:
-    // RoutePathLblOwnerBgpRoutePathLblOwnerStaticRoutePathLblOwnerNoneRoutePathLblOwnerLdp.
+    // RoutePathLblOwnerNoneRoutePathLblOwnerLdpRoutePathLblOwnerBgpRoutePathLblOwnerStatic.
     OutLabelOwner interface{}
 
     // Is from a GR neighbor. The type is bool.
@@ -5746,135 +3519,66 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInf
     NexthopPeerLdpIdent MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent
 }
 
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetFilter() yfilter.YFilter { return mplsOutgoingInfo.YFilter }
+func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetEntityData() *types.CommonEntityData {
+    mplsOutgoingInfo.EntityData.YFilter = mplsOutgoingInfo.YFilter
+    mplsOutgoingInfo.EntityData.YangName = "mpls-outgoing-info"
+    mplsOutgoingInfo.EntityData.BundleName = "cisco_ios_xe"
+    mplsOutgoingInfo.EntityData.ParentYangName = "mpls"
+    mplsOutgoingInfo.EntityData.SegmentPath = "mpls-outgoing-info"
+    mplsOutgoingInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsOutgoingInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsOutgoingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) SetFilter(yf yfilter.YFilter) { mplsOutgoingInfo.YFilter = yf }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetGoName(yname string) string {
-    if yname == "out-label" { return "OutLabel" }
-    if yname == "out-label-type" { return "OutLabelType" }
-    if yname == "out-label-owner" { return "OutLabelOwner" }
-    if yname == "is-from-graceful-restartable-neighbor" { return "IsFromGracefulRestartableNeighbor" }
-    if yname == "is-stale" { return "IsStale" }
-    if yname == "nexthop-peer-ldp-ident" { return "NexthopPeerLdpIdent" }
-    return ""
+    mplsOutgoingInfo.EntityData.Children = make(map[string]types.YChild)
+    mplsOutgoingInfo.EntityData.Children["nexthop-peer-ldp-ident"] = types.YChild{"NexthopPeerLdpIdent", &mplsOutgoingInfo.NexthopPeerLdpIdent}
+    mplsOutgoingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsOutgoingInfo.EntityData.Leafs["out-label"] = types.YLeaf{"OutLabel", mplsOutgoingInfo.OutLabel}
+    mplsOutgoingInfo.EntityData.Leafs["out-label-type"] = types.YLeaf{"OutLabelType", mplsOutgoingInfo.OutLabelType}
+    mplsOutgoingInfo.EntityData.Leafs["out-label-owner"] = types.YLeaf{"OutLabelOwner", mplsOutgoingInfo.OutLabelOwner}
+    mplsOutgoingInfo.EntityData.Leafs["is-from-graceful-restartable-neighbor"] = types.YLeaf{"IsFromGracefulRestartableNeighbor", mplsOutgoingInfo.IsFromGracefulRestartableNeighbor}
+    mplsOutgoingInfo.EntityData.Leafs["is-stale"] = types.YLeaf{"IsStale", mplsOutgoingInfo.IsStale}
+    return &(mplsOutgoingInfo.EntityData)
 }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetSegmentPath() string {
-    return "mpls-outgoing-info"
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nexthop-peer-ldp-ident" {
-        return &mplsOutgoingInfo.NexthopPeerLdpIdent
-    }
-    return nil
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nexthop-peer-ldp-ident"] = &mplsOutgoingInfo.NexthopPeerLdpIdent
-    return children
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["out-label"] = mplsOutgoingInfo.OutLabel
-    leafs["out-label-type"] = mplsOutgoingInfo.OutLabelType
-    leafs["out-label-owner"] = mplsOutgoingInfo.OutLabelOwner
-    leafs["is-from-graceful-restartable-neighbor"] = mplsOutgoingInfo.IsFromGracefulRestartableNeighbor
-    leafs["is-stale"] = mplsOutgoingInfo.IsStale
-    return leafs
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetYangName() string { return "mpls-outgoing-info" }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) SetParent(parent types.Entity) { mplsOutgoingInfo.parent = parent }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetParent() types.Entity { return mplsOutgoingInfo.parent }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo) GetParentYangName() string { return "mpls" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent
 // Nexthop LDP peer
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LSR identifier. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Label space identifier. The type is interface{} with range: 0..65535.
     LabelSpaceId interface{}
 }
 
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetFilter() yfilter.YFilter { return nexthopPeerLdpIdent.YFilter }
+func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetEntityData() *types.CommonEntityData {
+    nexthopPeerLdpIdent.EntityData.YFilter = nexthopPeerLdpIdent.YFilter
+    nexthopPeerLdpIdent.EntityData.YangName = "nexthop-peer-ldp-ident"
+    nexthopPeerLdpIdent.EntityData.BundleName = "cisco_ios_xe"
+    nexthopPeerLdpIdent.EntityData.ParentYangName = "mpls-outgoing-info"
+    nexthopPeerLdpIdent.EntityData.SegmentPath = "nexthop-peer-ldp-ident"
+    nexthopPeerLdpIdent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nexthopPeerLdpIdent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nexthopPeerLdpIdent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) SetFilter(yf yfilter.YFilter) { nexthopPeerLdpIdent.YFilter = yf }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetGoName(yname string) string {
-    if yname == "lsr-id" { return "LsrId" }
-    if yname == "label-space-id" { return "LabelSpaceId" }
-    return ""
+    nexthopPeerLdpIdent.EntityData.Children = make(map[string]types.YChild)
+    nexthopPeerLdpIdent.EntityData.Leafs = make(map[string]types.YLeaf)
+    nexthopPeerLdpIdent.EntityData.Leafs["lsr-id"] = types.YLeaf{"LsrId", nexthopPeerLdpIdent.LsrId}
+    nexthopPeerLdpIdent.EntityData.Leafs["label-space-id"] = types.YLeaf{"LabelSpaceId", nexthopPeerLdpIdent.LabelSpaceId}
+    return &(nexthopPeerLdpIdent.EntityData)
 }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetSegmentPath() string {
-    return "nexthop-peer-ldp-ident"
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lsr-id"] = nexthopPeerLdpIdent.LsrId
-    leafs["label-space-id"] = nexthopPeerLdpIdent.LabelSpaceId
-    return leafs
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetYangName() string { return "nexthop-peer-ldp-ident" }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) SetParent(parent types.Entity) { nexthopPeerLdpIdent.parent = parent }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetParent() types.Entity { return nexthopPeerLdpIdent.parent }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_MplsOutgoingInfo_NexthopPeerLdpIdent) GetParentYangName() string { return "mpls-outgoing-info" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa
 // MPLS LDP Forwarding Path Remote LFA-FRR backup
 // MPLS info
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Whether path has remote LFA backup. The type is bool.
@@ -5884,72 +3588,38 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa struc
     MplsOutgoingInfo MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo
 }
 
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetFilter() yfilter.YFilter { return remoteLfa.YFilter }
+func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetEntityData() *types.CommonEntityData {
+    remoteLfa.EntityData.YFilter = remoteLfa.YFilter
+    remoteLfa.EntityData.YangName = "remote-lfa"
+    remoteLfa.EntityData.BundleName = "cisco_ios_xe"
+    remoteLfa.EntityData.ParentYangName = "mpls"
+    remoteLfa.EntityData.SegmentPath = "remote-lfa"
+    remoteLfa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    remoteLfa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    remoteLfa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) SetFilter(yf yfilter.YFilter) { remoteLfa.YFilter = yf }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetGoName(yname string) string {
-    if yname == "has-remote-lfa-bkup" { return "HasRemoteLfaBkup" }
-    if yname == "mpls-outgoing-info" { return "MplsOutgoingInfo" }
-    return ""
+    remoteLfa.EntityData.Children = make(map[string]types.YChild)
+    remoteLfa.EntityData.Children["mpls-outgoing-info"] = types.YChild{"MplsOutgoingInfo", &remoteLfa.MplsOutgoingInfo}
+    remoteLfa.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteLfa.EntityData.Leafs["has-remote-lfa-bkup"] = types.YLeaf{"HasRemoteLfaBkup", remoteLfa.HasRemoteLfaBkup}
+    return &(remoteLfa.EntityData)
 }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetSegmentPath() string {
-    return "remote-lfa"
-}
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpls-outgoing-info" {
-        return &remoteLfa.MplsOutgoingInfo
-    }
-    return nil
-}
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpls-outgoing-info"] = &remoteLfa.MplsOutgoingInfo
-    return children
-}
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["has-remote-lfa-bkup"] = remoteLfa.HasRemoteLfaBkup
-    return leafs
-}
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetBundleName() string { return "cisco_ios_xe" }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetYangName() string { return "remote-lfa" }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) SetParent(parent types.Entity) { remoteLfa.parent = parent }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetParent() types.Entity { return remoteLfa.parent }
-
-func (remoteLfa *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa) GetParentYangName() string { return "mpls" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo
 // Remote LFA MPLS nexthop info
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // Outgoing Label Type. The type is one of the following:
-    // LabelTypeUnknownLabelTypeMplsLabelTypeUnLabeled.
+    // LabelTypeMplsLabelTypeUnLabeledLabelTypeUnknown.
     OutLabelType interface{}
 
     // Outgoing label owner. The type is one of the following:
-    // RoutePathLblOwnerBgpRoutePathLblOwnerStaticRoutePathLblOwnerNoneRoutePathLblOwnerLdp.
+    // RoutePathLblOwnerNoneRoutePathLblOwnerLdpRoutePathLblOwnerBgpRoutePathLblOwnerStatic.
     OutLabelOwner interface{}
 
     // Is from a GR neighbor. The type is bool.
@@ -5963,134 +3633,65 @@ type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsO
     NexthopPeerLdpIdent MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent
 }
 
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetFilter() yfilter.YFilter { return mplsOutgoingInfo.YFilter }
+func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetEntityData() *types.CommonEntityData {
+    mplsOutgoingInfo.EntityData.YFilter = mplsOutgoingInfo.YFilter
+    mplsOutgoingInfo.EntityData.YangName = "mpls-outgoing-info"
+    mplsOutgoingInfo.EntityData.BundleName = "cisco_ios_xe"
+    mplsOutgoingInfo.EntityData.ParentYangName = "remote-lfa"
+    mplsOutgoingInfo.EntityData.SegmentPath = "mpls-outgoing-info"
+    mplsOutgoingInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsOutgoingInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsOutgoingInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) SetFilter(yf yfilter.YFilter) { mplsOutgoingInfo.YFilter = yf }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetGoName(yname string) string {
-    if yname == "out-label" { return "OutLabel" }
-    if yname == "out-label-type" { return "OutLabelType" }
-    if yname == "out-label-owner" { return "OutLabelOwner" }
-    if yname == "is-from-graceful-restartable-neighbor" { return "IsFromGracefulRestartableNeighbor" }
-    if yname == "is-stale" { return "IsStale" }
-    if yname == "nexthop-peer-ldp-ident" { return "NexthopPeerLdpIdent" }
-    return ""
+    mplsOutgoingInfo.EntityData.Children = make(map[string]types.YChild)
+    mplsOutgoingInfo.EntityData.Children["nexthop-peer-ldp-ident"] = types.YChild{"NexthopPeerLdpIdent", &mplsOutgoingInfo.NexthopPeerLdpIdent}
+    mplsOutgoingInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsOutgoingInfo.EntityData.Leafs["out-label"] = types.YLeaf{"OutLabel", mplsOutgoingInfo.OutLabel}
+    mplsOutgoingInfo.EntityData.Leafs["out-label-type"] = types.YLeaf{"OutLabelType", mplsOutgoingInfo.OutLabelType}
+    mplsOutgoingInfo.EntityData.Leafs["out-label-owner"] = types.YLeaf{"OutLabelOwner", mplsOutgoingInfo.OutLabelOwner}
+    mplsOutgoingInfo.EntityData.Leafs["is-from-graceful-restartable-neighbor"] = types.YLeaf{"IsFromGracefulRestartableNeighbor", mplsOutgoingInfo.IsFromGracefulRestartableNeighbor}
+    mplsOutgoingInfo.EntityData.Leafs["is-stale"] = types.YLeaf{"IsStale", mplsOutgoingInfo.IsStale}
+    return &(mplsOutgoingInfo.EntityData)
 }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetSegmentPath() string {
-    return "mpls-outgoing-info"
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nexthop-peer-ldp-ident" {
-        return &mplsOutgoingInfo.NexthopPeerLdpIdent
-    }
-    return nil
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nexthop-peer-ldp-ident"] = &mplsOutgoingInfo.NexthopPeerLdpIdent
-    return children
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["out-label"] = mplsOutgoingInfo.OutLabel
-    leafs["out-label-type"] = mplsOutgoingInfo.OutLabelType
-    leafs["out-label-owner"] = mplsOutgoingInfo.OutLabelOwner
-    leafs["is-from-graceful-restartable-neighbor"] = mplsOutgoingInfo.IsFromGracefulRestartableNeighbor
-    leafs["is-stale"] = mplsOutgoingInfo.IsStale
-    return leafs
-}
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetYangName() string { return "mpls-outgoing-info" }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) SetParent(parent types.Entity) { mplsOutgoingInfo.parent = parent }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetParent() types.Entity { return mplsOutgoingInfo.parent }
-
-func (mplsOutgoingInfo *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo) GetParentYangName() string { return "remote-lfa" }
 
 // MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent
 // Nexthop LDP peer
 type MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LSR identifier. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Label space identifier. The type is interface{} with range: 0..65535.
     LabelSpaceId interface{}
 }
 
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetFilter() yfilter.YFilter { return nexthopPeerLdpIdent.YFilter }
+func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetEntityData() *types.CommonEntityData {
+    nexthopPeerLdpIdent.EntityData.YFilter = nexthopPeerLdpIdent.YFilter
+    nexthopPeerLdpIdent.EntityData.YangName = "nexthop-peer-ldp-ident"
+    nexthopPeerLdpIdent.EntityData.BundleName = "cisco_ios_xe"
+    nexthopPeerLdpIdent.EntityData.ParentYangName = "mpls-outgoing-info"
+    nexthopPeerLdpIdent.EntityData.SegmentPath = "nexthop-peer-ldp-ident"
+    nexthopPeerLdpIdent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nexthopPeerLdpIdent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nexthopPeerLdpIdent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) SetFilter(yf yfilter.YFilter) { nexthopPeerLdpIdent.YFilter = yf }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetGoName(yname string) string {
-    if yname == "lsr-id" { return "LsrId" }
-    if yname == "label-space-id" { return "LabelSpaceId" }
-    return ""
+    nexthopPeerLdpIdent.EntityData.Children = make(map[string]types.YChild)
+    nexthopPeerLdpIdent.EntityData.Leafs = make(map[string]types.YLeaf)
+    nexthopPeerLdpIdent.EntityData.Leafs["lsr-id"] = types.YLeaf{"LsrId", nexthopPeerLdpIdent.LsrId}
+    nexthopPeerLdpIdent.EntityData.Leafs["label-space-id"] = types.YLeaf{"LabelSpaceId", nexthopPeerLdpIdent.LabelSpaceId}
+    return &(nexthopPeerLdpIdent.EntityData)
 }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetSegmentPath() string {
-    return "nexthop-peer-ldp-ident"
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lsr-id"] = nexthopPeerLdpIdent.LsrId
-    leafs["label-space-id"] = nexthopPeerLdpIdent.LabelSpaceId
-    return leafs
-}
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetYangName() string { return "nexthop-peer-ldp-ident" }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) SetParent(parent types.Entity) { nexthopPeerLdpIdent.parent = parent }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetParent() types.Entity { return nexthopPeerLdpIdent.parent }
-
-func (nexthopPeerLdpIdent *MplsLdp_MplsLdpState_Forwarding_ForwardingDetail_Paths_Mpls_RemoteLfa_MplsOutgoingInfo_NexthopPeerLdpIdent) GetParentYangName() string { return "mpls-outgoing-info" }
 
 // MplsLdp_MplsLdpState_Bindings
 // The detailed LDP Bindings.
 type MplsLdp_MplsLdpState_Bindings struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This container holds the bindings specific to this VRF and AF.
@@ -6104,74 +3705,31 @@ type MplsLdp_MplsLdpState_Bindings struct {
     Binding []MplsLdp_MplsLdpState_Bindings_Binding
 }
 
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetFilter() yfilter.YFilter { return bindings.YFilter }
+func (bindings *MplsLdp_MplsLdpState_Bindings) GetEntityData() *types.CommonEntityData {
+    bindings.EntityData.YFilter = bindings.YFilter
+    bindings.EntityData.YangName = "bindings"
+    bindings.EntityData.BundleName = "cisco_ios_xe"
+    bindings.EntityData.ParentYangName = "mpls-ldp-state"
+    bindings.EntityData.SegmentPath = "bindings"
+    bindings.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bindings.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bindings.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bindings *MplsLdp_MplsLdpState_Bindings) SetFilter(yf yfilter.YFilter) { bindings.YFilter = yf }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetGoName(yname string) string {
-    if yname == "bindings-sum-afs" { return "BindingsSumAfs" }
-    if yname == "binding" { return "Binding" }
-    return ""
-}
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetSegmentPath() string {
-    return "bindings"
-}
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bindings-sum-afs" {
-        return &bindings.BindingsSumAfs
-    }
-    if childYangName == "binding" {
-        for _, c := range bindings.Binding {
-            if bindings.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Bindings_Binding{}
-        bindings.Binding = append(bindings.Binding, child)
-        return &bindings.Binding[len(bindings.Binding)-1]
-    }
-    return nil
-}
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bindings-sum-afs"] = &bindings.BindingsSumAfs
+    bindings.EntityData.Children = make(map[string]types.YChild)
+    bindings.EntityData.Children["bindings-sum-afs"] = types.YChild{"BindingsSumAfs", &bindings.BindingsSumAfs}
+    bindings.EntityData.Children["binding"] = types.YChild{"Binding", nil}
     for i := range bindings.Binding {
-        children[bindings.Binding[i].GetSegmentPath()] = &bindings.Binding[i]
+        bindings.EntityData.Children[types.GetSegmentPath(&bindings.Binding[i])] = types.YChild{"Binding", &bindings.Binding[i]}
     }
-    return children
+    bindings.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bindings.EntityData)
 }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetYangName() string { return "bindings" }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) SetParent(parent types.Entity) { bindings.parent = parent }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetParent() types.Entity { return bindings.parent }
-
-func (bindings *MplsLdp_MplsLdpState_Bindings) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Bindings_BindingsSumAfs
 // This container holds the bindings specific to this VRF
 // and AF.
 type MplsLdp_MplsLdpState_Bindings_BindingsSumAfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Counters for the LDP Label Information Base for this VRF/AF. The type is
@@ -6179,69 +3737,30 @@ type MplsLdp_MplsLdpState_Bindings_BindingsSumAfs struct {
     BindingSumAf []MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf
 }
 
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetFilter() yfilter.YFilter { return bindingsSumAfs.YFilter }
+func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetEntityData() *types.CommonEntityData {
+    bindingsSumAfs.EntityData.YFilter = bindingsSumAfs.YFilter
+    bindingsSumAfs.EntityData.YangName = "bindings-sum-afs"
+    bindingsSumAfs.EntityData.BundleName = "cisco_ios_xe"
+    bindingsSumAfs.EntityData.ParentYangName = "bindings"
+    bindingsSumAfs.EntityData.SegmentPath = "bindings-sum-afs"
+    bindingsSumAfs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bindingsSumAfs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bindingsSumAfs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) SetFilter(yf yfilter.YFilter) { bindingsSumAfs.YFilter = yf }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetGoName(yname string) string {
-    if yname == "binding-sum-af" { return "BindingSumAf" }
-    return ""
-}
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetSegmentPath() string {
-    return "bindings-sum-afs"
-}
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "binding-sum-af" {
-        for _, c := range bindingsSumAfs.BindingSumAf {
-            if bindingsSumAfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf{}
-        bindingsSumAfs.BindingSumAf = append(bindingsSumAfs.BindingSumAf, child)
-        return &bindingsSumAfs.BindingSumAf[len(bindingsSumAfs.BindingSumAf)-1]
-    }
-    return nil
-}
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bindingsSumAfs.EntityData.Children = make(map[string]types.YChild)
+    bindingsSumAfs.EntityData.Children["binding-sum-af"] = types.YChild{"BindingSumAf", nil}
     for i := range bindingsSumAfs.BindingSumAf {
-        children[bindingsSumAfs.BindingSumAf[i].GetSegmentPath()] = &bindingsSumAfs.BindingSumAf[i]
+        bindingsSumAfs.EntityData.Children[types.GetSegmentPath(&bindingsSumAfs.BindingSumAf[i])] = types.YChild{"BindingSumAf", &bindingsSumAfs.BindingSumAf[i]}
     }
-    return children
+    bindingsSumAfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bindingsSumAfs.EntityData)
 }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetYangName() string { return "bindings-sum-afs" }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) SetParent(parent types.Entity) { bindingsSumAfs.parent = parent }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetParent() types.Entity { return bindingsSumAfs.parent }
-
-func (bindingsSumAfs *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs) GetParentYangName() string { return "bindings" }
 
 // MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf
 // Counters for the LDP Label Information Base for this
 // VRF/AF.
 type MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -6297,77 +3816,34 @@ type MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf struct {
     BindingRemote interface{}
 }
 
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetFilter() yfilter.YFilter { return bindingSumAf.YFilter }
+func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetEntityData() *types.CommonEntityData {
+    bindingSumAf.EntityData.YFilter = bindingSumAf.YFilter
+    bindingSumAf.EntityData.YangName = "binding-sum-af"
+    bindingSumAf.EntityData.BundleName = "cisco_ios_xe"
+    bindingSumAf.EntityData.ParentYangName = "bindings-sum-afs"
+    bindingSumAf.EntityData.SegmentPath = "binding-sum-af" + "[vrf-name='" + fmt.Sprintf("%v", bindingSumAf.VrfName) + "']" + "[af-name='" + fmt.Sprintf("%v", bindingSumAf.AfName) + "']"
+    bindingSumAf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bindingSumAf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bindingSumAf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) SetFilter(yf yfilter.YFilter) { bindingSumAf.YFilter = yf }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "af-name" { return "AfName" }
-    if yname == "binding-total" { return "BindingTotal" }
-    if yname == "binding-no-route" { return "BindingNoRoute" }
-    if yname == "binding-local-no-route" { return "BindingLocalNoRoute" }
-    if yname == "binding-local" { return "BindingLocal" }
-    if yname == "binding-local-null" { return "BindingLocalNull" }
-    if yname == "binding-local-implicit-null" { return "BindingLocalImplicitNull" }
-    if yname == "binding-local-explicit-null" { return "BindingLocalExplicitNull" }
-    if yname == "binding-local-non-null" { return "BindingLocalNonNull" }
-    if yname == "binding-local-oor" { return "BindingLocalOor" }
-    if yname == "lowest-allocated-label" { return "LowestAllocatedLabel" }
-    if yname == "highest-allocated-label" { return "HighestAllocatedLabel" }
-    if yname == "binding-remote" { return "BindingRemote" }
-    return ""
+    bindingSumAf.EntityData.Children = make(map[string]types.YChild)
+    bindingSumAf.EntityData.Leafs = make(map[string]types.YLeaf)
+    bindingSumAf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", bindingSumAf.VrfName}
+    bindingSumAf.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", bindingSumAf.AfName}
+    bindingSumAf.EntityData.Leafs["binding-total"] = types.YLeaf{"BindingTotal", bindingSumAf.BindingTotal}
+    bindingSumAf.EntityData.Leafs["binding-no-route"] = types.YLeaf{"BindingNoRoute", bindingSumAf.BindingNoRoute}
+    bindingSumAf.EntityData.Leafs["binding-local-no-route"] = types.YLeaf{"BindingLocalNoRoute", bindingSumAf.BindingLocalNoRoute}
+    bindingSumAf.EntityData.Leafs["binding-local"] = types.YLeaf{"BindingLocal", bindingSumAf.BindingLocal}
+    bindingSumAf.EntityData.Leafs["binding-local-null"] = types.YLeaf{"BindingLocalNull", bindingSumAf.BindingLocalNull}
+    bindingSumAf.EntityData.Leafs["binding-local-implicit-null"] = types.YLeaf{"BindingLocalImplicitNull", bindingSumAf.BindingLocalImplicitNull}
+    bindingSumAf.EntityData.Leafs["binding-local-explicit-null"] = types.YLeaf{"BindingLocalExplicitNull", bindingSumAf.BindingLocalExplicitNull}
+    bindingSumAf.EntityData.Leafs["binding-local-non-null"] = types.YLeaf{"BindingLocalNonNull", bindingSumAf.BindingLocalNonNull}
+    bindingSumAf.EntityData.Leafs["binding-local-oor"] = types.YLeaf{"BindingLocalOor", bindingSumAf.BindingLocalOor}
+    bindingSumAf.EntityData.Leafs["lowest-allocated-label"] = types.YLeaf{"LowestAllocatedLabel", bindingSumAf.LowestAllocatedLabel}
+    bindingSumAf.EntityData.Leafs["highest-allocated-label"] = types.YLeaf{"HighestAllocatedLabel", bindingSumAf.HighestAllocatedLabel}
+    bindingSumAf.EntityData.Leafs["binding-remote"] = types.YLeaf{"BindingRemote", bindingSumAf.BindingRemote}
+    return &(bindingSumAf.EntityData)
 }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetSegmentPath() string {
-    return "binding-sum-af" + "[vrf-name='" + fmt.Sprintf("%v", bindingSumAf.VrfName) + "']" + "[af-name='" + fmt.Sprintf("%v", bindingSumAf.AfName) + "']"
-}
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = bindingSumAf.VrfName
-    leafs["af-name"] = bindingSumAf.AfName
-    leafs["binding-total"] = bindingSumAf.BindingTotal
-    leafs["binding-no-route"] = bindingSumAf.BindingNoRoute
-    leafs["binding-local-no-route"] = bindingSumAf.BindingLocalNoRoute
-    leafs["binding-local"] = bindingSumAf.BindingLocal
-    leafs["binding-local-null"] = bindingSumAf.BindingLocalNull
-    leafs["binding-local-implicit-null"] = bindingSumAf.BindingLocalImplicitNull
-    leafs["binding-local-explicit-null"] = bindingSumAf.BindingLocalExplicitNull
-    leafs["binding-local-non-null"] = bindingSumAf.BindingLocalNonNull
-    leafs["binding-local-oor"] = bindingSumAf.BindingLocalOor
-    leafs["lowest-allocated-label"] = bindingSumAf.LowestAllocatedLabel
-    leafs["highest-allocated-label"] = bindingSumAf.HighestAllocatedLabel
-    leafs["binding-remote"] = bindingSumAf.BindingRemote
-    return leafs
-}
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetYangName() string { return "binding-sum-af" }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) SetParent(parent types.Entity) { bindingSumAf.parent = parent }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetParent() types.Entity { return bindingSumAf.parent }
-
-func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) GetParentYangName() string { return "bindings-sum-afs" }
 
 // MplsLdp_MplsLdpState_Bindings_Binding
 // This list contains the MPLS LDP Label Bindings for each
@@ -6376,7 +3852,7 @@ func (bindingSumAf *MplsLdp_MplsLdpState_Bindings_BindingsSumAfs_BindingSumAf) G
 // advertisment of that filter, and a list of neighbors to
 // which the label has been advertised.
 type MplsLdp_MplsLdpState_Bindings_Binding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -6385,16 +3861,16 @@ type MplsLdp_MplsLdpState_Bindings_Binding struct {
 
     // This attribute is a key. This leaf contains the IP Prefix being bound. The
     // type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
     Prefix interface{}
 
     // This is the MPLS LDP Binding IP Prefix. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     FwdPrefix interface{}
 
     // This is the MPLS LDP Binding Prefix Length. The type is interface{} with
@@ -6442,106 +3918,45 @@ type MplsLdp_MplsLdpState_Bindings_Binding struct {
     PeersAdvertisedTo []MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo
 }
 
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetFilter() yfilter.YFilter { return binding.YFilter }
+func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetEntityData() *types.CommonEntityData {
+    binding.EntityData.YFilter = binding.YFilter
+    binding.EntityData.YangName = "binding"
+    binding.EntityData.BundleName = "cisco_ios_xe"
+    binding.EntityData.ParentYangName = "bindings"
+    binding.EntityData.SegmentPath = "binding" + "[vrf-name='" + fmt.Sprintf("%v", binding.VrfName) + "']" + "[prefix='" + fmt.Sprintf("%v", binding.Prefix) + "']"
+    binding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    binding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    binding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) SetFilter(yf yfilter.YFilter) { binding.YFilter = yf }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "prefix" { return "Prefix" }
-    if yname == "fwd-prefix" { return "FwdPrefix" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "local-label" { return "LocalLabel" }
-    if yname == "le-local-binding-revision" { return "LeLocalBindingRevision" }
-    if yname == "le-local-label-state" { return "LeLocalLabelState" }
-    if yname == "is-no-route" { return "IsNoRoute" }
-    if yname == "label-oor" { return "LabelOor" }
-    if yname == "advertise-prefix-filter" { return "AdvertisePrefixFilter" }
-    if yname == "advertise-lsr-filter" { return "AdvertiseLsrFilter" }
-    if yname == "config-enforced-local-label-value" { return "ConfigEnforcedLocalLabelValue" }
-    if yname == "remote-binding" { return "RemoteBinding" }
-    if yname == "peers-advertised-to" { return "PeersAdvertisedTo" }
-    return ""
-}
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetSegmentPath() string {
-    return "binding" + "[vrf-name='" + fmt.Sprintf("%v", binding.VrfName) + "']" + "[prefix='" + fmt.Sprintf("%v", binding.Prefix) + "']"
-}
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-binding" {
-        for _, c := range binding.RemoteBinding {
-            if binding.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding{}
-        binding.RemoteBinding = append(binding.RemoteBinding, child)
-        return &binding.RemoteBinding[len(binding.RemoteBinding)-1]
-    }
-    if childYangName == "peers-advertised-to" {
-        for _, c := range binding.PeersAdvertisedTo {
-            if binding.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo{}
-        binding.PeersAdvertisedTo = append(binding.PeersAdvertisedTo, child)
-        return &binding.PeersAdvertisedTo[len(binding.PeersAdvertisedTo)-1]
-    }
-    return nil
-}
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    binding.EntityData.Children = make(map[string]types.YChild)
+    binding.EntityData.Children["remote-binding"] = types.YChild{"RemoteBinding", nil}
     for i := range binding.RemoteBinding {
-        children[binding.RemoteBinding[i].GetSegmentPath()] = &binding.RemoteBinding[i]
+        binding.EntityData.Children[types.GetSegmentPath(&binding.RemoteBinding[i])] = types.YChild{"RemoteBinding", &binding.RemoteBinding[i]}
     }
+    binding.EntityData.Children["peers-advertised-to"] = types.YChild{"PeersAdvertisedTo", nil}
     for i := range binding.PeersAdvertisedTo {
-        children[binding.PeersAdvertisedTo[i].GetSegmentPath()] = &binding.PeersAdvertisedTo[i]
+        binding.EntityData.Children[types.GetSegmentPath(&binding.PeersAdvertisedTo[i])] = types.YChild{"PeersAdvertisedTo", &binding.PeersAdvertisedTo[i]}
     }
-    return children
+    binding.EntityData.Leafs = make(map[string]types.YLeaf)
+    binding.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", binding.VrfName}
+    binding.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", binding.Prefix}
+    binding.EntityData.Leafs["fwd-prefix"] = types.YLeaf{"FwdPrefix", binding.FwdPrefix}
+    binding.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", binding.PrefixLength}
+    binding.EntityData.Leafs["local-label"] = types.YLeaf{"LocalLabel", binding.LocalLabel}
+    binding.EntityData.Leafs["le-local-binding-revision"] = types.YLeaf{"LeLocalBindingRevision", binding.LeLocalBindingRevision}
+    binding.EntityData.Leafs["le-local-label-state"] = types.YLeaf{"LeLocalLabelState", binding.LeLocalLabelState}
+    binding.EntityData.Leafs["is-no-route"] = types.YLeaf{"IsNoRoute", binding.IsNoRoute}
+    binding.EntityData.Leafs["label-oor"] = types.YLeaf{"LabelOor", binding.LabelOor}
+    binding.EntityData.Leafs["advertise-prefix-filter"] = types.YLeaf{"AdvertisePrefixFilter", binding.AdvertisePrefixFilter}
+    binding.EntityData.Leafs["advertise-lsr-filter"] = types.YLeaf{"AdvertiseLsrFilter", binding.AdvertiseLsrFilter}
+    binding.EntityData.Leafs["config-enforced-local-label-value"] = types.YLeaf{"ConfigEnforcedLocalLabelValue", binding.ConfigEnforcedLocalLabelValue}
+    return &(binding.EntityData)
 }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = binding.VrfName
-    leafs["prefix"] = binding.Prefix
-    leafs["fwd-prefix"] = binding.FwdPrefix
-    leafs["prefix-length"] = binding.PrefixLength
-    leafs["local-label"] = binding.LocalLabel
-    leafs["le-local-binding-revision"] = binding.LeLocalBindingRevision
-    leafs["le-local-label-state"] = binding.LeLocalLabelState
-    leafs["is-no-route"] = binding.IsNoRoute
-    leafs["label-oor"] = binding.LabelOor
-    leafs["advertise-prefix-filter"] = binding.AdvertisePrefixFilter
-    leafs["advertise-lsr-filter"] = binding.AdvertiseLsrFilter
-    leafs["config-enforced-local-label-value"] = binding.ConfigEnforcedLocalLabelValue
-    return leafs
-}
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetBundleName() string { return "cisco_ios_xe" }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetYangName() string { return "binding" }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) SetParent(parent types.Entity) { binding.parent = parent }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetParent() types.Entity { return binding.parent }
-
-func (binding *MplsLdp_MplsLdpState_Bindings_Binding) GetParentYangName() string { return "bindings" }
 
 // MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding
 // MPLS LDP Remote Binding Information
 type MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is the remote Label. The type is interface{} with range:
@@ -6555,193 +3970,96 @@ type MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding struct {
     AssigningPeerLdpIdent MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent
 }
 
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetFilter() yfilter.YFilter { return remoteBinding.YFilter }
+func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetEntityData() *types.CommonEntityData {
+    remoteBinding.EntityData.YFilter = remoteBinding.YFilter
+    remoteBinding.EntityData.YangName = "remote-binding"
+    remoteBinding.EntityData.BundleName = "cisco_ios_xe"
+    remoteBinding.EntityData.ParentYangName = "binding"
+    remoteBinding.EntityData.SegmentPath = "remote-binding"
+    remoteBinding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    remoteBinding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    remoteBinding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) SetFilter(yf yfilter.YFilter) { remoteBinding.YFilter = yf }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetGoName(yname string) string {
-    if yname == "remote-label" { return "RemoteLabel" }
-    if yname == "is-stale" { return "IsStale" }
-    if yname == "assigning-peer-ldp-ident" { return "AssigningPeerLdpIdent" }
-    return ""
+    remoteBinding.EntityData.Children = make(map[string]types.YChild)
+    remoteBinding.EntityData.Children["assigning-peer-ldp-ident"] = types.YChild{"AssigningPeerLdpIdent", &remoteBinding.AssigningPeerLdpIdent}
+    remoteBinding.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteBinding.EntityData.Leafs["remote-label"] = types.YLeaf{"RemoteLabel", remoteBinding.RemoteLabel}
+    remoteBinding.EntityData.Leafs["is-stale"] = types.YLeaf{"IsStale", remoteBinding.IsStale}
+    return &(remoteBinding.EntityData)
 }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetSegmentPath() string {
-    return "remote-binding"
-}
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "assigning-peer-ldp-ident" {
-        return &remoteBinding.AssigningPeerLdpIdent
-    }
-    return nil
-}
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["assigning-peer-ldp-ident"] = &remoteBinding.AssigningPeerLdpIdent
-    return children
-}
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["remote-label"] = remoteBinding.RemoteLabel
-    leafs["is-stale"] = remoteBinding.IsStale
-    return leafs
-}
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetBundleName() string { return "cisco_ios_xe" }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetYangName() string { return "remote-binding" }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) SetParent(parent types.Entity) { remoteBinding.parent = parent }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetParent() types.Entity { return remoteBinding.parent }
-
-func (remoteBinding *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding) GetParentYangName() string { return "binding" }
 
 // MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent
 // Assigning peer
 type MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LSR identifier. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Label space identifier. The type is interface{} with range: 0..65535.
     LabelSpaceId interface{}
 }
 
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetFilter() yfilter.YFilter { return assigningPeerLdpIdent.YFilter }
+func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetEntityData() *types.CommonEntityData {
+    assigningPeerLdpIdent.EntityData.YFilter = assigningPeerLdpIdent.YFilter
+    assigningPeerLdpIdent.EntityData.YangName = "assigning-peer-ldp-ident"
+    assigningPeerLdpIdent.EntityData.BundleName = "cisco_ios_xe"
+    assigningPeerLdpIdent.EntityData.ParentYangName = "remote-binding"
+    assigningPeerLdpIdent.EntityData.SegmentPath = "assigning-peer-ldp-ident"
+    assigningPeerLdpIdent.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    assigningPeerLdpIdent.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    assigningPeerLdpIdent.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) SetFilter(yf yfilter.YFilter) { assigningPeerLdpIdent.YFilter = yf }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetGoName(yname string) string {
-    if yname == "lsr-id" { return "LsrId" }
-    if yname == "label-space-id" { return "LabelSpaceId" }
-    return ""
+    assigningPeerLdpIdent.EntityData.Children = make(map[string]types.YChild)
+    assigningPeerLdpIdent.EntityData.Leafs = make(map[string]types.YLeaf)
+    assigningPeerLdpIdent.EntityData.Leafs["lsr-id"] = types.YLeaf{"LsrId", assigningPeerLdpIdent.LsrId}
+    assigningPeerLdpIdent.EntityData.Leafs["label-space-id"] = types.YLeaf{"LabelSpaceId", assigningPeerLdpIdent.LabelSpaceId}
+    return &(assigningPeerLdpIdent.EntityData)
 }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetSegmentPath() string {
-    return "assigning-peer-ldp-ident"
-}
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lsr-id"] = assigningPeerLdpIdent.LsrId
-    leafs["label-space-id"] = assigningPeerLdpIdent.LabelSpaceId
-    return leafs
-}
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetBundleName() string { return "cisco_ios_xe" }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetYangName() string { return "assigning-peer-ldp-ident" }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) SetParent(parent types.Entity) { assigningPeerLdpIdent.parent = parent }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetParent() types.Entity { return assigningPeerLdpIdent.parent }
-
-func (assigningPeerLdpIdent *MplsLdp_MplsLdpState_Bindings_Binding_RemoteBinding_AssigningPeerLdpIdent) GetParentYangName() string { return "remote-binding" }
 
 // MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo
 // Peers to which this entry is advertised.
 type MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LSR identifier. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Label space identifier. The type is interface{} with range: 0..65535.
     LabelSpaceId interface{}
 }
 
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetFilter() yfilter.YFilter { return peersAdvertisedTo.YFilter }
+func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetEntityData() *types.CommonEntityData {
+    peersAdvertisedTo.EntityData.YFilter = peersAdvertisedTo.YFilter
+    peersAdvertisedTo.EntityData.YangName = "peers-advertised-to"
+    peersAdvertisedTo.EntityData.BundleName = "cisco_ios_xe"
+    peersAdvertisedTo.EntityData.ParentYangName = "binding"
+    peersAdvertisedTo.EntityData.SegmentPath = "peers-advertised-to"
+    peersAdvertisedTo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    peersAdvertisedTo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    peersAdvertisedTo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) SetFilter(yf yfilter.YFilter) { peersAdvertisedTo.YFilter = yf }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetGoName(yname string) string {
-    if yname == "lsr-id" { return "LsrId" }
-    if yname == "label-space-id" { return "LabelSpaceId" }
-    return ""
+    peersAdvertisedTo.EntityData.Children = make(map[string]types.YChild)
+    peersAdvertisedTo.EntityData.Leafs = make(map[string]types.YLeaf)
+    peersAdvertisedTo.EntityData.Leafs["lsr-id"] = types.YLeaf{"LsrId", peersAdvertisedTo.LsrId}
+    peersAdvertisedTo.EntityData.Leafs["label-space-id"] = types.YLeaf{"LabelSpaceId", peersAdvertisedTo.LabelSpaceId}
+    return &(peersAdvertisedTo.EntityData)
 }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetSegmentPath() string {
-    return "peers-advertised-to"
-}
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lsr-id"] = peersAdvertisedTo.LsrId
-    leafs["label-space-id"] = peersAdvertisedTo.LabelSpaceId
-    return leafs
-}
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetYangName() string { return "peers-advertised-to" }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) SetParent(parent types.Entity) { peersAdvertisedTo.parent = parent }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetParent() types.Entity { return peersAdvertisedTo.parent }
-
-func (peersAdvertisedTo *MplsLdp_MplsLdpState_Bindings_Binding_PeersAdvertisedTo) GetParentYangName() string { return "binding" }
 
 // MplsLdp_MplsLdpState_Neighbors
 // The LDP Neighbors Information
 type MplsLdp_MplsLdpState_Neighbors struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information on a particular LDP neighbor. The type is slice of
@@ -6763,97 +4081,36 @@ type MplsLdp_MplsLdpState_Neighbors struct {
     NsrNbrDetail MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail
 }
 
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetFilter() yfilter.YFilter { return neighbors.YFilter }
+func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetEntityData() *types.CommonEntityData {
+    neighbors.EntityData.YFilter = neighbors.YFilter
+    neighbors.EntityData.YangName = "neighbors"
+    neighbors.EntityData.BundleName = "cisco_ios_xe"
+    neighbors.EntityData.ParentYangName = "mpls-ldp-state"
+    neighbors.EntityData.SegmentPath = "neighbors"
+    neighbors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    neighbors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    neighbors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) SetFilter(yf yfilter.YFilter) { neighbors.YFilter = yf }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetGoName(yname string) string {
-    if yname == "neighbor" { return "Neighbor" }
-    if yname == "nbr-adjs" { return "NbrAdjs" }
-    if yname == "stats-info" { return "StatsInfo" }
-    if yname == "backoffs" { return "Backoffs" }
-    if yname == "nsr-nbr-detail" { return "NsrNbrDetail" }
-    return ""
-}
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetSegmentPath() string {
-    return "neighbors"
-}
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "neighbor" {
-        for _, c := range neighbors.Neighbor {
-            if neighbors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Neighbors_Neighbor{}
-        neighbors.Neighbor = append(neighbors.Neighbor, child)
-        return &neighbors.Neighbor[len(neighbors.Neighbor)-1]
-    }
-    if childYangName == "nbr-adjs" {
-        for _, c := range neighbors.NbrAdjs {
-            if neighbors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Neighbors_NbrAdjs{}
-        neighbors.NbrAdjs = append(neighbors.NbrAdjs, child)
-        return &neighbors.NbrAdjs[len(neighbors.NbrAdjs)-1]
-    }
-    if childYangName == "stats-info" {
-        return &neighbors.StatsInfo
-    }
-    if childYangName == "backoffs" {
-        return &neighbors.Backoffs
-    }
-    if childYangName == "nsr-nbr-detail" {
-        return &neighbors.NsrNbrDetail
-    }
-    return nil
-}
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    neighbors.EntityData.Children = make(map[string]types.YChild)
+    neighbors.EntityData.Children["neighbor"] = types.YChild{"Neighbor", nil}
     for i := range neighbors.Neighbor {
-        children[neighbors.Neighbor[i].GetSegmentPath()] = &neighbors.Neighbor[i]
+        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.Neighbor[i])] = types.YChild{"Neighbor", &neighbors.Neighbor[i]}
     }
+    neighbors.EntityData.Children["nbr-adjs"] = types.YChild{"NbrAdjs", nil}
     for i := range neighbors.NbrAdjs {
-        children[neighbors.NbrAdjs[i].GetSegmentPath()] = &neighbors.NbrAdjs[i]
+        neighbors.EntityData.Children[types.GetSegmentPath(&neighbors.NbrAdjs[i])] = types.YChild{"NbrAdjs", &neighbors.NbrAdjs[i]}
     }
-    children["stats-info"] = &neighbors.StatsInfo
-    children["backoffs"] = &neighbors.Backoffs
-    children["nsr-nbr-detail"] = &neighbors.NsrNbrDetail
-    return children
+    neighbors.EntityData.Children["stats-info"] = types.YChild{"StatsInfo", &neighbors.StatsInfo}
+    neighbors.EntityData.Children["backoffs"] = types.YChild{"Backoffs", &neighbors.Backoffs}
+    neighbors.EntityData.Children["nsr-nbr-detail"] = types.YChild{"NsrNbrDetail", &neighbors.NsrNbrDetail}
+    neighbors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(neighbors.EntityData)
 }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetBundleName() string { return "cisco_ios_xe" }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetYangName() string { return "neighbors" }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) SetParent(parent types.Entity) { neighbors.parent = parent }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetParent() types.Entity { return neighbors.parent }
-
-func (neighbors *MplsLdp_MplsLdpState_Neighbors) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor
 // Information on a particular LDP neighbor
 type MplsLdp_MplsLdpState_Neighbors_Neighbor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -6862,9 +4119,9 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor struct {
 
     // This attribute is a key. LSR ID of neighbor. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LsrId interface{}
 
     // Label space ID of neighbor. The type is interface{} with range: 0..65535.
@@ -6966,16 +4223,16 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor struct {
 
     // Duplicate IPv4/IPv6 address bound to this peer. The type is one of the
     // following types: slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DuplicateAddress []interface{}
 
     // This is the MPLS LDP Neighbor Bound IPv4/IPv6 Address. The type is one of
     // the following types: slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or slice of string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NbrBoundAddress []interface{}
 
     // Neighbor Statistics.
@@ -6991,128 +4248,56 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor struct {
     Capabilities MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities
 }
 
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetFilter() yfilter.YFilter { return neighbor.YFilter }
+func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetEntityData() *types.CommonEntityData {
+    neighbor.EntityData.YFilter = neighbor.YFilter
+    neighbor.EntityData.YangName = "neighbor"
+    neighbor.EntityData.BundleName = "cisco_ios_xe"
+    neighbor.EntityData.ParentYangName = "neighbors"
+    neighbor.EntityData.SegmentPath = "neighbor" + "[vrf-name='" + fmt.Sprintf("%v", neighbor.VrfName) + "']" + "[lsr-id='" + fmt.Sprintf("%v", neighbor.LsrId) + "']"
+    neighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    neighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) SetFilter(yf yfilter.YFilter) { neighbor.YFilter = yf }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "lsr-id" { return "LsrId" }
-    if yname == "label-space-id" { return "LabelSpaceId" }
-    if yname == "session-role" { return "SessionRole" }
-    if yname == "session-prot-ver" { return "SessionProtVer" }
-    if yname == "up-time-seconds" { return "UpTimeSeconds" }
-    if yname == "nbr-path-vector-limit" { return "NbrPathVectorLimit" }
-    if yname == "downstream-on-demand" { return "DownstreamOnDemand" }
-    if yname == "peer-hold-time" { return "PeerHoldTime" }
-    if yname == "peer-keep-alive-interval" { return "PeerKeepAliveInterval" }
-    if yname == "peer-state" { return "PeerState" }
-    if yname == "inbound-ipv4" { return "InboundIpv4" }
-    if yname == "inbound-ipv6-filter" { return "InboundIpv6Filter" }
-    if yname == "outbound-ipv4-filter" { return "OutboundIpv4Filter" }
-    if yname == "outbound-ipv6-filter" { return "OutboundIpv6Filter" }
-    if yname == "has-sp" { return "HasSp" }
-    if yname == "sp-state" { return "SpState" }
-    if yname == "sp-filter" { return "SpFilter" }
-    if yname == "sp-has-duration" { return "SpHasDuration" }
-    if yname == "sp-duration" { return "SpDuration" }
-    if yname == "spht-running" { return "SphtRunning" }
-    if yname == "spht-remaining" { return "SphtRemaining" }
-    if yname == "bgp-advertisement-state" { return "BgpAdvertisementState" }
-    if yname == "advertise-bgp-prefixes" { return "AdvertiseBgpPrefixes" }
-    if yname == "client" { return "Client" }
-    if yname == "duplicate-address" { return "DuplicateAddress" }
-    if yname == "nbr-bound-address" { return "NbrBoundAddress" }
-    if yname == "nbr-stats" { return "NbrStats" }
-    if yname == "graceful-restart-adjacency" { return "GracefulRestartAdjacency" }
-    if yname == "tcp-information" { return "TcpInformation" }
-    if yname == "capabilities" { return "Capabilities" }
-    return ""
+    neighbor.EntityData.Children = make(map[string]types.YChild)
+    neighbor.EntityData.Children["nbr-stats"] = types.YChild{"NbrStats", &neighbor.NbrStats}
+    neighbor.EntityData.Children["graceful-restart-adjacency"] = types.YChild{"GracefulRestartAdjacency", &neighbor.GracefulRestartAdjacency}
+    neighbor.EntityData.Children["tcp-information"] = types.YChild{"TcpInformation", &neighbor.TcpInformation}
+    neighbor.EntityData.Children["capabilities"] = types.YChild{"Capabilities", &neighbor.Capabilities}
+    neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    neighbor.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", neighbor.VrfName}
+    neighbor.EntityData.Leafs["lsr-id"] = types.YLeaf{"LsrId", neighbor.LsrId}
+    neighbor.EntityData.Leafs["label-space-id"] = types.YLeaf{"LabelSpaceId", neighbor.LabelSpaceId}
+    neighbor.EntityData.Leafs["session-role"] = types.YLeaf{"SessionRole", neighbor.SessionRole}
+    neighbor.EntityData.Leafs["session-prot-ver"] = types.YLeaf{"SessionProtVer", neighbor.SessionProtVer}
+    neighbor.EntityData.Leafs["up-time-seconds"] = types.YLeaf{"UpTimeSeconds", neighbor.UpTimeSeconds}
+    neighbor.EntityData.Leafs["nbr-path-vector-limit"] = types.YLeaf{"NbrPathVectorLimit", neighbor.NbrPathVectorLimit}
+    neighbor.EntityData.Leafs["downstream-on-demand"] = types.YLeaf{"DownstreamOnDemand", neighbor.DownstreamOnDemand}
+    neighbor.EntityData.Leafs["peer-hold-time"] = types.YLeaf{"PeerHoldTime", neighbor.PeerHoldTime}
+    neighbor.EntityData.Leafs["peer-keep-alive-interval"] = types.YLeaf{"PeerKeepAliveInterval", neighbor.PeerKeepAliveInterval}
+    neighbor.EntityData.Leafs["peer-state"] = types.YLeaf{"PeerState", neighbor.PeerState}
+    neighbor.EntityData.Leafs["inbound-ipv4"] = types.YLeaf{"InboundIpv4", neighbor.InboundIpv4}
+    neighbor.EntityData.Leafs["inbound-ipv6-filter"] = types.YLeaf{"InboundIpv6Filter", neighbor.InboundIpv6Filter}
+    neighbor.EntityData.Leafs["outbound-ipv4-filter"] = types.YLeaf{"OutboundIpv4Filter", neighbor.OutboundIpv4Filter}
+    neighbor.EntityData.Leafs["outbound-ipv6-filter"] = types.YLeaf{"OutboundIpv6Filter", neighbor.OutboundIpv6Filter}
+    neighbor.EntityData.Leafs["has-sp"] = types.YLeaf{"HasSp", neighbor.HasSp}
+    neighbor.EntityData.Leafs["sp-state"] = types.YLeaf{"SpState", neighbor.SpState}
+    neighbor.EntityData.Leafs["sp-filter"] = types.YLeaf{"SpFilter", neighbor.SpFilter}
+    neighbor.EntityData.Leafs["sp-has-duration"] = types.YLeaf{"SpHasDuration", neighbor.SpHasDuration}
+    neighbor.EntityData.Leafs["sp-duration"] = types.YLeaf{"SpDuration", neighbor.SpDuration}
+    neighbor.EntityData.Leafs["spht-running"] = types.YLeaf{"SphtRunning", neighbor.SphtRunning}
+    neighbor.EntityData.Leafs["spht-remaining"] = types.YLeaf{"SphtRemaining", neighbor.SphtRemaining}
+    neighbor.EntityData.Leafs["bgp-advertisement-state"] = types.YLeaf{"BgpAdvertisementState", neighbor.BgpAdvertisementState}
+    neighbor.EntityData.Leafs["advertise-bgp-prefixes"] = types.YLeaf{"AdvertiseBgpPrefixes", neighbor.AdvertiseBgpPrefixes}
+    neighbor.EntityData.Leafs["client"] = types.YLeaf{"Client", neighbor.Client}
+    neighbor.EntityData.Leafs["duplicate-address"] = types.YLeaf{"DuplicateAddress", neighbor.DuplicateAddress}
+    neighbor.EntityData.Leafs["nbr-bound-address"] = types.YLeaf{"NbrBoundAddress", neighbor.NbrBoundAddress}
+    return &(neighbor.EntityData)
 }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetSegmentPath() string {
-    return "neighbor" + "[vrf-name='" + fmt.Sprintf("%v", neighbor.VrfName) + "']" + "[lsr-id='" + fmt.Sprintf("%v", neighbor.LsrId) + "']"
-}
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nbr-stats" {
-        return &neighbor.NbrStats
-    }
-    if childYangName == "graceful-restart-adjacency" {
-        return &neighbor.GracefulRestartAdjacency
-    }
-    if childYangName == "tcp-information" {
-        return &neighbor.TcpInformation
-    }
-    if childYangName == "capabilities" {
-        return &neighbor.Capabilities
-    }
-    return nil
-}
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nbr-stats"] = &neighbor.NbrStats
-    children["graceful-restart-adjacency"] = &neighbor.GracefulRestartAdjacency
-    children["tcp-information"] = &neighbor.TcpInformation
-    children["capabilities"] = &neighbor.Capabilities
-    return children
-}
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = neighbor.VrfName
-    leafs["lsr-id"] = neighbor.LsrId
-    leafs["label-space-id"] = neighbor.LabelSpaceId
-    leafs["session-role"] = neighbor.SessionRole
-    leafs["session-prot-ver"] = neighbor.SessionProtVer
-    leafs["up-time-seconds"] = neighbor.UpTimeSeconds
-    leafs["nbr-path-vector-limit"] = neighbor.NbrPathVectorLimit
-    leafs["downstream-on-demand"] = neighbor.DownstreamOnDemand
-    leafs["peer-hold-time"] = neighbor.PeerHoldTime
-    leafs["peer-keep-alive-interval"] = neighbor.PeerKeepAliveInterval
-    leafs["peer-state"] = neighbor.PeerState
-    leafs["inbound-ipv4"] = neighbor.InboundIpv4
-    leafs["inbound-ipv6-filter"] = neighbor.InboundIpv6Filter
-    leafs["outbound-ipv4-filter"] = neighbor.OutboundIpv4Filter
-    leafs["outbound-ipv6-filter"] = neighbor.OutboundIpv6Filter
-    leafs["has-sp"] = neighbor.HasSp
-    leafs["sp-state"] = neighbor.SpState
-    leafs["sp-filter"] = neighbor.SpFilter
-    leafs["sp-has-duration"] = neighbor.SpHasDuration
-    leafs["sp-duration"] = neighbor.SpDuration
-    leafs["spht-running"] = neighbor.SphtRunning
-    leafs["spht-remaining"] = neighbor.SphtRemaining
-    leafs["bgp-advertisement-state"] = neighbor.BgpAdvertisementState
-    leafs["advertise-bgp-prefixes"] = neighbor.AdvertiseBgpPrefixes
-    leafs["client"] = neighbor.Client
-    leafs["duplicate-address"] = neighbor.DuplicateAddress
-    leafs["nbr-bound-address"] = neighbor.NbrBoundAddress
-    return leafs
-}
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetBundleName() string { return "cisco_ios_xe" }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetYangName() string { return "neighbor" }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) SetParent(parent types.Entity) { neighbor.parent = parent }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetParent() types.Entity { return neighbor.parent }
-
-func (neighbor *MplsLdp_MplsLdpState_Neighbors_Neighbor) GetParentYangName() string { return "neighbors" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats
 // Neighbor Statistics.
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of MPLS LDP messages sent to this neighbor. The type is interface{}
@@ -7148,71 +4333,34 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats struct {
     NumOfNbrIpv6Lbl interface{}
 }
 
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetFilter() yfilter.YFilter { return nbrStats.YFilter }
+func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetEntityData() *types.CommonEntityData {
+    nbrStats.EntityData.YFilter = nbrStats.YFilter
+    nbrStats.EntityData.YangName = "nbr-stats"
+    nbrStats.EntityData.BundleName = "cisco_ios_xe"
+    nbrStats.EntityData.ParentYangName = "neighbor"
+    nbrStats.EntityData.SegmentPath = "nbr-stats"
+    nbrStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nbrStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nbrStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) SetFilter(yf yfilter.YFilter) { nbrStats.YFilter = yf }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetGoName(yname string) string {
-    if yname == "ta-pies-sent" { return "TaPiesSent" }
-    if yname == "ta-pies-rcvd" { return "TaPiesRcvd" }
-    if yname == "num-of-nbr-ipv4-discovery" { return "NumOfNbrIpv4Discovery" }
-    if yname == "num-of-nbr-ipv6-discovery" { return "NumOfNbrIpv6Discovery" }
-    if yname == "num-of-nbr-ipv4-addresses" { return "NumOfNbrIpv4Addresses" }
-    if yname == "num-of-nbr-ipv6-addresses" { return "NumOfNbrIpv6Addresses" }
-    if yname == "num-of-nbr-ipv4-lbl" { return "NumOfNbrIpv4Lbl" }
-    if yname == "num-of-nbr-ipv6-lbl" { return "NumOfNbrIpv6Lbl" }
-    return ""
+    nbrStats.EntityData.Children = make(map[string]types.YChild)
+    nbrStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    nbrStats.EntityData.Leafs["ta-pies-sent"] = types.YLeaf{"TaPiesSent", nbrStats.TaPiesSent}
+    nbrStats.EntityData.Leafs["ta-pies-rcvd"] = types.YLeaf{"TaPiesRcvd", nbrStats.TaPiesRcvd}
+    nbrStats.EntityData.Leafs["num-of-nbr-ipv4-discovery"] = types.YLeaf{"NumOfNbrIpv4Discovery", nbrStats.NumOfNbrIpv4Discovery}
+    nbrStats.EntityData.Leafs["num-of-nbr-ipv6-discovery"] = types.YLeaf{"NumOfNbrIpv6Discovery", nbrStats.NumOfNbrIpv6Discovery}
+    nbrStats.EntityData.Leafs["num-of-nbr-ipv4-addresses"] = types.YLeaf{"NumOfNbrIpv4Addresses", nbrStats.NumOfNbrIpv4Addresses}
+    nbrStats.EntityData.Leafs["num-of-nbr-ipv6-addresses"] = types.YLeaf{"NumOfNbrIpv6Addresses", nbrStats.NumOfNbrIpv6Addresses}
+    nbrStats.EntityData.Leafs["num-of-nbr-ipv4-lbl"] = types.YLeaf{"NumOfNbrIpv4Lbl", nbrStats.NumOfNbrIpv4Lbl}
+    nbrStats.EntityData.Leafs["num-of-nbr-ipv6-lbl"] = types.YLeaf{"NumOfNbrIpv6Lbl", nbrStats.NumOfNbrIpv6Lbl}
+    return &(nbrStats.EntityData)
 }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetSegmentPath() string {
-    return "nbr-stats"
-}
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ta-pies-sent"] = nbrStats.TaPiesSent
-    leafs["ta-pies-rcvd"] = nbrStats.TaPiesRcvd
-    leafs["num-of-nbr-ipv4-discovery"] = nbrStats.NumOfNbrIpv4Discovery
-    leafs["num-of-nbr-ipv6-discovery"] = nbrStats.NumOfNbrIpv6Discovery
-    leafs["num-of-nbr-ipv4-addresses"] = nbrStats.NumOfNbrIpv4Addresses
-    leafs["num-of-nbr-ipv6-addresses"] = nbrStats.NumOfNbrIpv6Addresses
-    leafs["num-of-nbr-ipv4-lbl"] = nbrStats.NumOfNbrIpv4Lbl
-    leafs["num-of-nbr-ipv6-lbl"] = nbrStats.NumOfNbrIpv6Lbl
-    return leafs
-}
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetYangName() string { return "nbr-stats" }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) SetParent(parent types.Entity) { nbrStats.parent = parent }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetParent() types.Entity { return nbrStats.parent }
-
-func (nbrStats *MplsLdp_MplsLdpState_Neighbors_Neighbor_NbrStats) GetParentYangName() string { return "neighbor" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency
 // This container holds the graceful restart information
 // for this adjacency.
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is this neighbor graceful restartable?. The type is bool.
@@ -7247,90 +4395,52 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency struct {
     // This identity provides the reason that the LDP Session with this neighbor
     // is down. The reason does not persist if the session was down but is now
     // recovered. The type is one of the following:
-    // DownNbrReasonDiscHelloDownNbrReasonNbrHoldDownNbrReasonNa.
+    // DownNbrReasonNaDownNbrReasonNbrHoldDownNbrReasonDiscHello.
     DownNbrDownReason interface{}
 }
 
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetFilter() yfilter.YFilter { return gracefulRestartAdjacency.YFilter }
+func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetEntityData() *types.CommonEntityData {
+    gracefulRestartAdjacency.EntityData.YFilter = gracefulRestartAdjacency.YFilter
+    gracefulRestartAdjacency.EntityData.YangName = "graceful-restart-adjacency"
+    gracefulRestartAdjacency.EntityData.BundleName = "cisco_ios_xe"
+    gracefulRestartAdjacency.EntityData.ParentYangName = "neighbor"
+    gracefulRestartAdjacency.EntityData.SegmentPath = "graceful-restart-adjacency"
+    gracefulRestartAdjacency.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    gracefulRestartAdjacency.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    gracefulRestartAdjacency.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) SetFilter(yf yfilter.YFilter) { gracefulRestartAdjacency.YFilter = yf }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetGoName(yname string) string {
-    if yname == "is-graceful-restartable" { return "IsGracefulRestartable" }
-    if yname == "reconnect-timeout" { return "ReconnectTimeout" }
-    if yname == "recovery-time" { return "RecoveryTime" }
-    if yname == "is-liveness-timer-running" { return "IsLivenessTimerRunning" }
-    if yname == "liveness-timer-remaining-seconds" { return "LivenessTimerRemainingSeconds" }
-    if yname == "is-recovery-timer-running" { return "IsRecoveryTimerRunning" }
-    if yname == "recovery-timer-remaining-seconds" { return "RecoveryTimerRemainingSeconds" }
-    if yname == "down-nbr-flap-count" { return "DownNbrFlapCount" }
-    if yname == "down-nbr-down-reason" { return "DownNbrDownReason" }
-    return ""
+    gracefulRestartAdjacency.EntityData.Children = make(map[string]types.YChild)
+    gracefulRestartAdjacency.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestartAdjacency.EntityData.Leafs["is-graceful-restartable"] = types.YLeaf{"IsGracefulRestartable", gracefulRestartAdjacency.IsGracefulRestartable}
+    gracefulRestartAdjacency.EntityData.Leafs["reconnect-timeout"] = types.YLeaf{"ReconnectTimeout", gracefulRestartAdjacency.ReconnectTimeout}
+    gracefulRestartAdjacency.EntityData.Leafs["recovery-time"] = types.YLeaf{"RecoveryTime", gracefulRestartAdjacency.RecoveryTime}
+    gracefulRestartAdjacency.EntityData.Leafs["is-liveness-timer-running"] = types.YLeaf{"IsLivenessTimerRunning", gracefulRestartAdjacency.IsLivenessTimerRunning}
+    gracefulRestartAdjacency.EntityData.Leafs["liveness-timer-remaining-seconds"] = types.YLeaf{"LivenessTimerRemainingSeconds", gracefulRestartAdjacency.LivenessTimerRemainingSeconds}
+    gracefulRestartAdjacency.EntityData.Leafs["is-recovery-timer-running"] = types.YLeaf{"IsRecoveryTimerRunning", gracefulRestartAdjacency.IsRecoveryTimerRunning}
+    gracefulRestartAdjacency.EntityData.Leafs["recovery-timer-remaining-seconds"] = types.YLeaf{"RecoveryTimerRemainingSeconds", gracefulRestartAdjacency.RecoveryTimerRemainingSeconds}
+    gracefulRestartAdjacency.EntityData.Leafs["down-nbr-flap-count"] = types.YLeaf{"DownNbrFlapCount", gracefulRestartAdjacency.DownNbrFlapCount}
+    gracefulRestartAdjacency.EntityData.Leafs["down-nbr-down-reason"] = types.YLeaf{"DownNbrDownReason", gracefulRestartAdjacency.DownNbrDownReason}
+    return &(gracefulRestartAdjacency.EntityData)
 }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetSegmentPath() string {
-    return "graceful-restart-adjacency"
-}
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-graceful-restartable"] = gracefulRestartAdjacency.IsGracefulRestartable
-    leafs["reconnect-timeout"] = gracefulRestartAdjacency.ReconnectTimeout
-    leafs["recovery-time"] = gracefulRestartAdjacency.RecoveryTime
-    leafs["is-liveness-timer-running"] = gracefulRestartAdjacency.IsLivenessTimerRunning
-    leafs["liveness-timer-remaining-seconds"] = gracefulRestartAdjacency.LivenessTimerRemainingSeconds
-    leafs["is-recovery-timer-running"] = gracefulRestartAdjacency.IsRecoveryTimerRunning
-    leafs["recovery-timer-remaining-seconds"] = gracefulRestartAdjacency.RecoveryTimerRemainingSeconds
-    leafs["down-nbr-flap-count"] = gracefulRestartAdjacency.DownNbrFlapCount
-    leafs["down-nbr-down-reason"] = gracefulRestartAdjacency.DownNbrDownReason
-    return leafs
-}
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetBundleName() string { return "cisco_ios_xe" }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetYangName() string { return "graceful-restart-adjacency" }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) SetParent(parent types.Entity) { gracefulRestartAdjacency.parent = parent }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetParent() types.Entity { return gracefulRestartAdjacency.parent }
-
-func (gracefulRestartAdjacency *MplsLdp_MplsLdpState_Neighbors_Neighbor_GracefulRestartAdjacency) GetParentYangName() string { return "neighbor" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation
 // MPLS LDP Neighbor TCP Information
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is the foreign host address used by TCP. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     ForeignHost interface{}
 
     // This is the local host address used by TCP. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalHost interface{}
 
     // Foreign port number. The type is interface{} with range: 0..65535.
@@ -7346,66 +4456,31 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation struct {
     UpTime interface{}
 }
 
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetFilter() yfilter.YFilter { return tcpInformation.YFilter }
+func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetEntityData() *types.CommonEntityData {
+    tcpInformation.EntityData.YFilter = tcpInformation.YFilter
+    tcpInformation.EntityData.YangName = "tcp-information"
+    tcpInformation.EntityData.BundleName = "cisco_ios_xe"
+    tcpInformation.EntityData.ParentYangName = "neighbor"
+    tcpInformation.EntityData.SegmentPath = "tcp-information"
+    tcpInformation.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tcpInformation.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tcpInformation.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) SetFilter(yf yfilter.YFilter) { tcpInformation.YFilter = yf }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetGoName(yname string) string {
-    if yname == "foreign-host" { return "ForeignHost" }
-    if yname == "local-host" { return "LocalHost" }
-    if yname == "foreign-port" { return "ForeignPort" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "is-md5-on" { return "IsMd5On" }
-    if yname == "up-time" { return "UpTime" }
-    return ""
+    tcpInformation.EntityData.Children = make(map[string]types.YChild)
+    tcpInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    tcpInformation.EntityData.Leafs["foreign-host"] = types.YLeaf{"ForeignHost", tcpInformation.ForeignHost}
+    tcpInformation.EntityData.Leafs["local-host"] = types.YLeaf{"LocalHost", tcpInformation.LocalHost}
+    tcpInformation.EntityData.Leafs["foreign-port"] = types.YLeaf{"ForeignPort", tcpInformation.ForeignPort}
+    tcpInformation.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", tcpInformation.LocalPort}
+    tcpInformation.EntityData.Leafs["is-md5-on"] = types.YLeaf{"IsMd5On", tcpInformation.IsMd5On}
+    tcpInformation.EntityData.Leafs["up-time"] = types.YLeaf{"UpTime", tcpInformation.UpTime}
+    return &(tcpInformation.EntityData)
 }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetSegmentPath() string {
-    return "tcp-information"
-}
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["foreign-host"] = tcpInformation.ForeignHost
-    leafs["local-host"] = tcpInformation.LocalHost
-    leafs["foreign-port"] = tcpInformation.ForeignPort
-    leafs["local-port"] = tcpInformation.LocalPort
-    leafs["is-md5-on"] = tcpInformation.IsMd5On
-    leafs["up-time"] = tcpInformation.UpTime
-    return leafs
-}
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetYangName() string { return "tcp-information" }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) SetParent(parent types.Entity) { tcpInformation.parent = parent }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetParent() types.Entity { return tcpInformation.parent }
-
-func (tcpInformation *MplsLdp_MplsLdpState_Neighbors_Neighbor_TcpInformation) GetParentYangName() string { return "neighbor" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities
 // Capabilities sent to and received from neighbor
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of sent capabilities. The type is slice of
@@ -7417,82 +4492,33 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities struct {
     ReceivedCaps []MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps
 }
 
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetFilter() yfilter.YFilter { return capabilities.YFilter }
+func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetEntityData() *types.CommonEntityData {
+    capabilities.EntityData.YFilter = capabilities.YFilter
+    capabilities.EntityData.YangName = "capabilities"
+    capabilities.EntityData.BundleName = "cisco_ios_xe"
+    capabilities.EntityData.ParentYangName = "neighbor"
+    capabilities.EntityData.SegmentPath = "capabilities"
+    capabilities.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    capabilities.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    capabilities.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) SetFilter(yf yfilter.YFilter) { capabilities.YFilter = yf }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetGoName(yname string) string {
-    if yname == "sent-caps" { return "SentCaps" }
-    if yname == "received-caps" { return "ReceivedCaps" }
-    return ""
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetSegmentPath() string {
-    return "capabilities"
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sent-caps" {
-        for _, c := range capabilities.SentCaps {
-            if capabilities.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps{}
-        capabilities.SentCaps = append(capabilities.SentCaps, child)
-        return &capabilities.SentCaps[len(capabilities.SentCaps)-1]
-    }
-    if childYangName == "received-caps" {
-        for _, c := range capabilities.ReceivedCaps {
-            if capabilities.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps{}
-        capabilities.ReceivedCaps = append(capabilities.ReceivedCaps, child)
-        return &capabilities.ReceivedCaps[len(capabilities.ReceivedCaps)-1]
-    }
-    return nil
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    capabilities.EntityData.Children = make(map[string]types.YChild)
+    capabilities.EntityData.Children["sent-caps"] = types.YChild{"SentCaps", nil}
     for i := range capabilities.SentCaps {
-        children[capabilities.SentCaps[i].GetSegmentPath()] = &capabilities.SentCaps[i]
+        capabilities.EntityData.Children[types.GetSegmentPath(&capabilities.SentCaps[i])] = types.YChild{"SentCaps", &capabilities.SentCaps[i]}
     }
+    capabilities.EntityData.Children["received-caps"] = types.YChild{"ReceivedCaps", nil}
     for i := range capabilities.ReceivedCaps {
-        children[capabilities.ReceivedCaps[i].GetSegmentPath()] = &capabilities.ReceivedCaps[i]
+        capabilities.EntityData.Children[types.GetSegmentPath(&capabilities.ReceivedCaps[i])] = types.YChild{"ReceivedCaps", &capabilities.ReceivedCaps[i]}
     }
-    return children
+    capabilities.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(capabilities.EntityData)
 }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetBundleName() string { return "cisco_ios_xe" }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetYangName() string { return "capabilities" }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) SetParent(parent types.Entity) { capabilities.parent = parent }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetParent() types.Entity { return capabilities.parent }
-
-func (capabilities *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities) GetParentYangName() string { return "neighbor" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps
 // List of sent capabilities
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Capability type (IANA assigned). The type is
@@ -7509,62 +4535,29 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps struct {
     CapabilityData interface{}
 }
 
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetFilter() yfilter.YFilter { return sentCaps.YFilter }
+func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetEntityData() *types.CommonEntityData {
+    sentCaps.EntityData.YFilter = sentCaps.YFilter
+    sentCaps.EntityData.YangName = "sent-caps"
+    sentCaps.EntityData.BundleName = "cisco_ios_xe"
+    sentCaps.EntityData.ParentYangName = "capabilities"
+    sentCaps.EntityData.SegmentPath = "sent-caps" + "[cap-type='" + fmt.Sprintf("%v", sentCaps.CapType) + "']"
+    sentCaps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sentCaps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sentCaps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) SetFilter(yf yfilter.YFilter) { sentCaps.YFilter = yf }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetGoName(yname string) string {
-    if yname == "cap-type" { return "CapType" }
-    if yname == "cap-des" { return "CapDes" }
-    if yname == "capability-data-length" { return "CapabilityDataLength" }
-    if yname == "capability-data" { return "CapabilityData" }
-    return ""
+    sentCaps.EntityData.Children = make(map[string]types.YChild)
+    sentCaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    sentCaps.EntityData.Leafs["cap-type"] = types.YLeaf{"CapType", sentCaps.CapType}
+    sentCaps.EntityData.Leafs["cap-des"] = types.YLeaf{"CapDes", sentCaps.CapDes}
+    sentCaps.EntityData.Leafs["capability-data-length"] = types.YLeaf{"CapabilityDataLength", sentCaps.CapabilityDataLength}
+    sentCaps.EntityData.Leafs["capability-data"] = types.YLeaf{"CapabilityData", sentCaps.CapabilityData}
+    return &(sentCaps.EntityData)
 }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetSegmentPath() string {
-    return "sent-caps" + "[cap-type='" + fmt.Sprintf("%v", sentCaps.CapType) + "']"
-}
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cap-type"] = sentCaps.CapType
-    leafs["cap-des"] = sentCaps.CapDes
-    leafs["capability-data-length"] = sentCaps.CapabilityDataLength
-    leafs["capability-data"] = sentCaps.CapabilityData
-    return leafs
-}
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetYangName() string { return "sent-caps" }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) SetParent(parent types.Entity) { sentCaps.parent = parent }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetParent() types.Entity { return sentCaps.parent }
-
-func (sentCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_SentCaps) GetParentYangName() string { return "capabilities" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps
 // List of received capabilities
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Capability type (IANA assigned). The type is
@@ -7581,57 +4574,24 @@ type MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps struct {
     CapabilityData interface{}
 }
 
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetFilter() yfilter.YFilter { return receivedCaps.YFilter }
+func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetEntityData() *types.CommonEntityData {
+    receivedCaps.EntityData.YFilter = receivedCaps.YFilter
+    receivedCaps.EntityData.YangName = "received-caps"
+    receivedCaps.EntityData.BundleName = "cisco_ios_xe"
+    receivedCaps.EntityData.ParentYangName = "capabilities"
+    receivedCaps.EntityData.SegmentPath = "received-caps" + "[cap-type='" + fmt.Sprintf("%v", receivedCaps.CapType) + "']"
+    receivedCaps.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    receivedCaps.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    receivedCaps.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) SetFilter(yf yfilter.YFilter) { receivedCaps.YFilter = yf }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetGoName(yname string) string {
-    if yname == "cap-type" { return "CapType" }
-    if yname == "cap-des" { return "CapDes" }
-    if yname == "capability-data-length" { return "CapabilityDataLength" }
-    if yname == "capability-data" { return "CapabilityData" }
-    return ""
+    receivedCaps.EntityData.Children = make(map[string]types.YChild)
+    receivedCaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    receivedCaps.EntityData.Leafs["cap-type"] = types.YLeaf{"CapType", receivedCaps.CapType}
+    receivedCaps.EntityData.Leafs["cap-des"] = types.YLeaf{"CapDes", receivedCaps.CapDes}
+    receivedCaps.EntityData.Leafs["capability-data-length"] = types.YLeaf{"CapabilityDataLength", receivedCaps.CapabilityDataLength}
+    receivedCaps.EntityData.Leafs["capability-data"] = types.YLeaf{"CapabilityData", receivedCaps.CapabilityData}
+    return &(receivedCaps.EntityData)
 }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetSegmentPath() string {
-    return "received-caps" + "[cap-type='" + fmt.Sprintf("%v", receivedCaps.CapType) + "']"
-}
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cap-type"] = receivedCaps.CapType
-    leafs["cap-des"] = receivedCaps.CapDes
-    leafs["capability-data-length"] = receivedCaps.CapabilityDataLength
-    leafs["capability-data"] = receivedCaps.CapabilityData
-    return leafs
-}
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetBundleName() string { return "cisco_ios_xe" }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetYangName() string { return "received-caps" }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) SetParent(parent types.Entity) { receivedCaps.parent = parent }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetParent() types.Entity { return receivedCaps.parent }
-
-func (receivedCaps *MplsLdp_MplsLdpState_Neighbors_Neighbor_Capabilities_ReceivedCaps) GetParentYangName() string { return "capabilities" }
 
 // MplsLdp_MplsLdpState_Neighbors_Neighbor_SessionRole represents able to be determined at the present time.
 type MplsLdp_MplsLdpState_Neighbors_Neighbor_SessionRole string
@@ -7651,87 +4611,54 @@ const (
 // For this Neighbor, this is the list of adjacencies
 // between the neighbor and the local node.
 type MplsLdp_MplsLdpState_Neighbors_NbrAdjs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is the interface used by MPLS LDP Link Hello. The type is string.
     // Refers to ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // This is the local address used to send the Targeted Hello. The type is one
     // of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LocalAddress interface{}
 
     // This is the destination address used to send the Targeted Hello. The type
     // is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     TargetAddress interface{}
 
     // This is the state of this Targeted Hello instance. The type is DhcState.
     TargetState interface{}
 }
 
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetFilter() yfilter.YFilter { return nbrAdjs.YFilter }
+func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetEntityData() *types.CommonEntityData {
+    nbrAdjs.EntityData.YFilter = nbrAdjs.YFilter
+    nbrAdjs.EntityData.YangName = "nbr-adjs"
+    nbrAdjs.EntityData.BundleName = "cisco_ios_xe"
+    nbrAdjs.EntityData.ParentYangName = "neighbors"
+    nbrAdjs.EntityData.SegmentPath = "nbr-adjs"
+    nbrAdjs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nbrAdjs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nbrAdjs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) SetFilter(yf yfilter.YFilter) { nbrAdjs.YFilter = yf }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "target-address" { return "TargetAddress" }
-    if yname == "target-state" { return "TargetState" }
-    return ""
+    nbrAdjs.EntityData.Children = make(map[string]types.YChild)
+    nbrAdjs.EntityData.Leafs = make(map[string]types.YLeaf)
+    nbrAdjs.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", nbrAdjs.Interface_}
+    nbrAdjs.EntityData.Leafs["local-address"] = types.YLeaf{"LocalAddress", nbrAdjs.LocalAddress}
+    nbrAdjs.EntityData.Leafs["target-address"] = types.YLeaf{"TargetAddress", nbrAdjs.TargetAddress}
+    nbrAdjs.EntityData.Leafs["target-state"] = types.YLeaf{"TargetState", nbrAdjs.TargetState}
+    return &(nbrAdjs.EntityData)
 }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetSegmentPath() string {
-    return "nbr-adjs"
-}
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = nbrAdjs.Interface
-    leafs["local-address"] = nbrAdjs.LocalAddress
-    leafs["target-address"] = nbrAdjs.TargetAddress
-    leafs["target-state"] = nbrAdjs.TargetState
-    return leafs
-}
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetYangName() string { return "nbr-adjs" }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) SetParent(parent types.Entity) { nbrAdjs.parent = parent }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetParent() types.Entity { return nbrAdjs.parent }
-
-func (nbrAdjs *MplsLdp_MplsLdpState_Neighbors_NbrAdjs) GetParentYangName() string { return "neighbors" }
 
 // MplsLdp_MplsLdpState_Neighbors_StatsInfo
 // MPLS LDP Statistics Information
 type MplsLdp_MplsLdpState_Neighbors_StatsInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of sysUpTime on the most recent occasion at which any one or more
@@ -7843,92 +4770,41 @@ type MplsLdp_MplsLdpState_Neighbors_StatsInfo struct {
     MessageIn MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn
 }
 
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetFilter() yfilter.YFilter { return statsInfo.YFilter }
+func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetEntityData() *types.CommonEntityData {
+    statsInfo.EntityData.YFilter = statsInfo.YFilter
+    statsInfo.EntityData.YangName = "stats-info"
+    statsInfo.EntityData.BundleName = "cisco_ios_xe"
+    statsInfo.EntityData.ParentYangName = "neighbors"
+    statsInfo.EntityData.SegmentPath = "stats-info"
+    statsInfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    statsInfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    statsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) SetFilter(yf yfilter.YFilter) { statsInfo.YFilter = yf }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetGoName(yname string) string {
-    if yname == "discon-time" { return "DisconTime" }
-    if yname == "session-attempts" { return "SessionAttempts" }
-    if yname == "sess-reject-no-hello" { return "SessRejectNoHello" }
-    if yname == "sess-rej-ad" { return "SessRejAd" }
-    if yname == "sess-rej-max-pdu" { return "SessRejMaxPdu" }
-    if yname == "sess-rej-lr" { return "SessRejLr" }
-    if yname == "bad-ldpid" { return "BadLdpid" }
-    if yname == "bad-pdu-len" { return "BadPduLen" }
-    if yname == "bad-msg-len" { return "BadMsgLen" }
-    if yname == "bad-tlv-len" { return "BadTlvLen" }
-    if yname == "malformed-tlv-val" { return "MalformedTlvVal" }
-    if yname == "keep-alive-exp" { return "KeepAliveExp" }
-    if yname == "shutdown-notif-rec" { return "ShutdownNotifRec" }
-    if yname == "shutdow-notif-sent" { return "ShutdowNotifSent" }
-    if yname == "message-out" { return "MessageOut" }
-    if yname == "message-in" { return "MessageIn" }
-    return ""
+    statsInfo.EntityData.Children = make(map[string]types.YChild)
+    statsInfo.EntityData.Children["message-out"] = types.YChild{"MessageOut", &statsInfo.MessageOut}
+    statsInfo.EntityData.Children["message-in"] = types.YChild{"MessageIn", &statsInfo.MessageIn}
+    statsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    statsInfo.EntityData.Leafs["discon-time"] = types.YLeaf{"DisconTime", statsInfo.DisconTime}
+    statsInfo.EntityData.Leafs["session-attempts"] = types.YLeaf{"SessionAttempts", statsInfo.SessionAttempts}
+    statsInfo.EntityData.Leafs["sess-reject-no-hello"] = types.YLeaf{"SessRejectNoHello", statsInfo.SessRejectNoHello}
+    statsInfo.EntityData.Leafs["sess-rej-ad"] = types.YLeaf{"SessRejAd", statsInfo.SessRejAd}
+    statsInfo.EntityData.Leafs["sess-rej-max-pdu"] = types.YLeaf{"SessRejMaxPdu", statsInfo.SessRejMaxPdu}
+    statsInfo.EntityData.Leafs["sess-rej-lr"] = types.YLeaf{"SessRejLr", statsInfo.SessRejLr}
+    statsInfo.EntityData.Leafs["bad-ldpid"] = types.YLeaf{"BadLdpid", statsInfo.BadLdpid}
+    statsInfo.EntityData.Leafs["bad-pdu-len"] = types.YLeaf{"BadPduLen", statsInfo.BadPduLen}
+    statsInfo.EntityData.Leafs["bad-msg-len"] = types.YLeaf{"BadMsgLen", statsInfo.BadMsgLen}
+    statsInfo.EntityData.Leafs["bad-tlv-len"] = types.YLeaf{"BadTlvLen", statsInfo.BadTlvLen}
+    statsInfo.EntityData.Leafs["malformed-tlv-val"] = types.YLeaf{"MalformedTlvVal", statsInfo.MalformedTlvVal}
+    statsInfo.EntityData.Leafs["keep-alive-exp"] = types.YLeaf{"KeepAliveExp", statsInfo.KeepAliveExp}
+    statsInfo.EntityData.Leafs["shutdown-notif-rec"] = types.YLeaf{"ShutdownNotifRec", statsInfo.ShutdownNotifRec}
+    statsInfo.EntityData.Leafs["shutdow-notif-sent"] = types.YLeaf{"ShutdowNotifSent", statsInfo.ShutdowNotifSent}
+    return &(statsInfo.EntityData)
 }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetSegmentPath() string {
-    return "stats-info"
-}
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "message-out" {
-        return &statsInfo.MessageOut
-    }
-    if childYangName == "message-in" {
-        return &statsInfo.MessageIn
-    }
-    return nil
-}
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["message-out"] = &statsInfo.MessageOut
-    children["message-in"] = &statsInfo.MessageIn
-    return children
-}
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["discon-time"] = statsInfo.DisconTime
-    leafs["session-attempts"] = statsInfo.SessionAttempts
-    leafs["sess-reject-no-hello"] = statsInfo.SessRejectNoHello
-    leafs["sess-rej-ad"] = statsInfo.SessRejAd
-    leafs["sess-rej-max-pdu"] = statsInfo.SessRejMaxPdu
-    leafs["sess-rej-lr"] = statsInfo.SessRejLr
-    leafs["bad-ldpid"] = statsInfo.BadLdpid
-    leafs["bad-pdu-len"] = statsInfo.BadPduLen
-    leafs["bad-msg-len"] = statsInfo.BadMsgLen
-    leafs["bad-tlv-len"] = statsInfo.BadTlvLen
-    leafs["malformed-tlv-val"] = statsInfo.MalformedTlvVal
-    leafs["keep-alive-exp"] = statsInfo.KeepAliveExp
-    leafs["shutdown-notif-rec"] = statsInfo.ShutdownNotifRec
-    leafs["shutdow-notif-sent"] = statsInfo.ShutdowNotifSent
-    return leafs
-}
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetYangName() string { return "stats-info" }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) SetParent(parent types.Entity) { statsInfo.parent = parent }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetParent() types.Entity { return statsInfo.parent }
-
-func (statsInfo *MplsLdp_MplsLdpState_Neighbors_StatsInfo) GetParentYangName() string { return "neighbors" }
 
 // MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut
 // MPLS LDP message sent counters to this neighbor.
 type MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total count of all messages. The type is interface{} with range:
@@ -7980,85 +4856,41 @@ type MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut struct {
     IccpRgAppDataCount interface{}
 }
 
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetFilter() yfilter.YFilter { return messageOut.YFilter }
+func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetEntityData() *types.CommonEntityData {
+    messageOut.EntityData.YFilter = messageOut.YFilter
+    messageOut.EntityData.YangName = "message-out"
+    messageOut.EntityData.BundleName = "cisco_ios_xe"
+    messageOut.EntityData.ParentYangName = "stats-info"
+    messageOut.EntityData.SegmentPath = "message-out"
+    messageOut.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    messageOut.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    messageOut.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) SetFilter(yf yfilter.YFilter) { messageOut.YFilter = yf }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetGoName(yname string) string {
-    if yname == "total-count" { return "TotalCount" }
-    if yname == "init-count" { return "InitCount" }
-    if yname == "address-count" { return "AddressCount" }
-    if yname == "address-withdraw-count" { return "AddressWithdrawCount" }
-    if yname == "label-map-count" { return "LabelMapCount" }
-    if yname == "label-withdraw-count" { return "LabelWithdrawCount" }
-    if yname == "label-release-count" { return "LabelReleaseCount" }
-    if yname == "label-request-count" { return "LabelRequestCount" }
-    if yname == "label-abort-request-count" { return "LabelAbortRequestCount" }
-    if yname == "notification-count" { return "NotificationCount" }
-    if yname == "keep-alive-count" { return "KeepAliveCount" }
-    if yname == "iccp-rg-conn-count" { return "IccpRgConnCount" }
-    if yname == "iccp-rg-disconn-count" { return "IccpRgDisconnCount" }
-    if yname == "iccp-rg-notif-count" { return "IccpRgNotifCount" }
-    if yname == "iccp-rg-app-data-count" { return "IccpRgAppDataCount" }
-    return ""
+    messageOut.EntityData.Children = make(map[string]types.YChild)
+    messageOut.EntityData.Leafs = make(map[string]types.YLeaf)
+    messageOut.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", messageOut.TotalCount}
+    messageOut.EntityData.Leafs["init-count"] = types.YLeaf{"InitCount", messageOut.InitCount}
+    messageOut.EntityData.Leafs["address-count"] = types.YLeaf{"AddressCount", messageOut.AddressCount}
+    messageOut.EntityData.Leafs["address-withdraw-count"] = types.YLeaf{"AddressWithdrawCount", messageOut.AddressWithdrawCount}
+    messageOut.EntityData.Leafs["label-map-count"] = types.YLeaf{"LabelMapCount", messageOut.LabelMapCount}
+    messageOut.EntityData.Leafs["label-withdraw-count"] = types.YLeaf{"LabelWithdrawCount", messageOut.LabelWithdrawCount}
+    messageOut.EntityData.Leafs["label-release-count"] = types.YLeaf{"LabelReleaseCount", messageOut.LabelReleaseCount}
+    messageOut.EntityData.Leafs["label-request-count"] = types.YLeaf{"LabelRequestCount", messageOut.LabelRequestCount}
+    messageOut.EntityData.Leafs["label-abort-request-count"] = types.YLeaf{"LabelAbortRequestCount", messageOut.LabelAbortRequestCount}
+    messageOut.EntityData.Leafs["notification-count"] = types.YLeaf{"NotificationCount", messageOut.NotificationCount}
+    messageOut.EntityData.Leafs["keep-alive-count"] = types.YLeaf{"KeepAliveCount", messageOut.KeepAliveCount}
+    messageOut.EntityData.Leafs["iccp-rg-conn-count"] = types.YLeaf{"IccpRgConnCount", messageOut.IccpRgConnCount}
+    messageOut.EntityData.Leafs["iccp-rg-disconn-count"] = types.YLeaf{"IccpRgDisconnCount", messageOut.IccpRgDisconnCount}
+    messageOut.EntityData.Leafs["iccp-rg-notif-count"] = types.YLeaf{"IccpRgNotifCount", messageOut.IccpRgNotifCount}
+    messageOut.EntityData.Leafs["iccp-rg-app-data-count"] = types.YLeaf{"IccpRgAppDataCount", messageOut.IccpRgAppDataCount}
+    return &(messageOut.EntityData)
 }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetSegmentPath() string {
-    return "message-out"
-}
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-count"] = messageOut.TotalCount
-    leafs["init-count"] = messageOut.InitCount
-    leafs["address-count"] = messageOut.AddressCount
-    leafs["address-withdraw-count"] = messageOut.AddressWithdrawCount
-    leafs["label-map-count"] = messageOut.LabelMapCount
-    leafs["label-withdraw-count"] = messageOut.LabelWithdrawCount
-    leafs["label-release-count"] = messageOut.LabelReleaseCount
-    leafs["label-request-count"] = messageOut.LabelRequestCount
-    leafs["label-abort-request-count"] = messageOut.LabelAbortRequestCount
-    leafs["notification-count"] = messageOut.NotificationCount
-    leafs["keep-alive-count"] = messageOut.KeepAliveCount
-    leafs["iccp-rg-conn-count"] = messageOut.IccpRgConnCount
-    leafs["iccp-rg-disconn-count"] = messageOut.IccpRgDisconnCount
-    leafs["iccp-rg-notif-count"] = messageOut.IccpRgNotifCount
-    leafs["iccp-rg-app-data-count"] = messageOut.IccpRgAppDataCount
-    return leafs
-}
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetBundleName() string { return "cisco_ios_xe" }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetYangName() string { return "message-out" }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) SetParent(parent types.Entity) { messageOut.parent = parent }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetParent() types.Entity { return messageOut.parent }
-
-func (messageOut *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageOut) GetParentYangName() string { return "stats-info" }
 
 // MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn
 // MPLS LDP message received counters from this
 // neighbor.
 type MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total count of all messages. The type is interface{} with range:
@@ -8110,84 +4942,40 @@ type MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn struct {
     IccpRgAppDataCount interface{}
 }
 
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetFilter() yfilter.YFilter { return messageIn.YFilter }
+func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetEntityData() *types.CommonEntityData {
+    messageIn.EntityData.YFilter = messageIn.YFilter
+    messageIn.EntityData.YangName = "message-in"
+    messageIn.EntityData.BundleName = "cisco_ios_xe"
+    messageIn.EntityData.ParentYangName = "stats-info"
+    messageIn.EntityData.SegmentPath = "message-in"
+    messageIn.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    messageIn.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    messageIn.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) SetFilter(yf yfilter.YFilter) { messageIn.YFilter = yf }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetGoName(yname string) string {
-    if yname == "total-count" { return "TotalCount" }
-    if yname == "init-count" { return "InitCount" }
-    if yname == "address-count" { return "AddressCount" }
-    if yname == "address-withdraw-count" { return "AddressWithdrawCount" }
-    if yname == "label-map-count" { return "LabelMapCount" }
-    if yname == "label-withdraw-count" { return "LabelWithdrawCount" }
-    if yname == "label-release-count" { return "LabelReleaseCount" }
-    if yname == "label-request-count" { return "LabelRequestCount" }
-    if yname == "label-abort-request-count" { return "LabelAbortRequestCount" }
-    if yname == "notification-count" { return "NotificationCount" }
-    if yname == "keep-alive-count" { return "KeepAliveCount" }
-    if yname == "iccp-rg-conn-count" { return "IccpRgConnCount" }
-    if yname == "iccp-rg-disconn-count" { return "IccpRgDisconnCount" }
-    if yname == "iccp-rg-notif-count" { return "IccpRgNotifCount" }
-    if yname == "iccp-rg-app-data-count" { return "IccpRgAppDataCount" }
-    return ""
+    messageIn.EntityData.Children = make(map[string]types.YChild)
+    messageIn.EntityData.Leafs = make(map[string]types.YLeaf)
+    messageIn.EntityData.Leafs["total-count"] = types.YLeaf{"TotalCount", messageIn.TotalCount}
+    messageIn.EntityData.Leafs["init-count"] = types.YLeaf{"InitCount", messageIn.InitCount}
+    messageIn.EntityData.Leafs["address-count"] = types.YLeaf{"AddressCount", messageIn.AddressCount}
+    messageIn.EntityData.Leafs["address-withdraw-count"] = types.YLeaf{"AddressWithdrawCount", messageIn.AddressWithdrawCount}
+    messageIn.EntityData.Leafs["label-map-count"] = types.YLeaf{"LabelMapCount", messageIn.LabelMapCount}
+    messageIn.EntityData.Leafs["label-withdraw-count"] = types.YLeaf{"LabelWithdrawCount", messageIn.LabelWithdrawCount}
+    messageIn.EntityData.Leafs["label-release-count"] = types.YLeaf{"LabelReleaseCount", messageIn.LabelReleaseCount}
+    messageIn.EntityData.Leafs["label-request-count"] = types.YLeaf{"LabelRequestCount", messageIn.LabelRequestCount}
+    messageIn.EntityData.Leafs["label-abort-request-count"] = types.YLeaf{"LabelAbortRequestCount", messageIn.LabelAbortRequestCount}
+    messageIn.EntityData.Leafs["notification-count"] = types.YLeaf{"NotificationCount", messageIn.NotificationCount}
+    messageIn.EntityData.Leafs["keep-alive-count"] = types.YLeaf{"KeepAliveCount", messageIn.KeepAliveCount}
+    messageIn.EntityData.Leafs["iccp-rg-conn-count"] = types.YLeaf{"IccpRgConnCount", messageIn.IccpRgConnCount}
+    messageIn.EntityData.Leafs["iccp-rg-disconn-count"] = types.YLeaf{"IccpRgDisconnCount", messageIn.IccpRgDisconnCount}
+    messageIn.EntityData.Leafs["iccp-rg-notif-count"] = types.YLeaf{"IccpRgNotifCount", messageIn.IccpRgNotifCount}
+    messageIn.EntityData.Leafs["iccp-rg-app-data-count"] = types.YLeaf{"IccpRgAppDataCount", messageIn.IccpRgAppDataCount}
+    return &(messageIn.EntityData)
 }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetSegmentPath() string {
-    return "message-in"
-}
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-count"] = messageIn.TotalCount
-    leafs["init-count"] = messageIn.InitCount
-    leafs["address-count"] = messageIn.AddressCount
-    leafs["address-withdraw-count"] = messageIn.AddressWithdrawCount
-    leafs["label-map-count"] = messageIn.LabelMapCount
-    leafs["label-withdraw-count"] = messageIn.LabelWithdrawCount
-    leafs["label-release-count"] = messageIn.LabelReleaseCount
-    leafs["label-request-count"] = messageIn.LabelRequestCount
-    leafs["label-abort-request-count"] = messageIn.LabelAbortRequestCount
-    leafs["notification-count"] = messageIn.NotificationCount
-    leafs["keep-alive-count"] = messageIn.KeepAliveCount
-    leafs["iccp-rg-conn-count"] = messageIn.IccpRgConnCount
-    leafs["iccp-rg-disconn-count"] = messageIn.IccpRgDisconnCount
-    leafs["iccp-rg-notif-count"] = messageIn.IccpRgNotifCount
-    leafs["iccp-rg-app-data-count"] = messageIn.IccpRgAppDataCount
-    return leafs
-}
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetBundleName() string { return "cisco_ios_xe" }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetYangName() string { return "message-in" }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) SetParent(parent types.Entity) { messageIn.parent = parent }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetParent() types.Entity { return messageIn.parent }
-
-func (messageIn *MplsLdp_MplsLdpState_Neighbors_StatsInfo_MessageIn) GetParentYangName() string { return "stats-info" }
 
 // MplsLdp_MplsLdpState_Neighbors_Backoffs
 // LDP Backoff Information
 type MplsLdp_MplsLdpState_Neighbors_Backoffs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Current neighbor backoff count in seconds. The type is interface{} with
@@ -8199,66 +4987,35 @@ type MplsLdp_MplsLdpState_Neighbors_Backoffs struct {
     WaitingSeconds interface{}
 }
 
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetFilter() yfilter.YFilter { return backoffs.YFilter }
+func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetEntityData() *types.CommonEntityData {
+    backoffs.EntityData.YFilter = backoffs.YFilter
+    backoffs.EntityData.YangName = "backoffs"
+    backoffs.EntityData.BundleName = "cisco_ios_xe"
+    backoffs.EntityData.ParentYangName = "neighbors"
+    backoffs.EntityData.SegmentPath = "backoffs"
+    backoffs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    backoffs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    backoffs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) SetFilter(yf yfilter.YFilter) { backoffs.YFilter = yf }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetGoName(yname string) string {
-    if yname == "backoff-seconds" { return "BackoffSeconds" }
-    if yname == "waiting-seconds" { return "WaitingSeconds" }
-    return ""
+    backoffs.EntityData.Children = make(map[string]types.YChild)
+    backoffs.EntityData.Leafs = make(map[string]types.YLeaf)
+    backoffs.EntityData.Leafs["backoff-seconds"] = types.YLeaf{"BackoffSeconds", backoffs.BackoffSeconds}
+    backoffs.EntityData.Leafs["waiting-seconds"] = types.YLeaf{"WaitingSeconds", backoffs.WaitingSeconds}
+    return &(backoffs.EntityData)
 }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetSegmentPath() string {
-    return "backoffs"
-}
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["backoff-seconds"] = backoffs.BackoffSeconds
-    leafs["waiting-seconds"] = backoffs.WaitingSeconds
-    return leafs
-}
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetYangName() string { return "backoffs" }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) SetParent(parent types.Entity) { backoffs.parent = parent }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetParent() types.Entity { return backoffs.parent }
-
-func (backoffs *MplsLdp_MplsLdpState_Neighbors_Backoffs) GetParentYangName() string { return "neighbors" }
 
 // MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail
 // This is the LDP NSR state for this neighbor.
 type MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Non-Stop Routing State. The type is one of the following:
-    // NsrStatusReadyNsrStatusDisabledNsrStatusNotReady.
+    // NsrStatusReadyNsrStatusNotReadyNsrStatusDisabled.
     NsrState interface{}
 
     // NSR Sync State. The type is one of the following:
-    // LdpNsrPeerSyncStOperLdpNsrPeerSyncStNoneLdpNsrPeerSyncStPrepLdpNsrPeerSyncStWaitLdpNsrPeerSyncStReadyLdpNsrPeerSyncStAppWait.
+    // LdpNsrPeerSyncStNoneLdpNsrPeerSyncStWaitLdpNsrPeerSyncStReadyLdpNsrPeerSyncStPrepLdpNsrPeerSyncStAppWaitLdpNsrPeerSyncStOper.
     NsrNbrSyncState interface{}
 
     // This is the last NSR sync error recieved. It indicates the last reason the
@@ -8266,11 +5023,11 @@ type MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail struct {
     // information to be viewed when the state is flapping, even if the
     // syncronization is successful at the time of the query. The type is one of
     // the following:
-    // NsrPeerSyncErrAppFailNsrPeerSyncErrLdpGblNsrPeerSyncErrTcpGblNsrPeerSyncErrLdpPeerNsrPeerSyncErrTcpPeerNsrPeerSyncErrNoneNsrPeerSyncErrLdpSyncNackNsrPeerSyncErrSyncPrep.
+    // NsrPeerSyncErrNoneNsrPeerSyncErrLdpSyncNackNsrPeerSyncErrSyncPrepNsrPeerSyncErrTcpPeerNsrPeerSyncErrTcpGblNsrPeerSyncErrLdpPeerNsrPeerSyncErrLdpGblNsrPeerSyncErrAppFail.
     NsrNbrLastSyncError interface{}
 
     // Last NSR sync NACK reason. The type is one of the following:
-    // NsrSyncNackRsnErrAppNotFoundNsrSyncNackRsnNoPEndSockNsrSyncNackRsnErrAdjAddNsrSyncNackRsnErrUnexpPeerDownNsrSyncNackRsnNoneNsrSyncNackRsnNoCtxNsrSyncNackRsnMissingElemNsrSyncNackRsnErrAppInvalidNsrSyncNackRsnErrPpCreateNsrSyncNackRsnErrRxUnexpOpenNsrSyncNackRsnTblIdMismatchNsrSyncNackRsnErrAddrBindNsrSyncNackRsnErrDhcAddNsrSyncNackRsnErrRxNotifNsrSyncNackRsnErrTpCreateNsrSyncNackRsnPEndSockNotSyncedNsrSyncNackRsnPpExistsNsrSyncNackRsnErrRxBadPieNsrSyncNackRsnEnomem.
+    // NsrSyncNackRsnNoneNsrSyncNackRsnTblIdMismatchNsrSyncNackRsnPpExistsNsrSyncNackRsnMissingElemNsrSyncNackRsnNoPEndSockNsrSyncNackRsnPEndSockNotSyncedNsrSyncNackRsnErrAdjAddNsrSyncNackRsnErrDhcAddNsrSyncNackRsnEnomemNsrSyncNackRsnErrTpCreateNsrSyncNackRsnErrPpCreateNsrSyncNackRsnErrAddrBindNsrSyncNackRsnErrRxBadPieNsrSyncNackRsnErrRxNotifNsrSyncNackRsnErrRxUnexpOpenNsrSyncNackRsnErrUnexpPeerDownNsrSyncNackRsnErrAppNotFoundNsrSyncNackRsnErrAppInvalidNsrSyncNackRsnNoCtx.
     NsrNbrLastSyncNackReason interface{}
 
     // Pending Label-Request responses. The type is interface{} with range:
@@ -8329,92 +5086,43 @@ type MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail struct {
     NbrSess MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess
 }
 
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetFilter() yfilter.YFilter { return nsrNbrDetail.YFilter }
+func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetEntityData() *types.CommonEntityData {
+    nsrNbrDetail.EntityData.YFilter = nsrNbrDetail.YFilter
+    nsrNbrDetail.EntityData.YangName = "nsr-nbr-detail"
+    nsrNbrDetail.EntityData.BundleName = "cisco_ios_xe"
+    nsrNbrDetail.EntityData.ParentYangName = "neighbors"
+    nsrNbrDetail.EntityData.SegmentPath = "nsr-nbr-detail"
+    nsrNbrDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nsrNbrDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nsrNbrDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) SetFilter(yf yfilter.YFilter) { nsrNbrDetail.YFilter = yf }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetGoName(yname string) string {
-    if yname == "nsr-state" { return "NsrState" }
-    if yname == "nsr-nbr-sync-state" { return "NsrNbrSyncState" }
-    if yname == "nsr-nbr-last-sync-error" { return "NsrNbrLastSyncError" }
-    if yname == "nsr-nbr-last-sync-nack-reason" { return "NsrNbrLastSyncNackReason" }
-    if yname == "nsr-nbr-pend-label-req-resps" { return "NsrNbrPendLabelReqResps" }
-    if yname == "nsr-nbr-pend-label-withdraw-resps" { return "NsrNbrPendLabelWithdrawResps" }
-    if yname == "nsr-nbr-pend-lcl-addr-withdraw-acks" { return "NsrNbrPendLclAddrWithdrawAcks" }
-    if yname == "nsr-nbr-in-label-reqs-created" { return "NsrNbrInLabelReqsCreated" }
-    if yname == "nsr-nbr-in-label-reqs-freed" { return "NsrNbrInLabelReqsFreed" }
-    if yname == "nsr-nbr-in-label-withdraw-created" { return "NsrNbrInLabelWithdrawCreated" }
-    if yname == "nsr-nbr-in-label-withdraw-freed" { return "NsrNbrInLabelWithdrawFreed" }
-    if yname == "nsr-nbr-lcl-addr-withdraw-set" { return "NsrNbrLclAddrWithdrawSet" }
-    if yname == "nsr-nbr-lcl-addr-withdraw-cleared" { return "NsrNbrLclAddrWithdrawCleared" }
-    if yname == "nsr-nbr-xmit-ctxt-enq" { return "NsrNbrXmitCtxtEnq" }
-    if yname == "nsr-nbr-xmit-ctxt-deq" { return "NsrNbrXmitCtxtDeq" }
-    if yname == "path-vector-limit" { return "PathVectorLimit" }
-    if yname == "nbr-sess" { return "NbrSess" }
-    return ""
+    nsrNbrDetail.EntityData.Children = make(map[string]types.YChild)
+    nsrNbrDetail.EntityData.Children["nbr-sess"] = types.YChild{"NbrSess", &nsrNbrDetail.NbrSess}
+    nsrNbrDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    nsrNbrDetail.EntityData.Leafs["nsr-state"] = types.YLeaf{"NsrState", nsrNbrDetail.NsrState}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-sync-state"] = types.YLeaf{"NsrNbrSyncState", nsrNbrDetail.NsrNbrSyncState}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-last-sync-error"] = types.YLeaf{"NsrNbrLastSyncError", nsrNbrDetail.NsrNbrLastSyncError}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-last-sync-nack-reason"] = types.YLeaf{"NsrNbrLastSyncNackReason", nsrNbrDetail.NsrNbrLastSyncNackReason}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-pend-label-req-resps"] = types.YLeaf{"NsrNbrPendLabelReqResps", nsrNbrDetail.NsrNbrPendLabelReqResps}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-pend-label-withdraw-resps"] = types.YLeaf{"NsrNbrPendLabelWithdrawResps", nsrNbrDetail.NsrNbrPendLabelWithdrawResps}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-pend-lcl-addr-withdraw-acks"] = types.YLeaf{"NsrNbrPendLclAddrWithdrawAcks", nsrNbrDetail.NsrNbrPendLclAddrWithdrawAcks}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-in-label-reqs-created"] = types.YLeaf{"NsrNbrInLabelReqsCreated", nsrNbrDetail.NsrNbrInLabelReqsCreated}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-in-label-reqs-freed"] = types.YLeaf{"NsrNbrInLabelReqsFreed", nsrNbrDetail.NsrNbrInLabelReqsFreed}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-in-label-withdraw-created"] = types.YLeaf{"NsrNbrInLabelWithdrawCreated", nsrNbrDetail.NsrNbrInLabelWithdrawCreated}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-in-label-withdraw-freed"] = types.YLeaf{"NsrNbrInLabelWithdrawFreed", nsrNbrDetail.NsrNbrInLabelWithdrawFreed}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-lcl-addr-withdraw-set"] = types.YLeaf{"NsrNbrLclAddrWithdrawSet", nsrNbrDetail.NsrNbrLclAddrWithdrawSet}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-lcl-addr-withdraw-cleared"] = types.YLeaf{"NsrNbrLclAddrWithdrawCleared", nsrNbrDetail.NsrNbrLclAddrWithdrawCleared}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-xmit-ctxt-enq"] = types.YLeaf{"NsrNbrXmitCtxtEnq", nsrNbrDetail.NsrNbrXmitCtxtEnq}
+    nsrNbrDetail.EntityData.Leafs["nsr-nbr-xmit-ctxt-deq"] = types.YLeaf{"NsrNbrXmitCtxtDeq", nsrNbrDetail.NsrNbrXmitCtxtDeq}
+    nsrNbrDetail.EntityData.Leafs["path-vector-limit"] = types.YLeaf{"PathVectorLimit", nsrNbrDetail.PathVectorLimit}
+    return &(nsrNbrDetail.EntityData)
 }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetSegmentPath() string {
-    return "nsr-nbr-detail"
-}
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nbr-sess" {
-        return &nsrNbrDetail.NbrSess
-    }
-    return nil
-}
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nbr-sess"] = &nsrNbrDetail.NbrSess
-    return children
-}
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nsr-state"] = nsrNbrDetail.NsrState
-    leafs["nsr-nbr-sync-state"] = nsrNbrDetail.NsrNbrSyncState
-    leafs["nsr-nbr-last-sync-error"] = nsrNbrDetail.NsrNbrLastSyncError
-    leafs["nsr-nbr-last-sync-nack-reason"] = nsrNbrDetail.NsrNbrLastSyncNackReason
-    leafs["nsr-nbr-pend-label-req-resps"] = nsrNbrDetail.NsrNbrPendLabelReqResps
-    leafs["nsr-nbr-pend-label-withdraw-resps"] = nsrNbrDetail.NsrNbrPendLabelWithdrawResps
-    leafs["nsr-nbr-pend-lcl-addr-withdraw-acks"] = nsrNbrDetail.NsrNbrPendLclAddrWithdrawAcks
-    leafs["nsr-nbr-in-label-reqs-created"] = nsrNbrDetail.NsrNbrInLabelReqsCreated
-    leafs["nsr-nbr-in-label-reqs-freed"] = nsrNbrDetail.NsrNbrInLabelReqsFreed
-    leafs["nsr-nbr-in-label-withdraw-created"] = nsrNbrDetail.NsrNbrInLabelWithdrawCreated
-    leafs["nsr-nbr-in-label-withdraw-freed"] = nsrNbrDetail.NsrNbrInLabelWithdrawFreed
-    leafs["nsr-nbr-lcl-addr-withdraw-set"] = nsrNbrDetail.NsrNbrLclAddrWithdrawSet
-    leafs["nsr-nbr-lcl-addr-withdraw-cleared"] = nsrNbrDetail.NsrNbrLclAddrWithdrawCleared
-    leafs["nsr-nbr-xmit-ctxt-enq"] = nsrNbrDetail.NsrNbrXmitCtxtEnq
-    leafs["nsr-nbr-xmit-ctxt-deq"] = nsrNbrDetail.NsrNbrXmitCtxtDeq
-    leafs["path-vector-limit"] = nsrNbrDetail.PathVectorLimit
-    return leafs
-}
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetYangName() string { return "nsr-nbr-detail" }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) SetParent(parent types.Entity) { nsrNbrDetail.parent = parent }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetParent() types.Entity { return nsrNbrDetail.parent }
-
-func (nsrNbrDetail *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail) GetParentYangName() string { return "neighbors" }
 
 // MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess
 // This container holds session information about the
 // sessions between these two neighbors.
 type MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of sysUpTime at the time this Session entered its current state
@@ -8474,65 +5182,28 @@ type MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess struct {
     UnknownTlv interface{}
 }
 
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetFilter() yfilter.YFilter { return nbrSess.YFilter }
+func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetEntityData() *types.CommonEntityData {
+    nbrSess.EntityData.YFilter = nbrSess.YFilter
+    nbrSess.EntityData.YangName = "nbr-sess"
+    nbrSess.EntityData.BundleName = "cisco_ios_xe"
+    nbrSess.EntityData.ParentYangName = "nsr-nbr-detail"
+    nbrSess.EntityData.SegmentPath = "nbr-sess"
+    nbrSess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nbrSess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nbrSess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) SetFilter(yf yfilter.YFilter) { nbrSess.YFilter = yf }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetGoName(yname string) string {
-    if yname == "last-stat-change" { return "LastStatChange" }
-    if yname == "state" { return "State" }
-    if yname == "keep-alive-remain" { return "KeepAliveRemain" }
-    if yname == "keep-alive-time" { return "KeepAliveTime" }
-    if yname == "max-pdu" { return "MaxPdu" }
-    if yname == "discon-time" { return "DisconTime" }
-    if yname == "unknown-mess-err" { return "UnknownMessErr" }
-    if yname == "unknown-tlv" { return "UnknownTlv" }
-    return ""
+    nbrSess.EntityData.Children = make(map[string]types.YChild)
+    nbrSess.EntityData.Leafs = make(map[string]types.YLeaf)
+    nbrSess.EntityData.Leafs["last-stat-change"] = types.YLeaf{"LastStatChange", nbrSess.LastStatChange}
+    nbrSess.EntityData.Leafs["state"] = types.YLeaf{"State", nbrSess.State}
+    nbrSess.EntityData.Leafs["keep-alive-remain"] = types.YLeaf{"KeepAliveRemain", nbrSess.KeepAliveRemain}
+    nbrSess.EntityData.Leafs["keep-alive-time"] = types.YLeaf{"KeepAliveTime", nbrSess.KeepAliveTime}
+    nbrSess.EntityData.Leafs["max-pdu"] = types.YLeaf{"MaxPdu", nbrSess.MaxPdu}
+    nbrSess.EntityData.Leafs["discon-time"] = types.YLeaf{"DisconTime", nbrSess.DisconTime}
+    nbrSess.EntityData.Leafs["unknown-mess-err"] = types.YLeaf{"UnknownMessErr", nbrSess.UnknownMessErr}
+    nbrSess.EntityData.Leafs["unknown-tlv"] = types.YLeaf{"UnknownTlv", nbrSess.UnknownTlv}
+    return &(nbrSess.EntityData)
 }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetSegmentPath() string {
-    return "nbr-sess"
-}
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["last-stat-change"] = nbrSess.LastStatChange
-    leafs["state"] = nbrSess.State
-    leafs["keep-alive-remain"] = nbrSess.KeepAliveRemain
-    leafs["keep-alive-time"] = nbrSess.KeepAliveTime
-    leafs["max-pdu"] = nbrSess.MaxPdu
-    leafs["discon-time"] = nbrSess.DisconTime
-    leafs["unknown-mess-err"] = nbrSess.UnknownMessErr
-    leafs["unknown-tlv"] = nbrSess.UnknownTlv
-    return leafs
-}
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetYangName() string { return "nbr-sess" }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) SetParent(parent types.Entity) { nbrSess.parent = parent }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetParent() types.Entity { return nbrSess.parent }
-
-func (nbrSess *MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess) GetParentYangName() string { return "nsr-nbr-detail" }
 
 // MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess_State represents for session negotiation behavior.
 type MplsLdp_MplsLdpState_Neighbors_NsrNbrDetail_NbrSess_State string
@@ -8558,7 +5229,7 @@ const (
 // This contaions holds all the label ranges in use
 // by this LDP instance.
 type MplsLdp_MplsLdpState_LabelRanges struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry contains a single range of labels represented by the configured
@@ -8570,63 +5241,24 @@ type MplsLdp_MplsLdpState_LabelRanges struct {
     LabelRange []MplsLdp_MplsLdpState_LabelRanges_LabelRange
 }
 
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetFilter() yfilter.YFilter { return labelRanges.YFilter }
+func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetEntityData() *types.CommonEntityData {
+    labelRanges.EntityData.YFilter = labelRanges.YFilter
+    labelRanges.EntityData.YangName = "label-ranges"
+    labelRanges.EntityData.BundleName = "cisco_ios_xe"
+    labelRanges.EntityData.ParentYangName = "mpls-ldp-state"
+    labelRanges.EntityData.SegmentPath = "label-ranges"
+    labelRanges.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labelRanges.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labelRanges.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) SetFilter(yf yfilter.YFilter) { labelRanges.YFilter = yf }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetGoName(yname string) string {
-    if yname == "label-range" { return "LabelRange" }
-    return ""
-}
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetSegmentPath() string {
-    return "label-ranges"
-}
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "label-range" {
-        for _, c := range labelRanges.LabelRange {
-            if labelRanges.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpState_LabelRanges_LabelRange{}
-        labelRanges.LabelRange = append(labelRanges.LabelRange, child)
-        return &labelRanges.LabelRange[len(labelRanges.LabelRange)-1]
-    }
-    return nil
-}
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    labelRanges.EntityData.Children = make(map[string]types.YChild)
+    labelRanges.EntityData.Children["label-range"] = types.YChild{"LabelRange", nil}
     for i := range labelRanges.LabelRange {
-        children[labelRanges.LabelRange[i].GetSegmentPath()] = &labelRanges.LabelRange[i]
+        labelRanges.EntityData.Children[types.GetSegmentPath(&labelRanges.LabelRange[i])] = types.YChild{"LabelRange", &labelRanges.LabelRange[i]}
     }
-    return children
+    labelRanges.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(labelRanges.EntityData)
 }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetYangName() string { return "label-ranges" }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) SetParent(parent types.Entity) { labelRanges.parent = parent }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetParent() types.Entity { return labelRanges.parent }
-
-func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetParentYangName() string { return "mpls-ldp-state" }
 
 // MplsLdp_MplsLdpState_LabelRanges_LabelRange
 // This entry contains a single range of labels
@@ -8640,7 +5272,7 @@ func (labelRanges *MplsLdp_MplsLdpState_LabelRanges) GetParentYangName() string 
 // NOTE:  The ranges for a specific LDP Entity
 // are UNIQUE and non-overlapping.
 type MplsLdp_MplsLdpState_LabelRanges_LabelRange struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The minimum label configured for this range. The
@@ -8652,58 +5284,27 @@ type MplsLdp_MplsLdpState_LabelRanges_LabelRange struct {
     LrMax interface{}
 }
 
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetFilter() yfilter.YFilter { return labelRange.YFilter }
+func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetEntityData() *types.CommonEntityData {
+    labelRange.EntityData.YFilter = labelRange.YFilter
+    labelRange.EntityData.YangName = "label-range"
+    labelRange.EntityData.BundleName = "cisco_ios_xe"
+    labelRange.EntityData.ParentYangName = "label-ranges"
+    labelRange.EntityData.SegmentPath = "label-range" + "[lr-min='" + fmt.Sprintf("%v", labelRange.LrMin) + "']" + "[lr-max='" + fmt.Sprintf("%v", labelRange.LrMax) + "']"
+    labelRange.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labelRange.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labelRange.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) SetFilter(yf yfilter.YFilter) { labelRange.YFilter = yf }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetGoName(yname string) string {
-    if yname == "lr-min" { return "LrMin" }
-    if yname == "lr-max" { return "LrMax" }
-    return ""
+    labelRange.EntityData.Children = make(map[string]types.YChild)
+    labelRange.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelRange.EntityData.Leafs["lr-min"] = types.YLeaf{"LrMin", labelRange.LrMin}
+    labelRange.EntityData.Leafs["lr-max"] = types.YLeaf{"LrMax", labelRange.LrMax}
+    return &(labelRange.EntityData)
 }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetSegmentPath() string {
-    return "label-range" + "[lr-min='" + fmt.Sprintf("%v", labelRange.LrMin) + "']" + "[lr-max='" + fmt.Sprintf("%v", labelRange.LrMax) + "']"
-}
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lr-min"] = labelRange.LrMin
-    leafs["lr-max"] = labelRange.LrMax
-    return leafs
-}
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetYangName() string { return "label-range" }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) SetParent(parent types.Entity) { labelRange.parent = parent }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetParent() types.Entity { return labelRange.parent }
-
-func (labelRange *MplsLdp_MplsLdpState_LabelRanges_LabelRange) GetParentYangName() string { return "label-ranges" }
 
 // MplsLdp_MplsLdpConfig
 // MPLS LDP Configuration.
 type MplsLdp_MplsLdpConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This contains hold all MPLS LDP Configuration with Global scope. These
@@ -8745,111 +5346,38 @@ type MplsLdp_MplsLdpConfig struct {
     DualStack MplsLdp_MplsLdpConfig_DualStack
 }
 
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetFilter() yfilter.YFilter { return mplsLdpConfig.YFilter }
+func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetEntityData() *types.CommonEntityData {
+    mplsLdpConfig.EntityData.YFilter = mplsLdpConfig.YFilter
+    mplsLdpConfig.EntityData.YangName = "mpls-ldp-config"
+    mplsLdpConfig.EntityData.BundleName = "cisco_ios_xe"
+    mplsLdpConfig.EntityData.ParentYangName = "mpls-ldp"
+    mplsLdpConfig.EntityData.SegmentPath = "mpls-ldp-config"
+    mplsLdpConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsLdpConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsLdpConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) SetFilter(yf yfilter.YFilter) { mplsLdpConfig.YFilter = yf }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetGoName(yname string) string {
-    if yname == "global-cfg" { return "GlobalCfg" }
-    if yname == "nbr-table" { return "NbrTable" }
-    if yname == "passwords" { return "Passwords" }
-    if yname == "session" { return "Session" }
-    if yname == "label-cfg" { return "LabelCfg" }
-    if yname == "discovery" { return "Discovery" }
-    if yname == "graceful-restart" { return "GracefulRestart" }
-    if yname == "logging" { return "Logging" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "routing" { return "Routing" }
-    if yname == "dual-stack" { return "DualStack" }
-    return ""
+    mplsLdpConfig.EntityData.Children = make(map[string]types.YChild)
+    mplsLdpConfig.EntityData.Children["global-cfg"] = types.YChild{"GlobalCfg", &mplsLdpConfig.GlobalCfg}
+    mplsLdpConfig.EntityData.Children["nbr-table"] = types.YChild{"NbrTable", &mplsLdpConfig.NbrTable}
+    mplsLdpConfig.EntityData.Children["passwords"] = types.YChild{"Passwords", &mplsLdpConfig.Passwords}
+    mplsLdpConfig.EntityData.Children["session"] = types.YChild{"Session", &mplsLdpConfig.Session}
+    mplsLdpConfig.EntityData.Children["label-cfg"] = types.YChild{"LabelCfg", &mplsLdpConfig.LabelCfg}
+    mplsLdpConfig.EntityData.Children["discovery"] = types.YChild{"Discovery", &mplsLdpConfig.Discovery}
+    mplsLdpConfig.EntityData.Children["graceful-restart"] = types.YChild{"GracefulRestart", &mplsLdpConfig.GracefulRestart}
+    mplsLdpConfig.EntityData.Children["logging"] = types.YChild{"Logging", &mplsLdpConfig.Logging}
+    mplsLdpConfig.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &mplsLdpConfig.Interfaces}
+    mplsLdpConfig.EntityData.Children["routing"] = types.YChild{"Routing", &mplsLdpConfig.Routing}
+    mplsLdpConfig.EntityData.Children["dual-stack"] = types.YChild{"DualStack", &mplsLdpConfig.DualStack}
+    mplsLdpConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsLdpConfig.EntityData)
 }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetSegmentPath() string {
-    return "mpls-ldp-config"
-}
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "global-cfg" {
-        return &mplsLdpConfig.GlobalCfg
-    }
-    if childYangName == "nbr-table" {
-        return &mplsLdpConfig.NbrTable
-    }
-    if childYangName == "passwords" {
-        return &mplsLdpConfig.Passwords
-    }
-    if childYangName == "session" {
-        return &mplsLdpConfig.Session
-    }
-    if childYangName == "label-cfg" {
-        return &mplsLdpConfig.LabelCfg
-    }
-    if childYangName == "discovery" {
-        return &mplsLdpConfig.Discovery
-    }
-    if childYangName == "graceful-restart" {
-        return &mplsLdpConfig.GracefulRestart
-    }
-    if childYangName == "logging" {
-        return &mplsLdpConfig.Logging
-    }
-    if childYangName == "interfaces" {
-        return &mplsLdpConfig.Interfaces
-    }
-    if childYangName == "routing" {
-        return &mplsLdpConfig.Routing
-    }
-    if childYangName == "dual-stack" {
-        return &mplsLdpConfig.DualStack
-    }
-    return nil
-}
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["global-cfg"] = &mplsLdpConfig.GlobalCfg
-    children["nbr-table"] = &mplsLdpConfig.NbrTable
-    children["passwords"] = &mplsLdpConfig.Passwords
-    children["session"] = &mplsLdpConfig.Session
-    children["label-cfg"] = &mplsLdpConfig.LabelCfg
-    children["discovery"] = &mplsLdpConfig.Discovery
-    children["graceful-restart"] = &mplsLdpConfig.GracefulRestart
-    children["logging"] = &mplsLdpConfig.Logging
-    children["interfaces"] = &mplsLdpConfig.Interfaces
-    children["routing"] = &mplsLdpConfig.Routing
-    children["dual-stack"] = &mplsLdpConfig.DualStack
-    return children
-}
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetYangName() string { return "mpls-ldp-config" }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) SetParent(parent types.Entity) { mplsLdpConfig.parent = parent }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetParent() types.Entity { return mplsLdpConfig.parent }
-
-func (mplsLdpConfig *MplsLdp_MplsLdpConfig) GetParentYangName() string { return "mpls-ldp" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg
 // This contains hold all MPLS LDP Configuration with Global
 // scope. These values affect the entire LSR unless
 // overiddden by a parameter with a more localized scope.
 type MplsLdp_MplsLdpConfig_GlobalCfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Writing this leaf tears down all LDP sessions, withdraws all outgoing
@@ -8933,104 +5461,44 @@ type MplsLdp_MplsLdpConfig_GlobalCfg struct {
     PerAf MplsLdp_MplsLdpConfig_GlobalCfg_PerAf
 }
 
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetFilter() yfilter.YFilter { return globalCfg.YFilter }
+func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetEntityData() *types.CommonEntityData {
+    globalCfg.EntityData.YFilter = globalCfg.YFilter
+    globalCfg.EntityData.YangName = "global-cfg"
+    globalCfg.EntityData.BundleName = "cisco_ios_xe"
+    globalCfg.EntityData.ParentYangName = "mpls-ldp-config"
+    globalCfg.EntityData.SegmentPath = "global-cfg"
+    globalCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    globalCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    globalCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) SetFilter(yf yfilter.YFilter) { globalCfg.YFilter = yf }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetGoName(yname string) string {
-    if yname == "shutdown" { return "Shutdown" }
-    if yname == "enable-nsr" { return "EnableNsr" }
-    if yname == "disable-quick-start" { return "DisableQuickStart" }
-    if yname == "loop-detection" { return "LoopDetection" }
-    if yname == "admin-status" { return "AdminStatus" }
-    if yname == "dcsp-val" { return "DcspVal" }
-    if yname == "high-priority" { return "HighPriority" }
-    if yname == "seconds" { return "Seconds" }
-    if yname == "disable-delay" { return "DisableDelay" }
-    if yname == "seconds-delay-proc" { return "SecondsDelayProc" }
-    if yname == "disable-delay-proc" { return "DisableDelayProc" }
-    if yname == "protocol" { return "Protocol" }
-    if yname == "init-sess-thresh" { return "InitSessThresh" }
-    if yname == "router-id" { return "RouterId" }
-    if yname == "session" { return "Session" }
-    if yname == "per-af" { return "PerAf" }
-    return ""
-}
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetSegmentPath() string {
-    return "global-cfg"
-}
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "router-id" {
-        for _, c := range globalCfg.RouterId {
-            if globalCfg.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_GlobalCfg_RouterId{}
-        globalCfg.RouterId = append(globalCfg.RouterId, child)
-        return &globalCfg.RouterId[len(globalCfg.RouterId)-1]
-    }
-    if childYangName == "session" {
-        return &globalCfg.Session
-    }
-    if childYangName == "per-af" {
-        return &globalCfg.PerAf
-    }
-    return nil
-}
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    globalCfg.EntityData.Children = make(map[string]types.YChild)
+    globalCfg.EntityData.Children["router-id"] = types.YChild{"RouterId", nil}
     for i := range globalCfg.RouterId {
-        children[globalCfg.RouterId[i].GetSegmentPath()] = &globalCfg.RouterId[i]
+        globalCfg.EntityData.Children[types.GetSegmentPath(&globalCfg.RouterId[i])] = types.YChild{"RouterId", &globalCfg.RouterId[i]}
     }
-    children["session"] = &globalCfg.Session
-    children["per-af"] = &globalCfg.PerAf
-    return children
+    globalCfg.EntityData.Children["session"] = types.YChild{"Session", &globalCfg.Session}
+    globalCfg.EntityData.Children["per-af"] = types.YChild{"PerAf", &globalCfg.PerAf}
+    globalCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalCfg.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", globalCfg.Shutdown}
+    globalCfg.EntityData.Leafs["enable-nsr"] = types.YLeaf{"EnableNsr", globalCfg.EnableNsr}
+    globalCfg.EntityData.Leafs["disable-quick-start"] = types.YLeaf{"DisableQuickStart", globalCfg.DisableQuickStart}
+    globalCfg.EntityData.Leafs["loop-detection"] = types.YLeaf{"LoopDetection", globalCfg.LoopDetection}
+    globalCfg.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", globalCfg.AdminStatus}
+    globalCfg.EntityData.Leafs["dcsp-val"] = types.YLeaf{"DcspVal", globalCfg.DcspVal}
+    globalCfg.EntityData.Leafs["high-priority"] = types.YLeaf{"HighPriority", globalCfg.HighPriority}
+    globalCfg.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", globalCfg.Seconds}
+    globalCfg.EntityData.Leafs["disable-delay"] = types.YLeaf{"DisableDelay", globalCfg.DisableDelay}
+    globalCfg.EntityData.Leafs["seconds-delay-proc"] = types.YLeaf{"SecondsDelayProc", globalCfg.SecondsDelayProc}
+    globalCfg.EntityData.Leafs["disable-delay-proc"] = types.YLeaf{"DisableDelayProc", globalCfg.DisableDelayProc}
+    globalCfg.EntityData.Leafs["protocol"] = types.YLeaf{"Protocol", globalCfg.Protocol}
+    globalCfg.EntityData.Leafs["init-sess-thresh"] = types.YLeaf{"InitSessThresh", globalCfg.InitSessThresh}
+    return &(globalCfg.EntityData)
 }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["shutdown"] = globalCfg.Shutdown
-    leafs["enable-nsr"] = globalCfg.EnableNsr
-    leafs["disable-quick-start"] = globalCfg.DisableQuickStart
-    leafs["loop-detection"] = globalCfg.LoopDetection
-    leafs["admin-status"] = globalCfg.AdminStatus
-    leafs["dcsp-val"] = globalCfg.DcspVal
-    leafs["high-priority"] = globalCfg.HighPriority
-    leafs["seconds"] = globalCfg.Seconds
-    leafs["disable-delay"] = globalCfg.DisableDelay
-    leafs["seconds-delay-proc"] = globalCfg.SecondsDelayProc
-    leafs["disable-delay-proc"] = globalCfg.DisableDelayProc
-    leafs["protocol"] = globalCfg.Protocol
-    leafs["init-sess-thresh"] = globalCfg.InitSessThresh
-    return leafs
-}
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetYangName() string { return "global-cfg" }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) SetParent(parent types.Entity) { globalCfg.parent = parent }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetParent() types.Entity { return globalCfg.parent }
-
-func (globalCfg *MplsLdp_MplsLdpConfig_GlobalCfg) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_RouterId
 // Configuration for LDP Router ID (LDP ID)
 type MplsLdp_MplsLdpConfig_GlobalCfg_RouterId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -9045,9 +5513,9 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_RouterId struct {
 
     // This is the IP address to be used as the LDP LSR ID for all sessions. The
     // type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     LsrIdIp interface{}
 
     // Force the router to use the specified identifier as the router ID more
@@ -9055,64 +5523,31 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_RouterId struct {
     Force interface{}
 }
 
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetFilter() yfilter.YFilter { return routerId.YFilter }
+func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetEntityData() *types.CommonEntityData {
+    routerId.EntityData.YFilter = routerId.YFilter
+    routerId.EntityData.YangName = "router-id"
+    routerId.EntityData.BundleName = "cisco_ios_xe"
+    routerId.EntityData.ParentYangName = "global-cfg"
+    routerId.EntityData.SegmentPath = "router-id" + "[vrf-name='" + fmt.Sprintf("%v", routerId.VrfName) + "']"
+    routerId.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routerId.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routerId.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) SetFilter(yf yfilter.YFilter) { routerId.YFilter = yf }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "lsr-id-if" { return "LsrIdIf" }
-    if yname == "lsr-id-ip" { return "LsrIdIp" }
-    if yname == "force" { return "Force" }
-    return ""
+    routerId.EntityData.Children = make(map[string]types.YChild)
+    routerId.EntityData.Leafs = make(map[string]types.YLeaf)
+    routerId.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", routerId.VrfName}
+    routerId.EntityData.Leafs["lsr-id-if"] = types.YLeaf{"LsrIdIf", routerId.LsrIdIf}
+    routerId.EntityData.Leafs["lsr-id-ip"] = types.YLeaf{"LsrIdIp", routerId.LsrIdIp}
+    routerId.EntityData.Leafs["force"] = types.YLeaf{"Force", routerId.Force}
+    return &(routerId.EntityData)
 }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetSegmentPath() string {
-    return "router-id" + "[vrf-name='" + fmt.Sprintf("%v", routerId.VrfName) + "']"
-}
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = routerId.VrfName
-    leafs["lsr-id-if"] = routerId.LsrIdIf
-    leafs["lsr-id-ip"] = routerId.LsrIdIp
-    leafs["force"] = routerId.Force
-    return leafs
-}
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetBundleName() string { return "cisco_ios_xe" }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetYangName() string { return "router-id" }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) SetParent(parent types.Entity) { routerId.parent = parent }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetParent() types.Entity { return routerId.parent }
-
-func (routerId *MplsLdp_MplsLdpConfig_GlobalCfg_RouterId) GetParentYangName() string { return "global-cfg" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_Session
 // Configure session parameters. Session parameters effect
 // the session between LDP peers once the session has been
 // established.
 type MplsLdp_MplsLdpConfig_GlobalCfg_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initial session backoff time (seconds). The LDP backoff mechanism prevents
@@ -9171,76 +5606,29 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_Session struct {
     Protection MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection
 }
 
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xe"
+    session.EntityData.ParentYangName = "global-cfg"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetGoName(yname string) string {
-    if yname == "backoff-init" { return "BackoffInit" }
-    if yname == "backoff-max" { return "BackoffMax" }
-    if yname == "seconds" { return "Seconds" }
-    if yname == "infinite" { return "Infinite" }
-    if yname == "downstream-on-demand" { return "DownstreamOnDemand" }
-    if yname == "protection" { return "Protection" }
-    return ""
-}
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "downstream-on-demand" {
-        for _, c := range session.DownstreamOnDemand {
-            if session.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand{}
-        session.DownstreamOnDemand = append(session.DownstreamOnDemand, child)
-        return &session.DownstreamOnDemand[len(session.DownstreamOnDemand)-1]
-    }
-    if childYangName == "protection" {
-        return &session.Protection
-    }
-    return nil
-}
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["downstream-on-demand"] = types.YChild{"DownstreamOnDemand", nil}
     for i := range session.DownstreamOnDemand {
-        children[session.DownstreamOnDemand[i].GetSegmentPath()] = &session.DownstreamOnDemand[i]
+        session.EntityData.Children[types.GetSegmentPath(&session.DownstreamOnDemand[i])] = types.YChild{"DownstreamOnDemand", &session.DownstreamOnDemand[i]}
     }
-    children["protection"] = &session.Protection
-    return children
+    session.EntityData.Children["protection"] = types.YChild{"Protection", &session.Protection}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["backoff-init"] = types.YLeaf{"BackoffInit", session.BackoffInit}
+    session.EntityData.Leafs["backoff-max"] = types.YLeaf{"BackoffMax", session.BackoffMax}
+    session.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", session.Seconds}
+    session.EntityData.Leafs["infinite"] = types.YLeaf{"Infinite", session.Infinite}
+    return &(session.EntityData)
 }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["backoff-init"] = session.BackoffInit
-    leafs["backoff-max"] = session.BackoffMax
-    leafs["seconds"] = session.Seconds
-    leafs["infinite"] = session.Infinite
-    return leafs
-}
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetBundleName() string { return "cisco_ios_xe" }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetYangName() string { return "session" }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetParent() types.Entity { return session.parent }
-
-func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetParentYangName() string { return "global-cfg" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand
 // This container holds config for Downstream on Demand.
@@ -9256,7 +5644,7 @@ func (session *MplsLdp_MplsLdpConfig_GlobalCfg_Session) GetParentYangName() stri
 // request, it will automatically readvertise the label
 // if any label attribute changes subsequently.
 type MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -9285,60 +5673,28 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand struct {
     Filter interface{}
 }
 
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetFilter() yfilter.YFilter { return downstreamOnDemand.YFilter }
+func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetEntityData() *types.CommonEntityData {
+    downstreamOnDemand.EntityData.YFilter = downstreamOnDemand.YFilter
+    downstreamOnDemand.EntityData.YangName = "downstream-on-demand"
+    downstreamOnDemand.EntityData.BundleName = "cisco_ios_xe"
+    downstreamOnDemand.EntityData.ParentYangName = "session"
+    downstreamOnDemand.EntityData.SegmentPath = "downstream-on-demand" + "[vrf-name='" + fmt.Sprintf("%v", downstreamOnDemand.VrfName) + "']"
+    downstreamOnDemand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    downstreamOnDemand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    downstreamOnDemand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) SetFilter(yf yfilter.YFilter) { downstreamOnDemand.YFilter = yf }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "enabled" { return "Enabled" }
-    if yname == "filter" { return "Filter" }
-    return ""
+    downstreamOnDemand.EntityData.Children = make(map[string]types.YChild)
+    downstreamOnDemand.EntityData.Leafs = make(map[string]types.YLeaf)
+    downstreamOnDemand.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", downstreamOnDemand.VrfName}
+    downstreamOnDemand.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", downstreamOnDemand.Enabled}
+    downstreamOnDemand.EntityData.Leafs["filter"] = types.YLeaf{"Filter", downstreamOnDemand.Filter}
+    return &(downstreamOnDemand.EntityData)
 }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetSegmentPath() string {
-    return "downstream-on-demand" + "[vrf-name='" + fmt.Sprintf("%v", downstreamOnDemand.VrfName) + "']"
-}
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = downstreamOnDemand.VrfName
-    leafs["enabled"] = downstreamOnDemand.Enabled
-    leafs["filter"] = downstreamOnDemand.Filter
-    return leafs
-}
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetBundleName() string { return "cisco_ios_xe" }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetYangName() string { return "downstream-on-demand" }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) SetParent(parent types.Entity) { downstreamOnDemand.parent = parent }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetParent() types.Entity { return downstreamOnDemand.parent }
-
-func (downstreamOnDemand *MplsLdp_MplsLdpConfig_GlobalCfg_Session_DownstreamOnDemand) GetParentYangName() string { return "session" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection
 // Configure Session Protection parameters
 type MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is set true to enable session protection. The type is bool.
@@ -9358,63 +5714,30 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection struct {
     Inf interface{}
 }
 
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetFilter() yfilter.YFilter { return protection.YFilter }
+func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetEntityData() *types.CommonEntityData {
+    protection.EntityData.YFilter = protection.YFilter
+    protection.EntityData.YangName = "protection"
+    protection.EntityData.BundleName = "cisco_ios_xe"
+    protection.EntityData.ParentYangName = "session"
+    protection.EntityData.SegmentPath = "protection"
+    protection.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    protection.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    protection.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) SetFilter(yf yfilter.YFilter) { protection.YFilter = yf }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetGoName(yname string) string {
-    if yname == "enable-prot" { return "EnableProt" }
-    if yname == "peer-filter" { return "PeerFilter" }
-    if yname == "seconds" { return "Seconds" }
-    if yname == "inf" { return "Inf" }
-    return ""
+    protection.EntityData.Children = make(map[string]types.YChild)
+    protection.EntityData.Leafs = make(map[string]types.YLeaf)
+    protection.EntityData.Leafs["enable-prot"] = types.YLeaf{"EnableProt", protection.EnableProt}
+    protection.EntityData.Leafs["peer-filter"] = types.YLeaf{"PeerFilter", protection.PeerFilter}
+    protection.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", protection.Seconds}
+    protection.EntityData.Leafs["inf"] = types.YLeaf{"Inf", protection.Inf}
+    return &(protection.EntityData)
 }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetSegmentPath() string {
-    return "protection"
-}
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable-prot"] = protection.EnableProt
-    leafs["peer-filter"] = protection.PeerFilter
-    leafs["seconds"] = protection.Seconds
-    leafs["inf"] = protection.Inf
-    return leafs
-}
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetBundleName() string { return "cisco_ios_xe" }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetYangName() string { return "protection" }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) SetParent(parent types.Entity) { protection.parent = parent }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetParent() types.Entity { return protection.parent }
-
-func (protection *MplsLdp_MplsLdpConfig_GlobalCfg_Session_Protection) GetParentYangName() string { return "session" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_PerAf
 // This container holds the global per address family
 // configuration.
 type MplsLdp_MplsLdpConfig_GlobalCfg_PerAf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This container holds the global per address family configuration. The type
@@ -9422,69 +5745,30 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_PerAf struct {
     AfCfg []MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg
 }
 
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetFilter() yfilter.YFilter { return perAf.YFilter }
+func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetEntityData() *types.CommonEntityData {
+    perAf.EntityData.YFilter = perAf.YFilter
+    perAf.EntityData.YangName = "per-af"
+    perAf.EntityData.BundleName = "cisco_ios_xe"
+    perAf.EntityData.ParentYangName = "global-cfg"
+    perAf.EntityData.SegmentPath = "per-af"
+    perAf.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    perAf.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    perAf.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) SetFilter(yf yfilter.YFilter) { perAf.YFilter = yf }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetGoName(yname string) string {
-    if yname == "af-cfg" { return "AfCfg" }
-    return ""
-}
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetSegmentPath() string {
-    return "per-af"
-}
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "af-cfg" {
-        for _, c := range perAf.AfCfg {
-            if perAf.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg{}
-        perAf.AfCfg = append(perAf.AfCfg, child)
-        return &perAf.AfCfg[len(perAf.AfCfg)-1]
-    }
-    return nil
-}
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    perAf.EntityData.Children = make(map[string]types.YChild)
+    perAf.EntityData.Children["af-cfg"] = types.YChild{"AfCfg", nil}
     for i := range perAf.AfCfg {
-        children[perAf.AfCfg[i].GetSegmentPath()] = &perAf.AfCfg[i]
+        perAf.EntityData.Children[types.GetSegmentPath(&perAf.AfCfg[i])] = types.YChild{"AfCfg", &perAf.AfCfg[i]}
     }
-    return children
+    perAf.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(perAf.EntityData)
 }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetBundleName() string { return "cisco_ios_xe" }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetYangName() string { return "per-af" }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) SetParent(parent types.Entity) { perAf.parent = parent }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetParent() types.Entity { return perAf.parent }
-
-func (perAf *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf) GetParentYangName() string { return "global-cfg" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg
 // This container holds the global per address family
 // configuration.
 type MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -9501,15 +5785,15 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg struct {
     // Advertise this address as the explicit address in LDP discovery hello
     // messages and use it for LDP transport. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipaddr interface{}
 
     // Advertise this interface's address as the explicit address in LDP discovery
     // hello messages and use it for LDP transport. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // Do not advertise an explicit address in LDP discovery hello messages or
     // advertise a default address. Use the default address for LDP transport. The
@@ -9517,61 +5801,26 @@ type MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg struct {
     Implicit interface{}
 }
 
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetFilter() yfilter.YFilter { return afCfg.YFilter }
+func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetEntityData() *types.CommonEntityData {
+    afCfg.EntityData.YFilter = afCfg.YFilter
+    afCfg.EntityData.YangName = "af-cfg"
+    afCfg.EntityData.BundleName = "cisco_ios_xe"
+    afCfg.EntityData.ParentYangName = "per-af"
+    afCfg.EntityData.SegmentPath = "af-cfg" + "[vrf-name='" + fmt.Sprintf("%v", afCfg.VrfName) + "']" + "[af-name='" + fmt.Sprintf("%v", afCfg.AfName) + "']"
+    afCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    afCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    afCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) SetFilter(yf yfilter.YFilter) { afCfg.YFilter = yf }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "af-name" { return "AfName" }
-    if yname == "default-route" { return "DefaultRoute" }
-    if yname == "ipaddr" { return "Ipaddr" }
-    if yname == "interface" { return "Interface" }
-    if yname == "implicit" { return "Implicit" }
-    return ""
+    afCfg.EntityData.Children = make(map[string]types.YChild)
+    afCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    afCfg.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", afCfg.VrfName}
+    afCfg.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", afCfg.AfName}
+    afCfg.EntityData.Leafs["default-route"] = types.YLeaf{"DefaultRoute", afCfg.DefaultRoute}
+    afCfg.EntityData.Leafs["ipaddr"] = types.YLeaf{"Ipaddr", afCfg.Ipaddr}
+    afCfg.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", afCfg.Interface_}
+    afCfg.EntityData.Leafs["implicit"] = types.YLeaf{"Implicit", afCfg.Implicit}
+    return &(afCfg.EntityData)
 }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetSegmentPath() string {
-    return "af-cfg" + "[vrf-name='" + fmt.Sprintf("%v", afCfg.VrfName) + "']" + "[af-name='" + fmt.Sprintf("%v", afCfg.AfName) + "']"
-}
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = afCfg.VrfName
-    leafs["af-name"] = afCfg.AfName
-    leafs["default-route"] = afCfg.DefaultRoute
-    leafs["ipaddr"] = afCfg.Ipaddr
-    leafs["interface"] = afCfg.Interface
-    leafs["implicit"] = afCfg.Implicit
-    return leafs
-}
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetYangName() string { return "af-cfg" }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) SetParent(parent types.Entity) { afCfg.parent = parent }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetParent() types.Entity { return afCfg.parent }
-
-func (afCfg *MplsLdp_MplsLdpConfig_GlobalCfg_PerAf_AfCfg) GetParentYangName() string { return "per-af" }
 
 // MplsLdp_MplsLdpConfig_GlobalCfg_AdminStatus represents sessions with the peers.
 type MplsLdp_MplsLdpConfig_GlobalCfg_AdminStatus string
@@ -9603,7 +5852,7 @@ const (
 // This container holds the list of neighbor configuration
 // parameters.
 type MplsLdp_MplsLdpConfig_NbrTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry holds the configuration of a single neighbor identified by the
@@ -9612,69 +5861,30 @@ type MplsLdp_MplsLdpConfig_NbrTable struct {
     NbrCfg []MplsLdp_MplsLdpConfig_NbrTable_NbrCfg
 }
 
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetFilter() yfilter.YFilter { return nbrTable.YFilter }
+func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetEntityData() *types.CommonEntityData {
+    nbrTable.EntityData.YFilter = nbrTable.YFilter
+    nbrTable.EntityData.YangName = "nbr-table"
+    nbrTable.EntityData.BundleName = "cisco_ios_xe"
+    nbrTable.EntityData.ParentYangName = "mpls-ldp-config"
+    nbrTable.EntityData.SegmentPath = "nbr-table"
+    nbrTable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nbrTable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nbrTable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) SetFilter(yf yfilter.YFilter) { nbrTable.YFilter = yf }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetGoName(yname string) string {
-    if yname == "nbr-cfg" { return "NbrCfg" }
-    return ""
-}
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetSegmentPath() string {
-    return "nbr-table"
-}
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nbr-cfg" {
-        for _, c := range nbrTable.NbrCfg {
-            if nbrTable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_NbrTable_NbrCfg{}
-        nbrTable.NbrCfg = append(nbrTable.NbrCfg, child)
-        return &nbrTable.NbrCfg[len(nbrTable.NbrCfg)-1]
-    }
-    return nil
-}
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nbrTable.EntityData.Children = make(map[string]types.YChild)
+    nbrTable.EntityData.Children["nbr-cfg"] = types.YChild{"NbrCfg", nil}
     for i := range nbrTable.NbrCfg {
-        children[nbrTable.NbrCfg[i].GetSegmentPath()] = &nbrTable.NbrCfg[i]
+        nbrTable.EntityData.Children[types.GetSegmentPath(&nbrTable.NbrCfg[i])] = types.YChild{"NbrCfg", &nbrTable.NbrCfg[i]}
     }
-    return children
+    nbrTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nbrTable.EntityData)
 }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetYangName() string { return "nbr-table" }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) SetParent(parent types.Entity) { nbrTable.parent = parent }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetParent() types.Entity { return nbrTable.parent }
-
-func (nbrTable *MplsLdp_MplsLdpConfig_NbrTable) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_NbrTable_NbrCfg
 // This entry holds the configuration of a single neighbor
 // identified by the IP address of that neighbor.
 type MplsLdp_MplsLdpConfig_NbrTable_NbrCfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -9683,9 +5893,9 @@ type MplsLdp_MplsLdpConfig_NbrTable_NbrCfg struct {
 
     // This attribute is a key. The IP address for the LDP neighbor. This may be
     // IPv4 or IPv6. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NbrIp interface{}
 
     // The administrative status of this neighbor. If this object is changed from
@@ -9715,65 +5925,28 @@ type MplsLdp_MplsLdpConfig_NbrTable_NbrCfg struct {
     Password interface{}
 }
 
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetFilter() yfilter.YFilter { return nbrCfg.YFilter }
+func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetEntityData() *types.CommonEntityData {
+    nbrCfg.EntityData.YFilter = nbrCfg.YFilter
+    nbrCfg.EntityData.YangName = "nbr-cfg"
+    nbrCfg.EntityData.BundleName = "cisco_ios_xe"
+    nbrCfg.EntityData.ParentYangName = "nbr-table"
+    nbrCfg.EntityData.SegmentPath = "nbr-cfg" + "[nbr-vrf='" + fmt.Sprintf("%v", nbrCfg.NbrVrf) + "']" + "[nbr-ip='" + fmt.Sprintf("%v", nbrCfg.NbrIp) + "']"
+    nbrCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nbrCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nbrCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) SetFilter(yf yfilter.YFilter) { nbrCfg.YFilter = yf }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetGoName(yname string) string {
-    if yname == "nbr-vrf" { return "NbrVrf" }
-    if yname == "nbr-ip" { return "NbrIp" }
-    if yname == "admin-status" { return "AdminStatus" }
-    if yname == "implicit-withdraw" { return "ImplicitWithdraw" }
-    if yname == "targeted" { return "Targeted" }
-    if yname == "label-protocol" { return "LabelProtocol" }
-    if yname == "label-binding-filter" { return "LabelBindingFilter" }
-    if yname == "password" { return "Password" }
-    return ""
+    nbrCfg.EntityData.Children = make(map[string]types.YChild)
+    nbrCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    nbrCfg.EntityData.Leafs["nbr-vrf"] = types.YLeaf{"NbrVrf", nbrCfg.NbrVrf}
+    nbrCfg.EntityData.Leafs["nbr-ip"] = types.YLeaf{"NbrIp", nbrCfg.NbrIp}
+    nbrCfg.EntityData.Leafs["admin-status"] = types.YLeaf{"AdminStatus", nbrCfg.AdminStatus}
+    nbrCfg.EntityData.Leafs["implicit-withdraw"] = types.YLeaf{"ImplicitWithdraw", nbrCfg.ImplicitWithdraw}
+    nbrCfg.EntityData.Leafs["targeted"] = types.YLeaf{"Targeted", nbrCfg.Targeted}
+    nbrCfg.EntityData.Leafs["label-protocol"] = types.YLeaf{"LabelProtocol", nbrCfg.LabelProtocol}
+    nbrCfg.EntityData.Leafs["label-binding-filter"] = types.YLeaf{"LabelBindingFilter", nbrCfg.LabelBindingFilter}
+    nbrCfg.EntityData.Leafs["password"] = types.YLeaf{"Password", nbrCfg.Password}
+    return &(nbrCfg.EntityData)
 }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetSegmentPath() string {
-    return "nbr-cfg" + "[nbr-vrf='" + fmt.Sprintf("%v", nbrCfg.NbrVrf) + "']" + "[nbr-ip='" + fmt.Sprintf("%v", nbrCfg.NbrIp) + "']"
-}
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nbr-vrf"] = nbrCfg.NbrVrf
-    leafs["nbr-ip"] = nbrCfg.NbrIp
-    leafs["admin-status"] = nbrCfg.AdminStatus
-    leafs["implicit-withdraw"] = nbrCfg.ImplicitWithdraw
-    leafs["targeted"] = nbrCfg.Targeted
-    leafs["label-protocol"] = nbrCfg.LabelProtocol
-    leafs["label-binding-filter"] = nbrCfg.LabelBindingFilter
-    leafs["password"] = nbrCfg.Password
-    return leafs
-}
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetYangName() string { return "nbr-cfg" }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) SetParent(parent types.Entity) { nbrCfg.parent = parent }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetParent() types.Entity { return nbrCfg.parent }
-
-func (nbrCfg *MplsLdp_MplsLdpConfig_NbrTable_NbrCfg) GetParentYangName() string { return "nbr-table" }
 
 // MplsLdp_MplsLdpConfig_NbrTable_NbrCfg_AdminStatus represents with the neighbor.
 type MplsLdp_MplsLdpConfig_NbrTable_NbrCfg_AdminStatus string
@@ -9803,7 +5976,7 @@ const (
 // This holds the MPLS LDP password configuration for use
 // with LDP neighbors.
 type MplsLdp_MplsLdpConfig_Passwords struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This holds the MPLS LDP password configuration for use with a single LDP
@@ -9812,69 +5985,30 @@ type MplsLdp_MplsLdpConfig_Passwords struct {
     Password []MplsLdp_MplsLdpConfig_Passwords_Password
 }
 
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetFilter() yfilter.YFilter { return passwords.YFilter }
+func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetEntityData() *types.CommonEntityData {
+    passwords.EntityData.YFilter = passwords.YFilter
+    passwords.EntityData.YangName = "passwords"
+    passwords.EntityData.BundleName = "cisco_ios_xe"
+    passwords.EntityData.ParentYangName = "mpls-ldp-config"
+    passwords.EntityData.SegmentPath = "passwords"
+    passwords.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    passwords.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    passwords.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) SetFilter(yf yfilter.YFilter) { passwords.YFilter = yf }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetGoName(yname string) string {
-    if yname == "password" { return "Password" }
-    return ""
-}
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetSegmentPath() string {
-    return "passwords"
-}
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "password" {
-        for _, c := range passwords.Password {
-            if passwords.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_Passwords_Password{}
-        passwords.Password = append(passwords.Password, child)
-        return &passwords.Password[len(passwords.Password)-1]
-    }
-    return nil
-}
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    passwords.EntityData.Children = make(map[string]types.YChild)
+    passwords.EntityData.Children["password"] = types.YChild{"Password", nil}
     for i := range passwords.Password {
-        children[passwords.Password[i].GetSegmentPath()] = &passwords.Password[i]
+        passwords.EntityData.Children[types.GetSegmentPath(&passwords.Password[i])] = types.YChild{"Password", &passwords.Password[i]}
     }
-    return children
+    passwords.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(passwords.EntityData)
 }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetBundleName() string { return "cisco_ios_xe" }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetYangName() string { return "passwords" }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) SetParent(parent types.Entity) { passwords.parent = parent }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetParent() types.Entity { return passwords.parent }
-
-func (passwords *MplsLdp_MplsLdpConfig_Passwords) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_Passwords_Password
 // This holds the MPLS LDP password configuration for use
 // with a single LDP neighbor or group of LDP neighbors.
 type MplsLdp_MplsLdpConfig_Passwords_Password struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -9884,9 +6018,9 @@ type MplsLdp_MplsLdpConfig_Passwords_Password struct {
     // This attribute is a key. This leaf holds the neighbor id for this password.
     // This id may be an lsr-id, an ip-address, or a filter describing a group of
     // neighbors. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
     // or string.
     NbrId interface{}
 
@@ -9914,68 +6048,32 @@ type MplsLdp_MplsLdpConfig_Passwords_Password struct {
     KeychainPass interface{}
 }
 
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetFilter() yfilter.YFilter { return password.YFilter }
+func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetEntityData() *types.CommonEntityData {
+    password.EntityData.YFilter = password.YFilter
+    password.EntityData.YangName = "password"
+    password.EntityData.BundleName = "cisco_ios_xe"
+    password.EntityData.ParentYangName = "passwords"
+    password.EntityData.SegmentPath = "password" + "[nbr-vrf='" + fmt.Sprintf("%v", password.NbrVrf) + "']" + "[nbr-id='" + fmt.Sprintf("%v", password.NbrId) + "']" + "[password-num='" + fmt.Sprintf("%v", password.PasswordNum) + "']"
+    password.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    password.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    password.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) SetFilter(yf yfilter.YFilter) { password.YFilter = yf }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetGoName(yname string) string {
-    if yname == "nbr-vrf" { return "NbrVrf" }
-    if yname == "nbr-id" { return "NbrId" }
-    if yname == "password-num" { return "PasswordNum" }
-    if yname == "pass-required" { return "PassRequired" }
-    if yname == "clear-pass" { return "ClearPass" }
-    if yname == "encrypt-pass" { return "EncryptPass" }
-    if yname == "keychain-pass" { return "KeychainPass" }
-    return ""
+    password.EntityData.Children = make(map[string]types.YChild)
+    password.EntityData.Leafs = make(map[string]types.YLeaf)
+    password.EntityData.Leafs["nbr-vrf"] = types.YLeaf{"NbrVrf", password.NbrVrf}
+    password.EntityData.Leafs["nbr-id"] = types.YLeaf{"NbrId", password.NbrId}
+    password.EntityData.Leafs["password-num"] = types.YLeaf{"PasswordNum", password.PasswordNum}
+    password.EntityData.Leafs["pass-required"] = types.YLeaf{"PassRequired", password.PassRequired}
+    password.EntityData.Leafs["clear-pass"] = types.YLeaf{"ClearPass", password.ClearPass}
+    password.EntityData.Leafs["encrypt-pass"] = types.YLeaf{"EncryptPass", password.EncryptPass}
+    password.EntityData.Leafs["keychain-pass"] = types.YLeaf{"KeychainPass", password.KeychainPass}
+    return &(password.EntityData)
 }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetSegmentPath() string {
-    return "password" + "[nbr-vrf='" + fmt.Sprintf("%v", password.NbrVrf) + "']" + "[nbr-id='" + fmt.Sprintf("%v", password.NbrId) + "']" + "[password-num='" + fmt.Sprintf("%v", password.PasswordNum) + "']"
-}
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nbr-vrf"] = password.NbrVrf
-    leafs["nbr-id"] = password.NbrId
-    leafs["password-num"] = password.PasswordNum
-    leafs["pass-required"] = password.PassRequired
-    leafs["clear-pass"] = password.ClearPass
-    leafs["encrypt-pass"] = password.EncryptPass
-    leafs["keychain-pass"] = password.KeychainPass
-    return leafs
-}
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetBundleName() string { return "cisco_ios_xe" }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetYangName() string { return "password" }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) SetParent(parent types.Entity) { password.parent = parent }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetParent() types.Entity { return password.parent }
-
-func (password *MplsLdp_MplsLdpConfig_Passwords_Password) GetParentYangName() string { return "passwords" }
 
 // MplsLdp_MplsLdpConfig_Session
 // Configure session parameters
 type MplsLdp_MplsLdpConfig_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initial session backoff time (seconds). The type is interface{} with range:
@@ -9989,55 +6087,23 @@ type MplsLdp_MplsLdpConfig_Session struct {
     Infinite interface{}
 }
 
-func (session *MplsLdp_MplsLdpConfig_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *MplsLdp_MplsLdpConfig_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xe"
+    session.EntityData.ParentYangName = "mpls-ldp-config"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (session *MplsLdp_MplsLdpConfig_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetGoName(yname string) string {
-    if yname == "backoff" { return "Backoff" }
-    if yname == "seconds" { return "Seconds" }
-    if yname == "infinite" { return "Infinite" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["backoff"] = types.YLeaf{"Backoff", session.Backoff}
+    session.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", session.Seconds}
+    session.EntityData.Leafs["infinite"] = types.YLeaf{"Infinite", session.Infinite}
+    return &(session.EntityData)
 }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["backoff"] = session.Backoff
-    leafs["seconds"] = session.Seconds
-    leafs["infinite"] = session.Infinite
-    return leafs
-}
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetBundleName() string { return "cisco_ios_xe" }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetYangName() string { return "session" }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (session *MplsLdp_MplsLdpConfig_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetParent() types.Entity { return session.parent }
-
-func (session *MplsLdp_MplsLdpConfig_Session) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_LabelCfg
 // This container holds the label allocation and
@@ -10045,7 +6111,7 @@ func (session *MplsLdp_MplsLdpConfig_Session) GetParentYangName() string { retur
 // Base. These control what prefixes may be allocated and
 // advertised to peers.
 type MplsLdp_MplsLdpConfig_LabelCfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This is an allocation filter and advertisement filters for LDP labels in
@@ -10054,69 +6120,30 @@ type MplsLdp_MplsLdpConfig_LabelCfg struct {
     LabelAfCfg []MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg
 }
 
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetFilter() yfilter.YFilter { return labelCfg.YFilter }
+func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetEntityData() *types.CommonEntityData {
+    labelCfg.EntityData.YFilter = labelCfg.YFilter
+    labelCfg.EntityData.YangName = "label-cfg"
+    labelCfg.EntityData.BundleName = "cisco_ios_xe"
+    labelCfg.EntityData.ParentYangName = "mpls-ldp-config"
+    labelCfg.EntityData.SegmentPath = "label-cfg"
+    labelCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labelCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labelCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) SetFilter(yf yfilter.YFilter) { labelCfg.YFilter = yf }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetGoName(yname string) string {
-    if yname == "label-af-cfg" { return "LabelAfCfg" }
-    return ""
-}
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetSegmentPath() string {
-    return "label-cfg"
-}
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "label-af-cfg" {
-        for _, c := range labelCfg.LabelAfCfg {
-            if labelCfg.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg{}
-        labelCfg.LabelAfCfg = append(labelCfg.LabelAfCfg, child)
-        return &labelCfg.LabelAfCfg[len(labelCfg.LabelAfCfg)-1]
-    }
-    return nil
-}
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    labelCfg.EntityData.Children = make(map[string]types.YChild)
+    labelCfg.EntityData.Children["label-af-cfg"] = types.YChild{"LabelAfCfg", nil}
     for i := range labelCfg.LabelAfCfg {
-        children[labelCfg.LabelAfCfg[i].GetSegmentPath()] = &labelCfg.LabelAfCfg[i]
+        labelCfg.EntityData.Children[types.GetSegmentPath(&labelCfg.LabelAfCfg[i])] = types.YChild{"LabelAfCfg", &labelCfg.LabelAfCfg[i]}
     }
-    return children
+    labelCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(labelCfg.EntityData)
 }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetYangName() string { return "label-cfg" }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) SetParent(parent types.Entity) { labelCfg.parent = parent }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetParent() types.Entity { return labelCfg.parent }
-
-func (labelCfg *MplsLdp_MplsLdpConfig_LabelCfg) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg
 // This is an allocation filter and advertisement filters
 // for LDP labels in this address family.
 type MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -10139,76 +6166,33 @@ type MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg struct {
     AdvtFilter []MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter
 }
 
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetFilter() yfilter.YFilter { return labelAfCfg.YFilter }
+func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetEntityData() *types.CommonEntityData {
+    labelAfCfg.EntityData.YFilter = labelAfCfg.YFilter
+    labelAfCfg.EntityData.YangName = "label-af-cfg"
+    labelAfCfg.EntityData.BundleName = "cisco_ios_xe"
+    labelAfCfg.EntityData.ParentYangName = "label-cfg"
+    labelAfCfg.EntityData.SegmentPath = "label-af-cfg" + "[vrf-name='" + fmt.Sprintf("%v", labelAfCfg.VrfName) + "']" + "[af-name='" + fmt.Sprintf("%v", labelAfCfg.AfName) + "']"
+    labelAfCfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    labelAfCfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    labelAfCfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) SetFilter(yf yfilter.YFilter) { labelAfCfg.YFilter = yf }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "af-name" { return "AfName" }
-    if yname == "prefix-filter" { return "PrefixFilter" }
-    if yname == "host-route-enable" { return "HostRouteEnable" }
-    if yname == "advt-filter" { return "AdvtFilter" }
-    return ""
-}
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetSegmentPath() string {
-    return "label-af-cfg" + "[vrf-name='" + fmt.Sprintf("%v", labelAfCfg.VrfName) + "']" + "[af-name='" + fmt.Sprintf("%v", labelAfCfg.AfName) + "']"
-}
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "advt-filter" {
-        for _, c := range labelAfCfg.AdvtFilter {
-            if labelAfCfg.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter{}
-        labelAfCfg.AdvtFilter = append(labelAfCfg.AdvtFilter, child)
-        return &labelAfCfg.AdvtFilter[len(labelAfCfg.AdvtFilter)-1]
-    }
-    return nil
-}
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    labelAfCfg.EntityData.Children = make(map[string]types.YChild)
+    labelAfCfg.EntityData.Children["advt-filter"] = types.YChild{"AdvtFilter", nil}
     for i := range labelAfCfg.AdvtFilter {
-        children[labelAfCfg.AdvtFilter[i].GetSegmentPath()] = &labelAfCfg.AdvtFilter[i]
+        labelAfCfg.EntityData.Children[types.GetSegmentPath(&labelAfCfg.AdvtFilter[i])] = types.YChild{"AdvtFilter", &labelAfCfg.AdvtFilter[i]}
     }
-    return children
+    labelAfCfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelAfCfg.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", labelAfCfg.VrfName}
+    labelAfCfg.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", labelAfCfg.AfName}
+    labelAfCfg.EntityData.Leafs["prefix-filter"] = types.YLeaf{"PrefixFilter", labelAfCfg.PrefixFilter}
+    labelAfCfg.EntityData.Leafs["host-route-enable"] = types.YLeaf{"HostRouteEnable", labelAfCfg.HostRouteEnable}
+    return &(labelAfCfg.EntityData)
 }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = labelAfCfg.VrfName
-    leafs["af-name"] = labelAfCfg.AfName
-    leafs["prefix-filter"] = labelAfCfg.PrefixFilter
-    leafs["host-route-enable"] = labelAfCfg.HostRouteEnable
-    return leafs
-}
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetYangName() string { return "label-af-cfg" }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) SetParent(parent types.Entity) { labelAfCfg.parent = parent }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetParent() types.Entity { return labelAfCfg.parent }
-
-func (labelAfCfg *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg) GetParentYangName() string { return "label-cfg" }
 
 // MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter
 // MPLS LDP Label advertisement filter restrictions.
 type MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the filter name for this label's
@@ -10224,69 +6208,36 @@ type MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter struct {
     // This attribute is a key. This is an optional interface that may be used to
     // restrict the scope of the label advertisement. The type is string. Refers
     // to ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // This leaf controls what type of label is advertised for matching prefixes
     // to the matching peers. The type is AdvLabelType.
     AdvLabelCfg interface{}
 }
 
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetFilter() yfilter.YFilter { return advtFilter.YFilter }
+func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetEntityData() *types.CommonEntityData {
+    advtFilter.EntityData.YFilter = advtFilter.YFilter
+    advtFilter.EntityData.YangName = "advt-filter"
+    advtFilter.EntityData.BundleName = "cisco_ios_xe"
+    advtFilter.EntityData.ParentYangName = "label-af-cfg"
+    advtFilter.EntityData.SegmentPath = "advt-filter" + "[prefix-filter='" + fmt.Sprintf("%v", advtFilter.PrefixFilter) + "']" + "[peer-filter='" + fmt.Sprintf("%v", advtFilter.PeerFilter) + "']" + "[interface='" + fmt.Sprintf("%v", advtFilter.Interface_) + "']"
+    advtFilter.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    advtFilter.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    advtFilter.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) SetFilter(yf yfilter.YFilter) { advtFilter.YFilter = yf }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetGoName(yname string) string {
-    if yname == "prefix-filter" { return "PrefixFilter" }
-    if yname == "peer-filter" { return "PeerFilter" }
-    if yname == "interface" { return "Interface" }
-    if yname == "adv-label-cfg" { return "AdvLabelCfg" }
-    return ""
+    advtFilter.EntityData.Children = make(map[string]types.YChild)
+    advtFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    advtFilter.EntityData.Leafs["prefix-filter"] = types.YLeaf{"PrefixFilter", advtFilter.PrefixFilter}
+    advtFilter.EntityData.Leafs["peer-filter"] = types.YLeaf{"PeerFilter", advtFilter.PeerFilter}
+    advtFilter.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", advtFilter.Interface_}
+    advtFilter.EntityData.Leafs["adv-label-cfg"] = types.YLeaf{"AdvLabelCfg", advtFilter.AdvLabelCfg}
+    return &(advtFilter.EntityData)
 }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetSegmentPath() string {
-    return "advt-filter" + "[prefix-filter='" + fmt.Sprintf("%v", advtFilter.PrefixFilter) + "']" + "[peer-filter='" + fmt.Sprintf("%v", advtFilter.PeerFilter) + "']" + "[interface='" + fmt.Sprintf("%v", advtFilter.Interface) + "']"
-}
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-filter"] = advtFilter.PrefixFilter
-    leafs["peer-filter"] = advtFilter.PeerFilter
-    leafs["interface"] = advtFilter.Interface
-    leafs["adv-label-cfg"] = advtFilter.AdvLabelCfg
-    return leafs
-}
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetBundleName() string { return "cisco_ios_xe" }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetYangName() string { return "advt-filter" }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) SetParent(parent types.Entity) { advtFilter.parent = parent }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetParent() types.Entity { return advtFilter.parent }
-
-func (advtFilter *MplsLdp_MplsLdpConfig_LabelCfg_LabelAfCfg_AdvtFilter) GetParentYangName() string { return "label-af-cfg" }
 
 // MplsLdp_MplsLdpConfig_Discovery
 // LDP discovery
 type MplsLdp_MplsLdpConfig_Discovery struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set this leaf to true to disable transmit and receive processing for
@@ -10304,72 +6255,30 @@ type MplsLdp_MplsLdpConfig_Discovery struct {
     IntTransAddrs MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs
 }
 
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetFilter() yfilter.YFilter { return discovery.YFilter }
+func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetEntityData() *types.CommonEntityData {
+    discovery.EntityData.YFilter = discovery.YFilter
+    discovery.EntityData.YangName = "discovery"
+    discovery.EntityData.BundleName = "cisco_ios_xe"
+    discovery.EntityData.ParentYangName = "mpls-ldp-config"
+    discovery.EntityData.SegmentPath = "discovery"
+    discovery.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    discovery.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    discovery.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) SetFilter(yf yfilter.YFilter) { discovery.YFilter = yf }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetGoName(yname string) string {
-    if yname == "instance-tlv" { return "InstanceTlv" }
-    if yname == "link-hello" { return "LinkHello" }
-    if yname == "targeted-hello" { return "TargetedHello" }
-    if yname == "int-trans-addrs" { return "IntTransAddrs" }
-    return ""
+    discovery.EntityData.Children = make(map[string]types.YChild)
+    discovery.EntityData.Children["link-hello"] = types.YChild{"LinkHello", &discovery.LinkHello}
+    discovery.EntityData.Children["targeted-hello"] = types.YChild{"TargetedHello", &discovery.TargetedHello}
+    discovery.EntityData.Children["int-trans-addrs"] = types.YChild{"IntTransAddrs", &discovery.IntTransAddrs}
+    discovery.EntityData.Leafs = make(map[string]types.YLeaf)
+    discovery.EntityData.Leafs["instance-tlv"] = types.YLeaf{"InstanceTlv", discovery.InstanceTlv}
+    return &(discovery.EntityData)
 }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetSegmentPath() string {
-    return "discovery"
-}
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "link-hello" {
-        return &discovery.LinkHello
-    }
-    if childYangName == "targeted-hello" {
-        return &discovery.TargetedHello
-    }
-    if childYangName == "int-trans-addrs" {
-        return &discovery.IntTransAddrs
-    }
-    return nil
-}
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["link-hello"] = &discovery.LinkHello
-    children["targeted-hello"] = &discovery.TargetedHello
-    children["int-trans-addrs"] = &discovery.IntTransAddrs
-    return children
-}
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instance-tlv"] = discovery.InstanceTlv
-    return leafs
-}
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetBundleName() string { return "cisco_ios_xe" }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetYangName() string { return "discovery" }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) SetParent(parent types.Entity) { discovery.parent = parent }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetParent() types.Entity { return discovery.parent }
-
-func (discovery *MplsLdp_MplsLdpConfig_Discovery) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_Discovery_LinkHello
 // This container holds the parameters for the non-targeted
 // link hello.
 type MplsLdp_MplsLdpConfig_Discovery_LinkHello struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LDP discovery link hello holdtime in seconds. The type is interface{} with
@@ -10381,59 +6290,28 @@ type MplsLdp_MplsLdpConfig_Discovery_LinkHello struct {
     Interval interface{}
 }
 
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetFilter() yfilter.YFilter { return linkHello.YFilter }
+func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetEntityData() *types.CommonEntityData {
+    linkHello.EntityData.YFilter = linkHello.YFilter
+    linkHello.EntityData.YangName = "link-hello"
+    linkHello.EntityData.BundleName = "cisco_ios_xe"
+    linkHello.EntityData.ParentYangName = "discovery"
+    linkHello.EntityData.SegmentPath = "link-hello"
+    linkHello.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    linkHello.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    linkHello.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) SetFilter(yf yfilter.YFilter) { linkHello.YFilter = yf }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetGoName(yname string) string {
-    if yname == "holdtime" { return "Holdtime" }
-    if yname == "interval" { return "Interval" }
-    return ""
+    linkHello.EntityData.Children = make(map[string]types.YChild)
+    linkHello.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkHello.EntityData.Leafs["holdtime"] = types.YLeaf{"Holdtime", linkHello.Holdtime}
+    linkHello.EntityData.Leafs["interval"] = types.YLeaf{"Interval", linkHello.Interval}
+    return &(linkHello.EntityData)
 }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetSegmentPath() string {
-    return "link-hello"
-}
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["holdtime"] = linkHello.Holdtime
-    leafs["interval"] = linkHello.Interval
-    return leafs
-}
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetBundleName() string { return "cisco_ios_xe" }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetYangName() string { return "link-hello" }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) SetParent(parent types.Entity) { linkHello.parent = parent }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetParent() types.Entity { return linkHello.parent }
-
-func (linkHello *MplsLdp_MplsLdpConfig_Discovery_LinkHello) GetParentYangName() string { return "discovery" }
 
 // MplsLdp_MplsLdpConfig_Discovery_TargetedHello
 // This container holds the parameters for the targeted
 // link hello.
 type MplsLdp_MplsLdpConfig_Discovery_TargetedHello struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LDP discovery targeted hello holdtime in seconds. The type is interface{}
@@ -10451,66 +6329,30 @@ type MplsLdp_MplsLdpConfig_Discovery_TargetedHello struct {
     Accept MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept
 }
 
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetFilter() yfilter.YFilter { return targetedHello.YFilter }
+func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetEntityData() *types.CommonEntityData {
+    targetedHello.EntityData.YFilter = targetedHello.YFilter
+    targetedHello.EntityData.YangName = "targeted-hello"
+    targetedHello.EntityData.BundleName = "cisco_ios_xe"
+    targetedHello.EntityData.ParentYangName = "discovery"
+    targetedHello.EntityData.SegmentPath = "targeted-hello"
+    targetedHello.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    targetedHello.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    targetedHello.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) SetFilter(yf yfilter.YFilter) { targetedHello.YFilter = yf }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetGoName(yname string) string {
-    if yname == "holdtime" { return "Holdtime" }
-    if yname == "interval" { return "Interval" }
-    if yname == "enable" { return "Enable" }
-    if yname == "accept" { return "Accept" }
-    return ""
+    targetedHello.EntityData.Children = make(map[string]types.YChild)
+    targetedHello.EntityData.Children["accept"] = types.YChild{"Accept", &targetedHello.Accept}
+    targetedHello.EntityData.Leafs = make(map[string]types.YLeaf)
+    targetedHello.EntityData.Leafs["holdtime"] = types.YLeaf{"Holdtime", targetedHello.Holdtime}
+    targetedHello.EntityData.Leafs["interval"] = types.YLeaf{"Interval", targetedHello.Interval}
+    targetedHello.EntityData.Leafs["enable"] = types.YLeaf{"Enable", targetedHello.Enable}
+    return &(targetedHello.EntityData)
 }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetSegmentPath() string {
-    return "targeted-hello"
-}
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accept" {
-        return &targetedHello.Accept
-    }
-    return nil
-}
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accept"] = &targetedHello.Accept
-    return children
-}
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["holdtime"] = targetedHello.Holdtime
-    leafs["interval"] = targetedHello.Interval
-    leafs["enable"] = targetedHello.Enable
-    return leafs
-}
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetBundleName() string { return "cisco_ios_xe" }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetYangName() string { return "targeted-hello" }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) SetParent(parent types.Entity) { targetedHello.parent = parent }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetParent() types.Entity { return targetedHello.parent }
-
-func (targetedHello *MplsLdp_MplsLdpConfig_Discovery_TargetedHello) GetParentYangName() string { return "discovery" }
 
 // MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept
 // Enables router to respond to requests for targeted
 // hello messages
 type MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set to true if targeted hello messages may be accepted. The type is bool.
@@ -10522,60 +6364,29 @@ type MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept struct {
     SrcFilter interface{}
 }
 
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetFilter() yfilter.YFilter { return accept.YFilter }
+func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetEntityData() *types.CommonEntityData {
+    accept.EntityData.YFilter = accept.YFilter
+    accept.EntityData.YangName = "accept"
+    accept.EntityData.BundleName = "cisco_ios_xe"
+    accept.EntityData.ParentYangName = "targeted-hello"
+    accept.EntityData.SegmentPath = "accept"
+    accept.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    accept.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    accept.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) SetFilter(yf yfilter.YFilter) { accept.YFilter = yf }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "src-filter" { return "SrcFilter" }
-    return ""
+    accept.EntityData.Children = make(map[string]types.YChild)
+    accept.EntityData.Leafs = make(map[string]types.YLeaf)
+    accept.EntityData.Leafs["enable"] = types.YLeaf{"Enable", accept.Enable}
+    accept.EntityData.Leafs["src-filter"] = types.YLeaf{"SrcFilter", accept.SrcFilter}
+    return &(accept.EntityData)
 }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetSegmentPath() string {
-    return "accept"
-}
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = accept.Enable
-    leafs["src-filter"] = accept.SrcFilter
-    return leafs
-}
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetBundleName() string { return "cisco_ios_xe" }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetYangName() string { return "accept" }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) SetParent(parent types.Entity) { accept.parent = parent }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetParent() types.Entity { return accept.parent }
-
-func (accept *MplsLdp_MplsLdpConfig_Discovery_TargetedHello_Accept) GetParentYangName() string { return "targeted-hello" }
 
 // MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs
 // This list contains the per-interface transport
 // addresses, which overide the global and default
 // values.
 type MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry contains the per-interface transport addresses, which overide
@@ -10584,70 +6395,31 @@ type MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs struct {
     IntTransAddr []MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr
 }
 
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetFilter() yfilter.YFilter { return intTransAddrs.YFilter }
+func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetEntityData() *types.CommonEntityData {
+    intTransAddrs.EntityData.YFilter = intTransAddrs.YFilter
+    intTransAddrs.EntityData.YangName = "int-trans-addrs"
+    intTransAddrs.EntityData.BundleName = "cisco_ios_xe"
+    intTransAddrs.EntityData.ParentYangName = "discovery"
+    intTransAddrs.EntityData.SegmentPath = "int-trans-addrs"
+    intTransAddrs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intTransAddrs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intTransAddrs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) SetFilter(yf yfilter.YFilter) { intTransAddrs.YFilter = yf }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetGoName(yname string) string {
-    if yname == "int-trans-addr" { return "IntTransAddr" }
-    return ""
-}
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetSegmentPath() string {
-    return "int-trans-addrs"
-}
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "int-trans-addr" {
-        for _, c := range intTransAddrs.IntTransAddr {
-            if intTransAddrs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr{}
-        intTransAddrs.IntTransAddr = append(intTransAddrs.IntTransAddr, child)
-        return &intTransAddrs.IntTransAddr[len(intTransAddrs.IntTransAddr)-1]
-    }
-    return nil
-}
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    intTransAddrs.EntityData.Children = make(map[string]types.YChild)
+    intTransAddrs.EntityData.Children["int-trans-addr"] = types.YChild{"IntTransAddr", nil}
     for i := range intTransAddrs.IntTransAddr {
-        children[intTransAddrs.IntTransAddr[i].GetSegmentPath()] = &intTransAddrs.IntTransAddr[i]
+        intTransAddrs.EntityData.Children[types.GetSegmentPath(&intTransAddrs.IntTransAddr[i])] = types.YChild{"IntTransAddr", &intTransAddrs.IntTransAddr[i]}
     }
-    return children
+    intTransAddrs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(intTransAddrs.EntityData)
 }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetYangName() string { return "int-trans-addrs" }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) SetParent(parent types.Entity) { intTransAddrs.parent = parent }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetParent() types.Entity { return intTransAddrs.parent }
-
-func (intTransAddrs *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs) GetParentYangName() string { return "discovery" }
 
 // MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr
 // This entry contains the per-interface transport
 // addresses, which overide the global and default
 // values.
 type MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address Family name. The type is Af.
@@ -10660,9 +6432,9 @@ type MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr struct {
     // Advertise this address as the address in LDP discovery hello messages and
     // use it for LDP transport. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     TransIp interface{}
 
     // Advertise this interface's address as the address in LDP discovery hello
@@ -10671,62 +6443,29 @@ type MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr struct {
     TransInt interface{}
 }
 
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetFilter() yfilter.YFilter { return intTransAddr.YFilter }
+func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetEntityData() *types.CommonEntityData {
+    intTransAddr.EntityData.YFilter = intTransAddr.YFilter
+    intTransAddr.EntityData.YangName = "int-trans-addr"
+    intTransAddr.EntityData.BundleName = "cisco_ios_xe"
+    intTransAddr.EntityData.ParentYangName = "int-trans-addrs"
+    intTransAddr.EntityData.SegmentPath = "int-trans-addr" + "[af-name='" + fmt.Sprintf("%v", intTransAddr.AfName) + "']" + "[int-name='" + fmt.Sprintf("%v", intTransAddr.IntName) + "']"
+    intTransAddr.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intTransAddr.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intTransAddr.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) SetFilter(yf yfilter.YFilter) { intTransAddr.YFilter = yf }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "int-name" { return "IntName" }
-    if yname == "trans-ip" { return "TransIp" }
-    if yname == "trans-int" { return "TransInt" }
-    return ""
+    intTransAddr.EntityData.Children = make(map[string]types.YChild)
+    intTransAddr.EntityData.Leafs = make(map[string]types.YLeaf)
+    intTransAddr.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", intTransAddr.AfName}
+    intTransAddr.EntityData.Leafs["int-name"] = types.YLeaf{"IntName", intTransAddr.IntName}
+    intTransAddr.EntityData.Leafs["trans-ip"] = types.YLeaf{"TransIp", intTransAddr.TransIp}
+    intTransAddr.EntityData.Leafs["trans-int"] = types.YLeaf{"TransInt", intTransAddr.TransInt}
+    return &(intTransAddr.EntityData)
 }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetSegmentPath() string {
-    return "int-trans-addr" + "[af-name='" + fmt.Sprintf("%v", intTransAddr.AfName) + "']" + "[int-name='" + fmt.Sprintf("%v", intTransAddr.IntName) + "']"
-}
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = intTransAddr.AfName
-    leafs["int-name"] = intTransAddr.IntName
-    leafs["trans-ip"] = intTransAddr.TransIp
-    leafs["trans-int"] = intTransAddr.TransInt
-    return leafs
-}
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetYangName() string { return "int-trans-addr" }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) SetParent(parent types.Entity) { intTransAddr.parent = parent }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetParent() types.Entity { return intTransAddr.parent }
-
-func (intTransAddr *MplsLdp_MplsLdpConfig_Discovery_IntTransAddrs_IntTransAddr) GetParentYangName() string { return "int-trans-addrs" }
 
 // MplsLdp_MplsLdpConfig_GracefulRestart
 // Configure LDP Graceful Restart
 type MplsLdp_MplsLdpConfig_GracefulRestart struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable graceful restartable. The type is bool.
@@ -10753,77 +6492,34 @@ type MplsLdp_MplsLdpConfig_GracefulRestart struct {
     Helper []MplsLdp_MplsLdpConfig_GracefulRestart_Helper
 }
 
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetFilter() yfilter.YFilter { return gracefulRestart.YFilter }
+func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetEntityData() *types.CommonEntityData {
+    gracefulRestart.EntityData.YFilter = gracefulRestart.YFilter
+    gracefulRestart.EntityData.YangName = "graceful-restart"
+    gracefulRestart.EntityData.BundleName = "cisco_ios_xe"
+    gracefulRestart.EntityData.ParentYangName = "mpls-ldp-config"
+    gracefulRestart.EntityData.SegmentPath = "graceful-restart"
+    gracefulRestart.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    gracefulRestart.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    gracefulRestart.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) SetFilter(yf yfilter.YFilter) { gracefulRestart.YFilter = yf }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetGoName(yname string) string {
-    if yname == "is-graceful-restartable" { return "IsGracefulRestartable" }
-    if yname == "forwarding-holding" { return "ForwardingHolding" }
-    if yname == "max-recovery" { return "MaxRecovery" }
-    if yname == "nbr-liveness" { return "NbrLiveness" }
-    if yname == "helper" { return "Helper" }
-    return ""
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetSegmentPath() string {
-    return "graceful-restart"
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "helper" {
-        for _, c := range gracefulRestart.Helper {
-            if gracefulRestart.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_GracefulRestart_Helper{}
-        gracefulRestart.Helper = append(gracefulRestart.Helper, child)
-        return &gracefulRestart.Helper[len(gracefulRestart.Helper)-1]
-    }
-    return nil
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    gracefulRestart.EntityData.Children = make(map[string]types.YChild)
+    gracefulRestart.EntityData.Children["helper"] = types.YChild{"Helper", nil}
     for i := range gracefulRestart.Helper {
-        children[gracefulRestart.Helper[i].GetSegmentPath()] = &gracefulRestart.Helper[i]
+        gracefulRestart.EntityData.Children[types.GetSegmentPath(&gracefulRestart.Helper[i])] = types.YChild{"Helper", &gracefulRestart.Helper[i]}
     }
-    return children
+    gracefulRestart.EntityData.Leafs = make(map[string]types.YLeaf)
+    gracefulRestart.EntityData.Leafs["is-graceful-restartable"] = types.YLeaf{"IsGracefulRestartable", gracefulRestart.IsGracefulRestartable}
+    gracefulRestart.EntityData.Leafs["forwarding-holding"] = types.YLeaf{"ForwardingHolding", gracefulRestart.ForwardingHolding}
+    gracefulRestart.EntityData.Leafs["max-recovery"] = types.YLeaf{"MaxRecovery", gracefulRestart.MaxRecovery}
+    gracefulRestart.EntityData.Leafs["nbr-liveness"] = types.YLeaf{"NbrLiveness", gracefulRestart.NbrLiveness}
+    return &(gracefulRestart.EntityData)
 }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-graceful-restartable"] = gracefulRestart.IsGracefulRestartable
-    leafs["forwarding-holding"] = gracefulRestart.ForwardingHolding
-    leafs["max-recovery"] = gracefulRestart.MaxRecovery
-    leafs["nbr-liveness"] = gracefulRestart.NbrLiveness
-    return leafs
-}
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetBundleName() string { return "cisco_ios_xe" }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetYangName() string { return "graceful-restart" }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) SetParent(parent types.Entity) { gracefulRestart.parent = parent }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetParent() types.Entity { return gracefulRestart.parent }
-
-func (gracefulRestart *MplsLdp_MplsLdpConfig_GracefulRestart) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_GracefulRestart_Helper
 // This contains the filter name for peers for which this
 // LSR will act as a graceful-restart helper.
 type MplsLdp_MplsLdpConfig_GracefulRestart_Helper struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -10837,58 +6533,27 @@ type MplsLdp_MplsLdpConfig_GracefulRestart_Helper struct {
     HelperFilter interface{}
 }
 
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetFilter() yfilter.YFilter { return helper.YFilter }
+func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetEntityData() *types.CommonEntityData {
+    helper.EntityData.YFilter = helper.YFilter
+    helper.EntityData.YangName = "helper"
+    helper.EntityData.BundleName = "cisco_ios_xe"
+    helper.EntityData.ParentYangName = "graceful-restart"
+    helper.EntityData.SegmentPath = "helper" + "[helper-vrf='" + fmt.Sprintf("%v", helper.HelperVrf) + "']" + "[helper-filter='" + fmt.Sprintf("%v", helper.HelperFilter) + "']"
+    helper.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    helper.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    helper.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) SetFilter(yf yfilter.YFilter) { helper.YFilter = yf }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetGoName(yname string) string {
-    if yname == "helper-vrf" { return "HelperVrf" }
-    if yname == "helper-filter" { return "HelperFilter" }
-    return ""
+    helper.EntityData.Children = make(map[string]types.YChild)
+    helper.EntityData.Leafs = make(map[string]types.YLeaf)
+    helper.EntityData.Leafs["helper-vrf"] = types.YLeaf{"HelperVrf", helper.HelperVrf}
+    helper.EntityData.Leafs["helper-filter"] = types.YLeaf{"HelperFilter", helper.HelperFilter}
+    return &(helper.EntityData)
 }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetSegmentPath() string {
-    return "helper" + "[helper-vrf='" + fmt.Sprintf("%v", helper.HelperVrf) + "']" + "[helper-filter='" + fmt.Sprintf("%v", helper.HelperFilter) + "']"
-}
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["helper-vrf"] = helper.HelperVrf
-    leafs["helper-filter"] = helper.HelperFilter
-    return leafs
-}
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetBundleName() string { return "cisco_ios_xe" }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetYangName() string { return "helper" }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) SetParent(parent types.Entity) { helper.parent = parent }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetParent() types.Entity { return helper.parent }
-
-func (helper *MplsLdp_MplsLdpConfig_GracefulRestart_Helper) GetParentYangName() string { return "graceful-restart" }
 
 // MplsLdp_MplsLdpConfig_Logging
 // Enable LDP logging
 type MplsLdp_MplsLdpConfig_Logging struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable logging of graceful-restart messages. The type is bool.
@@ -10910,69 +6575,31 @@ type MplsLdp_MplsLdpConfig_Logging struct {
     Password MplsLdp_MplsLdpConfig_Logging_Password
 }
 
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetFilter() yfilter.YFilter { return logging.YFilter }
+func (logging *MplsLdp_MplsLdpConfig_Logging) GetEntityData() *types.CommonEntityData {
+    logging.EntityData.YFilter = logging.YFilter
+    logging.EntityData.YangName = "logging"
+    logging.EntityData.BundleName = "cisco_ios_xe"
+    logging.EntityData.ParentYangName = "mpls-ldp-config"
+    logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    logging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    logging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (logging *MplsLdp_MplsLdpConfig_Logging) SetFilter(yf yfilter.YFilter) { logging.YFilter = yf }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetGoName(yname string) string {
-    if yname == "graceful-restart" { return "GracefulRestart" }
-    if yname == "neighbor" { return "Neighbor" }
-    if yname == "nsr" { return "Nsr" }
-    if yname == "adjacency" { return "Adjacency" }
-    if yname == "session-protection" { return "SessionProtection" }
-    if yname == "password" { return "Password" }
-    return ""
+    logging.EntityData.Children = make(map[string]types.YChild)
+    logging.EntityData.Children["password"] = types.YChild{"Password", &logging.Password}
+    logging.EntityData.Leafs = make(map[string]types.YLeaf)
+    logging.EntityData.Leafs["graceful-restart"] = types.YLeaf{"GracefulRestart", logging.GracefulRestart}
+    logging.EntityData.Leafs["neighbor"] = types.YLeaf{"Neighbor", logging.Neighbor}
+    logging.EntityData.Leafs["nsr"] = types.YLeaf{"Nsr", logging.Nsr}
+    logging.EntityData.Leafs["adjacency"] = types.YLeaf{"Adjacency", logging.Adjacency}
+    logging.EntityData.Leafs["session-protection"] = types.YLeaf{"SessionProtection", logging.SessionProtection}
+    return &(logging.EntityData)
 }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetSegmentPath() string {
-    return "logging"
-}
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "password" {
-        return &logging.Password
-    }
-    return nil
-}
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["password"] = &logging.Password
-    return children
-}
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["graceful-restart"] = logging.GracefulRestart
-    leafs["neighbor"] = logging.Neighbor
-    leafs["nsr"] = logging.Nsr
-    leafs["adjacency"] = logging.Adjacency
-    leafs["session-protection"] = logging.SessionProtection
-    return leafs
-}
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetBundleName() string { return "cisco_ios_xe" }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetYangName() string { return "logging" }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) SetParent(parent types.Entity) { logging.parent = parent }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetParent() types.Entity { return logging.parent }
-
-func (logging *MplsLdp_MplsLdpConfig_Logging) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_Logging_Password
 // Enable logging of password messages.
 type MplsLdp_MplsLdpConfig_Logging_Password struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Log MPLS LDP password configuration changes.
@@ -10982,64 +6609,27 @@ type MplsLdp_MplsLdpConfig_Logging_Password struct {
     RolloverMsg MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg
 }
 
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetFilter() yfilter.YFilter { return password.YFilter }
+func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetEntityData() *types.CommonEntityData {
+    password.EntityData.YFilter = password.YFilter
+    password.EntityData.YangName = "password"
+    password.EntityData.BundleName = "cisco_ios_xe"
+    password.EntityData.ParentYangName = "logging"
+    password.EntityData.SegmentPath = "password"
+    password.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    password.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    password.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) SetFilter(yf yfilter.YFilter) { password.YFilter = yf }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetGoName(yname string) string {
-    if yname == "config-msg" { return "ConfigMsg" }
-    if yname == "rollover-msg" { return "RolloverMsg" }
-    return ""
+    password.EntityData.Children = make(map[string]types.YChild)
+    password.EntityData.Children["config-msg"] = types.YChild{"ConfigMsg", &password.ConfigMsg}
+    password.EntityData.Children["rollover-msg"] = types.YChild{"RolloverMsg", &password.RolloverMsg}
+    password.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(password.EntityData)
 }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetSegmentPath() string {
-    return "password"
-}
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config-msg" {
-        return &password.ConfigMsg
-    }
-    if childYangName == "rollover-msg" {
-        return &password.RolloverMsg
-    }
-    return nil
-}
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config-msg"] = &password.ConfigMsg
-    children["rollover-msg"] = &password.RolloverMsg
-    return children
-}
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetBundleName() string { return "cisco_ios_xe" }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetYangName() string { return "password" }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) SetParent(parent types.Entity) { password.parent = parent }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetParent() types.Entity { return password.parent }
-
-func (password *MplsLdp_MplsLdpConfig_Logging_Password) GetParentYangName() string { return "logging" }
 
 // MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg
 // Log MPLS LDP password configuration changes.
 type MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Log MPLS LDP password configuration changes. The type is bool.
@@ -11051,58 +6641,27 @@ type MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg struct {
     RateLimit interface{}
 }
 
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetFilter() yfilter.YFilter { return configMsg.YFilter }
+func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetEntityData() *types.CommonEntityData {
+    configMsg.EntityData.YFilter = configMsg.YFilter
+    configMsg.EntityData.YangName = "config-msg"
+    configMsg.EntityData.BundleName = "cisco_ios_xe"
+    configMsg.EntityData.ParentYangName = "password"
+    configMsg.EntityData.SegmentPath = "config-msg"
+    configMsg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    configMsg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    configMsg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) SetFilter(yf yfilter.YFilter) { configMsg.YFilter = yf }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "rate-limit" { return "RateLimit" }
-    return ""
+    configMsg.EntityData.Children = make(map[string]types.YChild)
+    configMsg.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMsg.EntityData.Leafs["enable"] = types.YLeaf{"Enable", configMsg.Enable}
+    configMsg.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", configMsg.RateLimit}
+    return &(configMsg.EntityData)
 }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetSegmentPath() string {
-    return "config-msg"
-}
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = configMsg.Enable
-    leafs["rate-limit"] = configMsg.RateLimit
-    return leafs
-}
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetYangName() string { return "config-msg" }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) SetParent(parent types.Entity) { configMsg.parent = parent }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetParent() types.Entity { return configMsg.parent }
-
-func (configMsg *MplsLdp_MplsLdpConfig_Logging_Password_ConfigMsg) GetParentYangName() string { return "password" }
 
 // MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg
 // Log MPLS LDP password rollover messages.
 type MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Log MPLS LDP password rollover messages. The type is bool.
@@ -11114,124 +6673,54 @@ type MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg struct {
     RateLimit interface{}
 }
 
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetFilter() yfilter.YFilter { return rolloverMsg.YFilter }
+func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetEntityData() *types.CommonEntityData {
+    rolloverMsg.EntityData.YFilter = rolloverMsg.YFilter
+    rolloverMsg.EntityData.YangName = "rollover-msg"
+    rolloverMsg.EntityData.BundleName = "cisco_ios_xe"
+    rolloverMsg.EntityData.ParentYangName = "password"
+    rolloverMsg.EntityData.SegmentPath = "rollover-msg"
+    rolloverMsg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rolloverMsg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rolloverMsg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) SetFilter(yf yfilter.YFilter) { rolloverMsg.YFilter = yf }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "rate-limit" { return "RateLimit" }
-    return ""
+    rolloverMsg.EntityData.Children = make(map[string]types.YChild)
+    rolloverMsg.EntityData.Leafs = make(map[string]types.YLeaf)
+    rolloverMsg.EntityData.Leafs["enable"] = types.YLeaf{"Enable", rolloverMsg.Enable}
+    rolloverMsg.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", rolloverMsg.RateLimit}
+    return &(rolloverMsg.EntityData)
 }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetSegmentPath() string {
-    return "rollover-msg"
-}
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = rolloverMsg.Enable
-    leafs["rate-limit"] = rolloverMsg.RateLimit
-    return leafs
-}
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetYangName() string { return "rollover-msg" }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) SetParent(parent types.Entity) { rolloverMsg.parent = parent }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetParent() types.Entity { return rolloverMsg.parent }
-
-func (rolloverMsg *MplsLdp_MplsLdpConfig_Logging_Password_RolloverMsg) GetParentYangName() string { return "password" }
 
 // MplsLdp_MplsLdpConfig_Interfaces
 // MPLS LDP Interface configuration commands.
 type MplsLdp_MplsLdpConfig_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP Interface configuration commands. Where a corresponding global
     // configuration command exists, the interface level command will take
     // precedence when configured. The type is slice of
-    // MplsLdp_MplsLdpConfig_Interfaces_Interface.
-    Interface []MplsLdp_MplsLdpConfig_Interfaces_Interface
+    // MplsLdp_MplsLdpConfig_Interfaces_Interface_.
+    Interface_ []MplsLdp_MplsLdpConfig_Interfaces_Interface
 }
 
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xe"
+    interfaces.EntityData.ParentYangName = "mpls-ldp-config"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetBundleName() string { return "cisco_ios_xe" }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_Interfaces_Interface
 // MPLS LDP Interface configuration commands. Where a
@@ -11239,7 +6728,7 @@ func (interfaces *MplsLdp_MplsLdpConfig_Interfaces) GetParentYangName() string {
 // interface level command will take precedence when
 // configured.
 type MplsLdp_MplsLdpConfig_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This contains the VRF Name, where 'default' is
@@ -11248,7 +6737,7 @@ type MplsLdp_MplsLdpConfig_Interfaces_Interface struct {
 
     // This attribute is a key. The Interface Name. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // LDP discovery link hello interval in seconds for this interface. This value
     // overides the global setting. The type is interface{} with range:
@@ -11276,73 +6765,33 @@ type MplsLdp_MplsLdpConfig_Interfaces_Interface struct {
     Afs MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs
 }
 
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xe"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[vrf='" + fmt.Sprintf("%v", self.Vrf) + "']" + "[interface='" + fmt.Sprintf("%v", self.Interface_) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    if yname == "interface" { return "Interface" }
-    if yname == "link-hello-int" { return "LinkHelloInt" }
-    if yname == "link-hello-hold" { return "LinkHelloHold" }
-    if yname == "disable-quick-start-int" { return "DisableQuickStartInt" }
-    if yname == "seconds" { return "Seconds" }
-    if yname == "disable-delay" { return "DisableDelay" }
-    if yname == "afs" { return "Afs" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["afs"] = types.YChild{"Afs", &self.Afs}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", self.Vrf}
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["link-hello-int"] = types.YLeaf{"LinkHelloInt", self.LinkHelloInt}
+    self.EntityData.Leafs["link-hello-hold"] = types.YLeaf{"LinkHelloHold", self.LinkHelloHold}
+    self.EntityData.Leafs["disable-quick-start-int"] = types.YLeaf{"DisableQuickStartInt", self.DisableQuickStartInt}
+    self.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", self.Seconds}
+    self.EntityData.Leafs["disable-delay"] = types.YLeaf{"DisableDelay", self.DisableDelay}
+    return &(self.EntityData)
 }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[vrf='" + fmt.Sprintf("%v", self.Vrf) + "']" + "[interface='" + fmt.Sprintf("%v", self.Interface) + "']"
-}
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "afs" {
-        return &self.Afs
-    }
-    return nil
-}
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["afs"] = &self.Afs
-    return children
-}
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf"] = self.Vrf
-    leafs["interface"] = self.Interface
-    leafs["link-hello-int"] = self.LinkHelloInt
-    leafs["link-hello-hold"] = self.LinkHelloHold
-    leafs["disable-quick-start-int"] = self.DisableQuickStartInt
-    leafs["seconds"] = self.Seconds
-    leafs["disable-delay"] = self.DisableDelay
-    return leafs
-}
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xe" }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *MplsLdp_MplsLdpConfig_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs
 // Address Family specific operational data
 type MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MPLS LDP Operational data for this Address Family. The type is slice of
@@ -11350,68 +6799,29 @@ type MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs struct {
     Af []MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af
 }
 
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetFilter() yfilter.YFilter { return afs.YFilter }
+func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetEntityData() *types.CommonEntityData {
+    afs.EntityData.YFilter = afs.YFilter
+    afs.EntityData.YangName = "afs"
+    afs.EntityData.BundleName = "cisco_ios_xe"
+    afs.EntityData.ParentYangName = "interface"
+    afs.EntityData.SegmentPath = "afs"
+    afs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    afs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    afs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) SetFilter(yf yfilter.YFilter) { afs.YFilter = yf }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetGoName(yname string) string {
-    if yname == "af" { return "Af" }
-    return ""
-}
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetSegmentPath() string {
-    return "afs"
-}
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "af" {
-        for _, c := range afs.Af {
-            if afs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af{}
-        afs.Af = append(afs.Af, child)
-        return &afs.Af[len(afs.Af)-1]
-    }
-    return nil
-}
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    afs.EntityData.Children = make(map[string]types.YChild)
+    afs.EntityData.Children["af"] = types.YChild{"Af", nil}
     for i := range afs.Af {
-        children[afs.Af[i].GetSegmentPath()] = &afs.Af[i]
+        afs.EntityData.Children[types.GetSegmentPath(&afs.Af[i])] = types.YChild{"Af", &afs.Af[i]}
     }
-    return children
+    afs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(afs.EntityData)
 }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetYangName() string { return "afs" }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) SetParent(parent types.Entity) { afs.parent = parent }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetParent() types.Entity { return afs.parent }
-
-func (afs *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs) GetParentYangName() string { return "interface" }
 
 // MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af
 // MPLS LDP Operational data for this Address Family.
 type MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Address Family name. The type is Af.
@@ -11431,60 +6841,24 @@ type MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af struct {
     BgpRedist MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist
 }
 
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetFilter() yfilter.YFilter { return af.YFilter }
+func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetEntityData() *types.CommonEntityData {
+    af.EntityData.YFilter = af.YFilter
+    af.EntityData.YangName = "af"
+    af.EntityData.BundleName = "cisco_ios_xe"
+    af.EntityData.ParentYangName = "afs"
+    af.EntityData.SegmentPath = "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
+    af.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    af.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    af.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) SetFilter(yf yfilter.YFilter) { af.YFilter = yf }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "enable" { return "Enable" }
-    if yname == "autoconfig-disable" { return "AutoconfigDisable" }
-    if yname == "bgp-redist" { return "BgpRedist" }
-    return ""
+    af.EntityData.Children = make(map[string]types.YChild)
+    af.EntityData.Children["bgp-redist"] = types.YChild{"BgpRedist", &af.BgpRedist}
+    af.EntityData.Leafs = make(map[string]types.YLeaf)
+    af.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", af.AfName}
+    af.EntityData.Leafs["enable"] = types.YLeaf{"Enable", af.Enable}
+    af.EntityData.Leafs["autoconfig-disable"] = types.YLeaf{"AutoconfigDisable", af.AutoconfigDisable}
+    return &(af.EntityData)
 }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetSegmentPath() string {
-    return "af" + "[af-name='" + fmt.Sprintf("%v", af.AfName) + "']"
-}
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bgp-redist" {
-        return &af.BgpRedist
-    }
-    return nil
-}
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bgp-redist"] = &af.BgpRedist
-    return children
-}
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = af.AfName
-    leafs["enable"] = af.Enable
-    leafs["autoconfig-disable"] = af.AutoconfigDisable
-    return leafs
-}
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetBundleName() string { return "cisco_ios_xe" }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetYangName() string { return "af" }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) SetParent(parent types.Entity) { af.parent = parent }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetParent() types.Entity { return af.parent }
-
-func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetParentYangName() string { return "afs" }
 
 // MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist
 // MPLS LDP configuration for protocol
@@ -11494,7 +6868,7 @@ func (af *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af) GetParentYangName()
 // redistributed to all LDP peers or to a filtered
 // group of peers.
 type MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // First half of BGP AS number in XX.YY format.  Mandatory Must be a non-zero
@@ -11515,64 +6889,31 @@ type MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist struct {
     Enable interface{}
 }
 
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetFilter() yfilter.YFilter { return bgpRedist.YFilter }
+func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetEntityData() *types.CommonEntityData {
+    bgpRedist.EntityData.YFilter = bgpRedist.YFilter
+    bgpRedist.EntityData.YangName = "bgp-redist"
+    bgpRedist.EntityData.BundleName = "cisco_ios_xe"
+    bgpRedist.EntityData.ParentYangName = "af"
+    bgpRedist.EntityData.SegmentPath = "bgp-redist"
+    bgpRedist.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    bgpRedist.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    bgpRedist.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) SetFilter(yf yfilter.YFilter) { bgpRedist.YFilter = yf }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetGoName(yname string) string {
-    if yname == "as-xx" { return "AsXx" }
-    if yname == "as-yy" { return "AsYy" }
-    if yname == "advertise-to" { return "AdvertiseTo" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    bgpRedist.EntityData.Children = make(map[string]types.YChild)
+    bgpRedist.EntityData.Leafs = make(map[string]types.YLeaf)
+    bgpRedist.EntityData.Leafs["as-xx"] = types.YLeaf{"AsXx", bgpRedist.AsXx}
+    bgpRedist.EntityData.Leafs["as-yy"] = types.YLeaf{"AsYy", bgpRedist.AsYy}
+    bgpRedist.EntityData.Leafs["advertise-to"] = types.YLeaf{"AdvertiseTo", bgpRedist.AdvertiseTo}
+    bgpRedist.EntityData.Leafs["enable"] = types.YLeaf{"Enable", bgpRedist.Enable}
+    return &(bgpRedist.EntityData)
 }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetSegmentPath() string {
-    return "bgp-redist"
-}
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["as-xx"] = bgpRedist.AsXx
-    leafs["as-yy"] = bgpRedist.AsYy
-    leafs["advertise-to"] = bgpRedist.AdvertiseTo
-    leafs["enable"] = bgpRedist.Enable
-    return leafs
-}
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetBundleName() string { return "cisco_ios_xe" }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetYangName() string { return "bgp-redist" }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) SetParent(parent types.Entity) { bgpRedist.parent = parent }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetParent() types.Entity { return bgpRedist.parent }
-
-func (bgpRedist *MplsLdp_MplsLdpConfig_Interfaces_Interface_Afs_Af_BgpRedist) GetParentYangName() string { return "af" }
 
 // MplsLdp_MplsLdpConfig_Routing
 // This containter provides the MPLS LDP config for routing
 // protocols from which it can obtain addresses to
 // associate with labels.
 type MplsLdp_MplsLdpConfig_Routing struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry provides the MPLS LDP config for this routing instance. The type
@@ -11580,69 +6921,30 @@ type MplsLdp_MplsLdpConfig_Routing struct {
     RoutingInst []MplsLdp_MplsLdpConfig_Routing_RoutingInst
 }
 
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetFilter() yfilter.YFilter { return routing.YFilter }
+func (routing *MplsLdp_MplsLdpConfig_Routing) GetEntityData() *types.CommonEntityData {
+    routing.EntityData.YFilter = routing.YFilter
+    routing.EntityData.YangName = "routing"
+    routing.EntityData.BundleName = "cisco_ios_xe"
+    routing.EntityData.ParentYangName = "mpls-ldp-config"
+    routing.EntityData.SegmentPath = "routing"
+    routing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (routing *MplsLdp_MplsLdpConfig_Routing) SetFilter(yf yfilter.YFilter) { routing.YFilter = yf }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetGoName(yname string) string {
-    if yname == "routing-inst" { return "RoutingInst" }
-    return ""
-}
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetSegmentPath() string {
-    return "routing"
-}
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "routing-inst" {
-        for _, c := range routing.RoutingInst {
-            if routing.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MplsLdp_MplsLdpConfig_Routing_RoutingInst{}
-        routing.RoutingInst = append(routing.RoutingInst, child)
-        return &routing.RoutingInst[len(routing.RoutingInst)-1]
-    }
-    return nil
-}
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    routing.EntityData.Children = make(map[string]types.YChild)
+    routing.EntityData.Children["routing-inst"] = types.YChild{"RoutingInst", nil}
     for i := range routing.RoutingInst {
-        children[routing.RoutingInst[i].GetSegmentPath()] = &routing.RoutingInst[i]
+        routing.EntityData.Children[types.GetSegmentPath(&routing.RoutingInst[i])] = types.YChild{"RoutingInst", &routing.RoutingInst[i]}
     }
-    return children
+    routing.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(routing.EntityData)
 }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetBundleName() string { return "cisco_ios_xe" }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetYangName() string { return "routing" }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) SetParent(parent types.Entity) { routing.parent = parent }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetParent() types.Entity { return routing.parent }
-
-func (routing *MplsLdp_MplsLdpConfig_Routing) GetParentYangName() string { return "mpls-ldp-config" }
 
 // MplsLdp_MplsLdpConfig_Routing_RoutingInst
 // This entry provides the MPLS LDP config for this
 // routing instance.
 type MplsLdp_MplsLdpConfig_Routing_RoutingInst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the routing instance for which this MPLS
@@ -11677,59 +6979,25 @@ type MplsLdp_MplsLdpConfig_Routing_RoutingInst struct {
     Sync interface{}
 }
 
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetFilter() yfilter.YFilter { return routingInst.YFilter }
+func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetEntityData() *types.CommonEntityData {
+    routingInst.EntityData.YFilter = routingInst.YFilter
+    routingInst.EntityData.YangName = "routing-inst"
+    routingInst.EntityData.BundleName = "cisco_ios_xe"
+    routingInst.EntityData.ParentYangName = "routing"
+    routingInst.EntityData.SegmentPath = "routing-inst" + "[routing-inst-name='" + fmt.Sprintf("%v", routingInst.RoutingInstName) + "']"
+    routingInst.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    routingInst.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    routingInst.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) SetFilter(yf yfilter.YFilter) { routingInst.YFilter = yf }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetGoName(yname string) string {
-    if yname == "routing-inst-name" { return "RoutingInstName" }
-    if yname == "autoconfig-enable" { return "AutoconfigEnable" }
-    if yname == "area-id" { return "AreaId" }
-    if yname == "level-id" { return "LevelId" }
-    if yname == "sync" { return "Sync" }
-    return ""
+    routingInst.EntityData.Children = make(map[string]types.YChild)
+    routingInst.EntityData.Leafs = make(map[string]types.YLeaf)
+    routingInst.EntityData.Leafs["routing-inst-name"] = types.YLeaf{"RoutingInstName", routingInst.RoutingInstName}
+    routingInst.EntityData.Leafs["autoconfig-enable"] = types.YLeaf{"AutoconfigEnable", routingInst.AutoconfigEnable}
+    routingInst.EntityData.Leafs["area-id"] = types.YLeaf{"AreaId", routingInst.AreaId}
+    routingInst.EntityData.Leafs["level-id"] = types.YLeaf{"LevelId", routingInst.LevelId}
+    routingInst.EntityData.Leafs["sync"] = types.YLeaf{"Sync", routingInst.Sync}
+    return &(routingInst.EntityData)
 }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetSegmentPath() string {
-    return "routing-inst" + "[routing-inst-name='" + fmt.Sprintf("%v", routingInst.RoutingInstName) + "']"
-}
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["routing-inst-name"] = routingInst.RoutingInstName
-    leafs["autoconfig-enable"] = routingInst.AutoconfigEnable
-    leafs["area-id"] = routingInst.AreaId
-    leafs["level-id"] = routingInst.LevelId
-    leafs["sync"] = routingInst.Sync
-    return leafs
-}
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetBundleName() string { return "cisco_ios_xe" }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetYangName() string { return "routing-inst" }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) SetParent(parent types.Entity) { routingInst.parent = parent }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetParent() types.Entity { return routingInst.parent }
-
-func (routingInst *MplsLdp_MplsLdpConfig_Routing_RoutingInst) GetParentYangName() string { return "routing" }
 
 // MplsLdp_MplsLdpConfig_Routing_RoutingInst_LevelId represents overide this setting for that interface.
 type MplsLdp_MplsLdpConfig_Routing_RoutingInst_LevelId string
@@ -11761,7 +7029,7 @@ const (
 // This container holds the configuration of dual IPv4 and
 // IPv6 stack peers.
 type MplsLdp_MplsLdpConfig_DualStack struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Wait time in seconds (0 indicates no preference). The type is interface{}
@@ -11774,59 +7042,28 @@ type MplsLdp_MplsLdpConfig_DualStack struct {
     PreferIpv4Peers interface{}
 }
 
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetFilter() yfilter.YFilter { return dualStack.YFilter }
+func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetEntityData() *types.CommonEntityData {
+    dualStack.EntityData.YFilter = dualStack.YFilter
+    dualStack.EntityData.YangName = "dual-stack"
+    dualStack.EntityData.BundleName = "cisco_ios_xe"
+    dualStack.EntityData.ParentYangName = "mpls-ldp-config"
+    dualStack.EntityData.SegmentPath = "dual-stack"
+    dualStack.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dualStack.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dualStack.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) SetFilter(yf yfilter.YFilter) { dualStack.YFilter = yf }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetGoName(yname string) string {
-    if yname == "max-wait" { return "MaxWait" }
-    if yname == "prefer-ipv4-peers" { return "PreferIpv4Peers" }
-    return ""
+    dualStack.EntityData.Children = make(map[string]types.YChild)
+    dualStack.EntityData.Leafs = make(map[string]types.YLeaf)
+    dualStack.EntityData.Leafs["max-wait"] = types.YLeaf{"MaxWait", dualStack.MaxWait}
+    dualStack.EntityData.Leafs["prefer-ipv4-peers"] = types.YLeaf{"PreferIpv4Peers", dualStack.PreferIpv4Peers}
+    return &(dualStack.EntityData)
 }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetSegmentPath() string {
-    return "dual-stack"
-}
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-wait"] = dualStack.MaxWait
-    leafs["prefer-ipv4-peers"] = dualStack.PreferIpv4Peers
-    return leafs
-}
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetYangName() string { return "dual-stack" }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) SetParent(parent types.Entity) { dualStack.parent = parent }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetParent() types.Entity { return dualStack.parent }
-
-func (dualStack *MplsLdp_MplsLdpConfig_DualStack) GetParentYangName() string { return "mpls-ldp-config" }
 
 // ClearMsgCounters
 // This RPC clears the LDP message counters for either a single
 // neighbor or for all neighbors.
 type ClearMsgCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -11836,63 +7073,26 @@ type ClearMsgCounters struct {
     Output ClearMsgCounters_Output
 }
 
-func (clearMsgCounters *ClearMsgCounters) GetFilter() yfilter.YFilter { return clearMsgCounters.YFilter }
+func (clearMsgCounters *ClearMsgCounters) GetEntityData() *types.CommonEntityData {
+    clearMsgCounters.EntityData.YFilter = clearMsgCounters.YFilter
+    clearMsgCounters.EntityData.YangName = "clear-msg-counters"
+    clearMsgCounters.EntityData.BundleName = "cisco_ios_xe"
+    clearMsgCounters.EntityData.ParentYangName = "Cisco-IOS-XE-mpls-ldp"
+    clearMsgCounters.EntityData.SegmentPath = "Cisco-IOS-XE-mpls-ldp:clear-msg-counters"
+    clearMsgCounters.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clearMsgCounters.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clearMsgCounters.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (clearMsgCounters *ClearMsgCounters) SetFilter(yf yfilter.YFilter) { clearMsgCounters.YFilter = yf }
-
-func (clearMsgCounters *ClearMsgCounters) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    clearMsgCounters.EntityData.Children = make(map[string]types.YChild)
+    clearMsgCounters.EntityData.Children["input"] = types.YChild{"Input", &clearMsgCounters.Input}
+    clearMsgCounters.EntityData.Children["output"] = types.YChild{"Output", &clearMsgCounters.Output}
+    clearMsgCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clearMsgCounters.EntityData)
 }
-
-func (clearMsgCounters *ClearMsgCounters) GetSegmentPath() string {
-    return "Cisco-IOS-XE-mpls-ldp:clear-msg-counters"
-}
-
-func (clearMsgCounters *ClearMsgCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &clearMsgCounters.Input
-    }
-    if childYangName == "output" {
-        return &clearMsgCounters.Output
-    }
-    return nil
-}
-
-func (clearMsgCounters *ClearMsgCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &clearMsgCounters.Input
-    children["output"] = &clearMsgCounters.Output
-    return children
-}
-
-func (clearMsgCounters *ClearMsgCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clearMsgCounters *ClearMsgCounters) GetBundleName() string { return "cisco_ios_xe" }
-
-func (clearMsgCounters *ClearMsgCounters) GetYangName() string { return "clear-msg-counters" }
-
-func (clearMsgCounters *ClearMsgCounters) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (clearMsgCounters *ClearMsgCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (clearMsgCounters *ClearMsgCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (clearMsgCounters *ClearMsgCounters) SetParent(parent types.Entity) { clearMsgCounters.parent = parent }
-
-func (clearMsgCounters *ClearMsgCounters) GetParent() types.Entity { return clearMsgCounters.parent }
-
-func (clearMsgCounters *ClearMsgCounters) GetParentYangName() string { return "Cisco-IOS-XE-mpls-ldp" }
 
 // ClearMsgCounters_Input
 type ClearMsgCounters_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This contains the VRF Name, where 'default' is used for the default vrf.
@@ -11901,68 +7101,36 @@ type ClearMsgCounters_Input struct {
 
     // LSR ID of the neighbor. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NbrIp interface{}
 
     // Clear information for all neighbors. The type is interface{}.
     All interface{}
 }
 
-func (input *ClearMsgCounters_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *ClearMsgCounters_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "clear-msg-counters"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *ClearMsgCounters_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *ClearMsgCounters_Input) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "nbr-ip" { return "NbrIp" }
-    if yname == "all" { return "All" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", input.VrfName}
+    input.EntityData.Leafs["nbr-ip"] = types.YLeaf{"NbrIp", input.NbrIp}
+    input.EntityData.Leafs["all"] = types.YLeaf{"All", input.All}
+    return &(input.EntityData)
 }
-
-func (input *ClearMsgCounters_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *ClearMsgCounters_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *ClearMsgCounters_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *ClearMsgCounters_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = input.VrfName
-    leafs["nbr-ip"] = input.NbrIp
-    leafs["all"] = input.All
-    return leafs
-}
-
-func (input *ClearMsgCounters_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *ClearMsgCounters_Input) GetYangName() string { return "input" }
-
-func (input *ClearMsgCounters_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *ClearMsgCounters_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *ClearMsgCounters_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *ClearMsgCounters_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *ClearMsgCounters_Input) GetParent() types.Entity { return input.parent }
-
-func (input *ClearMsgCounters_Input) GetParentYangName() string { return "clear-msg-counters" }
 
 // ClearMsgCounters_Output
 type ClearMsgCounters_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Return status will be 'OK' on success or an explanation string on failure.
@@ -11970,58 +7138,28 @@ type ClearMsgCounters_Output struct {
     Status interface{}
 }
 
-func (output *ClearMsgCounters_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *ClearMsgCounters_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "clear-msg-counters"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *ClearMsgCounters_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *ClearMsgCounters_Output) GetGoName(yname string) string {
-    if yname == "status" { return "Status" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["status"] = types.YLeaf{"Status", output.Status}
+    return &(output.EntityData)
 }
-
-func (output *ClearMsgCounters_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *ClearMsgCounters_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *ClearMsgCounters_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *ClearMsgCounters_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["status"] = output.Status
-    return leafs
-}
-
-func (output *ClearMsgCounters_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *ClearMsgCounters_Output) GetYangName() string { return "output" }
-
-func (output *ClearMsgCounters_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *ClearMsgCounters_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *ClearMsgCounters_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *ClearMsgCounters_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *ClearMsgCounters_Output) GetParent() types.Entity { return output.parent }
-
-func (output *ClearMsgCounters_Output) GetParentYangName() string { return "clear-msg-counters" }
 
 // RestartNeighbor
 // This RPC restarts a single LDP session or all LDP sessions,
 // but does not restart the LDP process itself, if the device
 // supports that capability.
 type RestartNeighbor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -12031,63 +7169,26 @@ type RestartNeighbor struct {
     Output RestartNeighbor_Output
 }
 
-func (restartNeighbor *RestartNeighbor) GetFilter() yfilter.YFilter { return restartNeighbor.YFilter }
+func (restartNeighbor *RestartNeighbor) GetEntityData() *types.CommonEntityData {
+    restartNeighbor.EntityData.YFilter = restartNeighbor.YFilter
+    restartNeighbor.EntityData.YangName = "restart-neighbor"
+    restartNeighbor.EntityData.BundleName = "cisco_ios_xe"
+    restartNeighbor.EntityData.ParentYangName = "Cisco-IOS-XE-mpls-ldp"
+    restartNeighbor.EntityData.SegmentPath = "Cisco-IOS-XE-mpls-ldp:restart-neighbor"
+    restartNeighbor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    restartNeighbor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    restartNeighbor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (restartNeighbor *RestartNeighbor) SetFilter(yf yfilter.YFilter) { restartNeighbor.YFilter = yf }
-
-func (restartNeighbor *RestartNeighbor) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    restartNeighbor.EntityData.Children = make(map[string]types.YChild)
+    restartNeighbor.EntityData.Children["input"] = types.YChild{"Input", &restartNeighbor.Input}
+    restartNeighbor.EntityData.Children["output"] = types.YChild{"Output", &restartNeighbor.Output}
+    restartNeighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(restartNeighbor.EntityData)
 }
-
-func (restartNeighbor *RestartNeighbor) GetSegmentPath() string {
-    return "Cisco-IOS-XE-mpls-ldp:restart-neighbor"
-}
-
-func (restartNeighbor *RestartNeighbor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &restartNeighbor.Input
-    }
-    if childYangName == "output" {
-        return &restartNeighbor.Output
-    }
-    return nil
-}
-
-func (restartNeighbor *RestartNeighbor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &restartNeighbor.Input
-    children["output"] = &restartNeighbor.Output
-    return children
-}
-
-func (restartNeighbor *RestartNeighbor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (restartNeighbor *RestartNeighbor) GetBundleName() string { return "cisco_ios_xe" }
-
-func (restartNeighbor *RestartNeighbor) GetYangName() string { return "restart-neighbor" }
-
-func (restartNeighbor *RestartNeighbor) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (restartNeighbor *RestartNeighbor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (restartNeighbor *RestartNeighbor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (restartNeighbor *RestartNeighbor) SetParent(parent types.Entity) { restartNeighbor.parent = parent }
-
-func (restartNeighbor *RestartNeighbor) GetParent() types.Entity { return restartNeighbor.parent }
-
-func (restartNeighbor *RestartNeighbor) GetParentYangName() string { return "Cisco-IOS-XE-mpls-ldp" }
 
 // RestartNeighbor_Input
 type RestartNeighbor_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This contains the VRF Name, where 'default' is used for the default vrf.
@@ -12096,68 +7197,36 @@ type RestartNeighbor_Input struct {
 
     // LSR ID of the neighbor. The type is one of the following types: string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     NbrIp interface{}
 
     // Restart sessions for all neighbors. The type is interface{}.
     All interface{}
 }
 
-func (input *RestartNeighbor_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *RestartNeighbor_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "restart-neighbor"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *RestartNeighbor_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *RestartNeighbor_Input) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "nbr-ip" { return "NbrIp" }
-    if yname == "all" { return "All" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", input.VrfName}
+    input.EntityData.Leafs["nbr-ip"] = types.YLeaf{"NbrIp", input.NbrIp}
+    input.EntityData.Leafs["all"] = types.YLeaf{"All", input.All}
+    return &(input.EntityData)
 }
-
-func (input *RestartNeighbor_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *RestartNeighbor_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *RestartNeighbor_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *RestartNeighbor_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = input.VrfName
-    leafs["nbr-ip"] = input.NbrIp
-    leafs["all"] = input.All
-    return leafs
-}
-
-func (input *RestartNeighbor_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *RestartNeighbor_Input) GetYangName() string { return "input" }
-
-func (input *RestartNeighbor_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *RestartNeighbor_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *RestartNeighbor_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *RestartNeighbor_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *RestartNeighbor_Input) GetParent() types.Entity { return input.parent }
-
-func (input *RestartNeighbor_Input) GetParentYangName() string { return "restart-neighbor" }
 
 // RestartNeighbor_Output
 type RestartNeighbor_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Return status will be 'OK' on success or an explanation string on failure.
@@ -12165,51 +7234,21 @@ type RestartNeighbor_Output struct {
     Status interface{}
 }
 
-func (output *RestartNeighbor_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *RestartNeighbor_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "restart-neighbor"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *RestartNeighbor_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *RestartNeighbor_Output) GetGoName(yname string) string {
-    if yname == "status" { return "Status" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["status"] = types.YLeaf{"Status", output.Status}
+    return &(output.EntityData)
 }
-
-func (output *RestartNeighbor_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *RestartNeighbor_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *RestartNeighbor_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *RestartNeighbor_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["status"] = output.Status
-    return leafs
-}
-
-func (output *RestartNeighbor_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *RestartNeighbor_Output) GetYangName() string { return "output" }
-
-func (output *RestartNeighbor_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *RestartNeighbor_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *RestartNeighbor_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *RestartNeighbor_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *RestartNeighbor_Output) GetParent() types.Entity { return output.parent }
-
-func (output *RestartNeighbor_Output) GetParentYangName() string { return "restart-neighbor" }
 
 // ClearForwarding
 // This command resets LDP installed forwarding state for all
@@ -12217,7 +7256,7 @@ func (output *RestartNeighbor_Output) GetParentYangName() string { return "resta
 // LDP forwarding state needs to be reprogrammed in LSD and
 // MPLS forwarding.
 type ClearForwarding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -12227,63 +7266,26 @@ type ClearForwarding struct {
     Output ClearForwarding_Output
 }
 
-func (clearForwarding *ClearForwarding) GetFilter() yfilter.YFilter { return clearForwarding.YFilter }
+func (clearForwarding *ClearForwarding) GetEntityData() *types.CommonEntityData {
+    clearForwarding.EntityData.YFilter = clearForwarding.YFilter
+    clearForwarding.EntityData.YangName = "clear-forwarding"
+    clearForwarding.EntityData.BundleName = "cisco_ios_xe"
+    clearForwarding.EntityData.ParentYangName = "Cisco-IOS-XE-mpls-ldp"
+    clearForwarding.EntityData.SegmentPath = "Cisco-IOS-XE-mpls-ldp:clear-forwarding"
+    clearForwarding.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    clearForwarding.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    clearForwarding.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (clearForwarding *ClearForwarding) SetFilter(yf yfilter.YFilter) { clearForwarding.YFilter = yf }
-
-func (clearForwarding *ClearForwarding) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    clearForwarding.EntityData.Children = make(map[string]types.YChild)
+    clearForwarding.EntityData.Children["input"] = types.YChild{"Input", &clearForwarding.Input}
+    clearForwarding.EntityData.Children["output"] = types.YChild{"Output", &clearForwarding.Output}
+    clearForwarding.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clearForwarding.EntityData)
 }
-
-func (clearForwarding *ClearForwarding) GetSegmentPath() string {
-    return "Cisco-IOS-XE-mpls-ldp:clear-forwarding"
-}
-
-func (clearForwarding *ClearForwarding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &clearForwarding.Input
-    }
-    if childYangName == "output" {
-        return &clearForwarding.Output
-    }
-    return nil
-}
-
-func (clearForwarding *ClearForwarding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &clearForwarding.Input
-    children["output"] = &clearForwarding.Output
-    return children
-}
-
-func (clearForwarding *ClearForwarding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clearForwarding *ClearForwarding) GetBundleName() string { return "cisco_ios_xe" }
-
-func (clearForwarding *ClearForwarding) GetYangName() string { return "clear-forwarding" }
-
-func (clearForwarding *ClearForwarding) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (clearForwarding *ClearForwarding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (clearForwarding *ClearForwarding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (clearForwarding *ClearForwarding) SetParent(parent types.Entity) { clearForwarding.parent = parent }
-
-func (clearForwarding *ClearForwarding) GetParent() types.Entity { return clearForwarding.parent }
-
-func (clearForwarding *ClearForwarding) GetParentYangName() string { return "Cisco-IOS-XE-mpls-ldp" }
 
 // ClearForwarding_Input
 type ClearForwarding_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This contains the VRF Name, where 'default' is used for the default vrf.
@@ -12292,9 +7294,9 @@ type ClearForwarding_Input struct {
 
     // This case provides the IP prefix for the forwarding entry whose data should
     // be cleared. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PrefixIp interface{}
 
     // This case is used to clear the forwarding entries for all prefixes. The
@@ -12302,59 +7304,27 @@ type ClearForwarding_Input struct {
     All interface{}
 }
 
-func (input *ClearForwarding_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *ClearForwarding_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "clear-forwarding"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *ClearForwarding_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *ClearForwarding_Input) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "prefix-ip" { return "PrefixIp" }
-    if yname == "all" { return "All" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", input.VrfName}
+    input.EntityData.Leafs["prefix-ip"] = types.YLeaf{"PrefixIp", input.PrefixIp}
+    input.EntityData.Leafs["all"] = types.YLeaf{"All", input.All}
+    return &(input.EntityData)
 }
-
-func (input *ClearForwarding_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *ClearForwarding_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *ClearForwarding_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *ClearForwarding_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = input.VrfName
-    leafs["prefix-ip"] = input.PrefixIp
-    leafs["all"] = input.All
-    return leafs
-}
-
-func (input *ClearForwarding_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *ClearForwarding_Input) GetYangName() string { return "input" }
-
-func (input *ClearForwarding_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *ClearForwarding_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *ClearForwarding_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *ClearForwarding_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *ClearForwarding_Input) GetParent() types.Entity { return input.parent }
-
-func (input *ClearForwarding_Input) GetParentYangName() string { return "clear-forwarding" }
 
 // ClearForwarding_Output
 type ClearForwarding_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Return status will be 'OK' on success or an explanatory string on failure.
@@ -12362,49 +7332,19 @@ type ClearForwarding_Output struct {
     Status interface{}
 }
 
-func (output *ClearForwarding_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *ClearForwarding_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "clear-forwarding"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *ClearForwarding_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *ClearForwarding_Output) GetGoName(yname string) string {
-    if yname == "status" { return "Status" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["status"] = types.YLeaf{"Status", output.Status}
+    return &(output.EntityData)
 }
-
-func (output *ClearForwarding_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *ClearForwarding_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *ClearForwarding_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *ClearForwarding_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["status"] = output.Status
-    return leafs
-}
-
-func (output *ClearForwarding_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *ClearForwarding_Output) GetYangName() string { return "output" }
-
-func (output *ClearForwarding_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *ClearForwarding_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *ClearForwarding_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *ClearForwarding_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *ClearForwarding_Output) GetParent() types.Entity { return output.parent }
-
-func (output *ClearForwarding_Output) GetParentYangName() string { return "clear-forwarding" }
 

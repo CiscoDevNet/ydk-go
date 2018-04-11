@@ -19,7 +19,7 @@ func init() {
 
 // NOTIFICATIONLOGMIB
 type NOTIFICATIONLOGMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -45,78 +45,29 @@ type NOTIFICATIONLOGMIB struct {
     Nlmlogvariabletable NOTIFICATIONLOGMIB_Nlmlogvariabletable
 }
 
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetFilter() yfilter.YFilter { return nOTIFICATIONLOGMIB.YFilter }
+func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetEntityData() *types.CommonEntityData {
+    nOTIFICATIONLOGMIB.EntityData.YFilter = nOTIFICATIONLOGMIB.YFilter
+    nOTIFICATIONLOGMIB.EntityData.YangName = "NOTIFICATION-LOG-MIB"
+    nOTIFICATIONLOGMIB.EntityData.BundleName = "cisco_ios_xe"
+    nOTIFICATIONLOGMIB.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
+    nOTIFICATIONLOGMIB.EntityData.SegmentPath = "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB"
+    nOTIFICATIONLOGMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nOTIFICATIONLOGMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nOTIFICATIONLOGMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) SetFilter(yf yfilter.YFilter) { nOTIFICATIONLOGMIB.YFilter = yf }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetGoName(yname string) string {
-    if yname == "nlmConfig" { return "Nlmconfig" }
-    if yname == "nlmStats" { return "Nlmstats" }
-    if yname == "nlmConfigLogTable" { return "Nlmconfiglogtable" }
-    if yname == "nlmLogTable" { return "Nlmlogtable" }
-    if yname == "nlmLogVariableTable" { return "Nlmlogvariabletable" }
-    return ""
+    nOTIFICATIONLOGMIB.EntityData.Children = make(map[string]types.YChild)
+    nOTIFICATIONLOGMIB.EntityData.Children["nlmConfig"] = types.YChild{"Nlmconfig", &nOTIFICATIONLOGMIB.Nlmconfig}
+    nOTIFICATIONLOGMIB.EntityData.Children["nlmStats"] = types.YChild{"Nlmstats", &nOTIFICATIONLOGMIB.Nlmstats}
+    nOTIFICATIONLOGMIB.EntityData.Children["nlmConfigLogTable"] = types.YChild{"Nlmconfiglogtable", &nOTIFICATIONLOGMIB.Nlmconfiglogtable}
+    nOTIFICATIONLOGMIB.EntityData.Children["nlmLogTable"] = types.YChild{"Nlmlogtable", &nOTIFICATIONLOGMIB.Nlmlogtable}
+    nOTIFICATIONLOGMIB.EntityData.Children["nlmLogVariableTable"] = types.YChild{"Nlmlogvariabletable", &nOTIFICATIONLOGMIB.Nlmlogvariabletable}
+    nOTIFICATIONLOGMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nOTIFICATIONLOGMIB.EntityData)
 }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetSegmentPath() string {
-    return "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB"
-}
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nlmConfig" {
-        return &nOTIFICATIONLOGMIB.Nlmconfig
-    }
-    if childYangName == "nlmStats" {
-        return &nOTIFICATIONLOGMIB.Nlmstats
-    }
-    if childYangName == "nlmConfigLogTable" {
-        return &nOTIFICATIONLOGMIB.Nlmconfiglogtable
-    }
-    if childYangName == "nlmLogTable" {
-        return &nOTIFICATIONLOGMIB.Nlmlogtable
-    }
-    if childYangName == "nlmLogVariableTable" {
-        return &nOTIFICATIONLOGMIB.Nlmlogvariabletable
-    }
-    return nil
-}
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nlmConfig"] = &nOTIFICATIONLOGMIB.Nlmconfig
-    children["nlmStats"] = &nOTIFICATIONLOGMIB.Nlmstats
-    children["nlmConfigLogTable"] = &nOTIFICATIONLOGMIB.Nlmconfiglogtable
-    children["nlmLogTable"] = &nOTIFICATIONLOGMIB.Nlmlogtable
-    children["nlmLogVariableTable"] = &nOTIFICATIONLOGMIB.Nlmlogvariabletable
-    return children
-}
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetYangName() string { return "NOTIFICATION-LOG-MIB" }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) SetParent(parent types.Entity) { nOTIFICATIONLOGMIB.parent = parent }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetParent() types.Entity { return nOTIFICATIONLOGMIB.parent }
-
-func (nOTIFICATIONLOGMIB *NOTIFICATIONLOGMIB) GetParentYangName() string { return "NOTIFICATION-LOG-MIB" }
 
 // NOTIFICATIONLOGMIB_Nlmconfig
 type NOTIFICATIONLOGMIB_Nlmconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of notification entries that may be held in nlmLogTable
@@ -146,57 +97,26 @@ type NOTIFICATIONLOGMIB_Nlmconfig struct {
     Nlmconfigglobalageout interface{}
 }
 
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetFilter() yfilter.YFilter { return nlmconfig.YFilter }
+func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetEntityData() *types.CommonEntityData {
+    nlmconfig.EntityData.YFilter = nlmconfig.YFilter
+    nlmconfig.EntityData.YangName = "nlmConfig"
+    nlmconfig.EntityData.BundleName = "cisco_ios_xe"
+    nlmconfig.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
+    nlmconfig.EntityData.SegmentPath = "nlmConfig"
+    nlmconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) SetFilter(yf yfilter.YFilter) { nlmconfig.YFilter = yf }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetGoName(yname string) string {
-    if yname == "nlmConfigGlobalEntryLimit" { return "Nlmconfigglobalentrylimit" }
-    if yname == "nlmConfigGlobalAgeOut" { return "Nlmconfigglobalageout" }
-    return ""
+    nlmconfig.EntityData.Children = make(map[string]types.YChild)
+    nlmconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    nlmconfig.EntityData.Leafs["nlmConfigGlobalEntryLimit"] = types.YLeaf{"Nlmconfigglobalentrylimit", nlmconfig.Nlmconfigglobalentrylimit}
+    nlmconfig.EntityData.Leafs["nlmConfigGlobalAgeOut"] = types.YLeaf{"Nlmconfigglobalageout", nlmconfig.Nlmconfigglobalageout}
+    return &(nlmconfig.EntityData)
 }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetSegmentPath() string {
-    return "nlmConfig"
-}
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nlmConfigGlobalEntryLimit"] = nlmconfig.Nlmconfigglobalentrylimit
-    leafs["nlmConfigGlobalAgeOut"] = nlmconfig.Nlmconfigglobalageout
-    return leafs
-}
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetYangName() string { return "nlmConfig" }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) SetParent(parent types.Entity) { nlmconfig.parent = parent }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetParent() types.Entity { return nlmconfig.parent }
-
-func (nlmconfig *NOTIFICATIONLOGMIB_Nlmconfig) GetParentYangName() string { return "NOTIFICATION-LOG-MIB" }
 
 // NOTIFICATIONLOGMIB_Nlmstats
 type NOTIFICATIONLOGMIB_Nlmstats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of Notifications put into the nlmLogTable.  This counts a
@@ -213,58 +133,27 @@ type NOTIFICATIONLOGMIB_Nlmstats struct {
     Nlmstatsglobalnotificationsbumped interface{}
 }
 
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetFilter() yfilter.YFilter { return nlmstats.YFilter }
+func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetEntityData() *types.CommonEntityData {
+    nlmstats.EntityData.YFilter = nlmstats.YFilter
+    nlmstats.EntityData.YangName = "nlmStats"
+    nlmstats.EntityData.BundleName = "cisco_ios_xe"
+    nlmstats.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
+    nlmstats.EntityData.SegmentPath = "nlmStats"
+    nlmstats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmstats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmstats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) SetFilter(yf yfilter.YFilter) { nlmstats.YFilter = yf }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetGoName(yname string) string {
-    if yname == "nlmStatsGlobalNotificationsLogged" { return "Nlmstatsglobalnotificationslogged" }
-    if yname == "nlmStatsGlobalNotificationsBumped" { return "Nlmstatsglobalnotificationsbumped" }
-    return ""
+    nlmstats.EntityData.Children = make(map[string]types.YChild)
+    nlmstats.EntityData.Leafs = make(map[string]types.YLeaf)
+    nlmstats.EntityData.Leafs["nlmStatsGlobalNotificationsLogged"] = types.YLeaf{"Nlmstatsglobalnotificationslogged", nlmstats.Nlmstatsglobalnotificationslogged}
+    nlmstats.EntityData.Leafs["nlmStatsGlobalNotificationsBumped"] = types.YLeaf{"Nlmstatsglobalnotificationsbumped", nlmstats.Nlmstatsglobalnotificationsbumped}
+    return &(nlmstats.EntityData)
 }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetSegmentPath() string {
-    return "nlmStats"
-}
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nlmStatsGlobalNotificationsLogged"] = nlmstats.Nlmstatsglobalnotificationslogged
-    leafs["nlmStatsGlobalNotificationsBumped"] = nlmstats.Nlmstatsglobalnotificationsbumped
-    return leafs
-}
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetYangName() string { return "nlmStats" }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) SetParent(parent types.Entity) { nlmstats.parent = parent }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetParent() types.Entity { return nlmstats.parent }
-
-func (nlmstats *NOTIFICATIONLOGMIB_Nlmstats) GetParentYangName() string { return "NOTIFICATION-LOG-MIB" }
 
 // NOTIFICATIONLOGMIB_Nlmconfiglogtable
 // A table of logging control entries.
 type NOTIFICATIONLOGMIB_Nlmconfiglogtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A logging control entry.  Depending on the entry's storage type entries may
@@ -274,70 +163,31 @@ type NOTIFICATIONLOGMIB_Nlmconfiglogtable struct {
     Nlmconfiglogentry []NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry
 }
 
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetFilter() yfilter.YFilter { return nlmconfiglogtable.YFilter }
+func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetEntityData() *types.CommonEntityData {
+    nlmconfiglogtable.EntityData.YFilter = nlmconfiglogtable.YFilter
+    nlmconfiglogtable.EntityData.YangName = "nlmConfigLogTable"
+    nlmconfiglogtable.EntityData.BundleName = "cisco_ios_xe"
+    nlmconfiglogtable.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
+    nlmconfiglogtable.EntityData.SegmentPath = "nlmConfigLogTable"
+    nlmconfiglogtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmconfiglogtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmconfiglogtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) SetFilter(yf yfilter.YFilter) { nlmconfiglogtable.YFilter = yf }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetGoName(yname string) string {
-    if yname == "nlmConfigLogEntry" { return "Nlmconfiglogentry" }
-    return ""
-}
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetSegmentPath() string {
-    return "nlmConfigLogTable"
-}
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nlmConfigLogEntry" {
-        for _, c := range nlmconfiglogtable.Nlmconfiglogentry {
-            if nlmconfiglogtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry{}
-        nlmconfiglogtable.Nlmconfiglogentry = append(nlmconfiglogtable.Nlmconfiglogentry, child)
-        return &nlmconfiglogtable.Nlmconfiglogentry[len(nlmconfiglogtable.Nlmconfiglogentry)-1]
-    }
-    return nil
-}
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nlmconfiglogtable.EntityData.Children = make(map[string]types.YChild)
+    nlmconfiglogtable.EntityData.Children["nlmConfigLogEntry"] = types.YChild{"Nlmconfiglogentry", nil}
     for i := range nlmconfiglogtable.Nlmconfiglogentry {
-        children[nlmconfiglogtable.Nlmconfiglogentry[i].GetSegmentPath()] = &nlmconfiglogtable.Nlmconfiglogentry[i]
+        nlmconfiglogtable.EntityData.Children[types.GetSegmentPath(&nlmconfiglogtable.Nlmconfiglogentry[i])] = types.YChild{"Nlmconfiglogentry", &nlmconfiglogtable.Nlmconfiglogentry[i]}
     }
-    return children
+    nlmconfiglogtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nlmconfiglogtable.EntityData)
 }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetYangName() string { return "nlmConfigLogTable" }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) SetParent(parent types.Entity) { nlmconfiglogtable.parent = parent }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetParent() types.Entity { return nlmconfiglogtable.parent }
-
-func (nlmconfiglogtable *NOTIFICATIONLOGMIB_Nlmconfiglogtable) GetParentYangName() string { return "NOTIFICATION-LOG-MIB" }
 
 // NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry
 // A logging control entry.  Depending on the entry's storage type
 // entries may be supplied by the system or created and deleted by
 // applications using nlmConfigLogEntryStatus.
 type NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the log.  An implementation may allow
@@ -402,67 +252,29 @@ type NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry struct {
     Nlmstatslognotificationsbumped interface{}
 }
 
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetFilter() yfilter.YFilter { return nlmconfiglogentry.YFilter }
+func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetEntityData() *types.CommonEntityData {
+    nlmconfiglogentry.EntityData.YFilter = nlmconfiglogentry.YFilter
+    nlmconfiglogentry.EntityData.YangName = "nlmConfigLogEntry"
+    nlmconfiglogentry.EntityData.BundleName = "cisco_ios_xe"
+    nlmconfiglogentry.EntityData.ParentYangName = "nlmConfigLogTable"
+    nlmconfiglogentry.EntityData.SegmentPath = "nlmConfigLogEntry" + "[nlmLogName='" + fmt.Sprintf("%v", nlmconfiglogentry.Nlmlogname) + "']"
+    nlmconfiglogentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmconfiglogentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmconfiglogentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) SetFilter(yf yfilter.YFilter) { nlmconfiglogentry.YFilter = yf }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetGoName(yname string) string {
-    if yname == "nlmLogName" { return "Nlmlogname" }
-    if yname == "nlmConfigLogFilterName" { return "Nlmconfiglogfiltername" }
-    if yname == "nlmConfigLogEntryLimit" { return "Nlmconfiglogentrylimit" }
-    if yname == "nlmConfigLogAdminStatus" { return "Nlmconfiglogadminstatus" }
-    if yname == "nlmConfigLogOperStatus" { return "Nlmconfiglogoperstatus" }
-    if yname == "nlmConfigLogStorageType" { return "Nlmconfiglogstoragetype" }
-    if yname == "nlmConfigLogEntryStatus" { return "Nlmconfiglogentrystatus" }
-    if yname == "nlmStatsLogNotificationsLogged" { return "Nlmstatslognotificationslogged" }
-    if yname == "nlmStatsLogNotificationsBumped" { return "Nlmstatslognotificationsbumped" }
-    return ""
+    nlmconfiglogentry.EntityData.Children = make(map[string]types.YChild)
+    nlmconfiglogentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nlmconfiglogentry.EntityData.Leafs["nlmLogName"] = types.YLeaf{"Nlmlogname", nlmconfiglogentry.Nlmlogname}
+    nlmconfiglogentry.EntityData.Leafs["nlmConfigLogFilterName"] = types.YLeaf{"Nlmconfiglogfiltername", nlmconfiglogentry.Nlmconfiglogfiltername}
+    nlmconfiglogentry.EntityData.Leafs["nlmConfigLogEntryLimit"] = types.YLeaf{"Nlmconfiglogentrylimit", nlmconfiglogentry.Nlmconfiglogentrylimit}
+    nlmconfiglogentry.EntityData.Leafs["nlmConfigLogAdminStatus"] = types.YLeaf{"Nlmconfiglogadminstatus", nlmconfiglogentry.Nlmconfiglogadminstatus}
+    nlmconfiglogentry.EntityData.Leafs["nlmConfigLogOperStatus"] = types.YLeaf{"Nlmconfiglogoperstatus", nlmconfiglogentry.Nlmconfiglogoperstatus}
+    nlmconfiglogentry.EntityData.Leafs["nlmConfigLogStorageType"] = types.YLeaf{"Nlmconfiglogstoragetype", nlmconfiglogentry.Nlmconfiglogstoragetype}
+    nlmconfiglogentry.EntityData.Leafs["nlmConfigLogEntryStatus"] = types.YLeaf{"Nlmconfiglogentrystatus", nlmconfiglogentry.Nlmconfiglogentrystatus}
+    nlmconfiglogentry.EntityData.Leafs["nlmStatsLogNotificationsLogged"] = types.YLeaf{"Nlmstatslognotificationslogged", nlmconfiglogentry.Nlmstatslognotificationslogged}
+    nlmconfiglogentry.EntityData.Leafs["nlmStatsLogNotificationsBumped"] = types.YLeaf{"Nlmstatslognotificationsbumped", nlmconfiglogentry.Nlmstatslognotificationsbumped}
+    return &(nlmconfiglogentry.EntityData)
 }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetSegmentPath() string {
-    return "nlmConfigLogEntry" + "[nlmLogName='" + fmt.Sprintf("%v", nlmconfiglogentry.Nlmlogname) + "']"
-}
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nlmLogName"] = nlmconfiglogentry.Nlmlogname
-    leafs["nlmConfigLogFilterName"] = nlmconfiglogentry.Nlmconfiglogfiltername
-    leafs["nlmConfigLogEntryLimit"] = nlmconfiglogentry.Nlmconfiglogentrylimit
-    leafs["nlmConfigLogAdminStatus"] = nlmconfiglogentry.Nlmconfiglogadminstatus
-    leafs["nlmConfigLogOperStatus"] = nlmconfiglogentry.Nlmconfiglogoperstatus
-    leafs["nlmConfigLogStorageType"] = nlmconfiglogentry.Nlmconfiglogstoragetype
-    leafs["nlmConfigLogEntryStatus"] = nlmconfiglogentry.Nlmconfiglogentrystatus
-    leafs["nlmStatsLogNotificationsLogged"] = nlmconfiglogentry.Nlmstatslognotificationslogged
-    leafs["nlmStatsLogNotificationsBumped"] = nlmconfiglogentry.Nlmstatslognotificationsbumped
-    return leafs
-}
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetYangName() string { return "nlmConfigLogEntry" }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) SetParent(parent types.Entity) { nlmconfiglogentry.parent = parent }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetParent() types.Entity { return nlmconfiglogentry.parent }
-
-func (nlmconfiglogentry *NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry) GetParentYangName() string { return "nlmConfigLogTable" }
 
 // NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry_Nlmconfiglogadminstatus represents reliability and completeness of data seen by each manager.
 type NOTIFICATIONLOGMIB_Nlmconfiglogtable_Nlmconfiglogentry_Nlmconfiglogadminstatus string
@@ -498,7 +310,7 @@ const (
 // counters apply only after the reset and nlmLogTime for entries
 // made before the reset MUST be set to 0.
 type NOTIFICATIONLOGMIB_Nlmlogtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Notification log entry.  Entries appear in this table when Notifications
@@ -517,63 +329,24 @@ type NOTIFICATIONLOGMIB_Nlmlogtable struct {
     Nlmlogentry []NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry
 }
 
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetFilter() yfilter.YFilter { return nlmlogtable.YFilter }
+func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetEntityData() *types.CommonEntityData {
+    nlmlogtable.EntityData.YFilter = nlmlogtable.YFilter
+    nlmlogtable.EntityData.YangName = "nlmLogTable"
+    nlmlogtable.EntityData.BundleName = "cisco_ios_xe"
+    nlmlogtable.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
+    nlmlogtable.EntityData.SegmentPath = "nlmLogTable"
+    nlmlogtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmlogtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmlogtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) SetFilter(yf yfilter.YFilter) { nlmlogtable.YFilter = yf }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetGoName(yname string) string {
-    if yname == "nlmLogEntry" { return "Nlmlogentry" }
-    return ""
-}
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetSegmentPath() string {
-    return "nlmLogTable"
-}
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nlmLogEntry" {
-        for _, c := range nlmlogtable.Nlmlogentry {
-            if nlmlogtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry{}
-        nlmlogtable.Nlmlogentry = append(nlmlogtable.Nlmlogentry, child)
-        return &nlmlogtable.Nlmlogentry[len(nlmlogtable.Nlmlogentry)-1]
-    }
-    return nil
-}
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nlmlogtable.EntityData.Children = make(map[string]types.YChild)
+    nlmlogtable.EntityData.Children["nlmLogEntry"] = types.YChild{"Nlmlogentry", nil}
     for i := range nlmlogtable.Nlmlogentry {
-        children[nlmlogtable.Nlmlogentry[i].GetSegmentPath()] = &nlmlogtable.Nlmlogentry[i]
+        nlmlogtable.EntityData.Children[types.GetSegmentPath(&nlmlogtable.Nlmlogentry[i])] = types.YChild{"Nlmlogentry", &nlmlogtable.Nlmlogentry[i]}
     }
-    return children
+    nlmlogtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nlmlogtable.EntityData)
 }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetYangName() string { return "nlmLogTable" }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) SetParent(parent types.Entity) { nlmlogtable.parent = parent }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetParent() types.Entity { return nlmlogtable.parent }
-
-func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetParentYangName() string { return "NOTIFICATION-LOG-MIB" }
 
 // NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry
 // A Notification log entry.
@@ -596,7 +369,7 @@ func (nlmlogtable *NOTIFICATIONLOGMIB_Nlmlogtable) GetParentYangName() string { 
 // has access to the information in the Notification.  If not it
 // does not log that Notification in that log.
 type NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
@@ -644,7 +417,7 @@ type NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry struct {
     // received.  Possible values for this object are presently found in the
     // Transport Mappings for SNMPv2 document (RFC 1906 [8]). The type is string
     // with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Nlmlogenginetdomain interface{}
 
     // If the Notification was received in a protocol which has a contextEngineID
@@ -659,78 +432,39 @@ type NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry struct {
 
     // The NOTIFICATION-TYPE object identifier of the Notification that occurred.
     // The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Nlmlognotificationid interface{}
 }
 
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetFilter() yfilter.YFilter { return nlmlogentry.YFilter }
+func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetEntityData() *types.CommonEntityData {
+    nlmlogentry.EntityData.YFilter = nlmlogentry.YFilter
+    nlmlogentry.EntityData.YangName = "nlmLogEntry"
+    nlmlogentry.EntityData.BundleName = "cisco_ios_xe"
+    nlmlogentry.EntityData.ParentYangName = "nlmLogTable"
+    nlmlogentry.EntityData.SegmentPath = "nlmLogEntry" + "[nlmLogName='" + fmt.Sprintf("%v", nlmlogentry.Nlmlogname) + "']" + "[nlmLogIndex='" + fmt.Sprintf("%v", nlmlogentry.Nlmlogindex) + "']"
+    nlmlogentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmlogentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmlogentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) SetFilter(yf yfilter.YFilter) { nlmlogentry.YFilter = yf }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetGoName(yname string) string {
-    if yname == "nlmLogName" { return "Nlmlogname" }
-    if yname == "nlmLogIndex" { return "Nlmlogindex" }
-    if yname == "nlmLogTime" { return "Nlmlogtime" }
-    if yname == "nlmLogDateAndTime" { return "Nlmlogdateandtime" }
-    if yname == "nlmLogEngineID" { return "Nlmlogengineid" }
-    if yname == "nlmLogEngineTAddress" { return "Nlmlogenginetaddress" }
-    if yname == "nlmLogEngineTDomain" { return "Nlmlogenginetdomain" }
-    if yname == "nlmLogContextEngineID" { return "Nlmlogcontextengineid" }
-    if yname == "nlmLogContextName" { return "Nlmlogcontextname" }
-    if yname == "nlmLogNotificationID" { return "Nlmlognotificationid" }
-    return ""
+    nlmlogentry.EntityData.Children = make(map[string]types.YChild)
+    nlmlogentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nlmlogentry.EntityData.Leafs["nlmLogName"] = types.YLeaf{"Nlmlogname", nlmlogentry.Nlmlogname}
+    nlmlogentry.EntityData.Leafs["nlmLogIndex"] = types.YLeaf{"Nlmlogindex", nlmlogentry.Nlmlogindex}
+    nlmlogentry.EntityData.Leafs["nlmLogTime"] = types.YLeaf{"Nlmlogtime", nlmlogentry.Nlmlogtime}
+    nlmlogentry.EntityData.Leafs["nlmLogDateAndTime"] = types.YLeaf{"Nlmlogdateandtime", nlmlogentry.Nlmlogdateandtime}
+    nlmlogentry.EntityData.Leafs["nlmLogEngineID"] = types.YLeaf{"Nlmlogengineid", nlmlogentry.Nlmlogengineid}
+    nlmlogentry.EntityData.Leafs["nlmLogEngineTAddress"] = types.YLeaf{"Nlmlogenginetaddress", nlmlogentry.Nlmlogenginetaddress}
+    nlmlogentry.EntityData.Leafs["nlmLogEngineTDomain"] = types.YLeaf{"Nlmlogenginetdomain", nlmlogentry.Nlmlogenginetdomain}
+    nlmlogentry.EntityData.Leafs["nlmLogContextEngineID"] = types.YLeaf{"Nlmlogcontextengineid", nlmlogentry.Nlmlogcontextengineid}
+    nlmlogentry.EntityData.Leafs["nlmLogContextName"] = types.YLeaf{"Nlmlogcontextname", nlmlogentry.Nlmlogcontextname}
+    nlmlogentry.EntityData.Leafs["nlmLogNotificationID"] = types.YLeaf{"Nlmlognotificationid", nlmlogentry.Nlmlognotificationid}
+    return &(nlmlogentry.EntityData)
 }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetSegmentPath() string {
-    return "nlmLogEntry" + "[nlmLogName='" + fmt.Sprintf("%v", nlmlogentry.Nlmlogname) + "']" + "[nlmLogIndex='" + fmt.Sprintf("%v", nlmlogentry.Nlmlogindex) + "']"
-}
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nlmLogName"] = nlmlogentry.Nlmlogname
-    leafs["nlmLogIndex"] = nlmlogentry.Nlmlogindex
-    leafs["nlmLogTime"] = nlmlogentry.Nlmlogtime
-    leafs["nlmLogDateAndTime"] = nlmlogentry.Nlmlogdateandtime
-    leafs["nlmLogEngineID"] = nlmlogentry.Nlmlogengineid
-    leafs["nlmLogEngineTAddress"] = nlmlogentry.Nlmlogenginetaddress
-    leafs["nlmLogEngineTDomain"] = nlmlogentry.Nlmlogenginetdomain
-    leafs["nlmLogContextEngineID"] = nlmlogentry.Nlmlogcontextengineid
-    leafs["nlmLogContextName"] = nlmlogentry.Nlmlogcontextname
-    leafs["nlmLogNotificationID"] = nlmlogentry.Nlmlognotificationid
-    return leafs
-}
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetYangName() string { return "nlmLogEntry" }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) SetParent(parent types.Entity) { nlmlogentry.parent = parent }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetParent() types.Entity { return nlmlogentry.parent }
-
-func (nlmlogentry *NOTIFICATIONLOGMIB_Nlmlogtable_Nlmlogentry) GetParentYangName() string { return "nlmLogTable" }
 
 // NOTIFICATIONLOGMIB_Nlmlogvariabletable
 // A table of variables to go with Notification log entries.
 type NOTIFICATIONLOGMIB_Nlmlogvariabletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Notification log entry variable.  Entries appear in this table when there
@@ -740,63 +474,24 @@ type NOTIFICATIONLOGMIB_Nlmlogvariabletable struct {
     Nlmlogvariableentry []NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry
 }
 
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetFilter() yfilter.YFilter { return nlmlogvariabletable.YFilter }
+func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetEntityData() *types.CommonEntityData {
+    nlmlogvariabletable.EntityData.YFilter = nlmlogvariabletable.YFilter
+    nlmlogvariabletable.EntityData.YangName = "nlmLogVariableTable"
+    nlmlogvariabletable.EntityData.BundleName = "cisco_ios_xe"
+    nlmlogvariabletable.EntityData.ParentYangName = "NOTIFICATION-LOG-MIB"
+    nlmlogvariabletable.EntityData.SegmentPath = "nlmLogVariableTable"
+    nlmlogvariabletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmlogvariabletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmlogvariabletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) SetFilter(yf yfilter.YFilter) { nlmlogvariabletable.YFilter = yf }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetGoName(yname string) string {
-    if yname == "nlmLogVariableEntry" { return "Nlmlogvariableentry" }
-    return ""
-}
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetSegmentPath() string {
-    return "nlmLogVariableTable"
-}
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nlmLogVariableEntry" {
-        for _, c := range nlmlogvariabletable.Nlmlogvariableentry {
-            if nlmlogvariabletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry{}
-        nlmlogvariabletable.Nlmlogvariableentry = append(nlmlogvariabletable.Nlmlogvariableentry, child)
-        return &nlmlogvariabletable.Nlmlogvariableentry[len(nlmlogvariabletable.Nlmlogvariableentry)-1]
-    }
-    return nil
-}
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nlmlogvariabletable.EntityData.Children = make(map[string]types.YChild)
+    nlmlogvariabletable.EntityData.Children["nlmLogVariableEntry"] = types.YChild{"Nlmlogvariableentry", nil}
     for i := range nlmlogvariabletable.Nlmlogvariableentry {
-        children[nlmlogvariabletable.Nlmlogvariableentry[i].GetSegmentPath()] = &nlmlogvariabletable.Nlmlogvariableentry[i]
+        nlmlogvariabletable.EntityData.Children[types.GetSegmentPath(&nlmlogvariabletable.Nlmlogvariableentry[i])] = types.YChild{"Nlmlogvariableentry", &nlmlogvariabletable.Nlmlogvariableentry[i]}
     }
-    return children
+    nlmlogvariabletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nlmlogvariabletable.EntityData)
 }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetYangName() string { return "nlmLogVariableTable" }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) SetParent(parent types.Entity) { nlmlogvariabletable.parent = parent }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetParent() types.Entity { return nlmlogvariabletable.parent }
-
-func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetParentYangName() string { return "NOTIFICATION-LOG-MIB" }
 
 // NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry
 // A Notification log entry variable.
@@ -804,7 +499,7 @@ func (nlmlogvariabletable *NOTIFICATIONLOGMIB_Nlmlogvariabletable) GetParentYang
 // Entries appear in this table when there are variables in
 // the varbind list of a Notification in nlmLogTable.
 type NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
@@ -822,7 +517,7 @@ type NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry struct {
     Nlmlogvariableindex interface{}
 
     // The variable's object identifier. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Nlmlogvariableid interface{}
 
     // The type of the value.  One and only one of the value objects that follow
@@ -855,11 +550,12 @@ type NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry struct {
     // addresses are represented using TAddress or InetAddress, and so the
     // underlying datatype is OCTET STRING, and their value would be stored in the
     // nlmLogVariableOctetStringVal column. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Nlmlogvariableipaddressval interface{}
 
     // The value when nlmLogVariableType is 'objectId'. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Nlmlogvariableoidval interface{}
 
     // The value when nlmLogVariableType is 'counter64'. The type is interface{}
@@ -870,77 +566,34 @@ type NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry struct {
     Nlmlogvariableopaqueval interface{}
 }
 
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetFilter() yfilter.YFilter { return nlmlogvariableentry.YFilter }
+func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetEntityData() *types.CommonEntityData {
+    nlmlogvariableentry.EntityData.YFilter = nlmlogvariableentry.YFilter
+    nlmlogvariableentry.EntityData.YangName = "nlmLogVariableEntry"
+    nlmlogvariableentry.EntityData.BundleName = "cisco_ios_xe"
+    nlmlogvariableentry.EntityData.ParentYangName = "nlmLogVariableTable"
+    nlmlogvariableentry.EntityData.SegmentPath = "nlmLogVariableEntry" + "[nlmLogName='" + fmt.Sprintf("%v", nlmlogvariableentry.Nlmlogname) + "']" + "[nlmLogIndex='" + fmt.Sprintf("%v", nlmlogvariableentry.Nlmlogindex) + "']" + "[nlmLogVariableIndex='" + fmt.Sprintf("%v", nlmlogvariableentry.Nlmlogvariableindex) + "']"
+    nlmlogvariableentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    nlmlogvariableentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    nlmlogvariableentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) SetFilter(yf yfilter.YFilter) { nlmlogvariableentry.YFilter = yf }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetGoName(yname string) string {
-    if yname == "nlmLogName" { return "Nlmlogname" }
-    if yname == "nlmLogIndex" { return "Nlmlogindex" }
-    if yname == "nlmLogVariableIndex" { return "Nlmlogvariableindex" }
-    if yname == "nlmLogVariableID" { return "Nlmlogvariableid" }
-    if yname == "nlmLogVariableValueType" { return "Nlmlogvariablevaluetype" }
-    if yname == "nlmLogVariableCounter32Val" { return "Nlmlogvariablecounter32Val" }
-    if yname == "nlmLogVariableUnsigned32Val" { return "Nlmlogvariableunsigned32Val" }
-    if yname == "nlmLogVariableTimeTicksVal" { return "Nlmlogvariabletimeticksval" }
-    if yname == "nlmLogVariableInteger32Val" { return "Nlmlogvariableinteger32Val" }
-    if yname == "nlmLogVariableOctetStringVal" { return "Nlmlogvariableoctetstringval" }
-    if yname == "nlmLogVariableIpAddressVal" { return "Nlmlogvariableipaddressval" }
-    if yname == "nlmLogVariableOidVal" { return "Nlmlogvariableoidval" }
-    if yname == "nlmLogVariableCounter64Val" { return "Nlmlogvariablecounter64Val" }
-    if yname == "nlmLogVariableOpaqueVal" { return "Nlmlogvariableopaqueval" }
-    return ""
+    nlmlogvariableentry.EntityData.Children = make(map[string]types.YChild)
+    nlmlogvariableentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    nlmlogvariableentry.EntityData.Leafs["nlmLogName"] = types.YLeaf{"Nlmlogname", nlmlogvariableentry.Nlmlogname}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogIndex"] = types.YLeaf{"Nlmlogindex", nlmlogvariableentry.Nlmlogindex}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableIndex"] = types.YLeaf{"Nlmlogvariableindex", nlmlogvariableentry.Nlmlogvariableindex}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableID"] = types.YLeaf{"Nlmlogvariableid", nlmlogvariableentry.Nlmlogvariableid}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableValueType"] = types.YLeaf{"Nlmlogvariablevaluetype", nlmlogvariableentry.Nlmlogvariablevaluetype}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableCounter32Val"] = types.YLeaf{"Nlmlogvariablecounter32Val", nlmlogvariableentry.Nlmlogvariablecounter32Val}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableUnsigned32Val"] = types.YLeaf{"Nlmlogvariableunsigned32Val", nlmlogvariableentry.Nlmlogvariableunsigned32Val}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableTimeTicksVal"] = types.YLeaf{"Nlmlogvariabletimeticksval", nlmlogvariableentry.Nlmlogvariabletimeticksval}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableInteger32Val"] = types.YLeaf{"Nlmlogvariableinteger32Val", nlmlogvariableentry.Nlmlogvariableinteger32Val}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableOctetStringVal"] = types.YLeaf{"Nlmlogvariableoctetstringval", nlmlogvariableentry.Nlmlogvariableoctetstringval}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableIpAddressVal"] = types.YLeaf{"Nlmlogvariableipaddressval", nlmlogvariableentry.Nlmlogvariableipaddressval}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableOidVal"] = types.YLeaf{"Nlmlogvariableoidval", nlmlogvariableentry.Nlmlogvariableoidval}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableCounter64Val"] = types.YLeaf{"Nlmlogvariablecounter64Val", nlmlogvariableentry.Nlmlogvariablecounter64Val}
+    nlmlogvariableentry.EntityData.Leafs["nlmLogVariableOpaqueVal"] = types.YLeaf{"Nlmlogvariableopaqueval", nlmlogvariableentry.Nlmlogvariableopaqueval}
+    return &(nlmlogvariableentry.EntityData)
 }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetSegmentPath() string {
-    return "nlmLogVariableEntry" + "[nlmLogName='" + fmt.Sprintf("%v", nlmlogvariableentry.Nlmlogname) + "']" + "[nlmLogIndex='" + fmt.Sprintf("%v", nlmlogvariableentry.Nlmlogindex) + "']" + "[nlmLogVariableIndex='" + fmt.Sprintf("%v", nlmlogvariableentry.Nlmlogvariableindex) + "']"
-}
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nlmLogName"] = nlmlogvariableentry.Nlmlogname
-    leafs["nlmLogIndex"] = nlmlogvariableentry.Nlmlogindex
-    leafs["nlmLogVariableIndex"] = nlmlogvariableentry.Nlmlogvariableindex
-    leafs["nlmLogVariableID"] = nlmlogvariableentry.Nlmlogvariableid
-    leafs["nlmLogVariableValueType"] = nlmlogvariableentry.Nlmlogvariablevaluetype
-    leafs["nlmLogVariableCounter32Val"] = nlmlogvariableentry.Nlmlogvariablecounter32Val
-    leafs["nlmLogVariableUnsigned32Val"] = nlmlogvariableentry.Nlmlogvariableunsigned32Val
-    leafs["nlmLogVariableTimeTicksVal"] = nlmlogvariableentry.Nlmlogvariabletimeticksval
-    leafs["nlmLogVariableInteger32Val"] = nlmlogvariableentry.Nlmlogvariableinteger32Val
-    leafs["nlmLogVariableOctetStringVal"] = nlmlogvariableentry.Nlmlogvariableoctetstringval
-    leafs["nlmLogVariableIpAddressVal"] = nlmlogvariableentry.Nlmlogvariableipaddressval
-    leafs["nlmLogVariableOidVal"] = nlmlogvariableentry.Nlmlogvariableoidval
-    leafs["nlmLogVariableCounter64Val"] = nlmlogvariableentry.Nlmlogvariablecounter64Val
-    leafs["nlmLogVariableOpaqueVal"] = nlmlogvariableentry.Nlmlogvariableopaqueval
-    return leafs
-}
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetYangName() string { return "nlmLogVariableEntry" }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) SetParent(parent types.Entity) { nlmlogvariableentry.parent = parent }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetParent() types.Entity { return nlmlogvariableentry.parent }
-
-func (nlmlogvariableentry *NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry) GetParentYangName() string { return "nlmLogVariableTable" }
 
 // NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry_Nlmlogvariablevaluetype represents objects that follow must be instantiated, based on this type.
 type NOTIFICATIONLOGMIB_Nlmlogvariabletable_Nlmlogvariableentry_Nlmlogvariablevaluetype string

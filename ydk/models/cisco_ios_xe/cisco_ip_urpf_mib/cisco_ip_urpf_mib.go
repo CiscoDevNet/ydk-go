@@ -43,7 +43,7 @@ const (
 
 // CISCOIPURPFMIB
 type CISCOIPURPFMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -65,78 +65,29 @@ type CISCOIPURPFMIB struct {
     Cipurpfvrftable CISCOIPURPFMIB_Cipurpfvrftable
 }
 
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetFilter() yfilter.YFilter { return cISCOIPURPFMIB.YFilter }
+func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPURPFMIB.EntityData.YFilter = cISCOIPURPFMIB.YFilter
+    cISCOIPURPFMIB.EntityData.YangName = "CISCO-IP-URPF-MIB"
+    cISCOIPURPFMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPURPFMIB.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
+    cISCOIPURPFMIB.EntityData.SegmentPath = "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB"
+    cISCOIPURPFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPURPFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPURPFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) SetFilter(yf yfilter.YFilter) { cISCOIPURPFMIB.YFilter = yf }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetGoName(yname string) string {
-    if yname == "cipUrpfScalar" { return "Cipurpfscalar" }
-    if yname == "cipUrpfTable" { return "Cipurpftable" }
-    if yname == "cipUrpfIfMonTable" { return "Cipurpfifmontable" }
-    if yname == "cipUrpfVrfIfTable" { return "Cipurpfvrfiftable" }
-    if yname == "cipUrpfVrfTable" { return "Cipurpfvrftable" }
-    return ""
+    cISCOIPURPFMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPURPFMIB.EntityData.Children["cipUrpfScalar"] = types.YChild{"Cipurpfscalar", &cISCOIPURPFMIB.Cipurpfscalar}
+    cISCOIPURPFMIB.EntityData.Children["cipUrpfTable"] = types.YChild{"Cipurpftable", &cISCOIPURPFMIB.Cipurpftable}
+    cISCOIPURPFMIB.EntityData.Children["cipUrpfIfMonTable"] = types.YChild{"Cipurpfifmontable", &cISCOIPURPFMIB.Cipurpfifmontable}
+    cISCOIPURPFMIB.EntityData.Children["cipUrpfVrfIfTable"] = types.YChild{"Cipurpfvrfiftable", &cISCOIPURPFMIB.Cipurpfvrfiftable}
+    cISCOIPURPFMIB.EntityData.Children["cipUrpfVrfTable"] = types.YChild{"Cipurpfvrftable", &cISCOIPURPFMIB.Cipurpfvrftable}
+    cISCOIPURPFMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPURPFMIB.EntityData)
 }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetSegmentPath() string {
-    return "CISCO-IP-URPF-MIB:CISCO-IP-URPF-MIB"
-}
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipUrpfScalar" {
-        return &cISCOIPURPFMIB.Cipurpfscalar
-    }
-    if childYangName == "cipUrpfTable" {
-        return &cISCOIPURPFMIB.Cipurpftable
-    }
-    if childYangName == "cipUrpfIfMonTable" {
-        return &cISCOIPURPFMIB.Cipurpfifmontable
-    }
-    if childYangName == "cipUrpfVrfIfTable" {
-        return &cISCOIPURPFMIB.Cipurpfvrfiftable
-    }
-    if childYangName == "cipUrpfVrfTable" {
-        return &cISCOIPURPFMIB.Cipurpfvrftable
-    }
-    return nil
-}
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cipUrpfScalar"] = &cISCOIPURPFMIB.Cipurpfscalar
-    children["cipUrpfTable"] = &cISCOIPURPFMIB.Cipurpftable
-    children["cipUrpfIfMonTable"] = &cISCOIPURPFMIB.Cipurpfifmontable
-    children["cipUrpfVrfIfTable"] = &cISCOIPURPFMIB.Cipurpfvrfiftable
-    children["cipUrpfVrfTable"] = &cISCOIPURPFMIB.Cipurpfvrftable
-    return children
-}
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetYangName() string { return "CISCO-IP-URPF-MIB" }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) SetParent(parent types.Entity) { cISCOIPURPFMIB.parent = parent }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetParent() types.Entity { return cISCOIPURPFMIB.parent }
-
-func (cISCOIPURPFMIB *CISCOIPURPFMIB) GetParentYangName() string { return "CISCO-IP-URPF-MIB" }
 
 // CISCOIPURPFMIB_Cipurpfscalar
 type CISCOIPURPFMIB_Cipurpfscalar struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The window of time in the recent past over which the drop count used in the
@@ -174,61 +125,29 @@ type CISCOIPURPFMIB_Cipurpfscalar struct {
     Cipurpfdropnotifyholddowntime interface{}
 }
 
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetFilter() yfilter.YFilter { return cipurpfscalar.YFilter }
+func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetEntityData() *types.CommonEntityData {
+    cipurpfscalar.EntityData.YFilter = cipurpfscalar.YFilter
+    cipurpfscalar.EntityData.YangName = "cipUrpfScalar"
+    cipurpfscalar.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfscalar.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
+    cipurpfscalar.EntityData.SegmentPath = "cipUrpfScalar"
+    cipurpfscalar.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfscalar.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfscalar.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) SetFilter(yf yfilter.YFilter) { cipurpfscalar.YFilter = yf }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetGoName(yname string) string {
-    if yname == "cipUrpfDropRateWindow" { return "Cipurpfdropratewindow" }
-    if yname == "cipUrpfComputeInterval" { return "Cipurpfcomputeinterval" }
-    if yname == "cipUrpfDropNotifyHoldDownTime" { return "Cipurpfdropnotifyholddowntime" }
-    return ""
+    cipurpfscalar.EntityData.Children = make(map[string]types.YChild)
+    cipurpfscalar.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipurpfscalar.EntityData.Leafs["cipUrpfDropRateWindow"] = types.YLeaf{"Cipurpfdropratewindow", cipurpfscalar.Cipurpfdropratewindow}
+    cipurpfscalar.EntityData.Leafs["cipUrpfComputeInterval"] = types.YLeaf{"Cipurpfcomputeinterval", cipurpfscalar.Cipurpfcomputeinterval}
+    cipurpfscalar.EntityData.Leafs["cipUrpfDropNotifyHoldDownTime"] = types.YLeaf{"Cipurpfdropnotifyholddowntime", cipurpfscalar.Cipurpfdropnotifyholddowntime}
+    return &(cipurpfscalar.EntityData)
 }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetSegmentPath() string {
-    return "cipUrpfScalar"
-}
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipUrpfDropRateWindow"] = cipurpfscalar.Cipurpfdropratewindow
-    leafs["cipUrpfComputeInterval"] = cipurpfscalar.Cipurpfcomputeinterval
-    leafs["cipUrpfDropNotifyHoldDownTime"] = cipurpfscalar.Cipurpfdropnotifyholddowntime
-    return leafs
-}
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetYangName() string { return "cipUrpfScalar" }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) SetParent(parent types.Entity) { cipurpfscalar.parent = parent }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetParent() types.Entity { return cipurpfscalar.parent }
-
-func (cipurpfscalar *CISCOIPURPFMIB_Cipurpfscalar) GetParentYangName() string { return "CISCO-IP-URPF-MIB" }
 
 // CISCOIPURPFMIB_Cipurpftable
 // This table contains summary information for the
 // managed device on URPF dropping.
 type CISCOIPURPFMIB_Cipurpftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // If the managed device supports URPF dropping, a row exists for each IP
@@ -238,63 +157,24 @@ type CISCOIPURPFMIB_Cipurpftable struct {
     Cipurpfentry []CISCOIPURPFMIB_Cipurpftable_Cipurpfentry
 }
 
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetFilter() yfilter.YFilter { return cipurpftable.YFilter }
+func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetEntityData() *types.CommonEntityData {
+    cipurpftable.EntityData.YFilter = cipurpftable.YFilter
+    cipurpftable.EntityData.YangName = "cipUrpfTable"
+    cipurpftable.EntityData.BundleName = "cisco_ios_xe"
+    cipurpftable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
+    cipurpftable.EntityData.SegmentPath = "cipUrpfTable"
+    cipurpftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) SetFilter(yf yfilter.YFilter) { cipurpftable.YFilter = yf }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetGoName(yname string) string {
-    if yname == "cipUrpfEntry" { return "Cipurpfentry" }
-    return ""
-}
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetSegmentPath() string {
-    return "cipUrpfTable"
-}
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipUrpfEntry" {
-        for _, c := range cipurpftable.Cipurpfentry {
-            if cipurpftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPURPFMIB_Cipurpftable_Cipurpfentry{}
-        cipurpftable.Cipurpfentry = append(cipurpftable.Cipurpfentry, child)
-        return &cipurpftable.Cipurpfentry[len(cipurpftable.Cipurpfentry)-1]
-    }
-    return nil
-}
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipurpftable.EntityData.Children = make(map[string]types.YChild)
+    cipurpftable.EntityData.Children["cipUrpfEntry"] = types.YChild{"Cipurpfentry", nil}
     for i := range cipurpftable.Cipurpfentry {
-        children[cipurpftable.Cipurpfentry[i].GetSegmentPath()] = &cipurpftable.Cipurpfentry[i]
+        cipurpftable.EntityData.Children[types.GetSegmentPath(&cipurpftable.Cipurpfentry[i])] = types.YChild{"Cipurpfentry", &cipurpftable.Cipurpfentry[i]}
     }
-    return children
+    cipurpftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipurpftable.EntityData)
 }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetYangName() string { return "cipUrpfTable" }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) SetParent(parent types.Entity) { cipurpftable.parent = parent }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetParent() types.Entity { return cipurpftable.parent }
-
-func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetParentYangName() string { return "CISCO-IP-URPF-MIB" }
 
 // CISCOIPURPFMIB_Cipurpftable_Cipurpfentry
 // If the managed device supports URPF dropping,
@@ -302,7 +182,7 @@ func (cipurpftable *CISCOIPURPFMIB_Cipurpftable) GetParentYangName() string { re
 // A row contains summary information on URPF
 // dropping over the entire managed device.
 type CISCOIPURPFMIB_Cipurpftable_Cipurpfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specifies the version of IP forwarding on an
@@ -347,55 +227,23 @@ type CISCOIPURPFMIB_Cipurpftable_Cipurpfentry struct {
     Cipurpfdroprate interface{}
 }
 
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetFilter() yfilter.YFilter { return cipurpfentry.YFilter }
+func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetEntityData() *types.CommonEntityData {
+    cipurpfentry.EntityData.YFilter = cipurpfentry.YFilter
+    cipurpfentry.EntityData.YangName = "cipUrpfEntry"
+    cipurpfentry.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfentry.EntityData.ParentYangName = "cipUrpfTable"
+    cipurpfentry.EntityData.SegmentPath = "cipUrpfEntry" + "[cipUrpfIpVersion='" + fmt.Sprintf("%v", cipurpfentry.Cipurpfipversion) + "']"
+    cipurpfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) SetFilter(yf yfilter.YFilter) { cipurpfentry.YFilter = yf }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetGoName(yname string) string {
-    if yname == "cipUrpfIpVersion" { return "Cipurpfipversion" }
-    if yname == "cipUrpfDrops" { return "Cipurpfdrops" }
-    if yname == "cipUrpfDropRate" { return "Cipurpfdroprate" }
-    return ""
+    cipurpfentry.EntityData.Children = make(map[string]types.YChild)
+    cipurpfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipurpfentry.EntityData.Leafs["cipUrpfIpVersion"] = types.YLeaf{"Cipurpfipversion", cipurpfentry.Cipurpfipversion}
+    cipurpfentry.EntityData.Leafs["cipUrpfDrops"] = types.YLeaf{"Cipurpfdrops", cipurpfentry.Cipurpfdrops}
+    cipurpfentry.EntityData.Leafs["cipUrpfDropRate"] = types.YLeaf{"Cipurpfdroprate", cipurpfentry.Cipurpfdroprate}
+    return &(cipurpfentry.EntityData)
 }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetSegmentPath() string {
-    return "cipUrpfEntry" + "[cipUrpfIpVersion='" + fmt.Sprintf("%v", cipurpfentry.Cipurpfipversion) + "']"
-}
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipUrpfIpVersion"] = cipurpfentry.Cipurpfipversion
-    leafs["cipUrpfDrops"] = cipurpfentry.Cipurpfdrops
-    leafs["cipUrpfDropRate"] = cipurpfentry.Cipurpfdroprate
-    return leafs
-}
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetYangName() string { return "cipUrpfEntry" }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) SetParent(parent types.Entity) { cipurpfentry.parent = parent }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetParent() types.Entity { return cipurpfentry.parent }
-
-func (cipurpfentry *CISCOIPURPFMIB_Cipurpftable_Cipurpfentry) GetParentYangName() string { return "cipUrpfTable" }
 
 // CISCOIPURPFMIB_Cipurpftable_Cipurpfentry_Cipurpfipversion represents configuration apply.
 type CISCOIPURPFMIB_Cipurpftable_Cipurpfentry_Cipurpfipversion string
@@ -410,7 +258,7 @@ const (
 // This table contains information on URPF dropping on
 // an interface.
 type CISCOIPURPFMIB_Cipurpfifmontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // If IPv4 packet forwarding is configured on an interface, and is configured
@@ -425,63 +273,24 @@ type CISCOIPURPFMIB_Cipurpfifmontable struct {
     Cipurpfifmonentry []CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry
 }
 
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetFilter() yfilter.YFilter { return cipurpfifmontable.YFilter }
+func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetEntityData() *types.CommonEntityData {
+    cipurpfifmontable.EntityData.YFilter = cipurpfifmontable.YFilter
+    cipurpfifmontable.EntityData.YangName = "cipUrpfIfMonTable"
+    cipurpfifmontable.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfifmontable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
+    cipurpfifmontable.EntityData.SegmentPath = "cipUrpfIfMonTable"
+    cipurpfifmontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfifmontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfifmontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) SetFilter(yf yfilter.YFilter) { cipurpfifmontable.YFilter = yf }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetGoName(yname string) string {
-    if yname == "cipUrpfIfMonEntry" { return "Cipurpfifmonentry" }
-    return ""
-}
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetSegmentPath() string {
-    return "cipUrpfIfMonTable"
-}
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipUrpfIfMonEntry" {
-        for _, c := range cipurpfifmontable.Cipurpfifmonentry {
-            if cipurpfifmontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry{}
-        cipurpfifmontable.Cipurpfifmonentry = append(cipurpfifmontable.Cipurpfifmonentry, child)
-        return &cipurpfifmontable.Cipurpfifmonentry[len(cipurpfifmontable.Cipurpfifmonentry)-1]
-    }
-    return nil
-}
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipurpfifmontable.EntityData.Children = make(map[string]types.YChild)
+    cipurpfifmontable.EntityData.Children["cipUrpfIfMonEntry"] = types.YChild{"Cipurpfifmonentry", nil}
     for i := range cipurpfifmontable.Cipurpfifmonentry {
-        children[cipurpfifmontable.Cipurpfifmonentry[i].GetSegmentPath()] = &cipurpfifmontable.Cipurpfifmonentry[i]
+        cipurpfifmontable.EntityData.Children[types.GetSegmentPath(&cipurpfifmontable.Cipurpfifmonentry[i])] = types.YChild{"Cipurpfifmonentry", &cipurpfifmontable.Cipurpfifmonentry[i]}
     }
-    return children
+    cipurpfifmontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipurpfifmontable.EntityData)
 }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetYangName() string { return "cipUrpfIfMonTable" }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) SetParent(parent types.Entity) { cipurpfifmontable.parent = parent }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetParent() types.Entity { return cipurpfifmontable.parent }
-
-func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetParentYangName() string { return "CISCO-IP-URPF-MIB" }
 
 // CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry
 // If IPv4 packet forwarding is configured on an interface,
@@ -496,7 +305,7 @@ func (cipurpfifmontable *CISCOIPURPFMIB_Cipurpfifmontable) GetParentYangName() s
 // packet forwarding is deconfigured, or URPF checking
 // is deconfigured, the row disappears.
 type CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -609,73 +418,32 @@ type CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry struct {
     Cipurpfifvrfname interface{}
 }
 
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetFilter() yfilter.YFilter { return cipurpfifmonentry.YFilter }
+func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetEntityData() *types.CommonEntityData {
+    cipurpfifmonentry.EntityData.YFilter = cipurpfifmonentry.YFilter
+    cipurpfifmonentry.EntityData.YangName = "cipUrpfIfMonEntry"
+    cipurpfifmonentry.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfifmonentry.EntityData.ParentYangName = "cipUrpfIfMonTable"
+    cipurpfifmonentry.EntityData.SegmentPath = "cipUrpfIfMonEntry" + "[ifIndex='" + fmt.Sprintf("%v", cipurpfifmonentry.Ifindex) + "']" + "[cipUrpfIfIpVersion='" + fmt.Sprintf("%v", cipurpfifmonentry.Cipurpfifipversion) + "']"
+    cipurpfifmonentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfifmonentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfifmonentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) SetFilter(yf yfilter.YFilter) { cipurpfifmonentry.YFilter = yf }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cipUrpfIfIpVersion" { return "Cipurpfifipversion" }
-    if yname == "cipUrpfIfDrops" { return "Cipurpfifdrops" }
-    if yname == "cipUrpfIfSuppressedDrops" { return "Cipurpfifsuppresseddrops" }
-    if yname == "cipUrpfIfDropRate" { return "Cipurpfifdroprate" }
-    if yname == "cipUrpfIfDiscontinuityTime" { return "Cipurpfifdiscontinuitytime" }
-    if yname == "cipUrpfIfDropRateNotifyEnable" { return "Cipurpfifdropratenotifyenable" }
-    if yname == "cipUrpfIfNotifyDropRateThreshold" { return "Cipurpfifnotifydropratethreshold" }
-    if yname == "cipUrpfIfNotifyDrHoldDownReset" { return "Cipurpfifnotifydrholddownreset" }
-    if yname == "cipUrpfIfCheckStrict" { return "Cipurpfifcheckstrict" }
-    if yname == "cipUrpfIfWhichRouteTableID" { return "Cipurpfifwhichroutetableid" }
-    if yname == "cipUrpfIfVrfName" { return "Cipurpfifvrfname" }
-    return ""
+    cipurpfifmonentry.EntityData.Children = make(map[string]types.YChild)
+    cipurpfifmonentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipurpfifmonentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cipurpfifmonentry.Ifindex}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfIpVersion"] = types.YLeaf{"Cipurpfifipversion", cipurpfifmonentry.Cipurpfifipversion}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfDrops"] = types.YLeaf{"Cipurpfifdrops", cipurpfifmonentry.Cipurpfifdrops}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfSuppressedDrops"] = types.YLeaf{"Cipurpfifsuppresseddrops", cipurpfifmonentry.Cipurpfifsuppresseddrops}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfDropRate"] = types.YLeaf{"Cipurpfifdroprate", cipurpfifmonentry.Cipurpfifdroprate}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfDiscontinuityTime"] = types.YLeaf{"Cipurpfifdiscontinuitytime", cipurpfifmonentry.Cipurpfifdiscontinuitytime}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfDropRateNotifyEnable"] = types.YLeaf{"Cipurpfifdropratenotifyenable", cipurpfifmonentry.Cipurpfifdropratenotifyenable}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfNotifyDropRateThreshold"] = types.YLeaf{"Cipurpfifnotifydropratethreshold", cipurpfifmonentry.Cipurpfifnotifydropratethreshold}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfNotifyDrHoldDownReset"] = types.YLeaf{"Cipurpfifnotifydrholddownreset", cipurpfifmonentry.Cipurpfifnotifydrholddownreset}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfCheckStrict"] = types.YLeaf{"Cipurpfifcheckstrict", cipurpfifmonentry.Cipurpfifcheckstrict}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfWhichRouteTableID"] = types.YLeaf{"Cipurpfifwhichroutetableid", cipurpfifmonentry.Cipurpfifwhichroutetableid}
+    cipurpfifmonentry.EntityData.Leafs["cipUrpfIfVrfName"] = types.YLeaf{"Cipurpfifvrfname", cipurpfifmonentry.Cipurpfifvrfname}
+    return &(cipurpfifmonentry.EntityData)
 }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetSegmentPath() string {
-    return "cipUrpfIfMonEntry" + "[ifIndex='" + fmt.Sprintf("%v", cipurpfifmonentry.Ifindex) + "']" + "[cipUrpfIfIpVersion='" + fmt.Sprintf("%v", cipurpfifmonentry.Cipurpfifipversion) + "']"
-}
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cipurpfifmonentry.Ifindex
-    leafs["cipUrpfIfIpVersion"] = cipurpfifmonentry.Cipurpfifipversion
-    leafs["cipUrpfIfDrops"] = cipurpfifmonentry.Cipurpfifdrops
-    leafs["cipUrpfIfSuppressedDrops"] = cipurpfifmonentry.Cipurpfifsuppresseddrops
-    leafs["cipUrpfIfDropRate"] = cipurpfifmonentry.Cipurpfifdroprate
-    leafs["cipUrpfIfDiscontinuityTime"] = cipurpfifmonentry.Cipurpfifdiscontinuitytime
-    leafs["cipUrpfIfDropRateNotifyEnable"] = cipurpfifmonentry.Cipurpfifdropratenotifyenable
-    leafs["cipUrpfIfNotifyDropRateThreshold"] = cipurpfifmonentry.Cipurpfifnotifydropratethreshold
-    leafs["cipUrpfIfNotifyDrHoldDownReset"] = cipurpfifmonentry.Cipurpfifnotifydrholddownreset
-    leafs["cipUrpfIfCheckStrict"] = cipurpfifmonentry.Cipurpfifcheckstrict
-    leafs["cipUrpfIfWhichRouteTableID"] = cipurpfifmonentry.Cipurpfifwhichroutetableid
-    leafs["cipUrpfIfVrfName"] = cipurpfifmonentry.Cipurpfifvrfname
-    return leafs
-}
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetYangName() string { return "cipUrpfIfMonEntry" }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) SetParent(parent types.Entity) { cipurpfifmonentry.parent = parent }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetParent() types.Entity { return cipurpfifmonentry.parent }
-
-func (cipurpfifmonentry *CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry) GetParentYangName() string { return "cipUrpfIfMonTable" }
 
 // CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry_Cipurpfifcheckstrict represents           some interface on the device.
 type CISCOIPURPFMIB_Cipurpfifmontable_Cipurpfifmonentry_Cipurpfifcheckstrict string
@@ -708,7 +476,7 @@ const (
 // This table contains statistics information for interfaces
 // performing URPF using VRF table to determine reachability.
 type CISCOIPURPFMIB_Cipurpfvrfiftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry exists for a VRF and interface if and only if the VRF associated
@@ -718,63 +486,24 @@ type CISCOIPURPFMIB_Cipurpfvrfiftable struct {
     Cipurpfvrfifentry []CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry
 }
 
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetFilter() yfilter.YFilter { return cipurpfvrfiftable.YFilter }
+func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetEntityData() *types.CommonEntityData {
+    cipurpfvrfiftable.EntityData.YFilter = cipurpfvrfiftable.YFilter
+    cipurpfvrfiftable.EntityData.YangName = "cipUrpfVrfIfTable"
+    cipurpfvrfiftable.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfvrfiftable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
+    cipurpfvrfiftable.EntityData.SegmentPath = "cipUrpfVrfIfTable"
+    cipurpfvrfiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfvrfiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfvrfiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) SetFilter(yf yfilter.YFilter) { cipurpfvrfiftable.YFilter = yf }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetGoName(yname string) string {
-    if yname == "cipUrpfVrfIfEntry" { return "Cipurpfvrfifentry" }
-    return ""
-}
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetSegmentPath() string {
-    return "cipUrpfVrfIfTable"
-}
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipUrpfVrfIfEntry" {
-        for _, c := range cipurpfvrfiftable.Cipurpfvrfifentry {
-            if cipurpfvrfiftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry{}
-        cipurpfvrfiftable.Cipurpfvrfifentry = append(cipurpfvrfiftable.Cipurpfvrfifentry, child)
-        return &cipurpfvrfiftable.Cipurpfvrfifentry[len(cipurpfvrfiftable.Cipurpfvrfifentry)-1]
-    }
-    return nil
-}
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipurpfvrfiftable.EntityData.Children = make(map[string]types.YChild)
+    cipurpfvrfiftable.EntityData.Children["cipUrpfVrfIfEntry"] = types.YChild{"Cipurpfvrfifentry", nil}
     for i := range cipurpfvrfiftable.Cipurpfvrfifentry {
-        children[cipurpfvrfiftable.Cipurpfvrfifentry[i].GetSegmentPath()] = &cipurpfvrfiftable.Cipurpfvrfifentry[i]
+        cipurpfvrfiftable.EntityData.Children[types.GetSegmentPath(&cipurpfvrfiftable.Cipurpfvrfifentry[i])] = types.YChild{"Cipurpfvrfifentry", &cipurpfvrfiftable.Cipurpfvrfifentry[i]}
     }
-    return children
+    cipurpfvrfiftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipurpfvrfiftable.EntityData)
 }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetYangName() string { return "cipUrpfVrfIfTable" }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) SetParent(parent types.Entity) { cipurpfvrfiftable.parent = parent }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetParent() types.Entity { return cipurpfvrfiftable.parent }
-
-func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetParentYangName() string { return "CISCO-IP-URPF-MIB" }
 
 // CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry
 // An entry exists for a VRF and interface if and only
@@ -782,7 +511,7 @@ func (cipurpfvrfiftable *CISCOIPURPFMIB_Cipurpfvrfiftable) GetParentYangName() s
 // to perform IP URPF checking using the routing 
 // table for the VRF.
 type CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..32. Refers to
@@ -808,63 +537,30 @@ type CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry struct {
     Cipurpfvrfifdiscontinuitytime interface{}
 }
 
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetFilter() yfilter.YFilter { return cipurpfvrfifentry.YFilter }
+func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetEntityData() *types.CommonEntityData {
+    cipurpfvrfifentry.EntityData.YFilter = cipurpfvrfifentry.YFilter
+    cipurpfvrfifentry.EntityData.YangName = "cipUrpfVrfIfEntry"
+    cipurpfvrfifentry.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfvrfifentry.EntityData.ParentYangName = "cipUrpfVrfIfTable"
+    cipurpfvrfifentry.EntityData.SegmentPath = "cipUrpfVrfIfEntry" + "[cipUrpfVrfName='" + fmt.Sprintf("%v", cipurpfvrfifentry.Cipurpfvrfname) + "']" + "[ifIndex='" + fmt.Sprintf("%v", cipurpfvrfifentry.Ifindex) + "']"
+    cipurpfvrfifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfvrfifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfvrfifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) SetFilter(yf yfilter.YFilter) { cipurpfvrfifentry.YFilter = yf }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetGoName(yname string) string {
-    if yname == "cipUrpfVrfName" { return "Cipurpfvrfname" }
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cipUrpfVrfIfDrops" { return "Cipurpfvrfifdrops" }
-    if yname == "cipUrpfVrfIfDiscontinuityTime" { return "Cipurpfvrfifdiscontinuitytime" }
-    return ""
+    cipurpfvrfifentry.EntityData.Children = make(map[string]types.YChild)
+    cipurpfvrfifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipurpfvrfifentry.EntityData.Leafs["cipUrpfVrfName"] = types.YLeaf{"Cipurpfvrfname", cipurpfvrfifentry.Cipurpfvrfname}
+    cipurpfvrfifentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cipurpfvrfifentry.Ifindex}
+    cipurpfvrfifentry.EntityData.Leafs["cipUrpfVrfIfDrops"] = types.YLeaf{"Cipurpfvrfifdrops", cipurpfvrfifentry.Cipurpfvrfifdrops}
+    cipurpfvrfifentry.EntityData.Leafs["cipUrpfVrfIfDiscontinuityTime"] = types.YLeaf{"Cipurpfvrfifdiscontinuitytime", cipurpfvrfifentry.Cipurpfvrfifdiscontinuitytime}
+    return &(cipurpfvrfifentry.EntityData)
 }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetSegmentPath() string {
-    return "cipUrpfVrfIfEntry" + "[cipUrpfVrfName='" + fmt.Sprintf("%v", cipurpfvrfifentry.Cipurpfvrfname) + "']" + "[ifIndex='" + fmt.Sprintf("%v", cipurpfvrfifentry.Ifindex) + "']"
-}
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipUrpfVrfName"] = cipurpfvrfifentry.Cipurpfvrfname
-    leafs["ifIndex"] = cipurpfvrfifentry.Ifindex
-    leafs["cipUrpfVrfIfDrops"] = cipurpfvrfifentry.Cipurpfvrfifdrops
-    leafs["cipUrpfVrfIfDiscontinuityTime"] = cipurpfvrfifentry.Cipurpfvrfifdiscontinuitytime
-    return leafs
-}
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetYangName() string { return "cipUrpfVrfIfEntry" }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) SetParent(parent types.Entity) { cipurpfvrfifentry.parent = parent }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetParent() types.Entity { return cipurpfvrfifentry.parent }
-
-func (cipurpfvrfifentry *CISCOIPURPFMIB_Cipurpfvrfiftable_Cipurpfvrfifentry) GetParentYangName() string { return "cipUrpfVrfIfTable" }
 
 // CISCOIPURPFMIB_Cipurpfvrftable
 // This table enables indexing URPF drop statistics
 // by Virtual Routing and Forwarding instances.
 type CISCOIPURPFMIB_Cipurpfvrftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry exists for a VRF if and only if the VRF is associated with an
@@ -874,63 +570,24 @@ type CISCOIPURPFMIB_Cipurpfvrftable struct {
     Cipurpfvrfentry []CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry
 }
 
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetFilter() yfilter.YFilter { return cipurpfvrftable.YFilter }
+func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetEntityData() *types.CommonEntityData {
+    cipurpfvrftable.EntityData.YFilter = cipurpfvrftable.YFilter
+    cipurpfvrftable.EntityData.YangName = "cipUrpfVrfTable"
+    cipurpfvrftable.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfvrftable.EntityData.ParentYangName = "CISCO-IP-URPF-MIB"
+    cipurpfvrftable.EntityData.SegmentPath = "cipUrpfVrfTable"
+    cipurpfvrftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfvrftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfvrftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) SetFilter(yf yfilter.YFilter) { cipurpfvrftable.YFilter = yf }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetGoName(yname string) string {
-    if yname == "cipUrpfVrfEntry" { return "Cipurpfvrfentry" }
-    return ""
-}
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetSegmentPath() string {
-    return "cipUrpfVrfTable"
-}
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipUrpfVrfEntry" {
-        for _, c := range cipurpfvrftable.Cipurpfvrfentry {
-            if cipurpfvrftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry{}
-        cipurpfvrftable.Cipurpfvrfentry = append(cipurpfvrftable.Cipurpfvrfentry, child)
-        return &cipurpfvrftable.Cipurpfvrfentry[len(cipurpfvrftable.Cipurpfvrfentry)-1]
-    }
-    return nil
-}
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipurpfvrftable.EntityData.Children = make(map[string]types.YChild)
+    cipurpfvrftable.EntityData.Children["cipUrpfVrfEntry"] = types.YChild{"Cipurpfvrfentry", nil}
     for i := range cipurpfvrftable.Cipurpfvrfentry {
-        children[cipurpfvrftable.Cipurpfvrfentry[i].GetSegmentPath()] = &cipurpfvrftable.Cipurpfvrfentry[i]
+        cipurpfvrftable.EntityData.Children[types.GetSegmentPath(&cipurpfvrftable.Cipurpfvrfentry[i])] = types.YChild{"Cipurpfvrfentry", &cipurpfvrftable.Cipurpfvrfentry[i]}
     }
-    return children
+    cipurpfvrftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipurpfvrftable.EntityData)
 }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetYangName() string { return "cipUrpfVrfTable" }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) SetParent(parent types.Entity) { cipurpfvrftable.parent = parent }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetParent() types.Entity { return cipurpfvrftable.parent }
-
-func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetParentYangName() string { return "CISCO-IP-URPF-MIB" }
 
 // CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry
 // An entry exists for a VRF if and only if the VRF
@@ -938,7 +595,7 @@ func (cipurpfvrftable *CISCOIPURPFMIB_Cipurpfvrftable) GetParentYangName() strin
 // to perform IP URPF checking using the routing table 
 // for that VRF.
 type CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This field is used to specify the VRF Table name.
@@ -946,49 +603,19 @@ type CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry struct {
     Cipurpfvrfname interface{}
 }
 
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetFilter() yfilter.YFilter { return cipurpfvrfentry.YFilter }
+func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetEntityData() *types.CommonEntityData {
+    cipurpfvrfentry.EntityData.YFilter = cipurpfvrfentry.YFilter
+    cipurpfvrfentry.EntityData.YangName = "cipUrpfVrfEntry"
+    cipurpfvrfentry.EntityData.BundleName = "cisco_ios_xe"
+    cipurpfvrfentry.EntityData.ParentYangName = "cipUrpfVrfTable"
+    cipurpfvrfentry.EntityData.SegmentPath = "cipUrpfVrfEntry" + "[cipUrpfVrfName='" + fmt.Sprintf("%v", cipurpfvrfentry.Cipurpfvrfname) + "']"
+    cipurpfvrfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipurpfvrfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipurpfvrfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) SetFilter(yf yfilter.YFilter) { cipurpfvrfentry.YFilter = yf }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetGoName(yname string) string {
-    if yname == "cipUrpfVrfName" { return "Cipurpfvrfname" }
-    return ""
+    cipurpfvrfentry.EntityData.Children = make(map[string]types.YChild)
+    cipurpfvrfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipurpfvrfentry.EntityData.Leafs["cipUrpfVrfName"] = types.YLeaf{"Cipurpfvrfname", cipurpfvrfentry.Cipurpfvrfname}
+    return &(cipurpfvrfentry.EntityData)
 }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetSegmentPath() string {
-    return "cipUrpfVrfEntry" + "[cipUrpfVrfName='" + fmt.Sprintf("%v", cipurpfvrfentry.Cipurpfvrfname) + "']"
-}
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipUrpfVrfName"] = cipurpfvrfentry.Cipurpfvrfname
-    return leafs
-}
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetYangName() string { return "cipUrpfVrfEntry" }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) SetParent(parent types.Entity) { cipurpfvrfentry.parent = parent }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetParent() types.Entity { return cipurpfvrfentry.parent }
-
-func (cipurpfvrfentry *CISCOIPURPFMIB_Cipurpfvrftable_Cipurpfvrfentry) GetParentYangName() string { return "cipUrpfVrfTable" }
 

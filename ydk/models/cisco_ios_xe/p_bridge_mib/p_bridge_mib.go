@@ -34,7 +34,7 @@ const (
 
 // PBRIDGEMIB
 type PBRIDGEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -73,83 +73,30 @@ type PBRIDGEMIB struct {
     Dot1Dportoutboundaccessprioritytable PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable
 }
 
-func (pBRIDGEMIB *PBRIDGEMIB) GetFilter() yfilter.YFilter { return pBRIDGEMIB.YFilter }
+func (pBRIDGEMIB *PBRIDGEMIB) GetEntityData() *types.CommonEntityData {
+    pBRIDGEMIB.EntityData.YFilter = pBRIDGEMIB.YFilter
+    pBRIDGEMIB.EntityData.YangName = "P-BRIDGE-MIB"
+    pBRIDGEMIB.EntityData.BundleName = "cisco_ios_xe"
+    pBRIDGEMIB.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    pBRIDGEMIB.EntityData.SegmentPath = "P-BRIDGE-MIB:P-BRIDGE-MIB"
+    pBRIDGEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pBRIDGEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pBRIDGEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pBRIDGEMIB *PBRIDGEMIB) SetFilter(yf yfilter.YFilter) { pBRIDGEMIB.YFilter = yf }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetGoName(yname string) string {
-    if yname == "dot1dExtBase" { return "Dot1Dextbase" }
-    if yname == "dot1dTpHCPortTable" { return "Dot1Dtphcporttable" }
-    if yname == "dot1dTpPortOverflowTable" { return "Dot1Dtpportoverflowtable" }
-    if yname == "dot1dUserPriorityRegenTable" { return "Dot1Duserpriorityregentable" }
-    if yname == "dot1dTrafficClassTable" { return "Dot1Dtrafficclasstable" }
-    if yname == "dot1dPortOutboundAccessPriorityTable" { return "Dot1Dportoutboundaccessprioritytable" }
-    return ""
+    pBRIDGEMIB.EntityData.Children = make(map[string]types.YChild)
+    pBRIDGEMIB.EntityData.Children["dot1dExtBase"] = types.YChild{"Dot1Dextbase", &pBRIDGEMIB.Dot1Dextbase}
+    pBRIDGEMIB.EntityData.Children["dot1dTpHCPortTable"] = types.YChild{"Dot1Dtphcporttable", &pBRIDGEMIB.Dot1Dtphcporttable}
+    pBRIDGEMIB.EntityData.Children["dot1dTpPortOverflowTable"] = types.YChild{"Dot1Dtpportoverflowtable", &pBRIDGEMIB.Dot1Dtpportoverflowtable}
+    pBRIDGEMIB.EntityData.Children["dot1dUserPriorityRegenTable"] = types.YChild{"Dot1Duserpriorityregentable", &pBRIDGEMIB.Dot1Duserpriorityregentable}
+    pBRIDGEMIB.EntityData.Children["dot1dTrafficClassTable"] = types.YChild{"Dot1Dtrafficclasstable", &pBRIDGEMIB.Dot1Dtrafficclasstable}
+    pBRIDGEMIB.EntityData.Children["dot1dPortOutboundAccessPriorityTable"] = types.YChild{"Dot1Dportoutboundaccessprioritytable", &pBRIDGEMIB.Dot1Dportoutboundaccessprioritytable}
+    pBRIDGEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pBRIDGEMIB.EntityData)
 }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetSegmentPath() string {
-    return "P-BRIDGE-MIB:P-BRIDGE-MIB"
-}
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dExtBase" {
-        return &pBRIDGEMIB.Dot1Dextbase
-    }
-    if childYangName == "dot1dTpHCPortTable" {
-        return &pBRIDGEMIB.Dot1Dtphcporttable
-    }
-    if childYangName == "dot1dTpPortOverflowTable" {
-        return &pBRIDGEMIB.Dot1Dtpportoverflowtable
-    }
-    if childYangName == "dot1dUserPriorityRegenTable" {
-        return &pBRIDGEMIB.Dot1Duserpriorityregentable
-    }
-    if childYangName == "dot1dTrafficClassTable" {
-        return &pBRIDGEMIB.Dot1Dtrafficclasstable
-    }
-    if childYangName == "dot1dPortOutboundAccessPriorityTable" {
-        return &pBRIDGEMIB.Dot1Dportoutboundaccessprioritytable
-    }
-    return nil
-}
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dot1dExtBase"] = &pBRIDGEMIB.Dot1Dextbase
-    children["dot1dTpHCPortTable"] = &pBRIDGEMIB.Dot1Dtphcporttable
-    children["dot1dTpPortOverflowTable"] = &pBRIDGEMIB.Dot1Dtpportoverflowtable
-    children["dot1dUserPriorityRegenTable"] = &pBRIDGEMIB.Dot1Duserpriorityregentable
-    children["dot1dTrafficClassTable"] = &pBRIDGEMIB.Dot1Dtrafficclasstable
-    children["dot1dPortOutboundAccessPriorityTable"] = &pBRIDGEMIB.Dot1Dportoutboundaccessprioritytable
-    return children
-}
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetYangName() string { return "P-BRIDGE-MIB" }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pBRIDGEMIB *PBRIDGEMIB) SetParent(parent types.Entity) { pBRIDGEMIB.parent = parent }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetParent() types.Entity { return pBRIDGEMIB.parent }
-
-func (pBRIDGEMIB *PBRIDGEMIB) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Dextbase
 type PBRIDGEMIB_Dot1Dextbase struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates the optional parts of IEEE 802.1D and 802.1Q that are implemented
@@ -192,62 +139,30 @@ type PBRIDGEMIB_Dot1Dextbase struct {
     Dot1Dgmrpstatus interface{}
 }
 
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetFilter() yfilter.YFilter { return dot1Dextbase.YFilter }
+func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetEntityData() *types.CommonEntityData {
+    dot1Dextbase.EntityData.YFilter = dot1Dextbase.YFilter
+    dot1Dextbase.EntityData.YangName = "dot1dExtBase"
+    dot1Dextbase.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dextbase.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    dot1Dextbase.EntityData.SegmentPath = "dot1dExtBase"
+    dot1Dextbase.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dextbase.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dextbase.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) SetFilter(yf yfilter.YFilter) { dot1Dextbase.YFilter = yf }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetGoName(yname string) string {
-    if yname == "dot1dDeviceCapabilities" { return "Dot1Ddevicecapabilities" }
-    if yname == "dot1dTrafficClassesEnabled" { return "Dot1Dtrafficclassesenabled" }
-    if yname == "dot1dGmrpStatus" { return "Dot1Dgmrpstatus" }
-    return ""
+    dot1Dextbase.EntityData.Children = make(map[string]types.YChild)
+    dot1Dextbase.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dextbase.EntityData.Leafs["dot1dDeviceCapabilities"] = types.YLeaf{"Dot1Ddevicecapabilities", dot1Dextbase.Dot1Ddevicecapabilities}
+    dot1Dextbase.EntityData.Leafs["dot1dTrafficClassesEnabled"] = types.YLeaf{"Dot1Dtrafficclassesenabled", dot1Dextbase.Dot1Dtrafficclassesenabled}
+    dot1Dextbase.EntityData.Leafs["dot1dGmrpStatus"] = types.YLeaf{"Dot1Dgmrpstatus", dot1Dextbase.Dot1Dgmrpstatus}
+    return &(dot1Dextbase.EntityData)
 }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetSegmentPath() string {
-    return "dot1dExtBase"
-}
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dDeviceCapabilities"] = dot1Dextbase.Dot1Ddevicecapabilities
-    leafs["dot1dTrafficClassesEnabled"] = dot1Dextbase.Dot1Dtrafficclassesenabled
-    leafs["dot1dGmrpStatus"] = dot1Dextbase.Dot1Dgmrpstatus
-    return leafs
-}
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetYangName() string { return "dot1dExtBase" }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) SetParent(parent types.Entity) { dot1Dextbase.parent = parent }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetParent() types.Entity { return dot1Dextbase.parent }
-
-func (dot1Dextbase *PBRIDGEMIB_Dot1Dextbase) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Dtphcporttable
 // A table that contains information about every high-
 // capacity port that is associated with this transparent
 // bridge.
 type PBRIDGEMIB_Dot1Dtphcporttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics information for each high-capacity port of a transparent bridge.
@@ -255,69 +170,30 @@ type PBRIDGEMIB_Dot1Dtphcporttable struct {
     Dot1Dtphcportentry []PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry
 }
 
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetFilter() yfilter.YFilter { return dot1Dtphcporttable.YFilter }
+func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetEntityData() *types.CommonEntityData {
+    dot1Dtphcporttable.EntityData.YFilter = dot1Dtphcporttable.YFilter
+    dot1Dtphcporttable.EntityData.YangName = "dot1dTpHCPortTable"
+    dot1Dtphcporttable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtphcporttable.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    dot1Dtphcporttable.EntityData.SegmentPath = "dot1dTpHCPortTable"
+    dot1Dtphcporttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtphcporttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtphcporttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) SetFilter(yf yfilter.YFilter) { dot1Dtphcporttable.YFilter = yf }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetGoName(yname string) string {
-    if yname == "dot1dTpHCPortEntry" { return "Dot1Dtphcportentry" }
-    return ""
-}
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetSegmentPath() string {
-    return "dot1dTpHCPortTable"
-}
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dTpHCPortEntry" {
-        for _, c := range dot1Dtphcporttable.Dot1Dtphcportentry {
-            if dot1Dtphcporttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry{}
-        dot1Dtphcporttable.Dot1Dtphcportentry = append(dot1Dtphcporttable.Dot1Dtphcportentry, child)
-        return &dot1Dtphcporttable.Dot1Dtphcportentry[len(dot1Dtphcporttable.Dot1Dtphcportentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dtphcporttable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtphcporttable.EntityData.Children["dot1dTpHCPortEntry"] = types.YChild{"Dot1Dtphcportentry", nil}
     for i := range dot1Dtphcporttable.Dot1Dtphcportentry {
-        children[dot1Dtphcporttable.Dot1Dtphcportentry[i].GetSegmentPath()] = &dot1Dtphcporttable.Dot1Dtphcportentry[i]
+        dot1Dtphcporttable.EntityData.Children[types.GetSegmentPath(&dot1Dtphcporttable.Dot1Dtphcportentry[i])] = types.YChild{"Dot1Dtphcportentry", &dot1Dtphcporttable.Dot1Dtphcportentry[i]}
     }
-    return children
+    dot1Dtphcporttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dtphcporttable.EntityData)
 }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetYangName() string { return "dot1dTpHCPortTable" }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) SetParent(parent types.Entity) { dot1Dtphcporttable.parent = parent }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetParent() types.Entity { return dot1Dtphcporttable.parent }
-
-func (dot1Dtphcporttable *PBRIDGEMIB_Dot1Dtphcporttable) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry
 // Statistics information for each high-capacity port of a
 // transparent bridge.
 type PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
@@ -345,57 +221,24 @@ type PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry struct {
     Dot1Dtphcportindiscards interface{}
 }
 
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetFilter() yfilter.YFilter { return dot1Dtphcportentry.YFilter }
+func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetEntityData() *types.CommonEntityData {
+    dot1Dtphcportentry.EntityData.YFilter = dot1Dtphcportentry.YFilter
+    dot1Dtphcportentry.EntityData.YangName = "dot1dTpHCPortEntry"
+    dot1Dtphcportentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtphcportentry.EntityData.ParentYangName = "dot1dTpHCPortTable"
+    dot1Dtphcportentry.EntityData.SegmentPath = "dot1dTpHCPortEntry" + "[dot1dTpPort='" + fmt.Sprintf("%v", dot1Dtphcportentry.Dot1Dtpport) + "']"
+    dot1Dtphcportentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtphcportentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtphcportentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) SetFilter(yf yfilter.YFilter) { dot1Dtphcportentry.YFilter = yf }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetGoName(yname string) string {
-    if yname == "dot1dTpPort" { return "Dot1Dtpport" }
-    if yname == "dot1dTpHCPortInFrames" { return "Dot1Dtphcportinframes" }
-    if yname == "dot1dTpHCPortOutFrames" { return "Dot1Dtphcportoutframes" }
-    if yname == "dot1dTpHCPortInDiscards" { return "Dot1Dtphcportindiscards" }
-    return ""
+    dot1Dtphcportentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtphcportentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dtphcportentry.EntityData.Leafs["dot1dTpPort"] = types.YLeaf{"Dot1Dtpport", dot1Dtphcportentry.Dot1Dtpport}
+    dot1Dtphcportentry.EntityData.Leafs["dot1dTpHCPortInFrames"] = types.YLeaf{"Dot1Dtphcportinframes", dot1Dtphcportentry.Dot1Dtphcportinframes}
+    dot1Dtphcportentry.EntityData.Leafs["dot1dTpHCPortOutFrames"] = types.YLeaf{"Dot1Dtphcportoutframes", dot1Dtphcportentry.Dot1Dtphcportoutframes}
+    dot1Dtphcportentry.EntityData.Leafs["dot1dTpHCPortInDiscards"] = types.YLeaf{"Dot1Dtphcportindiscards", dot1Dtphcportentry.Dot1Dtphcportindiscards}
+    return &(dot1Dtphcportentry.EntityData)
 }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetSegmentPath() string {
-    return "dot1dTpHCPortEntry" + "[dot1dTpPort='" + fmt.Sprintf("%v", dot1Dtphcportentry.Dot1Dtpport) + "']"
-}
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dTpPort"] = dot1Dtphcportentry.Dot1Dtpport
-    leafs["dot1dTpHCPortInFrames"] = dot1Dtphcportentry.Dot1Dtphcportinframes
-    leafs["dot1dTpHCPortOutFrames"] = dot1Dtphcportentry.Dot1Dtphcportoutframes
-    leafs["dot1dTpHCPortInDiscards"] = dot1Dtphcportentry.Dot1Dtphcportindiscards
-    return leafs
-}
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetYangName() string { return "dot1dTpHCPortEntry" }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) SetParent(parent types.Entity) { dot1Dtphcportentry.parent = parent }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetParent() types.Entity { return dot1Dtphcportentry.parent }
-
-func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetParentYangName() string { return "dot1dTpHCPortTable" }
 
 // PBRIDGEMIB_Dot1Dtpportoverflowtable
 // A table that contains the most-significant bits of
@@ -412,7 +255,7 @@ func (dot1Dtphcportentry *PBRIDGEMIB_Dot1Dtphcporttable_Dot1Dtphcportentry) GetP
 // within the same varbindlist, when interpreting the results of
 // a request or asynchronous notification.
 type PBRIDGEMIB_Dot1Dtpportoverflowtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The most significant bits of statistics counters for a high- capacity
@@ -423,63 +266,24 @@ type PBRIDGEMIB_Dot1Dtpportoverflowtable struct {
     Dot1Dtpportoverflowentry []PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry
 }
 
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetFilter() yfilter.YFilter { return dot1Dtpportoverflowtable.YFilter }
+func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetEntityData() *types.CommonEntityData {
+    dot1Dtpportoverflowtable.EntityData.YFilter = dot1Dtpportoverflowtable.YFilter
+    dot1Dtpportoverflowtable.EntityData.YangName = "dot1dTpPortOverflowTable"
+    dot1Dtpportoverflowtable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtpportoverflowtable.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    dot1Dtpportoverflowtable.EntityData.SegmentPath = "dot1dTpPortOverflowTable"
+    dot1Dtpportoverflowtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtpportoverflowtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtpportoverflowtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) SetFilter(yf yfilter.YFilter) { dot1Dtpportoverflowtable.YFilter = yf }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetGoName(yname string) string {
-    if yname == "dot1dTpPortOverflowEntry" { return "Dot1Dtpportoverflowentry" }
-    return ""
-}
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetSegmentPath() string {
-    return "dot1dTpPortOverflowTable"
-}
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dTpPortOverflowEntry" {
-        for _, c := range dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry {
-            if dot1Dtpportoverflowtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry{}
-        dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry = append(dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry, child)
-        return &dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry[len(dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dtpportoverflowtable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtpportoverflowtable.EntityData.Children["dot1dTpPortOverflowEntry"] = types.YChild{"Dot1Dtpportoverflowentry", nil}
     for i := range dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry {
-        children[dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry[i].GetSegmentPath()] = &dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry[i]
+        dot1Dtpportoverflowtable.EntityData.Children[types.GetSegmentPath(&dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry[i])] = types.YChild{"Dot1Dtpportoverflowentry", &dot1Dtpportoverflowtable.Dot1Dtpportoverflowentry[i]}
     }
-    return children
+    dot1Dtpportoverflowtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dtpportoverflowtable.EntityData)
 }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetYangName() string { return "dot1dTpPortOverflowTable" }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) SetParent(parent types.Entity) { dot1Dtpportoverflowtable.parent = parent }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetParent() types.Entity { return dot1Dtpportoverflowtable.parent }
-
-func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry
 // The most significant bits of statistics counters for a high-
@@ -487,7 +291,7 @@ func (dot1Dtpportoverflowtable *PBRIDGEMIB_Dot1Dtpportoverflowtable) GetParentYa
 // associated with a corresponding object in dot1dTpPortTable
 // that indicates the least significant bits of the counter.
 type PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
@@ -507,57 +311,24 @@ type PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry struct {
     Dot1Dtpportinoverflowdiscards interface{}
 }
 
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetFilter() yfilter.YFilter { return dot1Dtpportoverflowentry.YFilter }
+func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetEntityData() *types.CommonEntityData {
+    dot1Dtpportoverflowentry.EntityData.YFilter = dot1Dtpportoverflowentry.YFilter
+    dot1Dtpportoverflowentry.EntityData.YangName = "dot1dTpPortOverflowEntry"
+    dot1Dtpportoverflowentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtpportoverflowentry.EntityData.ParentYangName = "dot1dTpPortOverflowTable"
+    dot1Dtpportoverflowentry.EntityData.SegmentPath = "dot1dTpPortOverflowEntry" + "[dot1dTpPort='" + fmt.Sprintf("%v", dot1Dtpportoverflowentry.Dot1Dtpport) + "']"
+    dot1Dtpportoverflowentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtpportoverflowentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtpportoverflowentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) SetFilter(yf yfilter.YFilter) { dot1Dtpportoverflowentry.YFilter = yf }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetGoName(yname string) string {
-    if yname == "dot1dTpPort" { return "Dot1Dtpport" }
-    if yname == "dot1dTpPortInOverflowFrames" { return "Dot1Dtpportinoverflowframes" }
-    if yname == "dot1dTpPortOutOverflowFrames" { return "Dot1Dtpportoutoverflowframes" }
-    if yname == "dot1dTpPortInOverflowDiscards" { return "Dot1Dtpportinoverflowdiscards" }
-    return ""
+    dot1Dtpportoverflowentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtpportoverflowentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dtpportoverflowentry.EntityData.Leafs["dot1dTpPort"] = types.YLeaf{"Dot1Dtpport", dot1Dtpportoverflowentry.Dot1Dtpport}
+    dot1Dtpportoverflowentry.EntityData.Leafs["dot1dTpPortInOverflowFrames"] = types.YLeaf{"Dot1Dtpportinoverflowframes", dot1Dtpportoverflowentry.Dot1Dtpportinoverflowframes}
+    dot1Dtpportoverflowentry.EntityData.Leafs["dot1dTpPortOutOverflowFrames"] = types.YLeaf{"Dot1Dtpportoutoverflowframes", dot1Dtpportoverflowentry.Dot1Dtpportoutoverflowframes}
+    dot1Dtpportoverflowentry.EntityData.Leafs["dot1dTpPortInOverflowDiscards"] = types.YLeaf{"Dot1Dtpportinoverflowdiscards", dot1Dtpportoverflowentry.Dot1Dtpportinoverflowdiscards}
+    return &(dot1Dtpportoverflowentry.EntityData)
 }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetSegmentPath() string {
-    return "dot1dTpPortOverflowEntry" + "[dot1dTpPort='" + fmt.Sprintf("%v", dot1Dtpportoverflowentry.Dot1Dtpport) + "']"
-}
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dTpPort"] = dot1Dtpportoverflowentry.Dot1Dtpport
-    leafs["dot1dTpPortInOverflowFrames"] = dot1Dtpportoverflowentry.Dot1Dtpportinoverflowframes
-    leafs["dot1dTpPortOutOverflowFrames"] = dot1Dtpportoverflowentry.Dot1Dtpportoutoverflowframes
-    leafs["dot1dTpPortInOverflowDiscards"] = dot1Dtpportoverflowentry.Dot1Dtpportinoverflowdiscards
-    return leafs
-}
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetYangName() string { return "dot1dTpPortOverflowEntry" }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) SetParent(parent types.Entity) { dot1Dtpportoverflowentry.parent = parent }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetParent() types.Entity { return dot1Dtpportoverflowentry.parent }
-
-func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpportoverflowentry) GetParentYangName() string { return "dot1dTpPortOverflowTable" }
 
 // PBRIDGEMIB_Dot1Duserpriorityregentable
 // A list of Regenerated User Priorities for each received
@@ -568,7 +339,7 @@ func (dot1Dtpportoverflowentry *PBRIDGEMIB_Dot1Dtpportoverflowtable_Dot1Dtpporto
 // values for Regenerated User Priorities are the same as
 // the User Priorities.
 type PBRIDGEMIB_Dot1Duserpriorityregentable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A mapping of incoming User Priority to a Regenerated User Priority. The
@@ -577,69 +348,30 @@ type PBRIDGEMIB_Dot1Duserpriorityregentable struct {
     Dot1Duserpriorityregenentry []PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry
 }
 
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetFilter() yfilter.YFilter { return dot1Duserpriorityregentable.YFilter }
+func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetEntityData() *types.CommonEntityData {
+    dot1Duserpriorityregentable.EntityData.YFilter = dot1Duserpriorityregentable.YFilter
+    dot1Duserpriorityregentable.EntityData.YangName = "dot1dUserPriorityRegenTable"
+    dot1Duserpriorityregentable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Duserpriorityregentable.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    dot1Duserpriorityregentable.EntityData.SegmentPath = "dot1dUserPriorityRegenTable"
+    dot1Duserpriorityregentable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Duserpriorityregentable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Duserpriorityregentable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) SetFilter(yf yfilter.YFilter) { dot1Duserpriorityregentable.YFilter = yf }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetGoName(yname string) string {
-    if yname == "dot1dUserPriorityRegenEntry" { return "Dot1Duserpriorityregenentry" }
-    return ""
-}
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetSegmentPath() string {
-    return "dot1dUserPriorityRegenTable"
-}
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dUserPriorityRegenEntry" {
-        for _, c := range dot1Duserpriorityregentable.Dot1Duserpriorityregenentry {
-            if dot1Duserpriorityregentable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry{}
-        dot1Duserpriorityregentable.Dot1Duserpriorityregenentry = append(dot1Duserpriorityregentable.Dot1Duserpriorityregenentry, child)
-        return &dot1Duserpriorityregentable.Dot1Duserpriorityregenentry[len(dot1Duserpriorityregentable.Dot1Duserpriorityregenentry)-1]
-    }
-    return nil
-}
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Duserpriorityregentable.EntityData.Children = make(map[string]types.YChild)
+    dot1Duserpriorityregentable.EntityData.Children["dot1dUserPriorityRegenEntry"] = types.YChild{"Dot1Duserpriorityregenentry", nil}
     for i := range dot1Duserpriorityregentable.Dot1Duserpriorityregenentry {
-        children[dot1Duserpriorityregentable.Dot1Duserpriorityregenentry[i].GetSegmentPath()] = &dot1Duserpriorityregentable.Dot1Duserpriorityregenentry[i]
+        dot1Duserpriorityregentable.EntityData.Children[types.GetSegmentPath(&dot1Duserpriorityregentable.Dot1Duserpriorityregenentry[i])] = types.YChild{"Dot1Duserpriorityregenentry", &dot1Duserpriorityregentable.Dot1Duserpriorityregenentry[i]}
     }
-    return children
+    dot1Duserpriorityregentable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Duserpriorityregentable.EntityData)
 }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetYangName() string { return "dot1dUserPriorityRegenTable" }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) SetParent(parent types.Entity) { dot1Duserpriorityregentable.parent = parent }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetParent() types.Entity { return dot1Duserpriorityregentable.parent }
-
-func (dot1Duserpriorityregentable *PBRIDGEMIB_Dot1Duserpriorityregentable) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry
 // A mapping of incoming User Priority to a Regenerated
 // User Priority.
 type PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
@@ -657,62 +389,30 @@ type PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry struct {
     Dot1Dregenuserpriority interface{}
 }
 
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetFilter() yfilter.YFilter { return dot1Duserpriorityregenentry.YFilter }
+func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetEntityData() *types.CommonEntityData {
+    dot1Duserpriorityregenentry.EntityData.YFilter = dot1Duserpriorityregenentry.YFilter
+    dot1Duserpriorityregenentry.EntityData.YangName = "dot1dUserPriorityRegenEntry"
+    dot1Duserpriorityregenentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Duserpriorityregenentry.EntityData.ParentYangName = "dot1dUserPriorityRegenTable"
+    dot1Duserpriorityregenentry.EntityData.SegmentPath = "dot1dUserPriorityRegenEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Duserpriorityregenentry.Dot1Dbaseport) + "']" + "[dot1dUserPriority='" + fmt.Sprintf("%v", dot1Duserpriorityregenentry.Dot1Duserpriority) + "']"
+    dot1Duserpriorityregenentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Duserpriorityregenentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Duserpriorityregenentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) SetFilter(yf yfilter.YFilter) { dot1Duserpriorityregenentry.YFilter = yf }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetGoName(yname string) string {
-    if yname == "dot1dBasePort" { return "Dot1Dbaseport" }
-    if yname == "dot1dUserPriority" { return "Dot1Duserpriority" }
-    if yname == "dot1dRegenUserPriority" { return "Dot1Dregenuserpriority" }
-    return ""
+    dot1Duserpriorityregenentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Duserpriorityregenentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Duserpriorityregenentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Duserpriorityregenentry.Dot1Dbaseport}
+    dot1Duserpriorityregenentry.EntityData.Leafs["dot1dUserPriority"] = types.YLeaf{"Dot1Duserpriority", dot1Duserpriorityregenentry.Dot1Duserpriority}
+    dot1Duserpriorityregenentry.EntityData.Leafs["dot1dRegenUserPriority"] = types.YLeaf{"Dot1Dregenuserpriority", dot1Duserpriorityregenentry.Dot1Dregenuserpriority}
+    return &(dot1Duserpriorityregenentry.EntityData)
 }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetSegmentPath() string {
-    return "dot1dUserPriorityRegenEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Duserpriorityregenentry.Dot1Dbaseport) + "']" + "[dot1dUserPriority='" + fmt.Sprintf("%v", dot1Duserpriorityregenentry.Dot1Duserpriority) + "']"
-}
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dBasePort"] = dot1Duserpriorityregenentry.Dot1Dbaseport
-    leafs["dot1dUserPriority"] = dot1Duserpriorityregenentry.Dot1Duserpriority
-    leafs["dot1dRegenUserPriority"] = dot1Duserpriorityregenentry.Dot1Dregenuserpriority
-    return leafs
-}
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetYangName() string { return "dot1dUserPriorityRegenEntry" }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) SetParent(parent types.Entity) { dot1Duserpriorityregenentry.parent = parent }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetParent() types.Entity { return dot1Duserpriorityregenentry.parent }
-
-func (dot1Duserpriorityregenentry *PBRIDGEMIB_Dot1Duserpriorityregentable_Dot1Duserpriorityregenentry) GetParentYangName() string { return "dot1dUserPriorityRegenTable" }
 
 // PBRIDGEMIB_Dot1Dtrafficclasstable
 // A table mapping evaluated User Priority to Traffic
 // Class, for forwarding by the bridge.  Traffic class is a
 // number in the range (0..(dot1dPortNumTrafficClasses-1)).
 type PBRIDGEMIB_Dot1Dtrafficclasstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // User Priority to Traffic Class mapping. The type is slice of
@@ -720,68 +420,29 @@ type PBRIDGEMIB_Dot1Dtrafficclasstable struct {
     Dot1Dtrafficclassentry []PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry
 }
 
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetFilter() yfilter.YFilter { return dot1Dtrafficclasstable.YFilter }
+func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetEntityData() *types.CommonEntityData {
+    dot1Dtrafficclasstable.EntityData.YFilter = dot1Dtrafficclasstable.YFilter
+    dot1Dtrafficclasstable.EntityData.YangName = "dot1dTrafficClassTable"
+    dot1Dtrafficclasstable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtrafficclasstable.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    dot1Dtrafficclasstable.EntityData.SegmentPath = "dot1dTrafficClassTable"
+    dot1Dtrafficclasstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtrafficclasstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtrafficclasstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) SetFilter(yf yfilter.YFilter) { dot1Dtrafficclasstable.YFilter = yf }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetGoName(yname string) string {
-    if yname == "dot1dTrafficClassEntry" { return "Dot1Dtrafficclassentry" }
-    return ""
-}
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetSegmentPath() string {
-    return "dot1dTrafficClassTable"
-}
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dTrafficClassEntry" {
-        for _, c := range dot1Dtrafficclasstable.Dot1Dtrafficclassentry {
-            if dot1Dtrafficclasstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry{}
-        dot1Dtrafficclasstable.Dot1Dtrafficclassentry = append(dot1Dtrafficclasstable.Dot1Dtrafficclassentry, child)
-        return &dot1Dtrafficclasstable.Dot1Dtrafficclassentry[len(dot1Dtrafficclasstable.Dot1Dtrafficclassentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dtrafficclasstable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtrafficclasstable.EntityData.Children["dot1dTrafficClassEntry"] = types.YChild{"Dot1Dtrafficclassentry", nil}
     for i := range dot1Dtrafficclasstable.Dot1Dtrafficclassentry {
-        children[dot1Dtrafficclasstable.Dot1Dtrafficclassentry[i].GetSegmentPath()] = &dot1Dtrafficclasstable.Dot1Dtrafficclassentry[i]
+        dot1Dtrafficclasstable.EntityData.Children[types.GetSegmentPath(&dot1Dtrafficclasstable.Dot1Dtrafficclassentry[i])] = types.YChild{"Dot1Dtrafficclassentry", &dot1Dtrafficclasstable.Dot1Dtrafficclassentry[i]}
     }
-    return children
+    dot1Dtrafficclasstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dtrafficclasstable.EntityData)
 }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetYangName() string { return "dot1dTrafficClassTable" }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) SetParent(parent types.Entity) { dot1Dtrafficclasstable.parent = parent }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetParent() types.Entity { return dot1Dtrafficclasstable.parent }
-
-func (dot1Dtrafficclasstable *PBRIDGEMIB_Dot1Dtrafficclasstable) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry
 // User Priority to Traffic Class mapping.
 type PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
@@ -804,62 +465,30 @@ type PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry struct {
     Dot1Dtrafficclass interface{}
 }
 
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetFilter() yfilter.YFilter { return dot1Dtrafficclassentry.YFilter }
+func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetEntityData() *types.CommonEntityData {
+    dot1Dtrafficclassentry.EntityData.YFilter = dot1Dtrafficclassentry.YFilter
+    dot1Dtrafficclassentry.EntityData.YangName = "dot1dTrafficClassEntry"
+    dot1Dtrafficclassentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dtrafficclassentry.EntityData.ParentYangName = "dot1dTrafficClassTable"
+    dot1Dtrafficclassentry.EntityData.SegmentPath = "dot1dTrafficClassEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Dtrafficclassentry.Dot1Dbaseport) + "']" + "[dot1dTrafficClassPriority='" + fmt.Sprintf("%v", dot1Dtrafficclassentry.Dot1Dtrafficclasspriority) + "']"
+    dot1Dtrafficclassentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dtrafficclassentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dtrafficclassentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) SetFilter(yf yfilter.YFilter) { dot1Dtrafficclassentry.YFilter = yf }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetGoName(yname string) string {
-    if yname == "dot1dBasePort" { return "Dot1Dbaseport" }
-    if yname == "dot1dTrafficClassPriority" { return "Dot1Dtrafficclasspriority" }
-    if yname == "dot1dTrafficClass" { return "Dot1Dtrafficclass" }
-    return ""
+    dot1Dtrafficclassentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dtrafficclassentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dtrafficclassentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Dtrafficclassentry.Dot1Dbaseport}
+    dot1Dtrafficclassentry.EntityData.Leafs["dot1dTrafficClassPriority"] = types.YLeaf{"Dot1Dtrafficclasspriority", dot1Dtrafficclassentry.Dot1Dtrafficclasspriority}
+    dot1Dtrafficclassentry.EntityData.Leafs["dot1dTrafficClass"] = types.YLeaf{"Dot1Dtrafficclass", dot1Dtrafficclassentry.Dot1Dtrafficclass}
+    return &(dot1Dtrafficclassentry.EntityData)
 }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetSegmentPath() string {
-    return "dot1dTrafficClassEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Dtrafficclassentry.Dot1Dbaseport) + "']" + "[dot1dTrafficClassPriority='" + fmt.Sprintf("%v", dot1Dtrafficclassentry.Dot1Dtrafficclasspriority) + "']"
-}
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dBasePort"] = dot1Dtrafficclassentry.Dot1Dbaseport
-    leafs["dot1dTrafficClassPriority"] = dot1Dtrafficclassentry.Dot1Dtrafficclasspriority
-    leafs["dot1dTrafficClass"] = dot1Dtrafficclassentry.Dot1Dtrafficclass
-    return leafs
-}
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetYangName() string { return "dot1dTrafficClassEntry" }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) SetParent(parent types.Entity) { dot1Dtrafficclassentry.parent = parent }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetParent() types.Entity { return dot1Dtrafficclassentry.parent }
-
-func (dot1Dtrafficclassentry *PBRIDGEMIB_Dot1Dtrafficclasstable_Dot1Dtrafficclassentry) GetParentYangName() string { return "dot1dTrafficClassTable" }
 
 // PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable
 // A table mapping Regenerated User Priority to Outbound
 // Access Priority.  This is a fixed mapping for all port
 // types, with two options for 802.5 Token Ring.
 type PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Regenerated User Priority to Outbound Access Priority mapping. The type is
@@ -868,69 +497,30 @@ type PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable struct {
     Dot1Dportoutboundaccesspriorityentry []PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry
 }
 
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetFilter() yfilter.YFilter { return dot1Dportoutboundaccessprioritytable.YFilter }
+func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetEntityData() *types.CommonEntityData {
+    dot1Dportoutboundaccessprioritytable.EntityData.YFilter = dot1Dportoutboundaccessprioritytable.YFilter
+    dot1Dportoutboundaccessprioritytable.EntityData.YangName = "dot1dPortOutboundAccessPriorityTable"
+    dot1Dportoutboundaccessprioritytable.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dportoutboundaccessprioritytable.EntityData.ParentYangName = "P-BRIDGE-MIB"
+    dot1Dportoutboundaccessprioritytable.EntityData.SegmentPath = "dot1dPortOutboundAccessPriorityTable"
+    dot1Dportoutboundaccessprioritytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dportoutboundaccessprioritytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dportoutboundaccessprioritytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) SetFilter(yf yfilter.YFilter) { dot1Dportoutboundaccessprioritytable.YFilter = yf }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetGoName(yname string) string {
-    if yname == "dot1dPortOutboundAccessPriorityEntry" { return "Dot1Dportoutboundaccesspriorityentry" }
-    return ""
-}
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetSegmentPath() string {
-    return "dot1dPortOutboundAccessPriorityTable"
-}
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot1dPortOutboundAccessPriorityEntry" {
-        for _, c := range dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry {
-            if dot1Dportoutboundaccessprioritytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry{}
-        dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry = append(dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry, child)
-        return &dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry[len(dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry)-1]
-    }
-    return nil
-}
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot1Dportoutboundaccessprioritytable.EntityData.Children = make(map[string]types.YChild)
+    dot1Dportoutboundaccessprioritytable.EntityData.Children["dot1dPortOutboundAccessPriorityEntry"] = types.YChild{"Dot1Dportoutboundaccesspriorityentry", nil}
     for i := range dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry {
-        children[dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry[i].GetSegmentPath()] = &dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry[i]
+        dot1Dportoutboundaccessprioritytable.EntityData.Children[types.GetSegmentPath(&dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry[i])] = types.YChild{"Dot1Dportoutboundaccesspriorityentry", &dot1Dportoutboundaccessprioritytable.Dot1Dportoutboundaccesspriorityentry[i]}
     }
-    return children
+    dot1Dportoutboundaccessprioritytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot1Dportoutboundaccessprioritytable.EntityData)
 }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetYangName() string { return "dot1dPortOutboundAccessPriorityTable" }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) SetParent(parent types.Entity) { dot1Dportoutboundaccessprioritytable.parent = parent }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetParent() types.Entity { return dot1Dportoutboundaccessprioritytable.parent }
-
-func (dot1Dportoutboundaccessprioritytable *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable) GetParentYangName() string { return "P-BRIDGE-MIB" }
 
 // PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry
 // Regenerated User Priority to Outbound Access Priority
 // mapping.
 type PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..65535. Refers to
@@ -946,53 +536,21 @@ type PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccessprio
     Dot1Dportoutboundaccesspriority interface{}
 }
 
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetFilter() yfilter.YFilter { return dot1Dportoutboundaccesspriorityentry.YFilter }
+func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetEntityData() *types.CommonEntityData {
+    dot1Dportoutboundaccesspriorityentry.EntityData.YFilter = dot1Dportoutboundaccesspriorityentry.YFilter
+    dot1Dportoutboundaccesspriorityentry.EntityData.YangName = "dot1dPortOutboundAccessPriorityEntry"
+    dot1Dportoutboundaccesspriorityentry.EntityData.BundleName = "cisco_ios_xe"
+    dot1Dportoutboundaccesspriorityentry.EntityData.ParentYangName = "dot1dPortOutboundAccessPriorityTable"
+    dot1Dportoutboundaccesspriorityentry.EntityData.SegmentPath = "dot1dPortOutboundAccessPriorityEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Dportoutboundaccesspriorityentry.Dot1Dbaseport) + "']" + "[dot1dRegenUserPriority='" + fmt.Sprintf("%v", dot1Dportoutboundaccesspriorityentry.Dot1Dregenuserpriority) + "']"
+    dot1Dportoutboundaccesspriorityentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot1Dportoutboundaccesspriorityentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot1Dportoutboundaccesspriorityentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) SetFilter(yf yfilter.YFilter) { dot1Dportoutboundaccesspriorityentry.YFilter = yf }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetGoName(yname string) string {
-    if yname == "dot1dBasePort" { return "Dot1Dbaseport" }
-    if yname == "dot1dRegenUserPriority" { return "Dot1Dregenuserpriority" }
-    if yname == "dot1dPortOutboundAccessPriority" { return "Dot1Dportoutboundaccesspriority" }
-    return ""
+    dot1Dportoutboundaccesspriorityentry.EntityData.Children = make(map[string]types.YChild)
+    dot1Dportoutboundaccesspriorityentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot1Dportoutboundaccesspriorityentry.EntityData.Leafs["dot1dBasePort"] = types.YLeaf{"Dot1Dbaseport", dot1Dportoutboundaccesspriorityentry.Dot1Dbaseport}
+    dot1Dportoutboundaccesspriorityentry.EntityData.Leafs["dot1dRegenUserPriority"] = types.YLeaf{"Dot1Dregenuserpriority", dot1Dportoutboundaccesspriorityentry.Dot1Dregenuserpriority}
+    dot1Dportoutboundaccesspriorityentry.EntityData.Leafs["dot1dPortOutboundAccessPriority"] = types.YLeaf{"Dot1Dportoutboundaccesspriority", dot1Dportoutboundaccesspriorityentry.Dot1Dportoutboundaccesspriority}
+    return &(dot1Dportoutboundaccesspriorityentry.EntityData)
 }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetSegmentPath() string {
-    return "dot1dPortOutboundAccessPriorityEntry" + "[dot1dBasePort='" + fmt.Sprintf("%v", dot1Dportoutboundaccesspriorityentry.Dot1Dbaseport) + "']" + "[dot1dRegenUserPriority='" + fmt.Sprintf("%v", dot1Dportoutboundaccesspriorityentry.Dot1Dregenuserpriority) + "']"
-}
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot1dBasePort"] = dot1Dportoutboundaccesspriorityentry.Dot1Dbaseport
-    leafs["dot1dRegenUserPriority"] = dot1Dportoutboundaccesspriorityentry.Dot1Dregenuserpriority
-    leafs["dot1dPortOutboundAccessPriority"] = dot1Dportoutboundaccesspriorityentry.Dot1Dportoutboundaccesspriority
-    return leafs
-}
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetYangName() string { return "dot1dPortOutboundAccessPriorityEntry" }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) SetParent(parent types.Entity) { dot1Dportoutboundaccesspriorityentry.parent = parent }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetParent() types.Entity { return dot1Dportoutboundaccesspriorityentry.parent }
-
-func (dot1Dportoutboundaccesspriorityentry *PBRIDGEMIB_Dot1Dportoutboundaccessprioritytable_Dot1Dportoutboundaccesspriorityentry) GetParentYangName() string { return "dot1dPortOutboundAccessPriorityTable" }
 

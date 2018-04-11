@@ -47,12 +47,60 @@ module Cisco-IOS-XE-switch {
 
   description
     "Cisco XE Native Swtich Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-01-10 {
+     description
+       "Added command change switchport vepa enabled";
+  }
+
+  revision 2018-01-09 {
+     description
+       "Added annotations to openflow controller model to require entering all controller config parameters on delete";
+  }
+
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "Added 100GE Interface";
+  }
+
+  revision 2017-11-08 {
+    description
+      "Added virtual-ethernet-bridge option";
+  }
+  revision 2017-09-21 {
+    description
+      "Added macsec without option";
+  }
+  revision 2017-09-20 {
+    description
+      "Added macsec option";
+  }
+  revision 2017-08-09 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+  revision 2017-08-09 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-07-01 {
+    description
+      "Updated access-group for mac acl mapping";
+  }
+  revision 2017-05-10 {
+    description
+      "added openflow config";
+  }
   revision 2017-03-31 {
     description
       "Move interface LLDP configs from switch to common";
@@ -62,7 +110,189 @@ module Cisco-IOS-XE-switch {
       "Initial revision";
   }
 
-
+  grouping config-openflow-grouping {
+    container feature {
+      description 
+        "feature enable config";
+      leaf openflow {
+        description
+	  "feature OpenFlow Plug-in enable config";
+        type empty;
+      }
+    }
+    container openflow {
+      description 
+        "OpenFlow configuration";
+      list switch {
+        description
+          "OpenFlow Plug-in logical switch config";
+        key number;
+	leaf number {
+	  type uint32; 
+	}
+	leaf pipeline {
+	  description
+	    "OpenFlow Plug-in pipeline id config";
+          type uint32; 
+        }
+	container controller {
+	  description 
+	    "set OpenFlow controller connection info";
+          list ipv4 {
+	    description
+	      "OpenFlow controller IPv4 protocol";
+            key address;
+	    leaf address {
+	      description
+	        "IPv4 Address of the OpenFlow controller";
+              type inet:ipv4-address;
+	    }
+	    list port {
+	      description
+	        "OpenFlow controller TCP port (default is 6653)";
+	      key number;
+	      leaf number {
+	        type uint16; 
+	      }
+	      list vrf {
+	        description
+	          "OpenFlow controller vrf";
+	        key name;
+	        leaf name {
+	          type string;
+                }
+	        leaf security {
+	          description
+	            "OpenFlow controller connection security";
+                  type enumeration {
+	            enum none;
+		    enum tls;
+                  }
+                }
+              }
+	    }
+          }
+        }
+	container of-port {
+	  description
+	    "OpenFlow port/interface";
+          list interface {
+	    description
+	      "OpenFlow Plug-in interface";
+            key name;
+	    leaf name {
+              type string;
+            }
+          }
+        }
+	leaf datapath-id {
+	  description 
+	    "Set OpenFlow logical switch datapath-id";
+          type string;
+        } 
+	leaf protocol-version {
+	  description 
+	    "Set OpenFlow protocol version";
+          type enumeration {
+	    enum "1.0";
+	    enum "1.3";
+	    enum "negotiate";
+          }
+        }
+	leaf max-backoff {
+	  description
+	    "OpenFlow Plug-in max backoff in seconds";
+          type uint16 {
+	    range "1..65535";
+	  }
+        }
+        leaf probe-interval {
+	  description
+	    "OpenFlow Plug-in probe interval in seconds";
+          type uint16 {
+	    range "5..65535";
+	  }
+        }
+	container rate-limit {
+	  description
+	    "OpenFlow rate limit to controller";
+          leaf packet_in {
+	    description
+	      "packet in rate (default is 0, indefinite)";
+            type uint16 {
+	      range "1..65535";
+	    }
+          }
+	  leaf burst {
+	    description
+	      "Maximum number of packets to controller (default is 0, indefinite)";
+            type uint16 {
+	      range "1..65535";
+	    }
+          }
+        }
+	leaf shutdown {
+	  description
+	    "shutdown OpenFlow Plug-in logical switch";
+          type empty;
+        }
+	container statistics {
+	  description 
+	    "Statistics configuration";
+          leaf collection-interval {
+	    description
+	      "OpenFlow flow statistics collection interval in seconds";
+            type uint8 {
+	      range "0..16";
+            }
+          }
+        }
+	leaf dataplane-default {
+	  description
+	    "set OpenFlow Plug-in dataplane config";
+          type enumeration {
+	    enum "secure";
+	    enum "standalone";
+	  }
+        }
+	leaf default-miss {
+	  description 
+	    "Specifies behavior if a packet does not match any controller installed flow";
+          type enumeration {
+	    enum "continue-drop";
+	    enum "drop";
+          }
+        }
+	container logging {
+	  description
+	    "Enable logging";
+          leaf flow-modify {
+	    description
+	      "Enable logging for flow-modify";
+            type empty;
+          }
+        }
+	container tls {
+	  description
+	    "OpenFlow switch tls";
+          container trustpoint {
+	    description
+	      "tls trust point";
+	    leaf local {
+	      description
+	        "tls local trust point";
+              type string;
+            }
+	    leaf remote {
+	      description
+	        "tls remote trust point";
+              type string;
+            }
+          }
+        }
+      }
+    }
+  }
   grouping config-system-grouping {
     container debug {
       description
@@ -698,6 +928,16 @@ module Cisco-IOS-XE-switch {
           }
         }
       }
+      // interface * / switchport vepa enabled
+      container vepa {
+        description
+          "Reflective relay configuration";
+        leaf enabled {
+          description
+            "Enable reflective relay";
+            type empty;
+        }
+      }
   }
 
   grouping config-interface-switch-grouping {
@@ -788,7 +1028,98 @@ module Cisco-IOS-XE-switch {
 	      "Apply an activity check before turning off power 
           to this PoE port";
         type empty;	 
-      } 
+      }
+      list level {
+        description
+          "Set the EnergyWise level of this interface 
+          or attached entity";
+        key "range";
+        leaf range {
+          type uint8 {
+            range "0..10";
+          }
+        }
+        container recurrence {
+          description
+            "Specify that this level setting should 
+            recur at the specified time";
+          list importance {
+            description
+              "Specify the importance at which the event 
+              should be sent when it recurs";
+            key "range";
+            leaf range {
+              type uint16 {
+                range "1..100";
+              }
+            }
+            container at {
+              description
+                "Specify the time(s) this level setting should occur";
+              leaf minute {
+                description
+                  "cron format of minute(s)";
+                type union {
+                  type uint16 {
+                    range "0..59";
+                  }
+                  type string {
+                    pattern "[*].*";
+                  }
+                }
+              }
+              leaf hour {
+                description
+                  "cron format of hour(s)";
+                type union {
+                  type uint16 {
+                    range "0..23";
+                  }
+                  type string {
+                    pattern "[*].*";
+                  }
+                }
+              }
+              leaf day {
+                description
+                  "cron format of day(s) of month";
+                type union {
+                  type uint16 {
+                    range "1..31";
+                  }
+                  type string {
+                    pattern "[*].*";
+                  }
+                }
+              }
+              leaf month {
+                description
+                  "cron format of month(s)";
+                type union {
+                  type uint16 {
+                    range "1..12";
+                  }
+                  type string {
+                    pattern "[*].*";
+                  }
+                }
+              }
+              leaf weekday {
+                description
+                  "cron format of weekday(s)";
+                type union {
+                  type uint16 {
+                    range "0..7";
+                  }
+                  type string {
+                    pattern "[*].*";
+                  }
+                }
+              }
+            }
+          }
+        }
+      } 		
     }
     container location {
       description "Interface location information";
@@ -819,19 +1150,17 @@ module Cisco-IOS-XE-switch {
 
     container mac {
       description "MAC interface commands";
-      container access-group {
+      list access-group {
         description "MAC access-group configuration commands";
-        container ACL-name {
-          description "ACL name";
-          leaf acl-name{
-            type string;
+        key direction;
+        leaf direction {
+          type enumeration {
+            enum "in";
+            enum "out";
           }
-          leaf apply-to{
-            type enumeration{
-              enum "in";
-              enum "out";
-            }
-          }
+        }
+        leaf acl-name {
+          type string;
         }
       }
     }
@@ -847,6 +1176,24 @@ module Cisco-IOS-XE-switch {
         leaf processing {
           description "Enable smartport macro auto execution on this interface";
           type boolean;
+        }
+        container port {
+          description 
+            "Provide interface specific configuration for macro processing";
+          leaf sticky {
+            type empty;
+          }
+        }
+        container control {
+          description 
+            "Control macro auto execution";
+          container device {
+            description 
+              "Enable macro auto execution for devices";
+            leaf phone {
+              type empty;
+            }
+          }
         }
       }
     }
@@ -971,14 +1318,29 @@ module Cisco-IOS-XE-switch {
     }
 
     // interface * /macsec
-    container macsec {
+    leaf macsec {
       description
         "Enable macsec on the interface";
-      presence "true";
-      leaf network-link {
-        description
-          "Enable macsec on switch connected interface";
-        type empty;
+      type empty;
+    }
+    container macsec-option {
+      description
+        "Enable macsec on the interface";
+      container macsec {
+        container replay-protection {
+          description
+            "Set replay-protection";
+          leaf window-size {
+            description
+              "Set replay window-size";
+            type uint32;
+          }
+        }
+        leaf network-link {
+          description
+            "Enable macsec on switch connected interface";
+          type empty;
+        }
       }
     }
   }
@@ -1016,6 +1378,19 @@ module Cisco-IOS-XE-switch {
         }
       }
     }
+    container device {
+      description " auto execution configuration";
+      leaf media-player {
+        description
+          "digital media player for auto config";
+        type string;
+      }
+      leaf ip-camera {
+        description
+          "video surveillance camera for auto config";
+        type string;
+      }
+    }  
     container global {
       description "Macro auto execution configuration";
       leaf processing {
@@ -1486,282 +1861,6 @@ module Cisco-IOS-XE-switch {
       }
   }
 
-  grouping template-grouping {
-      container service-policy {
-        description "Configure CPL Service Policy";
-        container input {
-          description "Assign policy-map to the input of an interface";
-          leaf policy-map-name {
-            description "policy-map name";
-            type string;
-          }
-        }
-        container output {
-          description "Assign policy-map to the output of an interface";
-          leaf policy-map-name {
-            description "policy-map name";
-            type string;
-          }
-        }
-      }
-      container switchport {
-        description "Set switching mode characteristics";
-        container mode {
-          description "Set trunking mode of the interface";
-          leaf trunk {
-            description "Set trunking mode to TRUNK unconditionally";
-            type empty;
-          }
-          leaf access {
-            description "Set trunking mode to ACCESS unconditionally";
-            type empty;
-          }
-        }
-        leaf nonegotiate {
-          description "Device will not engage in negotiation protocol on this interface";
-          type empty;
-        }
-        container block {
-          description "Disable forwarding of unknown uni/multi cast addresses";
-          leaf unicast {
-            description "Block unknown unicast addresses";
-            type empty;
-          }
-        }
-        container port-security {
-          description "Security related command";
-          presence true;
-          container aging {
-            description "Port-security aging commands";
-            leaf static {
-              description "Enable aging for configured secure addresses";
-                type empty;
-            }
-            leaf time {
-              description "Port-security aging time";              
-              type uint16 {
-                range "1..1440";
-              }              
-            }
-            container type {
-              description "Port-security aging type";
-              presence true;
-              leaf inactivity {
-                description "Aging based on inactivity time period";
-                type empty;
-              }
-            }
-          }
-          container maximum {
-            description "Max secure addresses";
-            list range {
-              key "range";
-              leaf range {
-                description "Maximum addresses";
-                type uint16 {
-                  range "1..3072";
-                }
-              }
-              container vlan {
-                description "Max secure addresses per vlan";
-                presence true;
-                leaf access {
-                  description "access vlan";
-                  type empty;
-                }
-              }
-            }
-          }
-          container violation {
-            description "Security violation mode";
-            leaf restrict {
-              description "Security violation restrict mode";
-              type empty;
-            }
-            leaf shutdown {
-              description "Security violation shutdown mode";
-              type empty;
-            }
-          }
-        }
-        container access {
-          description "Set access mode characteristics of the interface";
-          leaf vlan {
-            description "VLAN ID of the VLAN when this port is in access mode";
-            type uint16 {
-              range "1..4094";
-            }
-          }
-        }
-        container voice {
-          description "Voice appliance attributes";
-          leaf vlan {
-            description "Vlan for voice traffic";
-            type uint16 {
-              range "1..4094";
-            }
-          }
-        }
-      }
-      container spanning-tree {
-        description "Spanning Tree Subsystem";
-        presence true;
-        container bpduguard {
-          description "Don't accept BPDUs on this interface";
-          leaf enable {
-            description "Enable BPDU guard for this interface";
-              type empty;
-          }
-        }
-        leaf service-policy {
-          description "help";
-          type empty;
-        }
-        container portfast {
-          description "Portfast options for the interface";
-          leaf disable {
-            description
-              "Disable portfast for this interface";
-            type empty;
-          }
-          leaf edge {
-            description
-              "Enable portfast edge on the interface";
-            type empty;
-          }
-          leaf network {
-            description
-              "Enable portfast network on the interface";
-            type empty;
-          }
-        }
-      }
-      container storm-control {
-        description "storm configuration";
-        container broadcast {
-          description "Broadcast address storm control";
-          container level {
-            description "Set storm suppression level on this interface";
-            container pps {
-              description "Enter suppression level in packets per second";
-              leaf threshold {              
-                description "Enter threshold";
-                type string;
-              }           
-            }
-            container bps {
-              description "Enter suppression level in bits per second";
-              leaf threshold {              
-                description "Enter threshold";
-                type decimal64 {
-                  fraction-digits 1;
-                  range "0.0..10000000000.0";
-                }
-              }
-              leaf b-unit{
-                type string;
-              }
-            }          
-            leaf threshold {            
-              description "Enter threshold";
-              type decimal64 {
-                fraction-digits 2;
-                range "0.00..100.00";
-              }            
-            }
-          }
-        }
-        container action {
-          description
-            "Action to take for storm-control";
-          leaf shutdown {
-            description
-              "Shutdown this interface if a storm occurs";
-            type empty;
-          }
-          leaf trap {
-            description
-              "Send SNMP trap if a storm occurs";
-            type empty;
-          }
-        }
-      }
-      leaf load-interval {
-        description "Load interval delay in seconds";
-        type uint16 {
-          range "30..600";
-        }
-      }
-      container ip {
-        description "IP template config";
-        container dhcp {
-          description "DHCP template config";
-          container snooping {
-            description "DHCP Snooping";
-            container limit {
-              description "DHCP Snooping limit";
-              leaf rate {
-                description "DHCP snooping rate limit";
-                type uint16 {
-                  range "1..2048";
-                }
-              }
-            }
-          }
-        }
-      }
-  }
-
-  grouping config-template-grouping {
-      container template {
-        description "Select a template to configure";
-        container IP_CAMERA_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;       
-        }
-        container LAP_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container AP_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container DMP_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container IP_PHONE_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;          
-        }
-        container MSP_CAMERA_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container MSP_VC_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container PRINTER_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container ROUTER_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container SWITCH_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-        container TP_INTERFACE_TEMPLATE {
-          description "built-in modified";
-          uses template-grouping;
-        }
-      }
-  }
-
   grouping config-service-template-grouping {
       list service-template {
         description "Configure a service-template/identity policy";
@@ -2090,12 +2189,30 @@ module Cisco-IOS-XE-switch {
     uses ios-dt:config-interface-device-tracking-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios:switchport" {
+    uses config-interface-switchport-grouping;
+    uses ios-dt:config-interface-device-tracking-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios:switchport" {
+    uses config-interface-switchport-grouping;
+    uses ios-dt:config-interface-device-tracking-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios:switchport" {
     uses config-interface-switchport-grouping;
     uses ios-dt:config-interface-device-tracking-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios:switchport" {
+    uses config-interface-switchport-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios:switchport" {
+    uses config-interface-switchport-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios:switchport" {
     uses config-interface-switchport-grouping;
   }
 
@@ -2120,13 +2237,31 @@ module Cisco-IOS-XE-switch {
     uses config-interface-switch-grouping;
     uses ios-dt:config-interface-device-tracking-grouping;
   }
+ 
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-switch-grouping;
+    uses ios-dt:config-interface-device-tracking-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-switch-grouping;
+    uses ios-dt:config-interface-device-tracking-grouping;
+  }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
     uses config-interface-switch-grouping;
     uses ios-dt:config-interface-device-tracking-grouping;
   }
 
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-switch-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-switch-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
     uses config-interface-switch-grouping;
   }
 
@@ -2191,13 +2326,6 @@ module Cisco-IOS-XE-switch {
   }
 
   /////////////////////////////////////////////////////////
-  // native / template
-  /////////////////////////////////////////////////////////
-  augment "/ios:native" {
-    uses config-template-grouping;
-  }
-
-  /////////////////////////////////////////////////////////
   // native / service-template
   /////////////////////////////////////////////////////////
   augment "/ios:native" {
@@ -2231,5 +2359,6 @@ module Cisco-IOS-XE-switch {
     uses config-l2protocol-tunnel-grouping;
     uses config-rep-grouping;
     uses config-hw-switch-grouping;
+    uses config-openflow-grouping;
   }
 }

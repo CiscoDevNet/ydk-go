@@ -91,7 +91,7 @@ const (
 // Suppression
 // Suppression operational data
 type Suppression struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table that contains the database of suppression rule summary.
@@ -101,65 +101,28 @@ type Suppression struct {
     RuleDetails Suppression_RuleDetails
 }
 
-func (suppression *Suppression) GetFilter() yfilter.YFilter { return suppression.YFilter }
+func (suppression *Suppression) GetEntityData() *types.CommonEntityData {
+    suppression.EntityData.YFilter = suppression.YFilter
+    suppression.EntityData.YangName = "suppression"
+    suppression.EntityData.BundleName = "cisco_ios_xr"
+    suppression.EntityData.ParentYangName = "Cisco-IOS-XR-infra-correlator-oper"
+    suppression.EntityData.SegmentPath = "Cisco-IOS-XR-infra-correlator-oper:suppression"
+    suppression.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    suppression.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    suppression.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (suppression *Suppression) SetFilter(yf yfilter.YFilter) { suppression.YFilter = yf }
-
-func (suppression *Suppression) GetGoName(yname string) string {
-    if yname == "rule-summaries" { return "RuleSummaries" }
-    if yname == "rule-details" { return "RuleDetails" }
-    return ""
+    suppression.EntityData.Children = make(map[string]types.YChild)
+    suppression.EntityData.Children["rule-summaries"] = types.YChild{"RuleSummaries", &suppression.RuleSummaries}
+    suppression.EntityData.Children["rule-details"] = types.YChild{"RuleDetails", &suppression.RuleDetails}
+    suppression.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(suppression.EntityData)
 }
-
-func (suppression *Suppression) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-correlator-oper:suppression"
-}
-
-func (suppression *Suppression) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-summaries" {
-        return &suppression.RuleSummaries
-    }
-    if childYangName == "rule-details" {
-        return &suppression.RuleDetails
-    }
-    return nil
-}
-
-func (suppression *Suppression) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rule-summaries"] = &suppression.RuleSummaries
-    children["rule-details"] = &suppression.RuleDetails
-    return children
-}
-
-func (suppression *Suppression) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (suppression *Suppression) GetBundleName() string { return "cisco_ios_xr" }
-
-func (suppression *Suppression) GetYangName() string { return "suppression" }
-
-func (suppression *Suppression) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (suppression *Suppression) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (suppression *Suppression) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (suppression *Suppression) SetParent(parent types.Entity) { suppression.parent = parent }
-
-func (suppression *Suppression) GetParent() types.Entity { return suppression.parent }
-
-func (suppression *Suppression) GetParentYangName() string { return "Cisco-IOS-XR-infra-correlator-oper" }
 
 // Suppression_RuleSummaries
 // Table that contains the database of suppression
 // rule summary
 type Suppression_RuleSummaries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // One of the suppression rules. The type is slice of
@@ -167,68 +130,29 @@ type Suppression_RuleSummaries struct {
     RuleSummary []Suppression_RuleSummaries_RuleSummary
 }
 
-func (ruleSummaries *Suppression_RuleSummaries) GetFilter() yfilter.YFilter { return ruleSummaries.YFilter }
+func (ruleSummaries *Suppression_RuleSummaries) GetEntityData() *types.CommonEntityData {
+    ruleSummaries.EntityData.YFilter = ruleSummaries.YFilter
+    ruleSummaries.EntityData.YangName = "rule-summaries"
+    ruleSummaries.EntityData.BundleName = "cisco_ios_xr"
+    ruleSummaries.EntityData.ParentYangName = "suppression"
+    ruleSummaries.EntityData.SegmentPath = "rule-summaries"
+    ruleSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSummaries *Suppression_RuleSummaries) SetFilter(yf yfilter.YFilter) { ruleSummaries.YFilter = yf }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetGoName(yname string) string {
-    if yname == "rule-summary" { return "RuleSummary" }
-    return ""
-}
-
-func (ruleSummaries *Suppression_RuleSummaries) GetSegmentPath() string {
-    return "rule-summaries"
-}
-
-func (ruleSummaries *Suppression_RuleSummaries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-summary" {
-        for _, c := range ruleSummaries.RuleSummary {
-            if ruleSummaries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Suppression_RuleSummaries_RuleSummary{}
-        ruleSummaries.RuleSummary = append(ruleSummaries.RuleSummary, child)
-        return &ruleSummaries.RuleSummary[len(ruleSummaries.RuleSummary)-1]
-    }
-    return nil
-}
-
-func (ruleSummaries *Suppression_RuleSummaries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleSummaries.EntityData.Children = make(map[string]types.YChild)
+    ruleSummaries.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", nil}
     for i := range ruleSummaries.RuleSummary {
-        children[ruleSummaries.RuleSummary[i].GetSegmentPath()] = &ruleSummaries.RuleSummary[i]
+        ruleSummaries.EntityData.Children[types.GetSegmentPath(&ruleSummaries.RuleSummary[i])] = types.YChild{"RuleSummary", &ruleSummaries.RuleSummary[i]}
     }
-    return children
+    ruleSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ruleSummaries.EntityData)
 }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ruleSummaries *Suppression_RuleSummaries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetYangName() string { return "rule-summaries" }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSummaries *Suppression_RuleSummaries) SetParent(parent types.Entity) { ruleSummaries.parent = parent }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetParent() types.Entity { return ruleSummaries.parent }
-
-func (ruleSummaries *Suppression_RuleSummaries) GetParentYangName() string { return "suppression" }
 
 // Suppression_RuleSummaries_RuleSummary
 // One of the suppression rules
 type Suppression_RuleSummaries_RuleSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Suppression Rule Name. The type is string with
@@ -247,63 +171,30 @@ type Suppression_RuleSummaries_RuleSummary struct {
     SuppressedAlarmsCount interface{}
 }
 
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetFilter() yfilter.YFilter { return ruleSummary.YFilter }
+func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetEntityData() *types.CommonEntityData {
+    ruleSummary.EntityData.YFilter = ruleSummary.YFilter
+    ruleSummary.EntityData.YangName = "rule-summary"
+    ruleSummary.EntityData.BundleName = "cisco_ios_xr"
+    ruleSummary.EntityData.ParentYangName = "rule-summaries"
+    ruleSummary.EntityData.SegmentPath = "rule-summary" + "[rule-name='" + fmt.Sprintf("%v", ruleSummary.RuleName) + "']"
+    ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) SetFilter(yf yfilter.YFilter) { ruleSummary.YFilter = yf }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetGoName(yname string) string {
-    if yname == "rule-name" { return "RuleName" }
-    if yname == "rule-name-xr" { return "RuleNameXr" }
-    if yname == "rule-state" { return "RuleState" }
-    if yname == "suppressed-alarms-count" { return "SuppressedAlarmsCount" }
-    return ""
+    ruleSummary.EntityData.Children = make(map[string]types.YChild)
+    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSummary.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleSummary.RuleName}
+    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
+    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
+    ruleSummary.EntityData.Leafs["suppressed-alarms-count"] = types.YLeaf{"SuppressedAlarmsCount", ruleSummary.SuppressedAlarmsCount}
+    return &(ruleSummary.EntityData)
 }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetSegmentPath() string {
-    return "rule-summary" + "[rule-name='" + fmt.Sprintf("%v", ruleSummary.RuleName) + "']"
-}
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name"] = ruleSummary.RuleName
-    leafs["rule-name-xr"] = ruleSummary.RuleNameXr
-    leafs["rule-state"] = ruleSummary.RuleState
-    leafs["suppressed-alarms-count"] = ruleSummary.SuppressedAlarmsCount
-    return leafs
-}
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetYangName() string { return "rule-summary" }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) SetParent(parent types.Entity) { ruleSummary.parent = parent }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetParent() types.Entity { return ruleSummary.parent }
-
-func (ruleSummary *Suppression_RuleSummaries_RuleSummary) GetParentYangName() string { return "rule-summaries" }
 
 // Suppression_RuleDetails
 // Table that contains the database of suppression
 // rule details
 type Suppression_RuleDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Details of one of the suppression rules. The type is slice of
@@ -311,68 +202,29 @@ type Suppression_RuleDetails struct {
     RuleDetail []Suppression_RuleDetails_RuleDetail
 }
 
-func (ruleDetails *Suppression_RuleDetails) GetFilter() yfilter.YFilter { return ruleDetails.YFilter }
+func (ruleDetails *Suppression_RuleDetails) GetEntityData() *types.CommonEntityData {
+    ruleDetails.EntityData.YFilter = ruleDetails.YFilter
+    ruleDetails.EntityData.YangName = "rule-details"
+    ruleDetails.EntityData.BundleName = "cisco_ios_xr"
+    ruleDetails.EntityData.ParentYangName = "suppression"
+    ruleDetails.EntityData.SegmentPath = "rule-details"
+    ruleDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleDetails *Suppression_RuleDetails) SetFilter(yf yfilter.YFilter) { ruleDetails.YFilter = yf }
-
-func (ruleDetails *Suppression_RuleDetails) GetGoName(yname string) string {
-    if yname == "rule-detail" { return "RuleDetail" }
-    return ""
-}
-
-func (ruleDetails *Suppression_RuleDetails) GetSegmentPath() string {
-    return "rule-details"
-}
-
-func (ruleDetails *Suppression_RuleDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-detail" {
-        for _, c := range ruleDetails.RuleDetail {
-            if ruleDetails.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Suppression_RuleDetails_RuleDetail{}
-        ruleDetails.RuleDetail = append(ruleDetails.RuleDetail, child)
-        return &ruleDetails.RuleDetail[len(ruleDetails.RuleDetail)-1]
-    }
-    return nil
-}
-
-func (ruleDetails *Suppression_RuleDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleDetails.EntityData.Children = make(map[string]types.YChild)
+    ruleDetails.EntityData.Children["rule-detail"] = types.YChild{"RuleDetail", nil}
     for i := range ruleDetails.RuleDetail {
-        children[ruleDetails.RuleDetail[i].GetSegmentPath()] = &ruleDetails.RuleDetail[i]
+        ruleDetails.EntityData.Children[types.GetSegmentPath(&ruleDetails.RuleDetail[i])] = types.YChild{"RuleDetail", &ruleDetails.RuleDetail[i]}
     }
-    return children
+    ruleDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ruleDetails.EntityData)
 }
-
-func (ruleDetails *Suppression_RuleDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ruleDetails *Suppression_RuleDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleDetails *Suppression_RuleDetails) GetYangName() string { return "rule-details" }
-
-func (ruleDetails *Suppression_RuleDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleDetails *Suppression_RuleDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleDetails *Suppression_RuleDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleDetails *Suppression_RuleDetails) SetParent(parent types.Entity) { ruleDetails.parent = parent }
-
-func (ruleDetails *Suppression_RuleDetails) GetParent() types.Entity { return ruleDetails.parent }
-
-func (ruleDetails *Suppression_RuleDetails) GetParentYangName() string { return "suppression" }
 
 // Suppression_RuleDetails_RuleDetail
 // Details of one of the suppression rules
 type Suppression_RuleDetails_RuleDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Suppression Rule Name. The type is string with
@@ -386,7 +238,7 @@ type Suppression_RuleDetails_RuleDetail struct {
     AlarmSeverity interface{}
 
     // Sources (R/S/M) to which the rule is applied. The type is slice of string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ApplySource []interface{}
 
     // Rule summary, name, etc.
@@ -397,81 +249,34 @@ type Suppression_RuleDetails_RuleDetail struct {
     Codes []Suppression_RuleDetails_RuleDetail_Codes
 }
 
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetFilter() yfilter.YFilter { return ruleDetail.YFilter }
+func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetEntityData() *types.CommonEntityData {
+    ruleDetail.EntityData.YFilter = ruleDetail.YFilter
+    ruleDetail.EntityData.YangName = "rule-detail"
+    ruleDetail.EntityData.BundleName = "cisco_ios_xr"
+    ruleDetail.EntityData.ParentYangName = "rule-details"
+    ruleDetail.EntityData.SegmentPath = "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
+    ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) SetFilter(yf yfilter.YFilter) { ruleDetail.YFilter = yf }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetGoName(yname string) string {
-    if yname == "rule-name" { return "RuleName" }
-    if yname == "all-alarms" { return "AllAlarms" }
-    if yname == "alarm-severity" { return "AlarmSeverity" }
-    if yname == "apply-source" { return "ApplySource" }
-    if yname == "rule-summary" { return "RuleSummary" }
-    if yname == "codes" { return "Codes" }
-    return ""
-}
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetSegmentPath() string {
-    return "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
-}
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-summary" {
-        return &ruleDetail.RuleSummary
-    }
-    if childYangName == "codes" {
-        for _, c := range ruleDetail.Codes {
-            if ruleDetail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Suppression_RuleDetails_RuleDetail_Codes{}
-        ruleDetail.Codes = append(ruleDetail.Codes, child)
-        return &ruleDetail.Codes[len(ruleDetail.Codes)-1]
-    }
-    return nil
-}
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rule-summary"] = &ruleDetail.RuleSummary
+    ruleDetail.EntityData.Children = make(map[string]types.YChild)
+    ruleDetail.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", &ruleDetail.RuleSummary}
+    ruleDetail.EntityData.Children["codes"] = types.YChild{"Codes", nil}
     for i := range ruleDetail.Codes {
-        children[ruleDetail.Codes[i].GetSegmentPath()] = &ruleDetail.Codes[i]
+        ruleDetail.EntityData.Children[types.GetSegmentPath(&ruleDetail.Codes[i])] = types.YChild{"Codes", &ruleDetail.Codes[i]}
     }
-    return children
+    ruleDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleDetail.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleDetail.RuleName}
+    ruleDetail.EntityData.Leafs["all-alarms"] = types.YLeaf{"AllAlarms", ruleDetail.AllAlarms}
+    ruleDetail.EntityData.Leafs["alarm-severity"] = types.YLeaf{"AlarmSeverity", ruleDetail.AlarmSeverity}
+    ruleDetail.EntityData.Leafs["apply-source"] = types.YLeaf{"ApplySource", ruleDetail.ApplySource}
+    return &(ruleDetail.EntityData)
 }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name"] = ruleDetail.RuleName
-    leafs["all-alarms"] = ruleDetail.AllAlarms
-    leafs["alarm-severity"] = ruleDetail.AlarmSeverity
-    leafs["apply-source"] = ruleDetail.ApplySource
-    return leafs
-}
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetYangName() string { return "rule-detail" }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) SetParent(parent types.Entity) { ruleDetail.parent = parent }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetParent() types.Entity { return ruleDetail.parent }
-
-func (ruleDetail *Suppression_RuleDetails_RuleDetail) GetParentYangName() string { return "rule-details" }
 
 // Suppression_RuleDetails_RuleDetail_RuleSummary
 // Rule summary, name, etc
 type Suppression_RuleDetails_RuleDetail_RuleSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Suppress Rule Name. The type is string.
@@ -486,60 +291,28 @@ type Suppression_RuleDetails_RuleDetail_RuleSummary struct {
     SuppressedAlarmsCount interface{}
 }
 
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetFilter() yfilter.YFilter { return ruleSummary.YFilter }
+func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetEntityData() *types.CommonEntityData {
+    ruleSummary.EntityData.YFilter = ruleSummary.YFilter
+    ruleSummary.EntityData.YangName = "rule-summary"
+    ruleSummary.EntityData.BundleName = "cisco_ios_xr"
+    ruleSummary.EntityData.ParentYangName = "rule-detail"
+    ruleSummary.EntityData.SegmentPath = "rule-summary"
+    ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) SetFilter(yf yfilter.YFilter) { ruleSummary.YFilter = yf }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetGoName(yname string) string {
-    if yname == "rule-name-xr" { return "RuleNameXr" }
-    if yname == "rule-state" { return "RuleState" }
-    if yname == "suppressed-alarms-count" { return "SuppressedAlarmsCount" }
-    return ""
+    ruleSummary.EntityData.Children = make(map[string]types.YChild)
+    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
+    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
+    ruleSummary.EntityData.Leafs["suppressed-alarms-count"] = types.YLeaf{"SuppressedAlarmsCount", ruleSummary.SuppressedAlarmsCount}
+    return &(ruleSummary.EntityData)
 }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetSegmentPath() string {
-    return "rule-summary"
-}
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name-xr"] = ruleSummary.RuleNameXr
-    leafs["rule-state"] = ruleSummary.RuleState
-    leafs["suppressed-alarms-count"] = ruleSummary.SuppressedAlarmsCount
-    return leafs
-}
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetYangName() string { return "rule-summary" }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) SetParent(parent types.Entity) { ruleSummary.parent = parent }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetParent() types.Entity { return ruleSummary.parent }
-
-func (ruleSummary *Suppression_RuleDetails_RuleDetail_RuleSummary) GetParentYangName() string { return "rule-detail" }
 
 // Suppression_RuleDetails_RuleDetail_Codes
 // Message codes defining the rule.
 type Suppression_RuleDetails_RuleDetail_Codes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Category of messages to which this alarm belongs. The type is string.
@@ -553,60 +326,28 @@ type Suppression_RuleDetails_RuleDetail_Codes struct {
     Code interface{}
 }
 
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetFilter() yfilter.YFilter { return codes.YFilter }
+func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetEntityData() *types.CommonEntityData {
+    codes.EntityData.YFilter = codes.YFilter
+    codes.EntityData.YangName = "codes"
+    codes.EntityData.BundleName = "cisco_ios_xr"
+    codes.EntityData.ParentYangName = "rule-detail"
+    codes.EntityData.SegmentPath = "codes"
+    codes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) SetFilter(yf yfilter.YFilter) { codes.YFilter = yf }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetGoName(yname string) string {
-    if yname == "category" { return "Category" }
-    if yname == "group" { return "Group" }
-    if yname == "code" { return "Code" }
-    return ""
+    codes.EntityData.Children = make(map[string]types.YChild)
+    codes.EntityData.Leafs = make(map[string]types.YLeaf)
+    codes.EntityData.Leafs["category"] = types.YLeaf{"Category", codes.Category}
+    codes.EntityData.Leafs["group"] = types.YLeaf{"Group", codes.Group}
+    codes.EntityData.Leafs["code"] = types.YLeaf{"Code", codes.Code}
+    return &(codes.EntityData)
 }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetSegmentPath() string {
-    return "codes"
-}
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["category"] = codes.Category
-    leafs["group"] = codes.Group
-    leafs["code"] = codes.Code
-    return leafs
-}
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetYangName() string { return "codes" }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) SetParent(parent types.Entity) { codes.parent = parent }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetParent() types.Entity { return codes.parent }
-
-func (codes *Suppression_RuleDetails_RuleDetail_Codes) GetParentYangName() string { return "rule-detail" }
 
 // Correlator
 // correlator
 type Correlator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table that contains the database of correlation rules.
@@ -631,158 +372,62 @@ type Correlator struct {
     RuleSummaries Correlator_RuleSummaries
 }
 
-func (correlator *Correlator) GetFilter() yfilter.YFilter { return correlator.YFilter }
+func (correlator *Correlator) GetEntityData() *types.CommonEntityData {
+    correlator.EntityData.YFilter = correlator.YFilter
+    correlator.EntityData.YangName = "correlator"
+    correlator.EntityData.BundleName = "cisco_ios_xr"
+    correlator.EntityData.ParentYangName = "Cisco-IOS-XR-infra-correlator-oper"
+    correlator.EntityData.SegmentPath = "Cisco-IOS-XR-infra-correlator-oper:correlator"
+    correlator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    correlator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    correlator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (correlator *Correlator) SetFilter(yf yfilter.YFilter) { correlator.YFilter = yf }
-
-func (correlator *Correlator) GetGoName(yname string) string {
-    if yname == "rules" { return "Rules" }
-    if yname == "buffer-status" { return "BufferStatus" }
-    if yname == "alarms" { return "Alarms" }
-    if yname == "rule-set-summaries" { return "RuleSetSummaries" }
-    if yname == "rule-set-details" { return "RuleSetDetails" }
-    if yname == "rule-details" { return "RuleDetails" }
-    if yname == "rule-summaries" { return "RuleSummaries" }
-    return ""
+    correlator.EntityData.Children = make(map[string]types.YChild)
+    correlator.EntityData.Children["rules"] = types.YChild{"Rules", &correlator.Rules}
+    correlator.EntityData.Children["buffer-status"] = types.YChild{"BufferStatus", &correlator.BufferStatus}
+    correlator.EntityData.Children["alarms"] = types.YChild{"Alarms", &correlator.Alarms}
+    correlator.EntityData.Children["rule-set-summaries"] = types.YChild{"RuleSetSummaries", &correlator.RuleSetSummaries}
+    correlator.EntityData.Children["rule-set-details"] = types.YChild{"RuleSetDetails", &correlator.RuleSetDetails}
+    correlator.EntityData.Children["rule-details"] = types.YChild{"RuleDetails", &correlator.RuleDetails}
+    correlator.EntityData.Children["rule-summaries"] = types.YChild{"RuleSummaries", &correlator.RuleSummaries}
+    correlator.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(correlator.EntityData)
 }
-
-func (correlator *Correlator) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-correlator-oper:correlator"
-}
-
-func (correlator *Correlator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rules" {
-        return &correlator.Rules
-    }
-    if childYangName == "buffer-status" {
-        return &correlator.BufferStatus
-    }
-    if childYangName == "alarms" {
-        return &correlator.Alarms
-    }
-    if childYangName == "rule-set-summaries" {
-        return &correlator.RuleSetSummaries
-    }
-    if childYangName == "rule-set-details" {
-        return &correlator.RuleSetDetails
-    }
-    if childYangName == "rule-details" {
-        return &correlator.RuleDetails
-    }
-    if childYangName == "rule-summaries" {
-        return &correlator.RuleSummaries
-    }
-    return nil
-}
-
-func (correlator *Correlator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rules"] = &correlator.Rules
-    children["buffer-status"] = &correlator.BufferStatus
-    children["alarms"] = &correlator.Alarms
-    children["rule-set-summaries"] = &correlator.RuleSetSummaries
-    children["rule-set-details"] = &correlator.RuleSetDetails
-    children["rule-details"] = &correlator.RuleDetails
-    children["rule-summaries"] = &correlator.RuleSummaries
-    return children
-}
-
-func (correlator *Correlator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (correlator *Correlator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (correlator *Correlator) GetYangName() string { return "correlator" }
-
-func (correlator *Correlator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (correlator *Correlator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (correlator *Correlator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (correlator *Correlator) SetParent(parent types.Entity) { correlator.parent = parent }
-
-func (correlator *Correlator) GetParent() types.Entity { return correlator.parent }
-
-func (correlator *Correlator) GetParentYangName() string { return "Cisco-IOS-XR-infra-correlator-oper" }
 
 // Correlator_Rules
 // Table that contains the database of correlation
 // rules
 type Correlator_Rules struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // One of the correlation rules. The type is slice of Correlator_Rules_Rule.
     Rule []Correlator_Rules_Rule
 }
 
-func (rules *Correlator_Rules) GetFilter() yfilter.YFilter { return rules.YFilter }
+func (rules *Correlator_Rules) GetEntityData() *types.CommonEntityData {
+    rules.EntityData.YFilter = rules.YFilter
+    rules.EntityData.YangName = "rules"
+    rules.EntityData.BundleName = "cisco_ios_xr"
+    rules.EntityData.ParentYangName = "correlator"
+    rules.EntityData.SegmentPath = "rules"
+    rules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rules *Correlator_Rules) SetFilter(yf yfilter.YFilter) { rules.YFilter = yf }
-
-func (rules *Correlator_Rules) GetGoName(yname string) string {
-    if yname == "rule" { return "Rule" }
-    return ""
-}
-
-func (rules *Correlator_Rules) GetSegmentPath() string {
-    return "rules"
-}
-
-func (rules *Correlator_Rules) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule" {
-        for _, c := range rules.Rule {
-            if rules.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_Rules_Rule{}
-        rules.Rule = append(rules.Rule, child)
-        return &rules.Rule[len(rules.Rule)-1]
-    }
-    return nil
-}
-
-func (rules *Correlator_Rules) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rules.EntityData.Children = make(map[string]types.YChild)
+    rules.EntityData.Children["rule"] = types.YChild{"Rule", nil}
     for i := range rules.Rule {
-        children[rules.Rule[i].GetSegmentPath()] = &rules.Rule[i]
+        rules.EntityData.Children[types.GetSegmentPath(&rules.Rule[i])] = types.YChild{"Rule", &rules.Rule[i]}
     }
-    return children
+    rules.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rules.EntityData)
 }
-
-func (rules *Correlator_Rules) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rules *Correlator_Rules) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rules *Correlator_Rules) GetYangName() string { return "rules" }
-
-func (rules *Correlator_Rules) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rules *Correlator_Rules) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rules *Correlator_Rules) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rules *Correlator_Rules) SetParent(parent types.Entity) { rules.parent = parent }
-
-func (rules *Correlator_Rules) GetParent() types.Entity { return rules.parent }
-
-func (rules *Correlator_Rules) GetParentYangName() string { return "correlator" }
 
 // Correlator_Rules_Rule
 // One of the correlation rules
 type Correlator_Rules_Rule struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Correlation Rule Name. The type is string with
@@ -802,7 +447,7 @@ type Correlator_Rules_Rule struct {
     RuleState interface{}
 
     // Locations (R/S/M) to which the rule is  applied. The type is slice of
-    // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // string with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ApplyLocation []interface{}
 
     // Contexts (Interfaces) to which the rule is applied. The type is slice of
@@ -814,80 +459,35 @@ type Correlator_Rules_Rule struct {
     Codes []Correlator_Rules_Rule_Codes
 }
 
-func (rule *Correlator_Rules_Rule) GetFilter() yfilter.YFilter { return rule.YFilter }
+func (rule *Correlator_Rules_Rule) GetEntityData() *types.CommonEntityData {
+    rule.EntityData.YFilter = rule.YFilter
+    rule.EntityData.YangName = "rule"
+    rule.EntityData.BundleName = "cisco_ios_xr"
+    rule.EntityData.ParentYangName = "rules"
+    rule.EntityData.SegmentPath = "rule" + "[rule-name='" + fmt.Sprintf("%v", rule.RuleName) + "']"
+    rule.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rule.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rule.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rule *Correlator_Rules_Rule) SetFilter(yf yfilter.YFilter) { rule.YFilter = yf }
-
-func (rule *Correlator_Rules_Rule) GetGoName(yname string) string {
-    if yname == "rule-name" { return "RuleName" }
-    if yname == "rule-name-xr" { return "RuleNameXr" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "rule-state" { return "RuleState" }
-    if yname == "apply-location" { return "ApplyLocation" }
-    if yname == "apply-context" { return "ApplyContext" }
-    if yname == "codes" { return "Codes" }
-    return ""
-}
-
-func (rule *Correlator_Rules_Rule) GetSegmentPath() string {
-    return "rule" + "[rule-name='" + fmt.Sprintf("%v", rule.RuleName) + "']"
-}
-
-func (rule *Correlator_Rules_Rule) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "codes" {
-        for _, c := range rule.Codes {
-            if rule.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_Rules_Rule_Codes{}
-        rule.Codes = append(rule.Codes, child)
-        return &rule.Codes[len(rule.Codes)-1]
-    }
-    return nil
-}
-
-func (rule *Correlator_Rules_Rule) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rule.EntityData.Children = make(map[string]types.YChild)
+    rule.EntityData.Children["codes"] = types.YChild{"Codes", nil}
     for i := range rule.Codes {
-        children[rule.Codes[i].GetSegmentPath()] = &rule.Codes[i]
+        rule.EntityData.Children[types.GetSegmentPath(&rule.Codes[i])] = types.YChild{"Codes", &rule.Codes[i]}
     }
-    return children
+    rule.EntityData.Leafs = make(map[string]types.YLeaf)
+    rule.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", rule.RuleName}
+    rule.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", rule.RuleNameXr}
+    rule.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", rule.Timeout}
+    rule.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", rule.RuleState}
+    rule.EntityData.Leafs["apply-location"] = types.YLeaf{"ApplyLocation", rule.ApplyLocation}
+    rule.EntityData.Leafs["apply-context"] = types.YLeaf{"ApplyContext", rule.ApplyContext}
+    return &(rule.EntityData)
 }
-
-func (rule *Correlator_Rules_Rule) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name"] = rule.RuleName
-    leafs["rule-name-xr"] = rule.RuleNameXr
-    leafs["timeout"] = rule.Timeout
-    leafs["rule-state"] = rule.RuleState
-    leafs["apply-location"] = rule.ApplyLocation
-    leafs["apply-context"] = rule.ApplyContext
-    return leafs
-}
-
-func (rule *Correlator_Rules_Rule) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rule *Correlator_Rules_Rule) GetYangName() string { return "rule" }
-
-func (rule *Correlator_Rules_Rule) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rule *Correlator_Rules_Rule) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rule *Correlator_Rules_Rule) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rule *Correlator_Rules_Rule) SetParent(parent types.Entity) { rule.parent = parent }
-
-func (rule *Correlator_Rules_Rule) GetParent() types.Entity { return rule.parent }
-
-func (rule *Correlator_Rules_Rule) GetParentYangName() string { return "rules" }
 
 // Correlator_Rules_Rule_Codes
 // Message codes defining the rule.
 type Correlator_Rules_Rule_Codes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Category of messages to which this alarm belongs. The type is string.
@@ -901,61 +501,29 @@ type Correlator_Rules_Rule_Codes struct {
     Code interface{}
 }
 
-func (codes *Correlator_Rules_Rule_Codes) GetFilter() yfilter.YFilter { return codes.YFilter }
+func (codes *Correlator_Rules_Rule_Codes) GetEntityData() *types.CommonEntityData {
+    codes.EntityData.YFilter = codes.YFilter
+    codes.EntityData.YangName = "codes"
+    codes.EntityData.BundleName = "cisco_ios_xr"
+    codes.EntityData.ParentYangName = "rule"
+    codes.EntityData.SegmentPath = "codes"
+    codes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (codes *Correlator_Rules_Rule_Codes) SetFilter(yf yfilter.YFilter) { codes.YFilter = yf }
-
-func (codes *Correlator_Rules_Rule_Codes) GetGoName(yname string) string {
-    if yname == "category" { return "Category" }
-    if yname == "group" { return "Group" }
-    if yname == "code" { return "Code" }
-    return ""
+    codes.EntityData.Children = make(map[string]types.YChild)
+    codes.EntityData.Leafs = make(map[string]types.YLeaf)
+    codes.EntityData.Leafs["category"] = types.YLeaf{"Category", codes.Category}
+    codes.EntityData.Leafs["group"] = types.YLeaf{"Group", codes.Group}
+    codes.EntityData.Leafs["code"] = types.YLeaf{"Code", codes.Code}
+    return &(codes.EntityData)
 }
-
-func (codes *Correlator_Rules_Rule_Codes) GetSegmentPath() string {
-    return "codes"
-}
-
-func (codes *Correlator_Rules_Rule_Codes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (codes *Correlator_Rules_Rule_Codes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (codes *Correlator_Rules_Rule_Codes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["category"] = codes.Category
-    leafs["group"] = codes.Group
-    leafs["code"] = codes.Code
-    return leafs
-}
-
-func (codes *Correlator_Rules_Rule_Codes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (codes *Correlator_Rules_Rule_Codes) GetYangName() string { return "codes" }
-
-func (codes *Correlator_Rules_Rule_Codes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (codes *Correlator_Rules_Rule_Codes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (codes *Correlator_Rules_Rule_Codes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (codes *Correlator_Rules_Rule_Codes) SetParent(parent types.Entity) { codes.parent = parent }
-
-func (codes *Correlator_Rules_Rule_Codes) GetParent() types.Entity { return codes.parent }
-
-func (codes *Correlator_Rules_Rule_Codes) GetParentYangName() string { return "rule" }
 
 // Correlator_BufferStatus
 // Describes buffer utilization and parameters
 // configured
 type Correlator_BufferStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Current buffer usage. The type is interface{} with range: 0..4294967295.
@@ -965,126 +533,56 @@ type Correlator_BufferStatus struct {
     ConfiguredSize interface{}
 }
 
-func (bufferStatus *Correlator_BufferStatus) GetFilter() yfilter.YFilter { return bufferStatus.YFilter }
+func (bufferStatus *Correlator_BufferStatus) GetEntityData() *types.CommonEntityData {
+    bufferStatus.EntityData.YFilter = bufferStatus.YFilter
+    bufferStatus.EntityData.YangName = "buffer-status"
+    bufferStatus.EntityData.BundleName = "cisco_ios_xr"
+    bufferStatus.EntityData.ParentYangName = "correlator"
+    bufferStatus.EntityData.SegmentPath = "buffer-status"
+    bufferStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bufferStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bufferStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bufferStatus *Correlator_BufferStatus) SetFilter(yf yfilter.YFilter) { bufferStatus.YFilter = yf }
-
-func (bufferStatus *Correlator_BufferStatus) GetGoName(yname string) string {
-    if yname == "current-size" { return "CurrentSize" }
-    if yname == "configured-size" { return "ConfiguredSize" }
-    return ""
+    bufferStatus.EntityData.Children = make(map[string]types.YChild)
+    bufferStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    bufferStatus.EntityData.Leafs["current-size"] = types.YLeaf{"CurrentSize", bufferStatus.CurrentSize}
+    bufferStatus.EntityData.Leafs["configured-size"] = types.YLeaf{"ConfiguredSize", bufferStatus.ConfiguredSize}
+    return &(bufferStatus.EntityData)
 }
-
-func (bufferStatus *Correlator_BufferStatus) GetSegmentPath() string {
-    return "buffer-status"
-}
-
-func (bufferStatus *Correlator_BufferStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bufferStatus *Correlator_BufferStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bufferStatus *Correlator_BufferStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["current-size"] = bufferStatus.CurrentSize
-    leafs["configured-size"] = bufferStatus.ConfiguredSize
-    return leafs
-}
-
-func (bufferStatus *Correlator_BufferStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bufferStatus *Correlator_BufferStatus) GetYangName() string { return "buffer-status" }
-
-func (bufferStatus *Correlator_BufferStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bufferStatus *Correlator_BufferStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bufferStatus *Correlator_BufferStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bufferStatus *Correlator_BufferStatus) SetParent(parent types.Entity) { bufferStatus.parent = parent }
-
-func (bufferStatus *Correlator_BufferStatus) GetParent() types.Entity { return bufferStatus.parent }
-
-func (bufferStatus *Correlator_BufferStatus) GetParentYangName() string { return "correlator" }
 
 // Correlator_Alarms
 // Correlated alarms Table
 type Correlator_Alarms struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // One of the correlated alarms. The type is slice of Correlator_Alarms_Alarm.
     Alarm []Correlator_Alarms_Alarm
 }
 
-func (alarms *Correlator_Alarms) GetFilter() yfilter.YFilter { return alarms.YFilter }
+func (alarms *Correlator_Alarms) GetEntityData() *types.CommonEntityData {
+    alarms.EntityData.YFilter = alarms.YFilter
+    alarms.EntityData.YangName = "alarms"
+    alarms.EntityData.BundleName = "cisco_ios_xr"
+    alarms.EntityData.ParentYangName = "correlator"
+    alarms.EntityData.SegmentPath = "alarms"
+    alarms.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarms.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarms.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alarms *Correlator_Alarms) SetFilter(yf yfilter.YFilter) { alarms.YFilter = yf }
-
-func (alarms *Correlator_Alarms) GetGoName(yname string) string {
-    if yname == "alarm" { return "Alarm" }
-    return ""
-}
-
-func (alarms *Correlator_Alarms) GetSegmentPath() string {
-    return "alarms"
-}
-
-func (alarms *Correlator_Alarms) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "alarm" {
-        for _, c := range alarms.Alarm {
-            if alarms.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_Alarms_Alarm{}
-        alarms.Alarm = append(alarms.Alarm, child)
-        return &alarms.Alarm[len(alarms.Alarm)-1]
-    }
-    return nil
-}
-
-func (alarms *Correlator_Alarms) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    alarms.EntityData.Children = make(map[string]types.YChild)
+    alarms.EntityData.Children["alarm"] = types.YChild{"Alarm", nil}
     for i := range alarms.Alarm {
-        children[alarms.Alarm[i].GetSegmentPath()] = &alarms.Alarm[i]
+        alarms.EntityData.Children[types.GetSegmentPath(&alarms.Alarm[i])] = types.YChild{"Alarm", &alarms.Alarm[i]}
     }
-    return children
+    alarms.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(alarms.EntityData)
 }
-
-func (alarms *Correlator_Alarms) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (alarms *Correlator_Alarms) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alarms *Correlator_Alarms) GetYangName() string { return "alarms" }
-
-func (alarms *Correlator_Alarms) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alarms *Correlator_Alarms) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alarms *Correlator_Alarms) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alarms *Correlator_Alarms) SetParent(parent types.Entity) { alarms.parent = parent }
-
-func (alarms *Correlator_Alarms) GetParent() types.Entity { return alarms.parent }
-
-func (alarms *Correlator_Alarms) GetParentYangName() string { return "correlator" }
 
 // Correlator_Alarms_Alarm
 // One of the correlated alarms
 type Correlator_Alarms_Alarm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Alarm ID. The type is interface{} with range:
@@ -1101,65 +599,29 @@ type Correlator_Alarms_Alarm struct {
     AlarmInfo Correlator_Alarms_Alarm_AlarmInfo
 }
 
-func (alarm *Correlator_Alarms_Alarm) GetFilter() yfilter.YFilter { return alarm.YFilter }
+func (alarm *Correlator_Alarms_Alarm) GetEntityData() *types.CommonEntityData {
+    alarm.EntityData.YFilter = alarm.YFilter
+    alarm.EntityData.YangName = "alarm"
+    alarm.EntityData.BundleName = "cisco_ios_xr"
+    alarm.EntityData.ParentYangName = "alarms"
+    alarm.EntityData.SegmentPath = "alarm" + "[alarm-id='" + fmt.Sprintf("%v", alarm.AlarmId) + "']"
+    alarm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alarm *Correlator_Alarms_Alarm) SetFilter(yf yfilter.YFilter) { alarm.YFilter = yf }
-
-func (alarm *Correlator_Alarms_Alarm) GetGoName(yname string) string {
-    if yname == "alarm-id" { return "AlarmId" }
-    if yname == "rule-name" { return "RuleName" }
-    if yname == "context" { return "Context" }
-    if yname == "alarm-info" { return "AlarmInfo" }
-    return ""
+    alarm.EntityData.Children = make(map[string]types.YChild)
+    alarm.EntityData.Children["alarm-info"] = types.YChild{"AlarmInfo", &alarm.AlarmInfo}
+    alarm.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarm.EntityData.Leafs["alarm-id"] = types.YLeaf{"AlarmId", alarm.AlarmId}
+    alarm.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", alarm.RuleName}
+    alarm.EntityData.Leafs["context"] = types.YLeaf{"Context", alarm.Context}
+    return &(alarm.EntityData)
 }
-
-func (alarm *Correlator_Alarms_Alarm) GetSegmentPath() string {
-    return "alarm" + "[alarm-id='" + fmt.Sprintf("%v", alarm.AlarmId) + "']"
-}
-
-func (alarm *Correlator_Alarms_Alarm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "alarm-info" {
-        return &alarm.AlarmInfo
-    }
-    return nil
-}
-
-func (alarm *Correlator_Alarms_Alarm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["alarm-info"] = &alarm.AlarmInfo
-    return children
-}
-
-func (alarm *Correlator_Alarms_Alarm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["alarm-id"] = alarm.AlarmId
-    leafs["rule-name"] = alarm.RuleName
-    leafs["context"] = alarm.Context
-    return leafs
-}
-
-func (alarm *Correlator_Alarms_Alarm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alarm *Correlator_Alarms_Alarm) GetYangName() string { return "alarm" }
-
-func (alarm *Correlator_Alarms_Alarm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alarm *Correlator_Alarms_Alarm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alarm *Correlator_Alarms_Alarm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alarm *Correlator_Alarms_Alarm) SetParent(parent types.Entity) { alarm.parent = parent }
-
-func (alarm *Correlator_Alarms_Alarm) GetParent() types.Entity { return alarm.parent }
-
-func (alarm *Correlator_Alarms_Alarm) GetParentYangName() string { return "alarms" }
 
 // Correlator_Alarms_Alarm_AlarmInfo
 // Correlated alarm information
 type Correlator_Alarms_Alarm_AlarmInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Source Identifier(Location).Indicates the node in which the alarm was
@@ -1197,74 +659,35 @@ type Correlator_Alarms_Alarm_AlarmInfo struct {
     AdditionalText interface{}
 }
 
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetFilter() yfilter.YFilter { return alarmInfo.YFilter }
+func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetEntityData() *types.CommonEntityData {
+    alarmInfo.EntityData.YFilter = alarmInfo.YFilter
+    alarmInfo.EntityData.YangName = "alarm-info"
+    alarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    alarmInfo.EntityData.ParentYangName = "alarm"
+    alarmInfo.EntityData.SegmentPath = "alarm-info"
+    alarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) SetFilter(yf yfilter.YFilter) { alarmInfo.YFilter = yf }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetGoName(yname string) string {
-    if yname == "source-id" { return "SourceId" }
-    if yname == "timestamp" { return "Timestamp" }
-    if yname == "category" { return "Category" }
-    if yname == "group" { return "Group" }
-    if yname == "code" { return "Code" }
-    if yname == "severity" { return "Severity" }
-    if yname == "state" { return "State" }
-    if yname == "correlation-id" { return "CorrelationId" }
-    if yname == "is-admin" { return "IsAdmin" }
-    if yname == "additional-text" { return "AdditionalText" }
-    return ""
+    alarmInfo.EntityData.Children = make(map[string]types.YChild)
+    alarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    alarmInfo.EntityData.Leafs["source-id"] = types.YLeaf{"SourceId", alarmInfo.SourceId}
+    alarmInfo.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", alarmInfo.Timestamp}
+    alarmInfo.EntityData.Leafs["category"] = types.YLeaf{"Category", alarmInfo.Category}
+    alarmInfo.EntityData.Leafs["group"] = types.YLeaf{"Group", alarmInfo.Group}
+    alarmInfo.EntityData.Leafs["code"] = types.YLeaf{"Code", alarmInfo.Code}
+    alarmInfo.EntityData.Leafs["severity"] = types.YLeaf{"Severity", alarmInfo.Severity}
+    alarmInfo.EntityData.Leafs["state"] = types.YLeaf{"State", alarmInfo.State}
+    alarmInfo.EntityData.Leafs["correlation-id"] = types.YLeaf{"CorrelationId", alarmInfo.CorrelationId}
+    alarmInfo.EntityData.Leafs["is-admin"] = types.YLeaf{"IsAdmin", alarmInfo.IsAdmin}
+    alarmInfo.EntityData.Leafs["additional-text"] = types.YLeaf{"AdditionalText", alarmInfo.AdditionalText}
+    return &(alarmInfo.EntityData)
 }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetSegmentPath() string {
-    return "alarm-info"
-}
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["source-id"] = alarmInfo.SourceId
-    leafs["timestamp"] = alarmInfo.Timestamp
-    leafs["category"] = alarmInfo.Category
-    leafs["group"] = alarmInfo.Group
-    leafs["code"] = alarmInfo.Code
-    leafs["severity"] = alarmInfo.Severity
-    leafs["state"] = alarmInfo.State
-    leafs["correlation-id"] = alarmInfo.CorrelationId
-    leafs["is-admin"] = alarmInfo.IsAdmin
-    leafs["additional-text"] = alarmInfo.AdditionalText
-    return leafs
-}
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetYangName() string { return "alarm-info" }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) SetParent(parent types.Entity) { alarmInfo.parent = parent }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetParent() types.Entity { return alarmInfo.parent }
-
-func (alarmInfo *Correlator_Alarms_Alarm_AlarmInfo) GetParentYangName() string { return "alarm" }
 
 // Correlator_RuleSetSummaries
 // Table that contains the ruleset summary info
 type Correlator_RuleSetSummaries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Summary of one of the correlation rulesets. The type is slice of
@@ -1272,68 +695,29 @@ type Correlator_RuleSetSummaries struct {
     RuleSetSummary []Correlator_RuleSetSummaries_RuleSetSummary
 }
 
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetFilter() yfilter.YFilter { return ruleSetSummaries.YFilter }
+func (ruleSetSummaries *Correlator_RuleSetSummaries) GetEntityData() *types.CommonEntityData {
+    ruleSetSummaries.EntityData.YFilter = ruleSetSummaries.YFilter
+    ruleSetSummaries.EntityData.YangName = "rule-set-summaries"
+    ruleSetSummaries.EntityData.BundleName = "cisco_ios_xr"
+    ruleSetSummaries.EntityData.ParentYangName = "correlator"
+    ruleSetSummaries.EntityData.SegmentPath = "rule-set-summaries"
+    ruleSetSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSetSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSetSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSetSummaries *Correlator_RuleSetSummaries) SetFilter(yf yfilter.YFilter) { ruleSetSummaries.YFilter = yf }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetGoName(yname string) string {
-    if yname == "rule-set-summary" { return "RuleSetSummary" }
-    return ""
-}
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetSegmentPath() string {
-    return "rule-set-summaries"
-}
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-set-summary" {
-        for _, c := range ruleSetSummaries.RuleSetSummary {
-            if ruleSetSummaries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_RuleSetSummaries_RuleSetSummary{}
-        ruleSetSummaries.RuleSetSummary = append(ruleSetSummaries.RuleSetSummary, child)
-        return &ruleSetSummaries.RuleSetSummary[len(ruleSetSummaries.RuleSetSummary)-1]
-    }
-    return nil
-}
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleSetSummaries.EntityData.Children = make(map[string]types.YChild)
+    ruleSetSummaries.EntityData.Children["rule-set-summary"] = types.YChild{"RuleSetSummary", nil}
     for i := range ruleSetSummaries.RuleSetSummary {
-        children[ruleSetSummaries.RuleSetSummary[i].GetSegmentPath()] = &ruleSetSummaries.RuleSetSummary[i]
+        ruleSetSummaries.EntityData.Children[types.GetSegmentPath(&ruleSetSummaries.RuleSetSummary[i])] = types.YChild{"RuleSetSummary", &ruleSetSummaries.RuleSetSummary[i]}
     }
-    return children
+    ruleSetSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ruleSetSummaries.EntityData)
 }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetYangName() string { return "rule-set-summaries" }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) SetParent(parent types.Entity) { ruleSetSummaries.parent = parent }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetParent() types.Entity { return ruleSetSummaries.parent }
-
-func (ruleSetSummaries *Correlator_RuleSetSummaries) GetParentYangName() string { return "correlator" }
 
 // Correlator_RuleSetSummaries_RuleSetSummary
 // Summary of one of the correlation rulesets
 type Correlator_RuleSetSummaries_RuleSetSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Ruleset Name. The type is string with length:
@@ -1344,58 +728,27 @@ type Correlator_RuleSetSummaries_RuleSetSummary struct {
     RuleSetNameXr interface{}
 }
 
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetFilter() yfilter.YFilter { return ruleSetSummary.YFilter }
+func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetEntityData() *types.CommonEntityData {
+    ruleSetSummary.EntityData.YFilter = ruleSetSummary.YFilter
+    ruleSetSummary.EntityData.YangName = "rule-set-summary"
+    ruleSetSummary.EntityData.BundleName = "cisco_ios_xr"
+    ruleSetSummary.EntityData.ParentYangName = "rule-set-summaries"
+    ruleSetSummary.EntityData.SegmentPath = "rule-set-summary" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetSummary.RuleSetName) + "']"
+    ruleSetSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSetSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSetSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) SetFilter(yf yfilter.YFilter) { ruleSetSummary.YFilter = yf }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetGoName(yname string) string {
-    if yname == "rule-set-name" { return "RuleSetName" }
-    if yname == "rule-set-name-xr" { return "RuleSetNameXr" }
-    return ""
+    ruleSetSummary.EntityData.Children = make(map[string]types.YChild)
+    ruleSetSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSetSummary.EntityData.Leafs["rule-set-name"] = types.YLeaf{"RuleSetName", ruleSetSummary.RuleSetName}
+    ruleSetSummary.EntityData.Leafs["rule-set-name-xr"] = types.YLeaf{"RuleSetNameXr", ruleSetSummary.RuleSetNameXr}
+    return &(ruleSetSummary.EntityData)
 }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetSegmentPath() string {
-    return "rule-set-summary" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetSummary.RuleSetName) + "']"
-}
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-set-name"] = ruleSetSummary.RuleSetName
-    leafs["rule-set-name-xr"] = ruleSetSummary.RuleSetNameXr
-    return leafs
-}
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetYangName() string { return "rule-set-summary" }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) SetParent(parent types.Entity) { ruleSetSummary.parent = parent }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetParent() types.Entity { return ruleSetSummary.parent }
-
-func (ruleSetSummary *Correlator_RuleSetSummaries_RuleSetSummary) GetParentYangName() string { return "rule-set-summaries" }
 
 // Correlator_RuleSetDetails
 // Table that contains the ruleset detail info
 type Correlator_RuleSetDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Detail of one of the correlation rulesets. The type is slice of
@@ -1403,68 +756,29 @@ type Correlator_RuleSetDetails struct {
     RuleSetDetail []Correlator_RuleSetDetails_RuleSetDetail
 }
 
-func (ruleSetDetails *Correlator_RuleSetDetails) GetFilter() yfilter.YFilter { return ruleSetDetails.YFilter }
+func (ruleSetDetails *Correlator_RuleSetDetails) GetEntityData() *types.CommonEntityData {
+    ruleSetDetails.EntityData.YFilter = ruleSetDetails.YFilter
+    ruleSetDetails.EntityData.YangName = "rule-set-details"
+    ruleSetDetails.EntityData.BundleName = "cisco_ios_xr"
+    ruleSetDetails.EntityData.ParentYangName = "correlator"
+    ruleSetDetails.EntityData.SegmentPath = "rule-set-details"
+    ruleSetDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSetDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSetDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSetDetails *Correlator_RuleSetDetails) SetFilter(yf yfilter.YFilter) { ruleSetDetails.YFilter = yf }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetGoName(yname string) string {
-    if yname == "rule-set-detail" { return "RuleSetDetail" }
-    return ""
-}
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetSegmentPath() string {
-    return "rule-set-details"
-}
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-set-detail" {
-        for _, c := range ruleSetDetails.RuleSetDetail {
-            if ruleSetDetails.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_RuleSetDetails_RuleSetDetail{}
-        ruleSetDetails.RuleSetDetail = append(ruleSetDetails.RuleSetDetail, child)
-        return &ruleSetDetails.RuleSetDetail[len(ruleSetDetails.RuleSetDetail)-1]
-    }
-    return nil
-}
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleSetDetails.EntityData.Children = make(map[string]types.YChild)
+    ruleSetDetails.EntityData.Children["rule-set-detail"] = types.YChild{"RuleSetDetail", nil}
     for i := range ruleSetDetails.RuleSetDetail {
-        children[ruleSetDetails.RuleSetDetail[i].GetSegmentPath()] = &ruleSetDetails.RuleSetDetail[i]
+        ruleSetDetails.EntityData.Children[types.GetSegmentPath(&ruleSetDetails.RuleSetDetail[i])] = types.YChild{"RuleSetDetail", &ruleSetDetails.RuleSetDetail[i]}
     }
-    return children
+    ruleSetDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ruleSetDetails.EntityData)
 }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetYangName() string { return "rule-set-details" }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) SetParent(parent types.Entity) { ruleSetDetails.parent = parent }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetParent() types.Entity { return ruleSetDetails.parent }
-
-func (ruleSetDetails *Correlator_RuleSetDetails) GetParentYangName() string { return "correlator" }
 
 // Correlator_RuleSetDetails_RuleSetDetail
 // Detail of one of the correlation rulesets
 type Correlator_RuleSetDetails_RuleSetDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Ruleset Name. The type is string with length:
@@ -1479,72 +793,31 @@ type Correlator_RuleSetDetails_RuleSetDetail struct {
     Rules []Correlator_RuleSetDetails_RuleSetDetail_Rules
 }
 
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetFilter() yfilter.YFilter { return ruleSetDetail.YFilter }
+func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetEntityData() *types.CommonEntityData {
+    ruleSetDetail.EntityData.YFilter = ruleSetDetail.YFilter
+    ruleSetDetail.EntityData.YangName = "rule-set-detail"
+    ruleSetDetail.EntityData.BundleName = "cisco_ios_xr"
+    ruleSetDetail.EntityData.ParentYangName = "rule-set-details"
+    ruleSetDetail.EntityData.SegmentPath = "rule-set-detail" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetDetail.RuleSetName) + "']"
+    ruleSetDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSetDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSetDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) SetFilter(yf yfilter.YFilter) { ruleSetDetail.YFilter = yf }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetGoName(yname string) string {
-    if yname == "rule-set-name" { return "RuleSetName" }
-    if yname == "rule-set-name-xr" { return "RuleSetNameXr" }
-    if yname == "rules" { return "Rules" }
-    return ""
-}
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetSegmentPath() string {
-    return "rule-set-detail" + "[rule-set-name='" + fmt.Sprintf("%v", ruleSetDetail.RuleSetName) + "']"
-}
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rules" {
-        for _, c := range ruleSetDetail.Rules {
-            if ruleSetDetail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_RuleSetDetails_RuleSetDetail_Rules{}
-        ruleSetDetail.Rules = append(ruleSetDetail.Rules, child)
-        return &ruleSetDetail.Rules[len(ruleSetDetail.Rules)-1]
-    }
-    return nil
-}
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleSetDetail.EntityData.Children = make(map[string]types.YChild)
+    ruleSetDetail.EntityData.Children["rules"] = types.YChild{"Rules", nil}
     for i := range ruleSetDetail.Rules {
-        children[ruleSetDetail.Rules[i].GetSegmentPath()] = &ruleSetDetail.Rules[i]
+        ruleSetDetail.EntityData.Children[types.GetSegmentPath(&ruleSetDetail.Rules[i])] = types.YChild{"Rules", &ruleSetDetail.Rules[i]}
     }
-    return children
+    ruleSetDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSetDetail.EntityData.Leafs["rule-set-name"] = types.YLeaf{"RuleSetName", ruleSetDetail.RuleSetName}
+    ruleSetDetail.EntityData.Leafs["rule-set-name-xr"] = types.YLeaf{"RuleSetNameXr", ruleSetDetail.RuleSetNameXr}
+    return &(ruleSetDetail.EntityData)
 }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-set-name"] = ruleSetDetail.RuleSetName
-    leafs["rule-set-name-xr"] = ruleSetDetail.RuleSetNameXr
-    return leafs
-}
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetYangName() string { return "rule-set-detail" }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) SetParent(parent types.Entity) { ruleSetDetail.parent = parent }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetParent() types.Entity { return ruleSetDetail.parent }
-
-func (ruleSetDetail *Correlator_RuleSetDetails_RuleSetDetail) GetParentYangName() string { return "rule-set-details" }
 
 // Correlator_RuleSetDetails_RuleSetDetail_Rules
 // Rules contained in a ruleset
 type Correlator_RuleSetDetails_RuleSetDetail_Rules struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Correlation Rule Name. The type is string.
@@ -1562,63 +835,30 @@ type Correlator_RuleSetDetails_RuleSetDetail_Rules struct {
     BufferedAlarmsCount interface{}
 }
 
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetFilter() yfilter.YFilter { return rules.YFilter }
+func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetEntityData() *types.CommonEntityData {
+    rules.EntityData.YFilter = rules.YFilter
+    rules.EntityData.YangName = "rules"
+    rules.EntityData.BundleName = "cisco_ios_xr"
+    rules.EntityData.ParentYangName = "rule-set-detail"
+    rules.EntityData.SegmentPath = "rules"
+    rules.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rules.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rules.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) SetFilter(yf yfilter.YFilter) { rules.YFilter = yf }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetGoName(yname string) string {
-    if yname == "rule-name-xr" { return "RuleNameXr" }
-    if yname == "stateful" { return "Stateful" }
-    if yname == "rule-state" { return "RuleState" }
-    if yname == "buffered-alarms-count" { return "BufferedAlarmsCount" }
-    return ""
+    rules.EntityData.Children = make(map[string]types.YChild)
+    rules.EntityData.Leafs = make(map[string]types.YLeaf)
+    rules.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", rules.RuleNameXr}
+    rules.EntityData.Leafs["stateful"] = types.YLeaf{"Stateful", rules.Stateful}
+    rules.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", rules.RuleState}
+    rules.EntityData.Leafs["buffered-alarms-count"] = types.YLeaf{"BufferedAlarmsCount", rules.BufferedAlarmsCount}
+    return &(rules.EntityData)
 }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetSegmentPath() string {
-    return "rules"
-}
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name-xr"] = rules.RuleNameXr
-    leafs["stateful"] = rules.Stateful
-    leafs["rule-state"] = rules.RuleState
-    leafs["buffered-alarms-count"] = rules.BufferedAlarmsCount
-    return leafs
-}
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetYangName() string { return "rules" }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) SetParent(parent types.Entity) { rules.parent = parent }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetParent() types.Entity { return rules.parent }
-
-func (rules *Correlator_RuleSetDetails_RuleSetDetail_Rules) GetParentYangName() string { return "rule-set-detail" }
 
 // Correlator_RuleDetails
 // Table that contains the database of correlation
 // rule details
 type Correlator_RuleDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Details of one of the correlation rules. The type is slice of
@@ -1626,68 +866,29 @@ type Correlator_RuleDetails struct {
     RuleDetail []Correlator_RuleDetails_RuleDetail
 }
 
-func (ruleDetails *Correlator_RuleDetails) GetFilter() yfilter.YFilter { return ruleDetails.YFilter }
+func (ruleDetails *Correlator_RuleDetails) GetEntityData() *types.CommonEntityData {
+    ruleDetails.EntityData.YFilter = ruleDetails.YFilter
+    ruleDetails.EntityData.YangName = "rule-details"
+    ruleDetails.EntityData.BundleName = "cisco_ios_xr"
+    ruleDetails.EntityData.ParentYangName = "correlator"
+    ruleDetails.EntityData.SegmentPath = "rule-details"
+    ruleDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleDetails *Correlator_RuleDetails) SetFilter(yf yfilter.YFilter) { ruleDetails.YFilter = yf }
-
-func (ruleDetails *Correlator_RuleDetails) GetGoName(yname string) string {
-    if yname == "rule-detail" { return "RuleDetail" }
-    return ""
-}
-
-func (ruleDetails *Correlator_RuleDetails) GetSegmentPath() string {
-    return "rule-details"
-}
-
-func (ruleDetails *Correlator_RuleDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-detail" {
-        for _, c := range ruleDetails.RuleDetail {
-            if ruleDetails.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_RuleDetails_RuleDetail{}
-        ruleDetails.RuleDetail = append(ruleDetails.RuleDetail, child)
-        return &ruleDetails.RuleDetail[len(ruleDetails.RuleDetail)-1]
-    }
-    return nil
-}
-
-func (ruleDetails *Correlator_RuleDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleDetails.EntityData.Children = make(map[string]types.YChild)
+    ruleDetails.EntityData.Children["rule-detail"] = types.YChild{"RuleDetail", nil}
     for i := range ruleDetails.RuleDetail {
-        children[ruleDetails.RuleDetail[i].GetSegmentPath()] = &ruleDetails.RuleDetail[i]
+        ruleDetails.EntityData.Children[types.GetSegmentPath(&ruleDetails.RuleDetail[i])] = types.YChild{"RuleDetail", &ruleDetails.RuleDetail[i]}
     }
-    return children
+    ruleDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ruleDetails.EntityData)
 }
-
-func (ruleDetails *Correlator_RuleDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ruleDetails *Correlator_RuleDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleDetails *Correlator_RuleDetails) GetYangName() string { return "rule-details" }
-
-func (ruleDetails *Correlator_RuleDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleDetails *Correlator_RuleDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleDetails *Correlator_RuleDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleDetails *Correlator_RuleDetails) SetParent(parent types.Entity) { ruleDetails.parent = parent }
-
-func (ruleDetails *Correlator_RuleDetails) GetParent() types.Entity { return ruleDetails.parent }
-
-func (ruleDetails *Correlator_RuleDetails) GetParentYangName() string { return "correlator" }
 
 // Correlator_RuleDetails_RuleDetail
 // Details of one of the correlation rules
 type Correlator_RuleDetails_RuleDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Correlation Rule Name. The type is string with
@@ -1716,7 +917,7 @@ type Correlator_RuleDetails_RuleDetail struct {
     ContextCorrelation interface{}
 
     // Locations (R/S/M) to which the rule is applied. The type is slice of string
-    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     ApplyLocation []interface{}
 
     // Contexts (Interfaces) to which the rule is applied. The type is slice of
@@ -1731,91 +932,39 @@ type Correlator_RuleDetails_RuleDetail struct {
     Codes []Correlator_RuleDetails_RuleDetail_Codes
 }
 
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetFilter() yfilter.YFilter { return ruleDetail.YFilter }
+func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetEntityData() *types.CommonEntityData {
+    ruleDetail.EntityData.YFilter = ruleDetail.YFilter
+    ruleDetail.EntityData.YangName = "rule-detail"
+    ruleDetail.EntityData.BundleName = "cisco_ios_xr"
+    ruleDetail.EntityData.ParentYangName = "rule-details"
+    ruleDetail.EntityData.SegmentPath = "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
+    ruleDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) SetFilter(yf yfilter.YFilter) { ruleDetail.YFilter = yf }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetGoName(yname string) string {
-    if yname == "rule-name" { return "RuleName" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "root-cause-timeout" { return "RootCauseTimeout" }
-    if yname == "internal" { return "Internal" }
-    if yname == "reissue-non-bistate" { return "ReissueNonBistate" }
-    if yname == "reparent" { return "Reparent" }
-    if yname == "context-correlation" { return "ContextCorrelation" }
-    if yname == "apply-location" { return "ApplyLocation" }
-    if yname == "apply-context" { return "ApplyContext" }
-    if yname == "rule-summary" { return "RuleSummary" }
-    if yname == "codes" { return "Codes" }
-    return ""
-}
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetSegmentPath() string {
-    return "rule-detail" + "[rule-name='" + fmt.Sprintf("%v", ruleDetail.RuleName) + "']"
-}
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-summary" {
-        return &ruleDetail.RuleSummary
-    }
-    if childYangName == "codes" {
-        for _, c := range ruleDetail.Codes {
-            if ruleDetail.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_RuleDetails_RuleDetail_Codes{}
-        ruleDetail.Codes = append(ruleDetail.Codes, child)
-        return &ruleDetail.Codes[len(ruleDetail.Codes)-1]
-    }
-    return nil
-}
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rule-summary"] = &ruleDetail.RuleSummary
+    ruleDetail.EntityData.Children = make(map[string]types.YChild)
+    ruleDetail.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", &ruleDetail.RuleSummary}
+    ruleDetail.EntityData.Children["codes"] = types.YChild{"Codes", nil}
     for i := range ruleDetail.Codes {
-        children[ruleDetail.Codes[i].GetSegmentPath()] = &ruleDetail.Codes[i]
+        ruleDetail.EntityData.Children[types.GetSegmentPath(&ruleDetail.Codes[i])] = types.YChild{"Codes", &ruleDetail.Codes[i]}
     }
-    return children
+    ruleDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleDetail.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleDetail.RuleName}
+    ruleDetail.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ruleDetail.Timeout}
+    ruleDetail.EntityData.Leafs["root-cause-timeout"] = types.YLeaf{"RootCauseTimeout", ruleDetail.RootCauseTimeout}
+    ruleDetail.EntityData.Leafs["internal"] = types.YLeaf{"Internal", ruleDetail.Internal}
+    ruleDetail.EntityData.Leafs["reissue-non-bistate"] = types.YLeaf{"ReissueNonBistate", ruleDetail.ReissueNonBistate}
+    ruleDetail.EntityData.Leafs["reparent"] = types.YLeaf{"Reparent", ruleDetail.Reparent}
+    ruleDetail.EntityData.Leafs["context-correlation"] = types.YLeaf{"ContextCorrelation", ruleDetail.ContextCorrelation}
+    ruleDetail.EntityData.Leafs["apply-location"] = types.YLeaf{"ApplyLocation", ruleDetail.ApplyLocation}
+    ruleDetail.EntityData.Leafs["apply-context"] = types.YLeaf{"ApplyContext", ruleDetail.ApplyContext}
+    return &(ruleDetail.EntityData)
 }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name"] = ruleDetail.RuleName
-    leafs["timeout"] = ruleDetail.Timeout
-    leafs["root-cause-timeout"] = ruleDetail.RootCauseTimeout
-    leafs["internal"] = ruleDetail.Internal
-    leafs["reissue-non-bistate"] = ruleDetail.ReissueNonBistate
-    leafs["reparent"] = ruleDetail.Reparent
-    leafs["context-correlation"] = ruleDetail.ContextCorrelation
-    leafs["apply-location"] = ruleDetail.ApplyLocation
-    leafs["apply-context"] = ruleDetail.ApplyContext
-    return leafs
-}
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetYangName() string { return "rule-detail" }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) SetParent(parent types.Entity) { ruleDetail.parent = parent }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetParent() types.Entity { return ruleDetail.parent }
-
-func (ruleDetail *Correlator_RuleDetails_RuleDetail) GetParentYangName() string { return "rule-details" }
 
 // Correlator_RuleDetails_RuleDetail_RuleSummary
 // Rule summary, name, etc
 type Correlator_RuleDetails_RuleDetail_RuleSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Correlation Rule Name. The type is string.
@@ -1833,62 +982,29 @@ type Correlator_RuleDetails_RuleDetail_RuleSummary struct {
     BufferedAlarmsCount interface{}
 }
 
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetFilter() yfilter.YFilter { return ruleSummary.YFilter }
+func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetEntityData() *types.CommonEntityData {
+    ruleSummary.EntityData.YFilter = ruleSummary.YFilter
+    ruleSummary.EntityData.YangName = "rule-summary"
+    ruleSummary.EntityData.BundleName = "cisco_ios_xr"
+    ruleSummary.EntityData.ParentYangName = "rule-detail"
+    ruleSummary.EntityData.SegmentPath = "rule-summary"
+    ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) SetFilter(yf yfilter.YFilter) { ruleSummary.YFilter = yf }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetGoName(yname string) string {
-    if yname == "rule-name-xr" { return "RuleNameXr" }
-    if yname == "stateful" { return "Stateful" }
-    if yname == "rule-state" { return "RuleState" }
-    if yname == "buffered-alarms-count" { return "BufferedAlarmsCount" }
-    return ""
+    ruleSummary.EntityData.Children = make(map[string]types.YChild)
+    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
+    ruleSummary.EntityData.Leafs["stateful"] = types.YLeaf{"Stateful", ruleSummary.Stateful}
+    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
+    ruleSummary.EntityData.Leafs["buffered-alarms-count"] = types.YLeaf{"BufferedAlarmsCount", ruleSummary.BufferedAlarmsCount}
+    return &(ruleSummary.EntityData)
 }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetSegmentPath() string {
-    return "rule-summary"
-}
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name-xr"] = ruleSummary.RuleNameXr
-    leafs["stateful"] = ruleSummary.Stateful
-    leafs["rule-state"] = ruleSummary.RuleState
-    leafs["buffered-alarms-count"] = ruleSummary.BufferedAlarmsCount
-    return leafs
-}
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetYangName() string { return "rule-summary" }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) SetParent(parent types.Entity) { ruleSummary.parent = parent }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetParent() types.Entity { return ruleSummary.parent }
-
-func (ruleSummary *Correlator_RuleDetails_RuleDetail_RuleSummary) GetParentYangName() string { return "rule-detail" }
 
 // Correlator_RuleDetails_RuleDetail_Codes
 // Message codes defining the rule.
 type Correlator_RuleDetails_RuleDetail_Codes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Category of messages to which this alarm belongs. The type is string.
@@ -1902,61 +1018,29 @@ type Correlator_RuleDetails_RuleDetail_Codes struct {
     Code interface{}
 }
 
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetFilter() yfilter.YFilter { return codes.YFilter }
+func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetEntityData() *types.CommonEntityData {
+    codes.EntityData.YFilter = codes.YFilter
+    codes.EntityData.YangName = "codes"
+    codes.EntityData.BundleName = "cisco_ios_xr"
+    codes.EntityData.ParentYangName = "rule-detail"
+    codes.EntityData.SegmentPath = "codes"
+    codes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    codes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    codes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) SetFilter(yf yfilter.YFilter) { codes.YFilter = yf }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetGoName(yname string) string {
-    if yname == "category" { return "Category" }
-    if yname == "group" { return "Group" }
-    if yname == "code" { return "Code" }
-    return ""
+    codes.EntityData.Children = make(map[string]types.YChild)
+    codes.EntityData.Leafs = make(map[string]types.YLeaf)
+    codes.EntityData.Leafs["category"] = types.YLeaf{"Category", codes.Category}
+    codes.EntityData.Leafs["group"] = types.YLeaf{"Group", codes.Group}
+    codes.EntityData.Leafs["code"] = types.YLeaf{"Code", codes.Code}
+    return &(codes.EntityData)
 }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetSegmentPath() string {
-    return "codes"
-}
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["category"] = codes.Category
-    leafs["group"] = codes.Group
-    leafs["code"] = codes.Code
-    return leafs
-}
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetYangName() string { return "codes" }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) SetParent(parent types.Entity) { codes.parent = parent }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetParent() types.Entity { return codes.parent }
-
-func (codes *Correlator_RuleDetails_RuleDetail_Codes) GetParentYangName() string { return "rule-detail" }
 
 // Correlator_RuleSummaries
 // Table that contains the database of correlation
 // rule summary
 type Correlator_RuleSummaries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // One of the correlation rules. The type is slice of
@@ -1964,68 +1048,29 @@ type Correlator_RuleSummaries struct {
     RuleSummary []Correlator_RuleSummaries_RuleSummary
 }
 
-func (ruleSummaries *Correlator_RuleSummaries) GetFilter() yfilter.YFilter { return ruleSummaries.YFilter }
+func (ruleSummaries *Correlator_RuleSummaries) GetEntityData() *types.CommonEntityData {
+    ruleSummaries.EntityData.YFilter = ruleSummaries.YFilter
+    ruleSummaries.EntityData.YangName = "rule-summaries"
+    ruleSummaries.EntityData.BundleName = "cisco_ios_xr"
+    ruleSummaries.EntityData.ParentYangName = "correlator"
+    ruleSummaries.EntityData.SegmentPath = "rule-summaries"
+    ruleSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSummaries *Correlator_RuleSummaries) SetFilter(yf yfilter.YFilter) { ruleSummaries.YFilter = yf }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetGoName(yname string) string {
-    if yname == "rule-summary" { return "RuleSummary" }
-    return ""
-}
-
-func (ruleSummaries *Correlator_RuleSummaries) GetSegmentPath() string {
-    return "rule-summaries"
-}
-
-func (ruleSummaries *Correlator_RuleSummaries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rule-summary" {
-        for _, c := range ruleSummaries.RuleSummary {
-            if ruleSummaries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Correlator_RuleSummaries_RuleSummary{}
-        ruleSummaries.RuleSummary = append(ruleSummaries.RuleSummary, child)
-        return &ruleSummaries.RuleSummary[len(ruleSummaries.RuleSummary)-1]
-    }
-    return nil
-}
-
-func (ruleSummaries *Correlator_RuleSummaries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ruleSummaries.EntityData.Children = make(map[string]types.YChild)
+    ruleSummaries.EntityData.Children["rule-summary"] = types.YChild{"RuleSummary", nil}
     for i := range ruleSummaries.RuleSummary {
-        children[ruleSummaries.RuleSummary[i].GetSegmentPath()] = &ruleSummaries.RuleSummary[i]
+        ruleSummaries.EntityData.Children[types.GetSegmentPath(&ruleSummaries.RuleSummary[i])] = types.YChild{"RuleSummary", &ruleSummaries.RuleSummary[i]}
     }
-    return children
+    ruleSummaries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ruleSummaries.EntityData)
 }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ruleSummaries *Correlator_RuleSummaries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetYangName() string { return "rule-summaries" }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSummaries *Correlator_RuleSummaries) SetParent(parent types.Entity) { ruleSummaries.parent = parent }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetParent() types.Entity { return ruleSummaries.parent }
-
-func (ruleSummaries *Correlator_RuleSummaries) GetParentYangName() string { return "correlator" }
 
 // Correlator_RuleSummaries_RuleSummary
 // One of the correlation rules
 type Correlator_RuleSummaries_RuleSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Correlation Rule Name. The type is string with
@@ -2047,57 +1092,23 @@ type Correlator_RuleSummaries_RuleSummary struct {
     BufferedAlarmsCount interface{}
 }
 
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetFilter() yfilter.YFilter { return ruleSummary.YFilter }
+func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetEntityData() *types.CommonEntityData {
+    ruleSummary.EntityData.YFilter = ruleSummary.YFilter
+    ruleSummary.EntityData.YangName = "rule-summary"
+    ruleSummary.EntityData.BundleName = "cisco_ios_xr"
+    ruleSummary.EntityData.ParentYangName = "rule-summaries"
+    ruleSummary.EntityData.SegmentPath = "rule-summary" + "[rule-name='" + fmt.Sprintf("%v", ruleSummary.RuleName) + "']"
+    ruleSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ruleSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ruleSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) SetFilter(yf yfilter.YFilter) { ruleSummary.YFilter = yf }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetGoName(yname string) string {
-    if yname == "rule-name" { return "RuleName" }
-    if yname == "rule-name-xr" { return "RuleNameXr" }
-    if yname == "stateful" { return "Stateful" }
-    if yname == "rule-state" { return "RuleState" }
-    if yname == "buffered-alarms-count" { return "BufferedAlarmsCount" }
-    return ""
+    ruleSummary.EntityData.Children = make(map[string]types.YChild)
+    ruleSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    ruleSummary.EntityData.Leafs["rule-name"] = types.YLeaf{"RuleName", ruleSummary.RuleName}
+    ruleSummary.EntityData.Leafs["rule-name-xr"] = types.YLeaf{"RuleNameXr", ruleSummary.RuleNameXr}
+    ruleSummary.EntityData.Leafs["stateful"] = types.YLeaf{"Stateful", ruleSummary.Stateful}
+    ruleSummary.EntityData.Leafs["rule-state"] = types.YLeaf{"RuleState", ruleSummary.RuleState}
+    ruleSummary.EntityData.Leafs["buffered-alarms-count"] = types.YLeaf{"BufferedAlarmsCount", ruleSummary.BufferedAlarmsCount}
+    return &(ruleSummary.EntityData)
 }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetSegmentPath() string {
-    return "rule-summary" + "[rule-name='" + fmt.Sprintf("%v", ruleSummary.RuleName) + "']"
-}
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rule-name"] = ruleSummary.RuleName
-    leafs["rule-name-xr"] = ruleSummary.RuleNameXr
-    leafs["stateful"] = ruleSummary.Stateful
-    leafs["rule-state"] = ruleSummary.RuleState
-    leafs["buffered-alarms-count"] = ruleSummary.BufferedAlarmsCount
-    return leafs
-}
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetYangName() string { return "rule-summary" }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) SetParent(parent types.Entity) { ruleSummary.parent = parent }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetParent() types.Entity { return ruleSummary.parent }
-
-func (ruleSummary *Correlator_RuleSummaries_RuleSummary) GetParentYangName() string { return "rule-summaries" }
 

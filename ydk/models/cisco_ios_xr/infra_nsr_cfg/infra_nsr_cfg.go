@@ -27,116 +27,53 @@ func init() {
 // Nsr
 // NSR global configuration
 type Nsr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Recovery action for process failures on active RP/DRP.
     ProcessFailure Nsr_ProcessFailure
 }
 
-func (nsr *Nsr) GetFilter() yfilter.YFilter { return nsr.YFilter }
+func (nsr *Nsr) GetEntityData() *types.CommonEntityData {
+    nsr.EntityData.YFilter = nsr.YFilter
+    nsr.EntityData.YangName = "nsr"
+    nsr.EntityData.BundleName = "cisco_ios_xr"
+    nsr.EntityData.ParentYangName = "Cisco-IOS-XR-infra-nsr-cfg"
+    nsr.EntityData.SegmentPath = "Cisco-IOS-XR-infra-nsr-cfg:nsr"
+    nsr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nsr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nsr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nsr *Nsr) SetFilter(yf yfilter.YFilter) { nsr.YFilter = yf }
-
-func (nsr *Nsr) GetGoName(yname string) string {
-    if yname == "process-failure" { return "ProcessFailure" }
-    return ""
+    nsr.EntityData.Children = make(map[string]types.YChild)
+    nsr.EntityData.Children["process-failure"] = types.YChild{"ProcessFailure", &nsr.ProcessFailure}
+    nsr.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nsr.EntityData)
 }
-
-func (nsr *Nsr) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-nsr-cfg:nsr"
-}
-
-func (nsr *Nsr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "process-failure" {
-        return &nsr.ProcessFailure
-    }
-    return nil
-}
-
-func (nsr *Nsr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["process-failure"] = &nsr.ProcessFailure
-    return children
-}
-
-func (nsr *Nsr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nsr *Nsr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nsr *Nsr) GetYangName() string { return "nsr" }
-
-func (nsr *Nsr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nsr *Nsr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nsr *Nsr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nsr *Nsr) SetParent(parent types.Entity) { nsr.parent = parent }
-
-func (nsr *Nsr) GetParent() types.Entity { return nsr.parent }
-
-func (nsr *Nsr) GetParentYangName() string { return "Cisco-IOS-XR-infra-nsr-cfg" }
 
 // Nsr_ProcessFailure
 // Recovery action for process failures on active
 // RP/DRP
 type Nsr_ProcessFailure struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable RP/DRP switchover on process failures. The type is interface{}.
     Switchover interface{}
 }
 
-func (processFailure *Nsr_ProcessFailure) GetFilter() yfilter.YFilter { return processFailure.YFilter }
+func (processFailure *Nsr_ProcessFailure) GetEntityData() *types.CommonEntityData {
+    processFailure.EntityData.YFilter = processFailure.YFilter
+    processFailure.EntityData.YangName = "process-failure"
+    processFailure.EntityData.BundleName = "cisco_ios_xr"
+    processFailure.EntityData.ParentYangName = "nsr"
+    processFailure.EntityData.SegmentPath = "process-failure"
+    processFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    processFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    processFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (processFailure *Nsr_ProcessFailure) SetFilter(yf yfilter.YFilter) { processFailure.YFilter = yf }
-
-func (processFailure *Nsr_ProcessFailure) GetGoName(yname string) string {
-    if yname == "switchover" { return "Switchover" }
-    return ""
+    processFailure.EntityData.Children = make(map[string]types.YChild)
+    processFailure.EntityData.Leafs = make(map[string]types.YLeaf)
+    processFailure.EntityData.Leafs["switchover"] = types.YLeaf{"Switchover", processFailure.Switchover}
+    return &(processFailure.EntityData)
 }
-
-func (processFailure *Nsr_ProcessFailure) GetSegmentPath() string {
-    return "process-failure"
-}
-
-func (processFailure *Nsr_ProcessFailure) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (processFailure *Nsr_ProcessFailure) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (processFailure *Nsr_ProcessFailure) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["switchover"] = processFailure.Switchover
-    return leafs
-}
-
-func (processFailure *Nsr_ProcessFailure) GetBundleName() string { return "cisco_ios_xr" }
-
-func (processFailure *Nsr_ProcessFailure) GetYangName() string { return "process-failure" }
-
-func (processFailure *Nsr_ProcessFailure) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (processFailure *Nsr_ProcessFailure) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (processFailure *Nsr_ProcessFailure) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (processFailure *Nsr_ProcessFailure) SetParent(parent types.Entity) { processFailure.parent = parent }
-
-func (processFailure *Nsr_ProcessFailure) GetParent() types.Entity { return processFailure.parent }
-
-func (processFailure *Nsr_ProcessFailure) GetParentYangName() string { return "nsr" }
 

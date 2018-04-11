@@ -27,7 +27,7 @@ func init() {
 // Eem
 // EEM operational data
 type Eem struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // directory user.
@@ -46,79 +46,30 @@ type Eem struct {
     AvlPolicies Eem_AvlPolicies
 }
 
-func (eem *Eem) GetFilter() yfilter.YFilter { return eem.YFilter }
+func (eem *Eem) GetEntityData() *types.CommonEntityData {
+    eem.EntityData.YFilter = eem.YFilter
+    eem.EntityData.YangName = "eem"
+    eem.EntityData.BundleName = "cisco_ios_xr"
+    eem.EntityData.ParentYangName = "Cisco-IOS-XR-ha-eem-policy-oper"
+    eem.EntityData.SegmentPath = "Cisco-IOS-XR-ha-eem-policy-oper:eem"
+    eem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    eem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    eem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (eem *Eem) SetFilter(yf yfilter.YFilter) { eem.YFilter = yf }
-
-func (eem *Eem) GetGoName(yname string) string {
-    if yname == "dir-user" { return "DirUser" }
-    if yname == "env-variables" { return "EnvVariables" }
-    if yname == "refresh-time" { return "RefreshTime" }
-    if yname == "reg-policies" { return "RegPolicies" }
-    if yname == "avl-policies" { return "AvlPolicies" }
-    return ""
+    eem.EntityData.Children = make(map[string]types.YChild)
+    eem.EntityData.Children["dir-user"] = types.YChild{"DirUser", &eem.DirUser}
+    eem.EntityData.Children["env-variables"] = types.YChild{"EnvVariables", &eem.EnvVariables}
+    eem.EntityData.Children["refresh-time"] = types.YChild{"RefreshTime", &eem.RefreshTime}
+    eem.EntityData.Children["reg-policies"] = types.YChild{"RegPolicies", &eem.RegPolicies}
+    eem.EntityData.Children["avl-policies"] = types.YChild{"AvlPolicies", &eem.AvlPolicies}
+    eem.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(eem.EntityData)
 }
-
-func (eem *Eem) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ha-eem-policy-oper:eem"
-}
-
-func (eem *Eem) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dir-user" {
-        return &eem.DirUser
-    }
-    if childYangName == "env-variables" {
-        return &eem.EnvVariables
-    }
-    if childYangName == "refresh-time" {
-        return &eem.RefreshTime
-    }
-    if childYangName == "reg-policies" {
-        return &eem.RegPolicies
-    }
-    if childYangName == "avl-policies" {
-        return &eem.AvlPolicies
-    }
-    return nil
-}
-
-func (eem *Eem) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dir-user"] = &eem.DirUser
-    children["env-variables"] = &eem.EnvVariables
-    children["refresh-time"] = &eem.RefreshTime
-    children["reg-policies"] = &eem.RegPolicies
-    children["avl-policies"] = &eem.AvlPolicies
-    return children
-}
-
-func (eem *Eem) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (eem *Eem) GetBundleName() string { return "cisco_ios_xr" }
-
-func (eem *Eem) GetYangName() string { return "eem" }
-
-func (eem *Eem) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (eem *Eem) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (eem *Eem) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (eem *Eem) SetParent(parent types.Entity) { eem.parent = parent }
-
-func (eem *Eem) GetParent() types.Entity { return eem.parent }
-
-func (eem *Eem) GetParentYangName() string { return "Cisco-IOS-XR-ha-eem-policy-oper" }
 
 // Eem_DirUser
 // directory user
 type Eem_DirUser struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // directory user library.
@@ -128,64 +79,27 @@ type Eem_DirUser struct {
     Policy Eem_DirUser_Policy
 }
 
-func (dirUser *Eem_DirUser) GetFilter() yfilter.YFilter { return dirUser.YFilter }
+func (dirUser *Eem_DirUser) GetEntityData() *types.CommonEntityData {
+    dirUser.EntityData.YFilter = dirUser.YFilter
+    dirUser.EntityData.YangName = "dir-user"
+    dirUser.EntityData.BundleName = "cisco_ios_xr"
+    dirUser.EntityData.ParentYangName = "eem"
+    dirUser.EntityData.SegmentPath = "dir-user"
+    dirUser.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dirUser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dirUser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dirUser *Eem_DirUser) SetFilter(yf yfilter.YFilter) { dirUser.YFilter = yf }
-
-func (dirUser *Eem_DirUser) GetGoName(yname string) string {
-    if yname == "library" { return "Library" }
-    if yname == "policy" { return "Policy" }
-    return ""
+    dirUser.EntityData.Children = make(map[string]types.YChild)
+    dirUser.EntityData.Children["library"] = types.YChild{"Library", &dirUser.Library}
+    dirUser.EntityData.Children["policy"] = types.YChild{"Policy", &dirUser.Policy}
+    dirUser.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dirUser.EntityData)
 }
-
-func (dirUser *Eem_DirUser) GetSegmentPath() string {
-    return "dir-user"
-}
-
-func (dirUser *Eem_DirUser) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "library" {
-        return &dirUser.Library
-    }
-    if childYangName == "policy" {
-        return &dirUser.Policy
-    }
-    return nil
-}
-
-func (dirUser *Eem_DirUser) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["library"] = &dirUser.Library
-    children["policy"] = &dirUser.Policy
-    return children
-}
-
-func (dirUser *Eem_DirUser) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dirUser *Eem_DirUser) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dirUser *Eem_DirUser) GetYangName() string { return "dir-user" }
-
-func (dirUser *Eem_DirUser) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dirUser *Eem_DirUser) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dirUser *Eem_DirUser) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dirUser *Eem_DirUser) SetParent(parent types.Entity) { dirUser.parent = parent }
-
-func (dirUser *Eem_DirUser) GetParent() types.Entity { return dirUser.parent }
-
-func (dirUser *Eem_DirUser) GetParentYangName() string { return "eem" }
 
 // Eem_DirUser_Library
 // directory user library
 type Eem_DirUser_Library struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // policy. The type is string.
@@ -195,58 +109,27 @@ type Eem_DirUser_Library struct {
     Library interface{}
 }
 
-func (library *Eem_DirUser_Library) GetFilter() yfilter.YFilter { return library.YFilter }
+func (library *Eem_DirUser_Library) GetEntityData() *types.CommonEntityData {
+    library.EntityData.YFilter = library.YFilter
+    library.EntityData.YangName = "library"
+    library.EntityData.BundleName = "cisco_ios_xr"
+    library.EntityData.ParentYangName = "dir-user"
+    library.EntityData.SegmentPath = "library"
+    library.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    library.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    library.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (library *Eem_DirUser_Library) SetFilter(yf yfilter.YFilter) { library.YFilter = yf }
-
-func (library *Eem_DirUser_Library) GetGoName(yname string) string {
-    if yname == "policy" { return "Policy" }
-    if yname == "library" { return "Library" }
-    return ""
+    library.EntityData.Children = make(map[string]types.YChild)
+    library.EntityData.Leafs = make(map[string]types.YLeaf)
+    library.EntityData.Leafs["policy"] = types.YLeaf{"Policy", library.Policy}
+    library.EntityData.Leafs["library"] = types.YLeaf{"Library", library.Library}
+    return &(library.EntityData)
 }
-
-func (library *Eem_DirUser_Library) GetSegmentPath() string {
-    return "library"
-}
-
-func (library *Eem_DirUser_Library) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (library *Eem_DirUser_Library) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (library *Eem_DirUser_Library) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy"] = library.Policy
-    leafs["library"] = library.Library
-    return leafs
-}
-
-func (library *Eem_DirUser_Library) GetBundleName() string { return "cisco_ios_xr" }
-
-func (library *Eem_DirUser_Library) GetYangName() string { return "library" }
-
-func (library *Eem_DirUser_Library) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (library *Eem_DirUser_Library) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (library *Eem_DirUser_Library) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (library *Eem_DirUser_Library) SetParent(parent types.Entity) { library.parent = parent }
-
-func (library *Eem_DirUser_Library) GetParent() types.Entity { return library.parent }
-
-func (library *Eem_DirUser_Library) GetParentYangName() string { return "dir-user" }
 
 // Eem_DirUser_Policy
 // directory user policy
 type Eem_DirUser_Policy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // policy. The type is string.
@@ -256,58 +139,27 @@ type Eem_DirUser_Policy struct {
     Library interface{}
 }
 
-func (policy *Eem_DirUser_Policy) GetFilter() yfilter.YFilter { return policy.YFilter }
+func (policy *Eem_DirUser_Policy) GetEntityData() *types.CommonEntityData {
+    policy.EntityData.YFilter = policy.YFilter
+    policy.EntityData.YangName = "policy"
+    policy.EntityData.BundleName = "cisco_ios_xr"
+    policy.EntityData.ParentYangName = "dir-user"
+    policy.EntityData.SegmentPath = "policy"
+    policy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (policy *Eem_DirUser_Policy) SetFilter(yf yfilter.YFilter) { policy.YFilter = yf }
-
-func (policy *Eem_DirUser_Policy) GetGoName(yname string) string {
-    if yname == "policy" { return "Policy" }
-    if yname == "library" { return "Library" }
-    return ""
+    policy.EntityData.Children = make(map[string]types.YChild)
+    policy.EntityData.Leafs = make(map[string]types.YLeaf)
+    policy.EntityData.Leafs["policy"] = types.YLeaf{"Policy", policy.Policy}
+    policy.EntityData.Leafs["library"] = types.YLeaf{"Library", policy.Library}
+    return &(policy.EntityData)
 }
-
-func (policy *Eem_DirUser_Policy) GetSegmentPath() string {
-    return "policy"
-}
-
-func (policy *Eem_DirUser_Policy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (policy *Eem_DirUser_Policy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (policy *Eem_DirUser_Policy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy"] = policy.Policy
-    leafs["library"] = policy.Library
-    return leafs
-}
-
-func (policy *Eem_DirUser_Policy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (policy *Eem_DirUser_Policy) GetYangName() string { return "policy" }
-
-func (policy *Eem_DirUser_Policy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (policy *Eem_DirUser_Policy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (policy *Eem_DirUser_Policy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (policy *Eem_DirUser_Policy) SetParent(parent types.Entity) { policy.parent = parent }
-
-func (policy *Eem_DirUser_Policy) GetParent() types.Entity { return policy.parent }
-
-func (policy *Eem_DirUser_Policy) GetParentYangName() string { return "dir-user" }
 
 // Eem_EnvVariables
 // list of environmental variables
 type Eem_EnvVariables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // environmental variables name and value . The type is slice of
@@ -315,72 +167,33 @@ type Eem_EnvVariables struct {
     EnvVariable []Eem_EnvVariables_EnvVariable
 }
 
-func (envVariables *Eem_EnvVariables) GetFilter() yfilter.YFilter { return envVariables.YFilter }
+func (envVariables *Eem_EnvVariables) GetEntityData() *types.CommonEntityData {
+    envVariables.EntityData.YFilter = envVariables.YFilter
+    envVariables.EntityData.YangName = "env-variables"
+    envVariables.EntityData.BundleName = "cisco_ios_xr"
+    envVariables.EntityData.ParentYangName = "eem"
+    envVariables.EntityData.SegmentPath = "env-variables"
+    envVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    envVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    envVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (envVariables *Eem_EnvVariables) SetFilter(yf yfilter.YFilter) { envVariables.YFilter = yf }
-
-func (envVariables *Eem_EnvVariables) GetGoName(yname string) string {
-    if yname == "env-variable" { return "EnvVariable" }
-    return ""
-}
-
-func (envVariables *Eem_EnvVariables) GetSegmentPath() string {
-    return "env-variables"
-}
-
-func (envVariables *Eem_EnvVariables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "env-variable" {
-        for _, c := range envVariables.EnvVariable {
-            if envVariables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Eem_EnvVariables_EnvVariable{}
-        envVariables.EnvVariable = append(envVariables.EnvVariable, child)
-        return &envVariables.EnvVariable[len(envVariables.EnvVariable)-1]
-    }
-    return nil
-}
-
-func (envVariables *Eem_EnvVariables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    envVariables.EntityData.Children = make(map[string]types.YChild)
+    envVariables.EntityData.Children["env-variable"] = types.YChild{"EnvVariable", nil}
     for i := range envVariables.EnvVariable {
-        children[envVariables.EnvVariable[i].GetSegmentPath()] = &envVariables.EnvVariable[i]
+        envVariables.EntityData.Children[types.GetSegmentPath(&envVariables.EnvVariable[i])] = types.YChild{"EnvVariable", &envVariables.EnvVariable[i]}
     }
-    return children
+    envVariables.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(envVariables.EntityData)
 }
-
-func (envVariables *Eem_EnvVariables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (envVariables *Eem_EnvVariables) GetBundleName() string { return "cisco_ios_xr" }
-
-func (envVariables *Eem_EnvVariables) GetYangName() string { return "env-variables" }
-
-func (envVariables *Eem_EnvVariables) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (envVariables *Eem_EnvVariables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (envVariables *Eem_EnvVariables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (envVariables *Eem_EnvVariables) SetParent(parent types.Entity) { envVariables.parent = parent }
-
-func (envVariables *Eem_EnvVariables) GetParent() types.Entity { return envVariables.parent }
-
-func (envVariables *Eem_EnvVariables) GetParentYangName() string { return "eem" }
 
 // Eem_EnvVariables_EnvVariable
 // environmental variables name and value 
 type Eem_EnvVariables_EnvVariable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Environmental variable name. The type is string
-    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // variable name. The type is string.
@@ -390,60 +203,28 @@ type Eem_EnvVariables_EnvVariable struct {
     Value interface{}
 }
 
-func (envVariable *Eem_EnvVariables_EnvVariable) GetFilter() yfilter.YFilter { return envVariable.YFilter }
+func (envVariable *Eem_EnvVariables_EnvVariable) GetEntityData() *types.CommonEntityData {
+    envVariable.EntityData.YFilter = envVariable.YFilter
+    envVariable.EntityData.YangName = "env-variable"
+    envVariable.EntityData.BundleName = "cisco_ios_xr"
+    envVariable.EntityData.ParentYangName = "env-variables"
+    envVariable.EntityData.SegmentPath = "env-variable" + "[name='" + fmt.Sprintf("%v", envVariable.Name) + "']"
+    envVariable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    envVariable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    envVariable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (envVariable *Eem_EnvVariables_EnvVariable) SetFilter(yf yfilter.YFilter) { envVariable.YFilter = yf }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "name-xr" { return "NameXr" }
-    if yname == "value" { return "Value" }
-    return ""
+    envVariable.EntityData.Children = make(map[string]types.YChild)
+    envVariable.EntityData.Leafs = make(map[string]types.YLeaf)
+    envVariable.EntityData.Leafs["name"] = types.YLeaf{"Name", envVariable.Name}
+    envVariable.EntityData.Leafs["name-xr"] = types.YLeaf{"NameXr", envVariable.NameXr}
+    envVariable.EntityData.Leafs["value"] = types.YLeaf{"Value", envVariable.Value}
+    return &(envVariable.EntityData)
 }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetSegmentPath() string {
-    return "env-variable" + "[name='" + fmt.Sprintf("%v", envVariable.Name) + "']"
-}
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = envVariable.Name
-    leafs["name-xr"] = envVariable.NameXr
-    leafs["value"] = envVariable.Value
-    return leafs
-}
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetYangName() string { return "env-variable" }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) SetParent(parent types.Entity) { envVariable.parent = parent }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetParent() types.Entity { return envVariable.parent }
-
-func (envVariable *Eem_EnvVariables_EnvVariable) GetParentYangName() string { return "env-variables" }
 
 // Eem_RefreshTime
 // Refresh time
 type Eem_RefreshTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Event manager refresh-time . The type is interface{} with range:
@@ -451,56 +232,26 @@ type Eem_RefreshTime struct {
     Refreshtime interface{}
 }
 
-func (refreshTime *Eem_RefreshTime) GetFilter() yfilter.YFilter { return refreshTime.YFilter }
+func (refreshTime *Eem_RefreshTime) GetEntityData() *types.CommonEntityData {
+    refreshTime.EntityData.YFilter = refreshTime.YFilter
+    refreshTime.EntityData.YangName = "refresh-time"
+    refreshTime.EntityData.BundleName = "cisco_ios_xr"
+    refreshTime.EntityData.ParentYangName = "eem"
+    refreshTime.EntityData.SegmentPath = "refresh-time"
+    refreshTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    refreshTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    refreshTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (refreshTime *Eem_RefreshTime) SetFilter(yf yfilter.YFilter) { refreshTime.YFilter = yf }
-
-func (refreshTime *Eem_RefreshTime) GetGoName(yname string) string {
-    if yname == "refreshtime" { return "Refreshtime" }
-    return ""
+    refreshTime.EntityData.Children = make(map[string]types.YChild)
+    refreshTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    refreshTime.EntityData.Leafs["refreshtime"] = types.YLeaf{"Refreshtime", refreshTime.Refreshtime}
+    return &(refreshTime.EntityData)
 }
-
-func (refreshTime *Eem_RefreshTime) GetSegmentPath() string {
-    return "refresh-time"
-}
-
-func (refreshTime *Eem_RefreshTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (refreshTime *Eem_RefreshTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (refreshTime *Eem_RefreshTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["refreshtime"] = refreshTime.Refreshtime
-    return leafs
-}
-
-func (refreshTime *Eem_RefreshTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (refreshTime *Eem_RefreshTime) GetYangName() string { return "refresh-time" }
-
-func (refreshTime *Eem_RefreshTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (refreshTime *Eem_RefreshTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (refreshTime *Eem_RefreshTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (refreshTime *Eem_RefreshTime) SetParent(parent types.Entity) { refreshTime.parent = parent }
-
-func (refreshTime *Eem_RefreshTime) GetParent() types.Entity { return refreshTime.parent }
-
-func (refreshTime *Eem_RefreshTime) GetParentYangName() string { return "eem" }
 
 // Eem_RegPolicies
 // list the registered policies
 type Eem_RegPolicies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // policy name and create time . The type is slice of
@@ -508,76 +259,37 @@ type Eem_RegPolicies struct {
     RegPolicy []Eem_RegPolicies_RegPolicy
 }
 
-func (regPolicies *Eem_RegPolicies) GetFilter() yfilter.YFilter { return regPolicies.YFilter }
+func (regPolicies *Eem_RegPolicies) GetEntityData() *types.CommonEntityData {
+    regPolicies.EntityData.YFilter = regPolicies.YFilter
+    regPolicies.EntityData.YangName = "reg-policies"
+    regPolicies.EntityData.BundleName = "cisco_ios_xr"
+    regPolicies.EntityData.ParentYangName = "eem"
+    regPolicies.EntityData.SegmentPath = "reg-policies"
+    regPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    regPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    regPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (regPolicies *Eem_RegPolicies) SetFilter(yf yfilter.YFilter) { regPolicies.YFilter = yf }
-
-func (regPolicies *Eem_RegPolicies) GetGoName(yname string) string {
-    if yname == "reg-policy" { return "RegPolicy" }
-    return ""
-}
-
-func (regPolicies *Eem_RegPolicies) GetSegmentPath() string {
-    return "reg-policies"
-}
-
-func (regPolicies *Eem_RegPolicies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "reg-policy" {
-        for _, c := range regPolicies.RegPolicy {
-            if regPolicies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Eem_RegPolicies_RegPolicy{}
-        regPolicies.RegPolicy = append(regPolicies.RegPolicy, child)
-        return &regPolicies.RegPolicy[len(regPolicies.RegPolicy)-1]
-    }
-    return nil
-}
-
-func (regPolicies *Eem_RegPolicies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    regPolicies.EntityData.Children = make(map[string]types.YChild)
+    regPolicies.EntityData.Children["reg-policy"] = types.YChild{"RegPolicy", nil}
     for i := range regPolicies.RegPolicy {
-        children[regPolicies.RegPolicy[i].GetSegmentPath()] = &regPolicies.RegPolicy[i]
+        regPolicies.EntityData.Children[types.GetSegmentPath(&regPolicies.RegPolicy[i])] = types.YChild{"RegPolicy", &regPolicies.RegPolicy[i]}
     }
-    return children
+    regPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(regPolicies.EntityData)
 }
-
-func (regPolicies *Eem_RegPolicies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (regPolicies *Eem_RegPolicies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (regPolicies *Eem_RegPolicies) GetYangName() string { return "reg-policies" }
-
-func (regPolicies *Eem_RegPolicies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (regPolicies *Eem_RegPolicies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (regPolicies *Eem_RegPolicies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (regPolicies *Eem_RegPolicies) SetParent(parent types.Entity) { regPolicies.parent = parent }
-
-func (regPolicies *Eem_RegPolicies) GetParent() types.Entity { return regPolicies.parent }
-
-func (regPolicies *Eem_RegPolicies) GetParentYangName() string { return "eem" }
 
 // Eem_RegPolicies_RegPolicy
 // policy name and create time 
 type Eem_RegPolicies_RegPolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. policy name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // policy type. The type is string.
-    Type interface{}
+    Type_ interface{}
 
     // time created. The type is string.
     TimeCreated interface{}
@@ -604,74 +316,35 @@ type Eem_RegPolicies_RegPolicy struct {
     Description interface{}
 }
 
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetFilter() yfilter.YFilter { return regPolicy.YFilter }
+func (regPolicy *Eem_RegPolicies_RegPolicy) GetEntityData() *types.CommonEntityData {
+    regPolicy.EntityData.YFilter = regPolicy.YFilter
+    regPolicy.EntityData.YangName = "reg-policy"
+    regPolicy.EntityData.BundleName = "cisco_ios_xr"
+    regPolicy.EntityData.ParentYangName = "reg-policies"
+    regPolicy.EntityData.SegmentPath = "reg-policy" + "[name='" + fmt.Sprintf("%v", regPolicy.Name) + "']"
+    regPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    regPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    regPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (regPolicy *Eem_RegPolicies_RegPolicy) SetFilter(yf yfilter.YFilter) { regPolicy.YFilter = yf }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "type" { return "Type" }
-    if yname == "time-created" { return "TimeCreated" }
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "class" { return "Class" }
-    if yname == "event-type" { return "EventType" }
-    if yname == "trap" { return "Trap" }
-    if yname == "persist-time" { return "PersistTime" }
-    if yname == "username" { return "Username" }
-    if yname == "description" { return "Description" }
-    return ""
+    regPolicy.EntityData.Children = make(map[string]types.YChild)
+    regPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    regPolicy.EntityData.Leafs["name"] = types.YLeaf{"Name", regPolicy.Name}
+    regPolicy.EntityData.Leafs["type"] = types.YLeaf{"Type_", regPolicy.Type_}
+    regPolicy.EntityData.Leafs["time-created"] = types.YLeaf{"TimeCreated", regPolicy.TimeCreated}
+    regPolicy.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", regPolicy.PolicyName}
+    regPolicy.EntityData.Leafs["class"] = types.YLeaf{"Class", regPolicy.Class}
+    regPolicy.EntityData.Leafs["event-type"] = types.YLeaf{"EventType", regPolicy.EventType}
+    regPolicy.EntityData.Leafs["trap"] = types.YLeaf{"Trap", regPolicy.Trap}
+    regPolicy.EntityData.Leafs["persist-time"] = types.YLeaf{"PersistTime", regPolicy.PersistTime}
+    regPolicy.EntityData.Leafs["username"] = types.YLeaf{"Username", regPolicy.Username}
+    regPolicy.EntityData.Leafs["description"] = types.YLeaf{"Description", regPolicy.Description}
+    return &(regPolicy.EntityData)
 }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetSegmentPath() string {
-    return "reg-policy" + "[name='" + fmt.Sprintf("%v", regPolicy.Name) + "']"
-}
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = regPolicy.Name
-    leafs["type"] = regPolicy.Type
-    leafs["time-created"] = regPolicy.TimeCreated
-    leafs["policy-name"] = regPolicy.PolicyName
-    leafs["class"] = regPolicy.Class
-    leafs["event-type"] = regPolicy.EventType
-    leafs["trap"] = regPolicy.Trap
-    leafs["persist-time"] = regPolicy.PersistTime
-    leafs["username"] = regPolicy.Username
-    leafs["description"] = regPolicy.Description
-    return leafs
-}
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetYangName() string { return "reg-policy" }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) SetParent(parent types.Entity) { regPolicy.parent = parent }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetParent() types.Entity { return regPolicy.parent }
-
-func (regPolicy *Eem_RegPolicies_RegPolicy) GetParentYangName() string { return "reg-policies" }
 
 // Eem_AvlPolicies
 // list the available policies
 type Eem_AvlPolicies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // policy name and create time . The type is slice of
@@ -679,76 +352,37 @@ type Eem_AvlPolicies struct {
     AvlPolicy []Eem_AvlPolicies_AvlPolicy
 }
 
-func (avlPolicies *Eem_AvlPolicies) GetFilter() yfilter.YFilter { return avlPolicies.YFilter }
+func (avlPolicies *Eem_AvlPolicies) GetEntityData() *types.CommonEntityData {
+    avlPolicies.EntityData.YFilter = avlPolicies.YFilter
+    avlPolicies.EntityData.YangName = "avl-policies"
+    avlPolicies.EntityData.BundleName = "cisco_ios_xr"
+    avlPolicies.EntityData.ParentYangName = "eem"
+    avlPolicies.EntityData.SegmentPath = "avl-policies"
+    avlPolicies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    avlPolicies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    avlPolicies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (avlPolicies *Eem_AvlPolicies) SetFilter(yf yfilter.YFilter) { avlPolicies.YFilter = yf }
-
-func (avlPolicies *Eem_AvlPolicies) GetGoName(yname string) string {
-    if yname == "avl-policy" { return "AvlPolicy" }
-    return ""
-}
-
-func (avlPolicies *Eem_AvlPolicies) GetSegmentPath() string {
-    return "avl-policies"
-}
-
-func (avlPolicies *Eem_AvlPolicies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "avl-policy" {
-        for _, c := range avlPolicies.AvlPolicy {
-            if avlPolicies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Eem_AvlPolicies_AvlPolicy{}
-        avlPolicies.AvlPolicy = append(avlPolicies.AvlPolicy, child)
-        return &avlPolicies.AvlPolicy[len(avlPolicies.AvlPolicy)-1]
-    }
-    return nil
-}
-
-func (avlPolicies *Eem_AvlPolicies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    avlPolicies.EntityData.Children = make(map[string]types.YChild)
+    avlPolicies.EntityData.Children["avl-policy"] = types.YChild{"AvlPolicy", nil}
     for i := range avlPolicies.AvlPolicy {
-        children[avlPolicies.AvlPolicy[i].GetSegmentPath()] = &avlPolicies.AvlPolicy[i]
+        avlPolicies.EntityData.Children[types.GetSegmentPath(&avlPolicies.AvlPolicy[i])] = types.YChild{"AvlPolicy", &avlPolicies.AvlPolicy[i]}
     }
-    return children
+    avlPolicies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(avlPolicies.EntityData)
 }
-
-func (avlPolicies *Eem_AvlPolicies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (avlPolicies *Eem_AvlPolicies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (avlPolicies *Eem_AvlPolicies) GetYangName() string { return "avl-policies" }
-
-func (avlPolicies *Eem_AvlPolicies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (avlPolicies *Eem_AvlPolicies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (avlPolicies *Eem_AvlPolicies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (avlPolicies *Eem_AvlPolicies) SetParent(parent types.Entity) { avlPolicies.parent = parent }
-
-func (avlPolicies *Eem_AvlPolicies) GetParent() types.Entity { return avlPolicies.parent }
-
-func (avlPolicies *Eem_AvlPolicies) GetParentYangName() string { return "eem" }
 
 // Eem_AvlPolicies_AvlPolicy
 // policy name and create time 
 type Eem_AvlPolicies_AvlPolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. System policy name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // policy type. The type is string.
-    Type interface{}
+    Type_ interface{}
 
     // time created. The type is string.
     TimeCreated interface{}
@@ -757,55 +391,22 @@ type Eem_AvlPolicies_AvlPolicy struct {
     PolicyName interface{}
 }
 
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetFilter() yfilter.YFilter { return avlPolicy.YFilter }
+func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetEntityData() *types.CommonEntityData {
+    avlPolicy.EntityData.YFilter = avlPolicy.YFilter
+    avlPolicy.EntityData.YangName = "avl-policy"
+    avlPolicy.EntityData.BundleName = "cisco_ios_xr"
+    avlPolicy.EntityData.ParentYangName = "avl-policies"
+    avlPolicy.EntityData.SegmentPath = "avl-policy" + "[name='" + fmt.Sprintf("%v", avlPolicy.Name) + "']"
+    avlPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    avlPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    avlPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) SetFilter(yf yfilter.YFilter) { avlPolicy.YFilter = yf }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "type" { return "Type" }
-    if yname == "time-created" { return "TimeCreated" }
-    if yname == "policy-name" { return "PolicyName" }
-    return ""
+    avlPolicy.EntityData.Children = make(map[string]types.YChild)
+    avlPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    avlPolicy.EntityData.Leafs["name"] = types.YLeaf{"Name", avlPolicy.Name}
+    avlPolicy.EntityData.Leafs["type"] = types.YLeaf{"Type_", avlPolicy.Type_}
+    avlPolicy.EntityData.Leafs["time-created"] = types.YLeaf{"TimeCreated", avlPolicy.TimeCreated}
+    avlPolicy.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", avlPolicy.PolicyName}
+    return &(avlPolicy.EntityData)
 }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetSegmentPath() string {
-    return "avl-policy" + "[name='" + fmt.Sprintf("%v", avlPolicy.Name) + "']"
-}
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = avlPolicy.Name
-    leafs["type"] = avlPolicy.Type
-    leafs["time-created"] = avlPolicy.TimeCreated
-    leafs["policy-name"] = avlPolicy.PolicyName
-    return leafs
-}
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetYangName() string { return "avl-policy" }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) SetParent(parent types.Entity) { avlPolicy.parent = parent }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetParent() types.Entity { return avlPolicy.parent }
-
-func (avlPolicy *Eem_AvlPolicies_AvlPolicy) GetParentYangName() string { return "avl-policies" }
 

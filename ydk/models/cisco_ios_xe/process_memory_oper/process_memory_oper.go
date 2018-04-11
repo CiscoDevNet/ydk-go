@@ -22,7 +22,7 @@ func init() {
 // MemoryUsageProcesses
 // Data nodes for System wide Process Memory Statistics.
 type MemoryUsageProcesses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of software processes on the device. The type is slice of
@@ -30,68 +30,29 @@ type MemoryUsageProcesses struct {
     MemoryUsageProcess []MemoryUsageProcesses_MemoryUsageProcess
 }
 
-func (memoryUsageProcesses *MemoryUsageProcesses) GetFilter() yfilter.YFilter { return memoryUsageProcesses.YFilter }
+func (memoryUsageProcesses *MemoryUsageProcesses) GetEntityData() *types.CommonEntityData {
+    memoryUsageProcesses.EntityData.YFilter = memoryUsageProcesses.YFilter
+    memoryUsageProcesses.EntityData.YangName = "memory-usage-processes"
+    memoryUsageProcesses.EntityData.BundleName = "cisco_ios_xe"
+    memoryUsageProcesses.EntityData.ParentYangName = "Cisco-IOS-XE-process-memory-oper"
+    memoryUsageProcesses.EntityData.SegmentPath = "Cisco-IOS-XE-process-memory-oper:memory-usage-processes"
+    memoryUsageProcesses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    memoryUsageProcesses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    memoryUsageProcesses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (memoryUsageProcesses *MemoryUsageProcesses) SetFilter(yf yfilter.YFilter) { memoryUsageProcesses.YFilter = yf }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetGoName(yname string) string {
-    if yname == "memory-usage-process" { return "MemoryUsageProcess" }
-    return ""
-}
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetSegmentPath() string {
-    return "Cisco-IOS-XE-process-memory-oper:memory-usage-processes"
-}
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "memory-usage-process" {
-        for _, c := range memoryUsageProcesses.MemoryUsageProcess {
-            if memoryUsageProcesses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MemoryUsageProcesses_MemoryUsageProcess{}
-        memoryUsageProcesses.MemoryUsageProcess = append(memoryUsageProcesses.MemoryUsageProcess, child)
-        return &memoryUsageProcesses.MemoryUsageProcess[len(memoryUsageProcesses.MemoryUsageProcess)-1]
-    }
-    return nil
-}
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    memoryUsageProcesses.EntityData.Children = make(map[string]types.YChild)
+    memoryUsageProcesses.EntityData.Children["memory-usage-process"] = types.YChild{"MemoryUsageProcess", nil}
     for i := range memoryUsageProcesses.MemoryUsageProcess {
-        children[memoryUsageProcesses.MemoryUsageProcess[i].GetSegmentPath()] = &memoryUsageProcesses.MemoryUsageProcess[i]
+        memoryUsageProcesses.EntityData.Children[types.GetSegmentPath(&memoryUsageProcesses.MemoryUsageProcess[i])] = types.YChild{"MemoryUsageProcess", &memoryUsageProcesses.MemoryUsageProcess[i]}
     }
-    return children
+    memoryUsageProcesses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(memoryUsageProcesses.EntityData)
 }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetBundleName() string { return "cisco_ios_xe" }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetYangName() string { return "memory-usage-processes" }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) SetParent(parent types.Entity) { memoryUsageProcesses.parent = parent }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetParent() types.Entity { return memoryUsageProcesses.parent }
-
-func (memoryUsageProcesses *MemoryUsageProcesses) GetParentYangName() string { return "Cisco-IOS-XE-process-memory-oper" }
 
 // MemoryUsageProcesses_MemoryUsageProcess
 // The list of software processes on the device.
 type MemoryUsageProcesses_MemoryUsageProcess struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Process-ID of the process. The type is interface{}
@@ -125,63 +86,26 @@ type MemoryUsageProcesses_MemoryUsageProcess struct {
     RetBuffers interface{}
 }
 
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetFilter() yfilter.YFilter { return memoryUsageProcess.YFilter }
+func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetEntityData() *types.CommonEntityData {
+    memoryUsageProcess.EntityData.YFilter = memoryUsageProcess.YFilter
+    memoryUsageProcess.EntityData.YangName = "memory-usage-process"
+    memoryUsageProcess.EntityData.BundleName = "cisco_ios_xe"
+    memoryUsageProcess.EntityData.ParentYangName = "memory-usage-processes"
+    memoryUsageProcess.EntityData.SegmentPath = "memory-usage-process" + "[pid='" + fmt.Sprintf("%v", memoryUsageProcess.Pid) + "']" + "[name='" + fmt.Sprintf("%v", memoryUsageProcess.Name) + "']"
+    memoryUsageProcess.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    memoryUsageProcess.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    memoryUsageProcess.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) SetFilter(yf yfilter.YFilter) { memoryUsageProcess.YFilter = yf }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetGoName(yname string) string {
-    if yname == "pid" { return "Pid" }
-    if yname == "name" { return "Name" }
-    if yname == "tty" { return "Tty" }
-    if yname == "allocated-memory" { return "AllocatedMemory" }
-    if yname == "freed-memory" { return "FreedMemory" }
-    if yname == "holding-memory" { return "HoldingMemory" }
-    if yname == "get-buffers" { return "GetBuffers" }
-    if yname == "ret-buffers" { return "RetBuffers" }
-    return ""
+    memoryUsageProcess.EntityData.Children = make(map[string]types.YChild)
+    memoryUsageProcess.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryUsageProcess.EntityData.Leafs["pid"] = types.YLeaf{"Pid", memoryUsageProcess.Pid}
+    memoryUsageProcess.EntityData.Leafs["name"] = types.YLeaf{"Name", memoryUsageProcess.Name}
+    memoryUsageProcess.EntityData.Leafs["tty"] = types.YLeaf{"Tty", memoryUsageProcess.Tty}
+    memoryUsageProcess.EntityData.Leafs["allocated-memory"] = types.YLeaf{"AllocatedMemory", memoryUsageProcess.AllocatedMemory}
+    memoryUsageProcess.EntityData.Leafs["freed-memory"] = types.YLeaf{"FreedMemory", memoryUsageProcess.FreedMemory}
+    memoryUsageProcess.EntityData.Leafs["holding-memory"] = types.YLeaf{"HoldingMemory", memoryUsageProcess.HoldingMemory}
+    memoryUsageProcess.EntityData.Leafs["get-buffers"] = types.YLeaf{"GetBuffers", memoryUsageProcess.GetBuffers}
+    memoryUsageProcess.EntityData.Leafs["ret-buffers"] = types.YLeaf{"RetBuffers", memoryUsageProcess.RetBuffers}
+    return &(memoryUsageProcess.EntityData)
 }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetSegmentPath() string {
-    return "memory-usage-process" + "[pid='" + fmt.Sprintf("%v", memoryUsageProcess.Pid) + "']" + "[name='" + fmt.Sprintf("%v", memoryUsageProcess.Name) + "']"
-}
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pid"] = memoryUsageProcess.Pid
-    leafs["name"] = memoryUsageProcess.Name
-    leafs["tty"] = memoryUsageProcess.Tty
-    leafs["allocated-memory"] = memoryUsageProcess.AllocatedMemory
-    leafs["freed-memory"] = memoryUsageProcess.FreedMemory
-    leafs["holding-memory"] = memoryUsageProcess.HoldingMemory
-    leafs["get-buffers"] = memoryUsageProcess.GetBuffers
-    leafs["ret-buffers"] = memoryUsageProcess.RetBuffers
-    return leafs
-}
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetBundleName() string { return "cisco_ios_xe" }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetYangName() string { return "memory-usage-process" }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) SetParent(parent types.Entity) { memoryUsageProcess.parent = parent }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetParent() types.Entity { return memoryUsageProcess.parent }
-
-func (memoryUsageProcess *MemoryUsageProcesses_MemoryUsageProcess) GetParentYangName() string { return "memory-usage-processes" }
 

@@ -66,6 +66,17 @@ func init() {
     ydk.RegisterEntity("CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB", reflect.TypeOf(CISCOVPDNMGMTMIB{}))
 }
 
+// TunnelType represents tunnel.
+type TunnelType string
+
+const (
+    TunnelType_l2f TunnelType = "l2f"
+
+    TunnelType_l2tp TunnelType = "l2tp"
+
+    TunnelType_pptp TunnelType = "pptp"
+)
+
 // EndpointClass represents              SnmpAdminString (SIZE(1..15)) value.
 type EndpointClass string
 
@@ -83,20 +94,9 @@ const (
     EndpointClass_phone EndpointClass = "phone"
 )
 
-// TunnelType represents tunnel.
-type TunnelType string
-
-const (
-    TunnelType_l2f TunnelType = "l2f"
-
-    TunnelType_l2tp TunnelType = "l2tp"
-
-    TunnelType_pptp TunnelType = "pptp"
-)
-
 // CISCOVPDNMGMTMIB
 type CISCOVPDNMGMTMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -153,113 +153,36 @@ type CISCOVPDNMGMTMIB struct {
     Cvpdnbundlechildtable CISCOVPDNMGMTMIB_Cvpdnbundlechildtable
 }
 
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetFilter() yfilter.YFilter { return cISCOVPDNMGMTMIB.YFilter }
+func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetEntityData() *types.CommonEntityData {
+    cISCOVPDNMGMTMIB.EntityData.YFilter = cISCOVPDNMGMTMIB.YFilter
+    cISCOVPDNMGMTMIB.EntityData.YangName = "CISCO-VPDN-MGMT-MIB"
+    cISCOVPDNMGMTMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOVPDNMGMTMIB.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cISCOVPDNMGMTMIB.EntityData.SegmentPath = "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB"
+    cISCOVPDNMGMTMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOVPDNMGMTMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOVPDNMGMTMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) SetFilter(yf yfilter.YFilter) { cISCOVPDNMGMTMIB.YFilter = yf }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetGoName(yname string) string {
-    if yname == "ciscoVpdnMgmtMIBNotifs" { return "Ciscovpdnmgmtmibnotifs" }
-    if yname == "cvpdnSystemInfo" { return "Cvpdnsysteminfo" }
-    if yname == "cvpdnMultilinkInfo" { return "Cvpdnmultilinkinfo" }
-    if yname == "cvpdnSystemTable" { return "Cvpdnsystemtable" }
-    if yname == "cvpdnTunnelTable" { return "Cvpdntunneltable" }
-    if yname == "cvpdnTunnelAttrTable" { return "Cvpdntunnelattrtable" }
-    if yname == "cvpdnTunnelSessionTable" { return "Cvpdntunnelsessiontable" }
-    if yname == "cvpdnSessionAttrTable" { return "Cvpdnsessionattrtable" }
-    if yname == "cvpdnUserToFailHistInfoTable" { return "Cvpdnusertofailhistinfotable" }
-    if yname == "cvpdnTemplateTable" { return "Cvpdntemplatetable" }
-    if yname == "cvpdnBundleTable" { return "Cvpdnbundletable" }
-    if yname == "cvpdnBundleChildTable" { return "Cvpdnbundlechildtable" }
-    return ""
+    cISCOVPDNMGMTMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOVPDNMGMTMIB.EntityData.Children["ciscoVpdnMgmtMIBNotifs"] = types.YChild{"Ciscovpdnmgmtmibnotifs", &cISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnSystemInfo"] = types.YChild{"Cvpdnsysteminfo", &cISCOVPDNMGMTMIB.Cvpdnsysteminfo}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnMultilinkInfo"] = types.YChild{"Cvpdnmultilinkinfo", &cISCOVPDNMGMTMIB.Cvpdnmultilinkinfo}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnSystemTable"] = types.YChild{"Cvpdnsystemtable", &cISCOVPDNMGMTMIB.Cvpdnsystemtable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnTunnelTable"] = types.YChild{"Cvpdntunneltable", &cISCOVPDNMGMTMIB.Cvpdntunneltable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnTunnelAttrTable"] = types.YChild{"Cvpdntunnelattrtable", &cISCOVPDNMGMTMIB.Cvpdntunnelattrtable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnTunnelSessionTable"] = types.YChild{"Cvpdntunnelsessiontable", &cISCOVPDNMGMTMIB.Cvpdntunnelsessiontable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnSessionAttrTable"] = types.YChild{"Cvpdnsessionattrtable", &cISCOVPDNMGMTMIB.Cvpdnsessionattrtable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnUserToFailHistInfoTable"] = types.YChild{"Cvpdnusertofailhistinfotable", &cISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnTemplateTable"] = types.YChild{"Cvpdntemplatetable", &cISCOVPDNMGMTMIB.Cvpdntemplatetable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnBundleTable"] = types.YChild{"Cvpdnbundletable", &cISCOVPDNMGMTMIB.Cvpdnbundletable}
+    cISCOVPDNMGMTMIB.EntityData.Children["cvpdnBundleChildTable"] = types.YChild{"Cvpdnbundlechildtable", &cISCOVPDNMGMTMIB.Cvpdnbundlechildtable}
+    cISCOVPDNMGMTMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOVPDNMGMTMIB.EntityData)
 }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetSegmentPath() string {
-    return "CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB"
-}
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoVpdnMgmtMIBNotifs" {
-        return &cISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs
-    }
-    if childYangName == "cvpdnSystemInfo" {
-        return &cISCOVPDNMGMTMIB.Cvpdnsysteminfo
-    }
-    if childYangName == "cvpdnMultilinkInfo" {
-        return &cISCOVPDNMGMTMIB.Cvpdnmultilinkinfo
-    }
-    if childYangName == "cvpdnSystemTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdnsystemtable
-    }
-    if childYangName == "cvpdnTunnelTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdntunneltable
-    }
-    if childYangName == "cvpdnTunnelAttrTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdntunnelattrtable
-    }
-    if childYangName == "cvpdnTunnelSessionTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdntunnelsessiontable
-    }
-    if childYangName == "cvpdnSessionAttrTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdnsessionattrtable
-    }
-    if childYangName == "cvpdnUserToFailHistInfoTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable
-    }
-    if childYangName == "cvpdnTemplateTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdntemplatetable
-    }
-    if childYangName == "cvpdnBundleTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdnbundletable
-    }
-    if childYangName == "cvpdnBundleChildTable" {
-        return &cISCOVPDNMGMTMIB.Cvpdnbundlechildtable
-    }
-    return nil
-}
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ciscoVpdnMgmtMIBNotifs"] = &cISCOVPDNMGMTMIB.Ciscovpdnmgmtmibnotifs
-    children["cvpdnSystemInfo"] = &cISCOVPDNMGMTMIB.Cvpdnsysteminfo
-    children["cvpdnMultilinkInfo"] = &cISCOVPDNMGMTMIB.Cvpdnmultilinkinfo
-    children["cvpdnSystemTable"] = &cISCOVPDNMGMTMIB.Cvpdnsystemtable
-    children["cvpdnTunnelTable"] = &cISCOVPDNMGMTMIB.Cvpdntunneltable
-    children["cvpdnTunnelAttrTable"] = &cISCOVPDNMGMTMIB.Cvpdntunnelattrtable
-    children["cvpdnTunnelSessionTable"] = &cISCOVPDNMGMTMIB.Cvpdntunnelsessiontable
-    children["cvpdnSessionAttrTable"] = &cISCOVPDNMGMTMIB.Cvpdnsessionattrtable
-    children["cvpdnUserToFailHistInfoTable"] = &cISCOVPDNMGMTMIB.Cvpdnusertofailhistinfotable
-    children["cvpdnTemplateTable"] = &cISCOVPDNMGMTMIB.Cvpdntemplatetable
-    children["cvpdnBundleTable"] = &cISCOVPDNMGMTMIB.Cvpdnbundletable
-    children["cvpdnBundleChildTable"] = &cISCOVPDNMGMTMIB.Cvpdnbundlechildtable
-    return children
-}
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetYangName() string { return "CISCO-VPDN-MGMT-MIB" }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) SetParent(parent types.Entity) { cISCOVPDNMGMTMIB.parent = parent }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetParent() types.Entity { return cISCOVPDNMGMTMIB.parent }
-
-func (cISCOVPDNMGMTMIB *CISCOVPDNMGMTMIB) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs
 type CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object contains the local session ID of the L2X session for which this
@@ -275,53 +198,22 @@ type CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs struct {
     Cvpdnnotifsessionevent interface{}
 }
 
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetFilter() yfilter.YFilter { return ciscovpdnmgmtmibnotifs.YFilter }
+func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetEntityData() *types.CommonEntityData {
+    ciscovpdnmgmtmibnotifs.EntityData.YFilter = ciscovpdnmgmtmibnotifs.YFilter
+    ciscovpdnmgmtmibnotifs.EntityData.YangName = "ciscoVpdnMgmtMIBNotifs"
+    ciscovpdnmgmtmibnotifs.EntityData.BundleName = "cisco_ios_xe"
+    ciscovpdnmgmtmibnotifs.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    ciscovpdnmgmtmibnotifs.EntityData.SegmentPath = "ciscoVpdnMgmtMIBNotifs"
+    ciscovpdnmgmtmibnotifs.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscovpdnmgmtmibnotifs.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscovpdnmgmtmibnotifs.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) SetFilter(yf yfilter.YFilter) { ciscovpdnmgmtmibnotifs.YFilter = yf }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetGoName(yname string) string {
-    if yname == "cvpdnNotifSessionID" { return "Cvpdnnotifsessionid" }
-    if yname == "cvpdnNotifSessionEvent" { return "Cvpdnnotifsessionevent" }
-    return ""
+    ciscovpdnmgmtmibnotifs.EntityData.Children = make(map[string]types.YChild)
+    ciscovpdnmgmtmibnotifs.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscovpdnmgmtmibnotifs.EntityData.Leafs["cvpdnNotifSessionID"] = types.YLeaf{"Cvpdnnotifsessionid", ciscovpdnmgmtmibnotifs.Cvpdnnotifsessionid}
+    ciscovpdnmgmtmibnotifs.EntityData.Leafs["cvpdnNotifSessionEvent"] = types.YLeaf{"Cvpdnnotifsessionevent", ciscovpdnmgmtmibnotifs.Cvpdnnotifsessionevent}
+    return &(ciscovpdnmgmtmibnotifs.EntityData)
 }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetSegmentPath() string {
-    return "ciscoVpdnMgmtMIBNotifs"
-}
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnNotifSessionID"] = ciscovpdnmgmtmibnotifs.Cvpdnnotifsessionid
-    leafs["cvpdnNotifSessionEvent"] = ciscovpdnmgmtmibnotifs.Cvpdnnotifsessionevent
-    return leafs
-}
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetYangName() string { return "ciscoVpdnMgmtMIBNotifs" }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) SetParent(parent types.Entity) { ciscovpdnmgmtmibnotifs.parent = parent }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetParent() types.Entity { return ciscovpdnmgmtmibnotifs.parent }
-
-func (ciscovpdnmgmtmibnotifs *CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs_Cvpdnnotifsessionevent represents         session has gone down.
 type CISCOVPDNMGMTMIB_Ciscovpdnmgmtmibnotifs_Cvpdnnotifsessionevent string
@@ -338,7 +230,7 @@ const (
 
 // CISCOVPDNMGMTMIB_Cvpdnsysteminfo
 type CISCOVPDNMGMTMIB_Cvpdnsysteminfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of VPDN tunnels that are currently active within this
@@ -368,59 +260,25 @@ type CISCOVPDNMGMTMIB_Cvpdnsysteminfo struct {
     Cvpdnsystemclearsessions interface{}
 }
 
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetFilter() yfilter.YFilter { return cvpdnsysteminfo.YFilter }
+func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetEntityData() *types.CommonEntityData {
+    cvpdnsysteminfo.EntityData.YFilter = cvpdnsysteminfo.YFilter
+    cvpdnsysteminfo.EntityData.YangName = "cvpdnSystemInfo"
+    cvpdnsysteminfo.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnsysteminfo.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnsysteminfo.EntityData.SegmentPath = "cvpdnSystemInfo"
+    cvpdnsysteminfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnsysteminfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnsysteminfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) SetFilter(yf yfilter.YFilter) { cvpdnsysteminfo.YFilter = yf }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetGoName(yname string) string {
-    if yname == "cvpdnTunnelTotal" { return "Cvpdntunneltotal" }
-    if yname == "cvpdnSessionTotal" { return "Cvpdnsessiontotal" }
-    if yname == "cvpdnDeniedUsersTotal" { return "Cvpdndenieduserstotal" }
-    if yname == "cvpdnSystemNotifSessionEnabled" { return "Cvpdnsystemnotifsessionenabled" }
-    if yname == "cvpdnSystemClearSessions" { return "Cvpdnsystemclearsessions" }
-    return ""
+    cvpdnsysteminfo.EntityData.Children = make(map[string]types.YChild)
+    cvpdnsysteminfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnsysteminfo.EntityData.Leafs["cvpdnTunnelTotal"] = types.YLeaf{"Cvpdntunneltotal", cvpdnsysteminfo.Cvpdntunneltotal}
+    cvpdnsysteminfo.EntityData.Leafs["cvpdnSessionTotal"] = types.YLeaf{"Cvpdnsessiontotal", cvpdnsysteminfo.Cvpdnsessiontotal}
+    cvpdnsysteminfo.EntityData.Leafs["cvpdnDeniedUsersTotal"] = types.YLeaf{"Cvpdndenieduserstotal", cvpdnsysteminfo.Cvpdndenieduserstotal}
+    cvpdnsysteminfo.EntityData.Leafs["cvpdnSystemNotifSessionEnabled"] = types.YLeaf{"Cvpdnsystemnotifsessionenabled", cvpdnsysteminfo.Cvpdnsystemnotifsessionenabled}
+    cvpdnsysteminfo.EntityData.Leafs["cvpdnSystemClearSessions"] = types.YLeaf{"Cvpdnsystemclearsessions", cvpdnsysteminfo.Cvpdnsystemclearsessions}
+    return &(cvpdnsysteminfo.EntityData)
 }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetSegmentPath() string {
-    return "cvpdnSystemInfo"
-}
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnTunnelTotal"] = cvpdnsysteminfo.Cvpdntunneltotal
-    leafs["cvpdnSessionTotal"] = cvpdnsysteminfo.Cvpdnsessiontotal
-    leafs["cvpdnDeniedUsersTotal"] = cvpdnsysteminfo.Cvpdndenieduserstotal
-    leafs["cvpdnSystemNotifSessionEnabled"] = cvpdnsysteminfo.Cvpdnsystemnotifsessionenabled
-    leafs["cvpdnSystemClearSessions"] = cvpdnsysteminfo.Cvpdnsystemclearsessions
-    return leafs
-}
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetYangName() string { return "cvpdnSystemInfo" }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) SetParent(parent types.Entity) { cvpdnsysteminfo.parent = parent }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetParent() types.Entity { return cvpdnsysteminfo.parent }
-
-func (cvpdnsysteminfo *CISCOVPDNMGMTMIB_Cvpdnsysteminfo) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnsysteminfo_Cvpdnsystemclearsessions represents     pptp: clears all the PPTP sessions.
 type CISCOVPDNMGMTMIB_Cvpdnsysteminfo_Cvpdnsystemclearsessions string
@@ -439,7 +297,7 @@ const (
 
 // CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo
 type CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of bundles comprised of a single link. The type is
@@ -459,63 +317,30 @@ type CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo struct {
     Cvpdnbundlelastchanged interface{}
 }
 
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetFilter() yfilter.YFilter { return cvpdnmultilinkinfo.YFilter }
+func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetEntityData() *types.CommonEntityData {
+    cvpdnmultilinkinfo.EntityData.YFilter = cvpdnmultilinkinfo.YFilter
+    cvpdnmultilinkinfo.EntityData.YangName = "cvpdnMultilinkInfo"
+    cvpdnmultilinkinfo.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnmultilinkinfo.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnmultilinkinfo.EntityData.SegmentPath = "cvpdnMultilinkInfo"
+    cvpdnmultilinkinfo.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnmultilinkinfo.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnmultilinkinfo.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) SetFilter(yf yfilter.YFilter) { cvpdnmultilinkinfo.YFilter = yf }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetGoName(yname string) string {
-    if yname == "cvpdnBundlesWithOneLink" { return "Cvpdnbundleswithonelink" }
-    if yname == "cvpdnBundlesWithTwoLinks" { return "Cvpdnbundleswithtwolinks" }
-    if yname == "cvpdnBundlesWithMoreThanTwoLinks" { return "Cvpdnbundleswithmorethantwolinks" }
-    if yname == "cvpdnBundleLastChanged" { return "Cvpdnbundlelastchanged" }
-    return ""
+    cvpdnmultilinkinfo.EntityData.Children = make(map[string]types.YChild)
+    cvpdnmultilinkinfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnmultilinkinfo.EntityData.Leafs["cvpdnBundlesWithOneLink"] = types.YLeaf{"Cvpdnbundleswithonelink", cvpdnmultilinkinfo.Cvpdnbundleswithonelink}
+    cvpdnmultilinkinfo.EntityData.Leafs["cvpdnBundlesWithTwoLinks"] = types.YLeaf{"Cvpdnbundleswithtwolinks", cvpdnmultilinkinfo.Cvpdnbundleswithtwolinks}
+    cvpdnmultilinkinfo.EntityData.Leafs["cvpdnBundlesWithMoreThanTwoLinks"] = types.YLeaf{"Cvpdnbundleswithmorethantwolinks", cvpdnmultilinkinfo.Cvpdnbundleswithmorethantwolinks}
+    cvpdnmultilinkinfo.EntityData.Leafs["cvpdnBundleLastChanged"] = types.YLeaf{"Cvpdnbundlelastchanged", cvpdnmultilinkinfo.Cvpdnbundlelastchanged}
+    return &(cvpdnmultilinkinfo.EntityData)
 }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetSegmentPath() string {
-    return "cvpdnMultilinkInfo"
-}
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnBundlesWithOneLink"] = cvpdnmultilinkinfo.Cvpdnbundleswithonelink
-    leafs["cvpdnBundlesWithTwoLinks"] = cvpdnmultilinkinfo.Cvpdnbundleswithtwolinks
-    leafs["cvpdnBundlesWithMoreThanTwoLinks"] = cvpdnmultilinkinfo.Cvpdnbundleswithmorethantwolinks
-    leafs["cvpdnBundleLastChanged"] = cvpdnmultilinkinfo.Cvpdnbundlelastchanged
-    return leafs
-}
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetYangName() string { return "cvpdnMultilinkInfo" }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) SetParent(parent types.Entity) { cvpdnmultilinkinfo.parent = parent }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetParent() types.Entity { return cvpdnmultilinkinfo.parent }
-
-func (cvpdnmultilinkinfo *CISCOVPDNMGMTMIB_Cvpdnmultilinkinfo) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnsystemtable
 // Table of information about the VPDN system for all tunnel
 // types.
 type CISCOVPDNMGMTMIB_Cvpdnsystemtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single type of VPDN
@@ -524,69 +349,30 @@ type CISCOVPDNMGMTMIB_Cvpdnsystemtable struct {
     Cvpdnsystementry []CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry
 }
 
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetFilter() yfilter.YFilter { return cvpdnsystemtable.YFilter }
+func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetEntityData() *types.CommonEntityData {
+    cvpdnsystemtable.EntityData.YFilter = cvpdnsystemtable.YFilter
+    cvpdnsystemtable.EntityData.YangName = "cvpdnSystemTable"
+    cvpdnsystemtable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnsystemtable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnsystemtable.EntityData.SegmentPath = "cvpdnSystemTable"
+    cvpdnsystemtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnsystemtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnsystemtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) SetFilter(yf yfilter.YFilter) { cvpdnsystemtable.YFilter = yf }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetGoName(yname string) string {
-    if yname == "cvpdnSystemEntry" { return "Cvpdnsystementry" }
-    return ""
-}
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetSegmentPath() string {
-    return "cvpdnSystemTable"
-}
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnSystemEntry" {
-        for _, c := range cvpdnsystemtable.Cvpdnsystementry {
-            if cvpdnsystemtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry{}
-        cvpdnsystemtable.Cvpdnsystementry = append(cvpdnsystemtable.Cvpdnsystementry, child)
-        return &cvpdnsystemtable.Cvpdnsystementry[len(cvpdnsystemtable.Cvpdnsystementry)-1]
-    }
-    return nil
-}
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdnsystemtable.EntityData.Children = make(map[string]types.YChild)
+    cvpdnsystemtable.EntityData.Children["cvpdnSystemEntry"] = types.YChild{"Cvpdnsystementry", nil}
     for i := range cvpdnsystemtable.Cvpdnsystementry {
-        children[cvpdnsystemtable.Cvpdnsystementry[i].GetSegmentPath()] = &cvpdnsystemtable.Cvpdnsystementry[i]
+        cvpdnsystemtable.EntityData.Children[types.GetSegmentPath(&cvpdnsystemtable.Cvpdnsystementry[i])] = types.YChild{"Cvpdnsystementry", &cvpdnsystemtable.Cvpdnsystementry[i]}
     }
-    return children
+    cvpdnsystemtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdnsystemtable.EntityData)
 }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetYangName() string { return "cvpdnSystemTable" }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) SetParent(parent types.Entity) { cvpdnsystemtable.parent = parent }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetParent() types.Entity { return cvpdnsystemtable.parent }
-
-func (cvpdnsystemtable *CISCOVPDNMGMTMIB_Cvpdnsystemtable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry
 // An entry in the table, containing information about a
 // single type of VPDN tunnel.
 type CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The tunnel type.  This is the tunnel protocol. The
@@ -623,68 +409,32 @@ type CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry struct {
     Cvpdnsystemfailedconnreq interface{}
 }
 
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetFilter() yfilter.YFilter { return cvpdnsystementry.YFilter }
+func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetEntityData() *types.CommonEntityData {
+    cvpdnsystementry.EntityData.YFilter = cvpdnsystementry.YFilter
+    cvpdnsystementry.EntityData.YangName = "cvpdnSystemEntry"
+    cvpdnsystementry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnsystementry.EntityData.ParentYangName = "cvpdnSystemTable"
+    cvpdnsystementry.EntityData.SegmentPath = "cvpdnSystemEntry" + "[cvpdnSystemTunnelType='" + fmt.Sprintf("%v", cvpdnsystementry.Cvpdnsystemtunneltype) + "']"
+    cvpdnsystementry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnsystementry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnsystementry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) SetFilter(yf yfilter.YFilter) { cvpdnsystementry.YFilter = yf }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetGoName(yname string) string {
-    if yname == "cvpdnSystemTunnelType" { return "Cvpdnsystemtunneltype" }
-    if yname == "cvpdnSystemTunnelTotal" { return "Cvpdnsystemtunneltotal" }
-    if yname == "cvpdnSystemSessionTotal" { return "Cvpdnsystemsessiontotal" }
-    if yname == "cvpdnSystemDeniedUsersTotal" { return "Cvpdnsystemdenieduserstotal" }
-    if yname == "cvpdnSystemInitialConnReq" { return "Cvpdnsysteminitialconnreq" }
-    if yname == "cvpdnSystemSuccessConnReq" { return "Cvpdnsystemsuccessconnreq" }
-    if yname == "cvpdnSystemFailedConnReq" { return "Cvpdnsystemfailedconnreq" }
-    return ""
+    cvpdnsystementry.EntityData.Children = make(map[string]types.YChild)
+    cvpdnsystementry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemTunnelType"] = types.YLeaf{"Cvpdnsystemtunneltype", cvpdnsystementry.Cvpdnsystemtunneltype}
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemTunnelTotal"] = types.YLeaf{"Cvpdnsystemtunneltotal", cvpdnsystementry.Cvpdnsystemtunneltotal}
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemSessionTotal"] = types.YLeaf{"Cvpdnsystemsessiontotal", cvpdnsystementry.Cvpdnsystemsessiontotal}
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemDeniedUsersTotal"] = types.YLeaf{"Cvpdnsystemdenieduserstotal", cvpdnsystementry.Cvpdnsystemdenieduserstotal}
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemInitialConnReq"] = types.YLeaf{"Cvpdnsysteminitialconnreq", cvpdnsystementry.Cvpdnsysteminitialconnreq}
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemSuccessConnReq"] = types.YLeaf{"Cvpdnsystemsuccessconnreq", cvpdnsystementry.Cvpdnsystemsuccessconnreq}
+    cvpdnsystementry.EntityData.Leafs["cvpdnSystemFailedConnReq"] = types.YLeaf{"Cvpdnsystemfailedconnreq", cvpdnsystementry.Cvpdnsystemfailedconnreq}
+    return &(cvpdnsystementry.EntityData)
 }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetSegmentPath() string {
-    return "cvpdnSystemEntry" + "[cvpdnSystemTunnelType='" + fmt.Sprintf("%v", cvpdnsystementry.Cvpdnsystemtunneltype) + "']"
-}
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnSystemTunnelType"] = cvpdnsystementry.Cvpdnsystemtunneltype
-    leafs["cvpdnSystemTunnelTotal"] = cvpdnsystementry.Cvpdnsystemtunneltotal
-    leafs["cvpdnSystemSessionTotal"] = cvpdnsystementry.Cvpdnsystemsessiontotal
-    leafs["cvpdnSystemDeniedUsersTotal"] = cvpdnsystementry.Cvpdnsystemdenieduserstotal
-    leafs["cvpdnSystemInitialConnReq"] = cvpdnsystementry.Cvpdnsysteminitialconnreq
-    leafs["cvpdnSystemSuccessConnReq"] = cvpdnsystementry.Cvpdnsystemsuccessconnreq
-    leafs["cvpdnSystemFailedConnReq"] = cvpdnsystementry.Cvpdnsystemfailedconnreq
-    return leafs
-}
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetYangName() string { return "cvpdnSystemEntry" }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) SetParent(parent types.Entity) { cvpdnsystementry.parent = parent }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetParent() types.Entity { return cvpdnsystementry.parent }
-
-func (cvpdnsystementry *CISCOVPDNMGMTMIB_Cvpdnsystemtable_Cvpdnsystementry) GetParentYangName() string { return "cvpdnSystemTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunneltable
 // Table of information about the active VPDN tunnels.
 type CISCOVPDNMGMTMIB_Cvpdntunneltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single active VPDN
@@ -693,69 +443,30 @@ type CISCOVPDNMGMTMIB_Cvpdntunneltable struct {
     Cvpdntunnelentry []CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry
 }
 
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetFilter() yfilter.YFilter { return cvpdntunneltable.YFilter }
+func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetEntityData() *types.CommonEntityData {
+    cvpdntunneltable.EntityData.YFilter = cvpdntunneltable.YFilter
+    cvpdntunneltable.EntityData.YangName = "cvpdnTunnelTable"
+    cvpdntunneltable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntunneltable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdntunneltable.EntityData.SegmentPath = "cvpdnTunnelTable"
+    cvpdntunneltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntunneltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntunneltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) SetFilter(yf yfilter.YFilter) { cvpdntunneltable.YFilter = yf }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetGoName(yname string) string {
-    if yname == "cvpdnTunnelEntry" { return "Cvpdntunnelentry" }
-    return ""
-}
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetSegmentPath() string {
-    return "cvpdnTunnelTable"
-}
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnTunnelEntry" {
-        for _, c := range cvpdntunneltable.Cvpdntunnelentry {
-            if cvpdntunneltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry{}
-        cvpdntunneltable.Cvpdntunnelentry = append(cvpdntunneltable.Cvpdntunnelentry, child)
-        return &cvpdntunneltable.Cvpdntunnelentry[len(cvpdntunneltable.Cvpdntunnelentry)-1]
-    }
-    return nil
-}
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdntunneltable.EntityData.Children = make(map[string]types.YChild)
+    cvpdntunneltable.EntityData.Children["cvpdnTunnelEntry"] = types.YChild{"Cvpdntunnelentry", nil}
     for i := range cvpdntunneltable.Cvpdntunnelentry {
-        children[cvpdntunneltable.Cvpdntunnelentry[i].GetSegmentPath()] = &cvpdntunneltable.Cvpdntunnelentry[i]
+        cvpdntunneltable.EntityData.Children[types.GetSegmentPath(&cvpdntunneltable.Cvpdntunnelentry[i])] = types.YChild{"Cvpdntunnelentry", &cvpdntunneltable.Cvpdntunnelentry[i]}
     }
-    return children
+    cvpdntunneltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdntunneltable.EntityData)
 }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetYangName() string { return "cvpdnTunnelTable" }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) SetParent(parent types.Entity) { cvpdntunneltable.parent = parent }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetParent() types.Entity { return cvpdntunneltable.parent }
-
-func (cvpdntunneltable *CISCOVPDNMGMTMIB_Cvpdntunneltable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry
 // An entry in the table, containing information about a
 // single active VPDN tunnel.
 type CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Tunnel ID of an active VPDN tunnel.  If it is
@@ -824,94 +535,50 @@ type CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry struct {
 
     // The local IP address of the tunnel.  This IP address is that of the
     // interface at the local end of the tunnel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdntunnellocalipaddress interface{}
 
     // The source IP address of the tunnel.  This IP address is the user
     // configurable IP address for Stack Group Biding Protocol (SGBP) via the CLI
     // command: vpdn source-ip. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdntunnelsourceipaddress interface{}
 
     // The remote IP address of the tunnel.  This IP address is that of the
     // interface at the remote end of the tunnel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdntunnelremoteipaddress interface{}
 }
 
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetFilter() yfilter.YFilter { return cvpdntunnelentry.YFilter }
+func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetEntityData() *types.CommonEntityData {
+    cvpdntunnelentry.EntityData.YFilter = cvpdntunnelentry.YFilter
+    cvpdntunnelentry.EntityData.YangName = "cvpdnTunnelEntry"
+    cvpdntunnelentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntunnelentry.EntityData.ParentYangName = "cvpdnTunnelTable"
+    cvpdntunnelentry.EntityData.SegmentPath = "cvpdnTunnelEntry" + "[cvpdnTunnelTunnelId='" + fmt.Sprintf("%v", cvpdntunnelentry.Cvpdntunneltunnelid) + "']"
+    cvpdntunnelentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntunnelentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntunnelentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) SetFilter(yf yfilter.YFilter) { cvpdntunnelentry.YFilter = yf }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetGoName(yname string) string {
-    if yname == "cvpdnTunnelTunnelId" { return "Cvpdntunneltunnelid" }
-    if yname == "cvpdnTunnelRemoteTunnelId" { return "Cvpdntunnelremotetunnelid" }
-    if yname == "cvpdnTunnelLocalName" { return "Cvpdntunnellocalname" }
-    if yname == "cvpdnTunnelRemoteName" { return "Cvpdntunnelremotename" }
-    if yname == "cvpdnTunnelRemoteEndpointName" { return "Cvpdntunnelremoteendpointname" }
-    if yname == "cvpdnTunnelLocalInitConnection" { return "Cvpdntunnellocalinitconnection" }
-    if yname == "cvpdnTunnelOrigCause" { return "Cvpdntunnelorigcause" }
-    if yname == "cvpdnTunnelState" { return "Cvpdntunnelstate" }
-    if yname == "cvpdnTunnelActiveSessions" { return "Cvpdntunnelactivesessions" }
-    if yname == "cvpdnTunnelDeniedUsers" { return "Cvpdntunneldeniedusers" }
-    if yname == "cvpdnTunnelSoftshut" { return "Cvpdntunnelsoftshut" }
-    if yname == "cvpdnTunnelNetworkServiceType" { return "Cvpdntunnelnetworkservicetype" }
-    if yname == "cvpdnTunnelLocalIpAddress" { return "Cvpdntunnellocalipaddress" }
-    if yname == "cvpdnTunnelSourceIpAddress" { return "Cvpdntunnelsourceipaddress" }
-    if yname == "cvpdnTunnelRemoteIpAddress" { return "Cvpdntunnelremoteipaddress" }
-    return ""
+    cvpdntunnelentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdntunnelentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelTunnelId"] = types.YLeaf{"Cvpdntunneltunnelid", cvpdntunnelentry.Cvpdntunneltunnelid}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelRemoteTunnelId"] = types.YLeaf{"Cvpdntunnelremotetunnelid", cvpdntunnelentry.Cvpdntunnelremotetunnelid}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelLocalName"] = types.YLeaf{"Cvpdntunnellocalname", cvpdntunnelentry.Cvpdntunnellocalname}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelRemoteName"] = types.YLeaf{"Cvpdntunnelremotename", cvpdntunnelentry.Cvpdntunnelremotename}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelRemoteEndpointName"] = types.YLeaf{"Cvpdntunnelremoteendpointname", cvpdntunnelentry.Cvpdntunnelremoteendpointname}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelLocalInitConnection"] = types.YLeaf{"Cvpdntunnellocalinitconnection", cvpdntunnelentry.Cvpdntunnellocalinitconnection}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelOrigCause"] = types.YLeaf{"Cvpdntunnelorigcause", cvpdntunnelentry.Cvpdntunnelorigcause}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelState"] = types.YLeaf{"Cvpdntunnelstate", cvpdntunnelentry.Cvpdntunnelstate}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelActiveSessions"] = types.YLeaf{"Cvpdntunnelactivesessions", cvpdntunnelentry.Cvpdntunnelactivesessions}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelDeniedUsers"] = types.YLeaf{"Cvpdntunneldeniedusers", cvpdntunnelentry.Cvpdntunneldeniedusers}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelSoftshut"] = types.YLeaf{"Cvpdntunnelsoftshut", cvpdntunnelentry.Cvpdntunnelsoftshut}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelNetworkServiceType"] = types.YLeaf{"Cvpdntunnelnetworkservicetype", cvpdntunnelentry.Cvpdntunnelnetworkservicetype}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelLocalIpAddress"] = types.YLeaf{"Cvpdntunnellocalipaddress", cvpdntunnelentry.Cvpdntunnellocalipaddress}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelSourceIpAddress"] = types.YLeaf{"Cvpdntunnelsourceipaddress", cvpdntunnelentry.Cvpdntunnelsourceipaddress}
+    cvpdntunnelentry.EntityData.Leafs["cvpdnTunnelRemoteIpAddress"] = types.YLeaf{"Cvpdntunnelremoteipaddress", cvpdntunnelentry.Cvpdntunnelremoteipaddress}
+    return &(cvpdntunnelentry.EntityData)
 }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetSegmentPath() string {
-    return "cvpdnTunnelEntry" + "[cvpdnTunnelTunnelId='" + fmt.Sprintf("%v", cvpdntunnelentry.Cvpdntunneltunnelid) + "']"
-}
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnTunnelTunnelId"] = cvpdntunnelentry.Cvpdntunneltunnelid
-    leafs["cvpdnTunnelRemoteTunnelId"] = cvpdntunnelentry.Cvpdntunnelremotetunnelid
-    leafs["cvpdnTunnelLocalName"] = cvpdntunnelentry.Cvpdntunnellocalname
-    leafs["cvpdnTunnelRemoteName"] = cvpdntunnelentry.Cvpdntunnelremotename
-    leafs["cvpdnTunnelRemoteEndpointName"] = cvpdntunnelentry.Cvpdntunnelremoteendpointname
-    leafs["cvpdnTunnelLocalInitConnection"] = cvpdntunnelentry.Cvpdntunnellocalinitconnection
-    leafs["cvpdnTunnelOrigCause"] = cvpdntunnelentry.Cvpdntunnelorigcause
-    leafs["cvpdnTunnelState"] = cvpdntunnelentry.Cvpdntunnelstate
-    leafs["cvpdnTunnelActiveSessions"] = cvpdntunnelentry.Cvpdntunnelactivesessions
-    leafs["cvpdnTunnelDeniedUsers"] = cvpdntunnelentry.Cvpdntunneldeniedusers
-    leafs["cvpdnTunnelSoftshut"] = cvpdntunnelentry.Cvpdntunnelsoftshut
-    leafs["cvpdnTunnelNetworkServiceType"] = cvpdntunnelentry.Cvpdntunnelnetworkservicetype
-    leafs["cvpdnTunnelLocalIpAddress"] = cvpdntunnelentry.Cvpdntunnellocalipaddress
-    leafs["cvpdnTunnelSourceIpAddress"] = cvpdntunnelentry.Cvpdntunnelsourceipaddress
-    leafs["cvpdnTunnelRemoteIpAddress"] = cvpdntunnelentry.Cvpdntunnelremoteipaddress
-    return leafs
-}
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetYangName() string { return "cvpdnTunnelEntry" }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) SetParent(parent types.Entity) { cvpdntunnelentry.parent = parent }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetParent() types.Entity { return cvpdntunnelentry.parent }
-
-func (cvpdntunnelentry *CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry) GetParentYangName() string { return "cvpdnTunnelTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry_Cvpdntunnelnetworkservicetype represents For now it is IP only.
 type CISCOVPDNMGMTMIB_Cvpdntunneltable_Cvpdntunnelentry_Cvpdntunnelnetworkservicetype string
@@ -949,7 +616,7 @@ const (
 // entry is added to the table when a new tunnel is initiated
 // and removed from the table when the tunnel is terminated.
 type CISCOVPDNMGMTMIB_Cvpdntunnelattrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single active VPDN
@@ -958,69 +625,30 @@ type CISCOVPDNMGMTMIB_Cvpdntunnelattrtable struct {
     Cvpdntunnelattrentry []CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry
 }
 
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetFilter() yfilter.YFilter { return cvpdntunnelattrtable.YFilter }
+func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetEntityData() *types.CommonEntityData {
+    cvpdntunnelattrtable.EntityData.YFilter = cvpdntunnelattrtable.YFilter
+    cvpdntunnelattrtable.EntityData.YangName = "cvpdnTunnelAttrTable"
+    cvpdntunnelattrtable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntunnelattrtable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdntunnelattrtable.EntityData.SegmentPath = "cvpdnTunnelAttrTable"
+    cvpdntunnelattrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntunnelattrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntunnelattrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) SetFilter(yf yfilter.YFilter) { cvpdntunnelattrtable.YFilter = yf }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetGoName(yname string) string {
-    if yname == "cvpdnTunnelAttrEntry" { return "Cvpdntunnelattrentry" }
-    return ""
-}
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetSegmentPath() string {
-    return "cvpdnTunnelAttrTable"
-}
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnTunnelAttrEntry" {
-        for _, c := range cvpdntunnelattrtable.Cvpdntunnelattrentry {
-            if cvpdntunnelattrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry{}
-        cvpdntunnelattrtable.Cvpdntunnelattrentry = append(cvpdntunnelattrtable.Cvpdntunnelattrentry, child)
-        return &cvpdntunnelattrtable.Cvpdntunnelattrentry[len(cvpdntunnelattrtable.Cvpdntunnelattrentry)-1]
-    }
-    return nil
-}
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdntunnelattrtable.EntityData.Children = make(map[string]types.YChild)
+    cvpdntunnelattrtable.EntityData.Children["cvpdnTunnelAttrEntry"] = types.YChild{"Cvpdntunnelattrentry", nil}
     for i := range cvpdntunnelattrtable.Cvpdntunnelattrentry {
-        children[cvpdntunnelattrtable.Cvpdntunnelattrentry[i].GetSegmentPath()] = &cvpdntunnelattrtable.Cvpdntunnelattrentry[i]
+        cvpdntunnelattrtable.EntityData.Children[types.GetSegmentPath(&cvpdntunnelattrtable.Cvpdntunnelattrentry[i])] = types.YChild{"Cvpdntunnelattrentry", &cvpdntunnelattrtable.Cvpdntunnelattrentry[i]}
     }
-    return children
+    cvpdntunnelattrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdntunnelattrtable.EntityData)
 }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetYangName() string { return "cvpdnTunnelAttrTable" }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) SetParent(parent types.Entity) { cvpdntunnelattrtable.parent = parent }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetParent() types.Entity { return cvpdntunnelattrtable.parent }
-
-func (cvpdntunnelattrtable *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry
 // An entry in the table, containing information about a
 // single active VPDN tunnel.
 type CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is TunnelType. Refers to
@@ -1115,18 +743,18 @@ type CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry struct {
 
     // The local IP address of the tunnel.  This IP address is that of the
     // interface at the local end of the tunnel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdntunnelattrlocalipaddress interface{}
 
     // The source IP address of the tunnel.  This IP address is the user
     // configurable IP address for Stack Group Biding Protocol. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdntunnelattrsourceipaddress interface{}
 
     // The remote IP address of the tunnel.  This IP address is that of the
     // interface at the remote end of the tunnel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdntunnelattrremoteipaddress interface{}
 
     // Indicates the type of address contained in cvpdnTunnelAttrLocalInetAddress.
@@ -1161,93 +789,42 @@ type CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry struct {
     Cvpdntunnelattrremoteinetaddress interface{}
 }
 
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetFilter() yfilter.YFilter { return cvpdntunnelattrentry.YFilter }
+func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetEntityData() *types.CommonEntityData {
+    cvpdntunnelattrentry.EntityData.YFilter = cvpdntunnelattrentry.YFilter
+    cvpdntunnelattrentry.EntityData.YangName = "cvpdnTunnelAttrEntry"
+    cvpdntunnelattrentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntunnelattrentry.EntityData.ParentYangName = "cvpdnTunnelAttrTable"
+    cvpdntunnelattrentry.EntityData.SegmentPath = "cvpdnTunnelAttrEntry" + "[cvpdnSystemTunnelType='" + fmt.Sprintf("%v", cvpdntunnelattrentry.Cvpdnsystemtunneltype) + "']" + "[cvpdnTunnelAttrTunnelId='" + fmt.Sprintf("%v", cvpdntunnelattrentry.Cvpdntunnelattrtunnelid) + "']"
+    cvpdntunnelattrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntunnelattrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntunnelattrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) SetFilter(yf yfilter.YFilter) { cvpdntunnelattrentry.YFilter = yf }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetGoName(yname string) string {
-    if yname == "cvpdnSystemTunnelType" { return "Cvpdnsystemtunneltype" }
-    if yname == "cvpdnTunnelAttrTunnelId" { return "Cvpdntunnelattrtunnelid" }
-    if yname == "cvpdnTunnelAttrRemoteTunnelId" { return "Cvpdntunnelattrremotetunnelid" }
-    if yname == "cvpdnTunnelAttrLocalName" { return "Cvpdntunnelattrlocalname" }
-    if yname == "cvpdnTunnelAttrRemoteName" { return "Cvpdntunnelattrremotename" }
-    if yname == "cvpdnTunnelAttrRemoteEndpointName" { return "Cvpdntunnelattrremoteendpointname" }
-    if yname == "cvpdnTunnelAttrLocalInitConnection" { return "Cvpdntunnelattrlocalinitconnection" }
-    if yname == "cvpdnTunnelAttrOrigCause" { return "Cvpdntunnelattrorigcause" }
-    if yname == "cvpdnTunnelAttrState" { return "Cvpdntunnelattrstate" }
-    if yname == "cvpdnTunnelAttrActiveSessions" { return "Cvpdntunnelattractivesessions" }
-    if yname == "cvpdnTunnelAttrDeniedUsers" { return "Cvpdntunnelattrdeniedusers" }
-    if yname == "cvpdnTunnelAttrSoftshut" { return "Cvpdntunnelattrsoftshut" }
-    if yname == "cvpdnTunnelAttrNetworkServiceType" { return "Cvpdntunnelattrnetworkservicetype" }
-    if yname == "cvpdnTunnelAttrLocalIpAddress" { return "Cvpdntunnelattrlocalipaddress" }
-    if yname == "cvpdnTunnelAttrSourceIpAddress" { return "Cvpdntunnelattrsourceipaddress" }
-    if yname == "cvpdnTunnelAttrRemoteIpAddress" { return "Cvpdntunnelattrremoteipaddress" }
-    if yname == "cvpdnTunnelAttrLocalInetAddressType" { return "Cvpdntunnelattrlocalinetaddresstype" }
-    if yname == "cvpdnTunnelAttrLocalInetAddress" { return "Cvpdntunnelattrlocalinetaddress" }
-    if yname == "cvpdnTunnelAttrSourceInetAddressType" { return "Cvpdntunnelattrsourceinetaddresstype" }
-    if yname == "cvpdnTunnelAttrSourceInetAddress" { return "Cvpdntunnelattrsourceinetaddress" }
-    if yname == "cvpdnTunnelAttrRemoteInetAddressType" { return "Cvpdntunnelattrremoteinetaddresstype" }
-    if yname == "cvpdnTunnelAttrRemoteInetAddress" { return "Cvpdntunnelattrremoteinetaddress" }
-    return ""
+    cvpdntunnelattrentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdntunnelattrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnSystemTunnelType"] = types.YLeaf{"Cvpdnsystemtunneltype", cvpdntunnelattrentry.Cvpdnsystemtunneltype}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrTunnelId"] = types.YLeaf{"Cvpdntunnelattrtunnelid", cvpdntunnelattrentry.Cvpdntunnelattrtunnelid}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrRemoteTunnelId"] = types.YLeaf{"Cvpdntunnelattrremotetunnelid", cvpdntunnelattrentry.Cvpdntunnelattrremotetunnelid}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrLocalName"] = types.YLeaf{"Cvpdntunnelattrlocalname", cvpdntunnelattrentry.Cvpdntunnelattrlocalname}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrRemoteName"] = types.YLeaf{"Cvpdntunnelattrremotename", cvpdntunnelattrentry.Cvpdntunnelattrremotename}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrRemoteEndpointName"] = types.YLeaf{"Cvpdntunnelattrremoteendpointname", cvpdntunnelattrentry.Cvpdntunnelattrremoteendpointname}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrLocalInitConnection"] = types.YLeaf{"Cvpdntunnelattrlocalinitconnection", cvpdntunnelattrentry.Cvpdntunnelattrlocalinitconnection}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrOrigCause"] = types.YLeaf{"Cvpdntunnelattrorigcause", cvpdntunnelattrentry.Cvpdntunnelattrorigcause}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrState"] = types.YLeaf{"Cvpdntunnelattrstate", cvpdntunnelattrentry.Cvpdntunnelattrstate}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrActiveSessions"] = types.YLeaf{"Cvpdntunnelattractivesessions", cvpdntunnelattrentry.Cvpdntunnelattractivesessions}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrDeniedUsers"] = types.YLeaf{"Cvpdntunnelattrdeniedusers", cvpdntunnelattrentry.Cvpdntunnelattrdeniedusers}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrSoftshut"] = types.YLeaf{"Cvpdntunnelattrsoftshut", cvpdntunnelattrentry.Cvpdntunnelattrsoftshut}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrNetworkServiceType"] = types.YLeaf{"Cvpdntunnelattrnetworkservicetype", cvpdntunnelattrentry.Cvpdntunnelattrnetworkservicetype}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrLocalIpAddress"] = types.YLeaf{"Cvpdntunnelattrlocalipaddress", cvpdntunnelattrentry.Cvpdntunnelattrlocalipaddress}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrSourceIpAddress"] = types.YLeaf{"Cvpdntunnelattrsourceipaddress", cvpdntunnelattrentry.Cvpdntunnelattrsourceipaddress}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrRemoteIpAddress"] = types.YLeaf{"Cvpdntunnelattrremoteipaddress", cvpdntunnelattrentry.Cvpdntunnelattrremoteipaddress}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrLocalInetAddressType"] = types.YLeaf{"Cvpdntunnelattrlocalinetaddresstype", cvpdntunnelattrentry.Cvpdntunnelattrlocalinetaddresstype}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrLocalInetAddress"] = types.YLeaf{"Cvpdntunnelattrlocalinetaddress", cvpdntunnelattrentry.Cvpdntunnelattrlocalinetaddress}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrSourceInetAddressType"] = types.YLeaf{"Cvpdntunnelattrsourceinetaddresstype", cvpdntunnelattrentry.Cvpdntunnelattrsourceinetaddresstype}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrSourceInetAddress"] = types.YLeaf{"Cvpdntunnelattrsourceinetaddress", cvpdntunnelattrentry.Cvpdntunnelattrsourceinetaddress}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrRemoteInetAddressType"] = types.YLeaf{"Cvpdntunnelattrremoteinetaddresstype", cvpdntunnelattrentry.Cvpdntunnelattrremoteinetaddresstype}
+    cvpdntunnelattrentry.EntityData.Leafs["cvpdnTunnelAttrRemoteInetAddress"] = types.YLeaf{"Cvpdntunnelattrremoteinetaddress", cvpdntunnelattrentry.Cvpdntunnelattrremoteinetaddress}
+    return &(cvpdntunnelattrentry.EntityData)
 }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetSegmentPath() string {
-    return "cvpdnTunnelAttrEntry" + "[cvpdnSystemTunnelType='" + fmt.Sprintf("%v", cvpdntunnelattrentry.Cvpdnsystemtunneltype) + "']" + "[cvpdnTunnelAttrTunnelId='" + fmt.Sprintf("%v", cvpdntunnelattrentry.Cvpdntunnelattrtunnelid) + "']"
-}
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnSystemTunnelType"] = cvpdntunnelattrentry.Cvpdnsystemtunneltype
-    leafs["cvpdnTunnelAttrTunnelId"] = cvpdntunnelattrentry.Cvpdntunnelattrtunnelid
-    leafs["cvpdnTunnelAttrRemoteTunnelId"] = cvpdntunnelattrentry.Cvpdntunnelattrremotetunnelid
-    leafs["cvpdnTunnelAttrLocalName"] = cvpdntunnelattrentry.Cvpdntunnelattrlocalname
-    leafs["cvpdnTunnelAttrRemoteName"] = cvpdntunnelattrentry.Cvpdntunnelattrremotename
-    leafs["cvpdnTunnelAttrRemoteEndpointName"] = cvpdntunnelattrentry.Cvpdntunnelattrremoteendpointname
-    leafs["cvpdnTunnelAttrLocalInitConnection"] = cvpdntunnelattrentry.Cvpdntunnelattrlocalinitconnection
-    leafs["cvpdnTunnelAttrOrigCause"] = cvpdntunnelattrentry.Cvpdntunnelattrorigcause
-    leafs["cvpdnTunnelAttrState"] = cvpdntunnelattrentry.Cvpdntunnelattrstate
-    leafs["cvpdnTunnelAttrActiveSessions"] = cvpdntunnelattrentry.Cvpdntunnelattractivesessions
-    leafs["cvpdnTunnelAttrDeniedUsers"] = cvpdntunnelattrentry.Cvpdntunnelattrdeniedusers
-    leafs["cvpdnTunnelAttrSoftshut"] = cvpdntunnelattrentry.Cvpdntunnelattrsoftshut
-    leafs["cvpdnTunnelAttrNetworkServiceType"] = cvpdntunnelattrentry.Cvpdntunnelattrnetworkservicetype
-    leafs["cvpdnTunnelAttrLocalIpAddress"] = cvpdntunnelattrentry.Cvpdntunnelattrlocalipaddress
-    leafs["cvpdnTunnelAttrSourceIpAddress"] = cvpdntunnelattrentry.Cvpdntunnelattrsourceipaddress
-    leafs["cvpdnTunnelAttrRemoteIpAddress"] = cvpdntunnelattrentry.Cvpdntunnelattrremoteipaddress
-    leafs["cvpdnTunnelAttrLocalInetAddressType"] = cvpdntunnelattrentry.Cvpdntunnelattrlocalinetaddresstype
-    leafs["cvpdnTunnelAttrLocalInetAddress"] = cvpdntunnelattrentry.Cvpdntunnelattrlocalinetaddress
-    leafs["cvpdnTunnelAttrSourceInetAddressType"] = cvpdntunnelattrentry.Cvpdntunnelattrsourceinetaddresstype
-    leafs["cvpdnTunnelAttrSourceInetAddress"] = cvpdntunnelattrentry.Cvpdntunnelattrsourceinetaddress
-    leafs["cvpdnTunnelAttrRemoteInetAddressType"] = cvpdntunnelattrentry.Cvpdntunnelattrremoteinetaddresstype
-    leafs["cvpdnTunnelAttrRemoteInetAddress"] = cvpdntunnelattrentry.Cvpdntunnelattrremoteinetaddress
-    return leafs
-}
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetYangName() string { return "cvpdnTunnelAttrEntry" }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) SetParent(parent types.Entity) { cvpdntunnelattrentry.parent = parent }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetParent() types.Entity { return cvpdntunnelattrentry.parent }
-
-func (cvpdntunnelattrentry *CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry) GetParentYangName() string { return "cvpdnTunnelAttrTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry_Cvpdntunnelattrnetworkservicetype represents The type of network service used in the active tunnel.
 type CISCOVPDNMGMTMIB_Cvpdntunnelattrtable_Cvpdntunnelattrentry_Cvpdntunnelattrnetworkservicetype string
@@ -1316,7 +893,7 @@ const (
 // when new user session is initiated and be removed from
 // the table when the user session is terminated.
 type CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single user session
@@ -1325,69 +902,30 @@ type CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable struct {
     Cvpdntunnelsessionentry []CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry
 }
 
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetFilter() yfilter.YFilter { return cvpdntunnelsessiontable.YFilter }
+func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetEntityData() *types.CommonEntityData {
+    cvpdntunnelsessiontable.EntityData.YFilter = cvpdntunnelsessiontable.YFilter
+    cvpdntunnelsessiontable.EntityData.YangName = "cvpdnTunnelSessionTable"
+    cvpdntunnelsessiontable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntunnelsessiontable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdntunnelsessiontable.EntityData.SegmentPath = "cvpdnTunnelSessionTable"
+    cvpdntunnelsessiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntunnelsessiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntunnelsessiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) SetFilter(yf yfilter.YFilter) { cvpdntunnelsessiontable.YFilter = yf }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetGoName(yname string) string {
-    if yname == "cvpdnTunnelSessionEntry" { return "Cvpdntunnelsessionentry" }
-    return ""
-}
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetSegmentPath() string {
-    return "cvpdnTunnelSessionTable"
-}
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnTunnelSessionEntry" {
-        for _, c := range cvpdntunnelsessiontable.Cvpdntunnelsessionentry {
-            if cvpdntunnelsessiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry{}
-        cvpdntunnelsessiontable.Cvpdntunnelsessionentry = append(cvpdntunnelsessiontable.Cvpdntunnelsessionentry, child)
-        return &cvpdntunnelsessiontable.Cvpdntunnelsessionentry[len(cvpdntunnelsessiontable.Cvpdntunnelsessionentry)-1]
-    }
-    return nil
-}
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdntunnelsessiontable.EntityData.Children = make(map[string]types.YChild)
+    cvpdntunnelsessiontable.EntityData.Children["cvpdnTunnelSessionEntry"] = types.YChild{"Cvpdntunnelsessionentry", nil}
     for i := range cvpdntunnelsessiontable.Cvpdntunnelsessionentry {
-        children[cvpdntunnelsessiontable.Cvpdntunnelsessionentry[i].GetSegmentPath()] = &cvpdntunnelsessiontable.Cvpdntunnelsessionentry[i]
+        cvpdntunnelsessiontable.EntityData.Children[types.GetSegmentPath(&cvpdntunnelsessiontable.Cvpdntunnelsessionentry[i])] = types.YChild{"Cvpdntunnelsessionentry", &cvpdntunnelsessiontable.Cvpdntunnelsessionentry[i]}
     }
-    return children
+    cvpdntunnelsessiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdntunnelsessiontable.EntityData)
 }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetYangName() string { return "cvpdnTunnelSessionTable" }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) SetParent(parent types.Entity) { cvpdntunnelsessiontable.parent = parent }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetParent() types.Entity { return cvpdntunnelsessiontable.parent }
-
-func (cvpdntunnelsessiontable *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry
 // An entry in the table, containing information about a
 // single user session within the tunnel.
 type CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -1507,89 +1045,40 @@ type CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry struct {
     Cvpdntunnelsessionmodemcallstartindex interface{}
 }
 
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetFilter() yfilter.YFilter { return cvpdntunnelsessionentry.YFilter }
+func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetEntityData() *types.CommonEntityData {
+    cvpdntunnelsessionentry.EntityData.YFilter = cvpdntunnelsessionentry.YFilter
+    cvpdntunnelsessionentry.EntityData.YangName = "cvpdnTunnelSessionEntry"
+    cvpdntunnelsessionentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntunnelsessionentry.EntityData.ParentYangName = "cvpdnTunnelSessionTable"
+    cvpdntunnelsessionentry.EntityData.SegmentPath = "cvpdnTunnelSessionEntry" + "[cvpdnTunnelTunnelId='" + fmt.Sprintf("%v", cvpdntunnelsessionentry.Cvpdntunneltunnelid) + "']" + "[cvpdnTunnelSessionId='" + fmt.Sprintf("%v", cvpdntunnelsessionentry.Cvpdntunnelsessionid) + "']"
+    cvpdntunnelsessionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntunnelsessionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntunnelsessionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) SetFilter(yf yfilter.YFilter) { cvpdntunnelsessionentry.YFilter = yf }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetGoName(yname string) string {
-    if yname == "cvpdnTunnelTunnelId" { return "Cvpdntunneltunnelid" }
-    if yname == "cvpdnTunnelSessionId" { return "Cvpdntunnelsessionid" }
-    if yname == "cvpdnTunnelSessionUserName" { return "Cvpdntunnelsessionusername" }
-    if yname == "cvpdnTunnelSessionState" { return "Cvpdntunnelsessionstate" }
-    if yname == "cvpdnTunnelSessionCallDuration" { return "Cvpdntunnelsessioncallduration" }
-    if yname == "cvpdnTunnelSessionPacketsOut" { return "Cvpdntunnelsessionpacketsout" }
-    if yname == "cvpdnTunnelSessionBytesOut" { return "Cvpdntunnelsessionbytesout" }
-    if yname == "cvpdnTunnelSessionPacketsIn" { return "Cvpdntunnelsessionpacketsin" }
-    if yname == "cvpdnTunnelSessionBytesIn" { return "Cvpdntunnelsessionbytesin" }
-    if yname == "cvpdnTunnelSessionDeviceType" { return "Cvpdntunnelsessiondevicetype" }
-    if yname == "cvpdnTunnelSessionDeviceCallerId" { return "Cvpdntunnelsessiondevicecallerid" }
-    if yname == "cvpdnTunnelSessionDevicePhyId" { return "Cvpdntunnelsessiondevicephyid" }
-    if yname == "cvpdnTunnelSessionMultilink" { return "Cvpdntunnelsessionmultilink" }
-    if yname == "cvpdnTunnelSessionModemSlotIndex" { return "Cvpdntunnelsessionmodemslotindex" }
-    if yname == "cvpdnTunnelSessionModemPortIndex" { return "Cvpdntunnelsessionmodemportindex" }
-    if yname == "cvpdnTunnelSessionDS1SlotIndex" { return "Cvpdntunnelsessionds1Slotindex" }
-    if yname == "cvpdnTunnelSessionDS1PortIndex" { return "Cvpdntunnelsessionds1Portindex" }
-    if yname == "cvpdnTunnelSessionDS1ChannelIndex" { return "Cvpdntunnelsessionds1Channelindex" }
-    if yname == "cvpdnTunnelSessionModemCallStartTime" { return "Cvpdntunnelsessionmodemcallstarttime" }
-    if yname == "cvpdnTunnelSessionModemCallStartIndex" { return "Cvpdntunnelsessionmodemcallstartindex" }
-    return ""
+    cvpdntunnelsessionentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdntunnelsessionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelTunnelId"] = types.YLeaf{"Cvpdntunneltunnelid", cvpdntunnelsessionentry.Cvpdntunneltunnelid}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionId"] = types.YLeaf{"Cvpdntunnelsessionid", cvpdntunnelsessionentry.Cvpdntunnelsessionid}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionUserName"] = types.YLeaf{"Cvpdntunnelsessionusername", cvpdntunnelsessionentry.Cvpdntunnelsessionusername}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionState"] = types.YLeaf{"Cvpdntunnelsessionstate", cvpdntunnelsessionentry.Cvpdntunnelsessionstate}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionCallDuration"] = types.YLeaf{"Cvpdntunnelsessioncallduration", cvpdntunnelsessionentry.Cvpdntunnelsessioncallduration}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionPacketsOut"] = types.YLeaf{"Cvpdntunnelsessionpacketsout", cvpdntunnelsessionentry.Cvpdntunnelsessionpacketsout}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionBytesOut"] = types.YLeaf{"Cvpdntunnelsessionbytesout", cvpdntunnelsessionentry.Cvpdntunnelsessionbytesout}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionPacketsIn"] = types.YLeaf{"Cvpdntunnelsessionpacketsin", cvpdntunnelsessionentry.Cvpdntunnelsessionpacketsin}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionBytesIn"] = types.YLeaf{"Cvpdntunnelsessionbytesin", cvpdntunnelsessionentry.Cvpdntunnelsessionbytesin}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionDeviceType"] = types.YLeaf{"Cvpdntunnelsessiondevicetype", cvpdntunnelsessionentry.Cvpdntunnelsessiondevicetype}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionDeviceCallerId"] = types.YLeaf{"Cvpdntunnelsessiondevicecallerid", cvpdntunnelsessionentry.Cvpdntunnelsessiondevicecallerid}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionDevicePhyId"] = types.YLeaf{"Cvpdntunnelsessiondevicephyid", cvpdntunnelsessionentry.Cvpdntunnelsessiondevicephyid}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionMultilink"] = types.YLeaf{"Cvpdntunnelsessionmultilink", cvpdntunnelsessionentry.Cvpdntunnelsessionmultilink}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionModemSlotIndex"] = types.YLeaf{"Cvpdntunnelsessionmodemslotindex", cvpdntunnelsessionentry.Cvpdntunnelsessionmodemslotindex}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionModemPortIndex"] = types.YLeaf{"Cvpdntunnelsessionmodemportindex", cvpdntunnelsessionentry.Cvpdntunnelsessionmodemportindex}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionDS1SlotIndex"] = types.YLeaf{"Cvpdntunnelsessionds1Slotindex", cvpdntunnelsessionentry.Cvpdntunnelsessionds1Slotindex}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionDS1PortIndex"] = types.YLeaf{"Cvpdntunnelsessionds1Portindex", cvpdntunnelsessionentry.Cvpdntunnelsessionds1Portindex}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionDS1ChannelIndex"] = types.YLeaf{"Cvpdntunnelsessionds1Channelindex", cvpdntunnelsessionentry.Cvpdntunnelsessionds1Channelindex}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionModemCallStartTime"] = types.YLeaf{"Cvpdntunnelsessionmodemcallstarttime", cvpdntunnelsessionentry.Cvpdntunnelsessionmodemcallstarttime}
+    cvpdntunnelsessionentry.EntityData.Leafs["cvpdnTunnelSessionModemCallStartIndex"] = types.YLeaf{"Cvpdntunnelsessionmodemcallstartindex", cvpdntunnelsessionentry.Cvpdntunnelsessionmodemcallstartindex}
+    return &(cvpdntunnelsessionentry.EntityData)
 }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetSegmentPath() string {
-    return "cvpdnTunnelSessionEntry" + "[cvpdnTunnelTunnelId='" + fmt.Sprintf("%v", cvpdntunnelsessionentry.Cvpdntunneltunnelid) + "']" + "[cvpdnTunnelSessionId='" + fmt.Sprintf("%v", cvpdntunnelsessionentry.Cvpdntunnelsessionid) + "']"
-}
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnTunnelTunnelId"] = cvpdntunnelsessionentry.Cvpdntunneltunnelid
-    leafs["cvpdnTunnelSessionId"] = cvpdntunnelsessionentry.Cvpdntunnelsessionid
-    leafs["cvpdnTunnelSessionUserName"] = cvpdntunnelsessionentry.Cvpdntunnelsessionusername
-    leafs["cvpdnTunnelSessionState"] = cvpdntunnelsessionentry.Cvpdntunnelsessionstate
-    leafs["cvpdnTunnelSessionCallDuration"] = cvpdntunnelsessionentry.Cvpdntunnelsessioncallduration
-    leafs["cvpdnTunnelSessionPacketsOut"] = cvpdntunnelsessionentry.Cvpdntunnelsessionpacketsout
-    leafs["cvpdnTunnelSessionBytesOut"] = cvpdntunnelsessionentry.Cvpdntunnelsessionbytesout
-    leafs["cvpdnTunnelSessionPacketsIn"] = cvpdntunnelsessionentry.Cvpdntunnelsessionpacketsin
-    leafs["cvpdnTunnelSessionBytesIn"] = cvpdntunnelsessionentry.Cvpdntunnelsessionbytesin
-    leafs["cvpdnTunnelSessionDeviceType"] = cvpdntunnelsessionentry.Cvpdntunnelsessiondevicetype
-    leafs["cvpdnTunnelSessionDeviceCallerId"] = cvpdntunnelsessionentry.Cvpdntunnelsessiondevicecallerid
-    leafs["cvpdnTunnelSessionDevicePhyId"] = cvpdntunnelsessionentry.Cvpdntunnelsessiondevicephyid
-    leafs["cvpdnTunnelSessionMultilink"] = cvpdntunnelsessionentry.Cvpdntunnelsessionmultilink
-    leafs["cvpdnTunnelSessionModemSlotIndex"] = cvpdntunnelsessionentry.Cvpdntunnelsessionmodemslotindex
-    leafs["cvpdnTunnelSessionModemPortIndex"] = cvpdntunnelsessionentry.Cvpdntunnelsessionmodemportindex
-    leafs["cvpdnTunnelSessionDS1SlotIndex"] = cvpdntunnelsessionentry.Cvpdntunnelsessionds1Slotindex
-    leafs["cvpdnTunnelSessionDS1PortIndex"] = cvpdntunnelsessionentry.Cvpdntunnelsessionds1Portindex
-    leafs["cvpdnTunnelSessionDS1ChannelIndex"] = cvpdntunnelsessionentry.Cvpdntunnelsessionds1Channelindex
-    leafs["cvpdnTunnelSessionModemCallStartTime"] = cvpdntunnelsessionentry.Cvpdntunnelsessionmodemcallstarttime
-    leafs["cvpdnTunnelSessionModemCallStartIndex"] = cvpdntunnelsessionentry.Cvpdntunnelsessionmodemcallstartindex
-    return leafs
-}
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetYangName() string { return "cvpdnTunnelSessionEntry" }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) SetParent(parent types.Entity) { cvpdntunnelsessionentry.parent = parent }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetParent() types.Entity { return cvpdntunnelsessionentry.parent }
-
-func (cvpdntunnelsessionentry *CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry) GetParentYangName() string { return "cvpdnTunnelSessionTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry_Cvpdntunnelsessiondevicetype represents                         modem devices.
 type CISCOVPDNMGMTMIB_Cvpdntunnelsessiontable_Cvpdntunnelsessionentry_Cvpdntunnelsessiondevicetype string
@@ -1633,7 +1122,7 @@ const (
 // session is initiated and removed from the table when the
 // session is terminated.
 type CISCOVPDNMGMTMIB_Cvpdnsessionattrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single session within
@@ -1642,69 +1131,30 @@ type CISCOVPDNMGMTMIB_Cvpdnsessionattrtable struct {
     Cvpdnsessionattrentry []CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry
 }
 
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetFilter() yfilter.YFilter { return cvpdnsessionattrtable.YFilter }
+func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetEntityData() *types.CommonEntityData {
+    cvpdnsessionattrtable.EntityData.YFilter = cvpdnsessionattrtable.YFilter
+    cvpdnsessionattrtable.EntityData.YangName = "cvpdnSessionAttrTable"
+    cvpdnsessionattrtable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnsessionattrtable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnsessionattrtable.EntityData.SegmentPath = "cvpdnSessionAttrTable"
+    cvpdnsessionattrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnsessionattrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnsessionattrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) SetFilter(yf yfilter.YFilter) { cvpdnsessionattrtable.YFilter = yf }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetGoName(yname string) string {
-    if yname == "cvpdnSessionAttrEntry" { return "Cvpdnsessionattrentry" }
-    return ""
-}
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetSegmentPath() string {
-    return "cvpdnSessionAttrTable"
-}
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnSessionAttrEntry" {
-        for _, c := range cvpdnsessionattrtable.Cvpdnsessionattrentry {
-            if cvpdnsessionattrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry{}
-        cvpdnsessionattrtable.Cvpdnsessionattrentry = append(cvpdnsessionattrtable.Cvpdnsessionattrentry, child)
-        return &cvpdnsessionattrtable.Cvpdnsessionattrentry[len(cvpdnsessionattrtable.Cvpdnsessionattrentry)-1]
-    }
-    return nil
-}
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdnsessionattrtable.EntityData.Children = make(map[string]types.YChild)
+    cvpdnsessionattrtable.EntityData.Children["cvpdnSessionAttrEntry"] = types.YChild{"Cvpdnsessionattrentry", nil}
     for i := range cvpdnsessionattrtable.Cvpdnsessionattrentry {
-        children[cvpdnsessionattrtable.Cvpdnsessionattrentry[i].GetSegmentPath()] = &cvpdnsessionattrtable.Cvpdnsessionattrentry[i]
+        cvpdnsessionattrtable.EntityData.Children[types.GetSegmentPath(&cvpdnsessionattrtable.Cvpdnsessionattrentry[i])] = types.YChild{"Cvpdnsessionattrentry", &cvpdnsessionattrtable.Cvpdnsessionattrentry[i]}
     }
-    return children
+    cvpdnsessionattrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdnsessionattrtable.EntityData)
 }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetYangName() string { return "cvpdnSessionAttrTable" }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) SetParent(parent types.Entity) { cvpdnsessionattrtable.parent = parent }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetParent() types.Entity { return cvpdnsessionattrtable.parent }
-
-func (cvpdnsessionattrtable *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry
 // An entry in the table, containing information about a
 // single session within the tunnel.
 type CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is TunnelType. Refers to
@@ -1875,101 +1325,46 @@ type CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry struct {
     Cvpdnsessionattrmultilinkifindex interface{}
 }
 
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetFilter() yfilter.YFilter { return cvpdnsessionattrentry.YFilter }
+func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetEntityData() *types.CommonEntityData {
+    cvpdnsessionattrentry.EntityData.YFilter = cvpdnsessionattrentry.YFilter
+    cvpdnsessionattrentry.EntityData.YangName = "cvpdnSessionAttrEntry"
+    cvpdnsessionattrentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnsessionattrentry.EntityData.ParentYangName = "cvpdnSessionAttrTable"
+    cvpdnsessionattrentry.EntityData.SegmentPath = "cvpdnSessionAttrEntry" + "[cvpdnSystemTunnelType='" + fmt.Sprintf("%v", cvpdnsessionattrentry.Cvpdnsystemtunneltype) + "']" + "[cvpdnTunnelAttrTunnelId='" + fmt.Sprintf("%v", cvpdnsessionattrentry.Cvpdntunnelattrtunnelid) + "']" + "[cvpdnSessionAttrSessionId='" + fmt.Sprintf("%v", cvpdnsessionattrentry.Cvpdnsessionattrsessionid) + "']"
+    cvpdnsessionattrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnsessionattrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnsessionattrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) SetFilter(yf yfilter.YFilter) { cvpdnsessionattrentry.YFilter = yf }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetGoName(yname string) string {
-    if yname == "cvpdnSystemTunnelType" { return "Cvpdnsystemtunneltype" }
-    if yname == "cvpdnTunnelAttrTunnelId" { return "Cvpdntunnelattrtunnelid" }
-    if yname == "cvpdnSessionAttrSessionId" { return "Cvpdnsessionattrsessionid" }
-    if yname == "cvpdnSessionAttrUserName" { return "Cvpdnsessionattrusername" }
-    if yname == "cvpdnSessionAttrState" { return "Cvpdnsessionattrstate" }
-    if yname == "cvpdnSessionAttrCallDuration" { return "Cvpdnsessionattrcallduration" }
-    if yname == "cvpdnSessionAttrPacketsOut" { return "Cvpdnsessionattrpacketsout" }
-    if yname == "cvpdnSessionAttrBytesOut" { return "Cvpdnsessionattrbytesout" }
-    if yname == "cvpdnSessionAttrPacketsIn" { return "Cvpdnsessionattrpacketsin" }
-    if yname == "cvpdnSessionAttrBytesIn" { return "Cvpdnsessionattrbytesin" }
-    if yname == "cvpdnSessionAttrDeviceType" { return "Cvpdnsessionattrdevicetype" }
-    if yname == "cvpdnSessionAttrDeviceCallerId" { return "Cvpdnsessionattrdevicecallerid" }
-    if yname == "cvpdnSessionAttrDevicePhyId" { return "Cvpdnsessionattrdevicephyid" }
-    if yname == "cvpdnSessionAttrMultilink" { return "Cvpdnsessionattrmultilink" }
-    if yname == "cvpdnSessionAttrModemSlotIndex" { return "Cvpdnsessionattrmodemslotindex" }
-    if yname == "cvpdnSessionAttrModemPortIndex" { return "Cvpdnsessionattrmodemportindex" }
-    if yname == "cvpdnSessionAttrDS1SlotIndex" { return "Cvpdnsessionattrds1Slotindex" }
-    if yname == "cvpdnSessionAttrDS1PortIndex" { return "Cvpdnsessionattrds1Portindex" }
-    if yname == "cvpdnSessionAttrDS1ChannelIndex" { return "Cvpdnsessionattrds1Channelindex" }
-    if yname == "cvpdnSessionAttrModemCallStartTime" { return "Cvpdnsessionattrmodemcallstarttime" }
-    if yname == "cvpdnSessionAttrModemCallStartIndex" { return "Cvpdnsessionattrmodemcallstartindex" }
-    if yname == "cvpdnSessionAttrVirtualCircuitID" { return "Cvpdnsessionattrvirtualcircuitid" }
-    if yname == "cvpdnSessionAttrSentPktsDropped" { return "Cvpdnsessionattrsentpktsdropped" }
-    if yname == "cvpdnSessionAttrRecvPktsDropped" { return "Cvpdnsessionattrrecvpktsdropped" }
-    if yname == "cvpdnSessionAttrMultilinkBundle" { return "Cvpdnsessionattrmultilinkbundle" }
-    if yname == "cvpdnSessionAttrMultilinkIfIndex" { return "Cvpdnsessionattrmultilinkifindex" }
-    return ""
+    cvpdnsessionattrentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdnsessionattrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSystemTunnelType"] = types.YLeaf{"Cvpdnsystemtunneltype", cvpdnsessionattrentry.Cvpdnsystemtunneltype}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnTunnelAttrTunnelId"] = types.YLeaf{"Cvpdntunnelattrtunnelid", cvpdnsessionattrentry.Cvpdntunnelattrtunnelid}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrSessionId"] = types.YLeaf{"Cvpdnsessionattrsessionid", cvpdnsessionattrentry.Cvpdnsessionattrsessionid}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrUserName"] = types.YLeaf{"Cvpdnsessionattrusername", cvpdnsessionattrentry.Cvpdnsessionattrusername}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrState"] = types.YLeaf{"Cvpdnsessionattrstate", cvpdnsessionattrentry.Cvpdnsessionattrstate}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrCallDuration"] = types.YLeaf{"Cvpdnsessionattrcallduration", cvpdnsessionattrentry.Cvpdnsessionattrcallduration}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrPacketsOut"] = types.YLeaf{"Cvpdnsessionattrpacketsout", cvpdnsessionattrentry.Cvpdnsessionattrpacketsout}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrBytesOut"] = types.YLeaf{"Cvpdnsessionattrbytesout", cvpdnsessionattrentry.Cvpdnsessionattrbytesout}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrPacketsIn"] = types.YLeaf{"Cvpdnsessionattrpacketsin", cvpdnsessionattrentry.Cvpdnsessionattrpacketsin}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrBytesIn"] = types.YLeaf{"Cvpdnsessionattrbytesin", cvpdnsessionattrentry.Cvpdnsessionattrbytesin}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrDeviceType"] = types.YLeaf{"Cvpdnsessionattrdevicetype", cvpdnsessionattrentry.Cvpdnsessionattrdevicetype}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrDeviceCallerId"] = types.YLeaf{"Cvpdnsessionattrdevicecallerid", cvpdnsessionattrentry.Cvpdnsessionattrdevicecallerid}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrDevicePhyId"] = types.YLeaf{"Cvpdnsessionattrdevicephyid", cvpdnsessionattrentry.Cvpdnsessionattrdevicephyid}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrMultilink"] = types.YLeaf{"Cvpdnsessionattrmultilink", cvpdnsessionattrentry.Cvpdnsessionattrmultilink}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrModemSlotIndex"] = types.YLeaf{"Cvpdnsessionattrmodemslotindex", cvpdnsessionattrentry.Cvpdnsessionattrmodemslotindex}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrModemPortIndex"] = types.YLeaf{"Cvpdnsessionattrmodemportindex", cvpdnsessionattrentry.Cvpdnsessionattrmodemportindex}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrDS1SlotIndex"] = types.YLeaf{"Cvpdnsessionattrds1Slotindex", cvpdnsessionattrentry.Cvpdnsessionattrds1Slotindex}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrDS1PortIndex"] = types.YLeaf{"Cvpdnsessionattrds1Portindex", cvpdnsessionattrentry.Cvpdnsessionattrds1Portindex}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrDS1ChannelIndex"] = types.YLeaf{"Cvpdnsessionattrds1Channelindex", cvpdnsessionattrentry.Cvpdnsessionattrds1Channelindex}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrModemCallStartTime"] = types.YLeaf{"Cvpdnsessionattrmodemcallstarttime", cvpdnsessionattrentry.Cvpdnsessionattrmodemcallstarttime}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrModemCallStartIndex"] = types.YLeaf{"Cvpdnsessionattrmodemcallstartindex", cvpdnsessionattrentry.Cvpdnsessionattrmodemcallstartindex}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrVirtualCircuitID"] = types.YLeaf{"Cvpdnsessionattrvirtualcircuitid", cvpdnsessionattrentry.Cvpdnsessionattrvirtualcircuitid}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrSentPktsDropped"] = types.YLeaf{"Cvpdnsessionattrsentpktsdropped", cvpdnsessionattrentry.Cvpdnsessionattrsentpktsdropped}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrRecvPktsDropped"] = types.YLeaf{"Cvpdnsessionattrrecvpktsdropped", cvpdnsessionattrentry.Cvpdnsessionattrrecvpktsdropped}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrMultilinkBundle"] = types.YLeaf{"Cvpdnsessionattrmultilinkbundle", cvpdnsessionattrentry.Cvpdnsessionattrmultilinkbundle}
+    cvpdnsessionattrentry.EntityData.Leafs["cvpdnSessionAttrMultilinkIfIndex"] = types.YLeaf{"Cvpdnsessionattrmultilinkifindex", cvpdnsessionattrentry.Cvpdnsessionattrmultilinkifindex}
+    return &(cvpdnsessionattrentry.EntityData)
 }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetSegmentPath() string {
-    return "cvpdnSessionAttrEntry" + "[cvpdnSystemTunnelType='" + fmt.Sprintf("%v", cvpdnsessionattrentry.Cvpdnsystemtunneltype) + "']" + "[cvpdnTunnelAttrTunnelId='" + fmt.Sprintf("%v", cvpdnsessionattrentry.Cvpdntunnelattrtunnelid) + "']" + "[cvpdnSessionAttrSessionId='" + fmt.Sprintf("%v", cvpdnsessionattrentry.Cvpdnsessionattrsessionid) + "']"
-}
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnSystemTunnelType"] = cvpdnsessionattrentry.Cvpdnsystemtunneltype
-    leafs["cvpdnTunnelAttrTunnelId"] = cvpdnsessionattrentry.Cvpdntunnelattrtunnelid
-    leafs["cvpdnSessionAttrSessionId"] = cvpdnsessionattrentry.Cvpdnsessionattrsessionid
-    leafs["cvpdnSessionAttrUserName"] = cvpdnsessionattrentry.Cvpdnsessionattrusername
-    leafs["cvpdnSessionAttrState"] = cvpdnsessionattrentry.Cvpdnsessionattrstate
-    leafs["cvpdnSessionAttrCallDuration"] = cvpdnsessionattrentry.Cvpdnsessionattrcallduration
-    leafs["cvpdnSessionAttrPacketsOut"] = cvpdnsessionattrentry.Cvpdnsessionattrpacketsout
-    leafs["cvpdnSessionAttrBytesOut"] = cvpdnsessionattrentry.Cvpdnsessionattrbytesout
-    leafs["cvpdnSessionAttrPacketsIn"] = cvpdnsessionattrentry.Cvpdnsessionattrpacketsin
-    leafs["cvpdnSessionAttrBytesIn"] = cvpdnsessionattrentry.Cvpdnsessionattrbytesin
-    leafs["cvpdnSessionAttrDeviceType"] = cvpdnsessionattrentry.Cvpdnsessionattrdevicetype
-    leafs["cvpdnSessionAttrDeviceCallerId"] = cvpdnsessionattrentry.Cvpdnsessionattrdevicecallerid
-    leafs["cvpdnSessionAttrDevicePhyId"] = cvpdnsessionattrentry.Cvpdnsessionattrdevicephyid
-    leafs["cvpdnSessionAttrMultilink"] = cvpdnsessionattrentry.Cvpdnsessionattrmultilink
-    leafs["cvpdnSessionAttrModemSlotIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrmodemslotindex
-    leafs["cvpdnSessionAttrModemPortIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrmodemportindex
-    leafs["cvpdnSessionAttrDS1SlotIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrds1Slotindex
-    leafs["cvpdnSessionAttrDS1PortIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrds1Portindex
-    leafs["cvpdnSessionAttrDS1ChannelIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrds1Channelindex
-    leafs["cvpdnSessionAttrModemCallStartTime"] = cvpdnsessionattrentry.Cvpdnsessionattrmodemcallstarttime
-    leafs["cvpdnSessionAttrModemCallStartIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrmodemcallstartindex
-    leafs["cvpdnSessionAttrVirtualCircuitID"] = cvpdnsessionattrentry.Cvpdnsessionattrvirtualcircuitid
-    leafs["cvpdnSessionAttrSentPktsDropped"] = cvpdnsessionattrentry.Cvpdnsessionattrsentpktsdropped
-    leafs["cvpdnSessionAttrRecvPktsDropped"] = cvpdnsessionattrentry.Cvpdnsessionattrrecvpktsdropped
-    leafs["cvpdnSessionAttrMultilinkBundle"] = cvpdnsessionattrentry.Cvpdnsessionattrmultilinkbundle
-    leafs["cvpdnSessionAttrMultilinkIfIndex"] = cvpdnsessionattrentry.Cvpdnsessionattrmultilinkifindex
-    return leafs
-}
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetYangName() string { return "cvpdnSessionAttrEntry" }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) SetParent(parent types.Entity) { cvpdnsessionattrentry.parent = parent }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetParent() types.Entity { return cvpdnsessionattrentry.parent }
-
-func (cvpdnsessionattrentry *CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry) GetParentYangName() string { return "cvpdnSessionAttrTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry_Cvpdnsessionattrdevicetype represents     cable:              cable modem interface.
 type CISCOVPDNMGMTMIB_Cvpdnsessionattrtable_Cvpdnsessionattrentry_Cvpdnsessionattrdevicetype string
@@ -2041,7 +1436,7 @@ const (
 // a maximum size of 50 entries.  Only the newest 50
 // entries will be kept in the table.
 type CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing failure history relevant to an user name.
@@ -2050,69 +1445,30 @@ type CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable struct {
     Cvpdnusertofailhistinfoentry []CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry
 }
 
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetFilter() yfilter.YFilter { return cvpdnusertofailhistinfotable.YFilter }
+func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetEntityData() *types.CommonEntityData {
+    cvpdnusertofailhistinfotable.EntityData.YFilter = cvpdnusertofailhistinfotable.YFilter
+    cvpdnusertofailhistinfotable.EntityData.YangName = "cvpdnUserToFailHistInfoTable"
+    cvpdnusertofailhistinfotable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnusertofailhistinfotable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnusertofailhistinfotable.EntityData.SegmentPath = "cvpdnUserToFailHistInfoTable"
+    cvpdnusertofailhistinfotable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnusertofailhistinfotable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnusertofailhistinfotable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) SetFilter(yf yfilter.YFilter) { cvpdnusertofailhistinfotable.YFilter = yf }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetGoName(yname string) string {
-    if yname == "cvpdnUserToFailHistInfoEntry" { return "Cvpdnusertofailhistinfoentry" }
-    return ""
-}
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetSegmentPath() string {
-    return "cvpdnUserToFailHistInfoTable"
-}
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnUserToFailHistInfoEntry" {
-        for _, c := range cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry {
-            if cvpdnusertofailhistinfotable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry{}
-        cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry = append(cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry, child)
-        return &cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry[len(cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry)-1]
-    }
-    return nil
-}
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdnusertofailhistinfotable.EntityData.Children = make(map[string]types.YChild)
+    cvpdnusertofailhistinfotable.EntityData.Children["cvpdnUserToFailHistInfoEntry"] = types.YChild{"Cvpdnusertofailhistinfoentry", nil}
     for i := range cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry {
-        children[cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry[i].GetSegmentPath()] = &cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry[i]
+        cvpdnusertofailhistinfotable.EntityData.Children[types.GetSegmentPath(&cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry[i])] = types.YChild{"Cvpdnusertofailhistinfoentry", &cvpdnusertofailhistinfotable.Cvpdnusertofailhistinfoentry[i]}
     }
-    return children
+    cvpdnusertofailhistinfotable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdnusertofailhistinfotable.EntityData)
 }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetYangName() string { return "cvpdnUserToFailHistInfoTable" }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) SetParent(parent types.Entity) { cvpdnusertofailhistinfotable.parent = parent }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetParent() types.Entity { return cvpdnusertofailhistinfotable.parent }
-
-func (cvpdnusertofailhistinfotable *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry
 // An entry in the table, containing failure history
 // relevant to an user name.
 type CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The user name for this failure entry. The type is
@@ -2150,13 +1506,13 @@ type CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry 
     // The source IP address of the tunnel in which the failure occurred.  This IP
     // address is that of the interface at the instigator end of the tunnel. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdnunametofailhistsourceip interface{}
 
     // The destination IP address of the tunnel in which the failure occurred. 
     // This IP address is that of the interface at the receiver end of the tunnel.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cvpdnunametofailhistdestip interface{}
 
     // This object is incremented when multiple failures has been experienced by
@@ -2201,81 +1557,36 @@ type CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry 
     Cvpdnunametofailhistdestinetaddr interface{}
 }
 
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetFilter() yfilter.YFilter { return cvpdnusertofailhistinfoentry.YFilter }
+func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetEntityData() *types.CommonEntityData {
+    cvpdnusertofailhistinfoentry.EntityData.YFilter = cvpdnusertofailhistinfoentry.YFilter
+    cvpdnusertofailhistinfoentry.EntityData.YangName = "cvpdnUserToFailHistInfoEntry"
+    cvpdnusertofailhistinfoentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnusertofailhistinfoentry.EntityData.ParentYangName = "cvpdnUserToFailHistInfoTable"
+    cvpdnusertofailhistinfoentry.EntityData.SegmentPath = "cvpdnUserToFailHistInfoEntry" + "[cvpdnUnameToFailHistUname='" + fmt.Sprintf("%v", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistuname) + "']" + "[cvpdnUnameToFailHistTunnelId='" + fmt.Sprintf("%v", cvpdnusertofailhistinfoentry.Cvpdnunametofailhisttunnelid) + "']"
+    cvpdnusertofailhistinfoentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnusertofailhistinfoentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnusertofailhistinfoentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) SetFilter(yf yfilter.YFilter) { cvpdnusertofailhistinfoentry.YFilter = yf }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetGoName(yname string) string {
-    if yname == "cvpdnUnameToFailHistUname" { return "Cvpdnunametofailhistuname" }
-    if yname == "cvpdnUnameToFailHistTunnelId" { return "Cvpdnunametofailhisttunnelid" }
-    if yname == "cvpdnUnameToFailHistUserId" { return "Cvpdnunametofailhistuserid" }
-    if yname == "cvpdnUnameToFailHistLocalInitConn" { return "Cvpdnunametofailhistlocalinitconn" }
-    if yname == "cvpdnUnameToFailHistLocalName" { return "Cvpdnunametofailhistlocalname" }
-    if yname == "cvpdnUnameToFailHistRemoteName" { return "Cvpdnunametofailhistremotename" }
-    if yname == "cvpdnUnameToFailHistSourceIp" { return "Cvpdnunametofailhistsourceip" }
-    if yname == "cvpdnUnameToFailHistDestIp" { return "Cvpdnunametofailhistdestip" }
-    if yname == "cvpdnUnameToFailHistCount" { return "Cvpdnunametofailhistcount" }
-    if yname == "cvpdnUnameToFailHistFailTime" { return "Cvpdnunametofailhistfailtime" }
-    if yname == "cvpdnUnameToFailHistFailType" { return "Cvpdnunametofailhistfailtype" }
-    if yname == "cvpdnUnameToFailHistFailReason" { return "Cvpdnunametofailhistfailreason" }
-    if yname == "cvpdnUnameToFailHistSourceInetType" { return "Cvpdnunametofailhistsourceinettype" }
-    if yname == "cvpdnUnameToFailHistSourceInetAddr" { return "Cvpdnunametofailhistsourceinetaddr" }
-    if yname == "cvpdnUnameToFailHistDestInetType" { return "Cvpdnunametofailhistdestinettype" }
-    if yname == "cvpdnUnameToFailHistDestInetAddr" { return "Cvpdnunametofailhistdestinetaddr" }
-    return ""
+    cvpdnusertofailhistinfoentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdnusertofailhistinfoentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistUname"] = types.YLeaf{"Cvpdnunametofailhistuname", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistuname}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistTunnelId"] = types.YLeaf{"Cvpdnunametofailhisttunnelid", cvpdnusertofailhistinfoentry.Cvpdnunametofailhisttunnelid}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistUserId"] = types.YLeaf{"Cvpdnunametofailhistuserid", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistuserid}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistLocalInitConn"] = types.YLeaf{"Cvpdnunametofailhistlocalinitconn", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistlocalinitconn}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistLocalName"] = types.YLeaf{"Cvpdnunametofailhistlocalname", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistlocalname}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistRemoteName"] = types.YLeaf{"Cvpdnunametofailhistremotename", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistremotename}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistSourceIp"] = types.YLeaf{"Cvpdnunametofailhistsourceip", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistsourceip}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistDestIp"] = types.YLeaf{"Cvpdnunametofailhistdestip", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistdestip}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistCount"] = types.YLeaf{"Cvpdnunametofailhistcount", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistcount}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistFailTime"] = types.YLeaf{"Cvpdnunametofailhistfailtime", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistfailtime}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistFailType"] = types.YLeaf{"Cvpdnunametofailhistfailtype", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistfailtype}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistFailReason"] = types.YLeaf{"Cvpdnunametofailhistfailreason", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistfailreason}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistSourceInetType"] = types.YLeaf{"Cvpdnunametofailhistsourceinettype", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistsourceinettype}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistSourceInetAddr"] = types.YLeaf{"Cvpdnunametofailhistsourceinetaddr", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistsourceinetaddr}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistDestInetType"] = types.YLeaf{"Cvpdnunametofailhistdestinettype", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistdestinettype}
+    cvpdnusertofailhistinfoentry.EntityData.Leafs["cvpdnUnameToFailHistDestInetAddr"] = types.YLeaf{"Cvpdnunametofailhistdestinetaddr", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistdestinetaddr}
+    return &(cvpdnusertofailhistinfoentry.EntityData)
 }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetSegmentPath() string {
-    return "cvpdnUserToFailHistInfoEntry" + "[cvpdnUnameToFailHistUname='" + fmt.Sprintf("%v", cvpdnusertofailhistinfoentry.Cvpdnunametofailhistuname) + "']" + "[cvpdnUnameToFailHistTunnelId='" + fmt.Sprintf("%v", cvpdnusertofailhistinfoentry.Cvpdnunametofailhisttunnelid) + "']"
-}
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnUnameToFailHistUname"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistuname
-    leafs["cvpdnUnameToFailHistTunnelId"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhisttunnelid
-    leafs["cvpdnUnameToFailHistUserId"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistuserid
-    leafs["cvpdnUnameToFailHistLocalInitConn"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistlocalinitconn
-    leafs["cvpdnUnameToFailHistLocalName"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistlocalname
-    leafs["cvpdnUnameToFailHistRemoteName"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistremotename
-    leafs["cvpdnUnameToFailHistSourceIp"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistsourceip
-    leafs["cvpdnUnameToFailHistDestIp"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistdestip
-    leafs["cvpdnUnameToFailHistCount"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistcount
-    leafs["cvpdnUnameToFailHistFailTime"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistfailtime
-    leafs["cvpdnUnameToFailHistFailType"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistfailtype
-    leafs["cvpdnUnameToFailHistFailReason"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistfailreason
-    leafs["cvpdnUnameToFailHistSourceInetType"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistsourceinettype
-    leafs["cvpdnUnameToFailHistSourceInetAddr"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistsourceinetaddr
-    leafs["cvpdnUnameToFailHistDestInetType"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistdestinettype
-    leafs["cvpdnUnameToFailHistDestInetAddr"] = cvpdnusertofailhistinfoentry.Cvpdnunametofailhistdestinetaddr
-    return leafs
-}
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetYangName() string { return "cvpdnUserToFailHistInfoEntry" }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) SetParent(parent types.Entity) { cvpdnusertofailhistinfoentry.parent = parent }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetParent() types.Entity { return cvpdnusertofailhistinfoentry.parent }
-
-func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotable_Cvpdnusertofailhistinfoentry) GetParentYangName() string { return "cvpdnUserToFailHistInfoTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdntemplatetable
 // Table of information about the VPDN templates.  The
@@ -2287,7 +1598,7 @@ func (cvpdnusertofailhistinfoentry *CISCOVPDNMGMTMIB_Cvpdnusertofailhistinfotabl
 // monitor template-wide information such as tracking the
 // allocation of sessions across templates.
 type CISCOVPDNMGMTMIB_Cvpdntemplatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about a single VPDN template.
@@ -2296,69 +1607,30 @@ type CISCOVPDNMGMTMIB_Cvpdntemplatetable struct {
     Cvpdntemplateentry []CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry
 }
 
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetFilter() yfilter.YFilter { return cvpdntemplatetable.YFilter }
+func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetEntityData() *types.CommonEntityData {
+    cvpdntemplatetable.EntityData.YFilter = cvpdntemplatetable.YFilter
+    cvpdntemplatetable.EntityData.YangName = "cvpdnTemplateTable"
+    cvpdntemplatetable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntemplatetable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdntemplatetable.EntityData.SegmentPath = "cvpdnTemplateTable"
+    cvpdntemplatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntemplatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntemplatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) SetFilter(yf yfilter.YFilter) { cvpdntemplatetable.YFilter = yf }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetGoName(yname string) string {
-    if yname == "cvpdnTemplateEntry" { return "Cvpdntemplateentry" }
-    return ""
-}
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetSegmentPath() string {
-    return "cvpdnTemplateTable"
-}
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnTemplateEntry" {
-        for _, c := range cvpdntemplatetable.Cvpdntemplateentry {
-            if cvpdntemplatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry{}
-        cvpdntemplatetable.Cvpdntemplateentry = append(cvpdntemplatetable.Cvpdntemplateentry, child)
-        return &cvpdntemplatetable.Cvpdntemplateentry[len(cvpdntemplatetable.Cvpdntemplateentry)-1]
-    }
-    return nil
-}
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdntemplatetable.EntityData.Children = make(map[string]types.YChild)
+    cvpdntemplatetable.EntityData.Children["cvpdnTemplateEntry"] = types.YChild{"Cvpdntemplateentry", nil}
     for i := range cvpdntemplatetable.Cvpdntemplateentry {
-        children[cvpdntemplatetable.Cvpdntemplateentry[i].GetSegmentPath()] = &cvpdntemplatetable.Cvpdntemplateentry[i]
+        cvpdntemplatetable.EntityData.Children[types.GetSegmentPath(&cvpdntemplatetable.Cvpdntemplateentry[i])] = types.YChild{"Cvpdntemplateentry", &cvpdntemplatetable.Cvpdntemplateentry[i]}
     }
-    return children
+    cvpdntemplatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdntemplatetable.EntityData)
 }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetYangName() string { return "cvpdnTemplateTable" }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) SetParent(parent types.Entity) { cvpdntemplatetable.parent = parent }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetParent() types.Entity { return cvpdntemplatetable.parent }
-
-func (cvpdntemplatetable *CISCOVPDNMGMTMIB_Cvpdntemplatetable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry
 // An entry in the table, containing information about a
 // single VPDN template.
 type CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the VPDN template. The type is string
@@ -2371,59 +1643,28 @@ type CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry struct {
     Cvpdntemplateactivesessions interface{}
 }
 
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetFilter() yfilter.YFilter { return cvpdntemplateentry.YFilter }
+func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetEntityData() *types.CommonEntityData {
+    cvpdntemplateentry.EntityData.YFilter = cvpdntemplateentry.YFilter
+    cvpdntemplateentry.EntityData.YangName = "cvpdnTemplateEntry"
+    cvpdntemplateentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdntemplateentry.EntityData.ParentYangName = "cvpdnTemplateTable"
+    cvpdntemplateentry.EntityData.SegmentPath = "cvpdnTemplateEntry" + "[cvpdnTemplateName='" + fmt.Sprintf("%v", cvpdntemplateentry.Cvpdntemplatename) + "']"
+    cvpdntemplateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdntemplateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdntemplateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) SetFilter(yf yfilter.YFilter) { cvpdntemplateentry.YFilter = yf }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetGoName(yname string) string {
-    if yname == "cvpdnTemplateName" { return "Cvpdntemplatename" }
-    if yname == "cvpdnTemplateActiveSessions" { return "Cvpdntemplateactivesessions" }
-    return ""
+    cvpdntemplateentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdntemplateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdntemplateentry.EntityData.Leafs["cvpdnTemplateName"] = types.YLeaf{"Cvpdntemplatename", cvpdntemplateentry.Cvpdntemplatename}
+    cvpdntemplateentry.EntityData.Leafs["cvpdnTemplateActiveSessions"] = types.YLeaf{"Cvpdntemplateactivesessions", cvpdntemplateentry.Cvpdntemplateactivesessions}
+    return &(cvpdntemplateentry.EntityData)
 }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetSegmentPath() string {
-    return "cvpdnTemplateEntry" + "[cvpdnTemplateName='" + fmt.Sprintf("%v", cvpdntemplateentry.Cvpdntemplatename) + "']"
-}
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnTemplateName"] = cvpdntemplateentry.Cvpdntemplatename
-    leafs["cvpdnTemplateActiveSessions"] = cvpdntemplateentry.Cvpdntemplateactivesessions
-    return leafs
-}
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetYangName() string { return "cvpdnTemplateEntry" }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) SetParent(parent types.Entity) { cvpdntemplateentry.parent = parent }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetParent() types.Entity { return cvpdntemplateentry.parent }
-
-func (cvpdntemplateentry *CISCOVPDNMGMTMIB_Cvpdntemplatetable_Cvpdntemplateentry) GetParentYangName() string { return "cvpdnTemplateTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdnbundletable
 // Table that describes the multilink PPP attributes of the
 // active VPDN sessions.
 type CISCOVPDNMGMTMIB_Cvpdnbundletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents an active multilink PPP bundle that
@@ -2432,69 +1673,30 @@ type CISCOVPDNMGMTMIB_Cvpdnbundletable struct {
     Cvpdnbundleentry []CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry
 }
 
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetFilter() yfilter.YFilter { return cvpdnbundletable.YFilter }
+func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetEntityData() *types.CommonEntityData {
+    cvpdnbundletable.EntityData.YFilter = cvpdnbundletable.YFilter
+    cvpdnbundletable.EntityData.YangName = "cvpdnBundleTable"
+    cvpdnbundletable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnbundletable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnbundletable.EntityData.SegmentPath = "cvpdnBundleTable"
+    cvpdnbundletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnbundletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnbundletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) SetFilter(yf yfilter.YFilter) { cvpdnbundletable.YFilter = yf }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetGoName(yname string) string {
-    if yname == "cvpdnBundleEntry" { return "Cvpdnbundleentry" }
-    return ""
-}
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetSegmentPath() string {
-    return "cvpdnBundleTable"
-}
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnBundleEntry" {
-        for _, c := range cvpdnbundletable.Cvpdnbundleentry {
-            if cvpdnbundletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry{}
-        cvpdnbundletable.Cvpdnbundleentry = append(cvpdnbundletable.Cvpdnbundleentry, child)
-        return &cvpdnbundletable.Cvpdnbundleentry[len(cvpdnbundletable.Cvpdnbundleentry)-1]
-    }
-    return nil
-}
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdnbundletable.EntityData.Children = make(map[string]types.YChild)
+    cvpdnbundletable.EntityData.Children["cvpdnBundleEntry"] = types.YChild{"Cvpdnbundleentry", nil}
     for i := range cvpdnbundletable.Cvpdnbundleentry {
-        children[cvpdnbundletable.Cvpdnbundleentry[i].GetSegmentPath()] = &cvpdnbundletable.Cvpdnbundleentry[i]
+        cvpdnbundletable.EntityData.Children[types.GetSegmentPath(&cvpdnbundletable.Cvpdnbundleentry[i])] = types.YChild{"Cvpdnbundleentry", &cvpdnbundletable.Cvpdnbundleentry[i]}
     }
-    return children
+    cvpdnbundletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdnbundletable.EntityData)
 }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetYangName() string { return "cvpdnBundleTable" }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) SetParent(parent types.Entity) { cvpdnbundletable.parent = parent }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetParent() types.Entity { return cvpdnbundletable.parent }
-
-func (cvpdnbundletable *CISCOVPDNMGMTMIB_Cvpdnbundletable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry
 // An entry in this table represents an active multilink PPP
 // bundle that belongs to a VPDN tunnel.
 type CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the multilink PPP bundle associated
@@ -2541,63 +1743,27 @@ type CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry struct {
     Cvpdnbundleendpointclass interface{}
 }
 
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetFilter() yfilter.YFilter { return cvpdnbundleentry.YFilter }
+func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetEntityData() *types.CommonEntityData {
+    cvpdnbundleentry.EntityData.YFilter = cvpdnbundleentry.YFilter
+    cvpdnbundleentry.EntityData.YangName = "cvpdnBundleEntry"
+    cvpdnbundleentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnbundleentry.EntityData.ParentYangName = "cvpdnBundleTable"
+    cvpdnbundleentry.EntityData.SegmentPath = "cvpdnBundleEntry" + "[cvpdnBundleName='" + fmt.Sprintf("%v", cvpdnbundleentry.Cvpdnbundlename) + "']"
+    cvpdnbundleentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnbundleentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnbundleentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) SetFilter(yf yfilter.YFilter) { cvpdnbundleentry.YFilter = yf }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetGoName(yname string) string {
-    if yname == "cvpdnBundleName" { return "Cvpdnbundlename" }
-    if yname == "cvpdnBundleLinkCount" { return "Cvpdnbundlelinkcount" }
-    if yname == "cvpdnBundleEndpointType" { return "Cvpdnbundleendpointtype" }
-    if yname == "cvpdnBundleEndpoint" { return "Cvpdnbundleendpoint" }
-    if yname == "cvpdnBundlePeerIpAddrType" { return "Cvpdnbundlepeeripaddrtype" }
-    if yname == "cvpdnBundlePeerIpAddr" { return "Cvpdnbundlepeeripaddr" }
-    if yname == "cvpdnBundleEndpointClass" { return "Cvpdnbundleendpointclass" }
-    return ""
+    cvpdnbundleentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdnbundleentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundleName"] = types.YLeaf{"Cvpdnbundlename", cvpdnbundleentry.Cvpdnbundlename}
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundleLinkCount"] = types.YLeaf{"Cvpdnbundlelinkcount", cvpdnbundleentry.Cvpdnbundlelinkcount}
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundleEndpointType"] = types.YLeaf{"Cvpdnbundleendpointtype", cvpdnbundleentry.Cvpdnbundleendpointtype}
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundleEndpoint"] = types.YLeaf{"Cvpdnbundleendpoint", cvpdnbundleentry.Cvpdnbundleendpoint}
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundlePeerIpAddrType"] = types.YLeaf{"Cvpdnbundlepeeripaddrtype", cvpdnbundleentry.Cvpdnbundlepeeripaddrtype}
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundlePeerIpAddr"] = types.YLeaf{"Cvpdnbundlepeeripaddr", cvpdnbundleentry.Cvpdnbundlepeeripaddr}
+    cvpdnbundleentry.EntityData.Leafs["cvpdnBundleEndpointClass"] = types.YLeaf{"Cvpdnbundleendpointclass", cvpdnbundleentry.Cvpdnbundleendpointclass}
+    return &(cvpdnbundleentry.EntityData)
 }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetSegmentPath() string {
-    return "cvpdnBundleEntry" + "[cvpdnBundleName='" + fmt.Sprintf("%v", cvpdnbundleentry.Cvpdnbundlename) + "']"
-}
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnBundleName"] = cvpdnbundleentry.Cvpdnbundlename
-    leafs["cvpdnBundleLinkCount"] = cvpdnbundleentry.Cvpdnbundlelinkcount
-    leafs["cvpdnBundleEndpointType"] = cvpdnbundleentry.Cvpdnbundleendpointtype
-    leafs["cvpdnBundleEndpoint"] = cvpdnbundleentry.Cvpdnbundleendpoint
-    leafs["cvpdnBundlePeerIpAddrType"] = cvpdnbundleentry.Cvpdnbundlepeeripaddrtype
-    leafs["cvpdnBundlePeerIpAddr"] = cvpdnbundleentry.Cvpdnbundlepeeripaddr
-    leafs["cvpdnBundleEndpointClass"] = cvpdnbundleentry.Cvpdnbundleendpointclass
-    return leafs
-}
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetYangName() string { return "cvpdnBundleEntry" }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) SetParent(parent types.Entity) { cvpdnbundleentry.parent = parent }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetParent() types.Entity { return cvpdnbundleentry.parent }
-
-func (cvpdnbundleentry *CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry) GetParentYangName() string { return "cvpdnBundleTable" }
 
 // CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype represents                  discriminator.
 type CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype string
@@ -2607,7 +1773,7 @@ const (
 
     CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype_hostname CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype = "hostname"
 
-    CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype_string CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype = "string"
+    CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype_string_ CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype = "string"
 
     CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype_macAddress CISCOVPDNMGMTMIB_Cvpdnbundletable_Cvpdnbundleentry_Cvpdnbundleendpointtype = "macAddress"
 
@@ -2624,7 +1790,7 @@ const (
 // A table that exposes the containment relationship between a
 // multilink PPP bundle and a VPDN tunnel.
 type CISCOVPDNMGMTMIB_Cvpdnbundlechildtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table represents a session that belongs to a VPDN tunnel
@@ -2633,69 +1799,30 @@ type CISCOVPDNMGMTMIB_Cvpdnbundlechildtable struct {
     Cvpdnbundlechildentry []CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry
 }
 
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetFilter() yfilter.YFilter { return cvpdnbundlechildtable.YFilter }
+func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetEntityData() *types.CommonEntityData {
+    cvpdnbundlechildtable.EntityData.YFilter = cvpdnbundlechildtable.YFilter
+    cvpdnbundlechildtable.EntityData.YangName = "cvpdnBundleChildTable"
+    cvpdnbundlechildtable.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnbundlechildtable.EntityData.ParentYangName = "CISCO-VPDN-MGMT-MIB"
+    cvpdnbundlechildtable.EntityData.SegmentPath = "cvpdnBundleChildTable"
+    cvpdnbundlechildtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnbundlechildtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnbundlechildtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) SetFilter(yf yfilter.YFilter) { cvpdnbundlechildtable.YFilter = yf }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetGoName(yname string) string {
-    if yname == "cvpdnBundleChildEntry" { return "Cvpdnbundlechildentry" }
-    return ""
-}
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetSegmentPath() string {
-    return "cvpdnBundleChildTable"
-}
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cvpdnBundleChildEntry" {
-        for _, c := range cvpdnbundlechildtable.Cvpdnbundlechildentry {
-            if cvpdnbundlechildtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry{}
-        cvpdnbundlechildtable.Cvpdnbundlechildentry = append(cvpdnbundlechildtable.Cvpdnbundlechildentry, child)
-        return &cvpdnbundlechildtable.Cvpdnbundlechildentry[len(cvpdnbundlechildtable.Cvpdnbundlechildentry)-1]
-    }
-    return nil
-}
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cvpdnbundlechildtable.EntityData.Children = make(map[string]types.YChild)
+    cvpdnbundlechildtable.EntityData.Children["cvpdnBundleChildEntry"] = types.YChild{"Cvpdnbundlechildentry", nil}
     for i := range cvpdnbundlechildtable.Cvpdnbundlechildentry {
-        children[cvpdnbundlechildtable.Cvpdnbundlechildentry[i].GetSegmentPath()] = &cvpdnbundlechildtable.Cvpdnbundlechildentry[i]
+        cvpdnbundlechildtable.EntityData.Children[types.GetSegmentPath(&cvpdnbundlechildtable.Cvpdnbundlechildentry[i])] = types.YChild{"Cvpdnbundlechildentry", &cvpdnbundlechildtable.Cvpdnbundlechildentry[i]}
     }
-    return children
+    cvpdnbundlechildtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cvpdnbundlechildtable.EntityData)
 }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetYangName() string { return "cvpdnBundleChildTable" }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) SetParent(parent types.Entity) { cvpdnbundlechildtable.parent = parent }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetParent() types.Entity { return cvpdnbundlechildtable.parent }
-
-func (cvpdnbundlechildtable *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable) GetParentYangName() string { return "CISCO-VPDN-MGMT-MIB" }
 
 // CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry
 // An entry in this table represents a session that belongs to
 // a VPDN tunnel and to a multilink PPP bundle.
 type CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 1..64. Refers to
@@ -2718,55 +1845,22 @@ type CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry struct {
     Cvpdnbundlechildsessionid interface{}
 }
 
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetFilter() yfilter.YFilter { return cvpdnbundlechildentry.YFilter }
+func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetEntityData() *types.CommonEntityData {
+    cvpdnbundlechildentry.EntityData.YFilter = cvpdnbundlechildentry.YFilter
+    cvpdnbundlechildentry.EntityData.YangName = "cvpdnBundleChildEntry"
+    cvpdnbundlechildentry.EntityData.BundleName = "cisco_ios_xe"
+    cvpdnbundlechildentry.EntityData.ParentYangName = "cvpdnBundleChildTable"
+    cvpdnbundlechildentry.EntityData.SegmentPath = "cvpdnBundleChildEntry" + "[cvpdnBundleName='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlename) + "']" + "[cvpdnBundleChildTunnelType='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlechildtunneltype) + "']" + "[cvpdnBundleChildTunnelId='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlechildtunnelid) + "']" + "[cvpdnBundleChildSessionId='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlechildsessionid) + "']"
+    cvpdnbundlechildentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cvpdnbundlechildentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cvpdnbundlechildentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) SetFilter(yf yfilter.YFilter) { cvpdnbundlechildentry.YFilter = yf }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetGoName(yname string) string {
-    if yname == "cvpdnBundleName" { return "Cvpdnbundlename" }
-    if yname == "cvpdnBundleChildTunnelType" { return "Cvpdnbundlechildtunneltype" }
-    if yname == "cvpdnBundleChildTunnelId" { return "Cvpdnbundlechildtunnelid" }
-    if yname == "cvpdnBundleChildSessionId" { return "Cvpdnbundlechildsessionid" }
-    return ""
+    cvpdnbundlechildentry.EntityData.Children = make(map[string]types.YChild)
+    cvpdnbundlechildentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cvpdnbundlechildentry.EntityData.Leafs["cvpdnBundleName"] = types.YLeaf{"Cvpdnbundlename", cvpdnbundlechildentry.Cvpdnbundlename}
+    cvpdnbundlechildentry.EntityData.Leafs["cvpdnBundleChildTunnelType"] = types.YLeaf{"Cvpdnbundlechildtunneltype", cvpdnbundlechildentry.Cvpdnbundlechildtunneltype}
+    cvpdnbundlechildentry.EntityData.Leafs["cvpdnBundleChildTunnelId"] = types.YLeaf{"Cvpdnbundlechildtunnelid", cvpdnbundlechildentry.Cvpdnbundlechildtunnelid}
+    cvpdnbundlechildentry.EntityData.Leafs["cvpdnBundleChildSessionId"] = types.YLeaf{"Cvpdnbundlechildsessionid", cvpdnbundlechildentry.Cvpdnbundlechildsessionid}
+    return &(cvpdnbundlechildentry.EntityData)
 }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetSegmentPath() string {
-    return "cvpdnBundleChildEntry" + "[cvpdnBundleName='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlename) + "']" + "[cvpdnBundleChildTunnelType='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlechildtunneltype) + "']" + "[cvpdnBundleChildTunnelId='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlechildtunnelid) + "']" + "[cvpdnBundleChildSessionId='" + fmt.Sprintf("%v", cvpdnbundlechildentry.Cvpdnbundlechildsessionid) + "']"
-}
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cvpdnBundleName"] = cvpdnbundlechildentry.Cvpdnbundlename
-    leafs["cvpdnBundleChildTunnelType"] = cvpdnbundlechildentry.Cvpdnbundlechildtunneltype
-    leafs["cvpdnBundleChildTunnelId"] = cvpdnbundlechildentry.Cvpdnbundlechildtunnelid
-    leafs["cvpdnBundleChildSessionId"] = cvpdnbundlechildentry.Cvpdnbundlechildsessionid
-    return leafs
-}
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetYangName() string { return "cvpdnBundleChildEntry" }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) SetParent(parent types.Entity) { cvpdnbundlechildentry.parent = parent }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetParent() types.Entity { return cvpdnbundlechildentry.parent }
-
-func (cvpdnbundlechildentry *CISCOVPDNMGMTMIB_Cvpdnbundlechildtable_Cvpdnbundlechildentry) GetParentYangName() string { return "cvpdnBundleChildTable" }
 

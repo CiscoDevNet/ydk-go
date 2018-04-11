@@ -24,6 +24,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-call-home-cfg:call-home", reflect.TypeOf(CallHome{}))
 }
 
+// CallHomeMailSendInterval represents Call home mail send interval
+type CallHomeMailSendInterval string
+
+const (
+    // Daily call-home message
+    CallHomeMailSendInterval_daily CallHomeMailSendInterval = "daily"
+
+    // Weekly call-home message
+    CallHomeMailSendInterval_weekly CallHomeMailSendInterval = "weekly"
+
+    // Monthly call-home message
+    CallHomeMailSendInterval_monthly CallHomeMailSendInterval = "monthly"
+)
+
 // CallHomeDayOfWeek represents Call home day of week
 type CallHomeDayOfWeek string
 
@@ -48,34 +62,6 @@ const (
 
     // Saturday
     CallHomeDayOfWeek_saturday CallHomeDayOfWeek = "saturday"
-)
-
-// DataPrivacyLevel represents Data privacy level
-type DataPrivacyLevel string
-
-const (
-    // Normal
-    DataPrivacyLevel_normal DataPrivacyLevel = "normal"
-
-    // High
-    DataPrivacyLevel_high DataPrivacyLevel = "high"
-
-    // HostName
-    DataPrivacyLevel_host_name DataPrivacyLevel = "host-name"
-)
-
-// CallHomeMailSendInterval represents Call home mail send interval
-type CallHomeMailSendInterval string
-
-const (
-    // Daily call-home message
-    CallHomeMailSendInterval_daily CallHomeMailSendInterval = "daily"
-
-    // Weekly call-home message
-    CallHomeMailSendInterval_weekly CallHomeMailSendInterval = "weekly"
-
-    // Monthly call-home message
-    CallHomeMailSendInterval_monthly CallHomeMailSendInterval = "monthly"
 )
 
 // CallHomeEventSeverity represents Call home event severity
@@ -138,10 +124,24 @@ const (
     CallHomeTransMethod_http CallHomeTransMethod = "http"
 )
 
+// DataPrivacyLevel represents Data privacy level
+type DataPrivacyLevel string
+
+const (
+    // Normal
+    DataPrivacyLevel_normal DataPrivacyLevel = "normal"
+
+    // High
+    DataPrivacyLevel_high DataPrivacyLevel = "high"
+
+    // HostName
+    DataPrivacyLevel_host_name DataPrivacyLevel = "host-name"
+)
+
 // CallHome
 // Set CallHome parameters
 type CallHome struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Customer identification for Cisco Smart Call Home. The type is string with
@@ -174,7 +174,7 @@ type CallHome struct {
     StreetAddress interface{}
 
     // Source interface name to send call-home messages. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     SourceInterface interface{}
 
     // Contract identification for Cisco Smart Call Home. The type is string with
@@ -218,193 +218,76 @@ type CallHome struct {
     Authorization CallHome_Authorization
 }
 
-func (callHome *CallHome) GetFilter() yfilter.YFilter { return callHome.YFilter }
+func (callHome *CallHome) GetEntityData() *types.CommonEntityData {
+    callHome.EntityData.YFilter = callHome.YFilter
+    callHome.EntityData.YangName = "call-home"
+    callHome.EntityData.BundleName = "cisco_ios_xr"
+    callHome.EntityData.ParentYangName = "Cisco-IOS-XR-call-home-cfg"
+    callHome.EntityData.SegmentPath = "Cisco-IOS-XR-call-home-cfg:call-home"
+    callHome.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    callHome.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    callHome.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (callHome *CallHome) SetFilter(yf yfilter.YFilter) { callHome.YFilter = yf }
-
-func (callHome *CallHome) GetGoName(yname string) string {
-    if yname == "customer-id" { return "CustomerId" }
-    if yname == "phone-number" { return "PhoneNumber" }
-    if yname == "contact-smart-licensing" { return "ContactSmartLicensing" }
-    if yname == "contact-email-address" { return "ContactEmailAddress" }
-    if yname == "rate-limit" { return "RateLimit" }
-    if yname == "site-id" { return "SiteId" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "street-address" { return "StreetAddress" }
-    if yname == "source-interface" { return "SourceInterface" }
-    if yname == "contract-id" { return "ContractId" }
-    if yname == "reply-to" { return "ReplyTo" }
-    if yname == "from" { return "From" }
-    if yname == "active" { return "Active" }
-    if yname == "mail-servers" { return "MailServers" }
-    if yname == "syslog-throttling" { return "SyslogThrottling" }
-    if yname == "smart-licensing" { return "SmartLicensing" }
-    if yname == "http-proxy" { return "HttpProxy" }
-    if yname == "profiles" { return "Profiles" }
-    if yname == "alert-groups" { return "AlertGroups" }
-    if yname == "data-privacies" { return "DataPrivacies" }
-    if yname == "alert-group-config" { return "AlertGroupConfig" }
-    if yname == "authorization" { return "Authorization" }
-    return ""
+    callHome.EntityData.Children = make(map[string]types.YChild)
+    callHome.EntityData.Children["mail-servers"] = types.YChild{"MailServers", &callHome.MailServers}
+    callHome.EntityData.Children["syslog-throttling"] = types.YChild{"SyslogThrottling", &callHome.SyslogThrottling}
+    callHome.EntityData.Children["smart-licensing"] = types.YChild{"SmartLicensing", &callHome.SmartLicensing}
+    callHome.EntityData.Children["http-proxy"] = types.YChild{"HttpProxy", &callHome.HttpProxy}
+    callHome.EntityData.Children["profiles"] = types.YChild{"Profiles", &callHome.Profiles}
+    callHome.EntityData.Children["alert-groups"] = types.YChild{"AlertGroups", &callHome.AlertGroups}
+    callHome.EntityData.Children["data-privacies"] = types.YChild{"DataPrivacies", &callHome.DataPrivacies}
+    callHome.EntityData.Children["alert-group-config"] = types.YChild{"AlertGroupConfig", &callHome.AlertGroupConfig}
+    callHome.EntityData.Children["authorization"] = types.YChild{"Authorization", &callHome.Authorization}
+    callHome.EntityData.Leafs = make(map[string]types.YLeaf)
+    callHome.EntityData.Leafs["customer-id"] = types.YLeaf{"CustomerId", callHome.CustomerId}
+    callHome.EntityData.Leafs["phone-number"] = types.YLeaf{"PhoneNumber", callHome.PhoneNumber}
+    callHome.EntityData.Leafs["contact-smart-licensing"] = types.YLeaf{"ContactSmartLicensing", callHome.ContactSmartLicensing}
+    callHome.EntityData.Leafs["contact-email-address"] = types.YLeaf{"ContactEmailAddress", callHome.ContactEmailAddress}
+    callHome.EntityData.Leafs["rate-limit"] = types.YLeaf{"RateLimit", callHome.RateLimit}
+    callHome.EntityData.Leafs["site-id"] = types.YLeaf{"SiteId", callHome.SiteId}
+    callHome.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", callHome.Vrf}
+    callHome.EntityData.Leafs["street-address"] = types.YLeaf{"StreetAddress", callHome.StreetAddress}
+    callHome.EntityData.Leafs["source-interface"] = types.YLeaf{"SourceInterface", callHome.SourceInterface}
+    callHome.EntityData.Leafs["contract-id"] = types.YLeaf{"ContractId", callHome.ContractId}
+    callHome.EntityData.Leafs["reply-to"] = types.YLeaf{"ReplyTo", callHome.ReplyTo}
+    callHome.EntityData.Leafs["from"] = types.YLeaf{"From", callHome.From}
+    callHome.EntityData.Leafs["active"] = types.YLeaf{"Active", callHome.Active}
+    return &(callHome.EntityData)
 }
-
-func (callHome *CallHome) GetSegmentPath() string {
-    return "Cisco-IOS-XR-call-home-cfg:call-home"
-}
-
-func (callHome *CallHome) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mail-servers" {
-        return &callHome.MailServers
-    }
-    if childYangName == "syslog-throttling" {
-        return &callHome.SyslogThrottling
-    }
-    if childYangName == "smart-licensing" {
-        return &callHome.SmartLicensing
-    }
-    if childYangName == "http-proxy" {
-        return &callHome.HttpProxy
-    }
-    if childYangName == "profiles" {
-        return &callHome.Profiles
-    }
-    if childYangName == "alert-groups" {
-        return &callHome.AlertGroups
-    }
-    if childYangName == "data-privacies" {
-        return &callHome.DataPrivacies
-    }
-    if childYangName == "alert-group-config" {
-        return &callHome.AlertGroupConfig
-    }
-    if childYangName == "authorization" {
-        return &callHome.Authorization
-    }
-    return nil
-}
-
-func (callHome *CallHome) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mail-servers"] = &callHome.MailServers
-    children["syslog-throttling"] = &callHome.SyslogThrottling
-    children["smart-licensing"] = &callHome.SmartLicensing
-    children["http-proxy"] = &callHome.HttpProxy
-    children["profiles"] = &callHome.Profiles
-    children["alert-groups"] = &callHome.AlertGroups
-    children["data-privacies"] = &callHome.DataPrivacies
-    children["alert-group-config"] = &callHome.AlertGroupConfig
-    children["authorization"] = &callHome.Authorization
-    return children
-}
-
-func (callHome *CallHome) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["customer-id"] = callHome.CustomerId
-    leafs["phone-number"] = callHome.PhoneNumber
-    leafs["contact-smart-licensing"] = callHome.ContactSmartLicensing
-    leafs["contact-email-address"] = callHome.ContactEmailAddress
-    leafs["rate-limit"] = callHome.RateLimit
-    leafs["site-id"] = callHome.SiteId
-    leafs["vrf"] = callHome.Vrf
-    leafs["street-address"] = callHome.StreetAddress
-    leafs["source-interface"] = callHome.SourceInterface
-    leafs["contract-id"] = callHome.ContractId
-    leafs["reply-to"] = callHome.ReplyTo
-    leafs["from"] = callHome.From
-    leafs["active"] = callHome.Active
-    return leafs
-}
-
-func (callHome *CallHome) GetBundleName() string { return "cisco_ios_xr" }
-
-func (callHome *CallHome) GetYangName() string { return "call-home" }
-
-func (callHome *CallHome) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (callHome *CallHome) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (callHome *CallHome) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (callHome *CallHome) SetParent(parent types.Entity) { callHome.parent = parent }
-
-func (callHome *CallHome) GetParent() types.Entity { return callHome.parent }
-
-func (callHome *CallHome) GetParentYangName() string { return "Cisco-IOS-XR-call-home-cfg" }
 
 // CallHome_MailServers
 // List of call-home mail_server
 type CallHome_MailServers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Email server. The type is slice of CallHome_MailServers_MailServer.
     MailServer []CallHome_MailServers_MailServer
 }
 
-func (mailServers *CallHome_MailServers) GetFilter() yfilter.YFilter { return mailServers.YFilter }
+func (mailServers *CallHome_MailServers) GetEntityData() *types.CommonEntityData {
+    mailServers.EntityData.YFilter = mailServers.YFilter
+    mailServers.EntityData.YangName = "mail-servers"
+    mailServers.EntityData.BundleName = "cisco_ios_xr"
+    mailServers.EntityData.ParentYangName = "call-home"
+    mailServers.EntityData.SegmentPath = "mail-servers"
+    mailServers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mailServers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mailServers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mailServers *CallHome_MailServers) SetFilter(yf yfilter.YFilter) { mailServers.YFilter = yf }
-
-func (mailServers *CallHome_MailServers) GetGoName(yname string) string {
-    if yname == "mail-server" { return "MailServer" }
-    return ""
-}
-
-func (mailServers *CallHome_MailServers) GetSegmentPath() string {
-    return "mail-servers"
-}
-
-func (mailServers *CallHome_MailServers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mail-server" {
-        for _, c := range mailServers.MailServer {
-            if mailServers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_MailServers_MailServer{}
-        mailServers.MailServer = append(mailServers.MailServer, child)
-        return &mailServers.MailServer[len(mailServers.MailServer)-1]
-    }
-    return nil
-}
-
-func (mailServers *CallHome_MailServers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mailServers.EntityData.Children = make(map[string]types.YChild)
+    mailServers.EntityData.Children["mail-server"] = types.YChild{"MailServer", nil}
     for i := range mailServers.MailServer {
-        children[mailServers.MailServer[i].GetSegmentPath()] = &mailServers.MailServer[i]
+        mailServers.EntityData.Children[types.GetSegmentPath(&mailServers.MailServer[i])] = types.YChild{"MailServer", &mailServers.MailServer[i]}
     }
-    return children
+    mailServers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mailServers.EntityData)
 }
-
-func (mailServers *CallHome_MailServers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mailServers *CallHome_MailServers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mailServers *CallHome_MailServers) GetYangName() string { return "mail-servers" }
-
-func (mailServers *CallHome_MailServers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mailServers *CallHome_MailServers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mailServers *CallHome_MailServers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mailServers *CallHome_MailServers) SetParent(parent types.Entity) { mailServers.parent = parent }
-
-func (mailServers *CallHome_MailServers) GetParent() types.Entity { return mailServers.parent }
-
-func (mailServers *CallHome_MailServers) GetParentYangName() string { return "call-home" }
 
 // CallHome_MailServers_MailServer
 // Email server
 type CallHome_MailServers_MailServer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Email server. The type is string.
@@ -415,116 +298,55 @@ type CallHome_MailServers_MailServer struct {
     Priority interface{}
 }
 
-func (mailServer *CallHome_MailServers_MailServer) GetFilter() yfilter.YFilter { return mailServer.YFilter }
+func (mailServer *CallHome_MailServers_MailServer) GetEntityData() *types.CommonEntityData {
+    mailServer.EntityData.YFilter = mailServer.YFilter
+    mailServer.EntityData.YangName = "mail-server"
+    mailServer.EntityData.BundleName = "cisco_ios_xr"
+    mailServer.EntityData.ParentYangName = "mail-servers"
+    mailServer.EntityData.SegmentPath = "mail-server" + "[mail-serv-address='" + fmt.Sprintf("%v", mailServer.MailServAddress) + "']"
+    mailServer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mailServer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mailServer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mailServer *CallHome_MailServers_MailServer) SetFilter(yf yfilter.YFilter) { mailServer.YFilter = yf }
-
-func (mailServer *CallHome_MailServers_MailServer) GetGoName(yname string) string {
-    if yname == "mail-serv-address" { return "MailServAddress" }
-    if yname == "priority" { return "Priority" }
-    return ""
+    mailServer.EntityData.Children = make(map[string]types.YChild)
+    mailServer.EntityData.Leafs = make(map[string]types.YLeaf)
+    mailServer.EntityData.Leafs["mail-serv-address"] = types.YLeaf{"MailServAddress", mailServer.MailServAddress}
+    mailServer.EntityData.Leafs["priority"] = types.YLeaf{"Priority", mailServer.Priority}
+    return &(mailServer.EntityData)
 }
-
-func (mailServer *CallHome_MailServers_MailServer) GetSegmentPath() string {
-    return "mail-server" + "[mail-serv-address='" + fmt.Sprintf("%v", mailServer.MailServAddress) + "']"
-}
-
-func (mailServer *CallHome_MailServers_MailServer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mailServer *CallHome_MailServers_MailServer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mailServer *CallHome_MailServers_MailServer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mail-serv-address"] = mailServer.MailServAddress
-    leafs["priority"] = mailServer.Priority
-    return leafs
-}
-
-func (mailServer *CallHome_MailServers_MailServer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mailServer *CallHome_MailServers_MailServer) GetYangName() string { return "mail-server" }
-
-func (mailServer *CallHome_MailServers_MailServer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mailServer *CallHome_MailServers_MailServer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mailServer *CallHome_MailServers_MailServer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mailServer *CallHome_MailServers_MailServer) SetParent(parent types.Entity) { mailServer.parent = parent }
-
-func (mailServer *CallHome_MailServers_MailServer) GetParent() types.Entity { return mailServer.parent }
-
-func (mailServer *CallHome_MailServers_MailServer) GetParentYangName() string { return "mail-servers" }
 
 // CallHome_SyslogThrottling
 // Enable or disable call-home syslog message
 // throttling
 type CallHome_SyslogThrottling struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Active syslog throttling. The type is bool.
     Active interface{}
 }
 
-func (syslogThrottling *CallHome_SyslogThrottling) GetFilter() yfilter.YFilter { return syslogThrottling.YFilter }
+func (syslogThrottling *CallHome_SyslogThrottling) GetEntityData() *types.CommonEntityData {
+    syslogThrottling.EntityData.YFilter = syslogThrottling.YFilter
+    syslogThrottling.EntityData.YangName = "syslog-throttling"
+    syslogThrottling.EntityData.BundleName = "cisco_ios_xr"
+    syslogThrottling.EntityData.ParentYangName = "call-home"
+    syslogThrottling.EntityData.SegmentPath = "syslog-throttling"
+    syslogThrottling.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    syslogThrottling.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    syslogThrottling.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (syslogThrottling *CallHome_SyslogThrottling) SetFilter(yf yfilter.YFilter) { syslogThrottling.YFilter = yf }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetGoName(yname string) string {
-    if yname == "active" { return "Active" }
-    return ""
+    syslogThrottling.EntityData.Children = make(map[string]types.YChild)
+    syslogThrottling.EntityData.Leafs = make(map[string]types.YLeaf)
+    syslogThrottling.EntityData.Leafs["active"] = types.YLeaf{"Active", syslogThrottling.Active}
+    return &(syslogThrottling.EntityData)
 }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetSegmentPath() string {
-    return "syslog-throttling"
-}
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["active"] = syslogThrottling.Active
-    return leafs
-}
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetBundleName() string { return "cisco_ios_xr" }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetYangName() string { return "syslog-throttling" }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (syslogThrottling *CallHome_SyslogThrottling) SetParent(parent types.Entity) { syslogThrottling.parent = parent }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetParent() types.Entity { return syslogThrottling.parent }
-
-func (syslogThrottling *CallHome_SyslogThrottling) GetParentYangName() string { return "call-home" }
 
 // CallHome_SmartLicensing
 // Enable/disable licensing messages. By default is
 // enabled.
 type CallHome_SmartLicensing struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // To specify existing profile name used for TG so that licensing message. The
@@ -535,58 +357,27 @@ type CallHome_SmartLicensing struct {
     Active interface{}
 }
 
-func (smartLicensing *CallHome_SmartLicensing) GetFilter() yfilter.YFilter { return smartLicensing.YFilter }
+func (smartLicensing *CallHome_SmartLicensing) GetEntityData() *types.CommonEntityData {
+    smartLicensing.EntityData.YFilter = smartLicensing.YFilter
+    smartLicensing.EntityData.YangName = "smart-licensing"
+    smartLicensing.EntityData.BundleName = "cisco_ios_xr"
+    smartLicensing.EntityData.ParentYangName = "call-home"
+    smartLicensing.EntityData.SegmentPath = "smart-licensing"
+    smartLicensing.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    smartLicensing.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    smartLicensing.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (smartLicensing *CallHome_SmartLicensing) SetFilter(yf yfilter.YFilter) { smartLicensing.YFilter = yf }
-
-func (smartLicensing *CallHome_SmartLicensing) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "active" { return "Active" }
-    return ""
+    smartLicensing.EntityData.Children = make(map[string]types.YChild)
+    smartLicensing.EntityData.Leafs = make(map[string]types.YLeaf)
+    smartLicensing.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", smartLicensing.ProfileName}
+    smartLicensing.EntityData.Leafs["active"] = types.YLeaf{"Active", smartLicensing.Active}
+    return &(smartLicensing.EntityData)
 }
-
-func (smartLicensing *CallHome_SmartLicensing) GetSegmentPath() string {
-    return "smart-licensing"
-}
-
-func (smartLicensing *CallHome_SmartLicensing) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (smartLicensing *CallHome_SmartLicensing) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (smartLicensing *CallHome_SmartLicensing) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = smartLicensing.ProfileName
-    leafs["active"] = smartLicensing.Active
-    return leafs
-}
-
-func (smartLicensing *CallHome_SmartLicensing) GetBundleName() string { return "cisco_ios_xr" }
-
-func (smartLicensing *CallHome_SmartLicensing) GetYangName() string { return "smart-licensing" }
-
-func (smartLicensing *CallHome_SmartLicensing) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (smartLicensing *CallHome_SmartLicensing) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (smartLicensing *CallHome_SmartLicensing) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (smartLicensing *CallHome_SmartLicensing) SetParent(parent types.Entity) { smartLicensing.parent = parent }
-
-func (smartLicensing *CallHome_SmartLicensing) GetParent() types.Entity { return smartLicensing.parent }
-
-func (smartLicensing *CallHome_SmartLicensing) GetParentYangName() string { return "call-home" }
 
 // CallHome_HttpProxy
 // http proxy server address and port
 type CallHome_HttpProxy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // http proxy server address. The type is string.
@@ -596,130 +387,60 @@ type CallHome_HttpProxy struct {
     Port interface{}
 }
 
-func (httpProxy *CallHome_HttpProxy) GetFilter() yfilter.YFilter { return httpProxy.YFilter }
+func (httpProxy *CallHome_HttpProxy) GetEntityData() *types.CommonEntityData {
+    httpProxy.EntityData.YFilter = httpProxy.YFilter
+    httpProxy.EntityData.YangName = "http-proxy"
+    httpProxy.EntityData.BundleName = "cisco_ios_xr"
+    httpProxy.EntityData.ParentYangName = "call-home"
+    httpProxy.EntityData.SegmentPath = "http-proxy"
+    httpProxy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    httpProxy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    httpProxy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (httpProxy *CallHome_HttpProxy) SetFilter(yf yfilter.YFilter) { httpProxy.YFilter = yf }
-
-func (httpProxy *CallHome_HttpProxy) GetGoName(yname string) string {
-    if yname == "server-address" { return "ServerAddress" }
-    if yname == "port" { return "Port" }
-    return ""
+    httpProxy.EntityData.Children = make(map[string]types.YChild)
+    httpProxy.EntityData.Leafs = make(map[string]types.YLeaf)
+    httpProxy.EntityData.Leafs["server-address"] = types.YLeaf{"ServerAddress", httpProxy.ServerAddress}
+    httpProxy.EntityData.Leafs["port"] = types.YLeaf{"Port", httpProxy.Port}
+    return &(httpProxy.EntityData)
 }
-
-func (httpProxy *CallHome_HttpProxy) GetSegmentPath() string {
-    return "http-proxy"
-}
-
-func (httpProxy *CallHome_HttpProxy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (httpProxy *CallHome_HttpProxy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (httpProxy *CallHome_HttpProxy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["server-address"] = httpProxy.ServerAddress
-    leafs["port"] = httpProxy.Port
-    return leafs
-}
-
-func (httpProxy *CallHome_HttpProxy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (httpProxy *CallHome_HttpProxy) GetYangName() string { return "http-proxy" }
-
-func (httpProxy *CallHome_HttpProxy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (httpProxy *CallHome_HttpProxy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (httpProxy *CallHome_HttpProxy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (httpProxy *CallHome_HttpProxy) SetParent(parent types.Entity) { httpProxy.parent = parent }
-
-func (httpProxy *CallHome_HttpProxy) GetParent() types.Entity { return httpProxy.parent }
-
-func (httpProxy *CallHome_HttpProxy) GetParentYangName() string { return "call-home" }
 
 // CallHome_Profiles
 // List of profiles
 type CallHome_Profiles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A specific profile. The type is slice of CallHome_Profiles_Profile.
     Profile []CallHome_Profiles_Profile
 }
 
-func (profiles *CallHome_Profiles) GetFilter() yfilter.YFilter { return profiles.YFilter }
+func (profiles *CallHome_Profiles) GetEntityData() *types.CommonEntityData {
+    profiles.EntityData.YFilter = profiles.YFilter
+    profiles.EntityData.YangName = "profiles"
+    profiles.EntityData.BundleName = "cisco_ios_xr"
+    profiles.EntityData.ParentYangName = "call-home"
+    profiles.EntityData.SegmentPath = "profiles"
+    profiles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profiles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profiles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profiles *CallHome_Profiles) SetFilter(yf yfilter.YFilter) { profiles.YFilter = yf }
-
-func (profiles *CallHome_Profiles) GetGoName(yname string) string {
-    if yname == "profile" { return "Profile" }
-    return ""
-}
-
-func (profiles *CallHome_Profiles) GetSegmentPath() string {
-    return "profiles"
-}
-
-func (profiles *CallHome_Profiles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "profile" {
-        for _, c := range profiles.Profile {
-            if profiles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_Profiles_Profile{}
-        profiles.Profile = append(profiles.Profile, child)
-        return &profiles.Profile[len(profiles.Profile)-1]
-    }
-    return nil
-}
-
-func (profiles *CallHome_Profiles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    profiles.EntityData.Children = make(map[string]types.YChild)
+    profiles.EntityData.Children["profile"] = types.YChild{"Profile", nil}
     for i := range profiles.Profile {
-        children[profiles.Profile[i].GetSegmentPath()] = &profiles.Profile[i]
+        profiles.EntityData.Children[types.GetSegmentPath(&profiles.Profile[i])] = types.YChild{"Profile", &profiles.Profile[i]}
     }
-    return children
+    profiles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(profiles.EntityData)
 }
-
-func (profiles *CallHome_Profiles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (profiles *CallHome_Profiles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profiles *CallHome_Profiles) GetYangName() string { return "profiles" }
-
-func (profiles *CallHome_Profiles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profiles *CallHome_Profiles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profiles *CallHome_Profiles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profiles *CallHome_Profiles) SetParent(parent types.Entity) { profiles.parent = parent }
-
-func (profiles *CallHome_Profiles) GetParent() types.Entity { return profiles.parent }
-
-func (profiles *CallHome_Profiles) GetParentYangName() string { return "call-home" }
 
 // CallHome_Profiles_Profile
 // A specific profile
 type CallHome_Profiles_Profile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ProfileName interface{}
 
     // Create a profile. The type is interface{}.
@@ -751,86 +472,35 @@ type CallHome_Profiles_Profile struct {
     SubscribeAlertGroup CallHome_Profiles_Profile_SubscribeAlertGroup
 }
 
-func (profile *CallHome_Profiles_Profile) GetFilter() yfilter.YFilter { return profile.YFilter }
+func (profile *CallHome_Profiles_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "profiles"
+    profile.EntityData.SegmentPath = "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profile *CallHome_Profiles_Profile) SetFilter(yf yfilter.YFilter) { profile.YFilter = yf }
-
-func (profile *CallHome_Profiles_Profile) GetGoName(yname string) string {
-    if yname == "profile-name" { return "ProfileName" }
-    if yname == "create" { return "Create" }
-    if yname == "message-format" { return "MessageFormat" }
-    if yname == "anonymous" { return "Anonymous" }
-    if yname == "message-size-limit" { return "MessageSizeLimit" }
-    if yname == "active" { return "Active" }
-    if yname == "report-type" { return "ReportType" }
-    if yname == "methods" { return "Methods" }
-    if yname == "addresses" { return "Addresses" }
-    if yname == "subscribe-alert-group" { return "SubscribeAlertGroup" }
-    return ""
+    profile.EntityData.Children = make(map[string]types.YChild)
+    profile.EntityData.Children["report-type"] = types.YChild{"ReportType", &profile.ReportType}
+    profile.EntityData.Children["methods"] = types.YChild{"Methods", &profile.Methods}
+    profile.EntityData.Children["addresses"] = types.YChild{"Addresses", &profile.Addresses}
+    profile.EntityData.Children["subscribe-alert-group"] = types.YChild{"SubscribeAlertGroup", &profile.SubscribeAlertGroup}
+    profile.EntityData.Leafs = make(map[string]types.YLeaf)
+    profile.EntityData.Leafs["profile-name"] = types.YLeaf{"ProfileName", profile.ProfileName}
+    profile.EntityData.Leafs["create"] = types.YLeaf{"Create", profile.Create}
+    profile.EntityData.Leafs["message-format"] = types.YLeaf{"MessageFormat", profile.MessageFormat}
+    profile.EntityData.Leafs["anonymous"] = types.YLeaf{"Anonymous", profile.Anonymous}
+    profile.EntityData.Leafs["message-size-limit"] = types.YLeaf{"MessageSizeLimit", profile.MessageSizeLimit}
+    profile.EntityData.Leafs["active"] = types.YLeaf{"Active", profile.Active}
+    return &(profile.EntityData)
 }
-
-func (profile *CallHome_Profiles_Profile) GetSegmentPath() string {
-    return "profile" + "[profile-name='" + fmt.Sprintf("%v", profile.ProfileName) + "']"
-}
-
-func (profile *CallHome_Profiles_Profile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "report-type" {
-        return &profile.ReportType
-    }
-    if childYangName == "methods" {
-        return &profile.Methods
-    }
-    if childYangName == "addresses" {
-        return &profile.Addresses
-    }
-    if childYangName == "subscribe-alert-group" {
-        return &profile.SubscribeAlertGroup
-    }
-    return nil
-}
-
-func (profile *CallHome_Profiles_Profile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["report-type"] = &profile.ReportType
-    children["methods"] = &profile.Methods
-    children["addresses"] = &profile.Addresses
-    children["subscribe-alert-group"] = &profile.SubscribeAlertGroup
-    return children
-}
-
-func (profile *CallHome_Profiles_Profile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["profile-name"] = profile.ProfileName
-    leafs["create"] = profile.Create
-    leafs["message-format"] = profile.MessageFormat
-    leafs["anonymous"] = profile.Anonymous
-    leafs["message-size-limit"] = profile.MessageSizeLimit
-    leafs["active"] = profile.Active
-    return leafs
-}
-
-func (profile *CallHome_Profiles_Profile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profile *CallHome_Profiles_Profile) GetYangName() string { return "profile" }
-
-func (profile *CallHome_Profiles_Profile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profile *CallHome_Profiles_Profile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profile *CallHome_Profiles_Profile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profile *CallHome_Profiles_Profile) SetParent(parent types.Entity) { profile.parent = parent }
-
-func (profile *CallHome_Profiles_Profile) GetParent() types.Entity { return profile.parent }
-
-func (profile *CallHome_Profiles_Profile) GetParentYangName() string { return "profiles" }
 
 // CallHome_Profiles_Profile_ReportType
 // Choose what data to report
 type CallHome_Profiles_Profile_ReportType struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Report smart call-home data.
@@ -840,176 +510,79 @@ type CallHome_Profiles_Profile_ReportType struct {
     ReportingLicensingData CallHome_Profiles_Profile_ReportType_ReportingLicensingData
 }
 
-func (reportType *CallHome_Profiles_Profile_ReportType) GetFilter() yfilter.YFilter { return reportType.YFilter }
+func (reportType *CallHome_Profiles_Profile_ReportType) GetEntityData() *types.CommonEntityData {
+    reportType.EntityData.YFilter = reportType.YFilter
+    reportType.EntityData.YangName = "report-type"
+    reportType.EntityData.BundleName = "cisco_ios_xr"
+    reportType.EntityData.ParentYangName = "profile"
+    reportType.EntityData.SegmentPath = "report-type"
+    reportType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reportType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reportType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reportType *CallHome_Profiles_Profile_ReportType) SetFilter(yf yfilter.YFilter) { reportType.YFilter = yf }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetGoName(yname string) string {
-    if yname == "reporting-callhome-data" { return "ReportingCallhomeData" }
-    if yname == "reporting-licensing-data" { return "ReportingLicensingData" }
-    return ""
+    reportType.EntityData.Children = make(map[string]types.YChild)
+    reportType.EntityData.Children["reporting-callhome-data"] = types.YChild{"ReportingCallhomeData", &reportType.ReportingCallhomeData}
+    reportType.EntityData.Children["reporting-licensing-data"] = types.YChild{"ReportingLicensingData", &reportType.ReportingLicensingData}
+    reportType.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(reportType.EntityData)
 }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetSegmentPath() string {
-    return "report-type"
-}
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "reporting-callhome-data" {
-        return &reportType.ReportingCallhomeData
-    }
-    if childYangName == "reporting-licensing-data" {
-        return &reportType.ReportingLicensingData
-    }
-    return nil
-}
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["reporting-callhome-data"] = &reportType.ReportingCallhomeData
-    children["reporting-licensing-data"] = &reportType.ReportingLicensingData
-    return children
-}
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetYangName() string { return "report-type" }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) SetParent(parent types.Entity) { reportType.parent = parent }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetParent() types.Entity { return reportType.parent }
-
-func (reportType *CallHome_Profiles_Profile_ReportType) GetParentYangName() string { return "profile" }
 
 // CallHome_Profiles_Profile_ReportType_ReportingCallhomeData
 // Report smart call-home data
 type CallHome_Profiles_Profile_ReportType_ReportingCallhomeData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable report smart call-home data. The type is bool.
     Enable interface{}
 }
 
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetFilter() yfilter.YFilter { return reportingCallhomeData.YFilter }
+func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetEntityData() *types.CommonEntityData {
+    reportingCallhomeData.EntityData.YFilter = reportingCallhomeData.YFilter
+    reportingCallhomeData.EntityData.YangName = "reporting-callhome-data"
+    reportingCallhomeData.EntityData.BundleName = "cisco_ios_xr"
+    reportingCallhomeData.EntityData.ParentYangName = "report-type"
+    reportingCallhomeData.EntityData.SegmentPath = "reporting-callhome-data"
+    reportingCallhomeData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reportingCallhomeData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reportingCallhomeData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) SetFilter(yf yfilter.YFilter) { reportingCallhomeData.YFilter = yf }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    reportingCallhomeData.EntityData.Children = make(map[string]types.YChild)
+    reportingCallhomeData.EntityData.Leafs = make(map[string]types.YLeaf)
+    reportingCallhomeData.EntityData.Leafs["enable"] = types.YLeaf{"Enable", reportingCallhomeData.Enable}
+    return &(reportingCallhomeData.EntityData)
 }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetSegmentPath() string {
-    return "reporting-callhome-data"
-}
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = reportingCallhomeData.Enable
-    return leafs
-}
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetYangName() string { return "reporting-callhome-data" }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) SetParent(parent types.Entity) { reportingCallhomeData.parent = parent }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetParent() types.Entity { return reportingCallhomeData.parent }
-
-func (reportingCallhomeData *CallHome_Profiles_Profile_ReportType_ReportingCallhomeData) GetParentYangName() string { return "report-type" }
 
 // CallHome_Profiles_Profile_ReportType_ReportingLicensingData
 // Report smart licensing data
 type CallHome_Profiles_Profile_ReportType_ReportingLicensingData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable report smart licensing data. The type is bool.
     Enable interface{}
 }
 
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetFilter() yfilter.YFilter { return reportingLicensingData.YFilter }
+func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetEntityData() *types.CommonEntityData {
+    reportingLicensingData.EntityData.YFilter = reportingLicensingData.YFilter
+    reportingLicensingData.EntityData.YangName = "reporting-licensing-data"
+    reportingLicensingData.EntityData.BundleName = "cisco_ios_xr"
+    reportingLicensingData.EntityData.ParentYangName = "report-type"
+    reportingLicensingData.EntityData.SegmentPath = "reporting-licensing-data"
+    reportingLicensingData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reportingLicensingData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reportingLicensingData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) SetFilter(yf yfilter.YFilter) { reportingLicensingData.YFilter = yf }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    reportingLicensingData.EntityData.Children = make(map[string]types.YChild)
+    reportingLicensingData.EntityData.Leafs = make(map[string]types.YLeaf)
+    reportingLicensingData.EntityData.Leafs["enable"] = types.YLeaf{"Enable", reportingLicensingData.Enable}
+    return &(reportingLicensingData.EntityData)
 }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetSegmentPath() string {
-    return "reporting-licensing-data"
-}
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = reportingLicensingData.Enable
-    return leafs
-}
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetYangName() string { return "reporting-licensing-data" }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) SetParent(parent types.Entity) { reportingLicensingData.parent = parent }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetParent() types.Entity { return reportingLicensingData.parent }
-
-func (reportingLicensingData *CallHome_Profiles_Profile_ReportType_ReportingLicensingData) GetParentYangName() string { return "report-type" }
 
 // CallHome_Profiles_Profile_Methods
 // Transport method (http or email)
 type CallHome_Profiles_Profile_Methods struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Transport method. The type is slice of
@@ -1017,68 +590,29 @@ type CallHome_Profiles_Profile_Methods struct {
     Method []CallHome_Profiles_Profile_Methods_Method
 }
 
-func (methods *CallHome_Profiles_Profile_Methods) GetFilter() yfilter.YFilter { return methods.YFilter }
+func (methods *CallHome_Profiles_Profile_Methods) GetEntityData() *types.CommonEntityData {
+    methods.EntityData.YFilter = methods.YFilter
+    methods.EntityData.YangName = "methods"
+    methods.EntityData.BundleName = "cisco_ios_xr"
+    methods.EntityData.ParentYangName = "profile"
+    methods.EntityData.SegmentPath = "methods"
+    methods.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    methods.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    methods.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (methods *CallHome_Profiles_Profile_Methods) SetFilter(yf yfilter.YFilter) { methods.YFilter = yf }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetGoName(yname string) string {
-    if yname == "method" { return "Method" }
-    return ""
-}
-
-func (methods *CallHome_Profiles_Profile_Methods) GetSegmentPath() string {
-    return "methods"
-}
-
-func (methods *CallHome_Profiles_Profile_Methods) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "method" {
-        for _, c := range methods.Method {
-            if methods.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_Profiles_Profile_Methods_Method{}
-        methods.Method = append(methods.Method, child)
-        return &methods.Method[len(methods.Method)-1]
-    }
-    return nil
-}
-
-func (methods *CallHome_Profiles_Profile_Methods) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    methods.EntityData.Children = make(map[string]types.YChild)
+    methods.EntityData.Children["method"] = types.YChild{"Method", nil}
     for i := range methods.Method {
-        children[methods.Method[i].GetSegmentPath()] = &methods.Method[i]
+        methods.EntityData.Children[types.GetSegmentPath(&methods.Method[i])] = types.YChild{"Method", &methods.Method[i]}
     }
-    return children
+    methods.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(methods.EntityData)
 }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (methods *CallHome_Profiles_Profile_Methods) GetBundleName() string { return "cisco_ios_xr" }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetYangName() string { return "methods" }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (methods *CallHome_Profiles_Profile_Methods) SetParent(parent types.Entity) { methods.parent = parent }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetParent() types.Entity { return methods.parent }
-
-func (methods *CallHome_Profiles_Profile_Methods) GetParentYangName() string { return "profile" }
 
 // CallHome_Profiles_Profile_Methods_Method
 // Transport method
 type CallHome_Profiles_Profile_Methods_Method struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Transport Method. The type is CallHomeTransMethod.
@@ -1088,58 +622,27 @@ type CallHome_Profiles_Profile_Methods_Method struct {
     Enable interface{}
 }
 
-func (method *CallHome_Profiles_Profile_Methods_Method) GetFilter() yfilter.YFilter { return method.YFilter }
+func (method *CallHome_Profiles_Profile_Methods_Method) GetEntityData() *types.CommonEntityData {
+    method.EntityData.YFilter = method.YFilter
+    method.EntityData.YangName = "method"
+    method.EntityData.BundleName = "cisco_ios_xr"
+    method.EntityData.ParentYangName = "methods"
+    method.EntityData.SegmentPath = "method" + "[method='" + fmt.Sprintf("%v", method.Method) + "']"
+    method.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    method.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    method.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (method *CallHome_Profiles_Profile_Methods_Method) SetFilter(yf yfilter.YFilter) { method.YFilter = yf }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetGoName(yname string) string {
-    if yname == "method" { return "Method" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    method.EntityData.Children = make(map[string]types.YChild)
+    method.EntityData.Leafs = make(map[string]types.YLeaf)
+    method.EntityData.Leafs["method"] = types.YLeaf{"Method", method.Method}
+    method.EntityData.Leafs["enable"] = types.YLeaf{"Enable", method.Enable}
+    return &(method.EntityData)
 }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetSegmentPath() string {
-    return "method" + "[method='" + fmt.Sprintf("%v", method.Method) + "']"
-}
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method"] = method.Method
-    leafs["enable"] = method.Enable
-    return leafs
-}
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetBundleName() string { return "cisco_ios_xr" }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetYangName() string { return "method" }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) SetParent(parent types.Entity) { method.parent = parent }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetParent() types.Entity { return method.parent }
-
-func (method *CallHome_Profiles_Profile_Methods_Method) GetParentYangName() string { return "methods" }
 
 // CallHome_Profiles_Profile_Addresses
 // List of destination address
 type CallHome_Profiles_Profile_Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A specific address. The type is slice of
@@ -1147,68 +650,29 @@ type CallHome_Profiles_Profile_Addresses struct {
     Address []CallHome_Profiles_Profile_Addresses_Address
 }
 
-func (addresses *CallHome_Profiles_Profile_Addresses) GetFilter() yfilter.YFilter { return addresses.YFilter }
+func (addresses *CallHome_Profiles_Profile_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "profile"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addresses *CallHome_Profiles_Profile_Addresses) SetFilter(yf yfilter.YFilter) { addresses.YFilter = yf }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    return ""
-}
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetSegmentPath() string {
-    return "addresses"
-}
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "address" {
-        for _, c := range addresses.Address {
-            if addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_Profiles_Profile_Addresses_Address{}
-        addresses.Address = append(addresses.Address, child)
-        return &addresses.Address[len(addresses.Address)-1]
-    }
-    return nil
-}
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    addresses.EntityData.Children = make(map[string]types.YChild)
+    addresses.EntityData.Children["address"] = types.YChild{"Address", nil}
     for i := range addresses.Address {
-        children[addresses.Address[i].GetSegmentPath()] = &addresses.Address[i]
+        addresses.EntityData.Children[types.GetSegmentPath(&addresses.Address[i])] = types.YChild{"Address", &addresses.Address[i]}
     }
-    return children
+    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addresses.EntityData)
 }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetYangName() string { return "addresses" }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) SetParent(parent types.Entity) { addresses.parent = parent }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetParent() types.Entity { return addresses.parent }
-
-func (addresses *CallHome_Profiles_Profile_Addresses) GetParentYangName() string { return "profile" }
 
 // CallHome_Profiles_Profile_Addresses_Address
 // A specific address
 type CallHome_Profiles_Profile_Addresses_Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Transpotation Method. The type is
@@ -1223,60 +687,28 @@ type CallHome_Profiles_Profile_Addresses_Address struct {
     Enable interface{}
 }
 
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetFilter() yfilter.YFilter { return address.YFilter }
+func (address *CallHome_Profiles_Profile_Addresses_Address) GetEntityData() *types.CommonEntityData {
+    address.EntityData.YFilter = address.YFilter
+    address.EntityData.YangName = "address"
+    address.EntityData.BundleName = "cisco_ios_xr"
+    address.EntityData.ParentYangName = "addresses"
+    address.EntityData.SegmentPath = "address" + "[method='" + fmt.Sprintf("%v", address.Method) + "']" + "[destination-addr='" + fmt.Sprintf("%v", address.DestinationAddr) + "']"
+    address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (address *CallHome_Profiles_Profile_Addresses_Address) SetFilter(yf yfilter.YFilter) { address.YFilter = yf }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetGoName(yname string) string {
-    if yname == "method" { return "Method" }
-    if yname == "destination-addr" { return "DestinationAddr" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    address.EntityData.Children = make(map[string]types.YChild)
+    address.EntityData.Leafs = make(map[string]types.YLeaf)
+    address.EntityData.Leafs["method"] = types.YLeaf{"Method", address.Method}
+    address.EntityData.Leafs["destination-addr"] = types.YLeaf{"DestinationAddr", address.DestinationAddr}
+    address.EntityData.Leafs["enable"] = types.YLeaf{"Enable", address.Enable}
+    return &(address.EntityData)
 }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetSegmentPath() string {
-    return "address" + "[method='" + fmt.Sprintf("%v", address.Method) + "']" + "[destination-addr='" + fmt.Sprintf("%v", address.DestinationAddr) + "']"
-}
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method"] = address.Method
-    leafs["destination-addr"] = address.DestinationAddr
-    leafs["enable"] = address.Enable
-    return leafs
-}
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetYangName() string { return "address" }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) SetParent(parent types.Entity) { address.parent = parent }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetParent() types.Entity { return address.parent }
-
-func (address *CallHome_Profiles_Profile_Addresses_Address) GetParentYangName() string { return "addresses" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup
 // Subscribe to alert-group
 type CallHome_Profiles_Profile_SubscribeAlertGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // environmental info.
@@ -1298,140 +730,57 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup struct {
     Syslogs CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs
 }
 
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetFilter() yfilter.YFilter { return subscribeAlertGroup.YFilter }
+func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetEntityData() *types.CommonEntityData {
+    subscribeAlertGroup.EntityData.YFilter = subscribeAlertGroup.YFilter
+    subscribeAlertGroup.EntityData.YangName = "subscribe-alert-group"
+    subscribeAlertGroup.EntityData.BundleName = "cisco_ios_xr"
+    subscribeAlertGroup.EntityData.ParentYangName = "profile"
+    subscribeAlertGroup.EntityData.SegmentPath = "subscribe-alert-group"
+    subscribeAlertGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscribeAlertGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscribeAlertGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) SetFilter(yf yfilter.YFilter) { subscribeAlertGroup.YFilter = yf }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetGoName(yname string) string {
-    if yname == "environment" { return "Environment" }
-    if yname == "configuration" { return "Configuration" }
-    if yname == "snapshot" { return "Snapshot" }
-    if yname == "inventory" { return "Inventory" }
-    if yname == "crash" { return "Crash" }
-    if yname == "syslogs" { return "Syslogs" }
-    return ""
+    subscribeAlertGroup.EntityData.Children = make(map[string]types.YChild)
+    subscribeAlertGroup.EntityData.Children["environment"] = types.YChild{"Environment", &subscribeAlertGroup.Environment}
+    subscribeAlertGroup.EntityData.Children["configuration"] = types.YChild{"Configuration", &subscribeAlertGroup.Configuration}
+    subscribeAlertGroup.EntityData.Children["snapshot"] = types.YChild{"Snapshot", &subscribeAlertGroup.Snapshot}
+    subscribeAlertGroup.EntityData.Children["inventory"] = types.YChild{"Inventory", &subscribeAlertGroup.Inventory}
+    subscribeAlertGroup.EntityData.Children["crash"] = types.YChild{"Crash", &subscribeAlertGroup.Crash}
+    subscribeAlertGroup.EntityData.Children["syslogs"] = types.YChild{"Syslogs", &subscribeAlertGroup.Syslogs}
+    subscribeAlertGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscribeAlertGroup.EntityData)
 }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetSegmentPath() string {
-    return "subscribe-alert-group"
-}
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "environment" {
-        return &subscribeAlertGroup.Environment
-    }
-    if childYangName == "configuration" {
-        return &subscribeAlertGroup.Configuration
-    }
-    if childYangName == "snapshot" {
-        return &subscribeAlertGroup.Snapshot
-    }
-    if childYangName == "inventory" {
-        return &subscribeAlertGroup.Inventory
-    }
-    if childYangName == "crash" {
-        return &subscribeAlertGroup.Crash
-    }
-    if childYangName == "syslogs" {
-        return &subscribeAlertGroup.Syslogs
-    }
-    return nil
-}
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["environment"] = &subscribeAlertGroup.Environment
-    children["configuration"] = &subscribeAlertGroup.Configuration
-    children["snapshot"] = &subscribeAlertGroup.Snapshot
-    children["inventory"] = &subscribeAlertGroup.Inventory
-    children["crash"] = &subscribeAlertGroup.Crash
-    children["syslogs"] = &subscribeAlertGroup.Syslogs
-    return children
-}
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetYangName() string { return "subscribe-alert-group" }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) SetParent(parent types.Entity) { subscribeAlertGroup.parent = parent }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetParent() types.Entity { return subscribeAlertGroup.parent }
-
-func (subscribeAlertGroup *CallHome_Profiles_Profile_SubscribeAlertGroup) GetParentYangName() string { return "profile" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Environment
 // environmental info
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Environment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Severity. The type is CallHomeEventSeverity.
     Severity interface{}
 }
 
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetFilter() yfilter.YFilter { return environment.YFilter }
+func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetEntityData() *types.CommonEntityData {
+    environment.EntityData.YFilter = environment.YFilter
+    environment.EntityData.YangName = "environment"
+    environment.EntityData.BundleName = "cisco_ios_xr"
+    environment.EntityData.ParentYangName = "subscribe-alert-group"
+    environment.EntityData.SegmentPath = "environment"
+    environment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    environment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    environment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) SetFilter(yf yfilter.YFilter) { environment.YFilter = yf }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetGoName(yname string) string {
-    if yname == "severity" { return "Severity" }
-    return ""
+    environment.EntityData.Children = make(map[string]types.YChild)
+    environment.EntityData.Leafs = make(map[string]types.YLeaf)
+    environment.EntityData.Leafs["severity"] = types.YLeaf{"Severity", environment.Severity}
+    return &(environment.EntityData)
 }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetSegmentPath() string {
-    return "environment"
-}
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["severity"] = environment.Severity
-    return leafs
-}
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetBundleName() string { return "cisco_ios_xr" }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetYangName() string { return "environment" }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) SetParent(parent types.Entity) { environment.parent = parent }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetParent() types.Entity { return environment.parent }
-
-func (environment *CallHome_Profiles_Profile_SubscribeAlertGroup_Environment) GetParentYangName() string { return "subscribe-alert-group" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration
 // configuration info
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscribe the alert-group. The type is interface{}.
@@ -1441,61 +790,27 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration struct {
     Periodic CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic
 }
 
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetFilter() yfilter.YFilter { return configuration.YFilter }
+func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetEntityData() *types.CommonEntityData {
+    configuration.EntityData.YFilter = configuration.YFilter
+    configuration.EntityData.YangName = "configuration"
+    configuration.EntityData.BundleName = "cisco_ios_xr"
+    configuration.EntityData.ParentYangName = "subscribe-alert-group"
+    configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) SetFilter(yf yfilter.YFilter) { configuration.YFilter = yf }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetGoName(yname string) string {
-    if yname == "subscribe" { return "Subscribe" }
-    if yname == "periodic" { return "Periodic" }
-    return ""
+    configuration.EntityData.Children = make(map[string]types.YChild)
+    configuration.EntityData.Children["periodic"] = types.YChild{"Periodic", &configuration.Periodic}
+    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
+    configuration.EntityData.Leafs["subscribe"] = types.YLeaf{"Subscribe", configuration.Subscribe}
+    return &(configuration.EntityData)
 }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetSegmentPath() string {
-    return "configuration"
-}
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "periodic" {
-        return &configuration.Periodic
-    }
-    return nil
-}
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["periodic"] = &configuration.Periodic
-    return children
-}
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscribe"] = configuration.Subscribe
-    return leafs
-}
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetYangName() string { return "configuration" }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) SetParent(parent types.Entity) { configuration.parent = parent }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetParent() types.Entity { return configuration.parent }
-
-func (configuration *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration) GetParentYangName() string { return "subscribe-alert-group" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic
 // Periodic call-home message
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // none. The type is CallHomeMailSendInterval.
@@ -1514,123 +829,56 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic struct
     Minute interface{}
 }
 
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetFilter() yfilter.YFilter { return periodic.YFilter }
+func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetEntityData() *types.CommonEntityData {
+    periodic.EntityData.YFilter = periodic.YFilter
+    periodic.EntityData.YangName = "periodic"
+    periodic.EntityData.BundleName = "cisco_ios_xr"
+    periodic.EntityData.ParentYangName = "configuration"
+    periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) SetFilter(yf yfilter.YFilter) { periodic.YFilter = yf }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetGoName(yname string) string {
-    if yname == "interval" { return "Interval" }
-    if yname == "day" { return "Day" }
-    if yname == "weekday" { return "Weekday" }
-    if yname == "hour" { return "Hour" }
-    if yname == "minute" { return "Minute" }
-    return ""
+    periodic.EntityData.Children = make(map[string]types.YChild)
+    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
+    periodic.EntityData.Leafs["interval"] = types.YLeaf{"Interval", periodic.Interval}
+    periodic.EntityData.Leafs["day"] = types.YLeaf{"Day", periodic.Day}
+    periodic.EntityData.Leafs["weekday"] = types.YLeaf{"Weekday", periodic.Weekday}
+    periodic.EntityData.Leafs["hour"] = types.YLeaf{"Hour", periodic.Hour}
+    periodic.EntityData.Leafs["minute"] = types.YLeaf{"Minute", periodic.Minute}
+    return &(periodic.EntityData)
 }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetSegmentPath() string {
-    return "periodic"
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interval"] = periodic.Interval
-    leafs["day"] = periodic.Day
-    leafs["weekday"] = periodic.Weekday
-    leafs["hour"] = periodic.Hour
-    leafs["minute"] = periodic.Minute
-    return leafs
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetYangName() string { return "periodic" }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) SetParent(parent types.Entity) { periodic.parent = parent }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetParent() types.Entity { return periodic.parent }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Configuration_Periodic) GetParentYangName() string { return "configuration" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot
 // snapshot info
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Periodic call-home message.
     Periodic CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic
 }
 
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetFilter() yfilter.YFilter { return snapshot.YFilter }
+func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetEntityData() *types.CommonEntityData {
+    snapshot.EntityData.YFilter = snapshot.YFilter
+    snapshot.EntityData.YangName = "snapshot"
+    snapshot.EntityData.BundleName = "cisco_ios_xr"
+    snapshot.EntityData.ParentYangName = "subscribe-alert-group"
+    snapshot.EntityData.SegmentPath = "snapshot"
+    snapshot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snapshot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snapshot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) SetFilter(yf yfilter.YFilter) { snapshot.YFilter = yf }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetGoName(yname string) string {
-    if yname == "periodic" { return "Periodic" }
-    return ""
+    snapshot.EntityData.Children = make(map[string]types.YChild)
+    snapshot.EntityData.Children["periodic"] = types.YChild{"Periodic", &snapshot.Periodic}
+    snapshot.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(snapshot.EntityData)
 }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetSegmentPath() string {
-    return "snapshot"
-}
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "periodic" {
-        return &snapshot.Periodic
-    }
-    return nil
-}
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["periodic"] = &snapshot.Periodic
-    return children
-}
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetYangName() string { return "snapshot" }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) SetParent(parent types.Entity) { snapshot.parent = parent }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetParent() types.Entity { return snapshot.parent }
-
-func (snapshot *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot) GetParentYangName() string { return "subscribe-alert-group" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic
 // Periodic call-home message
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // none. The type is SnapshotInterval.
@@ -1649,64 +897,30 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic struct {
     Minute interface{}
 }
 
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetFilter() yfilter.YFilter { return periodic.YFilter }
+func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetEntityData() *types.CommonEntityData {
+    periodic.EntityData.YFilter = periodic.YFilter
+    periodic.EntityData.YangName = "periodic"
+    periodic.EntityData.BundleName = "cisco_ios_xr"
+    periodic.EntityData.ParentYangName = "snapshot"
+    periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) SetFilter(yf yfilter.YFilter) { periodic.YFilter = yf }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetGoName(yname string) string {
-    if yname == "interval" { return "Interval" }
-    if yname == "day" { return "Day" }
-    if yname == "weekday" { return "Weekday" }
-    if yname == "hour" { return "Hour" }
-    if yname == "minute" { return "Minute" }
-    return ""
+    periodic.EntityData.Children = make(map[string]types.YChild)
+    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
+    periodic.EntityData.Leafs["interval"] = types.YLeaf{"Interval", periodic.Interval}
+    periodic.EntityData.Leafs["day"] = types.YLeaf{"Day", periodic.Day}
+    periodic.EntityData.Leafs["weekday"] = types.YLeaf{"Weekday", periodic.Weekday}
+    periodic.EntityData.Leafs["hour"] = types.YLeaf{"Hour", periodic.Hour}
+    periodic.EntityData.Leafs["minute"] = types.YLeaf{"Minute", periodic.Minute}
+    return &(periodic.EntityData)
 }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetSegmentPath() string {
-    return "periodic"
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interval"] = periodic.Interval
-    leafs["day"] = periodic.Day
-    leafs["weekday"] = periodic.Weekday
-    leafs["hour"] = periodic.Hour
-    leafs["minute"] = periodic.Minute
-    return leafs
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetYangName() string { return "periodic" }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) SetParent(parent types.Entity) { periodic.parent = parent }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetParent() types.Entity { return periodic.parent }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Snapshot_Periodic) GetParentYangName() string { return "snapshot" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory
 // inventory info
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscribe the alert-group. The type is interface{}.
@@ -1716,61 +930,27 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory struct {
     Periodic CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic
 }
 
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetFilter() yfilter.YFilter { return inventory.YFilter }
+func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetEntityData() *types.CommonEntityData {
+    inventory.EntityData.YFilter = inventory.YFilter
+    inventory.EntityData.YangName = "inventory"
+    inventory.EntityData.BundleName = "cisco_ios_xr"
+    inventory.EntityData.ParentYangName = "subscribe-alert-group"
+    inventory.EntityData.SegmentPath = "inventory"
+    inventory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inventory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inventory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) SetFilter(yf yfilter.YFilter) { inventory.YFilter = yf }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetGoName(yname string) string {
-    if yname == "subscribe" { return "Subscribe" }
-    if yname == "periodic" { return "Periodic" }
-    return ""
+    inventory.EntityData.Children = make(map[string]types.YChild)
+    inventory.EntityData.Children["periodic"] = types.YChild{"Periodic", &inventory.Periodic}
+    inventory.EntityData.Leafs = make(map[string]types.YLeaf)
+    inventory.EntityData.Leafs["subscribe"] = types.YLeaf{"Subscribe", inventory.Subscribe}
+    return &(inventory.EntityData)
 }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetSegmentPath() string {
-    return "inventory"
-}
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "periodic" {
-        return &inventory.Periodic
-    }
-    return nil
-}
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["periodic"] = &inventory.Periodic
-    return children
-}
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscribe"] = inventory.Subscribe
-    return leafs
-}
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetYangName() string { return "inventory" }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) SetParent(parent types.Entity) { inventory.parent = parent }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetParent() types.Entity { return inventory.parent }
-
-func (inventory *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory) GetParentYangName() string { return "subscribe-alert-group" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic
 // Periodic call-home message
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // none. The type is CallHomeMailSendInterval.
@@ -1789,120 +969,56 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic struct {
     Minute interface{}
 }
 
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetFilter() yfilter.YFilter { return periodic.YFilter }
+func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetEntityData() *types.CommonEntityData {
+    periodic.EntityData.YFilter = periodic.YFilter
+    periodic.EntityData.YangName = "periodic"
+    periodic.EntityData.BundleName = "cisco_ios_xr"
+    periodic.EntityData.ParentYangName = "inventory"
+    periodic.EntityData.SegmentPath = "periodic"
+    periodic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    periodic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    periodic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) SetFilter(yf yfilter.YFilter) { periodic.YFilter = yf }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetGoName(yname string) string {
-    if yname == "interval" { return "Interval" }
-    if yname == "day" { return "Day" }
-    if yname == "weekday" { return "Weekday" }
-    if yname == "hour" { return "Hour" }
-    if yname == "minute" { return "Minute" }
-    return ""
+    periodic.EntityData.Children = make(map[string]types.YChild)
+    periodic.EntityData.Leafs = make(map[string]types.YLeaf)
+    periodic.EntityData.Leafs["interval"] = types.YLeaf{"Interval", periodic.Interval}
+    periodic.EntityData.Leafs["day"] = types.YLeaf{"Day", periodic.Day}
+    periodic.EntityData.Leafs["weekday"] = types.YLeaf{"Weekday", periodic.Weekday}
+    periodic.EntityData.Leafs["hour"] = types.YLeaf{"Hour", periodic.Hour}
+    periodic.EntityData.Leafs["minute"] = types.YLeaf{"Minute", periodic.Minute}
+    return &(periodic.EntityData)
 }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetSegmentPath() string {
-    return "periodic"
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interval"] = periodic.Interval
-    leafs["day"] = periodic.Day
-    leafs["weekday"] = periodic.Weekday
-    leafs["hour"] = periodic.Hour
-    leafs["minute"] = periodic.Minute
-    return leafs
-}
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetYangName() string { return "periodic" }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) SetParent(parent types.Entity) { periodic.parent = parent }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetParent() types.Entity { return periodic.parent }
-
-func (periodic *CallHome_Profiles_Profile_SubscribeAlertGroup_Inventory_Periodic) GetParentYangName() string { return "inventory" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Crash
 // Crash info
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Crash struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscribe crash group. The type is interface{}.
     Subscribe interface{}
 }
 
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetFilter() yfilter.YFilter { return crash.YFilter }
+func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetEntityData() *types.CommonEntityData {
+    crash.EntityData.YFilter = crash.YFilter
+    crash.EntityData.YangName = "crash"
+    crash.EntityData.BundleName = "cisco_ios_xr"
+    crash.EntityData.ParentYangName = "subscribe-alert-group"
+    crash.EntityData.SegmentPath = "crash"
+    crash.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    crash.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    crash.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) SetFilter(yf yfilter.YFilter) { crash.YFilter = yf }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetGoName(yname string) string {
-    if yname == "subscribe" { return "Subscribe" }
-    return ""
+    crash.EntityData.Children = make(map[string]types.YChild)
+    crash.EntityData.Leafs = make(map[string]types.YLeaf)
+    crash.EntityData.Leafs["subscribe"] = types.YLeaf{"Subscribe", crash.Subscribe}
+    return &(crash.EntityData)
 }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetSegmentPath() string {
-    return "crash"
-}
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["subscribe"] = crash.Subscribe
-    return leafs
-}
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetBundleName() string { return "cisco_ios_xr" }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetYangName() string { return "crash" }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) SetParent(parent types.Entity) { crash.parent = parent }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetParent() types.Entity { return crash.parent }
-
-func (crash *CallHome_Profiles_Profile_SubscribeAlertGroup_Crash) GetParentYangName() string { return "subscribe-alert-group" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs
 // syslog info
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Syslog message pattern to be matched. The type is slice of
@@ -1910,68 +1026,29 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs struct {
     Syslog []CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog
 }
 
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetFilter() yfilter.YFilter { return syslogs.YFilter }
+func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetEntityData() *types.CommonEntityData {
+    syslogs.EntityData.YFilter = syslogs.YFilter
+    syslogs.EntityData.YangName = "syslogs"
+    syslogs.EntityData.BundleName = "cisco_ios_xr"
+    syslogs.EntityData.ParentYangName = "subscribe-alert-group"
+    syslogs.EntityData.SegmentPath = "syslogs"
+    syslogs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    syslogs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    syslogs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) SetFilter(yf yfilter.YFilter) { syslogs.YFilter = yf }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetGoName(yname string) string {
-    if yname == "syslog" { return "Syslog" }
-    return ""
-}
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetSegmentPath() string {
-    return "syslogs"
-}
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "syslog" {
-        for _, c := range syslogs.Syslog {
-            if syslogs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog{}
-        syslogs.Syslog = append(syslogs.Syslog, child)
-        return &syslogs.Syslog[len(syslogs.Syslog)-1]
-    }
-    return nil
-}
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    syslogs.EntityData.Children = make(map[string]types.YChild)
+    syslogs.EntityData.Children["syslog"] = types.YChild{"Syslog", nil}
     for i := range syslogs.Syslog {
-        children[syslogs.Syslog[i].GetSegmentPath()] = &syslogs.Syslog[i]
+        syslogs.EntityData.Children[types.GetSegmentPath(&syslogs.Syslog[i])] = types.YChild{"Syslog", &syslogs.Syslog[i]}
     }
-    return children
+    syslogs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(syslogs.EntityData)
 }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetYangName() string { return "syslogs" }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) SetParent(parent types.Entity) { syslogs.parent = parent }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetParent() types.Entity { return syslogs.parent }
-
-func (syslogs *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs) GetParentYangName() string { return "subscribe-alert-group" }
 
 // CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog
 // Syslog message pattern to be matched
 type CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Syslog message pattern to be matched. The type is
@@ -1982,58 +1059,27 @@ type CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog struct {
     Severity interface{}
 }
 
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetFilter() yfilter.YFilter { return syslog.YFilter }
+func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetEntityData() *types.CommonEntityData {
+    syslog.EntityData.YFilter = syslog.YFilter
+    syslog.EntityData.YangName = "syslog"
+    syslog.EntityData.BundleName = "cisco_ios_xr"
+    syslog.EntityData.ParentYangName = "syslogs"
+    syslog.EntityData.SegmentPath = "syslog" + "[syslog-pattern='" + fmt.Sprintf("%v", syslog.SyslogPattern) + "']"
+    syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) SetFilter(yf yfilter.YFilter) { syslog.YFilter = yf }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetGoName(yname string) string {
-    if yname == "syslog-pattern" { return "SyslogPattern" }
-    if yname == "severity" { return "Severity" }
-    return ""
+    syslog.EntityData.Children = make(map[string]types.YChild)
+    syslog.EntityData.Leafs = make(map[string]types.YLeaf)
+    syslog.EntityData.Leafs["syslog-pattern"] = types.YLeaf{"SyslogPattern", syslog.SyslogPattern}
+    syslog.EntityData.Leafs["severity"] = types.YLeaf{"Severity", syslog.Severity}
+    return &(syslog.EntityData)
 }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetSegmentPath() string {
-    return "syslog" + "[syslog-pattern='" + fmt.Sprintf("%v", syslog.SyslogPattern) + "']"
-}
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["syslog-pattern"] = syslog.SyslogPattern
-    leafs["severity"] = syslog.Severity
-    return leafs
-}
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetBundleName() string { return "cisco_ios_xr" }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetYangName() string { return "syslog" }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) SetParent(parent types.Entity) { syslog.parent = parent }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetParent() types.Entity { return syslog.parent }
-
-func (syslog *CallHome_Profiles_Profile_SubscribeAlertGroup_Syslogs_Syslog) GetParentYangName() string { return "syslogs" }
 
 // CallHome_AlertGroups
 // List of alert-group
 type CallHome_AlertGroups struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A specific alert-group. The type is slice of
@@ -2041,72 +1087,33 @@ type CallHome_AlertGroups struct {
     AlertGroup []CallHome_AlertGroups_AlertGroup
 }
 
-func (alertGroups *CallHome_AlertGroups) GetFilter() yfilter.YFilter { return alertGroups.YFilter }
+func (alertGroups *CallHome_AlertGroups) GetEntityData() *types.CommonEntityData {
+    alertGroups.EntityData.YFilter = alertGroups.YFilter
+    alertGroups.EntityData.YangName = "alert-groups"
+    alertGroups.EntityData.BundleName = "cisco_ios_xr"
+    alertGroups.EntityData.ParentYangName = "call-home"
+    alertGroups.EntityData.SegmentPath = "alert-groups"
+    alertGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alertGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alertGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alertGroups *CallHome_AlertGroups) SetFilter(yf yfilter.YFilter) { alertGroups.YFilter = yf }
-
-func (alertGroups *CallHome_AlertGroups) GetGoName(yname string) string {
-    if yname == "alert-group" { return "AlertGroup" }
-    return ""
-}
-
-func (alertGroups *CallHome_AlertGroups) GetSegmentPath() string {
-    return "alert-groups"
-}
-
-func (alertGroups *CallHome_AlertGroups) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "alert-group" {
-        for _, c := range alertGroups.AlertGroup {
-            if alertGroups.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_AlertGroups_AlertGroup{}
-        alertGroups.AlertGroup = append(alertGroups.AlertGroup, child)
-        return &alertGroups.AlertGroup[len(alertGroups.AlertGroup)-1]
-    }
-    return nil
-}
-
-func (alertGroups *CallHome_AlertGroups) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    alertGroups.EntityData.Children = make(map[string]types.YChild)
+    alertGroups.EntityData.Children["alert-group"] = types.YChild{"AlertGroup", nil}
     for i := range alertGroups.AlertGroup {
-        children[alertGroups.AlertGroup[i].GetSegmentPath()] = &alertGroups.AlertGroup[i]
+        alertGroups.EntityData.Children[types.GetSegmentPath(&alertGroups.AlertGroup[i])] = types.YChild{"AlertGroup", &alertGroups.AlertGroup[i]}
     }
-    return children
+    alertGroups.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(alertGroups.EntityData)
 }
-
-func (alertGroups *CallHome_AlertGroups) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (alertGroups *CallHome_AlertGroups) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alertGroups *CallHome_AlertGroups) GetYangName() string { return "alert-groups" }
-
-func (alertGroups *CallHome_AlertGroups) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alertGroups *CallHome_AlertGroups) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alertGroups *CallHome_AlertGroups) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alertGroups *CallHome_AlertGroups) SetParent(parent types.Entity) { alertGroups.parent = parent }
-
-func (alertGroups *CallHome_AlertGroups) GetParent() types.Entity { return alertGroups.parent }
-
-func (alertGroups *CallHome_AlertGroups) GetParentYangName() string { return "call-home" }
 
 // CallHome_AlertGroups_AlertGroup
 // A specific alert-group
 type CallHome_AlertGroups_AlertGroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. none. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     AlertGroupName interface{}
 
     // Enable the alert-group. The type is bool.
@@ -2116,128 +1123,57 @@ type CallHome_AlertGroups_AlertGroup struct {
     Disable interface{}
 }
 
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetFilter() yfilter.YFilter { return alertGroup.YFilter }
+func (alertGroup *CallHome_AlertGroups_AlertGroup) GetEntityData() *types.CommonEntityData {
+    alertGroup.EntityData.YFilter = alertGroup.YFilter
+    alertGroup.EntityData.YangName = "alert-group"
+    alertGroup.EntityData.BundleName = "cisco_ios_xr"
+    alertGroup.EntityData.ParentYangName = "alert-groups"
+    alertGroup.EntityData.SegmentPath = "alert-group" + "[alert-group-name='" + fmt.Sprintf("%v", alertGroup.AlertGroupName) + "']"
+    alertGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alertGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alertGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alertGroup *CallHome_AlertGroups_AlertGroup) SetFilter(yf yfilter.YFilter) { alertGroup.YFilter = yf }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetGoName(yname string) string {
-    if yname == "alert-group-name" { return "AlertGroupName" }
-    if yname == "enable" { return "Enable" }
-    if yname == "disable" { return "Disable" }
-    return ""
+    alertGroup.EntityData.Children = make(map[string]types.YChild)
+    alertGroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    alertGroup.EntityData.Leafs["alert-group-name"] = types.YLeaf{"AlertGroupName", alertGroup.AlertGroupName}
+    alertGroup.EntityData.Leafs["enable"] = types.YLeaf{"Enable", alertGroup.Enable}
+    alertGroup.EntityData.Leafs["disable"] = types.YLeaf{"Disable", alertGroup.Disable}
+    return &(alertGroup.EntityData)
 }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetSegmentPath() string {
-    return "alert-group" + "[alert-group-name='" + fmt.Sprintf("%v", alertGroup.AlertGroupName) + "']"
-}
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["alert-group-name"] = alertGroup.AlertGroupName
-    leafs["enable"] = alertGroup.Enable
-    leafs["disable"] = alertGroup.Disable
-    return leafs
-}
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetYangName() string { return "alert-group" }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) SetParent(parent types.Entity) { alertGroup.parent = parent }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetParent() types.Entity { return alertGroup.parent }
-
-func (alertGroup *CallHome_AlertGroups_AlertGroup) GetParentYangName() string { return "alert-groups" }
 
 // CallHome_DataPrivacies
 // Set call-home data-privacy
 type CallHome_DataPrivacies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // level hostname. The type is slice of CallHome_DataPrivacies_DataPrivacy.
     DataPrivacy []CallHome_DataPrivacies_DataPrivacy
 }
 
-func (dataPrivacies *CallHome_DataPrivacies) GetFilter() yfilter.YFilter { return dataPrivacies.YFilter }
+func (dataPrivacies *CallHome_DataPrivacies) GetEntityData() *types.CommonEntityData {
+    dataPrivacies.EntityData.YFilter = dataPrivacies.YFilter
+    dataPrivacies.EntityData.YangName = "data-privacies"
+    dataPrivacies.EntityData.BundleName = "cisco_ios_xr"
+    dataPrivacies.EntityData.ParentYangName = "call-home"
+    dataPrivacies.EntityData.SegmentPath = "data-privacies"
+    dataPrivacies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dataPrivacies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dataPrivacies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dataPrivacies *CallHome_DataPrivacies) SetFilter(yf yfilter.YFilter) { dataPrivacies.YFilter = yf }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetGoName(yname string) string {
-    if yname == "data-privacy" { return "DataPrivacy" }
-    return ""
-}
-
-func (dataPrivacies *CallHome_DataPrivacies) GetSegmentPath() string {
-    return "data-privacies"
-}
-
-func (dataPrivacies *CallHome_DataPrivacies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "data-privacy" {
-        for _, c := range dataPrivacies.DataPrivacy {
-            if dataPrivacies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_DataPrivacies_DataPrivacy{}
-        dataPrivacies.DataPrivacy = append(dataPrivacies.DataPrivacy, child)
-        return &dataPrivacies.DataPrivacy[len(dataPrivacies.DataPrivacy)-1]
-    }
-    return nil
-}
-
-func (dataPrivacies *CallHome_DataPrivacies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dataPrivacies.EntityData.Children = make(map[string]types.YChild)
+    dataPrivacies.EntityData.Children["data-privacy"] = types.YChild{"DataPrivacy", nil}
     for i := range dataPrivacies.DataPrivacy {
-        children[dataPrivacies.DataPrivacy[i].GetSegmentPath()] = &dataPrivacies.DataPrivacy[i]
+        dataPrivacies.EntityData.Children[types.GetSegmentPath(&dataPrivacies.DataPrivacy[i])] = types.YChild{"DataPrivacy", &dataPrivacies.DataPrivacy[i]}
     }
-    return children
+    dataPrivacies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dataPrivacies.EntityData)
 }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dataPrivacies *CallHome_DataPrivacies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetYangName() string { return "data-privacies" }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dataPrivacies *CallHome_DataPrivacies) SetParent(parent types.Entity) { dataPrivacies.parent = parent }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetParent() types.Entity { return dataPrivacies.parent }
-
-func (dataPrivacies *CallHome_DataPrivacies) GetParentYangName() string { return "call-home" }
 
 // CallHome_DataPrivacies_DataPrivacy
 // level hostname
 type CallHome_DataPrivacies_DataPrivacy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Data privacy type (hostname or level). The type is
@@ -2248,117 +1184,53 @@ type CallHome_DataPrivacies_DataPrivacy struct {
     Level interface{}
 }
 
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetFilter() yfilter.YFilter { return dataPrivacy.YFilter }
+func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetEntityData() *types.CommonEntityData {
+    dataPrivacy.EntityData.YFilter = dataPrivacy.YFilter
+    dataPrivacy.EntityData.YangName = "data-privacy"
+    dataPrivacy.EntityData.BundleName = "cisco_ios_xr"
+    dataPrivacy.EntityData.ParentYangName = "data-privacies"
+    dataPrivacy.EntityData.SegmentPath = "data-privacy" + "[host-name='" + fmt.Sprintf("%v", dataPrivacy.HostName) + "']"
+    dataPrivacy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dataPrivacy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dataPrivacy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) SetFilter(yf yfilter.YFilter) { dataPrivacy.YFilter = yf }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetGoName(yname string) string {
-    if yname == "host-name" { return "HostName" }
-    if yname == "level" { return "Level" }
-    return ""
+    dataPrivacy.EntityData.Children = make(map[string]types.YChild)
+    dataPrivacy.EntityData.Leafs = make(map[string]types.YLeaf)
+    dataPrivacy.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", dataPrivacy.HostName}
+    dataPrivacy.EntityData.Leafs["level"] = types.YLeaf{"Level", dataPrivacy.Level}
+    return &(dataPrivacy.EntityData)
 }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetSegmentPath() string {
-    return "data-privacy" + "[host-name='" + fmt.Sprintf("%v", dataPrivacy.HostName) + "']"
-}
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["host-name"] = dataPrivacy.HostName
-    leafs["level"] = dataPrivacy.Level
-    return leafs
-}
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetYangName() string { return "data-privacy" }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) SetParent(parent types.Entity) { dataPrivacy.parent = parent }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetParent() types.Entity { return dataPrivacy.parent }
-
-func (dataPrivacy *CallHome_DataPrivacies_DataPrivacy) GetParentYangName() string { return "data-privacies" }
 
 // CallHome_AlertGroupConfig
 // alert-group config
 type CallHome_AlertGroupConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // snapshot for adding CLI command.
     SnapshotCommands CallHome_AlertGroupConfig_SnapshotCommands
 }
 
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetFilter() yfilter.YFilter { return alertGroupConfig.YFilter }
+func (alertGroupConfig *CallHome_AlertGroupConfig) GetEntityData() *types.CommonEntityData {
+    alertGroupConfig.EntityData.YFilter = alertGroupConfig.YFilter
+    alertGroupConfig.EntityData.YangName = "alert-group-config"
+    alertGroupConfig.EntityData.BundleName = "cisco_ios_xr"
+    alertGroupConfig.EntityData.ParentYangName = "call-home"
+    alertGroupConfig.EntityData.SegmentPath = "alert-group-config"
+    alertGroupConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alertGroupConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alertGroupConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alertGroupConfig *CallHome_AlertGroupConfig) SetFilter(yf yfilter.YFilter) { alertGroupConfig.YFilter = yf }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetGoName(yname string) string {
-    if yname == "snapshot-commands" { return "SnapshotCommands" }
-    return ""
+    alertGroupConfig.EntityData.Children = make(map[string]types.YChild)
+    alertGroupConfig.EntityData.Children["snapshot-commands"] = types.YChild{"SnapshotCommands", &alertGroupConfig.SnapshotCommands}
+    alertGroupConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(alertGroupConfig.EntityData)
 }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetSegmentPath() string {
-    return "alert-group-config"
-}
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "snapshot-commands" {
-        return &alertGroupConfig.SnapshotCommands
-    }
-    return nil
-}
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["snapshot-commands"] = &alertGroupConfig.SnapshotCommands
-    return children
-}
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetYangName() string { return "alert-group-config" }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) SetParent(parent types.Entity) { alertGroupConfig.parent = parent }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetParent() types.Entity { return alertGroupConfig.parent }
-
-func (alertGroupConfig *CallHome_AlertGroupConfig) GetParentYangName() string { return "call-home" }
 
 // CallHome_AlertGroupConfig_SnapshotCommands
 // snapshot for adding CLI command
 type CallHome_AlertGroupConfig_SnapshotCommands struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A specific CLI cmd for snapshot. The type is slice of
@@ -2366,68 +1238,29 @@ type CallHome_AlertGroupConfig_SnapshotCommands struct {
     SnapshotCommand []CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand
 }
 
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetFilter() yfilter.YFilter { return snapshotCommands.YFilter }
+func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetEntityData() *types.CommonEntityData {
+    snapshotCommands.EntityData.YFilter = snapshotCommands.YFilter
+    snapshotCommands.EntityData.YangName = "snapshot-commands"
+    snapshotCommands.EntityData.BundleName = "cisco_ios_xr"
+    snapshotCommands.EntityData.ParentYangName = "alert-group-config"
+    snapshotCommands.EntityData.SegmentPath = "snapshot-commands"
+    snapshotCommands.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snapshotCommands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snapshotCommands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) SetFilter(yf yfilter.YFilter) { snapshotCommands.YFilter = yf }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetGoName(yname string) string {
-    if yname == "snapshot-command" { return "SnapshotCommand" }
-    return ""
-}
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetSegmentPath() string {
-    return "snapshot-commands"
-}
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "snapshot-command" {
-        for _, c := range snapshotCommands.SnapshotCommand {
-            if snapshotCommands.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand{}
-        snapshotCommands.SnapshotCommand = append(snapshotCommands.SnapshotCommand, child)
-        return &snapshotCommands.SnapshotCommand[len(snapshotCommands.SnapshotCommand)-1]
-    }
-    return nil
-}
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    snapshotCommands.EntityData.Children = make(map[string]types.YChild)
+    snapshotCommands.EntityData.Children["snapshot-command"] = types.YChild{"SnapshotCommand", nil}
     for i := range snapshotCommands.SnapshotCommand {
-        children[snapshotCommands.SnapshotCommand[i].GetSegmentPath()] = &snapshotCommands.SnapshotCommand[i]
+        snapshotCommands.EntityData.Children[types.GetSegmentPath(&snapshotCommands.SnapshotCommand[i])] = types.YChild{"SnapshotCommand", &snapshotCommands.SnapshotCommand[i]}
     }
-    return children
+    snapshotCommands.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(snapshotCommands.EntityData)
 }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetBundleName() string { return "cisco_ios_xr" }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetYangName() string { return "snapshot-commands" }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) SetParent(parent types.Entity) { snapshotCommands.parent = parent }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetParent() types.Entity { return snapshotCommands.parent }
-
-func (snapshotCommands *CallHome_AlertGroupConfig_SnapshotCommands) GetParentYangName() string { return "alert-group-config" }
 
 // CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand
 // A specific CLI cmd for snapshot
 type CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. new added command. The type is string with length:
@@ -2438,59 +1271,28 @@ type CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand struct {
     Active interface{}
 }
 
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetFilter() yfilter.YFilter { return snapshotCommand.YFilter }
+func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetEntityData() *types.CommonEntityData {
+    snapshotCommand.EntityData.YFilter = snapshotCommand.YFilter
+    snapshotCommand.EntityData.YangName = "snapshot-command"
+    snapshotCommand.EntityData.BundleName = "cisco_ios_xr"
+    snapshotCommand.EntityData.ParentYangName = "snapshot-commands"
+    snapshotCommand.EntityData.SegmentPath = "snapshot-command" + "[command='" + fmt.Sprintf("%v", snapshotCommand.Command) + "']"
+    snapshotCommand.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    snapshotCommand.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    snapshotCommand.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) SetFilter(yf yfilter.YFilter) { snapshotCommand.YFilter = yf }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetGoName(yname string) string {
-    if yname == "command" { return "Command" }
-    if yname == "active" { return "Active" }
-    return ""
+    snapshotCommand.EntityData.Children = make(map[string]types.YChild)
+    snapshotCommand.EntityData.Leafs = make(map[string]types.YLeaf)
+    snapshotCommand.EntityData.Leafs["command"] = types.YLeaf{"Command", snapshotCommand.Command}
+    snapshotCommand.EntityData.Leafs["active"] = types.YLeaf{"Active", snapshotCommand.Active}
+    return &(snapshotCommand.EntityData)
 }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetSegmentPath() string {
-    return "snapshot-command" + "[command='" + fmt.Sprintf("%v", snapshotCommand.Command) + "']"
-}
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["command"] = snapshotCommand.Command
-    leafs["active"] = snapshotCommand.Active
-    return leafs
-}
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetBundleName() string { return "cisco_ios_xr" }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetYangName() string { return "snapshot-command" }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) SetParent(parent types.Entity) { snapshotCommand.parent = parent }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetParent() types.Entity { return snapshotCommand.parent }
-
-func (snapshotCommand *CallHome_AlertGroupConfig_SnapshotCommands_SnapshotCommand) GetParentYangName() string { return "snapshot-commands" }
 
 // CallHome_Authorization
 // Config aaa authorization, default username is
 // callhome
 type CallHome_Authorization struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Username for authorization. default is callhome. The type is string with
@@ -2501,51 +1303,20 @@ type CallHome_Authorization struct {
     Active interface{}
 }
 
-func (authorization *CallHome_Authorization) GetFilter() yfilter.YFilter { return authorization.YFilter }
+func (authorization *CallHome_Authorization) GetEntityData() *types.CommonEntityData {
+    authorization.EntityData.YFilter = authorization.YFilter
+    authorization.EntityData.YangName = "authorization"
+    authorization.EntityData.BundleName = "cisco_ios_xr"
+    authorization.EntityData.ParentYangName = "call-home"
+    authorization.EntityData.SegmentPath = "authorization"
+    authorization.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authorization.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authorization.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authorization *CallHome_Authorization) SetFilter(yf yfilter.YFilter) { authorization.YFilter = yf }
-
-func (authorization *CallHome_Authorization) GetGoName(yname string) string {
-    if yname == "username" { return "Username" }
-    if yname == "active" { return "Active" }
-    return ""
+    authorization.EntityData.Children = make(map[string]types.YChild)
+    authorization.EntityData.Leafs = make(map[string]types.YLeaf)
+    authorization.EntityData.Leafs["username"] = types.YLeaf{"Username", authorization.Username}
+    authorization.EntityData.Leafs["active"] = types.YLeaf{"Active", authorization.Active}
+    return &(authorization.EntityData)
 }
-
-func (authorization *CallHome_Authorization) GetSegmentPath() string {
-    return "authorization"
-}
-
-func (authorization *CallHome_Authorization) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (authorization *CallHome_Authorization) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (authorization *CallHome_Authorization) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["username"] = authorization.Username
-    leafs["active"] = authorization.Active
-    return leafs
-}
-
-func (authorization *CallHome_Authorization) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authorization *CallHome_Authorization) GetYangName() string { return "authorization" }
-
-func (authorization *CallHome_Authorization) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authorization *CallHome_Authorization) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authorization *CallHome_Authorization) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authorization *CallHome_Authorization) SetParent(parent types.Entity) { authorization.parent = parent }
-
-func (authorization *CallHome_Authorization) GetParent() types.Entity { return authorization.parent }
-
-func (authorization *CallHome_Authorization) GetParentYangName() string { return "call-home" }
 

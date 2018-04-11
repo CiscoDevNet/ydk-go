@@ -50,17 +50,6 @@ const (
     EntitySensorDataType_truthvalue EntitySensorDataType = "truthvalue"
 )
 
-// EntitySensorStatus represents of-range, jittery, or wildly fluctuating readings.
-type EntitySensorStatus string
-
-const (
-    EntitySensorStatus_ok EntitySensorStatus = "ok"
-
-    EntitySensorStatus_unavailable EntitySensorStatus = "unavailable"
-
-    EntitySensorStatus_nonoperational EntitySensorStatus = "nonoperational"
-)
-
 // EntitySensorDataScale represents object of type EntitySensorValue.
 type EntitySensorDataScale string
 
@@ -100,9 +89,20 @@ const (
     EntitySensorDataScale_yotta EntitySensorDataScale = "yotta"
 )
 
+// EntitySensorStatus represents of-range, jittery, or wildly fluctuating readings.
+type EntitySensorStatus string
+
+const (
+    EntitySensorStatus_ok EntitySensorStatus = "ok"
+
+    EntitySensorStatus_unavailable EntitySensorStatus = "unavailable"
+
+    EntitySensorStatus_nonoperational EntitySensorStatus = "nonoperational"
+)
+
 // ENTITYSENSORMIB
 type ENTITYSENSORMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains one row per physical sensor represented by an
@@ -110,60 +110,27 @@ type ENTITYSENSORMIB struct {
     Entphysensortable ENTITYSENSORMIB_Entphysensortable
 }
 
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetFilter() yfilter.YFilter { return eNTITYSENSORMIB.YFilter }
+func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetEntityData() *types.CommonEntityData {
+    eNTITYSENSORMIB.EntityData.YFilter = eNTITYSENSORMIB.YFilter
+    eNTITYSENSORMIB.EntityData.YangName = "ENTITY-SENSOR-MIB"
+    eNTITYSENSORMIB.EntityData.BundleName = "cisco_ios_xe"
+    eNTITYSENSORMIB.EntityData.ParentYangName = "ENTITY-SENSOR-MIB"
+    eNTITYSENSORMIB.EntityData.SegmentPath = "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB"
+    eNTITYSENSORMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    eNTITYSENSORMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    eNTITYSENSORMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) SetFilter(yf yfilter.YFilter) { eNTITYSENSORMIB.YFilter = yf }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetGoName(yname string) string {
-    if yname == "entPhySensorTable" { return "Entphysensortable" }
-    return ""
+    eNTITYSENSORMIB.EntityData.Children = make(map[string]types.YChild)
+    eNTITYSENSORMIB.EntityData.Children["entPhySensorTable"] = types.YChild{"Entphysensortable", &eNTITYSENSORMIB.Entphysensortable}
+    eNTITYSENSORMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(eNTITYSENSORMIB.EntityData)
 }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetSegmentPath() string {
-    return "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB"
-}
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entPhySensorTable" {
-        return &eNTITYSENSORMIB.Entphysensortable
-    }
-    return nil
-}
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["entPhySensorTable"] = &eNTITYSENSORMIB.Entphysensortable
-    return children
-}
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetYangName() string { return "ENTITY-SENSOR-MIB" }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) SetParent(parent types.Entity) { eNTITYSENSORMIB.parent = parent }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetParent() types.Entity { return eNTITYSENSORMIB.parent }
-
-func (eNTITYSENSORMIB *ENTITYSENSORMIB) GetParentYangName() string { return "ENTITY-SENSOR-MIB" }
 
 // ENTITYSENSORMIB_Entphysensortable
 // This table contains one row per physical sensor represented
 // by an associated row in the entPhysicalTable.
 type ENTITYSENSORMIB_Entphysensortable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular physical sensor.  An entry in this table
@@ -176,63 +143,24 @@ type ENTITYSENSORMIB_Entphysensortable struct {
     Entphysensorentry []ENTITYSENSORMIB_Entphysensortable_Entphysensorentry
 }
 
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetFilter() yfilter.YFilter { return entphysensortable.YFilter }
+func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetEntityData() *types.CommonEntityData {
+    entphysensortable.EntityData.YFilter = entphysensortable.YFilter
+    entphysensortable.EntityData.YangName = "entPhySensorTable"
+    entphysensortable.EntityData.BundleName = "cisco_ios_xe"
+    entphysensortable.EntityData.ParentYangName = "ENTITY-SENSOR-MIB"
+    entphysensortable.EntityData.SegmentPath = "entPhySensorTable"
+    entphysensortable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entphysensortable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entphysensortable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) SetFilter(yf yfilter.YFilter) { entphysensortable.YFilter = yf }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetGoName(yname string) string {
-    if yname == "entPhySensorEntry" { return "Entphysensorentry" }
-    return ""
-}
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetSegmentPath() string {
-    return "entPhySensorTable"
-}
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entPhySensorEntry" {
-        for _, c := range entphysensortable.Entphysensorentry {
-            if entphysensortable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ENTITYSENSORMIB_Entphysensortable_Entphysensorentry{}
-        entphysensortable.Entphysensorentry = append(entphysensortable.Entphysensorentry, child)
-        return &entphysensortable.Entphysensorentry[len(entphysensortable.Entphysensorentry)-1]
-    }
-    return nil
-}
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    entphysensortable.EntityData.Children = make(map[string]types.YChild)
+    entphysensortable.EntityData.Children["entPhySensorEntry"] = types.YChild{"Entphysensorentry", nil}
     for i := range entphysensortable.Entphysensorentry {
-        children[entphysensortable.Entphysensorentry[i].GetSegmentPath()] = &entphysensortable.Entphysensorentry[i]
+        entphysensortable.EntityData.Children[types.GetSegmentPath(&entphysensortable.Entphysensorentry[i])] = types.YChild{"Entphysensorentry", &entphysensortable.Entphysensorentry[i]}
     }
-    return children
+    entphysensortable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(entphysensortable.EntityData)
 }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetYangName() string { return "entPhySensorTable" }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) SetParent(parent types.Entity) { entphysensortable.parent = parent }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetParent() types.Entity { return entphysensortable.parent }
-
-func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetParentYangName() string { return "ENTITY-SENSOR-MIB" }
 
 // ENTITYSENSORMIB_Entphysensortable_Entphysensorentry
 // Information about a particular physical sensor.
@@ -246,7 +174,7 @@ func (entphysensortable *ENTITYSENSORMIB_Entphysensortable) GetParentYangName() 
 // as the associated entPhysicalEntry.  An entry SHOULD be
 // destroyed if the associated entPhysicalEntry is destroyed.
 type ENTITYSENSORMIB_Entphysensortable_Entphysensorentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -303,65 +231,27 @@ type ENTITYSENSORMIB_Entphysensortable_Entphysensorentry struct {
     Entphysensorvalueupdaterate interface{}
 }
 
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetFilter() yfilter.YFilter { return entphysensorentry.YFilter }
+func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetEntityData() *types.CommonEntityData {
+    entphysensorentry.EntityData.YFilter = entphysensorentry.YFilter
+    entphysensorentry.EntityData.YangName = "entPhySensorEntry"
+    entphysensorentry.EntityData.BundleName = "cisco_ios_xe"
+    entphysensorentry.EntityData.ParentYangName = "entPhySensorTable"
+    entphysensorentry.EntityData.SegmentPath = "entPhySensorEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entphysensorentry.Entphysicalindex) + "']"
+    entphysensorentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    entphysensorentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    entphysensorentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) SetFilter(yf yfilter.YFilter) { entphysensorentry.YFilter = yf }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "entPhySensorType" { return "Entphysensortype" }
-    if yname == "entPhySensorScale" { return "Entphysensorscale" }
-    if yname == "entPhySensorPrecision" { return "Entphysensorprecision" }
-    if yname == "entPhySensorValue" { return "Entphysensorvalue" }
-    if yname == "entPhySensorOperStatus" { return "Entphysensoroperstatus" }
-    if yname == "entPhySensorUnitsDisplay" { return "Entphysensorunitsdisplay" }
-    if yname == "entPhySensorValueTimeStamp" { return "Entphysensorvaluetimestamp" }
-    if yname == "entPhySensorValueUpdateRate" { return "Entphysensorvalueupdaterate" }
-    return ""
+    entphysensorentry.EntityData.Children = make(map[string]types.YChild)
+    entphysensorentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    entphysensorentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", entphysensorentry.Entphysicalindex}
+    entphysensorentry.EntityData.Leafs["entPhySensorType"] = types.YLeaf{"Entphysensortype", entphysensorentry.Entphysensortype}
+    entphysensorentry.EntityData.Leafs["entPhySensorScale"] = types.YLeaf{"Entphysensorscale", entphysensorentry.Entphysensorscale}
+    entphysensorentry.EntityData.Leafs["entPhySensorPrecision"] = types.YLeaf{"Entphysensorprecision", entphysensorentry.Entphysensorprecision}
+    entphysensorentry.EntityData.Leafs["entPhySensorValue"] = types.YLeaf{"Entphysensorvalue", entphysensorentry.Entphysensorvalue}
+    entphysensorentry.EntityData.Leafs["entPhySensorOperStatus"] = types.YLeaf{"Entphysensoroperstatus", entphysensorentry.Entphysensoroperstatus}
+    entphysensorentry.EntityData.Leafs["entPhySensorUnitsDisplay"] = types.YLeaf{"Entphysensorunitsdisplay", entphysensorentry.Entphysensorunitsdisplay}
+    entphysensorentry.EntityData.Leafs["entPhySensorValueTimeStamp"] = types.YLeaf{"Entphysensorvaluetimestamp", entphysensorentry.Entphysensorvaluetimestamp}
+    entphysensorentry.EntityData.Leafs["entPhySensorValueUpdateRate"] = types.YLeaf{"Entphysensorvalueupdaterate", entphysensorentry.Entphysensorvalueupdaterate}
+    return &(entphysensorentry.EntityData)
 }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetSegmentPath() string {
-    return "entPhySensorEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", entphysensorentry.Entphysicalindex) + "']"
-}
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = entphysensorentry.Entphysicalindex
-    leafs["entPhySensorType"] = entphysensorentry.Entphysensortype
-    leafs["entPhySensorScale"] = entphysensorentry.Entphysensorscale
-    leafs["entPhySensorPrecision"] = entphysensorentry.Entphysensorprecision
-    leafs["entPhySensorValue"] = entphysensorentry.Entphysensorvalue
-    leafs["entPhySensorOperStatus"] = entphysensorentry.Entphysensoroperstatus
-    leafs["entPhySensorUnitsDisplay"] = entphysensorentry.Entphysensorunitsdisplay
-    leafs["entPhySensorValueTimeStamp"] = entphysensorentry.Entphysensorvaluetimestamp
-    leafs["entPhySensorValueUpdateRate"] = entphysensorentry.Entphysensorvalueupdaterate
-    return leafs
-}
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetYangName() string { return "entPhySensorEntry" }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) SetParent(parent types.Entity) { entphysensorentry.parent = parent }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetParent() types.Entity { return entphysensorentry.parent }
-
-func (entphysensorentry *ENTITYSENSORMIB_Entphysensortable_Entphysensorentry) GetParentYangName() string { return "entPhySensorTable" }
 

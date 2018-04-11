@@ -12,25 +12,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_routing_ext"))
 }
 
-type Bgp struct {
+type Rip struct {
 }
 
-func (id Bgp) String() string {
-	return "cisco-routing-ext:bgp"
-}
-
-type Mobile struct {
-}
-
-func (id Mobile) String() string {
-	return "cisco-routing-ext:mobile"
-}
-
-type Eigrp struct {
-}
-
-func (id Eigrp) String() string {
-	return "cisco-routing-ext:eigrp"
+func (id Rip) String() string {
+	return "cisco-routing-ext:rip"
 }
 
 type IsIs struct {
@@ -40,10 +26,24 @@ func (id IsIs) String() string {
 	return "cisco-routing-ext:is-is"
 }
 
-type Rip struct {
+type Bgp struct {
 }
 
-func (id Rip) String() string {
-	return "cisco-routing-ext:rip"
+func (id Bgp) String() string {
+	return "cisco-routing-ext:bgp"
+}
+
+type Eigrp struct {
+}
+
+func (id Eigrp) String() string {
+	return "cisco-routing-ext:eigrp"
+}
+
+type Mobile struct {
+}
+
+func (id Mobile) String() string {
+	return "cisco-routing-ext:mobile"
 }
 

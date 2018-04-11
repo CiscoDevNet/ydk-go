@@ -30,48 +30,6 @@ func init() {
     ydk.RegisterEntity("cisco-pw:pseudowire-state", reflect.TypeOf(PseudowireState{}))
 }
 
-type PwVcTypeEther struct {
-}
-
-func (id PwVcTypeEther) String() string {
-	return "cisco-pw:pw-vc-type-ether"
-}
-
-type PwLbEthSrcDstMac struct {
-}
-
-func (id PwLbEthSrcDstMac) String() string {
-	return "cisco-pw:pw-lb-eth-src-dst-mac"
-}
-
-type PwSignalingProtocolType struct {
-}
-
-func (id PwSignalingProtocolType) String() string {
-	return "cisco-pw:pw-signaling-protocol-type"
-}
-
-type PwLoadBalanceType struct {
-}
-
-func (id PwLoadBalanceType) String() string {
-	return "cisco-pw:pw-load-balance-type"
-}
-
-type PwSequencingTransmit struct {
-}
-
-func (id PwSequencingTransmit) String() string {
-	return "cisco-pw:pw-sequencing-transmit"
-}
-
-type PwVcTypeVlanPassthrough struct {
-}
-
-func (id PwVcTypeVlanPassthrough) String() string {
-	return "cisco-pw:pw-vc-type-vlan-passthrough"
-}
-
 type PwEncapsulationType struct {
 }
 
@@ -93,11 +51,74 @@ func (id PwVcType) String() string {
 	return "cisco-pw:pw-vc-type"
 }
 
+type PwVcTypeEther struct {
+}
+
+func (id PwVcTypeEther) String() string {
+	return "cisco-pw:pw-vc-type-ether"
+}
+
+type PwVcTypeVlan struct {
+}
+
+func (id PwVcTypeVlan) String() string {
+	return "cisco-pw:pw-vc-type-vlan"
+}
+
+type PwVcTypeVlanPassthrough struct {
+}
+
+func (id PwVcTypeVlanPassthrough) String() string {
+	return "cisco-pw:pw-vc-type-vlan-passthrough"
+}
+
+type PwLoadBalanceType struct {
+}
+
+func (id PwLoadBalanceType) String() string {
+	return "cisco-pw:pw-load-balance-type"
+}
+
+type PwLbEthernetType struct {
+}
+
+func (id PwLbEthernetType) String() string {
+	return "cisco-pw:pw-lb-ethernet-type"
+}
+
+type PwLbEthSrcMac struct {
+}
+
+func (id PwLbEthSrcMac) String() string {
+	return "cisco-pw:pw-lb-eth-src-mac"
+}
+
 type PwLbEthDstMac struct {
 }
 
 func (id PwLbEthDstMac) String() string {
 	return "cisco-pw:pw-lb-eth-dst-mac"
+}
+
+type PwLbEthSrcDstMac struct {
+}
+
+func (id PwLbEthSrcDstMac) String() string {
+	return "cisco-pw:pw-lb-eth-src-dst-mac"
+}
+
+type PwLbIpType struct {
+}
+
+func (id PwLbIpType) String() string {
+	return "cisco-pw:pw-lb-ip-type"
+}
+
+type PwLbIpSrcIp struct {
+}
+
+func (id PwLbIpSrcIp) String() string {
+	return "cisco-pw:pw-lb-ip-src-ip"
 }
 
 type PwLbIpDstIp struct {
@@ -114,60 +135,11 @@ func (id PwLbIpSrcDstIp) String() string {
 	return "cisco-pw:pw-lb-ip-src-dst-ip"
 }
 
-type PwSequencingReceive struct {
+type PwSignalingProtocolType struct {
 }
 
-func (id PwSequencingReceive) String() string {
-	return "cisco-pw:pw-sequencing-receive"
-}
-
-type PwLbEthSrcMac struct {
-}
-
-func (id PwLbEthSrcMac) String() string {
-	return "cisco-pw:pw-lb-eth-src-mac"
-}
-
-type PwLbEthernetType struct {
-}
-
-func (id PwLbEthernetType) String() string {
-	return "cisco-pw:pw-lb-ethernet-type"
-}
-
-type PwSequencingType struct {
-}
-
-func (id PwSequencingType) String() string {
-	return "cisco-pw:pw-sequencing-type"
-}
-
-type PwSignalingProtocolLdp struct {
-}
-
-func (id PwSignalingProtocolLdp) String() string {
-	return "cisco-pw:pw-signaling-protocol-ldp"
-}
-
-type PwSequencingBoth struct {
-}
-
-func (id PwSequencingBoth) String() string {
-	return "cisco-pw:pw-sequencing-both"
-}
-
-type PwVcTypeVlan struct {
-}
-
-func (id PwVcTypeVlan) String() string {
-	return "cisco-pw:pw-vc-type-vlan"
-}
-
-type PwLbIpType struct {
-}
-
-func (id PwLbIpType) String() string {
-	return "cisco-pw:pw-lb-ip-type"
+func (id PwSignalingProtocolType) String() string {
+	return "cisco-pw:pw-signaling-protocol-type"
 }
 
 type PwSignalingProtocolNone struct {
@@ -177,6 +149,13 @@ func (id PwSignalingProtocolNone) String() string {
 	return "cisco-pw:pw-signaling-protocol-none"
 }
 
+type PwSignalingProtocolLdp struct {
+}
+
+func (id PwSignalingProtocolLdp) String() string {
+	return "cisco-pw:pw-signaling-protocol-ldp"
+}
+
 type PwSignalingProtocolBgp struct {
 }
 
@@ -184,11 +163,32 @@ func (id PwSignalingProtocolBgp) String() string {
 	return "cisco-pw:pw-signaling-protocol-bgp"
 }
 
-type PwLbIpSrcIp struct {
+type PwSequencingType struct {
 }
 
-func (id PwLbIpSrcIp) String() string {
-	return "cisco-pw:pw-lb-ip-src-ip"
+func (id PwSequencingType) String() string {
+	return "cisco-pw:pw-sequencing-type"
+}
+
+type PwSequencingReceive struct {
+}
+
+func (id PwSequencingReceive) String() string {
+	return "cisco-pw:pw-sequencing-receive"
+}
+
+type PwSequencingTransmit struct {
+}
+
+func (id PwSequencingTransmit) String() string {
+	return "cisco-pw:pw-sequencing-transmit"
+}
+
+type PwSequencingBoth struct {
+}
+
+func (id PwSequencingBoth) String() string {
+	return "cisco-pw:pw-sequencing-both"
 }
 
 // PwOperStateType represents Indicates the operational status of the PW VC
@@ -244,7 +244,7 @@ const (
 // PseudowireConfig
 // Pseudowire configuration data.
 type PseudowireConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Global configurations related to pseudowires.
@@ -258,69 +258,28 @@ type PseudowireConfig struct {
     PwStaticOamClasses PseudowireConfig_PwStaticOamClasses
 }
 
-func (pseudowireConfig *PseudowireConfig) GetFilter() yfilter.YFilter { return pseudowireConfig.YFilter }
+func (pseudowireConfig *PseudowireConfig) GetEntityData() *types.CommonEntityData {
+    pseudowireConfig.EntityData.YFilter = pseudowireConfig.YFilter
+    pseudowireConfig.EntityData.YangName = "pseudowire-config"
+    pseudowireConfig.EntityData.BundleName = "cisco_ios_xe"
+    pseudowireConfig.EntityData.ParentYangName = "cisco-pw"
+    pseudowireConfig.EntityData.SegmentPath = "cisco-pw:pseudowire-config"
+    pseudowireConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pseudowireConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pseudowireConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pseudowireConfig *PseudowireConfig) SetFilter(yf yfilter.YFilter) { pseudowireConfig.YFilter = yf }
-
-func (pseudowireConfig *PseudowireConfig) GetGoName(yname string) string {
-    if yname == "global" { return "Global" }
-    if yname == "pw-templates" { return "PwTemplates" }
-    if yname == "pw-static-oam-classes" { return "PwStaticOamClasses" }
-    return ""
+    pseudowireConfig.EntityData.Children = make(map[string]types.YChild)
+    pseudowireConfig.EntityData.Children["global"] = types.YChild{"Global", &pseudowireConfig.Global}
+    pseudowireConfig.EntityData.Children["pw-templates"] = types.YChild{"PwTemplates", &pseudowireConfig.PwTemplates}
+    pseudowireConfig.EntityData.Children["pw-static-oam-classes"] = types.YChild{"PwStaticOamClasses", &pseudowireConfig.PwStaticOamClasses}
+    pseudowireConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pseudowireConfig.EntityData)
 }
-
-func (pseudowireConfig *PseudowireConfig) GetSegmentPath() string {
-    return "cisco-pw:pseudowire-config"
-}
-
-func (pseudowireConfig *PseudowireConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "global" {
-        return &pseudowireConfig.Global
-    }
-    if childYangName == "pw-templates" {
-        return &pseudowireConfig.PwTemplates
-    }
-    if childYangName == "pw-static-oam-classes" {
-        return &pseudowireConfig.PwStaticOamClasses
-    }
-    return nil
-}
-
-func (pseudowireConfig *PseudowireConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["global"] = &pseudowireConfig.Global
-    children["pw-templates"] = &pseudowireConfig.PwTemplates
-    children["pw-static-oam-classes"] = &pseudowireConfig.PwStaticOamClasses
-    return children
-}
-
-func (pseudowireConfig *PseudowireConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pseudowireConfig *PseudowireConfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pseudowireConfig *PseudowireConfig) GetYangName() string { return "pseudowire-config" }
-
-func (pseudowireConfig *PseudowireConfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pseudowireConfig *PseudowireConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pseudowireConfig *PseudowireConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pseudowireConfig *PseudowireConfig) SetParent(parent types.Entity) { pseudowireConfig.parent = parent }
-
-func (pseudowireConfig *PseudowireConfig) GetParent() types.Entity { return pseudowireConfig.parent }
-
-func (pseudowireConfig *PseudowireConfig) GetParentYangName() string { return "cisco-pw" }
 
 // PseudowireConfig_Global
 // Global configurations related to pseudowires.
 type PseudowireConfig_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable pw-grouping.  When pseudowires (PW) are established, each PW is
@@ -360,69 +319,33 @@ type PseudowireConfig_Global struct {
     VcStateNotificationRate interface{}
 }
 
-func (global *PseudowireConfig_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *PseudowireConfig_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xe"
+    global.EntityData.ParentYangName = "pseudowire-config"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (global *PseudowireConfig_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *PseudowireConfig_Global) GetGoName(yname string) string {
-    if yname == "pw-grouping" { return "PwGrouping" }
-    if yname == "pw-oam-refresh-transmit" { return "PwOamRefreshTransmit" }
-    if yname == "pw-status" { return "PwStatus" }
-    if yname == "predictive-redundancy" { return "PredictiveRedundancy" }
-    if yname == "vc-state-notification-enabled" { return "VcStateNotificationEnabled" }
-    if yname == "vc-state-notification-batch-size" { return "VcStateNotificationBatchSize" }
-    if yname == "vc-state-notification-rate" { return "VcStateNotificationRate" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Leafs["pw-grouping"] = types.YLeaf{"PwGrouping", global.PwGrouping}
+    global.EntityData.Leafs["pw-oam-refresh-transmit"] = types.YLeaf{"PwOamRefreshTransmit", global.PwOamRefreshTransmit}
+    global.EntityData.Leafs["pw-status"] = types.YLeaf{"PwStatus", global.PwStatus}
+    global.EntityData.Leafs["predictive-redundancy"] = types.YLeaf{"PredictiveRedundancy", global.PredictiveRedundancy}
+    global.EntityData.Leafs["vc-state-notification-enabled"] = types.YLeaf{"VcStateNotificationEnabled", global.VcStateNotificationEnabled}
+    global.EntityData.Leafs["vc-state-notification-batch-size"] = types.YLeaf{"VcStateNotificationBatchSize", global.VcStateNotificationBatchSize}
+    global.EntityData.Leafs["vc-state-notification-rate"] = types.YLeaf{"VcStateNotificationRate", global.VcStateNotificationRate}
+    return &(global.EntityData)
 }
-
-func (global *PseudowireConfig_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *PseudowireConfig_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (global *PseudowireConfig_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (global *PseudowireConfig_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pw-grouping"] = global.PwGrouping
-    leafs["pw-oam-refresh-transmit"] = global.PwOamRefreshTransmit
-    leafs["pw-status"] = global.PwStatus
-    leafs["predictive-redundancy"] = global.PredictiveRedundancy
-    leafs["vc-state-notification-enabled"] = global.VcStateNotificationEnabled
-    leafs["vc-state-notification-batch-size"] = global.VcStateNotificationBatchSize
-    leafs["vc-state-notification-rate"] = global.VcStateNotificationRate
-    return leafs
-}
-
-func (global *PseudowireConfig_Global) GetBundleName() string { return "cisco_ios_xe" }
-
-func (global *PseudowireConfig_Global) GetYangName() string { return "global" }
-
-func (global *PseudowireConfig_Global) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (global *PseudowireConfig_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (global *PseudowireConfig_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (global *PseudowireConfig_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *PseudowireConfig_Global) GetParent() types.Entity { return global.parent }
-
-func (global *PseudowireConfig_Global) GetParentYangName() string { return "pseudowire-config" }
 
 // PseudowireConfig_PwTemplates
 // Contains list of all pw-template definitions.
 // Also called PW Class (XR) and Port Profile (NX-OS)
 type PseudowireConfig_PwTemplates struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pseudowire template list. The type is slice of
@@ -430,68 +353,29 @@ type PseudowireConfig_PwTemplates struct {
     PwTemplate []PseudowireConfig_PwTemplates_PwTemplate
 }
 
-func (pwTemplates *PseudowireConfig_PwTemplates) GetFilter() yfilter.YFilter { return pwTemplates.YFilter }
+func (pwTemplates *PseudowireConfig_PwTemplates) GetEntityData() *types.CommonEntityData {
+    pwTemplates.EntityData.YFilter = pwTemplates.YFilter
+    pwTemplates.EntityData.YangName = "pw-templates"
+    pwTemplates.EntityData.BundleName = "cisco_ios_xe"
+    pwTemplates.EntityData.ParentYangName = "pseudowire-config"
+    pwTemplates.EntityData.SegmentPath = "pw-templates"
+    pwTemplates.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pwTemplates.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pwTemplates.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pwTemplates *PseudowireConfig_PwTemplates) SetFilter(yf yfilter.YFilter) { pwTemplates.YFilter = yf }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetGoName(yname string) string {
-    if yname == "pw-template" { return "PwTemplate" }
-    return ""
-}
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetSegmentPath() string {
-    return "pw-templates"
-}
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pw-template" {
-        for _, c := range pwTemplates.PwTemplate {
-            if pwTemplates.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PseudowireConfig_PwTemplates_PwTemplate{}
-        pwTemplates.PwTemplate = append(pwTemplates.PwTemplate, child)
-        return &pwTemplates.PwTemplate[len(pwTemplates.PwTemplate)-1]
-    }
-    return nil
-}
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pwTemplates.EntityData.Children = make(map[string]types.YChild)
+    pwTemplates.EntityData.Children["pw-template"] = types.YChild{"PwTemplate", nil}
     for i := range pwTemplates.PwTemplate {
-        children[pwTemplates.PwTemplate[i].GetSegmentPath()] = &pwTemplates.PwTemplate[i]
+        pwTemplates.EntityData.Children[types.GetSegmentPath(&pwTemplates.PwTemplate[i])] = types.YChild{"PwTemplate", &pwTemplates.PwTemplate[i]}
     }
-    return children
+    pwTemplates.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pwTemplates.EntityData)
 }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetYangName() string { return "pw-templates" }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) SetParent(parent types.Entity) { pwTemplates.parent = parent }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetParent() types.Entity { return pwTemplates.parent }
-
-func (pwTemplates *PseudowireConfig_PwTemplates) GetParentYangName() string { return "pseudowire-config" }
 
 // PseudowireConfig_PwTemplates_PwTemplate
 // Pseudowire template list.
 type PseudowireConfig_PwTemplates_PwTemplate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. PW Template name. The type is string.
@@ -504,18 +388,18 @@ type PseudowireConfig_PwTemplates_PwTemplate struct {
     ControlWord interface{}
 
     // Signaling protocol to use. The type is one of the following:
-    // PwSignalingProtocolLdpPwSignalingProtocolNonePwSignalingProtocolBgp.
+    // PwSignalingProtocolNonePwSignalingProtocolLdpPwSignalingProtocolBgp.
     SignalingProtocol interface{}
 
     // Type of VC in the PW. The type is one of the following:
-    // PwVcTypeEtherPwVcTypeVlanPassthroughPwVcTypeVlan.
+    // PwVcTypeEtherPwVcTypeVlanPwVcTypeVlanPassthrough.
     VcType interface{}
 
     // Send switching TLV. The type is bool.
     SwitchingTlv interface{}
 
     // The local source IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceIp interface{}
 
     // Configure ingress tag rewrite vlan. The type is interface{} with range:
@@ -549,116 +433,50 @@ type PseudowireConfig_PwTemplates_PwTemplate struct {
     PortProfileSpec PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec
 }
 
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetFilter() yfilter.YFilter { return pwTemplate.YFilter }
+func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetEntityData() *types.CommonEntityData {
+    pwTemplate.EntityData.YFilter = pwTemplate.YFilter
+    pwTemplate.EntityData.YangName = "pw-template"
+    pwTemplate.EntityData.BundleName = "cisco_ios_xe"
+    pwTemplate.EntityData.ParentYangName = "pw-templates"
+    pwTemplate.EntityData.SegmentPath = "pw-template" + "[name='" + fmt.Sprintf("%v", pwTemplate.Name) + "']"
+    pwTemplate.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pwTemplate.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pwTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) SetFilter(yf yfilter.YFilter) { pwTemplate.YFilter = yf }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "control-word" { return "ControlWord" }
-    if yname == "signaling-protocol" { return "SignalingProtocol" }
-    if yname == "vc-type" { return "VcType" }
-    if yname == "switching-tlv" { return "SwitchingTlv" }
-    if yname == "source-ip" { return "SourceIp" }
-    if yname == "tag-rewrite-ingress-vlan" { return "TagRewriteIngressVlan" }
-    if yname == "mac-withdraw" { return "MacWithdraw" }
-    if yname == "load-balance" { return "LoadBalance" }
-    if yname == "preferred-path" { return "PreferredPath" }
-    if yname == "sequencing" { return "Sequencing" }
-    if yname == "vccv" { return "Vccv" }
-    if yname == "switchover-delay" { return "SwitchoverDelay" }
-    if yname == "status" { return "Status" }
-    if yname == "port-profile-spec" { return "PortProfileSpec" }
-    return ""
+    pwTemplate.EntityData.Children = make(map[string]types.YChild)
+    pwTemplate.EntityData.Children["load-balance"] = types.YChild{"LoadBalance", &pwTemplate.LoadBalance}
+    pwTemplate.EntityData.Children["preferred-path"] = types.YChild{"PreferredPath", &pwTemplate.PreferredPath}
+    pwTemplate.EntityData.Children["sequencing"] = types.YChild{"Sequencing", &pwTemplate.Sequencing}
+    pwTemplate.EntityData.Children["vccv"] = types.YChild{"Vccv", &pwTemplate.Vccv}
+    pwTemplate.EntityData.Children["switchover-delay"] = types.YChild{"SwitchoverDelay", &pwTemplate.SwitchoverDelay}
+    pwTemplate.EntityData.Children["status"] = types.YChild{"Status", &pwTemplate.Status}
+    pwTemplate.EntityData.Children["port-profile-spec"] = types.YChild{"PortProfileSpec", &pwTemplate.PortProfileSpec}
+    pwTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
+    pwTemplate.EntityData.Leafs["name"] = types.YLeaf{"Name", pwTemplate.Name}
+    pwTemplate.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", pwTemplate.Encapsulation}
+    pwTemplate.EntityData.Leafs["control-word"] = types.YLeaf{"ControlWord", pwTemplate.ControlWord}
+    pwTemplate.EntityData.Leafs["signaling-protocol"] = types.YLeaf{"SignalingProtocol", pwTemplate.SignalingProtocol}
+    pwTemplate.EntityData.Leafs["vc-type"] = types.YLeaf{"VcType", pwTemplate.VcType}
+    pwTemplate.EntityData.Leafs["switching-tlv"] = types.YLeaf{"SwitchingTlv", pwTemplate.SwitchingTlv}
+    pwTemplate.EntityData.Leafs["source-ip"] = types.YLeaf{"SourceIp", pwTemplate.SourceIp}
+    pwTemplate.EntityData.Leafs["tag-rewrite-ingress-vlan"] = types.YLeaf{"TagRewriteIngressVlan", pwTemplate.TagRewriteIngressVlan}
+    pwTemplate.EntityData.Leafs["mac-withdraw"] = types.YLeaf{"MacWithdraw", pwTemplate.MacWithdraw}
+    return &(pwTemplate.EntityData)
 }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetSegmentPath() string {
-    return "pw-template" + "[name='" + fmt.Sprintf("%v", pwTemplate.Name) + "']"
-}
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "load-balance" {
-        return &pwTemplate.LoadBalance
-    }
-    if childYangName == "preferred-path" {
-        return &pwTemplate.PreferredPath
-    }
-    if childYangName == "sequencing" {
-        return &pwTemplate.Sequencing
-    }
-    if childYangName == "vccv" {
-        return &pwTemplate.Vccv
-    }
-    if childYangName == "switchover-delay" {
-        return &pwTemplate.SwitchoverDelay
-    }
-    if childYangName == "status" {
-        return &pwTemplate.Status
-    }
-    if childYangName == "port-profile-spec" {
-        return &pwTemplate.PortProfileSpec
-    }
-    return nil
-}
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["load-balance"] = &pwTemplate.LoadBalance
-    children["preferred-path"] = &pwTemplate.PreferredPath
-    children["sequencing"] = &pwTemplate.Sequencing
-    children["vccv"] = &pwTemplate.Vccv
-    children["switchover-delay"] = &pwTemplate.SwitchoverDelay
-    children["status"] = &pwTemplate.Status
-    children["port-profile-spec"] = &pwTemplate.PortProfileSpec
-    return children
-}
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = pwTemplate.Name
-    leafs["encapsulation"] = pwTemplate.Encapsulation
-    leafs["control-word"] = pwTemplate.ControlWord
-    leafs["signaling-protocol"] = pwTemplate.SignalingProtocol
-    leafs["vc-type"] = pwTemplate.VcType
-    leafs["switching-tlv"] = pwTemplate.SwitchingTlv
-    leafs["source-ip"] = pwTemplate.SourceIp
-    leafs["tag-rewrite-ingress-vlan"] = pwTemplate.TagRewriteIngressVlan
-    leafs["mac-withdraw"] = pwTemplate.MacWithdraw
-    return leafs
-}
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetYangName() string { return "pw-template" }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) SetParent(parent types.Entity) { pwTemplate.parent = parent }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetParent() types.Entity { return pwTemplate.parent }
-
-func (pwTemplate *PseudowireConfig_PwTemplates_PwTemplate) GetParentYangName() string { return "pw-templates" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_LoadBalance
 // Load balancing mechanism.
 type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ethernet mac address based load balancing. The type is one of the
-    // following: PwLbEthSrcDstMacPwLbEthDstMacPwLbEthSrcMac. The default value is
+    // following: PwLbEthSrcMacPwLbEthDstMacPwLbEthSrcDstMac. The default value is
     // pw-lb-eth-src-dst-mac.
     Ethernet interface{}
 
     // IP address based load balancing. The type is one of the following:
-    // PwLbIpSrcDstIpPwLbIpSrcIp.
+    // PwLbIpSrcIpPwLbIpSrcDstIp.
     Ip interface{}
 
     // Enable Flow Aware Label (FAT) PW - the capability to carry flow label on
@@ -666,64 +484,29 @@ type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance struct {
     FlowLabel PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel
 }
 
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetFilter() yfilter.YFilter { return loadBalance.YFilter }
+func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetEntityData() *types.CommonEntityData {
+    loadBalance.EntityData.YFilter = loadBalance.YFilter
+    loadBalance.EntityData.YangName = "load-balance"
+    loadBalance.EntityData.BundleName = "cisco_ios_xe"
+    loadBalance.EntityData.ParentYangName = "pw-template"
+    loadBalance.EntityData.SegmentPath = "load-balance"
+    loadBalance.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    loadBalance.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    loadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) SetFilter(yf yfilter.YFilter) { loadBalance.YFilter = yf }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetGoName(yname string) string {
-    if yname == "ethernet" { return "Ethernet" }
-    if yname == "ip" { return "Ip" }
-    if yname == "flow-label" { return "FlowLabel" }
-    return ""
+    loadBalance.EntityData.Children = make(map[string]types.YChild)
+    loadBalance.EntityData.Children["flow-label"] = types.YChild{"FlowLabel", &loadBalance.FlowLabel}
+    loadBalance.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadBalance.EntityData.Leafs["ethernet"] = types.YLeaf{"Ethernet", loadBalance.Ethernet}
+    loadBalance.EntityData.Leafs["ip"] = types.YLeaf{"Ip", loadBalance.Ip}
+    return &(loadBalance.EntityData)
 }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetSegmentPath() string {
-    return "load-balance"
-}
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "flow-label" {
-        return &loadBalance.FlowLabel
-    }
-    return nil
-}
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["flow-label"] = &loadBalance.FlowLabel
-    return children
-}
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ethernet"] = loadBalance.Ethernet
-    leafs["ip"] = loadBalance.Ip
-    return leafs
-}
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetBundleName() string { return "cisco_ios_xe" }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetYangName() string { return "load-balance" }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) SetParent(parent types.Entity) { loadBalance.parent = parent }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetParent() types.Entity { return loadBalance.parent }
-
-func (loadBalance *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel
 // Enable Flow Aware Label (FAT) PW - the capability to
 // carry flow label on PW
 type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Directions to enable Flow Aware Label PW. The type is Direction.
@@ -738,55 +521,23 @@ type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel struct {
     Static interface{}
 }
 
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetFilter() yfilter.YFilter { return flowLabel.YFilter }
+func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetEntityData() *types.CommonEntityData {
+    flowLabel.EntityData.YFilter = flowLabel.YFilter
+    flowLabel.EntityData.YangName = "flow-label"
+    flowLabel.EntityData.BundleName = "cisco_ios_xe"
+    flowLabel.EntityData.ParentYangName = "load-balance"
+    flowLabel.EntityData.SegmentPath = "flow-label"
+    flowLabel.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    flowLabel.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    flowLabel.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) SetFilter(yf yfilter.YFilter) { flowLabel.YFilter = yf }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetGoName(yname string) string {
-    if yname == "direction" { return "Direction" }
-    if yname == "tlv-code-17" { return "TlvCode17" }
-    if yname == "static" { return "Static" }
-    return ""
+    flowLabel.EntityData.Children = make(map[string]types.YChild)
+    flowLabel.EntityData.Leafs = make(map[string]types.YLeaf)
+    flowLabel.EntityData.Leafs["direction"] = types.YLeaf{"Direction", flowLabel.Direction}
+    flowLabel.EntityData.Leafs["tlv-code-17"] = types.YLeaf{"TlvCode17", flowLabel.TlvCode17}
+    flowLabel.EntityData.Leafs["static"] = types.YLeaf{"Static", flowLabel.Static}
+    return &(flowLabel.EntityData)
 }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetSegmentPath() string {
-    return "flow-label"
-}
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["direction"] = flowLabel.Direction
-    leafs["tlv-code-17"] = flowLabel.TlvCode17
-    leafs["static"] = flowLabel.Static
-    return leafs
-}
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetBundleName() string { return "cisco_ios_xe" }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetYangName() string { return "flow-label" }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) SetParent(parent types.Entity) { flowLabel.parent = parent }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetParent() types.Entity { return flowLabel.parent }
-
-func (flowLabel *PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel) GetParentYangName() string { return "load-balance" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel_Direction represents Directions to enable Flow Aware Label PW
 type PseudowireConfig_PwTemplates_PwTemplate_LoadBalance_FlowLabel_Direction string
@@ -805,17 +556,17 @@ const (
 // PseudowireConfig_PwTemplates_PwTemplate_PreferredPath
 // Preferred path for the PW
 type PseudowireConfig_PwTemplates_PwTemplate_PreferredPath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reference to a tunnel interface. The type is string. Refers to
     // ietf_interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // TODO. The type is one of the following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // TODO. The type is string.
@@ -825,181 +576,87 @@ type PseudowireConfig_PwTemplates_PwTemplate_PreferredPath struct {
     DisableFallback interface{}
 }
 
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetFilter() yfilter.YFilter { return preferredPath.YFilter }
+func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetEntityData() *types.CommonEntityData {
+    preferredPath.EntityData.YFilter = preferredPath.YFilter
+    preferredPath.EntityData.YangName = "preferred-path"
+    preferredPath.EntityData.BundleName = "cisco_ios_xe"
+    preferredPath.EntityData.ParentYangName = "pw-template"
+    preferredPath.EntityData.SegmentPath = "preferred-path"
+    preferredPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    preferredPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    preferredPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) SetFilter(yf yfilter.YFilter) { preferredPath.YFilter = yf }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "address" { return "Address" }
-    if yname == "hostname" { return "Hostname" }
-    if yname == "disable-fallback" { return "DisableFallback" }
-    return ""
+    preferredPath.EntityData.Children = make(map[string]types.YChild)
+    preferredPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    preferredPath.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", preferredPath.Interface_}
+    preferredPath.EntityData.Leafs["address"] = types.YLeaf{"Address", preferredPath.Address}
+    preferredPath.EntityData.Leafs["hostname"] = types.YLeaf{"Hostname", preferredPath.Hostname}
+    preferredPath.EntityData.Leafs["disable-fallback"] = types.YLeaf{"DisableFallback", preferredPath.DisableFallback}
+    return &(preferredPath.EntityData)
 }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetSegmentPath() string {
-    return "preferred-path"
-}
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = preferredPath.Interface
-    leafs["address"] = preferredPath.Address
-    leafs["hostname"] = preferredPath.Hostname
-    leafs["disable-fallback"] = preferredPath.DisableFallback
-    return leafs
-}
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetBundleName() string { return "cisco_ios_xe" }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetYangName() string { return "preferred-path" }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) SetParent(parent types.Entity) { preferredPath.parent = parent }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetParent() types.Entity { return preferredPath.parent }
-
-func (preferredPath *PseudowireConfig_PwTemplates_PwTemplate_PreferredPath) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_Sequencing
 // Sequencing options
 type PseudowireConfig_PwTemplates_PwTemplate_Sequencing struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TODO. The type is one of the following:
-    // PwSequencingTransmitPwSequencingReceivePwSequencingBoth.
+    // PwSequencingReceivePwSequencingTransmitPwSequencingBoth.
     Direction interface{}
 
     // TODO. The type is interface{} with range: 5..65535.
     Resync interface{}
 }
 
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetFilter() yfilter.YFilter { return sequencing.YFilter }
+func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetEntityData() *types.CommonEntityData {
+    sequencing.EntityData.YFilter = sequencing.YFilter
+    sequencing.EntityData.YangName = "sequencing"
+    sequencing.EntityData.BundleName = "cisco_ios_xe"
+    sequencing.EntityData.ParentYangName = "pw-template"
+    sequencing.EntityData.SegmentPath = "sequencing"
+    sequencing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sequencing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sequencing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) SetFilter(yf yfilter.YFilter) { sequencing.YFilter = yf }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetGoName(yname string) string {
-    if yname == "direction" { return "Direction" }
-    if yname == "resync" { return "Resync" }
-    return ""
+    sequencing.EntityData.Children = make(map[string]types.YChild)
+    sequencing.EntityData.Leafs = make(map[string]types.YLeaf)
+    sequencing.EntityData.Leafs["direction"] = types.YLeaf{"Direction", sequencing.Direction}
+    sequencing.EntityData.Leafs["resync"] = types.YLeaf{"Resync", sequencing.Resync}
+    return &(sequencing.EntityData)
 }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetSegmentPath() string {
-    return "sequencing"
-}
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["direction"] = sequencing.Direction
-    leafs["resync"] = sequencing.Resync
-    return leafs
-}
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetYangName() string { return "sequencing" }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) SetParent(parent types.Entity) { sequencing.parent = parent }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetParent() types.Entity { return sequencing.parent }
-
-func (sequencing *PseudowireConfig_PwTemplates_PwTemplate_Sequencing) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_Vccv
 // VCCV configuration
 type PseudowireConfig_PwTemplates_PwTemplate_Vccv struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable VCCV verification type. The type is bool.
     ControlWord interface{}
 }
 
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetFilter() yfilter.YFilter { return vccv.YFilter }
+func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetEntityData() *types.CommonEntityData {
+    vccv.EntityData.YFilter = vccv.YFilter
+    vccv.EntityData.YangName = "vccv"
+    vccv.EntityData.BundleName = "cisco_ios_xe"
+    vccv.EntityData.ParentYangName = "pw-template"
+    vccv.EntityData.SegmentPath = "vccv"
+    vccv.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    vccv.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    vccv.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) SetFilter(yf yfilter.YFilter) { vccv.YFilter = yf }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetGoName(yname string) string {
-    if yname == "control-word" { return "ControlWord" }
-    return ""
+    vccv.EntityData.Children = make(map[string]types.YChild)
+    vccv.EntityData.Leafs = make(map[string]types.YLeaf)
+    vccv.EntityData.Leafs["control-word"] = types.YLeaf{"ControlWord", vccv.ControlWord}
+    return &(vccv.EntityData)
 }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetSegmentPath() string {
-    return "vccv"
-}
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["control-word"] = vccv.ControlWord
-    return leafs
-}
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetBundleName() string { return "cisco_ios_xe" }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetYangName() string { return "vccv" }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) SetParent(parent types.Entity) { vccv.parent = parent }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetParent() types.Entity { return vccv.parent }
-
-func (vccv *PseudowireConfig_PwTemplates_PwTemplate_Vccv) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay
 // Timer configuration related to pseudowire redundancy
 // switchover and restoring to primary
 type PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specifies how long the backup pseudowire should wait before taking over.
@@ -1016,60 +673,28 @@ type PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay struct {
     Never interface{}
 }
 
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetFilter() yfilter.YFilter { return switchoverDelay.YFilter }
+func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetEntityData() *types.CommonEntityData {
+    switchoverDelay.EntityData.YFilter = switchoverDelay.YFilter
+    switchoverDelay.EntityData.YangName = "switchover-delay"
+    switchoverDelay.EntityData.BundleName = "cisco_ios_xe"
+    switchoverDelay.EntityData.ParentYangName = "pw-template"
+    switchoverDelay.EntityData.SegmentPath = "switchover-delay"
+    switchoverDelay.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    switchoverDelay.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    switchoverDelay.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) SetFilter(yf yfilter.YFilter) { switchoverDelay.YFilter = yf }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetGoName(yname string) string {
-    if yname == "switchover-timer" { return "SwitchoverTimer" }
-    if yname == "timer" { return "Timer" }
-    if yname == "never" { return "Never" }
-    return ""
+    switchoverDelay.EntityData.Children = make(map[string]types.YChild)
+    switchoverDelay.EntityData.Leafs = make(map[string]types.YLeaf)
+    switchoverDelay.EntityData.Leafs["switchover-timer"] = types.YLeaf{"SwitchoverTimer", switchoverDelay.SwitchoverTimer}
+    switchoverDelay.EntityData.Leafs["timer"] = types.YLeaf{"Timer", switchoverDelay.Timer}
+    switchoverDelay.EntityData.Leafs["never"] = types.YLeaf{"Never", switchoverDelay.Never}
+    return &(switchoverDelay.EntityData)
 }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetSegmentPath() string {
-    return "switchover-delay"
-}
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["switchover-timer"] = switchoverDelay.SwitchoverTimer
-    leafs["timer"] = switchoverDelay.Timer
-    leafs["never"] = switchoverDelay.Never
-    return leafs
-}
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetBundleName() string { return "cisco_ios_xe" }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetYangName() string { return "switchover-delay" }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) SetParent(parent types.Entity) { switchoverDelay.parent = parent }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetParent() types.Entity { return switchoverDelay.parent }
-
-func (switchoverDelay *PseudowireConfig_PwTemplates_PwTemplate_SwitchoverDelay) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_Status
 // TODO
 type PseudowireConfig_PwTemplates_PwTemplate_Status struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reflect standby status of the attachment circuit as up on the pseudowire.
@@ -1097,64 +722,30 @@ type PseudowireConfig_PwTemplates_PwTemplate_Status struct {
     RedundancyMaster interface{}
 }
 
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetFilter() yfilter.YFilter { return status.YFilter }
+func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetEntityData() *types.CommonEntityData {
+    status.EntityData.YFilter = status.YFilter
+    status.EntityData.YangName = "status"
+    status.EntityData.BundleName = "cisco_ios_xe"
+    status.EntityData.ParentYangName = "pw-template"
+    status.EntityData.SegmentPath = "status"
+    status.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    status.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    status.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) SetFilter(yf yfilter.YFilter) { status.YFilter = yf }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetGoName(yname string) string {
-    if yname == "decoupled" { return "Decoupled" }
-    if yname == "disable" { return "Disable" }
-    if yname == "peer-topo-dual-homed" { return "PeerTopoDualHomed" }
-    if yname == "route-watch-disable" { return "RouteWatchDisable" }
-    if yname == "redundancy-master" { return "RedundancyMaster" }
-    return ""
+    status.EntityData.Children = make(map[string]types.YChild)
+    status.EntityData.Leafs = make(map[string]types.YLeaf)
+    status.EntityData.Leafs["decoupled"] = types.YLeaf{"Decoupled", status.Decoupled}
+    status.EntityData.Leafs["disable"] = types.YLeaf{"Disable", status.Disable}
+    status.EntityData.Leafs["peer-topo-dual-homed"] = types.YLeaf{"PeerTopoDualHomed", status.PeerTopoDualHomed}
+    status.EntityData.Leafs["route-watch-disable"] = types.YLeaf{"RouteWatchDisable", status.RouteWatchDisable}
+    status.EntityData.Leafs["redundancy-master"] = types.YLeaf{"RedundancyMaster", status.RedundancyMaster}
+    return &(status.EntityData)
 }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetSegmentPath() string {
-    return "status"
-}
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["decoupled"] = status.Decoupled
-    leafs["disable"] = status.Disable
-    leafs["peer-topo-dual-homed"] = status.PeerTopoDualHomed
-    leafs["route-watch-disable"] = status.RouteWatchDisable
-    leafs["redundancy-master"] = status.RedundancyMaster
-    return leafs
-}
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetBundleName() string { return "cisco_ios_xe" }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetYangName() string { return "status" }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) SetParent(parent types.Entity) { status.parent = parent }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetParent() types.Entity { return status.parent }
-
-func (status *PseudowireConfig_PwTemplates_PwTemplate_Status) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec
 // Pseudowire port profile configurations.
 type PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Description string for the port profile. The type is string.
@@ -1177,66 +768,31 @@ type PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec struct {
     Enabled interface{}
 }
 
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetFilter() yfilter.YFilter { return portProfileSpec.YFilter }
+func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetEntityData() *types.CommonEntityData {
+    portProfileSpec.EntityData.YFilter = portProfileSpec.YFilter
+    portProfileSpec.EntityData.YangName = "port-profile-spec"
+    portProfileSpec.EntityData.BundleName = "cisco_ios_xe"
+    portProfileSpec.EntityData.ParentYangName = "pw-template"
+    portProfileSpec.EntityData.SegmentPath = "port-profile-spec"
+    portProfileSpec.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    portProfileSpec.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    portProfileSpec.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) SetFilter(yf yfilter.YFilter) { portProfileSpec.YFilter = yf }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "shutdown" { return "Shutdown" }
-    if yname == "shut-force" { return "ShutForce" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "max-ports" { return "MaxPorts" }
-    if yname == "enabled" { return "Enabled" }
-    return ""
+    portProfileSpec.EntityData.Children = make(map[string]types.YChild)
+    portProfileSpec.EntityData.Leafs = make(map[string]types.YLeaf)
+    portProfileSpec.EntityData.Leafs["description"] = types.YLeaf{"Description", portProfileSpec.Description}
+    portProfileSpec.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", portProfileSpec.Shutdown}
+    portProfileSpec.EntityData.Leafs["shut-force"] = types.YLeaf{"ShutForce", portProfileSpec.ShutForce}
+    portProfileSpec.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", portProfileSpec.Mtu}
+    portProfileSpec.EntityData.Leafs["max-ports"] = types.YLeaf{"MaxPorts", portProfileSpec.MaxPorts}
+    portProfileSpec.EntityData.Leafs["enabled"] = types.YLeaf{"Enabled", portProfileSpec.Enabled}
+    return &(portProfileSpec.EntityData)
 }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetSegmentPath() string {
-    return "port-profile-spec"
-}
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = portProfileSpec.Description
-    leafs["shutdown"] = portProfileSpec.Shutdown
-    leafs["shut-force"] = portProfileSpec.ShutForce
-    leafs["mtu"] = portProfileSpec.Mtu
-    leafs["max-ports"] = portProfileSpec.MaxPorts
-    leafs["enabled"] = portProfileSpec.Enabled
-    return leafs
-}
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetBundleName() string { return "cisco_ios_xe" }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetYangName() string { return "port-profile-spec" }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) SetParent(parent types.Entity) { portProfileSpec.parent = parent }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetParent() types.Entity { return portProfileSpec.parent }
-
-func (portProfileSpec *PseudowireConfig_PwTemplates_PwTemplate_PortProfileSpec) GetParentYangName() string { return "pw-template" }
 
 // PseudowireConfig_PwStaticOamClasses
 // List of pseudowire static oam classes.
 type PseudowireConfig_PwStaticOamClasses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pseudowire static oam class configuration. The type is slice of
@@ -1244,68 +800,29 @@ type PseudowireConfig_PwStaticOamClasses struct {
     PwStaticOamClass []PseudowireConfig_PwStaticOamClasses_PwStaticOamClass
 }
 
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetFilter() yfilter.YFilter { return pwStaticOamClasses.YFilter }
+func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetEntityData() *types.CommonEntityData {
+    pwStaticOamClasses.EntityData.YFilter = pwStaticOamClasses.YFilter
+    pwStaticOamClasses.EntityData.YangName = "pw-static-oam-classes"
+    pwStaticOamClasses.EntityData.BundleName = "cisco_ios_xe"
+    pwStaticOamClasses.EntityData.ParentYangName = "pseudowire-config"
+    pwStaticOamClasses.EntityData.SegmentPath = "pw-static-oam-classes"
+    pwStaticOamClasses.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pwStaticOamClasses.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pwStaticOamClasses.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) SetFilter(yf yfilter.YFilter) { pwStaticOamClasses.YFilter = yf }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetGoName(yname string) string {
-    if yname == "pw-static-oam-class" { return "PwStaticOamClass" }
-    return ""
-}
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetSegmentPath() string {
-    return "pw-static-oam-classes"
-}
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pw-static-oam-class" {
-        for _, c := range pwStaticOamClasses.PwStaticOamClass {
-            if pwStaticOamClasses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PseudowireConfig_PwStaticOamClasses_PwStaticOamClass{}
-        pwStaticOamClasses.PwStaticOamClass = append(pwStaticOamClasses.PwStaticOamClass, child)
-        return &pwStaticOamClasses.PwStaticOamClass[len(pwStaticOamClasses.PwStaticOamClass)-1]
-    }
-    return nil
-}
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pwStaticOamClasses.EntityData.Children = make(map[string]types.YChild)
+    pwStaticOamClasses.EntityData.Children["pw-static-oam-class"] = types.YChild{"PwStaticOamClass", nil}
     for i := range pwStaticOamClasses.PwStaticOamClass {
-        children[pwStaticOamClasses.PwStaticOamClass[i].GetSegmentPath()] = &pwStaticOamClasses.PwStaticOamClass[i]
+        pwStaticOamClasses.EntityData.Children[types.GetSegmentPath(&pwStaticOamClasses.PwStaticOamClass[i])] = types.YChild{"PwStaticOamClass", &pwStaticOamClasses.PwStaticOamClass[i]}
     }
-    return children
+    pwStaticOamClasses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pwStaticOamClasses.EntityData)
 }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetYangName() string { return "pw-static-oam-classes" }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) SetParent(parent types.Entity) { pwStaticOamClasses.parent = parent }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetParent() types.Entity { return pwStaticOamClasses.parent }
-
-func (pwStaticOamClasses *PseudowireConfig_PwStaticOamClasses) GetParentYangName() string { return "pseudowire-config" }
 
 // PseudowireConfig_PwStaticOamClasses_PwStaticOamClass
 // Pseudowire static oam class configuration
 type PseudowireConfig_PwStaticOamClasses_PwStaticOamClass struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. OAM class name. The type is string.
@@ -1327,66 +844,32 @@ type PseudowireConfig_PwStaticOamClasses_PwStaticOamClass struct {
     TimeoutRefreshAck interface{}
 }
 
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetFilter() yfilter.YFilter { return pwStaticOamClass.YFilter }
+func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetEntityData() *types.CommonEntityData {
+    pwStaticOamClass.EntityData.YFilter = pwStaticOamClass.YFilter
+    pwStaticOamClass.EntityData.YangName = "pw-static-oam-class"
+    pwStaticOamClass.EntityData.BundleName = "cisco_ios_xe"
+    pwStaticOamClass.EntityData.ParentYangName = "pw-static-oam-classes"
+    pwStaticOamClass.EntityData.SegmentPath = "pw-static-oam-class" + "[name='" + fmt.Sprintf("%v", pwStaticOamClass.Name) + "']"
+    pwStaticOamClass.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pwStaticOamClass.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pwStaticOamClass.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) SetFilter(yf yfilter.YFilter) { pwStaticOamClass.YFilter = yf }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "ack" { return "Ack" }
-    if yname == "keepalive" { return "Keepalive" }
-    if yname == "timeout-refresh-send" { return "TimeoutRefreshSend" }
-    if yname == "timeout-refresh-ack" { return "TimeoutRefreshAck" }
-    return ""
+    pwStaticOamClass.EntityData.Children = make(map[string]types.YChild)
+    pwStaticOamClass.EntityData.Leafs = make(map[string]types.YLeaf)
+    pwStaticOamClass.EntityData.Leafs["name"] = types.YLeaf{"Name", pwStaticOamClass.Name}
+    pwStaticOamClass.EntityData.Leafs["ack"] = types.YLeaf{"Ack", pwStaticOamClass.Ack}
+    pwStaticOamClass.EntityData.Leafs["keepalive"] = types.YLeaf{"Keepalive", pwStaticOamClass.Keepalive}
+    pwStaticOamClass.EntityData.Leafs["timeout-refresh-send"] = types.YLeaf{"TimeoutRefreshSend", pwStaticOamClass.TimeoutRefreshSend}
+    pwStaticOamClass.EntityData.Leafs["timeout-refresh-ack"] = types.YLeaf{"TimeoutRefreshAck", pwStaticOamClass.TimeoutRefreshAck}
+    return &(pwStaticOamClass.EntityData)
 }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetSegmentPath() string {
-    return "pw-static-oam-class" + "[name='" + fmt.Sprintf("%v", pwStaticOamClass.Name) + "']"
-}
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = pwStaticOamClass.Name
-    leafs["ack"] = pwStaticOamClass.Ack
-    leafs["keepalive"] = pwStaticOamClass.Keepalive
-    leafs["timeout-refresh-send"] = pwStaticOamClass.TimeoutRefreshSend
-    leafs["timeout-refresh-ack"] = pwStaticOamClass.TimeoutRefreshAck
-    return leafs
-}
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetYangName() string { return "pw-static-oam-class" }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) SetParent(parent types.Entity) { pwStaticOamClass.parent = parent }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetParent() types.Entity { return pwStaticOamClass.parent }
-
-func (pwStaticOamClass *PseudowireConfig_PwStaticOamClasses_PwStaticOamClass) GetParentYangName() string { return "pw-static-oam-classes" }
 
 // PseudowireState
 // Contains the operational state for all the pseudowire
 // instances in the switch, no matter what L2VPN service
 // created them.
 type PseudowireState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each list element contains the state for a pseudowire instance. The list
@@ -1397,63 +880,24 @@ type PseudowireState struct {
     Pseudowires []PseudowireState_Pseudowires
 }
 
-func (pseudowireState *PseudowireState) GetFilter() yfilter.YFilter { return pseudowireState.YFilter }
+func (pseudowireState *PseudowireState) GetEntityData() *types.CommonEntityData {
+    pseudowireState.EntityData.YFilter = pseudowireState.YFilter
+    pseudowireState.EntityData.YangName = "pseudowire-state"
+    pseudowireState.EntityData.BundleName = "cisco_ios_xe"
+    pseudowireState.EntityData.ParentYangName = "cisco-pw"
+    pseudowireState.EntityData.SegmentPath = "cisco-pw:pseudowire-state"
+    pseudowireState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pseudowireState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pseudowireState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pseudowireState *PseudowireState) SetFilter(yf yfilter.YFilter) { pseudowireState.YFilter = yf }
-
-func (pseudowireState *PseudowireState) GetGoName(yname string) string {
-    if yname == "pseudowires" { return "Pseudowires" }
-    return ""
-}
-
-func (pseudowireState *PseudowireState) GetSegmentPath() string {
-    return "cisco-pw:pseudowire-state"
-}
-
-func (pseudowireState *PseudowireState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pseudowires" {
-        for _, c := range pseudowireState.Pseudowires {
-            if pseudowireState.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PseudowireState_Pseudowires{}
-        pseudowireState.Pseudowires = append(pseudowireState.Pseudowires, child)
-        return &pseudowireState.Pseudowires[len(pseudowireState.Pseudowires)-1]
-    }
-    return nil
-}
-
-func (pseudowireState *PseudowireState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pseudowireState.EntityData.Children = make(map[string]types.YChild)
+    pseudowireState.EntityData.Children["pseudowires"] = types.YChild{"Pseudowires", nil}
     for i := range pseudowireState.Pseudowires {
-        children[pseudowireState.Pseudowires[i].GetSegmentPath()] = &pseudowireState.Pseudowires[i]
+        pseudowireState.EntityData.Children[types.GetSegmentPath(&pseudowireState.Pseudowires[i])] = types.YChild{"Pseudowires", &pseudowireState.Pseudowires[i]}
     }
-    return children
+    pseudowireState.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pseudowireState.EntityData)
 }
-
-func (pseudowireState *PseudowireState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pseudowireState *PseudowireState) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pseudowireState *PseudowireState) GetYangName() string { return "pseudowire-state" }
-
-func (pseudowireState *PseudowireState) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pseudowireState *PseudowireState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pseudowireState *PseudowireState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pseudowireState *PseudowireState) SetParent(parent types.Entity) { pseudowireState.parent = parent }
-
-func (pseudowireState *PseudowireState) GetParent() types.Entity { return pseudowireState.parent }
-
-func (pseudowireState *PseudowireState) GetParentYangName() string { return "cisco-pw" }
 
 // PseudowireState_Pseudowires
 // Each list element contains the state for a pseudowire
@@ -1463,15 +907,15 @@ func (pseudowireState *PseudowireState) GetParentYangName() string { return "cis
 // performed upon request by the client using subtree
 // filtering as described in RFC 6020 Section 6.
 type PseudowireState_Pseudowires struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object contains the value of the peer node
     // address of the PW/PE protocol entity. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VcPeerAddress interface{}
 
     // This attribute is a key. Used to distinguish between pseudowires going to
@@ -1492,7 +936,7 @@ type PseudowireState_Pseudowires struct {
     VcIndex interface{}
 
     // Indicates the service to be carried over this VC. The type is one of the
-    // following: PwVcTypeEtherPwVcTypeVlanPassthroughPwVcTypeVlan.
+    // following: PwVcTypeEtherPwVcTypeVlanPwVcTypeVlanPassthrough.
     VcType interface{}
 
     // Name of the L2VPN service instance that created the pseudowire VC. The type
@@ -1566,97 +1010,45 @@ type PseudowireState_Pseudowires struct {
     Statistics PseudowireState_Pseudowires_Statistics
 }
 
-func (pseudowires *PseudowireState_Pseudowires) GetFilter() yfilter.YFilter { return pseudowires.YFilter }
+func (pseudowires *PseudowireState_Pseudowires) GetEntityData() *types.CommonEntityData {
+    pseudowires.EntityData.YFilter = pseudowires.YFilter
+    pseudowires.EntityData.YangName = "pseudowires"
+    pseudowires.EntityData.BundleName = "cisco_ios_xe"
+    pseudowires.EntityData.ParentYangName = "pseudowire-state"
+    pseudowires.EntityData.SegmentPath = "pseudowires" + "[vc-peer-address='" + fmt.Sprintf("%v", pseudowires.VcPeerAddress) + "']" + "[vc-id='" + fmt.Sprintf("%v", pseudowires.VcId) + "']" + "[vc-owner-type='" + fmt.Sprintf("%v", pseudowires.VcOwnerType) + "']" + "[vc-name='" + fmt.Sprintf("%v", pseudowires.VcName) + "']" + "[vc-index='" + fmt.Sprintf("%v", pseudowires.VcIndex) + "']"
+    pseudowires.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pseudowires.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pseudowires.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pseudowires *PseudowireState_Pseudowires) SetFilter(yf yfilter.YFilter) { pseudowires.YFilter = yf }
-
-func (pseudowires *PseudowireState_Pseudowires) GetGoName(yname string) string {
-    if yname == "vc-peer-address" { return "VcPeerAddress" }
-    if yname == "vc-id" { return "VcId" }
-    if yname == "vc-owner-type" { return "VcOwnerType" }
-    if yname == "vc-name" { return "VcName" }
-    if yname == "vc-index" { return "VcIndex" }
-    if yname == "vc-type" { return "VcType" }
-    if yname == "vc-owner-name" { return "VcOwnerName" }
-    if yname == "vc-psn-type" { return "VcPsnType" }
-    if yname == "vc-local-group-id" { return "VcLocalGroupId" }
-    if yname == "vc-control-word" { return "VcControlWord" }
-    if yname == "vc-local-if-mtu" { return "VcLocalIfMtu" }
-    if yname == "vc-remote-group-id" { return "VcRemoteGroupId" }
-    if yname == "vc-remote-control-word" { return "VcRemoteControlWord" }
-    if yname == "vc-remote-if-mtu" { return "VcRemoteIfMtu" }
-    if yname == "vc-outbound-label" { return "VcOutboundLabel" }
-    if yname == "vc-inbound-label" { return "VcInboundLabel" }
-    if yname == "vc-oper-status" { return "VcOperStatus" }
-    if yname == "vc-inbound-oper-status" { return "VcInboundOperStatus" }
-    if yname == "vc-outbound-oper-status" { return "VcOutboundOperStatus" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    pseudowires.EntityData.Children = make(map[string]types.YChild)
+    pseudowires.EntityData.Children["statistics"] = types.YChild{"Statistics", &pseudowires.Statistics}
+    pseudowires.EntityData.Leafs = make(map[string]types.YLeaf)
+    pseudowires.EntityData.Leafs["vc-peer-address"] = types.YLeaf{"VcPeerAddress", pseudowires.VcPeerAddress}
+    pseudowires.EntityData.Leafs["vc-id"] = types.YLeaf{"VcId", pseudowires.VcId}
+    pseudowires.EntityData.Leafs["vc-owner-type"] = types.YLeaf{"VcOwnerType", pseudowires.VcOwnerType}
+    pseudowires.EntityData.Leafs["vc-name"] = types.YLeaf{"VcName", pseudowires.VcName}
+    pseudowires.EntityData.Leafs["vc-index"] = types.YLeaf{"VcIndex", pseudowires.VcIndex}
+    pseudowires.EntityData.Leafs["vc-type"] = types.YLeaf{"VcType", pseudowires.VcType}
+    pseudowires.EntityData.Leafs["vc-owner-name"] = types.YLeaf{"VcOwnerName", pseudowires.VcOwnerName}
+    pseudowires.EntityData.Leafs["vc-psn-type"] = types.YLeaf{"VcPsnType", pseudowires.VcPsnType}
+    pseudowires.EntityData.Leafs["vc-local-group-id"] = types.YLeaf{"VcLocalGroupId", pseudowires.VcLocalGroupId}
+    pseudowires.EntityData.Leafs["vc-control-word"] = types.YLeaf{"VcControlWord", pseudowires.VcControlWord}
+    pseudowires.EntityData.Leafs["vc-local-if-mtu"] = types.YLeaf{"VcLocalIfMtu", pseudowires.VcLocalIfMtu}
+    pseudowires.EntityData.Leafs["vc-remote-group-id"] = types.YLeaf{"VcRemoteGroupId", pseudowires.VcRemoteGroupId}
+    pseudowires.EntityData.Leafs["vc-remote-control-word"] = types.YLeaf{"VcRemoteControlWord", pseudowires.VcRemoteControlWord}
+    pseudowires.EntityData.Leafs["vc-remote-if-mtu"] = types.YLeaf{"VcRemoteIfMtu", pseudowires.VcRemoteIfMtu}
+    pseudowires.EntityData.Leafs["vc-outbound-label"] = types.YLeaf{"VcOutboundLabel", pseudowires.VcOutboundLabel}
+    pseudowires.EntityData.Leafs["vc-inbound-label"] = types.YLeaf{"VcInboundLabel", pseudowires.VcInboundLabel}
+    pseudowires.EntityData.Leafs["vc-oper-status"] = types.YLeaf{"VcOperStatus", pseudowires.VcOperStatus}
+    pseudowires.EntityData.Leafs["vc-inbound-oper-status"] = types.YLeaf{"VcInboundOperStatus", pseudowires.VcInboundOperStatus}
+    pseudowires.EntityData.Leafs["vc-outbound-oper-status"] = types.YLeaf{"VcOutboundOperStatus", pseudowires.VcOutboundOperStatus}
+    return &(pseudowires.EntityData)
 }
-
-func (pseudowires *PseudowireState_Pseudowires) GetSegmentPath() string {
-    return "pseudowires" + "[vc-peer-address='" + fmt.Sprintf("%v", pseudowires.VcPeerAddress) + "']" + "[vc-id='" + fmt.Sprintf("%v", pseudowires.VcId) + "']" + "[vc-owner-type='" + fmt.Sprintf("%v", pseudowires.VcOwnerType) + "']" + "[vc-name='" + fmt.Sprintf("%v", pseudowires.VcName) + "']" + "[vc-index='" + fmt.Sprintf("%v", pseudowires.VcIndex) + "']"
-}
-
-func (pseudowires *PseudowireState_Pseudowires) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &pseudowires.Statistics
-    }
-    return nil
-}
-
-func (pseudowires *PseudowireState_Pseudowires) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &pseudowires.Statistics
-    return children
-}
-
-func (pseudowires *PseudowireState_Pseudowires) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vc-peer-address"] = pseudowires.VcPeerAddress
-    leafs["vc-id"] = pseudowires.VcId
-    leafs["vc-owner-type"] = pseudowires.VcOwnerType
-    leafs["vc-name"] = pseudowires.VcName
-    leafs["vc-index"] = pseudowires.VcIndex
-    leafs["vc-type"] = pseudowires.VcType
-    leafs["vc-owner-name"] = pseudowires.VcOwnerName
-    leafs["vc-psn-type"] = pseudowires.VcPsnType
-    leafs["vc-local-group-id"] = pseudowires.VcLocalGroupId
-    leafs["vc-control-word"] = pseudowires.VcControlWord
-    leafs["vc-local-if-mtu"] = pseudowires.VcLocalIfMtu
-    leafs["vc-remote-group-id"] = pseudowires.VcRemoteGroupId
-    leafs["vc-remote-control-word"] = pseudowires.VcRemoteControlWord
-    leafs["vc-remote-if-mtu"] = pseudowires.VcRemoteIfMtu
-    leafs["vc-outbound-label"] = pseudowires.VcOutboundLabel
-    leafs["vc-inbound-label"] = pseudowires.VcInboundLabel
-    leafs["vc-oper-status"] = pseudowires.VcOperStatus
-    leafs["vc-inbound-oper-status"] = pseudowires.VcInboundOperStatus
-    leafs["vc-outbound-oper-status"] = pseudowires.VcOutboundOperStatus
-    return leafs
-}
-
-func (pseudowires *PseudowireState_Pseudowires) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pseudowires *PseudowireState_Pseudowires) GetYangName() string { return "pseudowires" }
-
-func (pseudowires *PseudowireState_Pseudowires) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pseudowires *PseudowireState_Pseudowires) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pseudowires *PseudowireState_Pseudowires) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pseudowires *PseudowireState_Pseudowires) SetParent(parent types.Entity) { pseudowires.parent = parent }
-
-func (pseudowires *PseudowireState_Pseudowires) GetParent() types.Entity { return pseudowires.parent }
-
-func (pseudowires *PseudowireState_Pseudowires) GetParentYangName() string { return "pseudowire-state" }
 
 // PseudowireState_Pseudowires_Statistics
 // A collection of pseudowire-related statistics objects
 type PseudowireState_Pseudowires_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // System time when this VC was created. The type is interface{} with range:
@@ -1672,8 +1064,8 @@ type PseudowireState_Pseudowires_Statistics struct {
     // since the last re-initialization of the local management subsystem, then
     // this node contains the time the local management subsystem re-initialized
     // itself. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}). This
-    // attribute is mandatory.
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // This attribute is mandatory.
     DiscontinuityTime interface{}
 
     // The total number of octets received on this pseudowire.  Discontinuities in
@@ -1719,67 +1111,29 @@ type PseudowireState_Pseudowires_Statistics struct {
     OutErrors interface{}
 }
 
-func (statistics *PseudowireState_Pseudowires_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *PseudowireState_Pseudowires_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xe"
+    statistics.EntityData.ParentYangName = "pseudowires"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (statistics *PseudowireState_Pseudowires_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetGoName(yname string) string {
-    if yname == "vc-create-time" { return "VcCreateTime" }
-    if yname == "vc-up-time" { return "VcUpTime" }
-    if yname == "discontinuity-time" { return "DiscontinuityTime" }
-    if yname == "in-octets" { return "InOctets" }
-    if yname == "in-pkts" { return "InPkts" }
-    if yname == "in-errors" { return "InErrors" }
-    if yname == "out-octets" { return "OutOctets" }
-    if yname == "out-pkts" { return "OutPkts" }
-    if yname == "out-errors" { return "OutErrors" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs["vc-create-time"] = types.YLeaf{"VcCreateTime", statistics.VcCreateTime}
+    statistics.EntityData.Leafs["vc-up-time"] = types.YLeaf{"VcUpTime", statistics.VcUpTime}
+    statistics.EntityData.Leafs["discontinuity-time"] = types.YLeaf{"DiscontinuityTime", statistics.DiscontinuityTime}
+    statistics.EntityData.Leafs["in-octets"] = types.YLeaf{"InOctets", statistics.InOctets}
+    statistics.EntityData.Leafs["in-pkts"] = types.YLeaf{"InPkts", statistics.InPkts}
+    statistics.EntityData.Leafs["in-errors"] = types.YLeaf{"InErrors", statistics.InErrors}
+    statistics.EntityData.Leafs["out-octets"] = types.YLeaf{"OutOctets", statistics.OutOctets}
+    statistics.EntityData.Leafs["out-pkts"] = types.YLeaf{"OutPkts", statistics.OutPkts}
+    statistics.EntityData.Leafs["out-errors"] = types.YLeaf{"OutErrors", statistics.OutErrors}
+    return &(statistics.EntityData)
 }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vc-create-time"] = statistics.VcCreateTime
-    leafs["vc-up-time"] = statistics.VcUpTime
-    leafs["discontinuity-time"] = statistics.DiscontinuityTime
-    leafs["in-octets"] = statistics.InOctets
-    leafs["in-pkts"] = statistics.InPkts
-    leafs["in-errors"] = statistics.InErrors
-    leafs["out-octets"] = statistics.OutOctets
-    leafs["out-pkts"] = statistics.OutPkts
-    leafs["out-errors"] = statistics.OutErrors
-    return leafs
-}
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *PseudowireState_Pseudowires_Statistics) GetParentYangName() string { return "pseudowires" }
 
 // PseudowireState_Pseudowires_VcOwnerType represents this VC
 type PseudowireState_Pseudowires_VcOwnerType string

@@ -31,7 +31,7 @@ func init() {
 // Watchdog
 // watchdog
 type Watchdog struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // switchover the RP at configured memory state. The type is interface{} with
@@ -70,77 +70,35 @@ type Watchdog struct {
     ThresholdMemory Watchdog_ThresholdMemory
 }
 
-func (watchdog *Watchdog) GetFilter() yfilter.YFilter { return watchdog.YFilter }
+func (watchdog *Watchdog) GetEntityData() *types.CommonEntityData {
+    watchdog.EntityData.YFilter = watchdog.YFilter
+    watchdog.EntityData.YangName = "watchdog"
+    watchdog.EntityData.BundleName = "cisco_ios_xr"
+    watchdog.EntityData.ParentYangName = "Cisco-IOS-XR-wd-cfg"
+    watchdog.EntityData.SegmentPath = "Cisco-IOS-XR-wd-cfg:watchdog"
+    watchdog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    watchdog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    watchdog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (watchdog *Watchdog) SetFilter(yf yfilter.YFilter) { watchdog.YFilter = yf }
-
-func (watchdog *Watchdog) GetGoName(yname string) string {
-    if yname == "threshold-memory-switchover" { return "ThresholdMemorySwitchover" }
-    if yname == "restart-deadlock-disable" { return "RestartDeadlockDisable" }
-    if yname == "monitor-qnet-timeout" { return "MonitorQnetTimeout" }
-    if yname == "monitor-cpuhog-timeout" { return "MonitorCpuhogTimeout" }
-    if yname == "monitor-procnto-timeout" { return "MonitorProcntoTimeout" }
-    if yname == "overload-notification" { return "OverloadNotification" }
-    if yname == "restart-cpuhog-disable" { return "RestartCpuhogDisable" }
-    if yname == "restart-memoryhog-disable" { return "RestartMemoryhogDisable" }
-    if yname == "overload-throttle-timeout" { return "OverloadThrottleTimeout" }
-    if yname == "threshold-memory" { return "ThresholdMemory" }
-    return ""
+    watchdog.EntityData.Children = make(map[string]types.YChild)
+    watchdog.EntityData.Children["threshold-memory"] = types.YChild{"ThresholdMemory", &watchdog.ThresholdMemory}
+    watchdog.EntityData.Leafs = make(map[string]types.YLeaf)
+    watchdog.EntityData.Leafs["threshold-memory-switchover"] = types.YLeaf{"ThresholdMemorySwitchover", watchdog.ThresholdMemorySwitchover}
+    watchdog.EntityData.Leafs["restart-deadlock-disable"] = types.YLeaf{"RestartDeadlockDisable", watchdog.RestartDeadlockDisable}
+    watchdog.EntityData.Leafs["monitor-qnet-timeout"] = types.YLeaf{"MonitorQnetTimeout", watchdog.MonitorQnetTimeout}
+    watchdog.EntityData.Leafs["monitor-cpuhog-timeout"] = types.YLeaf{"MonitorCpuhogTimeout", watchdog.MonitorCpuhogTimeout}
+    watchdog.EntityData.Leafs["monitor-procnto-timeout"] = types.YLeaf{"MonitorProcntoTimeout", watchdog.MonitorProcntoTimeout}
+    watchdog.EntityData.Leafs["overload-notification"] = types.YLeaf{"OverloadNotification", watchdog.OverloadNotification}
+    watchdog.EntityData.Leafs["restart-cpuhog-disable"] = types.YLeaf{"RestartCpuhogDisable", watchdog.RestartCpuhogDisable}
+    watchdog.EntityData.Leafs["restart-memoryhog-disable"] = types.YLeaf{"RestartMemoryhogDisable", watchdog.RestartMemoryhogDisable}
+    watchdog.EntityData.Leafs["overload-throttle-timeout"] = types.YLeaf{"OverloadThrottleTimeout", watchdog.OverloadThrottleTimeout}
+    return &(watchdog.EntityData)
 }
-
-func (watchdog *Watchdog) GetSegmentPath() string {
-    return "Cisco-IOS-XR-wd-cfg:watchdog"
-}
-
-func (watchdog *Watchdog) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "threshold-memory" {
-        return &watchdog.ThresholdMemory
-    }
-    return nil
-}
-
-func (watchdog *Watchdog) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["threshold-memory"] = &watchdog.ThresholdMemory
-    return children
-}
-
-func (watchdog *Watchdog) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["threshold-memory-switchover"] = watchdog.ThresholdMemorySwitchover
-    leafs["restart-deadlock-disable"] = watchdog.RestartDeadlockDisable
-    leafs["monitor-qnet-timeout"] = watchdog.MonitorQnetTimeout
-    leafs["monitor-cpuhog-timeout"] = watchdog.MonitorCpuhogTimeout
-    leafs["monitor-procnto-timeout"] = watchdog.MonitorProcntoTimeout
-    leafs["overload-notification"] = watchdog.OverloadNotification
-    leafs["restart-cpuhog-disable"] = watchdog.RestartCpuhogDisable
-    leafs["restart-memoryhog-disable"] = watchdog.RestartMemoryhogDisable
-    leafs["overload-throttle-timeout"] = watchdog.OverloadThrottleTimeout
-    return leafs
-}
-
-func (watchdog *Watchdog) GetBundleName() string { return "cisco_ios_xr" }
-
-func (watchdog *Watchdog) GetYangName() string { return "watchdog" }
-
-func (watchdog *Watchdog) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (watchdog *Watchdog) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (watchdog *Watchdog) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (watchdog *Watchdog) SetParent(parent types.Entity) { watchdog.parent = parent }
-
-func (watchdog *Watchdog) GetParent() types.Entity { return watchdog.parent }
-
-func (watchdog *Watchdog) GetParentYangName() string { return "Cisco-IOS-XR-wd-cfg" }
 
 // Watchdog_ThresholdMemory
 // Memory thresholds
 type Watchdog_ThresholdMemory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Threshold, Range(5, 40). The type is interface{} with range: 5..40.
@@ -153,53 +111,21 @@ type Watchdog_ThresholdMemory struct {
     Critical interface{}
 }
 
-func (thresholdMemory *Watchdog_ThresholdMemory) GetFilter() yfilter.YFilter { return thresholdMemory.YFilter }
+func (thresholdMemory *Watchdog_ThresholdMemory) GetEntityData() *types.CommonEntityData {
+    thresholdMemory.EntityData.YFilter = thresholdMemory.YFilter
+    thresholdMemory.EntityData.YangName = "threshold-memory"
+    thresholdMemory.EntityData.BundleName = "cisco_ios_xr"
+    thresholdMemory.EntityData.ParentYangName = "watchdog"
+    thresholdMemory.EntityData.SegmentPath = "threshold-memory"
+    thresholdMemory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    thresholdMemory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    thresholdMemory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (thresholdMemory *Watchdog_ThresholdMemory) SetFilter(yf yfilter.YFilter) { thresholdMemory.YFilter = yf }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetGoName(yname string) string {
-    if yname == "minor" { return "Minor" }
-    if yname == "severe" { return "Severe" }
-    if yname == "critical" { return "Critical" }
-    return ""
+    thresholdMemory.EntityData.Children = make(map[string]types.YChild)
+    thresholdMemory.EntityData.Leafs = make(map[string]types.YLeaf)
+    thresholdMemory.EntityData.Leafs["minor"] = types.YLeaf{"Minor", thresholdMemory.Minor}
+    thresholdMemory.EntityData.Leafs["severe"] = types.YLeaf{"Severe", thresholdMemory.Severe}
+    thresholdMemory.EntityData.Leafs["critical"] = types.YLeaf{"Critical", thresholdMemory.Critical}
+    return &(thresholdMemory.EntityData)
 }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetSegmentPath() string {
-    return "threshold-memory"
-}
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minor"] = thresholdMemory.Minor
-    leafs["severe"] = thresholdMemory.Severe
-    leafs["critical"] = thresholdMemory.Critical
-    return leafs
-}
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetYangName() string { return "threshold-memory" }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) SetParent(parent types.Entity) { thresholdMemory.parent = parent }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetParent() types.Entity { return thresholdMemory.parent }
-
-func (thresholdMemory *Watchdog_ThresholdMemory) GetParentYangName() string { return "watchdog" }
 

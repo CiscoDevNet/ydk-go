@@ -24,6 +24,35 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ncs5500-qos-oper:platform-qos", reflect.TypeOf(PlatformQos{}))
 }
 
+// DnxQoseaShowWred represents WRED type
+type DnxQoseaShowWred string
+
+const (
+    // WRED based on COS
+    DnxQoseaShowWred_wred_cos DnxQoseaShowWred = "wred-cos"
+
+    // WRED based on DSCP
+    DnxQoseaShowWred_wred_dscp DnxQoseaShowWred = "wred-dscp"
+
+    // WRED based on Precedence
+    DnxQoseaShowWred_wred_precedence DnxQoseaShowWred = "wred-precedence"
+
+    // WRED based on discard class
+    DnxQoseaShowWred_wred_discard_class DnxQoseaShowWred = "wred-discard-class"
+
+    // WRED based on MPLS EXP
+    DnxQoseaShowWred_wred_mpls_exp DnxQoseaShowWred = "wred-mpls-exp"
+
+    // RED with user defined min and max
+    DnxQoseaShowWred_red_with_user_min_max DnxQoseaShowWred = "red-with-user-min-max"
+
+    // RED with default min and max
+    DnxQoseaShowWred_red_with_default_min_max DnxQoseaShowWred = "red-with-default-min-max"
+
+    // Invalid
+    DnxQoseaShowWred_wred_invalid DnxQoseaShowWred = "wred-invalid"
+)
+
 // DnxQoseaShowAction represents Policer action type
 type DnxQoseaShowAction string
 
@@ -118,35 +147,6 @@ const (
     PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
 )
 
-// DnxQoseaShowWred represents WRED type
-type DnxQoseaShowWred string
-
-const (
-    // WRED based on COS
-    DnxQoseaShowWred_wred_cos DnxQoseaShowWred = "wred-cos"
-
-    // WRED based on DSCP
-    DnxQoseaShowWred_wred_dscp DnxQoseaShowWred = "wred-dscp"
-
-    // WRED based on Precedence
-    DnxQoseaShowWred_wred_precedence DnxQoseaShowWred = "wred-precedence"
-
-    // WRED based on discard class
-    DnxQoseaShowWred_wred_discard_class DnxQoseaShowWred = "wred-discard-class"
-
-    // WRED based on MPLS EXP
-    DnxQoseaShowWred_wred_mpls_exp DnxQoseaShowWred = "wred-mpls-exp"
-
-    // RED with user defined min and max
-    DnxQoseaShowWred_red_with_user_min_max DnxQoseaShowWred = "red-with-user-min-max"
-
-    // RED with default min and max
-    DnxQoseaShowWred_red_with_default_min_max DnxQoseaShowWred = "red-with-default-min-max"
-
-    // Invalid
-    DnxQoseaShowWred_wred_invalid DnxQoseaShowWred = "wred-invalid"
-)
-
 // DnxQoseaShowHpLevel represents Priority level
 type DnxQoseaShowHpLevel string
 
@@ -176,24 +176,21 @@ const (
     DnxQoseaShowHpLevel_unknown DnxQoseaShowHpLevel = "unknown"
 )
 
-// QosPolicyAccountEnum represents Qos policy account enum
-type QosPolicyAccountEnum string
+// DnxQoseaShowQueue represents Priority Queue Type
+type DnxQoseaShowQueue string
 
 const (
-    // qos serv policy no ac count pref
-    QosPolicyAccountEnum_qos_serv_policy_no_ac_count_pref QosPolicyAccountEnum = "qos-serv-policy-no-ac-count-pref"
+    // Low priority default queue
+    DnxQoseaShowQueue_low_priority_default_queue DnxQoseaShowQueue = "low-priority-default-queue"
 
-    // qos serv policy ac count l2
-    QosPolicyAccountEnum_qos_serv_policy_ac_count_l2 QosPolicyAccountEnum = "qos-serv-policy-ac-count-l2"
+    // Low priority queue
+    DnxQoseaShowQueue_low_priority_queue DnxQoseaShowQueue = "low-priority-queue"
 
-    // qos serv policy no ac count l2
-    QosPolicyAccountEnum_qos_serv_policy_no_ac_count_l2 QosPolicyAccountEnum = "qos-serv-policy-no-ac-count-l2"
+    // High priority queue
+    DnxQoseaShowQueue_high_priority_queue DnxQoseaShowQueue = "high-priority-queue"
 
-    // qos serv policy ac count user def
-    QosPolicyAccountEnum_qos_serv_policy_ac_count_user_def QosPolicyAccountEnum = "qos-serv-policy-ac-count-user-def"
-
-    // qos serv policy ac count l1
-    QosPolicyAccountEnum_qos_serv_policy_ac_count_l1 QosPolicyAccountEnum = "qos-serv-policy-ac-count-l1"
+    // Queue priority unknown
+    DnxQoseaShowQueue_unknown_queue_type DnxQoseaShowQueue = "unknown-queue-type"
 )
 
 // DnxQoseaShowMark represents Mark type
@@ -246,28 +243,6 @@ const (
     DnxQoseaShowMark_dei_imposition DnxQoseaShowMark = "dei-imposition"
 )
 
-// DnxQoseaShowPolicyStatus represents Status
-type DnxQoseaShowPolicyStatus string
-
-const (
-    // No errors
-    DnxQoseaShowPolicyStatus_no_error DnxQoseaShowPolicyStatus = "no-error"
-
-    // QoS policy is reset
-    DnxQoseaShowPolicyStatus_policy_in_reset DnxQoseaShowPolicyStatus = "policy-in-reset"
-)
-
-// DnxQoseaShowIntfStatus represents Intf Status
-type DnxQoseaShowIntfStatus string
-
-const (
-    // State is unknown
-    DnxQoseaShowIntfStatus_state_unknown DnxQoseaShowIntfStatus = "state-unknown"
-
-    // State is Down
-    DnxQoseaShowIntfStatus_state_down DnxQoseaShowIntfStatus = "state-down"
-)
-
 // DnxQoseaShowLevel represents Level type
 type DnxQoseaShowLevel string
 
@@ -288,87 +263,79 @@ const (
     DnxQoseaShowLevel_level5 DnxQoseaShowLevel = "level5"
 )
 
-// DnxQoseaShowQueue represents Priority Queue Type
-type DnxQoseaShowQueue string
+// DnxQoseaShowIntfStatus represents Intf Status
+type DnxQoseaShowIntfStatus string
 
 const (
-    // Low priority default queue
-    DnxQoseaShowQueue_low_priority_default_queue DnxQoseaShowQueue = "low-priority-default-queue"
+    // State is unknown
+    DnxQoseaShowIntfStatus_state_unknown DnxQoseaShowIntfStatus = "state-unknown"
 
-    // Low priority queue
-    DnxQoseaShowQueue_low_priority_queue DnxQoseaShowQueue = "low-priority-queue"
+    // State is Down
+    DnxQoseaShowIntfStatus_state_down DnxQoseaShowIntfStatus = "state-down"
+)
 
-    // High priority queue
-    DnxQoseaShowQueue_high_priority_queue DnxQoseaShowQueue = "high-priority-queue"
+// DnxQoseaShowPolicyStatus represents Status
+type DnxQoseaShowPolicyStatus string
 
-    // Queue priority unknown
-    DnxQoseaShowQueue_unknown_queue_type DnxQoseaShowQueue = "unknown-queue-type"
+const (
+    // No errors
+    DnxQoseaShowPolicyStatus_no_error DnxQoseaShowPolicyStatus = "no-error"
+
+    // QoS policy is reset
+    DnxQoseaShowPolicyStatus_policy_in_reset DnxQoseaShowPolicyStatus = "policy-in-reset"
+)
+
+// QosPolicyAccountEnum represents Qos policy account enum
+type QosPolicyAccountEnum string
+
+const (
+    // qos serv policy no ac count pref
+    QosPolicyAccountEnum_qos_serv_policy_no_ac_count_pref QosPolicyAccountEnum = "qos-serv-policy-no-ac-count-pref"
+
+    // qos serv policy ac count l2
+    QosPolicyAccountEnum_qos_serv_policy_ac_count_l2 QosPolicyAccountEnum = "qos-serv-policy-ac-count-l2"
+
+    // qos serv policy no ac count l2
+    QosPolicyAccountEnum_qos_serv_policy_no_ac_count_l2 QosPolicyAccountEnum = "qos-serv-policy-no-ac-count-l2"
+
+    // qos serv policy ac count user def
+    QosPolicyAccountEnum_qos_serv_policy_ac_count_user_def QosPolicyAccountEnum = "qos-serv-policy-ac-count-user-def"
+
+    // qos serv policy ac count l1
+    QosPolicyAccountEnum_qos_serv_policy_ac_count_l1 QosPolicyAccountEnum = "qos-serv-policy-ac-count-l1"
 )
 
 // PlatformQos
 // DNX QoS EA operational data
 type PlatformQos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of nodes with platform specific QoS configuration.
     Nodes PlatformQos_Nodes
 }
 
-func (platformQos *PlatformQos) GetFilter() yfilter.YFilter { return platformQos.YFilter }
+func (platformQos *PlatformQos) GetEntityData() *types.CommonEntityData {
+    platformQos.EntityData.YFilter = platformQos.YFilter
+    platformQos.EntityData.YangName = "platform-qos"
+    platformQos.EntityData.BundleName = "cisco_ios_xr"
+    platformQos.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5500-qos-oper"
+    platformQos.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos"
+    platformQos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    platformQos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    platformQos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (platformQos *PlatformQos) SetFilter(yf yfilter.YFilter) { platformQos.YFilter = yf }
-
-func (platformQos *PlatformQos) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    platformQos.EntityData.Children = make(map[string]types.YChild)
+    platformQos.EntityData.Children["nodes"] = types.YChild{"Nodes", &platformQos.Nodes}
+    platformQos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(platformQos.EntityData)
 }
-
-func (platformQos *PlatformQos) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ncs5500-qos-oper:platform-qos"
-}
-
-func (platformQos *PlatformQos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &platformQos.Nodes
-    }
-    return nil
-}
-
-func (platformQos *PlatformQos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &platformQos.Nodes
-    return children
-}
-
-func (platformQos *PlatformQos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (platformQos *PlatformQos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (platformQos *PlatformQos) GetYangName() string { return "platform-qos" }
-
-func (platformQos *PlatformQos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (platformQos *PlatformQos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (platformQos *PlatformQos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (platformQos *PlatformQos) SetParent(parent types.Entity) { platformQos.parent = parent }
-
-func (platformQos *PlatformQos) GetParent() types.Entity { return platformQos.parent }
-
-func (platformQos *PlatformQos) GetParentYangName() string { return "Cisco-IOS-XR-ncs5500-qos-oper" }
 
 // PlatformQos_Nodes
 // List of nodes with platform specific QoS
 // configuration
 type PlatformQos_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node with platform specific QoS configuration. The type is slice of
@@ -376,72 +343,33 @@ type PlatformQos_Nodes struct {
     Node []PlatformQos_Nodes_Node
 }
 
-func (nodes *PlatformQos_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *PlatformQos_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "platform-qos"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *PlatformQos_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *PlatformQos_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *PlatformQos_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *PlatformQos_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *PlatformQos_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *PlatformQos_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *PlatformQos_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *PlatformQos_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *PlatformQos_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *PlatformQos_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *PlatformQos_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *PlatformQos_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *PlatformQos_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *PlatformQos_Nodes) GetParentYangName() string { return "platform-qos" }
 
 // PlatformQos_Nodes_Node
 // Node with platform specific QoS configuration
 type PlatformQos_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // QoS list of bundle interfaces.
@@ -450,75 +378,37 @@ type PlatformQos_Nodes_Node struct {
     // QoS list of interfaces.
     Interfaces PlatformQos_Nodes_Node_Interfaces
 
+    // QoS list of bundle interfaces.
+    BundleInterfaceSingles PlatformQos_Nodes_Node_BundleInterfaceSingles
+
     // QoS list of remote interfaces.
     RemoteInterfaces PlatformQos_Nodes_Node_RemoteInterfaces
 }
 
-func (node *PlatformQos_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *PlatformQos_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *PlatformQos_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *PlatformQos_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "bundle-interfaces" { return "BundleInterfaces" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "remote-interfaces" { return "RemoteInterfaces" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["bundle-interfaces"] = types.YChild{"BundleInterfaces", &node.BundleInterfaces}
+    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
+    node.EntityData.Children["bundle-interface-singles"] = types.YChild{"BundleInterfaceSingles", &node.BundleInterfaceSingles}
+    node.EntityData.Children["remote-interfaces"] = types.YChild{"RemoteInterfaces", &node.RemoteInterfaces}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *PlatformQos_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *PlatformQos_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bundle-interfaces" {
-        return &node.BundleInterfaces
-    }
-    if childYangName == "interfaces" {
-        return &node.Interfaces
-    }
-    if childYangName == "remote-interfaces" {
-        return &node.RemoteInterfaces
-    }
-    return nil
-}
-
-func (node *PlatformQos_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["bundle-interfaces"] = &node.BundleInterfaces
-    children["interfaces"] = &node.Interfaces
-    children["remote-interfaces"] = &node.RemoteInterfaces
-    return children
-}
-
-func (node *PlatformQos_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *PlatformQos_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *PlatformQos_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *PlatformQos_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *PlatformQos_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *PlatformQos_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *PlatformQos_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *PlatformQos_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *PlatformQos_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces
 // QoS list of bundle interfaces
 type PlatformQos_Nodes_Node_BundleInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // QoS interface names. The type is slice of
@@ -526,72 +416,32 @@ type PlatformQos_Nodes_Node_BundleInterfaces struct {
     BundleInterface []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface
 }
 
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetFilter() yfilter.YFilter { return bundleInterfaces.YFilter }
+func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetEntityData() *types.CommonEntityData {
+    bundleInterfaces.EntityData.YFilter = bundleInterfaces.YFilter
+    bundleInterfaces.EntityData.YangName = "bundle-interfaces"
+    bundleInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    bundleInterfaces.EntityData.ParentYangName = "node"
+    bundleInterfaces.EntityData.SegmentPath = "bundle-interfaces"
+    bundleInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bundleInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bundleInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) SetFilter(yf yfilter.YFilter) { bundleInterfaces.YFilter = yf }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetGoName(yname string) string {
-    if yname == "bundle-interface" { return "BundleInterface" }
-    return ""
-}
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetSegmentPath() string {
-    return "bundle-interfaces"
-}
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bundle-interface" {
-        for _, c := range bundleInterfaces.BundleInterface {
-            if bundleInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface{}
-        bundleInterfaces.BundleInterface = append(bundleInterfaces.BundleInterface, child)
-        return &bundleInterfaces.BundleInterface[len(bundleInterfaces.BundleInterface)-1]
-    }
-    return nil
-}
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bundleInterfaces.EntityData.Children = make(map[string]types.YChild)
+    bundleInterfaces.EntityData.Children["bundle-interface"] = types.YChild{"BundleInterface", nil}
     for i := range bundleInterfaces.BundleInterface {
-        children[bundleInterfaces.BundleInterface[i].GetSegmentPath()] = &bundleInterfaces.BundleInterface[i]
+        bundleInterfaces.EntityData.Children[types.GetSegmentPath(&bundleInterfaces.BundleInterface[i])] = types.YChild{"BundleInterface", &bundleInterfaces.BundleInterface[i]}
     }
-    return children
+    bundleInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bundleInterfaces.EntityData)
 }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetYangName() string { return "bundle-interfaces" }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) SetParent(parent types.Entity) { bundleInterfaces.parent = parent }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetParent() types.Entity { return bundleInterfaces.parent }
-
-func (bundleInterfaces *PlatformQos_Nodes_Node_BundleInterfaces) GetParentYangName() string { return "node" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface
 // QoS interface names
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // Bundle interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // NPU ID. The type is interface{} with range: -2147483648..2147483647.
@@ -600,227 +450,41 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     // The interface direction on which QoS is applied to. The type is string.
     QosDirection interface{}
 
-    // QoS list of member interfaces.
-    MemberInterfaces PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces
-
     // Policy Details.
     PolicyDetails PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails
+
+    // QoS list of member interfaces.
+    MemberInterfaces PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces
 
     // QoS list of class names.
     Classes PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes
 }
 
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetFilter() yfilter.YFilter { return bundleInterface.YFilter }
+func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetEntityData() *types.CommonEntityData {
+    bundleInterface.EntityData.YFilter = bundleInterface.YFilter
+    bundleInterface.EntityData.YangName = "bundle-interface"
+    bundleInterface.EntityData.BundleName = "cisco_ios_xr"
+    bundleInterface.EntityData.ParentYangName = "bundle-interfaces"
+    bundleInterface.EntityData.SegmentPath = "bundle-interface"
+    bundleInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bundleInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bundleInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) SetFilter(yf yfilter.YFilter) { bundleInterface.YFilter = yf }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "qos-direction" { return "QosDirection" }
-    if yname == "member-interfaces" { return "MemberInterfaces" }
-    if yname == "policy-details" { return "PolicyDetails" }
-    if yname == "classes" { return "Classes" }
-    return ""
+    bundleInterface.EntityData.Children = make(map[string]types.YChild)
+    bundleInterface.EntityData.Children["policy-details"] = types.YChild{"PolicyDetails", &bundleInterface.PolicyDetails}
+    bundleInterface.EntityData.Children["member-interfaces"] = types.YChild{"MemberInterfaces", &bundleInterface.MemberInterfaces}
+    bundleInterface.EntityData.Children["classes"] = types.YChild{"Classes", &bundleInterface.Classes}
+    bundleInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bundleInterface.InterfaceName}
+    bundleInterface.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", bundleInterface.NpuId}
+    bundleInterface.EntityData.Leafs["qos-direction"] = types.YLeaf{"QosDirection", bundleInterface.QosDirection}
+    return &(bundleInterface.EntityData)
 }
 
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetSegmentPath() string {
-    return "bundle-interface" + "[interface-name='" + fmt.Sprintf("%v", bundleInterface.InterfaceName) + "']"
-}
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "member-interfaces" {
-        return &bundleInterface.MemberInterfaces
-    }
-    if childYangName == "policy-details" {
-        return &bundleInterface.PolicyDetails
-    }
-    if childYangName == "classes" {
-        return &bundleInterface.Classes
-    }
-    return nil
-}
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["member-interfaces"] = &bundleInterface.MemberInterfaces
-    children["policy-details"] = &bundleInterface.PolicyDetails
-    children["classes"] = &bundleInterface.Classes
-    return children
-}
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = bundleInterface.InterfaceName
-    leafs["npu-id"] = bundleInterface.NpuId
-    leafs["qos-direction"] = bundleInterface.QosDirection
-    return leafs
-}
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetYangName() string { return "bundle-interface" }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) SetParent(parent types.Entity) { bundleInterface.parent = parent }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetParent() types.Entity { return bundleInterface.parent }
-
-func (bundleInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface) GetParentYangName() string { return "bundle-interfaces" }
-
-// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces
-// QoS list of member interfaces
-type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // QoS interface names. The type is slice of
-    // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface.
-    MemberInterface []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface
-}
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetFilter() yfilter.YFilter { return memberInterfaces.YFilter }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) SetFilter(yf yfilter.YFilter) { memberInterfaces.YFilter = yf }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetGoName(yname string) string {
-    if yname == "member-interface" { return "MemberInterface" }
-    return ""
-}
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetSegmentPath() string {
-    return "member-interfaces"
-}
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "member-interface" {
-        for _, c := range memberInterfaces.MemberInterface {
-            if memberInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface{}
-        memberInterfaces.MemberInterface = append(memberInterfaces.MemberInterface, child)
-        return &memberInterfaces.MemberInterface[len(memberInterfaces.MemberInterface)-1]
-    }
-    return nil
-}
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range memberInterfaces.MemberInterface {
-        children[memberInterfaces.MemberInterface[i].GetSegmentPath()] = &memberInterfaces.MemberInterface[i]
-    }
-    return children
-}
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetYangName() string { return "member-interfaces" }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) SetParent(parent types.Entity) { memberInterfaces.parent = parent }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetParent() types.Entity { return memberInterfaces.parent }
-
-func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetParentYangName() string { return "bundle-interface" }
-
-// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface
-// QoS interface names
-type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. Member interface. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
-    InterfaceName interface{}
-
-    // Policy Details.
-    PolicyDetails PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails
-
-    // QoS list of class names.
-    Classes PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes
-}
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetFilter() yfilter.YFilter { return memberInterface.YFilter }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) SetFilter(yf yfilter.YFilter) { memberInterface.YFilter = yf }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "policy-details" { return "PolicyDetails" }
-    if yname == "classes" { return "Classes" }
-    return ""
-}
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetSegmentPath() string {
-    return "member-interface" + "[interface-name='" + fmt.Sprintf("%v", memberInterface.InterfaceName) + "']"
-}
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "policy-details" {
-        return &memberInterface.PolicyDetails
-    }
-    if childYangName == "classes" {
-        return &memberInterface.Classes
-    }
-    return nil
-}
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["policy-details"] = &memberInterface.PolicyDetails
-    children["classes"] = &memberInterface.Classes
-    return children
-}
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = memberInterface.InterfaceName
-    return leafs
-}
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetYangName() string { return "member-interface" }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) SetParent(parent types.Entity) { memberInterface.parent = parent }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetParent() types.Entity { return memberInterface.parent }
-
-func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetParentYangName() string { return "member-interfaces" }
-
-// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails
+// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails
 // Policy Details
-type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails struct {
-    parent types.Entity
+type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NPU ID. The type is interface{} with range: 0..4294967295.
@@ -856,74 +520,164 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     InterfaceStatus interface{}
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetFilter() yfilter.YFilter { return policyDetails.YFilter }
+func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetEntityData() *types.CommonEntityData {
+    policyDetails.EntityData.YFilter = policyDetails.YFilter
+    policyDetails.EntityData.YangName = "policy-details"
+    policyDetails.EntityData.BundleName = "cisco_ios_xr"
+    policyDetails.EntityData.ParentYangName = "bundle-interface"
+    policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) SetFilter(yf yfilter.YFilter) { policyDetails.YFilter = yf }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetGoName(yname string) string {
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "interface-bandwidth-kbps" { return "InterfaceBandwidthKbps" }
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "total-number-of-classes" { return "TotalNumberOfClasses" }
-    if yname == "voq-base-address" { return "VoqBaseAddress" }
-    if yname == "voq-stats-handle" { return "VoqStatsHandle" }
-    if yname == "stats-accounting-type" { return "StatsAccountingType" }
-    if yname == "policy-status" { return "PolicyStatus" }
-    if yname == "interface-status" { return "InterfaceStatus" }
-    return ""
+    policyDetails.EntityData.Children = make(map[string]types.YChild)
+    policyDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyDetails.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", policyDetails.NpuId}
+    policyDetails.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", policyDetails.InterfaceHandle}
+    policyDetails.EntityData.Leafs["interface-bandwidth-kbps"] = types.YLeaf{"InterfaceBandwidthKbps", policyDetails.InterfaceBandwidthKbps}
+    policyDetails.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policyDetails.PolicyName}
+    policyDetails.EntityData.Leafs["total-number-of-classes"] = types.YLeaf{"TotalNumberOfClasses", policyDetails.TotalNumberOfClasses}
+    policyDetails.EntityData.Leafs["voq-base-address"] = types.YLeaf{"VoqBaseAddress", policyDetails.VoqBaseAddress}
+    policyDetails.EntityData.Leafs["voq-stats-handle"] = types.YLeaf{"VoqStatsHandle", policyDetails.VoqStatsHandle}
+    policyDetails.EntityData.Leafs["stats-accounting-type"] = types.YLeaf{"StatsAccountingType", policyDetails.StatsAccountingType}
+    policyDetails.EntityData.Leafs["policy-status"] = types.YLeaf{"PolicyStatus", policyDetails.PolicyStatus}
+    policyDetails.EntityData.Leafs["interface-status"] = types.YLeaf{"InterfaceStatus", policyDetails.InterfaceStatus}
+    return &(policyDetails.EntityData)
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetSegmentPath() string {
-    return "policy-details"
+// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces
+// QoS list of member interfaces
+type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QoS interface names. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface.
+    MemberInterface []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces) GetEntityData() *types.CommonEntityData {
+    memberInterfaces.EntityData.YFilter = memberInterfaces.YFilter
+    memberInterfaces.EntityData.YangName = "member-interfaces"
+    memberInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    memberInterfaces.EntityData.ParentYangName = "bundle-interface"
+    memberInterfaces.EntityData.SegmentPath = "member-interfaces"
+    memberInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberInterfaces.EntityData.Children = make(map[string]types.YChild)
+    memberInterfaces.EntityData.Children["member-interface"] = types.YChild{"MemberInterface", nil}
+    for i := range memberInterfaces.MemberInterface {
+        memberInterfaces.EntityData.Children[types.GetSegmentPath(&memberInterfaces.MemberInterface[i])] = types.YChild{"MemberInterface", &memberInterfaces.MemberInterface[i]}
+    }
+    memberInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(memberInterfaces.EntityData)
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface
+// QoS interface names
+type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Member interface. The type is string with pattern:
+    // b'[a-zA-Z0-9./-]+'.
+    InterfaceName interface{}
+
+    // Policy Details.
+    PolicyDetails PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails
+
+    // QoS list of class names.
+    Classes PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["npu-id"] = policyDetails.NpuId
-    leafs["interface-handle"] = policyDetails.InterfaceHandle
-    leafs["interface-bandwidth-kbps"] = policyDetails.InterfaceBandwidthKbps
-    leafs["policy-name"] = policyDetails.PolicyName
-    leafs["total-number-of-classes"] = policyDetails.TotalNumberOfClasses
-    leafs["voq-base-address"] = policyDetails.VoqBaseAddress
-    leafs["voq-stats-handle"] = policyDetails.VoqStatsHandle
-    leafs["stats-accounting-type"] = policyDetails.StatsAccountingType
-    leafs["policy-status"] = policyDetails.PolicyStatus
-    leafs["interface-status"] = policyDetails.InterfaceStatus
-    return leafs
+func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface) GetEntityData() *types.CommonEntityData {
+    memberInterface.EntityData.YFilter = memberInterface.YFilter
+    memberInterface.EntityData.YangName = "member-interface"
+    memberInterface.EntityData.BundleName = "cisco_ios_xr"
+    memberInterface.EntityData.ParentYangName = "member-interfaces"
+    memberInterface.EntityData.SegmentPath = "member-interface" + "[interface-name='" + fmt.Sprintf("%v", memberInterface.InterfaceName) + "']"
+    memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberInterface.EntityData.Children = make(map[string]types.YChild)
+    memberInterface.EntityData.Children["policy-details"] = types.YChild{"PolicyDetails", &memberInterface.PolicyDetails}
+    memberInterface.EntityData.Children["classes"] = types.YChild{"Classes", &memberInterface.Classes}
+    memberInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    memberInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", memberInterface.InterfaceName}
+    return &(memberInterface.EntityData)
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetBundleName() string { return "cisco_ios_xr" }
+// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails
+// Policy Details
+type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetYangName() string { return "policy-details" }
+    // NPU ID. The type is interface{} with range: 0..4294967295.
+    NpuId interface{}
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+    // InterfaceHandle. The type is interface{} with range: 0..4294967295.
+    InterfaceHandle interface{}
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+    // Interface Bandwidth (in kbps). The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    InterfaceBandwidthKbps interface{}
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+    // Policy name. The type is string with length: 0..64.
+    PolicyName interface{}
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) SetParent(parent types.Entity) { policyDetails.parent = parent }
+    // Number of Classes. The type is interface{} with range: 0..65535.
+    TotalNumberOfClasses interface{}
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetParent() types.Entity { return policyDetails.parent }
+    // VOQ base address. The type is interface{} with range: 0..4294967295.
+    VoqBaseAddress interface{}
 
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetParentYangName() string { return "member-interface" }
+    // VOQ stats handle. The type is interface{} with range:
+    // 0..18446744073709551615.
+    VoqStatsHandle interface{}
+
+    // QoS Statistics Accounting Type. The type is QosPolicyAccountEnum.
+    StatsAccountingType interface{}
+
+    // Policy Status. The type is DnxQoseaShowPolicyStatus.
+    PolicyStatus interface{}
+
+    // Interface Status. The type is DnxQoseaShowIntfStatus.
+    InterfaceStatus interface{}
+}
+
+func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_PolicyDetails) GetEntityData() *types.CommonEntityData {
+    policyDetails.EntityData.YFilter = policyDetails.YFilter
+    policyDetails.EntityData.YangName = "policy-details"
+    policyDetails.EntityData.BundleName = "cisco_ios_xr"
+    policyDetails.EntityData.ParentYangName = "member-interface"
+    policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyDetails.EntityData.Children = make(map[string]types.YChild)
+    policyDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyDetails.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", policyDetails.NpuId}
+    policyDetails.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", policyDetails.InterfaceHandle}
+    policyDetails.EntityData.Leafs["interface-bandwidth-kbps"] = types.YLeaf{"InterfaceBandwidthKbps", policyDetails.InterfaceBandwidthKbps}
+    policyDetails.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policyDetails.PolicyName}
+    policyDetails.EntityData.Leafs["total-number-of-classes"] = types.YLeaf{"TotalNumberOfClasses", policyDetails.TotalNumberOfClasses}
+    policyDetails.EntityData.Leafs["voq-base-address"] = types.YLeaf{"VoqBaseAddress", policyDetails.VoqBaseAddress}
+    policyDetails.EntityData.Leafs["voq-stats-handle"] = types.YLeaf{"VoqStatsHandle", policyDetails.VoqStatsHandle}
+    policyDetails.EntityData.Leafs["stats-accounting-type"] = types.YLeaf{"StatsAccountingType", policyDetails.StatsAccountingType}
+    policyDetails.EntityData.Leafs["policy-status"] = types.YLeaf{"PolicyStatus", policyDetails.PolicyStatus}
+    policyDetails.EntityData.Leafs["interface-status"] = types.YLeaf{"InterfaceStatus", policyDetails.InterfaceStatus}
+    return &(policyDetails.EntityData)
+}
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes
 // QoS list of class names
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // QoS policy class. The type is slice of
@@ -931,68 +685,29 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     Class []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class
 }
 
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetFilter() yfilter.YFilter { return classes.YFilter }
+func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "member-interface"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) SetFilter(yf yfilter.YFilter) { classes.YFilter = yf }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    return ""
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetSegmentPath() string {
-    return "classes"
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class" {
-        for _, c := range classes.Class {
-            if classes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class{}
-        classes.Class = append(classes.Class, child)
-        return &classes.Class[len(classes.Class)-1]
-    }
-    return nil
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
     for i := range classes.Class {
-        children[classes.Class[i].GetSegmentPath()] = &classes.Class[i]
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
     }
-    return children
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
 }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetYangName() string { return "classes" }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) SetParent(parent types.Entity) { classes.parent = parent }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetParent() types.Entity { return classes.parent }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes) GetParentYangName() string { return "member-interface" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class
 // QoS policy class
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. QoS policy class name at level 1. The type is
@@ -1117,200 +832,71 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     Wred []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred
 }
 
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetFilter() yfilter.YFilter { return class.YFilter }
+func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) SetFilter(yf yfilter.YFilter) { class.YFilter = yf }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetGoName(yname string) string {
-    if yname == "level-one-class-name" { return "LevelOneClassName" }
-    if yname == "level-two-class-name" { return "LevelTwoClassName" }
-    if yname == "class-level" { return "ClassLevel" }
-    if yname == "egress-queue-id" { return "EgressQueueId" }
-    if yname == "queue-type" { return "QueueType" }
-    if yname == "priority-level" { return "PriorityLevel" }
-    if yname == "hardware-max-rate-kbps" { return "HardwareMaxRateKbps" }
-    if yname == "hardware-min-rate-kbps" { return "HardwareMinRateKbps" }
-    if yname == "config-excess-bandwidth-percent" { return "ConfigExcessBandwidthPercent" }
-    if yname == "config-excess-bandwidth-unit" { return "ConfigExcessBandwidthUnit" }
-    if yname == "hardware-excess-bandwidth-weight" { return "HardwareExcessBandwidthWeight" }
-    if yname == "network-min-bandwidth-kbps" { return "NetworkMinBandwidthKbps" }
-    if yname == "hardware-queue-limit-bytes" { return "HardwareQueueLimitBytes" }
-    if yname == "hardware-queue-limit-microseconds" { return "HardwareQueueLimitMicroseconds" }
-    if yname == "policer-bucket-id" { return "PolicerBucketId" }
-    if yname == "policer-stats-handle" { return "PolicerStatsHandle" }
-    if yname == "hardware-policer-average-rate-kbps" { return "HardwarePolicerAverageRateKbps" }
-    if yname == "hardware-policer-peak-rate-kbps" { return "HardwarePolicerPeakRateKbps" }
-    if yname == "hardware-policer-conform-burst-bytes" { return "HardwarePolicerConformBurstBytes" }
-    if yname == "hardware-policer-excess-burst-bytes" { return "HardwarePolicerExcessBurstBytes" }
-    if yname == "config-max-rate" { return "ConfigMaxRate" }
-    if yname == "config-min-rate" { return "ConfigMinRate" }
-    if yname == "config-queue-limit" { return "ConfigQueueLimit" }
-    if yname == "config-policer-average-rate" { return "ConfigPolicerAverageRate" }
-    if yname == "config-policer-peak-rate" { return "ConfigPolicerPeakRate" }
-    if yname == "config-policer-conform-burst" { return "ConfigPolicerConformBurst" }
-    if yname == "config-policer-excess-burst" { return "ConfigPolicerExcessBurst" }
-    if yname == "conform-action" { return "ConformAction" }
-    if yname == "exceed-action" { return "ExceedAction" }
-    if yname == "violate-action" { return "ViolateAction" }
-    if yname == "ip-mark" { return "IpMark" }
-    if yname == "common-mark" { return "CommonMark" }
-    if yname == "mpls-mark" { return "MplsMark" }
-    if yname == "wred" { return "Wred" }
-    return ""
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetSegmentPath() string {
-    return "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config-max-rate" {
-        return &class.ConfigMaxRate
-    }
-    if childYangName == "config-min-rate" {
-        return &class.ConfigMinRate
-    }
-    if childYangName == "config-queue-limit" {
-        return &class.ConfigQueueLimit
-    }
-    if childYangName == "config-policer-average-rate" {
-        return &class.ConfigPolicerAverageRate
-    }
-    if childYangName == "config-policer-peak-rate" {
-        return &class.ConfigPolicerPeakRate
-    }
-    if childYangName == "config-policer-conform-burst" {
-        return &class.ConfigPolicerConformBurst
-    }
-    if childYangName == "config-policer-excess-burst" {
-        return &class.ConfigPolicerExcessBurst
-    }
-    if childYangName == "conform-action" {
-        return &class.ConformAction
-    }
-    if childYangName == "exceed-action" {
-        return &class.ExceedAction
-    }
-    if childYangName == "violate-action" {
-        return &class.ViolateAction
-    }
-    if childYangName == "ip-mark" {
-        for _, c := range class.IpMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark{}
-        class.IpMark = append(class.IpMark, child)
-        return &class.IpMark[len(class.IpMark)-1]
-    }
-    if childYangName == "common-mark" {
-        for _, c := range class.CommonMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark{}
-        class.CommonMark = append(class.CommonMark, child)
-        return &class.CommonMark[len(class.CommonMark)-1]
-    }
-    if childYangName == "mpls-mark" {
-        for _, c := range class.MplsMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark{}
-        class.MplsMark = append(class.MplsMark, child)
-        return &class.MplsMark[len(class.MplsMark)-1]
-    }
-    if childYangName == "wred" {
-        for _, c := range class.Wred {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred{}
-        class.Wred = append(class.Wred, child)
-        return &class.Wred[len(class.Wred)-1]
-    }
-    return nil
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config-max-rate"] = &class.ConfigMaxRate
-    children["config-min-rate"] = &class.ConfigMinRate
-    children["config-queue-limit"] = &class.ConfigQueueLimit
-    children["config-policer-average-rate"] = &class.ConfigPolicerAverageRate
-    children["config-policer-peak-rate"] = &class.ConfigPolicerPeakRate
-    children["config-policer-conform-burst"] = &class.ConfigPolicerConformBurst
-    children["config-policer-excess-burst"] = &class.ConfigPolicerExcessBurst
-    children["conform-action"] = &class.ConformAction
-    children["exceed-action"] = &class.ExceedAction
-    children["violate-action"] = &class.ViolateAction
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Children["config-max-rate"] = types.YChild{"ConfigMaxRate", &class.ConfigMaxRate}
+    class.EntityData.Children["config-min-rate"] = types.YChild{"ConfigMinRate", &class.ConfigMinRate}
+    class.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &class.ConfigQueueLimit}
+    class.EntityData.Children["config-policer-average-rate"] = types.YChild{"ConfigPolicerAverageRate", &class.ConfigPolicerAverageRate}
+    class.EntityData.Children["config-policer-peak-rate"] = types.YChild{"ConfigPolicerPeakRate", &class.ConfigPolicerPeakRate}
+    class.EntityData.Children["config-policer-conform-burst"] = types.YChild{"ConfigPolicerConformBurst", &class.ConfigPolicerConformBurst}
+    class.EntityData.Children["config-policer-excess-burst"] = types.YChild{"ConfigPolicerExcessBurst", &class.ConfigPolicerExcessBurst}
+    class.EntityData.Children["conform-action"] = types.YChild{"ConformAction", &class.ConformAction}
+    class.EntityData.Children["exceed-action"] = types.YChild{"ExceedAction", &class.ExceedAction}
+    class.EntityData.Children["violate-action"] = types.YChild{"ViolateAction", &class.ViolateAction}
+    class.EntityData.Children["ip-mark"] = types.YChild{"IpMark", nil}
     for i := range class.IpMark {
-        children[class.IpMark[i].GetSegmentPath()] = &class.IpMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.IpMark[i])] = types.YChild{"IpMark", &class.IpMark[i]}
     }
+    class.EntityData.Children["common-mark"] = types.YChild{"CommonMark", nil}
     for i := range class.CommonMark {
-        children[class.CommonMark[i].GetSegmentPath()] = &class.CommonMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.CommonMark[i])] = types.YChild{"CommonMark", &class.CommonMark[i]}
     }
+    class.EntityData.Children["mpls-mark"] = types.YChild{"MplsMark", nil}
     for i := range class.MplsMark {
-        children[class.MplsMark[i].GetSegmentPath()] = &class.MplsMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.MplsMark[i])] = types.YChild{"MplsMark", &class.MplsMark[i]}
     }
+    class.EntityData.Children["wred"] = types.YChild{"Wred", nil}
     for i := range class.Wred {
-        children[class.Wred[i].GetSegmentPath()] = &class.Wred[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.Wred[i])] = types.YChild{"Wred", &class.Wred[i]}
     }
-    return children
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["level-one-class-name"] = types.YLeaf{"LevelOneClassName", class.LevelOneClassName}
+    class.EntityData.Leafs["level-two-class-name"] = types.YLeaf{"LevelTwoClassName", class.LevelTwoClassName}
+    class.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", class.ClassLevel}
+    class.EntityData.Leafs["egress-queue-id"] = types.YLeaf{"EgressQueueId", class.EgressQueueId}
+    class.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", class.QueueType}
+    class.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", class.PriorityLevel}
+    class.EntityData.Leafs["hardware-max-rate-kbps"] = types.YLeaf{"HardwareMaxRateKbps", class.HardwareMaxRateKbps}
+    class.EntityData.Leafs["hardware-min-rate-kbps"] = types.YLeaf{"HardwareMinRateKbps", class.HardwareMinRateKbps}
+    class.EntityData.Leafs["config-excess-bandwidth-percent"] = types.YLeaf{"ConfigExcessBandwidthPercent", class.ConfigExcessBandwidthPercent}
+    class.EntityData.Leafs["config-excess-bandwidth-unit"] = types.YLeaf{"ConfigExcessBandwidthUnit", class.ConfigExcessBandwidthUnit}
+    class.EntityData.Leafs["hardware-excess-bandwidth-weight"] = types.YLeaf{"HardwareExcessBandwidthWeight", class.HardwareExcessBandwidthWeight}
+    class.EntityData.Leafs["network-min-bandwidth-kbps"] = types.YLeaf{"NetworkMinBandwidthKbps", class.NetworkMinBandwidthKbps}
+    class.EntityData.Leafs["hardware-queue-limit-bytes"] = types.YLeaf{"HardwareQueueLimitBytes", class.HardwareQueueLimitBytes}
+    class.EntityData.Leafs["hardware-queue-limit-microseconds"] = types.YLeaf{"HardwareQueueLimitMicroseconds", class.HardwareQueueLimitMicroseconds}
+    class.EntityData.Leafs["policer-bucket-id"] = types.YLeaf{"PolicerBucketId", class.PolicerBucketId}
+    class.EntityData.Leafs["policer-stats-handle"] = types.YLeaf{"PolicerStatsHandle", class.PolicerStatsHandle}
+    class.EntityData.Leafs["hardware-policer-average-rate-kbps"] = types.YLeaf{"HardwarePolicerAverageRateKbps", class.HardwarePolicerAverageRateKbps}
+    class.EntityData.Leafs["hardware-policer-peak-rate-kbps"] = types.YLeaf{"HardwarePolicerPeakRateKbps", class.HardwarePolicerPeakRateKbps}
+    class.EntityData.Leafs["hardware-policer-conform-burst-bytes"] = types.YLeaf{"HardwarePolicerConformBurstBytes", class.HardwarePolicerConformBurstBytes}
+    class.EntityData.Leafs["hardware-policer-excess-burst-bytes"] = types.YLeaf{"HardwarePolicerExcessBurstBytes", class.HardwarePolicerExcessBurstBytes}
+    return &(class.EntityData)
 }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["level-one-class-name"] = class.LevelOneClassName
-    leafs["level-two-class-name"] = class.LevelTwoClassName
-    leafs["class-level"] = class.ClassLevel
-    leafs["egress-queue-id"] = class.EgressQueueId
-    leafs["queue-type"] = class.QueueType
-    leafs["priority-level"] = class.PriorityLevel
-    leafs["hardware-max-rate-kbps"] = class.HardwareMaxRateKbps
-    leafs["hardware-min-rate-kbps"] = class.HardwareMinRateKbps
-    leafs["config-excess-bandwidth-percent"] = class.ConfigExcessBandwidthPercent
-    leafs["config-excess-bandwidth-unit"] = class.ConfigExcessBandwidthUnit
-    leafs["hardware-excess-bandwidth-weight"] = class.HardwareExcessBandwidthWeight
-    leafs["network-min-bandwidth-kbps"] = class.NetworkMinBandwidthKbps
-    leafs["hardware-queue-limit-bytes"] = class.HardwareQueueLimitBytes
-    leafs["hardware-queue-limit-microseconds"] = class.HardwareQueueLimitMicroseconds
-    leafs["policer-bucket-id"] = class.PolicerBucketId
-    leafs["policer-stats-handle"] = class.PolicerStatsHandle
-    leafs["hardware-policer-average-rate-kbps"] = class.HardwarePolicerAverageRateKbps
-    leafs["hardware-policer-peak-rate-kbps"] = class.HardwarePolicerPeakRateKbps
-    leafs["hardware-policer-conform-burst-bytes"] = class.HardwarePolicerConformBurstBytes
-    leafs["hardware-policer-excess-burst-bytes"] = class.HardwarePolicerExcessBurstBytes
-    return leafs
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetBundleName() string { return "cisco_ios_xr" }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetYangName() string { return "class" }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) SetParent(parent types.Entity) { class.parent = parent }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetParent() types.Entity { return class.parent }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class) GetParentYangName() string { return "classes" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate
 // Configured maximum rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1320,58 +906,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetFilter() yfilter.YFilter { return configMaxRate.YFilter }
+func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetEntityData() *types.CommonEntityData {
+    configMaxRate.EntityData.YFilter = configMaxRate.YFilter
+    configMaxRate.EntityData.YangName = "config-max-rate"
+    configMaxRate.EntityData.BundleName = "cisco_ios_xr"
+    configMaxRate.EntityData.ParentYangName = "class"
+    configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) SetFilter(yf yfilter.YFilter) { configMaxRate.YFilter = yf }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMaxRate.EntityData.Children = make(map[string]types.YChild)
+    configMaxRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxRate.PolicyValue}
+    configMaxRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxRate.PolicyUnit}
+    return &(configMaxRate.EntityData)
 }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetSegmentPath() string {
-    return "config-max-rate"
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMaxRate.PolicyValue
-    leafs["policy-unit"] = configMaxRate.PolicyUnit
-    return leafs
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetYangName() string { return "config-max-rate" }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) SetParent(parent types.Entity) { configMaxRate.parent = parent }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetParent() types.Entity { return configMaxRate.parent }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate
 // Configured minimum rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1381,58 +936,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetFilter() yfilter.YFilter { return configMinRate.YFilter }
+func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetEntityData() *types.CommonEntityData {
+    configMinRate.EntityData.YFilter = configMinRate.YFilter
+    configMinRate.EntityData.YangName = "config-min-rate"
+    configMinRate.EntityData.BundleName = "cisco_ios_xr"
+    configMinRate.EntityData.ParentYangName = "class"
+    configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) SetFilter(yf yfilter.YFilter) { configMinRate.YFilter = yf }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMinRate.EntityData.Children = make(map[string]types.YChild)
+    configMinRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinRate.PolicyValue}
+    configMinRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinRate.PolicyUnit}
+    return &(configMinRate.EntityData)
 }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetSegmentPath() string {
-    return "config-min-rate"
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMinRate.PolicyValue
-    leafs["policy-unit"] = configMinRate.PolicyUnit
-    return leafs
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetYangName() string { return "config-min-rate" }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) SetParent(parent types.Entity) { configMinRate.parent = parent }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetParent() types.Entity { return configMinRate.parent }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit
 // Configured queue limit
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1442,58 +966,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetFilter() yfilter.YFilter { return configQueueLimit.YFilter }
+func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetEntityData() *types.CommonEntityData {
+    configQueueLimit.EntityData.YFilter = configQueueLimit.YFilter
+    configQueueLimit.EntityData.YangName = "config-queue-limit"
+    configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
+    configQueueLimit.EntityData.ParentYangName = "class"
+    configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) SetFilter(yf yfilter.YFilter) { configQueueLimit.YFilter = yf }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
+    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    configQueueLimit.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configQueueLimit.PolicyValue}
+    configQueueLimit.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configQueueLimit.PolicyUnit}
+    return &(configQueueLimit.EntityData)
 }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetSegmentPath() string {
-    return "config-queue-limit"
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configQueueLimit.PolicyValue
-    leafs["policy-unit"] = configQueueLimit.PolicyUnit
-    return leafs
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetYangName() string { return "config-queue-limit" }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) SetParent(parent types.Entity) { configQueueLimit.parent = parent }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetParent() types.Entity { return configQueueLimit.parent }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate
 // Configured policer average rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1503,58 +996,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetFilter() yfilter.YFilter { return configPolicerAverageRate.YFilter }
+func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetEntityData() *types.CommonEntityData {
+    configPolicerAverageRate.EntityData.YFilter = configPolicerAverageRate.YFilter
+    configPolicerAverageRate.EntityData.YangName = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerAverageRate.EntityData.ParentYangName = "class"
+    configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) SetFilter(yf yfilter.YFilter) { configPolicerAverageRate.YFilter = yf }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerAverageRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerAverageRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerAverageRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerAverageRate.PolicyValue}
+    configPolicerAverageRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerAverageRate.PolicyUnit}
+    return &(configPolicerAverageRate.EntityData)
 }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetSegmentPath() string {
-    return "config-policer-average-rate"
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerAverageRate.PolicyValue
-    leafs["policy-unit"] = configPolicerAverageRate.PolicyUnit
-    return leafs
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetYangName() string { return "config-policer-average-rate" }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) SetParent(parent types.Entity) { configPolicerAverageRate.parent = parent }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetParent() types.Entity { return configPolicerAverageRate.parent }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate
 // Config policer peak rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1564,58 +1026,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetFilter() yfilter.YFilter { return configPolicerPeakRate.YFilter }
+func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetEntityData() *types.CommonEntityData {
+    configPolicerPeakRate.EntityData.YFilter = configPolicerPeakRate.YFilter
+    configPolicerPeakRate.EntityData.YangName = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerPeakRate.EntityData.ParentYangName = "class"
+    configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) SetFilter(yf yfilter.YFilter) { configPolicerPeakRate.YFilter = yf }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerPeakRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerPeakRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerPeakRate.PolicyValue}
+    configPolicerPeakRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerPeakRate.PolicyUnit}
+    return &(configPolicerPeakRate.EntityData)
 }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetSegmentPath() string {
-    return "config-policer-peak-rate"
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerPeakRate.PolicyValue
-    leafs["policy-unit"] = configPolicerPeakRate.PolicyUnit
-    return leafs
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetYangName() string { return "config-policer-peak-rate" }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) SetParent(parent types.Entity) { configPolicerPeakRate.parent = parent }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetParent() types.Entity { return configPolicerPeakRate.parent }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst
 // Configured policer conform burst
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1625,58 +1056,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetFilter() yfilter.YFilter { return configPolicerConformBurst.YFilter }
+func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerConformBurst.EntityData.YFilter = configPolicerConformBurst.YFilter
+    configPolicerConformBurst.EntityData.YangName = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerConformBurst.EntityData.ParentYangName = "class"
+    configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) SetFilter(yf yfilter.YFilter) { configPolicerConformBurst.YFilter = yf }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerConformBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerConformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerConformBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerConformBurst.PolicyValue}
+    configPolicerConformBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerConformBurst.PolicyUnit}
+    return &(configPolicerConformBurst.EntityData)
 }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetSegmentPath() string {
-    return "config-policer-conform-burst"
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerConformBurst.PolicyValue
-    leafs["policy-unit"] = configPolicerConformBurst.PolicyUnit
-    return leafs
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetYangName() string { return "config-policer-conform-burst" }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) SetParent(parent types.Entity) { configPolicerConformBurst.parent = parent }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetParent() types.Entity { return configPolicerConformBurst.parent }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst
 // Configured policer excess burst
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -1686,58 +1086,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetFilter() yfilter.YFilter { return configPolicerExcessBurst.YFilter }
+func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerExcessBurst.EntityData.YFilter = configPolicerExcessBurst.YFilter
+    configPolicerExcessBurst.EntityData.YangName = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerExcessBurst.EntityData.ParentYangName = "class"
+    configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) SetFilter(yf yfilter.YFilter) { configPolicerExcessBurst.YFilter = yf }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerExcessBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerExcessBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerExcessBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerExcessBurst.PolicyValue}
+    configPolicerExcessBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerExcessBurst.PolicyUnit}
+    return &(configPolicerExcessBurst.EntityData)
 }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetSegmentPath() string {
-    return "config-policer-excess-burst"
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerExcessBurst.PolicyValue
-    leafs["policy-unit"] = configPolicerExcessBurst.PolicyUnit
-    return leafs
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetYangName() string { return "config-policer-excess-burst" }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) SetParent(parent types.Entity) { configPolicerExcessBurst.parent = parent }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetParent() types.Entity { return configPolicerExcessBurst.parent }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction
 // Conform action
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -1748,70 +1117,30 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     Mark []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark
 }
 
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetFilter() yfilter.YFilter { return conformAction.YFilter }
+func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetEntityData() *types.CommonEntityData {
+    conformAction.EntityData.YFilter = conformAction.YFilter
+    conformAction.EntityData.YangName = "conform-action"
+    conformAction.EntityData.BundleName = "cisco_ios_xr"
+    conformAction.EntityData.ParentYangName = "class"
+    conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) SetFilter(yf yfilter.YFilter) { conformAction.YFilter = yf }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetSegmentPath() string {
-    return "conform-action"
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range conformAction.Mark {
-            if conformAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark{}
-        conformAction.Mark = append(conformAction.Mark, child)
-        return &conformAction.Mark[len(conformAction.Mark)-1]
-    }
-    return nil
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    conformAction.EntityData.Children = make(map[string]types.YChild)
+    conformAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range conformAction.Mark {
-        children[conformAction.Mark[i].GetSegmentPath()] = &conformAction.Mark[i]
+        conformAction.EntityData.Children[types.GetSegmentPath(&conformAction.Mark[i])] = types.YChild{"Mark", &conformAction.Mark[i]}
     }
-    return children
+    conformAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    conformAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", conformAction.ActionType}
+    return &(conformAction.EntityData)
 }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = conformAction.ActionType
-    return leafs
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetYangName() string { return "conform-action" }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) SetParent(parent types.Entity) { conformAction.parent = parent }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetParent() types.Entity { return conformAction.parent }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -1821,58 +1150,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "conform-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetParentYangName() string { return "conform-action" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction
 // Exceed action
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -1883,70 +1181,30 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     Mark []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark
 }
 
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetFilter() yfilter.YFilter { return exceedAction.YFilter }
+func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetEntityData() *types.CommonEntityData {
+    exceedAction.EntityData.YFilter = exceedAction.YFilter
+    exceedAction.EntityData.YangName = "exceed-action"
+    exceedAction.EntityData.BundleName = "cisco_ios_xr"
+    exceedAction.EntityData.ParentYangName = "class"
+    exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) SetFilter(yf yfilter.YFilter) { exceedAction.YFilter = yf }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetSegmentPath() string {
-    return "exceed-action"
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range exceedAction.Mark {
-            if exceedAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark{}
-        exceedAction.Mark = append(exceedAction.Mark, child)
-        return &exceedAction.Mark[len(exceedAction.Mark)-1]
-    }
-    return nil
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    exceedAction.EntityData.Children = make(map[string]types.YChild)
+    exceedAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range exceedAction.Mark {
-        children[exceedAction.Mark[i].GetSegmentPath()] = &exceedAction.Mark[i]
+        exceedAction.EntityData.Children[types.GetSegmentPath(&exceedAction.Mark[i])] = types.YChild{"Mark", &exceedAction.Mark[i]}
     }
-    return children
+    exceedAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    exceedAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", exceedAction.ActionType}
+    return &(exceedAction.EntityData)
 }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = exceedAction.ActionType
-    return leafs
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetYangName() string { return "exceed-action" }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) SetParent(parent types.Entity) { exceedAction.parent = parent }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetParent() types.Entity { return exceedAction.parent }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -1956,58 +1214,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "exceed-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetParentYangName() string { return "exceed-action" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction
 // Violate action
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -2018,70 +1245,30 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     Mark []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark
 }
 
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetFilter() yfilter.YFilter { return violateAction.YFilter }
+func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetEntityData() *types.CommonEntityData {
+    violateAction.EntityData.YFilter = violateAction.YFilter
+    violateAction.EntityData.YangName = "violate-action"
+    violateAction.EntityData.BundleName = "cisco_ios_xr"
+    violateAction.EntityData.ParentYangName = "class"
+    violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) SetFilter(yf yfilter.YFilter) { violateAction.YFilter = yf }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetSegmentPath() string {
-    return "violate-action"
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range violateAction.Mark {
-            if violateAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark{}
-        violateAction.Mark = append(violateAction.Mark, child)
-        return &violateAction.Mark[len(violateAction.Mark)-1]
-    }
-    return nil
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    violateAction.EntityData.Children = make(map[string]types.YChild)
+    violateAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range violateAction.Mark {
-        children[violateAction.Mark[i].GetSegmentPath()] = &violateAction.Mark[i]
+        violateAction.EntityData.Children[types.GetSegmentPath(&violateAction.Mark[i])] = types.YChild{"Mark", &violateAction.Mark[i]}
     }
-    return children
+    violateAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    violateAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", violateAction.ActionType}
+    return &(violateAction.EntityData)
 }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = violateAction.ActionType
-    return leafs
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetYangName() string { return "violate-action" }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) SetParent(parent types.Entity) { violateAction.parent = parent }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetParent() types.Entity { return violateAction.parent }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -2091,58 +1278,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "violate-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetParentYangName() string { return "violate-action" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark
 // IP mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -2152,58 +1308,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     MarkValue interface{}
 }
 
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetFilter() yfilter.YFilter { return ipMark.YFilter }
+func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetEntityData() *types.CommonEntityData {
+    ipMark.EntityData.YFilter = ipMark.YFilter
+    ipMark.EntityData.YangName = "ip-mark"
+    ipMark.EntityData.BundleName = "cisco_ios_xr"
+    ipMark.EntityData.ParentYangName = "class"
+    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) SetFilter(yf yfilter.YFilter) { ipMark.YFilter = yf }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    ipMark.EntityData.Children = make(map[string]types.YChild)
+    ipMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", ipMark.MarkType}
+    ipMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", ipMark.MarkValue}
+    return &(ipMark.EntityData)
 }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetSegmentPath() string {
-    return "ip-mark"
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = ipMark.MarkType
-    leafs["mark-value"] = ipMark.MarkValue
-    return leafs
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetYangName() string { return "ip-mark" }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) SetParent(parent types.Entity) { ipMark.parent = parent }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetParent() types.Entity { return ipMark.parent }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark
 // Common mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -2213,58 +1338,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     MarkValue interface{}
 }
 
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetFilter() yfilter.YFilter { return commonMark.YFilter }
+func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetEntityData() *types.CommonEntityData {
+    commonMark.EntityData.YFilter = commonMark.YFilter
+    commonMark.EntityData.YangName = "common-mark"
+    commonMark.EntityData.BundleName = "cisco_ios_xr"
+    commonMark.EntityData.ParentYangName = "class"
+    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) SetFilter(yf yfilter.YFilter) { commonMark.YFilter = yf }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    commonMark.EntityData.Children = make(map[string]types.YChild)
+    commonMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", commonMark.MarkType}
+    commonMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", commonMark.MarkValue}
+    return &(commonMark.EntityData)
 }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetSegmentPath() string {
-    return "common-mark"
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = commonMark.MarkType
-    leafs["mark-value"] = commonMark.MarkValue
-    return leafs
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetYangName() string { return "common-mark" }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) SetParent(parent types.Entity) { commonMark.parent = parent }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetParent() types.Entity { return commonMark.parent }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark
 // MPLS mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -2274,58 +1368,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     MarkValue interface{}
 }
 
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetFilter() yfilter.YFilter { return mplsMark.YFilter }
+func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetEntityData() *types.CommonEntityData {
+    mplsMark.EntityData.YFilter = mplsMark.YFilter
+    mplsMark.EntityData.YangName = "mpls-mark"
+    mplsMark.EntityData.BundleName = "cisco_ios_xr"
+    mplsMark.EntityData.ParentYangName = "class"
+    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) SetFilter(yf yfilter.YFilter) { mplsMark.YFilter = yf }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mplsMark.EntityData.Children = make(map[string]types.YChild)
+    mplsMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mplsMark.MarkType}
+    mplsMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mplsMark.MarkValue}
+    return &(mplsMark.EntityData)
 }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetSegmentPath() string {
-    return "mpls-mark"
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mplsMark.MarkType
-    leafs["mark-value"] = mplsMark.MarkValue
-    return leafs
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetYangName() string { return "mpls-mark" }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) SetParent(parent types.Entity) { mplsMark.parent = parent }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetParent() types.Entity { return mplsMark.parent }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred
 // WRED parameters
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // WREDMatchType. The type is DnxQoseaShowWred.
@@ -2355,79 +1418,33 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     ConfigMaxThreshold PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold
 }
 
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetFilter() yfilter.YFilter { return wred.YFilter }
+func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetEntityData() *types.CommonEntityData {
+    wred.EntityData.YFilter = wred.YFilter
+    wred.EntityData.YangName = "wred"
+    wred.EntityData.BundleName = "cisco_ios_xr"
+    wred.EntityData.ParentYangName = "class"
+    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) SetFilter(yf yfilter.YFilter) { wred.YFilter = yf }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetGoName(yname string) string {
-    if yname == "wred-match-type" { return "WredMatchType" }
-    if yname == "hardware-min-threshold-bytes" { return "HardwareMinThresholdBytes" }
-    if yname == "hardware-max-threshold-bytes" { return "HardwareMaxThresholdBytes" }
-    if yname == "first-segment" { return "FirstSegment" }
-    if yname == "segment-size" { return "SegmentSize" }
-    if yname == "wred-match-value" { return "WredMatchValue" }
-    if yname == "config-min-threshold" { return "ConfigMinThreshold" }
-    if yname == "config-max-threshold" { return "ConfigMaxThreshold" }
-    return ""
+    wred.EntityData.Children = make(map[string]types.YChild)
+    wred.EntityData.Children["wred-match-value"] = types.YChild{"WredMatchValue", &wred.WredMatchValue}
+    wred.EntityData.Children["config-min-threshold"] = types.YChild{"ConfigMinThreshold", &wred.ConfigMinThreshold}
+    wred.EntityData.Children["config-max-threshold"] = types.YChild{"ConfigMaxThreshold", &wred.ConfigMaxThreshold}
+    wred.EntityData.Leafs = make(map[string]types.YLeaf)
+    wred.EntityData.Leafs["wred-match-type"] = types.YLeaf{"WredMatchType", wred.WredMatchType}
+    wred.EntityData.Leafs["hardware-min-threshold-bytes"] = types.YLeaf{"HardwareMinThresholdBytes", wred.HardwareMinThresholdBytes}
+    wred.EntityData.Leafs["hardware-max-threshold-bytes"] = types.YLeaf{"HardwareMaxThresholdBytes", wred.HardwareMaxThresholdBytes}
+    wred.EntityData.Leafs["first-segment"] = types.YLeaf{"FirstSegment", wred.FirstSegment}
+    wred.EntityData.Leafs["segment-size"] = types.YLeaf{"SegmentSize", wred.SegmentSize}
+    return &(wred.EntityData)
 }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetSegmentPath() string {
-    return "wred"
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wred-match-value" {
-        return &wred.WredMatchValue
-    }
-    if childYangName == "config-min-threshold" {
-        return &wred.ConfigMinThreshold
-    }
-    if childYangName == "config-max-threshold" {
-        return &wred.ConfigMaxThreshold
-    }
-    return nil
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["wred-match-value"] = &wred.WredMatchValue
-    children["config-min-threshold"] = &wred.ConfigMinThreshold
-    children["config-max-threshold"] = &wred.ConfigMaxThreshold
-    return children
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["wred-match-type"] = wred.WredMatchType
-    leafs["hardware-min-threshold-bytes"] = wred.HardwareMinThresholdBytes
-    leafs["hardware-max-threshold-bytes"] = wred.HardwareMaxThresholdBytes
-    leafs["first-segment"] = wred.FirstSegment
-    leafs["segment-size"] = wred.SegmentSize
-    return leafs
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetYangName() string { return "wred" }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) SetParent(parent types.Entity) { wred.parent = parent }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetParent() types.Entity { return wred.parent }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue
 // WRED match values
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // dnx qosea show red match value. The type is slice of
@@ -2435,68 +1452,29 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     DnxQoseaShowRedMatchValue []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
 }
 
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetFilter() yfilter.YFilter { return wredMatchValue.YFilter }
+func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetEntityData() *types.CommonEntityData {
+    wredMatchValue.EntityData.YFilter = wredMatchValue.YFilter
+    wredMatchValue.EntityData.YangName = "wred-match-value"
+    wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    wredMatchValue.EntityData.ParentYangName = "wred"
+    wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) SetFilter(yf yfilter.YFilter) { wredMatchValue.YFilter = yf }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetGoName(yname string) string {
-    if yname == "dnx-qosea-show-red-match-value" { return "DnxQoseaShowRedMatchValue" }
-    return ""
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetSegmentPath() string {
-    return "wred-match-value"
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dnx-qosea-show-red-match-value" {
-        for _, c := range wredMatchValue.DnxQoseaShowRedMatchValue {
-            if wredMatchValue.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue{}
-        wredMatchValue.DnxQoseaShowRedMatchValue = append(wredMatchValue.DnxQoseaShowRedMatchValue, child)
-        return &wredMatchValue.DnxQoseaShowRedMatchValue[len(wredMatchValue.DnxQoseaShowRedMatchValue)-1]
-    }
-    return nil
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    wredMatchValue.EntityData.Children = make(map[string]types.YChild)
+    wredMatchValue.EntityData.Children["dnx-qosea-show-red-match-value"] = types.YChild{"DnxQoseaShowRedMatchValue", nil}
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
-        children[wredMatchValue.DnxQoseaShowRedMatchValue[i].GetSegmentPath()] = &wredMatchValue.DnxQoseaShowRedMatchValue[i]
+        wredMatchValue.EntityData.Children[types.GetSegmentPath(&wredMatchValue.DnxQoseaShowRedMatchValue[i])] = types.YChild{"DnxQoseaShowRedMatchValue", &wredMatchValue.DnxQoseaShowRedMatchValue[i]}
     }
-    return children
+    wredMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wredMatchValue.EntityData)
 }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetYangName() string { return "wred-match-value" }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) SetParent(parent types.Entity) { wredMatchValue.parent = parent }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetParent() types.Entity { return wredMatchValue.parent }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
 // dnx qosea show red match value
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Start value of a range. The type is interface{} with range: 0..255.
@@ -2506,58 +1484,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     RangeEnd interface{}
 }
 
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetFilter() yfilter.YFilter { return dnxQoseaShowRedMatchValue.YFilter }
+func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetEntityData() *types.CommonEntityData {
+    dnxQoseaShowRedMatchValue.EntityData.YFilter = dnxQoseaShowRedMatchValue.YFilter
+    dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) SetFilter(yf yfilter.YFilter) { dnxQoseaShowRedMatchValue.YFilter = yf }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetGoName(yname string) string {
-    if yname == "range-start" { return "RangeStart" }
-    if yname == "range-end" { return "RangeEnd" }
-    return ""
+    dnxQoseaShowRedMatchValue.EntityData.Children = make(map[string]types.YChild)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-start"] = types.YLeaf{"RangeStart", dnxQoseaShowRedMatchValue.RangeStart}
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-end"] = types.YLeaf{"RangeEnd", dnxQoseaShowRedMatchValue.RangeEnd}
+    return &(dnxQoseaShowRedMatchValue.EntityData)
 }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetSegmentPath() string {
-    return "dnx-qosea-show-red-match-value"
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["range-start"] = dnxQoseaShowRedMatchValue.RangeStart
-    leafs["range-end"] = dnxQoseaShowRedMatchValue.RangeEnd
-    return leafs
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetYangName() string { return "dnx-qosea-show-red-match-value" }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) SetParent(parent types.Entity) { dnxQoseaShowRedMatchValue.parent = parent }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetParent() types.Entity { return dnxQoseaShowRedMatchValue.parent }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetParentYangName() string { return "wred-match-value" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold
 // Configured minimum threshold
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -2567,58 +1514,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetFilter() yfilter.YFilter { return configMinThreshold.YFilter }
+func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetEntityData() *types.CommonEntityData {
+    configMinThreshold.EntityData.YFilter = configMinThreshold.YFilter
+    configMinThreshold.EntityData.YangName = "config-min-threshold"
+    configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMinThreshold.EntityData.ParentYangName = "wred"
+    configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) SetFilter(yf yfilter.YFilter) { configMinThreshold.YFilter = yf }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMinThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMinThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinThreshold.PolicyValue}
+    configMinThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinThreshold.PolicyUnit}
+    return &(configMinThreshold.EntityData)
 }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetSegmentPath() string {
-    return "config-min-threshold"
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMinThreshold.PolicyValue
-    leafs["policy-unit"] = configMinThreshold.PolicyUnit
-    return leafs
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetYangName() string { return "config-min-threshold" }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) SetParent(parent types.Entity) { configMinThreshold.parent = parent }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetParent() types.Entity { return configMinThreshold.parent }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold
 // Configured maximum threshold
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -2628,161 +1544,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     PolicyUnit interface{}
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetFilter() yfilter.YFilter { return configMaxThreshold.YFilter }
+func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetEntityData() *types.CommonEntityData {
+    configMaxThreshold.EntityData.YFilter = configMaxThreshold.YFilter
+    configMaxThreshold.EntityData.YangName = "config-max-threshold"
+    configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMaxThreshold.EntityData.ParentYangName = "wred"
+    configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) SetFilter(yf yfilter.YFilter) { configMaxThreshold.YFilter = yf }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMaxThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMaxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxThreshold.PolicyValue}
+    configMaxThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxThreshold.PolicyUnit}
+    return &(configMaxThreshold.EntityData)
 }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetSegmentPath() string {
-    return "config-max-threshold"
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMaxThreshold.PolicyValue
-    leafs["policy-unit"] = configMaxThreshold.PolicyUnit
-    return leafs
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetYangName() string { return "config-max-threshold" }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) SetParent(parent types.Entity) { configMaxThreshold.parent = parent }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetParent() types.Entity { return configMaxThreshold.parent }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetParentYangName() string { return "wred" }
-
-// PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails
-// Policy Details
-type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // NPU ID. The type is interface{} with range: 0..4294967295.
-    NpuId interface{}
-
-    // InterfaceHandle. The type is interface{} with range: 0..4294967295.
-    InterfaceHandle interface{}
-
-    // Interface Bandwidth (in kbps). The type is interface{} with range:
-    // 0..4294967295. Units are kbit/s.
-    InterfaceBandwidthKbps interface{}
-
-    // Policy name. The type is string with length: 0..64.
-    PolicyName interface{}
-
-    // Number of Classes. The type is interface{} with range: 0..65535.
-    TotalNumberOfClasses interface{}
-
-    // VOQ base address. The type is interface{} with range: 0..4294967295.
-    VoqBaseAddress interface{}
-
-    // VOQ stats handle. The type is interface{} with range:
-    // 0..18446744073709551615.
-    VoqStatsHandle interface{}
-
-    // QoS Statistics Accounting Type. The type is QosPolicyAccountEnum.
-    StatsAccountingType interface{}
-
-    // Policy Status. The type is DnxQoseaShowPolicyStatus.
-    PolicyStatus interface{}
-
-    // Interface Status. The type is DnxQoseaShowIntfStatus.
-    InterfaceStatus interface{}
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetFilter() yfilter.YFilter { return policyDetails.YFilter }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) SetFilter(yf yfilter.YFilter) { policyDetails.YFilter = yf }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetGoName(yname string) string {
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "interface-bandwidth-kbps" { return "InterfaceBandwidthKbps" }
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "total-number-of-classes" { return "TotalNumberOfClasses" }
-    if yname == "voq-base-address" { return "VoqBaseAddress" }
-    if yname == "voq-stats-handle" { return "VoqStatsHandle" }
-    if yname == "stats-accounting-type" { return "StatsAccountingType" }
-    if yname == "policy-status" { return "PolicyStatus" }
-    if yname == "interface-status" { return "InterfaceStatus" }
-    return ""
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetSegmentPath() string {
-    return "policy-details"
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["npu-id"] = policyDetails.NpuId
-    leafs["interface-handle"] = policyDetails.InterfaceHandle
-    leafs["interface-bandwidth-kbps"] = policyDetails.InterfaceBandwidthKbps
-    leafs["policy-name"] = policyDetails.PolicyName
-    leafs["total-number-of-classes"] = policyDetails.TotalNumberOfClasses
-    leafs["voq-base-address"] = policyDetails.VoqBaseAddress
-    leafs["voq-stats-handle"] = policyDetails.VoqStatsHandle
-    leafs["stats-accounting-type"] = policyDetails.StatsAccountingType
-    leafs["policy-status"] = policyDetails.PolicyStatus
-    leafs["interface-status"] = policyDetails.InterfaceStatus
-    return leafs
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetYangName() string { return "policy-details" }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) SetParent(parent types.Entity) { policyDetails.parent = parent }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetParent() types.Entity { return policyDetails.parent }
-
-func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_PolicyDetails) GetParentYangName() string { return "bundle-interface" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes
 // QoS list of class names
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // QoS policy class. The type is slice of
@@ -2790,68 +1572,29 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes struct {
     Class []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class
 }
 
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetFilter() yfilter.YFilter { return classes.YFilter }
+func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "bundle-interface"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) SetFilter(yf yfilter.YFilter) { classes.YFilter = yf }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    return ""
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetSegmentPath() string {
-    return "classes"
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class" {
-        for _, c := range classes.Class {
-            if classes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class{}
-        classes.Class = append(classes.Class, child)
-        return &classes.Class[len(classes.Class)-1]
-    }
-    return nil
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
     for i := range classes.Class {
-        children[classes.Class[i].GetSegmentPath()] = &classes.Class[i]
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
     }
-    return children
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
 }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetYangName() string { return "classes" }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) SetParent(parent types.Entity) { classes.parent = parent }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetParent() types.Entity { return classes.parent }
-
-func (classes *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes) GetParentYangName() string { return "bundle-interface" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class
 // QoS policy class
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. QoS policy class name at level 1. The type is
@@ -2976,200 +1719,71 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class struc
     Wred []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred
 }
 
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetFilter() yfilter.YFilter { return class.YFilter }
+func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) SetFilter(yf yfilter.YFilter) { class.YFilter = yf }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetGoName(yname string) string {
-    if yname == "level-one-class-name" { return "LevelOneClassName" }
-    if yname == "level-two-class-name" { return "LevelTwoClassName" }
-    if yname == "class-level" { return "ClassLevel" }
-    if yname == "egress-queue-id" { return "EgressQueueId" }
-    if yname == "queue-type" { return "QueueType" }
-    if yname == "priority-level" { return "PriorityLevel" }
-    if yname == "hardware-max-rate-kbps" { return "HardwareMaxRateKbps" }
-    if yname == "hardware-min-rate-kbps" { return "HardwareMinRateKbps" }
-    if yname == "config-excess-bandwidth-percent" { return "ConfigExcessBandwidthPercent" }
-    if yname == "config-excess-bandwidth-unit" { return "ConfigExcessBandwidthUnit" }
-    if yname == "hardware-excess-bandwidth-weight" { return "HardwareExcessBandwidthWeight" }
-    if yname == "network-min-bandwidth-kbps" { return "NetworkMinBandwidthKbps" }
-    if yname == "hardware-queue-limit-bytes" { return "HardwareQueueLimitBytes" }
-    if yname == "hardware-queue-limit-microseconds" { return "HardwareQueueLimitMicroseconds" }
-    if yname == "policer-bucket-id" { return "PolicerBucketId" }
-    if yname == "policer-stats-handle" { return "PolicerStatsHandle" }
-    if yname == "hardware-policer-average-rate-kbps" { return "HardwarePolicerAverageRateKbps" }
-    if yname == "hardware-policer-peak-rate-kbps" { return "HardwarePolicerPeakRateKbps" }
-    if yname == "hardware-policer-conform-burst-bytes" { return "HardwarePolicerConformBurstBytes" }
-    if yname == "hardware-policer-excess-burst-bytes" { return "HardwarePolicerExcessBurstBytes" }
-    if yname == "config-max-rate" { return "ConfigMaxRate" }
-    if yname == "config-min-rate" { return "ConfigMinRate" }
-    if yname == "config-queue-limit" { return "ConfigQueueLimit" }
-    if yname == "config-policer-average-rate" { return "ConfigPolicerAverageRate" }
-    if yname == "config-policer-peak-rate" { return "ConfigPolicerPeakRate" }
-    if yname == "config-policer-conform-burst" { return "ConfigPolicerConformBurst" }
-    if yname == "config-policer-excess-burst" { return "ConfigPolicerExcessBurst" }
-    if yname == "conform-action" { return "ConformAction" }
-    if yname == "exceed-action" { return "ExceedAction" }
-    if yname == "violate-action" { return "ViolateAction" }
-    if yname == "ip-mark" { return "IpMark" }
-    if yname == "common-mark" { return "CommonMark" }
-    if yname == "mpls-mark" { return "MplsMark" }
-    if yname == "wred" { return "Wred" }
-    return ""
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetSegmentPath() string {
-    return "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config-max-rate" {
-        return &class.ConfigMaxRate
-    }
-    if childYangName == "config-min-rate" {
-        return &class.ConfigMinRate
-    }
-    if childYangName == "config-queue-limit" {
-        return &class.ConfigQueueLimit
-    }
-    if childYangName == "config-policer-average-rate" {
-        return &class.ConfigPolicerAverageRate
-    }
-    if childYangName == "config-policer-peak-rate" {
-        return &class.ConfigPolicerPeakRate
-    }
-    if childYangName == "config-policer-conform-burst" {
-        return &class.ConfigPolicerConformBurst
-    }
-    if childYangName == "config-policer-excess-burst" {
-        return &class.ConfigPolicerExcessBurst
-    }
-    if childYangName == "conform-action" {
-        return &class.ConformAction
-    }
-    if childYangName == "exceed-action" {
-        return &class.ExceedAction
-    }
-    if childYangName == "violate-action" {
-        return &class.ViolateAction
-    }
-    if childYangName == "ip-mark" {
-        for _, c := range class.IpMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark{}
-        class.IpMark = append(class.IpMark, child)
-        return &class.IpMark[len(class.IpMark)-1]
-    }
-    if childYangName == "common-mark" {
-        for _, c := range class.CommonMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark{}
-        class.CommonMark = append(class.CommonMark, child)
-        return &class.CommonMark[len(class.CommonMark)-1]
-    }
-    if childYangName == "mpls-mark" {
-        for _, c := range class.MplsMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark{}
-        class.MplsMark = append(class.MplsMark, child)
-        return &class.MplsMark[len(class.MplsMark)-1]
-    }
-    if childYangName == "wred" {
-        for _, c := range class.Wred {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred{}
-        class.Wred = append(class.Wred, child)
-        return &class.Wred[len(class.Wred)-1]
-    }
-    return nil
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config-max-rate"] = &class.ConfigMaxRate
-    children["config-min-rate"] = &class.ConfigMinRate
-    children["config-queue-limit"] = &class.ConfigQueueLimit
-    children["config-policer-average-rate"] = &class.ConfigPolicerAverageRate
-    children["config-policer-peak-rate"] = &class.ConfigPolicerPeakRate
-    children["config-policer-conform-burst"] = &class.ConfigPolicerConformBurst
-    children["config-policer-excess-burst"] = &class.ConfigPolicerExcessBurst
-    children["conform-action"] = &class.ConformAction
-    children["exceed-action"] = &class.ExceedAction
-    children["violate-action"] = &class.ViolateAction
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Children["config-max-rate"] = types.YChild{"ConfigMaxRate", &class.ConfigMaxRate}
+    class.EntityData.Children["config-min-rate"] = types.YChild{"ConfigMinRate", &class.ConfigMinRate}
+    class.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &class.ConfigQueueLimit}
+    class.EntityData.Children["config-policer-average-rate"] = types.YChild{"ConfigPolicerAverageRate", &class.ConfigPolicerAverageRate}
+    class.EntityData.Children["config-policer-peak-rate"] = types.YChild{"ConfigPolicerPeakRate", &class.ConfigPolicerPeakRate}
+    class.EntityData.Children["config-policer-conform-burst"] = types.YChild{"ConfigPolicerConformBurst", &class.ConfigPolicerConformBurst}
+    class.EntityData.Children["config-policer-excess-burst"] = types.YChild{"ConfigPolicerExcessBurst", &class.ConfigPolicerExcessBurst}
+    class.EntityData.Children["conform-action"] = types.YChild{"ConformAction", &class.ConformAction}
+    class.EntityData.Children["exceed-action"] = types.YChild{"ExceedAction", &class.ExceedAction}
+    class.EntityData.Children["violate-action"] = types.YChild{"ViolateAction", &class.ViolateAction}
+    class.EntityData.Children["ip-mark"] = types.YChild{"IpMark", nil}
     for i := range class.IpMark {
-        children[class.IpMark[i].GetSegmentPath()] = &class.IpMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.IpMark[i])] = types.YChild{"IpMark", &class.IpMark[i]}
     }
+    class.EntityData.Children["common-mark"] = types.YChild{"CommonMark", nil}
     for i := range class.CommonMark {
-        children[class.CommonMark[i].GetSegmentPath()] = &class.CommonMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.CommonMark[i])] = types.YChild{"CommonMark", &class.CommonMark[i]}
     }
+    class.EntityData.Children["mpls-mark"] = types.YChild{"MplsMark", nil}
     for i := range class.MplsMark {
-        children[class.MplsMark[i].GetSegmentPath()] = &class.MplsMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.MplsMark[i])] = types.YChild{"MplsMark", &class.MplsMark[i]}
     }
+    class.EntityData.Children["wred"] = types.YChild{"Wred", nil}
     for i := range class.Wred {
-        children[class.Wred[i].GetSegmentPath()] = &class.Wred[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.Wred[i])] = types.YChild{"Wred", &class.Wred[i]}
     }
-    return children
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["level-one-class-name"] = types.YLeaf{"LevelOneClassName", class.LevelOneClassName}
+    class.EntityData.Leafs["level-two-class-name"] = types.YLeaf{"LevelTwoClassName", class.LevelTwoClassName}
+    class.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", class.ClassLevel}
+    class.EntityData.Leafs["egress-queue-id"] = types.YLeaf{"EgressQueueId", class.EgressQueueId}
+    class.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", class.QueueType}
+    class.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", class.PriorityLevel}
+    class.EntityData.Leafs["hardware-max-rate-kbps"] = types.YLeaf{"HardwareMaxRateKbps", class.HardwareMaxRateKbps}
+    class.EntityData.Leafs["hardware-min-rate-kbps"] = types.YLeaf{"HardwareMinRateKbps", class.HardwareMinRateKbps}
+    class.EntityData.Leafs["config-excess-bandwidth-percent"] = types.YLeaf{"ConfigExcessBandwidthPercent", class.ConfigExcessBandwidthPercent}
+    class.EntityData.Leafs["config-excess-bandwidth-unit"] = types.YLeaf{"ConfigExcessBandwidthUnit", class.ConfigExcessBandwidthUnit}
+    class.EntityData.Leafs["hardware-excess-bandwidth-weight"] = types.YLeaf{"HardwareExcessBandwidthWeight", class.HardwareExcessBandwidthWeight}
+    class.EntityData.Leafs["network-min-bandwidth-kbps"] = types.YLeaf{"NetworkMinBandwidthKbps", class.NetworkMinBandwidthKbps}
+    class.EntityData.Leafs["hardware-queue-limit-bytes"] = types.YLeaf{"HardwareQueueLimitBytes", class.HardwareQueueLimitBytes}
+    class.EntityData.Leafs["hardware-queue-limit-microseconds"] = types.YLeaf{"HardwareQueueLimitMicroseconds", class.HardwareQueueLimitMicroseconds}
+    class.EntityData.Leafs["policer-bucket-id"] = types.YLeaf{"PolicerBucketId", class.PolicerBucketId}
+    class.EntityData.Leafs["policer-stats-handle"] = types.YLeaf{"PolicerStatsHandle", class.PolicerStatsHandle}
+    class.EntityData.Leafs["hardware-policer-average-rate-kbps"] = types.YLeaf{"HardwarePolicerAverageRateKbps", class.HardwarePolicerAverageRateKbps}
+    class.EntityData.Leafs["hardware-policer-peak-rate-kbps"] = types.YLeaf{"HardwarePolicerPeakRateKbps", class.HardwarePolicerPeakRateKbps}
+    class.EntityData.Leafs["hardware-policer-conform-burst-bytes"] = types.YLeaf{"HardwarePolicerConformBurstBytes", class.HardwarePolicerConformBurstBytes}
+    class.EntityData.Leafs["hardware-policer-excess-burst-bytes"] = types.YLeaf{"HardwarePolicerExcessBurstBytes", class.HardwarePolicerExcessBurstBytes}
+    return &(class.EntityData)
 }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["level-one-class-name"] = class.LevelOneClassName
-    leafs["level-two-class-name"] = class.LevelTwoClassName
-    leafs["class-level"] = class.ClassLevel
-    leafs["egress-queue-id"] = class.EgressQueueId
-    leafs["queue-type"] = class.QueueType
-    leafs["priority-level"] = class.PriorityLevel
-    leafs["hardware-max-rate-kbps"] = class.HardwareMaxRateKbps
-    leafs["hardware-min-rate-kbps"] = class.HardwareMinRateKbps
-    leafs["config-excess-bandwidth-percent"] = class.ConfigExcessBandwidthPercent
-    leafs["config-excess-bandwidth-unit"] = class.ConfigExcessBandwidthUnit
-    leafs["hardware-excess-bandwidth-weight"] = class.HardwareExcessBandwidthWeight
-    leafs["network-min-bandwidth-kbps"] = class.NetworkMinBandwidthKbps
-    leafs["hardware-queue-limit-bytes"] = class.HardwareQueueLimitBytes
-    leafs["hardware-queue-limit-microseconds"] = class.HardwareQueueLimitMicroseconds
-    leafs["policer-bucket-id"] = class.PolicerBucketId
-    leafs["policer-stats-handle"] = class.PolicerStatsHandle
-    leafs["hardware-policer-average-rate-kbps"] = class.HardwarePolicerAverageRateKbps
-    leafs["hardware-policer-peak-rate-kbps"] = class.HardwarePolicerPeakRateKbps
-    leafs["hardware-policer-conform-burst-bytes"] = class.HardwarePolicerConformBurstBytes
-    leafs["hardware-policer-excess-burst-bytes"] = class.HardwarePolicerExcessBurstBytes
-    return leafs
-}
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetBundleName() string { return "cisco_ios_xr" }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetYangName() string { return "class" }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) SetParent(parent types.Entity) { class.parent = parent }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetParent() types.Entity { return class.parent }
-
-func (class *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class) GetParentYangName() string { return "classes" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate
 // Configured maximum rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3179,58 +1793,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetFilter() yfilter.YFilter { return configMaxRate.YFilter }
+func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetEntityData() *types.CommonEntityData {
+    configMaxRate.EntityData.YFilter = configMaxRate.YFilter
+    configMaxRate.EntityData.YangName = "config-max-rate"
+    configMaxRate.EntityData.BundleName = "cisco_ios_xr"
+    configMaxRate.EntityData.ParentYangName = "class"
+    configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) SetFilter(yf yfilter.YFilter) { configMaxRate.YFilter = yf }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMaxRate.EntityData.Children = make(map[string]types.YChild)
+    configMaxRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxRate.PolicyValue}
+    configMaxRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxRate.PolicyUnit}
+    return &(configMaxRate.EntityData)
 }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetSegmentPath() string {
-    return "config-max-rate"
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMaxRate.PolicyValue
-    leafs["policy-unit"] = configMaxRate.PolicyUnit
-    return leafs
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetYangName() string { return "config-max-rate" }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) SetParent(parent types.Entity) { configMaxRate.parent = parent }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetParent() types.Entity { return configMaxRate.parent }
-
-func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMaxRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate
 // Configured minimum rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3240,58 +1823,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetFilter() yfilter.YFilter { return configMinRate.YFilter }
+func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetEntityData() *types.CommonEntityData {
+    configMinRate.EntityData.YFilter = configMinRate.YFilter
+    configMinRate.EntityData.YangName = "config-min-rate"
+    configMinRate.EntityData.BundleName = "cisco_ios_xr"
+    configMinRate.EntityData.ParentYangName = "class"
+    configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) SetFilter(yf yfilter.YFilter) { configMinRate.YFilter = yf }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMinRate.EntityData.Children = make(map[string]types.YChild)
+    configMinRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinRate.PolicyValue}
+    configMinRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinRate.PolicyUnit}
+    return &(configMinRate.EntityData)
 }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetSegmentPath() string {
-    return "config-min-rate"
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMinRate.PolicyValue
-    leafs["policy-unit"] = configMinRate.PolicyUnit
-    return leafs
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetYangName() string { return "config-min-rate" }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) SetParent(parent types.Entity) { configMinRate.parent = parent }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetParent() types.Entity { return configMinRate.parent }
-
-func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigMinRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit
 // Configured queue limit
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3301,58 +1853,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetFilter() yfilter.YFilter { return configQueueLimit.YFilter }
+func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetEntityData() *types.CommonEntityData {
+    configQueueLimit.EntityData.YFilter = configQueueLimit.YFilter
+    configQueueLimit.EntityData.YangName = "config-queue-limit"
+    configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
+    configQueueLimit.EntityData.ParentYangName = "class"
+    configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) SetFilter(yf yfilter.YFilter) { configQueueLimit.YFilter = yf }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
+    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    configQueueLimit.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configQueueLimit.PolicyValue}
+    configQueueLimit.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configQueueLimit.PolicyUnit}
+    return &(configQueueLimit.EntityData)
 }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetSegmentPath() string {
-    return "config-queue-limit"
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configQueueLimit.PolicyValue
-    leafs["policy-unit"] = configQueueLimit.PolicyUnit
-    return leafs
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetYangName() string { return "config-queue-limit" }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) SetParent(parent types.Entity) { configQueueLimit.parent = parent }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetParent() types.Entity { return configQueueLimit.parent }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigQueueLimit) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate
 // Configured policer average rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3362,58 +1883,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetFilter() yfilter.YFilter { return configPolicerAverageRate.YFilter }
+func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetEntityData() *types.CommonEntityData {
+    configPolicerAverageRate.EntityData.YFilter = configPolicerAverageRate.YFilter
+    configPolicerAverageRate.EntityData.YangName = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerAverageRate.EntityData.ParentYangName = "class"
+    configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) SetFilter(yf yfilter.YFilter) { configPolicerAverageRate.YFilter = yf }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerAverageRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerAverageRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerAverageRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerAverageRate.PolicyValue}
+    configPolicerAverageRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerAverageRate.PolicyUnit}
+    return &(configPolicerAverageRate.EntityData)
 }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetSegmentPath() string {
-    return "config-policer-average-rate"
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerAverageRate.PolicyValue
-    leafs["policy-unit"] = configPolicerAverageRate.PolicyUnit
-    return leafs
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetYangName() string { return "config-policer-average-rate" }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) SetParent(parent types.Entity) { configPolicerAverageRate.parent = parent }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetParent() types.Entity { return configPolicerAverageRate.parent }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerAverageRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate
 // Config policer peak rate
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3423,58 +1913,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetFilter() yfilter.YFilter { return configPolicerPeakRate.YFilter }
+func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetEntityData() *types.CommonEntityData {
+    configPolicerPeakRate.EntityData.YFilter = configPolicerPeakRate.YFilter
+    configPolicerPeakRate.EntityData.YangName = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerPeakRate.EntityData.ParentYangName = "class"
+    configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) SetFilter(yf yfilter.YFilter) { configPolicerPeakRate.YFilter = yf }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerPeakRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerPeakRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerPeakRate.PolicyValue}
+    configPolicerPeakRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerPeakRate.PolicyUnit}
+    return &(configPolicerPeakRate.EntityData)
 }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetSegmentPath() string {
-    return "config-policer-peak-rate"
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerPeakRate.PolicyValue
-    leafs["policy-unit"] = configPolicerPeakRate.PolicyUnit
-    return leafs
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetYangName() string { return "config-policer-peak-rate" }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) SetParent(parent types.Entity) { configPolicerPeakRate.parent = parent }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetParent() types.Entity { return configPolicerPeakRate.parent }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerPeakRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst
 // Configured policer conform burst
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3484,58 +1943,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetFilter() yfilter.YFilter { return configPolicerConformBurst.YFilter }
+func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerConformBurst.EntityData.YFilter = configPolicerConformBurst.YFilter
+    configPolicerConformBurst.EntityData.YangName = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerConformBurst.EntityData.ParentYangName = "class"
+    configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) SetFilter(yf yfilter.YFilter) { configPolicerConformBurst.YFilter = yf }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerConformBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerConformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerConformBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerConformBurst.PolicyValue}
+    configPolicerConformBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerConformBurst.PolicyUnit}
+    return &(configPolicerConformBurst.EntityData)
 }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetSegmentPath() string {
-    return "config-policer-conform-burst"
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerConformBurst.PolicyValue
-    leafs["policy-unit"] = configPolicerConformBurst.PolicyUnit
-    return leafs
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetYangName() string { return "config-policer-conform-burst" }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) SetParent(parent types.Entity) { configPolicerConformBurst.parent = parent }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetParent() types.Entity { return configPolicerConformBurst.parent }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerConformBurst) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst
 // Configured policer excess burst
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -3545,58 +1973,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confi
     PolicyUnit interface{}
 }
 
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetFilter() yfilter.YFilter { return configPolicerExcessBurst.YFilter }
+func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerExcessBurst.EntityData.YFilter = configPolicerExcessBurst.YFilter
+    configPolicerExcessBurst.EntityData.YangName = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerExcessBurst.EntityData.ParentYangName = "class"
+    configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) SetFilter(yf yfilter.YFilter) { configPolicerExcessBurst.YFilter = yf }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerExcessBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerExcessBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerExcessBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerExcessBurst.PolicyValue}
+    configPolicerExcessBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerExcessBurst.PolicyUnit}
+    return &(configPolicerExcessBurst.EntityData)
 }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetSegmentPath() string {
-    return "config-policer-excess-burst"
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerExcessBurst.PolicyValue
-    leafs["policy-unit"] = configPolicerExcessBurst.PolicyUnit
-    return leafs
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetYangName() string { return "config-policer-excess-burst" }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) SetParent(parent types.Entity) { configPolicerExcessBurst.parent = parent }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetParent() types.Entity { return configPolicerExcessBurst.parent }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConfigPolicerExcessBurst) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction
 // Conform action
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -3607,70 +2004,30 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confo
     Mark []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark
 }
 
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetFilter() yfilter.YFilter { return conformAction.YFilter }
+func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetEntityData() *types.CommonEntityData {
+    conformAction.EntityData.YFilter = conformAction.YFilter
+    conformAction.EntityData.YangName = "conform-action"
+    conformAction.EntityData.BundleName = "cisco_ios_xr"
+    conformAction.EntityData.ParentYangName = "class"
+    conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) SetFilter(yf yfilter.YFilter) { conformAction.YFilter = yf }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetSegmentPath() string {
-    return "conform-action"
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range conformAction.Mark {
-            if conformAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark{}
-        conformAction.Mark = append(conformAction.Mark, child)
-        return &conformAction.Mark[len(conformAction.Mark)-1]
-    }
-    return nil
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    conformAction.EntityData.Children = make(map[string]types.YChild)
+    conformAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range conformAction.Mark {
-        children[conformAction.Mark[i].GetSegmentPath()] = &conformAction.Mark[i]
+        conformAction.EntityData.Children[types.GetSegmentPath(&conformAction.Mark[i])] = types.YChild{"Mark", &conformAction.Mark[i]}
     }
-    return children
+    conformAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    conformAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", conformAction.ActionType}
+    return &(conformAction.EntityData)
 }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = conformAction.ActionType
-    return leafs
-}
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetYangName() string { return "conform-action" }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) SetParent(parent types.Entity) { conformAction.parent = parent }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetParent() types.Entity { return conformAction.parent }
-
-func (conformAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -3680,58 +2037,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Confo
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "conform-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ConformAction_Mark) GetParentYangName() string { return "conform-action" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction
 // Exceed action
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -3742,70 +2068,30 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Excee
     Mark []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark
 }
 
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetFilter() yfilter.YFilter { return exceedAction.YFilter }
+func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetEntityData() *types.CommonEntityData {
+    exceedAction.EntityData.YFilter = exceedAction.YFilter
+    exceedAction.EntityData.YangName = "exceed-action"
+    exceedAction.EntityData.BundleName = "cisco_ios_xr"
+    exceedAction.EntityData.ParentYangName = "class"
+    exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) SetFilter(yf yfilter.YFilter) { exceedAction.YFilter = yf }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetSegmentPath() string {
-    return "exceed-action"
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range exceedAction.Mark {
-            if exceedAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark{}
-        exceedAction.Mark = append(exceedAction.Mark, child)
-        return &exceedAction.Mark[len(exceedAction.Mark)-1]
-    }
-    return nil
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    exceedAction.EntityData.Children = make(map[string]types.YChild)
+    exceedAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range exceedAction.Mark {
-        children[exceedAction.Mark[i].GetSegmentPath()] = &exceedAction.Mark[i]
+        exceedAction.EntityData.Children[types.GetSegmentPath(&exceedAction.Mark[i])] = types.YChild{"Mark", &exceedAction.Mark[i]}
     }
-    return children
+    exceedAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    exceedAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", exceedAction.ActionType}
+    return &(exceedAction.EntityData)
 }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = exceedAction.ActionType
-    return leafs
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetYangName() string { return "exceed-action" }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) SetParent(parent types.Entity) { exceedAction.parent = parent }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetParent() types.Entity { return exceedAction.parent }
-
-func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -3815,58 +2101,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Excee
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "exceed-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ExceedAction_Mark) GetParentYangName() string { return "exceed-action" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction
 // Violate action
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -3877,70 +2132,30 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Viola
     Mark []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark
 }
 
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetFilter() yfilter.YFilter { return violateAction.YFilter }
+func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetEntityData() *types.CommonEntityData {
+    violateAction.EntityData.YFilter = violateAction.YFilter
+    violateAction.EntityData.YangName = "violate-action"
+    violateAction.EntityData.BundleName = "cisco_ios_xr"
+    violateAction.EntityData.ParentYangName = "class"
+    violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) SetFilter(yf yfilter.YFilter) { violateAction.YFilter = yf }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetSegmentPath() string {
-    return "violate-action"
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range violateAction.Mark {
-            if violateAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark{}
-        violateAction.Mark = append(violateAction.Mark, child)
-        return &violateAction.Mark[len(violateAction.Mark)-1]
-    }
-    return nil
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    violateAction.EntityData.Children = make(map[string]types.YChild)
+    violateAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range violateAction.Mark {
-        children[violateAction.Mark[i].GetSegmentPath()] = &violateAction.Mark[i]
+        violateAction.EntityData.Children[types.GetSegmentPath(&violateAction.Mark[i])] = types.YChild{"Mark", &violateAction.Mark[i]}
     }
-    return children
+    violateAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    violateAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", violateAction.ActionType}
+    return &(violateAction.EntityData)
 }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = violateAction.ActionType
-    return leafs
-}
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetYangName() string { return "violate-action" }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) SetParent(parent types.Entity) { violateAction.parent = parent }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetParent() types.Entity { return violateAction.parent }
-
-func (violateAction *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -3950,58 +2165,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Viola
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "violate-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_ViolateAction_Mark) GetParentYangName() string { return "violate-action" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark
 // IP mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -4011,58 +2195,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMar
     MarkValue interface{}
 }
 
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetFilter() yfilter.YFilter { return ipMark.YFilter }
+func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetEntityData() *types.CommonEntityData {
+    ipMark.EntityData.YFilter = ipMark.YFilter
+    ipMark.EntityData.YangName = "ip-mark"
+    ipMark.EntityData.BundleName = "cisco_ios_xr"
+    ipMark.EntityData.ParentYangName = "class"
+    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) SetFilter(yf yfilter.YFilter) { ipMark.YFilter = yf }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    ipMark.EntityData.Children = make(map[string]types.YChild)
+    ipMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", ipMark.MarkType}
+    ipMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", ipMark.MarkValue}
+    return &(ipMark.EntityData)
 }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetSegmentPath() string {
-    return "ip-mark"
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = ipMark.MarkType
-    leafs["mark-value"] = ipMark.MarkValue
-    return leafs
-}
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetYangName() string { return "ip-mark" }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) SetParent(parent types.Entity) { ipMark.parent = parent }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetParent() types.Entity { return ipMark.parent }
-
-func (ipMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_IpMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark
 // Common mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -4072,58 +2225,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Commo
     MarkValue interface{}
 }
 
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetFilter() yfilter.YFilter { return commonMark.YFilter }
+func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetEntityData() *types.CommonEntityData {
+    commonMark.EntityData.YFilter = commonMark.YFilter
+    commonMark.EntityData.YangName = "common-mark"
+    commonMark.EntityData.BundleName = "cisco_ios_xr"
+    commonMark.EntityData.ParentYangName = "class"
+    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) SetFilter(yf yfilter.YFilter) { commonMark.YFilter = yf }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    commonMark.EntityData.Children = make(map[string]types.YChild)
+    commonMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", commonMark.MarkType}
+    commonMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", commonMark.MarkValue}
+    return &(commonMark.EntityData)
 }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetSegmentPath() string {
-    return "common-mark"
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = commonMark.MarkType
-    leafs["mark-value"] = commonMark.MarkValue
-    return leafs
-}
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetYangName() string { return "common-mark" }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) SetParent(parent types.Entity) { commonMark.parent = parent }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetParent() types.Entity { return commonMark.parent }
-
-func (commonMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_CommonMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark
 // MPLS mark
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -4133,58 +2255,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsM
     MarkValue interface{}
 }
 
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetFilter() yfilter.YFilter { return mplsMark.YFilter }
+func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetEntityData() *types.CommonEntityData {
+    mplsMark.EntityData.YFilter = mplsMark.YFilter
+    mplsMark.EntityData.YangName = "mpls-mark"
+    mplsMark.EntityData.BundleName = "cisco_ios_xr"
+    mplsMark.EntityData.ParentYangName = "class"
+    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) SetFilter(yf yfilter.YFilter) { mplsMark.YFilter = yf }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mplsMark.EntityData.Children = make(map[string]types.YChild)
+    mplsMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mplsMark.MarkType}
+    mplsMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mplsMark.MarkValue}
+    return &(mplsMark.EntityData)
 }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetSegmentPath() string {
-    return "mpls-mark"
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mplsMark.MarkType
-    leafs["mark-value"] = mplsMark.MarkValue
-    return leafs
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetYangName() string { return "mpls-mark" }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) SetParent(parent types.Entity) { mplsMark.parent = parent }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetParent() types.Entity { return mplsMark.parent }
-
-func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_MplsMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred
 // WRED parameters
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // WREDMatchType. The type is DnxQoseaShowWred.
@@ -4214,79 +2305,33 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred 
     ConfigMaxThreshold PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold
 }
 
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetFilter() yfilter.YFilter { return wred.YFilter }
+func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetEntityData() *types.CommonEntityData {
+    wred.EntityData.YFilter = wred.YFilter
+    wred.EntityData.YangName = "wred"
+    wred.EntityData.BundleName = "cisco_ios_xr"
+    wred.EntityData.ParentYangName = "class"
+    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) SetFilter(yf yfilter.YFilter) { wred.YFilter = yf }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetGoName(yname string) string {
-    if yname == "wred-match-type" { return "WredMatchType" }
-    if yname == "hardware-min-threshold-bytes" { return "HardwareMinThresholdBytes" }
-    if yname == "hardware-max-threshold-bytes" { return "HardwareMaxThresholdBytes" }
-    if yname == "first-segment" { return "FirstSegment" }
-    if yname == "segment-size" { return "SegmentSize" }
-    if yname == "wred-match-value" { return "WredMatchValue" }
-    if yname == "config-min-threshold" { return "ConfigMinThreshold" }
-    if yname == "config-max-threshold" { return "ConfigMaxThreshold" }
-    return ""
+    wred.EntityData.Children = make(map[string]types.YChild)
+    wred.EntityData.Children["wred-match-value"] = types.YChild{"WredMatchValue", &wred.WredMatchValue}
+    wred.EntityData.Children["config-min-threshold"] = types.YChild{"ConfigMinThreshold", &wred.ConfigMinThreshold}
+    wred.EntityData.Children["config-max-threshold"] = types.YChild{"ConfigMaxThreshold", &wred.ConfigMaxThreshold}
+    wred.EntityData.Leafs = make(map[string]types.YLeaf)
+    wred.EntityData.Leafs["wred-match-type"] = types.YLeaf{"WredMatchType", wred.WredMatchType}
+    wred.EntityData.Leafs["hardware-min-threshold-bytes"] = types.YLeaf{"HardwareMinThresholdBytes", wred.HardwareMinThresholdBytes}
+    wred.EntityData.Leafs["hardware-max-threshold-bytes"] = types.YLeaf{"HardwareMaxThresholdBytes", wred.HardwareMaxThresholdBytes}
+    wred.EntityData.Leafs["first-segment"] = types.YLeaf{"FirstSegment", wred.FirstSegment}
+    wred.EntityData.Leafs["segment-size"] = types.YLeaf{"SegmentSize", wred.SegmentSize}
+    return &(wred.EntityData)
 }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetSegmentPath() string {
-    return "wred"
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wred-match-value" {
-        return &wred.WredMatchValue
-    }
-    if childYangName == "config-min-threshold" {
-        return &wred.ConfigMinThreshold
-    }
-    if childYangName == "config-max-threshold" {
-        return &wred.ConfigMaxThreshold
-    }
-    return nil
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["wred-match-value"] = &wred.WredMatchValue
-    children["config-min-threshold"] = &wred.ConfigMinThreshold
-    children["config-max-threshold"] = &wred.ConfigMaxThreshold
-    return children
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["wred-match-type"] = wred.WredMatchType
-    leafs["hardware-min-threshold-bytes"] = wred.HardwareMinThresholdBytes
-    leafs["hardware-max-threshold-bytes"] = wred.HardwareMaxThresholdBytes
-    leafs["first-segment"] = wred.FirstSegment
-    leafs["segment-size"] = wred.SegmentSize
-    return leafs
-}
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetYangName() string { return "wred" }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) SetParent(parent types.Entity) { wred.parent = parent }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetParent() types.Entity { return wred.parent }
-
-func (wred *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue
 // WRED match values
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // dnx qosea show red match value. The type is slice of
@@ -4294,68 +2339,29 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_
     DnxQoseaShowRedMatchValue []PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
 }
 
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetFilter() yfilter.YFilter { return wredMatchValue.YFilter }
+func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetEntityData() *types.CommonEntityData {
+    wredMatchValue.EntityData.YFilter = wredMatchValue.YFilter
+    wredMatchValue.EntityData.YangName = "wred-match-value"
+    wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    wredMatchValue.EntityData.ParentYangName = "wred"
+    wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) SetFilter(yf yfilter.YFilter) { wredMatchValue.YFilter = yf }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetGoName(yname string) string {
-    if yname == "dnx-qosea-show-red-match-value" { return "DnxQoseaShowRedMatchValue" }
-    return ""
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetSegmentPath() string {
-    return "wred-match-value"
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dnx-qosea-show-red-match-value" {
-        for _, c := range wredMatchValue.DnxQoseaShowRedMatchValue {
-            if wredMatchValue.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue{}
-        wredMatchValue.DnxQoseaShowRedMatchValue = append(wredMatchValue.DnxQoseaShowRedMatchValue, child)
-        return &wredMatchValue.DnxQoseaShowRedMatchValue[len(wredMatchValue.DnxQoseaShowRedMatchValue)-1]
-    }
-    return nil
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    wredMatchValue.EntityData.Children = make(map[string]types.YChild)
+    wredMatchValue.EntityData.Children["dnx-qosea-show-red-match-value"] = types.YChild{"DnxQoseaShowRedMatchValue", nil}
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
-        children[wredMatchValue.DnxQoseaShowRedMatchValue[i].GetSegmentPath()] = &wredMatchValue.DnxQoseaShowRedMatchValue[i]
+        wredMatchValue.EntityData.Children[types.GetSegmentPath(&wredMatchValue.DnxQoseaShowRedMatchValue[i])] = types.YChild{"DnxQoseaShowRedMatchValue", &wredMatchValue.DnxQoseaShowRedMatchValue[i]}
     }
-    return children
+    wredMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wredMatchValue.EntityData)
 }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetYangName() string { return "wred-match-value" }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) SetParent(parent types.Entity) { wredMatchValue.parent = parent }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetParent() types.Entity { return wredMatchValue.parent }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
 // dnx qosea show red match value
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Start value of a range. The type is interface{} with range: 0..255.
@@ -4365,58 +2371,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_
     RangeEnd interface{}
 }
 
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetFilter() yfilter.YFilter { return dnxQoseaShowRedMatchValue.YFilter }
+func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetEntityData() *types.CommonEntityData {
+    dnxQoseaShowRedMatchValue.EntityData.YFilter = dnxQoseaShowRedMatchValue.YFilter
+    dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) SetFilter(yf yfilter.YFilter) { dnxQoseaShowRedMatchValue.YFilter = yf }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetGoName(yname string) string {
-    if yname == "range-start" { return "RangeStart" }
-    if yname == "range-end" { return "RangeEnd" }
-    return ""
+    dnxQoseaShowRedMatchValue.EntityData.Children = make(map[string]types.YChild)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-start"] = types.YLeaf{"RangeStart", dnxQoseaShowRedMatchValue.RangeStart}
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-end"] = types.YLeaf{"RangeEnd", dnxQoseaShowRedMatchValue.RangeEnd}
+    return &(dnxQoseaShowRedMatchValue.EntityData)
 }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetSegmentPath() string {
-    return "dnx-qosea-show-red-match-value"
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["range-start"] = dnxQoseaShowRedMatchValue.RangeStart
-    leafs["range-end"] = dnxQoseaShowRedMatchValue.RangeEnd
-    return leafs
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetYangName() string { return "dnx-qosea-show-red-match-value" }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) SetParent(parent types.Entity) { dnxQoseaShowRedMatchValue.parent = parent }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetParent() types.Entity { return dnxQoseaShowRedMatchValue.parent }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetParentYangName() string { return "wred-match-value" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold
 // Configured minimum threshold
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -4426,58 +2401,27 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_
     PolicyUnit interface{}
 }
 
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetFilter() yfilter.YFilter { return configMinThreshold.YFilter }
+func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetEntityData() *types.CommonEntityData {
+    configMinThreshold.EntityData.YFilter = configMinThreshold.YFilter
+    configMinThreshold.EntityData.YangName = "config-min-threshold"
+    configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMinThreshold.EntityData.ParentYangName = "wred"
+    configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) SetFilter(yf yfilter.YFilter) { configMinThreshold.YFilter = yf }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMinThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMinThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinThreshold.PolicyValue}
+    configMinThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinThreshold.PolicyUnit}
+    return &(configMinThreshold.EntityData)
 }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetSegmentPath() string {
-    return "config-min-threshold"
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMinThreshold.PolicyValue
-    leafs["policy-unit"] = configMinThreshold.PolicyUnit
-    return leafs
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetYangName() string { return "config-min-threshold" }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) SetParent(parent types.Entity) { configMinThreshold.parent = parent }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetParent() types.Entity { return configMinThreshold.parent }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMinThreshold) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold
 // Configured maximum threshold
 type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -4487,131 +2431,61 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_
     PolicyUnit interface{}
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetFilter() yfilter.YFilter { return configMaxThreshold.YFilter }
+func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetEntityData() *types.CommonEntityData {
+    configMaxThreshold.EntityData.YFilter = configMaxThreshold.YFilter
+    configMaxThreshold.EntityData.YangName = "config-max-threshold"
+    configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMaxThreshold.EntityData.ParentYangName = "wred"
+    configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) SetFilter(yf yfilter.YFilter) { configMaxThreshold.YFilter = yf }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMaxThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMaxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxThreshold.PolicyValue}
+    configMaxThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxThreshold.PolicyUnit}
+    return &(configMaxThreshold.EntityData)
 }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetSegmentPath() string {
-    return "config-max-threshold"
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMaxThreshold.PolicyValue
-    leafs["policy-unit"] = configMaxThreshold.PolicyUnit
-    return leafs
-}
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetYangName() string { return "config-max-threshold" }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) SetParent(parent types.Entity) { configMaxThreshold.parent = parent }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetParent() types.Entity { return configMaxThreshold.parent }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_Classes_Class_Wred_ConfigMaxThreshold) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_Interfaces
 // QoS list of interfaces
 type PlatformQos_Nodes_Node_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // QoS interface names. The type is slice of
-    // PlatformQos_Nodes_Node_Interfaces_Interface.
-    Interface []PlatformQos_Nodes_Node_Interfaces_Interface
+    // PlatformQos_Nodes_Node_Interfaces_Interface_.
+    Interface_ []PlatformQos_Nodes_Node_Interfaces_Interface
 }
 
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "node"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *PlatformQos_Nodes_Node_Interfaces) GetParentYangName() string { return "node" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface
 // QoS interface names
 type PlatformQos_Nodes_Node_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // The interface direction on which QoS is applied to. The type is string.
@@ -4624,68 +2498,29 @@ type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     Classes PlatformQos_Nodes_Node_Interfaces_Interface_Classes
 }
 
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "qos-direction" { return "QosDirection" }
-    if yname == "policy-details" { return "PolicyDetails" }
-    if yname == "classes" { return "Classes" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["policy-details"] = types.YChild{"PolicyDetails", &self.PolicyDetails}
+    self.EntityData.Children["classes"] = types.YChild{"Classes", &self.Classes}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["qos-direction"] = types.YLeaf{"QosDirection", self.QosDirection}
+    return &(self.EntityData)
 }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "policy-details" {
-        return &self.PolicyDetails
-    }
-    if childYangName == "classes" {
-        return &self.Classes
-    }
-    return nil
-}
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["policy-details"] = &self.PolicyDetails
-    children["classes"] = &self.Classes
-    return children
-}
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["qos-direction"] = self.QosDirection
-    return leafs
-}
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *PlatformQos_Nodes_Node_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails
 // Policy Details
 type PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NPU ID. The type is interface{} with range: 0..4294967295.
@@ -4721,74 +2556,35 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails struct {
     InterfaceStatus interface{}
 }
 
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetFilter() yfilter.YFilter { return policyDetails.YFilter }
+func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetEntityData() *types.CommonEntityData {
+    policyDetails.EntityData.YFilter = policyDetails.YFilter
+    policyDetails.EntityData.YangName = "policy-details"
+    policyDetails.EntityData.BundleName = "cisco_ios_xr"
+    policyDetails.EntityData.ParentYangName = "interface"
+    policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) SetFilter(yf yfilter.YFilter) { policyDetails.YFilter = yf }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetGoName(yname string) string {
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "interface-bandwidth-kbps" { return "InterfaceBandwidthKbps" }
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "total-number-of-classes" { return "TotalNumberOfClasses" }
-    if yname == "voq-base-address" { return "VoqBaseAddress" }
-    if yname == "voq-stats-handle" { return "VoqStatsHandle" }
-    if yname == "stats-accounting-type" { return "StatsAccountingType" }
-    if yname == "policy-status" { return "PolicyStatus" }
-    if yname == "interface-status" { return "InterfaceStatus" }
-    return ""
+    policyDetails.EntityData.Children = make(map[string]types.YChild)
+    policyDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyDetails.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", policyDetails.NpuId}
+    policyDetails.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", policyDetails.InterfaceHandle}
+    policyDetails.EntityData.Leafs["interface-bandwidth-kbps"] = types.YLeaf{"InterfaceBandwidthKbps", policyDetails.InterfaceBandwidthKbps}
+    policyDetails.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policyDetails.PolicyName}
+    policyDetails.EntityData.Leafs["total-number-of-classes"] = types.YLeaf{"TotalNumberOfClasses", policyDetails.TotalNumberOfClasses}
+    policyDetails.EntityData.Leafs["voq-base-address"] = types.YLeaf{"VoqBaseAddress", policyDetails.VoqBaseAddress}
+    policyDetails.EntityData.Leafs["voq-stats-handle"] = types.YLeaf{"VoqStatsHandle", policyDetails.VoqStatsHandle}
+    policyDetails.EntityData.Leafs["stats-accounting-type"] = types.YLeaf{"StatsAccountingType", policyDetails.StatsAccountingType}
+    policyDetails.EntityData.Leafs["policy-status"] = types.YLeaf{"PolicyStatus", policyDetails.PolicyStatus}
+    policyDetails.EntityData.Leafs["interface-status"] = types.YLeaf{"InterfaceStatus", policyDetails.InterfaceStatus}
+    return &(policyDetails.EntityData)
 }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetSegmentPath() string {
-    return "policy-details"
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["npu-id"] = policyDetails.NpuId
-    leafs["interface-handle"] = policyDetails.InterfaceHandle
-    leafs["interface-bandwidth-kbps"] = policyDetails.InterfaceBandwidthKbps
-    leafs["policy-name"] = policyDetails.PolicyName
-    leafs["total-number-of-classes"] = policyDetails.TotalNumberOfClasses
-    leafs["voq-base-address"] = policyDetails.VoqBaseAddress
-    leafs["voq-stats-handle"] = policyDetails.VoqStatsHandle
-    leafs["stats-accounting-type"] = policyDetails.StatsAccountingType
-    leafs["policy-status"] = policyDetails.PolicyStatus
-    leafs["interface-status"] = policyDetails.InterfaceStatus
-    return leafs
-}
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetYangName() string { return "policy-details" }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) SetParent(parent types.Entity) { policyDetails.parent = parent }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetParent() types.Entity { return policyDetails.parent }
-
-func (policyDetails *PlatformQos_Nodes_Node_Interfaces_Interface_PolicyDetails) GetParentYangName() string { return "interface" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes
 // QoS list of class names
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // QoS policy class. The type is slice of
@@ -4796,68 +2592,29 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes struct {
     Class []PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class
 }
 
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetFilter() yfilter.YFilter { return classes.YFilter }
+func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "interface"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) SetFilter(yf yfilter.YFilter) { classes.YFilter = yf }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    return ""
-}
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetSegmentPath() string {
-    return "classes"
-}
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class" {
-        for _, c := range classes.Class {
-            if classes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class{}
-        classes.Class = append(classes.Class, child)
-        return &classes.Class[len(classes.Class)-1]
-    }
-    return nil
-}
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
     for i := range classes.Class {
-        children[classes.Class[i].GetSegmentPath()] = &classes.Class[i]
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
     }
-    return children
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
 }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetYangName() string { return "classes" }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) SetParent(parent types.Entity) { classes.parent = parent }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetParent() types.Entity { return classes.parent }
-
-func (classes *PlatformQos_Nodes_Node_Interfaces_Interface_Classes) GetParentYangName() string { return "interface" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class
 // QoS policy class
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. QoS policy class name at level 1. The type is
@@ -4982,200 +2739,71 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class struct {
     Wred []PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred
 }
 
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetFilter() yfilter.YFilter { return class.YFilter }
+func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) SetFilter(yf yfilter.YFilter) { class.YFilter = yf }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetGoName(yname string) string {
-    if yname == "level-one-class-name" { return "LevelOneClassName" }
-    if yname == "level-two-class-name" { return "LevelTwoClassName" }
-    if yname == "class-level" { return "ClassLevel" }
-    if yname == "egress-queue-id" { return "EgressQueueId" }
-    if yname == "queue-type" { return "QueueType" }
-    if yname == "priority-level" { return "PriorityLevel" }
-    if yname == "hardware-max-rate-kbps" { return "HardwareMaxRateKbps" }
-    if yname == "hardware-min-rate-kbps" { return "HardwareMinRateKbps" }
-    if yname == "config-excess-bandwidth-percent" { return "ConfigExcessBandwidthPercent" }
-    if yname == "config-excess-bandwidth-unit" { return "ConfigExcessBandwidthUnit" }
-    if yname == "hardware-excess-bandwidth-weight" { return "HardwareExcessBandwidthWeight" }
-    if yname == "network-min-bandwidth-kbps" { return "NetworkMinBandwidthKbps" }
-    if yname == "hardware-queue-limit-bytes" { return "HardwareQueueLimitBytes" }
-    if yname == "hardware-queue-limit-microseconds" { return "HardwareQueueLimitMicroseconds" }
-    if yname == "policer-bucket-id" { return "PolicerBucketId" }
-    if yname == "policer-stats-handle" { return "PolicerStatsHandle" }
-    if yname == "hardware-policer-average-rate-kbps" { return "HardwarePolicerAverageRateKbps" }
-    if yname == "hardware-policer-peak-rate-kbps" { return "HardwarePolicerPeakRateKbps" }
-    if yname == "hardware-policer-conform-burst-bytes" { return "HardwarePolicerConformBurstBytes" }
-    if yname == "hardware-policer-excess-burst-bytes" { return "HardwarePolicerExcessBurstBytes" }
-    if yname == "config-max-rate" { return "ConfigMaxRate" }
-    if yname == "config-min-rate" { return "ConfigMinRate" }
-    if yname == "config-queue-limit" { return "ConfigQueueLimit" }
-    if yname == "config-policer-average-rate" { return "ConfigPolicerAverageRate" }
-    if yname == "config-policer-peak-rate" { return "ConfigPolicerPeakRate" }
-    if yname == "config-policer-conform-burst" { return "ConfigPolicerConformBurst" }
-    if yname == "config-policer-excess-burst" { return "ConfigPolicerExcessBurst" }
-    if yname == "conform-action" { return "ConformAction" }
-    if yname == "exceed-action" { return "ExceedAction" }
-    if yname == "violate-action" { return "ViolateAction" }
-    if yname == "ip-mark" { return "IpMark" }
-    if yname == "common-mark" { return "CommonMark" }
-    if yname == "mpls-mark" { return "MplsMark" }
-    if yname == "wred" { return "Wred" }
-    return ""
-}
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetSegmentPath() string {
-    return "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
-}
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config-max-rate" {
-        return &class.ConfigMaxRate
-    }
-    if childYangName == "config-min-rate" {
-        return &class.ConfigMinRate
-    }
-    if childYangName == "config-queue-limit" {
-        return &class.ConfigQueueLimit
-    }
-    if childYangName == "config-policer-average-rate" {
-        return &class.ConfigPolicerAverageRate
-    }
-    if childYangName == "config-policer-peak-rate" {
-        return &class.ConfigPolicerPeakRate
-    }
-    if childYangName == "config-policer-conform-burst" {
-        return &class.ConfigPolicerConformBurst
-    }
-    if childYangName == "config-policer-excess-burst" {
-        return &class.ConfigPolicerExcessBurst
-    }
-    if childYangName == "conform-action" {
-        return &class.ConformAction
-    }
-    if childYangName == "exceed-action" {
-        return &class.ExceedAction
-    }
-    if childYangName == "violate-action" {
-        return &class.ViolateAction
-    }
-    if childYangName == "ip-mark" {
-        for _, c := range class.IpMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark{}
-        class.IpMark = append(class.IpMark, child)
-        return &class.IpMark[len(class.IpMark)-1]
-    }
-    if childYangName == "common-mark" {
-        for _, c := range class.CommonMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark{}
-        class.CommonMark = append(class.CommonMark, child)
-        return &class.CommonMark[len(class.CommonMark)-1]
-    }
-    if childYangName == "mpls-mark" {
-        for _, c := range class.MplsMark {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark{}
-        class.MplsMark = append(class.MplsMark, child)
-        return &class.MplsMark[len(class.MplsMark)-1]
-    }
-    if childYangName == "wred" {
-        for _, c := range class.Wred {
-            if class.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred{}
-        class.Wred = append(class.Wred, child)
-        return &class.Wred[len(class.Wred)-1]
-    }
-    return nil
-}
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config-max-rate"] = &class.ConfigMaxRate
-    children["config-min-rate"] = &class.ConfigMinRate
-    children["config-queue-limit"] = &class.ConfigQueueLimit
-    children["config-policer-average-rate"] = &class.ConfigPolicerAverageRate
-    children["config-policer-peak-rate"] = &class.ConfigPolicerPeakRate
-    children["config-policer-conform-burst"] = &class.ConfigPolicerConformBurst
-    children["config-policer-excess-burst"] = &class.ConfigPolicerExcessBurst
-    children["conform-action"] = &class.ConformAction
-    children["exceed-action"] = &class.ExceedAction
-    children["violate-action"] = &class.ViolateAction
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Children["config-max-rate"] = types.YChild{"ConfigMaxRate", &class.ConfigMaxRate}
+    class.EntityData.Children["config-min-rate"] = types.YChild{"ConfigMinRate", &class.ConfigMinRate}
+    class.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &class.ConfigQueueLimit}
+    class.EntityData.Children["config-policer-average-rate"] = types.YChild{"ConfigPolicerAverageRate", &class.ConfigPolicerAverageRate}
+    class.EntityData.Children["config-policer-peak-rate"] = types.YChild{"ConfigPolicerPeakRate", &class.ConfigPolicerPeakRate}
+    class.EntityData.Children["config-policer-conform-burst"] = types.YChild{"ConfigPolicerConformBurst", &class.ConfigPolicerConformBurst}
+    class.EntityData.Children["config-policer-excess-burst"] = types.YChild{"ConfigPolicerExcessBurst", &class.ConfigPolicerExcessBurst}
+    class.EntityData.Children["conform-action"] = types.YChild{"ConformAction", &class.ConformAction}
+    class.EntityData.Children["exceed-action"] = types.YChild{"ExceedAction", &class.ExceedAction}
+    class.EntityData.Children["violate-action"] = types.YChild{"ViolateAction", &class.ViolateAction}
+    class.EntityData.Children["ip-mark"] = types.YChild{"IpMark", nil}
     for i := range class.IpMark {
-        children[class.IpMark[i].GetSegmentPath()] = &class.IpMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.IpMark[i])] = types.YChild{"IpMark", &class.IpMark[i]}
     }
+    class.EntityData.Children["common-mark"] = types.YChild{"CommonMark", nil}
     for i := range class.CommonMark {
-        children[class.CommonMark[i].GetSegmentPath()] = &class.CommonMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.CommonMark[i])] = types.YChild{"CommonMark", &class.CommonMark[i]}
     }
+    class.EntityData.Children["mpls-mark"] = types.YChild{"MplsMark", nil}
     for i := range class.MplsMark {
-        children[class.MplsMark[i].GetSegmentPath()] = &class.MplsMark[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.MplsMark[i])] = types.YChild{"MplsMark", &class.MplsMark[i]}
     }
+    class.EntityData.Children["wred"] = types.YChild{"Wred", nil}
     for i := range class.Wred {
-        children[class.Wred[i].GetSegmentPath()] = &class.Wred[i]
+        class.EntityData.Children[types.GetSegmentPath(&class.Wred[i])] = types.YChild{"Wred", &class.Wred[i]}
     }
-    return children
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["level-one-class-name"] = types.YLeaf{"LevelOneClassName", class.LevelOneClassName}
+    class.EntityData.Leafs["level-two-class-name"] = types.YLeaf{"LevelTwoClassName", class.LevelTwoClassName}
+    class.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", class.ClassLevel}
+    class.EntityData.Leafs["egress-queue-id"] = types.YLeaf{"EgressQueueId", class.EgressQueueId}
+    class.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", class.QueueType}
+    class.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", class.PriorityLevel}
+    class.EntityData.Leafs["hardware-max-rate-kbps"] = types.YLeaf{"HardwareMaxRateKbps", class.HardwareMaxRateKbps}
+    class.EntityData.Leafs["hardware-min-rate-kbps"] = types.YLeaf{"HardwareMinRateKbps", class.HardwareMinRateKbps}
+    class.EntityData.Leafs["config-excess-bandwidth-percent"] = types.YLeaf{"ConfigExcessBandwidthPercent", class.ConfigExcessBandwidthPercent}
+    class.EntityData.Leafs["config-excess-bandwidth-unit"] = types.YLeaf{"ConfigExcessBandwidthUnit", class.ConfigExcessBandwidthUnit}
+    class.EntityData.Leafs["hardware-excess-bandwidth-weight"] = types.YLeaf{"HardwareExcessBandwidthWeight", class.HardwareExcessBandwidthWeight}
+    class.EntityData.Leafs["network-min-bandwidth-kbps"] = types.YLeaf{"NetworkMinBandwidthKbps", class.NetworkMinBandwidthKbps}
+    class.EntityData.Leafs["hardware-queue-limit-bytes"] = types.YLeaf{"HardwareQueueLimitBytes", class.HardwareQueueLimitBytes}
+    class.EntityData.Leafs["hardware-queue-limit-microseconds"] = types.YLeaf{"HardwareQueueLimitMicroseconds", class.HardwareQueueLimitMicroseconds}
+    class.EntityData.Leafs["policer-bucket-id"] = types.YLeaf{"PolicerBucketId", class.PolicerBucketId}
+    class.EntityData.Leafs["policer-stats-handle"] = types.YLeaf{"PolicerStatsHandle", class.PolicerStatsHandle}
+    class.EntityData.Leafs["hardware-policer-average-rate-kbps"] = types.YLeaf{"HardwarePolicerAverageRateKbps", class.HardwarePolicerAverageRateKbps}
+    class.EntityData.Leafs["hardware-policer-peak-rate-kbps"] = types.YLeaf{"HardwarePolicerPeakRateKbps", class.HardwarePolicerPeakRateKbps}
+    class.EntityData.Leafs["hardware-policer-conform-burst-bytes"] = types.YLeaf{"HardwarePolicerConformBurstBytes", class.HardwarePolicerConformBurstBytes}
+    class.EntityData.Leafs["hardware-policer-excess-burst-bytes"] = types.YLeaf{"HardwarePolicerExcessBurstBytes", class.HardwarePolicerExcessBurstBytes}
+    return &(class.EntityData)
 }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["level-one-class-name"] = class.LevelOneClassName
-    leafs["level-two-class-name"] = class.LevelTwoClassName
-    leafs["class-level"] = class.ClassLevel
-    leafs["egress-queue-id"] = class.EgressQueueId
-    leafs["queue-type"] = class.QueueType
-    leafs["priority-level"] = class.PriorityLevel
-    leafs["hardware-max-rate-kbps"] = class.HardwareMaxRateKbps
-    leafs["hardware-min-rate-kbps"] = class.HardwareMinRateKbps
-    leafs["config-excess-bandwidth-percent"] = class.ConfigExcessBandwidthPercent
-    leafs["config-excess-bandwidth-unit"] = class.ConfigExcessBandwidthUnit
-    leafs["hardware-excess-bandwidth-weight"] = class.HardwareExcessBandwidthWeight
-    leafs["network-min-bandwidth-kbps"] = class.NetworkMinBandwidthKbps
-    leafs["hardware-queue-limit-bytes"] = class.HardwareQueueLimitBytes
-    leafs["hardware-queue-limit-microseconds"] = class.HardwareQueueLimitMicroseconds
-    leafs["policer-bucket-id"] = class.PolicerBucketId
-    leafs["policer-stats-handle"] = class.PolicerStatsHandle
-    leafs["hardware-policer-average-rate-kbps"] = class.HardwarePolicerAverageRateKbps
-    leafs["hardware-policer-peak-rate-kbps"] = class.HardwarePolicerPeakRateKbps
-    leafs["hardware-policer-conform-burst-bytes"] = class.HardwarePolicerConformBurstBytes
-    leafs["hardware-policer-excess-burst-bytes"] = class.HardwarePolicerExcessBurstBytes
-    return leafs
-}
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetBundleName() string { return "cisco_ios_xr" }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetYangName() string { return "class" }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) SetParent(parent types.Entity) { class.parent = parent }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetParent() types.Entity { return class.parent }
-
-func (class *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class) GetParentYangName() string { return "classes" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate
 // Configured maximum rate
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5185,58 +2813,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate str
     PolicyUnit interface{}
 }
 
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetFilter() yfilter.YFilter { return configMaxRate.YFilter }
+func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetEntityData() *types.CommonEntityData {
+    configMaxRate.EntityData.YFilter = configMaxRate.YFilter
+    configMaxRate.EntityData.YangName = "config-max-rate"
+    configMaxRate.EntityData.BundleName = "cisco_ios_xr"
+    configMaxRate.EntityData.ParentYangName = "class"
+    configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) SetFilter(yf yfilter.YFilter) { configMaxRate.YFilter = yf }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMaxRate.EntityData.Children = make(map[string]types.YChild)
+    configMaxRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxRate.PolicyValue}
+    configMaxRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxRate.PolicyUnit}
+    return &(configMaxRate.EntityData)
 }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetSegmentPath() string {
-    return "config-max-rate"
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMaxRate.PolicyValue
-    leafs["policy-unit"] = configMaxRate.PolicyUnit
-    return leafs
-}
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetYangName() string { return "config-max-rate" }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) SetParent(parent types.Entity) { configMaxRate.parent = parent }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetParent() types.Entity { return configMaxRate.parent }
-
-func (configMaxRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMaxRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate
 // Configured minimum rate
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5246,58 +2843,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate str
     PolicyUnit interface{}
 }
 
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetFilter() yfilter.YFilter { return configMinRate.YFilter }
+func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetEntityData() *types.CommonEntityData {
+    configMinRate.EntityData.YFilter = configMinRate.YFilter
+    configMinRate.EntityData.YangName = "config-min-rate"
+    configMinRate.EntityData.BundleName = "cisco_ios_xr"
+    configMinRate.EntityData.ParentYangName = "class"
+    configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) SetFilter(yf yfilter.YFilter) { configMinRate.YFilter = yf }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMinRate.EntityData.Children = make(map[string]types.YChild)
+    configMinRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinRate.PolicyValue}
+    configMinRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinRate.PolicyUnit}
+    return &(configMinRate.EntityData)
 }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetSegmentPath() string {
-    return "config-min-rate"
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMinRate.PolicyValue
-    leafs["policy-unit"] = configMinRate.PolicyUnit
-    return leafs
-}
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetYangName() string { return "config-min-rate" }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) SetParent(parent types.Entity) { configMinRate.parent = parent }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetParent() types.Entity { return configMinRate.parent }
-
-func (configMinRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigMinRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit
 // Configured queue limit
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5307,58 +2873,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit 
     PolicyUnit interface{}
 }
 
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetFilter() yfilter.YFilter { return configQueueLimit.YFilter }
+func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetEntityData() *types.CommonEntityData {
+    configQueueLimit.EntityData.YFilter = configQueueLimit.YFilter
+    configQueueLimit.EntityData.YangName = "config-queue-limit"
+    configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
+    configQueueLimit.EntityData.ParentYangName = "class"
+    configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) SetFilter(yf yfilter.YFilter) { configQueueLimit.YFilter = yf }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
+    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    configQueueLimit.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configQueueLimit.PolicyValue}
+    configQueueLimit.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configQueueLimit.PolicyUnit}
+    return &(configQueueLimit.EntityData)
 }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetSegmentPath() string {
-    return "config-queue-limit"
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configQueueLimit.PolicyValue
-    leafs["policy-unit"] = configQueueLimit.PolicyUnit
-    return leafs
-}
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetYangName() string { return "config-queue-limit" }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) SetParent(parent types.Entity) { configQueueLimit.parent = parent }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetParent() types.Entity { return configQueueLimit.parent }
-
-func (configQueueLimit *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigQueueLimit) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate
 // Configured policer average rate
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5368,58 +2903,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAver
     PolicyUnit interface{}
 }
 
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetFilter() yfilter.YFilter { return configPolicerAverageRate.YFilter }
+func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetEntityData() *types.CommonEntityData {
+    configPolicerAverageRate.EntityData.YFilter = configPolicerAverageRate.YFilter
+    configPolicerAverageRate.EntityData.YangName = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerAverageRate.EntityData.ParentYangName = "class"
+    configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) SetFilter(yf yfilter.YFilter) { configPolicerAverageRate.YFilter = yf }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerAverageRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerAverageRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerAverageRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerAverageRate.PolicyValue}
+    configPolicerAverageRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerAverageRate.PolicyUnit}
+    return &(configPolicerAverageRate.EntityData)
 }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetSegmentPath() string {
-    return "config-policer-average-rate"
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerAverageRate.PolicyValue
-    leafs["policy-unit"] = configPolicerAverageRate.PolicyUnit
-    return leafs
-}
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetYangName() string { return "config-policer-average-rate" }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) SetParent(parent types.Entity) { configPolicerAverageRate.parent = parent }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetParent() types.Entity { return configPolicerAverageRate.parent }
-
-func (configPolicerAverageRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerAverageRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate
 // Config policer peak rate
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5429,58 +2933,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeak
     PolicyUnit interface{}
 }
 
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetFilter() yfilter.YFilter { return configPolicerPeakRate.YFilter }
+func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetEntityData() *types.CommonEntityData {
+    configPolicerPeakRate.EntityData.YFilter = configPolicerPeakRate.YFilter
+    configPolicerPeakRate.EntityData.YangName = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerPeakRate.EntityData.ParentYangName = "class"
+    configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) SetFilter(yf yfilter.YFilter) { configPolicerPeakRate.YFilter = yf }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerPeakRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerPeakRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerPeakRate.PolicyValue}
+    configPolicerPeakRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerPeakRate.PolicyUnit}
+    return &(configPolicerPeakRate.EntityData)
 }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetSegmentPath() string {
-    return "config-policer-peak-rate"
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerPeakRate.PolicyValue
-    leafs["policy-unit"] = configPolicerPeakRate.PolicyUnit
-    return leafs
-}
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetYangName() string { return "config-policer-peak-rate" }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) SetParent(parent types.Entity) { configPolicerPeakRate.parent = parent }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetParent() types.Entity { return configPolicerPeakRate.parent }
-
-func (configPolicerPeakRate *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerPeakRate) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst
 // Configured policer conform burst
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5490,58 +2963,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConf
     PolicyUnit interface{}
 }
 
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetFilter() yfilter.YFilter { return configPolicerConformBurst.YFilter }
+func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerConformBurst.EntityData.YFilter = configPolicerConformBurst.YFilter
+    configPolicerConformBurst.EntityData.YangName = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerConformBurst.EntityData.ParentYangName = "class"
+    configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) SetFilter(yf yfilter.YFilter) { configPolicerConformBurst.YFilter = yf }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerConformBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerConformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerConformBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerConformBurst.PolicyValue}
+    configPolicerConformBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerConformBurst.PolicyUnit}
+    return &(configPolicerConformBurst.EntityData)
 }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetSegmentPath() string {
-    return "config-policer-conform-burst"
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerConformBurst.PolicyValue
-    leafs["policy-unit"] = configPolicerConformBurst.PolicyUnit
-    return leafs
-}
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetYangName() string { return "config-policer-conform-burst" }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) SetParent(parent types.Entity) { configPolicerConformBurst.parent = parent }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetParent() types.Entity { return configPolicerConformBurst.parent }
-
-func (configPolicerConformBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerConformBurst) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst
 // Configured policer excess burst
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -5551,58 +2993,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExce
     PolicyUnit interface{}
 }
 
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetFilter() yfilter.YFilter { return configPolicerExcessBurst.YFilter }
+func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerExcessBurst.EntityData.YFilter = configPolicerExcessBurst.YFilter
+    configPolicerExcessBurst.EntityData.YangName = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerExcessBurst.EntityData.ParentYangName = "class"
+    configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) SetFilter(yf yfilter.YFilter) { configPolicerExcessBurst.YFilter = yf }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configPolicerExcessBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerExcessBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerExcessBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerExcessBurst.PolicyValue}
+    configPolicerExcessBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerExcessBurst.PolicyUnit}
+    return &(configPolicerExcessBurst.EntityData)
 }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetSegmentPath() string {
-    return "config-policer-excess-burst"
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configPolicerExcessBurst.PolicyValue
-    leafs["policy-unit"] = configPolicerExcessBurst.PolicyUnit
-    return leafs
-}
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetYangName() string { return "config-policer-excess-burst" }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) SetParent(parent types.Entity) { configPolicerExcessBurst.parent = parent }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetParent() types.Entity { return configPolicerExcessBurst.parent }
-
-func (configPolicerExcessBurst *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConfigPolicerExcessBurst) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction
 // Conform action
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -5613,70 +3024,30 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction str
     Mark []PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark
 }
 
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetFilter() yfilter.YFilter { return conformAction.YFilter }
+func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetEntityData() *types.CommonEntityData {
+    conformAction.EntityData.YFilter = conformAction.YFilter
+    conformAction.EntityData.YangName = "conform-action"
+    conformAction.EntityData.BundleName = "cisco_ios_xr"
+    conformAction.EntityData.ParentYangName = "class"
+    conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) SetFilter(yf yfilter.YFilter) { conformAction.YFilter = yf }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetSegmentPath() string {
-    return "conform-action"
-}
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range conformAction.Mark {
-            if conformAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark{}
-        conformAction.Mark = append(conformAction.Mark, child)
-        return &conformAction.Mark[len(conformAction.Mark)-1]
-    }
-    return nil
-}
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    conformAction.EntityData.Children = make(map[string]types.YChild)
+    conformAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range conformAction.Mark {
-        children[conformAction.Mark[i].GetSegmentPath()] = &conformAction.Mark[i]
+        conformAction.EntityData.Children[types.GetSegmentPath(&conformAction.Mark[i])] = types.YChild{"Mark", &conformAction.Mark[i]}
     }
-    return children
+    conformAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    conformAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", conformAction.ActionType}
+    return &(conformAction.EntityData)
 }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = conformAction.ActionType
-    return leafs
-}
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetYangName() string { return "conform-action" }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) SetParent(parent types.Entity) { conformAction.parent = parent }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetParent() types.Entity { return conformAction.parent }
-
-func (conformAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -5686,58 +3057,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mar
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "conform-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ConformAction_Mark) GetParentYangName() string { return "conform-action" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction
 // Exceed action
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -5748,70 +3088,30 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction stru
     Mark []PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark
 }
 
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetFilter() yfilter.YFilter { return exceedAction.YFilter }
+func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetEntityData() *types.CommonEntityData {
+    exceedAction.EntityData.YFilter = exceedAction.YFilter
+    exceedAction.EntityData.YangName = "exceed-action"
+    exceedAction.EntityData.BundleName = "cisco_ios_xr"
+    exceedAction.EntityData.ParentYangName = "class"
+    exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) SetFilter(yf yfilter.YFilter) { exceedAction.YFilter = yf }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetSegmentPath() string {
-    return "exceed-action"
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range exceedAction.Mark {
-            if exceedAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark{}
-        exceedAction.Mark = append(exceedAction.Mark, child)
-        return &exceedAction.Mark[len(exceedAction.Mark)-1]
-    }
-    return nil
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    exceedAction.EntityData.Children = make(map[string]types.YChild)
+    exceedAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range exceedAction.Mark {
-        children[exceedAction.Mark[i].GetSegmentPath()] = &exceedAction.Mark[i]
+        exceedAction.EntityData.Children[types.GetSegmentPath(&exceedAction.Mark[i])] = types.YChild{"Mark", &exceedAction.Mark[i]}
     }
-    return children
+    exceedAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    exceedAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", exceedAction.ActionType}
+    return &(exceedAction.EntityData)
 }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = exceedAction.ActionType
-    return leafs
-}
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetYangName() string { return "exceed-action" }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) SetParent(parent types.Entity) { exceedAction.parent = parent }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetParent() types.Entity { return exceedAction.parent }
-
-func (exceedAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -5821,58 +3121,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "exceed-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ExceedAction_Mark) GetParentYangName() string { return "exceed-action" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction
 // Violate action
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policer action type. The type is DnxQoseaShowAction.
@@ -5883,70 +3152,30 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction str
     Mark []PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark
 }
 
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetFilter() yfilter.YFilter { return violateAction.YFilter }
+func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetEntityData() *types.CommonEntityData {
+    violateAction.EntityData.YFilter = violateAction.YFilter
+    violateAction.EntityData.YangName = "violate-action"
+    violateAction.EntityData.BundleName = "cisco_ios_xr"
+    violateAction.EntityData.ParentYangName = "class"
+    violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) SetFilter(yf yfilter.YFilter) { violateAction.YFilter = yf }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetGoName(yname string) string {
-    if yname == "action-type" { return "ActionType" }
-    if yname == "mark" { return "Mark" }
-    return ""
-}
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetSegmentPath() string {
-    return "violate-action"
-}
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mark" {
-        for _, c := range violateAction.Mark {
-            if violateAction.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark{}
-        violateAction.Mark = append(violateAction.Mark, child)
-        return &violateAction.Mark[len(violateAction.Mark)-1]
-    }
-    return nil
-}
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    violateAction.EntityData.Children = make(map[string]types.YChild)
+    violateAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
     for i := range violateAction.Mark {
-        children[violateAction.Mark[i].GetSegmentPath()] = &violateAction.Mark[i]
+        violateAction.EntityData.Children[types.GetSegmentPath(&violateAction.Mark[i])] = types.YChild{"Mark", &violateAction.Mark[i]}
     }
-    return children
+    violateAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    violateAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", violateAction.ActionType}
+    return &(violateAction.EntityData)
 }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-type"] = violateAction.ActionType
-    return leafs
-}
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetBundleName() string { return "cisco_ios_xr" }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetYangName() string { return "violate-action" }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) SetParent(parent types.Entity) { violateAction.parent = parent }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetParent() types.Entity { return violateAction.parent }
-
-func (violateAction *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark
 // Action mark
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -5956,58 +3185,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mar
     MarkValue interface{}
 }
 
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetFilter() yfilter.YFilter { return mark.YFilter }
+func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "violate-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) SetFilter(yf yfilter.YFilter) { mark.YFilter = yf }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
 }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetSegmentPath() string {
-    return "mark"
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mark.MarkType
-    leafs["mark-value"] = mark.MarkValue
-    return leafs
-}
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetYangName() string { return "mark" }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) SetParent(parent types.Entity) { mark.parent = parent }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetParent() types.Entity { return mark.parent }
-
-func (mark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_ViolateAction_Mark) GetParentYangName() string { return "violate-action" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark
 // IP mark
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -6017,58 +3215,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark struct {
     MarkValue interface{}
 }
 
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetFilter() yfilter.YFilter { return ipMark.YFilter }
+func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetEntityData() *types.CommonEntityData {
+    ipMark.EntityData.YFilter = ipMark.YFilter
+    ipMark.EntityData.YangName = "ip-mark"
+    ipMark.EntityData.BundleName = "cisco_ios_xr"
+    ipMark.EntityData.ParentYangName = "class"
+    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) SetFilter(yf yfilter.YFilter) { ipMark.YFilter = yf }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    ipMark.EntityData.Children = make(map[string]types.YChild)
+    ipMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", ipMark.MarkType}
+    ipMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", ipMark.MarkValue}
+    return &(ipMark.EntityData)
 }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetSegmentPath() string {
-    return "ip-mark"
-}
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = ipMark.MarkType
-    leafs["mark-value"] = ipMark.MarkValue
-    return leafs
-}
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetYangName() string { return "ip-mark" }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) SetParent(parent types.Entity) { ipMark.parent = parent }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetParent() types.Entity { return ipMark.parent }
-
-func (ipMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_IpMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark
 // Common mark
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -6078,58 +3245,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark struct
     MarkValue interface{}
 }
 
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetFilter() yfilter.YFilter { return commonMark.YFilter }
+func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetEntityData() *types.CommonEntityData {
+    commonMark.EntityData.YFilter = commonMark.YFilter
+    commonMark.EntityData.YangName = "common-mark"
+    commonMark.EntityData.BundleName = "cisco_ios_xr"
+    commonMark.EntityData.ParentYangName = "class"
+    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) SetFilter(yf yfilter.YFilter) { commonMark.YFilter = yf }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    commonMark.EntityData.Children = make(map[string]types.YChild)
+    commonMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", commonMark.MarkType}
+    commonMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", commonMark.MarkValue}
+    return &(commonMark.EntityData)
 }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetSegmentPath() string {
-    return "common-mark"
-}
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = commonMark.MarkType
-    leafs["mark-value"] = commonMark.MarkValue
-    return leafs
-}
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetYangName() string { return "common-mark" }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) SetParent(parent types.Entity) { commonMark.parent = parent }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetParent() types.Entity { return commonMark.parent }
-
-func (commonMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_CommonMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark
 // MPLS mark
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Mark type. The type is DnxQoseaShowMark.
@@ -6139,58 +3275,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark struct {
     MarkValue interface{}
 }
 
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetFilter() yfilter.YFilter { return mplsMark.YFilter }
+func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetEntityData() *types.CommonEntityData {
+    mplsMark.EntityData.YFilter = mplsMark.YFilter
+    mplsMark.EntityData.YangName = "mpls-mark"
+    mplsMark.EntityData.BundleName = "cisco_ios_xr"
+    mplsMark.EntityData.ParentYangName = "class"
+    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) SetFilter(yf yfilter.YFilter) { mplsMark.YFilter = yf }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetGoName(yname string) string {
-    if yname == "mark-type" { return "MarkType" }
-    if yname == "mark-value" { return "MarkValue" }
-    return ""
+    mplsMark.EntityData.Children = make(map[string]types.YChild)
+    mplsMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mplsMark.MarkType}
+    mplsMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mplsMark.MarkValue}
+    return &(mplsMark.EntityData)
 }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetSegmentPath() string {
-    return "mpls-mark"
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mark-type"] = mplsMark.MarkType
-    leafs["mark-value"] = mplsMark.MarkValue
-    return leafs
-}
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetYangName() string { return "mpls-mark" }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) SetParent(parent types.Entity) { mplsMark.parent = parent }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetParent() types.Entity { return mplsMark.parent }
-
-func (mplsMark *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_MplsMark) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred
 // WRED parameters
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // WREDMatchType. The type is DnxQoseaShowWred.
@@ -6220,79 +3325,33 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred struct {
     ConfigMaxThreshold PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold
 }
 
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetFilter() yfilter.YFilter { return wred.YFilter }
+func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetEntityData() *types.CommonEntityData {
+    wred.EntityData.YFilter = wred.YFilter
+    wred.EntityData.YangName = "wred"
+    wred.EntityData.BundleName = "cisco_ios_xr"
+    wred.EntityData.ParentYangName = "class"
+    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) SetFilter(yf yfilter.YFilter) { wred.YFilter = yf }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetGoName(yname string) string {
-    if yname == "wred-match-type" { return "WredMatchType" }
-    if yname == "hardware-min-threshold-bytes" { return "HardwareMinThresholdBytes" }
-    if yname == "hardware-max-threshold-bytes" { return "HardwareMaxThresholdBytes" }
-    if yname == "first-segment" { return "FirstSegment" }
-    if yname == "segment-size" { return "SegmentSize" }
-    if yname == "wred-match-value" { return "WredMatchValue" }
-    if yname == "config-min-threshold" { return "ConfigMinThreshold" }
-    if yname == "config-max-threshold" { return "ConfigMaxThreshold" }
-    return ""
+    wred.EntityData.Children = make(map[string]types.YChild)
+    wred.EntityData.Children["wred-match-value"] = types.YChild{"WredMatchValue", &wred.WredMatchValue}
+    wred.EntityData.Children["config-min-threshold"] = types.YChild{"ConfigMinThreshold", &wred.ConfigMinThreshold}
+    wred.EntityData.Children["config-max-threshold"] = types.YChild{"ConfigMaxThreshold", &wred.ConfigMaxThreshold}
+    wred.EntityData.Leafs = make(map[string]types.YLeaf)
+    wred.EntityData.Leafs["wred-match-type"] = types.YLeaf{"WredMatchType", wred.WredMatchType}
+    wred.EntityData.Leafs["hardware-min-threshold-bytes"] = types.YLeaf{"HardwareMinThresholdBytes", wred.HardwareMinThresholdBytes}
+    wred.EntityData.Leafs["hardware-max-threshold-bytes"] = types.YLeaf{"HardwareMaxThresholdBytes", wred.HardwareMaxThresholdBytes}
+    wred.EntityData.Leafs["first-segment"] = types.YLeaf{"FirstSegment", wred.FirstSegment}
+    wred.EntityData.Leafs["segment-size"] = types.YLeaf{"SegmentSize", wred.SegmentSize}
+    return &(wred.EntityData)
 }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetSegmentPath() string {
-    return "wred"
-}
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wred-match-value" {
-        return &wred.WredMatchValue
-    }
-    if childYangName == "config-min-threshold" {
-        return &wred.ConfigMinThreshold
-    }
-    if childYangName == "config-max-threshold" {
-        return &wred.ConfigMaxThreshold
-    }
-    return nil
-}
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["wred-match-value"] = &wred.WredMatchValue
-    children["config-min-threshold"] = &wred.ConfigMinThreshold
-    children["config-max-threshold"] = &wred.ConfigMaxThreshold
-    return children
-}
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["wred-match-type"] = wred.WredMatchType
-    leafs["hardware-min-threshold-bytes"] = wred.HardwareMinThresholdBytes
-    leafs["hardware-max-threshold-bytes"] = wred.HardwareMaxThresholdBytes
-    leafs["first-segment"] = wred.FirstSegment
-    leafs["segment-size"] = wred.SegmentSize
-    return leafs
-}
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetYangName() string { return "wred" }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) SetParent(parent types.Entity) { wred.parent = parent }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetParent() types.Entity { return wred.parent }
-
-func (wred *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred) GetParentYangName() string { return "class" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue
 // WRED match values
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // dnx qosea show red match value. The type is slice of
@@ -6300,68 +3359,29 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchVal
     DnxQoseaShowRedMatchValue []PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
 }
 
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetFilter() yfilter.YFilter { return wredMatchValue.YFilter }
+func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetEntityData() *types.CommonEntityData {
+    wredMatchValue.EntityData.YFilter = wredMatchValue.YFilter
+    wredMatchValue.EntityData.YangName = "wred-match-value"
+    wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    wredMatchValue.EntityData.ParentYangName = "wred"
+    wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) SetFilter(yf yfilter.YFilter) { wredMatchValue.YFilter = yf }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetGoName(yname string) string {
-    if yname == "dnx-qosea-show-red-match-value" { return "DnxQoseaShowRedMatchValue" }
-    return ""
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetSegmentPath() string {
-    return "wred-match-value"
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dnx-qosea-show-red-match-value" {
-        for _, c := range wredMatchValue.DnxQoseaShowRedMatchValue {
-            if wredMatchValue.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue{}
-        wredMatchValue.DnxQoseaShowRedMatchValue = append(wredMatchValue.DnxQoseaShowRedMatchValue, child)
-        return &wredMatchValue.DnxQoseaShowRedMatchValue[len(wredMatchValue.DnxQoseaShowRedMatchValue)-1]
-    }
-    return nil
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    wredMatchValue.EntityData.Children = make(map[string]types.YChild)
+    wredMatchValue.EntityData.Children["dnx-qosea-show-red-match-value"] = types.YChild{"DnxQoseaShowRedMatchValue", nil}
     for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
-        children[wredMatchValue.DnxQoseaShowRedMatchValue[i].GetSegmentPath()] = &wredMatchValue.DnxQoseaShowRedMatchValue[i]
+        wredMatchValue.EntityData.Children[types.GetSegmentPath(&wredMatchValue.DnxQoseaShowRedMatchValue[i])] = types.YChild{"DnxQoseaShowRedMatchValue", &wredMatchValue.DnxQoseaShowRedMatchValue[i]}
     }
-    return children
+    wredMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wredMatchValue.EntityData)
 }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetYangName() string { return "wred-match-value" }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) SetParent(parent types.Entity) { wredMatchValue.parent = parent }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetParent() types.Entity { return wredMatchValue.parent }
-
-func (wredMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
 // dnx qosea show red match value
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Start value of a range. The type is interface{} with range: 0..255.
@@ -6371,58 +3391,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchVal
     RangeEnd interface{}
 }
 
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetFilter() yfilter.YFilter { return dnxQoseaShowRedMatchValue.YFilter }
+func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetEntityData() *types.CommonEntityData {
+    dnxQoseaShowRedMatchValue.EntityData.YFilter = dnxQoseaShowRedMatchValue.YFilter
+    dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) SetFilter(yf yfilter.YFilter) { dnxQoseaShowRedMatchValue.YFilter = yf }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetGoName(yname string) string {
-    if yname == "range-start" { return "RangeStart" }
-    if yname == "range-end" { return "RangeEnd" }
-    return ""
+    dnxQoseaShowRedMatchValue.EntityData.Children = make(map[string]types.YChild)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-start"] = types.YLeaf{"RangeStart", dnxQoseaShowRedMatchValue.RangeStart}
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-end"] = types.YLeaf{"RangeEnd", dnxQoseaShowRedMatchValue.RangeEnd}
+    return &(dnxQoseaShowRedMatchValue.EntityData)
 }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetSegmentPath() string {
-    return "dnx-qosea-show-red-match-value"
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["range-start"] = dnxQoseaShowRedMatchValue.RangeStart
-    leafs["range-end"] = dnxQoseaShowRedMatchValue.RangeEnd
-    return leafs
-}
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetYangName() string { return "dnx-qosea-show-red-match-value" }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) SetParent(parent types.Entity) { dnxQoseaShowRedMatchValue.parent = parent }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetParent() types.Entity { return dnxQoseaShowRedMatchValue.parent }
-
-func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetParentYangName() string { return "wred-match-value" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold
 // Configured minimum threshold
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -6432,58 +3421,27 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThr
     PolicyUnit interface{}
 }
 
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetFilter() yfilter.YFilter { return configMinThreshold.YFilter }
+func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetEntityData() *types.CommonEntityData {
+    configMinThreshold.EntityData.YFilter = configMinThreshold.YFilter
+    configMinThreshold.EntityData.YangName = "config-min-threshold"
+    configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMinThreshold.EntityData.ParentYangName = "wred"
+    configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) SetFilter(yf yfilter.YFilter) { configMinThreshold.YFilter = yf }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMinThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMinThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinThreshold.PolicyValue}
+    configMinThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinThreshold.PolicyUnit}
+    return &(configMinThreshold.EntityData)
 }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetSegmentPath() string {
-    return "config-min-threshold"
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMinThreshold.PolicyValue
-    leafs["policy-unit"] = configMinThreshold.PolicyUnit
-    return leafs
-}
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetYangName() string { return "config-min-threshold" }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) SetParent(parent types.Entity) { configMinThreshold.parent = parent }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetParent() types.Entity { return configMinThreshold.parent }
-
-func (configMinThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMinThreshold) GetParentYangName() string { return "wred" }
 
 // PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold
 // Configured maximum threshold
 type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Policy value. The type is interface{} with range: 0..4294967295.
@@ -6493,58 +3451,2063 @@ type PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThr
     PolicyUnit interface{}
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetFilter() yfilter.YFilter { return configMaxThreshold.YFilter }
+func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetEntityData() *types.CommonEntityData {
+    configMaxThreshold.EntityData.YFilter = configMaxThreshold.YFilter
+    configMaxThreshold.EntityData.YangName = "config-max-threshold"
+    configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMaxThreshold.EntityData.ParentYangName = "wred"
+    configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) SetFilter(yf yfilter.YFilter) { configMaxThreshold.YFilter = yf }
-
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetGoName(yname string) string {
-    if yname == "policy-value" { return "PolicyValue" }
-    if yname == "policy-unit" { return "PolicyUnit" }
-    return ""
+    configMaxThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMaxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxThreshold.PolicyValue}
+    configMaxThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxThreshold.PolicyUnit}
+    return &(configMaxThreshold.EntityData)
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetSegmentPath() string {
-    return "config-max-threshold"
+// PlatformQos_Nodes_Node_BundleInterfaceSingles
+// QoS list of bundle interfaces
+type PlatformQos_Nodes_Node_BundleInterfaceSingles struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QoS interface names. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle.
+    BundleInterfaceSingle []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (bundleInterfaceSingles *PlatformQos_Nodes_Node_BundleInterfaceSingles) GetEntityData() *types.CommonEntityData {
+    bundleInterfaceSingles.EntityData.YFilter = bundleInterfaceSingles.YFilter
+    bundleInterfaceSingles.EntityData.YangName = "bundle-interface-singles"
+    bundleInterfaceSingles.EntityData.BundleName = "cisco_ios_xr"
+    bundleInterfaceSingles.EntityData.ParentYangName = "node"
+    bundleInterfaceSingles.EntityData.SegmentPath = "bundle-interface-singles"
+    bundleInterfaceSingles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bundleInterfaceSingles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bundleInterfaceSingles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bundleInterfaceSingles.EntityData.Children = make(map[string]types.YChild)
+    bundleInterfaceSingles.EntityData.Children["bundle-interface-single"] = types.YChild{"BundleInterfaceSingle", nil}
+    for i := range bundleInterfaceSingles.BundleInterfaceSingle {
+        bundleInterfaceSingles.EntityData.Children[types.GetSegmentPath(&bundleInterfaceSingles.BundleInterfaceSingle[i])] = types.YChild{"BundleInterfaceSingle", &bundleInterfaceSingles.BundleInterfaceSingle[i]}
+    }
+    bundleInterfaceSingles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bundleInterfaceSingles.EntityData)
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle
+// QoS interface names
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Bundle interface name. The type is string with
+    // pattern: b'[a-zA-Z0-9./-]+'.
+    InterfaceName interface{}
+
+    // Policy Details.
+    PolicyDetails PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_PolicyDetails
+
+    // QoS list of member interfaces.
+    MemberInterfaces PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces
+
+    // QoS list of class names.
+    Classes PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-value"] = configMaxThreshold.PolicyValue
-    leafs["policy-unit"] = configMaxThreshold.PolicyUnit
-    return leafs
+func (bundleInterfaceSingle *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle) GetEntityData() *types.CommonEntityData {
+    bundleInterfaceSingle.EntityData.YFilter = bundleInterfaceSingle.YFilter
+    bundleInterfaceSingle.EntityData.YangName = "bundle-interface-single"
+    bundleInterfaceSingle.EntityData.BundleName = "cisco_ios_xr"
+    bundleInterfaceSingle.EntityData.ParentYangName = "bundle-interface-singles"
+    bundleInterfaceSingle.EntityData.SegmentPath = "bundle-interface-single" + "[interface-name='" + fmt.Sprintf("%v", bundleInterfaceSingle.InterfaceName) + "']"
+    bundleInterfaceSingle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bundleInterfaceSingle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bundleInterfaceSingle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    bundleInterfaceSingle.EntityData.Children = make(map[string]types.YChild)
+    bundleInterfaceSingle.EntityData.Children["policy-details"] = types.YChild{"PolicyDetails", &bundleInterfaceSingle.PolicyDetails}
+    bundleInterfaceSingle.EntityData.Children["member-interfaces"] = types.YChild{"MemberInterfaces", &bundleInterfaceSingle.MemberInterfaces}
+    bundleInterfaceSingle.EntityData.Children["classes"] = types.YChild{"Classes", &bundleInterfaceSingle.Classes}
+    bundleInterfaceSingle.EntityData.Leafs = make(map[string]types.YLeaf)
+    bundleInterfaceSingle.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", bundleInterfaceSingle.InterfaceName}
+    return &(bundleInterfaceSingle.EntityData)
 }
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetBundleName() string { return "cisco_ios_xr" }
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_PolicyDetails
+// Policy Details
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_PolicyDetails struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetYangName() string { return "config-max-threshold" }
+    // NPU ID. The type is interface{} with range: 0..4294967295.
+    NpuId interface{}
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+    // InterfaceHandle. The type is interface{} with range: 0..4294967295.
+    InterfaceHandle interface{}
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+    // Interface Bandwidth (in kbps). The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    InterfaceBandwidthKbps interface{}
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+    // Policy name. The type is string with length: 0..64.
+    PolicyName interface{}
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) SetParent(parent types.Entity) { configMaxThreshold.parent = parent }
+    // Number of Classes. The type is interface{} with range: 0..65535.
+    TotalNumberOfClasses interface{}
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetParent() types.Entity { return configMaxThreshold.parent }
+    // VOQ base address. The type is interface{} with range: 0..4294967295.
+    VoqBaseAddress interface{}
 
-func (configMaxThreshold *PlatformQos_Nodes_Node_Interfaces_Interface_Classes_Class_Wred_ConfigMaxThreshold) GetParentYangName() string { return "wred" }
+    // VOQ stats handle. The type is interface{} with range:
+    // 0..18446744073709551615.
+    VoqStatsHandle interface{}
+
+    // QoS Statistics Accounting Type. The type is QosPolicyAccountEnum.
+    StatsAccountingType interface{}
+
+    // Policy Status. The type is DnxQoseaShowPolicyStatus.
+    PolicyStatus interface{}
+
+    // Interface Status. The type is DnxQoseaShowIntfStatus.
+    InterfaceStatus interface{}
+}
+
+func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_PolicyDetails) GetEntityData() *types.CommonEntityData {
+    policyDetails.EntityData.YFilter = policyDetails.YFilter
+    policyDetails.EntityData.YangName = "policy-details"
+    policyDetails.EntityData.BundleName = "cisco_ios_xr"
+    policyDetails.EntityData.ParentYangName = "bundle-interface-single"
+    policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyDetails.EntityData.Children = make(map[string]types.YChild)
+    policyDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyDetails.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", policyDetails.NpuId}
+    policyDetails.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", policyDetails.InterfaceHandle}
+    policyDetails.EntityData.Leafs["interface-bandwidth-kbps"] = types.YLeaf{"InterfaceBandwidthKbps", policyDetails.InterfaceBandwidthKbps}
+    policyDetails.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policyDetails.PolicyName}
+    policyDetails.EntityData.Leafs["total-number-of-classes"] = types.YLeaf{"TotalNumberOfClasses", policyDetails.TotalNumberOfClasses}
+    policyDetails.EntityData.Leafs["voq-base-address"] = types.YLeaf{"VoqBaseAddress", policyDetails.VoqBaseAddress}
+    policyDetails.EntityData.Leafs["voq-stats-handle"] = types.YLeaf{"VoqStatsHandle", policyDetails.VoqStatsHandle}
+    policyDetails.EntityData.Leafs["stats-accounting-type"] = types.YLeaf{"StatsAccountingType", policyDetails.StatsAccountingType}
+    policyDetails.EntityData.Leafs["policy-status"] = types.YLeaf{"PolicyStatus", policyDetails.PolicyStatus}
+    policyDetails.EntityData.Leafs["interface-status"] = types.YLeaf{"InterfaceStatus", policyDetails.InterfaceStatus}
+    return &(policyDetails.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces
+// QoS list of member interfaces
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QoS interface names. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface.
+    MemberInterface []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface
+}
+
+func (memberInterfaces *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces) GetEntityData() *types.CommonEntityData {
+    memberInterfaces.EntityData.YFilter = memberInterfaces.YFilter
+    memberInterfaces.EntityData.YangName = "member-interfaces"
+    memberInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    memberInterfaces.EntityData.ParentYangName = "bundle-interface-single"
+    memberInterfaces.EntityData.SegmentPath = "member-interfaces"
+    memberInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberInterfaces.EntityData.Children = make(map[string]types.YChild)
+    memberInterfaces.EntityData.Children["member-interface"] = types.YChild{"MemberInterface", nil}
+    for i := range memberInterfaces.MemberInterface {
+        memberInterfaces.EntityData.Children[types.GetSegmentPath(&memberInterfaces.MemberInterface[i])] = types.YChild{"MemberInterface", &memberInterfaces.MemberInterface[i]}
+    }
+    memberInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(memberInterfaces.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface
+// QoS interface names
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. Member interface. The type is string with pattern:
+    // b'[a-zA-Z0-9./-]+'.
+    InterfaceName interface{}
+
+    // Policy Details.
+    PolicyDetails PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_PolicyDetails
+
+    // QoS list of class names.
+    Classes PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes
+}
+
+func (memberInterface *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface) GetEntityData() *types.CommonEntityData {
+    memberInterface.EntityData.YFilter = memberInterface.YFilter
+    memberInterface.EntityData.YangName = "member-interface"
+    memberInterface.EntityData.BundleName = "cisco_ios_xr"
+    memberInterface.EntityData.ParentYangName = "member-interfaces"
+    memberInterface.EntityData.SegmentPath = "member-interface" + "[interface-name='" + fmt.Sprintf("%v", memberInterface.InterfaceName) + "']"
+    memberInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memberInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memberInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    memberInterface.EntityData.Children = make(map[string]types.YChild)
+    memberInterface.EntityData.Children["policy-details"] = types.YChild{"PolicyDetails", &memberInterface.PolicyDetails}
+    memberInterface.EntityData.Children["classes"] = types.YChild{"Classes", &memberInterface.Classes}
+    memberInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    memberInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", memberInterface.InterfaceName}
+    return &(memberInterface.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_PolicyDetails
+// Policy Details
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_PolicyDetails struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // NPU ID. The type is interface{} with range: 0..4294967295.
+    NpuId interface{}
+
+    // InterfaceHandle. The type is interface{} with range: 0..4294967295.
+    InterfaceHandle interface{}
+
+    // Interface Bandwidth (in kbps). The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    InterfaceBandwidthKbps interface{}
+
+    // Policy name. The type is string with length: 0..64.
+    PolicyName interface{}
+
+    // Number of Classes. The type is interface{} with range: 0..65535.
+    TotalNumberOfClasses interface{}
+
+    // VOQ base address. The type is interface{} with range: 0..4294967295.
+    VoqBaseAddress interface{}
+
+    // VOQ stats handle. The type is interface{} with range:
+    // 0..18446744073709551615.
+    VoqStatsHandle interface{}
+
+    // QoS Statistics Accounting Type. The type is QosPolicyAccountEnum.
+    StatsAccountingType interface{}
+
+    // Policy Status. The type is DnxQoseaShowPolicyStatus.
+    PolicyStatus interface{}
+
+    // Interface Status. The type is DnxQoseaShowIntfStatus.
+    InterfaceStatus interface{}
+}
+
+func (policyDetails *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_PolicyDetails) GetEntityData() *types.CommonEntityData {
+    policyDetails.EntityData.YFilter = policyDetails.YFilter
+    policyDetails.EntityData.YangName = "policy-details"
+    policyDetails.EntityData.BundleName = "cisco_ios_xr"
+    policyDetails.EntityData.ParentYangName = "member-interface"
+    policyDetails.EntityData.SegmentPath = "policy-details"
+    policyDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    policyDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    policyDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    policyDetails.EntityData.Children = make(map[string]types.YChild)
+    policyDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    policyDetails.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", policyDetails.NpuId}
+    policyDetails.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", policyDetails.InterfaceHandle}
+    policyDetails.EntityData.Leafs["interface-bandwidth-kbps"] = types.YLeaf{"InterfaceBandwidthKbps", policyDetails.InterfaceBandwidthKbps}
+    policyDetails.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", policyDetails.PolicyName}
+    policyDetails.EntityData.Leafs["total-number-of-classes"] = types.YLeaf{"TotalNumberOfClasses", policyDetails.TotalNumberOfClasses}
+    policyDetails.EntityData.Leafs["voq-base-address"] = types.YLeaf{"VoqBaseAddress", policyDetails.VoqBaseAddress}
+    policyDetails.EntityData.Leafs["voq-stats-handle"] = types.YLeaf{"VoqStatsHandle", policyDetails.VoqStatsHandle}
+    policyDetails.EntityData.Leafs["stats-accounting-type"] = types.YLeaf{"StatsAccountingType", policyDetails.StatsAccountingType}
+    policyDetails.EntityData.Leafs["policy-status"] = types.YLeaf{"PolicyStatus", policyDetails.PolicyStatus}
+    policyDetails.EntityData.Leafs["interface-status"] = types.YLeaf{"InterfaceStatus", policyDetails.InterfaceStatus}
+    return &(policyDetails.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes
+// QoS list of class names
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QoS policy class. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class.
+    Class []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class
+}
+
+func (classes *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "member-interface"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
+    for i := range classes.Class {
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
+    }
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class
+// QoS policy class
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. QoS policy class name at level 1. The type is
+    // string.
+    LevelOneClassName interface{}
+
+    // QoS policy child class name at level 2. The type is string.
+    LevelTwoClassName interface{}
+
+    // Class level. The type is DnxQoseaShowLevel.
+    ClassLevel interface{}
+
+    // Egress Queue ID. The type is interface{} with range:
+    // -2147483648..2147483647.
+    EgressQueueId interface{}
+
+    // Queue type. The type is DnxQoseaShowQueue.
+    QueueType interface{}
+
+    // Priority level. The type is DnxQoseaShowHpLevel.
+    PriorityLevel interface{}
+
+    // Hardware maximum rate in kbps. The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    HardwareMaxRateKbps interface{}
+
+    // Hardware minimum rate in kbps. The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    HardwareMinRateKbps interface{}
+
+    // Configured excess bandwidth percentage. The type is interface{} with range:
+    // 0..4294967295. Units are percentage.
+    ConfigExcessBandwidthPercent interface{}
+
+    // Configured excess bandwidth unit. The type is interface{} with range:
+    // 0..4294967295.
+    ConfigExcessBandwidthUnit interface{}
+
+    // Hardware excess bandwidth weight. The type is interface{} with range:
+    // 0..4294967295.
+    HardwareExcessBandwidthWeight interface{}
+
+    // Network minimum Bandwith. The type is interface{} with range:
+    // 0..4294967295.
+    NetworkMinBandwidthKbps interface{}
+
+    // Hardware queue limit in bytes. The type is interface{} with range:
+    // 0..18446744073709551615. Units are byte.
+    HardwareQueueLimitBytes interface{}
+
+    // Hardware queue limit in microseconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are microsecond.
+    HardwareQueueLimitMicroseconds interface{}
+
+    // PolicerBucketID. The type is interface{} with range: 0..4294967295.
+    PolicerBucketId interface{}
+
+    // PolicerStatsHandle. The type is interface{} with range:
+    // 0..18446744073709551615.
+    PolicerStatsHandle interface{}
+
+    // Hardware policer average in kbps. The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    HardwarePolicerAverageRateKbps interface{}
+
+    // Hardware policer peak rate. The type is interface{} with range:
+    // 0..4294967295.
+    HardwarePolicerPeakRateKbps interface{}
+
+    // Hardware policer conform burst. The type is interface{} with range:
+    // 0..4294967295.
+    HardwarePolicerConformBurstBytes interface{}
+
+    // Hardware policer excess burst. The type is interface{} with range:
+    // 0..4294967295.
+    HardwarePolicerExcessBurstBytes interface{}
+
+    // Configured maximum rate.
+    ConfigMaxRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate
+
+    // Configured minimum rate.
+    ConfigMinRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate
+
+    // Configured queue limit.
+    ConfigQueueLimit PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit
+
+    // Configured policer average rate.
+    ConfigPolicerAverageRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate
+
+    // Config policer peak rate.
+    ConfigPolicerPeakRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate
+
+    // Configured policer conform burst.
+    ConfigPolicerConformBurst PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst
+
+    // Configured policer excess burst.
+    ConfigPolicerExcessBurst PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst
+
+    // Conform action.
+    ConformAction PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction
+
+    // Exceed action.
+    ExceedAction PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction
+
+    // Violate action.
+    ViolateAction PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction
+
+    // IP mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_IpMark.
+    IpMark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_IpMark
+
+    // Common mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_CommonMark.
+    CommonMark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_CommonMark
+
+    // MPLS mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_MplsMark.
+    MplsMark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_MplsMark
+
+    // WRED parameters. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred.
+    Wred []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred
+}
+
+func (class *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Children["config-max-rate"] = types.YChild{"ConfigMaxRate", &class.ConfigMaxRate}
+    class.EntityData.Children["config-min-rate"] = types.YChild{"ConfigMinRate", &class.ConfigMinRate}
+    class.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &class.ConfigQueueLimit}
+    class.EntityData.Children["config-policer-average-rate"] = types.YChild{"ConfigPolicerAverageRate", &class.ConfigPolicerAverageRate}
+    class.EntityData.Children["config-policer-peak-rate"] = types.YChild{"ConfigPolicerPeakRate", &class.ConfigPolicerPeakRate}
+    class.EntityData.Children["config-policer-conform-burst"] = types.YChild{"ConfigPolicerConformBurst", &class.ConfigPolicerConformBurst}
+    class.EntityData.Children["config-policer-excess-burst"] = types.YChild{"ConfigPolicerExcessBurst", &class.ConfigPolicerExcessBurst}
+    class.EntityData.Children["conform-action"] = types.YChild{"ConformAction", &class.ConformAction}
+    class.EntityData.Children["exceed-action"] = types.YChild{"ExceedAction", &class.ExceedAction}
+    class.EntityData.Children["violate-action"] = types.YChild{"ViolateAction", &class.ViolateAction}
+    class.EntityData.Children["ip-mark"] = types.YChild{"IpMark", nil}
+    for i := range class.IpMark {
+        class.EntityData.Children[types.GetSegmentPath(&class.IpMark[i])] = types.YChild{"IpMark", &class.IpMark[i]}
+    }
+    class.EntityData.Children["common-mark"] = types.YChild{"CommonMark", nil}
+    for i := range class.CommonMark {
+        class.EntityData.Children[types.GetSegmentPath(&class.CommonMark[i])] = types.YChild{"CommonMark", &class.CommonMark[i]}
+    }
+    class.EntityData.Children["mpls-mark"] = types.YChild{"MplsMark", nil}
+    for i := range class.MplsMark {
+        class.EntityData.Children[types.GetSegmentPath(&class.MplsMark[i])] = types.YChild{"MplsMark", &class.MplsMark[i]}
+    }
+    class.EntityData.Children["wred"] = types.YChild{"Wred", nil}
+    for i := range class.Wred {
+        class.EntityData.Children[types.GetSegmentPath(&class.Wred[i])] = types.YChild{"Wred", &class.Wred[i]}
+    }
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["level-one-class-name"] = types.YLeaf{"LevelOneClassName", class.LevelOneClassName}
+    class.EntityData.Leafs["level-two-class-name"] = types.YLeaf{"LevelTwoClassName", class.LevelTwoClassName}
+    class.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", class.ClassLevel}
+    class.EntityData.Leafs["egress-queue-id"] = types.YLeaf{"EgressQueueId", class.EgressQueueId}
+    class.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", class.QueueType}
+    class.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", class.PriorityLevel}
+    class.EntityData.Leafs["hardware-max-rate-kbps"] = types.YLeaf{"HardwareMaxRateKbps", class.HardwareMaxRateKbps}
+    class.EntityData.Leafs["hardware-min-rate-kbps"] = types.YLeaf{"HardwareMinRateKbps", class.HardwareMinRateKbps}
+    class.EntityData.Leafs["config-excess-bandwidth-percent"] = types.YLeaf{"ConfigExcessBandwidthPercent", class.ConfigExcessBandwidthPercent}
+    class.EntityData.Leafs["config-excess-bandwidth-unit"] = types.YLeaf{"ConfigExcessBandwidthUnit", class.ConfigExcessBandwidthUnit}
+    class.EntityData.Leafs["hardware-excess-bandwidth-weight"] = types.YLeaf{"HardwareExcessBandwidthWeight", class.HardwareExcessBandwidthWeight}
+    class.EntityData.Leafs["network-min-bandwidth-kbps"] = types.YLeaf{"NetworkMinBandwidthKbps", class.NetworkMinBandwidthKbps}
+    class.EntityData.Leafs["hardware-queue-limit-bytes"] = types.YLeaf{"HardwareQueueLimitBytes", class.HardwareQueueLimitBytes}
+    class.EntityData.Leafs["hardware-queue-limit-microseconds"] = types.YLeaf{"HardwareQueueLimitMicroseconds", class.HardwareQueueLimitMicroseconds}
+    class.EntityData.Leafs["policer-bucket-id"] = types.YLeaf{"PolicerBucketId", class.PolicerBucketId}
+    class.EntityData.Leafs["policer-stats-handle"] = types.YLeaf{"PolicerStatsHandle", class.PolicerStatsHandle}
+    class.EntityData.Leafs["hardware-policer-average-rate-kbps"] = types.YLeaf{"HardwarePolicerAverageRateKbps", class.HardwarePolicerAverageRateKbps}
+    class.EntityData.Leafs["hardware-policer-peak-rate-kbps"] = types.YLeaf{"HardwarePolicerPeakRateKbps", class.HardwarePolicerPeakRateKbps}
+    class.EntityData.Leafs["hardware-policer-conform-burst-bytes"] = types.YLeaf{"HardwarePolicerConformBurstBytes", class.HardwarePolicerConformBurstBytes}
+    class.EntityData.Leafs["hardware-policer-excess-burst-bytes"] = types.YLeaf{"HardwarePolicerExcessBurstBytes", class.HardwarePolicerExcessBurstBytes}
+    return &(class.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate
+// Configured maximum rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMaxRate) GetEntityData() *types.CommonEntityData {
+    configMaxRate.EntityData.YFilter = configMaxRate.YFilter
+    configMaxRate.EntityData.YangName = "config-max-rate"
+    configMaxRate.EntityData.BundleName = "cisco_ios_xr"
+    configMaxRate.EntityData.ParentYangName = "class"
+    configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMaxRate.EntityData.Children = make(map[string]types.YChild)
+    configMaxRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxRate.PolicyValue}
+    configMaxRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxRate.PolicyUnit}
+    return &(configMaxRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate
+// Configured minimum rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigMinRate) GetEntityData() *types.CommonEntityData {
+    configMinRate.EntityData.YFilter = configMinRate.YFilter
+    configMinRate.EntityData.YangName = "config-min-rate"
+    configMinRate.EntityData.BundleName = "cisco_ios_xr"
+    configMinRate.EntityData.ParentYangName = "class"
+    configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMinRate.EntityData.Children = make(map[string]types.YChild)
+    configMinRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinRate.PolicyValue}
+    configMinRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinRate.PolicyUnit}
+    return &(configMinRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit
+// Configured queue limit
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigQueueLimit) GetEntityData() *types.CommonEntityData {
+    configQueueLimit.EntityData.YFilter = configQueueLimit.YFilter
+    configQueueLimit.EntityData.YangName = "config-queue-limit"
+    configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
+    configQueueLimit.EntityData.ParentYangName = "class"
+    configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
+    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    configQueueLimit.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configQueueLimit.PolicyValue}
+    configQueueLimit.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configQueueLimit.PolicyUnit}
+    return &(configQueueLimit.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate
+// Configured policer average rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerAverageRate) GetEntityData() *types.CommonEntityData {
+    configPolicerAverageRate.EntityData.YFilter = configPolicerAverageRate.YFilter
+    configPolicerAverageRate.EntityData.YangName = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerAverageRate.EntityData.ParentYangName = "class"
+    configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerAverageRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerAverageRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerAverageRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerAverageRate.PolicyValue}
+    configPolicerAverageRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerAverageRate.PolicyUnit}
+    return &(configPolicerAverageRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate
+// Config policer peak rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerPeakRate) GetEntityData() *types.CommonEntityData {
+    configPolicerPeakRate.EntityData.YFilter = configPolicerPeakRate.YFilter
+    configPolicerPeakRate.EntityData.YangName = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerPeakRate.EntityData.ParentYangName = "class"
+    configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerPeakRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerPeakRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerPeakRate.PolicyValue}
+    configPolicerPeakRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerPeakRate.PolicyUnit}
+    return &(configPolicerPeakRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst
+// Configured policer conform burst
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerConformBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerConformBurst.EntityData.YFilter = configPolicerConformBurst.YFilter
+    configPolicerConformBurst.EntityData.YangName = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerConformBurst.EntityData.ParentYangName = "class"
+    configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerConformBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerConformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerConformBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerConformBurst.PolicyValue}
+    configPolicerConformBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerConformBurst.PolicyUnit}
+    return &(configPolicerConformBurst.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst
+// Configured policer excess burst
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConfigPolicerExcessBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerExcessBurst.EntityData.YFilter = configPolicerExcessBurst.YFilter
+    configPolicerExcessBurst.EntityData.YangName = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerExcessBurst.EntityData.ParentYangName = "class"
+    configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerExcessBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerExcessBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerExcessBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerExcessBurst.PolicyValue}
+    configPolicerExcessBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerExcessBurst.PolicyUnit}
+    return &(configPolicerExcessBurst.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction
+// Conform action
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policer action type. The type is DnxQoseaShowAction.
+    ActionType interface{}
+
+    // Action mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark.
+    Mark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark
+}
+
+func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction) GetEntityData() *types.CommonEntityData {
+    conformAction.EntityData.YFilter = conformAction.YFilter
+    conformAction.EntityData.YangName = "conform-action"
+    conformAction.EntityData.BundleName = "cisco_ios_xr"
+    conformAction.EntityData.ParentYangName = "class"
+    conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    conformAction.EntityData.Children = make(map[string]types.YChild)
+    conformAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
+    for i := range conformAction.Mark {
+        conformAction.EntityData.Children[types.GetSegmentPath(&conformAction.Mark[i])] = types.YChild{"Mark", &conformAction.Mark[i]}
+    }
+    conformAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    conformAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", conformAction.ActionType}
+    return &(conformAction.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark
+// Action mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ConformAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "conform-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction
+// Exceed action
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policer action type. The type is DnxQoseaShowAction.
+    ActionType interface{}
+
+    // Action mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark.
+    Mark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark
+}
+
+func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction) GetEntityData() *types.CommonEntityData {
+    exceedAction.EntityData.YFilter = exceedAction.YFilter
+    exceedAction.EntityData.YangName = "exceed-action"
+    exceedAction.EntityData.BundleName = "cisco_ios_xr"
+    exceedAction.EntityData.ParentYangName = "class"
+    exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    exceedAction.EntityData.Children = make(map[string]types.YChild)
+    exceedAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
+    for i := range exceedAction.Mark {
+        exceedAction.EntityData.Children[types.GetSegmentPath(&exceedAction.Mark[i])] = types.YChild{"Mark", &exceedAction.Mark[i]}
+    }
+    exceedAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    exceedAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", exceedAction.ActionType}
+    return &(exceedAction.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark
+// Action mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ExceedAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "exceed-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction
+// Violate action
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policer action type. The type is DnxQoseaShowAction.
+    ActionType interface{}
+
+    // Action mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark.
+    Mark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark
+}
+
+func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction) GetEntityData() *types.CommonEntityData {
+    violateAction.EntityData.YFilter = violateAction.YFilter
+    violateAction.EntityData.YangName = "violate-action"
+    violateAction.EntityData.BundleName = "cisco_ios_xr"
+    violateAction.EntityData.ParentYangName = "class"
+    violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    violateAction.EntityData.Children = make(map[string]types.YChild)
+    violateAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
+    for i := range violateAction.Mark {
+        violateAction.EntityData.Children[types.GetSegmentPath(&violateAction.Mark[i])] = types.YChild{"Mark", &violateAction.Mark[i]}
+    }
+    violateAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    violateAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", violateAction.ActionType}
+    return &(violateAction.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark
+// Action mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_ViolateAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "violate-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_IpMark
+// IP mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_IpMark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (ipMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_IpMark) GetEntityData() *types.CommonEntityData {
+    ipMark.EntityData.YFilter = ipMark.YFilter
+    ipMark.EntityData.YangName = "ip-mark"
+    ipMark.EntityData.BundleName = "cisco_ios_xr"
+    ipMark.EntityData.ParentYangName = "class"
+    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipMark.EntityData.Children = make(map[string]types.YChild)
+    ipMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", ipMark.MarkType}
+    ipMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", ipMark.MarkValue}
+    return &(ipMark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_CommonMark
+// Common mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_CommonMark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (commonMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_CommonMark) GetEntityData() *types.CommonEntityData {
+    commonMark.EntityData.YFilter = commonMark.YFilter
+    commonMark.EntityData.YangName = "common-mark"
+    commonMark.EntityData.BundleName = "cisco_ios_xr"
+    commonMark.EntityData.ParentYangName = "class"
+    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    commonMark.EntityData.Children = make(map[string]types.YChild)
+    commonMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", commonMark.MarkType}
+    commonMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", commonMark.MarkValue}
+    return &(commonMark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_MplsMark
+// MPLS mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_MplsMark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_MplsMark) GetEntityData() *types.CommonEntityData {
+    mplsMark.EntityData.YFilter = mplsMark.YFilter
+    mplsMark.EntityData.YangName = "mpls-mark"
+    mplsMark.EntityData.BundleName = "cisco_ios_xr"
+    mplsMark.EntityData.ParentYangName = "class"
+    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsMark.EntityData.Children = make(map[string]types.YChild)
+    mplsMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mplsMark.MarkType}
+    mplsMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mplsMark.MarkValue}
+    return &(mplsMark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred
+// WRED parameters
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // WREDMatchType. The type is DnxQoseaShowWred.
+    WredMatchType interface{}
+
+    // Hardware minimum threshold. The type is interface{} with range:
+    // 0..4294967295.
+    HardwareMinThresholdBytes interface{}
+
+    // Hardware maximum threshold. The type is interface{} with range:
+    // 0..4294967295.
+    HardwareMaxThresholdBytes interface{}
+
+    // First segment. The type is interface{} with range: 0..65535.
+    FirstSegment interface{}
+
+    // Segment size. The type is interface{} with range: 0..4294967295.
+    SegmentSize interface{}
+
+    // WRED match values.
+    WredMatchValue PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue
+
+    // Configured minimum threshold.
+    ConfigMinThreshold PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold
+
+    // Configured maximum threshold.
+    ConfigMaxThreshold PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold
+}
+
+func (wred *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred) GetEntityData() *types.CommonEntityData {
+    wred.EntityData.YFilter = wred.YFilter
+    wred.EntityData.YangName = "wred"
+    wred.EntityData.BundleName = "cisco_ios_xr"
+    wred.EntityData.ParentYangName = "class"
+    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    wred.EntityData.Children = make(map[string]types.YChild)
+    wred.EntityData.Children["wred-match-value"] = types.YChild{"WredMatchValue", &wred.WredMatchValue}
+    wred.EntityData.Children["config-min-threshold"] = types.YChild{"ConfigMinThreshold", &wred.ConfigMinThreshold}
+    wred.EntityData.Children["config-max-threshold"] = types.YChild{"ConfigMaxThreshold", &wred.ConfigMaxThreshold}
+    wred.EntityData.Leafs = make(map[string]types.YLeaf)
+    wred.EntityData.Leafs["wred-match-type"] = types.YLeaf{"WredMatchType", wred.WredMatchType}
+    wred.EntityData.Leafs["hardware-min-threshold-bytes"] = types.YLeaf{"HardwareMinThresholdBytes", wred.HardwareMinThresholdBytes}
+    wred.EntityData.Leafs["hardware-max-threshold-bytes"] = types.YLeaf{"HardwareMaxThresholdBytes", wred.HardwareMaxThresholdBytes}
+    wred.EntityData.Leafs["first-segment"] = types.YLeaf{"FirstSegment", wred.FirstSegment}
+    wred.EntityData.Leafs["segment-size"] = types.YLeaf{"SegmentSize", wred.SegmentSize}
+    return &(wred.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue
+// WRED match values
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // dnx qosea show red match value. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue.
+    DnxQoseaShowRedMatchValue []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
+}
+
+func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue) GetEntityData() *types.CommonEntityData {
+    wredMatchValue.EntityData.YFilter = wredMatchValue.YFilter
+    wredMatchValue.EntityData.YangName = "wred-match-value"
+    wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    wredMatchValue.EntityData.ParentYangName = "wred"
+    wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    wredMatchValue.EntityData.Children = make(map[string]types.YChild)
+    wredMatchValue.EntityData.Children["dnx-qosea-show-red-match-value"] = types.YChild{"DnxQoseaShowRedMatchValue", nil}
+    for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        wredMatchValue.EntityData.Children[types.GetSegmentPath(&wredMatchValue.DnxQoseaShowRedMatchValue[i])] = types.YChild{"DnxQoseaShowRedMatchValue", &wredMatchValue.DnxQoseaShowRedMatchValue[i]}
+    }
+    wredMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wredMatchValue.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
+// dnx qosea show red match value
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Start value of a range. The type is interface{} with range: 0..255.
+    RangeStart interface{}
+
+    // End value of a range. The type is interface{} with range: 0..255.
+    RangeEnd interface{}
+}
+
+func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetEntityData() *types.CommonEntityData {
+    dnxQoseaShowRedMatchValue.EntityData.YFilter = dnxQoseaShowRedMatchValue.YFilter
+    dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dnxQoseaShowRedMatchValue.EntityData.Children = make(map[string]types.YChild)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-start"] = types.YLeaf{"RangeStart", dnxQoseaShowRedMatchValue.RangeStart}
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-end"] = types.YLeaf{"RangeEnd", dnxQoseaShowRedMatchValue.RangeEnd}
+    return &(dnxQoseaShowRedMatchValue.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold
+// Configured minimum threshold
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMinThreshold) GetEntityData() *types.CommonEntityData {
+    configMinThreshold.EntityData.YFilter = configMinThreshold.YFilter
+    configMinThreshold.EntityData.YangName = "config-min-threshold"
+    configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMinThreshold.EntityData.ParentYangName = "wred"
+    configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMinThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMinThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinThreshold.PolicyValue}
+    configMinThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinThreshold.PolicyUnit}
+    return &(configMinThreshold.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold
+// Configured maximum threshold
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_MemberInterfaces_MemberInterface_Classes_Class_Wred_ConfigMaxThreshold) GetEntityData() *types.CommonEntityData {
+    configMaxThreshold.EntityData.YFilter = configMaxThreshold.YFilter
+    configMaxThreshold.EntityData.YangName = "config-max-threshold"
+    configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMaxThreshold.EntityData.ParentYangName = "wred"
+    configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMaxThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMaxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxThreshold.PolicyValue}
+    configMaxThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxThreshold.PolicyUnit}
+    return &(configMaxThreshold.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes
+// QoS list of class names
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // QoS policy class. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class.
+    Class []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class
+}
+
+func (classes *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes) GetEntityData() *types.CommonEntityData {
+    classes.EntityData.YFilter = classes.YFilter
+    classes.EntityData.YangName = "classes"
+    classes.EntityData.BundleName = "cisco_ios_xr"
+    classes.EntityData.ParentYangName = "bundle-interface-single"
+    classes.EntityData.SegmentPath = "classes"
+    classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    classes.EntityData.Children = make(map[string]types.YChild)
+    classes.EntityData.Children["class"] = types.YChild{"Class", nil}
+    for i := range classes.Class {
+        classes.EntityData.Children[types.GetSegmentPath(&classes.Class[i])] = types.YChild{"Class", &classes.Class[i]}
+    }
+    classes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classes.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class
+// QoS policy class
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. QoS policy class name at level 1. The type is
+    // string.
+    LevelOneClassName interface{}
+
+    // QoS policy child class name at level 2. The type is string.
+    LevelTwoClassName interface{}
+
+    // Class level. The type is DnxQoseaShowLevel.
+    ClassLevel interface{}
+
+    // Egress Queue ID. The type is interface{} with range:
+    // -2147483648..2147483647.
+    EgressQueueId interface{}
+
+    // Queue type. The type is DnxQoseaShowQueue.
+    QueueType interface{}
+
+    // Priority level. The type is DnxQoseaShowHpLevel.
+    PriorityLevel interface{}
+
+    // Hardware maximum rate in kbps. The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    HardwareMaxRateKbps interface{}
+
+    // Hardware minimum rate in kbps. The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    HardwareMinRateKbps interface{}
+
+    // Configured excess bandwidth percentage. The type is interface{} with range:
+    // 0..4294967295. Units are percentage.
+    ConfigExcessBandwidthPercent interface{}
+
+    // Configured excess bandwidth unit. The type is interface{} with range:
+    // 0..4294967295.
+    ConfigExcessBandwidthUnit interface{}
+
+    // Hardware excess bandwidth weight. The type is interface{} with range:
+    // 0..4294967295.
+    HardwareExcessBandwidthWeight interface{}
+
+    // Network minimum Bandwith. The type is interface{} with range:
+    // 0..4294967295.
+    NetworkMinBandwidthKbps interface{}
+
+    // Hardware queue limit in bytes. The type is interface{} with range:
+    // 0..18446744073709551615. Units are byte.
+    HardwareQueueLimitBytes interface{}
+
+    // Hardware queue limit in microseconds. The type is interface{} with range:
+    // 0..18446744073709551615. Units are microsecond.
+    HardwareQueueLimitMicroseconds interface{}
+
+    // PolicerBucketID. The type is interface{} with range: 0..4294967295.
+    PolicerBucketId interface{}
+
+    // PolicerStatsHandle. The type is interface{} with range:
+    // 0..18446744073709551615.
+    PolicerStatsHandle interface{}
+
+    // Hardware policer average in kbps. The type is interface{} with range:
+    // 0..4294967295. Units are kbit/s.
+    HardwarePolicerAverageRateKbps interface{}
+
+    // Hardware policer peak rate. The type is interface{} with range:
+    // 0..4294967295.
+    HardwarePolicerPeakRateKbps interface{}
+
+    // Hardware policer conform burst. The type is interface{} with range:
+    // 0..4294967295.
+    HardwarePolicerConformBurstBytes interface{}
+
+    // Hardware policer excess burst. The type is interface{} with range:
+    // 0..4294967295.
+    HardwarePolicerExcessBurstBytes interface{}
+
+    // Configured maximum rate.
+    ConfigMaxRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMaxRate
+
+    // Configured minimum rate.
+    ConfigMinRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMinRate
+
+    // Configured queue limit.
+    ConfigQueueLimit PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigQueueLimit
+
+    // Configured policer average rate.
+    ConfigPolicerAverageRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerAverageRate
+
+    // Config policer peak rate.
+    ConfigPolicerPeakRate PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerPeakRate
+
+    // Configured policer conform burst.
+    ConfigPolicerConformBurst PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerConformBurst
+
+    // Configured policer excess burst.
+    ConfigPolicerExcessBurst PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerExcessBurst
+
+    // Conform action.
+    ConformAction PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction
+
+    // Exceed action.
+    ExceedAction PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction
+
+    // Violate action.
+    ViolateAction PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction
+
+    // IP mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_IpMark.
+    IpMark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_IpMark
+
+    // Common mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_CommonMark.
+    CommonMark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_CommonMark
+
+    // MPLS mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_MplsMark.
+    MplsMark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_MplsMark
+
+    // WRED parameters. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred.
+    Wred []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred
+}
+
+func (class *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class) GetEntityData() *types.CommonEntityData {
+    class.EntityData.YFilter = class.YFilter
+    class.EntityData.YangName = "class"
+    class.EntityData.BundleName = "cisco_ios_xr"
+    class.EntityData.ParentYangName = "classes"
+    class.EntityData.SegmentPath = "class" + "[level-one-class-name='" + fmt.Sprintf("%v", class.LevelOneClassName) + "']"
+    class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    class.EntityData.Children = make(map[string]types.YChild)
+    class.EntityData.Children["config-max-rate"] = types.YChild{"ConfigMaxRate", &class.ConfigMaxRate}
+    class.EntityData.Children["config-min-rate"] = types.YChild{"ConfigMinRate", &class.ConfigMinRate}
+    class.EntityData.Children["config-queue-limit"] = types.YChild{"ConfigQueueLimit", &class.ConfigQueueLimit}
+    class.EntityData.Children["config-policer-average-rate"] = types.YChild{"ConfigPolicerAverageRate", &class.ConfigPolicerAverageRate}
+    class.EntityData.Children["config-policer-peak-rate"] = types.YChild{"ConfigPolicerPeakRate", &class.ConfigPolicerPeakRate}
+    class.EntityData.Children["config-policer-conform-burst"] = types.YChild{"ConfigPolicerConformBurst", &class.ConfigPolicerConformBurst}
+    class.EntityData.Children["config-policer-excess-burst"] = types.YChild{"ConfigPolicerExcessBurst", &class.ConfigPolicerExcessBurst}
+    class.EntityData.Children["conform-action"] = types.YChild{"ConformAction", &class.ConformAction}
+    class.EntityData.Children["exceed-action"] = types.YChild{"ExceedAction", &class.ExceedAction}
+    class.EntityData.Children["violate-action"] = types.YChild{"ViolateAction", &class.ViolateAction}
+    class.EntityData.Children["ip-mark"] = types.YChild{"IpMark", nil}
+    for i := range class.IpMark {
+        class.EntityData.Children[types.GetSegmentPath(&class.IpMark[i])] = types.YChild{"IpMark", &class.IpMark[i]}
+    }
+    class.EntityData.Children["common-mark"] = types.YChild{"CommonMark", nil}
+    for i := range class.CommonMark {
+        class.EntityData.Children[types.GetSegmentPath(&class.CommonMark[i])] = types.YChild{"CommonMark", &class.CommonMark[i]}
+    }
+    class.EntityData.Children["mpls-mark"] = types.YChild{"MplsMark", nil}
+    for i := range class.MplsMark {
+        class.EntityData.Children[types.GetSegmentPath(&class.MplsMark[i])] = types.YChild{"MplsMark", &class.MplsMark[i]}
+    }
+    class.EntityData.Children["wred"] = types.YChild{"Wred", nil}
+    for i := range class.Wred {
+        class.EntityData.Children[types.GetSegmentPath(&class.Wred[i])] = types.YChild{"Wred", &class.Wred[i]}
+    }
+    class.EntityData.Leafs = make(map[string]types.YLeaf)
+    class.EntityData.Leafs["level-one-class-name"] = types.YLeaf{"LevelOneClassName", class.LevelOneClassName}
+    class.EntityData.Leafs["level-two-class-name"] = types.YLeaf{"LevelTwoClassName", class.LevelTwoClassName}
+    class.EntityData.Leafs["class-level"] = types.YLeaf{"ClassLevel", class.ClassLevel}
+    class.EntityData.Leafs["egress-queue-id"] = types.YLeaf{"EgressQueueId", class.EgressQueueId}
+    class.EntityData.Leafs["queue-type"] = types.YLeaf{"QueueType", class.QueueType}
+    class.EntityData.Leafs["priority-level"] = types.YLeaf{"PriorityLevel", class.PriorityLevel}
+    class.EntityData.Leafs["hardware-max-rate-kbps"] = types.YLeaf{"HardwareMaxRateKbps", class.HardwareMaxRateKbps}
+    class.EntityData.Leafs["hardware-min-rate-kbps"] = types.YLeaf{"HardwareMinRateKbps", class.HardwareMinRateKbps}
+    class.EntityData.Leafs["config-excess-bandwidth-percent"] = types.YLeaf{"ConfigExcessBandwidthPercent", class.ConfigExcessBandwidthPercent}
+    class.EntityData.Leafs["config-excess-bandwidth-unit"] = types.YLeaf{"ConfigExcessBandwidthUnit", class.ConfigExcessBandwidthUnit}
+    class.EntityData.Leafs["hardware-excess-bandwidth-weight"] = types.YLeaf{"HardwareExcessBandwidthWeight", class.HardwareExcessBandwidthWeight}
+    class.EntityData.Leafs["network-min-bandwidth-kbps"] = types.YLeaf{"NetworkMinBandwidthKbps", class.NetworkMinBandwidthKbps}
+    class.EntityData.Leafs["hardware-queue-limit-bytes"] = types.YLeaf{"HardwareQueueLimitBytes", class.HardwareQueueLimitBytes}
+    class.EntityData.Leafs["hardware-queue-limit-microseconds"] = types.YLeaf{"HardwareQueueLimitMicroseconds", class.HardwareQueueLimitMicroseconds}
+    class.EntityData.Leafs["policer-bucket-id"] = types.YLeaf{"PolicerBucketId", class.PolicerBucketId}
+    class.EntityData.Leafs["policer-stats-handle"] = types.YLeaf{"PolicerStatsHandle", class.PolicerStatsHandle}
+    class.EntityData.Leafs["hardware-policer-average-rate-kbps"] = types.YLeaf{"HardwarePolicerAverageRateKbps", class.HardwarePolicerAverageRateKbps}
+    class.EntityData.Leafs["hardware-policer-peak-rate-kbps"] = types.YLeaf{"HardwarePolicerPeakRateKbps", class.HardwarePolicerPeakRateKbps}
+    class.EntityData.Leafs["hardware-policer-conform-burst-bytes"] = types.YLeaf{"HardwarePolicerConformBurstBytes", class.HardwarePolicerConformBurstBytes}
+    class.EntityData.Leafs["hardware-policer-excess-burst-bytes"] = types.YLeaf{"HardwarePolicerExcessBurstBytes", class.HardwarePolicerExcessBurstBytes}
+    return &(class.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMaxRate
+// Configured maximum rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMaxRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMaxRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMaxRate) GetEntityData() *types.CommonEntityData {
+    configMaxRate.EntityData.YFilter = configMaxRate.YFilter
+    configMaxRate.EntityData.YangName = "config-max-rate"
+    configMaxRate.EntityData.BundleName = "cisco_ios_xr"
+    configMaxRate.EntityData.ParentYangName = "class"
+    configMaxRate.EntityData.SegmentPath = "config-max-rate"
+    configMaxRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMaxRate.EntityData.Children = make(map[string]types.YChild)
+    configMaxRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxRate.PolicyValue}
+    configMaxRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxRate.PolicyUnit}
+    return &(configMaxRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMinRate
+// Configured minimum rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMinRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMinRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigMinRate) GetEntityData() *types.CommonEntityData {
+    configMinRate.EntityData.YFilter = configMinRate.YFilter
+    configMinRate.EntityData.YangName = "config-min-rate"
+    configMinRate.EntityData.BundleName = "cisco_ios_xr"
+    configMinRate.EntityData.ParentYangName = "class"
+    configMinRate.EntityData.SegmentPath = "config-min-rate"
+    configMinRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMinRate.EntityData.Children = make(map[string]types.YChild)
+    configMinRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinRate.PolicyValue}
+    configMinRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinRate.PolicyUnit}
+    return &(configMinRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigQueueLimit
+// Configured queue limit
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigQueueLimit struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configQueueLimit *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigQueueLimit) GetEntityData() *types.CommonEntityData {
+    configQueueLimit.EntityData.YFilter = configQueueLimit.YFilter
+    configQueueLimit.EntityData.YangName = "config-queue-limit"
+    configQueueLimit.EntityData.BundleName = "cisco_ios_xr"
+    configQueueLimit.EntityData.ParentYangName = "class"
+    configQueueLimit.EntityData.SegmentPath = "config-queue-limit"
+    configQueueLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configQueueLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configQueueLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configQueueLimit.EntityData.Children = make(map[string]types.YChild)
+    configQueueLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    configQueueLimit.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configQueueLimit.PolicyValue}
+    configQueueLimit.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configQueueLimit.PolicyUnit}
+    return &(configQueueLimit.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerAverageRate
+// Configured policer average rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerAverageRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerAverageRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerAverageRate) GetEntityData() *types.CommonEntityData {
+    configPolicerAverageRate.EntityData.YFilter = configPolicerAverageRate.YFilter
+    configPolicerAverageRate.EntityData.YangName = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerAverageRate.EntityData.ParentYangName = "class"
+    configPolicerAverageRate.EntityData.SegmentPath = "config-policer-average-rate"
+    configPolicerAverageRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerAverageRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerAverageRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerAverageRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerAverageRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerAverageRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerAverageRate.PolicyValue}
+    configPolicerAverageRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerAverageRate.PolicyUnit}
+    return &(configPolicerAverageRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerPeakRate
+// Config policer peak rate
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerPeakRate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerPeakRate *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerPeakRate) GetEntityData() *types.CommonEntityData {
+    configPolicerPeakRate.EntityData.YFilter = configPolicerPeakRate.YFilter
+    configPolicerPeakRate.EntityData.YangName = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerPeakRate.EntityData.ParentYangName = "class"
+    configPolicerPeakRate.EntityData.SegmentPath = "config-policer-peak-rate"
+    configPolicerPeakRate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerPeakRate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerPeakRate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerPeakRate.EntityData.Children = make(map[string]types.YChild)
+    configPolicerPeakRate.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerPeakRate.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerPeakRate.PolicyValue}
+    configPolicerPeakRate.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerPeakRate.PolicyUnit}
+    return &(configPolicerPeakRate.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerConformBurst
+// Configured policer conform burst
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerConformBurst struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerConformBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerConformBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerConformBurst.EntityData.YFilter = configPolicerConformBurst.YFilter
+    configPolicerConformBurst.EntityData.YangName = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerConformBurst.EntityData.ParentYangName = "class"
+    configPolicerConformBurst.EntityData.SegmentPath = "config-policer-conform-burst"
+    configPolicerConformBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerConformBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerConformBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerConformBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerConformBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerConformBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerConformBurst.PolicyValue}
+    configPolicerConformBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerConformBurst.PolicyUnit}
+    return &(configPolicerConformBurst.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerExcessBurst
+// Configured policer excess burst
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerExcessBurst struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configPolicerExcessBurst *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConfigPolicerExcessBurst) GetEntityData() *types.CommonEntityData {
+    configPolicerExcessBurst.EntityData.YFilter = configPolicerExcessBurst.YFilter
+    configPolicerExcessBurst.EntityData.YangName = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.BundleName = "cisco_ios_xr"
+    configPolicerExcessBurst.EntityData.ParentYangName = "class"
+    configPolicerExcessBurst.EntityData.SegmentPath = "config-policer-excess-burst"
+    configPolicerExcessBurst.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configPolicerExcessBurst.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configPolicerExcessBurst.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configPolicerExcessBurst.EntityData.Children = make(map[string]types.YChild)
+    configPolicerExcessBurst.EntityData.Leafs = make(map[string]types.YLeaf)
+    configPolicerExcessBurst.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configPolicerExcessBurst.PolicyValue}
+    configPolicerExcessBurst.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configPolicerExcessBurst.PolicyUnit}
+    return &(configPolicerExcessBurst.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction
+// Conform action
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policer action type. The type is DnxQoseaShowAction.
+    ActionType interface{}
+
+    // Action mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction_Mark.
+    Mark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction_Mark
+}
+
+func (conformAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction) GetEntityData() *types.CommonEntityData {
+    conformAction.EntityData.YFilter = conformAction.YFilter
+    conformAction.EntityData.YangName = "conform-action"
+    conformAction.EntityData.BundleName = "cisco_ios_xr"
+    conformAction.EntityData.ParentYangName = "class"
+    conformAction.EntityData.SegmentPath = "conform-action"
+    conformAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    conformAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    conformAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    conformAction.EntityData.Children = make(map[string]types.YChild)
+    conformAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
+    for i := range conformAction.Mark {
+        conformAction.EntityData.Children[types.GetSegmentPath(&conformAction.Mark[i])] = types.YChild{"Mark", &conformAction.Mark[i]}
+    }
+    conformAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    conformAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", conformAction.ActionType}
+    return &(conformAction.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction_Mark
+// Action mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction_Mark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ConformAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "conform-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction
+// Exceed action
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policer action type. The type is DnxQoseaShowAction.
+    ActionType interface{}
+
+    // Action mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction_Mark.
+    Mark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction_Mark
+}
+
+func (exceedAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction) GetEntityData() *types.CommonEntityData {
+    exceedAction.EntityData.YFilter = exceedAction.YFilter
+    exceedAction.EntityData.YangName = "exceed-action"
+    exceedAction.EntityData.BundleName = "cisco_ios_xr"
+    exceedAction.EntityData.ParentYangName = "class"
+    exceedAction.EntityData.SegmentPath = "exceed-action"
+    exceedAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exceedAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exceedAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    exceedAction.EntityData.Children = make(map[string]types.YChild)
+    exceedAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
+    for i := range exceedAction.Mark {
+        exceedAction.EntityData.Children[types.GetSegmentPath(&exceedAction.Mark[i])] = types.YChild{"Mark", &exceedAction.Mark[i]}
+    }
+    exceedAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    exceedAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", exceedAction.ActionType}
+    return &(exceedAction.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction_Mark
+// Action mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction_Mark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ExceedAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "exceed-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction
+// Violate action
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policer action type. The type is DnxQoseaShowAction.
+    ActionType interface{}
+
+    // Action mark. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction_Mark.
+    Mark []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction_Mark
+}
+
+func (violateAction *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction) GetEntityData() *types.CommonEntityData {
+    violateAction.EntityData.YFilter = violateAction.YFilter
+    violateAction.EntityData.YangName = "violate-action"
+    violateAction.EntityData.BundleName = "cisco_ios_xr"
+    violateAction.EntityData.ParentYangName = "class"
+    violateAction.EntityData.SegmentPath = "violate-action"
+    violateAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    violateAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    violateAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    violateAction.EntityData.Children = make(map[string]types.YChild)
+    violateAction.EntityData.Children["mark"] = types.YChild{"Mark", nil}
+    for i := range violateAction.Mark {
+        violateAction.EntityData.Children[types.GetSegmentPath(&violateAction.Mark[i])] = types.YChild{"Mark", &violateAction.Mark[i]}
+    }
+    violateAction.EntityData.Leafs = make(map[string]types.YLeaf)
+    violateAction.EntityData.Leafs["action-type"] = types.YLeaf{"ActionType", violateAction.ActionType}
+    return &(violateAction.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction_Mark
+// Action mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction_Mark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_ViolateAction_Mark) GetEntityData() *types.CommonEntityData {
+    mark.EntityData.YFilter = mark.YFilter
+    mark.EntityData.YangName = "mark"
+    mark.EntityData.BundleName = "cisco_ios_xr"
+    mark.EntityData.ParentYangName = "violate-action"
+    mark.EntityData.SegmentPath = "mark"
+    mark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mark.EntityData.Children = make(map[string]types.YChild)
+    mark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mark.MarkType}
+    mark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mark.MarkValue}
+    return &(mark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_IpMark
+// IP mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_IpMark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (ipMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_IpMark) GetEntityData() *types.CommonEntityData {
+    ipMark.EntityData.YFilter = ipMark.YFilter
+    ipMark.EntityData.YangName = "ip-mark"
+    ipMark.EntityData.BundleName = "cisco_ios_xr"
+    ipMark.EntityData.ParentYangName = "class"
+    ipMark.EntityData.SegmentPath = "ip-mark"
+    ipMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipMark.EntityData.Children = make(map[string]types.YChild)
+    ipMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", ipMark.MarkType}
+    ipMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", ipMark.MarkValue}
+    return &(ipMark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_CommonMark
+// Common mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_CommonMark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (commonMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_CommonMark) GetEntityData() *types.CommonEntityData {
+    commonMark.EntityData.YFilter = commonMark.YFilter
+    commonMark.EntityData.YangName = "common-mark"
+    commonMark.EntityData.BundleName = "cisco_ios_xr"
+    commonMark.EntityData.ParentYangName = "class"
+    commonMark.EntityData.SegmentPath = "common-mark"
+    commonMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commonMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commonMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    commonMark.EntityData.Children = make(map[string]types.YChild)
+    commonMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    commonMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", commonMark.MarkType}
+    commonMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", commonMark.MarkValue}
+    return &(commonMark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_MplsMark
+// MPLS mark
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_MplsMark struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Mark type. The type is DnxQoseaShowMark.
+    MarkType interface{}
+
+    // Mark value. The type is interface{} with range: 0..65535.
+    MarkValue interface{}
+}
+
+func (mplsMark *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_MplsMark) GetEntityData() *types.CommonEntityData {
+    mplsMark.EntityData.YFilter = mplsMark.YFilter
+    mplsMark.EntityData.YangName = "mpls-mark"
+    mplsMark.EntityData.BundleName = "cisco_ios_xr"
+    mplsMark.EntityData.ParentYangName = "class"
+    mplsMark.EntityData.SegmentPath = "mpls-mark"
+    mplsMark.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsMark.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsMark.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    mplsMark.EntityData.Children = make(map[string]types.YChild)
+    mplsMark.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsMark.EntityData.Leafs["mark-type"] = types.YLeaf{"MarkType", mplsMark.MarkType}
+    mplsMark.EntityData.Leafs["mark-value"] = types.YLeaf{"MarkValue", mplsMark.MarkValue}
+    return &(mplsMark.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred
+// WRED parameters
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // WREDMatchType. The type is DnxQoseaShowWred.
+    WredMatchType interface{}
+
+    // Hardware minimum threshold. The type is interface{} with range:
+    // 0..4294967295.
+    HardwareMinThresholdBytes interface{}
+
+    // Hardware maximum threshold. The type is interface{} with range:
+    // 0..4294967295.
+    HardwareMaxThresholdBytes interface{}
+
+    // First segment. The type is interface{} with range: 0..65535.
+    FirstSegment interface{}
+
+    // Segment size. The type is interface{} with range: 0..4294967295.
+    SegmentSize interface{}
+
+    // WRED match values.
+    WredMatchValue PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue
+
+    // Configured minimum threshold.
+    ConfigMinThreshold PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMinThreshold
+
+    // Configured maximum threshold.
+    ConfigMaxThreshold PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMaxThreshold
+}
+
+func (wred *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred) GetEntityData() *types.CommonEntityData {
+    wred.EntityData.YFilter = wred.YFilter
+    wred.EntityData.YangName = "wred"
+    wred.EntityData.BundleName = "cisco_ios_xr"
+    wred.EntityData.ParentYangName = "class"
+    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    wred.EntityData.Children = make(map[string]types.YChild)
+    wred.EntityData.Children["wred-match-value"] = types.YChild{"WredMatchValue", &wred.WredMatchValue}
+    wred.EntityData.Children["config-min-threshold"] = types.YChild{"ConfigMinThreshold", &wred.ConfigMinThreshold}
+    wred.EntityData.Children["config-max-threshold"] = types.YChild{"ConfigMaxThreshold", &wred.ConfigMaxThreshold}
+    wred.EntityData.Leafs = make(map[string]types.YLeaf)
+    wred.EntityData.Leafs["wred-match-type"] = types.YLeaf{"WredMatchType", wred.WredMatchType}
+    wred.EntityData.Leafs["hardware-min-threshold-bytes"] = types.YLeaf{"HardwareMinThresholdBytes", wred.HardwareMinThresholdBytes}
+    wred.EntityData.Leafs["hardware-max-threshold-bytes"] = types.YLeaf{"HardwareMaxThresholdBytes", wred.HardwareMaxThresholdBytes}
+    wred.EntityData.Leafs["first-segment"] = types.YLeaf{"FirstSegment", wred.FirstSegment}
+    wred.EntityData.Leafs["segment-size"] = types.YLeaf{"SegmentSize", wred.SegmentSize}
+    return &(wred.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue
+// WRED match values
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // dnx qosea show red match value. The type is slice of
+    // PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue.
+    DnxQoseaShowRedMatchValue []PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
+}
+
+func (wredMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue) GetEntityData() *types.CommonEntityData {
+    wredMatchValue.EntityData.YFilter = wredMatchValue.YFilter
+    wredMatchValue.EntityData.YangName = "wred-match-value"
+    wredMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    wredMatchValue.EntityData.ParentYangName = "wred"
+    wredMatchValue.EntityData.SegmentPath = "wred-match-value"
+    wredMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wredMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wredMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    wredMatchValue.EntityData.Children = make(map[string]types.YChild)
+    wredMatchValue.EntityData.Children["dnx-qosea-show-red-match-value"] = types.YChild{"DnxQoseaShowRedMatchValue", nil}
+    for i := range wredMatchValue.DnxQoseaShowRedMatchValue {
+        wredMatchValue.EntityData.Children[types.GetSegmentPath(&wredMatchValue.DnxQoseaShowRedMatchValue[i])] = types.YChild{"DnxQoseaShowRedMatchValue", &wredMatchValue.DnxQoseaShowRedMatchValue[i]}
+    }
+    wredMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wredMatchValue.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue
+// dnx qosea show red match value
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Start value of a range. The type is interface{} with range: 0..255.
+    RangeStart interface{}
+
+    // End value of a range. The type is interface{} with range: 0..255.
+    RangeEnd interface{}
+}
+
+func (dnxQoseaShowRedMatchValue *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_WredMatchValue_DnxQoseaShowRedMatchValue) GetEntityData() *types.CommonEntityData {
+    dnxQoseaShowRedMatchValue.EntityData.YFilter = dnxQoseaShowRedMatchValue.YFilter
+    dnxQoseaShowRedMatchValue.EntityData.YangName = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.BundleName = "cisco_ios_xr"
+    dnxQoseaShowRedMatchValue.EntityData.ParentYangName = "wred-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.SegmentPath = "dnx-qosea-show-red-match-value"
+    dnxQoseaShowRedMatchValue.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dnxQoseaShowRedMatchValue.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dnxQoseaShowRedMatchValue.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dnxQoseaShowRedMatchValue.EntityData.Children = make(map[string]types.YChild)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs = make(map[string]types.YLeaf)
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-start"] = types.YLeaf{"RangeStart", dnxQoseaShowRedMatchValue.RangeStart}
+    dnxQoseaShowRedMatchValue.EntityData.Leafs["range-end"] = types.YLeaf{"RangeEnd", dnxQoseaShowRedMatchValue.RangeEnd}
+    return &(dnxQoseaShowRedMatchValue.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMinThreshold
+// Configured minimum threshold
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMinThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMinThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMinThreshold) GetEntityData() *types.CommonEntityData {
+    configMinThreshold.EntityData.YFilter = configMinThreshold.YFilter
+    configMinThreshold.EntityData.YangName = "config-min-threshold"
+    configMinThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMinThreshold.EntityData.ParentYangName = "wred"
+    configMinThreshold.EntityData.SegmentPath = "config-min-threshold"
+    configMinThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMinThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMinThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMinThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMinThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMinThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMinThreshold.PolicyValue}
+    configMinThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMinThreshold.PolicyUnit}
+    return &(configMinThreshold.EntityData)
+}
+
+// PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMaxThreshold
+// Configured maximum threshold
+type PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMaxThreshold struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Policy value. The type is interface{} with range: 0..4294967295.
+    PolicyValue interface{}
+
+    // Policy unit. The type is PolicyParamUnit.
+    PolicyUnit interface{}
+}
+
+func (configMaxThreshold *PlatformQos_Nodes_Node_BundleInterfaceSingles_BundleInterfaceSingle_Classes_Class_Wred_ConfigMaxThreshold) GetEntityData() *types.CommonEntityData {
+    configMaxThreshold.EntityData.YFilter = configMaxThreshold.YFilter
+    configMaxThreshold.EntityData.YangName = "config-max-threshold"
+    configMaxThreshold.EntityData.BundleName = "cisco_ios_xr"
+    configMaxThreshold.EntityData.ParentYangName = "wred"
+    configMaxThreshold.EntityData.SegmentPath = "config-max-threshold"
+    configMaxThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configMaxThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configMaxThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    configMaxThreshold.EntityData.Children = make(map[string]types.YChild)
+    configMaxThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    configMaxThreshold.EntityData.Leafs["policy-value"] = types.YLeaf{"PolicyValue", configMaxThreshold.PolicyValue}
+    configMaxThreshold.EntityData.Leafs["policy-unit"] = types.YLeaf{"PolicyUnit", configMaxThreshold.PolicyUnit}
+    return &(configMaxThreshold.EntityData)
+}
 
 // PlatformQos_Nodes_Node_RemoteInterfaces
 // QoS list of remote interfaces
 type PlatformQos_Nodes_Node_RemoteInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // QoS remote interface names. The type is slice of
@@ -6552,72 +5515,33 @@ type PlatformQos_Nodes_Node_RemoteInterfaces struct {
     RemoteInterface []PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface
 }
 
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetFilter() yfilter.YFilter { return remoteInterfaces.YFilter }
+func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetEntityData() *types.CommonEntityData {
+    remoteInterfaces.EntityData.YFilter = remoteInterfaces.YFilter
+    remoteInterfaces.EntityData.YangName = "remote-interfaces"
+    remoteInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    remoteInterfaces.EntityData.ParentYangName = "node"
+    remoteInterfaces.EntityData.SegmentPath = "remote-interfaces"
+    remoteInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) SetFilter(yf yfilter.YFilter) { remoteInterfaces.YFilter = yf }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetGoName(yname string) string {
-    if yname == "remote-interface" { return "RemoteInterface" }
-    return ""
-}
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetSegmentPath() string {
-    return "remote-interfaces"
-}
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-interface" {
-        for _, c := range remoteInterfaces.RemoteInterface {
-            if remoteInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface{}
-        remoteInterfaces.RemoteInterface = append(remoteInterfaces.RemoteInterface, child)
-        return &remoteInterfaces.RemoteInterface[len(remoteInterfaces.RemoteInterface)-1]
-    }
-    return nil
-}
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    remoteInterfaces.EntityData.Children = make(map[string]types.YChild)
+    remoteInterfaces.EntityData.Children["remote-interface"] = types.YChild{"RemoteInterface", nil}
     for i := range remoteInterfaces.RemoteInterface {
-        children[remoteInterfaces.RemoteInterface[i].GetSegmentPath()] = &remoteInterfaces.RemoteInterface[i]
+        remoteInterfaces.EntityData.Children[types.GetSegmentPath(&remoteInterfaces.RemoteInterface[i])] = types.YChild{"RemoteInterface", &remoteInterfaces.RemoteInterface[i]}
     }
-    return children
+    remoteInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(remoteInterfaces.EntityData)
 }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetYangName() string { return "remote-interfaces" }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) SetParent(parent types.Entity) { remoteInterfaces.parent = parent }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetParent() types.Entity { return remoteInterfaces.parent }
-
-func (remoteInterfaces *PlatformQos_Nodes_Node_RemoteInterfaces) GetParentYangName() string { return "node" }
 
 // PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface
 // QoS remote interface names
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the remote interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Policy Name. The type is string with length: 0..64.
@@ -6642,80 +5566,35 @@ type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface struct {
     RemoteClass []PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass
 }
 
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetFilter() yfilter.YFilter { return remoteInterface.YFilter }
+func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetEntityData() *types.CommonEntityData {
+    remoteInterface.EntityData.YFilter = remoteInterface.YFilter
+    remoteInterface.EntityData.YangName = "remote-interface"
+    remoteInterface.EntityData.BundleName = "cisco_ios_xr"
+    remoteInterface.EntityData.ParentYangName = "remote-interfaces"
+    remoteInterface.EntityData.SegmentPath = "remote-interface" + "[interface-name='" + fmt.Sprintf("%v", remoteInterface.InterfaceName) + "']"
+    remoteInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) SetFilter(yf yfilter.YFilter) { remoteInterface.YFilter = yf }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "virtual-output-queue-statistics-handle" { return "VirtualOutputQueueStatisticsHandle" }
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "number-of-virtual-output-queues" { return "NumberOfVirtualOutputQueues" }
-    if yname == "number-of-classes" { return "NumberOfClasses" }
-    if yname == "remote-class" { return "RemoteClass" }
-    return ""
-}
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetSegmentPath() string {
-    return "remote-interface" + "[interface-name='" + fmt.Sprintf("%v", remoteInterface.InterfaceName) + "']"
-}
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-class" {
-        for _, c := range remoteInterface.RemoteClass {
-            if remoteInterface.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass{}
-        remoteInterface.RemoteClass = append(remoteInterface.RemoteClass, child)
-        return &remoteInterface.RemoteClass[len(remoteInterface.RemoteClass)-1]
-    }
-    return nil
-}
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    remoteInterface.EntityData.Children = make(map[string]types.YChild)
+    remoteInterface.EntityData.Children["remote-class"] = types.YChild{"RemoteClass", nil}
     for i := range remoteInterface.RemoteClass {
-        children[remoteInterface.RemoteClass[i].GetSegmentPath()] = &remoteInterface.RemoteClass[i]
+        remoteInterface.EntityData.Children[types.GetSegmentPath(&remoteInterface.RemoteClass[i])] = types.YChild{"RemoteClass", &remoteInterface.RemoteClass[i]}
     }
-    return children
+    remoteInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", remoteInterface.InterfaceName}
+    remoteInterface.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", remoteInterface.PolicyName}
+    remoteInterface.EntityData.Leafs["virtual-output-queue-statistics-handle"] = types.YLeaf{"VirtualOutputQueueStatisticsHandle", remoteInterface.VirtualOutputQueueStatisticsHandle}
+    remoteInterface.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", remoteInterface.InterfaceHandle}
+    remoteInterface.EntityData.Leafs["number-of-virtual-output-queues"] = types.YLeaf{"NumberOfVirtualOutputQueues", remoteInterface.NumberOfVirtualOutputQueues}
+    remoteInterface.EntityData.Leafs["number-of-classes"] = types.YLeaf{"NumberOfClasses", remoteInterface.NumberOfClasses}
+    return &(remoteInterface.EntityData)
 }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = remoteInterface.InterfaceName
-    leafs["policy-name"] = remoteInterface.PolicyName
-    leafs["virtual-output-queue-statistics-handle"] = remoteInterface.VirtualOutputQueueStatisticsHandle
-    leafs["interface-handle"] = remoteInterface.InterfaceHandle
-    leafs["number-of-virtual-output-queues"] = remoteInterface.NumberOfVirtualOutputQueues
-    leafs["number-of-classes"] = remoteInterface.NumberOfClasses
-    return leafs
-}
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetYangName() string { return "remote-interface" }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) SetParent(parent types.Entity) { remoteInterface.parent = parent }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetParent() types.Entity { return remoteInterface.parent }
-
-func (remoteInterface *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface) GetParentYangName() string { return "remote-interfaces" }
 
 // PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass
 // Remote Class array
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Class Name. The type is string with length: 0..64.
@@ -6744,92 +5623,38 @@ type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass struct 
     HwWred []PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred
 }
 
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetFilter() yfilter.YFilter { return remoteClass.YFilter }
+func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetEntityData() *types.CommonEntityData {
+    remoteClass.EntityData.YFilter = remoteClass.YFilter
+    remoteClass.EntityData.YangName = "remote-class"
+    remoteClass.EntityData.BundleName = "cisco_ios_xr"
+    remoteClass.EntityData.ParentYangName = "remote-interface"
+    remoteClass.EntityData.SegmentPath = "remote-class"
+    remoteClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) SetFilter(yf yfilter.YFilter) { remoteClass.YFilter = yf }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetGoName(yname string) string {
-    if yname == "class-name" { return "ClassName" }
-    if yname == "class-id" { return "ClassId" }
-    if yname == "cos-q" { return "CosQ" }
-    if yname == "queue-limit" { return "QueueLimit" }
-    if yname == "hardware-queue-limit" { return "HardwareQueueLimit" }
-    if yname == "wred" { return "Wred" }
-    if yname == "hw-wred" { return "HwWred" }
-    return ""
-}
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetSegmentPath() string {
-    return "remote-class"
-}
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wred" {
-        for _, c := range remoteClass.Wred {
-            if remoteClass.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred{}
-        remoteClass.Wred = append(remoteClass.Wred, child)
-        return &remoteClass.Wred[len(remoteClass.Wred)-1]
-    }
-    if childYangName == "hw-wred" {
-        for _, c := range remoteClass.HwWred {
-            if remoteClass.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred{}
-        remoteClass.HwWred = append(remoteClass.HwWred, child)
-        return &remoteClass.HwWred[len(remoteClass.HwWred)-1]
-    }
-    return nil
-}
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    remoteClass.EntityData.Children = make(map[string]types.YChild)
+    remoteClass.EntityData.Children["wred"] = types.YChild{"Wred", nil}
     for i := range remoteClass.Wred {
-        children[remoteClass.Wred[i].GetSegmentPath()] = &remoteClass.Wred[i]
+        remoteClass.EntityData.Children[types.GetSegmentPath(&remoteClass.Wred[i])] = types.YChild{"Wred", &remoteClass.Wred[i]}
     }
+    remoteClass.EntityData.Children["hw-wred"] = types.YChild{"HwWred", nil}
     for i := range remoteClass.HwWred {
-        children[remoteClass.HwWred[i].GetSegmentPath()] = &remoteClass.HwWred[i]
+        remoteClass.EntityData.Children[types.GetSegmentPath(&remoteClass.HwWred[i])] = types.YChild{"HwWred", &remoteClass.HwWred[i]}
     }
-    return children
+    remoteClass.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteClass.EntityData.Leafs["class-name"] = types.YLeaf{"ClassName", remoteClass.ClassName}
+    remoteClass.EntityData.Leafs["class-id"] = types.YLeaf{"ClassId", remoteClass.ClassId}
+    remoteClass.EntityData.Leafs["cos-q"] = types.YLeaf{"CosQ", remoteClass.CosQ}
+    remoteClass.EntityData.Leafs["queue-limit"] = types.YLeaf{"QueueLimit", remoteClass.QueueLimit}
+    remoteClass.EntityData.Leafs["hardware-queue-limit"] = types.YLeaf{"HardwareQueueLimit", remoteClass.HardwareQueueLimit}
+    return &(remoteClass.EntityData)
 }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class-name"] = remoteClass.ClassName
-    leafs["class-id"] = remoteClass.ClassId
-    leafs["cos-q"] = remoteClass.CosQ
-    leafs["queue-limit"] = remoteClass.QueueLimit
-    leafs["hardware-queue-limit"] = remoteClass.HardwareQueueLimit
-    return leafs
-}
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetYangName() string { return "remote-class" }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) SetParent(parent types.Entity) { remoteClass.parent = parent }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetParent() types.Entity { return remoteClass.parent }
-
-func (remoteClass *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass) GetParentYangName() string { return "remote-interface" }
 
 // PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred
 // Default/Configured WRED profiles
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum Threshold. The type is interface{} with range: 0..4294967295.
@@ -6842,60 +5667,28 @@ type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred st
     DropProbability interface{}
 }
 
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetFilter() yfilter.YFilter { return wred.YFilter }
+func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetEntityData() *types.CommonEntityData {
+    wred.EntityData.YFilter = wred.YFilter
+    wred.EntityData.YangName = "wred"
+    wred.EntityData.BundleName = "cisco_ios_xr"
+    wred.EntityData.ParentYangName = "remote-class"
+    wred.EntityData.SegmentPath = "wred"
+    wred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) SetFilter(yf yfilter.YFilter) { wred.YFilter = yf }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetGoName(yname string) string {
-    if yname == "min-threshold" { return "MinThreshold" }
-    if yname == "max-threshold" { return "MaxThreshold" }
-    if yname == "drop-probability" { return "DropProbability" }
-    return ""
+    wred.EntityData.Children = make(map[string]types.YChild)
+    wred.EntityData.Leafs = make(map[string]types.YLeaf)
+    wred.EntityData.Leafs["min-threshold"] = types.YLeaf{"MinThreshold", wred.MinThreshold}
+    wred.EntityData.Leafs["max-threshold"] = types.YLeaf{"MaxThreshold", wred.MaxThreshold}
+    wred.EntityData.Leafs["drop-probability"] = types.YLeaf{"DropProbability", wred.DropProbability}
+    return &(wred.EntityData)
 }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetSegmentPath() string {
-    return "wred"
-}
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min-threshold"] = wred.MinThreshold
-    leafs["max-threshold"] = wred.MaxThreshold
-    leafs["drop-probability"] = wred.DropProbability
-    return leafs
-}
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetYangName() string { return "wred" }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) SetParent(parent types.Entity) { wred.parent = parent }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetParent() types.Entity { return wred.parent }
-
-func (wred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_Wred) GetParentYangName() string { return "remote-class" }
 
 // PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred
 // Hardware WRED profiles
 type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum Threshold. The type is interface{} with range: 0..4294967295.
@@ -6908,53 +5701,21 @@ type PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred 
     DropProbability interface{}
 }
 
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetFilter() yfilter.YFilter { return hwWred.YFilter }
+func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetEntityData() *types.CommonEntityData {
+    hwWred.EntityData.YFilter = hwWred.YFilter
+    hwWred.EntityData.YangName = "hw-wred"
+    hwWred.EntityData.BundleName = "cisco_ios_xr"
+    hwWred.EntityData.ParentYangName = "remote-class"
+    hwWred.EntityData.SegmentPath = "hw-wred"
+    hwWred.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwWred.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwWred.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) SetFilter(yf yfilter.YFilter) { hwWred.YFilter = yf }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetGoName(yname string) string {
-    if yname == "min-threshold" { return "MinThreshold" }
-    if yname == "max-threshold" { return "MaxThreshold" }
-    if yname == "drop-probability" { return "DropProbability" }
-    return ""
+    hwWred.EntityData.Children = make(map[string]types.YChild)
+    hwWred.EntityData.Leafs = make(map[string]types.YLeaf)
+    hwWred.EntityData.Leafs["min-threshold"] = types.YLeaf{"MinThreshold", hwWred.MinThreshold}
+    hwWred.EntityData.Leafs["max-threshold"] = types.YLeaf{"MaxThreshold", hwWred.MaxThreshold}
+    hwWred.EntityData.Leafs["drop-probability"] = types.YLeaf{"DropProbability", hwWred.DropProbability}
+    return &(hwWred.EntityData)
 }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetSegmentPath() string {
-    return "hw-wred"
-}
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["min-threshold"] = hwWred.MinThreshold
-    leafs["max-threshold"] = hwWred.MaxThreshold
-    leafs["drop-probability"] = hwWred.DropProbability
-    return leafs
-}
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetYangName() string { return "hw-wred" }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) SetParent(parent types.Entity) { hwWred.parent = parent }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetParent() types.Entity { return hwWred.parent }
-
-func (hwWred *PlatformQos_Nodes_Node_RemoteInterfaces_RemoteInterface_RemoteClass_HwWred) GetParentYangName() string { return "remote-class" }
 

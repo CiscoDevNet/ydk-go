@@ -24,44 +24,181 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-controller-otu-oper:otu", reflect.TypeOf(Otu{}))
 }
 
-// OtuPrbsStatus represents Otu prbs status
-type OtuPrbsStatus string
+// GmplsOtuTtiMode represents Gmpls otu tti mode
+type GmplsOtuTtiMode string
 
 const (
-    // Locked
-    OtuPrbsStatus_locked OtuPrbsStatus = "locked"
+    // Not Set
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_none GmplsOtuTtiMode = "gmpls-otu-tti-mode-none"
 
-    // Unlocked
-    OtuPrbsStatus_unlocked OtuPrbsStatus = "unlocked"
+    // Section Monitoring
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_sm GmplsOtuTtiMode = "gmpls-otu-tti-mode-sm"
 
-    // Not Applicable
-    OtuPrbsStatus_not_applicable OtuPrbsStatus = "not-applicable"
+    // Path Monitoring
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_pm GmplsOtuTtiMode = "gmpls-otu-tti-mode-pm"
+
+    // Tandem Connection Monitoring
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_tcm GmplsOtuTtiMode = "gmpls-otu-tti-mode-tcm"
 )
 
-// OtuPrbsPattern represents Otu prbs pattern
-type OtuPrbsPattern string
+// OtuPpIntfState represents Otu pp intf state
+type OtuPpIntfState string
 
 const (
-    // OTU PRBS pattern not applicable
-    OtuPrbsPattern_not_applicable OtuPrbsPattern = "not-applicable"
+    // Interface is Up
+    OtuPpIntfState_otu_pp_intf_up OtuPpIntfState = "otu-pp-intf-up"
 
-    // PN31
-    OtuPrbsPattern_pn31 OtuPrbsPattern = "pn31"
+    // Interface is Going Down
+    OtuPpIntfState_otu_pp_intf_failing OtuPpIntfState = "otu-pp-intf-failing"
 
-    // PN23
-    OtuPrbsPattern_pn23 OtuPrbsPattern = "pn23"
+    // Interface Down
+    OtuPpIntfState_otu_pp_intf_down OtuPpIntfState = "otu-pp-intf-down"
+)
 
-    // PN11
-    OtuPrbsPattern_pn11 OtuPrbsPattern = "pn11"
+// OtuPpFsmState represents Otu pp fsm state
+type OtuPpFsmState string
 
-    // INVERTED PN31
-    OtuPrbsPattern_inverted_pn31 OtuPrbsPattern = "inverted-pn31"
+const (
+    // In Active
+    OtuPpFsmState_otu_in_active OtuPpFsmState = "otu-in-active"
 
-    // INVERTED PN11
-    OtuPrbsPattern_inverted_pn11 OtuPrbsPattern = "inverted-pn11"
+    // Disabled
+    OtuPpFsmState_otu_disabled OtuPpFsmState = "otu-disabled"
 
-    // PN15
-    OtuPrbsPattern_pn15 OtuPrbsPattern = "pn15"
+    // Normal
+    OtuPpFsmState_otu_normal_state OtuPpFsmState = "otu-normal-state"
+
+    // Local Failing
+    OtuPpFsmState_otu_local_failing OtuPpFsmState = "otu-local-failing"
+
+    // Remote Failing
+    OtuPpFsmState_otu_remote_failing OtuPpFsmState = "otu-remote-failing"
+
+    // Maintance Failing
+    OtuPpFsmState_otu_main_t_failing OtuPpFsmState = "otu-main-t-failing"
+
+    // Regenerator Failing
+    OtuPpFsmState_otu_regen_failing OtuPpFsmState = "otu-regen-failing"
+
+    // Local Failed
+    OtuPpFsmState_otu_local_failed OtuPpFsmState = "otu-local-failed"
+
+    // Remote Failed
+    OtuPpFsmState_otu_remote_failed OtuPpFsmState = "otu-remote-failed"
+
+    // Maintance Failed
+    OtuPpFsmState_otu_main_t_failed OtuPpFsmState = "otu-main-t-failed"
+
+    // Regenerator Failed
+    OtuPpFsmState_otu_regen_failed OtuPpFsmState = "otu-regen-failed"
+)
+
+// OtuPerMon represents Otu per mon
+type OtuPerMon string
+
+const (
+    // Disable
+    OtuPerMon_disable OtuPerMon = "disable"
+
+    // Enable
+    OtuPerMon_enable OtuPerMon = "enable"
+)
+
+// OtuSecState represents Otu sec state
+type OtuSecState string
+
+const (
+    // Normal
+    OtuSecState_normal OtuSecState = "normal"
+
+    // Maintenance
+    OtuSecState_maintenance OtuSecState = "maintenance"
+
+    // Automatic In Service
+    OtuSecState_ais OtuSecState = "ais"
+)
+
+// OtuDerState represents Otu der state
+type OtuDerState string
+
+const (
+    // Out Of Service
+    OtuDerState_out_of_service OtuDerState = "out-of-service"
+
+    // In Service
+    OtuDerState_in_service OtuDerState = "in-service"
+
+    // Maintenance
+    OtuDerState_maintenance OtuDerState = "maintenance"
+
+    // Automatic In Service
+    OtuDerState_ais OtuDerState = "ais"
+)
+
+// OtuG709FecMode represents Otu g709fec mode
+type OtuG709FecMode string
+
+const (
+    // NONE
+    OtuG709FecMode_otu_bag_none_fec OtuG709FecMode = "otu-bag-none-fec"
+
+    // STANDARD
+    OtuG709FecMode_otu_bag_standard_fec OtuG709FecMode = "otu-bag-standard-fec"
+
+    // ENHANCEDI.7
+    OtuG709FecMode_otu_bag_1_i_7_fec OtuG709FecMode = "otu-bag-1-i-7-fec"
+
+    // ENHANCEDI.4
+    OtuG709FecMode_otu_bag_1_i_4_fec OtuG709FecMode = "otu-bag-1-i-4-fec"
+
+    // SWIZZLE
+    OtuG709FecMode_otu_bag_swizzle_fec OtuG709FecMode = "otu-bag-swizzle-fec"
+
+    // HIGH GAIN20
+    OtuG709FecMode_otu_bag_hg20_fec OtuG709FecMode = "otu-bag-hg20-fec"
+
+    // Enhanced High Gain 7
+    OtuG709FecMode_otu_bag_enhanced_hg7_fec OtuG709FecMode = "otu-bag-enhanced-hg7-fec"
+
+    // Soft-Decision 20
+    OtuG709FecMode_otu_bag_sd20_fec OtuG709FecMode = "otu-bag-sd20-fec"
+
+    // Soft-Decision 7
+    OtuG709FecMode_otu_bag_sd7_fec OtuG709FecMode = "otu-bag-sd7-fec"
+
+    // ALL
+    OtuG709FecMode_otu_bag_all_fec OtuG709FecMode = "otu-bag-all-fec"
+)
+
+// OtuLoopBackMode represents Otu loop back mode
+type OtuLoopBackMode string
+
+const (
+    // None
+    OtuLoopBackMode_none OtuLoopBackMode = "none"
+
+    // Line
+    OtuLoopBackMode_line OtuLoopBackMode = "line"
+
+    // Internal
+    OtuLoopBackMode_internal OtuLoopBackMode = "internal"
+)
+
+// OtuTtiEt represents Otu tti et
+type OtuTtiEt string
+
+const (
+    // ASCII
+    OtuTtiEt_ascii OtuTtiEt = "ascii"
+
+    // HEX
+    OtuTtiEt_hex OtuTtiEt = "hex"
+
+    // FULL ASCII
+    OtuTtiEt_full_ascii OtuTtiEt = "full-ascii"
+
+    // FULL HEX
+    OtuTtiEt_full_hex OtuTtiEt = "full-hex"
 )
 
 // OtuStateEt represents Otu state et
@@ -126,88 +263,44 @@ const (
     OtuStateEt_last OtuStateEt = "last"
 )
 
-// OtuPrbsTest represents Otu prbs test
-type OtuPrbsTest string
+// OtuPrbsStatus represents Otu prbs status
+type OtuPrbsStatus string
 
 const (
-    // Disable
-    OtuPrbsTest_disable OtuPrbsTest = "disable"
+    // Locked
+    OtuPrbsStatus_locked OtuPrbsStatus = "locked"
 
-    // Enable
-    OtuPrbsTest_enable OtuPrbsTest = "enable"
+    // Unlocked
+    OtuPrbsStatus_unlocked OtuPrbsStatus = "unlocked"
+
+    // Not Applicable
+    OtuPrbsStatus_not_applicable OtuPrbsStatus = "not-applicable"
 )
 
-// OtuPpFsmState represents Otu pp fsm state
-type OtuPpFsmState string
+// OtuPrbsPattern represents Otu prbs pattern
+type OtuPrbsPattern string
 
 const (
-    // In Active
-    OtuPpFsmState_otu_in_active OtuPpFsmState = "otu-in-active"
+    // OTU PRBS pattern not applicable
+    OtuPrbsPattern_not_applicable OtuPrbsPattern = "not-applicable"
 
-    // Disabled
-    OtuPpFsmState_otu_disabled OtuPpFsmState = "otu-disabled"
+    // PN31
+    OtuPrbsPattern_pn31 OtuPrbsPattern = "pn31"
 
-    // Normal
-    OtuPpFsmState_otu_normal_state OtuPpFsmState = "otu-normal-state"
+    // PN23
+    OtuPrbsPattern_pn23 OtuPrbsPattern = "pn23"
 
-    // Local Failing
-    OtuPpFsmState_otu_local_failing OtuPpFsmState = "otu-local-failing"
+    // PN11
+    OtuPrbsPattern_pn11 OtuPrbsPattern = "pn11"
 
-    // Remote Failing
-    OtuPpFsmState_otu_remote_failing OtuPpFsmState = "otu-remote-failing"
+    // INVERTED PN31
+    OtuPrbsPattern_inverted_pn31 OtuPrbsPattern = "inverted-pn31"
 
-    // Maintance Failing
-    OtuPpFsmState_otu_main_t_failing OtuPpFsmState = "otu-main-t-failing"
+    // INVERTED PN11
+    OtuPrbsPattern_inverted_pn11 OtuPrbsPattern = "inverted-pn11"
 
-    // Regenerator Failing
-    OtuPpFsmState_otu_regen_failing OtuPpFsmState = "otu-regen-failing"
-
-    // Local Failed
-    OtuPpFsmState_otu_local_failed OtuPpFsmState = "otu-local-failed"
-
-    // Remote Failed
-    OtuPpFsmState_otu_remote_failed OtuPpFsmState = "otu-remote-failed"
-
-    // Maintance Failed
-    OtuPpFsmState_otu_main_t_failed OtuPpFsmState = "otu-main-t-failed"
-
-    // Regenerator Failed
-    OtuPpFsmState_otu_regen_failed OtuPpFsmState = "otu-regen-failed"
-)
-
-// OtuG709FecMode represents Otu g709fec mode
-type OtuG709FecMode string
-
-const (
-    // NONE
-    OtuG709FecMode_otu_bag_none_fec OtuG709FecMode = "otu-bag-none-fec"
-
-    // STANDARD
-    OtuG709FecMode_otu_bag_standard_fec OtuG709FecMode = "otu-bag-standard-fec"
-
-    // ENHANCEDI.7
-    OtuG709FecMode_otu_bag_1_i_7_fec OtuG709FecMode = "otu-bag-1-i-7-fec"
-
-    // ENHANCEDI.4
-    OtuG709FecMode_otu_bag_1_i_4_fec OtuG709FecMode = "otu-bag-1-i-4-fec"
-
-    // SWIZZLE
-    OtuG709FecMode_otu_bag_swizzle_fec OtuG709FecMode = "otu-bag-swizzle-fec"
-
-    // HIGH GAIN20
-    OtuG709FecMode_otu_bag_hg20_fec OtuG709FecMode = "otu-bag-hg20-fec"
-
-    // Enhanced High Gain 7
-    OtuG709FecMode_otu_bag_enhanced_hg7_fec OtuG709FecMode = "otu-bag-enhanced-hg7-fec"
-
-    // Soft-Decision 20
-    OtuG709FecMode_otu_bag_sd20_fec OtuG709FecMode = "otu-bag-sd20-fec"
-
-    // Soft-Decision 7
-    OtuG709FecMode_otu_bag_sd7_fec OtuG709FecMode = "otu-bag-sd7-fec"
-
-    // ALL
-    OtuG709FecMode_otu_bag_all_fec OtuG709FecMode = "otu-bag-all-fec"
+    // PN15
+    OtuPrbsPattern_pn15 OtuPrbsPattern = "pn15"
 )
 
 // OtuPrbsMode represents Otu prbs mode
@@ -227,245 +320,80 @@ const (
     OtuPrbsMode_source_sink OtuPrbsMode = "source-sink"
 )
 
-// OtuPerMon represents Otu per mon
-type OtuPerMon string
+// OtuPrbsTest represents Otu prbs test
+type OtuPrbsTest string
 
 const (
     // Disable
-    OtuPerMon_disable OtuPerMon = "disable"
+    OtuPrbsTest_disable OtuPrbsTest = "disable"
 
     // Enable
-    OtuPerMon_enable OtuPerMon = "enable"
-)
-
-// OtuTtiEt represents Otu tti et
-type OtuTtiEt string
-
-const (
-    // ASCII
-    OtuTtiEt_ascii OtuTtiEt = "ascii"
-
-    // HEX
-    OtuTtiEt_hex OtuTtiEt = "hex"
-
-    // FULL ASCII
-    OtuTtiEt_full_ascii OtuTtiEt = "full-ascii"
-
-    // FULL HEX
-    OtuTtiEt_full_hex OtuTtiEt = "full-hex"
-)
-
-// OtuPpIntfState represents Otu pp intf state
-type OtuPpIntfState string
-
-const (
-    // Interface is Up
-    OtuPpIntfState_otu_pp_intf_up OtuPpIntfState = "otu-pp-intf-up"
-
-    // Interface is Going Down
-    OtuPpIntfState_otu_pp_intf_failing OtuPpIntfState = "otu-pp-intf-failing"
-
-    // Interface Down
-    OtuPpIntfState_otu_pp_intf_down OtuPpIntfState = "otu-pp-intf-down"
-)
-
-// OtuSecState represents Otu sec state
-type OtuSecState string
-
-const (
-    // Normal
-    OtuSecState_normal OtuSecState = "normal"
-
-    // Maintenance
-    OtuSecState_maintenance OtuSecState = "maintenance"
-
-    // Automatic In Service
-    OtuSecState_ais OtuSecState = "ais"
-)
-
-// OtuLoopBackMode represents Otu loop back mode
-type OtuLoopBackMode string
-
-const (
-    // None
-    OtuLoopBackMode_none OtuLoopBackMode = "none"
-
-    // Line
-    OtuLoopBackMode_line OtuLoopBackMode = "line"
-
-    // Internal
-    OtuLoopBackMode_internal OtuLoopBackMode = "internal"
-)
-
-// GmplsOtuTtiMode represents Gmpls otu tti mode
-type GmplsOtuTtiMode string
-
-const (
-    // Not Set
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_none GmplsOtuTtiMode = "gmpls-otu-tti-mode-none"
-
-    // Section Monitoring
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_sm GmplsOtuTtiMode = "gmpls-otu-tti-mode-sm"
-
-    // Path Monitoring
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_pm GmplsOtuTtiMode = "gmpls-otu-tti-mode-pm"
-
-    // Tandem Connection Monitoring
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_tcm GmplsOtuTtiMode = "gmpls-otu-tti-mode-tcm"
-)
-
-// OtuDerState represents Otu der state
-type OtuDerState string
-
-const (
-    // Out Of Service
-    OtuDerState_out_of_service OtuDerState = "out-of-service"
-
-    // In Service
-    OtuDerState_in_service OtuDerState = "in-service"
-
-    // Maintenance
-    OtuDerState_maintenance OtuDerState = "maintenance"
-
-    // Automatic In Service
-    OtuDerState_ais OtuDerState = "ais"
+    OtuPrbsTest_enable OtuPrbsTest = "enable"
 )
 
 // Otu
 // OTU operational data
 type Otu struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // All OTU Port operational data.
     Controllers Otu_Controllers
 }
 
-func (otu *Otu) GetFilter() yfilter.YFilter { return otu.YFilter }
+func (otu *Otu) GetEntityData() *types.CommonEntityData {
+    otu.EntityData.YFilter = otu.YFilter
+    otu.EntityData.YangName = "otu"
+    otu.EntityData.BundleName = "cisco_ios_xr"
+    otu.EntityData.ParentYangName = "Cisco-IOS-XR-controller-otu-oper"
+    otu.EntityData.SegmentPath = "Cisco-IOS-XR-controller-otu-oper:otu"
+    otu.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otu.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otu.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otu *Otu) SetFilter(yf yfilter.YFilter) { otu.YFilter = yf }
-
-func (otu *Otu) GetGoName(yname string) string {
-    if yname == "controllers" { return "Controllers" }
-    return ""
+    otu.EntityData.Children = make(map[string]types.YChild)
+    otu.EntityData.Children["controllers"] = types.YChild{"Controllers", &otu.Controllers}
+    otu.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(otu.EntityData)
 }
-
-func (otu *Otu) GetSegmentPath() string {
-    return "Cisco-IOS-XR-controller-otu-oper:otu"
-}
-
-func (otu *Otu) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "controllers" {
-        return &otu.Controllers
-    }
-    return nil
-}
-
-func (otu *Otu) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["controllers"] = &otu.Controllers
-    return children
-}
-
-func (otu *Otu) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (otu *Otu) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otu *Otu) GetYangName() string { return "otu" }
-
-func (otu *Otu) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otu *Otu) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otu *Otu) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otu *Otu) SetParent(parent types.Entity) { otu.parent = parent }
-
-func (otu *Otu) GetParent() types.Entity { return otu.parent }
-
-func (otu *Otu) GetParentYangName() string { return "Cisco-IOS-XR-controller-otu-oper" }
 
 // Otu_Controllers
 // All OTU Port operational data
 type Otu_Controllers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OTU Port operational data. The type is slice of Otu_Controllers_Controller.
     Controller []Otu_Controllers_Controller
 }
 
-func (controllers *Otu_Controllers) GetFilter() yfilter.YFilter { return controllers.YFilter }
+func (controllers *Otu_Controllers) GetEntityData() *types.CommonEntityData {
+    controllers.EntityData.YFilter = controllers.YFilter
+    controllers.EntityData.YangName = "controllers"
+    controllers.EntityData.BundleName = "cisco_ios_xr"
+    controllers.EntityData.ParentYangName = "otu"
+    controllers.EntityData.SegmentPath = "controllers"
+    controllers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controllers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controllers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controllers *Otu_Controllers) SetFilter(yf yfilter.YFilter) { controllers.YFilter = yf }
-
-func (controllers *Otu_Controllers) GetGoName(yname string) string {
-    if yname == "controller" { return "Controller" }
-    return ""
-}
-
-func (controllers *Otu_Controllers) GetSegmentPath() string {
-    return "controllers"
-}
-
-func (controllers *Otu_Controllers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "controller" {
-        for _, c := range controllers.Controller {
-            if controllers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Otu_Controllers_Controller{}
-        controllers.Controller = append(controllers.Controller, child)
-        return &controllers.Controller[len(controllers.Controller)-1]
-    }
-    return nil
-}
-
-func (controllers *Otu_Controllers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    controllers.EntityData.Children = make(map[string]types.YChild)
+    controllers.EntityData.Children["controller"] = types.YChild{"Controller", nil}
     for i := range controllers.Controller {
-        children[controllers.Controller[i].GetSegmentPath()] = &controllers.Controller[i]
+        controllers.EntityData.Children[types.GetSegmentPath(&controllers.Controller[i])] = types.YChild{"Controller", &controllers.Controller[i]}
     }
-    return children
+    controllers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(controllers.EntityData)
 }
-
-func (controllers *Otu_Controllers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (controllers *Otu_Controllers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controllers *Otu_Controllers) GetYangName() string { return "controllers" }
-
-func (controllers *Otu_Controllers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controllers *Otu_Controllers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controllers *Otu_Controllers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controllers *Otu_Controllers) SetParent(parent types.Entity) { controllers.parent = parent }
-
-func (controllers *Otu_Controllers) GetParent() types.Entity { return controllers.parent }
-
-func (controllers *Otu_Controllers) GetParentYangName() string { return "otu" }
 
 // Otu_Controllers_Controller
 // OTU Port operational data
 type Otu_Controllers_Controller struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     ControllerName interface{}
 
     // OTU port PRBS operational data.
@@ -475,66 +403,28 @@ type Otu_Controllers_Controller struct {
     Info Otu_Controllers_Controller_Info
 }
 
-func (controller *Otu_Controllers_Controller) GetFilter() yfilter.YFilter { return controller.YFilter }
+func (controller *Otu_Controllers_Controller) GetEntityData() *types.CommonEntityData {
+    controller.EntityData.YFilter = controller.YFilter
+    controller.EntityData.YangName = "controller"
+    controller.EntityData.BundleName = "cisco_ios_xr"
+    controller.EntityData.ParentYangName = "controllers"
+    controller.EntityData.SegmentPath = "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
+    controller.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controller.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controller.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controller *Otu_Controllers_Controller) SetFilter(yf yfilter.YFilter) { controller.YFilter = yf }
-
-func (controller *Otu_Controllers_Controller) GetGoName(yname string) string {
-    if yname == "controller-name" { return "ControllerName" }
-    if yname == "prbs" { return "Prbs" }
-    if yname == "info" { return "Info" }
-    return ""
+    controller.EntityData.Children = make(map[string]types.YChild)
+    controller.EntityData.Children["prbs"] = types.YChild{"Prbs", &controller.Prbs}
+    controller.EntityData.Children["info"] = types.YChild{"Info", &controller.Info}
+    controller.EntityData.Leafs = make(map[string]types.YLeaf)
+    controller.EntityData.Leafs["controller-name"] = types.YLeaf{"ControllerName", controller.ControllerName}
+    return &(controller.EntityData)
 }
-
-func (controller *Otu_Controllers_Controller) GetSegmentPath() string {
-    return "controller" + "[controller-name='" + fmt.Sprintf("%v", controller.ControllerName) + "']"
-}
-
-func (controller *Otu_Controllers_Controller) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "prbs" {
-        return &controller.Prbs
-    }
-    if childYangName == "info" {
-        return &controller.Info
-    }
-    return nil
-}
-
-func (controller *Otu_Controllers_Controller) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["prbs"] = &controller.Prbs
-    children["info"] = &controller.Info
-    return children
-}
-
-func (controller *Otu_Controllers_Controller) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["controller-name"] = controller.ControllerName
-    return leafs
-}
-
-func (controller *Otu_Controllers_Controller) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controller *Otu_Controllers_Controller) GetYangName() string { return "controller" }
-
-func (controller *Otu_Controllers_Controller) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controller *Otu_Controllers_Controller) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controller *Otu_Controllers_Controller) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controller *Otu_Controllers_Controller) SetParent(parent types.Entity) { controller.parent = parent }
-
-func (controller *Otu_Controllers_Controller) GetParent() types.Entity { return controller.parent }
-
-func (controller *Otu_Controllers_Controller) GetParentYangName() string { return "controllers" }
 
 // Otu_Controllers_Controller_Prbs
 // OTU port PRBS operational data
 type Otu_Controllers_Controller_Prbs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // otu prbs test. The type is OtuPrbsTest.
@@ -550,62 +440,29 @@ type Otu_Controllers_Controller_Prbs struct {
     OtuPrbsStatus interface{}
 }
 
-func (prbs *Otu_Controllers_Controller_Prbs) GetFilter() yfilter.YFilter { return prbs.YFilter }
+func (prbs *Otu_Controllers_Controller_Prbs) GetEntityData() *types.CommonEntityData {
+    prbs.EntityData.YFilter = prbs.YFilter
+    prbs.EntityData.YangName = "prbs"
+    prbs.EntityData.BundleName = "cisco_ios_xr"
+    prbs.EntityData.ParentYangName = "controller"
+    prbs.EntityData.SegmentPath = "prbs"
+    prbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    prbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    prbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (prbs *Otu_Controllers_Controller_Prbs) SetFilter(yf yfilter.YFilter) { prbs.YFilter = yf }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetGoName(yname string) string {
-    if yname == "otu-prbs-test" { return "OtuPrbsTest" }
-    if yname == "otu-prbs-mode" { return "OtuPrbsMode" }
-    if yname == "otu-prbs-pattern" { return "OtuPrbsPattern" }
-    if yname == "otu-prbs-status" { return "OtuPrbsStatus" }
-    return ""
+    prbs.EntityData.Children = make(map[string]types.YChild)
+    prbs.EntityData.Leafs = make(map[string]types.YLeaf)
+    prbs.EntityData.Leafs["otu-prbs-test"] = types.YLeaf{"OtuPrbsTest", prbs.OtuPrbsTest}
+    prbs.EntityData.Leafs["otu-prbs-mode"] = types.YLeaf{"OtuPrbsMode", prbs.OtuPrbsMode}
+    prbs.EntityData.Leafs["otu-prbs-pattern"] = types.YLeaf{"OtuPrbsPattern", prbs.OtuPrbsPattern}
+    prbs.EntityData.Leafs["otu-prbs-status"] = types.YLeaf{"OtuPrbsStatus", prbs.OtuPrbsStatus}
+    return &(prbs.EntityData)
 }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetSegmentPath() string {
-    return "prbs"
-}
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["otu-prbs-test"] = prbs.OtuPrbsTest
-    leafs["otu-prbs-mode"] = prbs.OtuPrbsMode
-    leafs["otu-prbs-pattern"] = prbs.OtuPrbsPattern
-    leafs["otu-prbs-status"] = prbs.OtuPrbsStatus
-    return leafs
-}
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetYangName() string { return "prbs" }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (prbs *Otu_Controllers_Controller_Prbs) SetParent(parent types.Entity) { prbs.parent = parent }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetParent() types.Entity { return prbs.parent }
-
-func (prbs *Otu_Controllers_Controller_Prbs) GetParentYangName() string { return "controller" }
 
 // Otu_Controllers_Controller_Info
 // OTU port operational data
 type Otu_Controllers_Controller_Info struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Admin State. The type is OtuStateEt.
@@ -714,141 +571,58 @@ type Otu_Controllers_Controller_Info struct {
     OtuFecSatistics Otu_Controllers_Controller_Info_OtuFecSatistics
 }
 
-func (info *Otu_Controllers_Controller_Info) GetFilter() yfilter.YFilter { return info.YFilter }
+func (info *Otu_Controllers_Controller_Info) GetEntityData() *types.CommonEntityData {
+    info.EntityData.YFilter = info.YFilter
+    info.EntityData.YangName = "info"
+    info.EntityData.BundleName = "cisco_ios_xr"
+    info.EntityData.ParentYangName = "controller"
+    info.EntityData.SegmentPath = "info"
+    info.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    info.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    info.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (info *Otu_Controllers_Controller_Info) SetFilter(yf yfilter.YFilter) { info.YFilter = yf }
-
-func (info *Otu_Controllers_Controller_Info) GetGoName(yname string) string {
-    if yname == "state" { return "State" }
-    if yname == "name" { return "Name" }
-    if yname == "sf" { return "Sf" }
-    if yname == "sd" { return "Sd" }
-    if yname == "loopback-mode" { return "LoopbackMode" }
-    if yname == "fec-mode" { return "FecMode" }
-    if yname == "derivedstate-mode" { return "DerivedstateMode" }
-    if yname == "inherit-sec-state" { return "InheritSecState" }
-    if yname == "config-sec-state" { return "ConfigSecState" }
-    if yname == "gcc-mode" { return "GccMode" }
-    if yname == "q" { return "Q" }
-    if yname == "q-margin" { return "QMargin" }
-    if yname == "performance-monitoring" { return "PerformanceMonitoring" }
-    if yname == "ec" { return "Ec" }
-    if yname == "uc" { return "Uc" }
-    if yname == "pre-fec-val" { return "PreFecVal" }
-    if yname == "pre-fec-mantissa" { return "PreFecMantissa" }
-    if yname == "ec-value" { return "EcValue" }
-    if yname == "uc-value" { return "UcValue" }
-    if yname == "pre-fec-ber-value" { return "PreFecBerValue" }
-    if yname == "pre-fec-ber-mantissa" { return "PreFecBerMantissa" }
-    if yname == "nv-optical-support" { return "NvOpticalSupport" }
-    if yname == "gmpls-tti-mode" { return "GmplsTtiMode" }
-    if yname == "gmpls-tvm-id" { return "GmplsTvmId" }
-    if yname == "auto-tti-flag" { return "AutoTtiFlag" }
-    if yname == "description" { return "Description" }
-    if yname == "local" { return "Local" }
-    if yname == "remote" { return "Remote" }
-    if yname == "tti-mode" { return "TtiMode" }
-    if yname == "network-srlg" { return "NetworkSrlg" }
-    if yname == "otu-alarm-info" { return "OtuAlarmInfo" }
-    if yname == "proactive" { return "Proactive" }
-    if yname == "otu-fec-satistics" { return "OtuFecSatistics" }
-    return ""
+    info.EntityData.Children = make(map[string]types.YChild)
+    info.EntityData.Children["local"] = types.YChild{"Local", &info.Local}
+    info.EntityData.Children["remote"] = types.YChild{"Remote", &info.Remote}
+    info.EntityData.Children["tti-mode"] = types.YChild{"TtiMode", &info.TtiMode}
+    info.EntityData.Children["network-srlg"] = types.YChild{"NetworkSrlg", &info.NetworkSrlg}
+    info.EntityData.Children["otu-alarm-info"] = types.YChild{"OtuAlarmInfo", &info.OtuAlarmInfo}
+    info.EntityData.Children["proactive"] = types.YChild{"Proactive", &info.Proactive}
+    info.EntityData.Children["otu-fec-satistics"] = types.YChild{"OtuFecSatistics", &info.OtuFecSatistics}
+    info.EntityData.Leafs = make(map[string]types.YLeaf)
+    info.EntityData.Leafs["state"] = types.YLeaf{"State", info.State}
+    info.EntityData.Leafs["name"] = types.YLeaf{"Name", info.Name}
+    info.EntityData.Leafs["sf"] = types.YLeaf{"Sf", info.Sf}
+    info.EntityData.Leafs["sd"] = types.YLeaf{"Sd", info.Sd}
+    info.EntityData.Leafs["loopback-mode"] = types.YLeaf{"LoopbackMode", info.LoopbackMode}
+    info.EntityData.Leafs["fec-mode"] = types.YLeaf{"FecMode", info.FecMode}
+    info.EntityData.Leafs["derivedstate-mode"] = types.YLeaf{"DerivedstateMode", info.DerivedstateMode}
+    info.EntityData.Leafs["inherit-sec-state"] = types.YLeaf{"InheritSecState", info.InheritSecState}
+    info.EntityData.Leafs["config-sec-state"] = types.YLeaf{"ConfigSecState", info.ConfigSecState}
+    info.EntityData.Leafs["gcc-mode"] = types.YLeaf{"GccMode", info.GccMode}
+    info.EntityData.Leafs["q"] = types.YLeaf{"Q", info.Q}
+    info.EntityData.Leafs["q-margin"] = types.YLeaf{"QMargin", info.QMargin}
+    info.EntityData.Leafs["performance-monitoring"] = types.YLeaf{"PerformanceMonitoring", info.PerformanceMonitoring}
+    info.EntityData.Leafs["ec"] = types.YLeaf{"Ec", info.Ec}
+    info.EntityData.Leafs["uc"] = types.YLeaf{"Uc", info.Uc}
+    info.EntityData.Leafs["pre-fec-val"] = types.YLeaf{"PreFecVal", info.PreFecVal}
+    info.EntityData.Leafs["pre-fec-mantissa"] = types.YLeaf{"PreFecMantissa", info.PreFecMantissa}
+    info.EntityData.Leafs["ec-value"] = types.YLeaf{"EcValue", info.EcValue}
+    info.EntityData.Leafs["uc-value"] = types.YLeaf{"UcValue", info.UcValue}
+    info.EntityData.Leafs["pre-fec-ber-value"] = types.YLeaf{"PreFecBerValue", info.PreFecBerValue}
+    info.EntityData.Leafs["pre-fec-ber-mantissa"] = types.YLeaf{"PreFecBerMantissa", info.PreFecBerMantissa}
+    info.EntityData.Leafs["nv-optical-support"] = types.YLeaf{"NvOpticalSupport", info.NvOpticalSupport}
+    info.EntityData.Leafs["gmpls-tti-mode"] = types.YLeaf{"GmplsTtiMode", info.GmplsTtiMode}
+    info.EntityData.Leafs["gmpls-tvm-id"] = types.YLeaf{"GmplsTvmId", info.GmplsTvmId}
+    info.EntityData.Leafs["auto-tti-flag"] = types.YLeaf{"AutoTtiFlag", info.AutoTtiFlag}
+    info.EntityData.Leafs["description"] = types.YLeaf{"Description", info.Description}
+    return &(info.EntityData)
 }
-
-func (info *Otu_Controllers_Controller_Info) GetSegmentPath() string {
-    return "info"
-}
-
-func (info *Otu_Controllers_Controller_Info) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "local" {
-        return &info.Local
-    }
-    if childYangName == "remote" {
-        return &info.Remote
-    }
-    if childYangName == "tti-mode" {
-        return &info.TtiMode
-    }
-    if childYangName == "network-srlg" {
-        return &info.NetworkSrlg
-    }
-    if childYangName == "otu-alarm-info" {
-        return &info.OtuAlarmInfo
-    }
-    if childYangName == "proactive" {
-        return &info.Proactive
-    }
-    if childYangName == "otu-fec-satistics" {
-        return &info.OtuFecSatistics
-    }
-    return nil
-}
-
-func (info *Otu_Controllers_Controller_Info) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["local"] = &info.Local
-    children["remote"] = &info.Remote
-    children["tti-mode"] = &info.TtiMode
-    children["network-srlg"] = &info.NetworkSrlg
-    children["otu-alarm-info"] = &info.OtuAlarmInfo
-    children["proactive"] = &info.Proactive
-    children["otu-fec-satistics"] = &info.OtuFecSatistics
-    return children
-}
-
-func (info *Otu_Controllers_Controller_Info) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["state"] = info.State
-    leafs["name"] = info.Name
-    leafs["sf"] = info.Sf
-    leafs["sd"] = info.Sd
-    leafs["loopback-mode"] = info.LoopbackMode
-    leafs["fec-mode"] = info.FecMode
-    leafs["derivedstate-mode"] = info.DerivedstateMode
-    leafs["inherit-sec-state"] = info.InheritSecState
-    leafs["config-sec-state"] = info.ConfigSecState
-    leafs["gcc-mode"] = info.GccMode
-    leafs["q"] = info.Q
-    leafs["q-margin"] = info.QMargin
-    leafs["performance-monitoring"] = info.PerformanceMonitoring
-    leafs["ec"] = info.Ec
-    leafs["uc"] = info.Uc
-    leafs["pre-fec-val"] = info.PreFecVal
-    leafs["pre-fec-mantissa"] = info.PreFecMantissa
-    leafs["ec-value"] = info.EcValue
-    leafs["uc-value"] = info.UcValue
-    leafs["pre-fec-ber-value"] = info.PreFecBerValue
-    leafs["pre-fec-ber-mantissa"] = info.PreFecBerMantissa
-    leafs["nv-optical-support"] = info.NvOpticalSupport
-    leafs["gmpls-tti-mode"] = info.GmplsTtiMode
-    leafs["gmpls-tvm-id"] = info.GmplsTvmId
-    leafs["auto-tti-flag"] = info.AutoTtiFlag
-    leafs["description"] = info.Description
-    return leafs
-}
-
-func (info *Otu_Controllers_Controller_Info) GetBundleName() string { return "cisco_ios_xr" }
-
-func (info *Otu_Controllers_Controller_Info) GetYangName() string { return "info" }
-
-func (info *Otu_Controllers_Controller_Info) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (info *Otu_Controllers_Controller_Info) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (info *Otu_Controllers_Controller_Info) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (info *Otu_Controllers_Controller_Info) SetParent(parent types.Entity) { info.parent = parent }
-
-func (info *Otu_Controllers_Controller_Info) GetParent() types.Entity { return info.parent }
-
-func (info *Otu_Controllers_Controller_Info) GetParentYangName() string { return "controller" }
 
 // Otu_Controllers_Controller_Info_Local
 // TTI
 type Otu_Controllers_Controller_Info_Local struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Router ID. The type is interface{} with range: 0..4294967295.
@@ -858,58 +632,27 @@ type Otu_Controllers_Controller_Info_Local struct {
     IfIndex interface{}
 }
 
-func (local *Otu_Controllers_Controller_Info_Local) GetFilter() yfilter.YFilter { return local.YFilter }
+func (local *Otu_Controllers_Controller_Info_Local) GetEntityData() *types.CommonEntityData {
+    local.EntityData.YFilter = local.YFilter
+    local.EntityData.YangName = "local"
+    local.EntityData.BundleName = "cisco_ios_xr"
+    local.EntityData.ParentYangName = "info"
+    local.EntityData.SegmentPath = "local"
+    local.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    local.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    local.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (local *Otu_Controllers_Controller_Info_Local) SetFilter(yf yfilter.YFilter) { local.YFilter = yf }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetGoName(yname string) string {
-    if yname == "router-id" { return "RouterId" }
-    if yname == "if-index" { return "IfIndex" }
-    return ""
+    local.EntityData.Children = make(map[string]types.YChild)
+    local.EntityData.Leafs = make(map[string]types.YLeaf)
+    local.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", local.RouterId}
+    local.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", local.IfIndex}
+    return &(local.EntityData)
 }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetSegmentPath() string {
-    return "local"
-}
-
-func (local *Otu_Controllers_Controller_Info_Local) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (local *Otu_Controllers_Controller_Info_Local) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (local *Otu_Controllers_Controller_Info_Local) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["router-id"] = local.RouterId
-    leafs["if-index"] = local.IfIndex
-    return leafs
-}
-
-func (local *Otu_Controllers_Controller_Info_Local) GetBundleName() string { return "cisco_ios_xr" }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetYangName() string { return "local" }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (local *Otu_Controllers_Controller_Info_Local) SetParent(parent types.Entity) { local.parent = parent }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetParent() types.Entity { return local.parent }
-
-func (local *Otu_Controllers_Controller_Info_Local) GetParentYangName() string { return "info" }
 
 // Otu_Controllers_Controller_Info_Remote
 // Remote
 type Otu_Controllers_Controller_Info_Remote struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Router ID. The type is interface{} with range: 0..4294967295.
@@ -919,58 +662,27 @@ type Otu_Controllers_Controller_Info_Remote struct {
     IfIndex interface{}
 }
 
-func (remote *Otu_Controllers_Controller_Info_Remote) GetFilter() yfilter.YFilter { return remote.YFilter }
+func (remote *Otu_Controllers_Controller_Info_Remote) GetEntityData() *types.CommonEntityData {
+    remote.EntityData.YFilter = remote.YFilter
+    remote.EntityData.YangName = "remote"
+    remote.EntityData.BundleName = "cisco_ios_xr"
+    remote.EntityData.ParentYangName = "info"
+    remote.EntityData.SegmentPath = "remote"
+    remote.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remote.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remote.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remote *Otu_Controllers_Controller_Info_Remote) SetFilter(yf yfilter.YFilter) { remote.YFilter = yf }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetGoName(yname string) string {
-    if yname == "router-id" { return "RouterId" }
-    if yname == "if-index" { return "IfIndex" }
-    return ""
+    remote.EntityData.Children = make(map[string]types.YChild)
+    remote.EntityData.Leafs = make(map[string]types.YLeaf)
+    remote.EntityData.Leafs["router-id"] = types.YLeaf{"RouterId", remote.RouterId}
+    remote.EntityData.Leafs["if-index"] = types.YLeaf{"IfIndex", remote.IfIndex}
+    return &(remote.EntityData)
 }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetSegmentPath() string {
-    return "remote"
-}
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["router-id"] = remote.RouterId
-    leafs["if-index"] = remote.IfIndex
-    return leafs
-}
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetYangName() string { return "remote" }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) SetParent(parent types.Entity) { remote.parent = parent }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetParent() types.Entity { return remote.parent }
-
-func (remote *Otu_Controllers_Controller_Info_Remote) GetParentYangName() string { return "info" }
 
 // Otu_Controllers_Controller_Info_TtiMode
 // OTU TTI
 type Otu_Controllers_Controller_Info_TtiMode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // G709TTI sent. The type is OtuTtiEt.
@@ -1001,81 +713,34 @@ type Otu_Controllers_Controller_Info_TtiMode struct {
     Rec Otu_Controllers_Controller_Info_TtiMode_Rec
 }
 
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetFilter() yfilter.YFilter { return ttiMode.YFilter }
+func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetEntityData() *types.CommonEntityData {
+    ttiMode.EntityData.YFilter = ttiMode.YFilter
+    ttiMode.EntityData.YangName = "tti-mode"
+    ttiMode.EntityData.BundleName = "cisco_ios_xr"
+    ttiMode.EntityData.ParentYangName = "info"
+    ttiMode.EntityData.SegmentPath = "tti-mode"
+    ttiMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ttiMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ttiMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) SetFilter(yf yfilter.YFilter) { ttiMode.YFilter = yf }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetGoName(yname string) string {
-    if yname == "g709tti-sent-mode" { return "G709TtiSentMode" }
-    if yname == "g709tti-exp-mode" { return "G709TtiExpMode" }
-    if yname == "g709tti-rec-mode" { return "G709TtiRecMode" }
-    if yname == "remote-interface" { return "RemoteInterface" }
-    if yname == "remote-host-name" { return "RemoteHostName" }
-    if yname == "remote-ip-addr" { return "RemoteIpAddr" }
-    if yname == "tx" { return "Tx" }
-    if yname == "exp" { return "Exp" }
-    if yname == "rec" { return "Rec" }
-    return ""
+    ttiMode.EntityData.Children = make(map[string]types.YChild)
+    ttiMode.EntityData.Children["tx"] = types.YChild{"Tx", &ttiMode.Tx}
+    ttiMode.EntityData.Children["exp"] = types.YChild{"Exp", &ttiMode.Exp}
+    ttiMode.EntityData.Children["rec"] = types.YChild{"Rec", &ttiMode.Rec}
+    ttiMode.EntityData.Leafs = make(map[string]types.YLeaf)
+    ttiMode.EntityData.Leafs["g709tti-sent-mode"] = types.YLeaf{"G709TtiSentMode", ttiMode.G709TtiSentMode}
+    ttiMode.EntityData.Leafs["g709tti-exp-mode"] = types.YLeaf{"G709TtiExpMode", ttiMode.G709TtiExpMode}
+    ttiMode.EntityData.Leafs["g709tti-rec-mode"] = types.YLeaf{"G709TtiRecMode", ttiMode.G709TtiRecMode}
+    ttiMode.EntityData.Leafs["remote-interface"] = types.YLeaf{"RemoteInterface", ttiMode.RemoteInterface}
+    ttiMode.EntityData.Leafs["remote-host-name"] = types.YLeaf{"RemoteHostName", ttiMode.RemoteHostName}
+    ttiMode.EntityData.Leafs["remote-ip-addr"] = types.YLeaf{"RemoteIpAddr", ttiMode.RemoteIpAddr}
+    return &(ttiMode.EntityData)
 }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetSegmentPath() string {
-    return "tti-mode"
-}
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx" {
-        return &ttiMode.Tx
-    }
-    if childYangName == "exp" {
-        return &ttiMode.Exp
-    }
-    if childYangName == "rec" {
-        return &ttiMode.Rec
-    }
-    return nil
-}
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tx"] = &ttiMode.Tx
-    children["exp"] = &ttiMode.Exp
-    children["rec"] = &ttiMode.Rec
-    return children
-}
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["g709tti-sent-mode"] = ttiMode.G709TtiSentMode
-    leafs["g709tti-exp-mode"] = ttiMode.G709TtiExpMode
-    leafs["g709tti-rec-mode"] = ttiMode.G709TtiRecMode
-    leafs["remote-interface"] = ttiMode.RemoteInterface
-    leafs["remote-host-name"] = ttiMode.RemoteHostName
-    leafs["remote-ip-addr"] = ttiMode.RemoteIpAddr
-    return leafs
-}
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetYangName() string { return "tti-mode" }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) SetParent(parent types.Entity) { ttiMode.parent = parent }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetParent() types.Entity { return ttiMode.parent }
-
-func (ttiMode *Otu_Controllers_Controller_Info_TtiMode) GetParentYangName() string { return "info" }
 
 // Otu_Controllers_Controller_Info_TtiMode_Tx
 // String Sent
 type Otu_Controllers_Controller_Info_TtiMode_Tx struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // full tti ascii String . The type is string.
@@ -1091,62 +756,29 @@ type Otu_Controllers_Controller_Info_TtiMode_Tx struct {
     OperatorSpecific []interface{}
 }
 
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetFilter() yfilter.YFilter { return tx.YFilter }
+func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetEntityData() *types.CommonEntityData {
+    tx.EntityData.YFilter = tx.YFilter
+    tx.EntityData.YangName = "tx"
+    tx.EntityData.BundleName = "cisco_ios_xr"
+    tx.EntityData.ParentYangName = "tti-mode"
+    tx.EntityData.SegmentPath = "tx"
+    tx.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tx.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tx.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) SetFilter(yf yfilter.YFilter) { tx.YFilter = yf }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetGoName(yname string) string {
-    if yname == "full-tti-ascii-string" { return "FullTtiAsciiString" }
-    if yname == "sapi" { return "Sapi" }
-    if yname == "dapi" { return "Dapi" }
-    if yname == "operator-specific" { return "OperatorSpecific" }
-    return ""
+    tx.EntityData.Children = make(map[string]types.YChild)
+    tx.EntityData.Leafs = make(map[string]types.YLeaf)
+    tx.EntityData.Leafs["full-tti-ascii-string"] = types.YLeaf{"FullTtiAsciiString", tx.FullTtiAsciiString}
+    tx.EntityData.Leafs["sapi"] = types.YLeaf{"Sapi", tx.Sapi}
+    tx.EntityData.Leafs["dapi"] = types.YLeaf{"Dapi", tx.Dapi}
+    tx.EntityData.Leafs["operator-specific"] = types.YLeaf{"OperatorSpecific", tx.OperatorSpecific}
+    return &(tx.EntityData)
 }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetSegmentPath() string {
-    return "tx"
-}
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["full-tti-ascii-string"] = tx.FullTtiAsciiString
-    leafs["sapi"] = tx.Sapi
-    leafs["dapi"] = tx.Dapi
-    leafs["operator-specific"] = tx.OperatorSpecific
-    return leafs
-}
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetYangName() string { return "tx" }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) SetParent(parent types.Entity) { tx.parent = parent }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetParent() types.Entity { return tx.parent }
-
-func (tx *Otu_Controllers_Controller_Info_TtiMode_Tx) GetParentYangName() string { return "tti-mode" }
 
 // Otu_Controllers_Controller_Info_TtiMode_Exp
 // String Expected
 type Otu_Controllers_Controller_Info_TtiMode_Exp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // full tti ascii String . The type is string.
@@ -1162,62 +794,29 @@ type Otu_Controllers_Controller_Info_TtiMode_Exp struct {
     OperatorSpecific []interface{}
 }
 
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetFilter() yfilter.YFilter { return exp.YFilter }
+func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetEntityData() *types.CommonEntityData {
+    exp.EntityData.YFilter = exp.YFilter
+    exp.EntityData.YangName = "exp"
+    exp.EntityData.BundleName = "cisco_ios_xr"
+    exp.EntityData.ParentYangName = "tti-mode"
+    exp.EntityData.SegmentPath = "exp"
+    exp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) SetFilter(yf yfilter.YFilter) { exp.YFilter = yf }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetGoName(yname string) string {
-    if yname == "full-tti-ascii-string" { return "FullTtiAsciiString" }
-    if yname == "sapi" { return "Sapi" }
-    if yname == "dapi" { return "Dapi" }
-    if yname == "operator-specific" { return "OperatorSpecific" }
-    return ""
+    exp.EntityData.Children = make(map[string]types.YChild)
+    exp.EntityData.Leafs = make(map[string]types.YLeaf)
+    exp.EntityData.Leafs["full-tti-ascii-string"] = types.YLeaf{"FullTtiAsciiString", exp.FullTtiAsciiString}
+    exp.EntityData.Leafs["sapi"] = types.YLeaf{"Sapi", exp.Sapi}
+    exp.EntityData.Leafs["dapi"] = types.YLeaf{"Dapi", exp.Dapi}
+    exp.EntityData.Leafs["operator-specific"] = types.YLeaf{"OperatorSpecific", exp.OperatorSpecific}
+    return &(exp.EntityData)
 }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetSegmentPath() string {
-    return "exp"
-}
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["full-tti-ascii-string"] = exp.FullTtiAsciiString
-    leafs["sapi"] = exp.Sapi
-    leafs["dapi"] = exp.Dapi
-    leafs["operator-specific"] = exp.OperatorSpecific
-    return leafs
-}
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetYangName() string { return "exp" }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) SetParent(parent types.Entity) { exp.parent = parent }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetParent() types.Entity { return exp.parent }
-
-func (exp *Otu_Controllers_Controller_Info_TtiMode_Exp) GetParentYangName() string { return "tti-mode" }
 
 // Otu_Controllers_Controller_Info_TtiMode_Rec
 // String Received
 type Otu_Controllers_Controller_Info_TtiMode_Rec struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // full tti ascii String . The type is string.
@@ -1233,62 +832,29 @@ type Otu_Controllers_Controller_Info_TtiMode_Rec struct {
     OperatorSpecific []interface{}
 }
 
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetFilter() yfilter.YFilter { return rec.YFilter }
+func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetEntityData() *types.CommonEntityData {
+    rec.EntityData.YFilter = rec.YFilter
+    rec.EntityData.YangName = "rec"
+    rec.EntityData.BundleName = "cisco_ios_xr"
+    rec.EntityData.ParentYangName = "tti-mode"
+    rec.EntityData.SegmentPath = "rec"
+    rec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) SetFilter(yf yfilter.YFilter) { rec.YFilter = yf }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetGoName(yname string) string {
-    if yname == "full-tti-ascii-string" { return "FullTtiAsciiString" }
-    if yname == "sapi" { return "Sapi" }
-    if yname == "dapi" { return "Dapi" }
-    if yname == "operator-specific" { return "OperatorSpecific" }
-    return ""
+    rec.EntityData.Children = make(map[string]types.YChild)
+    rec.EntityData.Leafs = make(map[string]types.YLeaf)
+    rec.EntityData.Leafs["full-tti-ascii-string"] = types.YLeaf{"FullTtiAsciiString", rec.FullTtiAsciiString}
+    rec.EntityData.Leafs["sapi"] = types.YLeaf{"Sapi", rec.Sapi}
+    rec.EntityData.Leafs["dapi"] = types.YLeaf{"Dapi", rec.Dapi}
+    rec.EntityData.Leafs["operator-specific"] = types.YLeaf{"OperatorSpecific", rec.OperatorSpecific}
+    return &(rec.EntityData)
 }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetSegmentPath() string {
-    return "rec"
-}
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["full-tti-ascii-string"] = rec.FullTtiAsciiString
-    leafs["sapi"] = rec.Sapi
-    leafs["dapi"] = rec.Dapi
-    leafs["operator-specific"] = rec.OperatorSpecific
-    return leafs
-}
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetYangName() string { return "rec" }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) SetParent(parent types.Entity) { rec.parent = parent }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetParent() types.Entity { return rec.parent }
-
-func (rec *Otu_Controllers_Controller_Info_TtiMode_Rec) GetParentYangName() string { return "tti-mode" }
 
 // Otu_Controllers_Controller_Info_NetworkSrlg
 // Network Shared Risk Link Group information
 type Otu_Controllers_Controller_Info_NetworkSrlg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Array of Network Shared Risk Link Group information. The type is slice of
@@ -1296,69 +862,30 @@ type Otu_Controllers_Controller_Info_NetworkSrlg struct {
     SrlgInfo []Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo
 }
 
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetFilter() yfilter.YFilter { return networkSrlg.YFilter }
+func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetEntityData() *types.CommonEntityData {
+    networkSrlg.EntityData.YFilter = networkSrlg.YFilter
+    networkSrlg.EntityData.YangName = "network-srlg"
+    networkSrlg.EntityData.BundleName = "cisco_ios_xr"
+    networkSrlg.EntityData.ParentYangName = "info"
+    networkSrlg.EntityData.SegmentPath = "network-srlg"
+    networkSrlg.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networkSrlg.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networkSrlg.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) SetFilter(yf yfilter.YFilter) { networkSrlg.YFilter = yf }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetGoName(yname string) string {
-    if yname == "srlg-info" { return "SrlgInfo" }
-    return ""
-}
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetSegmentPath() string {
-    return "network-srlg"
-}
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "srlg-info" {
-        for _, c := range networkSrlg.SrlgInfo {
-            if networkSrlg.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo{}
-        networkSrlg.SrlgInfo = append(networkSrlg.SrlgInfo, child)
-        return &networkSrlg.SrlgInfo[len(networkSrlg.SrlgInfo)-1]
-    }
-    return nil
-}
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    networkSrlg.EntityData.Children = make(map[string]types.YChild)
+    networkSrlg.EntityData.Children["srlg-info"] = types.YChild{"SrlgInfo", nil}
     for i := range networkSrlg.SrlgInfo {
-        children[networkSrlg.SrlgInfo[i].GetSegmentPath()] = &networkSrlg.SrlgInfo[i]
+        networkSrlg.EntityData.Children[types.GetSegmentPath(&networkSrlg.SrlgInfo[i])] = types.YChild{"SrlgInfo", &networkSrlg.SrlgInfo[i]}
     }
-    return children
+    networkSrlg.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(networkSrlg.EntityData)
 }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetYangName() string { return "network-srlg" }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) SetParent(parent types.Entity) { networkSrlg.parent = parent }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetParent() types.Entity { return networkSrlg.parent }
-
-func (networkSrlg *Otu_Controllers_Controller_Info_NetworkSrlg) GetParentYangName() string { return "info" }
 
 // Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo
 // Array of Network Shared Risk Link Group
 // information
 type Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Array to maintain set id number. The type is interface{} with range:
@@ -1370,58 +897,27 @@ type Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo struct {
     Srlg []interface{}
 }
 
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetFilter() yfilter.YFilter { return srlgInfo.YFilter }
+func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetEntityData() *types.CommonEntityData {
+    srlgInfo.EntityData.YFilter = srlgInfo.YFilter
+    srlgInfo.EntityData.YangName = "srlg-info"
+    srlgInfo.EntityData.BundleName = "cisco_ios_xr"
+    srlgInfo.EntityData.ParentYangName = "network-srlg"
+    srlgInfo.EntityData.SegmentPath = "srlg-info"
+    srlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    srlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    srlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) SetFilter(yf yfilter.YFilter) { srlgInfo.YFilter = yf }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetGoName(yname string) string {
-    if yname == "set-id" { return "SetId" }
-    if yname == "srlg" { return "Srlg" }
-    return ""
+    srlgInfo.EntityData.Children = make(map[string]types.YChild)
+    srlgInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    srlgInfo.EntityData.Leafs["set-id"] = types.YLeaf{"SetId", srlgInfo.SetId}
+    srlgInfo.EntityData.Leafs["srlg"] = types.YLeaf{"Srlg", srlgInfo.Srlg}
+    return &(srlgInfo.EntityData)
 }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetSegmentPath() string {
-    return "srlg-info"
-}
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["set-id"] = srlgInfo.SetId
-    leafs["srlg"] = srlgInfo.Srlg
-    return leafs
-}
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetYangName() string { return "srlg-info" }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) SetParent(parent types.Entity) { srlgInfo.parent = parent }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetParent() types.Entity { return srlgInfo.parent }
-
-func (srlgInfo *Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo) GetParentYangName() string { return "network-srlg" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo
 // OTU layer alarm Information
 type Otu_Controllers_Controller_Info_OtuAlarmInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Loss of Signal.
@@ -1476,139 +972,42 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo struct {
     Fecunc Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc
 }
 
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetFilter() yfilter.YFilter { return otuAlarmInfo.YFilter }
+func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetEntityData() *types.CommonEntityData {
+    otuAlarmInfo.EntityData.YFilter = otuAlarmInfo.YFilter
+    otuAlarmInfo.EntityData.YangName = "otu-alarm-info"
+    otuAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    otuAlarmInfo.EntityData.ParentYangName = "info"
+    otuAlarmInfo.EntityData.SegmentPath = "otu-alarm-info"
+    otuAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otuAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otuAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) SetFilter(yf yfilter.YFilter) { otuAlarmInfo.YFilter = yf }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetGoName(yname string) string {
-    if yname == "los" { return "Los" }
-    if yname == "lof" { return "Lof" }
-    if yname == "lom" { return "Lom" }
-    if yname == "oof" { return "Oof" }
-    if yname == "oom" { return "Oom" }
-    if yname == "ais" { return "Ais" }
-    if yname == "iae" { return "Iae" }
-    if yname == "biae" { return "Biae" }
-    if yname == "bdi" { return "Bdi" }
-    if yname == "tim" { return "Tim" }
-    if yname == "eoc" { return "Eoc" }
-    if yname == "fec-mismatch" { return "FecMismatch" }
-    if yname == "sf-ber" { return "SfBer" }
-    if yname == "sd-ber" { return "SdBer" }
-    if yname == "ec" { return "Ec" }
-    if yname == "uc" { return "Uc" }
-    if yname == "fecunc" { return "Fecunc" }
-    return ""
+    otuAlarmInfo.EntityData.Children = make(map[string]types.YChild)
+    otuAlarmInfo.EntityData.Children["los"] = types.YChild{"Los", &otuAlarmInfo.Los}
+    otuAlarmInfo.EntityData.Children["lof"] = types.YChild{"Lof", &otuAlarmInfo.Lof}
+    otuAlarmInfo.EntityData.Children["lom"] = types.YChild{"Lom", &otuAlarmInfo.Lom}
+    otuAlarmInfo.EntityData.Children["oof"] = types.YChild{"Oof", &otuAlarmInfo.Oof}
+    otuAlarmInfo.EntityData.Children["oom"] = types.YChild{"Oom", &otuAlarmInfo.Oom}
+    otuAlarmInfo.EntityData.Children["ais"] = types.YChild{"Ais", &otuAlarmInfo.Ais}
+    otuAlarmInfo.EntityData.Children["iae"] = types.YChild{"Iae", &otuAlarmInfo.Iae}
+    otuAlarmInfo.EntityData.Children["biae"] = types.YChild{"Biae", &otuAlarmInfo.Biae}
+    otuAlarmInfo.EntityData.Children["bdi"] = types.YChild{"Bdi", &otuAlarmInfo.Bdi}
+    otuAlarmInfo.EntityData.Children["tim"] = types.YChild{"Tim", &otuAlarmInfo.Tim}
+    otuAlarmInfo.EntityData.Children["eoc"] = types.YChild{"Eoc", &otuAlarmInfo.Eoc}
+    otuAlarmInfo.EntityData.Children["fec-mismatch"] = types.YChild{"FecMismatch", &otuAlarmInfo.FecMismatch}
+    otuAlarmInfo.EntityData.Children["sf-ber"] = types.YChild{"SfBer", &otuAlarmInfo.SfBer}
+    otuAlarmInfo.EntityData.Children["sd-ber"] = types.YChild{"SdBer", &otuAlarmInfo.SdBer}
+    otuAlarmInfo.EntityData.Children["ec"] = types.YChild{"Ec", &otuAlarmInfo.Ec}
+    otuAlarmInfo.EntityData.Children["uc"] = types.YChild{"Uc", &otuAlarmInfo.Uc}
+    otuAlarmInfo.EntityData.Children["fecunc"] = types.YChild{"Fecunc", &otuAlarmInfo.Fecunc}
+    otuAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(otuAlarmInfo.EntityData)
 }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetSegmentPath() string {
-    return "otu-alarm-info"
-}
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "los" {
-        return &otuAlarmInfo.Los
-    }
-    if childYangName == "lof" {
-        return &otuAlarmInfo.Lof
-    }
-    if childYangName == "lom" {
-        return &otuAlarmInfo.Lom
-    }
-    if childYangName == "oof" {
-        return &otuAlarmInfo.Oof
-    }
-    if childYangName == "oom" {
-        return &otuAlarmInfo.Oom
-    }
-    if childYangName == "ais" {
-        return &otuAlarmInfo.Ais
-    }
-    if childYangName == "iae" {
-        return &otuAlarmInfo.Iae
-    }
-    if childYangName == "biae" {
-        return &otuAlarmInfo.Biae
-    }
-    if childYangName == "bdi" {
-        return &otuAlarmInfo.Bdi
-    }
-    if childYangName == "tim" {
-        return &otuAlarmInfo.Tim
-    }
-    if childYangName == "eoc" {
-        return &otuAlarmInfo.Eoc
-    }
-    if childYangName == "fec-mismatch" {
-        return &otuAlarmInfo.FecMismatch
-    }
-    if childYangName == "sf-ber" {
-        return &otuAlarmInfo.SfBer
-    }
-    if childYangName == "sd-ber" {
-        return &otuAlarmInfo.SdBer
-    }
-    if childYangName == "ec" {
-        return &otuAlarmInfo.Ec
-    }
-    if childYangName == "uc" {
-        return &otuAlarmInfo.Uc
-    }
-    if childYangName == "fecunc" {
-        return &otuAlarmInfo.Fecunc
-    }
-    return nil
-}
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["los"] = &otuAlarmInfo.Los
-    children["lof"] = &otuAlarmInfo.Lof
-    children["lom"] = &otuAlarmInfo.Lom
-    children["oof"] = &otuAlarmInfo.Oof
-    children["oom"] = &otuAlarmInfo.Oom
-    children["ais"] = &otuAlarmInfo.Ais
-    children["iae"] = &otuAlarmInfo.Iae
-    children["biae"] = &otuAlarmInfo.Biae
-    children["bdi"] = &otuAlarmInfo.Bdi
-    children["tim"] = &otuAlarmInfo.Tim
-    children["eoc"] = &otuAlarmInfo.Eoc
-    children["fec-mismatch"] = &otuAlarmInfo.FecMismatch
-    children["sf-ber"] = &otuAlarmInfo.SfBer
-    children["sd-ber"] = &otuAlarmInfo.SdBer
-    children["ec"] = &otuAlarmInfo.Ec
-    children["uc"] = &otuAlarmInfo.Uc
-    children["fecunc"] = &otuAlarmInfo.Fecunc
-    return children
-}
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetYangName() string { return "otu-alarm-info" }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) SetParent(parent types.Entity) { otuAlarmInfo.parent = parent }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetParent() types.Entity { return otuAlarmInfo.parent }
-
-func (otuAlarmInfo *Otu_Controllers_Controller_Info_OtuAlarmInfo) GetParentYangName() string { return "info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Los
 // Loss of Signal
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Los struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -1624,62 +1023,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Los struct {
     Counter interface{}
 }
 
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetFilter() yfilter.YFilter { return los.YFilter }
+func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetEntityData() *types.CommonEntityData {
+    los.EntityData.YFilter = los.YFilter
+    los.EntityData.YangName = "los"
+    los.EntityData.BundleName = "cisco_ios_xr"
+    los.EntityData.ParentYangName = "otu-alarm-info"
+    los.EntityData.SegmentPath = "los"
+    los.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    los.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    los.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) SetFilter(yf yfilter.YFilter) { los.YFilter = yf }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    los.EntityData.Children = make(map[string]types.YChild)
+    los.EntityData.Leafs = make(map[string]types.YLeaf)
+    los.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", los.ReportingEnabled}
+    los.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", los.IsDetected}
+    los.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", los.IsAsserted}
+    los.EntityData.Leafs["counter"] = types.YLeaf{"Counter", los.Counter}
+    return &(los.EntityData)
 }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetSegmentPath() string {
-    return "los"
-}
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = los.ReportingEnabled
-    leafs["is-detected"] = los.IsDetected
-    leafs["is-asserted"] = los.IsAsserted
-    leafs["counter"] = los.Counter
-    return leafs
-}
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetBundleName() string { return "cisco_ios_xr" }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetYangName() string { return "los" }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) SetParent(parent types.Entity) { los.parent = parent }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetParent() types.Entity { return los.parent }
-
-func (los *Otu_Controllers_Controller_Info_OtuAlarmInfo_Los) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof
 // Loss of Frame
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -1695,62 +1061,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof struct {
     Counter interface{}
 }
 
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetFilter() yfilter.YFilter { return lof.YFilter }
+func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetEntityData() *types.CommonEntityData {
+    lof.EntityData.YFilter = lof.YFilter
+    lof.EntityData.YangName = "lof"
+    lof.EntityData.BundleName = "cisco_ios_xr"
+    lof.EntityData.ParentYangName = "otu-alarm-info"
+    lof.EntityData.SegmentPath = "lof"
+    lof.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) SetFilter(yf yfilter.YFilter) { lof.YFilter = yf }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lof.EntityData.Children = make(map[string]types.YChild)
+    lof.EntityData.Leafs = make(map[string]types.YLeaf)
+    lof.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", lof.ReportingEnabled}
+    lof.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lof.IsDetected}
+    lof.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", lof.IsAsserted}
+    lof.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lof.Counter}
+    return &(lof.EntityData)
 }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetSegmentPath() string {
-    return "lof"
-}
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = lof.ReportingEnabled
-    leafs["is-detected"] = lof.IsDetected
-    leafs["is-asserted"] = lof.IsAsserted
-    leafs["counter"] = lof.Counter
-    return leafs
-}
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetYangName() string { return "lof" }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) SetParent(parent types.Entity) { lof.parent = parent }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetParent() types.Entity { return lof.parent }
-
-func (lof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lof) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom
 // Loss of MultiFrame
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -1766,62 +1099,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom struct {
     Counter interface{}
 }
 
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetFilter() yfilter.YFilter { return lom.YFilter }
+func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetEntityData() *types.CommonEntityData {
+    lom.EntityData.YFilter = lom.YFilter
+    lom.EntityData.YangName = "lom"
+    lom.EntityData.BundleName = "cisco_ios_xr"
+    lom.EntityData.ParentYangName = "otu-alarm-info"
+    lom.EntityData.SegmentPath = "lom"
+    lom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) SetFilter(yf yfilter.YFilter) { lom.YFilter = yf }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lom.EntityData.Children = make(map[string]types.YChild)
+    lom.EntityData.Leafs = make(map[string]types.YLeaf)
+    lom.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", lom.ReportingEnabled}
+    lom.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lom.IsDetected}
+    lom.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", lom.IsAsserted}
+    lom.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lom.Counter}
+    return &(lom.EntityData)
 }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetSegmentPath() string {
-    return "lom"
-}
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = lom.ReportingEnabled
-    leafs["is-detected"] = lom.IsDetected
-    leafs["is-asserted"] = lom.IsAsserted
-    leafs["counter"] = lom.Counter
-    return leafs
-}
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetYangName() string { return "lom" }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) SetParent(parent types.Entity) { lom.parent = parent }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetParent() types.Entity { return lom.parent }
-
-func (lom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Lom) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof
 // Out of Frame
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -1837,62 +1137,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof struct {
     Counter interface{}
 }
 
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetFilter() yfilter.YFilter { return oof.YFilter }
+func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetEntityData() *types.CommonEntityData {
+    oof.EntityData.YFilter = oof.YFilter
+    oof.EntityData.YangName = "oof"
+    oof.EntityData.BundleName = "cisco_ios_xr"
+    oof.EntityData.ParentYangName = "otu-alarm-info"
+    oof.EntityData.SegmentPath = "oof"
+    oof.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oof.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oof.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) SetFilter(yf yfilter.YFilter) { oof.YFilter = yf }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    oof.EntityData.Children = make(map[string]types.YChild)
+    oof.EntityData.Leafs = make(map[string]types.YLeaf)
+    oof.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", oof.ReportingEnabled}
+    oof.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oof.IsDetected}
+    oof.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", oof.IsAsserted}
+    oof.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oof.Counter}
+    return &(oof.EntityData)
 }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetSegmentPath() string {
-    return "oof"
-}
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = oof.ReportingEnabled
-    leafs["is-detected"] = oof.IsDetected
-    leafs["is-asserted"] = oof.IsAsserted
-    leafs["counter"] = oof.Counter
-    return leafs
-}
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetBundleName() string { return "cisco_ios_xr" }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetYangName() string { return "oof" }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) SetParent(parent types.Entity) { oof.parent = parent }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetParent() types.Entity { return oof.parent }
-
-func (oof *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oof) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom
 // Out of MultiFrame
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -1908,62 +1175,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom struct {
     Counter interface{}
 }
 
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetFilter() yfilter.YFilter { return oom.YFilter }
+func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetEntityData() *types.CommonEntityData {
+    oom.EntityData.YFilter = oom.YFilter
+    oom.EntityData.YangName = "oom"
+    oom.EntityData.BundleName = "cisco_ios_xr"
+    oom.EntityData.ParentYangName = "otu-alarm-info"
+    oom.EntityData.SegmentPath = "oom"
+    oom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) SetFilter(yf yfilter.YFilter) { oom.YFilter = yf }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    oom.EntityData.Children = make(map[string]types.YChild)
+    oom.EntityData.Leafs = make(map[string]types.YLeaf)
+    oom.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", oom.ReportingEnabled}
+    oom.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oom.IsDetected}
+    oom.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", oom.IsAsserted}
+    oom.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oom.Counter}
+    return &(oom.EntityData)
 }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetSegmentPath() string {
-    return "oom"
-}
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = oom.ReportingEnabled
-    leafs["is-detected"] = oom.IsDetected
-    leafs["is-asserted"] = oom.IsAsserted
-    leafs["counter"] = oom.Counter
-    return leafs
-}
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetBundleName() string { return "cisco_ios_xr" }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetYangName() string { return "oom" }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) SetParent(parent types.Entity) { oom.parent = parent }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetParent() types.Entity { return oom.parent }
-
-func (oom *Otu_Controllers_Controller_Info_OtuAlarmInfo_Oom) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais
 // Alarm Indication Signal
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -1979,62 +1213,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais struct {
     Counter interface{}
 }
 
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetFilter() yfilter.YFilter { return ais.YFilter }
+func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetEntityData() *types.CommonEntityData {
+    ais.EntityData.YFilter = ais.YFilter
+    ais.EntityData.YangName = "ais"
+    ais.EntityData.BundleName = "cisco_ios_xr"
+    ais.EntityData.ParentYangName = "otu-alarm-info"
+    ais.EntityData.SegmentPath = "ais"
+    ais.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ais.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ais.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) SetFilter(yf yfilter.YFilter) { ais.YFilter = yf }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    ais.EntityData.Children = make(map[string]types.YChild)
+    ais.EntityData.Leafs = make(map[string]types.YLeaf)
+    ais.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ais.ReportingEnabled}
+    ais.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ais.IsDetected}
+    ais.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ais.IsAsserted}
+    ais.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ais.Counter}
+    return &(ais.EntityData)
 }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetSegmentPath() string {
-    return "ais"
-}
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = ais.ReportingEnabled
-    leafs["is-detected"] = ais.IsDetected
-    leafs["is-asserted"] = ais.IsAsserted
-    leafs["counter"] = ais.Counter
-    return leafs
-}
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetYangName() string { return "ais" }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) SetParent(parent types.Entity) { ais.parent = parent }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetParent() types.Entity { return ais.parent }
-
-func (ais *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ais) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae
 // Incoming Alignment Error
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2050,62 +1251,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae struct {
     Counter interface{}
 }
 
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetFilter() yfilter.YFilter { return iae.YFilter }
+func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetEntityData() *types.CommonEntityData {
+    iae.EntityData.YFilter = iae.YFilter
+    iae.EntityData.YangName = "iae"
+    iae.EntityData.BundleName = "cisco_ios_xr"
+    iae.EntityData.ParentYangName = "otu-alarm-info"
+    iae.EntityData.SegmentPath = "iae"
+    iae.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    iae.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    iae.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) SetFilter(yf yfilter.YFilter) { iae.YFilter = yf }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    iae.EntityData.Children = make(map[string]types.YChild)
+    iae.EntityData.Leafs = make(map[string]types.YLeaf)
+    iae.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", iae.ReportingEnabled}
+    iae.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", iae.IsDetected}
+    iae.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", iae.IsAsserted}
+    iae.EntityData.Leafs["counter"] = types.YLeaf{"Counter", iae.Counter}
+    return &(iae.EntityData)
 }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetSegmentPath() string {
-    return "iae"
-}
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = iae.ReportingEnabled
-    leafs["is-detected"] = iae.IsDetected
-    leafs["is-asserted"] = iae.IsAsserted
-    leafs["counter"] = iae.Counter
-    return leafs
-}
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetBundleName() string { return "cisco_ios_xr" }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetYangName() string { return "iae" }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) SetParent(parent types.Entity) { iae.parent = parent }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetParent() types.Entity { return iae.parent }
-
-func (iae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Iae) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae
 // Backward Incoming Alignment Error
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2121,62 +1289,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae struct {
     Counter interface{}
 }
 
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetFilter() yfilter.YFilter { return biae.YFilter }
+func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetEntityData() *types.CommonEntityData {
+    biae.EntityData.YFilter = biae.YFilter
+    biae.EntityData.YangName = "biae"
+    biae.EntityData.BundleName = "cisco_ios_xr"
+    biae.EntityData.ParentYangName = "otu-alarm-info"
+    biae.EntityData.SegmentPath = "biae"
+    biae.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    biae.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    biae.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) SetFilter(yf yfilter.YFilter) { biae.YFilter = yf }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    biae.EntityData.Children = make(map[string]types.YChild)
+    biae.EntityData.Leafs = make(map[string]types.YLeaf)
+    biae.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", biae.ReportingEnabled}
+    biae.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", biae.IsDetected}
+    biae.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", biae.IsAsserted}
+    biae.EntityData.Leafs["counter"] = types.YLeaf{"Counter", biae.Counter}
+    return &(biae.EntityData)
 }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetSegmentPath() string {
-    return "biae"
-}
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = biae.ReportingEnabled
-    leafs["is-detected"] = biae.IsDetected
-    leafs["is-asserted"] = biae.IsAsserted
-    leafs["counter"] = biae.Counter
-    return leafs
-}
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetBundleName() string { return "cisco_ios_xr" }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetYangName() string { return "biae" }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) SetParent(parent types.Entity) { biae.parent = parent }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetParent() types.Entity { return biae.parent }
-
-func (biae *Otu_Controllers_Controller_Info_OtuAlarmInfo_Biae) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi
 // Backward Defect Indication
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2192,62 +1327,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi struct {
     Counter interface{}
 }
 
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetFilter() yfilter.YFilter { return bdi.YFilter }
+func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetEntityData() *types.CommonEntityData {
+    bdi.EntityData.YFilter = bdi.YFilter
+    bdi.EntityData.YangName = "bdi"
+    bdi.EntityData.BundleName = "cisco_ios_xr"
+    bdi.EntityData.ParentYangName = "otu-alarm-info"
+    bdi.EntityData.SegmentPath = "bdi"
+    bdi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bdi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bdi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) SetFilter(yf yfilter.YFilter) { bdi.YFilter = yf }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    bdi.EntityData.Children = make(map[string]types.YChild)
+    bdi.EntityData.Leafs = make(map[string]types.YLeaf)
+    bdi.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", bdi.ReportingEnabled}
+    bdi.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", bdi.IsDetected}
+    bdi.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", bdi.IsAsserted}
+    bdi.EntityData.Leafs["counter"] = types.YLeaf{"Counter", bdi.Counter}
+    return &(bdi.EntityData)
 }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetSegmentPath() string {
-    return "bdi"
-}
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = bdi.ReportingEnabled
-    leafs["is-detected"] = bdi.IsDetected
-    leafs["is-asserted"] = bdi.IsAsserted
-    leafs["counter"] = bdi.Counter
-    return leafs
-}
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetYangName() string { return "bdi" }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) SetParent(parent types.Entity) { bdi.parent = parent }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetParent() types.Entity { return bdi.parent }
-
-func (bdi *Otu_Controllers_Controller_Info_OtuAlarmInfo_Bdi) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim
 // Trace Identifier Mismatch
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2263,62 +1365,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim struct {
     Counter interface{}
 }
 
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetFilter() yfilter.YFilter { return tim.YFilter }
+func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetEntityData() *types.CommonEntityData {
+    tim.EntityData.YFilter = tim.YFilter
+    tim.EntityData.YangName = "tim"
+    tim.EntityData.BundleName = "cisco_ios_xr"
+    tim.EntityData.ParentYangName = "otu-alarm-info"
+    tim.EntityData.SegmentPath = "tim"
+    tim.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tim.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tim.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) SetFilter(yf yfilter.YFilter) { tim.YFilter = yf }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    tim.EntityData.Children = make(map[string]types.YChild)
+    tim.EntityData.Leafs = make(map[string]types.YLeaf)
+    tim.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", tim.ReportingEnabled}
+    tim.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", tim.IsDetected}
+    tim.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", tim.IsAsserted}
+    tim.EntityData.Leafs["counter"] = types.YLeaf{"Counter", tim.Counter}
+    return &(tim.EntityData)
 }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetSegmentPath() string {
-    return "tim"
-}
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = tim.ReportingEnabled
-    leafs["is-detected"] = tim.IsDetected
-    leafs["is-asserted"] = tim.IsAsserted
-    leafs["counter"] = tim.Counter
-    return leafs
-}
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetYangName() string { return "tim" }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) SetParent(parent types.Entity) { tim.parent = parent }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetParent() types.Entity { return tim.parent }
-
-func (tim *Otu_Controllers_Controller_Info_OtuAlarmInfo_Tim) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc
 // GCC End of Channel
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2334,62 +1403,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc struct {
     Counter interface{}
 }
 
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetFilter() yfilter.YFilter { return eoc.YFilter }
+func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetEntityData() *types.CommonEntityData {
+    eoc.EntityData.YFilter = eoc.YFilter
+    eoc.EntityData.YangName = "eoc"
+    eoc.EntityData.BundleName = "cisco_ios_xr"
+    eoc.EntityData.ParentYangName = "otu-alarm-info"
+    eoc.EntityData.SegmentPath = "eoc"
+    eoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    eoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    eoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) SetFilter(yf yfilter.YFilter) { eoc.YFilter = yf }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    eoc.EntityData.Children = make(map[string]types.YChild)
+    eoc.EntityData.Leafs = make(map[string]types.YLeaf)
+    eoc.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", eoc.ReportingEnabled}
+    eoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", eoc.IsDetected}
+    eoc.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", eoc.IsAsserted}
+    eoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", eoc.Counter}
+    return &(eoc.EntityData)
 }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetSegmentPath() string {
-    return "eoc"
-}
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = eoc.ReportingEnabled
-    leafs["is-detected"] = eoc.IsDetected
-    leafs["is-asserted"] = eoc.IsAsserted
-    leafs["counter"] = eoc.Counter
-    return leafs
-}
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetYangName() string { return "eoc" }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) SetParent(parent types.Entity) { eoc.parent = parent }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetParent() types.Entity { return eoc.parent }
-
-func (eoc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Eoc) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch
 // FEC mismatch alarm
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2405,62 +1441,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch struct {
     Counter interface{}
 }
 
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetFilter() yfilter.YFilter { return fecMismatch.YFilter }
+func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetEntityData() *types.CommonEntityData {
+    fecMismatch.EntityData.YFilter = fecMismatch.YFilter
+    fecMismatch.EntityData.YangName = "fec-mismatch"
+    fecMismatch.EntityData.BundleName = "cisco_ios_xr"
+    fecMismatch.EntityData.ParentYangName = "otu-alarm-info"
+    fecMismatch.EntityData.SegmentPath = "fec-mismatch"
+    fecMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fecMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fecMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) SetFilter(yf yfilter.YFilter) { fecMismatch.YFilter = yf }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    fecMismatch.EntityData.Children = make(map[string]types.YChild)
+    fecMismatch.EntityData.Leafs = make(map[string]types.YLeaf)
+    fecMismatch.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", fecMismatch.ReportingEnabled}
+    fecMismatch.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", fecMismatch.IsDetected}
+    fecMismatch.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", fecMismatch.IsAsserted}
+    fecMismatch.EntityData.Leafs["counter"] = types.YLeaf{"Counter", fecMismatch.Counter}
+    return &(fecMismatch.EntityData)
 }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetSegmentPath() string {
-    return "fec-mismatch"
-}
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = fecMismatch.ReportingEnabled
-    leafs["is-detected"] = fecMismatch.IsDetected
-    leafs["is-asserted"] = fecMismatch.IsAsserted
-    leafs["counter"] = fecMismatch.Counter
-    return leafs
-}
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetYangName() string { return "fec-mismatch" }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) SetParent(parent types.Entity) { fecMismatch.parent = parent }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetParent() types.Entity { return fecMismatch.parent }
-
-func (fecMismatch *Otu_Controllers_Controller_Info_OtuAlarmInfo_FecMismatch) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer
 // SF BER alarm
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2476,62 +1479,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer struct {
     Counter interface{}
 }
 
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetFilter() yfilter.YFilter { return sfBer.YFilter }
+func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetEntityData() *types.CommonEntityData {
+    sfBer.EntityData.YFilter = sfBer.YFilter
+    sfBer.EntityData.YangName = "sf-ber"
+    sfBer.EntityData.BundleName = "cisco_ios_xr"
+    sfBer.EntityData.ParentYangName = "otu-alarm-info"
+    sfBer.EntityData.SegmentPath = "sf-ber"
+    sfBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sfBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sfBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) SetFilter(yf yfilter.YFilter) { sfBer.YFilter = yf }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    sfBer.EntityData.Children = make(map[string]types.YChild)
+    sfBer.EntityData.Leafs = make(map[string]types.YLeaf)
+    sfBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", sfBer.ReportingEnabled}
+    sfBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", sfBer.IsDetected}
+    sfBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", sfBer.IsAsserted}
+    sfBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sfBer.Counter}
+    return &(sfBer.EntityData)
 }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetSegmentPath() string {
-    return "sf-ber"
-}
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = sfBer.ReportingEnabled
-    leafs["is-detected"] = sfBer.IsDetected
-    leafs["is-asserted"] = sfBer.IsAsserted
-    leafs["counter"] = sfBer.Counter
-    return leafs
-}
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetYangName() string { return "sf-ber" }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) SetParent(parent types.Entity) { sfBer.parent = parent }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetParent() types.Entity { return sfBer.parent }
-
-func (sfBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SfBer) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer
 // SD BER alarm
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2547,62 +1517,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer struct {
     Counter interface{}
 }
 
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetFilter() yfilter.YFilter { return sdBer.YFilter }
+func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetEntityData() *types.CommonEntityData {
+    sdBer.EntityData.YFilter = sdBer.YFilter
+    sdBer.EntityData.YangName = "sd-ber"
+    sdBer.EntityData.BundleName = "cisco_ios_xr"
+    sdBer.EntityData.ParentYangName = "otu-alarm-info"
+    sdBer.EntityData.SegmentPath = "sd-ber"
+    sdBer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sdBer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sdBer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) SetFilter(yf yfilter.YFilter) { sdBer.YFilter = yf }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    sdBer.EntityData.Children = make(map[string]types.YChild)
+    sdBer.EntityData.Leafs = make(map[string]types.YLeaf)
+    sdBer.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", sdBer.ReportingEnabled}
+    sdBer.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", sdBer.IsDetected}
+    sdBer.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", sdBer.IsAsserted}
+    sdBer.EntityData.Leafs["counter"] = types.YLeaf{"Counter", sdBer.Counter}
+    return &(sdBer.EntityData)
 }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetSegmentPath() string {
-    return "sd-ber"
-}
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = sdBer.ReportingEnabled
-    leafs["is-detected"] = sdBer.IsDetected
-    leafs["is-asserted"] = sdBer.IsAsserted
-    leafs["counter"] = sdBer.Counter
-    return leafs
-}
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetYangName() string { return "sd-ber" }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) SetParent(parent types.Entity) { sdBer.parent = parent }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetParent() types.Entity { return sdBer.parent }
-
-func (sdBer *Otu_Controllers_Controller_Info_OtuAlarmInfo_SdBer) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec
 // EC alarm
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2618,62 +1555,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec struct {
     Counter interface{}
 }
 
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetFilter() yfilter.YFilter { return ec.YFilter }
+func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetEntityData() *types.CommonEntityData {
+    ec.EntityData.YFilter = ec.YFilter
+    ec.EntityData.YangName = "ec"
+    ec.EntityData.BundleName = "cisco_ios_xr"
+    ec.EntityData.ParentYangName = "otu-alarm-info"
+    ec.EntityData.SegmentPath = "ec"
+    ec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) SetFilter(yf yfilter.YFilter) { ec.YFilter = yf }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    ec.EntityData.Children = make(map[string]types.YChild)
+    ec.EntityData.Leafs = make(map[string]types.YLeaf)
+    ec.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", ec.ReportingEnabled}
+    ec.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ec.IsDetected}
+    ec.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", ec.IsAsserted}
+    ec.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ec.Counter}
+    return &(ec.EntityData)
 }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetSegmentPath() string {
-    return "ec"
-}
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = ec.ReportingEnabled
-    leafs["is-detected"] = ec.IsDetected
-    leafs["is-asserted"] = ec.IsAsserted
-    leafs["counter"] = ec.Counter
-    return leafs
-}
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetYangName() string { return "ec" }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) SetParent(parent types.Entity) { ec.parent = parent }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetParent() types.Entity { return ec.parent }
-
-func (ec *Otu_Controllers_Controller_Info_OtuAlarmInfo_Ec) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc
 // UC alarm
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2689,62 +1593,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc struct {
     Counter interface{}
 }
 
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetFilter() yfilter.YFilter { return uc.YFilter }
+func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetEntityData() *types.CommonEntityData {
+    uc.EntityData.YFilter = uc.YFilter
+    uc.EntityData.YangName = "uc"
+    uc.EntityData.BundleName = "cisco_ios_xr"
+    uc.EntityData.ParentYangName = "otu-alarm-info"
+    uc.EntityData.SegmentPath = "uc"
+    uc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    uc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    uc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) SetFilter(yf yfilter.YFilter) { uc.YFilter = yf }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    uc.EntityData.Children = make(map[string]types.YChild)
+    uc.EntityData.Leafs = make(map[string]types.YLeaf)
+    uc.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", uc.ReportingEnabled}
+    uc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", uc.IsDetected}
+    uc.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", uc.IsAsserted}
+    uc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", uc.Counter}
+    return &(uc.EntityData)
 }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetSegmentPath() string {
-    return "uc"
-}
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = uc.ReportingEnabled
-    leafs["is-detected"] = uc.IsDetected
-    leafs["is-asserted"] = uc.IsAsserted
-    leafs["counter"] = uc.Counter
-    return leafs
-}
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetYangName() string { return "uc" }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) SetParent(parent types.Entity) { uc.parent = parent }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetParent() types.Entity { return uc.parent }
-
-func (uc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Uc) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc
 // FEC UnCorrected Word
 type Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is reporting enabled?. The type is bool.
@@ -2760,62 +1631,29 @@ type Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc struct {
     Counter interface{}
 }
 
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetFilter() yfilter.YFilter { return fecunc.YFilter }
+func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetEntityData() *types.CommonEntityData {
+    fecunc.EntityData.YFilter = fecunc.YFilter
+    fecunc.EntityData.YangName = "fecunc"
+    fecunc.EntityData.BundleName = "cisco_ios_xr"
+    fecunc.EntityData.ParentYangName = "otu-alarm-info"
+    fecunc.EntityData.SegmentPath = "fecunc"
+    fecunc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fecunc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fecunc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) SetFilter(yf yfilter.YFilter) { fecunc.YFilter = yf }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetGoName(yname string) string {
-    if yname == "reporting-enabled" { return "ReportingEnabled" }
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "is-asserted" { return "IsAsserted" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    fecunc.EntityData.Children = make(map[string]types.YChild)
+    fecunc.EntityData.Leafs = make(map[string]types.YLeaf)
+    fecunc.EntityData.Leafs["reporting-enabled"] = types.YLeaf{"ReportingEnabled", fecunc.ReportingEnabled}
+    fecunc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", fecunc.IsDetected}
+    fecunc.EntityData.Leafs["is-asserted"] = types.YLeaf{"IsAsserted", fecunc.IsAsserted}
+    fecunc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", fecunc.Counter}
+    return &(fecunc.EntityData)
 }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetSegmentPath() string {
-    return "fecunc"
-}
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reporting-enabled"] = fecunc.ReportingEnabled
-    leafs["is-detected"] = fecunc.IsDetected
-    leafs["is-asserted"] = fecunc.IsAsserted
-    leafs["counter"] = fecunc.Counter
-    return leafs
-}
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetYangName() string { return "fecunc" }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) SetParent(parent types.Entity) { fecunc.parent = parent }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetParent() types.Entity { return fecunc.parent }
-
-func (fecunc *Otu_Controllers_Controller_Info_OtuAlarmInfo_Fecunc) GetParentYangName() string { return "otu-alarm-info" }
 
 // Otu_Controllers_Controller_Info_Proactive
 // Proactive Protection
 type Otu_Controllers_Controller_Info_Proactive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Proactive Status. The type is bool.
@@ -2854,76 +1692,36 @@ type Otu_Controllers_Controller_Info_Proactive struct {
     RevertWindow interface{}
 }
 
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetFilter() yfilter.YFilter { return proactive.YFilter }
+func (proactive *Otu_Controllers_Controller_Info_Proactive) GetEntityData() *types.CommonEntityData {
+    proactive.EntityData.YFilter = proactive.YFilter
+    proactive.EntityData.YangName = "proactive"
+    proactive.EntityData.BundleName = "cisco_ios_xr"
+    proactive.EntityData.ParentYangName = "info"
+    proactive.EntityData.SegmentPath = "proactive"
+    proactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    proactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    proactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (proactive *Otu_Controllers_Controller_Info_Proactive) SetFilter(yf yfilter.YFilter) { proactive.YFilter = yf }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetGoName(yname string) string {
-    if yname == "proactive-status" { return "ProactiveStatus" }
-    if yname == "inherit-sec-state" { return "InheritSecState" }
-    if yname == "config-sec-state" { return "ConfigSecState" }
-    if yname == "proactive-fsm-state" { return "ProactiveFsmState" }
-    if yname == "proactive-fsm-if-state" { return "ProactiveFsmIfState" }
-    if yname == "trig-thresh-coeff" { return "TrigThreshCoeff" }
-    if yname == "trig-thresh-power" { return "TrigThreshPower" }
-    if yname == "rvrt-thresh-coeff" { return "RvrtThreshCoeff" }
-    if yname == "rvrt-thresh-power" { return "RvrtThreshPower" }
-    if yname == "trigger-window" { return "TriggerWindow" }
-    if yname == "revert-window" { return "RevertWindow" }
-    return ""
+    proactive.EntityData.Children = make(map[string]types.YChild)
+    proactive.EntityData.Leafs = make(map[string]types.YLeaf)
+    proactive.EntityData.Leafs["proactive-status"] = types.YLeaf{"ProactiveStatus", proactive.ProactiveStatus}
+    proactive.EntityData.Leafs["inherit-sec-state"] = types.YLeaf{"InheritSecState", proactive.InheritSecState}
+    proactive.EntityData.Leafs["config-sec-state"] = types.YLeaf{"ConfigSecState", proactive.ConfigSecState}
+    proactive.EntityData.Leafs["proactive-fsm-state"] = types.YLeaf{"ProactiveFsmState", proactive.ProactiveFsmState}
+    proactive.EntityData.Leafs["proactive-fsm-if-state"] = types.YLeaf{"ProactiveFsmIfState", proactive.ProactiveFsmIfState}
+    proactive.EntityData.Leafs["trig-thresh-coeff"] = types.YLeaf{"TrigThreshCoeff", proactive.TrigThreshCoeff}
+    proactive.EntityData.Leafs["trig-thresh-power"] = types.YLeaf{"TrigThreshPower", proactive.TrigThreshPower}
+    proactive.EntityData.Leafs["rvrt-thresh-coeff"] = types.YLeaf{"RvrtThreshCoeff", proactive.RvrtThreshCoeff}
+    proactive.EntityData.Leafs["rvrt-thresh-power"] = types.YLeaf{"RvrtThreshPower", proactive.RvrtThreshPower}
+    proactive.EntityData.Leafs["trigger-window"] = types.YLeaf{"TriggerWindow", proactive.TriggerWindow}
+    proactive.EntityData.Leafs["revert-window"] = types.YLeaf{"RevertWindow", proactive.RevertWindow}
+    return &(proactive.EntityData)
 }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetSegmentPath() string {
-    return "proactive"
-}
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["proactive-status"] = proactive.ProactiveStatus
-    leafs["inherit-sec-state"] = proactive.InheritSecState
-    leafs["config-sec-state"] = proactive.ConfigSecState
-    leafs["proactive-fsm-state"] = proactive.ProactiveFsmState
-    leafs["proactive-fsm-if-state"] = proactive.ProactiveFsmIfState
-    leafs["trig-thresh-coeff"] = proactive.TrigThreshCoeff
-    leafs["trig-thresh-power"] = proactive.TrigThreshPower
-    leafs["rvrt-thresh-coeff"] = proactive.RvrtThreshCoeff
-    leafs["rvrt-thresh-power"] = proactive.RvrtThreshPower
-    leafs["trigger-window"] = proactive.TriggerWindow
-    leafs["revert-window"] = proactive.RevertWindow
-    return leafs
-}
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetBundleName() string { return "cisco_ios_xr" }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetYangName() string { return "proactive" }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) SetParent(parent types.Entity) { proactive.parent = parent }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetParent() types.Entity { return proactive.parent }
-
-func (proactive *Otu_Controllers_Controller_Info_Proactive) GetParentYangName() string { return "info" }
 
 // Otu_Controllers_Controller_Info_OtuFecSatistics
 // OTU FEC Statistics
 type Otu_Controllers_Controller_Info_OtuFecSatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Bit Error Rate After Forward Error Correction. The type is string.
@@ -2933,51 +1731,20 @@ type Otu_Controllers_Controller_Info_OtuFecSatistics struct {
     PreFecBer interface{}
 }
 
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetFilter() yfilter.YFilter { return otuFecSatistics.YFilter }
+func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetEntityData() *types.CommonEntityData {
+    otuFecSatistics.EntityData.YFilter = otuFecSatistics.YFilter
+    otuFecSatistics.EntityData.YangName = "otu-fec-satistics"
+    otuFecSatistics.EntityData.BundleName = "cisco_ios_xr"
+    otuFecSatistics.EntityData.ParentYangName = "info"
+    otuFecSatistics.EntityData.SegmentPath = "otu-fec-satistics"
+    otuFecSatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otuFecSatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otuFecSatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) SetFilter(yf yfilter.YFilter) { otuFecSatistics.YFilter = yf }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetGoName(yname string) string {
-    if yname == "post-fec-ber" { return "PostFecBer" }
-    if yname == "pre-fec-ber" { return "PreFecBer" }
-    return ""
+    otuFecSatistics.EntityData.Children = make(map[string]types.YChild)
+    otuFecSatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    otuFecSatistics.EntityData.Leafs["post-fec-ber"] = types.YLeaf{"PostFecBer", otuFecSatistics.PostFecBer}
+    otuFecSatistics.EntityData.Leafs["pre-fec-ber"] = types.YLeaf{"PreFecBer", otuFecSatistics.PreFecBer}
+    return &(otuFecSatistics.EntityData)
 }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetSegmentPath() string {
-    return "otu-fec-satistics"
-}
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["post-fec-ber"] = otuFecSatistics.PostFecBer
-    leafs["pre-fec-ber"] = otuFecSatistics.PreFecBer
-    return leafs
-}
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetYangName() string { return "otu-fec-satistics" }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) SetParent(parent types.Entity) { otuFecSatistics.parent = parent }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetParent() types.Entity { return otuFecSatistics.parent }
-
-func (otuFecSatistics *Otu_Controllers_Controller_Info_OtuFecSatistics) GetParentYangName() string { return "info" }
 

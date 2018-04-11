@@ -83,66 +83,33 @@ const (
 // SpanMonitorSession
 // none
 type SpanMonitorSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Monitor-session configuration commands.
     Sessions SpanMonitorSession_Sessions
 }
 
-func (spanMonitorSession *SpanMonitorSession) GetFilter() yfilter.YFilter { return spanMonitorSession.YFilter }
+func (spanMonitorSession *SpanMonitorSession) GetEntityData() *types.CommonEntityData {
+    spanMonitorSession.EntityData.YFilter = spanMonitorSession.YFilter
+    spanMonitorSession.EntityData.YangName = "span-monitor-session"
+    spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSession.EntityData.ParentYangName = "Cisco-IOS-XR-Ethernet-SPAN-cfg"
+    spanMonitorSession.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session"
+    spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSession *SpanMonitorSession) SetFilter(yf yfilter.YFilter) { spanMonitorSession.YFilter = yf }
-
-func (spanMonitorSession *SpanMonitorSession) GetGoName(yname string) string {
-    if yname == "sessions" { return "Sessions" }
-    return ""
+    spanMonitorSession.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSession.EntityData.Children["sessions"] = types.YChild{"Sessions", &spanMonitorSession.Sessions}
+    spanMonitorSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(spanMonitorSession.EntityData)
 }
-
-func (spanMonitorSession *SpanMonitorSession) GetSegmentPath() string {
-    return "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session"
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sessions" {
-        return &spanMonitorSession.Sessions
-    }
-    return nil
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["sessions"] = &spanMonitorSession.Sessions
-    return children
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (spanMonitorSession *SpanMonitorSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSession *SpanMonitorSession) GetYangName() string { return "span-monitor-session" }
-
-func (spanMonitorSession *SpanMonitorSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSession *SpanMonitorSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSession *SpanMonitorSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSession *SpanMonitorSession) SetParent(parent types.Entity) { spanMonitorSession.parent = parent }
-
-func (spanMonitorSession *SpanMonitorSession) GetParent() types.Entity { return spanMonitorSession.parent }
-
-func (spanMonitorSession *SpanMonitorSession) GetParentYangName() string { return "Cisco-IOS-XR-Ethernet-SPAN-cfg" }
 
 // SpanMonitorSession_Sessions
 // Monitor-session configuration commands
 type SpanMonitorSession_Sessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration for a particular Monitor Session. The type is slice of
@@ -150,68 +117,29 @@ type SpanMonitorSession_Sessions struct {
     Session []SpanMonitorSession_Sessions_Session
 }
 
-func (sessions *SpanMonitorSession_Sessions) GetFilter() yfilter.YFilter { return sessions.YFilter }
+func (sessions *SpanMonitorSession_Sessions) GetEntityData() *types.CommonEntityData {
+    sessions.EntityData.YFilter = sessions.YFilter
+    sessions.EntityData.YangName = "sessions"
+    sessions.EntityData.BundleName = "cisco_ios_xr"
+    sessions.EntityData.ParentYangName = "span-monitor-session"
+    sessions.EntityData.SegmentPath = "sessions"
+    sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessions *SpanMonitorSession_Sessions) SetFilter(yf yfilter.YFilter) { sessions.YFilter = yf }
-
-func (sessions *SpanMonitorSession_Sessions) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    return ""
-}
-
-func (sessions *SpanMonitorSession_Sessions) GetSegmentPath() string {
-    return "sessions"
-}
-
-func (sessions *SpanMonitorSession_Sessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        for _, c := range sessions.Session {
-            if sessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SpanMonitorSession_Sessions_Session{}
-        sessions.Session = append(sessions.Session, child)
-        return &sessions.Session[len(sessions.Session)-1]
-    }
-    return nil
-}
-
-func (sessions *SpanMonitorSession_Sessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sessions.EntityData.Children = make(map[string]types.YChild)
+    sessions.EntityData.Children["session"] = types.YChild{"Session", nil}
     for i := range sessions.Session {
-        children[sessions.Session[i].GetSegmentPath()] = &sessions.Session[i]
+        sessions.EntityData.Children[types.GetSegmentPath(&sessions.Session[i])] = types.YChild{"Session", &sessions.Session[i]}
     }
-    return children
+    sessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessions.EntityData)
 }
-
-func (sessions *SpanMonitorSession_Sessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessions *SpanMonitorSession_Sessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessions *SpanMonitorSession_Sessions) GetYangName() string { return "sessions" }
-
-func (sessions *SpanMonitorSession_Sessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessions *SpanMonitorSession_Sessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessions *SpanMonitorSession_Sessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessions *SpanMonitorSession_Sessions) SetParent(parent types.Entity) { sessions.parent = parent }
-
-func (sessions *SpanMonitorSession_Sessions) GetParent() types.Entity { return sessions.parent }
-
-func (sessions *SpanMonitorSession_Sessions) GetParentYangName() string { return "span-monitor-session" }
 
 // SpanMonitorSession_Sessions_Session
 // Configuration for a particular Monitor Session
 type SpanMonitorSession_Sessions_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Name. The type is string with length:
@@ -226,132 +154,64 @@ type SpanMonitorSession_Sessions_Session struct {
     Destination SpanMonitorSession_Sessions_Session_Destination
 }
 
-func (session *SpanMonitorSession_Sessions_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *SpanMonitorSession_Sessions_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "sessions"
+    session.EntityData.SegmentPath = "session" + "[session='" + fmt.Sprintf("%v", session.Session) + "']"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *SpanMonitorSession_Sessions_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *SpanMonitorSession_Sessions_Session) GetGoName(yname string) string {
-    if yname == "session" { return "Session" }
-    if yname == "class" { return "Class" }
-    if yname == "destination" { return "Destination" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Children["destination"] = types.YChild{"Destination", &session.Destination}
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["session"] = types.YLeaf{"Session", session.Session}
+    session.EntityData.Leafs["class"] = types.YLeaf{"Class", session.Class}
+    return &(session.EntityData)
 }
-
-func (session *SpanMonitorSession_Sessions_Session) GetSegmentPath() string {
-    return "session" + "[session='" + fmt.Sprintf("%v", session.Session) + "']"
-}
-
-func (session *SpanMonitorSession_Sessions_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        return &session.Destination
-    }
-    return nil
-}
-
-func (session *SpanMonitorSession_Sessions_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination"] = &session.Destination
-    return children
-}
-
-func (session *SpanMonitorSession_Sessions_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session"] = session.Session
-    leafs["class"] = session.Class
-    return leafs
-}
-
-func (session *SpanMonitorSession_Sessions_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *SpanMonitorSession_Sessions_Session) GetYangName() string { return "session" }
-
-func (session *SpanMonitorSession_Sessions_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *SpanMonitorSession_Sessions_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *SpanMonitorSession_Sessions_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *SpanMonitorSession_Sessions_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *SpanMonitorSession_Sessions_Session) GetParent() types.Entity { return session.parent }
-
-func (session *SpanMonitorSession_Sessions_Session) GetParentYangName() string { return "sessions" }
 
 // SpanMonitorSession_Sessions_Session_Destination
 // Specify a destination
 type SpanMonitorSession_Sessions_Session_Destination struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the type of destination. The type is SpanDestination.
     DestinationType interface{}
 
     // Specify the destination interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     DestinationInterfaceName interface{}
 
     // Specify the destination next-hop IPv4 address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv4Address interface{}
 
     // Specify the destination next-hop IPv6 address. The type is string with
     // pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv6Address interface{}
 }
 
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination *SpanMonitorSession_Sessions_Session_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "session"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *SpanMonitorSession_Sessions_Session_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetGoName(yname string) string {
-    if yname == "destination-type" { return "DestinationType" }
-    if yname == "destination-interface-name" { return "DestinationInterfaceName" }
-    if yname == "destination-ipv4-address" { return "DestinationIpv4Address" }
-    if yname == "destination-ipv6-address" { return "DestinationIpv6Address" }
-    return ""
+    destination.EntityData.Children = make(map[string]types.YChild)
+    destination.EntityData.Leafs = make(map[string]types.YLeaf)
+    destination.EntityData.Leafs["destination-type"] = types.YLeaf{"DestinationType", destination.DestinationType}
+    destination.EntityData.Leafs["destination-interface-name"] = types.YLeaf{"DestinationInterfaceName", destination.DestinationInterfaceName}
+    destination.EntityData.Leafs["destination-ipv4-address"] = types.YLeaf{"DestinationIpv4Address", destination.DestinationIpv4Address}
+    destination.EntityData.Leafs["destination-ipv6-address"] = types.YLeaf{"DestinationIpv6Address", destination.DestinationIpv6Address}
+    return &(destination.EntityData)
 }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetSegmentPath() string {
-    return "destination"
-}
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination-type"] = destination.DestinationType
-    leafs["destination-interface-name"] = destination.DestinationInterfaceName
-    leafs["destination-ipv4-address"] = destination.DestinationIpv4Address
-    leafs["destination-ipv6-address"] = destination.DestinationIpv6Address
-    return leafs
-}
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetYangName() string { return "destination" }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *SpanMonitorSession_Sessions_Session_Destination) GetParentYangName() string { return "session" }
 

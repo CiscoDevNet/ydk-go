@@ -27,26 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-lc-fca-oper:mpa", reflect.TypeOf(Mpa{}))
 }
 
-// SpaResetReason represents SPA reset reasons
-type SpaResetReason string
-
-const (
-    // spa reset reason unknown
-    SpaResetReason_spa_reset_reason_unknown SpaResetReason = "spa-reset-reason-unknown"
-
-    // spa reset reason manual
-    SpaResetReason_spa_reset_reason_manual SpaResetReason = "spa-reset-reason-manual"
-
-    // spa reset reason fpd upgrade
-    SpaResetReason_spa_reset_reason_fpd_upgrade SpaResetReason = "spa-reset-reason-fpd-upgrade"
-
-    // spa reset reason audit fail
-    SpaResetReason_spa_reset_reason_audit_fail SpaResetReason = "spa-reset-reason-audit-fail"
-
-    // spa reset reason failure
-    SpaResetReason_spa_reset_reason_failure SpaResetReason = "spa-reset-reason-failure"
-)
-
 // SpaFailureReason represents SPA failure reasons
 type SpaFailureReason string
 
@@ -76,6 +56,26 @@ const (
     SpaFailureReason_spa_failure_reason_read_type SpaFailureReason = "spa-failure-reason-read-type"
 )
 
+// SpaResetReason represents SPA reset reasons
+type SpaResetReason string
+
+const (
+    // spa reset reason unknown
+    SpaResetReason_spa_reset_reason_unknown SpaResetReason = "spa-reset-reason-unknown"
+
+    // spa reset reason manual
+    SpaResetReason_spa_reset_reason_manual SpaResetReason = "spa-reset-reason-manual"
+
+    // spa reset reason fpd upgrade
+    SpaResetReason_spa_reset_reason_fpd_upgrade SpaResetReason = "spa-reset-reason-fpd-upgrade"
+
+    // spa reset reason audit fail
+    SpaResetReason_spa_reset_reason_audit_fail SpaResetReason = "spa-reset-reason-audit-fail"
+
+    // spa reset reason failure
+    SpaResetReason_spa_reset_reason_failure SpaResetReason = "spa-reset-reason-failure"
+)
+
 // SpaOperState represents SPA operational states
 type SpaOperState string
 
@@ -96,208 +96,96 @@ const (
 // MpaInternal
 // Management LAN Operational data space
 type MpaInternal struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of nodes.
     Nodes MpaInternal_Nodes
 }
 
-func (mpaInternal *MpaInternal) GetFilter() yfilter.YFilter { return mpaInternal.YFilter }
+func (mpaInternal *MpaInternal) GetEntityData() *types.CommonEntityData {
+    mpaInternal.EntityData.YFilter = mpaInternal.YFilter
+    mpaInternal.EntityData.YangName = "mpa-internal"
+    mpaInternal.EntityData.BundleName = "cisco_ios_xr"
+    mpaInternal.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-lc-fca-oper"
+    mpaInternal.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal"
+    mpaInternal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpaInternal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpaInternal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpaInternal *MpaInternal) SetFilter(yf yfilter.YFilter) { mpaInternal.YFilter = yf }
-
-func (mpaInternal *MpaInternal) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    mpaInternal.EntityData.Children = make(map[string]types.YChild)
+    mpaInternal.EntityData.Children["nodes"] = types.YChild{"Nodes", &mpaInternal.Nodes}
+    mpaInternal.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mpaInternal.EntityData)
 }
-
-func (mpaInternal *MpaInternal) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa-internal"
-}
-
-func (mpaInternal *MpaInternal) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &mpaInternal.Nodes
-    }
-    return nil
-}
-
-func (mpaInternal *MpaInternal) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &mpaInternal.Nodes
-    return children
-}
-
-func (mpaInternal *MpaInternal) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mpaInternal *MpaInternal) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpaInternal *MpaInternal) GetYangName() string { return "mpa-internal" }
-
-func (mpaInternal *MpaInternal) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpaInternal *MpaInternal) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpaInternal *MpaInternal) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpaInternal *MpaInternal) SetParent(parent types.Entity) { mpaInternal.parent = parent }
-
-func (mpaInternal *MpaInternal) GetParent() types.Entity { return mpaInternal.parent }
-
-func (mpaInternal *MpaInternal) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-lc-fca-oper" }
 
 // MpaInternal_Nodes
 // Table of nodes
 type MpaInternal_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number. The type is slice of MpaInternal_Nodes_Node.
     Node []MpaInternal_Nodes_Node
 }
 
-func (nodes *MpaInternal_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *MpaInternal_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "mpa-internal"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *MpaInternal_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *MpaInternal_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *MpaInternal_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *MpaInternal_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MpaInternal_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *MpaInternal_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *MpaInternal_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *MpaInternal_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *MpaInternal_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *MpaInternal_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *MpaInternal_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *MpaInternal_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *MpaInternal_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *MpaInternal_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *MpaInternal_Nodes) GetParentYangName() string { return "mpa-internal" }
 
 // MpaInternal_Nodes_Node
 // Number
 type MpaInternal_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. node number. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Number. The type is slice of MpaInternal_Nodes_Node_Bay.
     Bay []MpaInternal_Nodes_Node_Bay
 }
 
-func (node *MpaInternal_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *MpaInternal_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *MpaInternal_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *MpaInternal_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    if yname == "bay" { return "Bay" }
-    return ""
-}
-
-func (node *MpaInternal_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
-}
-
-func (node *MpaInternal_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bay" {
-        for _, c := range node.Bay {
-            if node.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MpaInternal_Nodes_Node_Bay{}
-        node.Bay = append(node.Bay, child)
-        return &node.Bay[len(node.Bay)-1]
-    }
-    return nil
-}
-
-func (node *MpaInternal_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["bay"] = types.YChild{"Bay", nil}
     for i := range node.Bay {
-        children[node.Bay[i].GetSegmentPath()] = &node.Bay[i]
+        node.EntityData.Children[types.GetSegmentPath(&node.Bay[i])] = types.YChild{"Bay", &node.Bay[i]}
     }
-    return children
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
+    return &(node.EntityData)
 }
-
-func (node *MpaInternal_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node"] = node.Node
-    return leafs
-}
-
-func (node *MpaInternal_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *MpaInternal_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *MpaInternal_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *MpaInternal_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *MpaInternal_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *MpaInternal_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *MpaInternal_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *MpaInternal_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // MpaInternal_Nodes_Node_Bay
 // Number
 type MpaInternal_Nodes_Node_Bay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. bay number. The type is interface{} with range:
@@ -308,194 +196,87 @@ type MpaInternal_Nodes_Node_Bay struct {
     Ifsubsies MpaInternal_Nodes_Node_Bay_Ifsubsies
 }
 
-func (bay *MpaInternal_Nodes_Node_Bay) GetFilter() yfilter.YFilter { return bay.YFilter }
+func (bay *MpaInternal_Nodes_Node_Bay) GetEntityData() *types.CommonEntityData {
+    bay.EntityData.YFilter = bay.YFilter
+    bay.EntityData.YangName = "bay"
+    bay.EntityData.BundleName = "cisco_ios_xr"
+    bay.EntityData.ParentYangName = "node"
+    bay.EntityData.SegmentPath = "bay" + "[number='" + fmt.Sprintf("%v", bay.Number) + "']"
+    bay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bay *MpaInternal_Nodes_Node_Bay) SetFilter(yf yfilter.YFilter) { bay.YFilter = yf }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "ifsubsies" { return "Ifsubsies" }
-    return ""
+    bay.EntityData.Children = make(map[string]types.YChild)
+    bay.EntityData.Children["ifsubsies"] = types.YChild{"Ifsubsies", &bay.Ifsubsies}
+    bay.EntityData.Leafs = make(map[string]types.YLeaf)
+    bay.EntityData.Leafs["number"] = types.YLeaf{"Number", bay.Number}
+    return &(bay.EntityData)
 }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetSegmentPath() string {
-    return "bay" + "[number='" + fmt.Sprintf("%v", bay.Number) + "']"
-}
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ifsubsies" {
-        return &bay.Ifsubsies
-    }
-    return nil
-}
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ifsubsies"] = &bay.Ifsubsies
-    return children
-}
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = bay.Number
-    return leafs
-}
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetYangName() string { return "bay" }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bay *MpaInternal_Nodes_Node_Bay) SetParent(parent types.Entity) { bay.parent = parent }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetParent() types.Entity { return bay.parent }
-
-func (bay *MpaInternal_Nodes_Node_Bay) GetParentYangName() string { return "node" }
 
 // MpaInternal_Nodes_Node_Bay_Ifsubsies
 // Table of Ifsubsys
 type MpaInternal_Nodes_Node_Bay_Ifsubsies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number. The type is slice of MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy.
     Ifsubsy []MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy
 }
 
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetFilter() yfilter.YFilter { return ifsubsies.YFilter }
+func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetEntityData() *types.CommonEntityData {
+    ifsubsies.EntityData.YFilter = ifsubsies.YFilter
+    ifsubsies.EntityData.YangName = "ifsubsies"
+    ifsubsies.EntityData.BundleName = "cisco_ios_xr"
+    ifsubsies.EntityData.ParentYangName = "bay"
+    ifsubsies.EntityData.SegmentPath = "ifsubsies"
+    ifsubsies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifsubsies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifsubsies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) SetFilter(yf yfilter.YFilter) { ifsubsies.YFilter = yf }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetGoName(yname string) string {
-    if yname == "ifsubsy" { return "Ifsubsy" }
-    return ""
-}
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetSegmentPath() string {
-    return "ifsubsies"
-}
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ifsubsy" {
-        for _, c := range ifsubsies.Ifsubsy {
-            if ifsubsies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy{}
-        ifsubsies.Ifsubsy = append(ifsubsies.Ifsubsy, child)
-        return &ifsubsies.Ifsubsy[len(ifsubsies.Ifsubsy)-1]
-    }
-    return nil
-}
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ifsubsies.EntityData.Children = make(map[string]types.YChild)
+    ifsubsies.EntityData.Children["ifsubsy"] = types.YChild{"Ifsubsy", nil}
     for i := range ifsubsies.Ifsubsy {
-        children[ifsubsies.Ifsubsy[i].GetSegmentPath()] = &ifsubsies.Ifsubsy[i]
+        ifsubsies.EntityData.Children[types.GetSegmentPath(&ifsubsies.Ifsubsy[i])] = types.YChild{"Ifsubsy", &ifsubsies.Ifsubsy[i]}
     }
-    return children
+    ifsubsies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ifsubsies.EntityData)
 }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetYangName() string { return "ifsubsies" }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) SetParent(parent types.Entity) { ifsubsies.parent = parent }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetParent() types.Entity { return ifsubsies.parent }
-
-func (ifsubsies *MpaInternal_Nodes_Node_Bay_Ifsubsies) GetParentYangName() string { return "bay" }
 
 // MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy
 // Number
 type MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. ifsubsys number. The type is string with pattern:
-    // [0-9a-fA-F]{1,8}.
+    // b'[0-9a-fA-F]{1,8}'.
     Number interface{}
 
     // mpa internal info.
     MpaInternalInfo MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo
 }
 
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetFilter() yfilter.YFilter { return ifsubsy.YFilter }
+func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetEntityData() *types.CommonEntityData {
+    ifsubsy.EntityData.YFilter = ifsubsy.YFilter
+    ifsubsy.EntityData.YangName = "ifsubsy"
+    ifsubsy.EntityData.BundleName = "cisco_ios_xr"
+    ifsubsy.EntityData.ParentYangName = "ifsubsies"
+    ifsubsy.EntityData.SegmentPath = "ifsubsy" + "[number='" + fmt.Sprintf("%v", ifsubsy.Number) + "']"
+    ifsubsy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ifsubsy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ifsubsy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) SetFilter(yf yfilter.YFilter) { ifsubsy.YFilter = yf }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "mpa-internal-info" { return "MpaInternalInfo" }
-    return ""
+    ifsubsy.EntityData.Children = make(map[string]types.YChild)
+    ifsubsy.EntityData.Children["mpa-internal-info"] = types.YChild{"MpaInternalInfo", &ifsubsy.MpaInternalInfo}
+    ifsubsy.EntityData.Leafs = make(map[string]types.YLeaf)
+    ifsubsy.EntityData.Leafs["number"] = types.YLeaf{"Number", ifsubsy.Number}
+    return &(ifsubsy.EntityData)
 }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetSegmentPath() string {
-    return "ifsubsy" + "[number='" + fmt.Sprintf("%v", ifsubsy.Number) + "']"
-}
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpa-internal-info" {
-        return &ifsubsy.MpaInternalInfo
-    }
-    return nil
-}
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpa-internal-info"] = &ifsubsy.MpaInternalInfo
-    return children
-}
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = ifsubsy.Number
-    return leafs
-}
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetYangName() string { return "ifsubsy" }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) SetParent(parent types.Entity) { ifsubsy.parent = parent }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetParent() types.Entity { return ifsubsy.parent }
-
-func (ifsubsy *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy) GetParentYangName() string { return "ifsubsies" }
 
 // MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo
 // mpa internal info
 type MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // bay. The type is interface{} with range: 0..4294967295.
@@ -529,275 +310,124 @@ type MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo struct {
     EpIdpromData interface{}
 }
 
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetFilter() yfilter.YFilter { return mpaInternalInfo.YFilter }
+func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetEntityData() *types.CommonEntityData {
+    mpaInternalInfo.EntityData.YFilter = mpaInternalInfo.YFilter
+    mpaInternalInfo.EntityData.YangName = "mpa-internal-info"
+    mpaInternalInfo.EntityData.BundleName = "cisco_ios_xr"
+    mpaInternalInfo.EntityData.ParentYangName = "ifsubsy"
+    mpaInternalInfo.EntityData.SegmentPath = "mpa-internal-info"
+    mpaInternalInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpaInternalInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpaInternalInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) SetFilter(yf yfilter.YFilter) { mpaInternalInfo.YFilter = yf }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetGoName(yname string) string {
-    if yname == "bay" { return "Bay" }
-    if yname == "ifsubsys" { return "Ifsubsys" }
-    if yname == "if-state" { return "IfState" }
-    if yname == "if-event" { return "IfEvent" }
-    if yname == "ep-type" { return "EpType" }
-    if yname == "ep-state" { return "EpState" }
-    if yname == "ep-presence" { return "EpPresence" }
-    if yname == "ep-idprom-major" { return "EpIdpromMajor" }
-    if yname == "ep-idprom-minor" { return "EpIdpromMinor" }
-    if yname == "ep-idprom-data" { return "EpIdpromData" }
-    return ""
+    mpaInternalInfo.EntityData.Children = make(map[string]types.YChild)
+    mpaInternalInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpaInternalInfo.EntityData.Leafs["bay"] = types.YLeaf{"Bay", mpaInternalInfo.Bay}
+    mpaInternalInfo.EntityData.Leafs["ifsubsys"] = types.YLeaf{"Ifsubsys", mpaInternalInfo.Ifsubsys}
+    mpaInternalInfo.EntityData.Leafs["if-state"] = types.YLeaf{"IfState", mpaInternalInfo.IfState}
+    mpaInternalInfo.EntityData.Leafs["if-event"] = types.YLeaf{"IfEvent", mpaInternalInfo.IfEvent}
+    mpaInternalInfo.EntityData.Leafs["ep-type"] = types.YLeaf{"EpType", mpaInternalInfo.EpType}
+    mpaInternalInfo.EntityData.Leafs["ep-state"] = types.YLeaf{"EpState", mpaInternalInfo.EpState}
+    mpaInternalInfo.EntityData.Leafs["ep-presence"] = types.YLeaf{"EpPresence", mpaInternalInfo.EpPresence}
+    mpaInternalInfo.EntityData.Leafs["ep-idprom-major"] = types.YLeaf{"EpIdpromMajor", mpaInternalInfo.EpIdpromMajor}
+    mpaInternalInfo.EntityData.Leafs["ep-idprom-minor"] = types.YLeaf{"EpIdpromMinor", mpaInternalInfo.EpIdpromMinor}
+    mpaInternalInfo.EntityData.Leafs["ep-idprom-data"] = types.YLeaf{"EpIdpromData", mpaInternalInfo.EpIdpromData}
+    return &(mpaInternalInfo.EntityData)
 }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetSegmentPath() string {
-    return "mpa-internal-info"
-}
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bay"] = mpaInternalInfo.Bay
-    leafs["ifsubsys"] = mpaInternalInfo.Ifsubsys
-    leafs["if-state"] = mpaInternalInfo.IfState
-    leafs["if-event"] = mpaInternalInfo.IfEvent
-    leafs["ep-type"] = mpaInternalInfo.EpType
-    leafs["ep-state"] = mpaInternalInfo.EpState
-    leafs["ep-presence"] = mpaInternalInfo.EpPresence
-    leafs["ep-idprom-major"] = mpaInternalInfo.EpIdpromMajor
-    leafs["ep-idprom-minor"] = mpaInternalInfo.EpIdpromMinor
-    leafs["ep-idprom-data"] = mpaInternalInfo.EpIdpromData
-    return leafs
-}
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetYangName() string { return "mpa-internal-info" }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) SetParent(parent types.Entity) { mpaInternalInfo.parent = parent }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetParent() types.Entity { return mpaInternalInfo.parent }
-
-func (mpaInternalInfo *MpaInternal_Nodes_Node_Bay_Ifsubsies_Ifsubsy_MpaInternalInfo) GetParentYangName() string { return "ifsubsy" }
 
 // Mpa
 // mpa
 type Mpa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of nodes.
     Nodes Mpa_Nodes
 }
 
-func (mpa *Mpa) GetFilter() yfilter.YFilter { return mpa.YFilter }
+func (mpa *Mpa) GetEntityData() *types.CommonEntityData {
+    mpa.EntityData.YFilter = mpa.YFilter
+    mpa.EntityData.YangName = "mpa"
+    mpa.EntityData.BundleName = "cisco_ios_xr"
+    mpa.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-lc-fca-oper"
+    mpa.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa"
+    mpa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpa *Mpa) SetFilter(yf yfilter.YFilter) { mpa.YFilter = yf }
-
-func (mpa *Mpa) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    mpa.EntityData.Children = make(map[string]types.YChild)
+    mpa.EntityData.Children["nodes"] = types.YChild{"Nodes", &mpa.Nodes}
+    mpa.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mpa.EntityData)
 }
-
-func (mpa *Mpa) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-lc-fca-oper:mpa"
-}
-
-func (mpa *Mpa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &mpa.Nodes
-    }
-    return nil
-}
-
-func (mpa *Mpa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &mpa.Nodes
-    return children
-}
-
-func (mpa *Mpa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mpa *Mpa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpa *Mpa) GetYangName() string { return "mpa" }
-
-func (mpa *Mpa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpa *Mpa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpa *Mpa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpa *Mpa) SetParent(parent types.Entity) { mpa.parent = parent }
-
-func (mpa *Mpa) GetParent() types.Entity { return mpa.parent }
-
-func (mpa *Mpa) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-lc-fca-oper" }
 
 // Mpa_Nodes
 // Table of nodes
 type Mpa_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number. The type is slice of Mpa_Nodes_Node.
     Node []Mpa_Nodes_Node
 }
 
-func (nodes *Mpa_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Mpa_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "mpa"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Mpa_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Mpa_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Mpa_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Mpa_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Mpa_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Mpa_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Mpa_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Mpa_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Mpa_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Mpa_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Mpa_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Mpa_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Mpa_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Mpa_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Mpa_Nodes) GetParentYangName() string { return "mpa" }
 
 // Mpa_Nodes_Node
 // Number
 type Mpa_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. node number. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     Node interface{}
 
     // Number. The type is slice of Mpa_Nodes_Node_Bay.
     Bay []Mpa_Nodes_Node_Bay
 }
 
-func (node *Mpa_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Mpa_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Mpa_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Mpa_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    if yname == "bay" { return "Bay" }
-    return ""
-}
-
-func (node *Mpa_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node='" + fmt.Sprintf("%v", node.Node) + "']"
-}
-
-func (node *Mpa_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "bay" {
-        for _, c := range node.Bay {
-            if node.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Mpa_Nodes_Node_Bay{}
-        node.Bay = append(node.Bay, child)
-        return &node.Bay[len(node.Bay)-1]
-    }
-    return nil
-}
-
-func (node *Mpa_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["bay"] = types.YChild{"Bay", nil}
     for i := range node.Bay {
-        children[node.Bay[i].GetSegmentPath()] = &node.Bay[i]
+        node.EntityData.Children[types.GetSegmentPath(&node.Bay[i])] = types.YChild{"Bay", &node.Bay[i]}
     }
-    return children
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node"] = types.YLeaf{"Node", node.Node}
+    return &(node.EntityData)
 }
-
-func (node *Mpa_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node"] = node.Node
-    return leafs
-}
-
-func (node *Mpa_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Mpa_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Mpa_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Mpa_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Mpa_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Mpa_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Mpa_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Mpa_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Mpa_Nodes_Node_Bay
 // Number
 type Mpa_Nodes_Node_Bay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. bay number. The type is interface{} with range:
@@ -808,120 +438,53 @@ type Mpa_Nodes_Node_Bay struct {
     MpaDetailTable Mpa_Nodes_Node_Bay_MpaDetailTable
 }
 
-func (bay *Mpa_Nodes_Node_Bay) GetFilter() yfilter.YFilter { return bay.YFilter }
+func (bay *Mpa_Nodes_Node_Bay) GetEntityData() *types.CommonEntityData {
+    bay.EntityData.YFilter = bay.YFilter
+    bay.EntityData.YangName = "bay"
+    bay.EntityData.BundleName = "cisco_ios_xr"
+    bay.EntityData.ParentYangName = "node"
+    bay.EntityData.SegmentPath = "bay" + "[number='" + fmt.Sprintf("%v", bay.Number) + "']"
+    bay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bay *Mpa_Nodes_Node_Bay) SetFilter(yf yfilter.YFilter) { bay.YFilter = yf }
-
-func (bay *Mpa_Nodes_Node_Bay) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "mpa-detail-table" { return "MpaDetailTable" }
-    return ""
+    bay.EntityData.Children = make(map[string]types.YChild)
+    bay.EntityData.Children["mpa-detail-table"] = types.YChild{"MpaDetailTable", &bay.MpaDetailTable}
+    bay.EntityData.Leafs = make(map[string]types.YLeaf)
+    bay.EntityData.Leafs["number"] = types.YLeaf{"Number", bay.Number}
+    return &(bay.EntityData)
 }
-
-func (bay *Mpa_Nodes_Node_Bay) GetSegmentPath() string {
-    return "bay" + "[number='" + fmt.Sprintf("%v", bay.Number) + "']"
-}
-
-func (bay *Mpa_Nodes_Node_Bay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpa-detail-table" {
-        return &bay.MpaDetailTable
-    }
-    return nil
-}
-
-func (bay *Mpa_Nodes_Node_Bay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpa-detail-table"] = &bay.MpaDetailTable
-    return children
-}
-
-func (bay *Mpa_Nodes_Node_Bay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = bay.Number
-    return leafs
-}
-
-func (bay *Mpa_Nodes_Node_Bay) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bay *Mpa_Nodes_Node_Bay) GetYangName() string { return "bay" }
-
-func (bay *Mpa_Nodes_Node_Bay) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bay *Mpa_Nodes_Node_Bay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bay *Mpa_Nodes_Node_Bay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bay *Mpa_Nodes_Node_Bay) SetParent(parent types.Entity) { bay.parent = parent }
-
-func (bay *Mpa_Nodes_Node_Bay) GetParent() types.Entity { return bay.parent }
-
-func (bay *Mpa_Nodes_Node_Bay) GetParentYangName() string { return "node" }
 
 // Mpa_Nodes_Node_Bay_MpaDetailTable
 // Table of Mpa Detail Info
 type Mpa_Nodes_Node_Bay_MpaDetailTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // mpa detail status info.
     MpaDetail Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail
 }
 
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetFilter() yfilter.YFilter { return mpaDetailTable.YFilter }
+func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetEntityData() *types.CommonEntityData {
+    mpaDetailTable.EntityData.YFilter = mpaDetailTable.YFilter
+    mpaDetailTable.EntityData.YangName = "mpa-detail-table"
+    mpaDetailTable.EntityData.BundleName = "cisco_ios_xr"
+    mpaDetailTable.EntityData.ParentYangName = "bay"
+    mpaDetailTable.EntityData.SegmentPath = "mpa-detail-table"
+    mpaDetailTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpaDetailTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpaDetailTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) SetFilter(yf yfilter.YFilter) { mpaDetailTable.YFilter = yf }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetGoName(yname string) string {
-    if yname == "mpa-detail" { return "MpaDetail" }
-    return ""
+    mpaDetailTable.EntityData.Children = make(map[string]types.YChild)
+    mpaDetailTable.EntityData.Children["mpa-detail"] = types.YChild{"MpaDetail", &mpaDetailTable.MpaDetail}
+    mpaDetailTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mpaDetailTable.EntityData)
 }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetSegmentPath() string {
-    return "mpa-detail-table"
-}
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mpa-detail" {
-        return &mpaDetailTable.MpaDetail
-    }
-    return nil
-}
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mpa-detail"] = &mpaDetailTable.MpaDetail
-    return children
-}
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetYangName() string { return "mpa-detail-table" }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) SetParent(parent types.Entity) { mpaDetailTable.parent = parent }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetParent() types.Entity { return mpaDetailTable.parent }
-
-func (mpaDetailTable *Mpa_Nodes_Node_Bay_MpaDetailTable) GetParentYangName() string { return "bay" }
 
 // Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail
 // mpa detail status info
 type Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // BAY number. The type is interface{} with range: 0..65535.
@@ -969,73 +532,31 @@ type Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail struct {
     UpTime interface{}
 }
 
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetFilter() yfilter.YFilter { return mpaDetail.YFilter }
+func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetEntityData() *types.CommonEntityData {
+    mpaDetail.EntityData.YFilter = mpaDetail.YFilter
+    mpaDetail.EntityData.YangName = "mpa-detail"
+    mpaDetail.EntityData.BundleName = "cisco_ios_xr"
+    mpaDetail.EntityData.ParentYangName = "mpa-detail-table"
+    mpaDetail.EntityData.SegmentPath = "mpa-detail"
+    mpaDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mpaDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mpaDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) SetFilter(yf yfilter.YFilter) { mpaDetail.YFilter = yf }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetGoName(yname string) string {
-    if yname == "bay-number" { return "BayNumber" }
-    if yname == "is-spa-inserted" { return "IsSpaInserted" }
-    if yname == "spa-type" { return "SpaType" }
-    if yname == "is-spa-admin-up" { return "IsSpaAdminUp" }
-    if yname == "spa-oper-state" { return "SpaOperState" }
-    if yname == "is-spa-power-admin-up" { return "IsSpaPowerAdminUp" }
-    if yname == "is-spa-powered" { return "IsSpaPowered" }
-    if yname == "is-spa-in-reset" { return "IsSpaInReset" }
-    if yname == "last-reset-reason" { return "LastResetReason" }
-    if yname == "last-failure-reason" { return "LastFailureReason" }
-    if yname == "insertion-time" { return "InsertionTime" }
-    if yname == "last-ready-time" { return "LastReadyTime" }
-    if yname == "up-time" { return "UpTime" }
-    return ""
+    mpaDetail.EntityData.Children = make(map[string]types.YChild)
+    mpaDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    mpaDetail.EntityData.Leafs["bay-number"] = types.YLeaf{"BayNumber", mpaDetail.BayNumber}
+    mpaDetail.EntityData.Leafs["is-spa-inserted"] = types.YLeaf{"IsSpaInserted", mpaDetail.IsSpaInserted}
+    mpaDetail.EntityData.Leafs["spa-type"] = types.YLeaf{"SpaType", mpaDetail.SpaType}
+    mpaDetail.EntityData.Leafs["is-spa-admin-up"] = types.YLeaf{"IsSpaAdminUp", mpaDetail.IsSpaAdminUp}
+    mpaDetail.EntityData.Leafs["spa-oper-state"] = types.YLeaf{"SpaOperState", mpaDetail.SpaOperState}
+    mpaDetail.EntityData.Leafs["is-spa-power-admin-up"] = types.YLeaf{"IsSpaPowerAdminUp", mpaDetail.IsSpaPowerAdminUp}
+    mpaDetail.EntityData.Leafs["is-spa-powered"] = types.YLeaf{"IsSpaPowered", mpaDetail.IsSpaPowered}
+    mpaDetail.EntityData.Leafs["is-spa-in-reset"] = types.YLeaf{"IsSpaInReset", mpaDetail.IsSpaInReset}
+    mpaDetail.EntityData.Leafs["last-reset-reason"] = types.YLeaf{"LastResetReason", mpaDetail.LastResetReason}
+    mpaDetail.EntityData.Leafs["last-failure-reason"] = types.YLeaf{"LastFailureReason", mpaDetail.LastFailureReason}
+    mpaDetail.EntityData.Leafs["insertion-time"] = types.YLeaf{"InsertionTime", mpaDetail.InsertionTime}
+    mpaDetail.EntityData.Leafs["last-ready-time"] = types.YLeaf{"LastReadyTime", mpaDetail.LastReadyTime}
+    mpaDetail.EntityData.Leafs["up-time"] = types.YLeaf{"UpTime", mpaDetail.UpTime}
+    return &(mpaDetail.EntityData)
 }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetSegmentPath() string {
-    return "mpa-detail"
-}
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bay-number"] = mpaDetail.BayNumber
-    leafs["is-spa-inserted"] = mpaDetail.IsSpaInserted
-    leafs["spa-type"] = mpaDetail.SpaType
-    leafs["is-spa-admin-up"] = mpaDetail.IsSpaAdminUp
-    leafs["spa-oper-state"] = mpaDetail.SpaOperState
-    leafs["is-spa-power-admin-up"] = mpaDetail.IsSpaPowerAdminUp
-    leafs["is-spa-powered"] = mpaDetail.IsSpaPowered
-    leafs["is-spa-in-reset"] = mpaDetail.IsSpaInReset
-    leafs["last-reset-reason"] = mpaDetail.LastResetReason
-    leafs["last-failure-reason"] = mpaDetail.LastFailureReason
-    leafs["insertion-time"] = mpaDetail.InsertionTime
-    leafs["last-ready-time"] = mpaDetail.LastReadyTime
-    leafs["up-time"] = mpaDetail.UpTime
-    return leafs
-}
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetYangName() string { return "mpa-detail" }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) SetParent(parent types.Entity) { mpaDetail.parent = parent }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetParent() types.Entity { return mpaDetail.parent }
-
-func (mpaDetail *Mpa_Nodes_Node_Bay_MpaDetailTable_MpaDetail) GetParentYangName() string { return "mpa-detail-table" }
 

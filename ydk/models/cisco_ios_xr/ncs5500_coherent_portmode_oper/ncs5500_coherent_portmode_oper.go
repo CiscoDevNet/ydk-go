@@ -27,7 +27,7 @@ func init() {
 // ControllerPortMode
 // Coherent PortMode  operational data
 type ControllerPortMode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of optics controller. The type is slice of
@@ -35,133 +35,60 @@ type ControllerPortMode struct {
     OpticsName []ControllerPortMode_OpticsName
 }
 
-func (controllerPortMode *ControllerPortMode) GetFilter() yfilter.YFilter { return controllerPortMode.YFilter }
+func (controllerPortMode *ControllerPortMode) GetEntityData() *types.CommonEntityData {
+    controllerPortMode.EntityData.YFilter = controllerPortMode.YFilter
+    controllerPortMode.EntityData.YangName = "controller-port-mode"
+    controllerPortMode.EntityData.BundleName = "cisco_ios_xr"
+    controllerPortMode.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper"
+    controllerPortMode.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode"
+    controllerPortMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controllerPortMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controllerPortMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controllerPortMode *ControllerPortMode) SetFilter(yf yfilter.YFilter) { controllerPortMode.YFilter = yf }
-
-func (controllerPortMode *ControllerPortMode) GetGoName(yname string) string {
-    if yname == "optics-name" { return "OpticsName" }
-    return ""
-}
-
-func (controllerPortMode *ControllerPortMode) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ncs5500-coherent-portmode-oper:controller-port-mode"
-}
-
-func (controllerPortMode *ControllerPortMode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "optics-name" {
-        for _, c := range controllerPortMode.OpticsName {
-            if controllerPortMode.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ControllerPortMode_OpticsName{}
-        controllerPortMode.OpticsName = append(controllerPortMode.OpticsName, child)
-        return &controllerPortMode.OpticsName[len(controllerPortMode.OpticsName)-1]
-    }
-    return nil
-}
-
-func (controllerPortMode *ControllerPortMode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    controllerPortMode.EntityData.Children = make(map[string]types.YChild)
+    controllerPortMode.EntityData.Children["optics-name"] = types.YChild{"OpticsName", nil}
     for i := range controllerPortMode.OpticsName {
-        children[controllerPortMode.OpticsName[i].GetSegmentPath()] = &controllerPortMode.OpticsName[i]
+        controllerPortMode.EntityData.Children[types.GetSegmentPath(&controllerPortMode.OpticsName[i])] = types.YChild{"OpticsName", &controllerPortMode.OpticsName[i]}
     }
-    return children
+    controllerPortMode.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(controllerPortMode.EntityData)
 }
-
-func (controllerPortMode *ControllerPortMode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (controllerPortMode *ControllerPortMode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controllerPortMode *ControllerPortMode) GetYangName() string { return "controller-port-mode" }
-
-func (controllerPortMode *ControllerPortMode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controllerPortMode *ControllerPortMode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controllerPortMode *ControllerPortMode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controllerPortMode *ControllerPortMode) SetParent(parent types.Entity) { controllerPortMode.parent = parent }
-
-func (controllerPortMode *ControllerPortMode) GetParent() types.Entity { return controllerPortMode.parent }
-
-func (controllerPortMode *ControllerPortMode) GetParentYangName() string { return "Cisco-IOS-XR-ncs5500-coherent-portmode-oper" }
 
 // ControllerPortMode_OpticsName
 // Name of optics controller
 type ControllerPortMode_OpticsName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // PortMode  operational data.
     PortModeInfo ControllerPortMode_OpticsName_PortModeInfo
 }
 
-func (opticsName *ControllerPortMode_OpticsName) GetFilter() yfilter.YFilter { return opticsName.YFilter }
+func (opticsName *ControllerPortMode_OpticsName) GetEntityData() *types.CommonEntityData {
+    opticsName.EntityData.YFilter = opticsName.YFilter
+    opticsName.EntityData.YangName = "optics-name"
+    opticsName.EntityData.BundleName = "cisco_ios_xr"
+    opticsName.EntityData.ParentYangName = "controller-port-mode"
+    opticsName.EntityData.SegmentPath = "optics-name" + "[interface-name='" + fmt.Sprintf("%v", opticsName.InterfaceName) + "']"
+    opticsName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsName *ControllerPortMode_OpticsName) SetFilter(yf yfilter.YFilter) { opticsName.YFilter = yf }
-
-func (opticsName *ControllerPortMode_OpticsName) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "port-mode-info" { return "PortModeInfo" }
-    return ""
+    opticsName.EntityData.Children = make(map[string]types.YChild)
+    opticsName.EntityData.Children["port-mode-info"] = types.YChild{"PortModeInfo", &opticsName.PortModeInfo}
+    opticsName.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsName.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", opticsName.InterfaceName}
+    return &(opticsName.EntityData)
 }
-
-func (opticsName *ControllerPortMode_OpticsName) GetSegmentPath() string {
-    return "optics-name" + "[interface-name='" + fmt.Sprintf("%v", opticsName.InterfaceName) + "']"
-}
-
-func (opticsName *ControllerPortMode_OpticsName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "port-mode-info" {
-        return &opticsName.PortModeInfo
-    }
-    return nil
-}
-
-func (opticsName *ControllerPortMode_OpticsName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["port-mode-info"] = &opticsName.PortModeInfo
-    return children
-}
-
-func (opticsName *ControllerPortMode_OpticsName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = opticsName.InterfaceName
-    return leafs
-}
-
-func (opticsName *ControllerPortMode_OpticsName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsName *ControllerPortMode_OpticsName) GetYangName() string { return "optics-name" }
-
-func (opticsName *ControllerPortMode_OpticsName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsName *ControllerPortMode_OpticsName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsName *ControllerPortMode_OpticsName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsName *ControllerPortMode_OpticsName) SetParent(parent types.Entity) { opticsName.parent = parent }
-
-func (opticsName *ControllerPortMode_OpticsName) GetParent() types.Entity { return opticsName.parent }
-
-func (opticsName *ControllerPortMode_OpticsName) GetParentYangName() string { return "controller-port-mode" }
 
 // ControllerPortMode_OpticsName_PortModeInfo
 // PortMode  operational data
 type ControllerPortMode_OpticsName_PortModeInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // intf name. The type is string with length: 0..128.
@@ -180,57 +107,23 @@ type ControllerPortMode_OpticsName_PortModeInfo struct {
     Modulation interface{}
 }
 
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetFilter() yfilter.YFilter { return portModeInfo.YFilter }
+func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetEntityData() *types.CommonEntityData {
+    portModeInfo.EntityData.YFilter = portModeInfo.YFilter
+    portModeInfo.EntityData.YangName = "port-mode-info"
+    portModeInfo.EntityData.BundleName = "cisco_ios_xr"
+    portModeInfo.EntityData.ParentYangName = "optics-name"
+    portModeInfo.EntityData.SegmentPath = "port-mode-info"
+    portModeInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portModeInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portModeInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) SetFilter(yf yfilter.YFilter) { portModeInfo.YFilter = yf }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetGoName(yname string) string {
-    if yname == "intf-name" { return "IntfName" }
-    if yname == "speed" { return "Speed" }
-    if yname == "fec" { return "Fec" }
-    if yname == "diff" { return "Diff" }
-    if yname == "modulation" { return "Modulation" }
-    return ""
+    portModeInfo.EntityData.Children = make(map[string]types.YChild)
+    portModeInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    portModeInfo.EntityData.Leafs["intf-name"] = types.YLeaf{"IntfName", portModeInfo.IntfName}
+    portModeInfo.EntityData.Leafs["speed"] = types.YLeaf{"Speed", portModeInfo.Speed}
+    portModeInfo.EntityData.Leafs["fec"] = types.YLeaf{"Fec", portModeInfo.Fec}
+    portModeInfo.EntityData.Leafs["diff"] = types.YLeaf{"Diff", portModeInfo.Diff}
+    portModeInfo.EntityData.Leafs["modulation"] = types.YLeaf{"Modulation", portModeInfo.Modulation}
+    return &(portModeInfo.EntityData)
 }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetSegmentPath() string {
-    return "port-mode-info"
-}
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["intf-name"] = portModeInfo.IntfName
-    leafs["speed"] = portModeInfo.Speed
-    leafs["fec"] = portModeInfo.Fec
-    leafs["diff"] = portModeInfo.Diff
-    leafs["modulation"] = portModeInfo.Modulation
-    return leafs
-}
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetYangName() string { return "port-mode-info" }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) SetParent(parent types.Entity) { portModeInfo.parent = parent }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetParent() types.Entity { return portModeInfo.parent }
-
-func (portModeInfo *ControllerPortMode_OpticsName_PortModeInfo) GetParentYangName() string { return "optics-name" }
 

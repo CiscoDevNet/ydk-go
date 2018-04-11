@@ -24,7 +24,7 @@ func init() {
 // A key-chain is a sequence of keys that are collectively
 // managed for authentication.
 type KeyChains struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the key-chain. The type is string.
@@ -37,75 +37,31 @@ type KeyChains struct {
     Key []KeyChains_Key
 }
 
-func (keyChains *KeyChains) GetFilter() yfilter.YFilter { return keyChains.YFilter }
+func (keyChains *KeyChains) GetEntityData() *types.CommonEntityData {
+    keyChains.EntityData.YFilter = keyChains.YFilter
+    keyChains.EntityData.YangName = "key-chains"
+    keyChains.EntityData.BundleName = "ietf"
+    keyChains.EntityData.ParentYangName = "ietf-key-chain"
+    keyChains.EntityData.SegmentPath = "ietf-key-chain:key-chains" + "[name='" + fmt.Sprintf("%v", keyChains.Name) + "']"
+    keyChains.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    keyChains.EntityData.NamespaceTable = ietf.GetNamespaces()
+    keyChains.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (keyChains *KeyChains) SetFilter(yf yfilter.YFilter) { keyChains.YFilter = yf }
-
-func (keyChains *KeyChains) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "accept-tolerance" { return "AcceptTolerance" }
-    if yname == "key" { return "Key" }
-    return ""
-}
-
-func (keyChains *KeyChains) GetSegmentPath() string {
-    return "ietf-key-chain:key-chains" + "[name='" + fmt.Sprintf("%v", keyChains.Name) + "']"
-}
-
-func (keyChains *KeyChains) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "accept-tolerance" {
-        return &keyChains.AcceptTolerance
-    }
-    if childYangName == "key" {
-        for _, c := range keyChains.Key {
-            if keyChains.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := KeyChains_Key{}
-        keyChains.Key = append(keyChains.Key, child)
-        return &keyChains.Key[len(keyChains.Key)-1]
-    }
-    return nil
-}
-
-func (keyChains *KeyChains) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["accept-tolerance"] = &keyChains.AcceptTolerance
+    keyChains.EntityData.Children = make(map[string]types.YChild)
+    keyChains.EntityData.Children["accept-tolerance"] = types.YChild{"AcceptTolerance", &keyChains.AcceptTolerance}
+    keyChains.EntityData.Children["key"] = types.YChild{"Key", nil}
     for i := range keyChains.Key {
-        children[keyChains.Key[i].GetSegmentPath()] = &keyChains.Key[i]
+        keyChains.EntityData.Children[types.GetSegmentPath(&keyChains.Key[i])] = types.YChild{"Key", &keyChains.Key[i]}
     }
-    return children
+    keyChains.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyChains.EntityData.Leafs["name"] = types.YLeaf{"Name", keyChains.Name}
+    return &(keyChains.EntityData)
 }
-
-func (keyChains *KeyChains) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = keyChains.Name
-    return leafs
-}
-
-func (keyChains *KeyChains) GetBundleName() string { return "ietf" }
-
-func (keyChains *KeyChains) GetYangName() string { return "key-chains" }
-
-func (keyChains *KeyChains) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (keyChains *KeyChains) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (keyChains *KeyChains) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (keyChains *KeyChains) SetParent(parent types.Entity) { keyChains.parent = parent }
-
-func (keyChains *KeyChains) GetParent() types.Entity { return keyChains.parent }
-
-func (keyChains *KeyChains) GetParentYangName() string { return "ietf-key-chain" }
 
 // KeyChains_AcceptTolerance
 // Tolerance for key lifetime acceptance (seconds).
 type KeyChains_AcceptTolerance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tolerance range, in seconds. The type is interface{} with range:
@@ -113,56 +69,26 @@ type KeyChains_AcceptTolerance struct {
     Duration interface{}
 }
 
-func (acceptTolerance *KeyChains_AcceptTolerance) GetFilter() yfilter.YFilter { return acceptTolerance.YFilter }
+func (acceptTolerance *KeyChains_AcceptTolerance) GetEntityData() *types.CommonEntityData {
+    acceptTolerance.EntityData.YFilter = acceptTolerance.YFilter
+    acceptTolerance.EntityData.YangName = "accept-tolerance"
+    acceptTolerance.EntityData.BundleName = "ietf"
+    acceptTolerance.EntityData.ParentYangName = "key-chains"
+    acceptTolerance.EntityData.SegmentPath = "accept-tolerance"
+    acceptTolerance.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    acceptTolerance.EntityData.NamespaceTable = ietf.GetNamespaces()
+    acceptTolerance.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (acceptTolerance *KeyChains_AcceptTolerance) SetFilter(yf yfilter.YFilter) { acceptTolerance.YFilter = yf }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetGoName(yname string) string {
-    if yname == "duration" { return "Duration" }
-    return ""
+    acceptTolerance.EntityData.Children = make(map[string]types.YChild)
+    acceptTolerance.EntityData.Leafs = make(map[string]types.YLeaf)
+    acceptTolerance.EntityData.Leafs["duration"] = types.YLeaf{"Duration", acceptTolerance.Duration}
+    return &(acceptTolerance.EntityData)
 }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetSegmentPath() string {
-    return "accept-tolerance"
-}
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["duration"] = acceptTolerance.Duration
-    return leafs
-}
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetBundleName() string { return "ietf" }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetYangName() string { return "accept-tolerance" }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) SetParent(parent types.Entity) { acceptTolerance.parent = parent }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetParent() types.Entity { return acceptTolerance.parent }
-
-func (acceptTolerance *KeyChains_AcceptTolerance) GetParentYangName() string { return "key-chains" }
 
 // KeyChains_Key
 // One key.
 type KeyChains_Key struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Key id. The type is interface{} with range:
@@ -179,133 +105,60 @@ type KeyChains_Key struct {
     CryptoAlgorithm KeyChains_Key_CryptoAlgorithm
 }
 
-func (key *KeyChains_Key) GetFilter() yfilter.YFilter { return key.YFilter }
+func (key *KeyChains_Key) GetEntityData() *types.CommonEntityData {
+    key.EntityData.YFilter = key.YFilter
+    key.EntityData.YangName = "key"
+    key.EntityData.BundleName = "ietf"
+    key.EntityData.ParentYangName = "key-chains"
+    key.EntityData.SegmentPath = "key" + "[key-id='" + fmt.Sprintf("%v", key.KeyId) + "']"
+    key.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    key.EntityData.NamespaceTable = ietf.GetNamespaces()
+    key.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (key *KeyChains_Key) SetFilter(yf yfilter.YFilter) { key.YFilter = yf }
-
-func (key *KeyChains_Key) GetGoName(yname string) string {
-    if yname == "key-id" { return "KeyId" }
-    if yname == "key-string" { return "KeyString" }
-    if yname == "lifetime" { return "Lifetime" }
-    if yname == "crypto-algorithm" { return "CryptoAlgorithm" }
-    return ""
+    key.EntityData.Children = make(map[string]types.YChild)
+    key.EntityData.Children["key-string"] = types.YChild{"KeyString", &key.KeyString}
+    key.EntityData.Children["lifetime"] = types.YChild{"Lifetime", &key.Lifetime}
+    key.EntityData.Children["crypto-algorithm"] = types.YChild{"CryptoAlgorithm", &key.CryptoAlgorithm}
+    key.EntityData.Leafs = make(map[string]types.YLeaf)
+    key.EntityData.Leafs["key-id"] = types.YLeaf{"KeyId", key.KeyId}
+    return &(key.EntityData)
 }
-
-func (key *KeyChains_Key) GetSegmentPath() string {
-    return "key" + "[key-id='" + fmt.Sprintf("%v", key.KeyId) + "']"
-}
-
-func (key *KeyChains_Key) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "key-string" {
-        return &key.KeyString
-    }
-    if childYangName == "lifetime" {
-        return &key.Lifetime
-    }
-    if childYangName == "crypto-algorithm" {
-        return &key.CryptoAlgorithm
-    }
-    return nil
-}
-
-func (key *KeyChains_Key) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["key-string"] = &key.KeyString
-    children["lifetime"] = &key.Lifetime
-    children["crypto-algorithm"] = &key.CryptoAlgorithm
-    return children
-}
-
-func (key *KeyChains_Key) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["key-id"] = key.KeyId
-    return leafs
-}
-
-func (key *KeyChains_Key) GetBundleName() string { return "ietf" }
-
-func (key *KeyChains_Key) GetYangName() string { return "key" }
-
-func (key *KeyChains_Key) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (key *KeyChains_Key) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (key *KeyChains_Key) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (key *KeyChains_Key) SetParent(parent types.Entity) { key.parent = parent }
-
-func (key *KeyChains_Key) GetParent() types.Entity { return key.parent }
-
-func (key *KeyChains_Key) GetParentYangName() string { return "key-chains" }
 
 // KeyChains_Key_KeyString
 // The key string.
 type KeyChains_Key_KeyString struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Key string in ASCII format. The type is string.
     Keystring interface{}
 
     // Key in hexadecimal string format. The type is string with pattern:
-    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
+    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
     HexadecimalString interface{}
 }
 
-func (keyString *KeyChains_Key_KeyString) GetFilter() yfilter.YFilter { return keyString.YFilter }
+func (keyString *KeyChains_Key_KeyString) GetEntityData() *types.CommonEntityData {
+    keyString.EntityData.YFilter = keyString.YFilter
+    keyString.EntityData.YangName = "key-string"
+    keyString.EntityData.BundleName = "ietf"
+    keyString.EntityData.ParentYangName = "key"
+    keyString.EntityData.SegmentPath = "key-string"
+    keyString.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    keyString.EntityData.NamespaceTable = ietf.GetNamespaces()
+    keyString.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (keyString *KeyChains_Key_KeyString) SetFilter(yf yfilter.YFilter) { keyString.YFilter = yf }
-
-func (keyString *KeyChains_Key_KeyString) GetGoName(yname string) string {
-    if yname == "keystring" { return "Keystring" }
-    if yname == "hexadecimal-string" { return "HexadecimalString" }
-    return ""
+    keyString.EntityData.Children = make(map[string]types.YChild)
+    keyString.EntityData.Leafs = make(map[string]types.YLeaf)
+    keyString.EntityData.Leafs["keystring"] = types.YLeaf{"Keystring", keyString.Keystring}
+    keyString.EntityData.Leafs["hexadecimal-string"] = types.YLeaf{"HexadecimalString", keyString.HexadecimalString}
+    return &(keyString.EntityData)
 }
-
-func (keyString *KeyChains_Key_KeyString) GetSegmentPath() string {
-    return "key-string"
-}
-
-func (keyString *KeyChains_Key_KeyString) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (keyString *KeyChains_Key_KeyString) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (keyString *KeyChains_Key_KeyString) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["keystring"] = keyString.Keystring
-    leafs["hexadecimal-string"] = keyString.HexadecimalString
-    return leafs
-}
-
-func (keyString *KeyChains_Key_KeyString) GetBundleName() string { return "ietf" }
-
-func (keyString *KeyChains_Key_KeyString) GetYangName() string { return "key-string" }
-
-func (keyString *KeyChains_Key_KeyString) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (keyString *KeyChains_Key_KeyString) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (keyString *KeyChains_Key_KeyString) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (keyString *KeyChains_Key_KeyString) SetParent(parent types.Entity) { keyString.parent = parent }
-
-func (keyString *KeyChains_Key_KeyString) GetParent() types.Entity { return keyString.parent }
-
-func (keyString *KeyChains_Key_KeyString) GetParentYangName() string { return "key" }
 
 // KeyChains_Key_Lifetime
 // Specify a key's lifetime.
 type KeyChains_Key_Lifetime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Single lifetime specification for both send and accept lifetimes.
@@ -318,77 +171,36 @@ type KeyChains_Key_Lifetime struct {
     AcceptLifetime KeyChains_Key_Lifetime_AcceptLifetime
 }
 
-func (lifetime *KeyChains_Key_Lifetime) GetFilter() yfilter.YFilter { return lifetime.YFilter }
+func (lifetime *KeyChains_Key_Lifetime) GetEntityData() *types.CommonEntityData {
+    lifetime.EntityData.YFilter = lifetime.YFilter
+    lifetime.EntityData.YangName = "lifetime"
+    lifetime.EntityData.BundleName = "ietf"
+    lifetime.EntityData.ParentYangName = "key"
+    lifetime.EntityData.SegmentPath = "lifetime"
+    lifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    lifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
+    lifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (lifetime *KeyChains_Key_Lifetime) SetFilter(yf yfilter.YFilter) { lifetime.YFilter = yf }
-
-func (lifetime *KeyChains_Key_Lifetime) GetGoName(yname string) string {
-    if yname == "send-accept-lifetime" { return "SendAcceptLifetime" }
-    if yname == "send-lifetime" { return "SendLifetime" }
-    if yname == "accept-lifetime" { return "AcceptLifetime" }
-    return ""
+    lifetime.EntityData.Children = make(map[string]types.YChild)
+    lifetime.EntityData.Children["send-accept-lifetime"] = types.YChild{"SendAcceptLifetime", &lifetime.SendAcceptLifetime}
+    lifetime.EntityData.Children["send-lifetime"] = types.YChild{"SendLifetime", &lifetime.SendLifetime}
+    lifetime.EntityData.Children["accept-lifetime"] = types.YChild{"AcceptLifetime", &lifetime.AcceptLifetime}
+    lifetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lifetime.EntityData)
 }
-
-func (lifetime *KeyChains_Key_Lifetime) GetSegmentPath() string {
-    return "lifetime"
-}
-
-func (lifetime *KeyChains_Key_Lifetime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "send-accept-lifetime" {
-        return &lifetime.SendAcceptLifetime
-    }
-    if childYangName == "send-lifetime" {
-        return &lifetime.SendLifetime
-    }
-    if childYangName == "accept-lifetime" {
-        return &lifetime.AcceptLifetime
-    }
-    return nil
-}
-
-func (lifetime *KeyChains_Key_Lifetime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["send-accept-lifetime"] = &lifetime.SendAcceptLifetime
-    children["send-lifetime"] = &lifetime.SendLifetime
-    children["accept-lifetime"] = &lifetime.AcceptLifetime
-    return children
-}
-
-func (lifetime *KeyChains_Key_Lifetime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lifetime *KeyChains_Key_Lifetime) GetBundleName() string { return "ietf" }
-
-func (lifetime *KeyChains_Key_Lifetime) GetYangName() string { return "lifetime" }
-
-func (lifetime *KeyChains_Key_Lifetime) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (lifetime *KeyChains_Key_Lifetime) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (lifetime *KeyChains_Key_Lifetime) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (lifetime *KeyChains_Key_Lifetime) SetParent(parent types.Entity) { lifetime.parent = parent }
-
-func (lifetime *KeyChains_Key_Lifetime) GetParent() types.Entity { return lifetime.parent }
-
-func (lifetime *KeyChains_Key_Lifetime) GetParentYangName() string { return "key" }
 
 // KeyChains_Key_Lifetime_SendAcceptLifetime
 // Single lifetime specification for both send and
 // accept lifetimes.
 type KeyChains_Key_Lifetime_SendAcceptLifetime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates key lifetime is always valid. The type is interface{}.
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -399,76 +211,42 @@ type KeyChains_Key_Lifetime_SendAcceptLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     EndDateTime interface{}
 }
 
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetFilter() yfilter.YFilter { return sendAcceptLifetime.YFilter }
+func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetEntityData() *types.CommonEntityData {
+    sendAcceptLifetime.EntityData.YFilter = sendAcceptLifetime.YFilter
+    sendAcceptLifetime.EntityData.YangName = "send-accept-lifetime"
+    sendAcceptLifetime.EntityData.BundleName = "ietf"
+    sendAcceptLifetime.EntityData.ParentYangName = "lifetime"
+    sendAcceptLifetime.EntityData.SegmentPath = "send-accept-lifetime"
+    sendAcceptLifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    sendAcceptLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
+    sendAcceptLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) SetFilter(yf yfilter.YFilter) { sendAcceptLifetime.YFilter = yf }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetGoName(yname string) string {
-    if yname == "always" { return "Always" }
-    if yname == "start-date-time" { return "StartDateTime" }
-    if yname == "no-end-time" { return "NoEndTime" }
-    if yname == "duration" { return "Duration" }
-    if yname == "end-date-time" { return "EndDateTime" }
-    return ""
+    sendAcceptLifetime.EntityData.Children = make(map[string]types.YChild)
+    sendAcceptLifetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    sendAcceptLifetime.EntityData.Leafs["always"] = types.YLeaf{"Always", sendAcceptLifetime.Always}
+    sendAcceptLifetime.EntityData.Leafs["start-date-time"] = types.YLeaf{"StartDateTime", sendAcceptLifetime.StartDateTime}
+    sendAcceptLifetime.EntityData.Leafs["no-end-time"] = types.YLeaf{"NoEndTime", sendAcceptLifetime.NoEndTime}
+    sendAcceptLifetime.EntityData.Leafs["duration"] = types.YLeaf{"Duration", sendAcceptLifetime.Duration}
+    sendAcceptLifetime.EntityData.Leafs["end-date-time"] = types.YLeaf{"EndDateTime", sendAcceptLifetime.EndDateTime}
+    return &(sendAcceptLifetime.EntityData)
 }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetSegmentPath() string {
-    return "send-accept-lifetime"
-}
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["always"] = sendAcceptLifetime.Always
-    leafs["start-date-time"] = sendAcceptLifetime.StartDateTime
-    leafs["no-end-time"] = sendAcceptLifetime.NoEndTime
-    leafs["duration"] = sendAcceptLifetime.Duration
-    leafs["end-date-time"] = sendAcceptLifetime.EndDateTime
-    return leafs
-}
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetBundleName() string { return "ietf" }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetYangName() string { return "send-accept-lifetime" }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) SetParent(parent types.Entity) { sendAcceptLifetime.parent = parent }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetParent() types.Entity { return sendAcceptLifetime.parent }
-
-func (sendAcceptLifetime *KeyChains_Key_Lifetime_SendAcceptLifetime) GetParentYangName() string { return "lifetime" }
 
 // KeyChains_Key_Lifetime_SendLifetime
 // Separate lifetime specification for send
 // lifetime.
 type KeyChains_Key_Lifetime_SendLifetime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates key lifetime is always valid. The type is interface{}.
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -479,76 +257,42 @@ type KeyChains_Key_Lifetime_SendLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     EndDateTime interface{}
 }
 
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetFilter() yfilter.YFilter { return sendLifetime.YFilter }
+func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetEntityData() *types.CommonEntityData {
+    sendLifetime.EntityData.YFilter = sendLifetime.YFilter
+    sendLifetime.EntityData.YangName = "send-lifetime"
+    sendLifetime.EntityData.BundleName = "ietf"
+    sendLifetime.EntityData.ParentYangName = "lifetime"
+    sendLifetime.EntityData.SegmentPath = "send-lifetime"
+    sendLifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    sendLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
+    sendLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) SetFilter(yf yfilter.YFilter) { sendLifetime.YFilter = yf }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetGoName(yname string) string {
-    if yname == "always" { return "Always" }
-    if yname == "start-date-time" { return "StartDateTime" }
-    if yname == "no-end-time" { return "NoEndTime" }
-    if yname == "duration" { return "Duration" }
-    if yname == "end-date-time" { return "EndDateTime" }
-    return ""
+    sendLifetime.EntityData.Children = make(map[string]types.YChild)
+    sendLifetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    sendLifetime.EntityData.Leafs["always"] = types.YLeaf{"Always", sendLifetime.Always}
+    sendLifetime.EntityData.Leafs["start-date-time"] = types.YLeaf{"StartDateTime", sendLifetime.StartDateTime}
+    sendLifetime.EntityData.Leafs["no-end-time"] = types.YLeaf{"NoEndTime", sendLifetime.NoEndTime}
+    sendLifetime.EntityData.Leafs["duration"] = types.YLeaf{"Duration", sendLifetime.Duration}
+    sendLifetime.EntityData.Leafs["end-date-time"] = types.YLeaf{"EndDateTime", sendLifetime.EndDateTime}
+    return &(sendLifetime.EntityData)
 }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetSegmentPath() string {
-    return "send-lifetime"
-}
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["always"] = sendLifetime.Always
-    leafs["start-date-time"] = sendLifetime.StartDateTime
-    leafs["no-end-time"] = sendLifetime.NoEndTime
-    leafs["duration"] = sendLifetime.Duration
-    leafs["end-date-time"] = sendLifetime.EndDateTime
-    return leafs
-}
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetBundleName() string { return "ietf" }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetYangName() string { return "send-lifetime" }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) SetParent(parent types.Entity) { sendLifetime.parent = parent }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetParent() types.Entity { return sendLifetime.parent }
-
-func (sendLifetime *KeyChains_Key_Lifetime_SendLifetime) GetParentYangName() string { return "lifetime" }
 
 // KeyChains_Key_Lifetime_AcceptLifetime
 // Separate lifetime specification for accept
 // lifetime.
 type KeyChains_Key_Lifetime_AcceptLifetime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates key lifetime is always valid. The type is interface{}.
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -559,68 +303,34 @@ type KeyChains_Key_Lifetime_AcceptLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
+    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
     EndDateTime interface{}
 }
 
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetFilter() yfilter.YFilter { return acceptLifetime.YFilter }
+func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetEntityData() *types.CommonEntityData {
+    acceptLifetime.EntityData.YFilter = acceptLifetime.YFilter
+    acceptLifetime.EntityData.YangName = "accept-lifetime"
+    acceptLifetime.EntityData.BundleName = "ietf"
+    acceptLifetime.EntityData.ParentYangName = "lifetime"
+    acceptLifetime.EntityData.SegmentPath = "accept-lifetime"
+    acceptLifetime.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    acceptLifetime.EntityData.NamespaceTable = ietf.GetNamespaces()
+    acceptLifetime.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) SetFilter(yf yfilter.YFilter) { acceptLifetime.YFilter = yf }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetGoName(yname string) string {
-    if yname == "always" { return "Always" }
-    if yname == "start-date-time" { return "StartDateTime" }
-    if yname == "no-end-time" { return "NoEndTime" }
-    if yname == "duration" { return "Duration" }
-    if yname == "end-date-time" { return "EndDateTime" }
-    return ""
+    acceptLifetime.EntityData.Children = make(map[string]types.YChild)
+    acceptLifetime.EntityData.Leafs = make(map[string]types.YLeaf)
+    acceptLifetime.EntityData.Leafs["always"] = types.YLeaf{"Always", acceptLifetime.Always}
+    acceptLifetime.EntityData.Leafs["start-date-time"] = types.YLeaf{"StartDateTime", acceptLifetime.StartDateTime}
+    acceptLifetime.EntityData.Leafs["no-end-time"] = types.YLeaf{"NoEndTime", acceptLifetime.NoEndTime}
+    acceptLifetime.EntityData.Leafs["duration"] = types.YLeaf{"Duration", acceptLifetime.Duration}
+    acceptLifetime.EntityData.Leafs["end-date-time"] = types.YLeaf{"EndDateTime", acceptLifetime.EndDateTime}
+    return &(acceptLifetime.EntityData)
 }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetSegmentPath() string {
-    return "accept-lifetime"
-}
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["always"] = acceptLifetime.Always
-    leafs["start-date-time"] = acceptLifetime.StartDateTime
-    leafs["no-end-time"] = acceptLifetime.NoEndTime
-    leafs["duration"] = acceptLifetime.Duration
-    leafs["end-date-time"] = acceptLifetime.EndDateTime
-    return leafs
-}
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetBundleName() string { return "ietf" }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetYangName() string { return "accept-lifetime" }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) SetParent(parent types.Entity) { acceptLifetime.parent = parent }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetParent() types.Entity { return acceptLifetime.parent }
-
-func (acceptLifetime *KeyChains_Key_Lifetime_AcceptLifetime) GetParentYangName() string { return "lifetime" }
 
 // KeyChains_Key_CryptoAlgorithm
 // Cryptographic algorithm associated with key.
 type KeyChains_Key_CryptoAlgorithm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The HMAC-SHA1-12 algorithm. The type is interface{}.
@@ -648,63 +358,26 @@ type KeyChains_Key_CryptoAlgorithm struct {
     HmacSha512 interface{}
 }
 
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetFilter() yfilter.YFilter { return cryptoAlgorithm.YFilter }
+func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetEntityData() *types.CommonEntityData {
+    cryptoAlgorithm.EntityData.YFilter = cryptoAlgorithm.YFilter
+    cryptoAlgorithm.EntityData.YangName = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.BundleName = "ietf"
+    cryptoAlgorithm.EntityData.ParentYangName = "key"
+    cryptoAlgorithm.EntityData.SegmentPath = "crypto-algorithm"
+    cryptoAlgorithm.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    cryptoAlgorithm.EntityData.NamespaceTable = ietf.GetNamespaces()
+    cryptoAlgorithm.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) SetFilter(yf yfilter.YFilter) { cryptoAlgorithm.YFilter = yf }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetGoName(yname string) string {
-    if yname == "hmac-sha1-12" { return "HmacSha112" }
-    if yname == "hmac-sha1-20" { return "HmacSha120" }
-    if yname == "md5" { return "Md5" }
-    if yname == "sha-1" { return "Sha1" }
-    if yname == "hmac-sha-1" { return "HmacSha1" }
-    if yname == "hmac-sha-256" { return "HmacSha256" }
-    if yname == "hmac-sha-384" { return "HmacSha384" }
-    if yname == "hmac-sha-512" { return "HmacSha512" }
-    return ""
+    cryptoAlgorithm.EntityData.Children = make(map[string]types.YChild)
+    cryptoAlgorithm.EntityData.Leafs = make(map[string]types.YLeaf)
+    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-12"] = types.YLeaf{"HmacSha112", cryptoAlgorithm.HmacSha112}
+    cryptoAlgorithm.EntityData.Leafs["hmac-sha1-20"] = types.YLeaf{"HmacSha120", cryptoAlgorithm.HmacSha120}
+    cryptoAlgorithm.EntityData.Leafs["md5"] = types.YLeaf{"Md5", cryptoAlgorithm.Md5}
+    cryptoAlgorithm.EntityData.Leafs["sha-1"] = types.YLeaf{"Sha1", cryptoAlgorithm.Sha1}
+    cryptoAlgorithm.EntityData.Leafs["hmac-sha-1"] = types.YLeaf{"HmacSha1", cryptoAlgorithm.HmacSha1}
+    cryptoAlgorithm.EntityData.Leafs["hmac-sha-256"] = types.YLeaf{"HmacSha256", cryptoAlgorithm.HmacSha256}
+    cryptoAlgorithm.EntityData.Leafs["hmac-sha-384"] = types.YLeaf{"HmacSha384", cryptoAlgorithm.HmacSha384}
+    cryptoAlgorithm.EntityData.Leafs["hmac-sha-512"] = types.YLeaf{"HmacSha512", cryptoAlgorithm.HmacSha512}
+    return &(cryptoAlgorithm.EntityData)
 }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetSegmentPath() string {
-    return "crypto-algorithm"
-}
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hmac-sha1-12"] = cryptoAlgorithm.HmacSha112
-    leafs["hmac-sha1-20"] = cryptoAlgorithm.HmacSha120
-    leafs["md5"] = cryptoAlgorithm.Md5
-    leafs["sha-1"] = cryptoAlgorithm.Sha1
-    leafs["hmac-sha-1"] = cryptoAlgorithm.HmacSha1
-    leafs["hmac-sha-256"] = cryptoAlgorithm.HmacSha256
-    leafs["hmac-sha-384"] = cryptoAlgorithm.HmacSha384
-    leafs["hmac-sha-512"] = cryptoAlgorithm.HmacSha512
-    return leafs
-}
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetBundleName() string { return "ietf" }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetYangName() string { return "crypto-algorithm" }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetBundleYangModelsLocation() string { return ietf.GetModelsPath() }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetCapabilitiesTable() map[string]string {
-    return ietf.GetCapabilities() }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetNamespaceTable() map[string]string {
-    return ietf.GetNamespaces() }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) SetParent(parent types.Entity) { cryptoAlgorithm.parent = parent }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetParent() types.Entity { return cryptoAlgorithm.parent }
-
-func (cryptoAlgorithm *KeyChains_Key_CryptoAlgorithm) GetParentYangName() string { return "key" }
 

@@ -27,66 +27,33 @@ func init() {
 // SessionMon
 // Sessionmon
 type SessionMon struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber Sessionmon list of nodes.
     Nodes SessionMon_Nodes
 }
 
-func (sessionMon *SessionMon) GetFilter() yfilter.YFilter { return sessionMon.YFilter }
+func (sessionMon *SessionMon) GetEntityData() *types.CommonEntityData {
+    sessionMon.EntityData.YFilter = sessionMon.YFilter
+    sessionMon.EntityData.YangName = "session-mon"
+    sessionMon.EntityData.BundleName = "cisco_ios_xr"
+    sessionMon.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-session-mon-oper"
+    sessionMon.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon"
+    sessionMon.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionMon.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionMon.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionMon *SessionMon) SetFilter(yf yfilter.YFilter) { sessionMon.YFilter = yf }
-
-func (sessionMon *SessionMon) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    sessionMon.EntityData.Children = make(map[string]types.YChild)
+    sessionMon.EntityData.Children["nodes"] = types.YChild{"Nodes", &sessionMon.Nodes}
+    sessionMon.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessionMon.EntityData)
 }
-
-func (sessionMon *SessionMon) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-session-mon-oper:session-mon"
-}
-
-func (sessionMon *SessionMon) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &sessionMon.Nodes
-    }
-    return nil
-}
-
-func (sessionMon *SessionMon) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &sessionMon.Nodes
-    return children
-}
-
-func (sessionMon *SessionMon) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessionMon *SessionMon) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionMon *SessionMon) GetYangName() string { return "session-mon" }
-
-func (sessionMon *SessionMon) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionMon *SessionMon) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionMon *SessionMon) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionMon *SessionMon) SetParent(parent types.Entity) { sessionMon.parent = parent }
-
-func (sessionMon *SessionMon) GetParent() types.Entity { return sessionMon.parent }
-
-func (sessionMon *SessionMon) GetParentYangName() string { return "Cisco-IOS-XR-subscriber-session-mon-oper" }
 
 // SessionMon_Nodes
 // Subscriber Sessionmon list of nodes
 type SessionMon_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber sessionmon operational data for a particular node. The type is
@@ -94,73 +61,34 @@ type SessionMon_Nodes struct {
     Node []SessionMon_Nodes_Node
 }
 
-func (nodes *SessionMon_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *SessionMon_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "session-mon"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *SessionMon_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *SessionMon_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *SessionMon_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *SessionMon_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionMon_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *SessionMon_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *SessionMon_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *SessionMon_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *SessionMon_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *SessionMon_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *SessionMon_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *SessionMon_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *SessionMon_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *SessionMon_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *SessionMon_Nodes) GetParentYangName() string { return "session-mon" }
 
 // SessionMon_Nodes_Node
 // Subscriber sessionmon operational data for a
 // particular node
 type SessionMon_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Nodeid location . The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeId interface{}
 
     // Session Mon Statistics.
@@ -173,71 +101,29 @@ type SessionMon_Nodes_Node struct {
     LicenseStatistics SessionMon_Nodes_Node_LicenseStatistics
 }
 
-func (node *SessionMon_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *SessionMon_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *SessionMon_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *SessionMon_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-id" { return "NodeId" }
-    if yname == "session-mon-statistics" { return "SessionMonStatistics" }
-    if yname == "interface-all-statistics" { return "InterfaceAllStatistics" }
-    if yname == "license-statistics" { return "LicenseStatistics" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["session-mon-statistics"] = types.YChild{"SessionMonStatistics", &node.SessionMonStatistics}
+    node.EntityData.Children["interface-all-statistics"] = types.YChild{"InterfaceAllStatistics", &node.InterfaceAllStatistics}
+    node.EntityData.Children["license-statistics"] = types.YChild{"LicenseStatistics", &node.LicenseStatistics}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", node.NodeId}
+    return &(node.EntityData)
 }
-
-func (node *SessionMon_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-id='" + fmt.Sprintf("%v", node.NodeId) + "']"
-}
-
-func (node *SessionMon_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session-mon-statistics" {
-        return &node.SessionMonStatistics
-    }
-    if childYangName == "interface-all-statistics" {
-        return &node.InterfaceAllStatistics
-    }
-    if childYangName == "license-statistics" {
-        return &node.LicenseStatistics
-    }
-    return nil
-}
-
-func (node *SessionMon_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session-mon-statistics"] = &node.SessionMonStatistics
-    children["interface-all-statistics"] = &node.InterfaceAllStatistics
-    children["license-statistics"] = &node.LicenseStatistics
-    return children
-}
-
-func (node *SessionMon_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-id"] = node.NodeId
-    return leafs
-}
-
-func (node *SessionMon_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *SessionMon_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *SessionMon_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *SessionMon_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *SessionMon_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *SessionMon_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *SessionMon_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *SessionMon_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // SessionMon_Nodes_Node_SessionMonStatistics
 // Session Mon Statistics
 type SessionMon_Nodes_Node_SessionMonStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // total. The type is interface{} with range: 0..4294967295.
@@ -280,80 +166,38 @@ type SessionMon_Nodes_Node_SessionMonStatistics struct {
     TimeoutValue interface{}
 }
 
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetFilter() yfilter.YFilter { return sessionMonStatistics.YFilter }
+func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetEntityData() *types.CommonEntityData {
+    sessionMonStatistics.EntityData.YFilter = sessionMonStatistics.YFilter
+    sessionMonStatistics.EntityData.YangName = "session-mon-statistics"
+    sessionMonStatistics.EntityData.BundleName = "cisco_ios_xr"
+    sessionMonStatistics.EntityData.ParentYangName = "node"
+    sessionMonStatistics.EntityData.SegmentPath = "session-mon-statistics"
+    sessionMonStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionMonStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionMonStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) SetFilter(yf yfilter.YFilter) { sessionMonStatistics.YFilter = yf }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "pppoe" { return "Pppoe" }
-    if yname == "pppoe-ds" { return "PppoeDs" }
-    if yname == "dhcpv4" { return "Dhcpv4" }
-    if yname == "dhcpv6" { return "Dhcpv6" }
-    if yname == "dhcp-ds" { return "DhcpDs" }
-    if yname == "ippkt" { return "Ippkt" }
-    if yname == "active-sessions" { return "ActiveSessions" }
-    if yname == "standby-sessions" { return "StandbySessions" }
-    if yname == "peak-active-sessions" { return "PeakActiveSessions" }
-    if yname == "peak-standby-sessions" { return "PeakStandbySessions" }
-    if yname == "peak-start-time" { return "PeakStartTime" }
-    if yname == "timeout-value" { return "TimeoutValue" }
-    return ""
+    sessionMonStatistics.EntityData.Children = make(map[string]types.YChild)
+    sessionMonStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    sessionMonStatistics.EntityData.Leafs["total"] = types.YLeaf{"Total", sessionMonStatistics.Total}
+    sessionMonStatistics.EntityData.Leafs["pppoe"] = types.YLeaf{"Pppoe", sessionMonStatistics.Pppoe}
+    sessionMonStatistics.EntityData.Leafs["pppoe-ds"] = types.YLeaf{"PppoeDs", sessionMonStatistics.PppoeDs}
+    sessionMonStatistics.EntityData.Leafs["dhcpv4"] = types.YLeaf{"Dhcpv4", sessionMonStatistics.Dhcpv4}
+    sessionMonStatistics.EntityData.Leafs["dhcpv6"] = types.YLeaf{"Dhcpv6", sessionMonStatistics.Dhcpv6}
+    sessionMonStatistics.EntityData.Leafs["dhcp-ds"] = types.YLeaf{"DhcpDs", sessionMonStatistics.DhcpDs}
+    sessionMonStatistics.EntityData.Leafs["ippkt"] = types.YLeaf{"Ippkt", sessionMonStatistics.Ippkt}
+    sessionMonStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", sessionMonStatistics.ActiveSessions}
+    sessionMonStatistics.EntityData.Leafs["standby-sessions"] = types.YLeaf{"StandbySessions", sessionMonStatistics.StandbySessions}
+    sessionMonStatistics.EntityData.Leafs["peak-active-sessions"] = types.YLeaf{"PeakActiveSessions", sessionMonStatistics.PeakActiveSessions}
+    sessionMonStatistics.EntityData.Leafs["peak-standby-sessions"] = types.YLeaf{"PeakStandbySessions", sessionMonStatistics.PeakStandbySessions}
+    sessionMonStatistics.EntityData.Leafs["peak-start-time"] = types.YLeaf{"PeakStartTime", sessionMonStatistics.PeakStartTime}
+    sessionMonStatistics.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", sessionMonStatistics.TimeoutValue}
+    return &(sessionMonStatistics.EntityData)
 }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetSegmentPath() string {
-    return "session-mon-statistics"
-}
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = sessionMonStatistics.Total
-    leafs["pppoe"] = sessionMonStatistics.Pppoe
-    leafs["pppoe-ds"] = sessionMonStatistics.PppoeDs
-    leafs["dhcpv4"] = sessionMonStatistics.Dhcpv4
-    leafs["dhcpv6"] = sessionMonStatistics.Dhcpv6
-    leafs["dhcp-ds"] = sessionMonStatistics.DhcpDs
-    leafs["ippkt"] = sessionMonStatistics.Ippkt
-    leafs["active-sessions"] = sessionMonStatistics.ActiveSessions
-    leafs["standby-sessions"] = sessionMonStatistics.StandbySessions
-    leafs["peak-active-sessions"] = sessionMonStatistics.PeakActiveSessions
-    leafs["peak-standby-sessions"] = sessionMonStatistics.PeakStandbySessions
-    leafs["peak-start-time"] = sessionMonStatistics.PeakStartTime
-    leafs["timeout-value"] = sessionMonStatistics.TimeoutValue
-    return leafs
-}
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetYangName() string { return "session-mon-statistics" }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) SetParent(parent types.Entity) { sessionMonStatistics.parent = parent }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetParent() types.Entity { return sessionMonStatistics.parent }
-
-func (sessionMonStatistics *SessionMon_Nodes_Node_SessionMonStatistics) GetParentYangName() string { return "node" }
 
 // SessionMon_Nodes_Node_InterfaceAllStatistics
 // Statistics Table
 type SessionMon_Nodes_Node_InterfaceAllStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics. The type is slice of
@@ -361,72 +205,33 @@ type SessionMon_Nodes_Node_InterfaceAllStatistics struct {
     InterfaceAllStatistic []SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic
 }
 
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetFilter() yfilter.YFilter { return interfaceAllStatistics.YFilter }
+func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetEntityData() *types.CommonEntityData {
+    interfaceAllStatistics.EntityData.YFilter = interfaceAllStatistics.YFilter
+    interfaceAllStatistics.EntityData.YangName = "interface-all-statistics"
+    interfaceAllStatistics.EntityData.BundleName = "cisco_ios_xr"
+    interfaceAllStatistics.EntityData.ParentYangName = "node"
+    interfaceAllStatistics.EntityData.SegmentPath = "interface-all-statistics"
+    interfaceAllStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceAllStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceAllStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) SetFilter(yf yfilter.YFilter) { interfaceAllStatistics.YFilter = yf }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetGoName(yname string) string {
-    if yname == "interface-all-statistic" { return "InterfaceAllStatistic" }
-    return ""
-}
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetSegmentPath() string {
-    return "interface-all-statistics"
-}
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-all-statistic" {
-        for _, c := range interfaceAllStatistics.InterfaceAllStatistic {
-            if interfaceAllStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic{}
-        interfaceAllStatistics.InterfaceAllStatistic = append(interfaceAllStatistics.InterfaceAllStatistic, child)
-        return &interfaceAllStatistics.InterfaceAllStatistic[len(interfaceAllStatistics.InterfaceAllStatistic)-1]
-    }
-    return nil
-}
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceAllStatistics.EntityData.Children = make(map[string]types.YChild)
+    interfaceAllStatistics.EntityData.Children["interface-all-statistic"] = types.YChild{"InterfaceAllStatistic", nil}
     for i := range interfaceAllStatistics.InterfaceAllStatistic {
-        children[interfaceAllStatistics.InterfaceAllStatistic[i].GetSegmentPath()] = &interfaceAllStatistics.InterfaceAllStatistic[i]
+        interfaceAllStatistics.EntityData.Children[types.GetSegmentPath(&interfaceAllStatistics.InterfaceAllStatistic[i])] = types.YChild{"InterfaceAllStatistic", &interfaceAllStatistics.InterfaceAllStatistic[i]}
     }
-    return children
+    interfaceAllStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceAllStatistics.EntityData)
 }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetYangName() string { return "interface-all-statistics" }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) SetParent(parent types.Entity) { interfaceAllStatistics.parent = parent }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetParent() types.Entity { return interfaceAllStatistics.parent }
-
-func (interfaceAllStatistics *SessionMon_Nodes_Node_InterfaceAllStatistics) GetParentYangName() string { return "node" }
 
 // SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic
 // Statistics
 type SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // total. The type is interface{} with range: 0..4294967295.
@@ -469,82 +274,39 @@ type SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic struct {
     TimeoutValue interface{}
 }
 
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetFilter() yfilter.YFilter { return interfaceAllStatistic.YFilter }
+func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetEntityData() *types.CommonEntityData {
+    interfaceAllStatistic.EntityData.YFilter = interfaceAllStatistic.YFilter
+    interfaceAllStatistic.EntityData.YangName = "interface-all-statistic"
+    interfaceAllStatistic.EntityData.BundleName = "cisco_ios_xr"
+    interfaceAllStatistic.EntityData.ParentYangName = "interface-all-statistics"
+    interfaceAllStatistic.EntityData.SegmentPath = "interface-all-statistic" + "[interface-name='" + fmt.Sprintf("%v", interfaceAllStatistic.InterfaceName) + "']"
+    interfaceAllStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceAllStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceAllStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) SetFilter(yf yfilter.YFilter) { interfaceAllStatistic.YFilter = yf }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "total" { return "Total" }
-    if yname == "pppoe" { return "Pppoe" }
-    if yname == "pppoe-ds" { return "PppoeDs" }
-    if yname == "dhcpv4" { return "Dhcpv4" }
-    if yname == "dhcpv6" { return "Dhcpv6" }
-    if yname == "dhcp-ds" { return "DhcpDs" }
-    if yname == "ippkt" { return "Ippkt" }
-    if yname == "active-sessions" { return "ActiveSessions" }
-    if yname == "standby-sessions" { return "StandbySessions" }
-    if yname == "peak-active-sessions" { return "PeakActiveSessions" }
-    if yname == "peak-standby-sessions" { return "PeakStandbySessions" }
-    if yname == "peak-start-time" { return "PeakStartTime" }
-    if yname == "timeout-value" { return "TimeoutValue" }
-    return ""
+    interfaceAllStatistic.EntityData.Children = make(map[string]types.YChild)
+    interfaceAllStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceAllStatistic.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", interfaceAllStatistic.InterfaceName}
+    interfaceAllStatistic.EntityData.Leafs["total"] = types.YLeaf{"Total", interfaceAllStatistic.Total}
+    interfaceAllStatistic.EntityData.Leafs["pppoe"] = types.YLeaf{"Pppoe", interfaceAllStatistic.Pppoe}
+    interfaceAllStatistic.EntityData.Leafs["pppoe-ds"] = types.YLeaf{"PppoeDs", interfaceAllStatistic.PppoeDs}
+    interfaceAllStatistic.EntityData.Leafs["dhcpv4"] = types.YLeaf{"Dhcpv4", interfaceAllStatistic.Dhcpv4}
+    interfaceAllStatistic.EntityData.Leafs["dhcpv6"] = types.YLeaf{"Dhcpv6", interfaceAllStatistic.Dhcpv6}
+    interfaceAllStatistic.EntityData.Leafs["dhcp-ds"] = types.YLeaf{"DhcpDs", interfaceAllStatistic.DhcpDs}
+    interfaceAllStatistic.EntityData.Leafs["ippkt"] = types.YLeaf{"Ippkt", interfaceAllStatistic.Ippkt}
+    interfaceAllStatistic.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", interfaceAllStatistic.ActiveSessions}
+    interfaceAllStatistic.EntityData.Leafs["standby-sessions"] = types.YLeaf{"StandbySessions", interfaceAllStatistic.StandbySessions}
+    interfaceAllStatistic.EntityData.Leafs["peak-active-sessions"] = types.YLeaf{"PeakActiveSessions", interfaceAllStatistic.PeakActiveSessions}
+    interfaceAllStatistic.EntityData.Leafs["peak-standby-sessions"] = types.YLeaf{"PeakStandbySessions", interfaceAllStatistic.PeakStandbySessions}
+    interfaceAllStatistic.EntityData.Leafs["peak-start-time"] = types.YLeaf{"PeakStartTime", interfaceAllStatistic.PeakStartTime}
+    interfaceAllStatistic.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", interfaceAllStatistic.TimeoutValue}
+    return &(interfaceAllStatistic.EntityData)
 }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetSegmentPath() string {
-    return "interface-all-statistic" + "[interface-name='" + fmt.Sprintf("%v", interfaceAllStatistic.InterfaceName) + "']"
-}
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = interfaceAllStatistic.InterfaceName
-    leafs["total"] = interfaceAllStatistic.Total
-    leafs["pppoe"] = interfaceAllStatistic.Pppoe
-    leafs["pppoe-ds"] = interfaceAllStatistic.PppoeDs
-    leafs["dhcpv4"] = interfaceAllStatistic.Dhcpv4
-    leafs["dhcpv6"] = interfaceAllStatistic.Dhcpv6
-    leafs["dhcp-ds"] = interfaceAllStatistic.DhcpDs
-    leafs["ippkt"] = interfaceAllStatistic.Ippkt
-    leafs["active-sessions"] = interfaceAllStatistic.ActiveSessions
-    leafs["standby-sessions"] = interfaceAllStatistic.StandbySessions
-    leafs["peak-active-sessions"] = interfaceAllStatistic.PeakActiveSessions
-    leafs["peak-standby-sessions"] = interfaceAllStatistic.PeakStandbySessions
-    leafs["peak-start-time"] = interfaceAllStatistic.PeakStartTime
-    leafs["timeout-value"] = interfaceAllStatistic.TimeoutValue
-    return leafs
-}
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetYangName() string { return "interface-all-statistic" }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) SetParent(parent types.Entity) { interfaceAllStatistic.parent = parent }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetParent() types.Entity { return interfaceAllStatistic.parent }
-
-func (interfaceAllStatistic *SessionMon_Nodes_Node_InterfaceAllStatistics_InterfaceAllStatistic) GetParentYangName() string { return "interface-all-statistics" }
 
 // SessionMon_Nodes_Node_LicenseStatistics
 // Smart license
 type SessionMon_Nodes_Node_LicenseStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // total. The type is interface{} with range: 0..4294967295.
@@ -587,73 +349,31 @@ type SessionMon_Nodes_Node_LicenseStatistics struct {
     TimeoutValue interface{}
 }
 
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetFilter() yfilter.YFilter { return licenseStatistics.YFilter }
+func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetEntityData() *types.CommonEntityData {
+    licenseStatistics.EntityData.YFilter = licenseStatistics.YFilter
+    licenseStatistics.EntityData.YangName = "license-statistics"
+    licenseStatistics.EntityData.BundleName = "cisco_ios_xr"
+    licenseStatistics.EntityData.ParentYangName = "node"
+    licenseStatistics.EntityData.SegmentPath = "license-statistics"
+    licenseStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    licenseStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    licenseStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) SetFilter(yf yfilter.YFilter) { licenseStatistics.YFilter = yf }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetGoName(yname string) string {
-    if yname == "total" { return "Total" }
-    if yname == "pppoe" { return "Pppoe" }
-    if yname == "pppoe-ds" { return "PppoeDs" }
-    if yname == "dhcpv4" { return "Dhcpv4" }
-    if yname == "dhcpv6" { return "Dhcpv6" }
-    if yname == "dhcp-ds" { return "DhcpDs" }
-    if yname == "ippkt" { return "Ippkt" }
-    if yname == "active-sessions" { return "ActiveSessions" }
-    if yname == "standby-sessions" { return "StandbySessions" }
-    if yname == "peak-active-sessions" { return "PeakActiveSessions" }
-    if yname == "peak-standby-sessions" { return "PeakStandbySessions" }
-    if yname == "peak-start-time" { return "PeakStartTime" }
-    if yname == "timeout-value" { return "TimeoutValue" }
-    return ""
+    licenseStatistics.EntityData.Children = make(map[string]types.YChild)
+    licenseStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    licenseStatistics.EntityData.Leafs["total"] = types.YLeaf{"Total", licenseStatistics.Total}
+    licenseStatistics.EntityData.Leafs["pppoe"] = types.YLeaf{"Pppoe", licenseStatistics.Pppoe}
+    licenseStatistics.EntityData.Leafs["pppoe-ds"] = types.YLeaf{"PppoeDs", licenseStatistics.PppoeDs}
+    licenseStatistics.EntityData.Leafs["dhcpv4"] = types.YLeaf{"Dhcpv4", licenseStatistics.Dhcpv4}
+    licenseStatistics.EntityData.Leafs["dhcpv6"] = types.YLeaf{"Dhcpv6", licenseStatistics.Dhcpv6}
+    licenseStatistics.EntityData.Leafs["dhcp-ds"] = types.YLeaf{"DhcpDs", licenseStatistics.DhcpDs}
+    licenseStatistics.EntityData.Leafs["ippkt"] = types.YLeaf{"Ippkt", licenseStatistics.Ippkt}
+    licenseStatistics.EntityData.Leafs["active-sessions"] = types.YLeaf{"ActiveSessions", licenseStatistics.ActiveSessions}
+    licenseStatistics.EntityData.Leafs["standby-sessions"] = types.YLeaf{"StandbySessions", licenseStatistics.StandbySessions}
+    licenseStatistics.EntityData.Leafs["peak-active-sessions"] = types.YLeaf{"PeakActiveSessions", licenseStatistics.PeakActiveSessions}
+    licenseStatistics.EntityData.Leafs["peak-standby-sessions"] = types.YLeaf{"PeakStandbySessions", licenseStatistics.PeakStandbySessions}
+    licenseStatistics.EntityData.Leafs["peak-start-time"] = types.YLeaf{"PeakStartTime", licenseStatistics.PeakStartTime}
+    licenseStatistics.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", licenseStatistics.TimeoutValue}
+    return &(licenseStatistics.EntityData)
 }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetSegmentPath() string {
-    return "license-statistics"
-}
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total"] = licenseStatistics.Total
-    leafs["pppoe"] = licenseStatistics.Pppoe
-    leafs["pppoe-ds"] = licenseStatistics.PppoeDs
-    leafs["dhcpv4"] = licenseStatistics.Dhcpv4
-    leafs["dhcpv6"] = licenseStatistics.Dhcpv6
-    leafs["dhcp-ds"] = licenseStatistics.DhcpDs
-    leafs["ippkt"] = licenseStatistics.Ippkt
-    leafs["active-sessions"] = licenseStatistics.ActiveSessions
-    leafs["standby-sessions"] = licenseStatistics.StandbySessions
-    leafs["peak-active-sessions"] = licenseStatistics.PeakActiveSessions
-    leafs["peak-standby-sessions"] = licenseStatistics.PeakStandbySessions
-    leafs["peak-start-time"] = licenseStatistics.PeakStartTime
-    leafs["timeout-value"] = licenseStatistics.TimeoutValue
-    return leafs
-}
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetYangName() string { return "license-statistics" }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) SetParent(parent types.Entity) { licenseStatistics.parent = parent }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetParent() types.Entity { return licenseStatistics.parent }
-
-func (licenseStatistics *SessionMon_Nodes_Node_LicenseStatistics) GetParentYangName() string { return "node" }
 

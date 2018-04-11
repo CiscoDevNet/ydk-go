@@ -17,18 +17,18 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state", reflect.TypeOf(DiffservInterfacesState{}))
 }
 
-type Inbound struct {
-}
-
-func (id Inbound) String() string {
-	return "Cisco-IOS-XE-diffserv-target-oper:inbound"
-}
-
 type Direction struct {
 }
 
 func (id Direction) String() string {
 	return "Cisco-IOS-XE-diffserv-target-oper:direction"
+}
+
+type Inbound struct {
+}
+
+func (id Inbound) String() string {
+	return "Cisco-IOS-XE-diffserv-target-oper:inbound"
 }
 
 type Outbound struct {
@@ -41,7 +41,7 @@ func (id Outbound) String() string {
 // DiffservInterfacesState
 // Interface configuration parameters.
 type DiffservInterfacesState struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of configured interfaces on the device. The type is slice of
@@ -49,68 +49,29 @@ type DiffservInterfacesState struct {
     DiffservInterface []DiffservInterfacesState_DiffservInterface
 }
 
-func (diffservInterfacesState *DiffservInterfacesState) GetFilter() yfilter.YFilter { return diffservInterfacesState.YFilter }
+func (diffservInterfacesState *DiffservInterfacesState) GetEntityData() *types.CommonEntityData {
+    diffservInterfacesState.EntityData.YFilter = diffservInterfacesState.YFilter
+    diffservInterfacesState.EntityData.YangName = "diffserv-interfaces-state"
+    diffservInterfacesState.EntityData.BundleName = "cisco_ios_xe"
+    diffservInterfacesState.EntityData.ParentYangName = "Cisco-IOS-XE-diffserv-target-oper"
+    diffservInterfacesState.EntityData.SegmentPath = "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state"
+    diffservInterfacesState.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    diffservInterfacesState.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    diffservInterfacesState.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (diffservInterfacesState *DiffservInterfacesState) SetFilter(yf yfilter.YFilter) { diffservInterfacesState.YFilter = yf }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetGoName(yname string) string {
-    if yname == "diffserv-interface" { return "DiffservInterface" }
-    return ""
-}
-
-func (diffservInterfacesState *DiffservInterfacesState) GetSegmentPath() string {
-    return "Cisco-IOS-XE-diffserv-target-oper:diffserv-interfaces-state"
-}
-
-func (diffservInterfacesState *DiffservInterfacesState) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "diffserv-interface" {
-        for _, c := range diffservInterfacesState.DiffservInterface {
-            if diffservInterfacesState.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DiffservInterfacesState_DiffservInterface{}
-        diffservInterfacesState.DiffservInterface = append(diffservInterfacesState.DiffservInterface, child)
-        return &diffservInterfacesState.DiffservInterface[len(diffservInterfacesState.DiffservInterface)-1]
-    }
-    return nil
-}
-
-func (diffservInterfacesState *DiffservInterfacesState) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    diffservInterfacesState.EntityData.Children = make(map[string]types.YChild)
+    diffservInterfacesState.EntityData.Children["diffserv-interface"] = types.YChild{"DiffservInterface", nil}
     for i := range diffservInterfacesState.DiffservInterface {
-        children[diffservInterfacesState.DiffservInterface[i].GetSegmentPath()] = &diffservInterfacesState.DiffservInterface[i]
+        diffservInterfacesState.EntityData.Children[types.GetSegmentPath(&diffservInterfacesState.DiffservInterface[i])] = types.YChild{"DiffservInterface", &diffservInterfacesState.DiffservInterface[i]}
     }
-    return children
+    diffservInterfacesState.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(diffservInterfacesState.EntityData)
 }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (diffservInterfacesState *DiffservInterfacesState) GetBundleName() string { return "cisco_ios_xe" }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetYangName() string { return "diffserv-interfaces-state" }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (diffservInterfacesState *DiffservInterfacesState) SetParent(parent types.Entity) { diffservInterfacesState.parent = parent }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetParent() types.Entity { return diffservInterfacesState.parent }
-
-func (diffservInterfacesState *DiffservInterfacesState) GetParentYangName() string { return "Cisco-IOS-XE-diffserv-target-oper" }
 
 // DiffservInterfacesState_DiffservInterface
 // The list of configured interfaces on the device.
 type DiffservInterfacesState_DiffservInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string.
@@ -121,70 +82,30 @@ type DiffservInterfacesState_DiffservInterface struct {
     DiffservTargetEntry []DiffservInterfacesState_DiffservInterface_DiffservTargetEntry
 }
 
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetFilter() yfilter.YFilter { return diffservInterface.YFilter }
+func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetEntityData() *types.CommonEntityData {
+    diffservInterface.EntityData.YFilter = diffservInterface.YFilter
+    diffservInterface.EntityData.YangName = "diffserv-interface"
+    diffservInterface.EntityData.BundleName = "cisco_ios_xe"
+    diffservInterface.EntityData.ParentYangName = "diffserv-interfaces-state"
+    diffservInterface.EntityData.SegmentPath = "diffserv-interface" + "[name='" + fmt.Sprintf("%v", diffservInterface.Name) + "']"
+    diffservInterface.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    diffservInterface.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    diffservInterface.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) SetFilter(yf yfilter.YFilter) { diffservInterface.YFilter = yf }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "diffserv-target-entry" { return "DiffservTargetEntry" }
-    return ""
-}
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetSegmentPath() string {
-    return "diffserv-interface" + "[name='" + fmt.Sprintf("%v", diffservInterface.Name) + "']"
-}
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "diffserv-target-entry" {
-        for _, c := range diffservInterface.DiffservTargetEntry {
-            if diffservInterface.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DiffservInterfacesState_DiffservInterface_DiffservTargetEntry{}
-        diffservInterface.DiffservTargetEntry = append(diffservInterface.DiffservTargetEntry, child)
-        return &diffservInterface.DiffservTargetEntry[len(diffservInterface.DiffservTargetEntry)-1]
-    }
-    return nil
-}
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    diffservInterface.EntityData.Children = make(map[string]types.YChild)
+    diffservInterface.EntityData.Children["diffserv-target-entry"] = types.YChild{"DiffservTargetEntry", nil}
     for i := range diffservInterface.DiffservTargetEntry {
-        children[diffservInterface.DiffservTargetEntry[i].GetSegmentPath()] = &diffservInterface.DiffservTargetEntry[i]
+        diffservInterface.EntityData.Children[types.GetSegmentPath(&diffservInterface.DiffservTargetEntry[i])] = types.YChild{"DiffservTargetEntry", &diffservInterface.DiffservTargetEntry[i]}
     }
-    return children
+    diffservInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    diffservInterface.EntityData.Leafs["name"] = types.YLeaf{"Name", diffservInterface.Name}
+    return &(diffservInterface.EntityData)
 }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = diffservInterface.Name
-    return leafs
-}
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetBundleName() string { return "cisco_ios_xe" }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetYangName() string { return "diffserv-interface" }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) SetParent(parent types.Entity) { diffservInterface.parent = parent }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetParent() types.Entity { return diffservInterface.parent }
-
-func (diffservInterface *DiffservInterfacesState_DiffservInterface) GetParentYangName() string { return "diffserv-interfaces-state" }
 
 // DiffservInterfacesState_DiffservInterface_DiffservTargetEntry
 // policy target for inbound or outbound direction
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Direction fo the traffic flow either inbound or
@@ -199,72 +120,31 @@ type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry struct {
     DiffservTargetClassifierStatistics []DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics
 }
 
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetFilter() yfilter.YFilter { return diffservTargetEntry.YFilter }
+func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetEntityData() *types.CommonEntityData {
+    diffservTargetEntry.EntityData.YFilter = diffservTargetEntry.YFilter
+    diffservTargetEntry.EntityData.YangName = "diffserv-target-entry"
+    diffservTargetEntry.EntityData.BundleName = "cisco_ios_xe"
+    diffservTargetEntry.EntityData.ParentYangName = "diffserv-interface"
+    diffservTargetEntry.EntityData.SegmentPath = "diffserv-target-entry" + "[direction='" + fmt.Sprintf("%v", diffservTargetEntry.Direction) + "']" + "[policy-name='" + fmt.Sprintf("%v", diffservTargetEntry.PolicyName) + "']"
+    diffservTargetEntry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    diffservTargetEntry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    diffservTargetEntry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) SetFilter(yf yfilter.YFilter) { diffservTargetEntry.YFilter = yf }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetGoName(yname string) string {
-    if yname == "direction" { return "Direction" }
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "diffserv-target-classifier-statistics" { return "DiffservTargetClassifierStatistics" }
-    return ""
-}
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetSegmentPath() string {
-    return "diffserv-target-entry" + "[direction='" + fmt.Sprintf("%v", diffservTargetEntry.Direction) + "']" + "[policy-name='" + fmt.Sprintf("%v", diffservTargetEntry.PolicyName) + "']"
-}
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "diffserv-target-classifier-statistics" {
-        for _, c := range diffservTargetEntry.DiffservTargetClassifierStatistics {
-            if diffservTargetEntry.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics{}
-        diffservTargetEntry.DiffservTargetClassifierStatistics = append(diffservTargetEntry.DiffservTargetClassifierStatistics, child)
-        return &diffservTargetEntry.DiffservTargetClassifierStatistics[len(diffservTargetEntry.DiffservTargetClassifierStatistics)-1]
-    }
-    return nil
-}
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    diffservTargetEntry.EntityData.Children = make(map[string]types.YChild)
+    diffservTargetEntry.EntityData.Children["diffserv-target-classifier-statistics"] = types.YChild{"DiffservTargetClassifierStatistics", nil}
     for i := range diffservTargetEntry.DiffservTargetClassifierStatistics {
-        children[diffservTargetEntry.DiffservTargetClassifierStatistics[i].GetSegmentPath()] = &diffservTargetEntry.DiffservTargetClassifierStatistics[i]
+        diffservTargetEntry.EntityData.Children[types.GetSegmentPath(&diffservTargetEntry.DiffservTargetClassifierStatistics[i])] = types.YChild{"DiffservTargetClassifierStatistics", &diffservTargetEntry.DiffservTargetClassifierStatistics[i]}
     }
-    return children
+    diffservTargetEntry.EntityData.Leafs = make(map[string]types.YLeaf)
+    diffservTargetEntry.EntityData.Leafs["direction"] = types.YLeaf{"Direction", diffservTargetEntry.Direction}
+    diffservTargetEntry.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", diffservTargetEntry.PolicyName}
+    return &(diffservTargetEntry.EntityData)
 }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["direction"] = diffservTargetEntry.Direction
-    leafs["policy-name"] = diffservTargetEntry.PolicyName
-    return leafs
-}
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetYangName() string { return "diffserv-target-entry" }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) SetParent(parent types.Entity) { diffservTargetEntry.parent = parent }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetParent() types.Entity { return diffservTargetEntry.parent }
-
-func (diffservTargetEntry *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry) GetParentYangName() string { return "diffserv-interface" }
 
 // DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics
 // Statistics for each Classifier Entry in a Policy
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Classifier Entry Name. The type is string.
@@ -286,77 +166,28 @@ type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTarge
     QueuingStatistics DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics
 }
 
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetFilter() yfilter.YFilter { return diffservTargetClassifierStatistics.YFilter }
+func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetEntityData() *types.CommonEntityData {
+    diffservTargetClassifierStatistics.EntityData.YFilter = diffservTargetClassifierStatistics.YFilter
+    diffservTargetClassifierStatistics.EntityData.YangName = "diffserv-target-classifier-statistics"
+    diffservTargetClassifierStatistics.EntityData.BundleName = "cisco_ios_xe"
+    diffservTargetClassifierStatistics.EntityData.ParentYangName = "diffserv-target-entry"
+    diffservTargetClassifierStatistics.EntityData.SegmentPath = "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + fmt.Sprintf("%v", diffservTargetClassifierStatistics.ClassifierEntryName) + "']" + "[parent-path='" + fmt.Sprintf("%v", diffservTargetClassifierStatistics.ParentPath) + "']"
+    diffservTargetClassifierStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    diffservTargetClassifierStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    diffservTargetClassifierStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) SetFilter(yf yfilter.YFilter) { diffservTargetClassifierStatistics.YFilter = yf }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetGoName(yname string) string {
-    if yname == "classifier-entry-name" { return "ClassifierEntryName" }
-    if yname == "parent-path" { return "ParentPath" }
-    if yname == "classifier-entry-statistics" { return "ClassifierEntryStatistics" }
-    if yname == "meter-statistics" { return "MeterStatistics" }
-    if yname == "queuing-statistics" { return "QueuingStatistics" }
-    return ""
-}
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetSegmentPath() string {
-    return "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + fmt.Sprintf("%v", diffservTargetClassifierStatistics.ClassifierEntryName) + "']" + "[parent-path='" + fmt.Sprintf("%v", diffservTargetClassifierStatistics.ParentPath) + "']"
-}
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "classifier-entry-statistics" {
-        return &diffservTargetClassifierStatistics.ClassifierEntryStatistics
-    }
-    if childYangName == "meter-statistics" {
-        for _, c := range diffservTargetClassifierStatistics.MeterStatistics {
-            if diffservTargetClassifierStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics{}
-        diffservTargetClassifierStatistics.MeterStatistics = append(diffservTargetClassifierStatistics.MeterStatistics, child)
-        return &diffservTargetClassifierStatistics.MeterStatistics[len(diffservTargetClassifierStatistics.MeterStatistics)-1]
-    }
-    if childYangName == "queuing-statistics" {
-        return &diffservTargetClassifierStatistics.QueuingStatistics
-    }
-    return nil
-}
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["classifier-entry-statistics"] = &diffservTargetClassifierStatistics.ClassifierEntryStatistics
+    diffservTargetClassifierStatistics.EntityData.Children = make(map[string]types.YChild)
+    diffservTargetClassifierStatistics.EntityData.Children["classifier-entry-statistics"] = types.YChild{"ClassifierEntryStatistics", &diffservTargetClassifierStatistics.ClassifierEntryStatistics}
+    diffservTargetClassifierStatistics.EntityData.Children["meter-statistics"] = types.YChild{"MeterStatistics", nil}
     for i := range diffservTargetClassifierStatistics.MeterStatistics {
-        children[diffservTargetClassifierStatistics.MeterStatistics[i].GetSegmentPath()] = &diffservTargetClassifierStatistics.MeterStatistics[i]
+        diffservTargetClassifierStatistics.EntityData.Children[types.GetSegmentPath(&diffservTargetClassifierStatistics.MeterStatistics[i])] = types.YChild{"MeterStatistics", &diffservTargetClassifierStatistics.MeterStatistics[i]}
     }
-    children["queuing-statistics"] = &diffservTargetClassifierStatistics.QueuingStatistics
-    return children
+    diffservTargetClassifierStatistics.EntityData.Children["queuing-statistics"] = types.YChild{"QueuingStatistics", &diffservTargetClassifierStatistics.QueuingStatistics}
+    diffservTargetClassifierStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    diffservTargetClassifierStatistics.EntityData.Leafs["classifier-entry-name"] = types.YLeaf{"ClassifierEntryName", diffservTargetClassifierStatistics.ClassifierEntryName}
+    diffservTargetClassifierStatistics.EntityData.Leafs["parent-path"] = types.YLeaf{"ParentPath", diffservTargetClassifierStatistics.ParentPath}
+    return &(diffservTargetClassifierStatistics.EntityData)
 }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["classifier-entry-name"] = diffservTargetClassifierStatistics.ClassifierEntryName
-    leafs["parent-path"] = diffservTargetClassifierStatistics.ParentPath
-    return leafs
-}
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetYangName() string { return "diffserv-target-classifier-statistics" }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) SetParent(parent types.Entity) { diffservTargetClassifierStatistics.parent = parent }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetParent() types.Entity { return diffservTargetClassifierStatistics.parent }
-
-func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics) GetParentYangName() string { return "diffserv-target-entry" }
 
 // DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics
 // 
@@ -365,7 +196,7 @@ func (diffservTargetClassifierStatistics *DiffservInterfacesState_DiffservInterf
 //        
 // 
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of total packets which filtered  to the classifier-entry. The type
@@ -381,60 +212,28 @@ type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTarge
     ClassifiedRate interface{}
 }
 
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetFilter() yfilter.YFilter { return classifierEntryStatistics.YFilter }
+func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetEntityData() *types.CommonEntityData {
+    classifierEntryStatistics.EntityData.YFilter = classifierEntryStatistics.YFilter
+    classifierEntryStatistics.EntityData.YangName = "classifier-entry-statistics"
+    classifierEntryStatistics.EntityData.BundleName = "cisco_ios_xe"
+    classifierEntryStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
+    classifierEntryStatistics.EntityData.SegmentPath = "classifier-entry-statistics"
+    classifierEntryStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    classifierEntryStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    classifierEntryStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) SetFilter(yf yfilter.YFilter) { classifierEntryStatistics.YFilter = yf }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetGoName(yname string) string {
-    if yname == "classified-pkts" { return "ClassifiedPkts" }
-    if yname == "classified-bytes" { return "ClassifiedBytes" }
-    if yname == "classified-rate" { return "ClassifiedRate" }
-    return ""
+    classifierEntryStatistics.EntityData.Children = make(map[string]types.YChild)
+    classifierEntryStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    classifierEntryStatistics.EntityData.Leafs["classified-pkts"] = types.YLeaf{"ClassifiedPkts", classifierEntryStatistics.ClassifiedPkts}
+    classifierEntryStatistics.EntityData.Leafs["classified-bytes"] = types.YLeaf{"ClassifiedBytes", classifierEntryStatistics.ClassifiedBytes}
+    classifierEntryStatistics.EntityData.Leafs["classified-rate"] = types.YLeaf{"ClassifiedRate", classifierEntryStatistics.ClassifiedRate}
+    return &(classifierEntryStatistics.EntityData)
 }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetSegmentPath() string {
-    return "classifier-entry-statistics"
-}
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["classified-pkts"] = classifierEntryStatistics.ClassifiedPkts
-    leafs["classified-bytes"] = classifierEntryStatistics.ClassifiedBytes
-    leafs["classified-rate"] = classifierEntryStatistics.ClassifiedRate
-    return leafs
-}
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetYangName() string { return "classifier-entry-statistics" }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) SetParent(parent types.Entity) { classifierEntryStatistics.parent = parent }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetParent() types.Entity { return classifierEntryStatistics.parent }
-
-func (classifierEntryStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_ClassifierEntryStatistics) GetParentYangName() string { return "diffserv-target-classifier-statistics" }
 
 // DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics
 // Meter statistics
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Meter Identifier. The type is interface{} with
@@ -458,64 +257,30 @@ type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTarge
     MeterFailedBytes interface{}
 }
 
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetFilter() yfilter.YFilter { return meterStatistics.YFilter }
+func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetEntityData() *types.CommonEntityData {
+    meterStatistics.EntityData.YFilter = meterStatistics.YFilter
+    meterStatistics.EntityData.YangName = "meter-statistics"
+    meterStatistics.EntityData.BundleName = "cisco_ios_xe"
+    meterStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
+    meterStatistics.EntityData.SegmentPath = "meter-statistics" + "[meter-id='" + fmt.Sprintf("%v", meterStatistics.MeterId) + "']"
+    meterStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    meterStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    meterStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) SetFilter(yf yfilter.YFilter) { meterStatistics.YFilter = yf }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetGoName(yname string) string {
-    if yname == "meter-id" { return "MeterId" }
-    if yname == "meter-succeed-pkts" { return "MeterSucceedPkts" }
-    if yname == "meter-succeed-bytes" { return "MeterSucceedBytes" }
-    if yname == "meter-failed-pkts" { return "MeterFailedPkts" }
-    if yname == "meter-failed-bytes" { return "MeterFailedBytes" }
-    return ""
+    meterStatistics.EntityData.Children = make(map[string]types.YChild)
+    meterStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    meterStatistics.EntityData.Leafs["meter-id"] = types.YLeaf{"MeterId", meterStatistics.MeterId}
+    meterStatistics.EntityData.Leafs["meter-succeed-pkts"] = types.YLeaf{"MeterSucceedPkts", meterStatistics.MeterSucceedPkts}
+    meterStatistics.EntityData.Leafs["meter-succeed-bytes"] = types.YLeaf{"MeterSucceedBytes", meterStatistics.MeterSucceedBytes}
+    meterStatistics.EntityData.Leafs["meter-failed-pkts"] = types.YLeaf{"MeterFailedPkts", meterStatistics.MeterFailedPkts}
+    meterStatistics.EntityData.Leafs["meter-failed-bytes"] = types.YLeaf{"MeterFailedBytes", meterStatistics.MeterFailedBytes}
+    return &(meterStatistics.EntityData)
 }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetSegmentPath() string {
-    return "meter-statistics" + "[meter-id='" + fmt.Sprintf("%v", meterStatistics.MeterId) + "']"
-}
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["meter-id"] = meterStatistics.MeterId
-    leafs["meter-succeed-pkts"] = meterStatistics.MeterSucceedPkts
-    leafs["meter-succeed-bytes"] = meterStatistics.MeterSucceedBytes
-    leafs["meter-failed-pkts"] = meterStatistics.MeterFailedPkts
-    leafs["meter-failed-bytes"] = meterStatistics.MeterFailedBytes
-    return leafs
-}
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetYangName() string { return "meter-statistics" }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) SetParent(parent types.Entity) { meterStatistics.parent = parent }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetParent() types.Entity { return meterStatistics.parent }
-
-func (meterStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_MeterStatistics) GetParentYangName() string { return "diffserv-target-classifier-statistics" }
 
 // DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics
 // queue related statistics 
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of packets transmitted from queue . The type is interface{} with
@@ -546,71 +311,32 @@ type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTarge
     WredStats DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats
 }
 
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetFilter() yfilter.YFilter { return queuingStatistics.YFilter }
+func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetEntityData() *types.CommonEntityData {
+    queuingStatistics.EntityData.YFilter = queuingStatistics.YFilter
+    queuingStatistics.EntityData.YangName = "queuing-statistics"
+    queuingStatistics.EntityData.BundleName = "cisco_ios_xe"
+    queuingStatistics.EntityData.ParentYangName = "diffserv-target-classifier-statistics"
+    queuingStatistics.EntityData.SegmentPath = "queuing-statistics"
+    queuingStatistics.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    queuingStatistics.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    queuingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) SetFilter(yf yfilter.YFilter) { queuingStatistics.YFilter = yf }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetGoName(yname string) string {
-    if yname == "output-pkts" { return "OutputPkts" }
-    if yname == "output-bytes" { return "OutputBytes" }
-    if yname == "queue-size-pkts" { return "QueueSizePkts" }
-    if yname == "queue-size-bytes" { return "QueueSizeBytes" }
-    if yname == "drop-pkts" { return "DropPkts" }
-    if yname == "drop-bytes" { return "DropBytes" }
-    if yname == "wred-stats" { return "WredStats" }
-    return ""
+    queuingStatistics.EntityData.Children = make(map[string]types.YChild)
+    queuingStatistics.EntityData.Children["wred-stats"] = types.YChild{"WredStats", &queuingStatistics.WredStats}
+    queuingStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    queuingStatistics.EntityData.Leafs["output-pkts"] = types.YLeaf{"OutputPkts", queuingStatistics.OutputPkts}
+    queuingStatistics.EntityData.Leafs["output-bytes"] = types.YLeaf{"OutputBytes", queuingStatistics.OutputBytes}
+    queuingStatistics.EntityData.Leafs["queue-size-pkts"] = types.YLeaf{"QueueSizePkts", queuingStatistics.QueueSizePkts}
+    queuingStatistics.EntityData.Leafs["queue-size-bytes"] = types.YLeaf{"QueueSizeBytes", queuingStatistics.QueueSizeBytes}
+    queuingStatistics.EntityData.Leafs["drop-pkts"] = types.YLeaf{"DropPkts", queuingStatistics.DropPkts}
+    queuingStatistics.EntityData.Leafs["drop-bytes"] = types.YLeaf{"DropBytes", queuingStatistics.DropBytes}
+    return &(queuingStatistics.EntityData)
 }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetSegmentPath() string {
-    return "queuing-statistics"
-}
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wred-stats" {
-        return &queuingStatistics.WredStats
-    }
-    return nil
-}
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["wred-stats"] = &queuingStatistics.WredStats
-    return children
-}
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["output-pkts"] = queuingStatistics.OutputPkts
-    leafs["output-bytes"] = queuingStatistics.OutputBytes
-    leafs["queue-size-pkts"] = queuingStatistics.QueueSizePkts
-    leafs["queue-size-bytes"] = queuingStatistics.QueueSizeBytes
-    leafs["drop-pkts"] = queuingStatistics.DropPkts
-    leafs["drop-bytes"] = queuingStatistics.DropBytes
-    return leafs
-}
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetBundleName() string { return "cisco_ios_xe" }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetYangName() string { return "queuing-statistics" }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) SetParent(parent types.Entity) { queuingStatistics.parent = parent }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetParent() types.Entity { return queuingStatistics.parent }
-
-func (queuingStatistics *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics) GetParentYangName() string { return "diffserv-target-classifier-statistics" }
 
 // DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats
 // Container for WRED statistics
 type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Early drop packets . The type is interface{} with range:
@@ -622,51 +348,20 @@ type DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTarge
     EarlyDropBytes interface{}
 }
 
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetFilter() yfilter.YFilter { return wredStats.YFilter }
+func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetEntityData() *types.CommonEntityData {
+    wredStats.EntityData.YFilter = wredStats.YFilter
+    wredStats.EntityData.YangName = "wred-stats"
+    wredStats.EntityData.BundleName = "cisco_ios_xe"
+    wredStats.EntityData.ParentYangName = "queuing-statistics"
+    wredStats.EntityData.SegmentPath = "wred-stats"
+    wredStats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    wredStats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    wredStats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) SetFilter(yf yfilter.YFilter) { wredStats.YFilter = yf }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetGoName(yname string) string {
-    if yname == "early-drop-pkts" { return "EarlyDropPkts" }
-    if yname == "early-drop-bytes" { return "EarlyDropBytes" }
-    return ""
+    wredStats.EntityData.Children = make(map[string]types.YChild)
+    wredStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    wredStats.EntityData.Leafs["early-drop-pkts"] = types.YLeaf{"EarlyDropPkts", wredStats.EarlyDropPkts}
+    wredStats.EntityData.Leafs["early-drop-bytes"] = types.YLeaf{"EarlyDropBytes", wredStats.EarlyDropBytes}
+    return &(wredStats.EntityData)
 }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetSegmentPath() string {
-    return "wred-stats"
-}
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["early-drop-pkts"] = wredStats.EarlyDropPkts
-    leafs["early-drop-bytes"] = wredStats.EarlyDropBytes
-    return leafs
-}
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetYangName() string { return "wred-stats" }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) SetParent(parent types.Entity) { wredStats.parent = parent }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetParent() types.Entity { return wredStats.parent }
-
-func (wredStats *DiffservInterfacesState_DiffservInterface_DiffservTargetEntry_DiffservTargetClassifierStatistics_QueuingStatistics_WredStats) GetParentYangName() string { return "queuing-statistics" }
 

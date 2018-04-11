@@ -27,7 +27,7 @@ func init() {
 // ShowFpd
 // Show hw-module fpd
 type ShowFpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // location table.
@@ -43,158 +43,66 @@ type ShowFpd struct {
     HwModuleFpdHelpFpd ShowFpd_HwModuleFpdHelpFpd
 
     // gets fpd package info.
-    Package ShowFpd_Package
+    Package_ ShowFpd_Package
 
     // fpd upgradable locations.
     LocationHelp ShowFpd_LocationHelp
 }
 
-func (showFpd *ShowFpd) GetFilter() yfilter.YFilter { return showFpd.YFilter }
+func (showFpd *ShowFpd) GetEntityData() *types.CommonEntityData {
+    showFpd.EntityData.YFilter = showFpd.YFilter
+    showFpd.EntityData.YangName = "show-fpd"
+    showFpd.EntityData.BundleName = "cisco_ios_xr"
+    showFpd.EntityData.ParentYangName = "Cisco-IOS-XR-show-fpd-loc-ng-oper"
+    showFpd.EntityData.SegmentPath = "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd"
+    showFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    showFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    showFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (showFpd *ShowFpd) SetFilter(yf yfilter.YFilter) { showFpd.YFilter = yf }
-
-func (showFpd *ShowFpd) GetGoName(yname string) string {
-    if yname == "locations" { return "Locations" }
-    if yname == "hw-module-fpd" { return "HwModuleFpd" }
-    if yname == "help-locations" { return "HelpLocations" }
-    if yname == "hw-module-fpd-help-fpd" { return "HwModuleFpdHelpFpd" }
-    if yname == "package" { return "Package" }
-    if yname == "location-help" { return "LocationHelp" }
-    return ""
+    showFpd.EntityData.Children = make(map[string]types.YChild)
+    showFpd.EntityData.Children["locations"] = types.YChild{"Locations", &showFpd.Locations}
+    showFpd.EntityData.Children["hw-module-fpd"] = types.YChild{"HwModuleFpd", &showFpd.HwModuleFpd}
+    showFpd.EntityData.Children["help-locations"] = types.YChild{"HelpLocations", &showFpd.HelpLocations}
+    showFpd.EntityData.Children["hw-module-fpd-help-fpd"] = types.YChild{"HwModuleFpdHelpFpd", &showFpd.HwModuleFpdHelpFpd}
+    showFpd.EntityData.Children["package"] = types.YChild{"Package_", &showFpd.Package_}
+    showFpd.EntityData.Children["location-help"] = types.YChild{"LocationHelp", &showFpd.LocationHelp}
+    showFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(showFpd.EntityData)
 }
-
-func (showFpd *ShowFpd) GetSegmentPath() string {
-    return "Cisco-IOS-XR-show-fpd-loc-ng-oper:show-fpd"
-}
-
-func (showFpd *ShowFpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "locations" {
-        return &showFpd.Locations
-    }
-    if childYangName == "hw-module-fpd" {
-        return &showFpd.HwModuleFpd
-    }
-    if childYangName == "help-locations" {
-        return &showFpd.HelpLocations
-    }
-    if childYangName == "hw-module-fpd-help-fpd" {
-        return &showFpd.HwModuleFpdHelpFpd
-    }
-    if childYangName == "package" {
-        return &showFpd.Package
-    }
-    if childYangName == "location-help" {
-        return &showFpd.LocationHelp
-    }
-    return nil
-}
-
-func (showFpd *ShowFpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["locations"] = &showFpd.Locations
-    children["hw-module-fpd"] = &showFpd.HwModuleFpd
-    children["help-locations"] = &showFpd.HelpLocations
-    children["hw-module-fpd-help-fpd"] = &showFpd.HwModuleFpdHelpFpd
-    children["package"] = &showFpd.Package
-    children["location-help"] = &showFpd.LocationHelp
-    return children
-}
-
-func (showFpd *ShowFpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (showFpd *ShowFpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (showFpd *ShowFpd) GetYangName() string { return "show-fpd" }
-
-func (showFpd *ShowFpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (showFpd *ShowFpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (showFpd *ShowFpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (showFpd *ShowFpd) SetParent(parent types.Entity) { showFpd.parent = parent }
-
-func (showFpd *ShowFpd) GetParent() types.Entity { return showFpd.parent }
-
-func (showFpd *ShowFpd) GetParentYangName() string { return "Cisco-IOS-XR-show-fpd-loc-ng-oper" }
 
 // ShowFpd_Locations
 // location table
 type ShowFpd_Locations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // location. The type is slice of ShowFpd_Locations_Location.
     Location []ShowFpd_Locations_Location
 }
 
-func (locations *ShowFpd_Locations) GetFilter() yfilter.YFilter { return locations.YFilter }
+func (locations *ShowFpd_Locations) GetEntityData() *types.CommonEntityData {
+    locations.EntityData.YFilter = locations.YFilter
+    locations.EntityData.YangName = "locations"
+    locations.EntityData.BundleName = "cisco_ios_xr"
+    locations.EntityData.ParentYangName = "show-fpd"
+    locations.EntityData.SegmentPath = "locations"
+    locations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (locations *ShowFpd_Locations) SetFilter(yf yfilter.YFilter) { locations.YFilter = yf }
-
-func (locations *ShowFpd_Locations) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    return ""
-}
-
-func (locations *ShowFpd_Locations) GetSegmentPath() string {
-    return "locations"
-}
-
-func (locations *ShowFpd_Locations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "location" {
-        for _, c := range locations.Location {
-            if locations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_Locations_Location{}
-        locations.Location = append(locations.Location, child)
-        return &locations.Location[len(locations.Location)-1]
-    }
-    return nil
-}
-
-func (locations *ShowFpd_Locations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    locations.EntityData.Children = make(map[string]types.YChild)
+    locations.EntityData.Children["location"] = types.YChild{"Location", nil}
     for i := range locations.Location {
-        children[locations.Location[i].GetSegmentPath()] = &locations.Location[i]
+        locations.EntityData.Children[types.GetSegmentPath(&locations.Location[i])] = types.YChild{"Location", &locations.Location[i]}
     }
-    return children
+    locations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(locations.EntityData)
 }
-
-func (locations *ShowFpd_Locations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (locations *ShowFpd_Locations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (locations *ShowFpd_Locations) GetYangName() string { return "locations" }
-
-func (locations *ShowFpd_Locations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (locations *ShowFpd_Locations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (locations *ShowFpd_Locations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (locations *ShowFpd_Locations) SetParent(parent types.Entity) { locations.parent = parent }
-
-func (locations *ShowFpd_Locations) GetParent() types.Entity { return locations.parent }
-
-func (locations *ShowFpd_Locations) GetParentYangName() string { return "show-fpd" }
 
 // ShowFpd_Locations_Location
 // location
 type ShowFpd_Locations_Location struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fpd location. The type is string with length:
@@ -206,70 +114,30 @@ type ShowFpd_Locations_Location struct {
     Fpd []ShowFpd_Locations_Location_Fpd
 }
 
-func (location *ShowFpd_Locations_Location) GetFilter() yfilter.YFilter { return location.YFilter }
+func (location *ShowFpd_Locations_Location) GetEntityData() *types.CommonEntityData {
+    location.EntityData.YFilter = location.YFilter
+    location.EntityData.YangName = "location"
+    location.EntityData.BundleName = "cisco_ios_xr"
+    location.EntityData.ParentYangName = "locations"
+    location.EntityData.SegmentPath = "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
+    location.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    location.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    location.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (location *ShowFpd_Locations_Location) SetFilter(yf yfilter.YFilter) { location.YFilter = yf }
-
-func (location *ShowFpd_Locations_Location) GetGoName(yname string) string {
-    if yname == "location-name" { return "LocationName" }
-    if yname == "fpd" { return "Fpd" }
-    return ""
-}
-
-func (location *ShowFpd_Locations_Location) GetSegmentPath() string {
-    return "location" + "[location-name='" + fmt.Sprintf("%v", location.LocationName) + "']"
-}
-
-func (location *ShowFpd_Locations_Location) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fpd" {
-        for _, c := range location.Fpd {
-            if location.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_Locations_Location_Fpd{}
-        location.Fpd = append(location.Fpd, child)
-        return &location.Fpd[len(location.Fpd)-1]
-    }
-    return nil
-}
-
-func (location *ShowFpd_Locations_Location) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    location.EntityData.Children = make(map[string]types.YChild)
+    location.EntityData.Children["fpd"] = types.YChild{"Fpd", nil}
     for i := range location.Fpd {
-        children[location.Fpd[i].GetSegmentPath()] = &location.Fpd[i]
+        location.EntityData.Children[types.GetSegmentPath(&location.Fpd[i])] = types.YChild{"Fpd", &location.Fpd[i]}
     }
-    return children
+    location.EntityData.Leafs = make(map[string]types.YLeaf)
+    location.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", location.LocationName}
+    return &(location.EntityData)
 }
-
-func (location *ShowFpd_Locations_Location) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location-name"] = location.LocationName
-    return leafs
-}
-
-func (location *ShowFpd_Locations_Location) GetBundleName() string { return "cisco_ios_xr" }
-
-func (location *ShowFpd_Locations_Location) GetYangName() string { return "location" }
-
-func (location *ShowFpd_Locations_Location) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (location *ShowFpd_Locations_Location) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (location *ShowFpd_Locations_Location) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (location *ShowFpd_Locations_Location) SetParent(parent types.Entity) { location.parent = parent }
-
-func (location *ShowFpd_Locations_Location) GetParent() types.Entity { return location.parent }
-
-func (location *ShowFpd_Locations_Location) GetParentYangName() string { return "locations" }
 
 // ShowFpd_Locations_Location_Fpd
 // Display fpds on given locations
 type ShowFpd_Locations_Location_Fpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fpd Name. The type is string with length: 1..32.
@@ -280,70 +148,30 @@ type ShowFpd_Locations_Location_Fpd struct {
     FpdInfoDetaile []ShowFpd_Locations_Location_Fpd_FpdInfoDetaile
 }
 
-func (fpd *ShowFpd_Locations_Location_Fpd) GetFilter() yfilter.YFilter { return fpd.YFilter }
+func (fpd *ShowFpd_Locations_Location_Fpd) GetEntityData() *types.CommonEntityData {
+    fpd.EntityData.YFilter = fpd.YFilter
+    fpd.EntityData.YangName = "fpd"
+    fpd.EntityData.BundleName = "cisco_ios_xr"
+    fpd.EntityData.ParentYangName = "location"
+    fpd.EntityData.SegmentPath = "fpd" + "[fpd-name='" + fmt.Sprintf("%v", fpd.FpdName) + "']"
+    fpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fpd *ShowFpd_Locations_Location_Fpd) SetFilter(yf yfilter.YFilter) { fpd.YFilter = yf }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetGoName(yname string) string {
-    if yname == "fpd-name" { return "FpdName" }
-    if yname == "fpd-info-detaile" { return "FpdInfoDetaile" }
-    return ""
-}
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetSegmentPath() string {
-    return "fpd" + "[fpd-name='" + fmt.Sprintf("%v", fpd.FpdName) + "']"
-}
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fpd-info-detaile" {
-        for _, c := range fpd.FpdInfoDetaile {
-            if fpd.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_Locations_Location_Fpd_FpdInfoDetaile{}
-        fpd.FpdInfoDetaile = append(fpd.FpdInfoDetaile, child)
-        return &fpd.FpdInfoDetaile[len(fpd.FpdInfoDetaile)-1]
-    }
-    return nil
-}
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    fpd.EntityData.Children = make(map[string]types.YChild)
+    fpd.EntityData.Children["fpd-info-detaile"] = types.YChild{"FpdInfoDetaile", nil}
     for i := range fpd.FpdInfoDetaile {
-        children[fpd.FpdInfoDetaile[i].GetSegmentPath()] = &fpd.FpdInfoDetaile[i]
+        fpd.EntityData.Children[types.GetSegmentPath(&fpd.FpdInfoDetaile[i])] = types.YChild{"FpdInfoDetaile", &fpd.FpdInfoDetaile[i]}
     }
-    return children
+    fpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpd.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpd.FpdName}
+    return &(fpd.EntityData)
 }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fpd-name"] = fpd.FpdName
-    return leafs
-}
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetYangName() string { return "fpd" }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) SetParent(parent types.Entity) { fpd.parent = parent }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetParent() types.Entity { return fpd.parent }
-
-func (fpd *ShowFpd_Locations_Location_Fpd) GetParentYangName() string { return "location" }
 
 // ShowFpd_Locations_Location_Fpd_FpdInfoDetaile
 //  fpd list with all detailes
 type ShowFpd_Locations_Location_Fpd_FpdInfoDetaile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // fpd location. The type is string.
@@ -371,71 +199,34 @@ type ShowFpd_Locations_Location_Fpd_FpdInfoDetaile struct {
     ProgramdVersion interface{}
 }
 
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetFilter() yfilter.YFilter { return fpdInfoDetaile.YFilter }
+func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetEntityData() *types.CommonEntityData {
+    fpdInfoDetaile.EntityData.YFilter = fpdInfoDetaile.YFilter
+    fpdInfoDetaile.EntityData.YangName = "fpd-info-detaile"
+    fpdInfoDetaile.EntityData.BundleName = "cisco_ios_xr"
+    fpdInfoDetaile.EntityData.ParentYangName = "fpd"
+    fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile"
+    fpdInfoDetaile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) SetFilter(yf yfilter.YFilter) { fpdInfoDetaile.YFilter = yf }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "card-name" { return "CardName" }
-    if yname == "fpd-name" { return "FpdName" }
-    if yname == "hw-version" { return "HwVersion" }
-    if yname == "secure-boot-attr" { return "SecureBootAttr" }
-    if yname == "status" { return "Status" }
-    if yname == "running-version" { return "RunningVersion" }
-    if yname == "programd-version" { return "ProgramdVersion" }
-    return ""
+    fpdInfoDetaile.EntityData.Children = make(map[string]types.YChild)
+    fpdInfoDetaile.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpdInfoDetaile.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdInfoDetaile.Location}
+    fpdInfoDetaile.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", fpdInfoDetaile.CardName}
+    fpdInfoDetaile.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdInfoDetaile.FpdName}
+    fpdInfoDetaile.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", fpdInfoDetaile.HwVersion}
+    fpdInfoDetaile.EntityData.Leafs["secure-boot-attr"] = types.YLeaf{"SecureBootAttr", fpdInfoDetaile.SecureBootAttr}
+    fpdInfoDetaile.EntityData.Leafs["status"] = types.YLeaf{"Status", fpdInfoDetaile.Status}
+    fpdInfoDetaile.EntityData.Leafs["running-version"] = types.YLeaf{"RunningVersion", fpdInfoDetaile.RunningVersion}
+    fpdInfoDetaile.EntityData.Leafs["programd-version"] = types.YLeaf{"ProgramdVersion", fpdInfoDetaile.ProgramdVersion}
+    return &(fpdInfoDetaile.EntityData)
 }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetSegmentPath() string {
-    return "fpd-info-detaile"
-}
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = fpdInfoDetaile.Location
-    leafs["card-name"] = fpdInfoDetaile.CardName
-    leafs["fpd-name"] = fpdInfoDetaile.FpdName
-    leafs["hw-version"] = fpdInfoDetaile.HwVersion
-    leafs["secure-boot-attr"] = fpdInfoDetaile.SecureBootAttr
-    leafs["status"] = fpdInfoDetaile.Status
-    leafs["running-version"] = fpdInfoDetaile.RunningVersion
-    leafs["programd-version"] = fpdInfoDetaile.ProgramdVersion
-    return leafs
-}
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetYangName() string { return "fpd-info-detaile" }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) SetParent(parent types.Entity) { fpdInfoDetaile.parent = parent }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetParent() types.Entity { return fpdInfoDetaile.parent }
-
-func (fpdInfoDetaile *ShowFpd_Locations_Location_Fpd_FpdInfoDetaile) GetParentYangName() string { return "fpd" }
 
 // ShowFpd_HwModuleFpd
 // Display fpds on all locations -show hw-module
 // fpd
 type ShowFpd_HwModuleFpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // fpd list with all detailes. The type is slice of
@@ -443,68 +234,29 @@ type ShowFpd_HwModuleFpd struct {
     FpdInfoDetaile []ShowFpd_HwModuleFpd_FpdInfoDetaile
 }
 
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetFilter() yfilter.YFilter { return hwModuleFpd.YFilter }
+func (hwModuleFpd *ShowFpd_HwModuleFpd) GetEntityData() *types.CommonEntityData {
+    hwModuleFpd.EntityData.YFilter = hwModuleFpd.YFilter
+    hwModuleFpd.EntityData.YangName = "hw-module-fpd"
+    hwModuleFpd.EntityData.BundleName = "cisco_ios_xr"
+    hwModuleFpd.EntityData.ParentYangName = "show-fpd"
+    hwModuleFpd.EntityData.SegmentPath = "hw-module-fpd"
+    hwModuleFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwModuleFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwModuleFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwModuleFpd *ShowFpd_HwModuleFpd) SetFilter(yf yfilter.YFilter) { hwModuleFpd.YFilter = yf }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetGoName(yname string) string {
-    if yname == "fpd-info-detaile" { return "FpdInfoDetaile" }
-    return ""
-}
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetSegmentPath() string {
-    return "hw-module-fpd"
-}
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fpd-info-detaile" {
-        for _, c := range hwModuleFpd.FpdInfoDetaile {
-            if hwModuleFpd.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_HwModuleFpd_FpdInfoDetaile{}
-        hwModuleFpd.FpdInfoDetaile = append(hwModuleFpd.FpdInfoDetaile, child)
-        return &hwModuleFpd.FpdInfoDetaile[len(hwModuleFpd.FpdInfoDetaile)-1]
-    }
-    return nil
-}
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hwModuleFpd.EntityData.Children = make(map[string]types.YChild)
+    hwModuleFpd.EntityData.Children["fpd-info-detaile"] = types.YChild{"FpdInfoDetaile", nil}
     for i := range hwModuleFpd.FpdInfoDetaile {
-        children[hwModuleFpd.FpdInfoDetaile[i].GetSegmentPath()] = &hwModuleFpd.FpdInfoDetaile[i]
+        hwModuleFpd.EntityData.Children[types.GetSegmentPath(&hwModuleFpd.FpdInfoDetaile[i])] = types.YChild{"FpdInfoDetaile", &hwModuleFpd.FpdInfoDetaile[i]}
     }
-    return children
+    hwModuleFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hwModuleFpd.EntityData)
 }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetYangName() string { return "hw-module-fpd" }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) SetParent(parent types.Entity) { hwModuleFpd.parent = parent }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetParent() types.Entity { return hwModuleFpd.parent }
-
-func (hwModuleFpd *ShowFpd_HwModuleFpd) GetParentYangName() string { return "show-fpd" }
 
 // ShowFpd_HwModuleFpd_FpdInfoDetaile
 //  fpd list with all detailes
 type ShowFpd_HwModuleFpd_FpdInfoDetaile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // fpd location. The type is string.
@@ -532,138 +284,62 @@ type ShowFpd_HwModuleFpd_FpdInfoDetaile struct {
     ProgramdVersion interface{}
 }
 
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetFilter() yfilter.YFilter { return fpdInfoDetaile.YFilter }
+func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetEntityData() *types.CommonEntityData {
+    fpdInfoDetaile.EntityData.YFilter = fpdInfoDetaile.YFilter
+    fpdInfoDetaile.EntityData.YangName = "fpd-info-detaile"
+    fpdInfoDetaile.EntityData.BundleName = "cisco_ios_xr"
+    fpdInfoDetaile.EntityData.ParentYangName = "hw-module-fpd"
+    fpdInfoDetaile.EntityData.SegmentPath = "fpd-info-detaile"
+    fpdInfoDetaile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpdInfoDetaile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpdInfoDetaile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) SetFilter(yf yfilter.YFilter) { fpdInfoDetaile.YFilter = yf }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "card-name" { return "CardName" }
-    if yname == "fpd-name" { return "FpdName" }
-    if yname == "hw-version" { return "HwVersion" }
-    if yname == "secure-boot-attr" { return "SecureBootAttr" }
-    if yname == "status" { return "Status" }
-    if yname == "running-version" { return "RunningVersion" }
-    if yname == "programd-version" { return "ProgramdVersion" }
-    return ""
+    fpdInfoDetaile.EntityData.Children = make(map[string]types.YChild)
+    fpdInfoDetaile.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpdInfoDetaile.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdInfoDetaile.Location}
+    fpdInfoDetaile.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", fpdInfoDetaile.CardName}
+    fpdInfoDetaile.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdInfoDetaile.FpdName}
+    fpdInfoDetaile.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", fpdInfoDetaile.HwVersion}
+    fpdInfoDetaile.EntityData.Leafs["secure-boot-attr"] = types.YLeaf{"SecureBootAttr", fpdInfoDetaile.SecureBootAttr}
+    fpdInfoDetaile.EntityData.Leafs["status"] = types.YLeaf{"Status", fpdInfoDetaile.Status}
+    fpdInfoDetaile.EntityData.Leafs["running-version"] = types.YLeaf{"RunningVersion", fpdInfoDetaile.RunningVersion}
+    fpdInfoDetaile.EntityData.Leafs["programd-version"] = types.YLeaf{"ProgramdVersion", fpdInfoDetaile.ProgramdVersion}
+    return &(fpdInfoDetaile.EntityData)
 }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetSegmentPath() string {
-    return "fpd-info-detaile"
-}
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = fpdInfoDetaile.Location
-    leafs["card-name"] = fpdInfoDetaile.CardName
-    leafs["fpd-name"] = fpdInfoDetaile.FpdName
-    leafs["hw-version"] = fpdInfoDetaile.HwVersion
-    leafs["secure-boot-attr"] = fpdInfoDetaile.SecureBootAttr
-    leafs["status"] = fpdInfoDetaile.Status
-    leafs["running-version"] = fpdInfoDetaile.RunningVersion
-    leafs["programd-version"] = fpdInfoDetaile.ProgramdVersion
-    return leafs
-}
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetYangName() string { return "fpd-info-detaile" }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) SetParent(parent types.Entity) { fpdInfoDetaile.parent = parent }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetParent() types.Entity { return fpdInfoDetaile.parent }
-
-func (fpdInfoDetaile *ShowFpd_HwModuleFpd_FpdInfoDetaile) GetParentYangName() string { return "hw-module-fpd" }
 
 // ShowFpd_HelpLocations
 // help location table
 type ShowFpd_HelpLocations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // location. The type is slice of ShowFpd_HelpLocations_HelpLocation.
     HelpLocation []ShowFpd_HelpLocations_HelpLocation
 }
 
-func (helpLocations *ShowFpd_HelpLocations) GetFilter() yfilter.YFilter { return helpLocations.YFilter }
+func (helpLocations *ShowFpd_HelpLocations) GetEntityData() *types.CommonEntityData {
+    helpLocations.EntityData.YFilter = helpLocations.YFilter
+    helpLocations.EntityData.YangName = "help-locations"
+    helpLocations.EntityData.BundleName = "cisco_ios_xr"
+    helpLocations.EntityData.ParentYangName = "show-fpd"
+    helpLocations.EntityData.SegmentPath = "help-locations"
+    helpLocations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    helpLocations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    helpLocations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (helpLocations *ShowFpd_HelpLocations) SetFilter(yf yfilter.YFilter) { helpLocations.YFilter = yf }
-
-func (helpLocations *ShowFpd_HelpLocations) GetGoName(yname string) string {
-    if yname == "help-location" { return "HelpLocation" }
-    return ""
-}
-
-func (helpLocations *ShowFpd_HelpLocations) GetSegmentPath() string {
-    return "help-locations"
-}
-
-func (helpLocations *ShowFpd_HelpLocations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "help-location" {
-        for _, c := range helpLocations.HelpLocation {
-            if helpLocations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_HelpLocations_HelpLocation{}
-        helpLocations.HelpLocation = append(helpLocations.HelpLocation, child)
-        return &helpLocations.HelpLocation[len(helpLocations.HelpLocation)-1]
-    }
-    return nil
-}
-
-func (helpLocations *ShowFpd_HelpLocations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    helpLocations.EntityData.Children = make(map[string]types.YChild)
+    helpLocations.EntityData.Children["help-location"] = types.YChild{"HelpLocation", nil}
     for i := range helpLocations.HelpLocation {
-        children[helpLocations.HelpLocation[i].GetSegmentPath()] = &helpLocations.HelpLocation[i]
+        helpLocations.EntityData.Children[types.GetSegmentPath(&helpLocations.HelpLocation[i])] = types.YChild{"HelpLocation", &helpLocations.HelpLocation[i]}
     }
-    return children
+    helpLocations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(helpLocations.EntityData)
 }
-
-func (helpLocations *ShowFpd_HelpLocations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (helpLocations *ShowFpd_HelpLocations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (helpLocations *ShowFpd_HelpLocations) GetYangName() string { return "help-locations" }
-
-func (helpLocations *ShowFpd_HelpLocations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (helpLocations *ShowFpd_HelpLocations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (helpLocations *ShowFpd_HelpLocations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (helpLocations *ShowFpd_HelpLocations) SetParent(parent types.Entity) { helpLocations.parent = parent }
-
-func (helpLocations *ShowFpd_HelpLocations) GetParent() types.Entity { return helpLocations.parent }
-
-func (helpLocations *ShowFpd_HelpLocations) GetParentYangName() string { return "show-fpd" }
 
 // ShowFpd_HelpLocations_HelpLocation
 // location
 type ShowFpd_HelpLocations_HelpLocation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fpd location. The type is string with length:
@@ -674,61 +350,27 @@ type ShowFpd_HelpLocations_HelpLocation struct {
     HelpFpd ShowFpd_HelpLocations_HelpLocation_HelpFpd
 }
 
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetFilter() yfilter.YFilter { return helpLocation.YFilter }
+func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetEntityData() *types.CommonEntityData {
+    helpLocation.EntityData.YFilter = helpLocation.YFilter
+    helpLocation.EntityData.YangName = "help-location"
+    helpLocation.EntityData.BundleName = "cisco_ios_xr"
+    helpLocation.EntityData.ParentYangName = "help-locations"
+    helpLocation.EntityData.SegmentPath = "help-location" + "[location-name='" + fmt.Sprintf("%v", helpLocation.LocationName) + "']"
+    helpLocation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    helpLocation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    helpLocation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) SetFilter(yf yfilter.YFilter) { helpLocation.YFilter = yf }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetGoName(yname string) string {
-    if yname == "location-name" { return "LocationName" }
-    if yname == "help-fpd" { return "HelpFpd" }
-    return ""
+    helpLocation.EntityData.Children = make(map[string]types.YChild)
+    helpLocation.EntityData.Children["help-fpd"] = types.YChild{"HelpFpd", &helpLocation.HelpFpd}
+    helpLocation.EntityData.Leafs = make(map[string]types.YLeaf)
+    helpLocation.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", helpLocation.LocationName}
+    return &(helpLocation.EntityData)
 }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetSegmentPath() string {
-    return "help-location" + "[location-name='" + fmt.Sprintf("%v", helpLocation.LocationName) + "']"
-}
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "help-fpd" {
-        return &helpLocation.HelpFpd
-    }
-    return nil
-}
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["help-fpd"] = &helpLocation.HelpFpd
-    return children
-}
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location-name"] = helpLocation.LocationName
-    return leafs
-}
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetYangName() string { return "help-location" }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) SetParent(parent types.Entity) { helpLocation.parent = parent }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetParent() types.Entity { return helpLocation.parent }
-
-func (helpLocation *ShowFpd_HelpLocations_HelpLocation) GetParentYangName() string { return "help-locations" }
 
 // ShowFpd_HelpLocations_HelpLocation_HelpFpd
 // Display fpds on given locations
 type ShowFpd_HelpLocations_HelpLocation_HelpFpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Fpd name list. The type is slice of
@@ -736,68 +378,29 @@ type ShowFpd_HelpLocations_HelpLocation_HelpFpd struct {
     FpdName []ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName
 }
 
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetFilter() yfilter.YFilter { return helpFpd.YFilter }
+func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetEntityData() *types.CommonEntityData {
+    helpFpd.EntityData.YFilter = helpFpd.YFilter
+    helpFpd.EntityData.YangName = "help-fpd"
+    helpFpd.EntityData.BundleName = "cisco_ios_xr"
+    helpFpd.EntityData.ParentYangName = "help-location"
+    helpFpd.EntityData.SegmentPath = "help-fpd"
+    helpFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    helpFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    helpFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) SetFilter(yf yfilter.YFilter) { helpFpd.YFilter = yf }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetGoName(yname string) string {
-    if yname == "fpd-name" { return "FpdName" }
-    return ""
-}
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetSegmentPath() string {
-    return "help-fpd"
-}
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fpd-name" {
-        for _, c := range helpFpd.FpdName {
-            if helpFpd.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName{}
-        helpFpd.FpdName = append(helpFpd.FpdName, child)
-        return &helpFpd.FpdName[len(helpFpd.FpdName)-1]
-    }
-    return nil
-}
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    helpFpd.EntityData.Children = make(map[string]types.YChild)
+    helpFpd.EntityData.Children["fpd-name"] = types.YChild{"FpdName", nil}
     for i := range helpFpd.FpdName {
-        children[helpFpd.FpdName[i].GetSegmentPath()] = &helpFpd.FpdName[i]
+        helpFpd.EntityData.Children[types.GetSegmentPath(&helpFpd.FpdName[i])] = types.YChild{"FpdName", &helpFpd.FpdName[i]}
     }
-    return children
+    helpFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(helpFpd.EntityData)
 }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetYangName() string { return "help-fpd" }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) SetParent(parent types.Entity) { helpFpd.parent = parent }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetParent() types.Entity { return helpFpd.parent }
-
-func (helpFpd *ShowFpd_HelpLocations_HelpLocation_HelpFpd) GetParentYangName() string { return "help-location" }
 
 // ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName
 // Fpd name list
 type ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // fpd location. The type is string.
@@ -807,126 +410,56 @@ type ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName struct {
     FpdName interface{}
 }
 
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetFilter() yfilter.YFilter { return fpdName.YFilter }
+func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetEntityData() *types.CommonEntityData {
+    fpdName.EntityData.YFilter = fpdName.YFilter
+    fpdName.EntityData.YangName = "fpd-name"
+    fpdName.EntityData.BundleName = "cisco_ios_xr"
+    fpdName.EntityData.ParentYangName = "help-fpd"
+    fpdName.EntityData.SegmentPath = "fpd-name"
+    fpdName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) SetFilter(yf yfilter.YFilter) { fpdName.YFilter = yf }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "fpd-name" { return "FpdName" }
-    return ""
+    fpdName.EntityData.Children = make(map[string]types.YChild)
+    fpdName.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpdName.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdName.Location}
+    fpdName.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdName.FpdName}
+    return &(fpdName.EntityData)
 }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetSegmentPath() string {
-    return "fpd-name"
-}
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = fpdName.Location
-    leafs["fpd-name"] = fpdName.FpdName
-    return leafs
-}
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetYangName() string { return "fpd-name" }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) SetParent(parent types.Entity) { fpdName.parent = parent }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetParent() types.Entity { return fpdName.parent }
-
-func (fpdName *ShowFpd_HelpLocations_HelpLocation_HelpFpd_FpdName) GetParentYangName() string { return "help-fpd" }
 
 // ShowFpd_HwModuleFpdHelpFpd
 // Display help-fpd -show hw-module fpd help-fpd
 type ShowFpd_HwModuleFpdHelpFpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Fpd name list. The type is slice of ShowFpd_HwModuleFpdHelpFpd_FpdName.
     FpdName []ShowFpd_HwModuleFpdHelpFpd_FpdName
 }
 
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetFilter() yfilter.YFilter { return hwModuleFpdHelpFpd.YFilter }
+func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetEntityData() *types.CommonEntityData {
+    hwModuleFpdHelpFpd.EntityData.YFilter = hwModuleFpdHelpFpd.YFilter
+    hwModuleFpdHelpFpd.EntityData.YangName = "hw-module-fpd-help-fpd"
+    hwModuleFpdHelpFpd.EntityData.BundleName = "cisco_ios_xr"
+    hwModuleFpdHelpFpd.EntityData.ParentYangName = "show-fpd"
+    hwModuleFpdHelpFpd.EntityData.SegmentPath = "hw-module-fpd-help-fpd"
+    hwModuleFpdHelpFpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwModuleFpdHelpFpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwModuleFpdHelpFpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) SetFilter(yf yfilter.YFilter) { hwModuleFpdHelpFpd.YFilter = yf }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetGoName(yname string) string {
-    if yname == "fpd-name" { return "FpdName" }
-    return ""
-}
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetSegmentPath() string {
-    return "hw-module-fpd-help-fpd"
-}
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fpd-name" {
-        for _, c := range hwModuleFpdHelpFpd.FpdName {
-            if hwModuleFpdHelpFpd.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_HwModuleFpdHelpFpd_FpdName{}
-        hwModuleFpdHelpFpd.FpdName = append(hwModuleFpdHelpFpd.FpdName, child)
-        return &hwModuleFpdHelpFpd.FpdName[len(hwModuleFpdHelpFpd.FpdName)-1]
-    }
-    return nil
-}
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    hwModuleFpdHelpFpd.EntityData.Children = make(map[string]types.YChild)
+    hwModuleFpdHelpFpd.EntityData.Children["fpd-name"] = types.YChild{"FpdName", nil}
     for i := range hwModuleFpdHelpFpd.FpdName {
-        children[hwModuleFpdHelpFpd.FpdName[i].GetSegmentPath()] = &hwModuleFpdHelpFpd.FpdName[i]
+        hwModuleFpdHelpFpd.EntityData.Children[types.GetSegmentPath(&hwModuleFpdHelpFpd.FpdName[i])] = types.YChild{"FpdName", &hwModuleFpdHelpFpd.FpdName[i]}
     }
-    return children
+    hwModuleFpdHelpFpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hwModuleFpdHelpFpd.EntityData)
 }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetYangName() string { return "hw-module-fpd-help-fpd" }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) SetParent(parent types.Entity) { hwModuleFpdHelpFpd.parent = parent }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetParent() types.Entity { return hwModuleFpdHelpFpd.parent }
-
-func (hwModuleFpdHelpFpd *ShowFpd_HwModuleFpdHelpFpd) GetParentYangName() string { return "show-fpd" }
 
 // ShowFpd_HwModuleFpdHelpFpd_FpdName
 // Fpd name list
 type ShowFpd_HwModuleFpdHelpFpd_FpdName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // fpd location. The type is string.
@@ -936,126 +469,56 @@ type ShowFpd_HwModuleFpdHelpFpd_FpdName struct {
     FpdName interface{}
 }
 
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetFilter() yfilter.YFilter { return fpdName.YFilter }
+func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetEntityData() *types.CommonEntityData {
+    fpdName.EntityData.YFilter = fpdName.YFilter
+    fpdName.EntityData.YangName = "fpd-name"
+    fpdName.EntityData.BundleName = "cisco_ios_xr"
+    fpdName.EntityData.ParentYangName = "hw-module-fpd-help-fpd"
+    fpdName.EntityData.SegmentPath = "fpd-name"
+    fpdName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpdName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpdName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) SetFilter(yf yfilter.YFilter) { fpdName.YFilter = yf }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "fpd-name" { return "FpdName" }
-    return ""
+    fpdName.EntityData.Children = make(map[string]types.YChild)
+    fpdName.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpdName.EntityData.Leafs["location"] = types.YLeaf{"Location", fpdName.Location}
+    fpdName.EntityData.Leafs["fpd-name"] = types.YLeaf{"FpdName", fpdName.FpdName}
+    return &(fpdName.EntityData)
 }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetSegmentPath() string {
-    return "fpd-name"
-}
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = fpdName.Location
-    leafs["fpd-name"] = fpdName.FpdName
-    return leafs
-}
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetYangName() string { return "fpd-name" }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) SetParent(parent types.Entity) { fpdName.parent = parent }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetParent() types.Entity { return fpdName.parent }
-
-func (fpdName *ShowFpd_HwModuleFpdHelpFpd_FpdName) GetParentYangName() string { return "hw-module-fpd-help-fpd" }
 
 // ShowFpd_Package
 // gets fpd package info
 type ShowFpd_Package struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // fpd pkg list . The type is slice of ShowFpd_Package_FpdPkgData.
     FpdPkgData []ShowFpd_Package_FpdPkgData
 }
 
-func (self *ShowFpd_Package) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *ShowFpd_Package) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "package"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "show-fpd"
+    self.EntityData.SegmentPath = "package"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *ShowFpd_Package) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *ShowFpd_Package) GetGoName(yname string) string {
-    if yname == "fpd-pkg-data" { return "FpdPkgData" }
-    return ""
-}
-
-func (self *ShowFpd_Package) GetSegmentPath() string {
-    return "package"
-}
-
-func (self *ShowFpd_Package) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fpd-pkg-data" {
-        for _, c := range self.FpdPkgData {
-            if self.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_Package_FpdPkgData{}
-        self.FpdPkgData = append(self.FpdPkgData, child)
-        return &self.FpdPkgData[len(self.FpdPkgData)-1]
-    }
-    return nil
-}
-
-func (self *ShowFpd_Package) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["fpd-pkg-data"] = types.YChild{"FpdPkgData", nil}
     for i := range self.FpdPkgData {
-        children[self.FpdPkgData[i].GetSegmentPath()] = &self.FpdPkgData[i]
+        self.EntityData.Children[types.GetSegmentPath(&self.FpdPkgData[i])] = types.YChild{"FpdPkgData", &self.FpdPkgData[i]}
     }
-    return children
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(self.EntityData)
 }
-
-func (self *ShowFpd_Package) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (self *ShowFpd_Package) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *ShowFpd_Package) GetYangName() string { return "package" }
-
-func (self *ShowFpd_Package) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *ShowFpd_Package) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *ShowFpd_Package) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *ShowFpd_Package) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *ShowFpd_Package) GetParent() types.Entity { return self.parent }
-
-func (self *ShowFpd_Package) GetParentYangName() string { return "show-fpd" }
 
 // ShowFpd_Package_FpdPkgData
 //  fpd pkg list 
 type ShowFpd_Package_FpdPkgData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card type. The type is string.
@@ -1077,183 +540,79 @@ type ShowFpd_Package_FpdPkgData struct {
     MinHwVer interface{}
 }
 
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetFilter() yfilter.YFilter { return fpdPkgData.YFilter }
+func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetEntityData() *types.CommonEntityData {
+    fpdPkgData.EntityData.YFilter = fpdPkgData.YFilter
+    fpdPkgData.EntityData.YangName = "fpd-pkg-data"
+    fpdPkgData.EntityData.BundleName = "cisco_ios_xr"
+    fpdPkgData.EntityData.ParentYangName = "package"
+    fpdPkgData.EntityData.SegmentPath = "fpd-pkg-data"
+    fpdPkgData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fpdPkgData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fpdPkgData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) SetFilter(yf yfilter.YFilter) { fpdPkgData.YFilter = yf }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetGoName(yname string) string {
-    if yname == "card-type" { return "CardType" }
-    if yname == "fpd-desc" { return "FpdDesc" }
-    if yname == "upgrade-method" { return "UpgradeMethod" }
-    if yname == "fpd-ver" { return "FpdVer" }
-    if yname == "min-sw-ver" { return "MinSwVer" }
-    if yname == "min-hw-ver" { return "MinHwVer" }
-    return ""
+    fpdPkgData.EntityData.Children = make(map[string]types.YChild)
+    fpdPkgData.EntityData.Leafs = make(map[string]types.YLeaf)
+    fpdPkgData.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", fpdPkgData.CardType}
+    fpdPkgData.EntityData.Leafs["fpd-desc"] = types.YLeaf{"FpdDesc", fpdPkgData.FpdDesc}
+    fpdPkgData.EntityData.Leafs["upgrade-method"] = types.YLeaf{"UpgradeMethod", fpdPkgData.UpgradeMethod}
+    fpdPkgData.EntityData.Leafs["fpd-ver"] = types.YLeaf{"FpdVer", fpdPkgData.FpdVer}
+    fpdPkgData.EntityData.Leafs["min-sw-ver"] = types.YLeaf{"MinSwVer", fpdPkgData.MinSwVer}
+    fpdPkgData.EntityData.Leafs["min-hw-ver"] = types.YLeaf{"MinHwVer", fpdPkgData.MinHwVer}
+    return &(fpdPkgData.EntityData)
 }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetSegmentPath() string {
-    return "fpd-pkg-data"
-}
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-type"] = fpdPkgData.CardType
-    leafs["fpd-desc"] = fpdPkgData.FpdDesc
-    leafs["upgrade-method"] = fpdPkgData.UpgradeMethod
-    leafs["fpd-ver"] = fpdPkgData.FpdVer
-    leafs["min-sw-ver"] = fpdPkgData.MinSwVer
-    leafs["min-hw-ver"] = fpdPkgData.MinHwVer
-    return leafs
-}
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetYangName() string { return "fpd-pkg-data" }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) SetParent(parent types.Entity) { fpdPkgData.parent = parent }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetParent() types.Entity { return fpdPkgData.parent }
-
-func (fpdPkgData *ShowFpd_Package_FpdPkgData) GetParentYangName() string { return "package" }
 
 // ShowFpd_LocationHelp
 // fpd upgradable locations
 type ShowFpd_LocationHelp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card location list. The type is slice of ShowFpd_LocationHelp_LocationName.
     LocationName []ShowFpd_LocationHelp_LocationName
 }
 
-func (locationHelp *ShowFpd_LocationHelp) GetFilter() yfilter.YFilter { return locationHelp.YFilter }
+func (locationHelp *ShowFpd_LocationHelp) GetEntityData() *types.CommonEntityData {
+    locationHelp.EntityData.YFilter = locationHelp.YFilter
+    locationHelp.EntityData.YangName = "location-help"
+    locationHelp.EntityData.BundleName = "cisco_ios_xr"
+    locationHelp.EntityData.ParentYangName = "show-fpd"
+    locationHelp.EntityData.SegmentPath = "location-help"
+    locationHelp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locationHelp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locationHelp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (locationHelp *ShowFpd_LocationHelp) SetFilter(yf yfilter.YFilter) { locationHelp.YFilter = yf }
-
-func (locationHelp *ShowFpd_LocationHelp) GetGoName(yname string) string {
-    if yname == "location-name" { return "LocationName" }
-    return ""
-}
-
-func (locationHelp *ShowFpd_LocationHelp) GetSegmentPath() string {
-    return "location-help"
-}
-
-func (locationHelp *ShowFpd_LocationHelp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "location-name" {
-        for _, c := range locationHelp.LocationName {
-            if locationHelp.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := ShowFpd_LocationHelp_LocationName{}
-        locationHelp.LocationName = append(locationHelp.LocationName, child)
-        return &locationHelp.LocationName[len(locationHelp.LocationName)-1]
-    }
-    return nil
-}
-
-func (locationHelp *ShowFpd_LocationHelp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    locationHelp.EntityData.Children = make(map[string]types.YChild)
+    locationHelp.EntityData.Children["location-name"] = types.YChild{"LocationName", nil}
     for i := range locationHelp.LocationName {
-        children[locationHelp.LocationName[i].GetSegmentPath()] = &locationHelp.LocationName[i]
+        locationHelp.EntityData.Children[types.GetSegmentPath(&locationHelp.LocationName[i])] = types.YChild{"LocationName", &locationHelp.LocationName[i]}
     }
-    return children
+    locationHelp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(locationHelp.EntityData)
 }
-
-func (locationHelp *ShowFpd_LocationHelp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (locationHelp *ShowFpd_LocationHelp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (locationHelp *ShowFpd_LocationHelp) GetYangName() string { return "location-help" }
-
-func (locationHelp *ShowFpd_LocationHelp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (locationHelp *ShowFpd_LocationHelp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (locationHelp *ShowFpd_LocationHelp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (locationHelp *ShowFpd_LocationHelp) SetParent(parent types.Entity) { locationHelp.parent = parent }
-
-func (locationHelp *ShowFpd_LocationHelp) GetParent() types.Entity { return locationHelp.parent }
-
-func (locationHelp *ShowFpd_LocationHelp) GetParentYangName() string { return "show-fpd" }
 
 // ShowFpd_LocationHelp_LocationName
 // card location list
 type ShowFpd_LocationHelp_LocationName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card location. The type is string.
     LocationName interface{}
 }
 
-func (locationName *ShowFpd_LocationHelp_LocationName) GetFilter() yfilter.YFilter { return locationName.YFilter }
+func (locationName *ShowFpd_LocationHelp_LocationName) GetEntityData() *types.CommonEntityData {
+    locationName.EntityData.YFilter = locationName.YFilter
+    locationName.EntityData.YangName = "location-name"
+    locationName.EntityData.BundleName = "cisco_ios_xr"
+    locationName.EntityData.ParentYangName = "location-help"
+    locationName.EntityData.SegmentPath = "location-name"
+    locationName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locationName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locationName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (locationName *ShowFpd_LocationHelp_LocationName) SetFilter(yf yfilter.YFilter) { locationName.YFilter = yf }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetGoName(yname string) string {
-    if yname == "location-name" { return "LocationName" }
-    return ""
+    locationName.EntityData.Children = make(map[string]types.YChild)
+    locationName.EntityData.Leafs = make(map[string]types.YLeaf)
+    locationName.EntityData.Leafs["location-name"] = types.YLeaf{"LocationName", locationName.LocationName}
+    return &(locationName.EntityData)
 }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetSegmentPath() string {
-    return "location-name"
-}
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location-name"] = locationName.LocationName
-    return leafs
-}
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetYangName() string { return "location-name" }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) SetParent(parent types.Entity) { locationName.parent = parent }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetParent() types.Entity { return locationName.parent }
-
-func (locationName *ShowFpd_LocationHelp_LocationName) GetParentYangName() string { return "location-help" }
 

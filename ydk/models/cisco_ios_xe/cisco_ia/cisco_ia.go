@@ -1,5 +1,5 @@
 // DMI self-management YANG module for IOS
-// Copyright (c) 2016 by Cisco Systems, Inc.
+// Copyright (c) 2016, 2018 by Cisco Systems, Inc.
 // All rights reserved.
 package cisco_ia
 
@@ -28,6 +28,23 @@ func init() {
     ydk.RegisterEntity("cisco-ia:rollback", reflect.TypeOf(Rollback{}))
 }
 
+// CiaSyncType represents database from the Network Element
+type CiaSyncType string
+
+const (
+    // Do no synchronize the DMI
+    // database from the Network Element
+    CiaSyncType_disabled CiaSyncType = "disabled"
+
+    // Collect "show running" from 
+    // the Network Element
+    CiaSyncType_without_defaults CiaSyncType = "without-defaults"
+
+    // Collect "show running all" from 
+    // the Network Element
+    CiaSyncType_include_defaults CiaSyncType = "include-defaults"
+)
+
 // CiaLogLevel represents Logging levels for DMI
 type CiaLogLevel string
 
@@ -49,21 +66,32 @@ const (
     CiaLogLevel_debug CiaLogLevel = "debug"
 )
 
-// CiaSyncType represents database from the Network Element
-type CiaSyncType string
+// OnepLogLevel represents Logging levels for Onep
+type OnepLogLevel string
 
 const (
-    // Do no synchronize the DMI
-    // database from the Network Element
-    CiaSyncType_disabled CiaSyncType = "disabled"
+    // No logging
+    OnepLogLevel_none OnepLogLevel = "none"
 
-    // Collect "show running" from 
-    // the Network Element
-    CiaSyncType_without_defaults CiaSyncType = "without-defaults"
+    // Log fatal events only
+    OnepLogLevel_fatal OnepLogLevel = "fatal"
 
-    // Collect "show running all" from 
-    // the Network Element
-    CiaSyncType_include_defaults CiaSyncType = "include-defaults"
+    // Log fatal events and errors only
+    OnepLogLevel_error OnepLogLevel = "error"
+
+    // Log fatal events, errors, and warnings only
+    OnepLogLevel_warning OnepLogLevel = "warning"
+
+    // Log fatal events, errors, warnings, 
+    // and information only
+    OnepLogLevel_information OnepLogLevel = "information"
+
+    // Log fatal events, errors, warnings, information,
+    // and debug messages
+    OnepLogLevel_debug OnepLogLevel = "debug"
+
+    // Log all messages
+    OnepLogLevel_trace OnepLogLevel = "trace"
 )
 
 // SyslogSeverity represents Standard Syslog logging levels)
@@ -98,39 +126,11 @@ const (
     SyslogSeverity_debug SyslogSeverity = "debug"
 )
 
-// OnepLogLevel represents Logging levels for Onep
-type OnepLogLevel string
-
-const (
-    // No logging
-    OnepLogLevel_none OnepLogLevel = "none"
-
-    // Log fatal events only
-    OnepLogLevel_fatal OnepLogLevel = "fatal"
-
-    // Log fatal events and errors only
-    OnepLogLevel_error OnepLogLevel = "error"
-
-    // Log fatal events, errors, and warnings only
-    OnepLogLevel_warning OnepLogLevel = "warning"
-
-    // Log fatal events, errors, warnings, 
-    // and information only
-    OnepLogLevel_information OnepLogLevel = "information"
-
-    // Log fatal events, errors, warnings, information,
-    // and debug messages
-    OnepLogLevel_debug OnepLogLevel = "debug"
-
-    // Log all messages
-    OnepLogLevel_trace OnepLogLevel = "trace"
-)
-
 // SyncFrom
 // Synchronize the network element's 
 // running-configuration to ConfD.
 type SyncFrom struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -140,63 +140,26 @@ type SyncFrom struct {
     Output SyncFrom_Output
 }
 
-func (syncFrom *SyncFrom) GetFilter() yfilter.YFilter { return syncFrom.YFilter }
+func (syncFrom *SyncFrom) GetEntityData() *types.CommonEntityData {
+    syncFrom.EntityData.YFilter = syncFrom.YFilter
+    syncFrom.EntityData.YangName = "sync-from"
+    syncFrom.EntityData.BundleName = "cisco_ios_xe"
+    syncFrom.EntityData.ParentYangName = "cisco-ia"
+    syncFrom.EntityData.SegmentPath = "cisco-ia:sync-from"
+    syncFrom.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    syncFrom.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    syncFrom.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (syncFrom *SyncFrom) SetFilter(yf yfilter.YFilter) { syncFrom.YFilter = yf }
-
-func (syncFrom *SyncFrom) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    syncFrom.EntityData.Children = make(map[string]types.YChild)
+    syncFrom.EntityData.Children["input"] = types.YChild{"Input", &syncFrom.Input}
+    syncFrom.EntityData.Children["output"] = types.YChild{"Output", &syncFrom.Output}
+    syncFrom.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(syncFrom.EntityData)
 }
-
-func (syncFrom *SyncFrom) GetSegmentPath() string {
-    return "cisco-ia:sync-from"
-}
-
-func (syncFrom *SyncFrom) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &syncFrom.Input
-    }
-    if childYangName == "output" {
-        return &syncFrom.Output
-    }
-    return nil
-}
-
-func (syncFrom *SyncFrom) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &syncFrom.Input
-    children["output"] = &syncFrom.Output
-    return children
-}
-
-func (syncFrom *SyncFrom) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (syncFrom *SyncFrom) GetBundleName() string { return "cisco_ios_xe" }
-
-func (syncFrom *SyncFrom) GetYangName() string { return "sync-from" }
-
-func (syncFrom *SyncFrom) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (syncFrom *SyncFrom) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (syncFrom *SyncFrom) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (syncFrom *SyncFrom) SetParent(parent types.Entity) { syncFrom.parent = parent }
-
-func (syncFrom *SyncFrom) GetParent() types.Entity { return syncFrom.parent }
-
-func (syncFrom *SyncFrom) GetParentYangName() string { return "cisco-ia" }
 
 // SyncFrom_Input
 type SyncFrom_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sends the output of  "show running all" line by line to Confd. The type is
@@ -208,462 +171,212 @@ type SyncFrom_Input struct {
     IgnorePresrvPaths interface{}
 }
 
-func (input *SyncFrom_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *SyncFrom_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "sync-from"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *SyncFrom_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *SyncFrom_Input) GetGoName(yname string) string {
-    if yname == "sync-defaults" { return "SyncDefaults" }
-    if yname == "ignore-presrv-paths" { return "IgnorePresrvPaths" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["sync-defaults"] = types.YLeaf{"SyncDefaults", input.SyncDefaults}
+    input.EntityData.Leafs["ignore-presrv-paths"] = types.YLeaf{"IgnorePresrvPaths", input.IgnorePresrvPaths}
+    return &(input.EntityData)
 }
-
-func (input *SyncFrom_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *SyncFrom_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *SyncFrom_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *SyncFrom_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sync-defaults"] = input.SyncDefaults
-    leafs["ignore-presrv-paths"] = input.IgnorePresrvPaths
-    return leafs
-}
-
-func (input *SyncFrom_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *SyncFrom_Input) GetYangName() string { return "input" }
-
-func (input *SyncFrom_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *SyncFrom_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *SyncFrom_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *SyncFrom_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *SyncFrom_Input) GetParent() types.Entity { return input.parent }
-
-func (input *SyncFrom_Input) GetParentYangName() string { return "sync-from" }
 
 // SyncFrom_Output
 type SyncFrom_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Output returned by the network element. The type is string.
     Result interface{}
 }
 
-func (output *SyncFrom_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *SyncFrom_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "sync-from"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *SyncFrom_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *SyncFrom_Output) GetGoName(yname string) string {
-    if yname == "result" { return "Result" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    return &(output.EntityData)
 }
-
-func (output *SyncFrom_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *SyncFrom_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *SyncFrom_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *SyncFrom_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["result"] = output.Result
-    return leafs
-}
-
-func (output *SyncFrom_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *SyncFrom_Output) GetYangName() string { return "output" }
-
-func (output *SyncFrom_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *SyncFrom_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *SyncFrom_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *SyncFrom_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *SyncFrom_Output) GetParent() types.Entity { return output.parent }
-
-func (output *SyncFrom_Output) GetParentYangName() string { return "sync-from" }
 
 // SaveConfig
 // Copy the running-config to 
 // startup-config on the Network
 // Element.
 type SaveConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Output SaveConfig_Output
 }
 
-func (saveConfig *SaveConfig) GetFilter() yfilter.YFilter { return saveConfig.YFilter }
+func (saveConfig *SaveConfig) GetEntityData() *types.CommonEntityData {
+    saveConfig.EntityData.YFilter = saveConfig.YFilter
+    saveConfig.EntityData.YangName = "save-config"
+    saveConfig.EntityData.BundleName = "cisco_ios_xe"
+    saveConfig.EntityData.ParentYangName = "cisco-ia"
+    saveConfig.EntityData.SegmentPath = "cisco-ia:save-config"
+    saveConfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    saveConfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    saveConfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (saveConfig *SaveConfig) SetFilter(yf yfilter.YFilter) { saveConfig.YFilter = yf }
-
-func (saveConfig *SaveConfig) GetGoName(yname string) string {
-    if yname == "output" { return "Output" }
-    return ""
+    saveConfig.EntityData.Children = make(map[string]types.YChild)
+    saveConfig.EntityData.Children["output"] = types.YChild{"Output", &saveConfig.Output}
+    saveConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(saveConfig.EntityData)
 }
-
-func (saveConfig *SaveConfig) GetSegmentPath() string {
-    return "cisco-ia:save-config"
-}
-
-func (saveConfig *SaveConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "output" {
-        return &saveConfig.Output
-    }
-    return nil
-}
-
-func (saveConfig *SaveConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["output"] = &saveConfig.Output
-    return children
-}
-
-func (saveConfig *SaveConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (saveConfig *SaveConfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (saveConfig *SaveConfig) GetYangName() string { return "save-config" }
-
-func (saveConfig *SaveConfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (saveConfig *SaveConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (saveConfig *SaveConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (saveConfig *SaveConfig) SetParent(parent types.Entity) { saveConfig.parent = parent }
-
-func (saveConfig *SaveConfig) GetParent() types.Entity { return saveConfig.parent }
-
-func (saveConfig *SaveConfig) GetParentYangName() string { return "cisco-ia" }
 
 // SaveConfig_Output
 type SaveConfig_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Output returned by the network element. The type is string.
     Result interface{}
 }
 
-func (output *SaveConfig_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *SaveConfig_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "save-config"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *SaveConfig_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *SaveConfig_Output) GetGoName(yname string) string {
-    if yname == "result" { return "Result" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    return &(output.EntityData)
 }
-
-func (output *SaveConfig_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *SaveConfig_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *SaveConfig_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *SaveConfig_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["result"] = output.Result
-    return leafs
-}
-
-func (output *SaveConfig_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *SaveConfig_Output) GetYangName() string { return "output" }
-
-func (output *SaveConfig_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *SaveConfig_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *SaveConfig_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *SaveConfig_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *SaveConfig_Output) GetParent() types.Entity { return output.parent }
-
-func (output *SaveConfig_Output) GetParentYangName() string { return "save-config" }
 
 // IsSyncing
 // Checks to see if sync from the
 // network element to the running data store
 // is in progress.
 type IsSyncing struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Output IsSyncing_Output
 }
 
-func (isSyncing *IsSyncing) GetFilter() yfilter.YFilter { return isSyncing.YFilter }
+func (isSyncing *IsSyncing) GetEntityData() *types.CommonEntityData {
+    isSyncing.EntityData.YFilter = isSyncing.YFilter
+    isSyncing.EntityData.YangName = "is-syncing"
+    isSyncing.EntityData.BundleName = "cisco_ios_xe"
+    isSyncing.EntityData.ParentYangName = "cisco-ia"
+    isSyncing.EntityData.SegmentPath = "cisco-ia:is-syncing"
+    isSyncing.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    isSyncing.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    isSyncing.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (isSyncing *IsSyncing) SetFilter(yf yfilter.YFilter) { isSyncing.YFilter = yf }
-
-func (isSyncing *IsSyncing) GetGoName(yname string) string {
-    if yname == "output" { return "Output" }
-    return ""
+    isSyncing.EntityData.Children = make(map[string]types.YChild)
+    isSyncing.EntityData.Children["output"] = types.YChild{"Output", &isSyncing.Output}
+    isSyncing.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(isSyncing.EntityData)
 }
-
-func (isSyncing *IsSyncing) GetSegmentPath() string {
-    return "cisco-ia:is-syncing"
-}
-
-func (isSyncing *IsSyncing) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "output" {
-        return &isSyncing.Output
-    }
-    return nil
-}
-
-func (isSyncing *IsSyncing) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["output"] = &isSyncing.Output
-    return children
-}
-
-func (isSyncing *IsSyncing) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (isSyncing *IsSyncing) GetBundleName() string { return "cisco_ios_xe" }
-
-func (isSyncing *IsSyncing) GetYangName() string { return "is-syncing" }
-
-func (isSyncing *IsSyncing) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (isSyncing *IsSyncing) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (isSyncing *IsSyncing) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (isSyncing *IsSyncing) SetParent(parent types.Entity) { isSyncing.parent = parent }
-
-func (isSyncing *IsSyncing) GetParent() types.Entity { return isSyncing.parent }
-
-func (isSyncing *IsSyncing) GetParentYangName() string { return "cisco-ia" }
 
 // IsSyncing_Output
 type IsSyncing_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Output returned by the network element. The type is string.
     Result interface{}
 }
 
-func (output *IsSyncing_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *IsSyncing_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "is-syncing"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *IsSyncing_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *IsSyncing_Output) GetGoName(yname string) string {
-    if yname == "result" { return "Result" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    return &(output.EntityData)
 }
-
-func (output *IsSyncing_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *IsSyncing_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *IsSyncing_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *IsSyncing_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["result"] = output.Result
-    return leafs
-}
-
-func (output *IsSyncing_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *IsSyncing_Output) GetYangName() string { return "output" }
-
-func (output *IsSyncing_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *IsSyncing_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *IsSyncing_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *IsSyncing_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *IsSyncing_Output) GetParent() types.Entity { return output.parent }
-
-func (output *IsSyncing_Output) GetParentYangName() string { return "is-syncing" }
 
 // Checkpoint
 // Create a configuration rollback checkpoint.
 // Equivalent to the "archive config" CLI
 type Checkpoint struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Output Checkpoint_Output
 }
 
-func (checkpoint *Checkpoint) GetFilter() yfilter.YFilter { return checkpoint.YFilter }
+func (checkpoint *Checkpoint) GetEntityData() *types.CommonEntityData {
+    checkpoint.EntityData.YFilter = checkpoint.YFilter
+    checkpoint.EntityData.YangName = "checkpoint"
+    checkpoint.EntityData.BundleName = "cisco_ios_xe"
+    checkpoint.EntityData.ParentYangName = "cisco-ia"
+    checkpoint.EntityData.SegmentPath = "cisco-ia:checkpoint"
+    checkpoint.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    checkpoint.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    checkpoint.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (checkpoint *Checkpoint) SetFilter(yf yfilter.YFilter) { checkpoint.YFilter = yf }
-
-func (checkpoint *Checkpoint) GetGoName(yname string) string {
-    if yname == "output" { return "Output" }
-    return ""
+    checkpoint.EntityData.Children = make(map[string]types.YChild)
+    checkpoint.EntityData.Children["output"] = types.YChild{"Output", &checkpoint.Output}
+    checkpoint.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(checkpoint.EntityData)
 }
-
-func (checkpoint *Checkpoint) GetSegmentPath() string {
-    return "cisco-ia:checkpoint"
-}
-
-func (checkpoint *Checkpoint) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "output" {
-        return &checkpoint.Output
-    }
-    return nil
-}
-
-func (checkpoint *Checkpoint) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["output"] = &checkpoint.Output
-    return children
-}
-
-func (checkpoint *Checkpoint) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (checkpoint *Checkpoint) GetBundleName() string { return "cisco_ios_xe" }
-
-func (checkpoint *Checkpoint) GetYangName() string { return "checkpoint" }
-
-func (checkpoint *Checkpoint) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (checkpoint *Checkpoint) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (checkpoint *Checkpoint) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (checkpoint *Checkpoint) SetParent(parent types.Entity) { checkpoint.parent = parent }
-
-func (checkpoint *Checkpoint) GetParent() types.Entity { return checkpoint.parent }
-
-func (checkpoint *Checkpoint) GetParentYangName() string { return "cisco-ia" }
 
 // Checkpoint_Output
 type Checkpoint_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Output returned by the network element. The type is string.
     Result interface{}
 }
 
-func (output *Checkpoint_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Checkpoint_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "checkpoint"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *Checkpoint_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Checkpoint_Output) GetGoName(yname string) string {
-    if yname == "result" { return "Result" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    return &(output.EntityData)
 }
-
-func (output *Checkpoint_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Checkpoint_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Checkpoint_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Checkpoint_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["result"] = output.Result
-    return leafs
-}
-
-func (output *Checkpoint_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *Checkpoint_Output) GetYangName() string { return "output" }
-
-func (output *Checkpoint_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *Checkpoint_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *Checkpoint_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *Checkpoint_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Checkpoint_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Checkpoint_Output) GetParentYangName() string { return "checkpoint" }
 
 // Revert
 // Cancel the timed rollback and trigger the
 // rollback immediately, or to reset parameters 
 // for the timed rollback
 type Revert struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -673,63 +386,26 @@ type Revert struct {
     Output Revert_Output
 }
 
-func (revert *Revert) GetFilter() yfilter.YFilter { return revert.YFilter }
+func (revert *Revert) GetEntityData() *types.CommonEntityData {
+    revert.EntityData.YFilter = revert.YFilter
+    revert.EntityData.YangName = "revert"
+    revert.EntityData.BundleName = "cisco_ios_xe"
+    revert.EntityData.ParentYangName = "cisco-ia"
+    revert.EntityData.SegmentPath = "cisco-ia:revert"
+    revert.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    revert.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    revert.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (revert *Revert) SetFilter(yf yfilter.YFilter) { revert.YFilter = yf }
-
-func (revert *Revert) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    revert.EntityData.Children = make(map[string]types.YChild)
+    revert.EntityData.Children["input"] = types.YChild{"Input", &revert.Input}
+    revert.EntityData.Children["output"] = types.YChild{"Output", &revert.Output}
+    revert.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(revert.EntityData)
 }
-
-func (revert *Revert) GetSegmentPath() string {
-    return "cisco-ia:revert"
-}
-
-func (revert *Revert) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &revert.Input
-    }
-    if childYangName == "output" {
-        return &revert.Output
-    }
-    return nil
-}
-
-func (revert *Revert) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &revert.Input
-    children["output"] = &revert.Output
-    return children
-}
-
-func (revert *Revert) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (revert *Revert) GetBundleName() string { return "cisco_ios_xe" }
-
-func (revert *Revert) GetYangName() string { return "revert" }
-
-func (revert *Revert) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (revert *Revert) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (revert *Revert) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (revert *Revert) SetParent(parent types.Entity) { revert.parent = parent }
-
-func (revert *Revert) GetParent() types.Entity { return revert.parent }
-
-func (revert *Revert) GetParentYangName() string { return "cisco-ia" }
 
 // Revert_Input
 type Revert_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // To cancel the timed rollback and  trigger the rollback immediately. The
@@ -745,116 +421,54 @@ type Revert_Input struct {
     Idle interface{}
 }
 
-func (input *Revert_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Revert_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "revert"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *Revert_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Revert_Input) GetGoName(yname string) string {
-    if yname == "now" { return "Now" }
-    if yname == "timer" { return "Timer" }
-    if yname == "idle" { return "Idle" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["now"] = types.YLeaf{"Now", input.Now}
+    input.EntityData.Leafs["timer"] = types.YLeaf{"Timer", input.Timer}
+    input.EntityData.Leafs["idle"] = types.YLeaf{"Idle", input.Idle}
+    return &(input.EntityData)
 }
-
-func (input *Revert_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Revert_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *Revert_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *Revert_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["now"] = input.Now
-    leafs["timer"] = input.Timer
-    leafs["idle"] = input.Idle
-    return leafs
-}
-
-func (input *Revert_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *Revert_Input) GetYangName() string { return "input" }
-
-func (input *Revert_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *Revert_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *Revert_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *Revert_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Revert_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Revert_Input) GetParentYangName() string { return "revert" }
 
 // Revert_Output
 type Revert_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Output returned by the network element. The type is string.
     Result interface{}
 }
 
-func (output *Revert_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Revert_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "revert"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *Revert_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Revert_Output) GetGoName(yname string) string {
-    if yname == "result" { return "Result" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    return &(output.EntityData)
 }
-
-func (output *Revert_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Revert_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Revert_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Revert_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["result"] = output.Result
-    return leafs
-}
-
-func (output *Revert_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *Revert_Output) GetYangName() string { return "output" }
-
-func (output *Revert_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *Revert_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *Revert_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *Revert_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Revert_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Revert_Output) GetParentYangName() string { return "revert" }
 
 // Rollback
 // Replaces the current running configuration 
 // file with a saved Cisco IOS XE configuration file.
 type Rollback struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -864,63 +478,26 @@ type Rollback struct {
     Output Rollback_Output
 }
 
-func (rollback *Rollback) GetFilter() yfilter.YFilter { return rollback.YFilter }
+func (rollback *Rollback) GetEntityData() *types.CommonEntityData {
+    rollback.EntityData.YFilter = rollback.YFilter
+    rollback.EntityData.YangName = "rollback"
+    rollback.EntityData.BundleName = "cisco_ios_xe"
+    rollback.EntityData.ParentYangName = "cisco-ia"
+    rollback.EntityData.SegmentPath = "cisco-ia:rollback"
+    rollback.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rollback.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rollback.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rollback *Rollback) SetFilter(yf yfilter.YFilter) { rollback.YFilter = yf }
-
-func (rollback *Rollback) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    rollback.EntityData.Children = make(map[string]types.YChild)
+    rollback.EntityData.Children["input"] = types.YChild{"Input", &rollback.Input}
+    rollback.EntityData.Children["output"] = types.YChild{"Output", &rollback.Output}
+    rollback.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rollback.EntityData)
 }
-
-func (rollback *Rollback) GetSegmentPath() string {
-    return "cisco-ia:rollback"
-}
-
-func (rollback *Rollback) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &rollback.Input
-    }
-    if childYangName == "output" {
-        return &rollback.Output
-    }
-    return nil
-}
-
-func (rollback *Rollback) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &rollback.Input
-    children["output"] = &rollback.Output
-    return children
-}
-
-func (rollback *Rollback) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rollback *Rollback) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rollback *Rollback) GetYangName() string { return "rollback" }
-
-func (rollback *Rollback) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rollback *Rollback) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rollback *Rollback) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rollback *Rollback) SetParent(parent types.Entity) { rollback.parent = parent }
-
-func (rollback *Rollback) GetParent() types.Entity { return rollback.parent }
-
-func (rollback *Rollback) GetParentYangName() string { return "cisco-ia" }
 
 // Rollback_Input
 type Rollback_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Cisco IOS XE configuration file that is to  replace the current running
@@ -946,112 +523,48 @@ type Rollback_Input struct {
     RevertTimer interface{}
 }
 
-func (input *Rollback_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Rollback_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xe"
+    input.EntityData.ParentYangName = "rollback"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (input *Rollback_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Rollback_Input) GetGoName(yname string) string {
-    if yname == "target-url" { return "TargetUrl" }
-    if yname == "verbose" { return "Verbose" }
-    if yname == "nolock" { return "Nolock" }
-    if yname == "revert-on-error" { return "RevertOnError" }
-    if yname == "revert-timer" { return "RevertTimer" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["target-url"] = types.YLeaf{"TargetUrl", input.TargetUrl}
+    input.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", input.Verbose}
+    input.EntityData.Leafs["nolock"] = types.YLeaf{"Nolock", input.Nolock}
+    input.EntityData.Leafs["revert-on-error"] = types.YLeaf{"RevertOnError", input.RevertOnError}
+    input.EntityData.Leafs["revert-timer"] = types.YLeaf{"RevertTimer", input.RevertTimer}
+    return &(input.EntityData)
 }
-
-func (input *Rollback_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Rollback_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *Rollback_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *Rollback_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["target-url"] = input.TargetUrl
-    leafs["verbose"] = input.Verbose
-    leafs["nolock"] = input.Nolock
-    leafs["revert-on-error"] = input.RevertOnError
-    leafs["revert-timer"] = input.RevertTimer
-    return leafs
-}
-
-func (input *Rollback_Input) GetBundleName() string { return "cisco_ios_xe" }
-
-func (input *Rollback_Input) GetYangName() string { return "input" }
-
-func (input *Rollback_Input) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (input *Rollback_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (input *Rollback_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (input *Rollback_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Rollback_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Rollback_Input) GetParentYangName() string { return "rollback" }
 
 // Rollback_Output
 type Rollback_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Output returned by the network element. The type is string.
     Result interface{}
 }
 
-func (output *Rollback_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Rollback_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xe"
+    output.EntityData.ParentYangName = "rollback"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (output *Rollback_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Rollback_Output) GetGoName(yname string) string {
-    if yname == "result" { return "Result" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["result"] = types.YLeaf{"Result", output.Result}
+    return &(output.EntityData)
 }
-
-func (output *Rollback_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Rollback_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Rollback_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Rollback_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["result"] = output.Result
-    return leafs
-}
-
-func (output *Rollback_Output) GetBundleName() string { return "cisco_ios_xe" }
-
-func (output *Rollback_Output) GetYangName() string { return "output" }
-
-func (output *Rollback_Output) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (output *Rollback_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (output *Rollback_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (output *Rollback_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Rollback_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Rollback_Output) GetParentYangName() string { return "rollback" }
 

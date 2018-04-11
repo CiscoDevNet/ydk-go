@@ -10,95 +10,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package mpls_types"))
 }
 
-type PathSetupSr struct {
+type PathSetupProtocol struct {
 }
 
-func (id PathSetupSr) String() string {
-	return "openconfig-mpls-types:path-setup-sr"
-}
-
-type DOWN struct {
-}
-
-func (id DOWN) String() string {
-	return "openconfig-mpls-types:DOWN"
-}
-
-type Unprotected struct {
-}
-
-func (id Unprotected) String() string {
-	return "openconfig-mpls-types:unprotected"
-}
-
-type PathSetupLdp struct {
-}
-
-func (id PathSetupLdp) String() string {
-	return "openconfig-mpls-types:path-setup-ldp"
-}
-
-type P2P struct {
-}
-
-func (id P2P) String() string {
-	return "openconfig-mpls-types:P2P"
-}
-
-type LspRole struct {
-}
-
-func (id LspRole) String() string {
-	return "openconfig-mpls-types:lsp-role"
-}
-
-type ADMINDOWN struct {
-}
-
-func (id ADMINDOWN) String() string {
-	return "openconfig-mpls-types:ADMIN_DOWN"
-}
-
-type LspOperStatus struct {
-}
-
-func (id LspOperStatus) String() string {
-	return "openconfig-mpls-types:lsp-oper-status"
-}
-
-type EXPLICIT struct {
-}
-
-func (id EXPLICIT) String() string {
-	return "openconfig-mpls-types:EXPLICIT"
-}
-
-type ADMINUP struct {
-}
-
-func (id ADMINUP) String() string {
-	return "openconfig-mpls-types:ADMIN_UP"
-}
-
-type P2MP struct {
-}
-
-func (id P2MP) String() string {
-	return "openconfig-mpls-types:P2MP"
-}
-
-type ProtectionType struct {
-}
-
-func (id ProtectionType) String() string {
-	return "openconfig-mpls-types:protection-type"
-}
-
-type TunnelAdminStatus struct {
-}
-
-func (id TunnelAdminStatus) String() string {
-	return "openconfig-mpls-types:tunnel-admin-status"
+func (id PathSetupProtocol) String() string {
+	return "openconfig-mpls-types:path-setup-protocol"
 }
 
 type PathSetupRsvp struct {
@@ -108,11 +24,32 @@ func (id PathSetupRsvp) String() string {
 	return "openconfig-mpls-types:path-setup-rsvp"
 }
 
-type INGRESS struct {
+type PathSetupSr struct {
 }
 
-func (id INGRESS) String() string {
-	return "openconfig-mpls-types:INGRESS"
+func (id PathSetupSr) String() string {
+	return "openconfig-mpls-types:path-setup-sr"
+}
+
+type PathSetupLdp struct {
+}
+
+func (id PathSetupLdp) String() string {
+	return "openconfig-mpls-types:path-setup-ldp"
+}
+
+type ProtectionType struct {
+}
+
+func (id ProtectionType) String() string {
+	return "openconfig-mpls-types:protection-type"
+}
+
+type Unprotected struct {
+}
+
+func (id Unprotected) String() string {
+	return "openconfig-mpls-types:unprotected"
 }
 
 type LinkProtectionRequested struct {
@@ -122,13 +59,6 @@ func (id LinkProtectionRequested) String() string {
 	return "openconfig-mpls-types:link-protection-requested"
 }
 
-type EGRESS struct {
-}
-
-func (id EGRESS) String() string {
-	return "openconfig-mpls-types:EGRESS"
-}
-
 type LinkNodeProtectionRequested struct {
 }
 
@@ -136,18 +66,25 @@ func (id LinkNodeProtectionRequested) String() string {
 	return "openconfig-mpls-types:link-node-protection-requested"
 }
 
-type IMPLICIT struct {
+type LspRole struct {
 }
 
-func (id IMPLICIT) String() string {
-	return "openconfig-mpls-types:IMPLICIT"
+func (id LspRole) String() string {
+	return "openconfig-mpls-types:lsp-role"
 }
 
-type NullLabelType struct {
+type INGRESS struct {
 }
 
-func (id NullLabelType) String() string {
-	return "openconfig-mpls-types:null-label-type"
+func (id INGRESS) String() string {
+	return "openconfig-mpls-types:INGRESS"
+}
+
+type EGRESS struct {
+}
+
+func (id EGRESS) String() string {
+	return "openconfig-mpls-types:EGRESS"
 }
 
 type TRANSIT struct {
@@ -157,13 +94,6 @@ func (id TRANSIT) String() string {
 	return "openconfig-mpls-types:TRANSIT"
 }
 
-type UP struct {
-}
-
-func (id UP) String() string {
-	return "openconfig-mpls-types:UP"
-}
-
 type TunnelType struct {
 }
 
@@ -171,26 +101,89 @@ func (id TunnelType) String() string {
 	return "openconfig-mpls-types:tunnel-type"
 }
 
-type PathSetupProtocol struct {
+type P2P struct {
 }
 
-func (id PathSetupProtocol) String() string {
-	return "openconfig-mpls-types:path-setup-protocol"
+func (id P2P) String() string {
+	return "openconfig-mpls-types:P2P"
 }
 
-// TunnelType represents defines the tunnel type for the LSP
-type TunnelType string
+type P2MP struct {
+}
 
-const (
-    // point-to-point label-switched-path
-    TunnelType_P2P TunnelType = "P2P"
+func (id P2MP) String() string {
+	return "openconfig-mpls-types:P2MP"
+}
 
-    // point-to-multipoint label-switched-path
-    TunnelType_P2MP TunnelType = "P2MP"
+type LspOperStatus struct {
+}
 
-    // multipoint-to-multipoint label-switched-path
-    TunnelType_MP2MP TunnelType = "MP2MP"
-)
+func (id LspOperStatus) String() string {
+	return "openconfig-mpls-types:lsp-oper-status"
+}
+
+type DOWN struct {
+}
+
+func (id DOWN) String() string {
+	return "openconfig-mpls-types:DOWN"
+}
+
+type UP struct {
+}
+
+func (id UP) String() string {
+	return "openconfig-mpls-types:UP"
+}
+
+type TunnelAdminStatus struct {
+}
+
+func (id TunnelAdminStatus) String() string {
+	return "openconfig-mpls-types:tunnel-admin-status"
+}
+
+type ADMINDOWN struct {
+}
+
+func (id ADMINDOWN) String() string {
+	return "openconfig-mpls-types:ADMIN_DOWN"
+}
+
+type ADMINUP struct {
+}
+
+func (id ADMINUP) String() string {
+	return "openconfig-mpls-types:ADMIN_UP"
+}
+
+type NullLabelType struct {
+}
+
+func (id NullLabelType) String() string {
+	return "openconfig-mpls-types:null-label-type"
+}
+
+type EXPLICIT struct {
+}
+
+func (id EXPLICIT) String() string {
+	return "openconfig-mpls-types:EXPLICIT"
+}
+
+type IMPLICIT struct {
+}
+
+func (id IMPLICIT) String() string {
+	return "openconfig-mpls-types:IMPLICIT"
+}
+
+type PATHSETUPPROTOCOL struct {
+}
+
+func (id PATHSETUPPROTOCOL) String() string {
+	return "openconfig-mpls-types:PATH_SETUP_PROTOCOL"
+}
 
 // MplsLabel represents type for MPLS label value encoding
 type MplsLabel string
@@ -219,5 +212,19 @@ const (
     // to distinguish between entropy label and applicaiton
     // labels RFC 6790
     MplsLabel_ENTROPY_LABEL_INDICATOR MplsLabel = "ENTROPY_LABEL_INDICATOR"
+)
+
+// TunnelType_ represents defines the tunnel type for the LSP
+type TunnelType_ string
+
+const (
+    // point-to-point label-switched-path
+    TunnelType__P2P TunnelType_ = "P2P"
+
+    // point-to-multipoint label-switched-path
+    TunnelType__P2MP TunnelType_ = "P2MP"
+
+    // multipoint-to-multipoint label-switched-path
+    TunnelType__MP2MP TunnelType_ = "MP2MP"
 )
 

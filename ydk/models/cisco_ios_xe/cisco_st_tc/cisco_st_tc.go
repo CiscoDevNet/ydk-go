@@ -11,86 +11,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_st_tc"))
 }
 
-// FcAddressType represents fcid(2) - address is FCID.
-type FcAddressType string
-
-const (
-    FcAddressType_wwn FcAddressType = "wwn"
-
-    FcAddressType_fcid FcAddressType = "fcid"
-)
-
-// FcIfServiceStateType represents               operational.
-type FcIfServiceStateType string
-
-const (
-    FcIfServiceStateType_inService FcIfServiceStateType = "inService"
-
-    FcIfServiceStateType_outOfService FcIfServiceStateType = "outOfService"
-)
-
-// FcIfSfpDiagLevelType represents transmit and receive power.
-type FcIfSfpDiagLevelType string
-
-const (
-    FcIfSfpDiagLevelType_unknown FcIfSfpDiagLevelType = "unknown"
-
-    FcIfSfpDiagLevelType_normal FcIfSfpDiagLevelType = "normal"
-
-    FcIfSfpDiagLevelType_lowWarning FcIfSfpDiagLevelType = "lowWarning"
-
-    FcIfSfpDiagLevelType_lowAlarm FcIfSfpDiagLevelType = "lowAlarm"
-
-    FcIfSfpDiagLevelType_highWarning FcIfSfpDiagLevelType = "highWarning"
-
-    FcIfSfpDiagLevelType_highAlarm FcIfSfpDiagLevelType = "highAlarm"
-)
-
-// FcPortModuleTypes represents .
-type FcPortModuleTypes string
-
-const (
-    FcPortModuleTypes_unknown FcPortModuleTypes = "unknown"
-
-    FcPortModuleTypes_other FcPortModuleTypes = "other"
-
-    FcPortModuleTypes_gbic FcPortModuleTypes = "gbic"
-
-    FcPortModuleTypes_embedded FcPortModuleTypes = "embedded"
-
-    FcPortModuleTypes_glm FcPortModuleTypes = "glm"
-
-    FcPortModuleTypes_gbicWithSerialID FcPortModuleTypes = "gbicWithSerialID"
-
-    FcPortModuleTypes_gbicWithoutSerialID FcPortModuleTypes = "gbicWithoutSerialID"
-
-    FcPortModuleTypes_sfpWithSerialID FcPortModuleTypes = "sfpWithSerialID"
-
-    FcPortModuleTypes_sfpWithoutSerialID FcPortModuleTypes = "sfpWithoutSerialID"
-
-    FcPortModuleTypes_xfp FcPortModuleTypes = "xfp"
-
-    FcPortModuleTypes_x2Short FcPortModuleTypes = "x2Short"
-
-    FcPortModuleTypes_x2Medium FcPortModuleTypes = "x2Medium"
-
-    FcPortModuleTypes_x2Tall FcPortModuleTypes = "x2Tall"
-
-    FcPortModuleTypes_xpakShort FcPortModuleTypes = "xpakShort"
-
-    FcPortModuleTypes_xpakMedium FcPortModuleTypes = "xpakMedium"
-
-    FcPortModuleTypes_xpakTall FcPortModuleTypes = "xpakTall"
-
-    FcPortModuleTypes_xenpak FcPortModuleTypes = "xenpak"
-
-    FcPortModuleTypes_sfpDwdm FcPortModuleTypes = "sfpDwdm"
-
-    FcPortModuleTypes_qsfp FcPortModuleTypes = "qsfp"
-
-    FcPortModuleTypes_x2Dwdm FcPortModuleTypes = "x2Dwdm"
-)
-
 // FcPortTypes represents               to N-port Virtualizer (NPV).
 type FcPortTypes string
 
@@ -161,6 +81,51 @@ const (
     FcPortTxTypes_tenGigBaseEw FcPortTxTypes = "tenGigBaseEw"
 )
 
+// FcPortModuleTypes represents .
+type FcPortModuleTypes string
+
+const (
+    FcPortModuleTypes_unknown FcPortModuleTypes = "unknown"
+
+    FcPortModuleTypes_other FcPortModuleTypes = "other"
+
+    FcPortModuleTypes_gbic FcPortModuleTypes = "gbic"
+
+    FcPortModuleTypes_embedded FcPortModuleTypes = "embedded"
+
+    FcPortModuleTypes_glm FcPortModuleTypes = "glm"
+
+    FcPortModuleTypes_gbicWithSerialID FcPortModuleTypes = "gbicWithSerialID"
+
+    FcPortModuleTypes_gbicWithoutSerialID FcPortModuleTypes = "gbicWithoutSerialID"
+
+    FcPortModuleTypes_sfpWithSerialID FcPortModuleTypes = "sfpWithSerialID"
+
+    FcPortModuleTypes_sfpWithoutSerialID FcPortModuleTypes = "sfpWithoutSerialID"
+
+    FcPortModuleTypes_xfp FcPortModuleTypes = "xfp"
+
+    FcPortModuleTypes_x2Short FcPortModuleTypes = "x2Short"
+
+    FcPortModuleTypes_x2Medium FcPortModuleTypes = "x2Medium"
+
+    FcPortModuleTypes_x2Tall FcPortModuleTypes = "x2Tall"
+
+    FcPortModuleTypes_xpakShort FcPortModuleTypes = "xpakShort"
+
+    FcPortModuleTypes_xpakMedium FcPortModuleTypes = "xpakMedium"
+
+    FcPortModuleTypes_xpakTall FcPortModuleTypes = "xpakTall"
+
+    FcPortModuleTypes_xenpak FcPortModuleTypes = "xenpak"
+
+    FcPortModuleTypes_sfpDwdm FcPortModuleTypes = "sfpDwdm"
+
+    FcPortModuleTypes_qsfp FcPortModuleTypes = "qsfp"
+
+    FcPortModuleTypes_x2Dwdm FcPortModuleTypes = "x2Dwdm"
+)
+
 // FcIfSpeed represents                      maximum of 16Gbit.
 type FcIfSpeed string
 
@@ -186,6 +151,15 @@ const (
     FcIfSpeed_sixteenG FcIfSpeed = "sixteenG"
 
     FcIfSpeed_autoMaxSixteenG FcIfSpeed = "autoMaxSixteenG"
+)
+
+// FcAddressType represents fcid(2) - address is FCID.
+type FcAddressType string
+
+const (
+    FcAddressType_wwn FcAddressType = "wwn"
+
+    FcAddressType_fcid FcAddressType = "fcid"
 )
 
 // InterfaceOperMode represents                       to N-port Virtualizer (NPV).
@@ -233,5 +207,31 @@ const (
     InterfaceOperMode_tfPort InterfaceOperMode = "tfPort"
 
     InterfaceOperMode_tnpPort InterfaceOperMode = "tnpPort"
+)
+
+// FcIfServiceStateType represents               operational.
+type FcIfServiceStateType string
+
+const (
+    FcIfServiceStateType_inService FcIfServiceStateType = "inService"
+
+    FcIfServiceStateType_outOfService FcIfServiceStateType = "outOfService"
+)
+
+// FcIfSfpDiagLevelType represents transmit and receive power.
+type FcIfSfpDiagLevelType string
+
+const (
+    FcIfSfpDiagLevelType_unknown FcIfSfpDiagLevelType = "unknown"
+
+    FcIfSfpDiagLevelType_normal FcIfSfpDiagLevelType = "normal"
+
+    FcIfSfpDiagLevelType_lowWarning FcIfSfpDiagLevelType = "lowWarning"
+
+    FcIfSfpDiagLevelType_lowAlarm FcIfSfpDiagLevelType = "lowAlarm"
+
+    FcIfSfpDiagLevelType_highWarning FcIfSfpDiagLevelType = "highWarning"
+
+    FcIfSfpDiagLevelType_highAlarm FcIfSfpDiagLevelType = "highAlarm"
 )
 

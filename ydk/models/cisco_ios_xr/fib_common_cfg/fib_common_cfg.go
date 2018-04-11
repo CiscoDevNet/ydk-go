@@ -24,6 +24,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-fib-common-cfg:fib", reflect.TypeOf(Fib{}))
 }
 
+// FibPbtsForwardClass represents Fib pbts forward class
+type FibPbtsForwardClass string
+
+const (
+    // Any class
+    FibPbtsForwardClass_any FibPbtsForwardClass = "any"
+)
+
 // FibPbtsFallback represents Fib pbts fallback
 type FibPbtsFallback string
 
@@ -38,22 +46,18 @@ const (
     FibPbtsFallback_drop FibPbtsFallback = "drop"
 )
 
-// FibPbtsForwardClass represents Fib pbts forward class
-type FibPbtsForwardClass string
-
-const (
-    // Any class
-    FibPbtsForwardClass_any FibPbtsForwardClass = "any"
-)
-
 // Fib
 // CEF configuration
 type Fib struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set options for adjacency routes overriding RIB routes. The type is bool.
     PreferAibRoutes interface{}
+
+    // Set option for fast-reroute to follow BGP PIC update, not to wait for
+    // timeout. The type is bool.
+    FrrFollowBgpPic interface{}
 
     // PBTS class configuration.
     PbtsForwardClassFallbacks Fib_PbtsForwardClassFallbacks
@@ -62,66 +66,29 @@ type Fib struct {
     Platform Fib_Platform
 }
 
-func (fib *Fib) GetFilter() yfilter.YFilter { return fib.YFilter }
+func (fib *Fib) GetEntityData() *types.CommonEntityData {
+    fib.EntityData.YFilter = fib.YFilter
+    fib.EntityData.YangName = "fib"
+    fib.EntityData.BundleName = "cisco_ios_xr"
+    fib.EntityData.ParentYangName = "Cisco-IOS-XR-fib-common-cfg"
+    fib.EntityData.SegmentPath = "Cisco-IOS-XR-fib-common-cfg:fib"
+    fib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fib *Fib) SetFilter(yf yfilter.YFilter) { fib.YFilter = yf }
-
-func (fib *Fib) GetGoName(yname string) string {
-    if yname == "prefer-aib-routes" { return "PreferAibRoutes" }
-    if yname == "pbts-forward-class-fallbacks" { return "PbtsForwardClassFallbacks" }
-    if yname == "platform" { return "Platform" }
-    return ""
+    fib.EntityData.Children = make(map[string]types.YChild)
+    fib.EntityData.Children["pbts-forward-class-fallbacks"] = types.YChild{"PbtsForwardClassFallbacks", &fib.PbtsForwardClassFallbacks}
+    fib.EntityData.Children["platform"] = types.YChild{"Platform", &fib.Platform}
+    fib.EntityData.Leafs = make(map[string]types.YLeaf)
+    fib.EntityData.Leafs["prefer-aib-routes"] = types.YLeaf{"PreferAibRoutes", fib.PreferAibRoutes}
+    fib.EntityData.Leafs["frr-follow-bgp-pic"] = types.YLeaf{"FrrFollowBgpPic", fib.FrrFollowBgpPic}
+    return &(fib.EntityData)
 }
-
-func (fib *Fib) GetSegmentPath() string {
-    return "Cisco-IOS-XR-fib-common-cfg:fib"
-}
-
-func (fib *Fib) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbts-forward-class-fallbacks" {
-        return &fib.PbtsForwardClassFallbacks
-    }
-    if childYangName == "platform" {
-        return &fib.Platform
-    }
-    return nil
-}
-
-func (fib *Fib) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pbts-forward-class-fallbacks"] = &fib.PbtsForwardClassFallbacks
-    children["platform"] = &fib.Platform
-    return children
-}
-
-func (fib *Fib) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefer-aib-routes"] = fib.PreferAibRoutes
-    return leafs
-}
-
-func (fib *Fib) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fib *Fib) GetYangName() string { return "fib" }
-
-func (fib *Fib) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fib *Fib) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fib *Fib) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fib *Fib) SetParent(parent types.Entity) { fib.parent = parent }
-
-func (fib *Fib) GetParent() types.Entity { return fib.parent }
-
-func (fib *Fib) GetParentYangName() string { return "Cisco-IOS-XR-fib-common-cfg" }
 
 // Fib_PbtsForwardClassFallbacks
 // PBTS class configuration
 type Fib_PbtsForwardClassFallbacks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set PBTS class for fallback. The type is slice of
@@ -129,68 +96,29 @@ type Fib_PbtsForwardClassFallbacks struct {
     PbtsForwardClassFallback []Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback
 }
 
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetFilter() yfilter.YFilter { return pbtsForwardClassFallbacks.YFilter }
+func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetEntityData() *types.CommonEntityData {
+    pbtsForwardClassFallbacks.EntityData.YFilter = pbtsForwardClassFallbacks.YFilter
+    pbtsForwardClassFallbacks.EntityData.YangName = "pbts-forward-class-fallbacks"
+    pbtsForwardClassFallbacks.EntityData.BundleName = "cisco_ios_xr"
+    pbtsForwardClassFallbacks.EntityData.ParentYangName = "fib"
+    pbtsForwardClassFallbacks.EntityData.SegmentPath = "pbts-forward-class-fallbacks"
+    pbtsForwardClassFallbacks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbtsForwardClassFallbacks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbtsForwardClassFallbacks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) SetFilter(yf yfilter.YFilter) { pbtsForwardClassFallbacks.YFilter = yf }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetGoName(yname string) string {
-    if yname == "pbts-forward-class-fallback" { return "PbtsForwardClassFallback" }
-    return ""
-}
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetSegmentPath() string {
-    return "pbts-forward-class-fallbacks"
-}
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbts-forward-class-fallback" {
-        for _, c := range pbtsForwardClassFallbacks.PbtsForwardClassFallback {
-            if pbtsForwardClassFallbacks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback{}
-        pbtsForwardClassFallbacks.PbtsForwardClassFallback = append(pbtsForwardClassFallbacks.PbtsForwardClassFallback, child)
-        return &pbtsForwardClassFallbacks.PbtsForwardClassFallback[len(pbtsForwardClassFallbacks.PbtsForwardClassFallback)-1]
-    }
-    return nil
-}
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pbtsForwardClassFallbacks.EntityData.Children = make(map[string]types.YChild)
+    pbtsForwardClassFallbacks.EntityData.Children["pbts-forward-class-fallback"] = types.YChild{"PbtsForwardClassFallback", nil}
     for i := range pbtsForwardClassFallbacks.PbtsForwardClassFallback {
-        children[pbtsForwardClassFallbacks.PbtsForwardClassFallback[i].GetSegmentPath()] = &pbtsForwardClassFallbacks.PbtsForwardClassFallback[i]
+        pbtsForwardClassFallbacks.EntityData.Children[types.GetSegmentPath(&pbtsForwardClassFallbacks.PbtsForwardClassFallback[i])] = types.YChild{"PbtsForwardClassFallback", &pbtsForwardClassFallbacks.PbtsForwardClassFallback[i]}
     }
-    return children
+    pbtsForwardClassFallbacks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pbtsForwardClassFallbacks.EntityData)
 }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetYangName() string { return "pbts-forward-class-fallbacks" }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) SetParent(parent types.Entity) { pbtsForwardClassFallbacks.parent = parent }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetParent() types.Entity { return pbtsForwardClassFallbacks.parent }
-
-func (pbtsForwardClassFallbacks *Fib_PbtsForwardClassFallbacks) GetParentYangName() string { return "fib" }
 
 // Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback
 // Set PBTS class for fallback
 type Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. PBTS forward class number. The type is one of the
@@ -206,119 +134,54 @@ type Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback struct {
     FallbackClassNumberArray []interface{}
 }
 
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetFilter() yfilter.YFilter { return pbtsForwardClassFallback.YFilter }
+func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetEntityData() *types.CommonEntityData {
+    pbtsForwardClassFallback.EntityData.YFilter = pbtsForwardClassFallback.YFilter
+    pbtsForwardClassFallback.EntityData.YangName = "pbts-forward-class-fallback"
+    pbtsForwardClassFallback.EntityData.BundleName = "cisco_ios_xr"
+    pbtsForwardClassFallback.EntityData.ParentYangName = "pbts-forward-class-fallbacks"
+    pbtsForwardClassFallback.EntityData.SegmentPath = "pbts-forward-class-fallback" + "[forward-class-number='" + fmt.Sprintf("%v", pbtsForwardClassFallback.ForwardClassNumber) + "']"
+    pbtsForwardClassFallback.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbtsForwardClassFallback.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbtsForwardClassFallback.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) SetFilter(yf yfilter.YFilter) { pbtsForwardClassFallback.YFilter = yf }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetGoName(yname string) string {
-    if yname == "forward-class-number" { return "ForwardClassNumber" }
-    if yname == "fallback-type" { return "FallbackType" }
-    if yname == "fallback-class-number-array" { return "FallbackClassNumberArray" }
-    return ""
+    pbtsForwardClassFallback.EntityData.Children = make(map[string]types.YChild)
+    pbtsForwardClassFallback.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbtsForwardClassFallback.EntityData.Leafs["forward-class-number"] = types.YLeaf{"ForwardClassNumber", pbtsForwardClassFallback.ForwardClassNumber}
+    pbtsForwardClassFallback.EntityData.Leafs["fallback-type"] = types.YLeaf{"FallbackType", pbtsForwardClassFallback.FallbackType}
+    pbtsForwardClassFallback.EntityData.Leafs["fallback-class-number-array"] = types.YLeaf{"FallbackClassNumberArray", pbtsForwardClassFallback.FallbackClassNumberArray}
+    return &(pbtsForwardClassFallback.EntityData)
 }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetSegmentPath() string {
-    return "pbts-forward-class-fallback" + "[forward-class-number='" + fmt.Sprintf("%v", pbtsForwardClassFallback.ForwardClassNumber) + "']"
-}
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["forward-class-number"] = pbtsForwardClassFallback.ForwardClassNumber
-    leafs["fallback-type"] = pbtsForwardClassFallback.FallbackType
-    leafs["fallback-class-number-array"] = pbtsForwardClassFallback.FallbackClassNumberArray
-    return leafs
-}
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetYangName() string { return "pbts-forward-class-fallback" }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) SetParent(parent types.Entity) { pbtsForwardClassFallback.parent = parent }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetParent() types.Entity { return pbtsForwardClassFallback.parent }
-
-func (pbtsForwardClassFallback *Fib_PbtsForwardClassFallbacks_PbtsForwardClassFallback) GetParentYangName() string { return "pbts-forward-class-fallbacks" }
 
 // Fib_Platform
 // FIB platform parameters
 type Fib_Platform struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Options for label-switched-multicast parameters.
     LabelSwitchedMulticast Fib_Platform_LabelSwitchedMulticast
 }
 
-func (platform *Fib_Platform) GetFilter() yfilter.YFilter { return platform.YFilter }
+func (platform *Fib_Platform) GetEntityData() *types.CommonEntityData {
+    platform.EntityData.YFilter = platform.YFilter
+    platform.EntityData.YangName = "platform"
+    platform.EntityData.BundleName = "cisco_ios_xr"
+    platform.EntityData.ParentYangName = "fib"
+    platform.EntityData.SegmentPath = "platform"
+    platform.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    platform.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    platform.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (platform *Fib_Platform) SetFilter(yf yfilter.YFilter) { platform.YFilter = yf }
-
-func (platform *Fib_Platform) GetGoName(yname string) string {
-    if yname == "label-switched-multicast" { return "LabelSwitchedMulticast" }
-    return ""
+    platform.EntityData.Children = make(map[string]types.YChild)
+    platform.EntityData.Children["label-switched-multicast"] = types.YChild{"LabelSwitchedMulticast", &platform.LabelSwitchedMulticast}
+    platform.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(platform.EntityData)
 }
-
-func (platform *Fib_Platform) GetSegmentPath() string {
-    return "platform"
-}
-
-func (platform *Fib_Platform) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "label-switched-multicast" {
-        return &platform.LabelSwitchedMulticast
-    }
-    return nil
-}
-
-func (platform *Fib_Platform) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["label-switched-multicast"] = &platform.LabelSwitchedMulticast
-    return children
-}
-
-func (platform *Fib_Platform) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (platform *Fib_Platform) GetBundleName() string { return "cisco_ios_xr" }
-
-func (platform *Fib_Platform) GetYangName() string { return "platform" }
-
-func (platform *Fib_Platform) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (platform *Fib_Platform) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (platform *Fib_Platform) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (platform *Fib_Platform) SetParent(parent types.Entity) { platform.parent = parent }
-
-func (platform *Fib_Platform) GetParent() types.Entity { return platform.parent }
-
-func (platform *Fib_Platform) GetParentYangName() string { return "fib" }
 
 // Fib_Platform_LabelSwitchedMulticast
 // Options for label-switched-multicast parameters
 type Fib_Platform_LabelSwitchedMulticast struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set time to keep FRR slots programmed post FRR. The type is interface{}
@@ -326,49 +189,19 @@ type Fib_Platform_LabelSwitchedMulticast struct {
     FrrHoldtime interface{}
 }
 
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetFilter() yfilter.YFilter { return labelSwitchedMulticast.YFilter }
+func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetEntityData() *types.CommonEntityData {
+    labelSwitchedMulticast.EntityData.YFilter = labelSwitchedMulticast.YFilter
+    labelSwitchedMulticast.EntityData.YangName = "label-switched-multicast"
+    labelSwitchedMulticast.EntityData.BundleName = "cisco_ios_xr"
+    labelSwitchedMulticast.EntityData.ParentYangName = "platform"
+    labelSwitchedMulticast.EntityData.SegmentPath = "label-switched-multicast"
+    labelSwitchedMulticast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    labelSwitchedMulticast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    labelSwitchedMulticast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) SetFilter(yf yfilter.YFilter) { labelSwitchedMulticast.YFilter = yf }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetGoName(yname string) string {
-    if yname == "frr-holdtime" { return "FrrHoldtime" }
-    return ""
+    labelSwitchedMulticast.EntityData.Children = make(map[string]types.YChild)
+    labelSwitchedMulticast.EntityData.Leafs = make(map[string]types.YLeaf)
+    labelSwitchedMulticast.EntityData.Leafs["frr-holdtime"] = types.YLeaf{"FrrHoldtime", labelSwitchedMulticast.FrrHoldtime}
+    return &(labelSwitchedMulticast.EntityData)
 }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetSegmentPath() string {
-    return "label-switched-multicast"
-}
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["frr-holdtime"] = labelSwitchedMulticast.FrrHoldtime
-    return leafs
-}
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetBundleName() string { return "cisco_ios_xr" }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetYangName() string { return "label-switched-multicast" }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) SetParent(parent types.Entity) { labelSwitchedMulticast.parent = parent }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetParent() types.Entity { return labelSwitchedMulticast.parent }
-
-func (labelSwitchedMulticast *Fib_Platform_LabelSwitchedMulticast) GetParentYangName() string { return "platform" }
 

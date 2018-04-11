@@ -27,7 +27,7 @@ func init() {
 // Parser
 // Parser configuration
 type Parser struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // indentation tracking.
@@ -42,6 +42,9 @@ type Parser struct {
     // interactive mode.
     Interactive Parser_Interactive
 
+    // Configuration to disable sysadmin login banner.
+    SysadminLoginBanner Parser_SysadminLoginBanner
+
     // Configure the Interface display order.
     InterfaceDisplay Parser_InterfaceDisplay
 
@@ -55,150 +58,60 @@ type Parser struct {
     SubmodeExit Parser_SubmodeExit
 }
 
-func (parser *Parser) GetFilter() yfilter.YFilter { return parser.YFilter }
+func (parser *Parser) GetEntityData() *types.CommonEntityData {
+    parser.EntityData.YFilter = parser.YFilter
+    parser.EntityData.YangName = "parser"
+    parser.EntityData.BundleName = "cisco_ios_xr"
+    parser.EntityData.ParentYangName = "Cisco-IOS-XR-parser-cfg"
+    parser.EntityData.SegmentPath = "Cisco-IOS-XR-parser-cfg:parser"
+    parser.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    parser.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    parser.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (parser *Parser) SetFilter(yf yfilter.YFilter) { parser.YFilter = yf }
-
-func (parser *Parser) GetGoName(yname string) string {
-    if yname == "indentation" { return "Indentation" }
-    if yname == "alias" { return "Alias" }
-    if yname == "history" { return "History" }
-    if yname == "interactive" { return "Interactive" }
-    if yname == "interface-display" { return "InterfaceDisplay" }
-    if yname == "netmask-format" { return "NetmaskFormat" }
-    if yname == "configuration" { return "Configuration" }
-    if yname == "submode-exit" { return "SubmodeExit" }
-    return ""
+    parser.EntityData.Children = make(map[string]types.YChild)
+    parser.EntityData.Children["indentation"] = types.YChild{"Indentation", &parser.Indentation}
+    parser.EntityData.Children["alias"] = types.YChild{"Alias", &parser.Alias}
+    parser.EntityData.Children["history"] = types.YChild{"History", &parser.History}
+    parser.EntityData.Children["interactive"] = types.YChild{"Interactive", &parser.Interactive}
+    parser.EntityData.Children["sysadmin-login-banner"] = types.YChild{"SysadminLoginBanner", &parser.SysadminLoginBanner}
+    parser.EntityData.Children["interface-display"] = types.YChild{"InterfaceDisplay", &parser.InterfaceDisplay}
+    parser.EntityData.Children["netmask-format"] = types.YChild{"NetmaskFormat", &parser.NetmaskFormat}
+    parser.EntityData.Children["configuration"] = types.YChild{"Configuration", &parser.Configuration}
+    parser.EntityData.Children["submode-exit"] = types.YChild{"SubmodeExit", &parser.SubmodeExit}
+    parser.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(parser.EntityData)
 }
-
-func (parser *Parser) GetSegmentPath() string {
-    return "Cisco-IOS-XR-parser-cfg:parser"
-}
-
-func (parser *Parser) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "indentation" {
-        return &parser.Indentation
-    }
-    if childYangName == "alias" {
-        return &parser.Alias
-    }
-    if childYangName == "history" {
-        return &parser.History
-    }
-    if childYangName == "interactive" {
-        return &parser.Interactive
-    }
-    if childYangName == "interface-display" {
-        return &parser.InterfaceDisplay
-    }
-    if childYangName == "netmask-format" {
-        return &parser.NetmaskFormat
-    }
-    if childYangName == "configuration" {
-        return &parser.Configuration
-    }
-    if childYangName == "submode-exit" {
-        return &parser.SubmodeExit
-    }
-    return nil
-}
-
-func (parser *Parser) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["indentation"] = &parser.Indentation
-    children["alias"] = &parser.Alias
-    children["history"] = &parser.History
-    children["interactive"] = &parser.Interactive
-    children["interface-display"] = &parser.InterfaceDisplay
-    children["netmask-format"] = &parser.NetmaskFormat
-    children["configuration"] = &parser.Configuration
-    children["submode-exit"] = &parser.SubmodeExit
-    return children
-}
-
-func (parser *Parser) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (parser *Parser) GetBundleName() string { return "cisco_ios_xr" }
-
-func (parser *Parser) GetYangName() string { return "parser" }
-
-func (parser *Parser) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (parser *Parser) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (parser *Parser) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (parser *Parser) SetParent(parent types.Entity) { parser.parent = parent }
-
-func (parser *Parser) GetParent() types.Entity { return parser.parent }
-
-func (parser *Parser) GetParentYangName() string { return "Cisco-IOS-XR-parser-cfg" }
 
 // Parser_Indentation
 // indentation tracking
 type Parser_Indentation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable the indentation. The type is bool.
     IndentationDisable interface{}
 }
 
-func (indentation *Parser_Indentation) GetFilter() yfilter.YFilter { return indentation.YFilter }
+func (indentation *Parser_Indentation) GetEntityData() *types.CommonEntityData {
+    indentation.EntityData.YFilter = indentation.YFilter
+    indentation.EntityData.YangName = "indentation"
+    indentation.EntityData.BundleName = "cisco_ios_xr"
+    indentation.EntityData.ParentYangName = "parser"
+    indentation.EntityData.SegmentPath = "indentation"
+    indentation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    indentation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    indentation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (indentation *Parser_Indentation) SetFilter(yf yfilter.YFilter) { indentation.YFilter = yf }
-
-func (indentation *Parser_Indentation) GetGoName(yname string) string {
-    if yname == "indentation-disable" { return "IndentationDisable" }
-    return ""
+    indentation.EntityData.Children = make(map[string]types.YChild)
+    indentation.EntityData.Leafs = make(map[string]types.YLeaf)
+    indentation.EntityData.Leafs["indentation-disable"] = types.YLeaf{"IndentationDisable", indentation.IndentationDisable}
+    return &(indentation.EntityData)
 }
-
-func (indentation *Parser_Indentation) GetSegmentPath() string {
-    return "indentation"
-}
-
-func (indentation *Parser_Indentation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (indentation *Parser_Indentation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (indentation *Parser_Indentation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["indentation-disable"] = indentation.IndentationDisable
-    return leafs
-}
-
-func (indentation *Parser_Indentation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (indentation *Parser_Indentation) GetYangName() string { return "indentation" }
-
-func (indentation *Parser_Indentation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (indentation *Parser_Indentation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (indentation *Parser_Indentation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (indentation *Parser_Indentation) SetParent(parent types.Entity) { indentation.parent = parent }
-
-func (indentation *Parser_Indentation) GetParent() types.Entity { return indentation.parent }
-
-func (indentation *Parser_Indentation) GetParentYangName() string { return "parser" }
 
 // Parser_Alias
 // Alias for command mapping
 type Parser_Alias struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Exec command alias.
@@ -211,137 +124,57 @@ type Parser_Alias struct {
     Alls Parser_Alias_Alls
 }
 
-func (alias *Parser_Alias) GetFilter() yfilter.YFilter { return alias.YFilter }
+func (alias *Parser_Alias) GetEntityData() *types.CommonEntityData {
+    alias.EntityData.YFilter = alias.YFilter
+    alias.EntityData.YangName = "alias"
+    alias.EntityData.BundleName = "cisco_ios_xr"
+    alias.EntityData.ParentYangName = "parser"
+    alias.EntityData.SegmentPath = "alias"
+    alias.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alias.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alias.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alias *Parser_Alias) SetFilter(yf yfilter.YFilter) { alias.YFilter = yf }
-
-func (alias *Parser_Alias) GetGoName(yname string) string {
-    if yname == "execs" { return "Execs" }
-    if yname == "configurations" { return "Configurations" }
-    if yname == "alls" { return "Alls" }
-    return ""
+    alias.EntityData.Children = make(map[string]types.YChild)
+    alias.EntityData.Children["execs"] = types.YChild{"Execs", &alias.Execs}
+    alias.EntityData.Children["configurations"] = types.YChild{"Configurations", &alias.Configurations}
+    alias.EntityData.Children["alls"] = types.YChild{"Alls", &alias.Alls}
+    alias.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(alias.EntityData)
 }
-
-func (alias *Parser_Alias) GetSegmentPath() string {
-    return "alias"
-}
-
-func (alias *Parser_Alias) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "execs" {
-        return &alias.Execs
-    }
-    if childYangName == "configurations" {
-        return &alias.Configurations
-    }
-    if childYangName == "alls" {
-        return &alias.Alls
-    }
-    return nil
-}
-
-func (alias *Parser_Alias) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["execs"] = &alias.Execs
-    children["configurations"] = &alias.Configurations
-    children["alls"] = &alias.Alls
-    return children
-}
-
-func (alias *Parser_Alias) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (alias *Parser_Alias) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alias *Parser_Alias) GetYangName() string { return "alias" }
-
-func (alias *Parser_Alias) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alias *Parser_Alias) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alias *Parser_Alias) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alias *Parser_Alias) SetParent(parent types.Entity) { alias.parent = parent }
-
-func (alias *Parser_Alias) GetParent() types.Entity { return alias.parent }
-
-func (alias *Parser_Alias) GetParentYangName() string { return "parser" }
 
 // Parser_Alias_Execs
 // Exec command alias
 type Parser_Alias_Execs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Exec alias name. The type is slice of Parser_Alias_Execs_Exec.
     Exec []Parser_Alias_Execs_Exec
 }
 
-func (execs *Parser_Alias_Execs) GetFilter() yfilter.YFilter { return execs.YFilter }
+func (execs *Parser_Alias_Execs) GetEntityData() *types.CommonEntityData {
+    execs.EntityData.YFilter = execs.YFilter
+    execs.EntityData.YangName = "execs"
+    execs.EntityData.BundleName = "cisco_ios_xr"
+    execs.EntityData.ParentYangName = "alias"
+    execs.EntityData.SegmentPath = "execs"
+    execs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    execs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    execs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (execs *Parser_Alias_Execs) SetFilter(yf yfilter.YFilter) { execs.YFilter = yf }
-
-func (execs *Parser_Alias_Execs) GetGoName(yname string) string {
-    if yname == "exec" { return "Exec" }
-    return ""
-}
-
-func (execs *Parser_Alias_Execs) GetSegmentPath() string {
-    return "execs"
-}
-
-func (execs *Parser_Alias_Execs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "exec" {
-        for _, c := range execs.Exec {
-            if execs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Parser_Alias_Execs_Exec{}
-        execs.Exec = append(execs.Exec, child)
-        return &execs.Exec[len(execs.Exec)-1]
-    }
-    return nil
-}
-
-func (execs *Parser_Alias_Execs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    execs.EntityData.Children = make(map[string]types.YChild)
+    execs.EntityData.Children["exec"] = types.YChild{"Exec", nil}
     for i := range execs.Exec {
-        children[execs.Exec[i].GetSegmentPath()] = &execs.Exec[i]
+        execs.EntityData.Children[types.GetSegmentPath(&execs.Exec[i])] = types.YChild{"Exec", &execs.Exec[i]}
     }
-    return children
+    execs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(execs.EntityData)
 }
-
-func (execs *Parser_Alias_Execs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (execs *Parser_Alias_Execs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (execs *Parser_Alias_Execs) GetYangName() string { return "execs" }
-
-func (execs *Parser_Alias_Execs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (execs *Parser_Alias_Execs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (execs *Parser_Alias_Execs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (execs *Parser_Alias_Execs) SetParent(parent types.Entity) { execs.parent = parent }
-
-func (execs *Parser_Alias_Execs) GetParent() types.Entity { return execs.parent }
-
-func (execs *Parser_Alias_Execs) GetParentYangName() string { return "alias" }
 
 // Parser_Alias_Execs_Exec
 // Exec alias name
 type Parser_Alias_Execs_Exec struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Exec Alias name. The type is string with length:
@@ -352,58 +185,27 @@ type Parser_Alias_Execs_Exec struct {
     IdentifierXr interface{}
 }
 
-func (exec *Parser_Alias_Execs_Exec) GetFilter() yfilter.YFilter { return exec.YFilter }
+func (exec *Parser_Alias_Execs_Exec) GetEntityData() *types.CommonEntityData {
+    exec.EntityData.YFilter = exec.YFilter
+    exec.EntityData.YangName = "exec"
+    exec.EntityData.BundleName = "cisco_ios_xr"
+    exec.EntityData.ParentYangName = "execs"
+    exec.EntityData.SegmentPath = "exec" + "[identifier='" + fmt.Sprintf("%v", exec.Identifier) + "']"
+    exec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exec *Parser_Alias_Execs_Exec) SetFilter(yf yfilter.YFilter) { exec.YFilter = yf }
-
-func (exec *Parser_Alias_Execs_Exec) GetGoName(yname string) string {
-    if yname == "identifier" { return "Identifier" }
-    if yname == "identifier-xr" { return "IdentifierXr" }
-    return ""
+    exec.EntityData.Children = make(map[string]types.YChild)
+    exec.EntityData.Leafs = make(map[string]types.YLeaf)
+    exec.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", exec.Identifier}
+    exec.EntityData.Leafs["identifier-xr"] = types.YLeaf{"IdentifierXr", exec.IdentifierXr}
+    return &(exec.EntityData)
 }
-
-func (exec *Parser_Alias_Execs_Exec) GetSegmentPath() string {
-    return "exec" + "[identifier='" + fmt.Sprintf("%v", exec.Identifier) + "']"
-}
-
-func (exec *Parser_Alias_Execs_Exec) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (exec *Parser_Alias_Execs_Exec) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (exec *Parser_Alias_Execs_Exec) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["identifier"] = exec.Identifier
-    leafs["identifier-xr"] = exec.IdentifierXr
-    return leafs
-}
-
-func (exec *Parser_Alias_Execs_Exec) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exec *Parser_Alias_Execs_Exec) GetYangName() string { return "exec" }
-
-func (exec *Parser_Alias_Execs_Exec) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exec *Parser_Alias_Execs_Exec) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exec *Parser_Alias_Execs_Exec) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exec *Parser_Alias_Execs_Exec) SetParent(parent types.Entity) { exec.parent = parent }
-
-func (exec *Parser_Alias_Execs_Exec) GetParent() types.Entity { return exec.parent }
-
-func (exec *Parser_Alias_Execs_Exec) GetParentYangName() string { return "execs" }
 
 // Parser_Alias_Configurations
 // Configuration command alias
 type Parser_Alias_Configurations struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration Alias name. The type is slice of
@@ -411,68 +213,29 @@ type Parser_Alias_Configurations struct {
     Configuration []Parser_Alias_Configurations_Configuration
 }
 
-func (configurations *Parser_Alias_Configurations) GetFilter() yfilter.YFilter { return configurations.YFilter }
+func (configurations *Parser_Alias_Configurations) GetEntityData() *types.CommonEntityData {
+    configurations.EntityData.YFilter = configurations.YFilter
+    configurations.EntityData.YangName = "configurations"
+    configurations.EntityData.BundleName = "cisco_ios_xr"
+    configurations.EntityData.ParentYangName = "alias"
+    configurations.EntityData.SegmentPath = "configurations"
+    configurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configurations *Parser_Alias_Configurations) SetFilter(yf yfilter.YFilter) { configurations.YFilter = yf }
-
-func (configurations *Parser_Alias_Configurations) GetGoName(yname string) string {
-    if yname == "configuration" { return "Configuration" }
-    return ""
-}
-
-func (configurations *Parser_Alias_Configurations) GetSegmentPath() string {
-    return "configurations"
-}
-
-func (configurations *Parser_Alias_Configurations) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "configuration" {
-        for _, c := range configurations.Configuration {
-            if configurations.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Parser_Alias_Configurations_Configuration{}
-        configurations.Configuration = append(configurations.Configuration, child)
-        return &configurations.Configuration[len(configurations.Configuration)-1]
-    }
-    return nil
-}
-
-func (configurations *Parser_Alias_Configurations) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    configurations.EntityData.Children = make(map[string]types.YChild)
+    configurations.EntityData.Children["configuration"] = types.YChild{"Configuration", nil}
     for i := range configurations.Configuration {
-        children[configurations.Configuration[i].GetSegmentPath()] = &configurations.Configuration[i]
+        configurations.EntityData.Children[types.GetSegmentPath(&configurations.Configuration[i])] = types.YChild{"Configuration", &configurations.Configuration[i]}
     }
-    return children
+    configurations.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(configurations.EntityData)
 }
-
-func (configurations *Parser_Alias_Configurations) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (configurations *Parser_Alias_Configurations) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configurations *Parser_Alias_Configurations) GetYangName() string { return "configurations" }
-
-func (configurations *Parser_Alias_Configurations) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configurations *Parser_Alias_Configurations) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configurations *Parser_Alias_Configurations) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configurations *Parser_Alias_Configurations) SetParent(parent types.Entity) { configurations.parent = parent }
-
-func (configurations *Parser_Alias_Configurations) GetParent() types.Entity { return configurations.parent }
-
-func (configurations *Parser_Alias_Configurations) GetParentYangName() string { return "alias" }
 
 // Parser_Alias_Configurations_Configuration
 // Configuration Alias name
 type Parser_Alias_Configurations_Configuration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Configuration alias name. The type is string with
@@ -483,126 +246,56 @@ type Parser_Alias_Configurations_Configuration struct {
     IdentifierXr interface{}
 }
 
-func (configuration *Parser_Alias_Configurations_Configuration) GetFilter() yfilter.YFilter { return configuration.YFilter }
+func (configuration *Parser_Alias_Configurations_Configuration) GetEntityData() *types.CommonEntityData {
+    configuration.EntityData.YFilter = configuration.YFilter
+    configuration.EntityData.YangName = "configuration"
+    configuration.EntityData.BundleName = "cisco_ios_xr"
+    configuration.EntityData.ParentYangName = "configurations"
+    configuration.EntityData.SegmentPath = "configuration" + "[identifier='" + fmt.Sprintf("%v", configuration.Identifier) + "']"
+    configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuration *Parser_Alias_Configurations_Configuration) SetFilter(yf yfilter.YFilter) { configuration.YFilter = yf }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetGoName(yname string) string {
-    if yname == "identifier" { return "Identifier" }
-    if yname == "identifier-xr" { return "IdentifierXr" }
-    return ""
+    configuration.EntityData.Children = make(map[string]types.YChild)
+    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
+    configuration.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", configuration.Identifier}
+    configuration.EntityData.Leafs["identifier-xr"] = types.YLeaf{"IdentifierXr", configuration.IdentifierXr}
+    return &(configuration.EntityData)
 }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetSegmentPath() string {
-    return "configuration" + "[identifier='" + fmt.Sprintf("%v", configuration.Identifier) + "']"
-}
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["identifier"] = configuration.Identifier
-    leafs["identifier-xr"] = configuration.IdentifierXr
-    return leafs
-}
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetYangName() string { return "configuration" }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuration *Parser_Alias_Configurations_Configuration) SetParent(parent types.Entity) { configuration.parent = parent }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetParent() types.Entity { return configuration.parent }
-
-func (configuration *Parser_Alias_Configurations_Configuration) GetParentYangName() string { return "configurations" }
 
 // Parser_Alias_Alls
 // Table of all aliases configured
 type Parser_Alias_Alls struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Alias name to command mapping. The type is slice of Parser_Alias_Alls_All.
     All []Parser_Alias_Alls_All
 }
 
-func (alls *Parser_Alias_Alls) GetFilter() yfilter.YFilter { return alls.YFilter }
+func (alls *Parser_Alias_Alls) GetEntityData() *types.CommonEntityData {
+    alls.EntityData.YFilter = alls.YFilter
+    alls.EntityData.YangName = "alls"
+    alls.EntityData.BundleName = "cisco_ios_xr"
+    alls.EntityData.ParentYangName = "alias"
+    alls.EntityData.SegmentPath = "alls"
+    alls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    alls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    alls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (alls *Parser_Alias_Alls) SetFilter(yf yfilter.YFilter) { alls.YFilter = yf }
-
-func (alls *Parser_Alias_Alls) GetGoName(yname string) string {
-    if yname == "all" { return "All" }
-    return ""
-}
-
-func (alls *Parser_Alias_Alls) GetSegmentPath() string {
-    return "alls"
-}
-
-func (alls *Parser_Alias_Alls) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "all" {
-        for _, c := range alls.All {
-            if alls.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Parser_Alias_Alls_All{}
-        alls.All = append(alls.All, child)
-        return &alls.All[len(alls.All)-1]
-    }
-    return nil
-}
-
-func (alls *Parser_Alias_Alls) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    alls.EntityData.Children = make(map[string]types.YChild)
+    alls.EntityData.Children["all"] = types.YChild{"All", nil}
     for i := range alls.All {
-        children[alls.All[i].GetSegmentPath()] = &alls.All[i]
+        alls.EntityData.Children[types.GetSegmentPath(&alls.All[i])] = types.YChild{"All", &alls.All[i]}
     }
-    return children
+    alls.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(alls.EntityData)
 }
-
-func (alls *Parser_Alias_Alls) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (alls *Parser_Alias_Alls) GetBundleName() string { return "cisco_ios_xr" }
-
-func (alls *Parser_Alias_Alls) GetYangName() string { return "alls" }
-
-func (alls *Parser_Alias_Alls) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (alls *Parser_Alias_Alls) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (alls *Parser_Alias_Alls) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (alls *Parser_Alias_Alls) SetParent(parent types.Entity) { alls.parent = parent }
-
-func (alls *Parser_Alias_Alls) GetParent() types.Entity { return alls.parent }
-
-func (alls *Parser_Alias_Alls) GetParentYangName() string { return "alias" }
 
 // Parser_Alias_Alls_All
 // Alias name to command mapping
 type Parser_Alias_Alls_All struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Alias name. The type is string with length: 1..30.
@@ -612,58 +305,27 @@ type Parser_Alias_Alls_All struct {
     IdentifierXr interface{}
 }
 
-func (all *Parser_Alias_Alls_All) GetFilter() yfilter.YFilter { return all.YFilter }
+func (all *Parser_Alias_Alls_All) GetEntityData() *types.CommonEntityData {
+    all.EntityData.YFilter = all.YFilter
+    all.EntityData.YangName = "all"
+    all.EntityData.BundleName = "cisco_ios_xr"
+    all.EntityData.ParentYangName = "alls"
+    all.EntityData.SegmentPath = "all" + "[identifier='" + fmt.Sprintf("%v", all.Identifier) + "']"
+    all.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    all.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    all.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (all *Parser_Alias_Alls_All) SetFilter(yf yfilter.YFilter) { all.YFilter = yf }
-
-func (all *Parser_Alias_Alls_All) GetGoName(yname string) string {
-    if yname == "identifier" { return "Identifier" }
-    if yname == "identifier-xr" { return "IdentifierXr" }
-    return ""
+    all.EntityData.Children = make(map[string]types.YChild)
+    all.EntityData.Leafs = make(map[string]types.YLeaf)
+    all.EntityData.Leafs["identifier"] = types.YLeaf{"Identifier", all.Identifier}
+    all.EntityData.Leafs["identifier-xr"] = types.YLeaf{"IdentifierXr", all.IdentifierXr}
+    return &(all.EntityData)
 }
-
-func (all *Parser_Alias_Alls_All) GetSegmentPath() string {
-    return "all" + "[identifier='" + fmt.Sprintf("%v", all.Identifier) + "']"
-}
-
-func (all *Parser_Alias_Alls_All) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (all *Parser_Alias_Alls_All) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (all *Parser_Alias_Alls_All) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["identifier"] = all.Identifier
-    leafs["identifier-xr"] = all.IdentifierXr
-    return leafs
-}
-
-func (all *Parser_Alias_Alls_All) GetBundleName() string { return "cisco_ios_xr" }
-
-func (all *Parser_Alias_Alls_All) GetYangName() string { return "all" }
-
-func (all *Parser_Alias_Alls_All) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (all *Parser_Alias_Alls_All) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (all *Parser_Alias_Alls_All) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (all *Parser_Alias_Alls_All) SetParent(parent types.Entity) { all.parent = parent }
-
-func (all *Parser_Alias_Alls_All) GetParent() types.Entity { return all.parent }
-
-func (all *Parser_Alias_Alls_All) GetParentYangName() string { return "alls" }
 
 // Parser_History
 // cli commands history
 type Parser_History struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // maximum number of commands in history. The type is interface{} with range:
@@ -671,389 +333,202 @@ type Parser_History struct {
     Size interface{}
 }
 
-func (history *Parser_History) GetFilter() yfilter.YFilter { return history.YFilter }
+func (history *Parser_History) GetEntityData() *types.CommonEntityData {
+    history.EntityData.YFilter = history.YFilter
+    history.EntityData.YangName = "history"
+    history.EntityData.BundleName = "cisco_ios_xr"
+    history.EntityData.ParentYangName = "parser"
+    history.EntityData.SegmentPath = "history"
+    history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (history *Parser_History) SetFilter(yf yfilter.YFilter) { history.YFilter = yf }
-
-func (history *Parser_History) GetGoName(yname string) string {
-    if yname == "size" { return "Size" }
-    return ""
+    history.EntityData.Children = make(map[string]types.YChild)
+    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs["size"] = types.YLeaf{"Size", history.Size}
+    return &(history.EntityData)
 }
-
-func (history *Parser_History) GetSegmentPath() string {
-    return "history"
-}
-
-func (history *Parser_History) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (history *Parser_History) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (history *Parser_History) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["size"] = history.Size
-    return leafs
-}
-
-func (history *Parser_History) GetBundleName() string { return "cisco_ios_xr" }
-
-func (history *Parser_History) GetYangName() string { return "history" }
-
-func (history *Parser_History) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (history *Parser_History) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (history *Parser_History) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (history *Parser_History) SetParent(parent types.Entity) { history.parent = parent }
-
-func (history *Parser_History) GetParent() types.Entity { return history.parent }
-
-func (history *Parser_History) GetParentYangName() string { return "parser" }
 
 // Parser_Interactive
 // interactive mode
 type Parser_Interactive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable interactive mode. The type is bool.
     InteractiveDisable interface{}
 }
 
-func (interactive *Parser_Interactive) GetFilter() yfilter.YFilter { return interactive.YFilter }
+func (interactive *Parser_Interactive) GetEntityData() *types.CommonEntityData {
+    interactive.EntityData.YFilter = interactive.YFilter
+    interactive.EntityData.YangName = "interactive"
+    interactive.EntityData.BundleName = "cisco_ios_xr"
+    interactive.EntityData.ParentYangName = "parser"
+    interactive.EntityData.SegmentPath = "interactive"
+    interactive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interactive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interactive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interactive *Parser_Interactive) SetFilter(yf yfilter.YFilter) { interactive.YFilter = yf }
-
-func (interactive *Parser_Interactive) GetGoName(yname string) string {
-    if yname == "interactive-disable" { return "InteractiveDisable" }
-    return ""
+    interactive.EntityData.Children = make(map[string]types.YChild)
+    interactive.EntityData.Leafs = make(map[string]types.YLeaf)
+    interactive.EntityData.Leafs["interactive-disable"] = types.YLeaf{"InteractiveDisable", interactive.InteractiveDisable}
+    return &(interactive.EntityData)
 }
 
-func (interactive *Parser_Interactive) GetSegmentPath() string {
-    return "interactive"
+// Parser_SysadminLoginBanner
+// Configuration to disable sysadmin login banner
+type Parser_SysadminLoginBanner struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Disable sysadmin login banner. The type is bool.
+    SysadminLoginBannerDisable interface{}
 }
 
-func (interactive *Parser_Interactive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (sysadminLoginBanner *Parser_SysadminLoginBanner) GetEntityData() *types.CommonEntityData {
+    sysadminLoginBanner.EntityData.YFilter = sysadminLoginBanner.YFilter
+    sysadminLoginBanner.EntityData.YangName = "sysadmin-login-banner"
+    sysadminLoginBanner.EntityData.BundleName = "cisco_ios_xr"
+    sysadminLoginBanner.EntityData.ParentYangName = "parser"
+    sysadminLoginBanner.EntityData.SegmentPath = "sysadmin-login-banner"
+    sysadminLoginBanner.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sysadminLoginBanner.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sysadminLoginBanner.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    sysadminLoginBanner.EntityData.Children = make(map[string]types.YChild)
+    sysadminLoginBanner.EntityData.Leafs = make(map[string]types.YLeaf)
+    sysadminLoginBanner.EntityData.Leafs["sysadmin-login-banner-disable"] = types.YLeaf{"SysadminLoginBannerDisable", sysadminLoginBanner.SysadminLoginBannerDisable}
+    return &(sysadminLoginBanner.EntityData)
 }
-
-func (interactive *Parser_Interactive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interactive *Parser_Interactive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interactive-disable"] = interactive.InteractiveDisable
-    return leafs
-}
-
-func (interactive *Parser_Interactive) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interactive *Parser_Interactive) GetYangName() string { return "interactive" }
-
-func (interactive *Parser_Interactive) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interactive *Parser_Interactive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interactive *Parser_Interactive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interactive *Parser_Interactive) SetParent(parent types.Entity) { interactive.parent = parent }
-
-func (interactive *Parser_Interactive) GetParent() types.Entity { return interactive.parent }
-
-func (interactive *Parser_Interactive) GetParentYangName() string { return "parser" }
 
 // Parser_InterfaceDisplay
 // Configure the Interface display order
 type Parser_InterfaceDisplay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure Interface display order as slot order. The type is bool.
     SlotOrder interface{}
 }
 
-func (interfaceDisplay *Parser_InterfaceDisplay) GetFilter() yfilter.YFilter { return interfaceDisplay.YFilter }
+func (interfaceDisplay *Parser_InterfaceDisplay) GetEntityData() *types.CommonEntityData {
+    interfaceDisplay.EntityData.YFilter = interfaceDisplay.YFilter
+    interfaceDisplay.EntityData.YangName = "interface-display"
+    interfaceDisplay.EntityData.BundleName = "cisco_ios_xr"
+    interfaceDisplay.EntityData.ParentYangName = "parser"
+    interfaceDisplay.EntityData.SegmentPath = "interface-display"
+    interfaceDisplay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceDisplay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceDisplay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceDisplay *Parser_InterfaceDisplay) SetFilter(yf yfilter.YFilter) { interfaceDisplay.YFilter = yf }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetGoName(yname string) string {
-    if yname == "slot-order" { return "SlotOrder" }
-    return ""
+    interfaceDisplay.EntityData.Children = make(map[string]types.YChild)
+    interfaceDisplay.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceDisplay.EntityData.Leafs["slot-order"] = types.YLeaf{"SlotOrder", interfaceDisplay.SlotOrder}
+    return &(interfaceDisplay.EntityData)
 }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetSegmentPath() string {
-    return "interface-display"
-}
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slot-order"] = interfaceDisplay.SlotOrder
-    return leafs
-}
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetYangName() string { return "interface-display" }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) SetParent(parent types.Entity) { interfaceDisplay.parent = parent }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetParent() types.Entity { return interfaceDisplay.parent }
-
-func (interfaceDisplay *Parser_InterfaceDisplay) GetParentYangName() string { return "parser" }
 
 // Parser_NetmaskFormat
 // Ipv4 netmask-format to be configured
 type Parser_NetmaskFormat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable ipv4 netmask-format as bit-count. The type is bool.
     BitCount interface{}
 }
 
-func (netmaskFormat *Parser_NetmaskFormat) GetFilter() yfilter.YFilter { return netmaskFormat.YFilter }
+func (netmaskFormat *Parser_NetmaskFormat) GetEntityData() *types.CommonEntityData {
+    netmaskFormat.EntityData.YFilter = netmaskFormat.YFilter
+    netmaskFormat.EntityData.YangName = "netmask-format"
+    netmaskFormat.EntityData.BundleName = "cisco_ios_xr"
+    netmaskFormat.EntityData.ParentYangName = "parser"
+    netmaskFormat.EntityData.SegmentPath = "netmask-format"
+    netmaskFormat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    netmaskFormat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    netmaskFormat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (netmaskFormat *Parser_NetmaskFormat) SetFilter(yf yfilter.YFilter) { netmaskFormat.YFilter = yf }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetGoName(yname string) string {
-    if yname == "bit-count" { return "BitCount" }
-    return ""
+    netmaskFormat.EntityData.Children = make(map[string]types.YChild)
+    netmaskFormat.EntityData.Leafs = make(map[string]types.YLeaf)
+    netmaskFormat.EntityData.Leafs["bit-count"] = types.YLeaf{"BitCount", netmaskFormat.BitCount}
+    return &(netmaskFormat.EntityData)
 }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetSegmentPath() string {
-    return "netmask-format"
-}
-
-func (netmaskFormat *Parser_NetmaskFormat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (netmaskFormat *Parser_NetmaskFormat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (netmaskFormat *Parser_NetmaskFormat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["bit-count"] = netmaskFormat.BitCount
-    return leafs
-}
-
-func (netmaskFormat *Parser_NetmaskFormat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetYangName() string { return "netmask-format" }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (netmaskFormat *Parser_NetmaskFormat) SetParent(parent types.Entity) { netmaskFormat.parent = parent }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetParent() types.Entity { return netmaskFormat.parent }
-
-func (netmaskFormat *Parser_NetmaskFormat) GetParentYangName() string { return "parser" }
 
 // Parser_Configuration
 // cli configuration services
 type Parser_Configuration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable for read-only access users.
     Disable Parser_Configuration_Disable
 }
 
-func (configuration *Parser_Configuration) GetFilter() yfilter.YFilter { return configuration.YFilter }
+func (configuration *Parser_Configuration) GetEntityData() *types.CommonEntityData {
+    configuration.EntityData.YFilter = configuration.YFilter
+    configuration.EntityData.YangName = "configuration"
+    configuration.EntityData.BundleName = "cisco_ios_xr"
+    configuration.EntityData.ParentYangName = "parser"
+    configuration.EntityData.SegmentPath = "configuration"
+    configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configuration *Parser_Configuration) SetFilter(yf yfilter.YFilter) { configuration.YFilter = yf }
-
-func (configuration *Parser_Configuration) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    configuration.EntityData.Children = make(map[string]types.YChild)
+    configuration.EntityData.Children["disable"] = types.YChild{"Disable", &configuration.Disable}
+    configuration.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(configuration.EntityData)
 }
-
-func (configuration *Parser_Configuration) GetSegmentPath() string {
-    return "configuration"
-}
-
-func (configuration *Parser_Configuration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "disable" {
-        return &configuration.Disable
-    }
-    return nil
-}
-
-func (configuration *Parser_Configuration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["disable"] = &configuration.Disable
-    return children
-}
-
-func (configuration *Parser_Configuration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (configuration *Parser_Configuration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configuration *Parser_Configuration) GetYangName() string { return "configuration" }
-
-func (configuration *Parser_Configuration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configuration *Parser_Configuration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configuration *Parser_Configuration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configuration *Parser_Configuration) SetParent(parent types.Entity) { configuration.parent = parent }
-
-func (configuration *Parser_Configuration) GetParent() types.Entity { return configuration.parent }
-
-func (configuration *Parser_Configuration) GetParentYangName() string { return "parser" }
 
 // Parser_Configuration_Disable
 // disable for read-only access users
 type Parser_Configuration_Disable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Disable config mode for usergroup. The type is string.
     Usergroup interface{}
 }
 
-func (disable *Parser_Configuration_Disable) GetFilter() yfilter.YFilter { return disable.YFilter }
+func (disable *Parser_Configuration_Disable) GetEntityData() *types.CommonEntityData {
+    disable.EntityData.YFilter = disable.YFilter
+    disable.EntityData.YangName = "disable"
+    disable.EntityData.BundleName = "cisco_ios_xr"
+    disable.EntityData.ParentYangName = "configuration"
+    disable.EntityData.SegmentPath = "disable"
+    disable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (disable *Parser_Configuration_Disable) SetFilter(yf yfilter.YFilter) { disable.YFilter = yf }
-
-func (disable *Parser_Configuration_Disable) GetGoName(yname string) string {
-    if yname == "usergroup" { return "Usergroup" }
-    return ""
+    disable.EntityData.Children = make(map[string]types.YChild)
+    disable.EntityData.Leafs = make(map[string]types.YLeaf)
+    disable.EntityData.Leafs["usergroup"] = types.YLeaf{"Usergroup", disable.Usergroup}
+    return &(disable.EntityData)
 }
-
-func (disable *Parser_Configuration_Disable) GetSegmentPath() string {
-    return "disable"
-}
-
-func (disable *Parser_Configuration_Disable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (disable *Parser_Configuration_Disable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (disable *Parser_Configuration_Disable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["usergroup"] = disable.Usergroup
-    return leafs
-}
-
-func (disable *Parser_Configuration_Disable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (disable *Parser_Configuration_Disable) GetYangName() string { return "disable" }
-
-func (disable *Parser_Configuration_Disable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (disable *Parser_Configuration_Disable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (disable *Parser_Configuration_Disable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (disable *Parser_Configuration_Disable) SetParent(parent types.Entity) { disable.parent = parent }
-
-func (disable *Parser_Configuration_Disable) GetParent() types.Entity { return disable.parent }
-
-func (disable *Parser_Configuration_Disable) GetParentYangName() string { return "configuration" }
 
 // Parser_SubmodeExit
 // Exit submode when only '!' seen in interactive
 // mode
 type Parser_SubmodeExit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable the feature. The type is bool.
     Enable interface{}
 }
 
-func (submodeExit *Parser_SubmodeExit) GetFilter() yfilter.YFilter { return submodeExit.YFilter }
+func (submodeExit *Parser_SubmodeExit) GetEntityData() *types.CommonEntityData {
+    submodeExit.EntityData.YFilter = submodeExit.YFilter
+    submodeExit.EntityData.YangName = "submode-exit"
+    submodeExit.EntityData.BundleName = "cisco_ios_xr"
+    submodeExit.EntityData.ParentYangName = "parser"
+    submodeExit.EntityData.SegmentPath = "submode-exit"
+    submodeExit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    submodeExit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    submodeExit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (submodeExit *Parser_SubmodeExit) SetFilter(yf yfilter.YFilter) { submodeExit.YFilter = yf }
-
-func (submodeExit *Parser_SubmodeExit) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    submodeExit.EntityData.Children = make(map[string]types.YChild)
+    submodeExit.EntityData.Leafs = make(map[string]types.YLeaf)
+    submodeExit.EntityData.Leafs["enable"] = types.YLeaf{"Enable", submodeExit.Enable}
+    return &(submodeExit.EntityData)
 }
-
-func (submodeExit *Parser_SubmodeExit) GetSegmentPath() string {
-    return "submode-exit"
-}
-
-func (submodeExit *Parser_SubmodeExit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (submodeExit *Parser_SubmodeExit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (submodeExit *Parser_SubmodeExit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = submodeExit.Enable
-    return leafs
-}
-
-func (submodeExit *Parser_SubmodeExit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (submodeExit *Parser_SubmodeExit) GetYangName() string { return "submode-exit" }
-
-func (submodeExit *Parser_SubmodeExit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (submodeExit *Parser_SubmodeExit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (submodeExit *Parser_SubmodeExit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (submodeExit *Parser_SubmodeExit) SetParent(parent types.Entity) { submodeExit.parent = parent }
-
-func (submodeExit *Parser_SubmodeExit) GetParent() types.Entity { return submodeExit.parent }
-
-func (submodeExit *Parser_SubmodeExit) GetParentYangName() string { return "parser" }
 

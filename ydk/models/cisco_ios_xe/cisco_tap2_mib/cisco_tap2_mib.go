@@ -25,7 +25,7 @@ func init() {
 
 // CISCOTAP2MIB
 type CISCOTAP2MIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -84,83 +84,30 @@ type CISCOTAP2MIB struct {
     Ctap2Debugusertable CISCOTAP2MIB_Ctap2Debugusertable
 }
 
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetFilter() yfilter.YFilter { return cISCOTAP2MIB.YFilter }
+func (cISCOTAP2MIB *CISCOTAP2MIB) GetEntityData() *types.CommonEntityData {
+    cISCOTAP2MIB.EntityData.YFilter = cISCOTAP2MIB.YFilter
+    cISCOTAP2MIB.EntityData.YangName = "CISCO-TAP2-MIB"
+    cISCOTAP2MIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOTAP2MIB.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    cISCOTAP2MIB.EntityData.SegmentPath = "CISCO-TAP2-MIB:CISCO-TAP2-MIB"
+    cISCOTAP2MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOTAP2MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOTAP2MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOTAP2MIB *CISCOTAP2MIB) SetFilter(yf yfilter.YFilter) { cISCOTAP2MIB.YFilter = yf }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetGoName(yname string) string {
-    if yname == "cTap2MediationGroup" { return "Ctap2Mediationgroup" }
-    if yname == "cTap2DebugGroup" { return "Ctap2Debuggroup" }
-    if yname == "cTap2MediationTable" { return "Ctap2Mediationtable" }
-    if yname == "cTap2StreamTable" { return "Ctap2Streamtable" }
-    if yname == "cTap2DebugTable" { return "Ctap2Debugtable" }
-    if yname == "cTap2DebugUserTable" { return "Ctap2Debugusertable" }
-    return ""
+    cISCOTAP2MIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOTAP2MIB.EntityData.Children["cTap2MediationGroup"] = types.YChild{"Ctap2Mediationgroup", &cISCOTAP2MIB.Ctap2Mediationgroup}
+    cISCOTAP2MIB.EntityData.Children["cTap2DebugGroup"] = types.YChild{"Ctap2Debuggroup", &cISCOTAP2MIB.Ctap2Debuggroup}
+    cISCOTAP2MIB.EntityData.Children["cTap2MediationTable"] = types.YChild{"Ctap2Mediationtable", &cISCOTAP2MIB.Ctap2Mediationtable}
+    cISCOTAP2MIB.EntityData.Children["cTap2StreamTable"] = types.YChild{"Ctap2Streamtable", &cISCOTAP2MIB.Ctap2Streamtable}
+    cISCOTAP2MIB.EntityData.Children["cTap2DebugTable"] = types.YChild{"Ctap2Debugtable", &cISCOTAP2MIB.Ctap2Debugtable}
+    cISCOTAP2MIB.EntityData.Children["cTap2DebugUserTable"] = types.YChild{"Ctap2Debugusertable", &cISCOTAP2MIB.Ctap2Debugusertable}
+    cISCOTAP2MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOTAP2MIB.EntityData)
 }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetSegmentPath() string {
-    return "CISCO-TAP2-MIB:CISCO-TAP2-MIB"
-}
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cTap2MediationGroup" {
-        return &cISCOTAP2MIB.Ctap2Mediationgroup
-    }
-    if childYangName == "cTap2DebugGroup" {
-        return &cISCOTAP2MIB.Ctap2Debuggroup
-    }
-    if childYangName == "cTap2MediationTable" {
-        return &cISCOTAP2MIB.Ctap2Mediationtable
-    }
-    if childYangName == "cTap2StreamTable" {
-        return &cISCOTAP2MIB.Ctap2Streamtable
-    }
-    if childYangName == "cTap2DebugTable" {
-        return &cISCOTAP2MIB.Ctap2Debugtable
-    }
-    if childYangName == "cTap2DebugUserTable" {
-        return &cISCOTAP2MIB.Ctap2Debugusertable
-    }
-    return nil
-}
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cTap2MediationGroup"] = &cISCOTAP2MIB.Ctap2Mediationgroup
-    children["cTap2DebugGroup"] = &cISCOTAP2MIB.Ctap2Debuggroup
-    children["cTap2MediationTable"] = &cISCOTAP2MIB.Ctap2Mediationtable
-    children["cTap2StreamTable"] = &cISCOTAP2MIB.Ctap2Streamtable
-    children["cTap2DebugTable"] = &cISCOTAP2MIB.Ctap2Debugtable
-    children["cTap2DebugUserTable"] = &cISCOTAP2MIB.Ctap2Debugusertable
-    return children
-}
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetYangName() string { return "CISCO-TAP2-MIB" }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) SetParent(parent types.Entity) { cISCOTAP2MIB.parent = parent }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetParent() types.Entity { return cISCOTAP2MIB.parent }
-
-func (cISCOTAP2MIB *CISCOTAP2MIB) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Mediationgroup
 type CISCOTAP2MIB_Ctap2Mediationgroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object contains a value which may be used as an index value for a new
@@ -205,57 +152,26 @@ type CISCOTAP2MIB_Ctap2Mediationgroup struct {
     Ctap2Mediationcapabilities interface{}
 }
 
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetFilter() yfilter.YFilter { return ctap2Mediationgroup.YFilter }
+func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetEntityData() *types.CommonEntityData {
+    ctap2Mediationgroup.EntityData.YFilter = ctap2Mediationgroup.YFilter
+    ctap2Mediationgroup.EntityData.YangName = "cTap2MediationGroup"
+    ctap2Mediationgroup.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Mediationgroup.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    ctap2Mediationgroup.EntityData.SegmentPath = "cTap2MediationGroup"
+    ctap2Mediationgroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Mediationgroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Mediationgroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) SetFilter(yf yfilter.YFilter) { ctap2Mediationgroup.YFilter = yf }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetGoName(yname string) string {
-    if yname == "cTap2MediationNewIndex" { return "Ctap2Mediationnewindex" }
-    if yname == "cTap2MediationCapabilities" { return "Ctap2Mediationcapabilities" }
-    return ""
+    ctap2Mediationgroup.EntityData.Children = make(map[string]types.YChild)
+    ctap2Mediationgroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctap2Mediationgroup.EntityData.Leafs["cTap2MediationNewIndex"] = types.YLeaf{"Ctap2Mediationnewindex", ctap2Mediationgroup.Ctap2Mediationnewindex}
+    ctap2Mediationgroup.EntityData.Leafs["cTap2MediationCapabilities"] = types.YLeaf{"Ctap2Mediationcapabilities", ctap2Mediationgroup.Ctap2Mediationcapabilities}
+    return &(ctap2Mediationgroup.EntityData)
 }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetSegmentPath() string {
-    return "cTap2MediationGroup"
-}
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2MediationNewIndex"] = ctap2Mediationgroup.Ctap2Mediationnewindex
-    leafs["cTap2MediationCapabilities"] = ctap2Mediationgroup.Ctap2Mediationcapabilities
-    return leafs
-}
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetYangName() string { return "cTap2MediationGroup" }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) SetParent(parent types.Entity) { ctap2Mediationgroup.parent = parent }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetParent() types.Entity { return ctap2Mediationgroup.parent }
-
-func (ctap2Mediationgroup *CISCOTAP2MIB_Ctap2Mediationgroup) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Debuggroup
 type CISCOTAP2MIB_Ctap2Debuggroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object contains the duration in minutes for which an entry in
@@ -272,53 +188,22 @@ type CISCOTAP2MIB_Ctap2Debuggroup struct {
     Ctap2Debugmaxentries interface{}
 }
 
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetFilter() yfilter.YFilter { return ctap2Debuggroup.YFilter }
+func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetEntityData() *types.CommonEntityData {
+    ctap2Debuggroup.EntityData.YFilter = ctap2Debuggroup.YFilter
+    ctap2Debuggroup.EntityData.YangName = "cTap2DebugGroup"
+    ctap2Debuggroup.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Debuggroup.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    ctap2Debuggroup.EntityData.SegmentPath = "cTap2DebugGroup"
+    ctap2Debuggroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Debuggroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Debuggroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) SetFilter(yf yfilter.YFilter) { ctap2Debuggroup.YFilter = yf }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetGoName(yname string) string {
-    if yname == "cTap2DebugAge" { return "Ctap2Debugage" }
-    if yname == "cTap2DebugMaxEntries" { return "Ctap2Debugmaxentries" }
-    return ""
+    ctap2Debuggroup.EntityData.Children = make(map[string]types.YChild)
+    ctap2Debuggroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctap2Debuggroup.EntityData.Leafs["cTap2DebugAge"] = types.YLeaf{"Ctap2Debugage", ctap2Debuggroup.Ctap2Debugage}
+    ctap2Debuggroup.EntityData.Leafs["cTap2DebugMaxEntries"] = types.YLeaf{"Ctap2Debugmaxentries", ctap2Debuggroup.Ctap2Debugmaxentries}
+    return &(ctap2Debuggroup.EntityData)
 }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetSegmentPath() string {
-    return "cTap2DebugGroup"
-}
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2DebugAge"] = ctap2Debuggroup.Ctap2Debugage
-    leafs["cTap2DebugMaxEntries"] = ctap2Debuggroup.Ctap2Debugmaxentries
-    return leafs
-}
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetYangName() string { return "cTap2DebugGroup" }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) SetParent(parent types.Entity) { ctap2Debuggroup.parent = parent }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetParent() types.Entity { return ctap2Debuggroup.parent }
-
-func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Mediationtable
 // This table lists the Mediation Devices with which the
@@ -333,7 +218,7 @@ func (ctap2Debuggroup *CISCOTAP2MIB_Ctap2Debuggroup) GetParentYangName() string 
 // Entries are added to this table via cTap2MediationStatus in 
 // accordance with the RowStatus convention.
 type CISCOTAP2MIB_Ctap2Mediationtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The entry describes a single session maintained with an application on a
@@ -342,69 +227,30 @@ type CISCOTAP2MIB_Ctap2Mediationtable struct {
     Ctap2Mediationentry []CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry
 }
 
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetFilter() yfilter.YFilter { return ctap2Mediationtable.YFilter }
+func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetEntityData() *types.CommonEntityData {
+    ctap2Mediationtable.EntityData.YFilter = ctap2Mediationtable.YFilter
+    ctap2Mediationtable.EntityData.YangName = "cTap2MediationTable"
+    ctap2Mediationtable.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Mediationtable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    ctap2Mediationtable.EntityData.SegmentPath = "cTap2MediationTable"
+    ctap2Mediationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Mediationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Mediationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) SetFilter(yf yfilter.YFilter) { ctap2Mediationtable.YFilter = yf }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetGoName(yname string) string {
-    if yname == "cTap2MediationEntry" { return "Ctap2Mediationentry" }
-    return ""
-}
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetSegmentPath() string {
-    return "cTap2MediationTable"
-}
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cTap2MediationEntry" {
-        for _, c := range ctap2Mediationtable.Ctap2Mediationentry {
-            if ctap2Mediationtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry{}
-        ctap2Mediationtable.Ctap2Mediationentry = append(ctap2Mediationtable.Ctap2Mediationentry, child)
-        return &ctap2Mediationtable.Ctap2Mediationentry[len(ctap2Mediationtable.Ctap2Mediationentry)-1]
-    }
-    return nil
-}
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctap2Mediationtable.EntityData.Children = make(map[string]types.YChild)
+    ctap2Mediationtable.EntityData.Children["cTap2MediationEntry"] = types.YChild{"Ctap2Mediationentry", nil}
     for i := range ctap2Mediationtable.Ctap2Mediationentry {
-        children[ctap2Mediationtable.Ctap2Mediationentry[i].GetSegmentPath()] = &ctap2Mediationtable.Ctap2Mediationentry[i]
+        ctap2Mediationtable.EntityData.Children[types.GetSegmentPath(&ctap2Mediationtable.Ctap2Mediationentry[i])] = types.YChild{"Ctap2Mediationentry", &ctap2Mediationtable.Ctap2Mediationentry[i]}
     }
-    return children
+    ctap2Mediationtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctap2Mediationtable.EntityData)
 }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetYangName() string { return "cTap2MediationTable" }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) SetParent(parent types.Entity) { ctap2Mediationtable.parent = parent }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetParent() types.Entity { return ctap2Mediationtable.parent }
-
-func (ctap2Mediationtable *CISCOTAP2MIB_Ctap2Mediationtable) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry
 // The entry describes a single session maintained with an
 // application on a Mediation Device.
 type CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. cTap2MediationContentId is a session identifier,
@@ -498,77 +344,34 @@ type CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry struct {
     Ctap2Mediationradiuskey interface{}
 }
 
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetFilter() yfilter.YFilter { return ctap2Mediationentry.YFilter }
+func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetEntityData() *types.CommonEntityData {
+    ctap2Mediationentry.EntityData.YFilter = ctap2Mediationentry.YFilter
+    ctap2Mediationentry.EntityData.YangName = "cTap2MediationEntry"
+    ctap2Mediationentry.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Mediationentry.EntityData.ParentYangName = "cTap2MediationTable"
+    ctap2Mediationentry.EntityData.SegmentPath = "cTap2MediationEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", ctap2Mediationentry.Ctap2Mediationcontentid) + "']"
+    ctap2Mediationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Mediationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Mediationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) SetFilter(yf yfilter.YFilter) { ctap2Mediationentry.YFilter = yf }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetGoName(yname string) string {
-    if yname == "cTap2MediationContentId" { return "Ctap2Mediationcontentid" }
-    if yname == "cTap2MediationDestAddressType" { return "Ctap2Mediationdestaddresstype" }
-    if yname == "cTap2MediationDestAddress" { return "Ctap2Mediationdestaddress" }
-    if yname == "cTap2MediationDestPort" { return "Ctap2Mediationdestport" }
-    if yname == "cTap2MediationSrcInterface" { return "Ctap2Mediationsrcinterface" }
-    if yname == "cTap2MediationRtcpPort" { return "Ctap2Mediationrtcpport" }
-    if yname == "cTap2MediationDscp" { return "Ctap2Mediationdscp" }
-    if yname == "cTap2MediationDataType" { return "Ctap2Mediationdatatype" }
-    if yname == "cTap2MediationRetransmitType" { return "Ctap2Mediationretransmittype" }
-    if yname == "cTap2MediationTimeout" { return "Ctap2Mediationtimeout" }
-    if yname == "cTap2MediationTransport" { return "Ctap2Mediationtransport" }
-    if yname == "cTap2MediationNotificationEnable" { return "Ctap2Mediationnotificationenable" }
-    if yname == "cTap2MediationStatus" { return "Ctap2Mediationstatus" }
-    if yname == "cTap2MediationRadiusKey" { return "Ctap2Mediationradiuskey" }
-    return ""
+    ctap2Mediationentry.EntityData.Children = make(map[string]types.YChild)
+    ctap2Mediationentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationContentId"] = types.YLeaf{"Ctap2Mediationcontentid", ctap2Mediationentry.Ctap2Mediationcontentid}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationDestAddressType"] = types.YLeaf{"Ctap2Mediationdestaddresstype", ctap2Mediationentry.Ctap2Mediationdestaddresstype}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationDestAddress"] = types.YLeaf{"Ctap2Mediationdestaddress", ctap2Mediationentry.Ctap2Mediationdestaddress}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationDestPort"] = types.YLeaf{"Ctap2Mediationdestport", ctap2Mediationentry.Ctap2Mediationdestport}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationSrcInterface"] = types.YLeaf{"Ctap2Mediationsrcinterface", ctap2Mediationentry.Ctap2Mediationsrcinterface}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationRtcpPort"] = types.YLeaf{"Ctap2Mediationrtcpport", ctap2Mediationentry.Ctap2Mediationrtcpport}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationDscp"] = types.YLeaf{"Ctap2Mediationdscp", ctap2Mediationentry.Ctap2Mediationdscp}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationDataType"] = types.YLeaf{"Ctap2Mediationdatatype", ctap2Mediationentry.Ctap2Mediationdatatype}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationRetransmitType"] = types.YLeaf{"Ctap2Mediationretransmittype", ctap2Mediationentry.Ctap2Mediationretransmittype}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationTimeout"] = types.YLeaf{"Ctap2Mediationtimeout", ctap2Mediationentry.Ctap2Mediationtimeout}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationTransport"] = types.YLeaf{"Ctap2Mediationtransport", ctap2Mediationentry.Ctap2Mediationtransport}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationNotificationEnable"] = types.YLeaf{"Ctap2Mediationnotificationenable", ctap2Mediationentry.Ctap2Mediationnotificationenable}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationStatus"] = types.YLeaf{"Ctap2Mediationstatus", ctap2Mediationentry.Ctap2Mediationstatus}
+    ctap2Mediationentry.EntityData.Leafs["cTap2MediationRadiusKey"] = types.YLeaf{"Ctap2Mediationradiuskey", ctap2Mediationentry.Ctap2Mediationradiuskey}
+    return &(ctap2Mediationentry.EntityData)
 }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetSegmentPath() string {
-    return "cTap2MediationEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", ctap2Mediationentry.Ctap2Mediationcontentid) + "']"
-}
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2MediationContentId"] = ctap2Mediationentry.Ctap2Mediationcontentid
-    leafs["cTap2MediationDestAddressType"] = ctap2Mediationentry.Ctap2Mediationdestaddresstype
-    leafs["cTap2MediationDestAddress"] = ctap2Mediationentry.Ctap2Mediationdestaddress
-    leafs["cTap2MediationDestPort"] = ctap2Mediationentry.Ctap2Mediationdestport
-    leafs["cTap2MediationSrcInterface"] = ctap2Mediationentry.Ctap2Mediationsrcinterface
-    leafs["cTap2MediationRtcpPort"] = ctap2Mediationentry.Ctap2Mediationrtcpport
-    leafs["cTap2MediationDscp"] = ctap2Mediationentry.Ctap2Mediationdscp
-    leafs["cTap2MediationDataType"] = ctap2Mediationentry.Ctap2Mediationdatatype
-    leafs["cTap2MediationRetransmitType"] = ctap2Mediationentry.Ctap2Mediationretransmittype
-    leafs["cTap2MediationTimeout"] = ctap2Mediationentry.Ctap2Mediationtimeout
-    leafs["cTap2MediationTransport"] = ctap2Mediationentry.Ctap2Mediationtransport
-    leafs["cTap2MediationNotificationEnable"] = ctap2Mediationentry.Ctap2Mediationnotificationenable
-    leafs["cTap2MediationStatus"] = ctap2Mediationentry.Ctap2Mediationstatus
-    leafs["cTap2MediationRadiusKey"] = ctap2Mediationentry.Ctap2Mediationradiuskey
-    return leafs
-}
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetYangName() string { return "cTap2MediationEntry" }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) SetParent(parent types.Entity) { ctap2Mediationentry.parent = parent }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetParent() types.Entity { return ctap2Mediationentry.parent }
-
-func (ctap2Mediationentry *CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry) GetParentYangName() string { return "cTap2MediationTable" }
 
 // CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry_Ctap2Mediationtransport represents                     to transport the intercepted information.
 type CISCOTAP2MIB_Ctap2Mediationtable_Ctap2Mediationentry_Ctap2Mediationtransport string
@@ -617,7 +420,7 @@ const (
 // Entries are added to this table via cTap2StreamStatus in
 // accordance with the RowStatus convention.
 type CISCOTAP2MIB_Ctap2Streamtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A stream entry indicates a single data stream to be intercepted to a
@@ -627,63 +430,24 @@ type CISCOTAP2MIB_Ctap2Streamtable struct {
     Ctap2Streamentry []CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry
 }
 
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetFilter() yfilter.YFilter { return ctap2Streamtable.YFilter }
+func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetEntityData() *types.CommonEntityData {
+    ctap2Streamtable.EntityData.YFilter = ctap2Streamtable.YFilter
+    ctap2Streamtable.EntityData.YangName = "cTap2StreamTable"
+    ctap2Streamtable.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Streamtable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    ctap2Streamtable.EntityData.SegmentPath = "cTap2StreamTable"
+    ctap2Streamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Streamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Streamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) SetFilter(yf yfilter.YFilter) { ctap2Streamtable.YFilter = yf }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetGoName(yname string) string {
-    if yname == "cTap2StreamEntry" { return "Ctap2Streamentry" }
-    return ""
-}
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetSegmentPath() string {
-    return "cTap2StreamTable"
-}
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cTap2StreamEntry" {
-        for _, c := range ctap2Streamtable.Ctap2Streamentry {
-            if ctap2Streamtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry{}
-        ctap2Streamtable.Ctap2Streamentry = append(ctap2Streamtable.Ctap2Streamentry, child)
-        return &ctap2Streamtable.Ctap2Streamentry[len(ctap2Streamtable.Ctap2Streamentry)-1]
-    }
-    return nil
-}
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctap2Streamtable.EntityData.Children = make(map[string]types.YChild)
+    ctap2Streamtable.EntityData.Children["cTap2StreamEntry"] = types.YChild{"Ctap2Streamentry", nil}
     for i := range ctap2Streamtable.Ctap2Streamentry {
-        children[ctap2Streamtable.Ctap2Streamentry[i].GetSegmentPath()] = &ctap2Streamtable.Ctap2Streamentry[i]
+        ctap2Streamtable.EntityData.Children[types.GetSegmentPath(&ctap2Streamtable.Ctap2Streamentry[i])] = types.YChild{"Ctap2Streamentry", &ctap2Streamtable.Ctap2Streamentry[i]}
     }
-    return children
+    ctap2Streamtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctap2Streamtable.EntityData)
 }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetYangName() string { return "cTap2StreamTable" }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) SetParent(parent types.Entity) { ctap2Streamtable.parent = parent }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetParent() types.Entity { return ctap2Streamtable.parent }
-
-func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry
 // A stream entry indicates a single data stream to be
@@ -691,7 +455,7 @@ func (ctap2Streamtable *CISCOTAP2MIB_Ctap2Streamtable) GetParentYangName() strin
 // streams may go to the same application interface, and many
 // application interfaces are supported.
 type CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -764,67 +528,29 @@ type CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry struct {
     Ctap2Streamintercepthcdrops interface{}
 }
 
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetFilter() yfilter.YFilter { return ctap2Streamentry.YFilter }
+func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetEntityData() *types.CommonEntityData {
+    ctap2Streamentry.EntityData.YFilter = ctap2Streamentry.YFilter
+    ctap2Streamentry.EntityData.YangName = "cTap2StreamEntry"
+    ctap2Streamentry.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Streamentry.EntityData.ParentYangName = "cTap2StreamTable"
+    ctap2Streamentry.EntityData.SegmentPath = "cTap2StreamEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", ctap2Streamentry.Ctap2Mediationcontentid) + "']" + "[cTap2StreamIndex='" + fmt.Sprintf("%v", ctap2Streamentry.Ctap2Streamindex) + "']"
+    ctap2Streamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Streamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Streamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) SetFilter(yf yfilter.YFilter) { ctap2Streamentry.YFilter = yf }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetGoName(yname string) string {
-    if yname == "cTap2MediationContentId" { return "Ctap2Mediationcontentid" }
-    if yname == "cTap2StreamIndex" { return "Ctap2Streamindex" }
-    if yname == "cTap2StreamType" { return "Ctap2Streamtype" }
-    if yname == "cTap2StreamInterceptEnable" { return "Ctap2Streaminterceptenable" }
-    if yname == "cTap2StreamInterceptedPackets" { return "Ctap2Streaminterceptedpackets" }
-    if yname == "cTap2StreamInterceptDrops" { return "Ctap2Streaminterceptdrops" }
-    if yname == "cTap2StreamStatus" { return "Ctap2Streamstatus" }
-    if yname == "cTap2StreamInterceptedHCPackets" { return "Ctap2Streaminterceptedhcpackets" }
-    if yname == "cTap2StreamInterceptHCDrops" { return "Ctap2Streamintercepthcdrops" }
-    return ""
+    ctap2Streamentry.EntityData.Children = make(map[string]types.YChild)
+    ctap2Streamentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctap2Streamentry.EntityData.Leafs["cTap2MediationContentId"] = types.YLeaf{"Ctap2Mediationcontentid", ctap2Streamentry.Ctap2Mediationcontentid}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamIndex"] = types.YLeaf{"Ctap2Streamindex", ctap2Streamentry.Ctap2Streamindex}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamType"] = types.YLeaf{"Ctap2Streamtype", ctap2Streamentry.Ctap2Streamtype}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamInterceptEnable"] = types.YLeaf{"Ctap2Streaminterceptenable", ctap2Streamentry.Ctap2Streaminterceptenable}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamInterceptedPackets"] = types.YLeaf{"Ctap2Streaminterceptedpackets", ctap2Streamentry.Ctap2Streaminterceptedpackets}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamInterceptDrops"] = types.YLeaf{"Ctap2Streaminterceptdrops", ctap2Streamentry.Ctap2Streaminterceptdrops}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamStatus"] = types.YLeaf{"Ctap2Streamstatus", ctap2Streamentry.Ctap2Streamstatus}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamInterceptedHCPackets"] = types.YLeaf{"Ctap2Streaminterceptedhcpackets", ctap2Streamentry.Ctap2Streaminterceptedhcpackets}
+    ctap2Streamentry.EntityData.Leafs["cTap2StreamInterceptHCDrops"] = types.YLeaf{"Ctap2Streamintercepthcdrops", ctap2Streamentry.Ctap2Streamintercepthcdrops}
+    return &(ctap2Streamentry.EntityData)
 }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetSegmentPath() string {
-    return "cTap2StreamEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", ctap2Streamentry.Ctap2Mediationcontentid) + "']" + "[cTap2StreamIndex='" + fmt.Sprintf("%v", ctap2Streamentry.Ctap2Streamindex) + "']"
-}
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2MediationContentId"] = ctap2Streamentry.Ctap2Mediationcontentid
-    leafs["cTap2StreamIndex"] = ctap2Streamentry.Ctap2Streamindex
-    leafs["cTap2StreamType"] = ctap2Streamentry.Ctap2Streamtype
-    leafs["cTap2StreamInterceptEnable"] = ctap2Streamentry.Ctap2Streaminterceptenable
-    leafs["cTap2StreamInterceptedPackets"] = ctap2Streamentry.Ctap2Streaminterceptedpackets
-    leafs["cTap2StreamInterceptDrops"] = ctap2Streamentry.Ctap2Streaminterceptdrops
-    leafs["cTap2StreamStatus"] = ctap2Streamentry.Ctap2Streamstatus
-    leafs["cTap2StreamInterceptedHCPackets"] = ctap2Streamentry.Ctap2Streaminterceptedhcpackets
-    leafs["cTap2StreamInterceptHCDrops"] = ctap2Streamentry.Ctap2Streamintercepthcdrops
-    return leafs
-}
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetYangName() string { return "cTap2StreamEntry" }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) SetParent(parent types.Entity) { ctap2Streamentry.parent = parent }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetParent() types.Entity { return ctap2Streamentry.parent }
-
-func (ctap2Streamentry *CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry) GetParentYangName() string { return "cTap2StreamTable" }
 
 // CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry_Ctap2Streamtype represents                        CISCO-VOIP-TAP-MIB.
 type CISCOTAP2MIB_Ctap2Streamtable_Ctap2Streamentry_Ctap2Streamtype string
@@ -866,7 +592,7 @@ const (
 // Entries are added to this table via cTap2DebugStatus in
 // accordance with the RowStatus convention.
 type CISCOTAP2MIB_Ctap2Debugtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of the debug messages. The type is slice of
@@ -874,68 +600,29 @@ type CISCOTAP2MIB_Ctap2Debugtable struct {
     Ctap2Debugentry []CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry
 }
 
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetFilter() yfilter.YFilter { return ctap2Debugtable.YFilter }
+func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetEntityData() *types.CommonEntityData {
+    ctap2Debugtable.EntityData.YFilter = ctap2Debugtable.YFilter
+    ctap2Debugtable.EntityData.YangName = "cTap2DebugTable"
+    ctap2Debugtable.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Debugtable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    ctap2Debugtable.EntityData.SegmentPath = "cTap2DebugTable"
+    ctap2Debugtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Debugtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Debugtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) SetFilter(yf yfilter.YFilter) { ctap2Debugtable.YFilter = yf }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetGoName(yname string) string {
-    if yname == "cTap2DebugEntry" { return "Ctap2Debugentry" }
-    return ""
-}
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetSegmentPath() string {
-    return "cTap2DebugTable"
-}
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cTap2DebugEntry" {
-        for _, c := range ctap2Debugtable.Ctap2Debugentry {
-            if ctap2Debugtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry{}
-        ctap2Debugtable.Ctap2Debugentry = append(ctap2Debugtable.Ctap2Debugentry, child)
-        return &ctap2Debugtable.Ctap2Debugentry[len(ctap2Debugtable.Ctap2Debugentry)-1]
-    }
-    return nil
-}
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctap2Debugtable.EntityData.Children = make(map[string]types.YChild)
+    ctap2Debugtable.EntityData.Children["cTap2DebugEntry"] = types.YChild{"Ctap2Debugentry", nil}
     for i := range ctap2Debugtable.Ctap2Debugentry {
-        children[ctap2Debugtable.Ctap2Debugentry[i].GetSegmentPath()] = &ctap2Debugtable.Ctap2Debugentry[i]
+        ctap2Debugtable.EntityData.Children[types.GetSegmentPath(&ctap2Debugtable.Ctap2Debugentry[i])] = types.YChild{"Ctap2Debugentry", &ctap2Debugtable.Ctap2Debugentry[i]}
     }
-    return children
+    ctap2Debugtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctap2Debugtable.EntityData)
 }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetYangName() string { return "cTap2DebugTable" }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) SetParent(parent types.Entity) { ctap2Debugtable.parent = parent }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetParent() types.Entity { return ctap2Debugtable.parent }
-
-func (ctap2Debugtable *CISCOTAP2MIB_Ctap2Debugtable) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry
 // A list of the debug messages.
 type CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index to the debug table. The type is interface{}
@@ -970,59 +657,25 @@ type CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry struct {
     Ctap2Debugstatus interface{}
 }
 
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetFilter() yfilter.YFilter { return ctap2Debugentry.YFilter }
+func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetEntityData() *types.CommonEntityData {
+    ctap2Debugentry.EntityData.YFilter = ctap2Debugentry.YFilter
+    ctap2Debugentry.EntityData.YangName = "cTap2DebugEntry"
+    ctap2Debugentry.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Debugentry.EntityData.ParentYangName = "cTap2DebugTable"
+    ctap2Debugentry.EntityData.SegmentPath = "cTap2DebugEntry" + "[cTap2DebugIndex='" + fmt.Sprintf("%v", ctap2Debugentry.Ctap2Debugindex) + "']"
+    ctap2Debugentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Debugentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Debugentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) SetFilter(yf yfilter.YFilter) { ctap2Debugentry.YFilter = yf }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetGoName(yname string) string {
-    if yname == "cTap2DebugIndex" { return "Ctap2Debugindex" }
-    if yname == "cTap2DebugMediationId" { return "Ctap2Debugmediationid" }
-    if yname == "cTap2DebugStreamId" { return "Ctap2Debugstreamid" }
-    if yname == "cTap2DebugMessage" { return "Ctap2Debugmessage" }
-    if yname == "cTap2DebugStatus" { return "Ctap2Debugstatus" }
-    return ""
+    ctap2Debugentry.EntityData.Children = make(map[string]types.YChild)
+    ctap2Debugentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctap2Debugentry.EntityData.Leafs["cTap2DebugIndex"] = types.YLeaf{"Ctap2Debugindex", ctap2Debugentry.Ctap2Debugindex}
+    ctap2Debugentry.EntityData.Leafs["cTap2DebugMediationId"] = types.YLeaf{"Ctap2Debugmediationid", ctap2Debugentry.Ctap2Debugmediationid}
+    ctap2Debugentry.EntityData.Leafs["cTap2DebugStreamId"] = types.YLeaf{"Ctap2Debugstreamid", ctap2Debugentry.Ctap2Debugstreamid}
+    ctap2Debugentry.EntityData.Leafs["cTap2DebugMessage"] = types.YLeaf{"Ctap2Debugmessage", ctap2Debugentry.Ctap2Debugmessage}
+    ctap2Debugentry.EntityData.Leafs["cTap2DebugStatus"] = types.YLeaf{"Ctap2Debugstatus", ctap2Debugentry.Ctap2Debugstatus}
+    return &(ctap2Debugentry.EntityData)
 }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetSegmentPath() string {
-    return "cTap2DebugEntry" + "[cTap2DebugIndex='" + fmt.Sprintf("%v", ctap2Debugentry.Ctap2Debugindex) + "']"
-}
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2DebugIndex"] = ctap2Debugentry.Ctap2Debugindex
-    leafs["cTap2DebugMediationId"] = ctap2Debugentry.Ctap2Debugmediationid
-    leafs["cTap2DebugStreamId"] = ctap2Debugentry.Ctap2Debugstreamid
-    leafs["cTap2DebugMessage"] = ctap2Debugentry.Ctap2Debugmessage
-    leafs["cTap2DebugStatus"] = ctap2Debugentry.Ctap2Debugstatus
-    return leafs
-}
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetYangName() string { return "cTap2DebugEntry" }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) SetParent(parent types.Entity) { ctap2Debugentry.parent = parent }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetParent() types.Entity { return ctap2Debugentry.parent }
-
-func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetParentYangName() string { return "cTap2DebugTable" }
 
 // CISCOTAP2MIB_Ctap2Debugusertable
 // The User Table lists information of all the users configured
@@ -1034,7 +687,7 @@ func (ctap2Debugentry *CISCOTAP2MIB_Ctap2Debugtable_Ctap2Debugentry) GetParentYa
 // 'notInService', entries corresponding cTap2MediationContentId
 // in this table will be deleted.
 type CISCOTAP2MIB_Ctap2Debugusertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A conceptual row in the cTap2DebugUserTable. Each row represents name of
@@ -1045,63 +698,24 @@ type CISCOTAP2MIB_Ctap2Debugusertable struct {
     Ctap2Debuguserentry []CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry
 }
 
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetFilter() yfilter.YFilter { return ctap2Debugusertable.YFilter }
+func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetEntityData() *types.CommonEntityData {
+    ctap2Debugusertable.EntityData.YFilter = ctap2Debugusertable.YFilter
+    ctap2Debugusertable.EntityData.YangName = "cTap2DebugUserTable"
+    ctap2Debugusertable.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Debugusertable.EntityData.ParentYangName = "CISCO-TAP2-MIB"
+    ctap2Debugusertable.EntityData.SegmentPath = "cTap2DebugUserTable"
+    ctap2Debugusertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Debugusertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Debugusertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) SetFilter(yf yfilter.YFilter) { ctap2Debugusertable.YFilter = yf }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetGoName(yname string) string {
-    if yname == "cTap2DebugUserEntry" { return "Ctap2Debuguserentry" }
-    return ""
-}
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetSegmentPath() string {
-    return "cTap2DebugUserTable"
-}
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cTap2DebugUserEntry" {
-        for _, c := range ctap2Debugusertable.Ctap2Debuguserentry {
-            if ctap2Debugusertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry{}
-        ctap2Debugusertable.Ctap2Debuguserentry = append(ctap2Debugusertable.Ctap2Debuguserentry, child)
-        return &ctap2Debugusertable.Ctap2Debuguserentry[len(ctap2Debugusertable.Ctap2Debuguserentry)-1]
-    }
-    return nil
-}
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ctap2Debugusertable.EntityData.Children = make(map[string]types.YChild)
+    ctap2Debugusertable.EntityData.Children["cTap2DebugUserEntry"] = types.YChild{"Ctap2Debuguserentry", nil}
     for i := range ctap2Debugusertable.Ctap2Debuguserentry {
-        children[ctap2Debugusertable.Ctap2Debuguserentry[i].GetSegmentPath()] = &ctap2Debugusertable.Ctap2Debuguserentry[i]
+        ctap2Debugusertable.EntityData.Children[types.GetSegmentPath(&ctap2Debugusertable.Ctap2Debuguserentry[i])] = types.YChild{"Ctap2Debuguserentry", &ctap2Debugusertable.Ctap2Debuguserentry[i]}
     }
-    return children
+    ctap2Debugusertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ctap2Debugusertable.EntityData)
 }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetYangName() string { return "cTap2DebugUserTable" }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) SetParent(parent types.Entity) { ctap2Debugusertable.parent = parent }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetParent() types.Entity { return ctap2Debugusertable.parent }
-
-func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetParentYangName() string { return "CISCO-TAP2-MIB" }
 
 // CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry
 // A conceptual row in the cTap2DebugUserTable. Each row
@@ -1110,7 +724,7 @@ func (ctap2Debugusertable *CISCOTAP2MIB_Ctap2Debugusertable) GetParentYangName()
 // access to Lawful Intercept commands and cTap2DebugUserTimeout
 // represents the time when the entry will expire.
 type CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1141,57 +755,23 @@ type CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry struct {
     Ctap2Debuguserstatus interface{}
 }
 
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetFilter() yfilter.YFilter { return ctap2Debuguserentry.YFilter }
+func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetEntityData() *types.CommonEntityData {
+    ctap2Debuguserentry.EntityData.YFilter = ctap2Debuguserentry.YFilter
+    ctap2Debuguserentry.EntityData.YangName = "cTap2DebugUserEntry"
+    ctap2Debuguserentry.EntityData.BundleName = "cisco_ios_xe"
+    ctap2Debuguserentry.EntityData.ParentYangName = "cTap2DebugUserTable"
+    ctap2Debuguserentry.EntityData.SegmentPath = "cTap2DebugUserEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", ctap2Debuguserentry.Ctap2Mediationcontentid) + "']" + "[cTap2DebugUserName='" + fmt.Sprintf("%v", ctap2Debuguserentry.Ctap2Debugusername) + "']"
+    ctap2Debuguserentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ctap2Debuguserentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ctap2Debuguserentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) SetFilter(yf yfilter.YFilter) { ctap2Debuguserentry.YFilter = yf }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetGoName(yname string) string {
-    if yname == "cTap2MediationContentId" { return "Ctap2Mediationcontentid" }
-    if yname == "cTap2DebugUserName" { return "Ctap2Debugusername" }
-    if yname == "cTap2DebugUserTimeout" { return "Ctap2Debugusertimeout" }
-    if yname == "cTap2DebugUserStorageType" { return "Ctap2Debuguserstoragetype" }
-    if yname == "cTap2DebugUserStatus" { return "Ctap2Debuguserstatus" }
-    return ""
+    ctap2Debuguserentry.EntityData.Children = make(map[string]types.YChild)
+    ctap2Debuguserentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ctap2Debuguserentry.EntityData.Leafs["cTap2MediationContentId"] = types.YLeaf{"Ctap2Mediationcontentid", ctap2Debuguserentry.Ctap2Mediationcontentid}
+    ctap2Debuguserentry.EntityData.Leafs["cTap2DebugUserName"] = types.YLeaf{"Ctap2Debugusername", ctap2Debuguserentry.Ctap2Debugusername}
+    ctap2Debuguserentry.EntityData.Leafs["cTap2DebugUserTimeout"] = types.YLeaf{"Ctap2Debugusertimeout", ctap2Debuguserentry.Ctap2Debugusertimeout}
+    ctap2Debuguserentry.EntityData.Leafs["cTap2DebugUserStorageType"] = types.YLeaf{"Ctap2Debuguserstoragetype", ctap2Debuguserentry.Ctap2Debuguserstoragetype}
+    ctap2Debuguserentry.EntityData.Leafs["cTap2DebugUserStatus"] = types.YLeaf{"Ctap2Debuguserstatus", ctap2Debuguserentry.Ctap2Debuguserstatus}
+    return &(ctap2Debuguserentry.EntityData)
 }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetSegmentPath() string {
-    return "cTap2DebugUserEntry" + "[cTap2MediationContentId='" + fmt.Sprintf("%v", ctap2Debuguserentry.Ctap2Mediationcontentid) + "']" + "[cTap2DebugUserName='" + fmt.Sprintf("%v", ctap2Debuguserentry.Ctap2Debugusername) + "']"
-}
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cTap2MediationContentId"] = ctap2Debuguserentry.Ctap2Mediationcontentid
-    leafs["cTap2DebugUserName"] = ctap2Debuguserentry.Ctap2Debugusername
-    leafs["cTap2DebugUserTimeout"] = ctap2Debuguserentry.Ctap2Debugusertimeout
-    leafs["cTap2DebugUserStorageType"] = ctap2Debuguserentry.Ctap2Debuguserstoragetype
-    leafs["cTap2DebugUserStatus"] = ctap2Debuguserentry.Ctap2Debuguserstatus
-    return leafs
-}
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetYangName() string { return "cTap2DebugUserEntry" }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) SetParent(parent types.Entity) { ctap2Debuguserentry.parent = parent }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetParent() types.Entity { return ctap2Debuguserentry.parent }
-
-func (ctap2Debuguserentry *CISCOTAP2MIB_Ctap2Debugusertable_Ctap2Debuguserentry) GetParentYangName() string { return "cTap2DebugUserTable" }
 

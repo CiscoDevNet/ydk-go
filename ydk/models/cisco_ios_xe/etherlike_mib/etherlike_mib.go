@@ -42,25 +42,11 @@ func init() {
     ydk.RegisterEntity("EtherLike-MIB:EtherLike-MIB", reflect.TypeOf(EtherLikeMIB{}))
 }
 
-type Dot3Erroriniterror struct {
-}
-
-func (id Dot3Erroriniterror) String() string {
-	return "EtherLike-MIB:dot3ErrorInitError"
-}
-
 type Dot3Testtdr struct {
 }
 
 func (id Dot3Testtdr) String() string {
 	return "EtherLike-MIB:dot3TestTdr"
-}
-
-type Dot3Errorloopbackerror struct {
-}
-
-func (id Dot3Errorloopbackerror) String() string {
-	return "EtherLike-MIB:dot3ErrorLoopbackError"
 }
 
 type Dot3Testloopback struct {
@@ -70,9 +56,23 @@ func (id Dot3Testloopback) String() string {
 	return "EtherLike-MIB:dot3TestLoopBack"
 }
 
+type Dot3Erroriniterror struct {
+}
+
+func (id Dot3Erroriniterror) String() string {
+	return "EtherLike-MIB:dot3ErrorInitError"
+}
+
+type Dot3Errorloopbackerror struct {
+}
+
+func (id Dot3Errorloopbackerror) String() string {
+	return "EtherLike-MIB:dot3ErrorLoopbackError"
+}
+
 // EtherLikeMIB
 type EtherLikeMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics for a collection of ethernet-like interfaces attached to a
@@ -119,74 +119,25 @@ type EtherLikeMIB struct {
     Dot3Hcstatstable EtherLikeMIB_Dot3Hcstatstable
 }
 
-func (etherLikeMIB *EtherLikeMIB) GetFilter() yfilter.YFilter { return etherLikeMIB.YFilter }
+func (etherLikeMIB *EtherLikeMIB) GetEntityData() *types.CommonEntityData {
+    etherLikeMIB.EntityData.YFilter = etherLikeMIB.YFilter
+    etherLikeMIB.EntityData.YangName = "EtherLike-MIB"
+    etherLikeMIB.EntityData.BundleName = "cisco_ios_xe"
+    etherLikeMIB.EntityData.ParentYangName = "EtherLike-MIB"
+    etherLikeMIB.EntityData.SegmentPath = "EtherLike-MIB:EtherLike-MIB"
+    etherLikeMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    etherLikeMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    etherLikeMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (etherLikeMIB *EtherLikeMIB) SetFilter(yf yfilter.YFilter) { etherLikeMIB.YFilter = yf }
-
-func (etherLikeMIB *EtherLikeMIB) GetGoName(yname string) string {
-    if yname == "dot3StatsTable" { return "Dot3Statstable" }
-    if yname == "dot3CollTable" { return "Dot3Colltable" }
-    if yname == "dot3ControlTable" { return "Dot3Controltable" }
-    if yname == "dot3PauseTable" { return "Dot3Pausetable" }
-    if yname == "dot3HCStatsTable" { return "Dot3Hcstatstable" }
-    return ""
+    etherLikeMIB.EntityData.Children = make(map[string]types.YChild)
+    etherLikeMIB.EntityData.Children["dot3StatsTable"] = types.YChild{"Dot3Statstable", &etherLikeMIB.Dot3Statstable}
+    etherLikeMIB.EntityData.Children["dot3CollTable"] = types.YChild{"Dot3Colltable", &etherLikeMIB.Dot3Colltable}
+    etherLikeMIB.EntityData.Children["dot3ControlTable"] = types.YChild{"Dot3Controltable", &etherLikeMIB.Dot3Controltable}
+    etherLikeMIB.EntityData.Children["dot3PauseTable"] = types.YChild{"Dot3Pausetable", &etherLikeMIB.Dot3Pausetable}
+    etherLikeMIB.EntityData.Children["dot3HCStatsTable"] = types.YChild{"Dot3Hcstatstable", &etherLikeMIB.Dot3Hcstatstable}
+    etherLikeMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(etherLikeMIB.EntityData)
 }
-
-func (etherLikeMIB *EtherLikeMIB) GetSegmentPath() string {
-    return "EtherLike-MIB:EtherLike-MIB"
-}
-
-func (etherLikeMIB *EtherLikeMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot3StatsTable" {
-        return &etherLikeMIB.Dot3Statstable
-    }
-    if childYangName == "dot3CollTable" {
-        return &etherLikeMIB.Dot3Colltable
-    }
-    if childYangName == "dot3ControlTable" {
-        return &etherLikeMIB.Dot3Controltable
-    }
-    if childYangName == "dot3PauseTable" {
-        return &etherLikeMIB.Dot3Pausetable
-    }
-    if childYangName == "dot3HCStatsTable" {
-        return &etherLikeMIB.Dot3Hcstatstable
-    }
-    return nil
-}
-
-func (etherLikeMIB *EtherLikeMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dot3StatsTable"] = &etherLikeMIB.Dot3Statstable
-    children["dot3CollTable"] = &etherLikeMIB.Dot3Colltable
-    children["dot3ControlTable"] = &etherLikeMIB.Dot3Controltable
-    children["dot3PauseTable"] = &etherLikeMIB.Dot3Pausetable
-    children["dot3HCStatsTable"] = &etherLikeMIB.Dot3Hcstatstable
-    return children
-}
-
-func (etherLikeMIB *EtherLikeMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (etherLikeMIB *EtherLikeMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (etherLikeMIB *EtherLikeMIB) GetYangName() string { return "EtherLike-MIB" }
-
-func (etherLikeMIB *EtherLikeMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (etherLikeMIB *EtherLikeMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (etherLikeMIB *EtherLikeMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (etherLikeMIB *EtherLikeMIB) SetParent(parent types.Entity) { etherLikeMIB.parent = parent }
-
-func (etherLikeMIB *EtherLikeMIB) GetParent() types.Entity { return etherLikeMIB.parent }
-
-func (etherLikeMIB *EtherLikeMIB) GetParentYangName() string { return "EtherLike-MIB" }
 
 // EtherLikeMIB_Dot3Statstable
 // Statistics for a collection of ethernet-like
@@ -194,7 +145,7 @@ func (etherLikeMIB *EtherLikeMIB) GetParentYangName() string { return "EtherLike
 // There will be one row in this table for each
 // ethernet-like interface in the system.
 type EtherLikeMIB_Dot3Statstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Statistics for a particular interface to an ethernet-like medium. The type
@@ -202,69 +153,30 @@ type EtherLikeMIB_Dot3Statstable struct {
     Dot3Statsentry []EtherLikeMIB_Dot3Statstable_Dot3Statsentry
 }
 
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetFilter() yfilter.YFilter { return dot3Statstable.YFilter }
+func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetEntityData() *types.CommonEntityData {
+    dot3Statstable.EntityData.YFilter = dot3Statstable.YFilter
+    dot3Statstable.EntityData.YangName = "dot3StatsTable"
+    dot3Statstable.EntityData.BundleName = "cisco_ios_xe"
+    dot3Statstable.EntityData.ParentYangName = "EtherLike-MIB"
+    dot3Statstable.EntityData.SegmentPath = "dot3StatsTable"
+    dot3Statstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Statstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Statstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) SetFilter(yf yfilter.YFilter) { dot3Statstable.YFilter = yf }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetGoName(yname string) string {
-    if yname == "dot3StatsEntry" { return "Dot3Statsentry" }
-    return ""
-}
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetSegmentPath() string {
-    return "dot3StatsTable"
-}
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot3StatsEntry" {
-        for _, c := range dot3Statstable.Dot3Statsentry {
-            if dot3Statstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EtherLikeMIB_Dot3Statstable_Dot3Statsentry{}
-        dot3Statstable.Dot3Statsentry = append(dot3Statstable.Dot3Statsentry, child)
-        return &dot3Statstable.Dot3Statsentry[len(dot3Statstable.Dot3Statsentry)-1]
-    }
-    return nil
-}
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot3Statstable.EntityData.Children = make(map[string]types.YChild)
+    dot3Statstable.EntityData.Children["dot3StatsEntry"] = types.YChild{"Dot3Statsentry", nil}
     for i := range dot3Statstable.Dot3Statsentry {
-        children[dot3Statstable.Dot3Statsentry[i].GetSegmentPath()] = &dot3Statstable.Dot3Statsentry[i]
+        dot3Statstable.EntityData.Children[types.GetSegmentPath(&dot3Statstable.Dot3Statsentry[i])] = types.YChild{"Dot3Statsentry", &dot3Statstable.Dot3Statsentry[i]}
     }
-    return children
+    dot3Statstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot3Statstable.EntityData)
 }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetYangName() string { return "dot3StatsTable" }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) SetParent(parent types.Entity) { dot3Statstable.parent = parent }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetParent() types.Entity { return dot3Statstable.parent }
-
-func (dot3Statstable *EtherLikeMIB_Dot3Statstable) GetParentYangName() string { return "EtherLike-MIB" }
 
 // EtherLikeMIB_Dot3Statstable_Dot3Statsentry
 // Statistics for a particular interface to an
 // ethernet-like medium.
 type EtherLikeMIB_Dot3Statstable_Dot3Statsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An index value that uniquely identifies an
@@ -462,7 +374,7 @@ type EtherLikeMIB_Dot3Statstable_Dot3Statsentry struct {
     // feedback indicates that it is of limited use for debugging network problems
     // in the field, and the administrative overhead involved in maintaining a
     // registry of chipset OIDs is not justified. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Dot3Statsetherchipset interface{}
 
     // For an interface operating at 100 Mb/s, the number of times there was an
@@ -521,85 +433,38 @@ type EtherLikeMIB_Dot3Statstable_Dot3Statsentry struct {
     Dot3Statsratecontrolstatus interface{}
 }
 
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetFilter() yfilter.YFilter { return dot3Statsentry.YFilter }
+func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetEntityData() *types.CommonEntityData {
+    dot3Statsentry.EntityData.YFilter = dot3Statsentry.YFilter
+    dot3Statsentry.EntityData.YangName = "dot3StatsEntry"
+    dot3Statsentry.EntityData.BundleName = "cisco_ios_xe"
+    dot3Statsentry.EntityData.ParentYangName = "dot3StatsTable"
+    dot3Statsentry.EntityData.SegmentPath = "dot3StatsEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Statsentry.Dot3Statsindex) + "']"
+    dot3Statsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Statsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Statsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) SetFilter(yf yfilter.YFilter) { dot3Statsentry.YFilter = yf }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetGoName(yname string) string {
-    if yname == "dot3StatsIndex" { return "Dot3Statsindex" }
-    if yname == "dot3StatsAlignmentErrors" { return "Dot3Statsalignmenterrors" }
-    if yname == "dot3StatsFCSErrors" { return "Dot3Statsfcserrors" }
-    if yname == "dot3StatsSingleCollisionFrames" { return "Dot3Statssinglecollisionframes" }
-    if yname == "dot3StatsMultipleCollisionFrames" { return "Dot3Statsmultiplecollisionframes" }
-    if yname == "dot3StatsSQETestErrors" { return "Dot3Statssqetesterrors" }
-    if yname == "dot3StatsDeferredTransmissions" { return "Dot3Statsdeferredtransmissions" }
-    if yname == "dot3StatsLateCollisions" { return "Dot3Statslatecollisions" }
-    if yname == "dot3StatsExcessiveCollisions" { return "Dot3Statsexcessivecollisions" }
-    if yname == "dot3StatsInternalMacTransmitErrors" { return "Dot3Statsinternalmactransmiterrors" }
-    if yname == "dot3StatsCarrierSenseErrors" { return "Dot3Statscarriersenseerrors" }
-    if yname == "dot3StatsFrameTooLongs" { return "Dot3Statsframetoolongs" }
-    if yname == "dot3StatsInternalMacReceiveErrors" { return "Dot3Statsinternalmacreceiveerrors" }
-    if yname == "dot3StatsEtherChipSet" { return "Dot3Statsetherchipset" }
-    if yname == "dot3StatsSymbolErrors" { return "Dot3Statssymbolerrors" }
-    if yname == "dot3StatsDuplexStatus" { return "Dot3Statsduplexstatus" }
-    if yname == "dot3StatsRateControlAbility" { return "Dot3Statsratecontrolability" }
-    if yname == "dot3StatsRateControlStatus" { return "Dot3Statsratecontrolstatus" }
-    return ""
+    dot3Statsentry.EntityData.Children = make(map[string]types.YChild)
+    dot3Statsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot3Statsentry.EntityData.Leafs["dot3StatsIndex"] = types.YLeaf{"Dot3Statsindex", dot3Statsentry.Dot3Statsindex}
+    dot3Statsentry.EntityData.Leafs["dot3StatsAlignmentErrors"] = types.YLeaf{"Dot3Statsalignmenterrors", dot3Statsentry.Dot3Statsalignmenterrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsFCSErrors"] = types.YLeaf{"Dot3Statsfcserrors", dot3Statsentry.Dot3Statsfcserrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsSingleCollisionFrames"] = types.YLeaf{"Dot3Statssinglecollisionframes", dot3Statsentry.Dot3Statssinglecollisionframes}
+    dot3Statsentry.EntityData.Leafs["dot3StatsMultipleCollisionFrames"] = types.YLeaf{"Dot3Statsmultiplecollisionframes", dot3Statsentry.Dot3Statsmultiplecollisionframes}
+    dot3Statsentry.EntityData.Leafs["dot3StatsSQETestErrors"] = types.YLeaf{"Dot3Statssqetesterrors", dot3Statsentry.Dot3Statssqetesterrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsDeferredTransmissions"] = types.YLeaf{"Dot3Statsdeferredtransmissions", dot3Statsentry.Dot3Statsdeferredtransmissions}
+    dot3Statsentry.EntityData.Leafs["dot3StatsLateCollisions"] = types.YLeaf{"Dot3Statslatecollisions", dot3Statsentry.Dot3Statslatecollisions}
+    dot3Statsentry.EntityData.Leafs["dot3StatsExcessiveCollisions"] = types.YLeaf{"Dot3Statsexcessivecollisions", dot3Statsentry.Dot3Statsexcessivecollisions}
+    dot3Statsentry.EntityData.Leafs["dot3StatsInternalMacTransmitErrors"] = types.YLeaf{"Dot3Statsinternalmactransmiterrors", dot3Statsentry.Dot3Statsinternalmactransmiterrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsCarrierSenseErrors"] = types.YLeaf{"Dot3Statscarriersenseerrors", dot3Statsentry.Dot3Statscarriersenseerrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsFrameTooLongs"] = types.YLeaf{"Dot3Statsframetoolongs", dot3Statsentry.Dot3Statsframetoolongs}
+    dot3Statsentry.EntityData.Leafs["dot3StatsInternalMacReceiveErrors"] = types.YLeaf{"Dot3Statsinternalmacreceiveerrors", dot3Statsentry.Dot3Statsinternalmacreceiveerrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsEtherChipSet"] = types.YLeaf{"Dot3Statsetherchipset", dot3Statsentry.Dot3Statsetherchipset}
+    dot3Statsentry.EntityData.Leafs["dot3StatsSymbolErrors"] = types.YLeaf{"Dot3Statssymbolerrors", dot3Statsentry.Dot3Statssymbolerrors}
+    dot3Statsentry.EntityData.Leafs["dot3StatsDuplexStatus"] = types.YLeaf{"Dot3Statsduplexstatus", dot3Statsentry.Dot3Statsduplexstatus}
+    dot3Statsentry.EntityData.Leafs["dot3StatsRateControlAbility"] = types.YLeaf{"Dot3Statsratecontrolability", dot3Statsentry.Dot3Statsratecontrolability}
+    dot3Statsentry.EntityData.Leafs["dot3StatsRateControlStatus"] = types.YLeaf{"Dot3Statsratecontrolstatus", dot3Statsentry.Dot3Statsratecontrolstatus}
+    return &(dot3Statsentry.EntityData)
 }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetSegmentPath() string {
-    return "dot3StatsEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Statsentry.Dot3Statsindex) + "']"
-}
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot3StatsIndex"] = dot3Statsentry.Dot3Statsindex
-    leafs["dot3StatsAlignmentErrors"] = dot3Statsentry.Dot3Statsalignmenterrors
-    leafs["dot3StatsFCSErrors"] = dot3Statsentry.Dot3Statsfcserrors
-    leafs["dot3StatsSingleCollisionFrames"] = dot3Statsentry.Dot3Statssinglecollisionframes
-    leafs["dot3StatsMultipleCollisionFrames"] = dot3Statsentry.Dot3Statsmultiplecollisionframes
-    leafs["dot3StatsSQETestErrors"] = dot3Statsentry.Dot3Statssqetesterrors
-    leafs["dot3StatsDeferredTransmissions"] = dot3Statsentry.Dot3Statsdeferredtransmissions
-    leafs["dot3StatsLateCollisions"] = dot3Statsentry.Dot3Statslatecollisions
-    leafs["dot3StatsExcessiveCollisions"] = dot3Statsentry.Dot3Statsexcessivecollisions
-    leafs["dot3StatsInternalMacTransmitErrors"] = dot3Statsentry.Dot3Statsinternalmactransmiterrors
-    leafs["dot3StatsCarrierSenseErrors"] = dot3Statsentry.Dot3Statscarriersenseerrors
-    leafs["dot3StatsFrameTooLongs"] = dot3Statsentry.Dot3Statsframetoolongs
-    leafs["dot3StatsInternalMacReceiveErrors"] = dot3Statsentry.Dot3Statsinternalmacreceiveerrors
-    leafs["dot3StatsEtherChipSet"] = dot3Statsentry.Dot3Statsetherchipset
-    leafs["dot3StatsSymbolErrors"] = dot3Statsentry.Dot3Statssymbolerrors
-    leafs["dot3StatsDuplexStatus"] = dot3Statsentry.Dot3Statsduplexstatus
-    leafs["dot3StatsRateControlAbility"] = dot3Statsentry.Dot3Statsratecontrolability
-    leafs["dot3StatsRateControlStatus"] = dot3Statsentry.Dot3Statsratecontrolstatus
-    return leafs
-}
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetYangName() string { return "dot3StatsEntry" }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) SetParent(parent types.Entity) { dot3Statsentry.parent = parent }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetParent() types.Entity { return dot3Statsentry.parent }
-
-func (dot3Statsentry *EtherLikeMIB_Dot3Statstable_Dot3Statsentry) GetParentYangName() string { return "dot3StatsTable" }
 
 // EtherLikeMIB_Dot3Statstable_Dot3Statsentry_Dot3Statsduplexstatus represents valuable to justify the redundancy.
 type EtherLikeMIB_Dot3Statstable_Dot3Statsentry_Dot3Statsduplexstatus string
@@ -627,7 +492,7 @@ const (
 // A collection of collision histograms for a
 // particular set of interfaces.
 type EtherLikeMIB_Dot3Colltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A cell in the histogram of per-frame collisions for a particular interface.
@@ -638,63 +503,24 @@ type EtherLikeMIB_Dot3Colltable struct {
     Dot3Collentry []EtherLikeMIB_Dot3Colltable_Dot3Collentry
 }
 
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetFilter() yfilter.YFilter { return dot3Colltable.YFilter }
+func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetEntityData() *types.CommonEntityData {
+    dot3Colltable.EntityData.YFilter = dot3Colltable.YFilter
+    dot3Colltable.EntityData.YangName = "dot3CollTable"
+    dot3Colltable.EntityData.BundleName = "cisco_ios_xe"
+    dot3Colltable.EntityData.ParentYangName = "EtherLike-MIB"
+    dot3Colltable.EntityData.SegmentPath = "dot3CollTable"
+    dot3Colltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Colltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Colltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) SetFilter(yf yfilter.YFilter) { dot3Colltable.YFilter = yf }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetGoName(yname string) string {
-    if yname == "dot3CollEntry" { return "Dot3Collentry" }
-    return ""
-}
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetSegmentPath() string {
-    return "dot3CollTable"
-}
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot3CollEntry" {
-        for _, c := range dot3Colltable.Dot3Collentry {
-            if dot3Colltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EtherLikeMIB_Dot3Colltable_Dot3Collentry{}
-        dot3Colltable.Dot3Collentry = append(dot3Colltable.Dot3Collentry, child)
-        return &dot3Colltable.Dot3Collentry[len(dot3Colltable.Dot3Collentry)-1]
-    }
-    return nil
-}
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot3Colltable.EntityData.Children = make(map[string]types.YChild)
+    dot3Colltable.EntityData.Children["dot3CollEntry"] = types.YChild{"Dot3Collentry", nil}
     for i := range dot3Colltable.Dot3Collentry {
-        children[dot3Colltable.Dot3Collentry[i].GetSegmentPath()] = &dot3Colltable.Dot3Collentry[i]
+        dot3Colltable.EntityData.Children[types.GetSegmentPath(&dot3Colltable.Dot3Collentry[i])] = types.YChild{"Dot3Collentry", &dot3Colltable.Dot3Collentry[i]}
     }
-    return children
+    dot3Colltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot3Colltable.EntityData)
 }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetYangName() string { return "dot3CollTable" }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) SetParent(parent types.Entity) { dot3Colltable.parent = parent }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetParent() types.Entity { return dot3Colltable.parent }
-
-func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetParentYangName() string { return "EtherLike-MIB" }
 
 // EtherLikeMIB_Dot3Colltable_Dot3Collentry
 // A cell in the histogram of per-frame
@@ -705,7 +531,7 @@ func (dot3Colltable *EtherLikeMIB_Dot3Colltable) GetParentYangName() string { re
 // particular interface is accompanied by a
 // particular number of media collisions.
 type EtherLikeMIB_Dot3Colltable_Dot3Collentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -731,55 +557,23 @@ type EtherLikeMIB_Dot3Colltable_Dot3Collentry struct {
     Dot3Collfrequencies interface{}
 }
 
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetFilter() yfilter.YFilter { return dot3Collentry.YFilter }
+func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetEntityData() *types.CommonEntityData {
+    dot3Collentry.EntityData.YFilter = dot3Collentry.YFilter
+    dot3Collentry.EntityData.YangName = "dot3CollEntry"
+    dot3Collentry.EntityData.BundleName = "cisco_ios_xe"
+    dot3Collentry.EntityData.ParentYangName = "dot3CollTable"
+    dot3Collentry.EntityData.SegmentPath = "dot3CollEntry" + "[ifIndex='" + fmt.Sprintf("%v", dot3Collentry.Ifindex) + "']" + "[dot3CollCount='" + fmt.Sprintf("%v", dot3Collentry.Dot3Collcount) + "']"
+    dot3Collentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Collentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Collentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) SetFilter(yf yfilter.YFilter) { dot3Collentry.YFilter = yf }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "dot3CollCount" { return "Dot3Collcount" }
-    if yname == "dot3CollFrequencies" { return "Dot3Collfrequencies" }
-    return ""
+    dot3Collentry.EntityData.Children = make(map[string]types.YChild)
+    dot3Collentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot3Collentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", dot3Collentry.Ifindex}
+    dot3Collentry.EntityData.Leafs["dot3CollCount"] = types.YLeaf{"Dot3Collcount", dot3Collentry.Dot3Collcount}
+    dot3Collentry.EntityData.Leafs["dot3CollFrequencies"] = types.YLeaf{"Dot3Collfrequencies", dot3Collentry.Dot3Collfrequencies}
+    return &(dot3Collentry.EntityData)
 }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetSegmentPath() string {
-    return "dot3CollEntry" + "[ifIndex='" + fmt.Sprintf("%v", dot3Collentry.Ifindex) + "']" + "[dot3CollCount='" + fmt.Sprintf("%v", dot3Collentry.Dot3Collcount) + "']"
-}
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = dot3Collentry.Ifindex
-    leafs["dot3CollCount"] = dot3Collentry.Dot3Collcount
-    leafs["dot3CollFrequencies"] = dot3Collentry.Dot3Collfrequencies
-    return leafs
-}
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetYangName() string { return "dot3CollEntry" }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) SetParent(parent types.Entity) { dot3Collentry.parent = parent }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetParent() types.Entity { return dot3Collentry.parent }
-
-func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetParentYangName() string { return "dot3CollTable" }
 
 // EtherLikeMIB_Dot3Controltable
 // A table of descriptive and status information
@@ -793,7 +587,7 @@ func (dot3Collentry *EtherLikeMIB_Dot3Colltable_Dot3Collentry) GetParentYangName
 // the MAC Control sublayer, there will be fewer
 // rows in this table than in the dot3StatsTable.
 type EtherLikeMIB_Dot3Controltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about the MAC Control
@@ -802,70 +596,31 @@ type EtherLikeMIB_Dot3Controltable struct {
     Dot3Controlentry []EtherLikeMIB_Dot3Controltable_Dot3Controlentry
 }
 
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetFilter() yfilter.YFilter { return dot3Controltable.YFilter }
+func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetEntityData() *types.CommonEntityData {
+    dot3Controltable.EntityData.YFilter = dot3Controltable.YFilter
+    dot3Controltable.EntityData.YangName = "dot3ControlTable"
+    dot3Controltable.EntityData.BundleName = "cisco_ios_xe"
+    dot3Controltable.EntityData.ParentYangName = "EtherLike-MIB"
+    dot3Controltable.EntityData.SegmentPath = "dot3ControlTable"
+    dot3Controltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Controltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Controltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) SetFilter(yf yfilter.YFilter) { dot3Controltable.YFilter = yf }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetGoName(yname string) string {
-    if yname == "dot3ControlEntry" { return "Dot3Controlentry" }
-    return ""
-}
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetSegmentPath() string {
-    return "dot3ControlTable"
-}
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot3ControlEntry" {
-        for _, c := range dot3Controltable.Dot3Controlentry {
-            if dot3Controltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EtherLikeMIB_Dot3Controltable_Dot3Controlentry{}
-        dot3Controltable.Dot3Controlentry = append(dot3Controltable.Dot3Controlentry, child)
-        return &dot3Controltable.Dot3Controlentry[len(dot3Controltable.Dot3Controlentry)-1]
-    }
-    return nil
-}
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot3Controltable.EntityData.Children = make(map[string]types.YChild)
+    dot3Controltable.EntityData.Children["dot3ControlEntry"] = types.YChild{"Dot3Controlentry", nil}
     for i := range dot3Controltable.Dot3Controlentry {
-        children[dot3Controltable.Dot3Controlentry[i].GetSegmentPath()] = &dot3Controltable.Dot3Controlentry[i]
+        dot3Controltable.EntityData.Children[types.GetSegmentPath(&dot3Controltable.Dot3Controlentry[i])] = types.YChild{"Dot3Controlentry", &dot3Controltable.Dot3Controlentry[i]}
     }
-    return children
+    dot3Controltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot3Controltable.EntityData)
 }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetYangName() string { return "dot3ControlTable" }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) SetParent(parent types.Entity) { dot3Controltable.parent = parent }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetParent() types.Entity { return dot3Controltable.parent }
-
-func (dot3Controltable *EtherLikeMIB_Dot3Controltable) GetParentYangName() string { return "EtherLike-MIB" }
 
 // EtherLikeMIB_Dot3Controltable_Dot3Controlentry
 // An entry in the table, containing information
 // about the MAC Control sublayer on a single
 // ethernet-like interface.
 type EtherLikeMIB_Dot3Controltable_Dot3Controlentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -900,57 +655,24 @@ type EtherLikeMIB_Dot3Controltable_Dot3Controlentry struct {
     Dot3Hccontrolinunknownopcodes interface{}
 }
 
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetFilter() yfilter.YFilter { return dot3Controlentry.YFilter }
+func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetEntityData() *types.CommonEntityData {
+    dot3Controlentry.EntityData.YFilter = dot3Controlentry.YFilter
+    dot3Controlentry.EntityData.YangName = "dot3ControlEntry"
+    dot3Controlentry.EntityData.BundleName = "cisco_ios_xe"
+    dot3Controlentry.EntityData.ParentYangName = "dot3ControlTable"
+    dot3Controlentry.EntityData.SegmentPath = "dot3ControlEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Controlentry.Dot3Statsindex) + "']"
+    dot3Controlentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Controlentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Controlentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) SetFilter(yf yfilter.YFilter) { dot3Controlentry.YFilter = yf }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetGoName(yname string) string {
-    if yname == "dot3StatsIndex" { return "Dot3Statsindex" }
-    if yname == "dot3ControlFunctionsSupported" { return "Dot3Controlfunctionssupported" }
-    if yname == "dot3ControlInUnknownOpcodes" { return "Dot3Controlinunknownopcodes" }
-    if yname == "dot3HCControlInUnknownOpcodes" { return "Dot3Hccontrolinunknownopcodes" }
-    return ""
+    dot3Controlentry.EntityData.Children = make(map[string]types.YChild)
+    dot3Controlentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot3Controlentry.EntityData.Leafs["dot3StatsIndex"] = types.YLeaf{"Dot3Statsindex", dot3Controlentry.Dot3Statsindex}
+    dot3Controlentry.EntityData.Leafs["dot3ControlFunctionsSupported"] = types.YLeaf{"Dot3Controlfunctionssupported", dot3Controlentry.Dot3Controlfunctionssupported}
+    dot3Controlentry.EntityData.Leafs["dot3ControlInUnknownOpcodes"] = types.YLeaf{"Dot3Controlinunknownopcodes", dot3Controlentry.Dot3Controlinunknownopcodes}
+    dot3Controlentry.EntityData.Leafs["dot3HCControlInUnknownOpcodes"] = types.YLeaf{"Dot3Hccontrolinunknownopcodes", dot3Controlentry.Dot3Hccontrolinunknownopcodes}
+    return &(dot3Controlentry.EntityData)
 }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetSegmentPath() string {
-    return "dot3ControlEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Controlentry.Dot3Statsindex) + "']"
-}
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot3StatsIndex"] = dot3Controlentry.Dot3Statsindex
-    leafs["dot3ControlFunctionsSupported"] = dot3Controlentry.Dot3Controlfunctionssupported
-    leafs["dot3ControlInUnknownOpcodes"] = dot3Controlentry.Dot3Controlinunknownopcodes
-    leafs["dot3HCControlInUnknownOpcodes"] = dot3Controlentry.Dot3Hccontrolinunknownopcodes
-    return leafs
-}
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetYangName() string { return "dot3ControlEntry" }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) SetParent(parent types.Entity) { dot3Controlentry.parent = parent }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetParent() types.Entity { return dot3Controlentry.parent }
-
-func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetParentYangName() string { return "dot3ControlTable" }
 
 // EtherLikeMIB_Dot3Pausetable
 // A table of descriptive and status information
@@ -968,7 +690,7 @@ func (dot3Controlentry *EtherLikeMIB_Dot3Controltable_Dot3Controlentry) GetParen
 // support half-duplex), there will be fewer rows
 // in this table than in the dot3StatsTable.
 type EtherLikeMIB_Dot3Pausetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information about the MAC Control PAUSE
@@ -977,70 +699,31 @@ type EtherLikeMIB_Dot3Pausetable struct {
     Dot3Pauseentry []EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry
 }
 
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetFilter() yfilter.YFilter { return dot3Pausetable.YFilter }
+func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetEntityData() *types.CommonEntityData {
+    dot3Pausetable.EntityData.YFilter = dot3Pausetable.YFilter
+    dot3Pausetable.EntityData.YangName = "dot3PauseTable"
+    dot3Pausetable.EntityData.BundleName = "cisco_ios_xe"
+    dot3Pausetable.EntityData.ParentYangName = "EtherLike-MIB"
+    dot3Pausetable.EntityData.SegmentPath = "dot3PauseTable"
+    dot3Pausetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Pausetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Pausetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) SetFilter(yf yfilter.YFilter) { dot3Pausetable.YFilter = yf }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetGoName(yname string) string {
-    if yname == "dot3PauseEntry" { return "Dot3Pauseentry" }
-    return ""
-}
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetSegmentPath() string {
-    return "dot3PauseTable"
-}
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot3PauseEntry" {
-        for _, c := range dot3Pausetable.Dot3Pauseentry {
-            if dot3Pausetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry{}
-        dot3Pausetable.Dot3Pauseentry = append(dot3Pausetable.Dot3Pauseentry, child)
-        return &dot3Pausetable.Dot3Pauseentry[len(dot3Pausetable.Dot3Pauseentry)-1]
-    }
-    return nil
-}
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot3Pausetable.EntityData.Children = make(map[string]types.YChild)
+    dot3Pausetable.EntityData.Children["dot3PauseEntry"] = types.YChild{"Dot3Pauseentry", nil}
     for i := range dot3Pausetable.Dot3Pauseentry {
-        children[dot3Pausetable.Dot3Pauseentry[i].GetSegmentPath()] = &dot3Pausetable.Dot3Pauseentry[i]
+        dot3Pausetable.EntityData.Children[types.GetSegmentPath(&dot3Pausetable.Dot3Pauseentry[i])] = types.YChild{"Dot3Pauseentry", &dot3Pausetable.Dot3Pauseentry[i]}
     }
-    return children
+    dot3Pausetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot3Pausetable.EntityData)
 }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetYangName() string { return "dot3PauseTable" }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) SetParent(parent types.Entity) { dot3Pausetable.parent = parent }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetParent() types.Entity { return dot3Pausetable.parent }
-
-func (dot3Pausetable *EtherLikeMIB_Dot3Pausetable) GetParentYangName() string { return "EtherLike-MIB" }
 
 // EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry
 // An entry in the table, containing information
 // about the MAC Control PAUSE function on a single
 // ethernet-like interface.
 type EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1127,63 +810,27 @@ type EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry struct {
     Dot3Hcoutpauseframes interface{}
 }
 
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetFilter() yfilter.YFilter { return dot3Pauseentry.YFilter }
+func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetEntityData() *types.CommonEntityData {
+    dot3Pauseentry.EntityData.YFilter = dot3Pauseentry.YFilter
+    dot3Pauseentry.EntityData.YangName = "dot3PauseEntry"
+    dot3Pauseentry.EntityData.BundleName = "cisco_ios_xe"
+    dot3Pauseentry.EntityData.ParentYangName = "dot3PauseTable"
+    dot3Pauseentry.EntityData.SegmentPath = "dot3PauseEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Pauseentry.Dot3Statsindex) + "']"
+    dot3Pauseentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Pauseentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Pauseentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) SetFilter(yf yfilter.YFilter) { dot3Pauseentry.YFilter = yf }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetGoName(yname string) string {
-    if yname == "dot3StatsIndex" { return "Dot3Statsindex" }
-    if yname == "dot3PauseAdminMode" { return "Dot3Pauseadminmode" }
-    if yname == "dot3PauseOperMode" { return "Dot3Pauseopermode" }
-    if yname == "dot3InPauseFrames" { return "Dot3Inpauseframes" }
-    if yname == "dot3OutPauseFrames" { return "Dot3Outpauseframes" }
-    if yname == "dot3HCInPauseFrames" { return "Dot3Hcinpauseframes" }
-    if yname == "dot3HCOutPauseFrames" { return "Dot3Hcoutpauseframes" }
-    return ""
+    dot3Pauseentry.EntityData.Children = make(map[string]types.YChild)
+    dot3Pauseentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot3Pauseentry.EntityData.Leafs["dot3StatsIndex"] = types.YLeaf{"Dot3Statsindex", dot3Pauseentry.Dot3Statsindex}
+    dot3Pauseentry.EntityData.Leafs["dot3PauseAdminMode"] = types.YLeaf{"Dot3Pauseadminmode", dot3Pauseentry.Dot3Pauseadminmode}
+    dot3Pauseentry.EntityData.Leafs["dot3PauseOperMode"] = types.YLeaf{"Dot3Pauseopermode", dot3Pauseentry.Dot3Pauseopermode}
+    dot3Pauseentry.EntityData.Leafs["dot3InPauseFrames"] = types.YLeaf{"Dot3Inpauseframes", dot3Pauseentry.Dot3Inpauseframes}
+    dot3Pauseentry.EntityData.Leafs["dot3OutPauseFrames"] = types.YLeaf{"Dot3Outpauseframes", dot3Pauseentry.Dot3Outpauseframes}
+    dot3Pauseentry.EntityData.Leafs["dot3HCInPauseFrames"] = types.YLeaf{"Dot3Hcinpauseframes", dot3Pauseentry.Dot3Hcinpauseframes}
+    dot3Pauseentry.EntityData.Leafs["dot3HCOutPauseFrames"] = types.YLeaf{"Dot3Hcoutpauseframes", dot3Pauseentry.Dot3Hcoutpauseframes}
+    return &(dot3Pauseentry.EntityData)
 }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetSegmentPath() string {
-    return "dot3PauseEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Pauseentry.Dot3Statsindex) + "']"
-}
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot3StatsIndex"] = dot3Pauseentry.Dot3Statsindex
-    leafs["dot3PauseAdminMode"] = dot3Pauseentry.Dot3Pauseadminmode
-    leafs["dot3PauseOperMode"] = dot3Pauseentry.Dot3Pauseopermode
-    leafs["dot3InPauseFrames"] = dot3Pauseentry.Dot3Inpauseframes
-    leafs["dot3OutPauseFrames"] = dot3Pauseentry.Dot3Outpauseframes
-    leafs["dot3HCInPauseFrames"] = dot3Pauseentry.Dot3Hcinpauseframes
-    leafs["dot3HCOutPauseFrames"] = dot3Pauseentry.Dot3Hcoutpauseframes
-    return leafs
-}
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetYangName() string { return "dot3PauseEntry" }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) SetParent(parent types.Entity) { dot3Pauseentry.parent = parent }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetParent() types.Entity { return dot3Pauseentry.parent }
-
-func (dot3Pauseentry *EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry) GetParentYangName() string { return "dot3PauseTable" }
 
 // EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry_Dot3Pauseadminmode represents at greater than 100 Mb/s.
 type EtherLikeMIB_Dot3Pausetable_Dot3Pauseentry_Dot3Pauseadminmode string
@@ -1235,7 +882,7 @@ const (
 // choose to implement entries in this table for
 // all ethernet-like interfaces.
 type EtherLikeMIB_Dot3Hcstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing 64-bit statistics for a single ethernet-like interface.
@@ -1243,69 +890,30 @@ type EtherLikeMIB_Dot3Hcstatstable struct {
     Dot3Hcstatsentry []EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry
 }
 
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetFilter() yfilter.YFilter { return dot3Hcstatstable.YFilter }
+func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetEntityData() *types.CommonEntityData {
+    dot3Hcstatstable.EntityData.YFilter = dot3Hcstatstable.YFilter
+    dot3Hcstatstable.EntityData.YangName = "dot3HCStatsTable"
+    dot3Hcstatstable.EntityData.BundleName = "cisco_ios_xe"
+    dot3Hcstatstable.EntityData.ParentYangName = "EtherLike-MIB"
+    dot3Hcstatstable.EntityData.SegmentPath = "dot3HCStatsTable"
+    dot3Hcstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Hcstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Hcstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) SetFilter(yf yfilter.YFilter) { dot3Hcstatstable.YFilter = yf }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetGoName(yname string) string {
-    if yname == "dot3HCStatsEntry" { return "Dot3Hcstatsentry" }
-    return ""
-}
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetSegmentPath() string {
-    return "dot3HCStatsTable"
-}
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dot3HCStatsEntry" {
-        for _, c := range dot3Hcstatstable.Dot3Hcstatsentry {
-            if dot3Hcstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry{}
-        dot3Hcstatstable.Dot3Hcstatsentry = append(dot3Hcstatstable.Dot3Hcstatsentry, child)
-        return &dot3Hcstatstable.Dot3Hcstatsentry[len(dot3Hcstatstable.Dot3Hcstatsentry)-1]
-    }
-    return nil
-}
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dot3Hcstatstable.EntityData.Children = make(map[string]types.YChild)
+    dot3Hcstatstable.EntityData.Children["dot3HCStatsEntry"] = types.YChild{"Dot3Hcstatsentry", nil}
     for i := range dot3Hcstatstable.Dot3Hcstatsentry {
-        children[dot3Hcstatstable.Dot3Hcstatsentry[i].GetSegmentPath()] = &dot3Hcstatstable.Dot3Hcstatsentry[i]
+        dot3Hcstatstable.EntityData.Children[types.GetSegmentPath(&dot3Hcstatstable.Dot3Hcstatsentry[i])] = types.YChild{"Dot3Hcstatsentry", &dot3Hcstatstable.Dot3Hcstatsentry[i]}
     }
-    return children
+    dot3Hcstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dot3Hcstatstable.EntityData)
 }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetYangName() string { return "dot3HCStatsTable" }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) SetParent(parent types.Entity) { dot3Hcstatstable.parent = parent }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetParent() types.Entity { return dot3Hcstatstable.parent }
-
-func (dot3Hcstatstable *EtherLikeMIB_Dot3Hcstatstable) GetParentYangName() string { return "EtherLike-MIB" }
 
 // EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry
 // An entry containing 64-bit statistics for a
 // single ethernet-like interface.
 type EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1419,61 +1027,25 @@ type EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry struct {
     Dot3Hcstatssymbolerrors interface{}
 }
 
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetFilter() yfilter.YFilter { return dot3Hcstatsentry.YFilter }
+func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetEntityData() *types.CommonEntityData {
+    dot3Hcstatsentry.EntityData.YFilter = dot3Hcstatsentry.YFilter
+    dot3Hcstatsentry.EntityData.YangName = "dot3HCStatsEntry"
+    dot3Hcstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    dot3Hcstatsentry.EntityData.ParentYangName = "dot3HCStatsTable"
+    dot3Hcstatsentry.EntityData.SegmentPath = "dot3HCStatsEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Hcstatsentry.Dot3Statsindex) + "']"
+    dot3Hcstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    dot3Hcstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    dot3Hcstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) SetFilter(yf yfilter.YFilter) { dot3Hcstatsentry.YFilter = yf }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetGoName(yname string) string {
-    if yname == "dot3StatsIndex" { return "Dot3Statsindex" }
-    if yname == "dot3HCStatsAlignmentErrors" { return "Dot3Hcstatsalignmenterrors" }
-    if yname == "dot3HCStatsFCSErrors" { return "Dot3Hcstatsfcserrors" }
-    if yname == "dot3HCStatsInternalMacTransmitErrors" { return "Dot3Hcstatsinternalmactransmiterrors" }
-    if yname == "dot3HCStatsFrameTooLongs" { return "Dot3Hcstatsframetoolongs" }
-    if yname == "dot3HCStatsInternalMacReceiveErrors" { return "Dot3Hcstatsinternalmacreceiveerrors" }
-    if yname == "dot3HCStatsSymbolErrors" { return "Dot3Hcstatssymbolerrors" }
-    return ""
+    dot3Hcstatsentry.EntityData.Children = make(map[string]types.YChild)
+    dot3Hcstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    dot3Hcstatsentry.EntityData.Leafs["dot3StatsIndex"] = types.YLeaf{"Dot3Statsindex", dot3Hcstatsentry.Dot3Statsindex}
+    dot3Hcstatsentry.EntityData.Leafs["dot3HCStatsAlignmentErrors"] = types.YLeaf{"Dot3Hcstatsalignmenterrors", dot3Hcstatsentry.Dot3Hcstatsalignmenterrors}
+    dot3Hcstatsentry.EntityData.Leafs["dot3HCStatsFCSErrors"] = types.YLeaf{"Dot3Hcstatsfcserrors", dot3Hcstatsentry.Dot3Hcstatsfcserrors}
+    dot3Hcstatsentry.EntityData.Leafs["dot3HCStatsInternalMacTransmitErrors"] = types.YLeaf{"Dot3Hcstatsinternalmactransmiterrors", dot3Hcstatsentry.Dot3Hcstatsinternalmactransmiterrors}
+    dot3Hcstatsentry.EntityData.Leafs["dot3HCStatsFrameTooLongs"] = types.YLeaf{"Dot3Hcstatsframetoolongs", dot3Hcstatsentry.Dot3Hcstatsframetoolongs}
+    dot3Hcstatsentry.EntityData.Leafs["dot3HCStatsInternalMacReceiveErrors"] = types.YLeaf{"Dot3Hcstatsinternalmacreceiveerrors", dot3Hcstatsentry.Dot3Hcstatsinternalmacreceiveerrors}
+    dot3Hcstatsentry.EntityData.Leafs["dot3HCStatsSymbolErrors"] = types.YLeaf{"Dot3Hcstatssymbolerrors", dot3Hcstatsentry.Dot3Hcstatssymbolerrors}
+    return &(dot3Hcstatsentry.EntityData)
 }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetSegmentPath() string {
-    return "dot3HCStatsEntry" + "[dot3StatsIndex='" + fmt.Sprintf("%v", dot3Hcstatsentry.Dot3Statsindex) + "']"
-}
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dot3StatsIndex"] = dot3Hcstatsentry.Dot3Statsindex
-    leafs["dot3HCStatsAlignmentErrors"] = dot3Hcstatsentry.Dot3Hcstatsalignmenterrors
-    leafs["dot3HCStatsFCSErrors"] = dot3Hcstatsentry.Dot3Hcstatsfcserrors
-    leafs["dot3HCStatsInternalMacTransmitErrors"] = dot3Hcstatsentry.Dot3Hcstatsinternalmactransmiterrors
-    leafs["dot3HCStatsFrameTooLongs"] = dot3Hcstatsentry.Dot3Hcstatsframetoolongs
-    leafs["dot3HCStatsInternalMacReceiveErrors"] = dot3Hcstatsentry.Dot3Hcstatsinternalmacreceiveerrors
-    leafs["dot3HCStatsSymbolErrors"] = dot3Hcstatsentry.Dot3Hcstatssymbolerrors
-    return leafs
-}
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetYangName() string { return "dot3HCStatsEntry" }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) SetParent(parent types.Entity) { dot3Hcstatsentry.parent = parent }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetParent() types.Entity { return dot3Hcstatsentry.parent }
-
-func (dot3Hcstatsentry *EtherLikeMIB_Dot3Hcstatstable_Dot3Hcstatsentry) GetParentYangName() string { return "dot3HCStatsTable" }
 

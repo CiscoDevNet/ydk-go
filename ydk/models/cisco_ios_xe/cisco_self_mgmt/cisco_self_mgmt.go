@@ -19,74 +19,33 @@ func init() {
 // NetconfYang
 // Top level container shared by cisco-ia and cisco-odm models
 type NetconfYang struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Customize the behavior of the DMI applications.
     CiscoIa NetconfYang_CiscoIa
-
-    
-    CiscoOdm NetconfYang_CiscoOdm
 }
 
-func (netconfYang *NetconfYang) GetFilter() yfilter.YFilter { return netconfYang.YFilter }
+func (netconfYang *NetconfYang) GetEntityData() *types.CommonEntityData {
+    netconfYang.EntityData.YFilter = netconfYang.YFilter
+    netconfYang.EntityData.YangName = "netconf-yang"
+    netconfYang.EntityData.BundleName = "cisco_ios_xe"
+    netconfYang.EntityData.ParentYangName = "cisco-self-mgmt"
+    netconfYang.EntityData.SegmentPath = "cisco-self-mgmt:netconf-yang"
+    netconfYang.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    netconfYang.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    netconfYang.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (netconfYang *NetconfYang) SetFilter(yf yfilter.YFilter) { netconfYang.YFilter = yf }
-
-func (netconfYang *NetconfYang) GetGoName(yname string) string {
-    if yname == "cisco-ia:cisco-ia" { return "CiscoIa" }
-    if yname == "cisco-odm:cisco-odm" { return "CiscoOdm" }
-    return ""
+    netconfYang.EntityData.Children = make(map[string]types.YChild)
+    netconfYang.EntityData.Children["cisco-ia:cisco-ia"] = types.YChild{"CiscoIa", &netconfYang.CiscoIa}
+    netconfYang.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(netconfYang.EntityData)
 }
-
-func (netconfYang *NetconfYang) GetSegmentPath() string {
-    return "cisco-self-mgmt:netconf-yang"
-}
-
-func (netconfYang *NetconfYang) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cisco-ia:cisco-ia" {
-        return &netconfYang.CiscoIa
-    }
-    if childYangName == "cisco-odm:cisco-odm" {
-        return &netconfYang.CiscoOdm
-    }
-    return nil
-}
-
-func (netconfYang *NetconfYang) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cisco-ia:cisco-ia"] = &netconfYang.CiscoIa
-    children["cisco-odm:cisco-odm"] = &netconfYang.CiscoOdm
-    return children
-}
-
-func (netconfYang *NetconfYang) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (netconfYang *NetconfYang) GetBundleName() string { return "cisco_ios_xe" }
-
-func (netconfYang *NetconfYang) GetYangName() string { return "netconf-yang" }
-
-func (netconfYang *NetconfYang) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (netconfYang *NetconfYang) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (netconfYang *NetconfYang) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (netconfYang *NetconfYang) SetParent(parent types.Entity) { netconfYang.parent = parent }
-
-func (netconfYang *NetconfYang) GetParent() types.Entity { return netconfYang.parent }
-
-func (netconfYang *NetconfYang) GetParentYangName() string { return "cisco-self-mgmt" }
 
 // NetconfYang_CiscoIa
 // Customize the behavior of the DMI applications
 type NetconfYang_CiscoIa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enables automatic synchronization of the network element's running
@@ -183,164 +142,61 @@ type NetconfYang_CiscoIa struct {
     Blocking NetconfYang_CiscoIa_Blocking
 }
 
-func (ciscoIa *NetconfYang_CiscoIa) GetFilter() yfilter.YFilter { return ciscoIa.YFilter }
+func (ciscoIa *NetconfYang_CiscoIa) GetEntityData() *types.CommonEntityData {
+    ciscoIa.EntityData.YFilter = ciscoIa.YFilter
+    ciscoIa.EntityData.YangName = "cisco-ia"
+    ciscoIa.EntityData.BundleName = "cisco_ios_xe"
+    ciscoIa.EntityData.ParentYangName = "netconf-yang"
+    ciscoIa.EntityData.SegmentPath = "cisco-ia:cisco-ia"
+    ciscoIa.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoIa.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoIa.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoIa *NetconfYang_CiscoIa) SetFilter(yf yfilter.YFilter) { ciscoIa.YFilter = yf }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetGoName(yname string) string {
-    if yname == "auto-sync" { return "AutoSync" }
-    if yname == "init-sync" { return "InitSync" }
-    if yname == "intelligent-sync" { return "IntelligentSync" }
-    if yname == "message-diag-level" { return "MessageDiagLevel" }
-    if yname == "max-diag-messages-saved" { return "MaxDiagMessagesSaved" }
-    if yname == "post-sync-acl-process" { return "PostSyncAclProcess" }
-    if yname == "config-change-delay" { return "ConfigChangeDelay" }
-    if yname == "process-missing-prc" { return "ProcessMissingPrc" }
-    if yname == "snmp-community-string" { return "SnmpCommunityString" }
-    if yname == "preserve-paths-enabled" { return "PreservePathsEnabled" }
-    if yname == "nes-ttynum" { return "NesTtynum" }
-    if yname == "restored" { return "Restored" }
-    if yname == "snmp-trap-control" { return "SnmpTrapControl" }
-    if yname == "preserve-ned-path" { return "PreserveNedPath" }
-    if yname == "parser-msg-ignore" { return "ParserMsgIgnore" }
-    if yname == "conf-parser-msg-ignore" { return "ConfParserMsgIgnore" }
-    if yname == "full-sync-cli" { return "FullSyncCli" }
-    if yname == "conf-full-sync-cli" { return "ConfFullSyncCli" }
-    if yname == "logging" { return "Logging" }
-    if yname == "blocking" { return "Blocking" }
-    return ""
-}
-
-func (ciscoIa *NetconfYang_CiscoIa) GetSegmentPath() string {
-    return "cisco-ia:cisco-ia"
-}
-
-func (ciscoIa *NetconfYang_CiscoIa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "snmp-trap-control" {
-        return &ciscoIa.SnmpTrapControl
-    }
-    if childYangName == "preserve-ned-path" {
-        for _, c := range ciscoIa.PreserveNedPath {
-            if ciscoIa.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_PreserveNedPath{}
-        ciscoIa.PreserveNedPath = append(ciscoIa.PreserveNedPath, child)
-        return &ciscoIa.PreserveNedPath[len(ciscoIa.PreserveNedPath)-1]
-    }
-    if childYangName == "parser-msg-ignore" {
-        for _, c := range ciscoIa.ParserMsgIgnore {
-            if ciscoIa.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_ParserMsgIgnore{}
-        ciscoIa.ParserMsgIgnore = append(ciscoIa.ParserMsgIgnore, child)
-        return &ciscoIa.ParserMsgIgnore[len(ciscoIa.ParserMsgIgnore)-1]
-    }
-    if childYangName == "conf-parser-msg-ignore" {
-        for _, c := range ciscoIa.ConfParserMsgIgnore {
-            if ciscoIa.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_ConfParserMsgIgnore{}
-        ciscoIa.ConfParserMsgIgnore = append(ciscoIa.ConfParserMsgIgnore, child)
-        return &ciscoIa.ConfParserMsgIgnore[len(ciscoIa.ConfParserMsgIgnore)-1]
-    }
-    if childYangName == "full-sync-cli" {
-        for _, c := range ciscoIa.FullSyncCli {
-            if ciscoIa.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_FullSyncCli{}
-        ciscoIa.FullSyncCli = append(ciscoIa.FullSyncCli, child)
-        return &ciscoIa.FullSyncCli[len(ciscoIa.FullSyncCli)-1]
-    }
-    if childYangName == "conf-full-sync-cli" {
-        for _, c := range ciscoIa.ConfFullSyncCli {
-            if ciscoIa.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_ConfFullSyncCli{}
-        ciscoIa.ConfFullSyncCli = append(ciscoIa.ConfFullSyncCli, child)
-        return &ciscoIa.ConfFullSyncCli[len(ciscoIa.ConfFullSyncCli)-1]
-    }
-    if childYangName == "logging" {
-        return &ciscoIa.Logging
-    }
-    if childYangName == "blocking" {
-        return &ciscoIa.Blocking
-    }
-    return nil
-}
-
-func (ciscoIa *NetconfYang_CiscoIa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["snmp-trap-control"] = &ciscoIa.SnmpTrapControl
+    ciscoIa.EntityData.Children = make(map[string]types.YChild)
+    ciscoIa.EntityData.Children["snmp-trap-control"] = types.YChild{"SnmpTrapControl", &ciscoIa.SnmpTrapControl}
+    ciscoIa.EntityData.Children["preserve-ned-path"] = types.YChild{"PreserveNedPath", nil}
     for i := range ciscoIa.PreserveNedPath {
-        children[ciscoIa.PreserveNedPath[i].GetSegmentPath()] = &ciscoIa.PreserveNedPath[i]
+        ciscoIa.EntityData.Children[types.GetSegmentPath(&ciscoIa.PreserveNedPath[i])] = types.YChild{"PreserveNedPath", &ciscoIa.PreserveNedPath[i]}
     }
+    ciscoIa.EntityData.Children["parser-msg-ignore"] = types.YChild{"ParserMsgIgnore", nil}
     for i := range ciscoIa.ParserMsgIgnore {
-        children[ciscoIa.ParserMsgIgnore[i].GetSegmentPath()] = &ciscoIa.ParserMsgIgnore[i]
+        ciscoIa.EntityData.Children[types.GetSegmentPath(&ciscoIa.ParserMsgIgnore[i])] = types.YChild{"ParserMsgIgnore", &ciscoIa.ParserMsgIgnore[i]}
     }
+    ciscoIa.EntityData.Children["conf-parser-msg-ignore"] = types.YChild{"ConfParserMsgIgnore", nil}
     for i := range ciscoIa.ConfParserMsgIgnore {
-        children[ciscoIa.ConfParserMsgIgnore[i].GetSegmentPath()] = &ciscoIa.ConfParserMsgIgnore[i]
+        ciscoIa.EntityData.Children[types.GetSegmentPath(&ciscoIa.ConfParserMsgIgnore[i])] = types.YChild{"ConfParserMsgIgnore", &ciscoIa.ConfParserMsgIgnore[i]}
     }
+    ciscoIa.EntityData.Children["full-sync-cli"] = types.YChild{"FullSyncCli", nil}
     for i := range ciscoIa.FullSyncCli {
-        children[ciscoIa.FullSyncCli[i].GetSegmentPath()] = &ciscoIa.FullSyncCli[i]
+        ciscoIa.EntityData.Children[types.GetSegmentPath(&ciscoIa.FullSyncCli[i])] = types.YChild{"FullSyncCli", &ciscoIa.FullSyncCli[i]}
     }
+    ciscoIa.EntityData.Children["conf-full-sync-cli"] = types.YChild{"ConfFullSyncCli", nil}
     for i := range ciscoIa.ConfFullSyncCli {
-        children[ciscoIa.ConfFullSyncCli[i].GetSegmentPath()] = &ciscoIa.ConfFullSyncCli[i]
+        ciscoIa.EntityData.Children[types.GetSegmentPath(&ciscoIa.ConfFullSyncCli[i])] = types.YChild{"ConfFullSyncCli", &ciscoIa.ConfFullSyncCli[i]}
     }
-    children["logging"] = &ciscoIa.Logging
-    children["blocking"] = &ciscoIa.Blocking
-    return children
+    ciscoIa.EntityData.Children["logging"] = types.YChild{"Logging", &ciscoIa.Logging}
+    ciscoIa.EntityData.Children["blocking"] = types.YChild{"Blocking", &ciscoIa.Blocking}
+    ciscoIa.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoIa.EntityData.Leafs["auto-sync"] = types.YLeaf{"AutoSync", ciscoIa.AutoSync}
+    ciscoIa.EntityData.Leafs["init-sync"] = types.YLeaf{"InitSync", ciscoIa.InitSync}
+    ciscoIa.EntityData.Leafs["intelligent-sync"] = types.YLeaf{"IntelligentSync", ciscoIa.IntelligentSync}
+    ciscoIa.EntityData.Leafs["message-diag-level"] = types.YLeaf{"MessageDiagLevel", ciscoIa.MessageDiagLevel}
+    ciscoIa.EntityData.Leafs["max-diag-messages-saved"] = types.YLeaf{"MaxDiagMessagesSaved", ciscoIa.MaxDiagMessagesSaved}
+    ciscoIa.EntityData.Leafs["post-sync-acl-process"] = types.YLeaf{"PostSyncAclProcess", ciscoIa.PostSyncAclProcess}
+    ciscoIa.EntityData.Leafs["config-change-delay"] = types.YLeaf{"ConfigChangeDelay", ciscoIa.ConfigChangeDelay}
+    ciscoIa.EntityData.Leafs["process-missing-prc"] = types.YLeaf{"ProcessMissingPrc", ciscoIa.ProcessMissingPrc}
+    ciscoIa.EntityData.Leafs["snmp-community-string"] = types.YLeaf{"SnmpCommunityString", ciscoIa.SnmpCommunityString}
+    ciscoIa.EntityData.Leafs["preserve-paths-enabled"] = types.YLeaf{"PreservePathsEnabled", ciscoIa.PreservePathsEnabled}
+    ciscoIa.EntityData.Leafs["nes-ttynum"] = types.YLeaf{"NesTtynum", ciscoIa.NesTtynum}
+    ciscoIa.EntityData.Leafs["restored"] = types.YLeaf{"Restored", ciscoIa.Restored}
+    return &(ciscoIa.EntityData)
 }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["auto-sync"] = ciscoIa.AutoSync
-    leafs["init-sync"] = ciscoIa.InitSync
-    leafs["intelligent-sync"] = ciscoIa.IntelligentSync
-    leafs["message-diag-level"] = ciscoIa.MessageDiagLevel
-    leafs["max-diag-messages-saved"] = ciscoIa.MaxDiagMessagesSaved
-    leafs["post-sync-acl-process"] = ciscoIa.PostSyncAclProcess
-    leafs["config-change-delay"] = ciscoIa.ConfigChangeDelay
-    leafs["process-missing-prc"] = ciscoIa.ProcessMissingPrc
-    leafs["snmp-community-string"] = ciscoIa.SnmpCommunityString
-    leafs["preserve-paths-enabled"] = ciscoIa.PreservePathsEnabled
-    leafs["nes-ttynum"] = ciscoIa.NesTtynum
-    leafs["restored"] = ciscoIa.Restored
-    return leafs
-}
-
-func (ciscoIa *NetconfYang_CiscoIa) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetYangName() string { return "cisco-ia" }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoIa *NetconfYang_CiscoIa) SetParent(parent types.Entity) { ciscoIa.parent = parent }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetParent() types.Entity { return ciscoIa.parent }
-
-func (ciscoIa *NetconfYang_CiscoIa) GetParentYangName() string { return "netconf-yang" }
 
 // NetconfYang_CiscoIa_SnmpTrapControl
 // This container describes the configuration parameters
 // for SNMP Trap to NetConf notification processing.
 type NetconfYang_CiscoIa_SnmpTrapControl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This leaf enables or disables forwarding for all SNMP traps. The type is
@@ -353,77 +209,37 @@ type NetconfYang_CiscoIa_SnmpTrapControl struct {
     TrapList []NetconfYang_CiscoIa_SnmpTrapControl_TrapList
 }
 
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetFilter() yfilter.YFilter { return snmpTrapControl.YFilter }
+func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetEntityData() *types.CommonEntityData {
+    snmpTrapControl.EntityData.YFilter = snmpTrapControl.YFilter
+    snmpTrapControl.EntityData.YangName = "snmp-trap-control"
+    snmpTrapControl.EntityData.BundleName = "cisco_ios_xe"
+    snmpTrapControl.EntityData.ParentYangName = "cisco-ia"
+    snmpTrapControl.EntityData.SegmentPath = "snmp-trap-control"
+    snmpTrapControl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    snmpTrapControl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    snmpTrapControl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) SetFilter(yf yfilter.YFilter) { snmpTrapControl.YFilter = yf }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetGoName(yname string) string {
-    if yname == "global-forwarding" { return "GlobalForwarding" }
-    if yname == "trap-list" { return "TrapList" }
-    return ""
-}
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetSegmentPath() string {
-    return "snmp-trap-control"
-}
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "trap-list" {
-        for _, c := range snmpTrapControl.TrapList {
-            if snmpTrapControl.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_SnmpTrapControl_TrapList{}
-        snmpTrapControl.TrapList = append(snmpTrapControl.TrapList, child)
-        return &snmpTrapControl.TrapList[len(snmpTrapControl.TrapList)-1]
-    }
-    return nil
-}
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    snmpTrapControl.EntityData.Children = make(map[string]types.YChild)
+    snmpTrapControl.EntityData.Children["trap-list"] = types.YChild{"TrapList", nil}
     for i := range snmpTrapControl.TrapList {
-        children[snmpTrapControl.TrapList[i].GetSegmentPath()] = &snmpTrapControl.TrapList[i]
+        snmpTrapControl.EntityData.Children[types.GetSegmentPath(&snmpTrapControl.TrapList[i])] = types.YChild{"TrapList", &snmpTrapControl.TrapList[i]}
     }
-    return children
+    snmpTrapControl.EntityData.Leafs = make(map[string]types.YLeaf)
+    snmpTrapControl.EntityData.Leafs["global-forwarding"] = types.YLeaf{"GlobalForwarding", snmpTrapControl.GlobalForwarding}
+    return &(snmpTrapControl.EntityData)
 }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["global-forwarding"] = snmpTrapControl.GlobalForwarding
-    return leafs
-}
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetBundleName() string { return "cisco_ios_xe" }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetYangName() string { return "snmp-trap-control" }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) SetParent(parent types.Entity) { snmpTrapControl.parent = parent }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetParent() types.Entity { return snmpTrapControl.parent }
-
-func (snmpTrapControl *NetconfYang_CiscoIa_SnmpTrapControl) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_SnmpTrapControl_TrapList
 // This list describes SNMP Traps that are 
 // supported for automatic translation to NetConf
 // notifications.
 type NetconfYang_CiscoIa_SnmpTrapControl_TrapList struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This leaf contains the OID for the  SNMP trap to
     // be forwarded. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     TrapOid interface{}
 
     // This leaf contains the name of the SNMP trap to be  forwarded. The type is
@@ -435,55 +251,23 @@ type NetconfYang_CiscoIa_SnmpTrapControl_TrapList struct {
     Forward interface{}
 }
 
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetFilter() yfilter.YFilter { return trapList.YFilter }
+func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetEntityData() *types.CommonEntityData {
+    trapList.EntityData.YFilter = trapList.YFilter
+    trapList.EntityData.YangName = "trap-list"
+    trapList.EntityData.BundleName = "cisco_ios_xe"
+    trapList.EntityData.ParentYangName = "snmp-trap-control"
+    trapList.EntityData.SegmentPath = "trap-list" + "[trap-oid='" + fmt.Sprintf("%v", trapList.TrapOid) + "']"
+    trapList.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    trapList.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    trapList.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) SetFilter(yf yfilter.YFilter) { trapList.YFilter = yf }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetGoName(yname string) string {
-    if yname == "trap-oid" { return "TrapOid" }
-    if yname == "description" { return "Description" }
-    if yname == "forward" { return "Forward" }
-    return ""
+    trapList.EntityData.Children = make(map[string]types.YChild)
+    trapList.EntityData.Leafs = make(map[string]types.YLeaf)
+    trapList.EntityData.Leafs["trap-oid"] = types.YLeaf{"TrapOid", trapList.TrapOid}
+    trapList.EntityData.Leafs["description"] = types.YLeaf{"Description", trapList.Description}
+    trapList.EntityData.Leafs["forward"] = types.YLeaf{"Forward", trapList.Forward}
+    return &(trapList.EntityData)
 }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetSegmentPath() string {
-    return "trap-list" + "[trap-oid='" + fmt.Sprintf("%v", trapList.TrapOid) + "']"
-}
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["trap-oid"] = trapList.TrapOid
-    leafs["description"] = trapList.Description
-    leafs["forward"] = trapList.Forward
-    return leafs
-}
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetBundleName() string { return "cisco_ios_xe" }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetYangName() string { return "trap-list" }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) SetParent(parent types.Entity) { trapList.parent = parent }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetParent() types.Entity { return trapList.parent }
-
-func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetParentYangName() string { return "snmp-trap-control" }
 
 // NetconfYang_CiscoIa_PreserveNedPath
 // Model paths from the NED model to preserve
@@ -493,7 +277,7 @@ func (trapList *NetconfYang_CiscoIa_SnmpTrapControl_TrapList) GetParentYangName(
 // These are expressed as nodes separated by 
 // slash '/', e.g.  /native/ip/access-list
 type NetconfYang_CiscoIa_PreserveNedPath struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An XPath from the NED model. The type is string
@@ -501,51 +285,21 @@ type NetconfYang_CiscoIa_PreserveNedPath struct {
     Xpath interface{}
 }
 
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetFilter() yfilter.YFilter { return preserveNedPath.YFilter }
+func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetEntityData() *types.CommonEntityData {
+    preserveNedPath.EntityData.YFilter = preserveNedPath.YFilter
+    preserveNedPath.EntityData.YangName = "preserve-ned-path"
+    preserveNedPath.EntityData.BundleName = "cisco_ios_xe"
+    preserveNedPath.EntityData.ParentYangName = "cisco-ia"
+    preserveNedPath.EntityData.SegmentPath = "preserve-ned-path" + "[xpath='" + fmt.Sprintf("%v", preserveNedPath.Xpath) + "']"
+    preserveNedPath.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    preserveNedPath.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    preserveNedPath.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) SetFilter(yf yfilter.YFilter) { preserveNedPath.YFilter = yf }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetGoName(yname string) string {
-    if yname == "xpath" { return "Xpath" }
-    return ""
+    preserveNedPath.EntityData.Children = make(map[string]types.YChild)
+    preserveNedPath.EntityData.Leafs = make(map[string]types.YLeaf)
+    preserveNedPath.EntityData.Leafs["xpath"] = types.YLeaf{"Xpath", preserveNedPath.Xpath}
+    return &(preserveNedPath.EntityData)
 }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetSegmentPath() string {
-    return "preserve-ned-path" + "[xpath='" + fmt.Sprintf("%v", preserveNedPath.Xpath) + "']"
-}
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["xpath"] = preserveNedPath.Xpath
-    return leafs
-}
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetBundleName() string { return "cisco_ios_xe" }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetYangName() string { return "preserve-ned-path" }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) SetParent(parent types.Entity) { preserveNedPath.parent = parent }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetParent() types.Entity { return preserveNedPath.parent }
-
-func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_ParserMsgIgnore
 // Parser output from configuration 
@@ -554,7 +308,7 @@ func (preserveNedPath *NetconfYang_CiscoIa_PreserveNedPath) GetParentYangName() 
 // list containing known informational 
 // messages
 type NetconfYang_CiscoIa_ParserMsgIgnore struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A regular expression to match parser output to be
@@ -562,58 +316,28 @@ type NetconfYang_CiscoIa_ParserMsgIgnore struct {
     Message interface{}
 }
 
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetFilter() yfilter.YFilter { return parserMsgIgnore.YFilter }
+func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetEntityData() *types.CommonEntityData {
+    parserMsgIgnore.EntityData.YFilter = parserMsgIgnore.YFilter
+    parserMsgIgnore.EntityData.YangName = "parser-msg-ignore"
+    parserMsgIgnore.EntityData.BundleName = "cisco_ios_xe"
+    parserMsgIgnore.EntityData.ParentYangName = "cisco-ia"
+    parserMsgIgnore.EntityData.SegmentPath = "parser-msg-ignore" + "[message='" + fmt.Sprintf("%v", parserMsgIgnore.Message) + "']"
+    parserMsgIgnore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    parserMsgIgnore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    parserMsgIgnore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) SetFilter(yf yfilter.YFilter) { parserMsgIgnore.YFilter = yf }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetGoName(yname string) string {
-    if yname == "message" { return "Message" }
-    return ""
+    parserMsgIgnore.EntityData.Children = make(map[string]types.YChild)
+    parserMsgIgnore.EntityData.Leafs = make(map[string]types.YLeaf)
+    parserMsgIgnore.EntityData.Leafs["message"] = types.YLeaf{"Message", parserMsgIgnore.Message}
+    return &(parserMsgIgnore.EntityData)
 }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetSegmentPath() string {
-    return "parser-msg-ignore" + "[message='" + fmt.Sprintf("%v", parserMsgIgnore.Message) + "']"
-}
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["message"] = parserMsgIgnore.Message
-    return leafs
-}
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetBundleName() string { return "cisco_ios_xe" }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetYangName() string { return "parser-msg-ignore" }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) SetParent(parent types.Entity) { parserMsgIgnore.parent = parent }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetParent() types.Entity { return parserMsgIgnore.parent }
-
-func (parserMsgIgnore *NetconfYang_CiscoIa_ParserMsgIgnore) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_ConfParserMsgIgnore
 // Parser output from configuration 
 // change that is informational only,
 // not an error
 type NetconfYang_CiscoIa_ConfParserMsgIgnore struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A regular expression to match parser output to be
@@ -621,58 +345,28 @@ type NetconfYang_CiscoIa_ConfParserMsgIgnore struct {
     Message interface{}
 }
 
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetFilter() yfilter.YFilter { return confParserMsgIgnore.YFilter }
+func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetEntityData() *types.CommonEntityData {
+    confParserMsgIgnore.EntityData.YFilter = confParserMsgIgnore.YFilter
+    confParserMsgIgnore.EntityData.YangName = "conf-parser-msg-ignore"
+    confParserMsgIgnore.EntityData.BundleName = "cisco_ios_xe"
+    confParserMsgIgnore.EntityData.ParentYangName = "cisco-ia"
+    confParserMsgIgnore.EntityData.SegmentPath = "conf-parser-msg-ignore" + "[message='" + fmt.Sprintf("%v", confParserMsgIgnore.Message) + "']"
+    confParserMsgIgnore.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    confParserMsgIgnore.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    confParserMsgIgnore.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) SetFilter(yf yfilter.YFilter) { confParserMsgIgnore.YFilter = yf }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetGoName(yname string) string {
-    if yname == "message" { return "Message" }
-    return ""
+    confParserMsgIgnore.EntityData.Children = make(map[string]types.YChild)
+    confParserMsgIgnore.EntityData.Leafs = make(map[string]types.YLeaf)
+    confParserMsgIgnore.EntityData.Leafs["message"] = types.YLeaf{"Message", confParserMsgIgnore.Message}
+    return &(confParserMsgIgnore.EntityData)
 }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetSegmentPath() string {
-    return "conf-parser-msg-ignore" + "[message='" + fmt.Sprintf("%v", confParserMsgIgnore.Message) + "']"
-}
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["message"] = confParserMsgIgnore.Message
-    return leafs
-}
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetBundleName() string { return "cisco_ios_xe" }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetYangName() string { return "conf-parser-msg-ignore" }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) SetParent(parent types.Entity) { confParserMsgIgnore.parent = parent }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetParent() types.Entity { return confParserMsgIgnore.parent }
-
-func (confParserMsgIgnore *NetconfYang_CiscoIa_ConfParserMsgIgnore) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_FullSyncCli
 // IOS commands that result in other
 // automatic configurations being applied
 // for which a complete sync is required
 type NetconfYang_CiscoIa_FullSyncCli struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A regular expression matching command lines which
@@ -681,51 +375,21 @@ type NetconfYang_CiscoIa_FullSyncCli struct {
     Command interface{}
 }
 
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetFilter() yfilter.YFilter { return fullSyncCli.YFilter }
+func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetEntityData() *types.CommonEntityData {
+    fullSyncCli.EntityData.YFilter = fullSyncCli.YFilter
+    fullSyncCli.EntityData.YangName = "full-sync-cli"
+    fullSyncCli.EntityData.BundleName = "cisco_ios_xe"
+    fullSyncCli.EntityData.ParentYangName = "cisco-ia"
+    fullSyncCli.EntityData.SegmentPath = "full-sync-cli" + "[command='" + fmt.Sprintf("%v", fullSyncCli.Command) + "']"
+    fullSyncCli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    fullSyncCli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    fullSyncCli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) SetFilter(yf yfilter.YFilter) { fullSyncCli.YFilter = yf }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetGoName(yname string) string {
-    if yname == "command" { return "Command" }
-    return ""
+    fullSyncCli.EntityData.Children = make(map[string]types.YChild)
+    fullSyncCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    fullSyncCli.EntityData.Leafs["command"] = types.YLeaf{"Command", fullSyncCli.Command}
+    return &(fullSyncCli.EntityData)
 }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetSegmentPath() string {
-    return "full-sync-cli" + "[command='" + fmt.Sprintf("%v", fullSyncCli.Command) + "']"
-}
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["command"] = fullSyncCli.Command
-    return leafs
-}
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetBundleName() string { return "cisco_ios_xe" }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetYangName() string { return "full-sync-cli" }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) SetParent(parent types.Entity) { fullSyncCli.parent = parent }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetParent() types.Entity { return fullSyncCli.parent }
-
-func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_ConfFullSyncCli
 // A user-configurable list of IOS commands 
@@ -733,7 +397,7 @@ func (fullSyncCli *NetconfYang_CiscoIa_FullSyncCli) GetParentYangName() string {
 // being applied for which a complete sync 
 // is required
 type NetconfYang_CiscoIa_ConfFullSyncCli struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A regular expression matching command lines which
@@ -742,56 +406,26 @@ type NetconfYang_CiscoIa_ConfFullSyncCli struct {
     Command interface{}
 }
 
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetFilter() yfilter.YFilter { return confFullSyncCli.YFilter }
+func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetEntityData() *types.CommonEntityData {
+    confFullSyncCli.EntityData.YFilter = confFullSyncCli.YFilter
+    confFullSyncCli.EntityData.YangName = "conf-full-sync-cli"
+    confFullSyncCli.EntityData.BundleName = "cisco_ios_xe"
+    confFullSyncCli.EntityData.ParentYangName = "cisco-ia"
+    confFullSyncCli.EntityData.SegmentPath = "conf-full-sync-cli" + "[command='" + fmt.Sprintf("%v", confFullSyncCli.Command) + "']"
+    confFullSyncCli.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    confFullSyncCli.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    confFullSyncCli.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) SetFilter(yf yfilter.YFilter) { confFullSyncCli.YFilter = yf }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetGoName(yname string) string {
-    if yname == "command" { return "Command" }
-    return ""
+    confFullSyncCli.EntityData.Children = make(map[string]types.YChild)
+    confFullSyncCli.EntityData.Leafs = make(map[string]types.YLeaf)
+    confFullSyncCli.EntityData.Leafs["command"] = types.YLeaf{"Command", confFullSyncCli.Command}
+    return &(confFullSyncCli.EntityData)
 }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetSegmentPath() string {
-    return "conf-full-sync-cli" + "[command='" + fmt.Sprintf("%v", confFullSyncCli.Command) + "']"
-}
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["command"] = confFullSyncCli.Command
-    return leafs
-}
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetBundleName() string { return "cisco_ios_xe" }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetYangName() string { return "conf-full-sync-cli" }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) SetParent(parent types.Entity) { confFullSyncCli.parent = parent }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetParent() types.Entity { return confFullSyncCli.parent }
-
-func (confFullSyncCli *NetconfYang_CiscoIa_ConfFullSyncCli) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_Logging
 // Controls logging behavior of DMI applications
 type NetconfYang_CiscoIa_Logging struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Logging level for Confd. The type is SyslogSeverity. The default value is
@@ -819,68 +453,33 @@ type NetconfYang_CiscoIa_Logging struct {
     SyncLogLevel interface{}
 }
 
-func (logging *NetconfYang_CiscoIa_Logging) GetFilter() yfilter.YFilter { return logging.YFilter }
+func (logging *NetconfYang_CiscoIa_Logging) GetEntityData() *types.CommonEntityData {
+    logging.EntityData.YFilter = logging.YFilter
+    logging.EntityData.YangName = "logging"
+    logging.EntityData.BundleName = "cisco_ios_xe"
+    logging.EntityData.ParentYangName = "cisco-ia"
+    logging.EntityData.SegmentPath = "logging"
+    logging.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    logging.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    logging.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (logging *NetconfYang_CiscoIa_Logging) SetFilter(yf yfilter.YFilter) { logging.YFilter = yf }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetGoName(yname string) string {
-    if yname == "confd-log-level" { return "ConfdLogLevel" }
-    if yname == "ciaauthd-log-level" { return "CiaauthdLogLevel" }
-    if yname == "nes-log-level" { return "NesLogLevel" }
-    if yname == "onep-log-level" { return "OnepLogLevel" }
-    if yname == "odm-log-level" { return "OdmLogLevel" }
-    if yname == "sync-log-level" { return "SyncLogLevel" }
-    return ""
+    logging.EntityData.Children = make(map[string]types.YChild)
+    logging.EntityData.Leafs = make(map[string]types.YLeaf)
+    logging.EntityData.Leafs["confd-log-level"] = types.YLeaf{"ConfdLogLevel", logging.ConfdLogLevel}
+    logging.EntityData.Leafs["ciaauthd-log-level"] = types.YLeaf{"CiaauthdLogLevel", logging.CiaauthdLogLevel}
+    logging.EntityData.Leafs["nes-log-level"] = types.YLeaf{"NesLogLevel", logging.NesLogLevel}
+    logging.EntityData.Leafs["onep-log-level"] = types.YLeaf{"OnepLogLevel", logging.OnepLogLevel}
+    logging.EntityData.Leafs["odm-log-level"] = types.YLeaf{"OdmLogLevel", logging.OdmLogLevel}
+    logging.EntityData.Leafs["sync-log-level"] = types.YLeaf{"SyncLogLevel", logging.SyncLogLevel}
+    return &(logging.EntityData)
 }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetSegmentPath() string {
-    return "logging"
-}
-
-func (logging *NetconfYang_CiscoIa_Logging) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (logging *NetconfYang_CiscoIa_Logging) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (logging *NetconfYang_CiscoIa_Logging) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["confd-log-level"] = logging.ConfdLogLevel
-    leafs["ciaauthd-log-level"] = logging.CiaauthdLogLevel
-    leafs["nes-log-level"] = logging.NesLogLevel
-    leafs["onep-log-level"] = logging.OnepLogLevel
-    leafs["odm-log-level"] = logging.OdmLogLevel
-    leafs["sync-log-level"] = logging.SyncLogLevel
-    return leafs
-}
-
-func (logging *NetconfYang_CiscoIa_Logging) GetBundleName() string { return "cisco_ios_xe" }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetYangName() string { return "logging" }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (logging *NetconfYang_CiscoIa_Logging) SetParent(parent types.Entity) { logging.parent = parent }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetParent() types.Entity { return logging.parent }
-
-func (logging *NetconfYang_CiscoIa_Logging) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_Blocking
 // Controls blocking of command lines, either 
 // from the NE to Confd or disallowing
 // manual input from the console/vty
 type NetconfYang_CiscoIa_Blocking struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enables blocking of designated command lines via the  network element's
@@ -900,87 +499,36 @@ type NetconfYang_CiscoIa_Blocking struct {
     ConfdCfgCommand []NetconfYang_CiscoIa_Blocking_ConfdCfgCommand
 }
 
-func (blocking *NetconfYang_CiscoIa_Blocking) GetFilter() yfilter.YFilter { return blocking.YFilter }
+func (blocking *NetconfYang_CiscoIa_Blocking) GetEntityData() *types.CommonEntityData {
+    blocking.EntityData.YFilter = blocking.YFilter
+    blocking.EntityData.YangName = "blocking"
+    blocking.EntityData.BundleName = "cisco_ios_xe"
+    blocking.EntityData.ParentYangName = "cisco-ia"
+    blocking.EntityData.SegmentPath = "blocking"
+    blocking.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    blocking.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    blocking.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (blocking *NetconfYang_CiscoIa_Blocking) SetFilter(yf yfilter.YFilter) { blocking.YFilter = yf }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetGoName(yname string) string {
-    if yname == "cli-blocking-enabled" { return "CliBlockingEnabled" }
-    if yname == "confd-cfg-blocking-enabled" { return "ConfdCfgBlockingEnabled" }
-    if yname == "network-element-command" { return "NetworkElementCommand" }
-    if yname == "confd-cfg-command" { return "ConfdCfgCommand" }
-    return ""
-}
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetSegmentPath() string {
-    return "blocking"
-}
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "network-element-command" {
-        for _, c := range blocking.NetworkElementCommand {
-            if blocking.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_Blocking_NetworkElementCommand{}
-        blocking.NetworkElementCommand = append(blocking.NetworkElementCommand, child)
-        return &blocking.NetworkElementCommand[len(blocking.NetworkElementCommand)-1]
-    }
-    if childYangName == "confd-cfg-command" {
-        for _, c := range blocking.ConfdCfgCommand {
-            if blocking.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoIa_Blocking_ConfdCfgCommand{}
-        blocking.ConfdCfgCommand = append(blocking.ConfdCfgCommand, child)
-        return &blocking.ConfdCfgCommand[len(blocking.ConfdCfgCommand)-1]
-    }
-    return nil
-}
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    blocking.EntityData.Children = make(map[string]types.YChild)
+    blocking.EntityData.Children["network-element-command"] = types.YChild{"NetworkElementCommand", nil}
     for i := range blocking.NetworkElementCommand {
-        children[blocking.NetworkElementCommand[i].GetSegmentPath()] = &blocking.NetworkElementCommand[i]
+        blocking.EntityData.Children[types.GetSegmentPath(&blocking.NetworkElementCommand[i])] = types.YChild{"NetworkElementCommand", &blocking.NetworkElementCommand[i]}
     }
+    blocking.EntityData.Children["confd-cfg-command"] = types.YChild{"ConfdCfgCommand", nil}
     for i := range blocking.ConfdCfgCommand {
-        children[blocking.ConfdCfgCommand[i].GetSegmentPath()] = &blocking.ConfdCfgCommand[i]
+        blocking.EntityData.Children[types.GetSegmentPath(&blocking.ConfdCfgCommand[i])] = types.YChild{"ConfdCfgCommand", &blocking.ConfdCfgCommand[i]}
     }
-    return children
+    blocking.EntityData.Leafs = make(map[string]types.YLeaf)
+    blocking.EntityData.Leafs["cli-blocking-enabled"] = types.YLeaf{"CliBlockingEnabled", blocking.CliBlockingEnabled}
+    blocking.EntityData.Leafs["confd-cfg-blocking-enabled"] = types.YLeaf{"ConfdCfgBlockingEnabled", blocking.ConfdCfgBlockingEnabled}
+    return &(blocking.EntityData)
 }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cli-blocking-enabled"] = blocking.CliBlockingEnabled
-    leafs["confd-cfg-blocking-enabled"] = blocking.ConfdCfgBlockingEnabled
-    return leafs
-}
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetBundleName() string { return "cisco_ios_xe" }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetYangName() string { return "blocking" }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) SetParent(parent types.Entity) { blocking.parent = parent }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetParent() types.Entity { return blocking.parent }
-
-func (blocking *NetconfYang_CiscoIa_Blocking) GetParentYangName() string { return "cisco-ia" }
 
 // NetconfYang_CiscoIa_Blocking_NetworkElementCommand
 // Command line pattern to disallow via the
 // network element's CLI
 type NetconfYang_CiscoIa_Blocking_NetworkElementCommand struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A regular expression matching command lines which
@@ -989,56 +537,26 @@ type NetconfYang_CiscoIa_Blocking_NetworkElementCommand struct {
     Command interface{}
 }
 
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetFilter() yfilter.YFilter { return networkElementCommand.YFilter }
+func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetEntityData() *types.CommonEntityData {
+    networkElementCommand.EntityData.YFilter = networkElementCommand.YFilter
+    networkElementCommand.EntityData.YangName = "network-element-command"
+    networkElementCommand.EntityData.BundleName = "cisco_ios_xe"
+    networkElementCommand.EntityData.ParentYangName = "blocking"
+    networkElementCommand.EntityData.SegmentPath = "network-element-command" + "[command='" + fmt.Sprintf("%v", networkElementCommand.Command) + "']"
+    networkElementCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    networkElementCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    networkElementCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) SetFilter(yf yfilter.YFilter) { networkElementCommand.YFilter = yf }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetGoName(yname string) string {
-    if yname == "command" { return "Command" }
-    return ""
+    networkElementCommand.EntityData.Children = make(map[string]types.YChild)
+    networkElementCommand.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkElementCommand.EntityData.Leafs["command"] = types.YLeaf{"Command", networkElementCommand.Command}
+    return &(networkElementCommand.EntityData)
 }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetSegmentPath() string {
-    return "network-element-command" + "[command='" + fmt.Sprintf("%v", networkElementCommand.Command) + "']"
-}
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["command"] = networkElementCommand.Command
-    return leafs
-}
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetBundleName() string { return "cisco_ios_xe" }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetYangName() string { return "network-element-command" }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) SetParent(parent types.Entity) { networkElementCommand.parent = parent }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetParent() types.Entity { return networkElementCommand.parent }
-
-func (networkElementCommand *NetconfYang_CiscoIa_Blocking_NetworkElementCommand) GetParentYangName() string { return "blocking" }
 
 // NetconfYang_CiscoIa_Blocking_ConfdCfgCommand
 // Command line pattern to omit syncing to Confd CDB
 type NetconfYang_CiscoIa_Blocking_ConfdCfgCommand struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A regular expression matching command lines which
@@ -1047,215 +565,19 @@ type NetconfYang_CiscoIa_Blocking_ConfdCfgCommand struct {
     Command interface{}
 }
 
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetFilter() yfilter.YFilter { return confdCfgCommand.YFilter }
+func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetEntityData() *types.CommonEntityData {
+    confdCfgCommand.EntityData.YFilter = confdCfgCommand.YFilter
+    confdCfgCommand.EntityData.YangName = "confd-cfg-command"
+    confdCfgCommand.EntityData.BundleName = "cisco_ios_xe"
+    confdCfgCommand.EntityData.ParentYangName = "blocking"
+    confdCfgCommand.EntityData.SegmentPath = "confd-cfg-command" + "[command='" + fmt.Sprintf("%v", confdCfgCommand.Command) + "']"
+    confdCfgCommand.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    confdCfgCommand.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    confdCfgCommand.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) SetFilter(yf yfilter.YFilter) { confdCfgCommand.YFilter = yf }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetGoName(yname string) string {
-    if yname == "command" { return "Command" }
-    return ""
+    confdCfgCommand.EntityData.Children = make(map[string]types.YChild)
+    confdCfgCommand.EntityData.Leafs = make(map[string]types.YLeaf)
+    confdCfgCommand.EntityData.Leafs["command"] = types.YLeaf{"Command", confdCfgCommand.Command}
+    return &(confdCfgCommand.EntityData)
 }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetSegmentPath() string {
-    return "confd-cfg-command" + "[command='" + fmt.Sprintf("%v", confdCfgCommand.Command) + "']"
-}
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["command"] = confdCfgCommand.Command
-    return leafs
-}
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetBundleName() string { return "cisco_ios_xe" }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetYangName() string { return "confd-cfg-command" }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) SetParent(parent types.Entity) { confdCfgCommand.parent = parent }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetParent() types.Entity { return confdCfgCommand.parent }
-
-func (confdCfgCommand *NetconfYang_CiscoIa_Blocking_ConfdCfgCommand) GetParentYangName() string { return "blocking" }
-
-// NetconfYang_CiscoOdm
-type NetconfYang_CiscoOdm struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // The type is bool. The default value is false.
-    PollingEnable interface{}
-
-    // The type is interface{} with range: 500..4294967295. The default value is
-    // 30000.
-    OnDemandDefaultTime interface{}
-
-    // The type is bool. The default value is false.
-    OnDemandEnable interface{}
-
-    // The type is slice of NetconfYang_CiscoOdm_Actions.
-    Actions []NetconfYang_CiscoOdm_Actions
-}
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetFilter() yfilter.YFilter { return ciscoOdm.YFilter }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) SetFilter(yf yfilter.YFilter) { ciscoOdm.YFilter = yf }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetGoName(yname string) string {
-    if yname == "polling-enable" { return "PollingEnable" }
-    if yname == "on-demand-default-time" { return "OnDemandDefaultTime" }
-    if yname == "on-demand-enable" { return "OnDemandEnable" }
-    if yname == "actions" { return "Actions" }
-    return ""
-}
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetSegmentPath() string {
-    return "cisco-odm:cisco-odm"
-}
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "actions" {
-        for _, c := range ciscoOdm.Actions {
-            if ciscoOdm.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := NetconfYang_CiscoOdm_Actions{}
-        ciscoOdm.Actions = append(ciscoOdm.Actions, child)
-        return &ciscoOdm.Actions[len(ciscoOdm.Actions)-1]
-    }
-    return nil
-}
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range ciscoOdm.Actions {
-        children[ciscoOdm.Actions[i].GetSegmentPath()] = &ciscoOdm.Actions[i]
-    }
-    return children
-}
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["polling-enable"] = ciscoOdm.PollingEnable
-    leafs["on-demand-default-time"] = ciscoOdm.OnDemandDefaultTime
-    leafs["on-demand-enable"] = ciscoOdm.OnDemandEnable
-    return leafs
-}
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetYangName() string { return "cisco-odm" }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) SetParent(parent types.Entity) { ciscoOdm.parent = parent }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetParent() types.Entity { return ciscoOdm.parent }
-
-func (ciscoOdm *NetconfYang_CiscoOdm) GetParentYangName() string { return "netconf-yang" }
-
-// NetconfYang_CiscoOdm_Actions
-type NetconfYang_CiscoOdm_Actions struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. The type is one of the following:
-    // FlowMonitorVirtualServiceDiffservBridgeDomainMPLSStaticBindingEthernetCFMStatsMPLSForwardingTableBGPIPRoutePlatformSoftwareMPLSLDPNeighborsBFDNeighborsOSPF.
-    ActionName interface{}
-
-    // The type is interface{} with range: 1..4294967295. The default value is
-    // 120000.
-    PollingInterval interface{}
-
-    // The type is Mode. The default value is poll.
-    Mode interface{}
-
-    // The type is string.
-    CdbXpath interface{}
-}
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetFilter() yfilter.YFilter { return actions.YFilter }
-
-func (actions *NetconfYang_CiscoOdm_Actions) SetFilter(yf yfilter.YFilter) { actions.YFilter = yf }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetGoName(yname string) string {
-    if yname == "action-name" { return "ActionName" }
-    if yname == "polling-interval" { return "PollingInterval" }
-    if yname == "mode" { return "Mode" }
-    if yname == "cdb-xpath" { return "CdbXpath" }
-    return ""
-}
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetSegmentPath() string {
-    return "actions" + "[action-name='" + fmt.Sprintf("%v", actions.ActionName) + "']"
-}
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["action-name"] = actions.ActionName
-    leafs["polling-interval"] = actions.PollingInterval
-    leafs["mode"] = actions.Mode
-    leafs["cdb-xpath"] = actions.CdbXpath
-    return leafs
-}
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetBundleName() string { return "cisco_ios_xe" }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetYangName() string { return "actions" }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (actions *NetconfYang_CiscoOdm_Actions) SetParent(parent types.Entity) { actions.parent = parent }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetParent() types.Entity { return actions.parent }
-
-func (actions *NetconfYang_CiscoOdm_Actions) GetParentYangName() string { return "cisco-odm" }
-
-// NetconfYang_CiscoOdm_Actions_Mode
-type NetconfYang_CiscoOdm_Actions_Mode string
-
-const (
-    NetconfYang_CiscoOdm_Actions_Mode_poll NetconfYang_CiscoOdm_Actions_Mode = "poll"
-
-    NetconfYang_CiscoOdm_Actions_Mode_on_demand NetconfYang_CiscoOdm_Actions_Mode = "on-demand"
-
-    NetconfYang_CiscoOdm_Actions_Mode_none NetconfYang_CiscoOdm_Actions_Mode = "none"
-)
 

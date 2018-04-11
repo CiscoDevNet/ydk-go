@@ -22,7 +22,7 @@ func init() {
 
 // CISCOIGMPFILTERMIB
 type CISCOIGMPFILTERMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -47,73 +47,28 @@ type CISCOIGMPFILTERMIB struct {
     Cigmpfilterinterfacetable CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable
 }
 
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetFilter() yfilter.YFilter { return cISCOIGMPFILTERMIB.YFilter }
+func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIGMPFILTERMIB.EntityData.YFilter = cISCOIGMPFILTERMIB.YFilter
+    cISCOIGMPFILTERMIB.EntityData.YangName = "CISCO-IGMP-FILTER-MIB"
+    cISCOIGMPFILTERMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIGMPFILTERMIB.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
+    cISCOIGMPFILTERMIB.EntityData.SegmentPath = "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB"
+    cISCOIGMPFILTERMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIGMPFILTERMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIGMPFILTERMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) SetFilter(yf yfilter.YFilter) { cISCOIGMPFILTERMIB.YFilter = yf }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetGoName(yname string) string {
-    if yname == "cIgmpFilterGeneral" { return "Cigmpfiltergeneral" }
-    if yname == "cIgmpFilterEditor" { return "Cigmpfiltereditor" }
-    if yname == "cIgmpFilterTable" { return "Cigmpfiltertable" }
-    if yname == "cIgmpFilterInterfaceTable" { return "Cigmpfilterinterfacetable" }
-    return ""
+    cISCOIGMPFILTERMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIGMPFILTERMIB.EntityData.Children["cIgmpFilterGeneral"] = types.YChild{"Cigmpfiltergeneral", &cISCOIGMPFILTERMIB.Cigmpfiltergeneral}
+    cISCOIGMPFILTERMIB.EntityData.Children["cIgmpFilterEditor"] = types.YChild{"Cigmpfiltereditor", &cISCOIGMPFILTERMIB.Cigmpfiltereditor}
+    cISCOIGMPFILTERMIB.EntityData.Children["cIgmpFilterTable"] = types.YChild{"Cigmpfiltertable", &cISCOIGMPFILTERMIB.Cigmpfiltertable}
+    cISCOIGMPFILTERMIB.EntityData.Children["cIgmpFilterInterfaceTable"] = types.YChild{"Cigmpfilterinterfacetable", &cISCOIGMPFILTERMIB.Cigmpfilterinterfacetable}
+    cISCOIGMPFILTERMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIGMPFILTERMIB.EntityData)
 }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetSegmentPath() string {
-    return "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB"
-}
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIgmpFilterGeneral" {
-        return &cISCOIGMPFILTERMIB.Cigmpfiltergeneral
-    }
-    if childYangName == "cIgmpFilterEditor" {
-        return &cISCOIGMPFILTERMIB.Cigmpfiltereditor
-    }
-    if childYangName == "cIgmpFilterTable" {
-        return &cISCOIGMPFILTERMIB.Cigmpfiltertable
-    }
-    if childYangName == "cIgmpFilterInterfaceTable" {
-        return &cISCOIGMPFILTERMIB.Cigmpfilterinterfacetable
-    }
-    return nil
-}
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cIgmpFilterGeneral"] = &cISCOIGMPFILTERMIB.Cigmpfiltergeneral
-    children["cIgmpFilterEditor"] = &cISCOIGMPFILTERMIB.Cigmpfiltereditor
-    children["cIgmpFilterTable"] = &cISCOIGMPFILTERMIB.Cigmpfiltertable
-    children["cIgmpFilterInterfaceTable"] = &cISCOIGMPFILTERMIB.Cigmpfilterinterfacetable
-    return children
-}
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetYangName() string { return "CISCO-IGMP-FILTER-MIB" }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) SetParent(parent types.Entity) { cISCOIGMPFILTERMIB.parent = parent }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetParent() types.Entity { return cISCOIGMPFILTERMIB.parent }
-
-func (cISCOIGMPFILTERMIB *CISCOIGMPFILTERMIB) GetParentYangName() string { return "CISCO-IGMP-FILTER-MIB" }
 
 // CISCOIGMPFILTERMIB_Cigmpfiltergeneral
 type CISCOIGMPFILTERMIB_Cigmpfiltergeneral struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object controls whether the IGMP filtering is enabled on the device. A
@@ -127,57 +82,26 @@ type CISCOIGMPFILTERMIB_Cigmpfiltergeneral struct {
     Cigmpfiltermaxprofiles interface{}
 }
 
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetFilter() yfilter.YFilter { return cigmpfiltergeneral.YFilter }
+func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetEntityData() *types.CommonEntityData {
+    cigmpfiltergeneral.EntityData.YFilter = cigmpfiltergeneral.YFilter
+    cigmpfiltergeneral.EntityData.YangName = "cIgmpFilterGeneral"
+    cigmpfiltergeneral.EntityData.BundleName = "cisco_ios_xe"
+    cigmpfiltergeneral.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
+    cigmpfiltergeneral.EntityData.SegmentPath = "cIgmpFilterGeneral"
+    cigmpfiltergeneral.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cigmpfiltergeneral.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cigmpfiltergeneral.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) SetFilter(yf yfilter.YFilter) { cigmpfiltergeneral.YFilter = yf }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetGoName(yname string) string {
-    if yname == "cIgmpFilterEnable" { return "Cigmpfilterenable" }
-    if yname == "cIgmpFilterMaxProfiles" { return "Cigmpfiltermaxprofiles" }
-    return ""
+    cigmpfiltergeneral.EntityData.Children = make(map[string]types.YChild)
+    cigmpfiltergeneral.EntityData.Leafs = make(map[string]types.YLeaf)
+    cigmpfiltergeneral.EntityData.Leafs["cIgmpFilterEnable"] = types.YLeaf{"Cigmpfilterenable", cigmpfiltergeneral.Cigmpfilterenable}
+    cigmpfiltergeneral.EntityData.Leafs["cIgmpFilterMaxProfiles"] = types.YLeaf{"Cigmpfiltermaxprofiles", cigmpfiltergeneral.Cigmpfiltermaxprofiles}
+    return &(cigmpfiltergeneral.EntityData)
 }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetSegmentPath() string {
-    return "cIgmpFilterGeneral"
-}
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIgmpFilterEnable"] = cigmpfiltergeneral.Cigmpfilterenable
-    leafs["cIgmpFilterMaxProfiles"] = cigmpfiltergeneral.Cigmpfiltermaxprofiles
-    return leafs
-}
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetYangName() string { return "cIgmpFilterGeneral" }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) SetParent(parent types.Entity) { cigmpfiltergeneral.parent = parent }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetParent() types.Entity { return cigmpfiltergeneral.parent }
-
-func (cigmpfiltergeneral *CISCOIGMPFILTERMIB_Cigmpfiltergeneral) GetParentYangName() string { return "CISCO-IGMP-FILTER-MIB" }
 
 // CISCOIGMPFILTERMIB_Cigmpfiltereditor
 type CISCOIGMPFILTERMIB_Cigmpfiltereditor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object is used to facilitate modification of IGMP Filter Editor Group
@@ -277,67 +201,29 @@ type CISCOIGMPFILTERMIB_Cigmpfiltereditor struct {
     Cigmpfilterapplystatus interface{}
 }
 
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetFilter() yfilter.YFilter { return cigmpfiltereditor.YFilter }
+func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetEntityData() *types.CommonEntityData {
+    cigmpfiltereditor.EntityData.YFilter = cigmpfiltereditor.YFilter
+    cigmpfiltereditor.EntityData.YangName = "cIgmpFilterEditor"
+    cigmpfiltereditor.EntityData.BundleName = "cisco_ios_xe"
+    cigmpfiltereditor.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
+    cigmpfiltereditor.EntityData.SegmentPath = "cIgmpFilterEditor"
+    cigmpfiltereditor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cigmpfiltereditor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cigmpfiltereditor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) SetFilter(yf yfilter.YFilter) { cigmpfiltereditor.YFilter = yf }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetGoName(yname string) string {
-    if yname == "cIgmpFilterEditSpinLock" { return "Cigmpfiltereditspinlock" }
-    if yname == "cIgmpFilterEditProfileIndex" { return "Cigmpfiltereditprofileindex" }
-    if yname == "cIgmpFilterEditStartAddressType" { return "Cigmpfiltereditstartaddresstype" }
-    if yname == "cIgmpFilterEditStartAddress" { return "Cigmpfiltereditstartaddress" }
-    if yname == "cIgmpFilterEditEndAddressType" { return "Cigmpfiltereditendaddresstype" }
-    if yname == "cIgmpFilterEditEndAddress" { return "Cigmpfiltereditendaddress" }
-    if yname == "cIgmpFilterEditProfileAction" { return "Cigmpfiltereditprofileaction" }
-    if yname == "cIgmpFilterEditOperation" { return "Cigmpfiltereditoperation" }
-    if yname == "cIgmpFilterApplyStatus" { return "Cigmpfilterapplystatus" }
-    return ""
+    cigmpfiltereditor.EntityData.Children = make(map[string]types.YChild)
+    cigmpfiltereditor.EntityData.Leafs = make(map[string]types.YLeaf)
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditSpinLock"] = types.YLeaf{"Cigmpfiltereditspinlock", cigmpfiltereditor.Cigmpfiltereditspinlock}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditProfileIndex"] = types.YLeaf{"Cigmpfiltereditprofileindex", cigmpfiltereditor.Cigmpfiltereditprofileindex}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditStartAddressType"] = types.YLeaf{"Cigmpfiltereditstartaddresstype", cigmpfiltereditor.Cigmpfiltereditstartaddresstype}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditStartAddress"] = types.YLeaf{"Cigmpfiltereditstartaddress", cigmpfiltereditor.Cigmpfiltereditstartaddress}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditEndAddressType"] = types.YLeaf{"Cigmpfiltereditendaddresstype", cigmpfiltereditor.Cigmpfiltereditendaddresstype}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditEndAddress"] = types.YLeaf{"Cigmpfiltereditendaddress", cigmpfiltereditor.Cigmpfiltereditendaddress}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditProfileAction"] = types.YLeaf{"Cigmpfiltereditprofileaction", cigmpfiltereditor.Cigmpfiltereditprofileaction}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterEditOperation"] = types.YLeaf{"Cigmpfiltereditoperation", cigmpfiltereditor.Cigmpfiltereditoperation}
+    cigmpfiltereditor.EntityData.Leafs["cIgmpFilterApplyStatus"] = types.YLeaf{"Cigmpfilterapplystatus", cigmpfiltereditor.Cigmpfilterapplystatus}
+    return &(cigmpfiltereditor.EntityData)
 }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetSegmentPath() string {
-    return "cIgmpFilterEditor"
-}
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIgmpFilterEditSpinLock"] = cigmpfiltereditor.Cigmpfiltereditspinlock
-    leafs["cIgmpFilterEditProfileIndex"] = cigmpfiltereditor.Cigmpfiltereditprofileindex
-    leafs["cIgmpFilterEditStartAddressType"] = cigmpfiltereditor.Cigmpfiltereditstartaddresstype
-    leafs["cIgmpFilterEditStartAddress"] = cigmpfiltereditor.Cigmpfiltereditstartaddress
-    leafs["cIgmpFilterEditEndAddressType"] = cigmpfiltereditor.Cigmpfiltereditendaddresstype
-    leafs["cIgmpFilterEditEndAddress"] = cigmpfiltereditor.Cigmpfiltereditendaddress
-    leafs["cIgmpFilterEditProfileAction"] = cigmpfiltereditor.Cigmpfiltereditprofileaction
-    leafs["cIgmpFilterEditOperation"] = cigmpfiltereditor.Cigmpfiltereditoperation
-    leafs["cIgmpFilterApplyStatus"] = cigmpfiltereditor.Cigmpfilterapplystatus
-    return leafs
-}
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetYangName() string { return "cIgmpFilterEditor" }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) SetParent(parent types.Entity) { cigmpfiltereditor.parent = parent }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetParent() types.Entity { return cigmpfiltereditor.parent }
-
-func (cigmpfiltereditor *CISCOIGMPFILTERMIB_Cigmpfiltereditor) GetParentYangName() string { return "CISCO-IGMP-FILTER-MIB" }
 
 // CISCOIGMPFILTERMIB_Cigmpfiltereditor_Cigmpfilterapplystatus represents    as no corresponding entry exists in cIgmpFilterTable.
 type CISCOIGMPFILTERMIB_Cigmpfiltereditor_Cigmpfilterapplystatus string
@@ -398,7 +284,7 @@ const (
 // The maximum number of entries is determined by
 // cIgmpFilterMaxProfiles.
 type CISCOIGMPFILTERMIB_Cigmpfiltertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the cIgmpFilterTable.  The creation, deletion
@@ -408,63 +294,24 @@ type CISCOIGMPFILTERMIB_Cigmpfiltertable struct {
     Cigmpfilterentry []CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry
 }
 
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetFilter() yfilter.YFilter { return cigmpfiltertable.YFilter }
+func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetEntityData() *types.CommonEntityData {
+    cigmpfiltertable.EntityData.YFilter = cigmpfiltertable.YFilter
+    cigmpfiltertable.EntityData.YangName = "cIgmpFilterTable"
+    cigmpfiltertable.EntityData.BundleName = "cisco_ios_xe"
+    cigmpfiltertable.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
+    cigmpfiltertable.EntityData.SegmentPath = "cIgmpFilterTable"
+    cigmpfiltertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cigmpfiltertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cigmpfiltertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) SetFilter(yf yfilter.YFilter) { cigmpfiltertable.YFilter = yf }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetGoName(yname string) string {
-    if yname == "cIgmpFilterEntry" { return "Cigmpfilterentry" }
-    return ""
-}
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetSegmentPath() string {
-    return "cIgmpFilterTable"
-}
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIgmpFilterEntry" {
-        for _, c := range cigmpfiltertable.Cigmpfilterentry {
-            if cigmpfiltertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry{}
-        cigmpfiltertable.Cigmpfilterentry = append(cigmpfiltertable.Cigmpfilterentry, child)
-        return &cigmpfiltertable.Cigmpfilterentry[len(cigmpfiltertable.Cigmpfilterentry)-1]
-    }
-    return nil
-}
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cigmpfiltertable.EntityData.Children = make(map[string]types.YChild)
+    cigmpfiltertable.EntityData.Children["cIgmpFilterEntry"] = types.YChild{"Cigmpfilterentry", nil}
     for i := range cigmpfiltertable.Cigmpfilterentry {
-        children[cigmpfiltertable.Cigmpfilterentry[i].GetSegmentPath()] = &cigmpfiltertable.Cigmpfilterentry[i]
+        cigmpfiltertable.EntityData.Children[types.GetSegmentPath(&cigmpfiltertable.Cigmpfilterentry[i])] = types.YChild{"Cigmpfilterentry", &cigmpfiltertable.Cigmpfilterentry[i]}
     }
-    return children
+    cigmpfiltertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cigmpfiltertable.EntityData)
 }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetYangName() string { return "cIgmpFilterTable" }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) SetParent(parent types.Entity) { cigmpfiltertable.parent = parent }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetParent() types.Entity { return cigmpfiltertable.parent }
-
-func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetParentYangName() string { return "CISCO-IGMP-FILTER-MIB" }
 
 // CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry
 // An entry (conceptual row) in the cIgmpFilterTable.
@@ -473,7 +320,7 @@ func (cigmpfiltertable *CISCOIGMPFILTERMIB_Cigmpfiltertable) GetParentYangName()
 // is controlled through the MIB objects defined under
 // cIgmpFilterEditor group.
 type CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index identifying this entry. The type is
@@ -510,61 +357,26 @@ type CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry struct {
     Cigmpfilterprofileaction interface{}
 }
 
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetFilter() yfilter.YFilter { return cigmpfilterentry.YFilter }
+func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetEntityData() *types.CommonEntityData {
+    cigmpfilterentry.EntityData.YFilter = cigmpfilterentry.YFilter
+    cigmpfilterentry.EntityData.YangName = "cIgmpFilterEntry"
+    cigmpfilterentry.EntityData.BundleName = "cisco_ios_xe"
+    cigmpfilterentry.EntityData.ParentYangName = "cIgmpFilterTable"
+    cigmpfilterentry.EntityData.SegmentPath = "cIgmpFilterEntry" + "[cIgmpFilterProfileIndex='" + fmt.Sprintf("%v", cigmpfilterentry.Cigmpfilterprofileindex) + "']" + "[cIgmpFilterStartAddressType='" + fmt.Sprintf("%v", cigmpfilterentry.Cigmpfilterstartaddresstype) + "']" + "[cIgmpFilterStartAddress='" + fmt.Sprintf("%v", cigmpfilterentry.Cigmpfilterstartaddress) + "']"
+    cigmpfilterentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cigmpfilterentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cigmpfilterentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) SetFilter(yf yfilter.YFilter) { cigmpfilterentry.YFilter = yf }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetGoName(yname string) string {
-    if yname == "cIgmpFilterProfileIndex" { return "Cigmpfilterprofileindex" }
-    if yname == "cIgmpFilterStartAddressType" { return "Cigmpfilterstartaddresstype" }
-    if yname == "cIgmpFilterStartAddress" { return "Cigmpfilterstartaddress" }
-    if yname == "cIgmpFilterEndAddressType" { return "Cigmpfilterendaddresstype" }
-    if yname == "cIgmpFilterEndAddress" { return "Cigmpfilterendaddress" }
-    if yname == "cIgmpFilterProfileAction" { return "Cigmpfilterprofileaction" }
-    return ""
+    cigmpfilterentry.EntityData.Children = make(map[string]types.YChild)
+    cigmpfilterentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cigmpfilterentry.EntityData.Leafs["cIgmpFilterProfileIndex"] = types.YLeaf{"Cigmpfilterprofileindex", cigmpfilterentry.Cigmpfilterprofileindex}
+    cigmpfilterentry.EntityData.Leafs["cIgmpFilterStartAddressType"] = types.YLeaf{"Cigmpfilterstartaddresstype", cigmpfilterentry.Cigmpfilterstartaddresstype}
+    cigmpfilterentry.EntityData.Leafs["cIgmpFilterStartAddress"] = types.YLeaf{"Cigmpfilterstartaddress", cigmpfilterentry.Cigmpfilterstartaddress}
+    cigmpfilterentry.EntityData.Leafs["cIgmpFilterEndAddressType"] = types.YLeaf{"Cigmpfilterendaddresstype", cigmpfilterentry.Cigmpfilterendaddresstype}
+    cigmpfilterentry.EntityData.Leafs["cIgmpFilterEndAddress"] = types.YLeaf{"Cigmpfilterendaddress", cigmpfilterentry.Cigmpfilterendaddress}
+    cigmpfilterentry.EntityData.Leafs["cIgmpFilterProfileAction"] = types.YLeaf{"Cigmpfilterprofileaction", cigmpfilterentry.Cigmpfilterprofileaction}
+    return &(cigmpfilterentry.EntityData)
 }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetSegmentPath() string {
-    return "cIgmpFilterEntry" + "[cIgmpFilterProfileIndex='" + fmt.Sprintf("%v", cigmpfilterentry.Cigmpfilterprofileindex) + "']" + "[cIgmpFilterStartAddressType='" + fmt.Sprintf("%v", cigmpfilterentry.Cigmpfilterstartaddresstype) + "']" + "[cIgmpFilterStartAddress='" + fmt.Sprintf("%v", cigmpfilterentry.Cigmpfilterstartaddress) + "']"
-}
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cIgmpFilterProfileIndex"] = cigmpfilterentry.Cigmpfilterprofileindex
-    leafs["cIgmpFilterStartAddressType"] = cigmpfilterentry.Cigmpfilterstartaddresstype
-    leafs["cIgmpFilterStartAddress"] = cigmpfilterentry.Cigmpfilterstartaddress
-    leafs["cIgmpFilterEndAddressType"] = cigmpfilterentry.Cigmpfilterendaddresstype
-    leafs["cIgmpFilterEndAddress"] = cigmpfilterentry.Cigmpfilterendaddress
-    leafs["cIgmpFilterProfileAction"] = cigmpfilterentry.Cigmpfilterprofileaction
-    return leafs
-}
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetYangName() string { return "cIgmpFilterEntry" }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) SetParent(parent types.Entity) { cigmpfilterentry.parent = parent }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetParent() types.Entity { return cigmpfilterentry.parent }
-
-func (cigmpfilterentry *CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry) GetParentYangName() string { return "cIgmpFilterTable" }
 
 // CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry_Cigmpfilterprofileaction represents cIgmpFilterInterfaceProfileIndex will be dropped.
 type CISCOIGMPFILTERMIB_Cigmpfiltertable_Cigmpfilterentry_Cigmpfilterprofileaction string
@@ -579,7 +391,7 @@ const (
 // This table contains the list of interfaces that can
 // support IGMP filter feature.
 type CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the configuration for associating the IGMP filter
@@ -590,63 +402,24 @@ type CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable struct {
     Cigmpfilterinterfaceentry []CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry
 }
 
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetFilter() yfilter.YFilter { return cigmpfilterinterfacetable.YFilter }
+func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetEntityData() *types.CommonEntityData {
+    cigmpfilterinterfacetable.EntityData.YFilter = cigmpfilterinterfacetable.YFilter
+    cigmpfilterinterfacetable.EntityData.YangName = "cIgmpFilterInterfaceTable"
+    cigmpfilterinterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    cigmpfilterinterfacetable.EntityData.ParentYangName = "CISCO-IGMP-FILTER-MIB"
+    cigmpfilterinterfacetable.EntityData.SegmentPath = "cIgmpFilterInterfaceTable"
+    cigmpfilterinterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cigmpfilterinterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cigmpfilterinterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) SetFilter(yf yfilter.YFilter) { cigmpfilterinterfacetable.YFilter = yf }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetGoName(yname string) string {
-    if yname == "cIgmpFilterInterfaceEntry" { return "Cigmpfilterinterfaceentry" }
-    return ""
-}
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetSegmentPath() string {
-    return "cIgmpFilterInterfaceTable"
-}
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cIgmpFilterInterfaceEntry" {
-        for _, c := range cigmpfilterinterfacetable.Cigmpfilterinterfaceentry {
-            if cigmpfilterinterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry{}
-        cigmpfilterinterfacetable.Cigmpfilterinterfaceentry = append(cigmpfilterinterfacetable.Cigmpfilterinterfaceentry, child)
-        return &cigmpfilterinterfacetable.Cigmpfilterinterfaceentry[len(cigmpfilterinterfacetable.Cigmpfilterinterfaceentry)-1]
-    }
-    return nil
-}
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cigmpfilterinterfacetable.EntityData.Children = make(map[string]types.YChild)
+    cigmpfilterinterfacetable.EntityData.Children["cIgmpFilterInterfaceEntry"] = types.YChild{"Cigmpfilterinterfaceentry", nil}
     for i := range cigmpfilterinterfacetable.Cigmpfilterinterfaceentry {
-        children[cigmpfilterinterfacetable.Cigmpfilterinterfaceentry[i].GetSegmentPath()] = &cigmpfilterinterfacetable.Cigmpfilterinterfaceentry[i]
+        cigmpfilterinterfacetable.EntityData.Children[types.GetSegmentPath(&cigmpfilterinterfacetable.Cigmpfilterinterfaceentry[i])] = types.YChild{"Cigmpfilterinterfaceentry", &cigmpfilterinterfacetable.Cigmpfilterinterfaceentry[i]}
     }
-    return children
+    cigmpfilterinterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cigmpfilterinterfacetable.EntityData)
 }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetYangName() string { return "cIgmpFilterInterfaceTable" }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) SetParent(parent types.Entity) { cigmpfilterinterfacetable.parent = parent }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetParent() types.Entity { return cigmpfilterinterfacetable.parent }
-
-func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) GetParentYangName() string { return "CISCO-IGMP-FILTER-MIB" }
 
 // CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry
 // Each entry contains the configuration for associating
@@ -658,7 +431,7 @@ func (cigmpfilterinterfacetable *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable) G
 // The entry is removed on removal of corresponding 
 // interface from system.
 type CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -676,51 +449,20 @@ type CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry stru
     Cigmpfilterinterfaceprofileindex interface{}
 }
 
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetFilter() yfilter.YFilter { return cigmpfilterinterfaceentry.YFilter }
+func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetEntityData() *types.CommonEntityData {
+    cigmpfilterinterfaceentry.EntityData.YFilter = cigmpfilterinterfaceentry.YFilter
+    cigmpfilterinterfaceentry.EntityData.YangName = "cIgmpFilterInterfaceEntry"
+    cigmpfilterinterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    cigmpfilterinterfaceentry.EntityData.ParentYangName = "cIgmpFilterInterfaceTable"
+    cigmpfilterinterfaceentry.EntityData.SegmentPath = "cIgmpFilterInterfaceEntry" + "[ifIndex='" + fmt.Sprintf("%v", cigmpfilterinterfaceentry.Ifindex) + "']"
+    cigmpfilterinterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cigmpfilterinterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cigmpfilterinterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) SetFilter(yf yfilter.YFilter) { cigmpfilterinterfaceentry.YFilter = yf }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cIgmpFilterInterfaceProfileIndex" { return "Cigmpfilterinterfaceprofileindex" }
-    return ""
+    cigmpfilterinterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    cigmpfilterinterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cigmpfilterinterfaceentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cigmpfilterinterfaceentry.Ifindex}
+    cigmpfilterinterfaceentry.EntityData.Leafs["cIgmpFilterInterfaceProfileIndex"] = types.YLeaf{"Cigmpfilterinterfaceprofileindex", cigmpfilterinterfaceentry.Cigmpfilterinterfaceprofileindex}
+    return &(cigmpfilterinterfaceentry.EntityData)
 }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetSegmentPath() string {
-    return "cIgmpFilterInterfaceEntry" + "[ifIndex='" + fmt.Sprintf("%v", cigmpfilterinterfaceentry.Ifindex) + "']"
-}
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cigmpfilterinterfaceentry.Ifindex
-    leafs["cIgmpFilterInterfaceProfileIndex"] = cigmpfilterinterfaceentry.Cigmpfilterinterfaceprofileindex
-    return leafs
-}
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetYangName() string { return "cIgmpFilterInterfaceEntry" }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) SetParent(parent types.Entity) { cigmpfilterinterfaceentry.parent = parent }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetParent() types.Entity { return cigmpfilterinterfaceentry.parent }
-
-func (cigmpfilterinterfaceentry *CISCOIGMPFILTERMIB_Cigmpfilterinterfacetable_Cigmpfilterinterfaceentry) GetParentYangName() string { return "cIgmpFilterInterfaceTable" }
 

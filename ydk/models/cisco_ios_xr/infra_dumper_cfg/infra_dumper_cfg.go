@@ -24,6 +24,18 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-dumper-cfg:exception", reflect.TypeOf(Exception{}))
 }
 
+// Copy represents Copy
+type Copy string
+
+const (
+    // copy not configured
+    Copy_default_ Copy = "default"
+
+    // Dump to local memory: for time critical
+    // processes
+    Copy_copy Copy = "copy"
+)
+
 // Context represents Context
 type Context string
 
@@ -36,27 +48,15 @@ const (
     Context_context Context = "context"
 )
 
-// Skipcpuinfo represents Skipcpuinfo
-type Skipcpuinfo string
+// Sharedmemory represents Sharedmemory
+type Sharedmemory string
 
 const (
-    // skip-cpu-info not configured
-    Skipcpuinfo_default_ Skipcpuinfo = "default"
+    // shared memory not configured
+    Sharedmemory_default_ Sharedmemory = "default"
 
-    // Skip CPU usage snapshot: for time critical
-    // processes
-    Skipcpuinfo_skip_cpu_info Skipcpuinfo = "skip-cpu-info"
-)
-
-// Packetmemory represents Packetmemory
-type Packetmemory string
-
-const (
-    // packet memory not configured
-    Packetmemory_default_ Packetmemory = "default"
-
-    // Dump packet memory of the target process
-    Packetmemory_packet_memory Packetmemory = "packet-memory"
+    // Dump shared memory of the target process
+    Sharedmemory_shared_memory Sharedmemory = "shared-memory"
 )
 
 // Sparse represents Sparse
@@ -71,17 +71,6 @@ const (
     Sparse_sparse Sparse = "sparse"
 )
 
-// Mainmemory represents Mainmemory
-type Mainmemory string
-
-const (
-    // main memory not configured
-    Mainmemory_default_ Mainmemory = "default"
-
-    // Dump main memory of the target process
-    Mainmemory_main_memory Mainmemory = "main-memory"
-)
-
 // Nocore represents Nocore
 type Nocore string
 
@@ -94,33 +83,44 @@ const (
     Nocore_no_core Nocore = "no-core"
 )
 
-// Copy represents Copy
-type Copy string
+// Packetmemory represents Packetmemory
+type Packetmemory string
 
 const (
-    // copy not configured
-    Copy_default_ Copy = "default"
+    // packet memory not configured
+    Packetmemory_default_ Packetmemory = "default"
 
-    // Dump to local memory: for time critical
-    // processes
-    Copy_copy Copy = "copy"
+    // Dump packet memory of the target process
+    Packetmemory_packet_memory Packetmemory = "packet-memory"
 )
 
-// Sharedmemory represents Sharedmemory
-type Sharedmemory string
+// Skipcpuinfo represents Skipcpuinfo
+type Skipcpuinfo string
 
 const (
-    // shared memory not configured
-    Sharedmemory_default_ Sharedmemory = "default"
+    // skip-cpu-info not configured
+    Skipcpuinfo_default_ Skipcpuinfo = "default"
 
-    // Dump shared memory of the target process
-    Sharedmemory_shared_memory Sharedmemory = "shared-memory"
+    // Skip CPU usage snapshot: for time critical
+    // processes
+    Skipcpuinfo_skip_cpu_info Skipcpuinfo = "skip-cpu-info"
+)
+
+// Mainmemory represents Mainmemory
+type Mainmemory string
+
+const (
+    // main memory not configured
+    Mainmemory_default_ Mainmemory = "default"
+
+    // Dump main memory of the target process
+    Mainmemory_main_memory Mainmemory = "main-memory"
 )
 
 // Exception
 // Core dump configuration commands
 type Exception struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify 'true' to enable sparse core dump, 'false' to disable sparse core
@@ -162,88 +162,36 @@ type Exception struct {
     Choice2 Exception_Choice2
 }
 
-func (exception *Exception) GetFilter() yfilter.YFilter { return exception.YFilter }
+func (exception *Exception) GetEntityData() *types.CommonEntityData {
+    exception.EntityData.YFilter = exception.YFilter
+    exception.EntityData.YangName = "exception"
+    exception.EntityData.BundleName = "cisco_ios_xr"
+    exception.EntityData.ParentYangName = "Cisco-IOS-XR-infra-dumper-cfg"
+    exception.EntityData.SegmentPath = "Cisco-IOS-XR-infra-dumper-cfg:exception"
+    exception.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exception *Exception) SetFilter(yf yfilter.YFilter) { exception.YFilter = yf }
-
-func (exception *Exception) GetGoName(yname string) string {
-    if yname == "sparse" { return "Sparse" }
-    if yname == "core-verification" { return "CoreVerification" }
-    if yname == "core-size" { return "CoreSize" }
-    if yname == "kernel-debugger" { return "KernelDebugger" }
-    if yname == "packet-memory" { return "PacketMemory" }
-    if yname == "sparse-size" { return "SparseSize" }
-    if yname == "memory-threshold" { return "MemoryThreshold" }
-    if yname == "choice1" { return "Choice1" }
-    if yname == "choice3" { return "Choice3" }
-    if yname == "process-names" { return "ProcessNames" }
-    if yname == "choice2" { return "Choice2" }
-    return ""
+    exception.EntityData.Children = make(map[string]types.YChild)
+    exception.EntityData.Children["choice1"] = types.YChild{"Choice1", &exception.Choice1}
+    exception.EntityData.Children["choice3"] = types.YChild{"Choice3", &exception.Choice3}
+    exception.EntityData.Children["process-names"] = types.YChild{"ProcessNames", &exception.ProcessNames}
+    exception.EntityData.Children["choice2"] = types.YChild{"Choice2", &exception.Choice2}
+    exception.EntityData.Leafs = make(map[string]types.YLeaf)
+    exception.EntityData.Leafs["sparse"] = types.YLeaf{"Sparse", exception.Sparse}
+    exception.EntityData.Leafs["core-verification"] = types.YLeaf{"CoreVerification", exception.CoreVerification}
+    exception.EntityData.Leafs["core-size"] = types.YLeaf{"CoreSize", exception.CoreSize}
+    exception.EntityData.Leafs["kernel-debugger"] = types.YLeaf{"KernelDebugger", exception.KernelDebugger}
+    exception.EntityData.Leafs["packet-memory"] = types.YLeaf{"PacketMemory", exception.PacketMemory}
+    exception.EntityData.Leafs["sparse-size"] = types.YLeaf{"SparseSize", exception.SparseSize}
+    exception.EntityData.Leafs["memory-threshold"] = types.YLeaf{"MemoryThreshold", exception.MemoryThreshold}
+    return &(exception.EntityData)
 }
-
-func (exception *Exception) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-dumper-cfg:exception"
-}
-
-func (exception *Exception) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "choice1" {
-        return &exception.Choice1
-    }
-    if childYangName == "choice3" {
-        return &exception.Choice3
-    }
-    if childYangName == "process-names" {
-        return &exception.ProcessNames
-    }
-    if childYangName == "choice2" {
-        return &exception.Choice2
-    }
-    return nil
-}
-
-func (exception *Exception) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["choice1"] = &exception.Choice1
-    children["choice3"] = &exception.Choice3
-    children["process-names"] = &exception.ProcessNames
-    children["choice2"] = &exception.Choice2
-    return children
-}
-
-func (exception *Exception) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sparse"] = exception.Sparse
-    leafs["core-verification"] = exception.CoreVerification
-    leafs["core-size"] = exception.CoreSize
-    leafs["kernel-debugger"] = exception.KernelDebugger
-    leafs["packet-memory"] = exception.PacketMemory
-    leafs["sparse-size"] = exception.SparseSize
-    leafs["memory-threshold"] = exception.MemoryThreshold
-    return leafs
-}
-
-func (exception *Exception) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exception *Exception) GetYangName() string { return "exception" }
-
-func (exception *Exception) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exception *Exception) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exception *Exception) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exception *Exception) SetParent(parent types.Entity) { exception.parent = parent }
-
-func (exception *Exception) GetParent() types.Entity { return exception.parent }
-
-func (exception *Exception) GetParentYangName() string { return "Cisco-IOS-XR-infra-dumper-cfg" }
 
 // Exception_Choice1
 // Preference of the dump location
 type Exception_Choice1 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify 'true' to compress core files dumped on this path, 'false' to not
@@ -265,64 +213,30 @@ type Exception_Choice1 struct {
     Filename interface{}
 }
 
-func (choice1 *Exception_Choice1) GetFilter() yfilter.YFilter { return choice1.YFilter }
+func (choice1 *Exception_Choice1) GetEntityData() *types.CommonEntityData {
+    choice1.EntityData.YFilter = choice1.YFilter
+    choice1.EntityData.YangName = "choice1"
+    choice1.EntityData.BundleName = "cisco_ios_xr"
+    choice1.EntityData.ParentYangName = "exception"
+    choice1.EntityData.SegmentPath = "choice1"
+    choice1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    choice1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    choice1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (choice1 *Exception_Choice1) SetFilter(yf yfilter.YFilter) { choice1.YFilter = yf }
-
-func (choice1 *Exception_Choice1) GetGoName(yname string) string {
-    if yname == "compress" { return "Compress" }
-    if yname == "lower-limit" { return "LowerLimit" }
-    if yname == "higher-limit" { return "HigherLimit" }
-    if yname == "file-path" { return "FilePath" }
-    if yname == "filename" { return "Filename" }
-    return ""
+    choice1.EntityData.Children = make(map[string]types.YChild)
+    choice1.EntityData.Leafs = make(map[string]types.YLeaf)
+    choice1.EntityData.Leafs["compress"] = types.YLeaf{"Compress", choice1.Compress}
+    choice1.EntityData.Leafs["lower-limit"] = types.YLeaf{"LowerLimit", choice1.LowerLimit}
+    choice1.EntityData.Leafs["higher-limit"] = types.YLeaf{"HigherLimit", choice1.HigherLimit}
+    choice1.EntityData.Leafs["file-path"] = types.YLeaf{"FilePath", choice1.FilePath}
+    choice1.EntityData.Leafs["filename"] = types.YLeaf{"Filename", choice1.Filename}
+    return &(choice1.EntityData)
 }
-
-func (choice1 *Exception_Choice1) GetSegmentPath() string {
-    return "choice1"
-}
-
-func (choice1 *Exception_Choice1) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (choice1 *Exception_Choice1) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (choice1 *Exception_Choice1) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["compress"] = choice1.Compress
-    leafs["lower-limit"] = choice1.LowerLimit
-    leafs["higher-limit"] = choice1.HigherLimit
-    leafs["file-path"] = choice1.FilePath
-    leafs["filename"] = choice1.Filename
-    return leafs
-}
-
-func (choice1 *Exception_Choice1) GetBundleName() string { return "cisco_ios_xr" }
-
-func (choice1 *Exception_Choice1) GetYangName() string { return "choice1" }
-
-func (choice1 *Exception_Choice1) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (choice1 *Exception_Choice1) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (choice1 *Exception_Choice1) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (choice1 *Exception_Choice1) SetParent(parent types.Entity) { choice1.parent = parent }
-
-func (choice1 *Exception_Choice1) GetParent() types.Entity { return choice1.parent }
-
-func (choice1 *Exception_Choice1) GetParentYangName() string { return "exception" }
 
 // Exception_Choice3
 // Preference of the dump location
 type Exception_Choice3 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify 'true' to compress core files dumped on this path, 'false' to not
@@ -344,64 +258,30 @@ type Exception_Choice3 struct {
     Filename interface{}
 }
 
-func (choice3 *Exception_Choice3) GetFilter() yfilter.YFilter { return choice3.YFilter }
+func (choice3 *Exception_Choice3) GetEntityData() *types.CommonEntityData {
+    choice3.EntityData.YFilter = choice3.YFilter
+    choice3.EntityData.YangName = "choice3"
+    choice3.EntityData.BundleName = "cisco_ios_xr"
+    choice3.EntityData.ParentYangName = "exception"
+    choice3.EntityData.SegmentPath = "choice3"
+    choice3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    choice3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    choice3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (choice3 *Exception_Choice3) SetFilter(yf yfilter.YFilter) { choice3.YFilter = yf }
-
-func (choice3 *Exception_Choice3) GetGoName(yname string) string {
-    if yname == "compress" { return "Compress" }
-    if yname == "lower-limit" { return "LowerLimit" }
-    if yname == "higher-limit" { return "HigherLimit" }
-    if yname == "file-path" { return "FilePath" }
-    if yname == "filename" { return "Filename" }
-    return ""
+    choice3.EntityData.Children = make(map[string]types.YChild)
+    choice3.EntityData.Leafs = make(map[string]types.YLeaf)
+    choice3.EntityData.Leafs["compress"] = types.YLeaf{"Compress", choice3.Compress}
+    choice3.EntityData.Leafs["lower-limit"] = types.YLeaf{"LowerLimit", choice3.LowerLimit}
+    choice3.EntityData.Leafs["higher-limit"] = types.YLeaf{"HigherLimit", choice3.HigherLimit}
+    choice3.EntityData.Leafs["file-path"] = types.YLeaf{"FilePath", choice3.FilePath}
+    choice3.EntityData.Leafs["filename"] = types.YLeaf{"Filename", choice3.Filename}
+    return &(choice3.EntityData)
 }
-
-func (choice3 *Exception_Choice3) GetSegmentPath() string {
-    return "choice3"
-}
-
-func (choice3 *Exception_Choice3) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (choice3 *Exception_Choice3) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (choice3 *Exception_Choice3) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["compress"] = choice3.Compress
-    leafs["lower-limit"] = choice3.LowerLimit
-    leafs["higher-limit"] = choice3.HigherLimit
-    leafs["file-path"] = choice3.FilePath
-    leafs["filename"] = choice3.Filename
-    return leafs
-}
-
-func (choice3 *Exception_Choice3) GetBundleName() string { return "cisco_ios_xr" }
-
-func (choice3 *Exception_Choice3) GetYangName() string { return "choice3" }
-
-func (choice3 *Exception_Choice3) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (choice3 *Exception_Choice3) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (choice3 *Exception_Choice3) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (choice3 *Exception_Choice3) SetParent(parent types.Entity) { choice3.parent = parent }
-
-func (choice3 *Exception_Choice3) GetParent() types.Entity { return choice3.parent }
-
-func (choice3 *Exception_Choice3) GetParentYangName() string { return "exception" }
 
 // Exception_ProcessNames
 // Specify per process configuration
 type Exception_ProcessNames struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify per process configuration. The type is slice of
@@ -409,133 +289,60 @@ type Exception_ProcessNames struct {
     ProcessName []Exception_ProcessNames_ProcessName
 }
 
-func (processNames *Exception_ProcessNames) GetFilter() yfilter.YFilter { return processNames.YFilter }
+func (processNames *Exception_ProcessNames) GetEntityData() *types.CommonEntityData {
+    processNames.EntityData.YFilter = processNames.YFilter
+    processNames.EntityData.YangName = "process-names"
+    processNames.EntityData.BundleName = "cisco_ios_xr"
+    processNames.EntityData.ParentYangName = "exception"
+    processNames.EntityData.SegmentPath = "process-names"
+    processNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    processNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    processNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (processNames *Exception_ProcessNames) SetFilter(yf yfilter.YFilter) { processNames.YFilter = yf }
-
-func (processNames *Exception_ProcessNames) GetGoName(yname string) string {
-    if yname == "process-name" { return "ProcessName" }
-    return ""
-}
-
-func (processNames *Exception_ProcessNames) GetSegmentPath() string {
-    return "process-names"
-}
-
-func (processNames *Exception_ProcessNames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "process-name" {
-        for _, c := range processNames.ProcessName {
-            if processNames.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Exception_ProcessNames_ProcessName{}
-        processNames.ProcessName = append(processNames.ProcessName, child)
-        return &processNames.ProcessName[len(processNames.ProcessName)-1]
-    }
-    return nil
-}
-
-func (processNames *Exception_ProcessNames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    processNames.EntityData.Children = make(map[string]types.YChild)
+    processNames.EntityData.Children["process-name"] = types.YChild{"ProcessName", nil}
     for i := range processNames.ProcessName {
-        children[processNames.ProcessName[i].GetSegmentPath()] = &processNames.ProcessName[i]
+        processNames.EntityData.Children[types.GetSegmentPath(&processNames.ProcessName[i])] = types.YChild{"ProcessName", &processNames.ProcessName[i]}
     }
-    return children
+    processNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(processNames.EntityData)
 }
-
-func (processNames *Exception_ProcessNames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (processNames *Exception_ProcessNames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (processNames *Exception_ProcessNames) GetYangName() string { return "process-names" }
-
-func (processNames *Exception_ProcessNames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (processNames *Exception_ProcessNames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (processNames *Exception_ProcessNames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (processNames *Exception_ProcessNames) SetParent(parent types.Entity) { processNames.parent = parent }
-
-func (processNames *Exception_ProcessNames) GetParent() types.Entity { return processNames.parent }
-
-func (processNames *Exception_ProcessNames) GetParentYangName() string { return "exception" }
 
 // Exception_ProcessNames_ProcessName
 // Specify per process configuration
 type Exception_ProcessNames_ProcessName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Specify per process configuration. The type is
-    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Processname interface{}
 
     // Specify per process core option.
     CoreOption Exception_ProcessNames_ProcessName_CoreOption
 }
 
-func (processName *Exception_ProcessNames_ProcessName) GetFilter() yfilter.YFilter { return processName.YFilter }
+func (processName *Exception_ProcessNames_ProcessName) GetEntityData() *types.CommonEntityData {
+    processName.EntityData.YFilter = processName.YFilter
+    processName.EntityData.YangName = "process-name"
+    processName.EntityData.BundleName = "cisco_ios_xr"
+    processName.EntityData.ParentYangName = "process-names"
+    processName.EntityData.SegmentPath = "process-name" + "[processname='" + fmt.Sprintf("%v", processName.Processname) + "']"
+    processName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    processName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    processName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (processName *Exception_ProcessNames_ProcessName) SetFilter(yf yfilter.YFilter) { processName.YFilter = yf }
-
-func (processName *Exception_ProcessNames_ProcessName) GetGoName(yname string) string {
-    if yname == "processname" { return "Processname" }
-    if yname == "core-option" { return "CoreOption" }
-    return ""
+    processName.EntityData.Children = make(map[string]types.YChild)
+    processName.EntityData.Children["core-option"] = types.YChild{"CoreOption", &processName.CoreOption}
+    processName.EntityData.Leafs = make(map[string]types.YLeaf)
+    processName.EntityData.Leafs["processname"] = types.YLeaf{"Processname", processName.Processname}
+    return &(processName.EntityData)
 }
-
-func (processName *Exception_ProcessNames_ProcessName) GetSegmentPath() string {
-    return "process-name" + "[processname='" + fmt.Sprintf("%v", processName.Processname) + "']"
-}
-
-func (processName *Exception_ProcessNames_ProcessName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "core-option" {
-        return &processName.CoreOption
-    }
-    return nil
-}
-
-func (processName *Exception_ProcessNames_ProcessName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["core-option"] = &processName.CoreOption
-    return children
-}
-
-func (processName *Exception_ProcessNames_ProcessName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["processname"] = processName.Processname
-    return leafs
-}
-
-func (processName *Exception_ProcessNames_ProcessName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (processName *Exception_ProcessNames_ProcessName) GetYangName() string { return "process-name" }
-
-func (processName *Exception_ProcessNames_ProcessName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (processName *Exception_ProcessNames_ProcessName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (processName *Exception_ProcessNames_ProcessName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (processName *Exception_ProcessNames_ProcessName) SetParent(parent types.Entity) { processName.parent = parent }
-
-func (processName *Exception_ProcessNames_ProcessName) GetParent() types.Entity { return processName.parent }
-
-func (processName *Exception_ProcessNames_ProcessName) GetParentYangName() string { return "process-names" }
 
 // Exception_ProcessNames_ProcessName_CoreOption
 // Specify per process core option
 type Exception_ProcessNames_ProcessName_CoreOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dump main memory of the target process. The type is Mainmemory. The default
@@ -571,70 +378,33 @@ type Exception_ProcessNames_ProcessName_CoreOption struct {
     Nocoreval interface{}
 }
 
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetFilter() yfilter.YFilter { return coreOption.YFilter }
+func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetEntityData() *types.CommonEntityData {
+    coreOption.EntityData.YFilter = coreOption.YFilter
+    coreOption.EntityData.YangName = "core-option"
+    coreOption.EntityData.BundleName = "cisco_ios_xr"
+    coreOption.EntityData.ParentYangName = "process-name"
+    coreOption.EntityData.SegmentPath = "core-option"
+    coreOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    coreOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    coreOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) SetFilter(yf yfilter.YFilter) { coreOption.YFilter = yf }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetGoName(yname string) string {
-    if yname == "main-memoryval" { return "MainMemoryval" }
-    if yname == "shared-memoryval" { return "SharedMemoryval" }
-    if yname == "packet-memoryval" { return "PacketMemoryval" }
-    if yname == "copyval" { return "Copyval" }
-    if yname == "sparseval" { return "Sparseval" }
-    if yname == "skipcpuinfoval" { return "Skipcpuinfoval" }
-    if yname == "contextval" { return "Contextval" }
-    if yname == "nocoreval" { return "Nocoreval" }
-    return ""
+    coreOption.EntityData.Children = make(map[string]types.YChild)
+    coreOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    coreOption.EntityData.Leafs["main-memoryval"] = types.YLeaf{"MainMemoryval", coreOption.MainMemoryval}
+    coreOption.EntityData.Leafs["shared-memoryval"] = types.YLeaf{"SharedMemoryval", coreOption.SharedMemoryval}
+    coreOption.EntityData.Leafs["packet-memoryval"] = types.YLeaf{"PacketMemoryval", coreOption.PacketMemoryval}
+    coreOption.EntityData.Leafs["copyval"] = types.YLeaf{"Copyval", coreOption.Copyval}
+    coreOption.EntityData.Leafs["sparseval"] = types.YLeaf{"Sparseval", coreOption.Sparseval}
+    coreOption.EntityData.Leafs["skipcpuinfoval"] = types.YLeaf{"Skipcpuinfoval", coreOption.Skipcpuinfoval}
+    coreOption.EntityData.Leafs["contextval"] = types.YLeaf{"Contextval", coreOption.Contextval}
+    coreOption.EntityData.Leafs["nocoreval"] = types.YLeaf{"Nocoreval", coreOption.Nocoreval}
+    return &(coreOption.EntityData)
 }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetSegmentPath() string {
-    return "core-option"
-}
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["main-memoryval"] = coreOption.MainMemoryval
-    leafs["shared-memoryval"] = coreOption.SharedMemoryval
-    leafs["packet-memoryval"] = coreOption.PacketMemoryval
-    leafs["copyval"] = coreOption.Copyval
-    leafs["sparseval"] = coreOption.Sparseval
-    leafs["skipcpuinfoval"] = coreOption.Skipcpuinfoval
-    leafs["contextval"] = coreOption.Contextval
-    leafs["nocoreval"] = coreOption.Nocoreval
-    return leafs
-}
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetYangName() string { return "core-option" }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) SetParent(parent types.Entity) { coreOption.parent = parent }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetParent() types.Entity { return coreOption.parent }
-
-func (coreOption *Exception_ProcessNames_ProcessName_CoreOption) GetParentYangName() string { return "process-name" }
 
 // Exception_Choice2
 // Preference of the dump location
 type Exception_Choice2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify 'true' to compress core files dumped on this path, 'false' to not
@@ -656,57 +426,23 @@ type Exception_Choice2 struct {
     Filename interface{}
 }
 
-func (choice2 *Exception_Choice2) GetFilter() yfilter.YFilter { return choice2.YFilter }
+func (choice2 *Exception_Choice2) GetEntityData() *types.CommonEntityData {
+    choice2.EntityData.YFilter = choice2.YFilter
+    choice2.EntityData.YangName = "choice2"
+    choice2.EntityData.BundleName = "cisco_ios_xr"
+    choice2.EntityData.ParentYangName = "exception"
+    choice2.EntityData.SegmentPath = "choice2"
+    choice2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    choice2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    choice2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (choice2 *Exception_Choice2) SetFilter(yf yfilter.YFilter) { choice2.YFilter = yf }
-
-func (choice2 *Exception_Choice2) GetGoName(yname string) string {
-    if yname == "compress" { return "Compress" }
-    if yname == "lower-limit" { return "LowerLimit" }
-    if yname == "higher-limit" { return "HigherLimit" }
-    if yname == "file-path" { return "FilePath" }
-    if yname == "filename" { return "Filename" }
-    return ""
+    choice2.EntityData.Children = make(map[string]types.YChild)
+    choice2.EntityData.Leafs = make(map[string]types.YLeaf)
+    choice2.EntityData.Leafs["compress"] = types.YLeaf{"Compress", choice2.Compress}
+    choice2.EntityData.Leafs["lower-limit"] = types.YLeaf{"LowerLimit", choice2.LowerLimit}
+    choice2.EntityData.Leafs["higher-limit"] = types.YLeaf{"HigherLimit", choice2.HigherLimit}
+    choice2.EntityData.Leafs["file-path"] = types.YLeaf{"FilePath", choice2.FilePath}
+    choice2.EntityData.Leafs["filename"] = types.YLeaf{"Filename", choice2.Filename}
+    return &(choice2.EntityData)
 }
-
-func (choice2 *Exception_Choice2) GetSegmentPath() string {
-    return "choice2"
-}
-
-func (choice2 *Exception_Choice2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (choice2 *Exception_Choice2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (choice2 *Exception_Choice2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["compress"] = choice2.Compress
-    leafs["lower-limit"] = choice2.LowerLimit
-    leafs["higher-limit"] = choice2.HigherLimit
-    leafs["file-path"] = choice2.FilePath
-    leafs["filename"] = choice2.Filename
-    return leafs
-}
-
-func (choice2 *Exception_Choice2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (choice2 *Exception_Choice2) GetYangName() string { return "choice2" }
-
-func (choice2 *Exception_Choice2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (choice2 *Exception_Choice2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (choice2 *Exception_Choice2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (choice2 *Exception_Choice2) SetParent(parent types.Entity) { choice2.parent = parent }
-
-func (choice2 *Exception_Choice2) GetParent() types.Entity { return choice2.parent }
-
-func (choice2 *Exception_Choice2) GetParentYangName() string { return "exception" }
 

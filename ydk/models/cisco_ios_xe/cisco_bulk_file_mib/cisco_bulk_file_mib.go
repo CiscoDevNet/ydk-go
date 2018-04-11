@@ -19,7 +19,7 @@ func init() {
 
 // CISCOBULKFILEMIB
 type CISCOBULKFILEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -38,78 +38,29 @@ type CISCOBULKFILEMIB struct {
     Cbfstatusfiletable CISCOBULKFILEMIB_Cbfstatusfiletable
 }
 
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetFilter() yfilter.YFilter { return cISCOBULKFILEMIB.YFilter }
+func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetEntityData() *types.CommonEntityData {
+    cISCOBULKFILEMIB.EntityData.YFilter = cISCOBULKFILEMIB.YFilter
+    cISCOBULKFILEMIB.EntityData.YangName = "CISCO-BULK-FILE-MIB"
+    cISCOBULKFILEMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOBULKFILEMIB.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cISCOBULKFILEMIB.EntityData.SegmentPath = "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB"
+    cISCOBULKFILEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOBULKFILEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOBULKFILEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) SetFilter(yf yfilter.YFilter) { cISCOBULKFILEMIB.YFilter = yf }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetGoName(yname string) string {
-    if yname == "cbfDefine" { return "Cbfdefine" }
-    if yname == "cbfStatus" { return "Cbfstatus" }
-    if yname == "cbfDefineFileTable" { return "Cbfdefinefiletable" }
-    if yname == "cbfDefineObjectTable" { return "Cbfdefineobjecttable" }
-    if yname == "cbfStatusFileTable" { return "Cbfstatusfiletable" }
-    return ""
+    cISCOBULKFILEMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOBULKFILEMIB.EntityData.Children["cbfDefine"] = types.YChild{"Cbfdefine", &cISCOBULKFILEMIB.Cbfdefine}
+    cISCOBULKFILEMIB.EntityData.Children["cbfStatus"] = types.YChild{"Cbfstatus", &cISCOBULKFILEMIB.Cbfstatus}
+    cISCOBULKFILEMIB.EntityData.Children["cbfDefineFileTable"] = types.YChild{"Cbfdefinefiletable", &cISCOBULKFILEMIB.Cbfdefinefiletable}
+    cISCOBULKFILEMIB.EntityData.Children["cbfDefineObjectTable"] = types.YChild{"Cbfdefineobjecttable", &cISCOBULKFILEMIB.Cbfdefineobjecttable}
+    cISCOBULKFILEMIB.EntityData.Children["cbfStatusFileTable"] = types.YChild{"Cbfstatusfiletable", &cISCOBULKFILEMIB.Cbfstatusfiletable}
+    cISCOBULKFILEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOBULKFILEMIB.EntityData)
 }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetSegmentPath() string {
-    return "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB"
-}
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cbfDefine" {
-        return &cISCOBULKFILEMIB.Cbfdefine
-    }
-    if childYangName == "cbfStatus" {
-        return &cISCOBULKFILEMIB.Cbfstatus
-    }
-    if childYangName == "cbfDefineFileTable" {
-        return &cISCOBULKFILEMIB.Cbfdefinefiletable
-    }
-    if childYangName == "cbfDefineObjectTable" {
-        return &cISCOBULKFILEMIB.Cbfdefineobjecttable
-    }
-    if childYangName == "cbfStatusFileTable" {
-        return &cISCOBULKFILEMIB.Cbfstatusfiletable
-    }
-    return nil
-}
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cbfDefine"] = &cISCOBULKFILEMIB.Cbfdefine
-    children["cbfStatus"] = &cISCOBULKFILEMIB.Cbfstatus
-    children["cbfDefineFileTable"] = &cISCOBULKFILEMIB.Cbfdefinefiletable
-    children["cbfDefineObjectTable"] = &cISCOBULKFILEMIB.Cbfdefineobjecttable
-    children["cbfStatusFileTable"] = &cISCOBULKFILEMIB.Cbfstatusfiletable
-    return children
-}
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetYangName() string { return "CISCO-BULK-FILE-MIB" }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) SetParent(parent types.Entity) { cISCOBULKFILEMIB.parent = parent }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetParent() types.Entity { return cISCOBULKFILEMIB.parent }
-
-func (cISCOBULKFILEMIB *CISCOBULKFILEMIB) GetParentYangName() string { return "CISCO-BULK-FILE-MIB" }
 
 // CISCOBULKFILEMIB_Cbfdefine
 type CISCOBULKFILEMIB_Cbfdefine struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of file definitions this system can hold in
@@ -154,69 +105,32 @@ type CISCOBULKFILEMIB_Cbfdefine struct {
     Cbfdefineobjectsrefused interface{}
 }
 
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetFilter() yfilter.YFilter { return cbfdefine.YFilter }
+func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetEntityData() *types.CommonEntityData {
+    cbfdefine.EntityData.YFilter = cbfdefine.YFilter
+    cbfdefine.EntityData.YangName = "cbfDefine"
+    cbfdefine.EntityData.BundleName = "cisco_ios_xe"
+    cbfdefine.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfdefine.EntityData.SegmentPath = "cbfDefine"
+    cbfdefine.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfdefine.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfdefine.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) SetFilter(yf yfilter.YFilter) { cbfdefine.YFilter = yf }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetGoName(yname string) string {
-    if yname == "cbfDefineMaxFiles" { return "Cbfdefinemaxfiles" }
-    if yname == "cbfDefineFiles" { return "Cbfdefinefiles" }
-    if yname == "cbfDefineHighFiles" { return "Cbfdefinehighfiles" }
-    if yname == "cbfDefineFilesRefused" { return "Cbfdefinefilesrefused" }
-    if yname == "cbfDefineMaxObjects" { return "Cbfdefinemaxobjects" }
-    if yname == "cbfDefineObjects" { return "Cbfdefineobjects" }
-    if yname == "cbfDefineHighObjects" { return "Cbfdefinehighobjects" }
-    if yname == "cbfDefineObjectsRefused" { return "Cbfdefineobjectsrefused" }
-    return ""
+    cbfdefine.EntityData.Children = make(map[string]types.YChild)
+    cbfdefine.EntityData.Leafs = make(map[string]types.YLeaf)
+    cbfdefine.EntityData.Leafs["cbfDefineMaxFiles"] = types.YLeaf{"Cbfdefinemaxfiles", cbfdefine.Cbfdefinemaxfiles}
+    cbfdefine.EntityData.Leafs["cbfDefineFiles"] = types.YLeaf{"Cbfdefinefiles", cbfdefine.Cbfdefinefiles}
+    cbfdefine.EntityData.Leafs["cbfDefineHighFiles"] = types.YLeaf{"Cbfdefinehighfiles", cbfdefine.Cbfdefinehighfiles}
+    cbfdefine.EntityData.Leafs["cbfDefineFilesRefused"] = types.YLeaf{"Cbfdefinefilesrefused", cbfdefine.Cbfdefinefilesrefused}
+    cbfdefine.EntityData.Leafs["cbfDefineMaxObjects"] = types.YLeaf{"Cbfdefinemaxobjects", cbfdefine.Cbfdefinemaxobjects}
+    cbfdefine.EntityData.Leafs["cbfDefineObjects"] = types.YLeaf{"Cbfdefineobjects", cbfdefine.Cbfdefineobjects}
+    cbfdefine.EntityData.Leafs["cbfDefineHighObjects"] = types.YLeaf{"Cbfdefinehighobjects", cbfdefine.Cbfdefinehighobjects}
+    cbfdefine.EntityData.Leafs["cbfDefineObjectsRefused"] = types.YLeaf{"Cbfdefineobjectsrefused", cbfdefine.Cbfdefineobjectsrefused}
+    return &(cbfdefine.EntityData)
 }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetSegmentPath() string {
-    return "cbfDefine"
-}
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cbfDefineMaxFiles"] = cbfdefine.Cbfdefinemaxfiles
-    leafs["cbfDefineFiles"] = cbfdefine.Cbfdefinefiles
-    leafs["cbfDefineHighFiles"] = cbfdefine.Cbfdefinehighfiles
-    leafs["cbfDefineFilesRefused"] = cbfdefine.Cbfdefinefilesrefused
-    leafs["cbfDefineMaxObjects"] = cbfdefine.Cbfdefinemaxobjects
-    leafs["cbfDefineObjects"] = cbfdefine.Cbfdefineobjects
-    leafs["cbfDefineHighObjects"] = cbfdefine.Cbfdefinehighobjects
-    leafs["cbfDefineObjectsRefused"] = cbfdefine.Cbfdefineobjectsrefused
-    return leafs
-}
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetYangName() string { return "cbfDefine" }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) SetParent(parent types.Entity) { cbfdefine.parent = parent }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetParent() types.Entity { return cbfdefine.parent }
-
-func (cbfdefine *CISCOBULKFILEMIB_Cbfdefine) GetParentYangName() string { return "CISCO-BULK-FILE-MIB" }
 
 // CISCOBULKFILEMIB_Cbfstatus
 type CISCOBULKFILEMIB_Cbfstatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The maximum number of file statuses this system can hold in
@@ -239,62 +153,29 @@ type CISCOBULKFILEMIB_Cbfstatus struct {
     Cbfstatusfilesbumped interface{}
 }
 
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetFilter() yfilter.YFilter { return cbfstatus.YFilter }
+func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetEntityData() *types.CommonEntityData {
+    cbfstatus.EntityData.YFilter = cbfstatus.YFilter
+    cbfstatus.EntityData.YangName = "cbfStatus"
+    cbfstatus.EntityData.BundleName = "cisco_ios_xe"
+    cbfstatus.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfstatus.EntityData.SegmentPath = "cbfStatus"
+    cbfstatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfstatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfstatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) SetFilter(yf yfilter.YFilter) { cbfstatus.YFilter = yf }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetGoName(yname string) string {
-    if yname == "cbfStatusMaxFiles" { return "Cbfstatusmaxfiles" }
-    if yname == "cbfStatusFiles" { return "Cbfstatusfiles" }
-    if yname == "cbfStatusHighFiles" { return "Cbfstatushighfiles" }
-    if yname == "cbfStatusFilesBumped" { return "Cbfstatusfilesbumped" }
-    return ""
+    cbfstatus.EntityData.Children = make(map[string]types.YChild)
+    cbfstatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    cbfstatus.EntityData.Leafs["cbfStatusMaxFiles"] = types.YLeaf{"Cbfstatusmaxfiles", cbfstatus.Cbfstatusmaxfiles}
+    cbfstatus.EntityData.Leafs["cbfStatusFiles"] = types.YLeaf{"Cbfstatusfiles", cbfstatus.Cbfstatusfiles}
+    cbfstatus.EntityData.Leafs["cbfStatusHighFiles"] = types.YLeaf{"Cbfstatushighfiles", cbfstatus.Cbfstatushighfiles}
+    cbfstatus.EntityData.Leafs["cbfStatusFilesBumped"] = types.YLeaf{"Cbfstatusfilesbumped", cbfstatus.Cbfstatusfilesbumped}
+    return &(cbfstatus.EntityData)
 }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetSegmentPath() string {
-    return "cbfStatus"
-}
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cbfStatusMaxFiles"] = cbfstatus.Cbfstatusmaxfiles
-    leafs["cbfStatusFiles"] = cbfstatus.Cbfstatusfiles
-    leafs["cbfStatusHighFiles"] = cbfstatus.Cbfstatushighfiles
-    leafs["cbfStatusFilesBumped"] = cbfstatus.Cbfstatusfilesbumped
-    return leafs
-}
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetYangName() string { return "cbfStatus" }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) SetParent(parent types.Entity) { cbfstatus.parent = parent }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetParent() types.Entity { return cbfstatus.parent }
-
-func (cbfstatus *CISCOBULKFILEMIB_Cbfstatus) GetParentYangName() string { return "CISCO-BULK-FILE-MIB" }
 
 // CISCOBULKFILEMIB_Cbfdefinefiletable
 // A table of bulk file definition and creation controls.
 type CISCOBULKFILEMIB_Cbfdefinefiletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information for creation of a bulk file.  To creat a bulk file an
@@ -310,63 +191,24 @@ type CISCOBULKFILEMIB_Cbfdefinefiletable struct {
     Cbfdefinefileentry []CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry
 }
 
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetFilter() yfilter.YFilter { return cbfdefinefiletable.YFilter }
+func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetEntityData() *types.CommonEntityData {
+    cbfdefinefiletable.EntityData.YFilter = cbfdefinefiletable.YFilter
+    cbfdefinefiletable.EntityData.YangName = "cbfDefineFileTable"
+    cbfdefinefiletable.EntityData.BundleName = "cisco_ios_xe"
+    cbfdefinefiletable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfdefinefiletable.EntityData.SegmentPath = "cbfDefineFileTable"
+    cbfdefinefiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfdefinefiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfdefinefiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) SetFilter(yf yfilter.YFilter) { cbfdefinefiletable.YFilter = yf }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetGoName(yname string) string {
-    if yname == "cbfDefineFileEntry" { return "Cbfdefinefileentry" }
-    return ""
-}
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetSegmentPath() string {
-    return "cbfDefineFileTable"
-}
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cbfDefineFileEntry" {
-        for _, c := range cbfdefinefiletable.Cbfdefinefileentry {
-            if cbfdefinefiletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry{}
-        cbfdefinefiletable.Cbfdefinefileentry = append(cbfdefinefiletable.Cbfdefinefileentry, child)
-        return &cbfdefinefiletable.Cbfdefinefileentry[len(cbfdefinefiletable.Cbfdefinefileentry)-1]
-    }
-    return nil
-}
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cbfdefinefiletable.EntityData.Children = make(map[string]types.YChild)
+    cbfdefinefiletable.EntityData.Children["cbfDefineFileEntry"] = types.YChild{"Cbfdefinefileentry", nil}
     for i := range cbfdefinefiletable.Cbfdefinefileentry {
-        children[cbfdefinefiletable.Cbfdefinefileentry[i].GetSegmentPath()] = &cbfdefinefiletable.Cbfdefinefileentry[i]
+        cbfdefinefiletable.EntityData.Children[types.GetSegmentPath(&cbfdefinefiletable.Cbfdefinefileentry[i])] = types.YChild{"Cbfdefinefileentry", &cbfdefinefiletable.Cbfdefinefileentry[i]}
     }
-    return children
+    cbfdefinefiletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cbfdefinefiletable.EntityData)
 }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetYangName() string { return "cbfDefineFileTable" }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) SetParent(parent types.Entity) { cbfdefinefiletable.parent = parent }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetParent() types.Entity { return cbfdefinefiletable.parent }
-
-func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetParentYangName() string { return "CISCO-BULK-FILE-MIB" }
 
 // CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry
 // Information for creation of a bulk file.
@@ -386,7 +228,7 @@ func (cbfdefinefiletable *CISCOBULKFILEMIB_Cbfdefinefiletable) GetParentYangName
 // An entry may not be modified or deleted while its
 // cbfDefineFileNow has the value 'running'.
 type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An arbitrary integer to uniquely identify this
@@ -443,63 +285,27 @@ type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry struct {
     Cbfdefinefilenotifyoncompletion interface{}
 }
 
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetFilter() yfilter.YFilter { return cbfdefinefileentry.YFilter }
+func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetEntityData() *types.CommonEntityData {
+    cbfdefinefileentry.EntityData.YFilter = cbfdefinefileentry.YFilter
+    cbfdefinefileentry.EntityData.YangName = "cbfDefineFileEntry"
+    cbfdefinefileentry.EntityData.BundleName = "cisco_ios_xe"
+    cbfdefinefileentry.EntityData.ParentYangName = "cbfDefineFileTable"
+    cbfdefinefileentry.EntityData.SegmentPath = "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfdefinefileentry.Cbfdefinefileindex) + "']"
+    cbfdefinefileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfdefinefileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfdefinefileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) SetFilter(yf yfilter.YFilter) { cbfdefinefileentry.YFilter = yf }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetGoName(yname string) string {
-    if yname == "cbfDefineFileIndex" { return "Cbfdefinefileindex" }
-    if yname == "cbfDefineFileName" { return "Cbfdefinefilename" }
-    if yname == "cbfDefineFileStorage" { return "Cbfdefinefilestorage" }
-    if yname == "cbfDefineFileFormat" { return "Cbfdefinefileformat" }
-    if yname == "cbfDefineFileNow" { return "Cbfdefinefilenow" }
-    if yname == "cbfDefineFileEntryStatus" { return "Cbfdefinefileentrystatus" }
-    if yname == "cbfDefineFileNotifyOnCompletion" { return "Cbfdefinefilenotifyoncompletion" }
-    return ""
+    cbfdefinefileentry.EntityData.Children = make(map[string]types.YChild)
+    cbfdefinefileentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileIndex"] = types.YLeaf{"Cbfdefinefileindex", cbfdefinefileentry.Cbfdefinefileindex}
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileName"] = types.YLeaf{"Cbfdefinefilename", cbfdefinefileentry.Cbfdefinefilename}
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileStorage"] = types.YLeaf{"Cbfdefinefilestorage", cbfdefinefileentry.Cbfdefinefilestorage}
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileFormat"] = types.YLeaf{"Cbfdefinefileformat", cbfdefinefileentry.Cbfdefinefileformat}
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileNow"] = types.YLeaf{"Cbfdefinefilenow", cbfdefinefileentry.Cbfdefinefilenow}
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileEntryStatus"] = types.YLeaf{"Cbfdefinefileentrystatus", cbfdefinefileentry.Cbfdefinefileentrystatus}
+    cbfdefinefileentry.EntityData.Leafs["cbfDefineFileNotifyOnCompletion"] = types.YLeaf{"Cbfdefinefilenotifyoncompletion", cbfdefinefileentry.Cbfdefinefilenotifyoncompletion}
+    return &(cbfdefinefileentry.EntityData)
 }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetSegmentPath() string {
-    return "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfdefinefileentry.Cbfdefinefileindex) + "']"
-}
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cbfDefineFileIndex"] = cbfdefinefileentry.Cbfdefinefileindex
-    leafs["cbfDefineFileName"] = cbfdefinefileentry.Cbfdefinefilename
-    leafs["cbfDefineFileStorage"] = cbfdefinefileentry.Cbfdefinefilestorage
-    leafs["cbfDefineFileFormat"] = cbfdefinefileentry.Cbfdefinefileformat
-    leafs["cbfDefineFileNow"] = cbfdefinefileentry.Cbfdefinefilenow
-    leafs["cbfDefineFileEntryStatus"] = cbfdefinefileentry.Cbfdefinefileentrystatus
-    leafs["cbfDefineFileNotifyOnCompletion"] = cbfdefinefileentry.Cbfdefinefilenotifyoncompletion
-    return leafs
-}
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetYangName() string { return "cbfDefineFileEntry" }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) SetParent(parent types.Entity) { cbfdefinefileentry.parent = parent }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetParent() types.Entity { return cbfdefinefileentry.parent }
-
-func (cbfdefinefileentry *CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry) GetParentYangName() string { return "cbfDefineFileTable" }
 
 // CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat represents     A given system may support any or all of these.
 type CISCOBULKFILEMIB_Cbfdefinefiletable_Cbfdefinefileentry_Cbfdefinefileformat string
@@ -545,7 +351,7 @@ const (
 // CISCOBULKFILEMIB_Cbfdefineobjecttable
 // A table of objects to go in bulk files.
 type CISCOBULKFILEMIB_Cbfdefineobjecttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about one object for a particular file.  An application uses
@@ -557,63 +363,24 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable struct {
     Cbfdefineobjectentry []CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry
 }
 
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetFilter() yfilter.YFilter { return cbfdefineobjecttable.YFilter }
+func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetEntityData() *types.CommonEntityData {
+    cbfdefineobjecttable.EntityData.YFilter = cbfdefineobjecttable.YFilter
+    cbfdefineobjecttable.EntityData.YangName = "cbfDefineObjectTable"
+    cbfdefineobjecttable.EntityData.BundleName = "cisco_ios_xe"
+    cbfdefineobjecttable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfdefineobjecttable.EntityData.SegmentPath = "cbfDefineObjectTable"
+    cbfdefineobjecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfdefineobjecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfdefineobjecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) SetFilter(yf yfilter.YFilter) { cbfdefineobjecttable.YFilter = yf }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetGoName(yname string) string {
-    if yname == "cbfDefineObjectEntry" { return "Cbfdefineobjectentry" }
-    return ""
-}
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetSegmentPath() string {
-    return "cbfDefineObjectTable"
-}
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cbfDefineObjectEntry" {
-        for _, c := range cbfdefineobjecttable.Cbfdefineobjectentry {
-            if cbfdefineobjecttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry{}
-        cbfdefineobjecttable.Cbfdefineobjectentry = append(cbfdefineobjecttable.Cbfdefineobjectentry, child)
-        return &cbfdefineobjecttable.Cbfdefineobjectentry[len(cbfdefineobjecttable.Cbfdefineobjectentry)-1]
-    }
-    return nil
-}
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cbfdefineobjecttable.EntityData.Children = make(map[string]types.YChild)
+    cbfdefineobjecttable.EntityData.Children["cbfDefineObjectEntry"] = types.YChild{"Cbfdefineobjectentry", nil}
     for i := range cbfdefineobjecttable.Cbfdefineobjectentry {
-        children[cbfdefineobjecttable.Cbfdefineobjectentry[i].GetSegmentPath()] = &cbfdefineobjecttable.Cbfdefineobjectentry[i]
+        cbfdefineobjecttable.EntityData.Children[types.GetSegmentPath(&cbfdefineobjecttable.Cbfdefineobjectentry[i])] = types.YChild{"Cbfdefineobjectentry", &cbfdefineobjecttable.Cbfdefineobjectentry[i]}
     }
-    return children
+    cbfdefineobjecttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cbfdefineobjecttable.EntityData)
 }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetYangName() string { return "cbfDefineObjectTable" }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) SetParent(parent types.Entity) { cbfdefineobjecttable.parent = parent }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetParent() types.Entity { return cbfdefineobjecttable.parent }
-
-func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetParentYangName() string { return "CISCO-BULK-FILE-MIB" }
 
 // CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry
 // Information about one object for a particular file.
@@ -625,7 +392,7 @@ func (cbfdefineobjecttable *CISCOBULKFILEMIB_Cbfdefineobjecttable) GetParentYang
 // Entries in this table may not be changed, created or deleted
 // while the corresponding value of cbfDefineFileNow is 'running'.
 type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -652,7 +419,7 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // instance information.  If cbfDefineObjectClass is 'lexicalTable' or
     // 'leastCpuTable' this must be the OID of the table-defining SEQUENCE OF
     // registration point. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cbfdefineobjectid interface{}
 
     // The control that allows creation, modification, and deletion of entries. 
@@ -682,7 +449,8 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // table(represented  by cbfDefineObjectID) which lexicographically follow 
     // cbfDefineObjectTableInstance are retrieved.  This object is irrelevent if
     // cbfDefineObjectClass is not 'lexicalTable'. The type is string with
-    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // pattern:
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cbfdefineobjecttableinstance interface{}
 
     // If cbfDefineObjectClass is 'lexicalTable', then this object represents the
@@ -701,69 +469,32 @@ type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry struct {
     // of last polled  object.  An NMS can use the value of this object and
     // populate the cbfDefineObjectTableInstance to retrieve a contiguous set of
     // rows in a table. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cbfdefineobjectlastpolledinst interface{}
 }
 
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetFilter() yfilter.YFilter { return cbfdefineobjectentry.YFilter }
+func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetEntityData() *types.CommonEntityData {
+    cbfdefineobjectentry.EntityData.YFilter = cbfdefineobjectentry.YFilter
+    cbfdefineobjectentry.EntityData.YangName = "cbfDefineObjectEntry"
+    cbfdefineobjectentry.EntityData.BundleName = "cisco_ios_xe"
+    cbfdefineobjectentry.EntityData.ParentYangName = "cbfDefineObjectTable"
+    cbfdefineobjectentry.EntityData.SegmentPath = "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfdefineobjectentry.Cbfdefinefileindex) + "']" + "[cbfDefineObjectIndex='" + fmt.Sprintf("%v", cbfdefineobjectentry.Cbfdefineobjectindex) + "']"
+    cbfdefineobjectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfdefineobjectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfdefineobjectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) SetFilter(yf yfilter.YFilter) { cbfdefineobjectentry.YFilter = yf }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetGoName(yname string) string {
-    if yname == "cbfDefineFileIndex" { return "Cbfdefinefileindex" }
-    if yname == "cbfDefineObjectIndex" { return "Cbfdefineobjectindex" }
-    if yname == "cbfDefineObjectClass" { return "Cbfdefineobjectclass" }
-    if yname == "cbfDefineObjectID" { return "Cbfdefineobjectid" }
-    if yname == "cbfDefineObjectEntryStatus" { return "Cbfdefineobjectentrystatus" }
-    if yname == "cbfDefineObjectTableInstance" { return "Cbfdefineobjecttableinstance" }
-    if yname == "cbfDefineObjectNumEntries" { return "Cbfdefineobjectnumentries" }
-    if yname == "cbfDefineObjectLastPolledInst" { return "Cbfdefineobjectlastpolledinst" }
-    return ""
+    cbfdefineobjectentry.EntityData.Children = make(map[string]types.YChild)
+    cbfdefineobjectentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineFileIndex"] = types.YLeaf{"Cbfdefinefileindex", cbfdefineobjectentry.Cbfdefinefileindex}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectIndex"] = types.YLeaf{"Cbfdefineobjectindex", cbfdefineobjectentry.Cbfdefineobjectindex}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectClass"] = types.YLeaf{"Cbfdefineobjectclass", cbfdefineobjectentry.Cbfdefineobjectclass}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectID"] = types.YLeaf{"Cbfdefineobjectid", cbfdefineobjectentry.Cbfdefineobjectid}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectEntryStatus"] = types.YLeaf{"Cbfdefineobjectentrystatus", cbfdefineobjectentry.Cbfdefineobjectentrystatus}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectTableInstance"] = types.YLeaf{"Cbfdefineobjecttableinstance", cbfdefineobjectentry.Cbfdefineobjecttableinstance}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectNumEntries"] = types.YLeaf{"Cbfdefineobjectnumentries", cbfdefineobjectentry.Cbfdefineobjectnumentries}
+    cbfdefineobjectentry.EntityData.Leafs["cbfDefineObjectLastPolledInst"] = types.YLeaf{"Cbfdefineobjectlastpolledinst", cbfdefineobjectentry.Cbfdefineobjectlastpolledinst}
+    return &(cbfdefineobjectentry.EntityData)
 }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetSegmentPath() string {
-    return "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfdefineobjectentry.Cbfdefinefileindex) + "']" + "[cbfDefineObjectIndex='" + fmt.Sprintf("%v", cbfdefineobjectentry.Cbfdefineobjectindex) + "']"
-}
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cbfDefineFileIndex"] = cbfdefineobjectentry.Cbfdefinefileindex
-    leafs["cbfDefineObjectIndex"] = cbfdefineobjectentry.Cbfdefineobjectindex
-    leafs["cbfDefineObjectClass"] = cbfdefineobjectentry.Cbfdefineobjectclass
-    leafs["cbfDefineObjectID"] = cbfdefineobjectentry.Cbfdefineobjectid
-    leafs["cbfDefineObjectEntryStatus"] = cbfdefineobjectentry.Cbfdefineobjectentrystatus
-    leafs["cbfDefineObjectTableInstance"] = cbfdefineobjectentry.Cbfdefineobjecttableinstance
-    leafs["cbfDefineObjectNumEntries"] = cbfdefineobjectentry.Cbfdefineobjectnumentries
-    leafs["cbfDefineObjectLastPolledInst"] = cbfdefineobjectentry.Cbfdefineobjectlastpolledinst
-    return leafs
-}
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetYangName() string { return "cbfDefineObjectEntry" }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) SetParent(parent types.Entity) { cbfdefineobjectentry.parent = parent }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetParent() types.Entity { return cbfdefineobjectentry.parent }
-
-func (cbfdefineobjectentry *CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry) GetParentYangName() string { return "cbfDefineObjectTable" }
 
 // CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass represents                 individual MIB implementation.
 type CISCOBULKFILEMIB_Cbfdefineobjecttable_Cbfdefineobjectentry_Cbfdefineobjectclass string
@@ -779,7 +510,7 @@ const (
 // CISCOBULKFILEMIB_Cbfstatusfiletable
 // A table of bulk file status.
 type CISCOBULKFILEMIB_Cbfstatusfiletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Status for a particular file.  An entry exists in this table for each time
@@ -792,63 +523,24 @@ type CISCOBULKFILEMIB_Cbfstatusfiletable struct {
     Cbfstatusfileentry []CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry
 }
 
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetFilter() yfilter.YFilter { return cbfstatusfiletable.YFilter }
+func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetEntityData() *types.CommonEntityData {
+    cbfstatusfiletable.EntityData.YFilter = cbfstatusfiletable.YFilter
+    cbfstatusfiletable.EntityData.YangName = "cbfStatusFileTable"
+    cbfstatusfiletable.EntityData.BundleName = "cisco_ios_xe"
+    cbfstatusfiletable.EntityData.ParentYangName = "CISCO-BULK-FILE-MIB"
+    cbfstatusfiletable.EntityData.SegmentPath = "cbfStatusFileTable"
+    cbfstatusfiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfstatusfiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfstatusfiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) SetFilter(yf yfilter.YFilter) { cbfstatusfiletable.YFilter = yf }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetGoName(yname string) string {
-    if yname == "cbfStatusFileEntry" { return "Cbfstatusfileentry" }
-    return ""
-}
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetSegmentPath() string {
-    return "cbfStatusFileTable"
-}
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cbfStatusFileEntry" {
-        for _, c := range cbfstatusfiletable.Cbfstatusfileentry {
-            if cbfstatusfiletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry{}
-        cbfstatusfiletable.Cbfstatusfileentry = append(cbfstatusfiletable.Cbfstatusfileentry, child)
-        return &cbfstatusfiletable.Cbfstatusfileentry[len(cbfstatusfiletable.Cbfstatusfileentry)-1]
-    }
-    return nil
-}
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cbfstatusfiletable.EntityData.Children = make(map[string]types.YChild)
+    cbfstatusfiletable.EntityData.Children["cbfStatusFileEntry"] = types.YChild{"Cbfstatusfileentry", nil}
     for i := range cbfstatusfiletable.Cbfstatusfileentry {
-        children[cbfstatusfiletable.Cbfstatusfileentry[i].GetSegmentPath()] = &cbfstatusfiletable.Cbfstatusfileentry[i]
+        cbfstatusfiletable.EntityData.Children[types.GetSegmentPath(&cbfstatusfiletable.Cbfstatusfileentry[i])] = types.YChild{"Cbfstatusfileentry", &cbfstatusfiletable.Cbfstatusfileentry[i]}
     }
-    return children
+    cbfstatusfiletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cbfstatusfiletable.EntityData)
 }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetYangName() string { return "cbfStatusFileTable" }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) SetParent(parent types.Entity) { cbfstatusfiletable.parent = parent }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetParent() types.Entity { return cbfstatusfiletable.parent }
-
-func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetParentYangName() string { return "CISCO-BULK-FILE-MIB" }
 
 // CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry
 // Status for a particular file.
@@ -864,7 +556,7 @@ func (cbfstatusfiletable *CISCOBULKFILEMIB_Cbfstatusfiletable) GetParentYangName
 // It is implementation and file-system specific whether deleting
 // the entry also deletes the file.
 type CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..4294967295.
@@ -900,59 +592,25 @@ type CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry struct {
     Cbfstatusfileentrystatus interface{}
 }
 
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetFilter() yfilter.YFilter { return cbfstatusfileentry.YFilter }
+func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetEntityData() *types.CommonEntityData {
+    cbfstatusfileentry.EntityData.YFilter = cbfstatusfileentry.YFilter
+    cbfstatusfileentry.EntityData.YangName = "cbfStatusFileEntry"
+    cbfstatusfileentry.EntityData.BundleName = "cisco_ios_xe"
+    cbfstatusfileentry.EntityData.ParentYangName = "cbfStatusFileTable"
+    cbfstatusfileentry.EntityData.SegmentPath = "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfstatusfileentry.Cbfdefinefileindex) + "']" + "[cbfStatusFileIndex='" + fmt.Sprintf("%v", cbfstatusfileentry.Cbfstatusfileindex) + "']"
+    cbfstatusfileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cbfstatusfileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cbfstatusfileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) SetFilter(yf yfilter.YFilter) { cbfstatusfileentry.YFilter = yf }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetGoName(yname string) string {
-    if yname == "cbfDefineFileIndex" { return "Cbfdefinefileindex" }
-    if yname == "cbfStatusFileIndex" { return "Cbfstatusfileindex" }
-    if yname == "cbfStatusFileState" { return "Cbfstatusfilestate" }
-    if yname == "cbfStatusFileCompletionTime" { return "Cbfstatusfilecompletiontime" }
-    if yname == "cbfStatusFileEntryStatus" { return "Cbfstatusfileentrystatus" }
-    return ""
+    cbfstatusfileentry.EntityData.Children = make(map[string]types.YChild)
+    cbfstatusfileentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cbfstatusfileentry.EntityData.Leafs["cbfDefineFileIndex"] = types.YLeaf{"Cbfdefinefileindex", cbfstatusfileentry.Cbfdefinefileindex}
+    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileIndex"] = types.YLeaf{"Cbfstatusfileindex", cbfstatusfileentry.Cbfstatusfileindex}
+    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileState"] = types.YLeaf{"Cbfstatusfilestate", cbfstatusfileentry.Cbfstatusfilestate}
+    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileCompletionTime"] = types.YLeaf{"Cbfstatusfilecompletiontime", cbfstatusfileentry.Cbfstatusfilecompletiontime}
+    cbfstatusfileentry.EntityData.Leafs["cbfStatusFileEntryStatus"] = types.YLeaf{"Cbfstatusfileentrystatus", cbfstatusfileentry.Cbfstatusfileentrystatus}
+    return &(cbfstatusfileentry.EntityData)
 }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetSegmentPath() string {
-    return "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + fmt.Sprintf("%v", cbfstatusfileentry.Cbfdefinefileindex) + "']" + "[cbfStatusFileIndex='" + fmt.Sprintf("%v", cbfstatusfileentry.Cbfstatusfileindex) + "']"
-}
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cbfDefineFileIndex"] = cbfstatusfileentry.Cbfdefinefileindex
-    leafs["cbfStatusFileIndex"] = cbfstatusfileentry.Cbfstatusfileindex
-    leafs["cbfStatusFileState"] = cbfstatusfileentry.Cbfstatusfilestate
-    leafs["cbfStatusFileCompletionTime"] = cbfstatusfileentry.Cbfstatusfilecompletiontime
-    leafs["cbfStatusFileEntryStatus"] = cbfstatusfileentry.Cbfstatusfileentrystatus
-    return leafs
-}
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetYangName() string { return "cbfStatusFileEntry" }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) SetParent(parent types.Entity) { cbfstatusfileentry.parent = parent }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetParent() types.Entity { return cbfstatusfileentry.parent }
-
-func (cbfstatusfileentry *CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry) GetParentYangName() string { return "cbfStatusFileTable" }
 
 // CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate represents and file-syste specific.
 type CISCOBULKFILEMIB_Cbfstatusfiletable_Cbfstatusfileentry_Cbfstatusfilestate string

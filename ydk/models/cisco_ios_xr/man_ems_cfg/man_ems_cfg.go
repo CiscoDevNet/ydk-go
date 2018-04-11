@@ -27,7 +27,7 @@ func init() {
 // Grpc
 // GRPC configruation
 type Grpc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Server listening port. The type is interface{} with range: 10000..57999.
@@ -57,132 +57,59 @@ type Grpc struct {
     Tls Grpc_Tls
 }
 
-func (grpc *Grpc) GetFilter() yfilter.YFilter { return grpc.YFilter }
+func (grpc *Grpc) GetEntityData() *types.CommonEntityData {
+    grpc.EntityData.YFilter = grpc.YFilter
+    grpc.EntityData.YangName = "grpc"
+    grpc.EntityData.BundleName = "cisco_ios_xr"
+    grpc.EntityData.ParentYangName = "Cisco-IOS-XR-man-ems-cfg"
+    grpc.EntityData.SegmentPath = "Cisco-IOS-XR-man-ems-cfg:grpc"
+    grpc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    grpc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    grpc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (grpc *Grpc) SetFilter(yf yfilter.YFilter) { grpc.YFilter = yf }
-
-func (grpc *Grpc) GetGoName(yname string) string {
-    if yname == "port" { return "Port" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "enable" { return "Enable" }
-    if yname == "max-request-per-user" { return "MaxRequestPerUser" }
-    if yname == "address-family" { return "AddressFamily" }
-    if yname == "max-request-total" { return "MaxRequestTotal" }
-    if yname == "service-layer" { return "ServiceLayer" }
-    if yname == "tls" { return "Tls" }
-    return ""
+    grpc.EntityData.Children = make(map[string]types.YChild)
+    grpc.EntityData.Children["service-layer"] = types.YChild{"ServiceLayer", &grpc.ServiceLayer}
+    grpc.EntityData.Children["tls"] = types.YChild{"Tls", &grpc.Tls}
+    grpc.EntityData.Leafs = make(map[string]types.YLeaf)
+    grpc.EntityData.Leafs["port"] = types.YLeaf{"Port", grpc.Port}
+    grpc.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", grpc.Vrf}
+    grpc.EntityData.Leafs["enable"] = types.YLeaf{"Enable", grpc.Enable}
+    grpc.EntityData.Leafs["max-request-per-user"] = types.YLeaf{"MaxRequestPerUser", grpc.MaxRequestPerUser}
+    grpc.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", grpc.AddressFamily}
+    grpc.EntityData.Leafs["max-request-total"] = types.YLeaf{"MaxRequestTotal", grpc.MaxRequestTotal}
+    return &(grpc.EntityData)
 }
-
-func (grpc *Grpc) GetSegmentPath() string {
-    return "Cisco-IOS-XR-man-ems-cfg:grpc"
-}
-
-func (grpc *Grpc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-layer" {
-        return &grpc.ServiceLayer
-    }
-    if childYangName == "tls" {
-        return &grpc.Tls
-    }
-    return nil
-}
-
-func (grpc *Grpc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-layer"] = &grpc.ServiceLayer
-    children["tls"] = &grpc.Tls
-    return children
-}
-
-func (grpc *Grpc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["port"] = grpc.Port
-    leafs["vrf"] = grpc.Vrf
-    leafs["enable"] = grpc.Enable
-    leafs["max-request-per-user"] = grpc.MaxRequestPerUser
-    leafs["address-family"] = grpc.AddressFamily
-    leafs["max-request-total"] = grpc.MaxRequestTotal
-    return leafs
-}
-
-func (grpc *Grpc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (grpc *Grpc) GetYangName() string { return "grpc" }
-
-func (grpc *Grpc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (grpc *Grpc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (grpc *Grpc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (grpc *Grpc) SetParent(parent types.Entity) { grpc.parent = parent }
-
-func (grpc *Grpc) GetParent() types.Entity { return grpc.parent }
-
-func (grpc *Grpc) GetParentYangName() string { return "Cisco-IOS-XR-man-ems-cfg" }
 
 // Grpc_ServiceLayer
 // Service Layer
 type Grpc_ServiceLayer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable ServiceLayer. The type is interface{}.
     Enable interface{}
 }
 
-func (serviceLayer *Grpc_ServiceLayer) GetFilter() yfilter.YFilter { return serviceLayer.YFilter }
+func (serviceLayer *Grpc_ServiceLayer) GetEntityData() *types.CommonEntityData {
+    serviceLayer.EntityData.YFilter = serviceLayer.YFilter
+    serviceLayer.EntityData.YangName = "service-layer"
+    serviceLayer.EntityData.BundleName = "cisco_ios_xr"
+    serviceLayer.EntityData.ParentYangName = "grpc"
+    serviceLayer.EntityData.SegmentPath = "service-layer"
+    serviceLayer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceLayer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceLayer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serviceLayer *Grpc_ServiceLayer) SetFilter(yf yfilter.YFilter) { serviceLayer.YFilter = yf }
-
-func (serviceLayer *Grpc_ServiceLayer) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    serviceLayer.EntityData.Children = make(map[string]types.YChild)
+    serviceLayer.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceLayer.EntityData.Leafs["enable"] = types.YLeaf{"Enable", serviceLayer.Enable}
+    return &(serviceLayer.EntityData)
 }
-
-func (serviceLayer *Grpc_ServiceLayer) GetSegmentPath() string {
-    return "service-layer"
-}
-
-func (serviceLayer *Grpc_ServiceLayer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (serviceLayer *Grpc_ServiceLayer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (serviceLayer *Grpc_ServiceLayer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = serviceLayer.Enable
-    return leafs
-}
-
-func (serviceLayer *Grpc_ServiceLayer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serviceLayer *Grpc_ServiceLayer) GetYangName() string { return "service-layer" }
-
-func (serviceLayer *Grpc_ServiceLayer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serviceLayer *Grpc_ServiceLayer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serviceLayer *Grpc_ServiceLayer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serviceLayer *Grpc_ServiceLayer) SetParent(parent types.Entity) { serviceLayer.parent = parent }
-
-func (serviceLayer *Grpc_ServiceLayer) GetParent() types.Entity { return serviceLayer.parent }
-
-func (serviceLayer *Grpc_ServiceLayer) GetParentYangName() string { return "grpc" }
 
 // Grpc_Tls
 // Transport Layer Security (TLS)
 type Grpc_Tls struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Trustpoint Name. The type is string.
@@ -192,51 +119,20 @@ type Grpc_Tls struct {
     Enable interface{}
 }
 
-func (tls *Grpc_Tls) GetFilter() yfilter.YFilter { return tls.YFilter }
+func (tls *Grpc_Tls) GetEntityData() *types.CommonEntityData {
+    tls.EntityData.YFilter = tls.YFilter
+    tls.EntityData.YangName = "tls"
+    tls.EntityData.BundleName = "cisco_ios_xr"
+    tls.EntityData.ParentYangName = "grpc"
+    tls.EntityData.SegmentPath = "tls"
+    tls.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tls.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tls.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tls *Grpc_Tls) SetFilter(yf yfilter.YFilter) { tls.YFilter = yf }
-
-func (tls *Grpc_Tls) GetGoName(yname string) string {
-    if yname == "trustpoint" { return "Trustpoint" }
-    if yname == "enable" { return "Enable" }
-    return ""
+    tls.EntityData.Children = make(map[string]types.YChild)
+    tls.EntityData.Leafs = make(map[string]types.YLeaf)
+    tls.EntityData.Leafs["trustpoint"] = types.YLeaf{"Trustpoint", tls.Trustpoint}
+    tls.EntityData.Leafs["enable"] = types.YLeaf{"Enable", tls.Enable}
+    return &(tls.EntityData)
 }
-
-func (tls *Grpc_Tls) GetSegmentPath() string {
-    return "tls"
-}
-
-func (tls *Grpc_Tls) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tls *Grpc_Tls) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tls *Grpc_Tls) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["trustpoint"] = tls.Trustpoint
-    leafs["enable"] = tls.Enable
-    return leafs
-}
-
-func (tls *Grpc_Tls) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tls *Grpc_Tls) GetYangName() string { return "tls" }
-
-func (tls *Grpc_Tls) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tls *Grpc_Tls) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tls *Grpc_Tls) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tls *Grpc_Tls) SetParent(parent types.Entity) { tls.parent = parent }
-
-func (tls *Grpc_Tls) GetParent() types.Entity { return tls.parent }
-
-func (tls *Grpc_Tls) GetParentYangName() string { return "grpc" }
 

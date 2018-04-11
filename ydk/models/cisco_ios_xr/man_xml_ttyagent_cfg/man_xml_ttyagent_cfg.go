@@ -30,70 +30,37 @@ func init() {
 // XrXml
 // XML
 type XrXml struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // XML agent.
     Agent XrXml_Agent
 }
 
-func (xrXml *XrXml) GetFilter() yfilter.YFilter { return xrXml.YFilter }
+func (xrXml *XrXml) GetEntityData() *types.CommonEntityData {
+    xrXml.EntityData.YFilter = xrXml.YFilter
+    xrXml.EntityData.YangName = "xr-xml"
+    xrXml.EntityData.BundleName = "cisco_ios_xr"
+    xrXml.EntityData.ParentYangName = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
+    xrXml.EntityData.SegmentPath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml"
+    xrXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    xrXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    xrXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (xrXml *XrXml) SetFilter(yf yfilter.YFilter) { xrXml.YFilter = yf }
-
-func (xrXml *XrXml) GetGoName(yname string) string {
-    if yname == "agent" { return "Agent" }
-    return ""
+    xrXml.EntityData.Children = make(map[string]types.YChild)
+    xrXml.EntityData.Children["agent"] = types.YChild{"Agent", &xrXml.Agent}
+    xrXml.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(xrXml.EntityData)
 }
-
-func (xrXml *XrXml) GetSegmentPath() string {
-    return "Cisco-IOS-XR-man-xml-ttyagent-cfg:xr-xml"
-}
-
-func (xrXml *XrXml) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "agent" {
-        return &xrXml.Agent
-    }
-    return nil
-}
-
-func (xrXml *XrXml) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["agent"] = &xrXml.Agent
-    return children
-}
-
-func (xrXml *XrXml) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (xrXml *XrXml) GetBundleName() string { return "cisco_ios_xr" }
-
-func (xrXml *XrXml) GetYangName() string { return "xr-xml" }
-
-func (xrXml *XrXml) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (xrXml *XrXml) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (xrXml *XrXml) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (xrXml *XrXml) SetParent(parent types.Entity) { xrXml.parent = parent }
-
-func (xrXml *XrXml) GetParent() types.Entity { return xrXml.parent }
-
-func (xrXml *XrXml) GetParentYangName() string { return "Cisco-IOS-XR-man-xml-ttyagent-cfg" }
 
 // XrXml_Agent
 // XML agent
 type XrXml_Agent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // XML default dedicated agent.
-    Default XrXml_Agent_Default
+    Default_ XrXml_Agent_Default
 
     // XML TTY agent.
     Tty XrXml_Agent_Tty
@@ -102,69 +69,28 @@ type XrXml_Agent struct {
     Ssl XrXml_Agent_Ssl
 }
 
-func (agent *XrXml_Agent) GetFilter() yfilter.YFilter { return agent.YFilter }
+func (agent *XrXml_Agent) GetEntityData() *types.CommonEntityData {
+    agent.EntityData.YFilter = agent.YFilter
+    agent.EntityData.YangName = "agent"
+    agent.EntityData.BundleName = "cisco_ios_xr"
+    agent.EntityData.ParentYangName = "xr-xml"
+    agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (agent *XrXml_Agent) SetFilter(yf yfilter.YFilter) { agent.YFilter = yf }
-
-func (agent *XrXml_Agent) GetGoName(yname string) string {
-    if yname == "default" { return "Default" }
-    if yname == "tty" { return "Tty" }
-    if yname == "ssl" { return "Ssl" }
-    return ""
+    agent.EntityData.Children = make(map[string]types.YChild)
+    agent.EntityData.Children["default"] = types.YChild{"Default_", &agent.Default_}
+    agent.EntityData.Children["tty"] = types.YChild{"Tty", &agent.Tty}
+    agent.EntityData.Children["ssl"] = types.YChild{"Ssl", &agent.Ssl}
+    agent.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(agent.EntityData)
 }
-
-func (agent *XrXml_Agent) GetSegmentPath() string {
-    return "agent"
-}
-
-func (agent *XrXml_Agent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "default" {
-        return &agent.Default
-    }
-    if childYangName == "tty" {
-        return &agent.Tty
-    }
-    if childYangName == "ssl" {
-        return &agent.Ssl
-    }
-    return nil
-}
-
-func (agent *XrXml_Agent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["default"] = &agent.Default
-    children["tty"] = &agent.Tty
-    children["ssl"] = &agent.Ssl
-    return children
-}
-
-func (agent *XrXml_Agent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (agent *XrXml_Agent) GetBundleName() string { return "cisco_ios_xr" }
-
-func (agent *XrXml_Agent) GetYangName() string { return "agent" }
-
-func (agent *XrXml_Agent) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (agent *XrXml_Agent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (agent *XrXml_Agent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (agent *XrXml_Agent) SetParent(parent types.Entity) { agent.parent = parent }
-
-func (agent *XrXml_Agent) GetParent() types.Entity { return agent.parent }
-
-func (agent *XrXml_Agent) GetParentYangName() string { return "xr-xml" }
 
 // XrXml_Agent_Default
 // XML default dedicated agent
 type XrXml_Agent_Default struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Transport State. The type is bool.
@@ -195,79 +121,33 @@ type XrXml_Agent_Default struct {
     Vrfs XrXml_Agent_Default_Vrfs
 }
 
-func (self *XrXml_Agent_Default) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *XrXml_Agent_Default) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "default"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "agent"
+    self.EntityData.SegmentPath = "default"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *XrXml_Agent_Default) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *XrXml_Agent_Default) GetGoName(yname string) string {
-    if yname == "ipv6-enable" { return "Ipv6Enable" }
-    if yname == "ipv4-disable" { return "Ipv4Disable" }
-    if yname == "iteration-size" { return "IterationSize" }
-    if yname == "enable" { return "Enable" }
-    if yname == "streaming-size" { return "StreamingSize" }
-    if yname == "session" { return "Session" }
-    if yname == "throttle" { return "Throttle" }
-    if yname == "vrfs" { return "Vrfs" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["session"] = types.YChild{"Session", &self.Session}
+    self.EntityData.Children["throttle"] = types.YChild{"Throttle", &self.Throttle}
+    self.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &self.Vrfs}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["ipv6-enable"] = types.YLeaf{"Ipv6Enable", self.Ipv6Enable}
+    self.EntityData.Leafs["ipv4-disable"] = types.YLeaf{"Ipv4Disable", self.Ipv4Disable}
+    self.EntityData.Leafs["iteration-size"] = types.YLeaf{"IterationSize", self.IterationSize}
+    self.EntityData.Leafs["enable"] = types.YLeaf{"Enable", self.Enable}
+    self.EntityData.Leafs["streaming-size"] = types.YLeaf{"StreamingSize", self.StreamingSize}
+    return &(self.EntityData)
 }
-
-func (self *XrXml_Agent_Default) GetSegmentPath() string {
-    return "default"
-}
-
-func (self *XrXml_Agent_Default) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        return &self.Session
-    }
-    if childYangName == "throttle" {
-        return &self.Throttle
-    }
-    if childYangName == "vrfs" {
-        return &self.Vrfs
-    }
-    return nil
-}
-
-func (self *XrXml_Agent_Default) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session"] = &self.Session
-    children["throttle"] = &self.Throttle
-    children["vrfs"] = &self.Vrfs
-    return children
-}
-
-func (self *XrXml_Agent_Default) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-enable"] = self.Ipv6Enable
-    leafs["ipv4-disable"] = self.Ipv4Disable
-    leafs["iteration-size"] = self.IterationSize
-    leafs["enable"] = self.Enable
-    leafs["streaming-size"] = self.StreamingSize
-    return leafs
-}
-
-func (self *XrXml_Agent_Default) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *XrXml_Agent_Default) GetYangName() string { return "default" }
-
-func (self *XrXml_Agent_Default) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *XrXml_Agent_Default) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *XrXml_Agent_Default) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *XrXml_Agent_Default) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *XrXml_Agent_Default) GetParent() types.Entity { return self.parent }
-
-func (self *XrXml_Agent_Default) GetParentYangName() string { return "agent" }
 
 // XrXml_Agent_Default_Session
 // Session attributes
 type XrXml_Agent_Default_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timeout in minutes. The type is interface{} with range: 1..1440. Units are
@@ -275,56 +155,26 @@ type XrXml_Agent_Default_Session struct {
     Timeout interface{}
 }
 
-func (session *XrXml_Agent_Default_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *XrXml_Agent_Default_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "default"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *XrXml_Agent_Default_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *XrXml_Agent_Default_Session) GetGoName(yname string) string {
-    if yname == "timeout" { return "Timeout" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    return &(session.EntityData)
 }
-
-func (session *XrXml_Agent_Default_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *XrXml_Agent_Default_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *XrXml_Agent_Default_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *XrXml_Agent_Default_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout"] = session.Timeout
-    return leafs
-}
-
-func (session *XrXml_Agent_Default_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *XrXml_Agent_Default_Session) GetYangName() string { return "session" }
-
-func (session *XrXml_Agent_Default_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *XrXml_Agent_Default_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *XrXml_Agent_Default_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *XrXml_Agent_Default_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *XrXml_Agent_Default_Session) GetParent() types.Entity { return session.parent }
-
-func (session *XrXml_Agent_Default_Session) GetParentYangName() string { return "default" }
 
 // XrXml_Agent_Default_Throttle
 // XML agent throttling
 type XrXml_Agent_Default_Throttle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Process rate in number of XML tags per second. The type is interface{} with
@@ -332,130 +182,60 @@ type XrXml_Agent_Default_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
-func (throttle *XrXml_Agent_Default_Throttle) GetFilter() yfilter.YFilter { return throttle.YFilter }
+func (throttle *XrXml_Agent_Default_Throttle) GetEntityData() *types.CommonEntityData {
+    throttle.EntityData.YFilter = throttle.YFilter
+    throttle.EntityData.YangName = "throttle"
+    throttle.EntityData.BundleName = "cisco_ios_xr"
+    throttle.EntityData.ParentYangName = "default"
+    throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttle *XrXml_Agent_Default_Throttle) SetFilter(yf yfilter.YFilter) { throttle.YFilter = yf }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetGoName(yname string) string {
-    if yname == "process-rate" { return "ProcessRate" }
-    if yname == "memory" { return "Memory" }
-    return ""
+    throttle.EntityData.Children = make(map[string]types.YChild)
+    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
+    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    return &(throttle.EntityData)
 }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetSegmentPath() string {
-    return "throttle"
-}
-
-func (throttle *XrXml_Agent_Default_Throttle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttle *XrXml_Agent_Default_Throttle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttle *XrXml_Agent_Default_Throttle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["process-rate"] = throttle.ProcessRate
-    leafs["memory"] = throttle.Memory
-    return leafs
-}
-
-func (throttle *XrXml_Agent_Default_Throttle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetYangName() string { return "throttle" }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttle *XrXml_Agent_Default_Throttle) SetParent(parent types.Entity) { throttle.parent = parent }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetParent() types.Entity { return throttle.parent }
-
-func (throttle *XrXml_Agent_Default_Throttle) GetParentYangName() string { return "default" }
 
 // XrXml_Agent_Default_Vrfs
 // List of VRFs
 type XrXml_Agent_Default_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A specific VRF. The type is slice of XrXml_Agent_Default_Vrfs_Vrf.
     Vrf []XrXml_Agent_Default_Vrfs_Vrf
 }
 
-func (vrfs *XrXml_Agent_Default_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *XrXml_Agent_Default_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "default"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *XrXml_Agent_Default_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := XrXml_Agent_Default_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *XrXml_Agent_Default_Vrfs) GetParentYangName() string { return "default" }
 
 // XrXml_Agent_Default_Vrfs_Vrf
 // A specific VRF
 type XrXml_Agent_Default_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
@@ -475,64 +255,30 @@ type XrXml_Agent_Default_Vrfs_Vrf struct {
     Shutdown interface{}
 }
 
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "ipv6-access-list" { return "Ipv6AccessList" }
-    if yname == "ipv4-access-list" { return "Ipv4AccessList" }
-    if yname == "access-list" { return "AccessList" }
-    if yname == "shutdown" { return "Shutdown" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Leafs["ipv6-access-list"] = types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList}
+    vrf.EntityData.Leafs["ipv4-access-list"] = types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList}
+    vrf.EntityData.Leafs["access-list"] = types.YLeaf{"AccessList", vrf.AccessList}
+    vrf.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", vrf.Shutdown}
+    return &(vrf.EntityData)
 }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    leafs["ipv6-access-list"] = vrf.Ipv6AccessList
-    leafs["ipv4-access-list"] = vrf.Ipv4AccessList
-    leafs["access-list"] = vrf.AccessList
-    leafs["shutdown"] = vrf.Shutdown
-    return leafs
-}
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *XrXml_Agent_Default_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // XrXml_Agent_Tty
 // XML TTY agent
 type XrXml_Agent_Tty struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Iterator size, in KBytes, of the XML response. Specify 0 to turn off the
@@ -554,70 +300,30 @@ type XrXml_Agent_Tty struct {
     Throttle XrXml_Agent_Tty_Throttle
 }
 
-func (tty *XrXml_Agent_Tty) GetFilter() yfilter.YFilter { return tty.YFilter }
+func (tty *XrXml_Agent_Tty) GetEntityData() *types.CommonEntityData {
+    tty.EntityData.YFilter = tty.YFilter
+    tty.EntityData.YangName = "tty"
+    tty.EntityData.BundleName = "cisco_ios_xr"
+    tty.EntityData.ParentYangName = "agent"
+    tty.EntityData.SegmentPath = "tty"
+    tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tty *XrXml_Agent_Tty) SetFilter(yf yfilter.YFilter) { tty.YFilter = yf }
-
-func (tty *XrXml_Agent_Tty) GetGoName(yname string) string {
-    if yname == "iteration-size" { return "IterationSize" }
-    if yname == "enable" { return "Enable" }
-    if yname == "streaming-size" { return "StreamingSize" }
-    if yname == "session" { return "Session" }
-    if yname == "throttle" { return "Throttle" }
-    return ""
+    tty.EntityData.Children = make(map[string]types.YChild)
+    tty.EntityData.Children["session"] = types.YChild{"Session", &tty.Session}
+    tty.EntityData.Children["throttle"] = types.YChild{"Throttle", &tty.Throttle}
+    tty.EntityData.Leafs = make(map[string]types.YLeaf)
+    tty.EntityData.Leafs["iteration-size"] = types.YLeaf{"IterationSize", tty.IterationSize}
+    tty.EntityData.Leafs["enable"] = types.YLeaf{"Enable", tty.Enable}
+    tty.EntityData.Leafs["streaming-size"] = types.YLeaf{"StreamingSize", tty.StreamingSize}
+    return &(tty.EntityData)
 }
-
-func (tty *XrXml_Agent_Tty) GetSegmentPath() string {
-    return "tty"
-}
-
-func (tty *XrXml_Agent_Tty) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        return &tty.Session
-    }
-    if childYangName == "throttle" {
-        return &tty.Throttle
-    }
-    return nil
-}
-
-func (tty *XrXml_Agent_Tty) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session"] = &tty.Session
-    children["throttle"] = &tty.Throttle
-    return children
-}
-
-func (tty *XrXml_Agent_Tty) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["iteration-size"] = tty.IterationSize
-    leafs["enable"] = tty.Enable
-    leafs["streaming-size"] = tty.StreamingSize
-    return leafs
-}
-
-func (tty *XrXml_Agent_Tty) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tty *XrXml_Agent_Tty) GetYangName() string { return "tty" }
-
-func (tty *XrXml_Agent_Tty) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tty *XrXml_Agent_Tty) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tty *XrXml_Agent_Tty) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tty *XrXml_Agent_Tty) SetParent(parent types.Entity) { tty.parent = parent }
-
-func (tty *XrXml_Agent_Tty) GetParent() types.Entity { return tty.parent }
-
-func (tty *XrXml_Agent_Tty) GetParentYangName() string { return "agent" }
 
 // XrXml_Agent_Tty_Session
 // Session attributes
 type XrXml_Agent_Tty_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timeout in minutes. The type is interface{} with range: 1..1440. Units are
@@ -625,56 +331,26 @@ type XrXml_Agent_Tty_Session struct {
     Timeout interface{}
 }
 
-func (session *XrXml_Agent_Tty_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *XrXml_Agent_Tty_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "tty"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *XrXml_Agent_Tty_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *XrXml_Agent_Tty_Session) GetGoName(yname string) string {
-    if yname == "timeout" { return "Timeout" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    return &(session.EntityData)
 }
-
-func (session *XrXml_Agent_Tty_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *XrXml_Agent_Tty_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *XrXml_Agent_Tty_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *XrXml_Agent_Tty_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout"] = session.Timeout
-    return leafs
-}
-
-func (session *XrXml_Agent_Tty_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *XrXml_Agent_Tty_Session) GetYangName() string { return "session" }
-
-func (session *XrXml_Agent_Tty_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *XrXml_Agent_Tty_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *XrXml_Agent_Tty_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *XrXml_Agent_Tty_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *XrXml_Agent_Tty_Session) GetParent() types.Entity { return session.parent }
-
-func (session *XrXml_Agent_Tty_Session) GetParentYangName() string { return "tty" }
 
 // XrXml_Agent_Tty_Throttle
 // XML agent throttling
 type XrXml_Agent_Tty_Throttle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Process rate in number of XML tags per second. The type is interface{} with
@@ -682,62 +358,31 @@ type XrXml_Agent_Tty_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
-func (throttle *XrXml_Agent_Tty_Throttle) GetFilter() yfilter.YFilter { return throttle.YFilter }
+func (throttle *XrXml_Agent_Tty_Throttle) GetEntityData() *types.CommonEntityData {
+    throttle.EntityData.YFilter = throttle.YFilter
+    throttle.EntityData.YangName = "throttle"
+    throttle.EntityData.BundleName = "cisco_ios_xr"
+    throttle.EntityData.ParentYangName = "tty"
+    throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttle *XrXml_Agent_Tty_Throttle) SetFilter(yf yfilter.YFilter) { throttle.YFilter = yf }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetGoName(yname string) string {
-    if yname == "process-rate" { return "ProcessRate" }
-    if yname == "memory" { return "Memory" }
-    return ""
+    throttle.EntityData.Children = make(map[string]types.YChild)
+    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
+    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    return &(throttle.EntityData)
 }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetSegmentPath() string {
-    return "throttle"
-}
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["process-rate"] = throttle.ProcessRate
-    leafs["memory"] = throttle.Memory
-    return leafs
-}
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetYangName() string { return "throttle" }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttle *XrXml_Agent_Tty_Throttle) SetParent(parent types.Entity) { throttle.parent = parent }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetParent() types.Entity { return throttle.parent }
-
-func (throttle *XrXml_Agent_Tty_Throttle) GetParentYangName() string { return "tty" }
 
 // XrXml_Agent_Ssl
 // XML SSL agent
 type XrXml_Agent_Ssl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Iterator size, in KBytes, of the XML response. Specify 0 to turn off the
@@ -762,75 +407,31 @@ type XrXml_Agent_Ssl struct {
     Vrfs XrXml_Agent_Ssl_Vrfs
 }
 
-func (ssl *XrXml_Agent_Ssl) GetFilter() yfilter.YFilter { return ssl.YFilter }
+func (ssl *XrXml_Agent_Ssl) GetEntityData() *types.CommonEntityData {
+    ssl.EntityData.YFilter = ssl.YFilter
+    ssl.EntityData.YangName = "ssl"
+    ssl.EntityData.BundleName = "cisco_ios_xr"
+    ssl.EntityData.ParentYangName = "agent"
+    ssl.EntityData.SegmentPath = "ssl"
+    ssl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ssl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ssl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ssl *XrXml_Agent_Ssl) SetFilter(yf yfilter.YFilter) { ssl.YFilter = yf }
-
-func (ssl *XrXml_Agent_Ssl) GetGoName(yname string) string {
-    if yname == "iteration-size" { return "IterationSize" }
-    if yname == "enable" { return "Enable" }
-    if yname == "streaming-size" { return "StreamingSize" }
-    if yname == "session" { return "Session" }
-    if yname == "throttle" { return "Throttle" }
-    if yname == "vrfs" { return "Vrfs" }
-    return ""
+    ssl.EntityData.Children = make(map[string]types.YChild)
+    ssl.EntityData.Children["session"] = types.YChild{"Session", &ssl.Session}
+    ssl.EntityData.Children["throttle"] = types.YChild{"Throttle", &ssl.Throttle}
+    ssl.EntityData.Children["vrfs"] = types.YChild{"Vrfs", &ssl.Vrfs}
+    ssl.EntityData.Leafs = make(map[string]types.YLeaf)
+    ssl.EntityData.Leafs["iteration-size"] = types.YLeaf{"IterationSize", ssl.IterationSize}
+    ssl.EntityData.Leafs["enable"] = types.YLeaf{"Enable", ssl.Enable}
+    ssl.EntityData.Leafs["streaming-size"] = types.YLeaf{"StreamingSize", ssl.StreamingSize}
+    return &(ssl.EntityData)
 }
-
-func (ssl *XrXml_Agent_Ssl) GetSegmentPath() string {
-    return "ssl"
-}
-
-func (ssl *XrXml_Agent_Ssl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "session" {
-        return &ssl.Session
-    }
-    if childYangName == "throttle" {
-        return &ssl.Throttle
-    }
-    if childYangName == "vrfs" {
-        return &ssl.Vrfs
-    }
-    return nil
-}
-
-func (ssl *XrXml_Agent_Ssl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["session"] = &ssl.Session
-    children["throttle"] = &ssl.Throttle
-    children["vrfs"] = &ssl.Vrfs
-    return children
-}
-
-func (ssl *XrXml_Agent_Ssl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["iteration-size"] = ssl.IterationSize
-    leafs["enable"] = ssl.Enable
-    leafs["streaming-size"] = ssl.StreamingSize
-    return leafs
-}
-
-func (ssl *XrXml_Agent_Ssl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ssl *XrXml_Agent_Ssl) GetYangName() string { return "ssl" }
-
-func (ssl *XrXml_Agent_Ssl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ssl *XrXml_Agent_Ssl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ssl *XrXml_Agent_Ssl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ssl *XrXml_Agent_Ssl) SetParent(parent types.Entity) { ssl.parent = parent }
-
-func (ssl *XrXml_Agent_Ssl) GetParent() types.Entity { return ssl.parent }
-
-func (ssl *XrXml_Agent_Ssl) GetParentYangName() string { return "agent" }
 
 // XrXml_Agent_Ssl_Session
 // Session attributes
 type XrXml_Agent_Ssl_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timeout in minutes. The type is interface{} with range: 1..1440. Units are
@@ -838,56 +439,26 @@ type XrXml_Agent_Ssl_Session struct {
     Timeout interface{}
 }
 
-func (session *XrXml_Agent_Ssl_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *XrXml_Agent_Ssl_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "ssl"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *XrXml_Agent_Ssl_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *XrXml_Agent_Ssl_Session) GetGoName(yname string) string {
-    if yname == "timeout" { return "Timeout" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    return &(session.EntityData)
 }
-
-func (session *XrXml_Agent_Ssl_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *XrXml_Agent_Ssl_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *XrXml_Agent_Ssl_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *XrXml_Agent_Ssl_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout"] = session.Timeout
-    return leafs
-}
-
-func (session *XrXml_Agent_Ssl_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *XrXml_Agent_Ssl_Session) GetYangName() string { return "session" }
-
-func (session *XrXml_Agent_Ssl_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *XrXml_Agent_Ssl_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *XrXml_Agent_Ssl_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *XrXml_Agent_Ssl_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *XrXml_Agent_Ssl_Session) GetParent() types.Entity { return session.parent }
-
-func (session *XrXml_Agent_Ssl_Session) GetParentYangName() string { return "ssl" }
 
 // XrXml_Agent_Ssl_Throttle
 // XML agent throttling
 type XrXml_Agent_Ssl_Throttle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Process rate in number of XML tags per second. The type is interface{} with
@@ -895,130 +466,60 @@ type XrXml_Agent_Ssl_Throttle struct {
     ProcessRate interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 }
 
-func (throttle *XrXml_Agent_Ssl_Throttle) GetFilter() yfilter.YFilter { return throttle.YFilter }
+func (throttle *XrXml_Agent_Ssl_Throttle) GetEntityData() *types.CommonEntityData {
+    throttle.EntityData.YFilter = throttle.YFilter
+    throttle.EntityData.YangName = "throttle"
+    throttle.EntityData.BundleName = "cisco_ios_xr"
+    throttle.EntityData.ParentYangName = "ssl"
+    throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttle *XrXml_Agent_Ssl_Throttle) SetFilter(yf yfilter.YFilter) { throttle.YFilter = yf }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetGoName(yname string) string {
-    if yname == "process-rate" { return "ProcessRate" }
-    if yname == "memory" { return "Memory" }
-    return ""
+    throttle.EntityData.Children = make(map[string]types.YChild)
+    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
+    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    return &(throttle.EntityData)
 }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetSegmentPath() string {
-    return "throttle"
-}
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["process-rate"] = throttle.ProcessRate
-    leafs["memory"] = throttle.Memory
-    return leafs
-}
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetYangName() string { return "throttle" }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) SetParent(parent types.Entity) { throttle.parent = parent }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetParent() types.Entity { return throttle.parent }
-
-func (throttle *XrXml_Agent_Ssl_Throttle) GetParentYangName() string { return "ssl" }
 
 // XrXml_Agent_Ssl_Vrfs
 // List of VRFs
 type XrXml_Agent_Ssl_Vrfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A specific VRF. The type is slice of XrXml_Agent_Ssl_Vrfs_Vrf.
     Vrf []XrXml_Agent_Ssl_Vrfs_Vrf
 }
 
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetFilter() yfilter.YFilter { return vrfs.YFilter }
+func (vrfs *XrXml_Agent_Ssl_Vrfs) GetEntityData() *types.CommonEntityData {
+    vrfs.EntityData.YFilter = vrfs.YFilter
+    vrfs.EntityData.YangName = "vrfs"
+    vrfs.EntityData.BundleName = "cisco_ios_xr"
+    vrfs.EntityData.ParentYangName = "ssl"
+    vrfs.EntityData.SegmentPath = "vrfs"
+    vrfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfs *XrXml_Agent_Ssl_Vrfs) SetFilter(yf yfilter.YFilter) { vrfs.YFilter = yf }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetSegmentPath() string {
-    return "vrfs"
-}
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfs.Vrf {
-            if vrfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := XrXml_Agent_Ssl_Vrfs_Vrf{}
-        vrfs.Vrf = append(vrfs.Vrf, child)
-        return &vrfs.Vrf[len(vrfs.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfs.EntityData.Children = make(map[string]types.YChild)
+    vrfs.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfs.Vrf {
-        children[vrfs.Vrf[i].GetSegmentPath()] = &vrfs.Vrf[i]
+        vrfs.EntityData.Children[types.GetSegmentPath(&vrfs.Vrf[i])] = types.YChild{"Vrf", &vrfs.Vrf[i]}
     }
-    return children
+    vrfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfs.EntityData)
 }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetYangName() string { return "vrfs" }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) SetParent(parent types.Entity) { vrfs.parent = parent }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetParent() types.Entity { return vrfs.parent }
-
-func (vrfs *XrXml_Agent_Ssl_Vrfs) GetParentYangName() string { return "ssl" }
 
 // XrXml_Agent_Ssl_Vrfs_Vrf
 // A specific VRF
 type XrXml_Agent_Ssl_Vrfs_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with length: 1..32.
@@ -1038,182 +539,82 @@ type XrXml_Agent_Ssl_Vrfs_Vrf struct {
     Shutdown interface{}
 }
 
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrfs"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "ipv6-access-list" { return "Ipv6AccessList" }
-    if yname == "ipv4-access-list" { return "Ipv4AccessList" }
-    if yname == "access-list" { return "AccessList" }
-    if yname == "shutdown" { return "Shutdown" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Leafs["ipv6-access-list"] = types.YLeaf{"Ipv6AccessList", vrf.Ipv6AccessList}
+    vrf.EntityData.Leafs["ipv4-access-list"] = types.YLeaf{"Ipv4AccessList", vrf.Ipv4AccessList}
+    vrf.EntityData.Leafs["access-list"] = types.YLeaf{"AccessList", vrf.AccessList}
+    vrf.EntityData.Leafs["shutdown"] = types.YLeaf{"Shutdown", vrf.Shutdown}
+    return &(vrf.EntityData)
 }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    leafs["ipv6-access-list"] = vrf.Ipv6AccessList
-    leafs["ipv4-access-list"] = vrf.Ipv4AccessList
-    leafs["access-list"] = vrf.AccessList
-    leafs["shutdown"] = vrf.Shutdown
-    return leafs
-}
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *XrXml_Agent_Ssl_Vrfs_Vrf) GetParentYangName() string { return "vrfs" }
 
 // Netconf
 // netconf
 type Netconf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // XML agent.
     Agent Netconf_Agent
 }
 
-func (netconf *Netconf) GetFilter() yfilter.YFilter { return netconf.YFilter }
+func (netconf *Netconf) GetEntityData() *types.CommonEntityData {
+    netconf.EntityData.YFilter = netconf.YFilter
+    netconf.EntityData.YangName = "netconf"
+    netconf.EntityData.BundleName = "cisco_ios_xr"
+    netconf.EntityData.ParentYangName = "Cisco-IOS-XR-man-xml-ttyagent-cfg"
+    netconf.EntityData.SegmentPath = "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf"
+    netconf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    netconf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    netconf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (netconf *Netconf) SetFilter(yf yfilter.YFilter) { netconf.YFilter = yf }
-
-func (netconf *Netconf) GetGoName(yname string) string {
-    if yname == "agent" { return "Agent" }
-    return ""
+    netconf.EntityData.Children = make(map[string]types.YChild)
+    netconf.EntityData.Children["agent"] = types.YChild{"Agent", &netconf.Agent}
+    netconf.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(netconf.EntityData)
 }
-
-func (netconf *Netconf) GetSegmentPath() string {
-    return "Cisco-IOS-XR-man-xml-ttyagent-cfg:netconf"
-}
-
-func (netconf *Netconf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "agent" {
-        return &netconf.Agent
-    }
-    return nil
-}
-
-func (netconf *Netconf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["agent"] = &netconf.Agent
-    return children
-}
-
-func (netconf *Netconf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (netconf *Netconf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (netconf *Netconf) GetYangName() string { return "netconf" }
-
-func (netconf *Netconf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (netconf *Netconf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (netconf *Netconf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (netconf *Netconf) SetParent(parent types.Entity) { netconf.parent = parent }
-
-func (netconf *Netconf) GetParent() types.Entity { return netconf.parent }
-
-func (netconf *Netconf) GetParentYangName() string { return "Cisco-IOS-XR-man-xml-ttyagent-cfg" }
 
 // Netconf_Agent
 // XML agent
 type Netconf_Agent struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // NETCONF agent over TTY.
     Tty Netconf_Agent_Tty
 }
 
-func (agent *Netconf_Agent) GetFilter() yfilter.YFilter { return agent.YFilter }
+func (agent *Netconf_Agent) GetEntityData() *types.CommonEntityData {
+    agent.EntityData.YFilter = agent.YFilter
+    agent.EntityData.YangName = "agent"
+    agent.EntityData.BundleName = "cisco_ios_xr"
+    agent.EntityData.ParentYangName = "netconf"
+    agent.EntityData.SegmentPath = "agent"
+    agent.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    agent.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    agent.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (agent *Netconf_Agent) SetFilter(yf yfilter.YFilter) { agent.YFilter = yf }
-
-func (agent *Netconf_Agent) GetGoName(yname string) string {
-    if yname == "tty" { return "Tty" }
-    return ""
+    agent.EntityData.Children = make(map[string]types.YChild)
+    agent.EntityData.Children["tty"] = types.YChild{"Tty", &agent.Tty}
+    agent.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(agent.EntityData)
 }
-
-func (agent *Netconf_Agent) GetSegmentPath() string {
-    return "agent"
-}
-
-func (agent *Netconf_Agent) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tty" {
-        return &agent.Tty
-    }
-    return nil
-}
-
-func (agent *Netconf_Agent) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tty"] = &agent.Tty
-    return children
-}
-
-func (agent *Netconf_Agent) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (agent *Netconf_Agent) GetBundleName() string { return "cisco_ios_xr" }
-
-func (agent *Netconf_Agent) GetYangName() string { return "agent" }
-
-func (agent *Netconf_Agent) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (agent *Netconf_Agent) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (agent *Netconf_Agent) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (agent *Netconf_Agent) SetParent(parent types.Entity) { agent.parent = parent }
-
-func (agent *Netconf_Agent) GetParent() types.Entity { return agent.parent }
-
-func (agent *Netconf_Agent) GetParentYangName() string { return "netconf" }
 
 // Netconf_Agent_Tty
 // NETCONF agent over TTY
 type Netconf_Agent_Tty struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable specified NETCONF agent. The type is interface{}.
@@ -1226,70 +627,32 @@ type Netconf_Agent_Tty struct {
     Session Netconf_Agent_Tty_Session
 }
 
-func (tty *Netconf_Agent_Tty) GetFilter() yfilter.YFilter { return tty.YFilter }
+func (tty *Netconf_Agent_Tty) GetEntityData() *types.CommonEntityData {
+    tty.EntityData.YFilter = tty.YFilter
+    tty.EntityData.YangName = "tty"
+    tty.EntityData.BundleName = "cisco_ios_xr"
+    tty.EntityData.ParentYangName = "agent"
+    tty.EntityData.SegmentPath = "tty"
+    tty.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tty.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tty.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tty *Netconf_Agent_Tty) SetFilter(yf yfilter.YFilter) { tty.YFilter = yf }
-
-func (tty *Netconf_Agent_Tty) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "throttle" { return "Throttle" }
-    if yname == "session" { return "Session" }
-    return ""
+    tty.EntityData.Children = make(map[string]types.YChild)
+    tty.EntityData.Children["throttle"] = types.YChild{"Throttle", &tty.Throttle}
+    tty.EntityData.Children["session"] = types.YChild{"Session", &tty.Session}
+    tty.EntityData.Leafs = make(map[string]types.YLeaf)
+    tty.EntityData.Leafs["enable"] = types.YLeaf{"Enable", tty.Enable}
+    return &(tty.EntityData)
 }
-
-func (tty *Netconf_Agent_Tty) GetSegmentPath() string {
-    return "tty"
-}
-
-func (tty *Netconf_Agent_Tty) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "throttle" {
-        return &tty.Throttle
-    }
-    if childYangName == "session" {
-        return &tty.Session
-    }
-    return nil
-}
-
-func (tty *Netconf_Agent_Tty) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["throttle"] = &tty.Throttle
-    children["session"] = &tty.Session
-    return children
-}
-
-func (tty *Netconf_Agent_Tty) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = tty.Enable
-    return leafs
-}
-
-func (tty *Netconf_Agent_Tty) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tty *Netconf_Agent_Tty) GetYangName() string { return "tty" }
-
-func (tty *Netconf_Agent_Tty) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tty *Netconf_Agent_Tty) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tty *Netconf_Agent_Tty) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tty *Netconf_Agent_Tty) SetParent(parent types.Entity) { tty.parent = parent }
-
-func (tty *Netconf_Agent_Tty) GetParent() types.Entity { return tty.parent }
-
-func (tty *Netconf_Agent_Tty) GetParentYangName() string { return "agent" }
 
 // Netconf_Agent_Tty_Throttle
 // NETCONF agent throttling
 type Netconf_Agent_Tty_Throttle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
-    // range: 100..600. Units are megabyte. The default value is 300.
+    // range: 100..1024. Units are megabyte. The default value is 300.
     Memory interface{}
 
     // Size of memory usage, in MBytes, per session. The type is interface{} with
@@ -1301,60 +664,28 @@ type Netconf_Agent_Tty_Throttle struct {
     ProcessRate interface{}
 }
 
-func (throttle *Netconf_Agent_Tty_Throttle) GetFilter() yfilter.YFilter { return throttle.YFilter }
+func (throttle *Netconf_Agent_Tty_Throttle) GetEntityData() *types.CommonEntityData {
+    throttle.EntityData.YFilter = throttle.YFilter
+    throttle.EntityData.YangName = "throttle"
+    throttle.EntityData.BundleName = "cisco_ios_xr"
+    throttle.EntityData.ParentYangName = "tty"
+    throttle.EntityData.SegmentPath = "throttle"
+    throttle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    throttle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    throttle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (throttle *Netconf_Agent_Tty_Throttle) SetFilter(yf yfilter.YFilter) { throttle.YFilter = yf }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetGoName(yname string) string {
-    if yname == "memory" { return "Memory" }
-    if yname == "offload-memory" { return "OffloadMemory" }
-    if yname == "process-rate" { return "ProcessRate" }
-    return ""
+    throttle.EntityData.Children = make(map[string]types.YChild)
+    throttle.EntityData.Leafs = make(map[string]types.YLeaf)
+    throttle.EntityData.Leafs["memory"] = types.YLeaf{"Memory", throttle.Memory}
+    throttle.EntityData.Leafs["offload-memory"] = types.YLeaf{"OffloadMemory", throttle.OffloadMemory}
+    throttle.EntityData.Leafs["process-rate"] = types.YLeaf{"ProcessRate", throttle.ProcessRate}
+    return &(throttle.EntityData)
 }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetSegmentPath() string {
-    return "throttle"
-}
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["memory"] = throttle.Memory
-    leafs["offload-memory"] = throttle.OffloadMemory
-    leafs["process-rate"] = throttle.ProcessRate
-    return leafs
-}
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetYangName() string { return "throttle" }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (throttle *Netconf_Agent_Tty_Throttle) SetParent(parent types.Entity) { throttle.parent = parent }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetParent() types.Entity { return throttle.parent }
-
-func (throttle *Netconf_Agent_Tty_Throttle) GetParentYangName() string { return "tty" }
 
 // Netconf_Agent_Tty_Session
 // Session attributes
 type Netconf_Agent_Tty_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timeout in minutes. The type is interface{} with range: 1..1440. Units are
@@ -1362,49 +693,19 @@ type Netconf_Agent_Tty_Session struct {
     Timeout interface{}
 }
 
-func (session *Netconf_Agent_Tty_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *Netconf_Agent_Tty_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "tty"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *Netconf_Agent_Tty_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *Netconf_Agent_Tty_Session) GetGoName(yname string) string {
-    if yname == "timeout" { return "Timeout" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", session.Timeout}
+    return &(session.EntityData)
 }
-
-func (session *Netconf_Agent_Tty_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *Netconf_Agent_Tty_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *Netconf_Agent_Tty_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *Netconf_Agent_Tty_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout"] = session.Timeout
-    return leafs
-}
-
-func (session *Netconf_Agent_Tty_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *Netconf_Agent_Tty_Session) GetYangName() string { return "session" }
-
-func (session *Netconf_Agent_Tty_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *Netconf_Agent_Tty_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *Netconf_Agent_Tty_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *Netconf_Agent_Tty_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *Netconf_Agent_Tty_Session) GetParent() types.Entity { return session.parent }
-
-func (session *Netconf_Agent_Tty_Session) GetParentYangName() string { return "tty" }
 

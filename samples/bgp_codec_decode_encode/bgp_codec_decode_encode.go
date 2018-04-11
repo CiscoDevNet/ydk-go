@@ -28,7 +28,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/CiscoDevNet/ydk-go/ydk"
-	ysanity_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/openconfig/bgp"
+	ysanity_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/ydktest/openconfig_bgp"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/services"
 	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"

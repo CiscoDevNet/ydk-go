@@ -21,7 +21,7 @@ func init() {
 
 // UDPMIB
 type UDPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -61,68 +61,27 @@ type UDPMIB struct {
     Udpendpointtable UDPMIB_Udpendpointtable
 }
 
-func (uDPMIB *UDPMIB) GetFilter() yfilter.YFilter { return uDPMIB.YFilter }
+func (uDPMIB *UDPMIB) GetEntityData() *types.CommonEntityData {
+    uDPMIB.EntityData.YFilter = uDPMIB.YFilter
+    uDPMIB.EntityData.YangName = "UDP-MIB"
+    uDPMIB.EntityData.BundleName = "cisco_ios_xe"
+    uDPMIB.EntityData.ParentYangName = "UDP-MIB"
+    uDPMIB.EntityData.SegmentPath = "UDP-MIB:UDP-MIB"
+    uDPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    uDPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    uDPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (uDPMIB *UDPMIB) SetFilter(yf yfilter.YFilter) { uDPMIB.YFilter = yf }
-
-func (uDPMIB *UDPMIB) GetGoName(yname string) string {
-    if yname == "udp" { return "Udp" }
-    if yname == "udpTable" { return "Udptable" }
-    if yname == "udpEndpointTable" { return "Udpendpointtable" }
-    return ""
+    uDPMIB.EntityData.Children = make(map[string]types.YChild)
+    uDPMIB.EntityData.Children["udp"] = types.YChild{"Udp", &uDPMIB.Udp}
+    uDPMIB.EntityData.Children["udpTable"] = types.YChild{"Udptable", &uDPMIB.Udptable}
+    uDPMIB.EntityData.Children["udpEndpointTable"] = types.YChild{"Udpendpointtable", &uDPMIB.Udpendpointtable}
+    uDPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(uDPMIB.EntityData)
 }
-
-func (uDPMIB *UDPMIB) GetSegmentPath() string {
-    return "UDP-MIB:UDP-MIB"
-}
-
-func (uDPMIB *UDPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "udp" {
-        return &uDPMIB.Udp
-    }
-    if childYangName == "udpTable" {
-        return &uDPMIB.Udptable
-    }
-    if childYangName == "udpEndpointTable" {
-        return &uDPMIB.Udpendpointtable
-    }
-    return nil
-}
-
-func (uDPMIB *UDPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["udp"] = &uDPMIB.Udp
-    children["udpTable"] = &uDPMIB.Udptable
-    children["udpEndpointTable"] = &uDPMIB.Udpendpointtable
-    return children
-}
-
-func (uDPMIB *UDPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (uDPMIB *UDPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (uDPMIB *UDPMIB) GetYangName() string { return "UDP-MIB" }
-
-func (uDPMIB *UDPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (uDPMIB *UDPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (uDPMIB *UDPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (uDPMIB *UDPMIB) SetParent(parent types.Entity) { uDPMIB.parent = parent }
-
-func (uDPMIB *UDPMIB) GetParent() types.Entity { return uDPMIB.parent }
-
-func (uDPMIB *UDPMIB) GetParentYangName() string { return "UDP-MIB" }
 
 // UDPMIB_Udp
 type UDPMIB_Udp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of UDP datagrams delivered to UDP users.  Discontinuities
@@ -169,61 +128,26 @@ type UDPMIB_Udp struct {
     Udphcoutdatagrams interface{}
 }
 
-func (udp *UDPMIB_Udp) GetFilter() yfilter.YFilter { return udp.YFilter }
+func (udp *UDPMIB_Udp) GetEntityData() *types.CommonEntityData {
+    udp.EntityData.YFilter = udp.YFilter
+    udp.EntityData.YangName = "udp"
+    udp.EntityData.BundleName = "cisco_ios_xe"
+    udp.EntityData.ParentYangName = "UDP-MIB"
+    udp.EntityData.SegmentPath = "udp"
+    udp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (udp *UDPMIB_Udp) SetFilter(yf yfilter.YFilter) { udp.YFilter = yf }
-
-func (udp *UDPMIB_Udp) GetGoName(yname string) string {
-    if yname == "udpInDatagrams" { return "Udpindatagrams" }
-    if yname == "udpNoPorts" { return "Udpnoports" }
-    if yname == "udpInErrors" { return "Udpinerrors" }
-    if yname == "udpOutDatagrams" { return "Udpoutdatagrams" }
-    if yname == "udpHCInDatagrams" { return "Udphcindatagrams" }
-    if yname == "udpHCOutDatagrams" { return "Udphcoutdatagrams" }
-    return ""
+    udp.EntityData.Children = make(map[string]types.YChild)
+    udp.EntityData.Leafs = make(map[string]types.YLeaf)
+    udp.EntityData.Leafs["udpInDatagrams"] = types.YLeaf{"Udpindatagrams", udp.Udpindatagrams}
+    udp.EntityData.Leafs["udpNoPorts"] = types.YLeaf{"Udpnoports", udp.Udpnoports}
+    udp.EntityData.Leafs["udpInErrors"] = types.YLeaf{"Udpinerrors", udp.Udpinerrors}
+    udp.EntityData.Leafs["udpOutDatagrams"] = types.YLeaf{"Udpoutdatagrams", udp.Udpoutdatagrams}
+    udp.EntityData.Leafs["udpHCInDatagrams"] = types.YLeaf{"Udphcindatagrams", udp.Udphcindatagrams}
+    udp.EntityData.Leafs["udpHCOutDatagrams"] = types.YLeaf{"Udphcoutdatagrams", udp.Udphcoutdatagrams}
+    return &(udp.EntityData)
 }
-
-func (udp *UDPMIB_Udp) GetSegmentPath() string {
-    return "udp"
-}
-
-func (udp *UDPMIB_Udp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (udp *UDPMIB_Udp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (udp *UDPMIB_Udp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["udpInDatagrams"] = udp.Udpindatagrams
-    leafs["udpNoPorts"] = udp.Udpnoports
-    leafs["udpInErrors"] = udp.Udpinerrors
-    leafs["udpOutDatagrams"] = udp.Udpoutdatagrams
-    leafs["udpHCInDatagrams"] = udp.Udphcindatagrams
-    leafs["udpHCOutDatagrams"] = udp.Udphcoutdatagrams
-    return leafs
-}
-
-func (udp *UDPMIB_Udp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (udp *UDPMIB_Udp) GetYangName() string { return "udp" }
-
-func (udp *UDPMIB_Udp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (udp *UDPMIB_Udp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (udp *UDPMIB_Udp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (udp *UDPMIB_Udp) SetParent(parent types.Entity) { udp.parent = parent }
-
-func (udp *UDPMIB_Udp) GetParent() types.Entity { return udp.parent }
-
-func (udp *UDPMIB_Udp) GetParentYangName() string { return "UDP-MIB" }
 
 // UDPMIB_Udptable
 // A table containing IPv4-specific UDP listener
@@ -233,7 +157,7 @@ func (udp *UDPMIB_Udp) GetParentYangName() string { return "UDP-MIB" }
 // deprecated in favor of the version neutral
 // udpEndpointTable.
 type UDPMIB_Udptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular current UDP listener. The type is slice of
@@ -241,75 +165,36 @@ type UDPMIB_Udptable struct {
     Udpentry []UDPMIB_Udptable_Udpentry
 }
 
-func (udptable *UDPMIB_Udptable) GetFilter() yfilter.YFilter { return udptable.YFilter }
+func (udptable *UDPMIB_Udptable) GetEntityData() *types.CommonEntityData {
+    udptable.EntityData.YFilter = udptable.YFilter
+    udptable.EntityData.YangName = "udpTable"
+    udptable.EntityData.BundleName = "cisco_ios_xe"
+    udptable.EntityData.ParentYangName = "UDP-MIB"
+    udptable.EntityData.SegmentPath = "udpTable"
+    udptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (udptable *UDPMIB_Udptable) SetFilter(yf yfilter.YFilter) { udptable.YFilter = yf }
-
-func (udptable *UDPMIB_Udptable) GetGoName(yname string) string {
-    if yname == "udpEntry" { return "Udpentry" }
-    return ""
-}
-
-func (udptable *UDPMIB_Udptable) GetSegmentPath() string {
-    return "udpTable"
-}
-
-func (udptable *UDPMIB_Udptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "udpEntry" {
-        for _, c := range udptable.Udpentry {
-            if udptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UDPMIB_Udptable_Udpentry{}
-        udptable.Udpentry = append(udptable.Udpentry, child)
-        return &udptable.Udpentry[len(udptable.Udpentry)-1]
-    }
-    return nil
-}
-
-func (udptable *UDPMIB_Udptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    udptable.EntityData.Children = make(map[string]types.YChild)
+    udptable.EntityData.Children["udpEntry"] = types.YChild{"Udpentry", nil}
     for i := range udptable.Udpentry {
-        children[udptable.Udpentry[i].GetSegmentPath()] = &udptable.Udpentry[i]
+        udptable.EntityData.Children[types.GetSegmentPath(&udptable.Udpentry[i])] = types.YChild{"Udpentry", &udptable.Udpentry[i]}
     }
-    return children
+    udptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(udptable.EntityData)
 }
-
-func (udptable *UDPMIB_Udptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (udptable *UDPMIB_Udptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (udptable *UDPMIB_Udptable) GetYangName() string { return "udpTable" }
-
-func (udptable *UDPMIB_Udptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (udptable *UDPMIB_Udptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (udptable *UDPMIB_Udptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (udptable *UDPMIB_Udptable) SetParent(parent types.Entity) { udptable.parent = parent }
-
-func (udptable *UDPMIB_Udptable) GetParent() types.Entity { return udptable.parent }
-
-func (udptable *UDPMIB_Udptable) GetParentYangName() string { return "UDP-MIB" }
 
 // UDPMIB_Udptable_Udpentry
 // Information about a particular current UDP listener.
 type UDPMIB_Udptable_Udpentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The local IP address for this UDP listener.  In
     // the case of a UDP listener that is willing to accept datagrams for any IP
     // interface associated with the node, the value 0.0.0.0 is used. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Udplocaladdress interface{}
 
     // This attribute is a key. The local port number for this UDP listener. The
@@ -317,53 +202,22 @@ type UDPMIB_Udptable_Udpentry struct {
     Udplocalport interface{}
 }
 
-func (udpentry *UDPMIB_Udptable_Udpentry) GetFilter() yfilter.YFilter { return udpentry.YFilter }
+func (udpentry *UDPMIB_Udptable_Udpentry) GetEntityData() *types.CommonEntityData {
+    udpentry.EntityData.YFilter = udpentry.YFilter
+    udpentry.EntityData.YangName = "udpEntry"
+    udpentry.EntityData.BundleName = "cisco_ios_xe"
+    udpentry.EntityData.ParentYangName = "udpTable"
+    udpentry.EntityData.SegmentPath = "udpEntry" + "[udpLocalAddress='" + fmt.Sprintf("%v", udpentry.Udplocaladdress) + "']" + "[udpLocalPort='" + fmt.Sprintf("%v", udpentry.Udplocalport) + "']"
+    udpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (udpentry *UDPMIB_Udptable_Udpentry) SetFilter(yf yfilter.YFilter) { udpentry.YFilter = yf }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetGoName(yname string) string {
-    if yname == "udpLocalAddress" { return "Udplocaladdress" }
-    if yname == "udpLocalPort" { return "Udplocalport" }
-    return ""
+    udpentry.EntityData.Children = make(map[string]types.YChild)
+    udpentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    udpentry.EntityData.Leafs["udpLocalAddress"] = types.YLeaf{"Udplocaladdress", udpentry.Udplocaladdress}
+    udpentry.EntityData.Leafs["udpLocalPort"] = types.YLeaf{"Udplocalport", udpentry.Udplocalport}
+    return &(udpentry.EntityData)
 }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetSegmentPath() string {
-    return "udpEntry" + "[udpLocalAddress='" + fmt.Sprintf("%v", udpentry.Udplocaladdress) + "']" + "[udpLocalPort='" + fmt.Sprintf("%v", udpentry.Udplocalport) + "']"
-}
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["udpLocalAddress"] = udpentry.Udplocaladdress
-    leafs["udpLocalPort"] = udpentry.Udplocalport
-    return leafs
-}
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetYangName() string { return "udpEntry" }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) SetParent(parent types.Entity) { udpentry.parent = parent }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetParent() types.Entity { return udpentry.parent }
-
-func (udpentry *UDPMIB_Udptable_Udpentry) GetParentYangName() string { return "udpTable" }
 
 // UDPMIB_Udpendpointtable
 // A table containing information about this entity's UDP
@@ -413,7 +267,7 @@ func (udpentry *UDPMIB_Udptable_Udpentry) GetParentYangName() string { return "u
 // address and port, the udpEndpointRemote* values should
 // be used to reflect this.
 type UDPMIB_Udpendpointtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular current UDP endpoint.  Implementers need to
@@ -425,63 +279,24 @@ type UDPMIB_Udpendpointtable struct {
     Udpendpointentry []UDPMIB_Udpendpointtable_Udpendpointentry
 }
 
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetFilter() yfilter.YFilter { return udpendpointtable.YFilter }
+func (udpendpointtable *UDPMIB_Udpendpointtable) GetEntityData() *types.CommonEntityData {
+    udpendpointtable.EntityData.YFilter = udpendpointtable.YFilter
+    udpendpointtable.EntityData.YangName = "udpEndpointTable"
+    udpendpointtable.EntityData.BundleName = "cisco_ios_xe"
+    udpendpointtable.EntityData.ParentYangName = "UDP-MIB"
+    udpendpointtable.EntityData.SegmentPath = "udpEndpointTable"
+    udpendpointtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpendpointtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpendpointtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (udpendpointtable *UDPMIB_Udpendpointtable) SetFilter(yf yfilter.YFilter) { udpendpointtable.YFilter = yf }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetGoName(yname string) string {
-    if yname == "udpEndpointEntry" { return "Udpendpointentry" }
-    return ""
-}
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetSegmentPath() string {
-    return "udpEndpointTable"
-}
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "udpEndpointEntry" {
-        for _, c := range udpendpointtable.Udpendpointentry {
-            if udpendpointtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UDPMIB_Udpendpointtable_Udpendpointentry{}
-        udpendpointtable.Udpendpointentry = append(udpendpointtable.Udpendpointentry, child)
-        return &udpendpointtable.Udpendpointentry[len(udpendpointtable.Udpendpointentry)-1]
-    }
-    return nil
-}
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    udpendpointtable.EntityData.Children = make(map[string]types.YChild)
+    udpendpointtable.EntityData.Children["udpEndpointEntry"] = types.YChild{"Udpendpointentry", nil}
     for i := range udpendpointtable.Udpendpointentry {
-        children[udpendpointtable.Udpendpointentry[i].GetSegmentPath()] = &udpendpointtable.Udpendpointentry[i]
+        udpendpointtable.EntityData.Children[types.GetSegmentPath(&udpendpointtable.Udpendpointentry[i])] = types.YChild{"Udpendpointentry", &udpendpointtable.Udpendpointentry[i]}
     }
-    return children
+    udpendpointtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(udpendpointtable.EntityData)
 }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetYangName() string { return "udpEndpointTable" }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) SetParent(parent types.Entity) { udpendpointtable.parent = parent }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetParent() types.Entity { return udpendpointtable.parent }
-
-func (udpendpointtable *UDPMIB_Udpendpointtable) GetParentYangName() string { return "UDP-MIB" }
 
 // UDPMIB_Udpendpointtable_Udpendpointentry
 // Information about a particular current UDP endpoint.
@@ -493,7 +308,7 @@ func (udpendpointtable *UDPMIB_Udpendpointtable) GetParentYangName() string { re
 // will have more than 128 sub-identifiers and cannot be
 // accessed using SNMPv1, SNMPv2c, or SNMPv3.
 type UDPMIB_Udpendpointtable_Udpendpointentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The address type of udpEndpointLocalAddress.  Only
@@ -569,63 +384,26 @@ type UDPMIB_Udpendpointtable_Udpendpointentry struct {
     Udpendpointprocess interface{}
 }
 
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetFilter() yfilter.YFilter { return udpendpointentry.YFilter }
+func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetEntityData() *types.CommonEntityData {
+    udpendpointentry.EntityData.YFilter = udpendpointentry.YFilter
+    udpendpointentry.EntityData.YangName = "udpEndpointEntry"
+    udpendpointentry.EntityData.BundleName = "cisco_ios_xe"
+    udpendpointentry.EntityData.ParentYangName = "udpEndpointTable"
+    udpendpointentry.EntityData.SegmentPath = "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocaladdresstype) + "']" + "[udpEndpointLocalAddress='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocaladdress) + "']" + "[udpEndpointLocalPort='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocalport) + "']" + "[udpEndpointRemoteAddressType='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteaddresstype) + "']" + "[udpEndpointRemoteAddress='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteaddress) + "']" + "[udpEndpointRemotePort='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteport) + "']" + "[udpEndpointInstance='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointinstance) + "']"
+    udpendpointentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    udpendpointentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    udpendpointentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) SetFilter(yf yfilter.YFilter) { udpendpointentry.YFilter = yf }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetGoName(yname string) string {
-    if yname == "udpEndpointLocalAddressType" { return "Udpendpointlocaladdresstype" }
-    if yname == "udpEndpointLocalAddress" { return "Udpendpointlocaladdress" }
-    if yname == "udpEndpointLocalPort" { return "Udpendpointlocalport" }
-    if yname == "udpEndpointRemoteAddressType" { return "Udpendpointremoteaddresstype" }
-    if yname == "udpEndpointRemoteAddress" { return "Udpendpointremoteaddress" }
-    if yname == "udpEndpointRemotePort" { return "Udpendpointremoteport" }
-    if yname == "udpEndpointInstance" { return "Udpendpointinstance" }
-    if yname == "udpEndpointProcess" { return "Udpendpointprocess" }
-    return ""
+    udpendpointentry.EntityData.Children = make(map[string]types.YChild)
+    udpendpointentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    udpendpointentry.EntityData.Leafs["udpEndpointLocalAddressType"] = types.YLeaf{"Udpendpointlocaladdresstype", udpendpointentry.Udpendpointlocaladdresstype}
+    udpendpointentry.EntityData.Leafs["udpEndpointLocalAddress"] = types.YLeaf{"Udpendpointlocaladdress", udpendpointentry.Udpendpointlocaladdress}
+    udpendpointentry.EntityData.Leafs["udpEndpointLocalPort"] = types.YLeaf{"Udpendpointlocalport", udpendpointentry.Udpendpointlocalport}
+    udpendpointentry.EntityData.Leafs["udpEndpointRemoteAddressType"] = types.YLeaf{"Udpendpointremoteaddresstype", udpendpointentry.Udpendpointremoteaddresstype}
+    udpendpointentry.EntityData.Leafs["udpEndpointRemoteAddress"] = types.YLeaf{"Udpendpointremoteaddress", udpendpointentry.Udpendpointremoteaddress}
+    udpendpointentry.EntityData.Leafs["udpEndpointRemotePort"] = types.YLeaf{"Udpendpointremoteport", udpendpointentry.Udpendpointremoteport}
+    udpendpointentry.EntityData.Leafs["udpEndpointInstance"] = types.YLeaf{"Udpendpointinstance", udpendpointentry.Udpendpointinstance}
+    udpendpointentry.EntityData.Leafs["udpEndpointProcess"] = types.YLeaf{"Udpendpointprocess", udpendpointentry.Udpendpointprocess}
+    return &(udpendpointentry.EntityData)
 }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetSegmentPath() string {
-    return "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocaladdresstype) + "']" + "[udpEndpointLocalAddress='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocaladdress) + "']" + "[udpEndpointLocalPort='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointlocalport) + "']" + "[udpEndpointRemoteAddressType='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteaddresstype) + "']" + "[udpEndpointRemoteAddress='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteaddress) + "']" + "[udpEndpointRemotePort='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointremoteport) + "']" + "[udpEndpointInstance='" + fmt.Sprintf("%v", udpendpointentry.Udpendpointinstance) + "']"
-}
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["udpEndpointLocalAddressType"] = udpendpointentry.Udpendpointlocaladdresstype
-    leafs["udpEndpointLocalAddress"] = udpendpointentry.Udpendpointlocaladdress
-    leafs["udpEndpointLocalPort"] = udpendpointentry.Udpendpointlocalport
-    leafs["udpEndpointRemoteAddressType"] = udpendpointentry.Udpendpointremoteaddresstype
-    leafs["udpEndpointRemoteAddress"] = udpendpointentry.Udpendpointremoteaddress
-    leafs["udpEndpointRemotePort"] = udpendpointentry.Udpendpointremoteport
-    leafs["udpEndpointInstance"] = udpendpointentry.Udpendpointinstance
-    leafs["udpEndpointProcess"] = udpendpointentry.Udpendpointprocess
-    return leafs
-}
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetYangName() string { return "udpEndpointEntry" }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) SetParent(parent types.Entity) { udpendpointentry.parent = parent }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetParent() types.Entity { return udpendpointentry.parent }
-
-func (udpendpointentry *UDPMIB_Udpendpointtable_Udpendpointentry) GetParentYangName() string { return "udpEndpointTable" }
 

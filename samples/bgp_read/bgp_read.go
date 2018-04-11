@@ -30,7 +30,7 @@ import (
 	"strconv"
 	"strings"
 	"github.com/CiscoDevNet/ydk-go/ydk"
-	oc_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/openconfig/bgp"
+	oc_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/ydktest/openconfig_bgp"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/services"
 	//"github.com/CiscoDevNet/ydk-go/ydk/types"

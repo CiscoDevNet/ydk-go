@@ -1168,7 +1168,7 @@ const (
 // Locale
 // Define the geographical locale
 type Locale struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of country locale. The type is LocaleCountry.
@@ -1178,51 +1178,20 @@ type Locale struct {
     Language interface{}
 }
 
-func (locale *Locale) GetFilter() yfilter.YFilter { return locale.YFilter }
+func (locale *Locale) GetEntityData() *types.CommonEntityData {
+    locale.EntityData.YFilter = locale.YFilter
+    locale.EntityData.YangName = "locale"
+    locale.EntityData.BundleName = "cisco_ios_xr"
+    locale.EntityData.ParentYangName = "Cisco-IOS-XR-infra-infra-locale-cfg"
+    locale.EntityData.SegmentPath = "Cisco-IOS-XR-infra-infra-locale-cfg:locale"
+    locale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    locale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    locale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (locale *Locale) SetFilter(yf yfilter.YFilter) { locale.YFilter = yf }
-
-func (locale *Locale) GetGoName(yname string) string {
-    if yname == "country" { return "Country" }
-    if yname == "language" { return "Language" }
-    return ""
+    locale.EntityData.Children = make(map[string]types.YChild)
+    locale.EntityData.Leafs = make(map[string]types.YLeaf)
+    locale.EntityData.Leafs["country"] = types.YLeaf{"Country", locale.Country}
+    locale.EntityData.Leafs["language"] = types.YLeaf{"Language", locale.Language}
+    return &(locale.EntityData)
 }
-
-func (locale *Locale) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-infra-locale-cfg:locale"
-}
-
-func (locale *Locale) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (locale *Locale) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (locale *Locale) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["country"] = locale.Country
-    leafs["language"] = locale.Language
-    return leafs
-}
-
-func (locale *Locale) GetBundleName() string { return "cisco_ios_xr" }
-
-func (locale *Locale) GetYangName() string { return "locale" }
-
-func (locale *Locale) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (locale *Locale) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (locale *Locale) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (locale *Locale) SetParent(parent types.Entity) { locale.parent = parent }
-
-func (locale *Locale) GetParent() types.Entity { return locale.parent }
-
-func (locale *Locale) GetParentYangName() string { return "Cisco-IOS-XR-infra-infra-locale-cfg" }
 

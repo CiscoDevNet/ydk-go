@@ -27,56 +27,26 @@ func init() {
 // HostNames
 // Container Schema for hostname configuration
 type HostNames struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure system's hostname. The type is string.
     HostName interface{}
 }
 
-func (hostNames *HostNames) GetFilter() yfilter.YFilter { return hostNames.YFilter }
+func (hostNames *HostNames) GetEntityData() *types.CommonEntityData {
+    hostNames.EntityData.YFilter = hostNames.YFilter
+    hostNames.EntityData.YangName = "host-names"
+    hostNames.EntityData.BundleName = "cisco_ios_xr"
+    hostNames.EntityData.ParentYangName = "Cisco-IOS-XR-shellutil-cfg"
+    hostNames.EntityData.SegmentPath = "Cisco-IOS-XR-shellutil-cfg:host-names"
+    hostNames.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hostNames.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hostNames.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hostNames *HostNames) SetFilter(yf yfilter.YFilter) { hostNames.YFilter = yf }
-
-func (hostNames *HostNames) GetGoName(yname string) string {
-    if yname == "host-name" { return "HostName" }
-    return ""
+    hostNames.EntityData.Children = make(map[string]types.YChild)
+    hostNames.EntityData.Leafs = make(map[string]types.YLeaf)
+    hostNames.EntityData.Leafs["host-name"] = types.YLeaf{"HostName", hostNames.HostName}
+    return &(hostNames.EntityData)
 }
-
-func (hostNames *HostNames) GetSegmentPath() string {
-    return "Cisco-IOS-XR-shellutil-cfg:host-names"
-}
-
-func (hostNames *HostNames) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hostNames *HostNames) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hostNames *HostNames) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["host-name"] = hostNames.HostName
-    return leafs
-}
-
-func (hostNames *HostNames) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hostNames *HostNames) GetYangName() string { return "host-names" }
-
-func (hostNames *HostNames) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hostNames *HostNames) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hostNames *HostNames) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hostNames *HostNames) SetParent(parent types.Entity) { hostNames.parent = parent }
-
-func (hostNames *HostNames) GetParent() types.Entity { return hostNames.parent }
-
-func (hostNames *HostNames) GetParentYangName() string { return "Cisco-IOS-XR-shellutil-cfg" }
 

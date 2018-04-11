@@ -27,7 +27,7 @@ func init() {
 // HwModuleProfileConfig
 // none
 type HwModuleProfileConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure profile.
@@ -40,203 +40,104 @@ type HwModuleProfileConfig struct {
     Tcam HwModuleProfileConfig_Tcam
 }
 
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetFilter() yfilter.YFilter { return hwModuleProfileConfig.YFilter }
+func (hwModuleProfileConfig *HwModuleProfileConfig) GetEntityData() *types.CommonEntityData {
+    hwModuleProfileConfig.EntityData.YFilter = hwModuleProfileConfig.YFilter
+    hwModuleProfileConfig.EntityData.YangName = "hw-module-profile-config"
+    hwModuleProfileConfig.EntityData.BundleName = "cisco_ios_xr"
+    hwModuleProfileConfig.EntityData.ParentYangName = "Cisco-IOS-XR-fia-hw-profile-cfg"
+    hwModuleProfileConfig.EntityData.SegmentPath = "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config"
+    hwModuleProfileConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hwModuleProfileConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hwModuleProfileConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hwModuleProfileConfig *HwModuleProfileConfig) SetFilter(yf yfilter.YFilter) { hwModuleProfileConfig.YFilter = yf }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetGoName(yname string) string {
-    if yname == "profile" { return "Profile" }
-    if yname == "fib-scale" { return "FibScale" }
-    if yname == "tcam" { return "Tcam" }
-    return ""
+    hwModuleProfileConfig.EntityData.Children = make(map[string]types.YChild)
+    hwModuleProfileConfig.EntityData.Children["profile"] = types.YChild{"Profile", &hwModuleProfileConfig.Profile}
+    hwModuleProfileConfig.EntityData.Children["fib-scale"] = types.YChild{"FibScale", &hwModuleProfileConfig.FibScale}
+    hwModuleProfileConfig.EntityData.Children["tcam"] = types.YChild{"Tcam", &hwModuleProfileConfig.Tcam}
+    hwModuleProfileConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hwModuleProfileConfig.EntityData)
 }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetSegmentPath() string {
-    return "Cisco-IOS-XR-fia-hw-profile-cfg:hw-module-profile-config"
-}
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "profile" {
-        return &hwModuleProfileConfig.Profile
-    }
-    if childYangName == "fib-scale" {
-        return &hwModuleProfileConfig.FibScale
-    }
-    if childYangName == "tcam" {
-        return &hwModuleProfileConfig.Tcam
-    }
-    return nil
-}
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["profile"] = &hwModuleProfileConfig.Profile
-    children["fib-scale"] = &hwModuleProfileConfig.FibScale
-    children["tcam"] = &hwModuleProfileConfig.Tcam
-    return children
-}
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetYangName() string { return "hw-module-profile-config" }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) SetParent(parent types.Entity) { hwModuleProfileConfig.parent = parent }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetParent() types.Entity { return hwModuleProfileConfig.parent }
-
-func (hwModuleProfileConfig *HwModuleProfileConfig) GetParentYangName() string { return "Cisco-IOS-XR-fia-hw-profile-cfg" }
 
 // HwModuleProfileConfig_Profile
 // Configure profile.
 type HwModuleProfileConfig_Profile struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure profile for TCAM LC cards.
     TcamTable HwModuleProfileConfig_Profile_TcamTable
 
+    // Configure load balance parameters.
+    LoadBalance HwModuleProfileConfig_Profile_LoadBalance
+
     // Configure stats.
     Stats HwModuleProfileConfig_Profile_Stats
+
+    // Configure Netflow profile.
+    Netflows HwModuleProfileConfig_Profile_Netflows
+
+    // Configure acl profile.
+    ProfileAcl HwModuleProfileConfig_Profile_ProfileAcl
+
+    // Configure Tcam Profile.
+    ProfileTcam HwModuleProfileConfig_Profile_ProfileTcam
 
     // Configure profile.
     Qos HwModuleProfileConfig_Profile_Qos
 }
 
-func (profile *HwModuleProfileConfig_Profile) GetFilter() yfilter.YFilter { return profile.YFilter }
+func (profile *HwModuleProfileConfig_Profile) GetEntityData() *types.CommonEntityData {
+    profile.EntityData.YFilter = profile.YFilter
+    profile.EntityData.YangName = "profile"
+    profile.EntityData.BundleName = "cisco_ios_xr"
+    profile.EntityData.ParentYangName = "hw-module-profile-config"
+    profile.EntityData.SegmentPath = "profile"
+    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (profile *HwModuleProfileConfig_Profile) SetFilter(yf yfilter.YFilter) { profile.YFilter = yf }
-
-func (profile *HwModuleProfileConfig_Profile) GetGoName(yname string) string {
-    if yname == "tcam-table" { return "TcamTable" }
-    if yname == "stats" { return "Stats" }
-    if yname == "qos" { return "Qos" }
-    return ""
+    profile.EntityData.Children = make(map[string]types.YChild)
+    profile.EntityData.Children["tcam-table"] = types.YChild{"TcamTable", &profile.TcamTable}
+    profile.EntityData.Children["load-balance"] = types.YChild{"LoadBalance", &profile.LoadBalance}
+    profile.EntityData.Children["stats"] = types.YChild{"Stats", &profile.Stats}
+    profile.EntityData.Children["netflows"] = types.YChild{"Netflows", &profile.Netflows}
+    profile.EntityData.Children["profile-acl"] = types.YChild{"ProfileAcl", &profile.ProfileAcl}
+    profile.EntityData.Children["profile-tcam"] = types.YChild{"ProfileTcam", &profile.ProfileTcam}
+    profile.EntityData.Children["qos"] = types.YChild{"Qos", &profile.Qos}
+    profile.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(profile.EntityData)
 }
-
-func (profile *HwModuleProfileConfig_Profile) GetSegmentPath() string {
-    return "profile"
-}
-
-func (profile *HwModuleProfileConfig_Profile) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tcam-table" {
-        return &profile.TcamTable
-    }
-    if childYangName == "stats" {
-        return &profile.Stats
-    }
-    if childYangName == "qos" {
-        return &profile.Qos
-    }
-    return nil
-}
-
-func (profile *HwModuleProfileConfig_Profile) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tcam-table"] = &profile.TcamTable
-    children["stats"] = &profile.Stats
-    children["qos"] = &profile.Qos
-    return children
-}
-
-func (profile *HwModuleProfileConfig_Profile) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (profile *HwModuleProfileConfig_Profile) GetBundleName() string { return "cisco_ios_xr" }
-
-func (profile *HwModuleProfileConfig_Profile) GetYangName() string { return "profile" }
-
-func (profile *HwModuleProfileConfig_Profile) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (profile *HwModuleProfileConfig_Profile) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (profile *HwModuleProfileConfig_Profile) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (profile *HwModuleProfileConfig_Profile) SetParent(parent types.Entity) { profile.parent = parent }
-
-func (profile *HwModuleProfileConfig_Profile) GetParent() types.Entity { return profile.parent }
-
-func (profile *HwModuleProfileConfig_Profile) GetParentYangName() string { return "hw-module-profile-config" }
 
 // HwModuleProfileConfig_Profile_TcamTable
 // Configure profile for TCAM LC cards
 type HwModuleProfileConfig_Profile_TcamTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // FIB table for TCAM LC cards.
     FibTable HwModuleProfileConfig_Profile_TcamTable_FibTable
 }
 
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetFilter() yfilter.YFilter { return tcamTable.YFilter }
+func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetEntityData() *types.CommonEntityData {
+    tcamTable.EntityData.YFilter = tcamTable.YFilter
+    tcamTable.EntityData.YangName = "tcam-table"
+    tcamTable.EntityData.BundleName = "cisco_ios_xr"
+    tcamTable.EntityData.ParentYangName = "profile"
+    tcamTable.EntityData.SegmentPath = "tcam-table"
+    tcamTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tcamTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tcamTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) SetFilter(yf yfilter.YFilter) { tcamTable.YFilter = yf }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetGoName(yname string) string {
-    if yname == "fib-table" { return "FibTable" }
-    return ""
+    tcamTable.EntityData.Children = make(map[string]types.YChild)
+    tcamTable.EntityData.Children["fib-table"] = types.YChild{"FibTable", &tcamTable.FibTable}
+    tcamTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tcamTable.EntityData)
 }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetSegmentPath() string {
-    return "tcam-table"
-}
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fib-table" {
-        return &tcamTable.FibTable
-    }
-    return nil
-}
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["fib-table"] = &tcamTable.FibTable
-    return children
-}
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetYangName() string { return "tcam-table" }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) SetParent(parent types.Entity) { tcamTable.parent = parent }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetParent() types.Entity { return tcamTable.parent }
-
-func (tcamTable *HwModuleProfileConfig_Profile_TcamTable) GetParentYangName() string { return "profile" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable
 // FIB table for TCAM LC cards
 type HwModuleProfileConfig_Profile_TcamTable_FibTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 table for TCAM LC cards.
@@ -246,123 +147,53 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable struct {
     Ipv6Address HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address
 }
 
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetFilter() yfilter.YFilter { return fibTable.YFilter }
+func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetEntityData() *types.CommonEntityData {
+    fibTable.EntityData.YFilter = fibTable.YFilter
+    fibTable.EntityData.YangName = "fib-table"
+    fibTable.EntityData.BundleName = "cisco_ios_xr"
+    fibTable.EntityData.ParentYangName = "tcam-table"
+    fibTable.EntityData.SegmentPath = "fib-table"
+    fibTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fibTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fibTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) SetFilter(yf yfilter.YFilter) { fibTable.YFilter = yf }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    fibTable.EntityData.Children = make(map[string]types.YChild)
+    fibTable.EntityData.Children["ipv4-address"] = types.YChild{"Ipv4Address", &fibTable.Ipv4Address}
+    fibTable.EntityData.Children["ipv6-address"] = types.YChild{"Ipv6Address", &fibTable.Ipv6Address}
+    fibTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fibTable.EntityData)
 }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetSegmentPath() string {
-    return "fib-table"
-}
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address" {
-        return &fibTable.Ipv4Address
-    }
-    if childYangName == "ipv6-address" {
-        return &fibTable.Ipv6Address
-    }
-    return nil
-}
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-address"] = &fibTable.Ipv4Address
-    children["ipv6-address"] = &fibTable.Ipv6Address
-    return children
-}
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetYangName() string { return "fib-table" }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) SetParent(parent types.Entity) { fibTable.parent = parent }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetParent() types.Entity { return fibTable.parent }
-
-func (fibTable *HwModuleProfileConfig_Profile_TcamTable_FibTable) GetParentYangName() string { return "tcam-table" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address
 // IPv4 table for TCAM LC cards
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unicast table for TCAM LC cards.
     Ipv4Unicast HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast
 }
 
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetFilter() yfilter.YFilter { return ipv4Address.YFilter }
+func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetEntityData() *types.CommonEntityData {
+    ipv4Address.EntityData.YFilter = ipv4Address.YFilter
+    ipv4Address.EntityData.YangName = "ipv4-address"
+    ipv4Address.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Address.EntityData.ParentYangName = "fib-table"
+    ipv4Address.EntityData.SegmentPath = "ipv4-address"
+    ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) SetFilter(yf yfilter.YFilter) { ipv4Address.YFilter = yf }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetGoName(yname string) string {
-    if yname == "ipv4-unicast" { return "Ipv4Unicast" }
-    return ""
+    ipv4Address.EntityData.Children = make(map[string]types.YChild)
+    ipv4Address.EntityData.Children["ipv4-unicast"] = types.YChild{"Ipv4Unicast", &ipv4Address.Ipv4Unicast}
+    ipv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4Address.EntityData)
 }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetSegmentPath() string {
-    return "ipv4-address"
-}
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-unicast" {
-        return &ipv4Address.Ipv4Unicast
-    }
-    return nil
-}
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-unicast"] = &ipv4Address.Ipv4Unicast
-    return children
-}
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetYangName() string { return "ipv4-address" }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) SetParent(parent types.Entity) { ipv4Address.parent = parent }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetParent() types.Entity { return ipv4Address.parent }
-
-func (ipv4Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address) GetParentYangName() string { return "fib-table" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast
 // Unicast table for TCAM LC cards
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // curve out percentage of TCAM table entries. The type is interface{} with
@@ -373,61 +204,27 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast st
     Ipv4UnicastPrefixLengths HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths
 }
 
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetFilter() yfilter.YFilter { return ipv4Unicast.YFilter }
+func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetEntityData() *types.CommonEntityData {
+    ipv4Unicast.EntityData.YFilter = ipv4Unicast.YFilter
+    ipv4Unicast.EntityData.YangName = "ipv4-unicast"
+    ipv4Unicast.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Unicast.EntityData.ParentYangName = "ipv4-address"
+    ipv4Unicast.EntityData.SegmentPath = "ipv4-unicast"
+    ipv4Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) SetFilter(yf yfilter.YFilter) { ipv4Unicast.YFilter = yf }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetGoName(yname string) string {
-    if yname == "ipv4-unicast-percent" { return "Ipv4UnicastPercent" }
-    if yname == "ipv4-unicast-prefix-lengths" { return "Ipv4UnicastPrefixLengths" }
-    return ""
+    ipv4Unicast.EntityData.Children = make(map[string]types.YChild)
+    ipv4Unicast.EntityData.Children["ipv4-unicast-prefix-lengths"] = types.YChild{"Ipv4UnicastPrefixLengths", &ipv4Unicast.Ipv4UnicastPrefixLengths}
+    ipv4Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Unicast.EntityData.Leafs["ipv4-unicast-percent"] = types.YLeaf{"Ipv4UnicastPercent", ipv4Unicast.Ipv4UnicastPercent}
+    return &(ipv4Unicast.EntityData)
 }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetSegmentPath() string {
-    return "ipv4-unicast"
-}
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-unicast-prefix-lengths" {
-        return &ipv4Unicast.Ipv4UnicastPrefixLengths
-    }
-    return nil
-}
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-unicast-prefix-lengths"] = &ipv4Unicast.Ipv4UnicastPrefixLengths
-    return children
-}
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-unicast-percent"] = ipv4Unicast.Ipv4UnicastPercent
-    return leafs
-}
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetYangName() string { return "ipv4-unicast" }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) SetParent(parent types.Entity) { ipv4Unicast.parent = parent }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetParent() types.Entity { return ipv4Unicast.parent }
-
-func (ipv4Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast) GetParentYangName() string { return "ipv4-address" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths
 // IPv4 Unicast prefix 
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 Unicast prefix length. The type is slice of
@@ -435,68 +232,29 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ip
     Ipv4UnicastPrefixLength []HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength
 }
 
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetFilter() yfilter.YFilter { return ipv4UnicastPrefixLengths.YFilter }
+func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetEntityData() *types.CommonEntityData {
+    ipv4UnicastPrefixLengths.EntityData.YFilter = ipv4UnicastPrefixLengths.YFilter
+    ipv4UnicastPrefixLengths.EntityData.YangName = "ipv4-unicast-prefix-lengths"
+    ipv4UnicastPrefixLengths.EntityData.BundleName = "cisco_ios_xr"
+    ipv4UnicastPrefixLengths.EntityData.ParentYangName = "ipv4-unicast"
+    ipv4UnicastPrefixLengths.EntityData.SegmentPath = "ipv4-unicast-prefix-lengths"
+    ipv4UnicastPrefixLengths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4UnicastPrefixLengths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4UnicastPrefixLengths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) SetFilter(yf yfilter.YFilter) { ipv4UnicastPrefixLengths.YFilter = yf }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetGoName(yname string) string {
-    if yname == "ipv4-unicast-prefix-length" { return "Ipv4UnicastPrefixLength" }
-    return ""
-}
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetSegmentPath() string {
-    return "ipv4-unicast-prefix-lengths"
-}
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-unicast-prefix-length" {
-        for _, c := range ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength {
-            if ipv4UnicastPrefixLengths.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength{}
-        ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength = append(ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength, child)
-        return &ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength[len(ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength)-1]
-    }
-    return nil
-}
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv4UnicastPrefixLengths.EntityData.Children = make(map[string]types.YChild)
+    ipv4UnicastPrefixLengths.EntityData.Children["ipv4-unicast-prefix-length"] = types.YChild{"Ipv4UnicastPrefixLength", nil}
     for i := range ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength {
-        children[ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength[i].GetSegmentPath()] = &ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength[i]
+        ipv4UnicastPrefixLengths.EntityData.Children[types.GetSegmentPath(&ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength[i])] = types.YChild{"Ipv4UnicastPrefixLength", &ipv4UnicastPrefixLengths.Ipv4UnicastPrefixLength[i]}
     }
-    return children
+    ipv4UnicastPrefixLengths.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4UnicastPrefixLengths.EntityData)
 }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetYangName() string { return "ipv4-unicast-prefix-lengths" }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) SetParent(parent types.Entity) { ipv4UnicastPrefixLengths.parent = parent }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetParent() types.Entity { return ipv4UnicastPrefixLengths.parent }
-
-func (ipv4UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths) GetParentYangName() string { return "ipv4-unicast" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength
 // IPv4 Unicast prefix length
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. prefix length. The type is interface{} with range:
@@ -508,117 +266,53 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ip
     Ipv4UnicastPrefixPercent interface{}
 }
 
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetFilter() yfilter.YFilter { return ipv4UnicastPrefixLength.YFilter }
+func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetEntityData() *types.CommonEntityData {
+    ipv4UnicastPrefixLength.EntityData.YFilter = ipv4UnicastPrefixLength.YFilter
+    ipv4UnicastPrefixLength.EntityData.YangName = "ipv4-unicast-prefix-length"
+    ipv4UnicastPrefixLength.EntityData.BundleName = "cisco_ios_xr"
+    ipv4UnicastPrefixLength.EntityData.ParentYangName = "ipv4-unicast-prefix-lengths"
+    ipv4UnicastPrefixLength.EntityData.SegmentPath = "ipv4-unicast-prefix-length" + "[prefix-length='" + fmt.Sprintf("%v", ipv4UnicastPrefixLength.PrefixLength) + "']"
+    ipv4UnicastPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4UnicastPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4UnicastPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) SetFilter(yf yfilter.YFilter) { ipv4UnicastPrefixLength.YFilter = yf }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetGoName(yname string) string {
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "ipv4-unicast-prefix-percent" { return "Ipv4UnicastPrefixPercent" }
-    return ""
+    ipv4UnicastPrefixLength.EntityData.Children = make(map[string]types.YChild)
+    ipv4UnicastPrefixLength.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4UnicastPrefixLength.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", ipv4UnicastPrefixLength.PrefixLength}
+    ipv4UnicastPrefixLength.EntityData.Leafs["ipv4-unicast-prefix-percent"] = types.YLeaf{"Ipv4UnicastPrefixPercent", ipv4UnicastPrefixLength.Ipv4UnicastPrefixPercent}
+    return &(ipv4UnicastPrefixLength.EntityData)
 }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetSegmentPath() string {
-    return "ipv4-unicast-prefix-length" + "[prefix-length='" + fmt.Sprintf("%v", ipv4UnicastPrefixLength.PrefixLength) + "']"
-}
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-length"] = ipv4UnicastPrefixLength.PrefixLength
-    leafs["ipv4-unicast-prefix-percent"] = ipv4UnicastPrefixLength.Ipv4UnicastPrefixPercent
-    return leafs
-}
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetYangName() string { return "ipv4-unicast-prefix-length" }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) SetParent(parent types.Entity) { ipv4UnicastPrefixLength.parent = parent }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetParent() types.Entity { return ipv4UnicastPrefixLength.parent }
-
-func (ipv4UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv4Address_Ipv4Unicast_Ipv4UnicastPrefixLengths_Ipv4UnicastPrefixLength) GetParentYangName() string { return "ipv4-unicast-prefix-lengths" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address
 // IPv6 table for TCAM LC cards
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unicast table for TCAM LC cards.
     Ipv6Unicast HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast
 }
 
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetFilter() yfilter.YFilter { return ipv6Address.YFilter }
+func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetEntityData() *types.CommonEntityData {
+    ipv6Address.EntityData.YFilter = ipv6Address.YFilter
+    ipv6Address.EntityData.YangName = "ipv6-address"
+    ipv6Address.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Address.EntityData.ParentYangName = "fib-table"
+    ipv6Address.EntityData.SegmentPath = "ipv6-address"
+    ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) SetFilter(yf yfilter.YFilter) { ipv6Address.YFilter = yf }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetGoName(yname string) string {
-    if yname == "ipv6-unicast" { return "Ipv6Unicast" }
-    return ""
+    ipv6Address.EntityData.Children = make(map[string]types.YChild)
+    ipv6Address.EntityData.Children["ipv6-unicast"] = types.YChild{"Ipv6Unicast", &ipv6Address.Ipv6Unicast}
+    ipv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Address.EntityData)
 }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetSegmentPath() string {
-    return "ipv6-address"
-}
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-unicast" {
-        return &ipv6Address.Ipv6Unicast
-    }
-    return nil
-}
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv6-unicast"] = &ipv6Address.Ipv6Unicast
-    return children
-}
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetYangName() string { return "ipv6-address" }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) SetParent(parent types.Entity) { ipv6Address.parent = parent }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetParent() types.Entity { return ipv6Address.parent }
-
-func (ipv6Address *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address) GetParentYangName() string { return "fib-table" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast
 // Unicast table for TCAM LC cards
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // curve out percentage of TCAM table entries. The type is interface{} with
@@ -629,61 +323,27 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast st
     Ipv6UnicastPrefixLengths HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths
 }
 
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetFilter() yfilter.YFilter { return ipv6Unicast.YFilter }
+func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetEntityData() *types.CommonEntityData {
+    ipv6Unicast.EntityData.YFilter = ipv6Unicast.YFilter
+    ipv6Unicast.EntityData.YangName = "ipv6-unicast"
+    ipv6Unicast.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Unicast.EntityData.ParentYangName = "ipv6-address"
+    ipv6Unicast.EntityData.SegmentPath = "ipv6-unicast"
+    ipv6Unicast.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Unicast.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Unicast.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) SetFilter(yf yfilter.YFilter) { ipv6Unicast.YFilter = yf }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetGoName(yname string) string {
-    if yname == "ipv6-unicast-percent" { return "Ipv6UnicastPercent" }
-    if yname == "ipv6-unicast-prefix-lengths" { return "Ipv6UnicastPrefixLengths" }
-    return ""
+    ipv6Unicast.EntityData.Children = make(map[string]types.YChild)
+    ipv6Unicast.EntityData.Children["ipv6-unicast-prefix-lengths"] = types.YChild{"Ipv6UnicastPrefixLengths", &ipv6Unicast.Ipv6UnicastPrefixLengths}
+    ipv6Unicast.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Unicast.EntityData.Leafs["ipv6-unicast-percent"] = types.YLeaf{"Ipv6UnicastPercent", ipv6Unicast.Ipv6UnicastPercent}
+    return &(ipv6Unicast.EntityData)
 }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetSegmentPath() string {
-    return "ipv6-unicast"
-}
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-unicast-prefix-lengths" {
-        return &ipv6Unicast.Ipv6UnicastPrefixLengths
-    }
-    return nil
-}
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv6-unicast-prefix-lengths"] = &ipv6Unicast.Ipv6UnicastPrefixLengths
-    return children
-}
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-unicast-percent"] = ipv6Unicast.Ipv6UnicastPercent
-    return leafs
-}
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetYangName() string { return "ipv6-unicast" }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) SetParent(parent types.Entity) { ipv6Unicast.parent = parent }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetParent() types.Entity { return ipv6Unicast.parent }
-
-func (ipv6Unicast *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast) GetParentYangName() string { return "ipv6-address" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths
 // IPv6 Unicast prefix 
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Unicast prefix length. The type is slice of
@@ -691,68 +351,29 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ip
     Ipv6UnicastPrefixLength []HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength
 }
 
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetFilter() yfilter.YFilter { return ipv6UnicastPrefixLengths.YFilter }
+func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetEntityData() *types.CommonEntityData {
+    ipv6UnicastPrefixLengths.EntityData.YFilter = ipv6UnicastPrefixLengths.YFilter
+    ipv6UnicastPrefixLengths.EntityData.YangName = "ipv6-unicast-prefix-lengths"
+    ipv6UnicastPrefixLengths.EntityData.BundleName = "cisco_ios_xr"
+    ipv6UnicastPrefixLengths.EntityData.ParentYangName = "ipv6-unicast"
+    ipv6UnicastPrefixLengths.EntityData.SegmentPath = "ipv6-unicast-prefix-lengths"
+    ipv6UnicastPrefixLengths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6UnicastPrefixLengths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6UnicastPrefixLengths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) SetFilter(yf yfilter.YFilter) { ipv6UnicastPrefixLengths.YFilter = yf }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetGoName(yname string) string {
-    if yname == "ipv6-unicast-prefix-length" { return "Ipv6UnicastPrefixLength" }
-    return ""
-}
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetSegmentPath() string {
-    return "ipv6-unicast-prefix-lengths"
-}
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-unicast-prefix-length" {
-        for _, c := range ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength {
-            if ipv6UnicastPrefixLengths.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength{}
-        ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength = append(ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength, child)
-        return &ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength[len(ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength)-1]
-    }
-    return nil
-}
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv6UnicastPrefixLengths.EntityData.Children = make(map[string]types.YChild)
+    ipv6UnicastPrefixLengths.EntityData.Children["ipv6-unicast-prefix-length"] = types.YChild{"Ipv6UnicastPrefixLength", nil}
     for i := range ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength {
-        children[ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength[i].GetSegmentPath()] = &ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength[i]
+        ipv6UnicastPrefixLengths.EntityData.Children[types.GetSegmentPath(&ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength[i])] = types.YChild{"Ipv6UnicastPrefixLength", &ipv6UnicastPrefixLengths.Ipv6UnicastPrefixLength[i]}
     }
-    return children
+    ipv6UnicastPrefixLengths.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6UnicastPrefixLengths.EntityData)
 }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetYangName() string { return "ipv6-unicast-prefix-lengths" }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) SetParent(parent types.Entity) { ipv6UnicastPrefixLengths.parent = parent }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetParent() types.Entity { return ipv6UnicastPrefixLengths.parent }
-
-func (ipv6UnicastPrefixLengths *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths) GetParentYangName() string { return "ipv6-unicast" }
 
 // HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength
 // IPv6 Unicast prefix length
 type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. prefix length. The type is interface{} with range:
@@ -764,58 +385,54 @@ type HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ip
     Ipv6UnicastPrefixPercent interface{}
 }
 
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetFilter() yfilter.YFilter { return ipv6UnicastPrefixLength.YFilter }
+func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetEntityData() *types.CommonEntityData {
+    ipv6UnicastPrefixLength.EntityData.YFilter = ipv6UnicastPrefixLength.YFilter
+    ipv6UnicastPrefixLength.EntityData.YangName = "ipv6-unicast-prefix-length"
+    ipv6UnicastPrefixLength.EntityData.BundleName = "cisco_ios_xr"
+    ipv6UnicastPrefixLength.EntityData.ParentYangName = "ipv6-unicast-prefix-lengths"
+    ipv6UnicastPrefixLength.EntityData.SegmentPath = "ipv6-unicast-prefix-length" + "[prefix-length='" + fmt.Sprintf("%v", ipv6UnicastPrefixLength.PrefixLength) + "']"
+    ipv6UnicastPrefixLength.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6UnicastPrefixLength.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6UnicastPrefixLength.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) SetFilter(yf yfilter.YFilter) { ipv6UnicastPrefixLength.YFilter = yf }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetGoName(yname string) string {
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "ipv6-unicast-prefix-percent" { return "Ipv6UnicastPrefixPercent" }
-    return ""
+    ipv6UnicastPrefixLength.EntityData.Children = make(map[string]types.YChild)
+    ipv6UnicastPrefixLength.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6UnicastPrefixLength.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", ipv6UnicastPrefixLength.PrefixLength}
+    ipv6UnicastPrefixLength.EntityData.Leafs["ipv6-unicast-prefix-percent"] = types.YLeaf{"Ipv6UnicastPrefixPercent", ipv6UnicastPrefixLength.Ipv6UnicastPrefixPercent}
+    return &(ipv6UnicastPrefixLength.EntityData)
 }
 
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetSegmentPath() string {
-    return "ipv6-unicast-prefix-length" + "[prefix-length='" + fmt.Sprintf("%v", ipv6UnicastPrefixLength.PrefixLength) + "']"
+// HwModuleProfileConfig_Profile_LoadBalance
+// Configure load balance parameters
+type HwModuleProfileConfig_Profile_LoadBalance struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure load balance parameters. The type is interface{} with range:
+    // -2147483648..2147483647.
+    LoadBalanceProfile interface{}
 }
 
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (loadBalance *HwModuleProfileConfig_Profile_LoadBalance) GetEntityData() *types.CommonEntityData {
+    loadBalance.EntityData.YFilter = loadBalance.YFilter
+    loadBalance.EntityData.YangName = "load-balance"
+    loadBalance.EntityData.BundleName = "cisco_ios_xr"
+    loadBalance.EntityData.ParentYangName = "profile"
+    loadBalance.EntityData.SegmentPath = "load-balance"
+    loadBalance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loadBalance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loadBalance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loadBalance.EntityData.Children = make(map[string]types.YChild)
+    loadBalance.EntityData.Leafs = make(map[string]types.YLeaf)
+    loadBalance.EntityData.Leafs["load-balance-profile"] = types.YLeaf{"LoadBalanceProfile", loadBalance.LoadBalanceProfile}
+    return &(loadBalance.EntityData)
 }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-length"] = ipv6UnicastPrefixLength.PrefixLength
-    leafs["ipv6-unicast-prefix-percent"] = ipv6UnicastPrefixLength.Ipv6UnicastPrefixPercent
-    return leafs
-}
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetYangName() string { return "ipv6-unicast-prefix-length" }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) SetParent(parent types.Entity) { ipv6UnicastPrefixLength.parent = parent }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetParent() types.Entity { return ipv6UnicastPrefixLength.parent }
-
-func (ipv6UnicastPrefixLength *HwModuleProfileConfig_Profile_TcamTable_FibTable_Ipv6Address_Ipv6Unicast_Ipv6UnicastPrefixLengths_Ipv6UnicastPrefixLength) GetParentYangName() string { return "ipv6-unicast-prefix-lengths" }
 
 // HwModuleProfileConfig_Profile_Stats
 // Configure stats
 type HwModuleProfileConfig_Profile_Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure stats for qos-enhanced and acl-permit. The type is interface{}
@@ -823,56 +440,337 @@ type HwModuleProfileConfig_Profile_Stats struct {
     CounterProfile interface{}
 }
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetFilter() yfilter.YFilter { return stats.YFilter }
+func (stats *HwModuleProfileConfig_Profile_Stats) GetEntityData() *types.CommonEntityData {
+    stats.EntityData.YFilter = stats.YFilter
+    stats.EntityData.YangName = "stats"
+    stats.EntityData.BundleName = "cisco_ios_xr"
+    stats.EntityData.ParentYangName = "profile"
+    stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stats *HwModuleProfileConfig_Profile_Stats) SetFilter(yf yfilter.YFilter) { stats.YFilter = yf }
-
-func (stats *HwModuleProfileConfig_Profile_Stats) GetGoName(yname string) string {
-    if yname == "counter-profile" { return "CounterProfile" }
-    return ""
+    stats.EntityData.Children = make(map[string]types.YChild)
+    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    stats.EntityData.Leafs["counter-profile"] = types.YLeaf{"CounterProfile", stats.CounterProfile}
+    return &(stats.EntityData)
 }
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetSegmentPath() string {
-    return "stats"
+// HwModuleProfileConfig_Profile_Netflows
+// Configure Netflow profile.
+type HwModuleProfileConfig_Profile_Netflows struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // none. The type is slice of HwModuleProfileConfig_Profile_Netflows_Netflow.
+    Netflow []HwModuleProfileConfig_Profile_Netflows_Netflow
 }
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (netflows *HwModuleProfileConfig_Profile_Netflows) GetEntityData() *types.CommonEntityData {
+    netflows.EntityData.YFilter = netflows.YFilter
+    netflows.EntityData.YangName = "netflows"
+    netflows.EntityData.BundleName = "cisco_ios_xr"
+    netflows.EntityData.ParentYangName = "profile"
+    netflows.EntityData.SegmentPath = "netflows"
+    netflows.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    netflows.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    netflows.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    netflows.EntityData.Children = make(map[string]types.YChild)
+    netflows.EntityData.Children["netflow"] = types.YChild{"Netflow", nil}
+    for i := range netflows.Netflow {
+        netflows.EntityData.Children[types.GetSegmentPath(&netflows.Netflow[i])] = types.YChild{"Netflow", &netflows.Netflow[i]}
+    }
+    netflows.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(netflows.EntityData)
 }
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// HwModuleProfileConfig_Profile_Netflows_Netflow
+// none
+type HwModuleProfileConfig_Profile_Netflows_Netflow struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. none. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    Ipfix315Enable interface{}
+
+    // This attribute is a key. Location of NETFLOW config. The type is string
+    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    LocationString interface{}
+
+    // This attribute is a key. Location ID hex to Decimal 0xffff for all. The
+    // type is interface{} with range: -2147483648..2147483647.
+    LocationId interface{}
+
+    // If Enabled set value to 65535. The type is interface{} with range:
+    // -2147483648..2147483647. This attribute is mandatory.
+    EnableVal interface{}
 }
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["counter-profile"] = stats.CounterProfile
-    return leafs
+func (netflow *HwModuleProfileConfig_Profile_Netflows_Netflow) GetEntityData() *types.CommonEntityData {
+    netflow.EntityData.YFilter = netflow.YFilter
+    netflow.EntityData.YangName = "netflow"
+    netflow.EntityData.BundleName = "cisco_ios_xr"
+    netflow.EntityData.ParentYangName = "netflows"
+    netflow.EntityData.SegmentPath = "netflow" + "[ipfix315-enable='" + fmt.Sprintf("%v", netflow.Ipfix315Enable) + "']" + "[location-string='" + fmt.Sprintf("%v", netflow.LocationString) + "']" + "[location-id='" + fmt.Sprintf("%v", netflow.LocationId) + "']"
+    netflow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    netflow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    netflow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    netflow.EntityData.Children = make(map[string]types.YChild)
+    netflow.EntityData.Leafs = make(map[string]types.YLeaf)
+    netflow.EntityData.Leafs["ipfix315-enable"] = types.YLeaf{"Ipfix315Enable", netflow.Ipfix315Enable}
+    netflow.EntityData.Leafs["location-string"] = types.YLeaf{"LocationString", netflow.LocationString}
+    netflow.EntityData.Leafs["location-id"] = types.YLeaf{"LocationId", netflow.LocationId}
+    netflow.EntityData.Leafs["enable-val"] = types.YLeaf{"EnableVal", netflow.EnableVal}
+    return &(netflow.EntityData)
 }
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetBundleName() string { return "cisco_ios_xr" }
+// HwModuleProfileConfig_Profile_ProfileAcl
+// Configure acl profile
+type HwModuleProfileConfig_Profile_ProfileAcl struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetYangName() string { return "stats" }
+    // Enabled or disabled. The type is bool.
+    Egress interface{}
+}
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+func (profileAcl *HwModuleProfileConfig_Profile_ProfileAcl) GetEntityData() *types.CommonEntityData {
+    profileAcl.EntityData.YFilter = profileAcl.YFilter
+    profileAcl.EntityData.YangName = "profile-acl"
+    profileAcl.EntityData.BundleName = "cisco_ios_xr"
+    profileAcl.EntityData.ParentYangName = "profile"
+    profileAcl.EntityData.SegmentPath = "profile-acl"
+    profileAcl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profileAcl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profileAcl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+    profileAcl.EntityData.Children = make(map[string]types.YChild)
+    profileAcl.EntityData.Leafs = make(map[string]types.YLeaf)
+    profileAcl.EntityData.Leafs["egress"] = types.YLeaf{"Egress", profileAcl.Egress}
+    return &(profileAcl.EntityData)
+}
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+// HwModuleProfileConfig_Profile_ProfileTcam
+// Configure Tcam Profile
+type HwModuleProfileConfig_Profile_ProfileTcam struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (stats *HwModuleProfileConfig_Profile_Stats) SetParent(parent types.Entity) { stats.parent = parent }
+    // none.
+    KeyFormat HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat
+}
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetParent() types.Entity { return stats.parent }
+func (profileTcam *HwModuleProfileConfig_Profile_ProfileTcam) GetEntityData() *types.CommonEntityData {
+    profileTcam.EntityData.YFilter = profileTcam.YFilter
+    profileTcam.EntityData.YangName = "profile-tcam"
+    profileTcam.EntityData.BundleName = "cisco_ios_xr"
+    profileTcam.EntityData.ParentYangName = "profile"
+    profileTcam.EntityData.SegmentPath = "profile-tcam"
+    profileTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    profileTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    profileTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stats *HwModuleProfileConfig_Profile_Stats) GetParentYangName() string { return "profile" }
+    profileTcam.EntityData.Children = make(map[string]types.YChild)
+    profileTcam.EntityData.Children["key-format"] = types.YChild{"KeyFormat", &profileTcam.KeyFormat}
+    profileTcam.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(profileTcam.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat
+// none
+type HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure acl profile.
+    AclTables HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables
+}
+
+func (keyFormat *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat) GetEntityData() *types.CommonEntityData {
+    keyFormat.EntityData.YFilter = keyFormat.YFilter
+    keyFormat.EntityData.YangName = "key-format"
+    keyFormat.EntityData.BundleName = "cisco_ios_xr"
+    keyFormat.EntityData.ParentYangName = "profile-tcam"
+    keyFormat.EntityData.SegmentPath = "key-format"
+    keyFormat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keyFormat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keyFormat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    keyFormat.EntityData.Children = make(map[string]types.YChild)
+    keyFormat.EntityData.Children["acl-tables"] = types.YChild{"AclTables", &keyFormat.AclTables}
+    keyFormat.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(keyFormat.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables
+// Configure acl profile
+type HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Configure format for acl profile. The type is slice of
+    // HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables_AclTable.
+    AclTable []HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables_AclTable
+}
+
+func (aclTables *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables) GetEntityData() *types.CommonEntityData {
+    aclTables.EntityData.YFilter = aclTables.YFilter
+    aclTables.EntityData.YangName = "acl-tables"
+    aclTables.EntityData.BundleName = "cisco_ios_xr"
+    aclTables.EntityData.ParentYangName = "key-format"
+    aclTables.EntityData.SegmentPath = "acl-tables"
+    aclTables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aclTables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aclTables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aclTables.EntityData.Children = make(map[string]types.YChild)
+    aclTables.EntityData.Children["acl-table"] = types.YChild{"AclTable", nil}
+    for i := range aclTables.AclTable {
+        aclTables.EntityData.Children[types.GetSegmentPath(&aclTables.AclTable[i])] = types.YChild{"AclTable", &aclTables.AclTable[i]}
+    }
+    aclTables.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(aclTables.EntityData)
+}
+
+// HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables_AclTable
+// Configure format for acl profile
+type HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables_AclTable struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. ipv4/ipv6. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    AddressFamily interface{}
+
+    // This attribute is a key. Location string (all) if for all LCs. The type is
+    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    LocationString interface{}
+
+    // This attribute is a key. Location ID hex to Decimal 0xffff for all. The
+    // type is interface{} with range: -2147483648..2147483647.
+    LocationId interface{}
+
+    // Source Address 32 bit qual. The type is interface{} with range:
+    // -2147483648..2147483647.
+    SourceAddr interface{}
+
+    // Destination Address 32 bit qual. The type is interface{} with range:
+    // -2147483648..2147483647.
+    DestinationAddr interface{}
+
+    // Source Port. The type is interface{} with range: -2147483648..2147483647.
+    SourcePort interface{}
+
+    // Destination Port. The type is interface{} with range:
+    // -2147483648..2147483647.
+    DestPort interface{}
+
+    // Protocol Type. The type is interface{} with range: -2147483648..2147483647.
+    ProtType interface{}
+
+    // TCP Flags. The type is interface{} with range: -2147483648..2147483647.
+    TcpFlag interface{}
+
+    // Packet Length. The type is interface{} with range: -2147483648..2147483647.
+    PackLen interface{}
+
+    // Fragment Bit. The type is interface{} with range: -2147483648..2147483647.
+    FragBit interface{}
+
+    // Precedence. The type is interface{} with range: -2147483648..2147483647.
+    Precedence interface{}
+
+    // PortRange. The type is interface{} with range: -2147483648..2147483647.
+    PortRange interface{}
+
+    // UDF name. The type is string.
+    Udf1 interface{}
+
+    // UDF name. The type is string.
+    Udf2 interface{}
+
+    // UDF name. The type is string.
+    Udf3 interface{}
+
+    // UDF name. The type is string.
+    Udf4 interface{}
+
+    // UDF name. The type is string.
+    Udf5 interface{}
+
+    // UDF name. The type is string.
+    Udf6 interface{}
+
+    // UDF name. The type is string.
+    Udf7 interface{}
+
+    // UDF name. The type is string.
+    Udf8 interface{}
+
+    // Enable Capture. The type is interface{} with range:
+    // -2147483648..2147483647.
+    EnCapture interface{}
+
+    // Enable Setting TTL. The type is interface{} with range:
+    // -2147483648..2147483647.
+    EnTtl interface{}
+
+    // Enable Matching TTL. The type is interface{} with range:
+    // -2147483648..2147483647.
+    EnMatch interface{}
+
+    // Enable Non Shared Interface ACL. The type is interface{} with range:
+    // -2147483648..2147483647.
+    EnShareAcl interface{}
+}
+
+func (aclTable *HwModuleProfileConfig_Profile_ProfileTcam_KeyFormat_AclTables_AclTable) GetEntityData() *types.CommonEntityData {
+    aclTable.EntityData.YFilter = aclTable.YFilter
+    aclTable.EntityData.YangName = "acl-table"
+    aclTable.EntityData.BundleName = "cisco_ios_xr"
+    aclTable.EntityData.ParentYangName = "acl-tables"
+    aclTable.EntityData.SegmentPath = "acl-table" + "[address-family='" + fmt.Sprintf("%v", aclTable.AddressFamily) + "']" + "[location-string='" + fmt.Sprintf("%v", aclTable.LocationString) + "']" + "[location-id='" + fmt.Sprintf("%v", aclTable.LocationId) + "']"
+    aclTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aclTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aclTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    aclTable.EntityData.Children = make(map[string]types.YChild)
+    aclTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    aclTable.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", aclTable.AddressFamily}
+    aclTable.EntityData.Leafs["location-string"] = types.YLeaf{"LocationString", aclTable.LocationString}
+    aclTable.EntityData.Leafs["location-id"] = types.YLeaf{"LocationId", aclTable.LocationId}
+    aclTable.EntityData.Leafs["source-addr"] = types.YLeaf{"SourceAddr", aclTable.SourceAddr}
+    aclTable.EntityData.Leafs["destination-addr"] = types.YLeaf{"DestinationAddr", aclTable.DestinationAddr}
+    aclTable.EntityData.Leafs["source-port"] = types.YLeaf{"SourcePort", aclTable.SourcePort}
+    aclTable.EntityData.Leafs["dest-port"] = types.YLeaf{"DestPort", aclTable.DestPort}
+    aclTable.EntityData.Leafs["prot-type"] = types.YLeaf{"ProtType", aclTable.ProtType}
+    aclTable.EntityData.Leafs["tcp-flag"] = types.YLeaf{"TcpFlag", aclTable.TcpFlag}
+    aclTable.EntityData.Leafs["pack-len"] = types.YLeaf{"PackLen", aclTable.PackLen}
+    aclTable.EntityData.Leafs["frag-bit"] = types.YLeaf{"FragBit", aclTable.FragBit}
+    aclTable.EntityData.Leafs["precedence"] = types.YLeaf{"Precedence", aclTable.Precedence}
+    aclTable.EntityData.Leafs["port-range"] = types.YLeaf{"PortRange", aclTable.PortRange}
+    aclTable.EntityData.Leafs["udf1"] = types.YLeaf{"Udf1", aclTable.Udf1}
+    aclTable.EntityData.Leafs["udf2"] = types.YLeaf{"Udf2", aclTable.Udf2}
+    aclTable.EntityData.Leafs["udf3"] = types.YLeaf{"Udf3", aclTable.Udf3}
+    aclTable.EntityData.Leafs["udf4"] = types.YLeaf{"Udf4", aclTable.Udf4}
+    aclTable.EntityData.Leafs["udf5"] = types.YLeaf{"Udf5", aclTable.Udf5}
+    aclTable.EntityData.Leafs["udf6"] = types.YLeaf{"Udf6", aclTable.Udf6}
+    aclTable.EntityData.Leafs["udf7"] = types.YLeaf{"Udf7", aclTable.Udf7}
+    aclTable.EntityData.Leafs["udf8"] = types.YLeaf{"Udf8", aclTable.Udf8}
+    aclTable.EntityData.Leafs["en-capture"] = types.YLeaf{"EnCapture", aclTable.EnCapture}
+    aclTable.EntityData.Leafs["en-ttl"] = types.YLeaf{"EnTtl", aclTable.EnTtl}
+    aclTable.EntityData.Leafs["en-match"] = types.YLeaf{"EnMatch", aclTable.EnMatch}
+    aclTable.EntityData.Leafs["en-share-acl"] = types.YLeaf{"EnShareAcl", aclTable.EnShareAcl}
+    return &(aclTable.EntityData)
+}
 
 // HwModuleProfileConfig_Profile_Qos
 // Configure profile.
 type HwModuleProfileConfig_Profile_Qos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure Hqos profile.
@@ -894,84 +792,31 @@ type HwModuleProfileConfig_Profile_Qos struct {
     ClassMaps HwModuleProfileConfig_Profile_Qos_ClassMaps
 }
 
-func (qos *HwModuleProfileConfig_Profile_Qos) GetFilter() yfilter.YFilter { return qos.YFilter }
+func (qos *HwModuleProfileConfig_Profile_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "profile"
+    qos.EntityData.SegmentPath = "qos"
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qos *HwModuleProfileConfig_Profile_Qos) SetFilter(yf yfilter.YFilter) { qos.YFilter = yf }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetGoName(yname string) string {
-    if yname == "hqos-enable-all" { return "HqosEnableAll" }
-    if yname == "ingress-model-root-def" { return "IngressModelRootDef" }
-    if yname == "ingress-models" { return "IngressModels" }
-    if yname == "trunks" { return "Trunks" }
-    if yname == "class-maps-root-def" { return "ClassMapsRootDef" }
-    if yname == "class-maps" { return "ClassMaps" }
-    return ""
+    qos.EntityData.Children = make(map[string]types.YChild)
+    qos.EntityData.Children["hqos-enable-all"] = types.YChild{"HqosEnableAll", &qos.HqosEnableAll}
+    qos.EntityData.Children["ingress-model-root-def"] = types.YChild{"IngressModelRootDef", &qos.IngressModelRootDef}
+    qos.EntityData.Children["ingress-models"] = types.YChild{"IngressModels", &qos.IngressModels}
+    qos.EntityData.Children["trunks"] = types.YChild{"Trunks", &qos.Trunks}
+    qos.EntityData.Children["class-maps-root-def"] = types.YChild{"ClassMapsRootDef", &qos.ClassMapsRootDef}
+    qos.EntityData.Children["class-maps"] = types.YChild{"ClassMaps", &qos.ClassMaps}
+    qos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qos.EntityData)
 }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetSegmentPath() string {
-    return "qos"
-}
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hqos-enable-all" {
-        return &qos.HqosEnableAll
-    }
-    if childYangName == "ingress-model-root-def" {
-        return &qos.IngressModelRootDef
-    }
-    if childYangName == "ingress-models" {
-        return &qos.IngressModels
-    }
-    if childYangName == "trunks" {
-        return &qos.Trunks
-    }
-    if childYangName == "class-maps-root-def" {
-        return &qos.ClassMapsRootDef
-    }
-    if childYangName == "class-maps" {
-        return &qos.ClassMaps
-    }
-    return nil
-}
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["hqos-enable-all"] = &qos.HqosEnableAll
-    children["ingress-model-root-def"] = &qos.IngressModelRootDef
-    children["ingress-models"] = &qos.IngressModels
-    children["trunks"] = &qos.Trunks
-    children["class-maps-root-def"] = &qos.ClassMapsRootDef
-    children["class-maps"] = &qos.ClassMaps
-    return children
-}
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetYangName() string { return "qos" }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) SetParent(parent types.Entity) { qos.parent = parent }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetParent() types.Entity { return qos.parent }
-
-func (qos *HwModuleProfileConfig_Profile_Qos) GetParentYangName() string { return "profile" }
 
 // HwModuleProfileConfig_Profile_Qos_HqosEnableAll
 // Configure Hqos profile
 type HwModuleProfileConfig_Profile_Qos_HqosEnableAll struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Hqos profile value. The type is interface{} with range:
@@ -979,56 +824,26 @@ type HwModuleProfileConfig_Profile_Qos_HqosEnableAll struct {
     HqosEnable interface{}
 }
 
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetFilter() yfilter.YFilter { return hqosEnableAll.YFilter }
+func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetEntityData() *types.CommonEntityData {
+    hqosEnableAll.EntityData.YFilter = hqosEnableAll.YFilter
+    hqosEnableAll.EntityData.YangName = "hqos-enable-all"
+    hqosEnableAll.EntityData.BundleName = "cisco_ios_xr"
+    hqosEnableAll.EntityData.ParentYangName = "qos"
+    hqosEnableAll.EntityData.SegmentPath = "hqos-enable-all"
+    hqosEnableAll.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hqosEnableAll.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hqosEnableAll.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) SetFilter(yf yfilter.YFilter) { hqosEnableAll.YFilter = yf }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetGoName(yname string) string {
-    if yname == "hqos-enable" { return "HqosEnable" }
-    return ""
+    hqosEnableAll.EntityData.Children = make(map[string]types.YChild)
+    hqosEnableAll.EntityData.Leafs = make(map[string]types.YLeaf)
+    hqosEnableAll.EntityData.Leafs["hqos-enable"] = types.YLeaf{"HqosEnable", hqosEnableAll.HqosEnable}
+    return &(hqosEnableAll.EntityData)
 }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetSegmentPath() string {
-    return "hqos-enable-all"
-}
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["hqos-enable"] = hqosEnableAll.HqosEnable
-    return leafs
-}
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetYangName() string { return "hqos-enable-all" }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) SetParent(parent types.Entity) { hqosEnableAll.parent = parent }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetParent() types.Entity { return hqosEnableAll.parent }
-
-func (hqosEnableAll *HwModuleProfileConfig_Profile_Qos_HqosEnableAll) GetParentYangName() string { return "qos" }
 
 // HwModuleProfileConfig_Profile_Qos_IngressModelRootDef
 // Configure Ingress Model Default
 type HwModuleProfileConfig_Profile_Qos_IngressModelRootDef struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ingress Model Default. The type is interface{} with range:
@@ -1036,56 +851,26 @@ type HwModuleProfileConfig_Profile_Qos_IngressModelRootDef struct {
     IngressModelLeafDef interface{}
 }
 
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetFilter() yfilter.YFilter { return ingressModelRootDef.YFilter }
+func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetEntityData() *types.CommonEntityData {
+    ingressModelRootDef.EntityData.YFilter = ingressModelRootDef.YFilter
+    ingressModelRootDef.EntityData.YangName = "ingress-model-root-def"
+    ingressModelRootDef.EntityData.BundleName = "cisco_ios_xr"
+    ingressModelRootDef.EntityData.ParentYangName = "qos"
+    ingressModelRootDef.EntityData.SegmentPath = "ingress-model-root-def"
+    ingressModelRootDef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ingressModelRootDef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ingressModelRootDef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) SetFilter(yf yfilter.YFilter) { ingressModelRootDef.YFilter = yf }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetGoName(yname string) string {
-    if yname == "ingress-model-leaf-def" { return "IngressModelLeafDef" }
-    return ""
+    ingressModelRootDef.EntityData.Children = make(map[string]types.YChild)
+    ingressModelRootDef.EntityData.Leafs = make(map[string]types.YLeaf)
+    ingressModelRootDef.EntityData.Leafs["ingress-model-leaf-def"] = types.YLeaf{"IngressModelLeafDef", ingressModelRootDef.IngressModelLeafDef}
+    return &(ingressModelRootDef.EntityData)
 }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetSegmentPath() string {
-    return "ingress-model-root-def"
-}
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ingress-model-leaf-def"] = ingressModelRootDef.IngressModelLeafDef
-    return leafs
-}
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetYangName() string { return "ingress-model-root-def" }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) SetParent(parent types.Entity) { ingressModelRootDef.parent = parent }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetParent() types.Entity { return ingressModelRootDef.parent }
-
-func (ingressModelRootDef *HwModuleProfileConfig_Profile_Qos_IngressModelRootDef) GetParentYangName() string { return "qos" }
 
 // HwModuleProfileConfig_Profile_Qos_IngressModels
 // Configure Ingress Model Root
 type HwModuleProfileConfig_Profile_Qos_IngressModels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure Ingress Model. The type is slice of
@@ -1093,72 +878,33 @@ type HwModuleProfileConfig_Profile_Qos_IngressModels struct {
     IngressModel []HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel
 }
 
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetFilter() yfilter.YFilter { return ingressModels.YFilter }
+func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetEntityData() *types.CommonEntityData {
+    ingressModels.EntityData.YFilter = ingressModels.YFilter
+    ingressModels.EntityData.YangName = "ingress-models"
+    ingressModels.EntityData.BundleName = "cisco_ios_xr"
+    ingressModels.EntityData.ParentYangName = "qos"
+    ingressModels.EntityData.SegmentPath = "ingress-models"
+    ingressModels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ingressModels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ingressModels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) SetFilter(yf yfilter.YFilter) { ingressModels.YFilter = yf }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetGoName(yname string) string {
-    if yname == "ingress-model" { return "IngressModel" }
-    return ""
-}
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetSegmentPath() string {
-    return "ingress-models"
-}
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ingress-model" {
-        for _, c := range ingressModels.IngressModel {
-            if ingressModels.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel{}
-        ingressModels.IngressModel = append(ingressModels.IngressModel, child)
-        return &ingressModels.IngressModel[len(ingressModels.IngressModel)-1]
-    }
-    return nil
-}
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ingressModels.EntityData.Children = make(map[string]types.YChild)
+    ingressModels.EntityData.Children["ingress-model"] = types.YChild{"IngressModel", nil}
     for i := range ingressModels.IngressModel {
-        children[ingressModels.IngressModel[i].GetSegmentPath()] = &ingressModels.IngressModel[i]
+        ingressModels.EntityData.Children[types.GetSegmentPath(&ingressModels.IngressModel[i])] = types.YChild{"IngressModel", &ingressModels.IngressModel[i]}
     }
-    return children
+    ingressModels.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ingressModels.EntityData)
 }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetYangName() string { return "ingress-models" }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) SetParent(parent types.Entity) { ingressModels.parent = parent }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetParent() types.Entity { return ingressModels.parent }
-
-func (ingressModels *HwModuleProfileConfig_Profile_Qos_IngressModels) GetParentYangName() string { return "qos" }
 
 // HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel
 // Configure Ingress Model
 type HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. NodeName. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NodeName interface{}
 
     // Configure Ingress Model Leaf. The type is slice of
@@ -1166,70 +912,30 @@ type HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel struct {
     IngressModelLeaf []HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf
 }
 
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetFilter() yfilter.YFilter { return ingressModel.YFilter }
+func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetEntityData() *types.CommonEntityData {
+    ingressModel.EntityData.YFilter = ingressModel.YFilter
+    ingressModel.EntityData.YangName = "ingress-model"
+    ingressModel.EntityData.BundleName = "cisco_ios_xr"
+    ingressModel.EntityData.ParentYangName = "ingress-models"
+    ingressModel.EntityData.SegmentPath = "ingress-model" + "[node-name='" + fmt.Sprintf("%v", ingressModel.NodeName) + "']"
+    ingressModel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ingressModel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ingressModel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) SetFilter(yf yfilter.YFilter) { ingressModel.YFilter = yf }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "ingress-model-leaf" { return "IngressModelLeaf" }
-    return ""
-}
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetSegmentPath() string {
-    return "ingress-model" + "[node-name='" + fmt.Sprintf("%v", ingressModel.NodeName) + "']"
-}
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ingress-model-leaf" {
-        for _, c := range ingressModel.IngressModelLeaf {
-            if ingressModel.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf{}
-        ingressModel.IngressModelLeaf = append(ingressModel.IngressModelLeaf, child)
-        return &ingressModel.IngressModelLeaf[len(ingressModel.IngressModelLeaf)-1]
-    }
-    return nil
-}
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ingressModel.EntityData.Children = make(map[string]types.YChild)
+    ingressModel.EntityData.Children["ingress-model-leaf"] = types.YChild{"IngressModelLeaf", nil}
     for i := range ingressModel.IngressModelLeaf {
-        children[ingressModel.IngressModelLeaf[i].GetSegmentPath()] = &ingressModel.IngressModelLeaf[i]
+        ingressModel.EntityData.Children[types.GetSegmentPath(&ingressModel.IngressModelLeaf[i])] = types.YChild{"IngressModelLeaf", &ingressModel.IngressModelLeaf[i]}
     }
-    return children
+    ingressModel.EntityData.Leafs = make(map[string]types.YLeaf)
+    ingressModel.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", ingressModel.NodeName}
+    return &(ingressModel.EntityData)
 }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = ingressModel.NodeName
-    return leafs
-}
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetYangName() string { return "ingress-model" }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) SetParent(parent types.Entity) { ingressModel.parent = parent }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetParent() types.Entity { return ingressModel.parent }
-
-func (ingressModel *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel) GetParentYangName() string { return "ingress-models" }
 
 // HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf
 // Configure Ingress Model Leaf
 type HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is interface{} with range:
@@ -1241,58 +947,27 @@ type HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLe
     IngressModelLeaf interface{}
 }
 
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetFilter() yfilter.YFilter { return ingressModelLeaf.YFilter }
+func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetEntityData() *types.CommonEntityData {
+    ingressModelLeaf.EntityData.YFilter = ingressModelLeaf.YFilter
+    ingressModelLeaf.EntityData.YangName = "ingress-model-leaf"
+    ingressModelLeaf.EntityData.BundleName = "cisco_ios_xr"
+    ingressModelLeaf.EntityData.ParentYangName = "ingress-model"
+    ingressModelLeaf.EntityData.SegmentPath = "ingress-model-leaf" + "[location='" + fmt.Sprintf("%v", ingressModelLeaf.Location) + "']"
+    ingressModelLeaf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ingressModelLeaf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ingressModelLeaf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) SetFilter(yf yfilter.YFilter) { ingressModelLeaf.YFilter = yf }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "ingress-model-leaf" { return "IngressModelLeaf" }
-    return ""
+    ingressModelLeaf.EntityData.Children = make(map[string]types.YChild)
+    ingressModelLeaf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ingressModelLeaf.EntityData.Leafs["location"] = types.YLeaf{"Location", ingressModelLeaf.Location}
+    ingressModelLeaf.EntityData.Leafs["ingress-model-leaf"] = types.YLeaf{"IngressModelLeaf", ingressModelLeaf.IngressModelLeaf}
+    return &(ingressModelLeaf.EntityData)
 }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetSegmentPath() string {
-    return "ingress-model-leaf" + "[location='" + fmt.Sprintf("%v", ingressModelLeaf.Location) + "']"
-}
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = ingressModelLeaf.Location
-    leafs["ingress-model-leaf"] = ingressModelLeaf.IngressModelLeaf
-    return leafs
-}
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetYangName() string { return "ingress-model-leaf" }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) SetParent(parent types.Entity) { ingressModelLeaf.parent = parent }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetParent() types.Entity { return ingressModelLeaf.parent }
-
-func (ingressModelLeaf *HwModuleProfileConfig_Profile_Qos_IngressModels_IngressModel_IngressModelLeaf) GetParentYangName() string { return "ingress-model" }
 
 // HwModuleProfileConfig_Profile_Qos_Trunks
 // Configure Max Trunk Size
 type HwModuleProfileConfig_Profile_Qos_Trunks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Max Trunk Size. The type is interface{} with range:
@@ -1300,56 +975,26 @@ type HwModuleProfileConfig_Profile_Qos_Trunks struct {
     TrunkSize interface{}
 }
 
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetFilter() yfilter.YFilter { return trunks.YFilter }
+func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetEntityData() *types.CommonEntityData {
+    trunks.EntityData.YFilter = trunks.YFilter
+    trunks.EntityData.YangName = "trunks"
+    trunks.EntityData.BundleName = "cisco_ios_xr"
+    trunks.EntityData.ParentYangName = "qos"
+    trunks.EntityData.SegmentPath = "trunks"
+    trunks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trunks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trunks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) SetFilter(yf yfilter.YFilter) { trunks.YFilter = yf }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetGoName(yname string) string {
-    if yname == "trunk-size" { return "TrunkSize" }
-    return ""
+    trunks.EntityData.Children = make(map[string]types.YChild)
+    trunks.EntityData.Leafs = make(map[string]types.YLeaf)
+    trunks.EntityData.Leafs["trunk-size"] = types.YLeaf{"TrunkSize", trunks.TrunkSize}
+    return &(trunks.EntityData)
 }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetSegmentPath() string {
-    return "trunks"
-}
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["trunk-size"] = trunks.TrunkSize
-    return leafs
-}
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetYangName() string { return "trunks" }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) SetParent(parent types.Entity) { trunks.parent = parent }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetParent() types.Entity { return trunks.parent }
-
-func (trunks *HwModuleProfileConfig_Profile_Qos_Trunks) GetParentYangName() string { return "qos" }
 
 // HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef
 // Configure Class Maps Default
 type HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Class Map Size Default. The type is interface{} with range:
@@ -1357,56 +1002,26 @@ type HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef struct {
     ClassMapSizeDef interface{}
 }
 
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetFilter() yfilter.YFilter { return classMapsRootDef.YFilter }
+func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetEntityData() *types.CommonEntityData {
+    classMapsRootDef.EntityData.YFilter = classMapsRootDef.YFilter
+    classMapsRootDef.EntityData.YangName = "class-maps-root-def"
+    classMapsRootDef.EntityData.BundleName = "cisco_ios_xr"
+    classMapsRootDef.EntityData.ParentYangName = "qos"
+    classMapsRootDef.EntityData.SegmentPath = "class-maps-root-def"
+    classMapsRootDef.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classMapsRootDef.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classMapsRootDef.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) SetFilter(yf yfilter.YFilter) { classMapsRootDef.YFilter = yf }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetGoName(yname string) string {
-    if yname == "class-map-size-def" { return "ClassMapSizeDef" }
-    return ""
+    classMapsRootDef.EntityData.Children = make(map[string]types.YChild)
+    classMapsRootDef.EntityData.Leafs = make(map[string]types.YLeaf)
+    classMapsRootDef.EntityData.Leafs["class-map-size-def"] = types.YLeaf{"ClassMapSizeDef", classMapsRootDef.ClassMapSizeDef}
+    return &(classMapsRootDef.EntityData)
 }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetSegmentPath() string {
-    return "class-maps-root-def"
-}
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class-map-size-def"] = classMapsRootDef.ClassMapSizeDef
-    return leafs
-}
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetYangName() string { return "class-maps-root-def" }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) SetParent(parent types.Entity) { classMapsRootDef.parent = parent }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetParent() types.Entity { return classMapsRootDef.parent }
-
-func (classMapsRootDef *HwModuleProfileConfig_Profile_Qos_ClassMapsRootDef) GetParentYangName() string { return "qos" }
 
 // HwModuleProfileConfig_Profile_Qos_ClassMaps
 // Configure Class Map Root
 type HwModuleProfileConfig_Profile_Qos_ClassMaps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure Class Maps. The type is slice of
@@ -1414,72 +1029,33 @@ type HwModuleProfileConfig_Profile_Qos_ClassMaps struct {
     ClassMap []HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap
 }
 
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetFilter() yfilter.YFilter { return classMaps.YFilter }
+func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetEntityData() *types.CommonEntityData {
+    classMaps.EntityData.YFilter = classMaps.YFilter
+    classMaps.EntityData.YangName = "class-maps"
+    classMaps.EntityData.BundleName = "cisco_ios_xr"
+    classMaps.EntityData.ParentYangName = "qos"
+    classMaps.EntityData.SegmentPath = "class-maps"
+    classMaps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classMaps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classMaps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) SetFilter(yf yfilter.YFilter) { classMaps.YFilter = yf }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetGoName(yname string) string {
-    if yname == "class-map" { return "ClassMap" }
-    return ""
-}
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetSegmentPath() string {
-    return "class-maps"
-}
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class-map" {
-        for _, c := range classMaps.ClassMap {
-            if classMaps.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap{}
-        classMaps.ClassMap = append(classMaps.ClassMap, child)
-        return &classMaps.ClassMap[len(classMaps.ClassMap)-1]
-    }
-    return nil
-}
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classMaps.EntityData.Children = make(map[string]types.YChild)
+    classMaps.EntityData.Children["class-map"] = types.YChild{"ClassMap", nil}
     for i := range classMaps.ClassMap {
-        children[classMaps.ClassMap[i].GetSegmentPath()] = &classMaps.ClassMap[i]
+        classMaps.EntityData.Children[types.GetSegmentPath(&classMaps.ClassMap[i])] = types.YChild{"ClassMap", &classMaps.ClassMap[i]}
     }
-    return children
+    classMaps.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(classMaps.EntityData)
 }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetYangName() string { return "class-maps" }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) SetParent(parent types.Entity) { classMaps.parent = parent }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetParent() types.Entity { return classMaps.parent }
-
-func (classMaps *HwModuleProfileConfig_Profile_Qos_ClassMaps) GetParentYangName() string { return "qos" }
 
 // HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap
 // Configure Class Maps
 type HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. NodeName. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NodeName interface{}
 
     // Class Map Size. The type is slice of
@@ -1487,70 +1063,30 @@ type HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap struct {
     ClassMapSize []HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize
 }
 
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetFilter() yfilter.YFilter { return classMap.YFilter }
+func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetEntityData() *types.CommonEntityData {
+    classMap.EntityData.YFilter = classMap.YFilter
+    classMap.EntityData.YangName = "class-map"
+    classMap.EntityData.BundleName = "cisco_ios_xr"
+    classMap.EntityData.ParentYangName = "class-maps"
+    classMap.EntityData.SegmentPath = "class-map" + "[node-name='" + fmt.Sprintf("%v", classMap.NodeName) + "']"
+    classMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) SetFilter(yf yfilter.YFilter) { classMap.YFilter = yf }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "class-map-size" { return "ClassMapSize" }
-    return ""
-}
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetSegmentPath() string {
-    return "class-map" + "[node-name='" + fmt.Sprintf("%v", classMap.NodeName) + "']"
-}
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "class-map-size" {
-        for _, c := range classMap.ClassMapSize {
-            if classMap.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize{}
-        classMap.ClassMapSize = append(classMap.ClassMapSize, child)
-        return &classMap.ClassMapSize[len(classMap.ClassMapSize)-1]
-    }
-    return nil
-}
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    classMap.EntityData.Children = make(map[string]types.YChild)
+    classMap.EntityData.Children["class-map-size"] = types.YChild{"ClassMapSize", nil}
     for i := range classMap.ClassMapSize {
-        children[classMap.ClassMapSize[i].GetSegmentPath()] = &classMap.ClassMapSize[i]
+        classMap.EntityData.Children[types.GetSegmentPath(&classMap.ClassMapSize[i])] = types.YChild{"ClassMapSize", &classMap.ClassMapSize[i]}
     }
-    return children
+    classMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    classMap.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", classMap.NodeName}
+    return &(classMap.EntityData)
 }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = classMap.NodeName
-    return leafs
-}
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetYangName() string { return "class-map" }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) SetParent(parent types.Entity) { classMap.parent = parent }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetParent() types.Entity { return classMap.parent }
-
-func (classMap *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap) GetParentYangName() string { return "class-maps" }
 
 // HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize
 // Class Map Size
 type HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Location. The type is interface{} with range:
@@ -1562,58 +1098,27 @@ type HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize struct {
     ClassMapSize interface{}
 }
 
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetFilter() yfilter.YFilter { return classMapSize.YFilter }
+func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetEntityData() *types.CommonEntityData {
+    classMapSize.EntityData.YFilter = classMapSize.YFilter
+    classMapSize.EntityData.YangName = "class-map-size"
+    classMapSize.EntityData.BundleName = "cisco_ios_xr"
+    classMapSize.EntityData.ParentYangName = "class-map"
+    classMapSize.EntityData.SegmentPath = "class-map-size" + "[location='" + fmt.Sprintf("%v", classMapSize.Location) + "']"
+    classMapSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    classMapSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    classMapSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) SetFilter(yf yfilter.YFilter) { classMapSize.YFilter = yf }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetGoName(yname string) string {
-    if yname == "location" { return "Location" }
-    if yname == "class-map-size" { return "ClassMapSize" }
-    return ""
+    classMapSize.EntityData.Children = make(map[string]types.YChild)
+    classMapSize.EntityData.Leafs = make(map[string]types.YLeaf)
+    classMapSize.EntityData.Leafs["location"] = types.YLeaf{"Location", classMapSize.Location}
+    classMapSize.EntityData.Leafs["class-map-size"] = types.YLeaf{"ClassMapSize", classMapSize.ClassMapSize}
+    return &(classMapSize.EntityData)
 }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetSegmentPath() string {
-    return "class-map-size" + "[location='" + fmt.Sprintf("%v", classMapSize.Location) + "']"
-}
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["location"] = classMapSize.Location
-    leafs["class-map-size"] = classMapSize.ClassMapSize
-    return leafs
-}
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetBundleName() string { return "cisco_ios_xr" }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetYangName() string { return "class-map-size" }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) SetParent(parent types.Entity) { classMapSize.parent = parent }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetParent() types.Entity { return classMapSize.parent }
-
-func (classMapSize *HwModuleProfileConfig_Profile_Qos_ClassMaps_ClassMap_ClassMapSize) GetParentYangName() string { return "class-map" }
 
 // HwModuleProfileConfig_FibScale
 // Configure Fib for Scale for noTcam LC.
 type HwModuleProfileConfig_FibScale struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 table for NOTCAM LC Scale.
@@ -1623,466 +1128,202 @@ type HwModuleProfileConfig_FibScale struct {
     Ipv4UnicastScaleNoTcam HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam
 }
 
-func (fibScale *HwModuleProfileConfig_FibScale) GetFilter() yfilter.YFilter { return fibScale.YFilter }
+func (fibScale *HwModuleProfileConfig_FibScale) GetEntityData() *types.CommonEntityData {
+    fibScale.EntityData.YFilter = fibScale.YFilter
+    fibScale.EntityData.YangName = "fib-scale"
+    fibScale.EntityData.BundleName = "cisco_ios_xr"
+    fibScale.EntityData.ParentYangName = "hw-module-profile-config"
+    fibScale.EntityData.SegmentPath = "fib-scale"
+    fibScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fibScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fibScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fibScale *HwModuleProfileConfig_FibScale) SetFilter(yf yfilter.YFilter) { fibScale.YFilter = yf }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetGoName(yname string) string {
-    if yname == "ipv6-unicast-scale-no-tcam" { return "Ipv6UnicastScaleNoTcam" }
-    if yname == "ipv4-unicast-scale-no-tcam" { return "Ipv4UnicastScaleNoTcam" }
-    return ""
+    fibScale.EntityData.Children = make(map[string]types.YChild)
+    fibScale.EntityData.Children["ipv6-unicast-scale-no-tcam"] = types.YChild{"Ipv6UnicastScaleNoTcam", &fibScale.Ipv6UnicastScaleNoTcam}
+    fibScale.EntityData.Children["ipv4-unicast-scale-no-tcam"] = types.YChild{"Ipv4UnicastScaleNoTcam", &fibScale.Ipv4UnicastScaleNoTcam}
+    fibScale.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fibScale.EntityData)
 }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetSegmentPath() string {
-    return "fib-scale"
-}
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-unicast-scale-no-tcam" {
-        return &fibScale.Ipv6UnicastScaleNoTcam
-    }
-    if childYangName == "ipv4-unicast-scale-no-tcam" {
-        return &fibScale.Ipv4UnicastScaleNoTcam
-    }
-    return nil
-}
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv6-unicast-scale-no-tcam"] = &fibScale.Ipv6UnicastScaleNoTcam
-    children["ipv4-unicast-scale-no-tcam"] = &fibScale.Ipv4UnicastScaleNoTcam
-    return children
-}
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetYangName() string { return "fib-scale" }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fibScale *HwModuleProfileConfig_FibScale) SetParent(parent types.Entity) { fibScale.parent = parent }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetParent() types.Entity { return fibScale.parent }
-
-func (fibScale *HwModuleProfileConfig_FibScale) GetParentYangName() string { return "hw-module-profile-config" }
 
 // HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam
 // IPv6 table for NOTCAM LC Scale.
 type HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Scale for IPv6 table for NoTCAM LC.
     ScaleIpv6NoTcam HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam
 }
 
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetFilter() yfilter.YFilter { return ipv6UnicastScaleNoTcam.YFilter }
+func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetEntityData() *types.CommonEntityData {
+    ipv6UnicastScaleNoTcam.EntityData.YFilter = ipv6UnicastScaleNoTcam.YFilter
+    ipv6UnicastScaleNoTcam.EntityData.YangName = "ipv6-unicast-scale-no-tcam"
+    ipv6UnicastScaleNoTcam.EntityData.BundleName = "cisco_ios_xr"
+    ipv6UnicastScaleNoTcam.EntityData.ParentYangName = "fib-scale"
+    ipv6UnicastScaleNoTcam.EntityData.SegmentPath = "ipv6-unicast-scale-no-tcam"
+    ipv6UnicastScaleNoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6UnicastScaleNoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6UnicastScaleNoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) SetFilter(yf yfilter.YFilter) { ipv6UnicastScaleNoTcam.YFilter = yf }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetGoName(yname string) string {
-    if yname == "scale-ipv6-no-tcam" { return "ScaleIpv6NoTcam" }
-    return ""
+    ipv6UnicastScaleNoTcam.EntityData.Children = make(map[string]types.YChild)
+    ipv6UnicastScaleNoTcam.EntityData.Children["scale-ipv6-no-tcam"] = types.YChild{"ScaleIpv6NoTcam", &ipv6UnicastScaleNoTcam.ScaleIpv6NoTcam}
+    ipv6UnicastScaleNoTcam.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6UnicastScaleNoTcam.EntityData)
 }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetSegmentPath() string {
-    return "ipv6-unicast-scale-no-tcam"
-}
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "scale-ipv6-no-tcam" {
-        return &ipv6UnicastScaleNoTcam.ScaleIpv6NoTcam
-    }
-    return nil
-}
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["scale-ipv6-no-tcam"] = &ipv6UnicastScaleNoTcam.ScaleIpv6NoTcam
-    return children
-}
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetYangName() string { return "ipv6-unicast-scale-no-tcam" }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) SetParent(parent types.Entity) { ipv6UnicastScaleNoTcam.parent = parent }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetParent() types.Entity { return ipv6UnicastScaleNoTcam.parent }
-
-func (ipv6UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam) GetParentYangName() string { return "fib-scale" }
 
 // HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam
 // Scale for IPv6 table for NoTCAM LC.
 type HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Internet-optimized Scale for IPv6 table for NoTCAM LC. The type is string.
     InternetOptimizedIpv6NoTcam interface{}
 }
 
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetFilter() yfilter.YFilter { return scaleIpv6NoTcam.YFilter }
+func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetEntityData() *types.CommonEntityData {
+    scaleIpv6NoTcam.EntityData.YFilter = scaleIpv6NoTcam.YFilter
+    scaleIpv6NoTcam.EntityData.YangName = "scale-ipv6-no-tcam"
+    scaleIpv6NoTcam.EntityData.BundleName = "cisco_ios_xr"
+    scaleIpv6NoTcam.EntityData.ParentYangName = "ipv6-unicast-scale-no-tcam"
+    scaleIpv6NoTcam.EntityData.SegmentPath = "scale-ipv6-no-tcam"
+    scaleIpv6NoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    scaleIpv6NoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    scaleIpv6NoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) SetFilter(yf yfilter.YFilter) { scaleIpv6NoTcam.YFilter = yf }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetGoName(yname string) string {
-    if yname == "internet-optimized-ipv6-no-tcam" { return "InternetOptimizedIpv6NoTcam" }
-    return ""
+    scaleIpv6NoTcam.EntityData.Children = make(map[string]types.YChild)
+    scaleIpv6NoTcam.EntityData.Leafs = make(map[string]types.YLeaf)
+    scaleIpv6NoTcam.EntityData.Leafs["internet-optimized-ipv6-no-tcam"] = types.YLeaf{"InternetOptimizedIpv6NoTcam", scaleIpv6NoTcam.InternetOptimizedIpv6NoTcam}
+    return &(scaleIpv6NoTcam.EntityData)
 }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetSegmentPath() string {
-    return "scale-ipv6-no-tcam"
-}
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["internet-optimized-ipv6-no-tcam"] = scaleIpv6NoTcam.InternetOptimizedIpv6NoTcam
-    return leafs
-}
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetYangName() string { return "scale-ipv6-no-tcam" }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) SetParent(parent types.Entity) { scaleIpv6NoTcam.parent = parent }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetParent() types.Entity { return scaleIpv6NoTcam.parent }
-
-func (scaleIpv6NoTcam *HwModuleProfileConfig_FibScale_Ipv6UnicastScaleNoTcam_ScaleIpv6NoTcam) GetParentYangName() string { return "ipv6-unicast-scale-no-tcam" }
 
 // HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam
 // IPv4 table for NOTCAM LC Scale.
 type HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Scale for IPv4 table for NoTCAM LC.
     ScaleIpv4NoTcam HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam
 }
 
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetFilter() yfilter.YFilter { return ipv4UnicastScaleNoTcam.YFilter }
+func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetEntityData() *types.CommonEntityData {
+    ipv4UnicastScaleNoTcam.EntityData.YFilter = ipv4UnicastScaleNoTcam.YFilter
+    ipv4UnicastScaleNoTcam.EntityData.YangName = "ipv4-unicast-scale-no-tcam"
+    ipv4UnicastScaleNoTcam.EntityData.BundleName = "cisco_ios_xr"
+    ipv4UnicastScaleNoTcam.EntityData.ParentYangName = "fib-scale"
+    ipv4UnicastScaleNoTcam.EntityData.SegmentPath = "ipv4-unicast-scale-no-tcam"
+    ipv4UnicastScaleNoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4UnicastScaleNoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4UnicastScaleNoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) SetFilter(yf yfilter.YFilter) { ipv4UnicastScaleNoTcam.YFilter = yf }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetGoName(yname string) string {
-    if yname == "scale-ipv4-no-tcam" { return "ScaleIpv4NoTcam" }
-    return ""
+    ipv4UnicastScaleNoTcam.EntityData.Children = make(map[string]types.YChild)
+    ipv4UnicastScaleNoTcam.EntityData.Children["scale-ipv4-no-tcam"] = types.YChild{"ScaleIpv4NoTcam", &ipv4UnicastScaleNoTcam.ScaleIpv4NoTcam}
+    ipv4UnicastScaleNoTcam.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4UnicastScaleNoTcam.EntityData)
 }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetSegmentPath() string {
-    return "ipv4-unicast-scale-no-tcam"
-}
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "scale-ipv4-no-tcam" {
-        return &ipv4UnicastScaleNoTcam.ScaleIpv4NoTcam
-    }
-    return nil
-}
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["scale-ipv4-no-tcam"] = &ipv4UnicastScaleNoTcam.ScaleIpv4NoTcam
-    return children
-}
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetYangName() string { return "ipv4-unicast-scale-no-tcam" }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) SetParent(parent types.Entity) { ipv4UnicastScaleNoTcam.parent = parent }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetParent() types.Entity { return ipv4UnicastScaleNoTcam.parent }
-
-func (ipv4UnicastScaleNoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam) GetParentYangName() string { return "fib-scale" }
 
 // HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam
 // Scale for IPv4 table for NoTCAM LC.
 type HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Host-optimized Scale for IPv4 table for NoTCAM LC. The type is string.
-    HostOptimizedIpv4NoTcam interface{}
-
-    // Internet-optimized Scale for IPv4 table for NoTCAM LC. The type is string.
-    InternetOptimizedIpv4NoTcam interface{}
+    // Optimized Scale for IPv4 table for NoTCAM LC. The type is string.
+    OptimizedIpv4NoTcam interface{}
 }
 
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetFilter() yfilter.YFilter { return scaleIpv4NoTcam.YFilter }
+func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetEntityData() *types.CommonEntityData {
+    scaleIpv4NoTcam.EntityData.YFilter = scaleIpv4NoTcam.YFilter
+    scaleIpv4NoTcam.EntityData.YangName = "scale-ipv4-no-tcam"
+    scaleIpv4NoTcam.EntityData.BundleName = "cisco_ios_xr"
+    scaleIpv4NoTcam.EntityData.ParentYangName = "ipv4-unicast-scale-no-tcam"
+    scaleIpv4NoTcam.EntityData.SegmentPath = "scale-ipv4-no-tcam"
+    scaleIpv4NoTcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    scaleIpv4NoTcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    scaleIpv4NoTcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) SetFilter(yf yfilter.YFilter) { scaleIpv4NoTcam.YFilter = yf }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetGoName(yname string) string {
-    if yname == "host-optimized-ipv4-no-tcam" { return "HostOptimizedIpv4NoTcam" }
-    if yname == "internet-optimized-ipv4-no-tcam" { return "InternetOptimizedIpv4NoTcam" }
-    return ""
+    scaleIpv4NoTcam.EntityData.Children = make(map[string]types.YChild)
+    scaleIpv4NoTcam.EntityData.Leafs = make(map[string]types.YLeaf)
+    scaleIpv4NoTcam.EntityData.Leafs["optimized-ipv4-no-tcam"] = types.YLeaf{"OptimizedIpv4NoTcam", scaleIpv4NoTcam.OptimizedIpv4NoTcam}
+    return &(scaleIpv4NoTcam.EntityData)
 }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetSegmentPath() string {
-    return "scale-ipv4-no-tcam"
-}
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["host-optimized-ipv4-no-tcam"] = scaleIpv4NoTcam.HostOptimizedIpv4NoTcam
-    leafs["internet-optimized-ipv4-no-tcam"] = scaleIpv4NoTcam.InternetOptimizedIpv4NoTcam
-    return leafs
-}
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetYangName() string { return "scale-ipv4-no-tcam" }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) SetParent(parent types.Entity) { scaleIpv4NoTcam.parent = parent }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetParent() types.Entity { return scaleIpv4NoTcam.parent }
-
-func (scaleIpv4NoTcam *HwModuleProfileConfig_FibScale_Ipv4UnicastScaleNoTcam_ScaleIpv4NoTcam) GetParentYangName() string { return "ipv4-unicast-scale-no-tcam" }
 
 // HwModuleProfileConfig_Tcam
 // Configure Tcam.
 type HwModuleProfileConfig_Tcam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure Fib iscale for Tcam.
     FibTcamScale HwModuleProfileConfig_Tcam_FibTcamScale
 }
 
-func (tcam *HwModuleProfileConfig_Tcam) GetFilter() yfilter.YFilter { return tcam.YFilter }
+func (tcam *HwModuleProfileConfig_Tcam) GetEntityData() *types.CommonEntityData {
+    tcam.EntityData.YFilter = tcam.YFilter
+    tcam.EntityData.YangName = "tcam"
+    tcam.EntityData.BundleName = "cisco_ios_xr"
+    tcam.EntityData.ParentYangName = "hw-module-profile-config"
+    tcam.EntityData.SegmentPath = "tcam"
+    tcam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tcam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tcam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tcam *HwModuleProfileConfig_Tcam) SetFilter(yf yfilter.YFilter) { tcam.YFilter = yf }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetGoName(yname string) string {
-    if yname == "fib-tcam-scale" { return "FibTcamScale" }
-    return ""
+    tcam.EntityData.Children = make(map[string]types.YChild)
+    tcam.EntityData.Children["fib-tcam-scale"] = types.YChild{"FibTcamScale", &tcam.FibTcamScale}
+    tcam.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tcam.EntityData)
 }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetSegmentPath() string {
-    return "tcam"
-}
-
-func (tcam *HwModuleProfileConfig_Tcam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fib-tcam-scale" {
-        return &tcam.FibTcamScale
-    }
-    return nil
-}
-
-func (tcam *HwModuleProfileConfig_Tcam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["fib-tcam-scale"] = &tcam.FibTcamScale
-    return children
-}
-
-func (tcam *HwModuleProfileConfig_Tcam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tcam *HwModuleProfileConfig_Tcam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetYangName() string { return "tcam" }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tcam *HwModuleProfileConfig_Tcam) SetParent(parent types.Entity) { tcam.parent = parent }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetParent() types.Entity { return tcam.parent }
-
-func (tcam *HwModuleProfileConfig_Tcam) GetParentYangName() string { return "hw-module-profile-config" }
 
 // HwModuleProfileConfig_Tcam_FibTcamScale
 // Configure Fib iscale for Tcam.
 type HwModuleProfileConfig_Tcam_FibTcamScale struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 table for TCAM LC Scale.
     Ipv4UnicastScale HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale
 }
 
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetFilter() yfilter.YFilter { return fibTcamScale.YFilter }
+func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetEntityData() *types.CommonEntityData {
+    fibTcamScale.EntityData.YFilter = fibTcamScale.YFilter
+    fibTcamScale.EntityData.YangName = "fib-tcam-scale"
+    fibTcamScale.EntityData.BundleName = "cisco_ios_xr"
+    fibTcamScale.EntityData.ParentYangName = "tcam"
+    fibTcamScale.EntityData.SegmentPath = "fib-tcam-scale"
+    fibTcamScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fibTcamScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fibTcamScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) SetFilter(yf yfilter.YFilter) { fibTcamScale.YFilter = yf }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetGoName(yname string) string {
-    if yname == "ipv4-unicast-scale" { return "Ipv4UnicastScale" }
-    return ""
+    fibTcamScale.EntityData.Children = make(map[string]types.YChild)
+    fibTcamScale.EntityData.Children["ipv4-unicast-scale"] = types.YChild{"Ipv4UnicastScale", &fibTcamScale.Ipv4UnicastScale}
+    fibTcamScale.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fibTcamScale.EntityData)
 }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetSegmentPath() string {
-    return "fib-tcam-scale"
-}
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-unicast-scale" {
-        return &fibTcamScale.Ipv4UnicastScale
-    }
-    return nil
-}
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-unicast-scale"] = &fibTcamScale.Ipv4UnicastScale
-    return children
-}
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetYangName() string { return "fib-tcam-scale" }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) SetParent(parent types.Entity) { fibTcamScale.parent = parent }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetParent() types.Entity { return fibTcamScale.parent }
-
-func (fibTcamScale *HwModuleProfileConfig_Tcam_FibTcamScale) GetParentYangName() string { return "tcam" }
 
 // HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale
 // IPv4 table for TCAM LC Scale.
 type HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Scale for IPv4 table for TCAM LC. The type is interface{}.
     Ipv4Scale interface{}
 }
 
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetFilter() yfilter.YFilter { return ipv4UnicastScale.YFilter }
+func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetEntityData() *types.CommonEntityData {
+    ipv4UnicastScale.EntityData.YFilter = ipv4UnicastScale.YFilter
+    ipv4UnicastScale.EntityData.YangName = "ipv4-unicast-scale"
+    ipv4UnicastScale.EntityData.BundleName = "cisco_ios_xr"
+    ipv4UnicastScale.EntityData.ParentYangName = "fib-tcam-scale"
+    ipv4UnicastScale.EntityData.SegmentPath = "ipv4-unicast-scale"
+    ipv4UnicastScale.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4UnicastScale.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4UnicastScale.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) SetFilter(yf yfilter.YFilter) { ipv4UnicastScale.YFilter = yf }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetGoName(yname string) string {
-    if yname == "ipv4-scale" { return "Ipv4Scale" }
-    return ""
+    ipv4UnicastScale.EntityData.Children = make(map[string]types.YChild)
+    ipv4UnicastScale.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4UnicastScale.EntityData.Leafs["ipv4-scale"] = types.YLeaf{"Ipv4Scale", ipv4UnicastScale.Ipv4Scale}
+    return &(ipv4UnicastScale.EntityData)
 }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetSegmentPath() string {
-    return "ipv4-unicast-scale"
-}
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-scale"] = ipv4UnicastScale.Ipv4Scale
-    return leafs
-}
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetYangName() string { return "ipv4-unicast-scale" }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) SetParent(parent types.Entity) { ipv4UnicastScale.parent = parent }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetParent() types.Entity { return ipv4UnicastScale.parent }
-
-func (ipv4UnicastScale *HwModuleProfileConfig_Tcam_FibTcamScale_Ipv4UnicastScale) GetParentYangName() string { return "fib-tcam-scale" }
 

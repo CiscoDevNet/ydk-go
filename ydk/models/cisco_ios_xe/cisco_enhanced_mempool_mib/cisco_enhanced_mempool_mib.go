@@ -52,7 +52,7 @@ const (
 
 // CISCOENHANCEDMEMPOOLMIB
 type CISCOENHANCEDMEMPOOLMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -91,73 +91,28 @@ type CISCOENHANCEDMEMPOOLMIB struct {
     Cempmembuffercachepooltable CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable
 }
 
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetFilter() yfilter.YFilter { return cISCOENHANCEDMEMPOOLMIB.YFilter }
+func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetEntityData() *types.CommonEntityData {
+    cISCOENHANCEDMEMPOOLMIB.EntityData.YFilter = cISCOENHANCEDMEMPOOLMIB.YFilter
+    cISCOENHANCEDMEMPOOLMIB.EntityData.YangName = "CISCO-ENHANCED-MEMPOOL-MIB"
+    cISCOENHANCEDMEMPOOLMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOENHANCEDMEMPOOLMIB.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
+    cISCOENHANCEDMEMPOOLMIB.EntityData.SegmentPath = "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB"
+    cISCOENHANCEDMEMPOOLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOENHANCEDMEMPOOLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOENHANCEDMEMPOOLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) SetFilter(yf yfilter.YFilter) { cISCOENHANCEDMEMPOOLMIB.YFilter = yf }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetGoName(yname string) string {
-    if yname == "cempNotificationConfig" { return "Cempnotificationconfig" }
-    if yname == "cempMemPoolTable" { return "Cempmempooltable" }
-    if yname == "cempMemBufferPoolTable" { return "Cempmembufferpooltable" }
-    if yname == "cempMemBufferCachePoolTable" { return "Cempmembuffercachepooltable" }
-    return ""
+    cISCOENHANCEDMEMPOOLMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOENHANCEDMEMPOOLMIB.EntityData.Children["cempNotificationConfig"] = types.YChild{"Cempnotificationconfig", &cISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig}
+    cISCOENHANCEDMEMPOOLMIB.EntityData.Children["cempMemPoolTable"] = types.YChild{"Cempmempooltable", &cISCOENHANCEDMEMPOOLMIB.Cempmempooltable}
+    cISCOENHANCEDMEMPOOLMIB.EntityData.Children["cempMemBufferPoolTable"] = types.YChild{"Cempmembufferpooltable", &cISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable}
+    cISCOENHANCEDMEMPOOLMIB.EntityData.Children["cempMemBufferCachePoolTable"] = types.YChild{"Cempmembuffercachepooltable", &cISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable}
+    cISCOENHANCEDMEMPOOLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOENHANCEDMEMPOOLMIB.EntityData)
 }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetSegmentPath() string {
-    return "CISCO-ENHANCED-MEMPOOL-MIB:CISCO-ENHANCED-MEMPOOL-MIB"
-}
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cempNotificationConfig" {
-        return &cISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig
-    }
-    if childYangName == "cempMemPoolTable" {
-        return &cISCOENHANCEDMEMPOOLMIB.Cempmempooltable
-    }
-    if childYangName == "cempMemBufferPoolTable" {
-        return &cISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable
-    }
-    if childYangName == "cempMemBufferCachePoolTable" {
-        return &cISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable
-    }
-    return nil
-}
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cempNotificationConfig"] = &cISCOENHANCEDMEMPOOLMIB.Cempnotificationconfig
-    children["cempMemPoolTable"] = &cISCOENHANCEDMEMPOOLMIB.Cempmempooltable
-    children["cempMemBufferPoolTable"] = &cISCOENHANCEDMEMPOOLMIB.Cempmembufferpooltable
-    children["cempMemBufferCachePoolTable"] = &cISCOENHANCEDMEMPOOLMIB.Cempmembuffercachepooltable
-    return children
-}
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetYangName() string { return "CISCO-ENHANCED-MEMPOOL-MIB" }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) SetParent(parent types.Entity) { cISCOENHANCEDMEMPOOLMIB.parent = parent }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetParent() types.Entity { return cISCOENHANCEDMEMPOOLMIB.parent }
-
-func (cISCOENHANCEDMEMPOOLMIB *CISCOENHANCEDMEMPOOLMIB) GetParentYangName() string { return "CISCO-ENHANCED-MEMPOOL-MIB" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig
 type CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This variable controls generation of the cempMemBufferNotify.  When this
@@ -167,57 +122,27 @@ type CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig struct {
     Cempmembuffernotifyenabled interface{}
 }
 
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetFilter() yfilter.YFilter { return cempnotificationconfig.YFilter }
+func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetEntityData() *types.CommonEntityData {
+    cempnotificationconfig.EntityData.YFilter = cempnotificationconfig.YFilter
+    cempnotificationconfig.EntityData.YangName = "cempNotificationConfig"
+    cempnotificationconfig.EntityData.BundleName = "cisco_ios_xe"
+    cempnotificationconfig.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
+    cempnotificationconfig.EntityData.SegmentPath = "cempNotificationConfig"
+    cempnotificationconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempnotificationconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempnotificationconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) SetFilter(yf yfilter.YFilter) { cempnotificationconfig.YFilter = yf }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetGoName(yname string) string {
-    if yname == "cempMemBufferNotifyEnabled" { return "Cempmembuffernotifyenabled" }
-    return ""
+    cempnotificationconfig.EntityData.Children = make(map[string]types.YChild)
+    cempnotificationconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    cempnotificationconfig.EntityData.Leafs["cempMemBufferNotifyEnabled"] = types.YLeaf{"Cempmembuffernotifyenabled", cempnotificationconfig.Cempmembuffernotifyenabled}
+    return &(cempnotificationconfig.EntityData)
 }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetSegmentPath() string {
-    return "cempNotificationConfig"
-}
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cempMemBufferNotifyEnabled"] = cempnotificationconfig.Cempmembuffernotifyenabled
-    return leafs
-}
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetYangName() string { return "cempNotificationConfig" }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) SetParent(parent types.Entity) { cempnotificationconfig.parent = parent }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetParent() types.Entity { return cempnotificationconfig.parent }
-
-func (cempnotificationconfig *CISCOENHANCEDMEMPOOLMIB_Cempnotificationconfig) GetParentYangName() string { return "CISCO-ENHANCED-MEMPOOL-MIB" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempmempooltable
 // A table of memory pool monitoring entries for all
 // physical entities on a managed system.
 type CISCOENHANCEDMEMPOOLMIB_Cempmempooltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the memory pool monitoring table. The type is slice of
@@ -225,68 +150,29 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmempooltable struct {
     Cempmempoolentry []CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry
 }
 
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetFilter() yfilter.YFilter { return cempmempooltable.YFilter }
+func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetEntityData() *types.CommonEntityData {
+    cempmempooltable.EntityData.YFilter = cempmempooltable.YFilter
+    cempmempooltable.EntityData.YangName = "cempMemPoolTable"
+    cempmempooltable.EntityData.BundleName = "cisco_ios_xe"
+    cempmempooltable.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
+    cempmempooltable.EntityData.SegmentPath = "cempMemPoolTable"
+    cempmempooltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempmempooltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempmempooltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) SetFilter(yf yfilter.YFilter) { cempmempooltable.YFilter = yf }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetGoName(yname string) string {
-    if yname == "cempMemPoolEntry" { return "Cempmempoolentry" }
-    return ""
-}
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetSegmentPath() string {
-    return "cempMemPoolTable"
-}
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cempMemPoolEntry" {
-        for _, c := range cempmempooltable.Cempmempoolentry {
-            if cempmempooltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry{}
-        cempmempooltable.Cempmempoolentry = append(cempmempooltable.Cempmempoolentry, child)
-        return &cempmempooltable.Cempmempoolentry[len(cempmempooltable.Cempmempoolentry)-1]
-    }
-    return nil
-}
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cempmempooltable.EntityData.Children = make(map[string]types.YChild)
+    cempmempooltable.EntityData.Children["cempMemPoolEntry"] = types.YChild{"Cempmempoolentry", nil}
     for i := range cempmempooltable.Cempmempoolentry {
-        children[cempmempooltable.Cempmempoolentry[i].GetSegmentPath()] = &cempmempooltable.Cempmempoolentry[i]
+        cempmempooltable.EntityData.Children[types.GetSegmentPath(&cempmempooltable.Cempmempoolentry[i])] = types.YChild{"Cempmempoolentry", &cempmempooltable.Cempmempoolentry[i]}
     }
-    return children
+    cempmempooltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cempmempooltable.EntityData)
 }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetYangName() string { return "cempMemPoolTable" }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) SetParent(parent types.Entity) { cempmempooltable.parent = parent }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetParent() types.Entity { return cempmempooltable.parent }
-
-func (cempmempooltable *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable) GetParentYangName() string { return "CISCO-ENHANCED-MEMPOOL-MIB" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry
 // An entry in the memory pool monitoring table.
 type CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -314,7 +200,7 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry struct {
     // pool.  If no platform specific memory hardware type identifier exists for
     // this physical entity, or the value is unknown by this agent, then the value
     // { 0 0 } is returned. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cempmempoolplatformmemory interface{}
 
     // Indicates whether or not this memory pool has an alternate pool configured.
@@ -461,107 +347,49 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry struct {
     Cempmempoolhcshared interface{}
 }
 
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetFilter() yfilter.YFilter { return cempmempoolentry.YFilter }
+func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetEntityData() *types.CommonEntityData {
+    cempmempoolentry.EntityData.YFilter = cempmempoolentry.YFilter
+    cempmempoolentry.EntityData.YangName = "cempMemPoolEntry"
+    cempmempoolentry.EntityData.BundleName = "cisco_ios_xe"
+    cempmempoolentry.EntityData.ParentYangName = "cempMemPoolTable"
+    cempmempoolentry.EntityData.SegmentPath = "cempMemPoolEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cempmempoolentry.Entphysicalindex) + "']" + "[cempMemPoolIndex='" + fmt.Sprintf("%v", cempmempoolentry.Cempmempoolindex) + "']"
+    cempmempoolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempmempoolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempmempoolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) SetFilter(yf yfilter.YFilter) { cempmempoolentry.YFilter = yf }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cempMemPoolIndex" { return "Cempmempoolindex" }
-    if yname == "cempMemPoolType" { return "Cempmempooltype" }
-    if yname == "cempMemPoolName" { return "Cempmempoolname" }
-    if yname == "cempMemPoolPlatformMemory" { return "Cempmempoolplatformmemory" }
-    if yname == "cempMemPoolAlternate" { return "Cempmempoolalternate" }
-    if yname == "cempMemPoolValid" { return "Cempmempoolvalid" }
-    if yname == "cempMemPoolUsed" { return "Cempmempoolused" }
-    if yname == "cempMemPoolFree" { return "Cempmempoolfree" }
-    if yname == "cempMemPoolLargestFree" { return "Cempmempoollargestfree" }
-    if yname == "cempMemPoolLowestFree" { return "Cempmempoollowestfree" }
-    if yname == "cempMemPoolUsedLowWaterMark" { return "Cempmempoolusedlowwatermark" }
-    if yname == "cempMemPoolAllocHit" { return "Cempmempoolallochit" }
-    if yname == "cempMemPoolAllocMiss" { return "Cempmempoolallocmiss" }
-    if yname == "cempMemPoolFreeHit" { return "Cempmempoolfreehit" }
-    if yname == "cempMemPoolFreeMiss" { return "Cempmempoolfreemiss" }
-    if yname == "cempMemPoolShared" { return "Cempmempoolshared" }
-    if yname == "cempMemPoolUsedOvrflw" { return "Cempmempoolusedovrflw" }
-    if yname == "cempMemPoolHCUsed" { return "Cempmempoolhcused" }
-    if yname == "cempMemPoolFreeOvrflw" { return "Cempmempoolfreeovrflw" }
-    if yname == "cempMemPoolHCFree" { return "Cempmempoolhcfree" }
-    if yname == "cempMemPoolLargestFreeOvrflw" { return "Cempmempoollargestfreeovrflw" }
-    if yname == "cempMemPoolHCLargestFree" { return "Cempmempoolhclargestfree" }
-    if yname == "cempMemPoolLowestFreeOvrflw" { return "Cempmempoollowestfreeovrflw" }
-    if yname == "cempMemPoolHCLowestFree" { return "Cempmempoolhclowestfree" }
-    if yname == "cempMemPoolUsedLowWaterMarkOvrflw" { return "Cempmempoolusedlowwatermarkovrflw" }
-    if yname == "cempMemPoolHCUsedLowWaterMark" { return "Cempmempoolhcusedlowwatermark" }
-    if yname == "cempMemPoolSharedOvrflw" { return "Cempmempoolsharedovrflw" }
-    if yname == "cempMemPoolHCShared" { return "Cempmempoolhcshared" }
-    return ""
+    cempmempoolentry.EntityData.Children = make(map[string]types.YChild)
+    cempmempoolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cempmempoolentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cempmempoolentry.Entphysicalindex}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolIndex"] = types.YLeaf{"Cempmempoolindex", cempmempoolentry.Cempmempoolindex}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolType"] = types.YLeaf{"Cempmempooltype", cempmempoolentry.Cempmempooltype}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolName"] = types.YLeaf{"Cempmempoolname", cempmempoolentry.Cempmempoolname}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolPlatformMemory"] = types.YLeaf{"Cempmempoolplatformmemory", cempmempoolentry.Cempmempoolplatformmemory}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolAlternate"] = types.YLeaf{"Cempmempoolalternate", cempmempoolentry.Cempmempoolalternate}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolValid"] = types.YLeaf{"Cempmempoolvalid", cempmempoolentry.Cempmempoolvalid}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolUsed"] = types.YLeaf{"Cempmempoolused", cempmempoolentry.Cempmempoolused}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolFree"] = types.YLeaf{"Cempmempoolfree", cempmempoolentry.Cempmempoolfree}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolLargestFree"] = types.YLeaf{"Cempmempoollargestfree", cempmempoolentry.Cempmempoollargestfree}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolLowestFree"] = types.YLeaf{"Cempmempoollowestfree", cempmempoolentry.Cempmempoollowestfree}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolUsedLowWaterMark"] = types.YLeaf{"Cempmempoolusedlowwatermark", cempmempoolentry.Cempmempoolusedlowwatermark}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolAllocHit"] = types.YLeaf{"Cempmempoolallochit", cempmempoolentry.Cempmempoolallochit}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolAllocMiss"] = types.YLeaf{"Cempmempoolallocmiss", cempmempoolentry.Cempmempoolallocmiss}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolFreeHit"] = types.YLeaf{"Cempmempoolfreehit", cempmempoolentry.Cempmempoolfreehit}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolFreeMiss"] = types.YLeaf{"Cempmempoolfreemiss", cempmempoolentry.Cempmempoolfreemiss}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolShared"] = types.YLeaf{"Cempmempoolshared", cempmempoolentry.Cempmempoolshared}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolUsedOvrflw"] = types.YLeaf{"Cempmempoolusedovrflw", cempmempoolentry.Cempmempoolusedovrflw}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolHCUsed"] = types.YLeaf{"Cempmempoolhcused", cempmempoolentry.Cempmempoolhcused}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolFreeOvrflw"] = types.YLeaf{"Cempmempoolfreeovrflw", cempmempoolentry.Cempmempoolfreeovrflw}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolHCFree"] = types.YLeaf{"Cempmempoolhcfree", cempmempoolentry.Cempmempoolhcfree}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolLargestFreeOvrflw"] = types.YLeaf{"Cempmempoollargestfreeovrflw", cempmempoolentry.Cempmempoollargestfreeovrflw}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolHCLargestFree"] = types.YLeaf{"Cempmempoolhclargestfree", cempmempoolentry.Cempmempoolhclargestfree}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolLowestFreeOvrflw"] = types.YLeaf{"Cempmempoollowestfreeovrflw", cempmempoolentry.Cempmempoollowestfreeovrflw}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolHCLowestFree"] = types.YLeaf{"Cempmempoolhclowestfree", cempmempoolentry.Cempmempoolhclowestfree}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolUsedLowWaterMarkOvrflw"] = types.YLeaf{"Cempmempoolusedlowwatermarkovrflw", cempmempoolentry.Cempmempoolusedlowwatermarkovrflw}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolHCUsedLowWaterMark"] = types.YLeaf{"Cempmempoolhcusedlowwatermark", cempmempoolentry.Cempmempoolhcusedlowwatermark}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolSharedOvrflw"] = types.YLeaf{"Cempmempoolsharedovrflw", cempmempoolentry.Cempmempoolsharedovrflw}
+    cempmempoolentry.EntityData.Leafs["cempMemPoolHCShared"] = types.YLeaf{"Cempmempoolhcshared", cempmempoolentry.Cempmempoolhcshared}
+    return &(cempmempoolentry.EntityData)
 }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetSegmentPath() string {
-    return "cempMemPoolEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cempmempoolentry.Entphysicalindex) + "']" + "[cempMemPoolIndex='" + fmt.Sprintf("%v", cempmempoolentry.Cempmempoolindex) + "']"
-}
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cempmempoolentry.Entphysicalindex
-    leafs["cempMemPoolIndex"] = cempmempoolentry.Cempmempoolindex
-    leafs["cempMemPoolType"] = cempmempoolentry.Cempmempooltype
-    leafs["cempMemPoolName"] = cempmempoolentry.Cempmempoolname
-    leafs["cempMemPoolPlatformMemory"] = cempmempoolentry.Cempmempoolplatformmemory
-    leafs["cempMemPoolAlternate"] = cempmempoolentry.Cempmempoolalternate
-    leafs["cempMemPoolValid"] = cempmempoolentry.Cempmempoolvalid
-    leafs["cempMemPoolUsed"] = cempmempoolentry.Cempmempoolused
-    leafs["cempMemPoolFree"] = cempmempoolentry.Cempmempoolfree
-    leafs["cempMemPoolLargestFree"] = cempmempoolentry.Cempmempoollargestfree
-    leafs["cempMemPoolLowestFree"] = cempmempoolentry.Cempmempoollowestfree
-    leafs["cempMemPoolUsedLowWaterMark"] = cempmempoolentry.Cempmempoolusedlowwatermark
-    leafs["cempMemPoolAllocHit"] = cempmempoolentry.Cempmempoolallochit
-    leafs["cempMemPoolAllocMiss"] = cempmempoolentry.Cempmempoolallocmiss
-    leafs["cempMemPoolFreeHit"] = cempmempoolentry.Cempmempoolfreehit
-    leafs["cempMemPoolFreeMiss"] = cempmempoolentry.Cempmempoolfreemiss
-    leafs["cempMemPoolShared"] = cempmempoolentry.Cempmempoolshared
-    leafs["cempMemPoolUsedOvrflw"] = cempmempoolentry.Cempmempoolusedovrflw
-    leafs["cempMemPoolHCUsed"] = cempmempoolentry.Cempmempoolhcused
-    leafs["cempMemPoolFreeOvrflw"] = cempmempoolentry.Cempmempoolfreeovrflw
-    leafs["cempMemPoolHCFree"] = cempmempoolentry.Cempmempoolhcfree
-    leafs["cempMemPoolLargestFreeOvrflw"] = cempmempoolentry.Cempmempoollargestfreeovrflw
-    leafs["cempMemPoolHCLargestFree"] = cempmempoolentry.Cempmempoolhclargestfree
-    leafs["cempMemPoolLowestFreeOvrflw"] = cempmempoolentry.Cempmempoollowestfreeovrflw
-    leafs["cempMemPoolHCLowestFree"] = cempmempoolentry.Cempmempoolhclowestfree
-    leafs["cempMemPoolUsedLowWaterMarkOvrflw"] = cempmempoolentry.Cempmempoolusedlowwatermarkovrflw
-    leafs["cempMemPoolHCUsedLowWaterMark"] = cempmempoolentry.Cempmempoolhcusedlowwatermark
-    leafs["cempMemPoolSharedOvrflw"] = cempmempoolentry.Cempmempoolsharedovrflw
-    leafs["cempMemPoolHCShared"] = cempmempoolentry.Cempmempoolhcshared
-    return leafs
-}
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetYangName() string { return "cempMemPoolEntry" }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) SetParent(parent types.Entity) { cempmempoolentry.parent = parent }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetParent() types.Entity { return cempmempoolentry.parent }
-
-func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentry) GetParentYangName() string { return "cempMemPoolTable" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable
 // Entries in this table define entities (buffer pools
@@ -590,7 +418,7 @@ func (cempmempoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmempooltable_Cempmempoolentr
 //   to allocate buffers from. Private pools are
 //   primarily used by interface drivers.
 type CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This contains all the memory buffer pool configurations object values. The 
@@ -600,63 +428,24 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable struct {
     Cempmembufferpoolentry []CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry
 }
 
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetFilter() yfilter.YFilter { return cempmembufferpooltable.YFilter }
+func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetEntityData() *types.CommonEntityData {
+    cempmembufferpooltable.EntityData.YFilter = cempmembufferpooltable.YFilter
+    cempmembufferpooltable.EntityData.YangName = "cempMemBufferPoolTable"
+    cempmembufferpooltable.EntityData.BundleName = "cisco_ios_xe"
+    cempmembufferpooltable.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
+    cempmembufferpooltable.EntityData.SegmentPath = "cempMemBufferPoolTable"
+    cempmembufferpooltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempmembufferpooltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempmembufferpooltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) SetFilter(yf yfilter.YFilter) { cempmembufferpooltable.YFilter = yf }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetGoName(yname string) string {
-    if yname == "cempMemBufferPoolEntry" { return "Cempmembufferpoolentry" }
-    return ""
-}
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetSegmentPath() string {
-    return "cempMemBufferPoolTable"
-}
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cempMemBufferPoolEntry" {
-        for _, c := range cempmembufferpooltable.Cempmembufferpoolentry {
-            if cempmembufferpooltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry{}
-        cempmembufferpooltable.Cempmembufferpoolentry = append(cempmembufferpooltable.Cempmembufferpoolentry, child)
-        return &cempmembufferpooltable.Cempmembufferpoolentry[len(cempmembufferpooltable.Cempmembufferpoolentry)-1]
-    }
-    return nil
-}
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cempmembufferpooltable.EntityData.Children = make(map[string]types.YChild)
+    cempmembufferpooltable.EntityData.Children["cempMemBufferPoolEntry"] = types.YChild{"Cempmembufferpoolentry", nil}
     for i := range cempmembufferpooltable.Cempmembufferpoolentry {
-        children[cempmembufferpooltable.Cempmembufferpoolentry[i].GetSegmentPath()] = &cempmembufferpooltable.Cempmembufferpoolentry[i]
+        cempmembufferpooltable.EntityData.Children[types.GetSegmentPath(&cempmembufferpooltable.Cempmembufferpoolentry[i])] = types.YChild{"Cempmembufferpoolentry", &cempmembufferpooltable.Cempmembufferpoolentry[i]}
     }
-    return children
+    cempmembufferpooltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cempmembufferpooltable.EntityData)
 }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetYangName() string { return "cempMemBufferPoolTable" }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) SetParent(parent types.Entity) { cempmembufferpooltable.parent = parent }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetParent() types.Entity { return cempmembufferpooltable.parent }
-
-func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) GetParentYangName() string { return "CISCO-ENHANCED-MEMPOOL-MIB" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry
 // This contains all the memory buffer pool
@@ -664,7 +453,7 @@ func (cempmembufferpooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable) Ge
 // entPhysicalIndex identifies the entity on which
 // memory buffer pools are present.
 type CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -792,95 +581,43 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry struc
     Cempmembuffernostorage interface{}
 }
 
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetFilter() yfilter.YFilter { return cempmembufferpoolentry.YFilter }
+func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetEntityData() *types.CommonEntityData {
+    cempmembufferpoolentry.EntityData.YFilter = cempmembufferpoolentry.YFilter
+    cempmembufferpoolentry.EntityData.YangName = "cempMemBufferPoolEntry"
+    cempmembufferpoolentry.EntityData.BundleName = "cisco_ios_xe"
+    cempmembufferpoolentry.EntityData.ParentYangName = "cempMemBufferPoolTable"
+    cempmembufferpoolentry.EntityData.SegmentPath = "cempMemBufferPoolEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cempmembufferpoolentry.Entphysicalindex) + "']" + "[cempMemBufferPoolIndex='" + fmt.Sprintf("%v", cempmembufferpoolentry.Cempmembufferpoolindex) + "']"
+    cempmembufferpoolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempmembufferpoolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempmembufferpoolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) SetFilter(yf yfilter.YFilter) { cempmembufferpoolentry.YFilter = yf }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cempMemBufferPoolIndex" { return "Cempmembufferpoolindex" }
-    if yname == "cempMemBufferMemPoolIndex" { return "Cempmembuffermempoolindex" }
-    if yname == "cempMemBufferName" { return "Cempmembuffername" }
-    if yname == "cempMemBufferDynamic" { return "Cempmembufferdynamic" }
-    if yname == "cempMemBufferSize" { return "Cempmembuffersize" }
-    if yname == "cempMemBufferMin" { return "Cempmembuffermin" }
-    if yname == "cempMemBufferMax" { return "Cempmembuffermax" }
-    if yname == "cempMemBufferPermanent" { return "Cempmembufferpermanent" }
-    if yname == "cempMemBufferTransient" { return "Cempmembuffertransient" }
-    if yname == "cempMemBufferTotal" { return "Cempmembuffertotal" }
-    if yname == "cempMemBufferFree" { return "Cempmembufferfree" }
-    if yname == "cempMemBufferHit" { return "Cempmembufferhit" }
-    if yname == "cempMemBufferMiss" { return "Cempmembuffermiss" }
-    if yname == "cempMemBufferFreeHit" { return "Cempmembufferfreehit" }
-    if yname == "cempMemBufferFreeMiss" { return "Cempmembufferfreemiss" }
-    if yname == "cempMemBufferPermChange" { return "Cempmembufferpermchange" }
-    if yname == "cempMemBufferPeak" { return "Cempmembufferpeak" }
-    if yname == "cempMemBufferPeakTime" { return "Cempmembufferpeaktime" }
-    if yname == "cempMemBufferTrim" { return "Cempmembuffertrim" }
-    if yname == "cempMemBufferGrow" { return "Cempmembuffergrow" }
-    if yname == "cempMemBufferFailures" { return "Cempmembufferfailures" }
-    if yname == "cempMemBufferNoStorage" { return "Cempmembuffernostorage" }
-    return ""
+    cempmembufferpoolentry.EntityData.Children = make(map[string]types.YChild)
+    cempmembufferpoolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cempmembufferpoolentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cempmembufferpoolentry.Entphysicalindex}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferPoolIndex"] = types.YLeaf{"Cempmembufferpoolindex", cempmembufferpoolentry.Cempmembufferpoolindex}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferMemPoolIndex"] = types.YLeaf{"Cempmembuffermempoolindex", cempmembufferpoolentry.Cempmembuffermempoolindex}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferName"] = types.YLeaf{"Cempmembuffername", cempmembufferpoolentry.Cempmembuffername}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferDynamic"] = types.YLeaf{"Cempmembufferdynamic", cempmembufferpoolentry.Cempmembufferdynamic}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferSize"] = types.YLeaf{"Cempmembuffersize", cempmembufferpoolentry.Cempmembuffersize}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferMin"] = types.YLeaf{"Cempmembuffermin", cempmembufferpoolentry.Cempmembuffermin}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferMax"] = types.YLeaf{"Cempmembuffermax", cempmembufferpoolentry.Cempmembuffermax}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferPermanent"] = types.YLeaf{"Cempmembufferpermanent", cempmembufferpoolentry.Cempmembufferpermanent}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferTransient"] = types.YLeaf{"Cempmembuffertransient", cempmembufferpoolentry.Cempmembuffertransient}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferTotal"] = types.YLeaf{"Cempmembuffertotal", cempmembufferpoolentry.Cempmembuffertotal}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferFree"] = types.YLeaf{"Cempmembufferfree", cempmembufferpoolentry.Cempmembufferfree}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferHit"] = types.YLeaf{"Cempmembufferhit", cempmembufferpoolentry.Cempmembufferhit}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferMiss"] = types.YLeaf{"Cempmembuffermiss", cempmembufferpoolentry.Cempmembuffermiss}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferFreeHit"] = types.YLeaf{"Cempmembufferfreehit", cempmembufferpoolentry.Cempmembufferfreehit}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferFreeMiss"] = types.YLeaf{"Cempmembufferfreemiss", cempmembufferpoolentry.Cempmembufferfreemiss}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferPermChange"] = types.YLeaf{"Cempmembufferpermchange", cempmembufferpoolentry.Cempmembufferpermchange}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferPeak"] = types.YLeaf{"Cempmembufferpeak", cempmembufferpoolentry.Cempmembufferpeak}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferPeakTime"] = types.YLeaf{"Cempmembufferpeaktime", cempmembufferpoolentry.Cempmembufferpeaktime}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferTrim"] = types.YLeaf{"Cempmembuffertrim", cempmembufferpoolentry.Cempmembuffertrim}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferGrow"] = types.YLeaf{"Cempmembuffergrow", cempmembufferpoolentry.Cempmembuffergrow}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferFailures"] = types.YLeaf{"Cempmembufferfailures", cempmembufferpoolentry.Cempmembufferfailures}
+    cempmembufferpoolentry.EntityData.Leafs["cempMemBufferNoStorage"] = types.YLeaf{"Cempmembuffernostorage", cempmembufferpoolentry.Cempmembuffernostorage}
+    return &(cempmembufferpoolentry.EntityData)
 }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetSegmentPath() string {
-    return "cempMemBufferPoolEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cempmembufferpoolentry.Entphysicalindex) + "']" + "[cempMemBufferPoolIndex='" + fmt.Sprintf("%v", cempmembufferpoolentry.Cempmembufferpoolindex) + "']"
-}
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cempmembufferpoolentry.Entphysicalindex
-    leafs["cempMemBufferPoolIndex"] = cempmembufferpoolentry.Cempmembufferpoolindex
-    leafs["cempMemBufferMemPoolIndex"] = cempmembufferpoolentry.Cempmembuffermempoolindex
-    leafs["cempMemBufferName"] = cempmembufferpoolentry.Cempmembuffername
-    leafs["cempMemBufferDynamic"] = cempmembufferpoolentry.Cempmembufferdynamic
-    leafs["cempMemBufferSize"] = cempmembufferpoolentry.Cempmembuffersize
-    leafs["cempMemBufferMin"] = cempmembufferpoolentry.Cempmembuffermin
-    leafs["cempMemBufferMax"] = cempmembufferpoolentry.Cempmembuffermax
-    leafs["cempMemBufferPermanent"] = cempmembufferpoolentry.Cempmembufferpermanent
-    leafs["cempMemBufferTransient"] = cempmembufferpoolentry.Cempmembuffertransient
-    leafs["cempMemBufferTotal"] = cempmembufferpoolentry.Cempmembuffertotal
-    leafs["cempMemBufferFree"] = cempmembufferpoolentry.Cempmembufferfree
-    leafs["cempMemBufferHit"] = cempmembufferpoolentry.Cempmembufferhit
-    leafs["cempMemBufferMiss"] = cempmembufferpoolentry.Cempmembuffermiss
-    leafs["cempMemBufferFreeHit"] = cempmembufferpoolentry.Cempmembufferfreehit
-    leafs["cempMemBufferFreeMiss"] = cempmembufferpoolentry.Cempmembufferfreemiss
-    leafs["cempMemBufferPermChange"] = cempmembufferpoolentry.Cempmembufferpermchange
-    leafs["cempMemBufferPeak"] = cempmembufferpoolentry.Cempmembufferpeak
-    leafs["cempMemBufferPeakTime"] = cempmembufferpoolentry.Cempmembufferpeaktime
-    leafs["cempMemBufferTrim"] = cempmembufferpoolentry.Cempmembuffertrim
-    leafs["cempMemBufferGrow"] = cempmembufferpoolentry.Cempmembuffergrow
-    leafs["cempMemBufferFailures"] = cempmembufferpoolentry.Cempmembufferfailures
-    leafs["cempMemBufferNoStorage"] = cempmembufferpoolentry.Cempmembuffernostorage
-    return leafs
-}
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetYangName() string { return "cempMemBufferPoolEntry" }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) SetParent(parent types.Entity) { cempmembufferpoolentry.parent = parent }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetParent() types.Entity { return cempmembufferpoolentry.parent }
-
-func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cempmembufferpoolentry) GetParentYangName() string { return "cempMemBufferPoolTable" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable
 // A table that lists the cache buffer pools
@@ -896,7 +633,7 @@ func (cempmembufferpoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembufferpooltable_Cem
 //   vector when pool cache rises above the optional 
 //   threshold set for it on creation.
 type CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents one of the cache buffer pools available in the system
@@ -908,63 +645,24 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable struct {
     Cempmembuffercachepoolentry []CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry
 }
 
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetFilter() yfilter.YFilter { return cempmembuffercachepooltable.YFilter }
+func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetEntityData() *types.CommonEntityData {
+    cempmembuffercachepooltable.EntityData.YFilter = cempmembuffercachepooltable.YFilter
+    cempmembuffercachepooltable.EntityData.YangName = "cempMemBufferCachePoolTable"
+    cempmembuffercachepooltable.EntityData.BundleName = "cisco_ios_xe"
+    cempmembuffercachepooltable.EntityData.ParentYangName = "CISCO-ENHANCED-MEMPOOL-MIB"
+    cempmembuffercachepooltable.EntityData.SegmentPath = "cempMemBufferCachePoolTable"
+    cempmembuffercachepooltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempmembuffercachepooltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempmembuffercachepooltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) SetFilter(yf yfilter.YFilter) { cempmembuffercachepooltable.YFilter = yf }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetGoName(yname string) string {
-    if yname == "cempMemBufferCachePoolEntry" { return "Cempmembuffercachepoolentry" }
-    return ""
-}
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetSegmentPath() string {
-    return "cempMemBufferCachePoolTable"
-}
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cempMemBufferCachePoolEntry" {
-        for _, c := range cempmembuffercachepooltable.Cempmembuffercachepoolentry {
-            if cempmembuffercachepooltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry{}
-        cempmembuffercachepooltable.Cempmembuffercachepoolentry = append(cempmembuffercachepooltable.Cempmembuffercachepoolentry, child)
-        return &cempmembuffercachepooltable.Cempmembuffercachepoolentry[len(cempmembuffercachepooltable.Cempmembuffercachepoolentry)-1]
-    }
-    return nil
-}
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cempmembuffercachepooltable.EntityData.Children = make(map[string]types.YChild)
+    cempmembuffercachepooltable.EntityData.Children["cempMemBufferCachePoolEntry"] = types.YChild{"Cempmembuffercachepoolentry", nil}
     for i := range cempmembuffercachepooltable.Cempmembuffercachepoolentry {
-        children[cempmembuffercachepooltable.Cempmembuffercachepoolentry[i].GetSegmentPath()] = &cempmembuffercachepooltable.Cempmembuffercachepoolentry[i]
+        cempmembuffercachepooltable.EntityData.Children[types.GetSegmentPath(&cempmembuffercachepooltable.Cempmembuffercachepoolentry[i])] = types.YChild{"Cempmembuffercachepoolentry", &cempmembuffercachepooltable.Cempmembuffercachepoolentry[i]}
     }
-    return children
+    cempmembuffercachepooltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cempmembuffercachepooltable.EntityData)
 }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetYangName() string { return "cempMemBufferCachePoolTable" }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) SetParent(parent types.Entity) { cempmembuffercachepooltable.parent = parent }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetParent() types.Entity { return cempmembuffercachepooltable.parent }
-
-func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable) GetParentYangName() string { return "CISCO-ENHANCED-MEMPOOL-MIB" }
 
 // CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry
 // Each entry represents one of the cache buffer pools
@@ -975,7 +673,7 @@ func (cempmembuffercachepooltable *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepoo
 // entires in cempMemBufferPoolTable need not have an
 // entry in cempMemBufferCachePoolTable.
 type CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1023,65 +721,27 @@ type CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoole
     Cempmembuffercachethresholdcount interface{}
 }
 
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetFilter() yfilter.YFilter { return cempmembuffercachepoolentry.YFilter }
+func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetEntityData() *types.CommonEntityData {
+    cempmembuffercachepoolentry.EntityData.YFilter = cempmembuffercachepoolentry.YFilter
+    cempmembuffercachepoolentry.EntityData.YangName = "cempMemBufferCachePoolEntry"
+    cempmembuffercachepoolentry.EntityData.BundleName = "cisco_ios_xe"
+    cempmembuffercachepoolentry.EntityData.ParentYangName = "cempMemBufferCachePoolTable"
+    cempmembuffercachepoolentry.EntityData.SegmentPath = "cempMemBufferCachePoolEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cempmembuffercachepoolentry.Entphysicalindex) + "']" + "[cempMemBufferPoolIndex='" + fmt.Sprintf("%v", cempmembuffercachepoolentry.Cempmembufferpoolindex) + "']"
+    cempmembuffercachepoolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cempmembuffercachepoolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cempmembuffercachepoolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) SetFilter(yf yfilter.YFilter) { cempmembuffercachepoolentry.YFilter = yf }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "cempMemBufferPoolIndex" { return "Cempmembufferpoolindex" }
-    if yname == "cempMemBufferCacheSize" { return "Cempmembuffercachesize" }
-    if yname == "cempMemBufferCacheTotal" { return "Cempmembuffercachetotal" }
-    if yname == "cempMemBufferCacheUsed" { return "Cempmembuffercacheused" }
-    if yname == "cempMemBufferCacheHit" { return "Cempmembuffercachehit" }
-    if yname == "cempMemBufferCacheMiss" { return "Cempmembuffercachemiss" }
-    if yname == "cempMemBufferCacheThreshold" { return "Cempmembuffercachethreshold" }
-    if yname == "cempMemBufferCacheThresholdCount" { return "Cempmembuffercachethresholdcount" }
-    return ""
+    cempmembuffercachepoolentry.EntityData.Children = make(map[string]types.YChild)
+    cempmembuffercachepoolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cempmembuffercachepoolentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cempmembuffercachepoolentry.Entphysicalindex}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferPoolIndex"] = types.YLeaf{"Cempmembufferpoolindex", cempmembuffercachepoolentry.Cempmembufferpoolindex}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheSize"] = types.YLeaf{"Cempmembuffercachesize", cempmembuffercachepoolentry.Cempmembuffercachesize}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheTotal"] = types.YLeaf{"Cempmembuffercachetotal", cempmembuffercachepoolentry.Cempmembuffercachetotal}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheUsed"] = types.YLeaf{"Cempmembuffercacheused", cempmembuffercachepoolentry.Cempmembuffercacheused}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheHit"] = types.YLeaf{"Cempmembuffercachehit", cempmembuffercachepoolentry.Cempmembuffercachehit}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheMiss"] = types.YLeaf{"Cempmembuffercachemiss", cempmembuffercachepoolentry.Cempmembuffercachemiss}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheThreshold"] = types.YLeaf{"Cempmembuffercachethreshold", cempmembuffercachepoolentry.Cempmembuffercachethreshold}
+    cempmembuffercachepoolentry.EntityData.Leafs["cempMemBufferCacheThresholdCount"] = types.YLeaf{"Cempmembuffercachethresholdcount", cempmembuffercachepoolentry.Cempmembuffercachethresholdcount}
+    return &(cempmembuffercachepoolentry.EntityData)
 }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetSegmentPath() string {
-    return "cempMemBufferCachePoolEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cempmembuffercachepoolentry.Entphysicalindex) + "']" + "[cempMemBufferPoolIndex='" + fmt.Sprintf("%v", cempmembuffercachepoolentry.Cempmembufferpoolindex) + "']"
-}
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cempmembuffercachepoolentry.Entphysicalindex
-    leafs["cempMemBufferPoolIndex"] = cempmembuffercachepoolentry.Cempmembufferpoolindex
-    leafs["cempMemBufferCacheSize"] = cempmembuffercachepoolentry.Cempmembuffercachesize
-    leafs["cempMemBufferCacheTotal"] = cempmembuffercachepoolentry.Cempmembuffercachetotal
-    leafs["cempMemBufferCacheUsed"] = cempmembuffercachepoolentry.Cempmembuffercacheused
-    leafs["cempMemBufferCacheHit"] = cempmembuffercachepoolentry.Cempmembuffercachehit
-    leafs["cempMemBufferCacheMiss"] = cempmembuffercachepoolentry.Cempmembuffercachemiss
-    leafs["cempMemBufferCacheThreshold"] = cempmembuffercachepoolentry.Cempmembuffercachethreshold
-    leafs["cempMemBufferCacheThresholdCount"] = cempmembuffercachepoolentry.Cempmembuffercachethresholdcount
-    return leafs
-}
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetYangName() string { return "cempMemBufferCachePoolEntry" }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) SetParent(parent types.Entity) { cempmembuffercachepoolentry.parent = parent }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetParent() types.Entity { return cempmembuffercachepoolentry.parent }
-
-func (cempmembuffercachepoolentry *CISCOENHANCEDMEMPOOLMIB_Cempmembuffercachepooltable_Cempmembuffercachepoolentry) GetParentYangName() string { return "cempMemBufferCachePoolTable" }
 

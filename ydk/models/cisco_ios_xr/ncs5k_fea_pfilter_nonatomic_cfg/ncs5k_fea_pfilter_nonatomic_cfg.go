@@ -38,115 +38,52 @@ const (
 // Hardware
 // Hardware
 type Hardware struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Access-list option.
     AccessList Hardware_AccessList
 }
 
-func (hardware *Hardware) GetFilter() yfilter.YFilter { return hardware.YFilter }
+func (hardware *Hardware) GetEntityData() *types.CommonEntityData {
+    hardware.EntityData.YFilter = hardware.YFilter
+    hardware.EntityData.YangName = "hardware"
+    hardware.EntityData.BundleName = "cisco_ios_xr"
+    hardware.EntityData.ParentYangName = "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg"
+    hardware.EntityData.SegmentPath = "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg:hardware"
+    hardware.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hardware.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hardware.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hardware *Hardware) SetFilter(yf yfilter.YFilter) { hardware.YFilter = yf }
-
-func (hardware *Hardware) GetGoName(yname string) string {
-    if yname == "access-list" { return "AccessList" }
-    return ""
+    hardware.EntityData.Children = make(map[string]types.YChild)
+    hardware.EntityData.Children["access-list"] = types.YChild{"AccessList", &hardware.AccessList}
+    hardware.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(hardware.EntityData)
 }
-
-func (hardware *Hardware) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg:hardware"
-}
-
-func (hardware *Hardware) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-list" {
-        return &hardware.AccessList
-    }
-    return nil
-}
-
-func (hardware *Hardware) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["access-list"] = &hardware.AccessList
-    return children
-}
-
-func (hardware *Hardware) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (hardware *Hardware) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hardware *Hardware) GetYangName() string { return "hardware" }
-
-func (hardware *Hardware) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hardware *Hardware) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hardware *Hardware) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hardware *Hardware) SetParent(parent types.Entity) { hardware.parent = parent }
-
-func (hardware *Hardware) GetParent() types.Entity { return hardware.parent }
-
-func (hardware *Hardware) GetParentYangName() string { return "Cisco-IOS-XR-ncs5k-fea-pfilter-nonatomic-cfg" }
 
 // Hardware_AccessList
 // Access-list option
 type Hardware_AccessList struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify Option for Atomic disable. The type is AtomicDisableDfltActn.
     AtomicDisable interface{}
 }
 
-func (accessList *Hardware_AccessList) GetFilter() yfilter.YFilter { return accessList.YFilter }
+func (accessList *Hardware_AccessList) GetEntityData() *types.CommonEntityData {
+    accessList.EntityData.YFilter = accessList.YFilter
+    accessList.EntityData.YangName = "access-list"
+    accessList.EntityData.BundleName = "cisco_ios_xr"
+    accessList.EntityData.ParentYangName = "hardware"
+    accessList.EntityData.SegmentPath = "access-list"
+    accessList.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessList.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessList.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessList *Hardware_AccessList) SetFilter(yf yfilter.YFilter) { accessList.YFilter = yf }
-
-func (accessList *Hardware_AccessList) GetGoName(yname string) string {
-    if yname == "atomic-disable" { return "AtomicDisable" }
-    return ""
+    accessList.EntityData.Children = make(map[string]types.YChild)
+    accessList.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessList.EntityData.Leafs["atomic-disable"] = types.YLeaf{"AtomicDisable", accessList.AtomicDisable}
+    return &(accessList.EntityData)
 }
-
-func (accessList *Hardware_AccessList) GetSegmentPath() string {
-    return "access-list"
-}
-
-func (accessList *Hardware_AccessList) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accessList *Hardware_AccessList) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accessList *Hardware_AccessList) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["atomic-disable"] = accessList.AtomicDisable
-    return leafs
-}
-
-func (accessList *Hardware_AccessList) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessList *Hardware_AccessList) GetYangName() string { return "access-list" }
-
-func (accessList *Hardware_AccessList) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessList *Hardware_AccessList) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessList *Hardware_AccessList) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessList *Hardware_AccessList) SetParent(parent types.Entity) { accessList.parent = parent }
-
-func (accessList *Hardware_AccessList) GetParent() types.Entity { return accessList.parent }
-
-func (accessList *Hardware_AccessList) GetParentYangName() string { return "hardware" }
 

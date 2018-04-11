@@ -28,6 +28,17 @@ const (
     FsyncQlOption_option_2__COMMA___generation_2 FsyncQlOption = "option-2,-generation-2"
 )
 
+// FsyncClock represents Fsync clock
+type FsyncClock string
+
+const (
+    // Synchronous clock
+    FsyncClock_sync FsyncClock = "sync"
+
+    // Internal clock
+    FsyncClock_internal FsyncClock = "internal"
+)
+
 // FsyncQlValue represents Fsync ql value
 type FsyncQlValue string
 
@@ -96,16 +107,5 @@ const (
 
     // ITU-T Option 2, Generation 2: Stratum 4 freerun
     FsyncQlValue_o2_g2_st4 FsyncQlValue = "o2-g2-st4"
-)
-
-// FsyncClock represents Fsync clock
-type FsyncClock string
-
-const (
-    // Synchronous clock
-    FsyncClock_sync FsyncClock = "sync"
-
-    // Internal clock
-    FsyncClock_internal FsyncClock = "internal"
 )
 

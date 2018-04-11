@@ -24,65 +24,32 @@ func init() {
 
 // CISCOIETFMPLSIDSTD03MIB
 type CISCOIETFMPLSIDSTD03MIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Cmplsidobjects CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects
 }
 
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetFilter() yfilter.YFilter { return cISCOIETFMPLSIDSTD03MIB.YFilter }
+func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetEntityData() *types.CommonEntityData {
+    cISCOIETFMPLSIDSTD03MIB.EntityData.YFilter = cISCOIETFMPLSIDSTD03MIB.YFilter
+    cISCOIETFMPLSIDSTD03MIB.EntityData.YangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
+    cISCOIETFMPLSIDSTD03MIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIETFMPLSIDSTD03MIB.EntityData.ParentYangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
+    cISCOIETFMPLSIDSTD03MIB.EntityData.SegmentPath = "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB"
+    cISCOIETFMPLSIDSTD03MIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIETFMPLSIDSTD03MIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIETFMPLSIDSTD03MIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) SetFilter(yf yfilter.YFilter) { cISCOIETFMPLSIDSTD03MIB.YFilter = yf }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetGoName(yname string) string {
-    if yname == "cmplsIdObjects" { return "Cmplsidobjects" }
-    return ""
+    cISCOIETFMPLSIDSTD03MIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIETFMPLSIDSTD03MIB.EntityData.Children["cmplsIdObjects"] = types.YChild{"Cmplsidobjects", &cISCOIETFMPLSIDSTD03MIB.Cmplsidobjects}
+    cISCOIETFMPLSIDSTD03MIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIETFMPLSIDSTD03MIB.EntityData)
 }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetSegmentPath() string {
-    return "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB"
-}
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cmplsIdObjects" {
-        return &cISCOIETFMPLSIDSTD03MIB.Cmplsidobjects
-    }
-    return nil
-}
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cmplsIdObjects"] = &cISCOIETFMPLSIDSTD03MIB.Cmplsidobjects
-    return children
-}
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetYangName() string { return "CISCO-IETF-MPLS-ID-STD-03-MIB" }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) SetParent(parent types.Entity) { cISCOIETFMPLSIDSTD03MIB.parent = parent }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetParent() types.Entity { return cISCOIETFMPLSIDSTD03MIB.parent }
-
-func (cISCOIETFMPLSIDSTD03MIB *CISCOIETFMPLSIDSTD03MIB) GetParentYangName() string { return "CISCO-IETF-MPLS-ID-STD-03-MIB" }
 
 // CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects
 type CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object allows the administrator to assign a unique operator identifier
@@ -100,53 +67,21 @@ type CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects struct {
     Cmplsnodeid interface{}
 }
 
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetFilter() yfilter.YFilter { return cmplsidobjects.YFilter }
+func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetEntityData() *types.CommonEntityData {
+    cmplsidobjects.EntityData.YFilter = cmplsidobjects.YFilter
+    cmplsidobjects.EntityData.YangName = "cmplsIdObjects"
+    cmplsidobjects.EntityData.BundleName = "cisco_ios_xe"
+    cmplsidobjects.EntityData.ParentYangName = "CISCO-IETF-MPLS-ID-STD-03-MIB"
+    cmplsidobjects.EntityData.SegmentPath = "cmplsIdObjects"
+    cmplsidobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cmplsidobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cmplsidobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) SetFilter(yf yfilter.YFilter) { cmplsidobjects.YFilter = yf }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetGoName(yname string) string {
-    if yname == "cmplsGlobalId" { return "Cmplsglobalid" }
-    if yname == "cmplsIcc" { return "Cmplsicc" }
-    if yname == "cmplsNodeId" { return "Cmplsnodeid" }
-    return ""
+    cmplsidobjects.EntityData.Children = make(map[string]types.YChild)
+    cmplsidobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    cmplsidobjects.EntityData.Leafs["cmplsGlobalId"] = types.YLeaf{"Cmplsglobalid", cmplsidobjects.Cmplsglobalid}
+    cmplsidobjects.EntityData.Leafs["cmplsIcc"] = types.YLeaf{"Cmplsicc", cmplsidobjects.Cmplsicc}
+    cmplsidobjects.EntityData.Leafs["cmplsNodeId"] = types.YLeaf{"Cmplsnodeid", cmplsidobjects.Cmplsnodeid}
+    return &(cmplsidobjects.EntityData)
 }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetSegmentPath() string {
-    return "cmplsIdObjects"
-}
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmplsGlobalId"] = cmplsidobjects.Cmplsglobalid
-    leafs["cmplsIcc"] = cmplsidobjects.Cmplsicc
-    leafs["cmplsNodeId"] = cmplsidobjects.Cmplsnodeid
-    return leafs
-}
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetYangName() string { return "cmplsIdObjects" }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) SetParent(parent types.Entity) { cmplsidobjects.parent = parent }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetParent() types.Entity { return cmplsidobjects.parent }
-
-func (cmplsidobjects *CISCOIETFMPLSIDSTD03MIB_Cmplsidobjects) GetParentYangName() string { return "CISCO-IETF-MPLS-ID-STD-03-MIB" }
 

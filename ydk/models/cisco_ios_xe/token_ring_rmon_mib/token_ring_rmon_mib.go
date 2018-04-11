@@ -30,7 +30,7 @@ const (
 
 // TOKENRINGRMONMIB
 type TOKENRINGRMONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of Mac-Layer Token Ring statistics      entries.
@@ -68,99 +68,30 @@ type TOKENRINGRMONMIB struct {
     Sourceroutingstatstable TOKENRINGRMONMIB_Sourceroutingstatstable
 }
 
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetFilter() yfilter.YFilter { return tOKENRINGRMONMIB.YFilter }
+func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetEntityData() *types.CommonEntityData {
+    tOKENRINGRMONMIB.EntityData.YFilter = tOKENRINGRMONMIB.YFilter
+    tOKENRINGRMONMIB.EntityData.YangName = "TOKEN-RING-RMON-MIB"
+    tOKENRINGRMONMIB.EntityData.BundleName = "cisco_ios_xe"
+    tOKENRINGRMONMIB.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tOKENRINGRMONMIB.EntityData.SegmentPath = "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB"
+    tOKENRINGRMONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tOKENRINGRMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tOKENRINGRMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) SetFilter(yf yfilter.YFilter) { tOKENRINGRMONMIB.YFilter = yf }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetGoName(yname string) string {
-    if yname == "tokenRingMLStatsTable" { return "Tokenringmlstatstable" }
-    if yname == "tokenRingPStatsTable" { return "Tokenringpstatstable" }
-    if yname == "tokenRingMLHistoryTable" { return "Tokenringmlhistorytable" }
-    if yname == "tokenRingPHistoryTable" { return "Tokenringphistorytable" }
-    if yname == "ringStationControlTable" { return "Ringstationcontroltable" }
-    if yname == "ringStationTable" { return "Ringstationtable" }
-    if yname == "ringStationOrderTable" { return "Ringstationordertable" }
-    if yname == "ringStationConfigControlTable" { return "Ringstationconfigcontroltable" }
-    if yname == "ringStationConfigTable" { return "Ringstationconfigtable" }
-    if yname == "sourceRoutingStatsTable" { return "Sourceroutingstatstable" }
-    return ""
+    tOKENRINGRMONMIB.EntityData.Children = make(map[string]types.YChild)
+    tOKENRINGRMONMIB.EntityData.Children["tokenRingMLStatsTable"] = types.YChild{"Tokenringmlstatstable", &tOKENRINGRMONMIB.Tokenringmlstatstable}
+    tOKENRINGRMONMIB.EntityData.Children["tokenRingPStatsTable"] = types.YChild{"Tokenringpstatstable", &tOKENRINGRMONMIB.Tokenringpstatstable}
+    tOKENRINGRMONMIB.EntityData.Children["tokenRingMLHistoryTable"] = types.YChild{"Tokenringmlhistorytable", &tOKENRINGRMONMIB.Tokenringmlhistorytable}
+    tOKENRINGRMONMIB.EntityData.Children["tokenRingPHistoryTable"] = types.YChild{"Tokenringphistorytable", &tOKENRINGRMONMIB.Tokenringphistorytable}
+    tOKENRINGRMONMIB.EntityData.Children["ringStationControlTable"] = types.YChild{"Ringstationcontroltable", &tOKENRINGRMONMIB.Ringstationcontroltable}
+    tOKENRINGRMONMIB.EntityData.Children["ringStationTable"] = types.YChild{"Ringstationtable", &tOKENRINGRMONMIB.Ringstationtable}
+    tOKENRINGRMONMIB.EntityData.Children["ringStationOrderTable"] = types.YChild{"Ringstationordertable", &tOKENRINGRMONMIB.Ringstationordertable}
+    tOKENRINGRMONMIB.EntityData.Children["ringStationConfigControlTable"] = types.YChild{"Ringstationconfigcontroltable", &tOKENRINGRMONMIB.Ringstationconfigcontroltable}
+    tOKENRINGRMONMIB.EntityData.Children["ringStationConfigTable"] = types.YChild{"Ringstationconfigtable", &tOKENRINGRMONMIB.Ringstationconfigtable}
+    tOKENRINGRMONMIB.EntityData.Children["sourceRoutingStatsTable"] = types.YChild{"Sourceroutingstatstable", &tOKENRINGRMONMIB.Sourceroutingstatstable}
+    tOKENRINGRMONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tOKENRINGRMONMIB.EntityData)
 }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetSegmentPath() string {
-    return "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB"
-}
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tokenRingMLStatsTable" {
-        return &tOKENRINGRMONMIB.Tokenringmlstatstable
-    }
-    if childYangName == "tokenRingPStatsTable" {
-        return &tOKENRINGRMONMIB.Tokenringpstatstable
-    }
-    if childYangName == "tokenRingMLHistoryTable" {
-        return &tOKENRINGRMONMIB.Tokenringmlhistorytable
-    }
-    if childYangName == "tokenRingPHistoryTable" {
-        return &tOKENRINGRMONMIB.Tokenringphistorytable
-    }
-    if childYangName == "ringStationControlTable" {
-        return &tOKENRINGRMONMIB.Ringstationcontroltable
-    }
-    if childYangName == "ringStationTable" {
-        return &tOKENRINGRMONMIB.Ringstationtable
-    }
-    if childYangName == "ringStationOrderTable" {
-        return &tOKENRINGRMONMIB.Ringstationordertable
-    }
-    if childYangName == "ringStationConfigControlTable" {
-        return &tOKENRINGRMONMIB.Ringstationconfigcontroltable
-    }
-    if childYangName == "ringStationConfigTable" {
-        return &tOKENRINGRMONMIB.Ringstationconfigtable
-    }
-    if childYangName == "sourceRoutingStatsTable" {
-        return &tOKENRINGRMONMIB.Sourceroutingstatstable
-    }
-    return nil
-}
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tokenRingMLStatsTable"] = &tOKENRINGRMONMIB.Tokenringmlstatstable
-    children["tokenRingPStatsTable"] = &tOKENRINGRMONMIB.Tokenringpstatstable
-    children["tokenRingMLHistoryTable"] = &tOKENRINGRMONMIB.Tokenringmlhistorytable
-    children["tokenRingPHistoryTable"] = &tOKENRINGRMONMIB.Tokenringphistorytable
-    children["ringStationControlTable"] = &tOKENRINGRMONMIB.Ringstationcontroltable
-    children["ringStationTable"] = &tOKENRINGRMONMIB.Ringstationtable
-    children["ringStationOrderTable"] = &tOKENRINGRMONMIB.Ringstationordertable
-    children["ringStationConfigControlTable"] = &tOKENRINGRMONMIB.Ringstationconfigcontroltable
-    children["ringStationConfigTable"] = &tOKENRINGRMONMIB.Ringstationconfigtable
-    children["sourceRoutingStatsTable"] = &tOKENRINGRMONMIB.Sourceroutingstatstable
-    return children
-}
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetYangName() string { return "TOKEN-RING-RMON-MIB" }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) SetParent(parent types.Entity) { tOKENRINGRMONMIB.parent = parent }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetParent() types.Entity { return tOKENRINGRMONMIB.parent }
-
-func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Tokenringmlstatstable
 // A list of Mac-Layer Token Ring statistics
@@ -171,7 +102,7 @@ func (tOKENRINGRMONMIB *TOKENRINGRMONMIB) GetParentYangName() string { return "T
 // 
 // entries.
 type TOKENRINGRMONMIB_Tokenringmlstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of Mac-Layer statistics kept for a particular Token Ring
@@ -180,69 +111,30 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable struct {
     Tokenringmlstatsentry []TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry
 }
 
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetFilter() yfilter.YFilter { return tokenringmlstatstable.YFilter }
+func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetEntityData() *types.CommonEntityData {
+    tokenringmlstatstable.EntityData.YFilter = tokenringmlstatstable.YFilter
+    tokenringmlstatstable.EntityData.YangName = "tokenRingMLStatsTable"
+    tokenringmlstatstable.EntityData.BundleName = "cisco_ios_xe"
+    tokenringmlstatstable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenringmlstatstable.EntityData.SegmentPath = "tokenRingMLStatsTable"
+    tokenringmlstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringmlstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringmlstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) SetFilter(yf yfilter.YFilter) { tokenringmlstatstable.YFilter = yf }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetGoName(yname string) string {
-    if yname == "tokenRingMLStatsEntry" { return "Tokenringmlstatsentry" }
-    return ""
-}
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetSegmentPath() string {
-    return "tokenRingMLStatsTable"
-}
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tokenRingMLStatsEntry" {
-        for _, c := range tokenringmlstatstable.Tokenringmlstatsentry {
-            if tokenringmlstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry{}
-        tokenringmlstatstable.Tokenringmlstatsentry = append(tokenringmlstatstable.Tokenringmlstatsentry, child)
-        return &tokenringmlstatstable.Tokenringmlstatsentry[len(tokenringmlstatstable.Tokenringmlstatsentry)-1]
-    }
-    return nil
-}
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tokenringmlstatstable.EntityData.Children = make(map[string]types.YChild)
+    tokenringmlstatstable.EntityData.Children["tokenRingMLStatsEntry"] = types.YChild{"Tokenringmlstatsentry", nil}
     for i := range tokenringmlstatstable.Tokenringmlstatsentry {
-        children[tokenringmlstatstable.Tokenringmlstatsentry[i].GetSegmentPath()] = &tokenringmlstatstable.Tokenringmlstatsentry[i]
+        tokenringmlstatstable.EntityData.Children[types.GetSegmentPath(&tokenringmlstatstable.Tokenringmlstatsentry[i])] = types.YChild{"Tokenringmlstatsentry", &tokenringmlstatstable.Tokenringmlstatsentry[i]}
     }
-    return children
+    tokenringmlstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tokenringmlstatstable.EntityData)
 }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetYangName() string { return "tokenRingMLStatsTable" }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) SetParent(parent types.Entity) { tokenringmlstatstable.parent = parent }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetParent() types.Entity { return tokenringmlstatstable.parent }
-
-func (tokenringmlstatstable *TOKENRINGRMONMIB_Tokenringmlstatstable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry
 // A collection of Mac-Layer statistics kept for a
 // particular Token Ring interface.
 type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies this
@@ -259,7 +151,7 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingMLStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Tokenringmlstatsdatasource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -395,113 +287,55 @@ type TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry struct {
     Tokenringmlstatscreatetime interface{}
 }
 
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetFilter() yfilter.YFilter { return tokenringmlstatsentry.YFilter }
+func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetEntityData() *types.CommonEntityData {
+    tokenringmlstatsentry.EntityData.YFilter = tokenringmlstatsentry.YFilter
+    tokenringmlstatsentry.EntityData.YangName = "tokenRingMLStatsEntry"
+    tokenringmlstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    tokenringmlstatsentry.EntityData.ParentYangName = "tokenRingMLStatsTable"
+    tokenringmlstatsentry.EntityData.SegmentPath = "tokenRingMLStatsEntry" + "[tokenRingMLStatsIndex='" + fmt.Sprintf("%v", tokenringmlstatsentry.Tokenringmlstatsindex) + "']"
+    tokenringmlstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringmlstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringmlstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) SetFilter(yf yfilter.YFilter) { tokenringmlstatsentry.YFilter = yf }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetGoName(yname string) string {
-    if yname == "tokenRingMLStatsIndex" { return "Tokenringmlstatsindex" }
-    if yname == "tokenRingMLStatsDataSource" { return "Tokenringmlstatsdatasource" }
-    if yname == "tokenRingMLStatsDropEvents" { return "Tokenringmlstatsdropevents" }
-    if yname == "tokenRingMLStatsMacOctets" { return "Tokenringmlstatsmacoctets" }
-    if yname == "tokenRingMLStatsMacPkts" { return "Tokenringmlstatsmacpkts" }
-    if yname == "tokenRingMLStatsRingPurgeEvents" { return "Tokenringmlstatsringpurgeevents" }
-    if yname == "tokenRingMLStatsRingPurgePkts" { return "Tokenringmlstatsringpurgepkts" }
-    if yname == "tokenRingMLStatsBeaconEvents" { return "Tokenringmlstatsbeaconevents" }
-    if yname == "tokenRingMLStatsBeaconTime" { return "Tokenringmlstatsbeacontime" }
-    if yname == "tokenRingMLStatsBeaconPkts" { return "Tokenringmlstatsbeaconpkts" }
-    if yname == "tokenRingMLStatsClaimTokenEvents" { return "Tokenringmlstatsclaimtokenevents" }
-    if yname == "tokenRingMLStatsClaimTokenPkts" { return "Tokenringmlstatsclaimtokenpkts" }
-    if yname == "tokenRingMLStatsNAUNChanges" { return "Tokenringmlstatsnaunchanges" }
-    if yname == "tokenRingMLStatsLineErrors" { return "Tokenringmlstatslineerrors" }
-    if yname == "tokenRingMLStatsInternalErrors" { return "Tokenringmlstatsinternalerrors" }
-    if yname == "tokenRingMLStatsBurstErrors" { return "Tokenringmlstatsbursterrors" }
-    if yname == "tokenRingMLStatsACErrors" { return "Tokenringmlstatsacerrors" }
-    if yname == "tokenRingMLStatsAbortErrors" { return "Tokenringmlstatsaborterrors" }
-    if yname == "tokenRingMLStatsLostFrameErrors" { return "Tokenringmlstatslostframeerrors" }
-    if yname == "tokenRingMLStatsCongestionErrors" { return "Tokenringmlstatscongestionerrors" }
-    if yname == "tokenRingMLStatsFrameCopiedErrors" { return "Tokenringmlstatsframecopiederrors" }
-    if yname == "tokenRingMLStatsFrequencyErrors" { return "Tokenringmlstatsfrequencyerrors" }
-    if yname == "tokenRingMLStatsTokenErrors" { return "Tokenringmlstatstokenerrors" }
-    if yname == "tokenRingMLStatsSoftErrorReports" { return "Tokenringmlstatssofterrorreports" }
-    if yname == "tokenRingMLStatsRingPollEvents" { return "Tokenringmlstatsringpollevents" }
-    if yname == "tokenRingMLStatsOwner" { return "Tokenringmlstatsowner" }
-    if yname == "tokenRingMLStatsStatus" { return "Tokenringmlstatsstatus" }
-    if yname == "tokenRingMLStatsDroppedFrames" { return "Tokenringmlstatsdroppedframes" }
-    if yname == "tokenRingMLStatsCreateTime" { return "Tokenringmlstatscreatetime" }
-    return ""
+    tokenringmlstatsentry.EntityData.Children = make(map[string]types.YChild)
+    tokenringmlstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsIndex"] = types.YLeaf{"Tokenringmlstatsindex", tokenringmlstatsentry.Tokenringmlstatsindex}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsDataSource"] = types.YLeaf{"Tokenringmlstatsdatasource", tokenringmlstatsentry.Tokenringmlstatsdatasource}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsDropEvents"] = types.YLeaf{"Tokenringmlstatsdropevents", tokenringmlstatsentry.Tokenringmlstatsdropevents}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsMacOctets"] = types.YLeaf{"Tokenringmlstatsmacoctets", tokenringmlstatsentry.Tokenringmlstatsmacoctets}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsMacPkts"] = types.YLeaf{"Tokenringmlstatsmacpkts", tokenringmlstatsentry.Tokenringmlstatsmacpkts}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsRingPurgeEvents"] = types.YLeaf{"Tokenringmlstatsringpurgeevents", tokenringmlstatsentry.Tokenringmlstatsringpurgeevents}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsRingPurgePkts"] = types.YLeaf{"Tokenringmlstatsringpurgepkts", tokenringmlstatsentry.Tokenringmlstatsringpurgepkts}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBeaconEvents"] = types.YLeaf{"Tokenringmlstatsbeaconevents", tokenringmlstatsentry.Tokenringmlstatsbeaconevents}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBeaconTime"] = types.YLeaf{"Tokenringmlstatsbeacontime", tokenringmlstatsentry.Tokenringmlstatsbeacontime}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBeaconPkts"] = types.YLeaf{"Tokenringmlstatsbeaconpkts", tokenringmlstatsentry.Tokenringmlstatsbeaconpkts}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsClaimTokenEvents"] = types.YLeaf{"Tokenringmlstatsclaimtokenevents", tokenringmlstatsentry.Tokenringmlstatsclaimtokenevents}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsClaimTokenPkts"] = types.YLeaf{"Tokenringmlstatsclaimtokenpkts", tokenringmlstatsentry.Tokenringmlstatsclaimtokenpkts}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsNAUNChanges"] = types.YLeaf{"Tokenringmlstatsnaunchanges", tokenringmlstatsentry.Tokenringmlstatsnaunchanges}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsLineErrors"] = types.YLeaf{"Tokenringmlstatslineerrors", tokenringmlstatsentry.Tokenringmlstatslineerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsInternalErrors"] = types.YLeaf{"Tokenringmlstatsinternalerrors", tokenringmlstatsentry.Tokenringmlstatsinternalerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsBurstErrors"] = types.YLeaf{"Tokenringmlstatsbursterrors", tokenringmlstatsentry.Tokenringmlstatsbursterrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsACErrors"] = types.YLeaf{"Tokenringmlstatsacerrors", tokenringmlstatsentry.Tokenringmlstatsacerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsAbortErrors"] = types.YLeaf{"Tokenringmlstatsaborterrors", tokenringmlstatsentry.Tokenringmlstatsaborterrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsLostFrameErrors"] = types.YLeaf{"Tokenringmlstatslostframeerrors", tokenringmlstatsentry.Tokenringmlstatslostframeerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsCongestionErrors"] = types.YLeaf{"Tokenringmlstatscongestionerrors", tokenringmlstatsentry.Tokenringmlstatscongestionerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsFrameCopiedErrors"] = types.YLeaf{"Tokenringmlstatsframecopiederrors", tokenringmlstatsentry.Tokenringmlstatsframecopiederrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsFrequencyErrors"] = types.YLeaf{"Tokenringmlstatsfrequencyerrors", tokenringmlstatsentry.Tokenringmlstatsfrequencyerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsTokenErrors"] = types.YLeaf{"Tokenringmlstatstokenerrors", tokenringmlstatsentry.Tokenringmlstatstokenerrors}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsSoftErrorReports"] = types.YLeaf{"Tokenringmlstatssofterrorreports", tokenringmlstatsentry.Tokenringmlstatssofterrorreports}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsRingPollEvents"] = types.YLeaf{"Tokenringmlstatsringpollevents", tokenringmlstatsentry.Tokenringmlstatsringpollevents}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsOwner"] = types.YLeaf{"Tokenringmlstatsowner", tokenringmlstatsentry.Tokenringmlstatsowner}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsStatus"] = types.YLeaf{"Tokenringmlstatsstatus", tokenringmlstatsentry.Tokenringmlstatsstatus}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsDroppedFrames"] = types.YLeaf{"Tokenringmlstatsdroppedframes", tokenringmlstatsentry.Tokenringmlstatsdroppedframes}
+    tokenringmlstatsentry.EntityData.Leafs["tokenRingMLStatsCreateTime"] = types.YLeaf{"Tokenringmlstatscreatetime", tokenringmlstatsentry.Tokenringmlstatscreatetime}
+    return &(tokenringmlstatsentry.EntityData)
 }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetSegmentPath() string {
-    return "tokenRingMLStatsEntry" + "[tokenRingMLStatsIndex='" + fmt.Sprintf("%v", tokenringmlstatsentry.Tokenringmlstatsindex) + "']"
-}
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tokenRingMLStatsIndex"] = tokenringmlstatsentry.Tokenringmlstatsindex
-    leafs["tokenRingMLStatsDataSource"] = tokenringmlstatsentry.Tokenringmlstatsdatasource
-    leafs["tokenRingMLStatsDropEvents"] = tokenringmlstatsentry.Tokenringmlstatsdropevents
-    leafs["tokenRingMLStatsMacOctets"] = tokenringmlstatsentry.Tokenringmlstatsmacoctets
-    leafs["tokenRingMLStatsMacPkts"] = tokenringmlstatsentry.Tokenringmlstatsmacpkts
-    leafs["tokenRingMLStatsRingPurgeEvents"] = tokenringmlstatsentry.Tokenringmlstatsringpurgeevents
-    leafs["tokenRingMLStatsRingPurgePkts"] = tokenringmlstatsentry.Tokenringmlstatsringpurgepkts
-    leafs["tokenRingMLStatsBeaconEvents"] = tokenringmlstatsentry.Tokenringmlstatsbeaconevents
-    leafs["tokenRingMLStatsBeaconTime"] = tokenringmlstatsentry.Tokenringmlstatsbeacontime
-    leafs["tokenRingMLStatsBeaconPkts"] = tokenringmlstatsentry.Tokenringmlstatsbeaconpkts
-    leafs["tokenRingMLStatsClaimTokenEvents"] = tokenringmlstatsentry.Tokenringmlstatsclaimtokenevents
-    leafs["tokenRingMLStatsClaimTokenPkts"] = tokenringmlstatsentry.Tokenringmlstatsclaimtokenpkts
-    leafs["tokenRingMLStatsNAUNChanges"] = tokenringmlstatsentry.Tokenringmlstatsnaunchanges
-    leafs["tokenRingMLStatsLineErrors"] = tokenringmlstatsentry.Tokenringmlstatslineerrors
-    leafs["tokenRingMLStatsInternalErrors"] = tokenringmlstatsentry.Tokenringmlstatsinternalerrors
-    leafs["tokenRingMLStatsBurstErrors"] = tokenringmlstatsentry.Tokenringmlstatsbursterrors
-    leafs["tokenRingMLStatsACErrors"] = tokenringmlstatsentry.Tokenringmlstatsacerrors
-    leafs["tokenRingMLStatsAbortErrors"] = tokenringmlstatsentry.Tokenringmlstatsaborterrors
-    leafs["tokenRingMLStatsLostFrameErrors"] = tokenringmlstatsentry.Tokenringmlstatslostframeerrors
-    leafs["tokenRingMLStatsCongestionErrors"] = tokenringmlstatsentry.Tokenringmlstatscongestionerrors
-    leafs["tokenRingMLStatsFrameCopiedErrors"] = tokenringmlstatsentry.Tokenringmlstatsframecopiederrors
-    leafs["tokenRingMLStatsFrequencyErrors"] = tokenringmlstatsentry.Tokenringmlstatsfrequencyerrors
-    leafs["tokenRingMLStatsTokenErrors"] = tokenringmlstatsentry.Tokenringmlstatstokenerrors
-    leafs["tokenRingMLStatsSoftErrorReports"] = tokenringmlstatsentry.Tokenringmlstatssofterrorreports
-    leafs["tokenRingMLStatsRingPollEvents"] = tokenringmlstatsentry.Tokenringmlstatsringpollevents
-    leafs["tokenRingMLStatsOwner"] = tokenringmlstatsentry.Tokenringmlstatsowner
-    leafs["tokenRingMLStatsStatus"] = tokenringmlstatsentry.Tokenringmlstatsstatus
-    leafs["tokenRingMLStatsDroppedFrames"] = tokenringmlstatsentry.Tokenringmlstatsdroppedframes
-    leafs["tokenRingMLStatsCreateTime"] = tokenringmlstatsentry.Tokenringmlstatscreatetime
-    return leafs
-}
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetYangName() string { return "tokenRingMLStatsEntry" }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) SetParent(parent types.Entity) { tokenringmlstatsentry.parent = parent }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetParent() types.Entity { return tokenringmlstatsentry.parent }
-
-func (tokenringmlstatsentry *TOKENRINGRMONMIB_Tokenringmlstatstable_Tokenringmlstatsentry) GetParentYangName() string { return "tokenRingMLStatsTable" }
 
 // TOKENRINGRMONMIB_Tokenringpstatstable
 // A list of promiscuous Token Ring statistics
 // entries.
 type TOKENRINGRMONMIB_Tokenringpstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of promiscuous statistics kept for non-MAC packets on a
@@ -510,70 +344,31 @@ type TOKENRINGRMONMIB_Tokenringpstatstable struct {
     Tokenringpstatsentry []TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry
 }
 
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetFilter() yfilter.YFilter { return tokenringpstatstable.YFilter }
+func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetEntityData() *types.CommonEntityData {
+    tokenringpstatstable.EntityData.YFilter = tokenringpstatstable.YFilter
+    tokenringpstatstable.EntityData.YangName = "tokenRingPStatsTable"
+    tokenringpstatstable.EntityData.BundleName = "cisco_ios_xe"
+    tokenringpstatstable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenringpstatstable.EntityData.SegmentPath = "tokenRingPStatsTable"
+    tokenringpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) SetFilter(yf yfilter.YFilter) { tokenringpstatstable.YFilter = yf }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetGoName(yname string) string {
-    if yname == "tokenRingPStatsEntry" { return "Tokenringpstatsentry" }
-    return ""
-}
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetSegmentPath() string {
-    return "tokenRingPStatsTable"
-}
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tokenRingPStatsEntry" {
-        for _, c := range tokenringpstatstable.Tokenringpstatsentry {
-            if tokenringpstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry{}
-        tokenringpstatstable.Tokenringpstatsentry = append(tokenringpstatstable.Tokenringpstatsentry, child)
-        return &tokenringpstatstable.Tokenringpstatsentry[len(tokenringpstatstable.Tokenringpstatsentry)-1]
-    }
-    return nil
-}
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tokenringpstatstable.EntityData.Children = make(map[string]types.YChild)
+    tokenringpstatstable.EntityData.Children["tokenRingPStatsEntry"] = types.YChild{"Tokenringpstatsentry", nil}
     for i := range tokenringpstatstable.Tokenringpstatsentry {
-        children[tokenringpstatstable.Tokenringpstatsentry[i].GetSegmentPath()] = &tokenringpstatstable.Tokenringpstatsentry[i]
+        tokenringpstatstable.EntityData.Children[types.GetSegmentPath(&tokenringpstatstable.Tokenringpstatsentry[i])] = types.YChild{"Tokenringpstatsentry", &tokenringpstatstable.Tokenringpstatsentry[i]}
     }
-    return children
+    tokenringpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tokenringpstatstable.EntityData)
 }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetYangName() string { return "tokenRingPStatsTable" }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) SetParent(parent types.Entity) { tokenringpstatstable.parent = parent }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetParent() types.Entity { return tokenringpstatstable.parent }
-
-func (tokenringpstatstable *TOKENRINGRMONMIB_Tokenringpstatstable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry
 // A collection of promiscuous statistics kept for
 // non-MAC packets on a particular Token Ring
 // interface.
 type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies this
@@ -590,7 +385,7 @@ type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingPStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Tokenringpstatsdatasource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -695,91 +490,41 @@ type TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry struct {
     Tokenringpstatscreatetime interface{}
 }
 
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetFilter() yfilter.YFilter { return tokenringpstatsentry.YFilter }
+func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetEntityData() *types.CommonEntityData {
+    tokenringpstatsentry.EntityData.YFilter = tokenringpstatsentry.YFilter
+    tokenringpstatsentry.EntityData.YangName = "tokenRingPStatsEntry"
+    tokenringpstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    tokenringpstatsentry.EntityData.ParentYangName = "tokenRingPStatsTable"
+    tokenringpstatsentry.EntityData.SegmentPath = "tokenRingPStatsEntry" + "[tokenRingPStatsIndex='" + fmt.Sprintf("%v", tokenringpstatsentry.Tokenringpstatsindex) + "']"
+    tokenringpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) SetFilter(yf yfilter.YFilter) { tokenringpstatsentry.YFilter = yf }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetGoName(yname string) string {
-    if yname == "tokenRingPStatsIndex" { return "Tokenringpstatsindex" }
-    if yname == "tokenRingPStatsDataSource" { return "Tokenringpstatsdatasource" }
-    if yname == "tokenRingPStatsDropEvents" { return "Tokenringpstatsdropevents" }
-    if yname == "tokenRingPStatsDataOctets" { return "Tokenringpstatsdataoctets" }
-    if yname == "tokenRingPStatsDataPkts" { return "Tokenringpstatsdatapkts" }
-    if yname == "tokenRingPStatsDataBroadcastPkts" { return "Tokenringpstatsdatabroadcastpkts" }
-    if yname == "tokenRingPStatsDataMulticastPkts" { return "Tokenringpstatsdatamulticastpkts" }
-    if yname == "tokenRingPStatsDataPkts18to63Octets" { return "Tokenringpstatsdatapkts18To63Octets" }
-    if yname == "tokenRingPStatsDataPkts64to127Octets" { return "Tokenringpstatsdatapkts64To127Octets" }
-    if yname == "tokenRingPStatsDataPkts128to255Octets" { return "Tokenringpstatsdatapkts128To255Octets" }
-    if yname == "tokenRingPStatsDataPkts256to511Octets" { return "Tokenringpstatsdatapkts256To511Octets" }
-    if yname == "tokenRingPStatsDataPkts512to1023Octets" { return "Tokenringpstatsdatapkts512To1023Octets" }
-    if yname == "tokenRingPStatsDataPkts1024to2047Octets" { return "Tokenringpstatsdatapkts1024To2047Octets" }
-    if yname == "tokenRingPStatsDataPkts2048to4095Octets" { return "Tokenringpstatsdatapkts2048To4095Octets" }
-    if yname == "tokenRingPStatsDataPkts4096to8191Octets" { return "Tokenringpstatsdatapkts4096To8191Octets" }
-    if yname == "tokenRingPStatsDataPkts8192to18000Octets" { return "Tokenringpstatsdatapkts8192To18000Octets" }
-    if yname == "tokenRingPStatsDataPktsGreaterThan18000Octets" { return "Tokenringpstatsdatapktsgreaterthan18000Octets" }
-    if yname == "tokenRingPStatsOwner" { return "Tokenringpstatsowner" }
-    if yname == "tokenRingPStatsStatus" { return "Tokenringpstatsstatus" }
-    if yname == "tokenRingPStatsDroppedFrames" { return "Tokenringpstatsdroppedframes" }
-    if yname == "tokenRingPStatsCreateTime" { return "Tokenringpstatscreatetime" }
-    return ""
+    tokenringpstatsentry.EntityData.Children = make(map[string]types.YChild)
+    tokenringpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsIndex"] = types.YLeaf{"Tokenringpstatsindex", tokenringpstatsentry.Tokenringpstatsindex}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataSource"] = types.YLeaf{"Tokenringpstatsdatasource", tokenringpstatsentry.Tokenringpstatsdatasource}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDropEvents"] = types.YLeaf{"Tokenringpstatsdropevents", tokenringpstatsentry.Tokenringpstatsdropevents}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataOctets"] = types.YLeaf{"Tokenringpstatsdataoctets", tokenringpstatsentry.Tokenringpstatsdataoctets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts"] = types.YLeaf{"Tokenringpstatsdatapkts", tokenringpstatsentry.Tokenringpstatsdatapkts}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataBroadcastPkts"] = types.YLeaf{"Tokenringpstatsdatabroadcastpkts", tokenringpstatsentry.Tokenringpstatsdatabroadcastpkts}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataMulticastPkts"] = types.YLeaf{"Tokenringpstatsdatamulticastpkts", tokenringpstatsentry.Tokenringpstatsdatamulticastpkts}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts18to63Octets"] = types.YLeaf{"Tokenringpstatsdatapkts18To63Octets", tokenringpstatsentry.Tokenringpstatsdatapkts18To63Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts64to127Octets"] = types.YLeaf{"Tokenringpstatsdatapkts64To127Octets", tokenringpstatsentry.Tokenringpstatsdatapkts64To127Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts128to255Octets"] = types.YLeaf{"Tokenringpstatsdatapkts128To255Octets", tokenringpstatsentry.Tokenringpstatsdatapkts128To255Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts256to511Octets"] = types.YLeaf{"Tokenringpstatsdatapkts256To511Octets", tokenringpstatsentry.Tokenringpstatsdatapkts256To511Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts512to1023Octets"] = types.YLeaf{"Tokenringpstatsdatapkts512To1023Octets", tokenringpstatsentry.Tokenringpstatsdatapkts512To1023Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts1024to2047Octets"] = types.YLeaf{"Tokenringpstatsdatapkts1024To2047Octets", tokenringpstatsentry.Tokenringpstatsdatapkts1024To2047Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts2048to4095Octets"] = types.YLeaf{"Tokenringpstatsdatapkts2048To4095Octets", tokenringpstatsentry.Tokenringpstatsdatapkts2048To4095Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts4096to8191Octets"] = types.YLeaf{"Tokenringpstatsdatapkts4096To8191Octets", tokenringpstatsentry.Tokenringpstatsdatapkts4096To8191Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPkts8192to18000Octets"] = types.YLeaf{"Tokenringpstatsdatapkts8192To18000Octets", tokenringpstatsentry.Tokenringpstatsdatapkts8192To18000Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDataPktsGreaterThan18000Octets"] = types.YLeaf{"Tokenringpstatsdatapktsgreaterthan18000Octets", tokenringpstatsentry.Tokenringpstatsdatapktsgreaterthan18000Octets}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsOwner"] = types.YLeaf{"Tokenringpstatsowner", tokenringpstatsentry.Tokenringpstatsowner}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsStatus"] = types.YLeaf{"Tokenringpstatsstatus", tokenringpstatsentry.Tokenringpstatsstatus}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsDroppedFrames"] = types.YLeaf{"Tokenringpstatsdroppedframes", tokenringpstatsentry.Tokenringpstatsdroppedframes}
+    tokenringpstatsentry.EntityData.Leafs["tokenRingPStatsCreateTime"] = types.YLeaf{"Tokenringpstatscreatetime", tokenringpstatsentry.Tokenringpstatscreatetime}
+    return &(tokenringpstatsentry.EntityData)
 }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetSegmentPath() string {
-    return "tokenRingPStatsEntry" + "[tokenRingPStatsIndex='" + fmt.Sprintf("%v", tokenringpstatsentry.Tokenringpstatsindex) + "']"
-}
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tokenRingPStatsIndex"] = tokenringpstatsentry.Tokenringpstatsindex
-    leafs["tokenRingPStatsDataSource"] = tokenringpstatsentry.Tokenringpstatsdatasource
-    leafs["tokenRingPStatsDropEvents"] = tokenringpstatsentry.Tokenringpstatsdropevents
-    leafs["tokenRingPStatsDataOctets"] = tokenringpstatsentry.Tokenringpstatsdataoctets
-    leafs["tokenRingPStatsDataPkts"] = tokenringpstatsentry.Tokenringpstatsdatapkts
-    leafs["tokenRingPStatsDataBroadcastPkts"] = tokenringpstatsentry.Tokenringpstatsdatabroadcastpkts
-    leafs["tokenRingPStatsDataMulticastPkts"] = tokenringpstatsentry.Tokenringpstatsdatamulticastpkts
-    leafs["tokenRingPStatsDataPkts18to63Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts18To63Octets
-    leafs["tokenRingPStatsDataPkts64to127Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts64To127Octets
-    leafs["tokenRingPStatsDataPkts128to255Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts128To255Octets
-    leafs["tokenRingPStatsDataPkts256to511Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts256To511Octets
-    leafs["tokenRingPStatsDataPkts512to1023Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts512To1023Octets
-    leafs["tokenRingPStatsDataPkts1024to2047Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts1024To2047Octets
-    leafs["tokenRingPStatsDataPkts2048to4095Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts2048To4095Octets
-    leafs["tokenRingPStatsDataPkts4096to8191Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts4096To8191Octets
-    leafs["tokenRingPStatsDataPkts8192to18000Octets"] = tokenringpstatsentry.Tokenringpstatsdatapkts8192To18000Octets
-    leafs["tokenRingPStatsDataPktsGreaterThan18000Octets"] = tokenringpstatsentry.Tokenringpstatsdatapktsgreaterthan18000Octets
-    leafs["tokenRingPStatsOwner"] = tokenringpstatsentry.Tokenringpstatsowner
-    leafs["tokenRingPStatsStatus"] = tokenringpstatsentry.Tokenringpstatsstatus
-    leafs["tokenRingPStatsDroppedFrames"] = tokenringpstatsentry.Tokenringpstatsdroppedframes
-    leafs["tokenRingPStatsCreateTime"] = tokenringpstatsentry.Tokenringpstatscreatetime
-    return leafs
-}
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetYangName() string { return "tokenRingPStatsEntry" }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) SetParent(parent types.Entity) { tokenringpstatsentry.parent = parent }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetParent() types.Entity { return tokenringpstatsentry.parent }
-
-func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstatsentry) GetParentYangName() string { return "tokenRingPStatsTable" }
 
 // TOKENRINGRMONMIB_Tokenringmlhistorytable
 // A list of Mac-Layer Token Ring statistics
@@ -790,7 +535,7 @@ func (tokenringpstatsentry *TOKENRINGRMONMIB_Tokenringpstatstable_Tokenringpstat
 // 
 // entries.
 type TOKENRINGRMONMIB_Tokenringmlhistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of Mac-Layer statistics kept for a particular Token Ring
@@ -799,69 +544,30 @@ type TOKENRINGRMONMIB_Tokenringmlhistorytable struct {
     Tokenringmlhistoryentry []TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry
 }
 
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetFilter() yfilter.YFilter { return tokenringmlhistorytable.YFilter }
+func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetEntityData() *types.CommonEntityData {
+    tokenringmlhistorytable.EntityData.YFilter = tokenringmlhistorytable.YFilter
+    tokenringmlhistorytable.EntityData.YangName = "tokenRingMLHistoryTable"
+    tokenringmlhistorytable.EntityData.BundleName = "cisco_ios_xe"
+    tokenringmlhistorytable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenringmlhistorytable.EntityData.SegmentPath = "tokenRingMLHistoryTable"
+    tokenringmlhistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringmlhistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringmlhistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) SetFilter(yf yfilter.YFilter) { tokenringmlhistorytable.YFilter = yf }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetGoName(yname string) string {
-    if yname == "tokenRingMLHistoryEntry" { return "Tokenringmlhistoryentry" }
-    return ""
-}
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetSegmentPath() string {
-    return "tokenRingMLHistoryTable"
-}
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tokenRingMLHistoryEntry" {
-        for _, c := range tokenringmlhistorytable.Tokenringmlhistoryentry {
-            if tokenringmlhistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry{}
-        tokenringmlhistorytable.Tokenringmlhistoryentry = append(tokenringmlhistorytable.Tokenringmlhistoryentry, child)
-        return &tokenringmlhistorytable.Tokenringmlhistoryentry[len(tokenringmlhistorytable.Tokenringmlhistoryentry)-1]
-    }
-    return nil
-}
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tokenringmlhistorytable.EntityData.Children = make(map[string]types.YChild)
+    tokenringmlhistorytable.EntityData.Children["tokenRingMLHistoryEntry"] = types.YChild{"Tokenringmlhistoryentry", nil}
     for i := range tokenringmlhistorytable.Tokenringmlhistoryentry {
-        children[tokenringmlhistorytable.Tokenringmlhistoryentry[i].GetSegmentPath()] = &tokenringmlhistorytable.Tokenringmlhistoryentry[i]
+        tokenringmlhistorytable.EntityData.Children[types.GetSegmentPath(&tokenringmlhistorytable.Tokenringmlhistoryentry[i])] = types.YChild{"Tokenringmlhistoryentry", &tokenringmlhistorytable.Tokenringmlhistoryentry[i]}
     }
-    return children
+    tokenringmlhistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tokenringmlhistorytable.EntityData)
 }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetYangName() string { return "tokenRingMLHistoryTable" }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) SetParent(parent types.Entity) { tokenringmlhistorytable.parent = parent }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetParent() types.Entity { return tokenringmlhistorytable.parent }
-
-func (tokenringmlhistorytable *TOKENRINGRMONMIB_Tokenringmlhistorytable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry
 // A collection of Mac-Layer statistics kept for a
 // particular Token Ring interface.
 type TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The history of which this entry is a part.  The
@@ -1012,109 +718,53 @@ type TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry struct {
     Tokenringmlhistoryactivestations interface{}
 }
 
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetFilter() yfilter.YFilter { return tokenringmlhistoryentry.YFilter }
+func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetEntityData() *types.CommonEntityData {
+    tokenringmlhistoryentry.EntityData.YFilter = tokenringmlhistoryentry.YFilter
+    tokenringmlhistoryentry.EntityData.YangName = "tokenRingMLHistoryEntry"
+    tokenringmlhistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    tokenringmlhistoryentry.EntityData.ParentYangName = "tokenRingMLHistoryTable"
+    tokenringmlhistoryentry.EntityData.SegmentPath = "tokenRingMLHistoryEntry" + "[tokenRingMLHistoryIndex='" + fmt.Sprintf("%v", tokenringmlhistoryentry.Tokenringmlhistoryindex) + "']" + "[tokenRingMLHistorySampleIndex='" + fmt.Sprintf("%v", tokenringmlhistoryentry.Tokenringmlhistorysampleindex) + "']"
+    tokenringmlhistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringmlhistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringmlhistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) SetFilter(yf yfilter.YFilter) { tokenringmlhistoryentry.YFilter = yf }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetGoName(yname string) string {
-    if yname == "tokenRingMLHistoryIndex" { return "Tokenringmlhistoryindex" }
-    if yname == "tokenRingMLHistorySampleIndex" { return "Tokenringmlhistorysampleindex" }
-    if yname == "tokenRingMLHistoryIntervalStart" { return "Tokenringmlhistoryintervalstart" }
-    if yname == "tokenRingMLHistoryDropEvents" { return "Tokenringmlhistorydropevents" }
-    if yname == "tokenRingMLHistoryMacOctets" { return "Tokenringmlhistorymacoctets" }
-    if yname == "tokenRingMLHistoryMacPkts" { return "Tokenringmlhistorymacpkts" }
-    if yname == "tokenRingMLHistoryRingPurgeEvents" { return "Tokenringmlhistoryringpurgeevents" }
-    if yname == "tokenRingMLHistoryRingPurgePkts" { return "Tokenringmlhistoryringpurgepkts" }
-    if yname == "tokenRingMLHistoryBeaconEvents" { return "Tokenringmlhistorybeaconevents" }
-    if yname == "tokenRingMLHistoryBeaconTime" { return "Tokenringmlhistorybeacontime" }
-    if yname == "tokenRingMLHistoryBeaconPkts" { return "Tokenringmlhistorybeaconpkts" }
-    if yname == "tokenRingMLHistoryClaimTokenEvents" { return "Tokenringmlhistoryclaimtokenevents" }
-    if yname == "tokenRingMLHistoryClaimTokenPkts" { return "Tokenringmlhistoryclaimtokenpkts" }
-    if yname == "tokenRingMLHistoryNAUNChanges" { return "Tokenringmlhistorynaunchanges" }
-    if yname == "tokenRingMLHistoryLineErrors" { return "Tokenringmlhistorylineerrors" }
-    if yname == "tokenRingMLHistoryInternalErrors" { return "Tokenringmlhistoryinternalerrors" }
-    if yname == "tokenRingMLHistoryBurstErrors" { return "Tokenringmlhistorybursterrors" }
-    if yname == "tokenRingMLHistoryACErrors" { return "Tokenringmlhistoryacerrors" }
-    if yname == "tokenRingMLHistoryAbortErrors" { return "Tokenringmlhistoryaborterrors" }
-    if yname == "tokenRingMLHistoryLostFrameErrors" { return "Tokenringmlhistorylostframeerrors" }
-    if yname == "tokenRingMLHistoryCongestionErrors" { return "Tokenringmlhistorycongestionerrors" }
-    if yname == "tokenRingMLHistoryFrameCopiedErrors" { return "Tokenringmlhistoryframecopiederrors" }
-    if yname == "tokenRingMLHistoryFrequencyErrors" { return "Tokenringmlhistoryfrequencyerrors" }
-    if yname == "tokenRingMLHistoryTokenErrors" { return "Tokenringmlhistorytokenerrors" }
-    if yname == "tokenRingMLHistorySoftErrorReports" { return "Tokenringmlhistorysofterrorreports" }
-    if yname == "tokenRingMLHistoryRingPollEvents" { return "Tokenringmlhistoryringpollevents" }
-    if yname == "tokenRingMLHistoryActiveStations" { return "Tokenringmlhistoryactivestations" }
-    return ""
+    tokenringmlhistoryentry.EntityData.Children = make(map[string]types.YChild)
+    tokenringmlhistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryIndex"] = types.YLeaf{"Tokenringmlhistoryindex", tokenringmlhistoryentry.Tokenringmlhistoryindex}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistorySampleIndex"] = types.YLeaf{"Tokenringmlhistorysampleindex", tokenringmlhistoryentry.Tokenringmlhistorysampleindex}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryIntervalStart"] = types.YLeaf{"Tokenringmlhistoryintervalstart", tokenringmlhistoryentry.Tokenringmlhistoryintervalstart}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryDropEvents"] = types.YLeaf{"Tokenringmlhistorydropevents", tokenringmlhistoryentry.Tokenringmlhistorydropevents}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryMacOctets"] = types.YLeaf{"Tokenringmlhistorymacoctets", tokenringmlhistoryentry.Tokenringmlhistorymacoctets}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryMacPkts"] = types.YLeaf{"Tokenringmlhistorymacpkts", tokenringmlhistoryentry.Tokenringmlhistorymacpkts}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryRingPurgeEvents"] = types.YLeaf{"Tokenringmlhistoryringpurgeevents", tokenringmlhistoryentry.Tokenringmlhistoryringpurgeevents}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryRingPurgePkts"] = types.YLeaf{"Tokenringmlhistoryringpurgepkts", tokenringmlhistoryentry.Tokenringmlhistoryringpurgepkts}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBeaconEvents"] = types.YLeaf{"Tokenringmlhistorybeaconevents", tokenringmlhistoryentry.Tokenringmlhistorybeaconevents}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBeaconTime"] = types.YLeaf{"Tokenringmlhistorybeacontime", tokenringmlhistoryentry.Tokenringmlhistorybeacontime}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBeaconPkts"] = types.YLeaf{"Tokenringmlhistorybeaconpkts", tokenringmlhistoryentry.Tokenringmlhistorybeaconpkts}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryClaimTokenEvents"] = types.YLeaf{"Tokenringmlhistoryclaimtokenevents", tokenringmlhistoryentry.Tokenringmlhistoryclaimtokenevents}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryClaimTokenPkts"] = types.YLeaf{"Tokenringmlhistoryclaimtokenpkts", tokenringmlhistoryentry.Tokenringmlhistoryclaimtokenpkts}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryNAUNChanges"] = types.YLeaf{"Tokenringmlhistorynaunchanges", tokenringmlhistoryentry.Tokenringmlhistorynaunchanges}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryLineErrors"] = types.YLeaf{"Tokenringmlhistorylineerrors", tokenringmlhistoryentry.Tokenringmlhistorylineerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryInternalErrors"] = types.YLeaf{"Tokenringmlhistoryinternalerrors", tokenringmlhistoryentry.Tokenringmlhistoryinternalerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryBurstErrors"] = types.YLeaf{"Tokenringmlhistorybursterrors", tokenringmlhistoryentry.Tokenringmlhistorybursterrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryACErrors"] = types.YLeaf{"Tokenringmlhistoryacerrors", tokenringmlhistoryentry.Tokenringmlhistoryacerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryAbortErrors"] = types.YLeaf{"Tokenringmlhistoryaborterrors", tokenringmlhistoryentry.Tokenringmlhistoryaborterrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryLostFrameErrors"] = types.YLeaf{"Tokenringmlhistorylostframeerrors", tokenringmlhistoryentry.Tokenringmlhistorylostframeerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryCongestionErrors"] = types.YLeaf{"Tokenringmlhistorycongestionerrors", tokenringmlhistoryentry.Tokenringmlhistorycongestionerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryFrameCopiedErrors"] = types.YLeaf{"Tokenringmlhistoryframecopiederrors", tokenringmlhistoryentry.Tokenringmlhistoryframecopiederrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryFrequencyErrors"] = types.YLeaf{"Tokenringmlhistoryfrequencyerrors", tokenringmlhistoryentry.Tokenringmlhistoryfrequencyerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryTokenErrors"] = types.YLeaf{"Tokenringmlhistorytokenerrors", tokenringmlhistoryentry.Tokenringmlhistorytokenerrors}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistorySoftErrorReports"] = types.YLeaf{"Tokenringmlhistorysofterrorreports", tokenringmlhistoryentry.Tokenringmlhistorysofterrorreports}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryRingPollEvents"] = types.YLeaf{"Tokenringmlhistoryringpollevents", tokenringmlhistoryentry.Tokenringmlhistoryringpollevents}
+    tokenringmlhistoryentry.EntityData.Leafs["tokenRingMLHistoryActiveStations"] = types.YLeaf{"Tokenringmlhistoryactivestations", tokenringmlhistoryentry.Tokenringmlhistoryactivestations}
+    return &(tokenringmlhistoryentry.EntityData)
 }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetSegmentPath() string {
-    return "tokenRingMLHistoryEntry" + "[tokenRingMLHistoryIndex='" + fmt.Sprintf("%v", tokenringmlhistoryentry.Tokenringmlhistoryindex) + "']" + "[tokenRingMLHistorySampleIndex='" + fmt.Sprintf("%v", tokenringmlhistoryentry.Tokenringmlhistorysampleindex) + "']"
-}
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tokenRingMLHistoryIndex"] = tokenringmlhistoryentry.Tokenringmlhistoryindex
-    leafs["tokenRingMLHistorySampleIndex"] = tokenringmlhistoryentry.Tokenringmlhistorysampleindex
-    leafs["tokenRingMLHistoryIntervalStart"] = tokenringmlhistoryentry.Tokenringmlhistoryintervalstart
-    leafs["tokenRingMLHistoryDropEvents"] = tokenringmlhistoryentry.Tokenringmlhistorydropevents
-    leafs["tokenRingMLHistoryMacOctets"] = tokenringmlhistoryentry.Tokenringmlhistorymacoctets
-    leafs["tokenRingMLHistoryMacPkts"] = tokenringmlhistoryentry.Tokenringmlhistorymacpkts
-    leafs["tokenRingMLHistoryRingPurgeEvents"] = tokenringmlhistoryentry.Tokenringmlhistoryringpurgeevents
-    leafs["tokenRingMLHistoryRingPurgePkts"] = tokenringmlhistoryentry.Tokenringmlhistoryringpurgepkts
-    leafs["tokenRingMLHistoryBeaconEvents"] = tokenringmlhistoryentry.Tokenringmlhistorybeaconevents
-    leafs["tokenRingMLHistoryBeaconTime"] = tokenringmlhistoryentry.Tokenringmlhistorybeacontime
-    leafs["tokenRingMLHistoryBeaconPkts"] = tokenringmlhistoryentry.Tokenringmlhistorybeaconpkts
-    leafs["tokenRingMLHistoryClaimTokenEvents"] = tokenringmlhistoryentry.Tokenringmlhistoryclaimtokenevents
-    leafs["tokenRingMLHistoryClaimTokenPkts"] = tokenringmlhistoryentry.Tokenringmlhistoryclaimtokenpkts
-    leafs["tokenRingMLHistoryNAUNChanges"] = tokenringmlhistoryentry.Tokenringmlhistorynaunchanges
-    leafs["tokenRingMLHistoryLineErrors"] = tokenringmlhistoryentry.Tokenringmlhistorylineerrors
-    leafs["tokenRingMLHistoryInternalErrors"] = tokenringmlhistoryentry.Tokenringmlhistoryinternalerrors
-    leafs["tokenRingMLHistoryBurstErrors"] = tokenringmlhistoryentry.Tokenringmlhistorybursterrors
-    leafs["tokenRingMLHistoryACErrors"] = tokenringmlhistoryentry.Tokenringmlhistoryacerrors
-    leafs["tokenRingMLHistoryAbortErrors"] = tokenringmlhistoryentry.Tokenringmlhistoryaborterrors
-    leafs["tokenRingMLHistoryLostFrameErrors"] = tokenringmlhistoryentry.Tokenringmlhistorylostframeerrors
-    leafs["tokenRingMLHistoryCongestionErrors"] = tokenringmlhistoryentry.Tokenringmlhistorycongestionerrors
-    leafs["tokenRingMLHistoryFrameCopiedErrors"] = tokenringmlhistoryentry.Tokenringmlhistoryframecopiederrors
-    leafs["tokenRingMLHistoryFrequencyErrors"] = tokenringmlhistoryentry.Tokenringmlhistoryfrequencyerrors
-    leafs["tokenRingMLHistoryTokenErrors"] = tokenringmlhistoryentry.Tokenringmlhistorytokenerrors
-    leafs["tokenRingMLHistorySoftErrorReports"] = tokenringmlhistoryentry.Tokenringmlhistorysofterrorreports
-    leafs["tokenRingMLHistoryRingPollEvents"] = tokenringmlhistoryentry.Tokenringmlhistoryringpollevents
-    leafs["tokenRingMLHistoryActiveStations"] = tokenringmlhistoryentry.Tokenringmlhistoryactivestations
-    return leafs
-}
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetYangName() string { return "tokenRingMLHistoryEntry" }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) SetParent(parent types.Entity) { tokenringmlhistoryentry.parent = parent }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetParent() types.Entity { return tokenringmlhistoryentry.parent }
-
-func (tokenringmlhistoryentry *TOKENRINGRMONMIB_Tokenringmlhistorytable_Tokenringmlhistoryentry) GetParentYangName() string { return "tokenRingMLHistoryTable" }
 
 // TOKENRINGRMONMIB_Tokenringphistorytable
 // A list of promiscuous Token Ring statistics
 // entries.
 type TOKENRINGRMONMIB_Tokenringphistorytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of promiscuous statistics kept for a particular Token Ring
@@ -1123,69 +773,30 @@ type TOKENRINGRMONMIB_Tokenringphistorytable struct {
     Tokenringphistoryentry []TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry
 }
 
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetFilter() yfilter.YFilter { return tokenringphistorytable.YFilter }
+func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetEntityData() *types.CommonEntityData {
+    tokenringphistorytable.EntityData.YFilter = tokenringphistorytable.YFilter
+    tokenringphistorytable.EntityData.YangName = "tokenRingPHistoryTable"
+    tokenringphistorytable.EntityData.BundleName = "cisco_ios_xe"
+    tokenringphistorytable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    tokenringphistorytable.EntityData.SegmentPath = "tokenRingPHistoryTable"
+    tokenringphistorytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringphistorytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringphistorytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) SetFilter(yf yfilter.YFilter) { tokenringphistorytable.YFilter = yf }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetGoName(yname string) string {
-    if yname == "tokenRingPHistoryEntry" { return "Tokenringphistoryentry" }
-    return ""
-}
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetSegmentPath() string {
-    return "tokenRingPHistoryTable"
-}
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tokenRingPHistoryEntry" {
-        for _, c := range tokenringphistorytable.Tokenringphistoryentry {
-            if tokenringphistorytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry{}
-        tokenringphistorytable.Tokenringphistoryentry = append(tokenringphistorytable.Tokenringphistoryentry, child)
-        return &tokenringphistorytable.Tokenringphistoryentry[len(tokenringphistorytable.Tokenringphistoryentry)-1]
-    }
-    return nil
-}
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    tokenringphistorytable.EntityData.Children = make(map[string]types.YChild)
+    tokenringphistorytable.EntityData.Children["tokenRingPHistoryEntry"] = types.YChild{"Tokenringphistoryentry", nil}
     for i := range tokenringphistorytable.Tokenringphistoryentry {
-        children[tokenringphistorytable.Tokenringphistoryentry[i].GetSegmentPath()] = &tokenringphistorytable.Tokenringphistoryentry[i]
+        tokenringphistorytable.EntityData.Children[types.GetSegmentPath(&tokenringphistorytable.Tokenringphistoryentry[i])] = types.YChild{"Tokenringphistoryentry", &tokenringphistorytable.Tokenringphistoryentry[i]}
     }
-    return children
+    tokenringphistorytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(tokenringphistorytable.EntityData)
 }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetYangName() string { return "tokenRingPHistoryTable" }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) SetParent(parent types.Entity) { tokenringphistorytable.parent = parent }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetParent() types.Entity { return tokenringphistorytable.parent }
-
-func (tokenringphistorytable *TOKENRINGRMONMIB_Tokenringphistorytable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry
 // A collection of promiscuous statistics kept for a
 // particular Token Ring interface.
 type TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The history of which this entry is a part.  The
@@ -1300,90 +911,43 @@ type TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry struct {
     Tokenringphistorydatapktsgreaterthan18000Octets interface{}
 }
 
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetFilter() yfilter.YFilter { return tokenringphistoryentry.YFilter }
+func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetEntityData() *types.CommonEntityData {
+    tokenringphistoryentry.EntityData.YFilter = tokenringphistoryentry.YFilter
+    tokenringphistoryentry.EntityData.YangName = "tokenRingPHistoryEntry"
+    tokenringphistoryentry.EntityData.BundleName = "cisco_ios_xe"
+    tokenringphistoryentry.EntityData.ParentYangName = "tokenRingPHistoryTable"
+    tokenringphistoryentry.EntityData.SegmentPath = "tokenRingPHistoryEntry" + "[tokenRingPHistoryIndex='" + fmt.Sprintf("%v", tokenringphistoryentry.Tokenringphistoryindex) + "']" + "[tokenRingPHistorySampleIndex='" + fmt.Sprintf("%v", tokenringphistoryentry.Tokenringphistorysampleindex) + "']"
+    tokenringphistoryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    tokenringphistoryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    tokenringphistoryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) SetFilter(yf yfilter.YFilter) { tokenringphistoryentry.YFilter = yf }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetGoName(yname string) string {
-    if yname == "tokenRingPHistoryIndex" { return "Tokenringphistoryindex" }
-    if yname == "tokenRingPHistorySampleIndex" { return "Tokenringphistorysampleindex" }
-    if yname == "tokenRingPHistoryIntervalStart" { return "Tokenringphistoryintervalstart" }
-    if yname == "tokenRingPHistoryDropEvents" { return "Tokenringphistorydropevents" }
-    if yname == "tokenRingPHistoryDataOctets" { return "Tokenringphistorydataoctets" }
-    if yname == "tokenRingPHistoryDataPkts" { return "Tokenringphistorydatapkts" }
-    if yname == "tokenRingPHistoryDataBroadcastPkts" { return "Tokenringphistorydatabroadcastpkts" }
-    if yname == "tokenRingPHistoryDataMulticastPkts" { return "Tokenringphistorydatamulticastpkts" }
-    if yname == "tokenRingPHistoryDataPkts18to63Octets" { return "Tokenringphistorydatapkts18To63Octets" }
-    if yname == "tokenRingPHistoryDataPkts64to127Octets" { return "Tokenringphistorydatapkts64To127Octets" }
-    if yname == "tokenRingPHistoryDataPkts128to255Octets" { return "Tokenringphistorydatapkts128To255Octets" }
-    if yname == "tokenRingPHistoryDataPkts256to511Octets" { return "Tokenringphistorydatapkts256To511Octets" }
-    if yname == "tokenRingPHistoryDataPkts512to1023Octets" { return "Tokenringphistorydatapkts512To1023Octets" }
-    if yname == "tokenRingPHistoryDataPkts1024to2047Octets" { return "Tokenringphistorydatapkts1024To2047Octets" }
-    if yname == "tokenRingPHistoryDataPkts2048to4095Octets" { return "Tokenringphistorydatapkts2048To4095Octets" }
-    if yname == "tokenRingPHistoryDataPkts4096to8191Octets" { return "Tokenringphistorydatapkts4096To8191Octets" }
-    if yname == "tokenRingPHistoryDataPkts8192to18000Octets" { return "Tokenringphistorydatapkts8192To18000Octets" }
-    if yname == "tokenRingPHistoryDataPktsGreaterThan18000Octets" { return "Tokenringphistorydatapktsgreaterthan18000Octets" }
-    return ""
+    tokenringphistoryentry.EntityData.Children = make(map[string]types.YChild)
+    tokenringphistoryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryIndex"] = types.YLeaf{"Tokenringphistoryindex", tokenringphistoryentry.Tokenringphistoryindex}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistorySampleIndex"] = types.YLeaf{"Tokenringphistorysampleindex", tokenringphistoryentry.Tokenringphistorysampleindex}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryIntervalStart"] = types.YLeaf{"Tokenringphistoryintervalstart", tokenringphistoryentry.Tokenringphistoryintervalstart}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDropEvents"] = types.YLeaf{"Tokenringphistorydropevents", tokenringphistoryentry.Tokenringphistorydropevents}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataOctets"] = types.YLeaf{"Tokenringphistorydataoctets", tokenringphistoryentry.Tokenringphistorydataoctets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts"] = types.YLeaf{"Tokenringphistorydatapkts", tokenringphistoryentry.Tokenringphistorydatapkts}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataBroadcastPkts"] = types.YLeaf{"Tokenringphistorydatabroadcastpkts", tokenringphistoryentry.Tokenringphistorydatabroadcastpkts}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataMulticastPkts"] = types.YLeaf{"Tokenringphistorydatamulticastpkts", tokenringphistoryentry.Tokenringphistorydatamulticastpkts}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts18to63Octets"] = types.YLeaf{"Tokenringphistorydatapkts18To63Octets", tokenringphistoryentry.Tokenringphistorydatapkts18To63Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts64to127Octets"] = types.YLeaf{"Tokenringphistorydatapkts64To127Octets", tokenringphistoryentry.Tokenringphistorydatapkts64To127Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts128to255Octets"] = types.YLeaf{"Tokenringphistorydatapkts128To255Octets", tokenringphistoryentry.Tokenringphistorydatapkts128To255Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts256to511Octets"] = types.YLeaf{"Tokenringphistorydatapkts256To511Octets", tokenringphistoryentry.Tokenringphistorydatapkts256To511Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts512to1023Octets"] = types.YLeaf{"Tokenringphistorydatapkts512To1023Octets", tokenringphistoryentry.Tokenringphistorydatapkts512To1023Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts1024to2047Octets"] = types.YLeaf{"Tokenringphistorydatapkts1024To2047Octets", tokenringphistoryentry.Tokenringphistorydatapkts1024To2047Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts2048to4095Octets"] = types.YLeaf{"Tokenringphistorydatapkts2048To4095Octets", tokenringphistoryentry.Tokenringphistorydatapkts2048To4095Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts4096to8191Octets"] = types.YLeaf{"Tokenringphistorydatapkts4096To8191Octets", tokenringphistoryentry.Tokenringphistorydatapkts4096To8191Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPkts8192to18000Octets"] = types.YLeaf{"Tokenringphistorydatapkts8192To18000Octets", tokenringphistoryentry.Tokenringphistorydatapkts8192To18000Octets}
+    tokenringphistoryentry.EntityData.Leafs["tokenRingPHistoryDataPktsGreaterThan18000Octets"] = types.YLeaf{"Tokenringphistorydatapktsgreaterthan18000Octets", tokenringphistoryentry.Tokenringphistorydatapktsgreaterthan18000Octets}
+    return &(tokenringphistoryentry.EntityData)
 }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetSegmentPath() string {
-    return "tokenRingPHistoryEntry" + "[tokenRingPHistoryIndex='" + fmt.Sprintf("%v", tokenringphistoryentry.Tokenringphistoryindex) + "']" + "[tokenRingPHistorySampleIndex='" + fmt.Sprintf("%v", tokenringphistoryentry.Tokenringphistorysampleindex) + "']"
-}
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tokenRingPHistoryIndex"] = tokenringphistoryentry.Tokenringphistoryindex
-    leafs["tokenRingPHistorySampleIndex"] = tokenringphistoryentry.Tokenringphistorysampleindex
-    leafs["tokenRingPHistoryIntervalStart"] = tokenringphistoryentry.Tokenringphistoryintervalstart
-    leafs["tokenRingPHistoryDropEvents"] = tokenringphistoryentry.Tokenringphistorydropevents
-    leafs["tokenRingPHistoryDataOctets"] = tokenringphistoryentry.Tokenringphistorydataoctets
-    leafs["tokenRingPHistoryDataPkts"] = tokenringphistoryentry.Tokenringphistorydatapkts
-    leafs["tokenRingPHistoryDataBroadcastPkts"] = tokenringphistoryentry.Tokenringphistorydatabroadcastpkts
-    leafs["tokenRingPHistoryDataMulticastPkts"] = tokenringphistoryentry.Tokenringphistorydatamulticastpkts
-    leafs["tokenRingPHistoryDataPkts18to63Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts18To63Octets
-    leafs["tokenRingPHistoryDataPkts64to127Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts64To127Octets
-    leafs["tokenRingPHistoryDataPkts128to255Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts128To255Octets
-    leafs["tokenRingPHistoryDataPkts256to511Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts256To511Octets
-    leafs["tokenRingPHistoryDataPkts512to1023Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts512To1023Octets
-    leafs["tokenRingPHistoryDataPkts1024to2047Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts1024To2047Octets
-    leafs["tokenRingPHistoryDataPkts2048to4095Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts2048To4095Octets
-    leafs["tokenRingPHistoryDataPkts4096to8191Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts4096To8191Octets
-    leafs["tokenRingPHistoryDataPkts8192to18000Octets"] = tokenringphistoryentry.Tokenringphistorydatapkts8192To18000Octets
-    leafs["tokenRingPHistoryDataPktsGreaterThan18000Octets"] = tokenringphistoryentry.Tokenringphistorydatapktsgreaterthan18000Octets
-    return leafs
-}
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetYangName() string { return "tokenRingPHistoryEntry" }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) SetParent(parent types.Entity) { tokenringphistoryentry.parent = parent }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetParent() types.Entity { return tokenringphistoryentry.parent }
-
-func (tokenringphistoryentry *TOKENRINGRMONMIB_Tokenringphistorytable_Tokenringphistoryentry) GetParentYangName() string { return "tokenRingPHistoryTable" }
 
 // TOKENRINGRMONMIB_Ringstationcontroltable
 // A list of ringStation table control entries.
 type TOKENRINGRMONMIB_Ringstationcontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of parameters that set up the discovery of stations on a particular
@@ -1393,70 +957,31 @@ type TOKENRINGRMONMIB_Ringstationcontroltable struct {
     Ringstationcontrolentry []TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry
 }
 
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetFilter() yfilter.YFilter { return ringstationcontroltable.YFilter }
+func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetEntityData() *types.CommonEntityData {
+    ringstationcontroltable.EntityData.YFilter = ringstationcontroltable.YFilter
+    ringstationcontroltable.EntityData.YangName = "ringStationControlTable"
+    ringstationcontroltable.EntityData.BundleName = "cisco_ios_xe"
+    ringstationcontroltable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringstationcontroltable.EntityData.SegmentPath = "ringStationControlTable"
+    ringstationcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) SetFilter(yf yfilter.YFilter) { ringstationcontroltable.YFilter = yf }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetGoName(yname string) string {
-    if yname == "ringStationControlEntry" { return "Ringstationcontrolentry" }
-    return ""
-}
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetSegmentPath() string {
-    return "ringStationControlTable"
-}
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ringStationControlEntry" {
-        for _, c := range ringstationcontroltable.Ringstationcontrolentry {
-            if ringstationcontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry{}
-        ringstationcontroltable.Ringstationcontrolentry = append(ringstationcontroltable.Ringstationcontrolentry, child)
-        return &ringstationcontroltable.Ringstationcontrolentry[len(ringstationcontroltable.Ringstationcontrolentry)-1]
-    }
-    return nil
-}
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ringstationcontroltable.EntityData.Children = make(map[string]types.YChild)
+    ringstationcontroltable.EntityData.Children["ringStationControlEntry"] = types.YChild{"Ringstationcontrolentry", nil}
     for i := range ringstationcontroltable.Ringstationcontrolentry {
-        children[ringstationcontroltable.Ringstationcontrolentry[i].GetSegmentPath()] = &ringstationcontroltable.Ringstationcontrolentry[i]
+        ringstationcontroltable.EntityData.Children[types.GetSegmentPath(&ringstationcontroltable.Ringstationcontrolentry[i])] = types.YChild{"Ringstationcontrolentry", &ringstationcontroltable.Ringstationcontrolentry[i]}
     }
-    return children
+    ringstationcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ringstationcontroltable.EntityData)
 }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetYangName() string { return "ringStationControlTable" }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) SetParent(parent types.Entity) { ringstationcontroltable.parent = parent }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetParent() types.Entity { return ringstationcontroltable.parent }
-
-func (ringstationcontroltable *TOKENRINGRMONMIB_Ringstationcontroltable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry
 // A list of parameters that set up the discovery of
 // stations on a particular interface and the
 // collection of statistics about these stations.
 type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies the
@@ -1526,73 +1051,32 @@ type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry struct {
     Ringstationcontrolcreatetime interface{}
 }
 
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetFilter() yfilter.YFilter { return ringstationcontrolentry.YFilter }
+func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetEntityData() *types.CommonEntityData {
+    ringstationcontrolentry.EntityData.YFilter = ringstationcontrolentry.YFilter
+    ringstationcontrolentry.EntityData.YangName = "ringStationControlEntry"
+    ringstationcontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    ringstationcontrolentry.EntityData.ParentYangName = "ringStationControlTable"
+    ringstationcontrolentry.EntityData.SegmentPath = "ringStationControlEntry" + "[ringStationControlIfIndex='" + fmt.Sprintf("%v", ringstationcontrolentry.Ringstationcontrolifindex) + "']"
+    ringstationcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) SetFilter(yf yfilter.YFilter) { ringstationcontrolentry.YFilter = yf }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetGoName(yname string) string {
-    if yname == "ringStationControlIfIndex" { return "Ringstationcontrolifindex" }
-    if yname == "ringStationControlTableSize" { return "Ringstationcontroltablesize" }
-    if yname == "ringStationControlActiveStations" { return "Ringstationcontrolactivestations" }
-    if yname == "ringStationControlRingState" { return "Ringstationcontrolringstate" }
-    if yname == "ringStationControlBeaconSender" { return "Ringstationcontrolbeaconsender" }
-    if yname == "ringStationControlBeaconNAUN" { return "Ringstationcontrolbeaconnaun" }
-    if yname == "ringStationControlActiveMonitor" { return "Ringstationcontrolactivemonitor" }
-    if yname == "ringStationControlOrderChanges" { return "Ringstationcontrolorderchanges" }
-    if yname == "ringStationControlOwner" { return "Ringstationcontrolowner" }
-    if yname == "ringStationControlStatus" { return "Ringstationcontrolstatus" }
-    if yname == "ringStationControlDroppedFrames" { return "Ringstationcontroldroppedframes" }
-    if yname == "ringStationControlCreateTime" { return "Ringstationcontrolcreatetime" }
-    return ""
+    ringstationcontrolentry.EntityData.Children = make(map[string]types.YChild)
+    ringstationcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlIfIndex"] = types.YLeaf{"Ringstationcontrolifindex", ringstationcontrolentry.Ringstationcontrolifindex}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlTableSize"] = types.YLeaf{"Ringstationcontroltablesize", ringstationcontrolentry.Ringstationcontroltablesize}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlActiveStations"] = types.YLeaf{"Ringstationcontrolactivestations", ringstationcontrolentry.Ringstationcontrolactivestations}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlRingState"] = types.YLeaf{"Ringstationcontrolringstate", ringstationcontrolentry.Ringstationcontrolringstate}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlBeaconSender"] = types.YLeaf{"Ringstationcontrolbeaconsender", ringstationcontrolentry.Ringstationcontrolbeaconsender}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlBeaconNAUN"] = types.YLeaf{"Ringstationcontrolbeaconnaun", ringstationcontrolentry.Ringstationcontrolbeaconnaun}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlActiveMonitor"] = types.YLeaf{"Ringstationcontrolactivemonitor", ringstationcontrolentry.Ringstationcontrolactivemonitor}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlOrderChanges"] = types.YLeaf{"Ringstationcontrolorderchanges", ringstationcontrolentry.Ringstationcontrolorderchanges}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlOwner"] = types.YLeaf{"Ringstationcontrolowner", ringstationcontrolentry.Ringstationcontrolowner}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlStatus"] = types.YLeaf{"Ringstationcontrolstatus", ringstationcontrolentry.Ringstationcontrolstatus}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlDroppedFrames"] = types.YLeaf{"Ringstationcontroldroppedframes", ringstationcontrolentry.Ringstationcontroldroppedframes}
+    ringstationcontrolentry.EntityData.Leafs["ringStationControlCreateTime"] = types.YLeaf{"Ringstationcontrolcreatetime", ringstationcontrolentry.Ringstationcontrolcreatetime}
+    return &(ringstationcontrolentry.EntityData)
 }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetSegmentPath() string {
-    return "ringStationControlEntry" + "[ringStationControlIfIndex='" + fmt.Sprintf("%v", ringstationcontrolentry.Ringstationcontrolifindex) + "']"
-}
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ringStationControlIfIndex"] = ringstationcontrolentry.Ringstationcontrolifindex
-    leafs["ringStationControlTableSize"] = ringstationcontrolentry.Ringstationcontroltablesize
-    leafs["ringStationControlActiveStations"] = ringstationcontrolentry.Ringstationcontrolactivestations
-    leafs["ringStationControlRingState"] = ringstationcontrolentry.Ringstationcontrolringstate
-    leafs["ringStationControlBeaconSender"] = ringstationcontrolentry.Ringstationcontrolbeaconsender
-    leafs["ringStationControlBeaconNAUN"] = ringstationcontrolentry.Ringstationcontrolbeaconnaun
-    leafs["ringStationControlActiveMonitor"] = ringstationcontrolentry.Ringstationcontrolactivemonitor
-    leafs["ringStationControlOrderChanges"] = ringstationcontrolentry.Ringstationcontrolorderchanges
-    leafs["ringStationControlOwner"] = ringstationcontrolentry.Ringstationcontrolowner
-    leafs["ringStationControlStatus"] = ringstationcontrolentry.Ringstationcontrolstatus
-    leafs["ringStationControlDroppedFrames"] = ringstationcontrolentry.Ringstationcontroldroppedframes
-    leafs["ringStationControlCreateTime"] = ringstationcontrolentry.Ringstationcontrolcreatetime
-    return leafs
-}
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetYangName() string { return "ringStationControlEntry" }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) SetParent(parent types.Entity) { ringstationcontrolentry.parent = parent }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetParent() types.Entity { return ringstationcontrolentry.parent }
-
-func (ringstationcontrolentry *TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry) GetParentYangName() string { return "ringStationControlTable" }
 
 // TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate represents The current status of this ring.
 type TOKENRINGRMONMIB_Ringstationcontroltable_Ringstationcontrolentry_Ringstationcontrolringstate string
@@ -1624,7 +1108,7 @@ const (
 // previously been detected as physically present on
 // this ring.
 type TOKENRINGRMONMIB_Ringstationtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular station that has been
@@ -1633,70 +1117,31 @@ type TOKENRINGRMONMIB_Ringstationtable struct {
     Ringstationentry []TOKENRINGRMONMIB_Ringstationtable_Ringstationentry
 }
 
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetFilter() yfilter.YFilter { return ringstationtable.YFilter }
+func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetEntityData() *types.CommonEntityData {
+    ringstationtable.EntityData.YFilter = ringstationtable.YFilter
+    ringstationtable.EntityData.YangName = "ringStationTable"
+    ringstationtable.EntityData.BundleName = "cisco_ios_xe"
+    ringstationtable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringstationtable.EntityData.SegmentPath = "ringStationTable"
+    ringstationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) SetFilter(yf yfilter.YFilter) { ringstationtable.YFilter = yf }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetGoName(yname string) string {
-    if yname == "ringStationEntry" { return "Ringstationentry" }
-    return ""
-}
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetSegmentPath() string {
-    return "ringStationTable"
-}
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ringStationEntry" {
-        for _, c := range ringstationtable.Ringstationentry {
-            if ringstationtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Ringstationtable_Ringstationentry{}
-        ringstationtable.Ringstationentry = append(ringstationtable.Ringstationentry, child)
-        return &ringstationtable.Ringstationentry[len(ringstationtable.Ringstationentry)-1]
-    }
-    return nil
-}
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ringstationtable.EntityData.Children = make(map[string]types.YChild)
+    ringstationtable.EntityData.Children["ringStationEntry"] = types.YChild{"Ringstationentry", nil}
     for i := range ringstationtable.Ringstationentry {
-        children[ringstationtable.Ringstationentry[i].GetSegmentPath()] = &ringstationtable.Ringstationentry[i]
+        ringstationtable.EntityData.Children[types.GetSegmentPath(&ringstationtable.Ringstationentry[i])] = types.YChild{"Ringstationentry", &ringstationtable.Ringstationentry[i]}
     }
-    return children
+    ringstationtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ringstationtable.EntityData)
 }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetYangName() string { return "ringStationTable" }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) SetParent(parent types.Entity) { ringstationtable.parent = parent }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetParent() types.Entity { return ringstationtable.parent }
-
-func (ringstationtable *TOKENRINGRMONMIB_Ringstationtable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Ringstationtable_Ringstationentry
 // A collection of statistics for a particular
 // station that has been discovered on a ring
 // monitored by this device.
 type TOKENRINGRMONMIB_Ringstationtable_Ringstationentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies the
@@ -1806,93 +1251,42 @@ type TOKENRINGRMONMIB_Ringstationtable_Ringstationentry struct {
     Ringstationinsertions interface{}
 }
 
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetFilter() yfilter.YFilter { return ringstationentry.YFilter }
+func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetEntityData() *types.CommonEntityData {
+    ringstationentry.EntityData.YFilter = ringstationentry.YFilter
+    ringstationentry.EntityData.YangName = "ringStationEntry"
+    ringstationentry.EntityData.BundleName = "cisco_ios_xe"
+    ringstationentry.EntityData.ParentYangName = "ringStationTable"
+    ringstationentry.EntityData.SegmentPath = "ringStationEntry" + "[ringStationIfIndex='" + fmt.Sprintf("%v", ringstationentry.Ringstationifindex) + "']" + "[ringStationMacAddress='" + fmt.Sprintf("%v", ringstationentry.Ringstationmacaddress) + "']"
+    ringstationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) SetFilter(yf yfilter.YFilter) { ringstationentry.YFilter = yf }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetGoName(yname string) string {
-    if yname == "ringStationIfIndex" { return "Ringstationifindex" }
-    if yname == "ringStationMacAddress" { return "Ringstationmacaddress" }
-    if yname == "ringStationLastNAUN" { return "Ringstationlastnaun" }
-    if yname == "ringStationStationStatus" { return "Ringstationstationstatus" }
-    if yname == "ringStationLastEnterTime" { return "Ringstationlastentertime" }
-    if yname == "ringStationLastExitTime" { return "Ringstationlastexittime" }
-    if yname == "ringStationDuplicateAddresses" { return "Ringstationduplicateaddresses" }
-    if yname == "ringStationInLineErrors" { return "Ringstationinlineerrors" }
-    if yname == "ringStationOutLineErrors" { return "Ringstationoutlineerrors" }
-    if yname == "ringStationInternalErrors" { return "Ringstationinternalerrors" }
-    if yname == "ringStationInBurstErrors" { return "Ringstationinbursterrors" }
-    if yname == "ringStationOutBurstErrors" { return "Ringstationoutbursterrors" }
-    if yname == "ringStationACErrors" { return "Ringstationacerrors" }
-    if yname == "ringStationAbortErrors" { return "Ringstationaborterrors" }
-    if yname == "ringStationLostFrameErrors" { return "Ringstationlostframeerrors" }
-    if yname == "ringStationCongestionErrors" { return "Ringstationcongestionerrors" }
-    if yname == "ringStationFrameCopiedErrors" { return "Ringstationframecopiederrors" }
-    if yname == "ringStationFrequencyErrors" { return "Ringstationfrequencyerrors" }
-    if yname == "ringStationTokenErrors" { return "Ringstationtokenerrors" }
-    if yname == "ringStationInBeaconErrors" { return "Ringstationinbeaconerrors" }
-    if yname == "ringStationOutBeaconErrors" { return "Ringstationoutbeaconerrors" }
-    if yname == "ringStationInsertions" { return "Ringstationinsertions" }
-    return ""
+    ringstationentry.EntityData.Children = make(map[string]types.YChild)
+    ringstationentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ringstationentry.EntityData.Leafs["ringStationIfIndex"] = types.YLeaf{"Ringstationifindex", ringstationentry.Ringstationifindex}
+    ringstationentry.EntityData.Leafs["ringStationMacAddress"] = types.YLeaf{"Ringstationmacaddress", ringstationentry.Ringstationmacaddress}
+    ringstationentry.EntityData.Leafs["ringStationLastNAUN"] = types.YLeaf{"Ringstationlastnaun", ringstationentry.Ringstationlastnaun}
+    ringstationentry.EntityData.Leafs["ringStationStationStatus"] = types.YLeaf{"Ringstationstationstatus", ringstationentry.Ringstationstationstatus}
+    ringstationentry.EntityData.Leafs["ringStationLastEnterTime"] = types.YLeaf{"Ringstationlastentertime", ringstationentry.Ringstationlastentertime}
+    ringstationentry.EntityData.Leafs["ringStationLastExitTime"] = types.YLeaf{"Ringstationlastexittime", ringstationentry.Ringstationlastexittime}
+    ringstationentry.EntityData.Leafs["ringStationDuplicateAddresses"] = types.YLeaf{"Ringstationduplicateaddresses", ringstationentry.Ringstationduplicateaddresses}
+    ringstationentry.EntityData.Leafs["ringStationInLineErrors"] = types.YLeaf{"Ringstationinlineerrors", ringstationentry.Ringstationinlineerrors}
+    ringstationentry.EntityData.Leafs["ringStationOutLineErrors"] = types.YLeaf{"Ringstationoutlineerrors", ringstationentry.Ringstationoutlineerrors}
+    ringstationentry.EntityData.Leafs["ringStationInternalErrors"] = types.YLeaf{"Ringstationinternalerrors", ringstationentry.Ringstationinternalerrors}
+    ringstationentry.EntityData.Leafs["ringStationInBurstErrors"] = types.YLeaf{"Ringstationinbursterrors", ringstationentry.Ringstationinbursterrors}
+    ringstationentry.EntityData.Leafs["ringStationOutBurstErrors"] = types.YLeaf{"Ringstationoutbursterrors", ringstationentry.Ringstationoutbursterrors}
+    ringstationentry.EntityData.Leafs["ringStationACErrors"] = types.YLeaf{"Ringstationacerrors", ringstationentry.Ringstationacerrors}
+    ringstationentry.EntityData.Leafs["ringStationAbortErrors"] = types.YLeaf{"Ringstationaborterrors", ringstationentry.Ringstationaborterrors}
+    ringstationentry.EntityData.Leafs["ringStationLostFrameErrors"] = types.YLeaf{"Ringstationlostframeerrors", ringstationentry.Ringstationlostframeerrors}
+    ringstationentry.EntityData.Leafs["ringStationCongestionErrors"] = types.YLeaf{"Ringstationcongestionerrors", ringstationentry.Ringstationcongestionerrors}
+    ringstationentry.EntityData.Leafs["ringStationFrameCopiedErrors"] = types.YLeaf{"Ringstationframecopiederrors", ringstationentry.Ringstationframecopiederrors}
+    ringstationentry.EntityData.Leafs["ringStationFrequencyErrors"] = types.YLeaf{"Ringstationfrequencyerrors", ringstationentry.Ringstationfrequencyerrors}
+    ringstationentry.EntityData.Leafs["ringStationTokenErrors"] = types.YLeaf{"Ringstationtokenerrors", ringstationentry.Ringstationtokenerrors}
+    ringstationentry.EntityData.Leafs["ringStationInBeaconErrors"] = types.YLeaf{"Ringstationinbeaconerrors", ringstationentry.Ringstationinbeaconerrors}
+    ringstationentry.EntityData.Leafs["ringStationOutBeaconErrors"] = types.YLeaf{"Ringstationoutbeaconerrors", ringstationentry.Ringstationoutbeaconerrors}
+    ringstationentry.EntityData.Leafs["ringStationInsertions"] = types.YLeaf{"Ringstationinsertions", ringstationentry.Ringstationinsertions}
+    return &(ringstationentry.EntityData)
 }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetSegmentPath() string {
-    return "ringStationEntry" + "[ringStationIfIndex='" + fmt.Sprintf("%v", ringstationentry.Ringstationifindex) + "']" + "[ringStationMacAddress='" + fmt.Sprintf("%v", ringstationentry.Ringstationmacaddress) + "']"
-}
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ringStationIfIndex"] = ringstationentry.Ringstationifindex
-    leafs["ringStationMacAddress"] = ringstationentry.Ringstationmacaddress
-    leafs["ringStationLastNAUN"] = ringstationentry.Ringstationlastnaun
-    leafs["ringStationStationStatus"] = ringstationentry.Ringstationstationstatus
-    leafs["ringStationLastEnterTime"] = ringstationentry.Ringstationlastentertime
-    leafs["ringStationLastExitTime"] = ringstationentry.Ringstationlastexittime
-    leafs["ringStationDuplicateAddresses"] = ringstationentry.Ringstationduplicateaddresses
-    leafs["ringStationInLineErrors"] = ringstationentry.Ringstationinlineerrors
-    leafs["ringStationOutLineErrors"] = ringstationentry.Ringstationoutlineerrors
-    leafs["ringStationInternalErrors"] = ringstationentry.Ringstationinternalerrors
-    leafs["ringStationInBurstErrors"] = ringstationentry.Ringstationinbursterrors
-    leafs["ringStationOutBurstErrors"] = ringstationentry.Ringstationoutbursterrors
-    leafs["ringStationACErrors"] = ringstationentry.Ringstationacerrors
-    leafs["ringStationAbortErrors"] = ringstationentry.Ringstationaborterrors
-    leafs["ringStationLostFrameErrors"] = ringstationentry.Ringstationlostframeerrors
-    leafs["ringStationCongestionErrors"] = ringstationentry.Ringstationcongestionerrors
-    leafs["ringStationFrameCopiedErrors"] = ringstationentry.Ringstationframecopiederrors
-    leafs["ringStationFrequencyErrors"] = ringstationentry.Ringstationfrequencyerrors
-    leafs["ringStationTokenErrors"] = ringstationentry.Ringstationtokenerrors
-    leafs["ringStationInBeaconErrors"] = ringstationentry.Ringstationinbeaconerrors
-    leafs["ringStationOutBeaconErrors"] = ringstationentry.Ringstationoutbeaconerrors
-    leafs["ringStationInsertions"] = ringstationentry.Ringstationinsertions
-    return leafs
-}
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetYangName() string { return "ringStationEntry" }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) SetParent(parent types.Entity) { ringstationentry.parent = parent }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetParent() types.Entity { return ringstationentry.parent }
-
-func (ringstationentry *TOKENRINGRMONMIB_Ringstationtable_Ringstationentry) GetParentYangName() string { return "ringStationTable" }
 
 // TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus represents The status of this station on the ring.
 type TOKENRINGRMONMIB_Ringstationtable_Ringstationentry_Ringstationstationstatus string
@@ -1909,7 +1303,7 @@ const (
 // A list of ring station entries for stations in
 // the ring poll, ordered by their ring-order.
 type TOKENRINGRMONMIB_Ringstationordertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular      station that is active on
@@ -1920,63 +1314,24 @@ type TOKENRINGRMONMIB_Ringstationordertable struct {
     Ringstationorderentry []TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry
 }
 
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetFilter() yfilter.YFilter { return ringstationordertable.YFilter }
+func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetEntityData() *types.CommonEntityData {
+    ringstationordertable.EntityData.YFilter = ringstationordertable.YFilter
+    ringstationordertable.EntityData.YangName = "ringStationOrderTable"
+    ringstationordertable.EntityData.BundleName = "cisco_ios_xe"
+    ringstationordertable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringstationordertable.EntityData.SegmentPath = "ringStationOrderTable"
+    ringstationordertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationordertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationordertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) SetFilter(yf yfilter.YFilter) { ringstationordertable.YFilter = yf }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetGoName(yname string) string {
-    if yname == "ringStationOrderEntry" { return "Ringstationorderentry" }
-    return ""
-}
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetSegmentPath() string {
-    return "ringStationOrderTable"
-}
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ringStationOrderEntry" {
-        for _, c := range ringstationordertable.Ringstationorderentry {
-            if ringstationordertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry{}
-        ringstationordertable.Ringstationorderentry = append(ringstationordertable.Ringstationorderentry, child)
-        return &ringstationordertable.Ringstationorderentry[len(ringstationordertable.Ringstationorderentry)-1]
-    }
-    return nil
-}
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ringstationordertable.EntityData.Children = make(map[string]types.YChild)
+    ringstationordertable.EntityData.Children["ringStationOrderEntry"] = types.YChild{"Ringstationorderentry", nil}
     for i := range ringstationordertable.Ringstationorderentry {
-        children[ringstationordertable.Ringstationorderentry[i].GetSegmentPath()] = &ringstationordertable.Ringstationorderentry[i]
+        ringstationordertable.EntityData.Children[types.GetSegmentPath(&ringstationordertable.Ringstationorderentry[i])] = types.YChild{"Ringstationorderentry", &ringstationordertable.Ringstationorderentry[i]}
     }
-    return children
+    ringstationordertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ringstationordertable.EntityData)
 }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetYangName() string { return "ringStationOrderTable" }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) SetParent(parent types.Entity) { ringstationordertable.parent = parent }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetParent() types.Entity { return ringstationordertable.parent }
-
-func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry
 // A collection of statistics for a particular
@@ -1990,7 +1345,7 @@ func (ringstationordertable *TOKENRINGRMONMIB_Ringstationordertable) GetParentYa
 // every interface that has a
 // ringStationControlStatus equal to valid.
 type TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies the
@@ -2012,61 +1367,29 @@ type TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry struct {
     Ringstationordermacaddress interface{}
 }
 
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetFilter() yfilter.YFilter { return ringstationorderentry.YFilter }
+func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetEntityData() *types.CommonEntityData {
+    ringstationorderentry.EntityData.YFilter = ringstationorderentry.YFilter
+    ringstationorderentry.EntityData.YangName = "ringStationOrderEntry"
+    ringstationorderentry.EntityData.BundleName = "cisco_ios_xe"
+    ringstationorderentry.EntityData.ParentYangName = "ringStationOrderTable"
+    ringstationorderentry.EntityData.SegmentPath = "ringStationOrderEntry" + "[ringStationOrderIfIndex='" + fmt.Sprintf("%v", ringstationorderentry.Ringstationorderifindex) + "']" + "[ringStationOrderOrderIndex='" + fmt.Sprintf("%v", ringstationorderentry.Ringstationorderorderindex) + "']"
+    ringstationorderentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationorderentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationorderentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) SetFilter(yf yfilter.YFilter) { ringstationorderentry.YFilter = yf }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetGoName(yname string) string {
-    if yname == "ringStationOrderIfIndex" { return "Ringstationorderifindex" }
-    if yname == "ringStationOrderOrderIndex" { return "Ringstationorderorderindex" }
-    if yname == "ringStationOrderMacAddress" { return "Ringstationordermacaddress" }
-    return ""
+    ringstationorderentry.EntityData.Children = make(map[string]types.YChild)
+    ringstationorderentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ringstationorderentry.EntityData.Leafs["ringStationOrderIfIndex"] = types.YLeaf{"Ringstationorderifindex", ringstationorderentry.Ringstationorderifindex}
+    ringstationorderentry.EntityData.Leafs["ringStationOrderOrderIndex"] = types.YLeaf{"Ringstationorderorderindex", ringstationorderentry.Ringstationorderorderindex}
+    ringstationorderentry.EntityData.Leafs["ringStationOrderMacAddress"] = types.YLeaf{"Ringstationordermacaddress", ringstationorderentry.Ringstationordermacaddress}
+    return &(ringstationorderentry.EntityData)
 }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetSegmentPath() string {
-    return "ringStationOrderEntry" + "[ringStationOrderIfIndex='" + fmt.Sprintf("%v", ringstationorderentry.Ringstationorderifindex) + "']" + "[ringStationOrderOrderIndex='" + fmt.Sprintf("%v", ringstationorderentry.Ringstationorderorderindex) + "']"
-}
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ringStationOrderIfIndex"] = ringstationorderentry.Ringstationorderifindex
-    leafs["ringStationOrderOrderIndex"] = ringstationorderentry.Ringstationorderorderindex
-    leafs["ringStationOrderMacAddress"] = ringstationorderentry.Ringstationordermacaddress
-    return leafs
-}
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetYangName() string { return "ringStationOrderEntry" }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) SetParent(parent types.Entity) { ringstationorderentry.parent = parent }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetParent() types.Entity { return ringstationorderentry.parent }
-
-func (ringstationorderentry *TOKENRINGRMONMIB_Ringstationordertable_Ringstationorderentry) GetParentYangName() string { return "ringStationOrderTable" }
 
 // TOKENRINGRMONMIB_Ringstationconfigcontroltable
 // A list of ring station configuration control
 // entries.
 type TOKENRINGRMONMIB_Ringstationconfigcontroltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This entry controls active management of stations by the probe.  One entry
@@ -2076,70 +1399,31 @@ type TOKENRINGRMONMIB_Ringstationconfigcontroltable struct {
     Ringstationconfigcontrolentry []TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry
 }
 
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetFilter() yfilter.YFilter { return ringstationconfigcontroltable.YFilter }
+func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetEntityData() *types.CommonEntityData {
+    ringstationconfigcontroltable.EntityData.YFilter = ringstationconfigcontroltable.YFilter
+    ringstationconfigcontroltable.EntityData.YangName = "ringStationConfigControlTable"
+    ringstationconfigcontroltable.EntityData.BundleName = "cisco_ios_xe"
+    ringstationconfigcontroltable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringstationconfigcontroltable.EntityData.SegmentPath = "ringStationConfigControlTable"
+    ringstationconfigcontroltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationconfigcontroltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationconfigcontroltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) SetFilter(yf yfilter.YFilter) { ringstationconfigcontroltable.YFilter = yf }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetGoName(yname string) string {
-    if yname == "ringStationConfigControlEntry" { return "Ringstationconfigcontrolentry" }
-    return ""
-}
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetSegmentPath() string {
-    return "ringStationConfigControlTable"
-}
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ringStationConfigControlEntry" {
-        for _, c := range ringstationconfigcontroltable.Ringstationconfigcontrolentry {
-            if ringstationconfigcontroltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry{}
-        ringstationconfigcontroltable.Ringstationconfigcontrolentry = append(ringstationconfigcontroltable.Ringstationconfigcontrolentry, child)
-        return &ringstationconfigcontroltable.Ringstationconfigcontrolentry[len(ringstationconfigcontroltable.Ringstationconfigcontrolentry)-1]
-    }
-    return nil
-}
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ringstationconfigcontroltable.EntityData.Children = make(map[string]types.YChild)
+    ringstationconfigcontroltable.EntityData.Children["ringStationConfigControlEntry"] = types.YChild{"Ringstationconfigcontrolentry", nil}
     for i := range ringstationconfigcontroltable.Ringstationconfigcontrolentry {
-        children[ringstationconfigcontroltable.Ringstationconfigcontrolentry[i].GetSegmentPath()] = &ringstationconfigcontroltable.Ringstationconfigcontrolentry[i]
+        ringstationconfigcontroltable.EntityData.Children[types.GetSegmentPath(&ringstationconfigcontroltable.Ringstationconfigcontrolentry[i])] = types.YChild{"Ringstationconfigcontrolentry", &ringstationconfigcontroltable.Ringstationconfigcontrolentry[i]}
     }
-    return children
+    ringstationconfigcontroltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ringstationconfigcontroltable.EntityData)
 }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetYangName() string { return "ringStationConfigControlTable" }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) SetParent(parent types.Entity) { ringstationconfigcontroltable.parent = parent }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetParent() types.Entity { return ringstationconfigcontroltable.parent }
-
-func (ringstationconfigcontroltable *TOKENRINGRMONMIB_Ringstationconfigcontroltable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry
 // This entry controls active management of stations
 // by the probe.  One entry exists in this table for
 // each active station in the ringStationTable.
 type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies the  
@@ -2166,57 +1450,24 @@ type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentr
     Ringstationconfigcontrolupdatestats interface{}
 }
 
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetFilter() yfilter.YFilter { return ringstationconfigcontrolentry.YFilter }
+func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetEntityData() *types.CommonEntityData {
+    ringstationconfigcontrolentry.EntityData.YFilter = ringstationconfigcontrolentry.YFilter
+    ringstationconfigcontrolentry.EntityData.YangName = "ringStationConfigControlEntry"
+    ringstationconfigcontrolentry.EntityData.BundleName = "cisco_ios_xe"
+    ringstationconfigcontrolentry.EntityData.ParentYangName = "ringStationConfigControlTable"
+    ringstationconfigcontrolentry.EntityData.SegmentPath = "ringStationConfigControlEntry" + "[ringStationConfigControlIfIndex='" + fmt.Sprintf("%v", ringstationconfigcontrolentry.Ringstationconfigcontrolifindex) + "']" + "[ringStationConfigControlMacAddress='" + fmt.Sprintf("%v", ringstationconfigcontrolentry.Ringstationconfigcontrolmacaddress) + "']"
+    ringstationconfigcontrolentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationconfigcontrolentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationconfigcontrolentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) SetFilter(yf yfilter.YFilter) { ringstationconfigcontrolentry.YFilter = yf }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetGoName(yname string) string {
-    if yname == "ringStationConfigControlIfIndex" { return "Ringstationconfigcontrolifindex" }
-    if yname == "ringStationConfigControlMacAddress" { return "Ringstationconfigcontrolmacaddress" }
-    if yname == "ringStationConfigControlRemove" { return "Ringstationconfigcontrolremove" }
-    if yname == "ringStationConfigControlUpdateStats" { return "Ringstationconfigcontrolupdatestats" }
-    return ""
+    ringstationconfigcontrolentry.EntityData.Children = make(map[string]types.YChild)
+    ringstationconfigcontrolentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlIfIndex"] = types.YLeaf{"Ringstationconfigcontrolifindex", ringstationconfigcontrolentry.Ringstationconfigcontrolifindex}
+    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlMacAddress"] = types.YLeaf{"Ringstationconfigcontrolmacaddress", ringstationconfigcontrolentry.Ringstationconfigcontrolmacaddress}
+    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlRemove"] = types.YLeaf{"Ringstationconfigcontrolremove", ringstationconfigcontrolentry.Ringstationconfigcontrolremove}
+    ringstationconfigcontrolentry.EntityData.Leafs["ringStationConfigControlUpdateStats"] = types.YLeaf{"Ringstationconfigcontrolupdatestats", ringstationconfigcontrolentry.Ringstationconfigcontrolupdatestats}
+    return &(ringstationconfigcontrolentry.EntityData)
 }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetSegmentPath() string {
-    return "ringStationConfigControlEntry" + "[ringStationConfigControlIfIndex='" + fmt.Sprintf("%v", ringstationconfigcontrolentry.Ringstationconfigcontrolifindex) + "']" + "[ringStationConfigControlMacAddress='" + fmt.Sprintf("%v", ringstationconfigcontrolentry.Ringstationconfigcontrolmacaddress) + "']"
-}
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ringStationConfigControlIfIndex"] = ringstationconfigcontrolentry.Ringstationconfigcontrolifindex
-    leafs["ringStationConfigControlMacAddress"] = ringstationconfigcontrolentry.Ringstationconfigcontrolmacaddress
-    leafs["ringStationConfigControlRemove"] = ringstationconfigcontrolentry.Ringstationconfigcontrolremove
-    leafs["ringStationConfigControlUpdateStats"] = ringstationconfigcontrolentry.Ringstationconfigcontrolupdatestats
-    return leafs
-}
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetYangName() string { return "ringStationConfigControlEntry" }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) SetParent(parent types.Entity) { ringstationconfigcontrolentry.parent = parent }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetParent() types.Entity { return ringstationconfigcontrolentry.parent }
-
-func (ringstationconfigcontrolentry *TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry) GetParentYangName() string { return "ringStationConfigControlTable" }
 
 // TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove represents processing the request.
 type TOKENRINGRMONMIB_Ringstationconfigcontroltable_Ringstationconfigcontrolentry_Ringstationconfigcontrolremove string
@@ -2240,7 +1491,7 @@ const (
 // A list of configuration entries for stations on a
 // ring monitored by this probe.
 type TOKENRINGRMONMIB_Ringstationconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of statistics for a particular station that has been
@@ -2249,70 +1500,31 @@ type TOKENRINGRMONMIB_Ringstationconfigtable struct {
     Ringstationconfigentry []TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry
 }
 
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetFilter() yfilter.YFilter { return ringstationconfigtable.YFilter }
+func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetEntityData() *types.CommonEntityData {
+    ringstationconfigtable.EntityData.YFilter = ringstationconfigtable.YFilter
+    ringstationconfigtable.EntityData.YangName = "ringStationConfigTable"
+    ringstationconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    ringstationconfigtable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    ringstationconfigtable.EntityData.SegmentPath = "ringStationConfigTable"
+    ringstationconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) SetFilter(yf yfilter.YFilter) { ringstationconfigtable.YFilter = yf }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetGoName(yname string) string {
-    if yname == "ringStationConfigEntry" { return "Ringstationconfigentry" }
-    return ""
-}
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetSegmentPath() string {
-    return "ringStationConfigTable"
-}
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ringStationConfigEntry" {
-        for _, c := range ringstationconfigtable.Ringstationconfigentry {
-            if ringstationconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry{}
-        ringstationconfigtable.Ringstationconfigentry = append(ringstationconfigtable.Ringstationconfigentry, child)
-        return &ringstationconfigtable.Ringstationconfigentry[len(ringstationconfigtable.Ringstationconfigentry)-1]
-    }
-    return nil
-}
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ringstationconfigtable.EntityData.Children = make(map[string]types.YChild)
+    ringstationconfigtable.EntityData.Children["ringStationConfigEntry"] = types.YChild{"Ringstationconfigentry", nil}
     for i := range ringstationconfigtable.Ringstationconfigentry {
-        children[ringstationconfigtable.Ringstationconfigentry[i].GetSegmentPath()] = &ringstationconfigtable.Ringstationconfigentry[i]
+        ringstationconfigtable.EntityData.Children[types.GetSegmentPath(&ringstationconfigtable.Ringstationconfigentry[i])] = types.YChild{"Ringstationconfigentry", &ringstationconfigtable.Ringstationconfigentry[i]}
     }
-    return children
+    ringstationconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ringstationconfigtable.EntityData)
 }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetYangName() string { return "ringStationConfigTable" }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) SetParent(parent types.Entity) { ringstationconfigtable.parent = parent }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetParent() types.Entity { return ringstationconfigtable.parent }
-
-func (ringstationconfigtable *TOKENRINGRMONMIB_Ringstationconfigtable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry
 // A collection of statistics for a particular
 // station that has been discovered on a ring
 // monitored by this probe.
 type TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies the  
@@ -2347,68 +1559,32 @@ type TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry struct {
     Ringstationconfigfunctionaladdress interface{}
 }
 
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetFilter() yfilter.YFilter { return ringstationconfigentry.YFilter }
+func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetEntityData() *types.CommonEntityData {
+    ringstationconfigentry.EntityData.YFilter = ringstationconfigentry.YFilter
+    ringstationconfigentry.EntityData.YangName = "ringStationConfigEntry"
+    ringstationconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    ringstationconfigentry.EntityData.ParentYangName = "ringStationConfigTable"
+    ringstationconfigentry.EntityData.SegmentPath = "ringStationConfigEntry" + "[ringStationConfigIfIndex='" + fmt.Sprintf("%v", ringstationconfigentry.Ringstationconfigifindex) + "']" + "[ringStationConfigMacAddress='" + fmt.Sprintf("%v", ringstationconfigentry.Ringstationconfigmacaddress) + "']"
+    ringstationconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ringstationconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ringstationconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) SetFilter(yf yfilter.YFilter) { ringstationconfigentry.YFilter = yf }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetGoName(yname string) string {
-    if yname == "ringStationConfigIfIndex" { return "Ringstationconfigifindex" }
-    if yname == "ringStationConfigMacAddress" { return "Ringstationconfigmacaddress" }
-    if yname == "ringStationConfigUpdateTime" { return "Ringstationconfigupdatetime" }
-    if yname == "ringStationConfigLocation" { return "Ringstationconfiglocation" }
-    if yname == "ringStationConfigMicrocode" { return "Ringstationconfigmicrocode" }
-    if yname == "ringStationConfigGroupAddress" { return "Ringstationconfiggroupaddress" }
-    if yname == "ringStationConfigFunctionalAddress" { return "Ringstationconfigfunctionaladdress" }
-    return ""
+    ringstationconfigentry.EntityData.Children = make(map[string]types.YChild)
+    ringstationconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigIfIndex"] = types.YLeaf{"Ringstationconfigifindex", ringstationconfigentry.Ringstationconfigifindex}
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigMacAddress"] = types.YLeaf{"Ringstationconfigmacaddress", ringstationconfigentry.Ringstationconfigmacaddress}
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigUpdateTime"] = types.YLeaf{"Ringstationconfigupdatetime", ringstationconfigentry.Ringstationconfigupdatetime}
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigLocation"] = types.YLeaf{"Ringstationconfiglocation", ringstationconfigentry.Ringstationconfiglocation}
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigMicrocode"] = types.YLeaf{"Ringstationconfigmicrocode", ringstationconfigentry.Ringstationconfigmicrocode}
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigGroupAddress"] = types.YLeaf{"Ringstationconfiggroupaddress", ringstationconfigentry.Ringstationconfiggroupaddress}
+    ringstationconfigentry.EntityData.Leafs["ringStationConfigFunctionalAddress"] = types.YLeaf{"Ringstationconfigfunctionaladdress", ringstationconfigentry.Ringstationconfigfunctionaladdress}
+    return &(ringstationconfigentry.EntityData)
 }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetSegmentPath() string {
-    return "ringStationConfigEntry" + "[ringStationConfigIfIndex='" + fmt.Sprintf("%v", ringstationconfigentry.Ringstationconfigifindex) + "']" + "[ringStationConfigMacAddress='" + fmt.Sprintf("%v", ringstationconfigentry.Ringstationconfigmacaddress) + "']"
-}
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ringStationConfigIfIndex"] = ringstationconfigentry.Ringstationconfigifindex
-    leafs["ringStationConfigMacAddress"] = ringstationconfigentry.Ringstationconfigmacaddress
-    leafs["ringStationConfigUpdateTime"] = ringstationconfigentry.Ringstationconfigupdatetime
-    leafs["ringStationConfigLocation"] = ringstationconfigentry.Ringstationconfiglocation
-    leafs["ringStationConfigMicrocode"] = ringstationconfigentry.Ringstationconfigmicrocode
-    leafs["ringStationConfigGroupAddress"] = ringstationconfigentry.Ringstationconfiggroupaddress
-    leafs["ringStationConfigFunctionalAddress"] = ringstationconfigentry.Ringstationconfigfunctionaladdress
-    return leafs
-}
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetYangName() string { return "ringStationConfigEntry" }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) SetParent(parent types.Entity) { ringstationconfigentry.parent = parent }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetParent() types.Entity { return ringstationconfigentry.parent }
-
-func (ringstationconfigentry *TOKENRINGRMONMIB_Ringstationconfigtable_Ringstationconfigentry) GetParentYangName() string { return "ringStationConfigTable" }
 
 // TOKENRINGRMONMIB_Sourceroutingstatstable
 // A list of source routing statistics entries.
 type TOKENRINGRMONMIB_Sourceroutingstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of source routing statistics kept for a particular Token Ring
@@ -2417,69 +1593,30 @@ type TOKENRINGRMONMIB_Sourceroutingstatstable struct {
     Sourceroutingstatsentry []TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry
 }
 
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetFilter() yfilter.YFilter { return sourceroutingstatstable.YFilter }
+func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetEntityData() *types.CommonEntityData {
+    sourceroutingstatstable.EntityData.YFilter = sourceroutingstatstable.YFilter
+    sourceroutingstatstable.EntityData.YangName = "sourceRoutingStatsTable"
+    sourceroutingstatstable.EntityData.BundleName = "cisco_ios_xe"
+    sourceroutingstatstable.EntityData.ParentYangName = "TOKEN-RING-RMON-MIB"
+    sourceroutingstatstable.EntityData.SegmentPath = "sourceRoutingStatsTable"
+    sourceroutingstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sourceroutingstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sourceroutingstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) SetFilter(yf yfilter.YFilter) { sourceroutingstatstable.YFilter = yf }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetGoName(yname string) string {
-    if yname == "sourceRoutingStatsEntry" { return "Sourceroutingstatsentry" }
-    return ""
-}
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetSegmentPath() string {
-    return "sourceRoutingStatsTable"
-}
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "sourceRoutingStatsEntry" {
-        for _, c := range sourceroutingstatstable.Sourceroutingstatsentry {
-            if sourceroutingstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry{}
-        sourceroutingstatstable.Sourceroutingstatsentry = append(sourceroutingstatstable.Sourceroutingstatsentry, child)
-        return &sourceroutingstatstable.Sourceroutingstatsentry[len(sourceroutingstatstable.Sourceroutingstatsentry)-1]
-    }
-    return nil
-}
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sourceroutingstatstable.EntityData.Children = make(map[string]types.YChild)
+    sourceroutingstatstable.EntityData.Children["sourceRoutingStatsEntry"] = types.YChild{"Sourceroutingstatsentry", nil}
     for i := range sourceroutingstatstable.Sourceroutingstatsentry {
-        children[sourceroutingstatstable.Sourceroutingstatsentry[i].GetSegmentPath()] = &sourceroutingstatstable.Sourceroutingstatsentry[i]
+        sourceroutingstatstable.EntityData.Children[types.GetSegmentPath(&sourceroutingstatstable.Sourceroutingstatsentry[i])] = types.YChild{"Sourceroutingstatsentry", &sourceroutingstatstable.Sourceroutingstatsentry[i]}
     }
-    return children
+    sourceroutingstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sourceroutingstatstable.EntityData)
 }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetYangName() string { return "sourceRoutingStatsTable" }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) SetParent(parent types.Entity) { sourceroutingstatstable.parent = parent }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetParent() types.Entity { return sourceroutingstatstable.parent }
-
-func (sourceroutingstatstable *TOKENRINGRMONMIB_Sourceroutingstatstable) GetParentYangName() string { return "TOKEN-RING-RMON-MIB" }
 
 // TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry
 // A collection of source routing statistics kept
 // for a particular Token Ring interface.
 type TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The value of this object uniquely identifies the
@@ -2631,99 +1768,44 @@ type TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry struct {
     Sourceroutingstatscreatetime interface{}
 }
 
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetFilter() yfilter.YFilter { return sourceroutingstatsentry.YFilter }
+func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetEntityData() *types.CommonEntityData {
+    sourceroutingstatsentry.EntityData.YFilter = sourceroutingstatsentry.YFilter
+    sourceroutingstatsentry.EntityData.YangName = "sourceRoutingStatsEntry"
+    sourceroutingstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    sourceroutingstatsentry.EntityData.ParentYangName = "sourceRoutingStatsTable"
+    sourceroutingstatsentry.EntityData.SegmentPath = "sourceRoutingStatsEntry" + "[sourceRoutingStatsIfIndex='" + fmt.Sprintf("%v", sourceroutingstatsentry.Sourceroutingstatsifindex) + "']"
+    sourceroutingstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sourceroutingstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sourceroutingstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) SetFilter(yf yfilter.YFilter) { sourceroutingstatsentry.YFilter = yf }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetGoName(yname string) string {
-    if yname == "sourceRoutingStatsIfIndex" { return "Sourceroutingstatsifindex" }
-    if yname == "sourceRoutingStatsRingNumber" { return "Sourceroutingstatsringnumber" }
-    if yname == "sourceRoutingStatsInFrames" { return "Sourceroutingstatsinframes" }
-    if yname == "sourceRoutingStatsOutFrames" { return "Sourceroutingstatsoutframes" }
-    if yname == "sourceRoutingStatsThroughFrames" { return "Sourceroutingstatsthroughframes" }
-    if yname == "sourceRoutingStatsAllRoutesBroadcastFrames" { return "Sourceroutingstatsallroutesbroadcastframes" }
-    if yname == "sourceRoutingStatsSingleRouteBroadcastFrames" { return "Sourceroutingstatssingleroutebroadcastframes" }
-    if yname == "sourceRoutingStatsInOctets" { return "Sourceroutingstatsinoctets" }
-    if yname == "sourceRoutingStatsOutOctets" { return "Sourceroutingstatsoutoctets" }
-    if yname == "sourceRoutingStatsThroughOctets" { return "Sourceroutingstatsthroughoctets" }
-    if yname == "sourceRoutingStatsAllRoutesBroadcastOctets" { return "Sourceroutingstatsallroutesbroadcastoctets" }
-    if yname == "sourceRoutingStatsSingleRoutesBroadcastOctets" { return "Sourceroutingstatssingleroutesbroadcastoctets" }
-    if yname == "sourceRoutingStatsLocalLLCFrames" { return "Sourceroutingstatslocalllcframes" }
-    if yname == "sourceRoutingStats1HopFrames" { return "Sourceroutingstats1Hopframes" }
-    if yname == "sourceRoutingStats2HopsFrames" { return "Sourceroutingstats2Hopsframes" }
-    if yname == "sourceRoutingStats3HopsFrames" { return "Sourceroutingstats3Hopsframes" }
-    if yname == "sourceRoutingStats4HopsFrames" { return "Sourceroutingstats4Hopsframes" }
-    if yname == "sourceRoutingStats5HopsFrames" { return "Sourceroutingstats5Hopsframes" }
-    if yname == "sourceRoutingStats6HopsFrames" { return "Sourceroutingstats6Hopsframes" }
-    if yname == "sourceRoutingStats7HopsFrames" { return "Sourceroutingstats7Hopsframes" }
-    if yname == "sourceRoutingStats8HopsFrames" { return "Sourceroutingstats8Hopsframes" }
-    if yname == "sourceRoutingStatsMoreThan8HopsFrames" { return "Sourceroutingstatsmorethan8Hopsframes" }
-    if yname == "sourceRoutingStatsOwner" { return "Sourceroutingstatsowner" }
-    if yname == "sourceRoutingStatsStatus" { return "Sourceroutingstatsstatus" }
-    if yname == "sourceRoutingStatsDroppedFrames" { return "Sourceroutingstatsdroppedframes" }
-    if yname == "sourceRoutingStatsCreateTime" { return "Sourceroutingstatscreatetime" }
-    return ""
+    sourceroutingstatsentry.EntityData.Children = make(map[string]types.YChild)
+    sourceroutingstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsIfIndex"] = types.YLeaf{"Sourceroutingstatsifindex", sourceroutingstatsentry.Sourceroutingstatsifindex}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsRingNumber"] = types.YLeaf{"Sourceroutingstatsringnumber", sourceroutingstatsentry.Sourceroutingstatsringnumber}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsInFrames"] = types.YLeaf{"Sourceroutingstatsinframes", sourceroutingstatsentry.Sourceroutingstatsinframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsOutFrames"] = types.YLeaf{"Sourceroutingstatsoutframes", sourceroutingstatsentry.Sourceroutingstatsoutframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsThroughFrames"] = types.YLeaf{"Sourceroutingstatsthroughframes", sourceroutingstatsentry.Sourceroutingstatsthroughframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsAllRoutesBroadcastFrames"] = types.YLeaf{"Sourceroutingstatsallroutesbroadcastframes", sourceroutingstatsentry.Sourceroutingstatsallroutesbroadcastframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsSingleRouteBroadcastFrames"] = types.YLeaf{"Sourceroutingstatssingleroutebroadcastframes", sourceroutingstatsentry.Sourceroutingstatssingleroutebroadcastframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsInOctets"] = types.YLeaf{"Sourceroutingstatsinoctets", sourceroutingstatsentry.Sourceroutingstatsinoctets}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsOutOctets"] = types.YLeaf{"Sourceroutingstatsoutoctets", sourceroutingstatsentry.Sourceroutingstatsoutoctets}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsThroughOctets"] = types.YLeaf{"Sourceroutingstatsthroughoctets", sourceroutingstatsentry.Sourceroutingstatsthroughoctets}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsAllRoutesBroadcastOctets"] = types.YLeaf{"Sourceroutingstatsallroutesbroadcastoctets", sourceroutingstatsentry.Sourceroutingstatsallroutesbroadcastoctets}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsSingleRoutesBroadcastOctets"] = types.YLeaf{"Sourceroutingstatssingleroutesbroadcastoctets", sourceroutingstatsentry.Sourceroutingstatssingleroutesbroadcastoctets}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsLocalLLCFrames"] = types.YLeaf{"Sourceroutingstatslocalllcframes", sourceroutingstatsentry.Sourceroutingstatslocalllcframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats1HopFrames"] = types.YLeaf{"Sourceroutingstats1Hopframes", sourceroutingstatsentry.Sourceroutingstats1Hopframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats2HopsFrames"] = types.YLeaf{"Sourceroutingstats2Hopsframes", sourceroutingstatsentry.Sourceroutingstats2Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats3HopsFrames"] = types.YLeaf{"Sourceroutingstats3Hopsframes", sourceroutingstatsentry.Sourceroutingstats3Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats4HopsFrames"] = types.YLeaf{"Sourceroutingstats4Hopsframes", sourceroutingstatsentry.Sourceroutingstats4Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats5HopsFrames"] = types.YLeaf{"Sourceroutingstats5Hopsframes", sourceroutingstatsentry.Sourceroutingstats5Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats6HopsFrames"] = types.YLeaf{"Sourceroutingstats6Hopsframes", sourceroutingstatsentry.Sourceroutingstats6Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats7HopsFrames"] = types.YLeaf{"Sourceroutingstats7Hopsframes", sourceroutingstatsentry.Sourceroutingstats7Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStats8HopsFrames"] = types.YLeaf{"Sourceroutingstats8Hopsframes", sourceroutingstatsentry.Sourceroutingstats8Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsMoreThan8HopsFrames"] = types.YLeaf{"Sourceroutingstatsmorethan8Hopsframes", sourceroutingstatsentry.Sourceroutingstatsmorethan8Hopsframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsOwner"] = types.YLeaf{"Sourceroutingstatsowner", sourceroutingstatsentry.Sourceroutingstatsowner}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsStatus"] = types.YLeaf{"Sourceroutingstatsstatus", sourceroutingstatsentry.Sourceroutingstatsstatus}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsDroppedFrames"] = types.YLeaf{"Sourceroutingstatsdroppedframes", sourceroutingstatsentry.Sourceroutingstatsdroppedframes}
+    sourceroutingstatsentry.EntityData.Leafs["sourceRoutingStatsCreateTime"] = types.YLeaf{"Sourceroutingstatscreatetime", sourceroutingstatsentry.Sourceroutingstatscreatetime}
+    return &(sourceroutingstatsentry.EntityData)
 }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetSegmentPath() string {
-    return "sourceRoutingStatsEntry" + "[sourceRoutingStatsIfIndex='" + fmt.Sprintf("%v", sourceroutingstatsentry.Sourceroutingstatsifindex) + "']"
-}
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["sourceRoutingStatsIfIndex"] = sourceroutingstatsentry.Sourceroutingstatsifindex
-    leafs["sourceRoutingStatsRingNumber"] = sourceroutingstatsentry.Sourceroutingstatsringnumber
-    leafs["sourceRoutingStatsInFrames"] = sourceroutingstatsentry.Sourceroutingstatsinframes
-    leafs["sourceRoutingStatsOutFrames"] = sourceroutingstatsentry.Sourceroutingstatsoutframes
-    leafs["sourceRoutingStatsThroughFrames"] = sourceroutingstatsentry.Sourceroutingstatsthroughframes
-    leafs["sourceRoutingStatsAllRoutesBroadcastFrames"] = sourceroutingstatsentry.Sourceroutingstatsallroutesbroadcastframes
-    leafs["sourceRoutingStatsSingleRouteBroadcastFrames"] = sourceroutingstatsentry.Sourceroutingstatssingleroutebroadcastframes
-    leafs["sourceRoutingStatsInOctets"] = sourceroutingstatsentry.Sourceroutingstatsinoctets
-    leafs["sourceRoutingStatsOutOctets"] = sourceroutingstatsentry.Sourceroutingstatsoutoctets
-    leafs["sourceRoutingStatsThroughOctets"] = sourceroutingstatsentry.Sourceroutingstatsthroughoctets
-    leafs["sourceRoutingStatsAllRoutesBroadcastOctets"] = sourceroutingstatsentry.Sourceroutingstatsallroutesbroadcastoctets
-    leafs["sourceRoutingStatsSingleRoutesBroadcastOctets"] = sourceroutingstatsentry.Sourceroutingstatssingleroutesbroadcastoctets
-    leafs["sourceRoutingStatsLocalLLCFrames"] = sourceroutingstatsentry.Sourceroutingstatslocalllcframes
-    leafs["sourceRoutingStats1HopFrames"] = sourceroutingstatsentry.Sourceroutingstats1Hopframes
-    leafs["sourceRoutingStats2HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats2Hopsframes
-    leafs["sourceRoutingStats3HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats3Hopsframes
-    leafs["sourceRoutingStats4HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats4Hopsframes
-    leafs["sourceRoutingStats5HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats5Hopsframes
-    leafs["sourceRoutingStats6HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats6Hopsframes
-    leafs["sourceRoutingStats7HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats7Hopsframes
-    leafs["sourceRoutingStats8HopsFrames"] = sourceroutingstatsentry.Sourceroutingstats8Hopsframes
-    leafs["sourceRoutingStatsMoreThan8HopsFrames"] = sourceroutingstatsentry.Sourceroutingstatsmorethan8Hopsframes
-    leafs["sourceRoutingStatsOwner"] = sourceroutingstatsentry.Sourceroutingstatsowner
-    leafs["sourceRoutingStatsStatus"] = sourceroutingstatsentry.Sourceroutingstatsstatus
-    leafs["sourceRoutingStatsDroppedFrames"] = sourceroutingstatsentry.Sourceroutingstatsdroppedframes
-    leafs["sourceRoutingStatsCreateTime"] = sourceroutingstatsentry.Sourceroutingstatscreatetime
-    return leafs
-}
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetYangName() string { return "sourceRoutingStatsEntry" }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) SetParent(parent types.Entity) { sourceroutingstatsentry.parent = parent }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetParent() types.Entity { return sourceroutingstatsentry.parent }
-
-func (sourceroutingstatsentry *TOKENRINGRMONMIB_Sourceroutingstatstable_Sourceroutingstatsentry) GetParentYangName() string { return "sourceRoutingStatsTable" }
 

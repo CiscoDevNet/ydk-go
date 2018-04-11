@@ -24,6 +24,23 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-vrrp-oper:vrrp", reflect.TypeOf(Vrrp{}))
 }
 
+// VrrpVmacState represents Vrrp vmac state
+type VrrpVmacState string
+
+const (
+    // VMAC stored locally
+    VrrpVmacState_stored VrrpVmacState = "stored"
+
+    // VMAC reserved in mac table
+    VrrpVmacState_reserved VrrpVmacState = "reserved"
+
+    // VMAC active in mac table
+    VrrpVmacState_active VrrpVmacState = "active"
+
+    // VMAC not yet reserved in mac table
+    VrrpVmacState_reserving VrrpVmacState = "reserving"
+)
+
 // VrrpStateChangeReason represents Vrrp state change reason
 type VrrpStateChangeReason string
 
@@ -68,62 +85,6 @@ const (
     VrrpStateChangeReason_state_change_issu_resync VrrpStateChangeReason = "state-change-issu-resync"
 )
 
-// VrrpVmacState represents Vrrp vmac state
-type VrrpVmacState string
-
-const (
-    // VMAC stored locally
-    VrrpVmacState_stored VrrpVmacState = "stored"
-
-    // VMAC reserved in mac table
-    VrrpVmacState_reserved VrrpVmacState = "reserved"
-
-    // VMAC active in mac table
-    VrrpVmacState_active VrrpVmacState = "active"
-
-    // VMAC not yet reserved in mac table
-    VrrpVmacState_reserving VrrpVmacState = "reserving"
-)
-
-// VrrpBAf represents Vrrp b af
-type VrrpBAf string
-
-const (
-    // IPv4 Address Family
-    VrrpBAf_address_family_ipv4 VrrpBAf = "address-family-ipv4"
-
-    // IPv6 Address Family
-    VrrpBAf_address_family_ipv6 VrrpBAf = "address-family-ipv6"
-
-    // Number of Adddress Families
-    VrrpBAf_vrrp_baf_count VrrpBAf = "vrrp-baf-count"
-)
-
-// VrrpVipState represents Vrrp vip state
-type VrrpVipState string
-
-const (
-    // Down
-    VrrpVipState_virtual_ip_state_down VrrpVipState = "virtual-ip-state-down"
-
-    // Up
-    VrrpVipState_virtual_ip_state_up VrrpVipState = "virtual-ip-state-up"
-)
-
-// VrrpProtAuth represents Vrrp prot auth
-type VrrpProtAuth string
-
-const (
-    // Down
-    VrrpProtAuth_authentication_none VrrpProtAuth = "authentication-none"
-
-    // Simple Text
-    VrrpProtAuth_authentication_text VrrpProtAuth = "authentication-text"
-
-    // IP header
-    VrrpProtAuth_authentication_ip VrrpProtAuth = "authentication-ip"
-)
-
 // VrrpBfdSessionState represents Vrrp bfd session state
 type VrrpBfdSessionState string
 
@@ -141,6 +102,20 @@ const (
     VrrpBfdSessionState_bfd_state_down VrrpBfdSessionState = "bfd-state-down"
 )
 
+// VrrpProtAuth represents Vrrp prot auth
+type VrrpProtAuth string
+
+const (
+    // Down
+    VrrpProtAuth_authentication_none VrrpProtAuth = "authentication-none"
+
+    // Simple Text
+    VrrpProtAuth_authentication_text VrrpProtAuth = "authentication-text"
+
+    // IP header
+    VrrpProtAuth_authentication_ip VrrpProtAuth = "authentication-ip"
+)
+
 // VrrpBagProtocolState represents VRRP protocol state
 type VrrpBagProtocolState string
 
@@ -155,10 +130,35 @@ const (
     VrrpBagProtocolState_state_master VrrpBagProtocolState = "state-master"
 )
 
+// VrrpVipState represents Vrrp vip state
+type VrrpVipState string
+
+const (
+    // Down
+    VrrpVipState_virtual_ip_state_down VrrpVipState = "virtual-ip-state-down"
+
+    // Up
+    VrrpVipState_virtual_ip_state_up VrrpVipState = "virtual-ip-state-up"
+)
+
+// VrrpBAf represents Vrrp b af
+type VrrpBAf string
+
+const (
+    // IPv4 Address Family
+    VrrpBAf_address_family_ipv4 VrrpBAf = "address-family-ipv4"
+
+    // IPv6 Address Family
+    VrrpBAf_address_family_ipv6 VrrpBAf = "address-family-ipv6"
+
+    // Number of Adddress Families
+    VrrpBAf_vrrp_baf_count VrrpBAf = "vrrp-baf-count"
+)
+
 // Vrrp
 // VRRP operational data
 type Vrrp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRRP summary statistics.
@@ -174,74 +174,29 @@ type Vrrp struct {
     MgoSessions Vrrp_MgoSessions
 }
 
-func (vrrp *Vrrp) GetFilter() yfilter.YFilter { return vrrp.YFilter }
+func (vrrp *Vrrp) GetEntityData() *types.CommonEntityData {
+    vrrp.EntityData.YFilter = vrrp.YFilter
+    vrrp.EntityData.YangName = "vrrp"
+    vrrp.EntityData.BundleName = "cisco_ios_xr"
+    vrrp.EntityData.ParentYangName = "Cisco-IOS-XR-ipv4-vrrp-oper"
+    vrrp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp"
+    vrrp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrrp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrrp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrrp *Vrrp) SetFilter(yf yfilter.YFilter) { vrrp.YFilter = yf }
-
-func (vrrp *Vrrp) GetGoName(yname string) string {
-    if yname == "summary" { return "Summary" }
-    if yname == "ipv6" { return "Ipv6" }
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "mgo-sessions" { return "MgoSessions" }
-    return ""
+    vrrp.EntityData.Children = make(map[string]types.YChild)
+    vrrp.EntityData.Children["summary"] = types.YChild{"Summary", &vrrp.Summary}
+    vrrp.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &vrrp.Ipv6}
+    vrrp.EntityData.Children["ipv4"] = types.YChild{"Ipv4", &vrrp.Ipv4}
+    vrrp.EntityData.Children["mgo-sessions"] = types.YChild{"MgoSessions", &vrrp.MgoSessions}
+    vrrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrrp.EntityData)
 }
-
-func (vrrp *Vrrp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp"
-}
-
-func (vrrp *Vrrp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summary" {
-        return &vrrp.Summary
-    }
-    if childYangName == "ipv6" {
-        return &vrrp.Ipv6
-    }
-    if childYangName == "ipv4" {
-        return &vrrp.Ipv4
-    }
-    if childYangName == "mgo-sessions" {
-        return &vrrp.MgoSessions
-    }
-    return nil
-}
-
-func (vrrp *Vrrp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["summary"] = &vrrp.Summary
-    children["ipv6"] = &vrrp.Ipv6
-    children["ipv4"] = &vrrp.Ipv4
-    children["mgo-sessions"] = &vrrp.MgoSessions
-    return children
-}
-
-func (vrrp *Vrrp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrrp *Vrrp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrrp *Vrrp) GetYangName() string { return "vrrp" }
-
-func (vrrp *Vrrp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrrp *Vrrp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrrp *Vrrp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrrp *Vrrp) SetParent(parent types.Entity) { vrrp.parent = parent }
-
-func (vrrp *Vrrp) GetParent() types.Entity { return vrrp.parent }
-
-func (vrrp *Vrrp) GetParentYangName() string { return "Cisco-IOS-XR-ipv4-vrrp-oper" }
 
 // Vrrp_Summary
 // VRRP summary statistics
 type Vrrp_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of IPv4 sessions in MASTER (owner) state. The type is interface{}
@@ -429,146 +384,71 @@ type Vrrp_Summary struct {
     Ipv6BfdSessionInactive interface{}
 }
 
-func (summary *Vrrp_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *Vrrp_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "vrrp"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *Vrrp_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *Vrrp_Summary) GetGoName(yname string) string {
-    if yname == "ipv4-sessions-master-owner" { return "Ipv4SessionsMasterOwner" }
-    if yname == "ipv4-sessions-master" { return "Ipv4SessionsMaster" }
-    if yname == "ipv4-sessions-backup" { return "Ipv4SessionsBackup" }
-    if yname == "ipv4-sessions-init" { return "Ipv4SessionsInit" }
-    if yname == "ipv4-slaves-master" { return "Ipv4SlavesMaster" }
-    if yname == "ipv4-slaves-backup" { return "Ipv4SlavesBackup" }
-    if yname == "ipv4-slaves-init" { return "Ipv4SlavesInit" }
-    if yname == "ipv4-virtual-ip-addresses-master-owner-up" { return "Ipv4VirtualIpAddressesMasterOwnerUp" }
-    if yname == "ipv4-virtual-ip-addresses-master-owner-down" { return "Ipv4VirtualIpAddressesMasterOwnerDown" }
-    if yname == "ipv4-virtual-ip-addresses-master-up" { return "Ipv4VirtualIpAddressesMasterUp" }
-    if yname == "ipv4-virtual-ip-addresses-master-down" { return "Ipv4VirtualIpAddressesMasterDown" }
-    if yname == "ipv4-virtual-ip-addresses-backup-up" { return "Ipv4VirtualIpAddressesBackupUp" }
-    if yname == "ipv4-virtual-ip-addresses-backup-down" { return "Ipv4VirtualIpAddressesBackupDown" }
-    if yname == "ipv4-virtual-ip-addresses-init-up" { return "Ipv4VirtualIpAddressesInitUp" }
-    if yname == "ipv4-virtual-ip-addresses-init-down" { return "Ipv4VirtualIpAddressesInitDown" }
-    if yname == "ipv6-sessions-master-owner" { return "Ipv6SessionsMasterOwner" }
-    if yname == "ipv6-sessions-master" { return "Ipv6SessionsMaster" }
-    if yname == "ipv6-sessions-backup" { return "Ipv6SessionsBackup" }
-    if yname == "ipv6-sessions-init" { return "Ipv6SessionsInit" }
-    if yname == "ipv6-slaves-master" { return "Ipv6SlavesMaster" }
-    if yname == "ipv6-slaves-backup" { return "Ipv6SlavesBackup" }
-    if yname == "ipv6-slaves-init" { return "Ipv6SlavesInit" }
-    if yname == "ipv6-virtual-ip-addresses-master-owner-up" { return "Ipv6VirtualIpAddressesMasterOwnerUp" }
-    if yname == "ipv6-virtual-ip-addresses-master-owner-down" { return "Ipv6VirtualIpAddressesMasterOwnerDown" }
-    if yname == "ipv6-virtual-ip-addresses-master-up" { return "Ipv6VirtualIpAddressesMasterUp" }
-    if yname == "ipv6-virtual-ip-addresses-master-down" { return "Ipv6VirtualIpAddressesMasterDown" }
-    if yname == "ipv6-virtual-ip-addresses-backup-up" { return "Ipv6VirtualIpAddressesBackupUp" }
-    if yname == "ipv6-virtual-ip-addresses-backup-down" { return "Ipv6VirtualIpAddressesBackupDown" }
-    if yname == "ipv6-virtual-ip-addresses-init-up" { return "Ipv6VirtualIpAddressesInitUp" }
-    if yname == "ipv6-virtual-ip-addresses-init-down" { return "Ipv6VirtualIpAddressesInitDown" }
-    if yname == "interfaces-ipv4-state-up" { return "InterfacesIpv4StateUp" }
-    if yname == "interfaces-ipv4-state-down" { return "InterfacesIpv4StateDown" }
-    if yname == "tracked-interfaces-ipv4-state-up" { return "TrackedInterfacesIpv4StateUp" }
-    if yname == "tracked-interfaces-ipv4-state-down" { return "TrackedInterfacesIpv4StateDown" }
-    if yname == "interfaces-ipv6-state-up" { return "InterfacesIpv6StateUp" }
-    if yname == "interfaces-ipv6-state-down" { return "InterfacesIpv6StateDown" }
-    if yname == "tracked-interfaces-ipv6-state-up" { return "TrackedInterfacesIpv6StateUp" }
-    if yname == "tracked-interfaces-ipv6-state-down" { return "TrackedInterfacesIpv6StateDown" }
-    if yname == "tracked-objects-state-up" { return "TrackedObjectsStateUp" }
-    if yname == "tracked-objects-state-down" { return "TrackedObjectsStateDown" }
-    if yname == "bfd-sessions-up" { return "BfdSessionsUp" }
-    if yname == "bfd-sessions-down" { return "BfdSessionsDown" }
-    if yname == "bfd-session-inactive" { return "BfdSessionInactive" }
-    if yname == "ipv6bfd-sessions-up" { return "Ipv6BfdSessionsUp" }
-    if yname == "ipv6bfd-sessions-down" { return "Ipv6BfdSessionsDown" }
-    if yname == "ipv6bfd-session-inactive" { return "Ipv6BfdSessionInactive" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["ipv4-sessions-master-owner"] = types.YLeaf{"Ipv4SessionsMasterOwner", summary.Ipv4SessionsMasterOwner}
+    summary.EntityData.Leafs["ipv4-sessions-master"] = types.YLeaf{"Ipv4SessionsMaster", summary.Ipv4SessionsMaster}
+    summary.EntityData.Leafs["ipv4-sessions-backup"] = types.YLeaf{"Ipv4SessionsBackup", summary.Ipv4SessionsBackup}
+    summary.EntityData.Leafs["ipv4-sessions-init"] = types.YLeaf{"Ipv4SessionsInit", summary.Ipv4SessionsInit}
+    summary.EntityData.Leafs["ipv4-slaves-master"] = types.YLeaf{"Ipv4SlavesMaster", summary.Ipv4SlavesMaster}
+    summary.EntityData.Leafs["ipv4-slaves-backup"] = types.YLeaf{"Ipv4SlavesBackup", summary.Ipv4SlavesBackup}
+    summary.EntityData.Leafs["ipv4-slaves-init"] = types.YLeaf{"Ipv4SlavesInit", summary.Ipv4SlavesInit}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-owner-up"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterOwnerUp", summary.Ipv4VirtualIpAddressesMasterOwnerUp}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-owner-down"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterOwnerDown", summary.Ipv4VirtualIpAddressesMasterOwnerDown}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-up"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterUp", summary.Ipv4VirtualIpAddressesMasterUp}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-master-down"] = types.YLeaf{"Ipv4VirtualIpAddressesMasterDown", summary.Ipv4VirtualIpAddressesMasterDown}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-backup-up"] = types.YLeaf{"Ipv4VirtualIpAddressesBackupUp", summary.Ipv4VirtualIpAddressesBackupUp}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-backup-down"] = types.YLeaf{"Ipv4VirtualIpAddressesBackupDown", summary.Ipv4VirtualIpAddressesBackupDown}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-init-up"] = types.YLeaf{"Ipv4VirtualIpAddressesInitUp", summary.Ipv4VirtualIpAddressesInitUp}
+    summary.EntityData.Leafs["ipv4-virtual-ip-addresses-init-down"] = types.YLeaf{"Ipv4VirtualIpAddressesInitDown", summary.Ipv4VirtualIpAddressesInitDown}
+    summary.EntityData.Leafs["ipv6-sessions-master-owner"] = types.YLeaf{"Ipv6SessionsMasterOwner", summary.Ipv6SessionsMasterOwner}
+    summary.EntityData.Leafs["ipv6-sessions-master"] = types.YLeaf{"Ipv6SessionsMaster", summary.Ipv6SessionsMaster}
+    summary.EntityData.Leafs["ipv6-sessions-backup"] = types.YLeaf{"Ipv6SessionsBackup", summary.Ipv6SessionsBackup}
+    summary.EntityData.Leafs["ipv6-sessions-init"] = types.YLeaf{"Ipv6SessionsInit", summary.Ipv6SessionsInit}
+    summary.EntityData.Leafs["ipv6-slaves-master"] = types.YLeaf{"Ipv6SlavesMaster", summary.Ipv6SlavesMaster}
+    summary.EntityData.Leafs["ipv6-slaves-backup"] = types.YLeaf{"Ipv6SlavesBackup", summary.Ipv6SlavesBackup}
+    summary.EntityData.Leafs["ipv6-slaves-init"] = types.YLeaf{"Ipv6SlavesInit", summary.Ipv6SlavesInit}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-owner-up"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterOwnerUp", summary.Ipv6VirtualIpAddressesMasterOwnerUp}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-owner-down"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterOwnerDown", summary.Ipv6VirtualIpAddressesMasterOwnerDown}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-up"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterUp", summary.Ipv6VirtualIpAddressesMasterUp}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-master-down"] = types.YLeaf{"Ipv6VirtualIpAddressesMasterDown", summary.Ipv6VirtualIpAddressesMasterDown}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-backup-up"] = types.YLeaf{"Ipv6VirtualIpAddressesBackupUp", summary.Ipv6VirtualIpAddressesBackupUp}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-backup-down"] = types.YLeaf{"Ipv6VirtualIpAddressesBackupDown", summary.Ipv6VirtualIpAddressesBackupDown}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-init-up"] = types.YLeaf{"Ipv6VirtualIpAddressesInitUp", summary.Ipv6VirtualIpAddressesInitUp}
+    summary.EntityData.Leafs["ipv6-virtual-ip-addresses-init-down"] = types.YLeaf{"Ipv6VirtualIpAddressesInitDown", summary.Ipv6VirtualIpAddressesInitDown}
+    summary.EntityData.Leafs["interfaces-ipv4-state-up"] = types.YLeaf{"InterfacesIpv4StateUp", summary.InterfacesIpv4StateUp}
+    summary.EntityData.Leafs["interfaces-ipv4-state-down"] = types.YLeaf{"InterfacesIpv4StateDown", summary.InterfacesIpv4StateDown}
+    summary.EntityData.Leafs["tracked-interfaces-ipv4-state-up"] = types.YLeaf{"TrackedInterfacesIpv4StateUp", summary.TrackedInterfacesIpv4StateUp}
+    summary.EntityData.Leafs["tracked-interfaces-ipv4-state-down"] = types.YLeaf{"TrackedInterfacesIpv4StateDown", summary.TrackedInterfacesIpv4StateDown}
+    summary.EntityData.Leafs["interfaces-ipv6-state-up"] = types.YLeaf{"InterfacesIpv6StateUp", summary.InterfacesIpv6StateUp}
+    summary.EntityData.Leafs["interfaces-ipv6-state-down"] = types.YLeaf{"InterfacesIpv6StateDown", summary.InterfacesIpv6StateDown}
+    summary.EntityData.Leafs["tracked-interfaces-ipv6-state-up"] = types.YLeaf{"TrackedInterfacesIpv6StateUp", summary.TrackedInterfacesIpv6StateUp}
+    summary.EntityData.Leafs["tracked-interfaces-ipv6-state-down"] = types.YLeaf{"TrackedInterfacesIpv6StateDown", summary.TrackedInterfacesIpv6StateDown}
+    summary.EntityData.Leafs["tracked-objects-state-up"] = types.YLeaf{"TrackedObjectsStateUp", summary.TrackedObjectsStateUp}
+    summary.EntityData.Leafs["tracked-objects-state-down"] = types.YLeaf{"TrackedObjectsStateDown", summary.TrackedObjectsStateDown}
+    summary.EntityData.Leafs["bfd-sessions-up"] = types.YLeaf{"BfdSessionsUp", summary.BfdSessionsUp}
+    summary.EntityData.Leafs["bfd-sessions-down"] = types.YLeaf{"BfdSessionsDown", summary.BfdSessionsDown}
+    summary.EntityData.Leafs["bfd-session-inactive"] = types.YLeaf{"BfdSessionInactive", summary.BfdSessionInactive}
+    summary.EntityData.Leafs["ipv6bfd-sessions-up"] = types.YLeaf{"Ipv6BfdSessionsUp", summary.Ipv6BfdSessionsUp}
+    summary.EntityData.Leafs["ipv6bfd-sessions-down"] = types.YLeaf{"Ipv6BfdSessionsDown", summary.Ipv6BfdSessionsDown}
+    summary.EntityData.Leafs["ipv6bfd-session-inactive"] = types.YLeaf{"Ipv6BfdSessionInactive", summary.Ipv6BfdSessionInactive}
+    return &(summary.EntityData)
 }
-
-func (summary *Vrrp_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *Vrrp_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summary *Vrrp_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summary *Vrrp_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv4-sessions-master-owner"] = summary.Ipv4SessionsMasterOwner
-    leafs["ipv4-sessions-master"] = summary.Ipv4SessionsMaster
-    leafs["ipv4-sessions-backup"] = summary.Ipv4SessionsBackup
-    leafs["ipv4-sessions-init"] = summary.Ipv4SessionsInit
-    leafs["ipv4-slaves-master"] = summary.Ipv4SlavesMaster
-    leafs["ipv4-slaves-backup"] = summary.Ipv4SlavesBackup
-    leafs["ipv4-slaves-init"] = summary.Ipv4SlavesInit
-    leafs["ipv4-virtual-ip-addresses-master-owner-up"] = summary.Ipv4VirtualIpAddressesMasterOwnerUp
-    leafs["ipv4-virtual-ip-addresses-master-owner-down"] = summary.Ipv4VirtualIpAddressesMasterOwnerDown
-    leafs["ipv4-virtual-ip-addresses-master-up"] = summary.Ipv4VirtualIpAddressesMasterUp
-    leafs["ipv4-virtual-ip-addresses-master-down"] = summary.Ipv4VirtualIpAddressesMasterDown
-    leafs["ipv4-virtual-ip-addresses-backup-up"] = summary.Ipv4VirtualIpAddressesBackupUp
-    leafs["ipv4-virtual-ip-addresses-backup-down"] = summary.Ipv4VirtualIpAddressesBackupDown
-    leafs["ipv4-virtual-ip-addresses-init-up"] = summary.Ipv4VirtualIpAddressesInitUp
-    leafs["ipv4-virtual-ip-addresses-init-down"] = summary.Ipv4VirtualIpAddressesInitDown
-    leafs["ipv6-sessions-master-owner"] = summary.Ipv6SessionsMasterOwner
-    leafs["ipv6-sessions-master"] = summary.Ipv6SessionsMaster
-    leafs["ipv6-sessions-backup"] = summary.Ipv6SessionsBackup
-    leafs["ipv6-sessions-init"] = summary.Ipv6SessionsInit
-    leafs["ipv6-slaves-master"] = summary.Ipv6SlavesMaster
-    leafs["ipv6-slaves-backup"] = summary.Ipv6SlavesBackup
-    leafs["ipv6-slaves-init"] = summary.Ipv6SlavesInit
-    leafs["ipv6-virtual-ip-addresses-master-owner-up"] = summary.Ipv6VirtualIpAddressesMasterOwnerUp
-    leafs["ipv6-virtual-ip-addresses-master-owner-down"] = summary.Ipv6VirtualIpAddressesMasterOwnerDown
-    leafs["ipv6-virtual-ip-addresses-master-up"] = summary.Ipv6VirtualIpAddressesMasterUp
-    leafs["ipv6-virtual-ip-addresses-master-down"] = summary.Ipv6VirtualIpAddressesMasterDown
-    leafs["ipv6-virtual-ip-addresses-backup-up"] = summary.Ipv6VirtualIpAddressesBackupUp
-    leafs["ipv6-virtual-ip-addresses-backup-down"] = summary.Ipv6VirtualIpAddressesBackupDown
-    leafs["ipv6-virtual-ip-addresses-init-up"] = summary.Ipv6VirtualIpAddressesInitUp
-    leafs["ipv6-virtual-ip-addresses-init-down"] = summary.Ipv6VirtualIpAddressesInitDown
-    leafs["interfaces-ipv4-state-up"] = summary.InterfacesIpv4StateUp
-    leafs["interfaces-ipv4-state-down"] = summary.InterfacesIpv4StateDown
-    leafs["tracked-interfaces-ipv4-state-up"] = summary.TrackedInterfacesIpv4StateUp
-    leafs["tracked-interfaces-ipv4-state-down"] = summary.TrackedInterfacesIpv4StateDown
-    leafs["interfaces-ipv6-state-up"] = summary.InterfacesIpv6StateUp
-    leafs["interfaces-ipv6-state-down"] = summary.InterfacesIpv6StateDown
-    leafs["tracked-interfaces-ipv6-state-up"] = summary.TrackedInterfacesIpv6StateUp
-    leafs["tracked-interfaces-ipv6-state-down"] = summary.TrackedInterfacesIpv6StateDown
-    leafs["tracked-objects-state-up"] = summary.TrackedObjectsStateUp
-    leafs["tracked-objects-state-down"] = summary.TrackedObjectsStateDown
-    leafs["bfd-sessions-up"] = summary.BfdSessionsUp
-    leafs["bfd-sessions-down"] = summary.BfdSessionsDown
-    leafs["bfd-session-inactive"] = summary.BfdSessionInactive
-    leafs["ipv6bfd-sessions-up"] = summary.Ipv6BfdSessionsUp
-    leafs["ipv6bfd-sessions-down"] = summary.Ipv6BfdSessionsDown
-    leafs["ipv6bfd-session-inactive"] = summary.Ipv6BfdSessionInactive
-    return leafs
-}
-
-func (summary *Vrrp_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *Vrrp_Summary) GetYangName() string { return "summary" }
-
-func (summary *Vrrp_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *Vrrp_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *Vrrp_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *Vrrp_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *Vrrp_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *Vrrp_Summary) GetParentYangName() string { return "vrrp" }
 
 // Vrrp_Ipv6
 // IPv6 VRRP configuration
 type Vrrp_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The VRRP tracked item table.
@@ -581,69 +461,28 @@ type Vrrp_Ipv6 struct {
     Interfaces Vrrp_Ipv6_Interfaces
 }
 
-func (ipv6 *Vrrp_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *Vrrp_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "vrrp"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *Vrrp_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *Vrrp_Ipv6) GetGoName(yname string) string {
-    if yname == "track-items" { return "TrackItems" }
-    if yname == "virtual-routers" { return "VirtualRouters" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Children["track-items"] = types.YChild{"TrackItems", &ipv6.TrackItems}
+    ipv6.EntityData.Children["virtual-routers"] = types.YChild{"VirtualRouters", &ipv6.VirtualRouters}
+    ipv6.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv6.Interfaces}
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *Vrrp_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *Vrrp_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "track-items" {
-        return &ipv6.TrackItems
-    }
-    if childYangName == "virtual-routers" {
-        return &ipv6.VirtualRouters
-    }
-    if childYangName == "interfaces" {
-        return &ipv6.Interfaces
-    }
-    return nil
-}
-
-func (ipv6 *Vrrp_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["track-items"] = &ipv6.TrackItems
-    children["virtual-routers"] = &ipv6.VirtualRouters
-    children["interfaces"] = &ipv6.Interfaces
-    return children
-}
-
-func (ipv6 *Vrrp_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6 *Vrrp_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *Vrrp_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *Vrrp_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *Vrrp_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *Vrrp_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *Vrrp_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *Vrrp_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *Vrrp_Ipv6) GetParentYangName() string { return "vrrp" }
 
 // Vrrp_Ipv6_TrackItems
 // The VRRP tracked item table
 type Vrrp_Ipv6_TrackItems struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A configured VRRP IP address entry. The type is slice of
@@ -651,72 +490,33 @@ type Vrrp_Ipv6_TrackItems struct {
     TrackItem []Vrrp_Ipv6_TrackItems_TrackItem
 }
 
-func (trackItems *Vrrp_Ipv6_TrackItems) GetFilter() yfilter.YFilter { return trackItems.YFilter }
+func (trackItems *Vrrp_Ipv6_TrackItems) GetEntityData() *types.CommonEntityData {
+    trackItems.EntityData.YFilter = trackItems.YFilter
+    trackItems.EntityData.YangName = "track-items"
+    trackItems.EntityData.BundleName = "cisco_ios_xr"
+    trackItems.EntityData.ParentYangName = "ipv6"
+    trackItems.EntityData.SegmentPath = "track-items"
+    trackItems.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trackItems.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trackItems.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trackItems *Vrrp_Ipv6_TrackItems) SetFilter(yf yfilter.YFilter) { trackItems.YFilter = yf }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetGoName(yname string) string {
-    if yname == "track-item" { return "TrackItem" }
-    return ""
-}
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetSegmentPath() string {
-    return "track-items"
-}
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "track-item" {
-        for _, c := range trackItems.TrackItem {
-            if trackItems.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv6_TrackItems_TrackItem{}
-        trackItems.TrackItem = append(trackItems.TrackItem, child)
-        return &trackItems.TrackItem[len(trackItems.TrackItem)-1]
-    }
-    return nil
-}
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trackItems.EntityData.Children = make(map[string]types.YChild)
+    trackItems.EntityData.Children["track-item"] = types.YChild{"TrackItem", nil}
     for i := range trackItems.TrackItem {
-        children[trackItems.TrackItem[i].GetSegmentPath()] = &trackItems.TrackItem[i]
+        trackItems.EntityData.Children[types.GetSegmentPath(&trackItems.TrackItem[i])] = types.YChild{"TrackItem", &trackItems.TrackItem[i]}
     }
-    return children
+    trackItems.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trackItems.EntityData)
 }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetYangName() string { return "track-items" }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) SetParent(parent types.Entity) { trackItems.parent = parent }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetParent() types.Entity { return trackItems.parent }
-
-func (trackItems *Vrrp_Ipv6_TrackItems) GetParentYangName() string { return "ipv6" }
 
 // Vrrp_Ipv6_TrackItems_TrackItem
 // A configured VRRP IP address entry
 type Vrrp_Ipv6_TrackItems_TrackItem struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The interface name to track. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
+    // with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -724,11 +524,11 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     VirtualRouterId interface{}
 
     // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: b'[a-zA-Z0-9./-]+'.
     TrackedInterfaceName interface{}
 
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
     VirtualRouterIdXr interface{}
@@ -746,72 +546,34 @@ type Vrrp_Ipv6_TrackItems_TrackItem struct {
     Priority interface{}
 }
 
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetFilter() yfilter.YFilter { return trackItem.YFilter }
+func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetEntityData() *types.CommonEntityData {
+    trackItem.EntityData.YFilter = trackItem.YFilter
+    trackItem.EntityData.YangName = "track-item"
+    trackItem.EntityData.BundleName = "cisco_ios_xr"
+    trackItem.EntityData.ParentYangName = "track-items"
+    trackItem.EntityData.SegmentPath = "track-item" + "[interface-name='" + fmt.Sprintf("%v", trackItem.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", trackItem.VirtualRouterId) + "']" + "[tracked-interface-name='" + fmt.Sprintf("%v", trackItem.TrackedInterfaceName) + "']"
+    trackItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trackItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trackItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) SetFilter(yf yfilter.YFilter) { trackItem.YFilter = yf }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "virtual-router-id" { return "VirtualRouterId" }
-    if yname == "tracked-interface-name" { return "TrackedInterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "virtual-router-id-xr" { return "VirtualRouterIdXr" }
-    if yname == "tracked-item-type" { return "TrackedItemType" }
-    if yname == "tracked-item-index" { return "TrackedItemIndex" }
-    if yname == "state" { return "State" }
-    if yname == "priority" { return "Priority" }
-    return ""
+    trackItem.EntityData.Children = make(map[string]types.YChild)
+    trackItem.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackItem.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackItem.InterfaceName}
+    trackItem.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", trackItem.VirtualRouterId}
+    trackItem.EntityData.Leafs["tracked-interface-name"] = types.YLeaf{"TrackedInterfaceName", trackItem.TrackedInterfaceName}
+    trackItem.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItem.Interface_}
+    trackItem.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItem.VirtualRouterIdXr}
+    trackItem.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItem.TrackedItemType}
+    trackItem.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItem.TrackedItemIndex}
+    trackItem.EntityData.Leafs["state"] = types.YLeaf{"State", trackItem.State}
+    trackItem.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItem.Priority}
+    return &(trackItem.EntityData)
 }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetSegmentPath() string {
-    return "track-item" + "[interface-name='" + fmt.Sprintf("%v", trackItem.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", trackItem.VirtualRouterId) + "']" + "[tracked-interface-name='" + fmt.Sprintf("%v", trackItem.TrackedInterfaceName) + "']"
-}
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = trackItem.InterfaceName
-    leafs["virtual-router-id"] = trackItem.VirtualRouterId
-    leafs["tracked-interface-name"] = trackItem.TrackedInterfaceName
-    leafs["interface"] = trackItem.Interface
-    leafs["virtual-router-id-xr"] = trackItem.VirtualRouterIdXr
-    leafs["tracked-item-type"] = trackItem.TrackedItemType
-    leafs["tracked-item-index"] = trackItem.TrackedItemIndex
-    leafs["state"] = trackItem.State
-    leafs["priority"] = trackItem.Priority
-    return leafs
-}
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetYangName() string { return "track-item" }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) SetParent(parent types.Entity) { trackItem.parent = parent }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetParent() types.Entity { return trackItem.parent }
-
-func (trackItem *Vrrp_Ipv6_TrackItems_TrackItem) GetParentYangName() string { return "track-items" }
 
 // Vrrp_Ipv6_VirtualRouters
 // The VRRP virtual router table
 type Vrrp_Ipv6_VirtualRouters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A VRRP virtual router. The type is slice of
@@ -819,72 +581,33 @@ type Vrrp_Ipv6_VirtualRouters struct {
     VirtualRouter []Vrrp_Ipv6_VirtualRouters_VirtualRouter
 }
 
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetFilter() yfilter.YFilter { return virtualRouters.YFilter }
+func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetEntityData() *types.CommonEntityData {
+    virtualRouters.EntityData.YFilter = virtualRouters.YFilter
+    virtualRouters.EntityData.YangName = "virtual-routers"
+    virtualRouters.EntityData.BundleName = "cisco_ios_xr"
+    virtualRouters.EntityData.ParentYangName = "ipv6"
+    virtualRouters.EntityData.SegmentPath = "virtual-routers"
+    virtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) SetFilter(yf yfilter.YFilter) { virtualRouters.YFilter = yf }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetGoName(yname string) string {
-    if yname == "virtual-router" { return "VirtualRouter" }
-    return ""
-}
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetSegmentPath() string {
-    return "virtual-routers"
-}
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "virtual-router" {
-        for _, c := range virtualRouters.VirtualRouter {
-            if virtualRouters.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv6_VirtualRouters_VirtualRouter{}
-        virtualRouters.VirtualRouter = append(virtualRouters.VirtualRouter, child)
-        return &virtualRouters.VirtualRouter[len(virtualRouters.VirtualRouter)-1]
-    }
-    return nil
-}
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    virtualRouters.EntityData.Children = make(map[string]types.YChild)
+    virtualRouters.EntityData.Children["virtual-router"] = types.YChild{"VirtualRouter", nil}
     for i := range virtualRouters.VirtualRouter {
-        children[virtualRouters.VirtualRouter[i].GetSegmentPath()] = &virtualRouters.VirtualRouter[i]
+        virtualRouters.EntityData.Children[types.GetSegmentPath(&virtualRouters.VirtualRouter[i])] = types.YChild{"VirtualRouter", &virtualRouters.VirtualRouter[i]}
     }
-    return children
+    virtualRouters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(virtualRouters.EntityData)
 }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetYangName() string { return "virtual-routers" }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) SetParent(parent types.Entity) { virtualRouters.parent = parent }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetParent() types.Entity { return virtualRouters.parent }
-
-func (virtualRouters *Vrrp_Ipv6_VirtualRouters) GetParentYangName() string { return "ipv6" }
 
 // Vrrp_Ipv6_VirtualRouters_VirtualRouter
 // A VRRP virtual router
 type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -924,7 +647,7 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     OperationalAddressCount interface{}
 
     // Configured IPv4 Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryVirtualIp interface{}
 
     // Configured but Down VRRP address count. The type is interface{} with range:
@@ -932,18 +655,18 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     ConfiguredDownAddressCount interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VirtualLinklocalIpv6Address interface{}
 
     // State of primary IP address. The type is VrrpVipState.
     PrimaryState interface{}
 
     // Master router real IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MasterIpAddress interface{}
 
     // Master router real IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     MasterIpv6Address interface{}
 
     // Master router priority. The type is interface{} with range: 0..255.
@@ -1098,38 +821,38 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     BfdMultiplier interface{}
 
     // BFD configured remote IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BfdCfgRemoteIp interface{}
 
     // BFD configured remote IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     BfdConfiguredRemoteIpv6Address interface{}
 
     // Whether state recovered from checkpoint. The type is bool.
     StateFromCheckpoint interface{}
 
     // The Interface Primary IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv4Address interface{}
 
     // The Interface linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv6Address interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // Virtual mac address state. The type is VrrpVmacState.
     VirtualMacAddressState interface{}
 
     // Operational IPv4 VRRP addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     OperationalAddress []interface{}
 
     // IPv4 Configured but Down VRRP addresses. The type is slice of string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4ConfiguredDownAddress []interface{}
 
     // Time last resign was sent.
@@ -1146,253 +869,123 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter struct {
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress.
     Ipv6ConfiguredDownAddress []Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
 
+    // Track Item Info. The type is slice of
+    // Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo.
+    TrackItemInfo []Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo
+
     // State change history. The type is slice of
     // Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory.
     StateChangeHistory []Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory
 }
 
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetFilter() yfilter.YFilter { return virtualRouter.YFilter }
+func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetEntityData() *types.CommonEntityData {
+    virtualRouter.EntityData.YFilter = virtualRouter.YFilter
+    virtualRouter.EntityData.YangName = "virtual-router"
+    virtualRouter.EntityData.BundleName = "cisco_ios_xr"
+    virtualRouter.EntityData.ParentYangName = "virtual-routers"
+    virtualRouter.EntityData.SegmentPath = "virtual-router" + "[interface-name='" + fmt.Sprintf("%v", virtualRouter.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", virtualRouter.VirtualRouterId) + "']"
+    virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) SetFilter(yf yfilter.YFilter) { virtualRouter.YFilter = yf }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "virtual-router-id" { return "VirtualRouterId" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "virtual-router-id-xr" { return "VirtualRouterIdXr" }
-    if yname == "version" { return "Version" }
-    if yname == "address-family" { return "AddressFamily" }
-    if yname == "session-name" { return "SessionName" }
-    if yname == "slaves" { return "Slaves" }
-    if yname == "is-slave" { return "IsSlave" }
-    if yname == "followed-session-name" { return "FollowedSessionName" }
-    if yname == "secondary-address-count" { return "SecondaryAddressCount" }
-    if yname == "operational-address-count" { return "OperationalAddressCount" }
-    if yname == "primary-virtual-ip" { return "PrimaryVirtualIp" }
-    if yname == "configured-down-address-count" { return "ConfiguredDownAddressCount" }
-    if yname == "virtual-linklocal-ipv6-address" { return "VirtualLinklocalIpv6Address" }
-    if yname == "primary-state" { return "PrimaryState" }
-    if yname == "master-ip-address" { return "MasterIpAddress" }
-    if yname == "master-ipv6-address" { return "MasterIpv6Address" }
-    if yname == "master-priority" { return "MasterPriority" }
-    if yname == "vrrp-state" { return "VrrpState" }
-    if yname == "authentication-type" { return "AuthenticationType" }
-    if yname == "authentication-string" { return "AuthenticationString" }
-    if yname == "configured-advertize-time" { return "ConfiguredAdvertizeTime" }
-    if yname == "oper-advertize-time" { return "OperAdvertizeTime" }
-    if yname == "min-delay-time" { return "MinDelayTime" }
-    if yname == "reload-delay-time" { return "ReloadDelayTime" }
-    if yname == "delay-timer-flag" { return "DelayTimerFlag" }
-    if yname == "delay-timer-secs" { return "DelayTimerSecs" }
-    if yname == "delay-timer-msecs" { return "DelayTimerMsecs" }
-    if yname == "authentication-flag" { return "AuthenticationFlag" }
-    if yname == "force-timer-flag" { return "ForceTimerFlag" }
-    if yname == "preempt-flag" { return "PreemptFlag" }
-    if yname == "ip-address-owner-flag" { return "IpAddressOwnerFlag" }
-    if yname == "is-accept-mode" { return "IsAcceptMode" }
-    if yname == "preempt-delay-time" { return "PreemptDelayTime" }
-    if yname == "configured-priority" { return "ConfiguredPriority" }
-    if yname == "operational-priority" { return "OperationalPriority" }
-    if yname == "priority-decrement" { return "PriorityDecrement" }
-    if yname == "tracked-interface-count" { return "TrackedInterfaceCount" }
-    if yname == "tracked-interface-up-count" { return "TrackedInterfaceUpCount" }
-    if yname == "tracked-item-count" { return "TrackedItemCount" }
-    if yname == "tracked-item-up-count" { return "TrackedItemUpCount" }
-    if yname == "time-in-current-state" { return "TimeInCurrentState" }
-    if yname == "state-change-count" { return "StateChangeCount" }
-    if yname == "time-vrouter-up" { return "TimeVrouterUp" }
-    if yname == "master-count" { return "MasterCount" }
-    if yname == "adverts-received-count" { return "AdvertsReceivedCount" }
-    if yname == "advert-interval-error-count" { return "AdvertIntervalErrorCount" }
-    if yname == "adverts-sent-count" { return "AdvertsSentCount" }
-    if yname == "authentication-fail-count" { return "AuthenticationFailCount" }
-    if yname == "ttl-error-count" { return "TtlErrorCount" }
-    if yname == "priority-zero-received-count" { return "PriorityZeroReceivedCount" }
-    if yname == "priority-zero-sent-count" { return "PriorityZeroSentCount" }
-    if yname == "invalid-packet-count" { return "InvalidPacketCount" }
-    if yname == "address-list-error-count" { return "AddressListErrorCount" }
-    if yname == "invalid-auth-type-count" { return "InvalidAuthTypeCount" }
-    if yname == "auth-type-mismatch-count" { return "AuthTypeMismatchCount" }
-    if yname == "pkt-length-errors-count" { return "PktLengthErrorsCount" }
-    if yname == "time-stats-discontinuity" { return "TimeStatsDiscontinuity" }
-    if yname == "bfd-session-state" { return "BfdSessionState" }
-    if yname == "bfd-interval" { return "BfdInterval" }
-    if yname == "bfd-multiplier" { return "BfdMultiplier" }
-    if yname == "bfd-cfg-remote-ip" { return "BfdCfgRemoteIp" }
-    if yname == "bfd-configured-remote-ipv6-address" { return "BfdConfiguredRemoteIpv6Address" }
-    if yname == "state-from-checkpoint" { return "StateFromCheckpoint" }
-    if yname == "interface-ipv4-address" { return "InterfaceIpv4Address" }
-    if yname == "interface-ipv6-address" { return "InterfaceIpv6Address" }
-    if yname == "virtual-mac-address" { return "VirtualMacAddress" }
-    if yname == "virtual-mac-address-state" { return "VirtualMacAddressState" }
-    if yname == "operational-address" { return "OperationalAddress" }
-    if yname == "ipv4-configured-down-address" { return "Ipv4ConfiguredDownAddress" }
-    if yname == "resign-sent-time" { return "ResignSentTime" }
-    if yname == "resign-received-time" { return "ResignReceivedTime" }
-    if yname == "ipv6-operational-address" { return "Ipv6OperationalAddress" }
-    if yname == "ipv6-configured-down-address" { return "Ipv6ConfiguredDownAddress" }
-    if yname == "state-change-history" { return "StateChangeHistory" }
-    return ""
-}
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetSegmentPath() string {
-    return "virtual-router" + "[interface-name='" + fmt.Sprintf("%v", virtualRouter.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", virtualRouter.VirtualRouterId) + "']"
-}
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "resign-sent-time" {
-        return &virtualRouter.ResignSentTime
-    }
-    if childYangName == "resign-received-time" {
-        return &virtualRouter.ResignReceivedTime
-    }
-    if childYangName == "ipv6-operational-address" {
-        for _, c := range virtualRouter.Ipv6OperationalAddress {
-            if virtualRouter.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress{}
-        virtualRouter.Ipv6OperationalAddress = append(virtualRouter.Ipv6OperationalAddress, child)
-        return &virtualRouter.Ipv6OperationalAddress[len(virtualRouter.Ipv6OperationalAddress)-1]
-    }
-    if childYangName == "ipv6-configured-down-address" {
-        for _, c := range virtualRouter.Ipv6ConfiguredDownAddress {
-            if virtualRouter.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress{}
-        virtualRouter.Ipv6ConfiguredDownAddress = append(virtualRouter.Ipv6ConfiguredDownAddress, child)
-        return &virtualRouter.Ipv6ConfiguredDownAddress[len(virtualRouter.Ipv6ConfiguredDownAddress)-1]
-    }
-    if childYangName == "state-change-history" {
-        for _, c := range virtualRouter.StateChangeHistory {
-            if virtualRouter.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory{}
-        virtualRouter.StateChangeHistory = append(virtualRouter.StateChangeHistory, child)
-        return &virtualRouter.StateChangeHistory[len(virtualRouter.StateChangeHistory)-1]
-    }
-    return nil
-}
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["resign-sent-time"] = &virtualRouter.ResignSentTime
-    children["resign-received-time"] = &virtualRouter.ResignReceivedTime
+    virtualRouter.EntityData.Children = make(map[string]types.YChild)
+    virtualRouter.EntityData.Children["resign-sent-time"] = types.YChild{"ResignSentTime", &virtualRouter.ResignSentTime}
+    virtualRouter.EntityData.Children["resign-received-time"] = types.YChild{"ResignReceivedTime", &virtualRouter.ResignReceivedTime}
+    virtualRouter.EntityData.Children["ipv6-operational-address"] = types.YChild{"Ipv6OperationalAddress", nil}
     for i := range virtualRouter.Ipv6OperationalAddress {
-        children[virtualRouter.Ipv6OperationalAddress[i].GetSegmentPath()] = &virtualRouter.Ipv6OperationalAddress[i]
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6OperationalAddress[i])] = types.YChild{"Ipv6OperationalAddress", &virtualRouter.Ipv6OperationalAddress[i]}
     }
+    virtualRouter.EntityData.Children["ipv6-configured-down-address"] = types.YChild{"Ipv6ConfiguredDownAddress", nil}
     for i := range virtualRouter.Ipv6ConfiguredDownAddress {
-        children[virtualRouter.Ipv6ConfiguredDownAddress[i].GetSegmentPath()] = &virtualRouter.Ipv6ConfiguredDownAddress[i]
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6ConfiguredDownAddress[i])] = types.YChild{"Ipv6ConfiguredDownAddress", &virtualRouter.Ipv6ConfiguredDownAddress[i]}
     }
+    virtualRouter.EntityData.Children["track-item-info"] = types.YChild{"TrackItemInfo", nil}
+    for i := range virtualRouter.TrackItemInfo {
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.TrackItemInfo[i])] = types.YChild{"TrackItemInfo", &virtualRouter.TrackItemInfo[i]}
+    }
+    virtualRouter.EntityData.Children["state-change-history"] = types.YChild{"StateChangeHistory", nil}
     for i := range virtualRouter.StateChangeHistory {
-        children[virtualRouter.StateChangeHistory[i].GetSegmentPath()] = &virtualRouter.StateChangeHistory[i]
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.StateChangeHistory[i])] = types.YChild{"StateChangeHistory", &virtualRouter.StateChangeHistory[i]}
     }
-    return children
+    virtualRouter.EntityData.Leafs = make(map[string]types.YLeaf)
+    virtualRouter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", virtualRouter.InterfaceName}
+    virtualRouter.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", virtualRouter.VirtualRouterId}
+    virtualRouter.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", virtualRouter.InterfaceNameXr}
+    virtualRouter.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", virtualRouter.VirtualRouterIdXr}
+    virtualRouter.EntityData.Leafs["version"] = types.YLeaf{"Version", virtualRouter.Version}
+    virtualRouter.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", virtualRouter.AddressFamily}
+    virtualRouter.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", virtualRouter.SessionName}
+    virtualRouter.EntityData.Leafs["slaves"] = types.YLeaf{"Slaves", virtualRouter.Slaves}
+    virtualRouter.EntityData.Leafs["is-slave"] = types.YLeaf{"IsSlave", virtualRouter.IsSlave}
+    virtualRouter.EntityData.Leafs["followed-session-name"] = types.YLeaf{"FollowedSessionName", virtualRouter.FollowedSessionName}
+    virtualRouter.EntityData.Leafs["secondary-address-count"] = types.YLeaf{"SecondaryAddressCount", virtualRouter.SecondaryAddressCount}
+    virtualRouter.EntityData.Leafs["operational-address-count"] = types.YLeaf{"OperationalAddressCount", virtualRouter.OperationalAddressCount}
+    virtualRouter.EntityData.Leafs["primary-virtual-ip"] = types.YLeaf{"PrimaryVirtualIp", virtualRouter.PrimaryVirtualIp}
+    virtualRouter.EntityData.Leafs["configured-down-address-count"] = types.YLeaf{"ConfiguredDownAddressCount", virtualRouter.ConfiguredDownAddressCount}
+    virtualRouter.EntityData.Leafs["virtual-linklocal-ipv6-address"] = types.YLeaf{"VirtualLinklocalIpv6Address", virtualRouter.VirtualLinklocalIpv6Address}
+    virtualRouter.EntityData.Leafs["primary-state"] = types.YLeaf{"PrimaryState", virtualRouter.PrimaryState}
+    virtualRouter.EntityData.Leafs["master-ip-address"] = types.YLeaf{"MasterIpAddress", virtualRouter.MasterIpAddress}
+    virtualRouter.EntityData.Leafs["master-ipv6-address"] = types.YLeaf{"MasterIpv6Address", virtualRouter.MasterIpv6Address}
+    virtualRouter.EntityData.Leafs["master-priority"] = types.YLeaf{"MasterPriority", virtualRouter.MasterPriority}
+    virtualRouter.EntityData.Leafs["vrrp-state"] = types.YLeaf{"VrrpState", virtualRouter.VrrpState}
+    virtualRouter.EntityData.Leafs["authentication-type"] = types.YLeaf{"AuthenticationType", virtualRouter.AuthenticationType}
+    virtualRouter.EntityData.Leafs["authentication-string"] = types.YLeaf{"AuthenticationString", virtualRouter.AuthenticationString}
+    virtualRouter.EntityData.Leafs["configured-advertize-time"] = types.YLeaf{"ConfiguredAdvertizeTime", virtualRouter.ConfiguredAdvertizeTime}
+    virtualRouter.EntityData.Leafs["oper-advertize-time"] = types.YLeaf{"OperAdvertizeTime", virtualRouter.OperAdvertizeTime}
+    virtualRouter.EntityData.Leafs["min-delay-time"] = types.YLeaf{"MinDelayTime", virtualRouter.MinDelayTime}
+    virtualRouter.EntityData.Leafs["reload-delay-time"] = types.YLeaf{"ReloadDelayTime", virtualRouter.ReloadDelayTime}
+    virtualRouter.EntityData.Leafs["delay-timer-flag"] = types.YLeaf{"DelayTimerFlag", virtualRouter.DelayTimerFlag}
+    virtualRouter.EntityData.Leafs["delay-timer-secs"] = types.YLeaf{"DelayTimerSecs", virtualRouter.DelayTimerSecs}
+    virtualRouter.EntityData.Leafs["delay-timer-msecs"] = types.YLeaf{"DelayTimerMsecs", virtualRouter.DelayTimerMsecs}
+    virtualRouter.EntityData.Leafs["authentication-flag"] = types.YLeaf{"AuthenticationFlag", virtualRouter.AuthenticationFlag}
+    virtualRouter.EntityData.Leafs["force-timer-flag"] = types.YLeaf{"ForceTimerFlag", virtualRouter.ForceTimerFlag}
+    virtualRouter.EntityData.Leafs["preempt-flag"] = types.YLeaf{"PreemptFlag", virtualRouter.PreemptFlag}
+    virtualRouter.EntityData.Leafs["ip-address-owner-flag"] = types.YLeaf{"IpAddressOwnerFlag", virtualRouter.IpAddressOwnerFlag}
+    virtualRouter.EntityData.Leafs["is-accept-mode"] = types.YLeaf{"IsAcceptMode", virtualRouter.IsAcceptMode}
+    virtualRouter.EntityData.Leafs["preempt-delay-time"] = types.YLeaf{"PreemptDelayTime", virtualRouter.PreemptDelayTime}
+    virtualRouter.EntityData.Leafs["configured-priority"] = types.YLeaf{"ConfiguredPriority", virtualRouter.ConfiguredPriority}
+    virtualRouter.EntityData.Leafs["operational-priority"] = types.YLeaf{"OperationalPriority", virtualRouter.OperationalPriority}
+    virtualRouter.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", virtualRouter.PriorityDecrement}
+    virtualRouter.EntityData.Leafs["tracked-interface-count"] = types.YLeaf{"TrackedInterfaceCount", virtualRouter.TrackedInterfaceCount}
+    virtualRouter.EntityData.Leafs["tracked-interface-up-count"] = types.YLeaf{"TrackedInterfaceUpCount", virtualRouter.TrackedInterfaceUpCount}
+    virtualRouter.EntityData.Leafs["tracked-item-count"] = types.YLeaf{"TrackedItemCount", virtualRouter.TrackedItemCount}
+    virtualRouter.EntityData.Leafs["tracked-item-up-count"] = types.YLeaf{"TrackedItemUpCount", virtualRouter.TrackedItemUpCount}
+    virtualRouter.EntityData.Leafs["time-in-current-state"] = types.YLeaf{"TimeInCurrentState", virtualRouter.TimeInCurrentState}
+    virtualRouter.EntityData.Leafs["state-change-count"] = types.YLeaf{"StateChangeCount", virtualRouter.StateChangeCount}
+    virtualRouter.EntityData.Leafs["time-vrouter-up"] = types.YLeaf{"TimeVrouterUp", virtualRouter.TimeVrouterUp}
+    virtualRouter.EntityData.Leafs["master-count"] = types.YLeaf{"MasterCount", virtualRouter.MasterCount}
+    virtualRouter.EntityData.Leafs["adverts-received-count"] = types.YLeaf{"AdvertsReceivedCount", virtualRouter.AdvertsReceivedCount}
+    virtualRouter.EntityData.Leafs["advert-interval-error-count"] = types.YLeaf{"AdvertIntervalErrorCount", virtualRouter.AdvertIntervalErrorCount}
+    virtualRouter.EntityData.Leafs["adverts-sent-count"] = types.YLeaf{"AdvertsSentCount", virtualRouter.AdvertsSentCount}
+    virtualRouter.EntityData.Leafs["authentication-fail-count"] = types.YLeaf{"AuthenticationFailCount", virtualRouter.AuthenticationFailCount}
+    virtualRouter.EntityData.Leafs["ttl-error-count"] = types.YLeaf{"TtlErrorCount", virtualRouter.TtlErrorCount}
+    virtualRouter.EntityData.Leafs["priority-zero-received-count"] = types.YLeaf{"PriorityZeroReceivedCount", virtualRouter.PriorityZeroReceivedCount}
+    virtualRouter.EntityData.Leafs["priority-zero-sent-count"] = types.YLeaf{"PriorityZeroSentCount", virtualRouter.PriorityZeroSentCount}
+    virtualRouter.EntityData.Leafs["invalid-packet-count"] = types.YLeaf{"InvalidPacketCount", virtualRouter.InvalidPacketCount}
+    virtualRouter.EntityData.Leafs["address-list-error-count"] = types.YLeaf{"AddressListErrorCount", virtualRouter.AddressListErrorCount}
+    virtualRouter.EntityData.Leafs["invalid-auth-type-count"] = types.YLeaf{"InvalidAuthTypeCount", virtualRouter.InvalidAuthTypeCount}
+    virtualRouter.EntityData.Leafs["auth-type-mismatch-count"] = types.YLeaf{"AuthTypeMismatchCount", virtualRouter.AuthTypeMismatchCount}
+    virtualRouter.EntityData.Leafs["pkt-length-errors-count"] = types.YLeaf{"PktLengthErrorsCount", virtualRouter.PktLengthErrorsCount}
+    virtualRouter.EntityData.Leafs["time-stats-discontinuity"] = types.YLeaf{"TimeStatsDiscontinuity", virtualRouter.TimeStatsDiscontinuity}
+    virtualRouter.EntityData.Leafs["bfd-session-state"] = types.YLeaf{"BfdSessionState", virtualRouter.BfdSessionState}
+    virtualRouter.EntityData.Leafs["bfd-interval"] = types.YLeaf{"BfdInterval", virtualRouter.BfdInterval}
+    virtualRouter.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", virtualRouter.BfdMultiplier}
+    virtualRouter.EntityData.Leafs["bfd-cfg-remote-ip"] = types.YLeaf{"BfdCfgRemoteIp", virtualRouter.BfdCfgRemoteIp}
+    virtualRouter.EntityData.Leafs["bfd-configured-remote-ipv6-address"] = types.YLeaf{"BfdConfiguredRemoteIpv6Address", virtualRouter.BfdConfiguredRemoteIpv6Address}
+    virtualRouter.EntityData.Leafs["state-from-checkpoint"] = types.YLeaf{"StateFromCheckpoint", virtualRouter.StateFromCheckpoint}
+    virtualRouter.EntityData.Leafs["interface-ipv4-address"] = types.YLeaf{"InterfaceIpv4Address", virtualRouter.InterfaceIpv4Address}
+    virtualRouter.EntityData.Leafs["interface-ipv6-address"] = types.YLeaf{"InterfaceIpv6Address", virtualRouter.InterfaceIpv6Address}
+    virtualRouter.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", virtualRouter.VirtualMacAddress}
+    virtualRouter.EntityData.Leafs["virtual-mac-address-state"] = types.YLeaf{"VirtualMacAddressState", virtualRouter.VirtualMacAddressState}
+    virtualRouter.EntityData.Leafs["operational-address"] = types.YLeaf{"OperationalAddress", virtualRouter.OperationalAddress}
+    virtualRouter.EntityData.Leafs["ipv4-configured-down-address"] = types.YLeaf{"Ipv4ConfiguredDownAddress", virtualRouter.Ipv4ConfiguredDownAddress}
+    return &(virtualRouter.EntityData)
 }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = virtualRouter.InterfaceName
-    leafs["virtual-router-id"] = virtualRouter.VirtualRouterId
-    leafs["interface-name-xr"] = virtualRouter.InterfaceNameXr
-    leafs["virtual-router-id-xr"] = virtualRouter.VirtualRouterIdXr
-    leafs["version"] = virtualRouter.Version
-    leafs["address-family"] = virtualRouter.AddressFamily
-    leafs["session-name"] = virtualRouter.SessionName
-    leafs["slaves"] = virtualRouter.Slaves
-    leafs["is-slave"] = virtualRouter.IsSlave
-    leafs["followed-session-name"] = virtualRouter.FollowedSessionName
-    leafs["secondary-address-count"] = virtualRouter.SecondaryAddressCount
-    leafs["operational-address-count"] = virtualRouter.OperationalAddressCount
-    leafs["primary-virtual-ip"] = virtualRouter.PrimaryVirtualIp
-    leafs["configured-down-address-count"] = virtualRouter.ConfiguredDownAddressCount
-    leafs["virtual-linklocal-ipv6-address"] = virtualRouter.VirtualLinklocalIpv6Address
-    leafs["primary-state"] = virtualRouter.PrimaryState
-    leafs["master-ip-address"] = virtualRouter.MasterIpAddress
-    leafs["master-ipv6-address"] = virtualRouter.MasterIpv6Address
-    leafs["master-priority"] = virtualRouter.MasterPriority
-    leafs["vrrp-state"] = virtualRouter.VrrpState
-    leafs["authentication-type"] = virtualRouter.AuthenticationType
-    leafs["authentication-string"] = virtualRouter.AuthenticationString
-    leafs["configured-advertize-time"] = virtualRouter.ConfiguredAdvertizeTime
-    leafs["oper-advertize-time"] = virtualRouter.OperAdvertizeTime
-    leafs["min-delay-time"] = virtualRouter.MinDelayTime
-    leafs["reload-delay-time"] = virtualRouter.ReloadDelayTime
-    leafs["delay-timer-flag"] = virtualRouter.DelayTimerFlag
-    leafs["delay-timer-secs"] = virtualRouter.DelayTimerSecs
-    leafs["delay-timer-msecs"] = virtualRouter.DelayTimerMsecs
-    leafs["authentication-flag"] = virtualRouter.AuthenticationFlag
-    leafs["force-timer-flag"] = virtualRouter.ForceTimerFlag
-    leafs["preempt-flag"] = virtualRouter.PreemptFlag
-    leafs["ip-address-owner-flag"] = virtualRouter.IpAddressOwnerFlag
-    leafs["is-accept-mode"] = virtualRouter.IsAcceptMode
-    leafs["preempt-delay-time"] = virtualRouter.PreemptDelayTime
-    leafs["configured-priority"] = virtualRouter.ConfiguredPriority
-    leafs["operational-priority"] = virtualRouter.OperationalPriority
-    leafs["priority-decrement"] = virtualRouter.PriorityDecrement
-    leafs["tracked-interface-count"] = virtualRouter.TrackedInterfaceCount
-    leafs["tracked-interface-up-count"] = virtualRouter.TrackedInterfaceUpCount
-    leafs["tracked-item-count"] = virtualRouter.TrackedItemCount
-    leafs["tracked-item-up-count"] = virtualRouter.TrackedItemUpCount
-    leafs["time-in-current-state"] = virtualRouter.TimeInCurrentState
-    leafs["state-change-count"] = virtualRouter.StateChangeCount
-    leafs["time-vrouter-up"] = virtualRouter.TimeVrouterUp
-    leafs["master-count"] = virtualRouter.MasterCount
-    leafs["adverts-received-count"] = virtualRouter.AdvertsReceivedCount
-    leafs["advert-interval-error-count"] = virtualRouter.AdvertIntervalErrorCount
-    leafs["adverts-sent-count"] = virtualRouter.AdvertsSentCount
-    leafs["authentication-fail-count"] = virtualRouter.AuthenticationFailCount
-    leafs["ttl-error-count"] = virtualRouter.TtlErrorCount
-    leafs["priority-zero-received-count"] = virtualRouter.PriorityZeroReceivedCount
-    leafs["priority-zero-sent-count"] = virtualRouter.PriorityZeroSentCount
-    leafs["invalid-packet-count"] = virtualRouter.InvalidPacketCount
-    leafs["address-list-error-count"] = virtualRouter.AddressListErrorCount
-    leafs["invalid-auth-type-count"] = virtualRouter.InvalidAuthTypeCount
-    leafs["auth-type-mismatch-count"] = virtualRouter.AuthTypeMismatchCount
-    leafs["pkt-length-errors-count"] = virtualRouter.PktLengthErrorsCount
-    leafs["time-stats-discontinuity"] = virtualRouter.TimeStatsDiscontinuity
-    leafs["bfd-session-state"] = virtualRouter.BfdSessionState
-    leafs["bfd-interval"] = virtualRouter.BfdInterval
-    leafs["bfd-multiplier"] = virtualRouter.BfdMultiplier
-    leafs["bfd-cfg-remote-ip"] = virtualRouter.BfdCfgRemoteIp
-    leafs["bfd-configured-remote-ipv6-address"] = virtualRouter.BfdConfiguredRemoteIpv6Address
-    leafs["state-from-checkpoint"] = virtualRouter.StateFromCheckpoint
-    leafs["interface-ipv4-address"] = virtualRouter.InterfaceIpv4Address
-    leafs["interface-ipv6-address"] = virtualRouter.InterfaceIpv6Address
-    leafs["virtual-mac-address"] = virtualRouter.VirtualMacAddress
-    leafs["virtual-mac-address-state"] = virtualRouter.VirtualMacAddressState
-    leafs["operational-address"] = virtualRouter.OperationalAddress
-    leafs["ipv4-configured-down-address"] = virtualRouter.Ipv4ConfiguredDownAddress
-    return leafs
-}
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetYangName() string { return "virtual-router" }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) SetParent(parent types.Entity) { virtualRouter.parent = parent }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetParent() types.Entity { return virtualRouter.parent }
-
-func (virtualRouter *Vrrp_Ipv6_VirtualRouters_VirtualRouter) GetParentYangName() string { return "virtual-routers" }
 
 // Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime
 // Time last resign was sent
 type Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Seconds. The type is interface{} with range: 0..4294967295. Units are
@@ -1404,58 +997,27 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime struct {
     Nanoseconds interface{}
 }
 
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetFilter() yfilter.YFilter { return resignSentTime.YFilter }
+func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetEntityData() *types.CommonEntityData {
+    resignSentTime.EntityData.YFilter = resignSentTime.YFilter
+    resignSentTime.EntityData.YangName = "resign-sent-time"
+    resignSentTime.EntityData.BundleName = "cisco_ios_xr"
+    resignSentTime.EntityData.ParentYangName = "virtual-router"
+    resignSentTime.EntityData.SegmentPath = "resign-sent-time"
+    resignSentTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    resignSentTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    resignSentTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) SetFilter(yf yfilter.YFilter) { resignSentTime.YFilter = yf }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "nanoseconds" { return "Nanoseconds" }
-    return ""
+    resignSentTime.EntityData.Children = make(map[string]types.YChild)
+    resignSentTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    resignSentTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignSentTime.Seconds}
+    resignSentTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignSentTime.Nanoseconds}
+    return &(resignSentTime.EntityData)
 }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetSegmentPath() string {
-    return "resign-sent-time"
-}
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = resignSentTime.Seconds
-    leafs["nanoseconds"] = resignSentTime.Nanoseconds
-    return leafs
-}
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetYangName() string { return "resign-sent-time" }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) SetParent(parent types.Entity) { resignSentTime.parent = parent }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetParent() types.Entity { return resignSentTime.parent }
-
-func (resignSentTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignSentTime) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime
 // Time last resign was received
 type Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Seconds. The type is interface{} with range: 0..4294967295. Units are
@@ -1467,773 +1029,85 @@ type Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime struct {
     Nanoseconds interface{}
 }
 
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetFilter() yfilter.YFilter { return resignReceivedTime.YFilter }
+func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetEntityData() *types.CommonEntityData {
+    resignReceivedTime.EntityData.YFilter = resignReceivedTime.YFilter
+    resignReceivedTime.EntityData.YangName = "resign-received-time"
+    resignReceivedTime.EntityData.BundleName = "cisco_ios_xr"
+    resignReceivedTime.EntityData.ParentYangName = "virtual-router"
+    resignReceivedTime.EntityData.SegmentPath = "resign-received-time"
+    resignReceivedTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    resignReceivedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    resignReceivedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) SetFilter(yf yfilter.YFilter) { resignReceivedTime.YFilter = yf }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "nanoseconds" { return "Nanoseconds" }
-    return ""
+    resignReceivedTime.EntityData.Children = make(map[string]types.YChild)
+    resignReceivedTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    resignReceivedTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignReceivedTime.Seconds}
+    resignReceivedTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignReceivedTime.Nanoseconds}
+    return &(resignReceivedTime.EntityData)
 }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetSegmentPath() string {
-    return "resign-received-time"
-}
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = resignReceivedTime.Seconds
-    leafs["nanoseconds"] = resignReceivedTime.Nanoseconds
-    return leafs
-}
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetYangName() string { return "resign-received-time" }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) SetParent(parent types.Entity) { resignReceivedTime.parent = parent }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetParent() types.Entity { return resignReceivedTime.parent }
-
-func (resignReceivedTime *Vrrp_Ipv6_VirtualRouters_VirtualRouter_ResignReceivedTime) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress
 // IPv6 Operational VRRP addresses
 type Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetFilter() yfilter.YFilter { return ipv6OperationalAddress.YFilter }
+func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetEntityData() *types.CommonEntityData {
+    ipv6OperationalAddress.EntityData.YFilter = ipv6OperationalAddress.YFilter
+    ipv6OperationalAddress.EntityData.YangName = "ipv6-operational-address"
+    ipv6OperationalAddress.EntityData.BundleName = "cisco_ios_xr"
+    ipv6OperationalAddress.EntityData.ParentYangName = "virtual-router"
+    ipv6OperationalAddress.EntityData.SegmentPath = "ipv6-operational-address"
+    ipv6OperationalAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6OperationalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6OperationalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) SetFilter(yf yfilter.YFilter) { ipv6OperationalAddress.YFilter = yf }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    ipv6OperationalAddress.EntityData.Children = make(map[string]types.YChild)
+    ipv6OperationalAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6OperationalAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6OperationalAddress.Ipv6Address}
+    return &(ipv6OperationalAddress.EntityData)
 }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetSegmentPath() string {
-    return "ipv6-operational-address"
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6OperationalAddress.Ipv6Address
-    return leafs
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetYangName() string { return "ipv6-operational-address" }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) SetParent(parent types.Entity) { ipv6OperationalAddress.parent = parent }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetParent() types.Entity { return ipv6OperationalAddress.parent }
-
-func (ipv6OperationalAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
 // IPv6 Configured but Down VRRP addresses
 type Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetFilter() yfilter.YFilter { return ipv6ConfiguredDownAddress.YFilter }
+func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetEntityData() *types.CommonEntityData {
+    ipv6ConfiguredDownAddress.EntityData.YFilter = ipv6ConfiguredDownAddress.YFilter
+    ipv6ConfiguredDownAddress.EntityData.YangName = "ipv6-configured-down-address"
+    ipv6ConfiguredDownAddress.EntityData.BundleName = "cisco_ios_xr"
+    ipv6ConfiguredDownAddress.EntityData.ParentYangName = "virtual-router"
+    ipv6ConfiguredDownAddress.EntityData.SegmentPath = "ipv6-configured-down-address"
+    ipv6ConfiguredDownAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6ConfiguredDownAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6ConfiguredDownAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) SetFilter(yf yfilter.YFilter) { ipv6ConfiguredDownAddress.YFilter = yf }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    ipv6ConfiguredDownAddress.EntityData.Children = make(map[string]types.YChild)
+    ipv6ConfiguredDownAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6ConfiguredDownAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6ConfiguredDownAddress.Ipv6Address}
+    return &(ipv6ConfiguredDownAddress.EntityData)
 }
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetSegmentPath() string {
-    return "ipv6-configured-down-address"
-}
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6ConfiguredDownAddress.Ipv6Address
-    return leafs
-}
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetYangName() string { return "ipv6-configured-down-address" }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) SetParent(parent types.Entity) { ipv6ConfiguredDownAddress.parent = parent }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetParent() types.Entity { return ipv6ConfiguredDownAddress.parent }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv6_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetParentYangName() string { return "virtual-router" }
-
-// Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory
-// State change history
-type Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory struct {
-    parent types.Entity
+// Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo
+// Track Item Info
+type Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Old State. The type is VrrpBagProtocolState.
-    OldState interface{}
-
-    // New State. The type is VrrpBagProtocolState.
-    NewState interface{}
-
-    // Reason for state change. The type is VrrpStateChangeReason.
-    Reason interface{}
-
-    // Time of state change.
-    Time Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time
-}
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetFilter() yfilter.YFilter { return stateChangeHistory.YFilter }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) SetFilter(yf yfilter.YFilter) { stateChangeHistory.YFilter = yf }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetGoName(yname string) string {
-    if yname == "old-state" { return "OldState" }
-    if yname == "new-state" { return "NewState" }
-    if yname == "reason" { return "Reason" }
-    if yname == "time" { return "Time" }
-    return ""
-}
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetSegmentPath() string {
-    return "state-change-history"
-}
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "time" {
-        return &stateChangeHistory.Time
-    }
-    return nil
-}
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["time"] = &stateChangeHistory.Time
-    return children
-}
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["old-state"] = stateChangeHistory.OldState
-    leafs["new-state"] = stateChangeHistory.NewState
-    leafs["reason"] = stateChangeHistory.Reason
-    return leafs
-}
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetYangName() string { return "state-change-history" }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) SetParent(parent types.Entity) { stateChangeHistory.parent = parent }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetParent() types.Entity { return stateChangeHistory.parent }
-
-func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetParentYangName() string { return "virtual-router" }
-
-// Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time
-// Time of state change
-type Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // Seconds. The type is interface{} with range: 0..4294967295. Units are
-    // second.
-    Seconds interface{}
-
-    // Nanoseconds. The type is interface{} with range: 0..4294967295. Units are
-    // nanosecond.
-    Nanoseconds interface{}
-}
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetFilter() yfilter.YFilter { return time.YFilter }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) SetFilter(yf yfilter.YFilter) { time.YFilter = yf }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "nanoseconds" { return "Nanoseconds" }
-    return ""
-}
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetSegmentPath() string {
-    return "time"
-}
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = time.Seconds
-    leafs["nanoseconds"] = time.Nanoseconds
-    return leafs
-}
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetBundleName() string { return "cisco_ios_xr" }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetYangName() string { return "time" }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) SetParent(parent types.Entity) { time.parent = parent }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetParent() types.Entity { return time.parent }
-
-func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetParentYangName() string { return "state-change-history" }
-
-// Vrrp_Ipv6_Interfaces
-// The VRRP interface table
-type Vrrp_Ipv6_Interfaces struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // A VRRP interface entry. The type is slice of
-    // Vrrp_Ipv6_Interfaces_Interface.
-    Interface []Vrrp_Ipv6_Interfaces_Interface
-}
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv6_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
-    }
-    return nil
-}
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Vrrp_Ipv6_Interfaces) GetParentYangName() string { return "ipv6" }
-
-// Vrrp_Ipv6_Interfaces_Interface
-// A VRRP interface entry
-type Vrrp_Ipv6_Interfaces_Interface struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
-    InterfaceName interface{}
-
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
-
-    // Invalid checksum. The type is interface{} with range: 0..4294967295.
-    InvalidChecksumCount interface{}
-
-    // Unknown/unsupported version. The type is interface{} with range:
-    // 0..4294967295.
-    InvalidVersionCount interface{}
-
-    // Invalid vrID. The type is interface{} with range: 0..4294967295.
-    InvalidVridCount interface{}
-
-    // Bad packet lengths. The type is interface{} with range: 0..4294967295.
-    InvalidPacketLengthCount interface{}
-}
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "invalid-checksum-count" { return "InvalidChecksumCount" }
-    if yname == "invalid-version-count" { return "InvalidVersionCount" }
-    if yname == "invalid-vrid-count" { return "InvalidVridCount" }
-    if yname == "invalid-packet-length-count" { return "InvalidPacketLengthCount" }
-    return ""
-}
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface"] = self.Interface
-    leafs["invalid-checksum-count"] = self.InvalidChecksumCount
-    leafs["invalid-version-count"] = self.InvalidVersionCount
-    leafs["invalid-vrid-count"] = self.InvalidVridCount
-    leafs["invalid-packet-length-count"] = self.InvalidPacketLengthCount
-    return leafs
-}
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Vrrp_Ipv6_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
-
-// Vrrp_Ipv4
-// IPv4 VRRP configuration
-type Vrrp_Ipv4 struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // The VRRP interface table.
-    Interfaces Vrrp_Ipv4_Interfaces
-
-    // The VRRP tracked item table.
-    TrackItems Vrrp_Ipv4_TrackItems
-
-    // The VRRP virtual router table.
-    VirtualRouters Vrrp_Ipv4_VirtualRouters
-}
-
-func (ipv4 *Vrrp_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
-
-func (ipv4 *Vrrp_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *Vrrp_Ipv4) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "track-items" { return "TrackItems" }
-    if yname == "virtual-routers" { return "VirtualRouters" }
-    return ""
-}
-
-func (ipv4 *Vrrp_Ipv4) GetSegmentPath() string {
-    return "ipv4"
-}
-
-func (ipv4 *Vrrp_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &ipv4.Interfaces
-    }
-    if childYangName == "track-items" {
-        return &ipv4.TrackItems
-    }
-    if childYangName == "virtual-routers" {
-        return &ipv4.VirtualRouters
-    }
-    return nil
-}
-
-func (ipv4 *Vrrp_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &ipv4.Interfaces
-    children["track-items"] = &ipv4.TrackItems
-    children["virtual-routers"] = &ipv4.VirtualRouters
-    return children
-}
-
-func (ipv4 *Vrrp_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4 *Vrrp_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *Vrrp_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *Vrrp_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *Vrrp_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *Vrrp_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *Vrrp_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *Vrrp_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *Vrrp_Ipv4) GetParentYangName() string { return "vrrp" }
-
-// Vrrp_Ipv4_Interfaces
-// The VRRP interface table
-type Vrrp_Ipv4_Interfaces struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // A VRRP interface entry. The type is slice of
-    // Vrrp_Ipv4_Interfaces_Interface.
-    Interface []Vrrp_Ipv4_Interfaces_Interface
-}
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv4_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
-    }
-    return nil
-}
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Vrrp_Ipv4_Interfaces) GetParentYangName() string { return "ipv4" }
-
-// Vrrp_Ipv4_Interfaces_Interface
-// A VRRP interface entry
-type Vrrp_Ipv4_Interfaces_Interface struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
-    InterfaceName interface{}
-
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
-
-    // Invalid checksum. The type is interface{} with range: 0..4294967295.
-    InvalidChecksumCount interface{}
-
-    // Unknown/unsupported version. The type is interface{} with range:
-    // 0..4294967295.
-    InvalidVersionCount interface{}
-
-    // Invalid vrID. The type is interface{} with range: 0..4294967295.
-    InvalidVridCount interface{}
-
-    // Bad packet lengths. The type is interface{} with range: 0..4294967295.
-    InvalidPacketLengthCount interface{}
-}
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "invalid-checksum-count" { return "InvalidChecksumCount" }
-    if yname == "invalid-version-count" { return "InvalidVersionCount" }
-    if yname == "invalid-vrid-count" { return "InvalidVridCount" }
-    if yname == "invalid-packet-length-count" { return "InvalidPacketLengthCount" }
-    return ""
-}
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["interface"] = self.Interface
-    leafs["invalid-checksum-count"] = self.InvalidChecksumCount
-    leafs["invalid-version-count"] = self.InvalidVersionCount
-    leafs["invalid-vrid-count"] = self.InvalidVridCount
-    leafs["invalid-packet-length-count"] = self.InvalidPacketLengthCount
-    return leafs
-}
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Vrrp_Ipv4_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
-
-// Vrrp_Ipv4_TrackItems
-// The VRRP tracked item table
-type Vrrp_Ipv4_TrackItems struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // A configured VRRP IP address entry. The type is slice of
-    // Vrrp_Ipv4_TrackItems_TrackItem.
-    TrackItem []Vrrp_Ipv4_TrackItems_TrackItem
-}
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetFilter() yfilter.YFilter { return trackItems.YFilter }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) SetFilter(yf yfilter.YFilter) { trackItems.YFilter = yf }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetGoName(yname string) string {
-    if yname == "track-item" { return "TrackItem" }
-    return ""
-}
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetSegmentPath() string {
-    return "track-items"
-}
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "track-item" {
-        for _, c := range trackItems.TrackItem {
-            if trackItems.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv4_TrackItems_TrackItem{}
-        trackItems.TrackItem = append(trackItems.TrackItem, child)
-        return &trackItems.TrackItem[len(trackItems.TrackItem)-1]
-    }
-    return nil
-}
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range trackItems.TrackItem {
-        children[trackItems.TrackItem[i].GetSegmentPath()] = &trackItems.TrackItem[i]
-    }
-    return children
-}
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetYangName() string { return "track-items" }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) SetParent(parent types.Entity) { trackItems.parent = parent }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetParent() types.Entity { return trackItems.parent }
-
-func (trackItems *Vrrp_Ipv4_TrackItems) GetParentYangName() string { return "ipv4" }
-
-// Vrrp_Ipv4_TrackItems_TrackItem
-// A configured VRRP IP address entry
-type Vrrp_Ipv4_TrackItems_TrackItem struct {
-    parent types.Entity
-    YFilter yfilter.YFilter
-
-    // This attribute is a key. The interface name to track. The type is string
-    // with pattern: [a-zA-Z0-9./-]+.
-    InterfaceName interface{}
-
-    // This attribute is a key. The VRRP virtual router id. The type is
-    // interface{} with range: -2147483648..2147483647.
-    VirtualRouterId interface{}
-
-    // This attribute is a key. The name of the tracked interface. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
-    TrackedInterfaceName interface{}
-
-    // IM Interface. The type is string with pattern: [a-zA-Z0-9./-]+.
-    Interface interface{}
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
     // Virtual Router ID. The type is interface{} with range: 0..4294967295.
     VirtualRouterIdXr interface{}
@@ -2251,72 +1125,382 @@ type Vrrp_Ipv4_TrackItems_TrackItem struct {
     Priority interface{}
 }
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetFilter() yfilter.YFilter { return trackItem.YFilter }
+func (trackItemInfo *Vrrp_Ipv6_VirtualRouters_VirtualRouter_TrackItemInfo) GetEntityData() *types.CommonEntityData {
+    trackItemInfo.EntityData.YFilter = trackItemInfo.YFilter
+    trackItemInfo.EntityData.YangName = "track-item-info"
+    trackItemInfo.EntityData.BundleName = "cisco_ios_xr"
+    trackItemInfo.EntityData.ParentYangName = "virtual-router"
+    trackItemInfo.EntityData.SegmentPath = "track-item-info"
+    trackItemInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trackItemInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trackItemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) SetFilter(yf yfilter.YFilter) { trackItem.YFilter = yf }
-
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "virtual-router-id" { return "VirtualRouterId" }
-    if yname == "tracked-interface-name" { return "TrackedInterfaceName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "virtual-router-id-xr" { return "VirtualRouterIdXr" }
-    if yname == "tracked-item-type" { return "TrackedItemType" }
-    if yname == "tracked-item-index" { return "TrackedItemIndex" }
-    if yname == "state" { return "State" }
-    if yname == "priority" { return "Priority" }
-    return ""
+    trackItemInfo.EntityData.Children = make(map[string]types.YChild)
+    trackItemInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackItemInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItemInfo.Interface_}
+    trackItemInfo.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItemInfo.VirtualRouterIdXr}
+    trackItemInfo.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItemInfo.TrackedItemType}
+    trackItemInfo.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItemInfo.TrackedItemIndex}
+    trackItemInfo.EntityData.Leafs["state"] = types.YLeaf{"State", trackItemInfo.State}
+    trackItemInfo.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItemInfo.Priority}
+    return &(trackItemInfo.EntityData)
 }
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetSegmentPath() string {
-    return "track-item" + "[interface-name='" + fmt.Sprintf("%v", trackItem.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", trackItem.VirtualRouterId) + "']" + "[tracked-interface-name='" + fmt.Sprintf("%v", trackItem.TrackedInterfaceName) + "']"
+// Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory
+// State change history
+type Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Old State. The type is VrrpBagProtocolState.
+    OldState interface{}
+
+    // New State. The type is VrrpBagProtocolState.
+    NewState interface{}
+
+    // Reason for state change. The type is VrrpStateChangeReason.
+    Reason interface{}
+
+    // Time of state change.
+    Time Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time
 }
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (stateChangeHistory *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory) GetEntityData() *types.CommonEntityData {
+    stateChangeHistory.EntityData.YFilter = stateChangeHistory.YFilter
+    stateChangeHistory.EntityData.YangName = "state-change-history"
+    stateChangeHistory.EntityData.BundleName = "cisco_ios_xr"
+    stateChangeHistory.EntityData.ParentYangName = "virtual-router"
+    stateChangeHistory.EntityData.SegmentPath = "state-change-history"
+    stateChangeHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateChangeHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateChangeHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    stateChangeHistory.EntityData.Children = make(map[string]types.YChild)
+    stateChangeHistory.EntityData.Children["time"] = types.YChild{"Time", &stateChangeHistory.Time}
+    stateChangeHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateChangeHistory.EntityData.Leafs["old-state"] = types.YLeaf{"OldState", stateChangeHistory.OldState}
+    stateChangeHistory.EntityData.Leafs["new-state"] = types.YLeaf{"NewState", stateChangeHistory.NewState}
+    stateChangeHistory.EntityData.Leafs["reason"] = types.YLeaf{"Reason", stateChangeHistory.Reason}
+    return &(stateChangeHistory.EntityData)
 }
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time
+// Time of state change
+type Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Seconds. The type is interface{} with range: 0..4294967295. Units are
+    // second.
+    Seconds interface{}
+
+    // Nanoseconds. The type is interface{} with range: 0..4294967295. Units are
+    // nanosecond.
+    Nanoseconds interface{}
 }
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = trackItem.InterfaceName
-    leafs["virtual-router-id"] = trackItem.VirtualRouterId
-    leafs["tracked-interface-name"] = trackItem.TrackedInterfaceName
-    leafs["interface"] = trackItem.Interface
-    leafs["virtual-router-id-xr"] = trackItem.VirtualRouterIdXr
-    leafs["tracked-item-type"] = trackItem.TrackedItemType
-    leafs["tracked-item-index"] = trackItem.TrackedItemIndex
-    leafs["state"] = trackItem.State
-    leafs["priority"] = trackItem.Priority
-    return leafs
+func (time *Vrrp_Ipv6_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetEntityData() *types.CommonEntityData {
+    time.EntityData.YFilter = time.YFilter
+    time.EntityData.YangName = "time"
+    time.EntityData.BundleName = "cisco_ios_xr"
+    time.EntityData.ParentYangName = "state-change-history"
+    time.EntityData.SegmentPath = "time"
+    time.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    time.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    time.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    time.EntityData.Children = make(map[string]types.YChild)
+    time.EntityData.Leafs = make(map[string]types.YLeaf)
+    time.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", time.Seconds}
+    time.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", time.Nanoseconds}
+    return &(time.EntityData)
 }
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetBundleName() string { return "cisco_ios_xr" }
+// Vrrp_Ipv6_Interfaces
+// The VRRP interface table
+type Vrrp_Ipv6_Interfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetYangName() string { return "track-item" }
+    // A VRRP interface entry. The type is slice of
+    // Vrrp_Ipv6_Interfaces_Interface_.
+    Interface_ []Vrrp_Ipv6_Interfaces_Interface
+}
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+func (interfaces *Vrrp_Ipv6_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "ipv6"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    }
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
+}
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+// Vrrp_Ipv6_Interfaces_Interface
+// A VRRP interface entry
+type Vrrp_Ipv6_Interfaces_Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) SetParent(parent types.Entity) { trackItem.parent = parent }
+    // This attribute is a key. The name of the interface. The type is string with
+    // pattern: b'[a-zA-Z0-9./-]+'.
+    InterfaceName interface{}
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetParent() types.Entity { return trackItem.parent }
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
 
-func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetParentYangName() string { return "track-items" }
+    // Invalid checksum. The type is interface{} with range: 0..4294967295.
+    InvalidChecksumCount interface{}
+
+    // Unknown/unsupported version. The type is interface{} with range:
+    // 0..4294967295.
+    InvalidVersionCount interface{}
+
+    // Invalid vrID. The type is interface{} with range: 0..4294967295.
+    InvalidVridCount interface{}
+
+    // Bad packet lengths. The type is interface{} with range: 0..4294967295.
+    InvalidPacketLengthCount interface{}
+}
+
+func (self *Vrrp_Ipv6_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["invalid-checksum-count"] = types.YLeaf{"InvalidChecksumCount", self.InvalidChecksumCount}
+    self.EntityData.Leafs["invalid-version-count"] = types.YLeaf{"InvalidVersionCount", self.InvalidVersionCount}
+    self.EntityData.Leafs["invalid-vrid-count"] = types.YLeaf{"InvalidVridCount", self.InvalidVridCount}
+    self.EntityData.Leafs["invalid-packet-length-count"] = types.YLeaf{"InvalidPacketLengthCount", self.InvalidPacketLengthCount}
+    return &(self.EntityData)
+}
+
+// Vrrp_Ipv4
+// IPv4 VRRP configuration
+type Vrrp_Ipv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The VRRP interface table.
+    Interfaces Vrrp_Ipv4_Interfaces
+
+    // The VRRP tracked item table.
+    TrackItems Vrrp_Ipv4_TrackItems
+
+    // The VRRP virtual router table.
+    VirtualRouters Vrrp_Ipv4_VirtualRouters
+}
+
+func (ipv4 *Vrrp_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "vrrp"
+    ipv4.EntityData.SegmentPath = "ipv4"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &ipv4.Interfaces}
+    ipv4.EntityData.Children["track-items"] = types.YChild{"TrackItems", &ipv4.TrackItems}
+    ipv4.EntityData.Children["virtual-routers"] = types.YChild{"VirtualRouters", &ipv4.VirtualRouters}
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4.EntityData)
+}
+
+// Vrrp_Ipv4_Interfaces
+// The VRRP interface table
+type Vrrp_Ipv4_Interfaces struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A VRRP interface entry. The type is slice of
+    // Vrrp_Ipv4_Interfaces_Interface_.
+    Interface_ []Vrrp_Ipv4_Interfaces_Interface
+}
+
+func (interfaces *Vrrp_Ipv4_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "ipv4"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
+    }
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
+}
+
+// Vrrp_Ipv4_Interfaces_Interface
+// A VRRP interface entry
+type Vrrp_Ipv4_Interfaces_Interface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The name of the interface. The type is string with
+    // pattern: b'[a-zA-Z0-9./-]+'.
+    InterfaceName interface{}
+
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
+
+    // Invalid checksum. The type is interface{} with range: 0..4294967295.
+    InvalidChecksumCount interface{}
+
+    // Unknown/unsupported version. The type is interface{} with range:
+    // 0..4294967295.
+    InvalidVersionCount interface{}
+
+    // Invalid vrID. The type is interface{} with range: 0..4294967295.
+    InvalidVridCount interface{}
+
+    // Bad packet lengths. The type is interface{} with range: 0..4294967295.
+    InvalidPacketLengthCount interface{}
+}
+
+func (self *Vrrp_Ipv4_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", self.Interface_}
+    self.EntityData.Leafs["invalid-checksum-count"] = types.YLeaf{"InvalidChecksumCount", self.InvalidChecksumCount}
+    self.EntityData.Leafs["invalid-version-count"] = types.YLeaf{"InvalidVersionCount", self.InvalidVersionCount}
+    self.EntityData.Leafs["invalid-vrid-count"] = types.YLeaf{"InvalidVridCount", self.InvalidVridCount}
+    self.EntityData.Leafs["invalid-packet-length-count"] = types.YLeaf{"InvalidPacketLengthCount", self.InvalidPacketLengthCount}
+    return &(self.EntityData)
+}
+
+// Vrrp_Ipv4_TrackItems
+// The VRRP tracked item table
+type Vrrp_Ipv4_TrackItems struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A configured VRRP IP address entry. The type is slice of
+    // Vrrp_Ipv4_TrackItems_TrackItem.
+    TrackItem []Vrrp_Ipv4_TrackItems_TrackItem
+}
+
+func (trackItems *Vrrp_Ipv4_TrackItems) GetEntityData() *types.CommonEntityData {
+    trackItems.EntityData.YFilter = trackItems.YFilter
+    trackItems.EntityData.YangName = "track-items"
+    trackItems.EntityData.BundleName = "cisco_ios_xr"
+    trackItems.EntityData.ParentYangName = "ipv4"
+    trackItems.EntityData.SegmentPath = "track-items"
+    trackItems.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trackItems.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trackItems.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    trackItems.EntityData.Children = make(map[string]types.YChild)
+    trackItems.EntityData.Children["track-item"] = types.YChild{"TrackItem", nil}
+    for i := range trackItems.TrackItem {
+        trackItems.EntityData.Children[types.GetSegmentPath(&trackItems.TrackItem[i])] = types.YChild{"TrackItem", &trackItems.TrackItem[i]}
+    }
+    trackItems.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trackItems.EntityData)
+}
+
+// Vrrp_Ipv4_TrackItems_TrackItem
+// A configured VRRP IP address entry
+type Vrrp_Ipv4_TrackItems_TrackItem struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // This attribute is a key. The interface name to track. The type is string
+    // with pattern: b'[a-zA-Z0-9./-]+'.
+    InterfaceName interface{}
+
+    // This attribute is a key. The VRRP virtual router id. The type is
+    // interface{} with range: -2147483648..2147483647.
+    VirtualRouterId interface{}
+
+    // This attribute is a key. The name of the tracked interface. The type is
+    // string with pattern: b'[a-zA-Z0-9./-]+'.
+    TrackedInterfaceName interface{}
+
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
+
+    // Virtual Router ID. The type is interface{} with range: 0..4294967295.
+    VirtualRouterIdXr interface{}
+
+    // Type of tracked item. The type is interface{} with range: 0..65535.
+    TrackedItemType interface{}
+
+    // Tracked item index. The type is string with length: 0..32.
+    TrackedItemIndex interface{}
+
+    // State of the tracked item. The type is interface{} with range: 0..255.
+    State interface{}
+
+    // Priority weight of item. The type is interface{} with range: 0..255.
+    Priority interface{}
+}
+
+func (trackItem *Vrrp_Ipv4_TrackItems_TrackItem) GetEntityData() *types.CommonEntityData {
+    trackItem.EntityData.YFilter = trackItem.YFilter
+    trackItem.EntityData.YangName = "track-item"
+    trackItem.EntityData.BundleName = "cisco_ios_xr"
+    trackItem.EntityData.ParentYangName = "track-items"
+    trackItem.EntityData.SegmentPath = "track-item" + "[interface-name='" + fmt.Sprintf("%v", trackItem.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", trackItem.VirtualRouterId) + "']" + "[tracked-interface-name='" + fmt.Sprintf("%v", trackItem.TrackedInterfaceName) + "']"
+    trackItem.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trackItem.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trackItem.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    trackItem.EntityData.Children = make(map[string]types.YChild)
+    trackItem.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackItem.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", trackItem.InterfaceName}
+    trackItem.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", trackItem.VirtualRouterId}
+    trackItem.EntityData.Leafs["tracked-interface-name"] = types.YLeaf{"TrackedInterfaceName", trackItem.TrackedInterfaceName}
+    trackItem.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItem.Interface_}
+    trackItem.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItem.VirtualRouterIdXr}
+    trackItem.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItem.TrackedItemType}
+    trackItem.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItem.TrackedItemIndex}
+    trackItem.EntityData.Leafs["state"] = types.YLeaf{"State", trackItem.State}
+    trackItem.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItem.Priority}
+    return &(trackItem.EntityData)
+}
 
 // Vrrp_Ipv4_VirtualRouters
 // The VRRP virtual router table
 type Vrrp_Ipv4_VirtualRouters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A VRRP virtual router. The type is slice of
@@ -2324,72 +1508,33 @@ type Vrrp_Ipv4_VirtualRouters struct {
     VirtualRouter []Vrrp_Ipv4_VirtualRouters_VirtualRouter
 }
 
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetFilter() yfilter.YFilter { return virtualRouters.YFilter }
+func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetEntityData() *types.CommonEntityData {
+    virtualRouters.EntityData.YFilter = virtualRouters.YFilter
+    virtualRouters.EntityData.YangName = "virtual-routers"
+    virtualRouters.EntityData.BundleName = "cisco_ios_xr"
+    virtualRouters.EntityData.ParentYangName = "ipv4"
+    virtualRouters.EntityData.SegmentPath = "virtual-routers"
+    virtualRouters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    virtualRouters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    virtualRouters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) SetFilter(yf yfilter.YFilter) { virtualRouters.YFilter = yf }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetGoName(yname string) string {
-    if yname == "virtual-router" { return "VirtualRouter" }
-    return ""
-}
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetSegmentPath() string {
-    return "virtual-routers"
-}
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "virtual-router" {
-        for _, c := range virtualRouters.VirtualRouter {
-            if virtualRouters.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv4_VirtualRouters_VirtualRouter{}
-        virtualRouters.VirtualRouter = append(virtualRouters.VirtualRouter, child)
-        return &virtualRouters.VirtualRouter[len(virtualRouters.VirtualRouter)-1]
-    }
-    return nil
-}
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    virtualRouters.EntityData.Children = make(map[string]types.YChild)
+    virtualRouters.EntityData.Children["virtual-router"] = types.YChild{"VirtualRouter", nil}
     for i := range virtualRouters.VirtualRouter {
-        children[virtualRouters.VirtualRouter[i].GetSegmentPath()] = &virtualRouters.VirtualRouter[i]
+        virtualRouters.EntityData.Children[types.GetSegmentPath(&virtualRouters.VirtualRouter[i])] = types.YChild{"VirtualRouter", &virtualRouters.VirtualRouter[i]}
     }
-    return children
+    virtualRouters.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(virtualRouters.EntityData)
 }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetYangName() string { return "virtual-routers" }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) SetParent(parent types.Entity) { virtualRouters.parent = parent }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetParent() types.Entity { return virtualRouters.parent }
-
-func (virtualRouters *Vrrp_Ipv4_VirtualRouters) GetParentYangName() string { return "ipv4" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter
 // A VRRP virtual router
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: [a-zA-Z0-9./-]+.
+    // pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // This attribute is a key. The VRRP virtual router id. The type is
@@ -2429,7 +1574,7 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     OperationalAddressCount interface{}
 
     // Configured IPv4 Primary address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PrimaryVirtualIp interface{}
 
     // Configured but Down VRRP address count. The type is interface{} with range:
@@ -2437,18 +1582,18 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     ConfiguredDownAddressCount interface{}
 
     // Virtual linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     VirtualLinklocalIpv6Address interface{}
 
     // State of primary IP address. The type is VrrpVipState.
     PrimaryState interface{}
 
     // Master router real IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     MasterIpAddress interface{}
 
     // Master router real IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     MasterIpv6Address interface{}
 
     // Master router priority. The type is interface{} with range: 0..255.
@@ -2603,38 +1748,38 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     BfdMultiplier interface{}
 
     // BFD configured remote IP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     BfdCfgRemoteIp interface{}
 
     // BFD configured remote IPv6. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     BfdConfiguredRemoteIpv6Address interface{}
 
     // Whether state recovered from checkpoint. The type is bool.
     StateFromCheckpoint interface{}
 
     // The Interface Primary IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv4Address interface{}
 
     // The Interface linklocal IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     InterfaceIpv6Address interface{}
 
     // Virtual mac address. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     VirtualMacAddress interface{}
 
     // Virtual mac address state. The type is VrrpVmacState.
     VirtualMacAddressState interface{}
 
     // Operational IPv4 VRRP addresses. The type is slice of string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     OperationalAddress []interface{}
 
     // IPv4 Configured but Down VRRP addresses. The type is slice of string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4ConfiguredDownAddress []interface{}
 
     // Time last resign was sent.
@@ -2651,253 +1796,123 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter struct {
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress.
     Ipv6ConfiguredDownAddress []Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
 
+    // Track Item Info. The type is slice of
+    // Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo.
+    TrackItemInfo []Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo
+
     // State change history. The type is slice of
     // Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory.
     StateChangeHistory []Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory
 }
 
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetFilter() yfilter.YFilter { return virtualRouter.YFilter }
+func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetEntityData() *types.CommonEntityData {
+    virtualRouter.EntityData.YFilter = virtualRouter.YFilter
+    virtualRouter.EntityData.YangName = "virtual-router"
+    virtualRouter.EntityData.BundleName = "cisco_ios_xr"
+    virtualRouter.EntityData.ParentYangName = "virtual-routers"
+    virtualRouter.EntityData.SegmentPath = "virtual-router" + "[interface-name='" + fmt.Sprintf("%v", virtualRouter.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", virtualRouter.VirtualRouterId) + "']"
+    virtualRouter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    virtualRouter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    virtualRouter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) SetFilter(yf yfilter.YFilter) { virtualRouter.YFilter = yf }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "virtual-router-id" { return "VirtualRouterId" }
-    if yname == "interface-name-xr" { return "InterfaceNameXr" }
-    if yname == "virtual-router-id-xr" { return "VirtualRouterIdXr" }
-    if yname == "version" { return "Version" }
-    if yname == "address-family" { return "AddressFamily" }
-    if yname == "session-name" { return "SessionName" }
-    if yname == "slaves" { return "Slaves" }
-    if yname == "is-slave" { return "IsSlave" }
-    if yname == "followed-session-name" { return "FollowedSessionName" }
-    if yname == "secondary-address-count" { return "SecondaryAddressCount" }
-    if yname == "operational-address-count" { return "OperationalAddressCount" }
-    if yname == "primary-virtual-ip" { return "PrimaryVirtualIp" }
-    if yname == "configured-down-address-count" { return "ConfiguredDownAddressCount" }
-    if yname == "virtual-linklocal-ipv6-address" { return "VirtualLinklocalIpv6Address" }
-    if yname == "primary-state" { return "PrimaryState" }
-    if yname == "master-ip-address" { return "MasterIpAddress" }
-    if yname == "master-ipv6-address" { return "MasterIpv6Address" }
-    if yname == "master-priority" { return "MasterPriority" }
-    if yname == "vrrp-state" { return "VrrpState" }
-    if yname == "authentication-type" { return "AuthenticationType" }
-    if yname == "authentication-string" { return "AuthenticationString" }
-    if yname == "configured-advertize-time" { return "ConfiguredAdvertizeTime" }
-    if yname == "oper-advertize-time" { return "OperAdvertizeTime" }
-    if yname == "min-delay-time" { return "MinDelayTime" }
-    if yname == "reload-delay-time" { return "ReloadDelayTime" }
-    if yname == "delay-timer-flag" { return "DelayTimerFlag" }
-    if yname == "delay-timer-secs" { return "DelayTimerSecs" }
-    if yname == "delay-timer-msecs" { return "DelayTimerMsecs" }
-    if yname == "authentication-flag" { return "AuthenticationFlag" }
-    if yname == "force-timer-flag" { return "ForceTimerFlag" }
-    if yname == "preempt-flag" { return "PreemptFlag" }
-    if yname == "ip-address-owner-flag" { return "IpAddressOwnerFlag" }
-    if yname == "is-accept-mode" { return "IsAcceptMode" }
-    if yname == "preempt-delay-time" { return "PreemptDelayTime" }
-    if yname == "configured-priority" { return "ConfiguredPriority" }
-    if yname == "operational-priority" { return "OperationalPriority" }
-    if yname == "priority-decrement" { return "PriorityDecrement" }
-    if yname == "tracked-interface-count" { return "TrackedInterfaceCount" }
-    if yname == "tracked-interface-up-count" { return "TrackedInterfaceUpCount" }
-    if yname == "tracked-item-count" { return "TrackedItemCount" }
-    if yname == "tracked-item-up-count" { return "TrackedItemUpCount" }
-    if yname == "time-in-current-state" { return "TimeInCurrentState" }
-    if yname == "state-change-count" { return "StateChangeCount" }
-    if yname == "time-vrouter-up" { return "TimeVrouterUp" }
-    if yname == "master-count" { return "MasterCount" }
-    if yname == "adverts-received-count" { return "AdvertsReceivedCount" }
-    if yname == "advert-interval-error-count" { return "AdvertIntervalErrorCount" }
-    if yname == "adverts-sent-count" { return "AdvertsSentCount" }
-    if yname == "authentication-fail-count" { return "AuthenticationFailCount" }
-    if yname == "ttl-error-count" { return "TtlErrorCount" }
-    if yname == "priority-zero-received-count" { return "PriorityZeroReceivedCount" }
-    if yname == "priority-zero-sent-count" { return "PriorityZeroSentCount" }
-    if yname == "invalid-packet-count" { return "InvalidPacketCount" }
-    if yname == "address-list-error-count" { return "AddressListErrorCount" }
-    if yname == "invalid-auth-type-count" { return "InvalidAuthTypeCount" }
-    if yname == "auth-type-mismatch-count" { return "AuthTypeMismatchCount" }
-    if yname == "pkt-length-errors-count" { return "PktLengthErrorsCount" }
-    if yname == "time-stats-discontinuity" { return "TimeStatsDiscontinuity" }
-    if yname == "bfd-session-state" { return "BfdSessionState" }
-    if yname == "bfd-interval" { return "BfdInterval" }
-    if yname == "bfd-multiplier" { return "BfdMultiplier" }
-    if yname == "bfd-cfg-remote-ip" { return "BfdCfgRemoteIp" }
-    if yname == "bfd-configured-remote-ipv6-address" { return "BfdConfiguredRemoteIpv6Address" }
-    if yname == "state-from-checkpoint" { return "StateFromCheckpoint" }
-    if yname == "interface-ipv4-address" { return "InterfaceIpv4Address" }
-    if yname == "interface-ipv6-address" { return "InterfaceIpv6Address" }
-    if yname == "virtual-mac-address" { return "VirtualMacAddress" }
-    if yname == "virtual-mac-address-state" { return "VirtualMacAddressState" }
-    if yname == "operational-address" { return "OperationalAddress" }
-    if yname == "ipv4-configured-down-address" { return "Ipv4ConfiguredDownAddress" }
-    if yname == "resign-sent-time" { return "ResignSentTime" }
-    if yname == "resign-received-time" { return "ResignReceivedTime" }
-    if yname == "ipv6-operational-address" { return "Ipv6OperationalAddress" }
-    if yname == "ipv6-configured-down-address" { return "Ipv6ConfiguredDownAddress" }
-    if yname == "state-change-history" { return "StateChangeHistory" }
-    return ""
-}
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetSegmentPath() string {
-    return "virtual-router" + "[interface-name='" + fmt.Sprintf("%v", virtualRouter.InterfaceName) + "']" + "[virtual-router-id='" + fmt.Sprintf("%v", virtualRouter.VirtualRouterId) + "']"
-}
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "resign-sent-time" {
-        return &virtualRouter.ResignSentTime
-    }
-    if childYangName == "resign-received-time" {
-        return &virtualRouter.ResignReceivedTime
-    }
-    if childYangName == "ipv6-operational-address" {
-        for _, c := range virtualRouter.Ipv6OperationalAddress {
-            if virtualRouter.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress{}
-        virtualRouter.Ipv6OperationalAddress = append(virtualRouter.Ipv6OperationalAddress, child)
-        return &virtualRouter.Ipv6OperationalAddress[len(virtualRouter.Ipv6OperationalAddress)-1]
-    }
-    if childYangName == "ipv6-configured-down-address" {
-        for _, c := range virtualRouter.Ipv6ConfiguredDownAddress {
-            if virtualRouter.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress{}
-        virtualRouter.Ipv6ConfiguredDownAddress = append(virtualRouter.Ipv6ConfiguredDownAddress, child)
-        return &virtualRouter.Ipv6ConfiguredDownAddress[len(virtualRouter.Ipv6ConfiguredDownAddress)-1]
-    }
-    if childYangName == "state-change-history" {
-        for _, c := range virtualRouter.StateChangeHistory {
-            if virtualRouter.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory{}
-        virtualRouter.StateChangeHistory = append(virtualRouter.StateChangeHistory, child)
-        return &virtualRouter.StateChangeHistory[len(virtualRouter.StateChangeHistory)-1]
-    }
-    return nil
-}
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["resign-sent-time"] = &virtualRouter.ResignSentTime
-    children["resign-received-time"] = &virtualRouter.ResignReceivedTime
+    virtualRouter.EntityData.Children = make(map[string]types.YChild)
+    virtualRouter.EntityData.Children["resign-sent-time"] = types.YChild{"ResignSentTime", &virtualRouter.ResignSentTime}
+    virtualRouter.EntityData.Children["resign-received-time"] = types.YChild{"ResignReceivedTime", &virtualRouter.ResignReceivedTime}
+    virtualRouter.EntityData.Children["ipv6-operational-address"] = types.YChild{"Ipv6OperationalAddress", nil}
     for i := range virtualRouter.Ipv6OperationalAddress {
-        children[virtualRouter.Ipv6OperationalAddress[i].GetSegmentPath()] = &virtualRouter.Ipv6OperationalAddress[i]
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6OperationalAddress[i])] = types.YChild{"Ipv6OperationalAddress", &virtualRouter.Ipv6OperationalAddress[i]}
     }
+    virtualRouter.EntityData.Children["ipv6-configured-down-address"] = types.YChild{"Ipv6ConfiguredDownAddress", nil}
     for i := range virtualRouter.Ipv6ConfiguredDownAddress {
-        children[virtualRouter.Ipv6ConfiguredDownAddress[i].GetSegmentPath()] = &virtualRouter.Ipv6ConfiguredDownAddress[i]
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.Ipv6ConfiguredDownAddress[i])] = types.YChild{"Ipv6ConfiguredDownAddress", &virtualRouter.Ipv6ConfiguredDownAddress[i]}
     }
+    virtualRouter.EntityData.Children["track-item-info"] = types.YChild{"TrackItemInfo", nil}
+    for i := range virtualRouter.TrackItemInfo {
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.TrackItemInfo[i])] = types.YChild{"TrackItemInfo", &virtualRouter.TrackItemInfo[i]}
+    }
+    virtualRouter.EntityData.Children["state-change-history"] = types.YChild{"StateChangeHistory", nil}
     for i := range virtualRouter.StateChangeHistory {
-        children[virtualRouter.StateChangeHistory[i].GetSegmentPath()] = &virtualRouter.StateChangeHistory[i]
+        virtualRouter.EntityData.Children[types.GetSegmentPath(&virtualRouter.StateChangeHistory[i])] = types.YChild{"StateChangeHistory", &virtualRouter.StateChangeHistory[i]}
     }
-    return children
+    virtualRouter.EntityData.Leafs = make(map[string]types.YLeaf)
+    virtualRouter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", virtualRouter.InterfaceName}
+    virtualRouter.EntityData.Leafs["virtual-router-id"] = types.YLeaf{"VirtualRouterId", virtualRouter.VirtualRouterId}
+    virtualRouter.EntityData.Leafs["interface-name-xr"] = types.YLeaf{"InterfaceNameXr", virtualRouter.InterfaceNameXr}
+    virtualRouter.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", virtualRouter.VirtualRouterIdXr}
+    virtualRouter.EntityData.Leafs["version"] = types.YLeaf{"Version", virtualRouter.Version}
+    virtualRouter.EntityData.Leafs["address-family"] = types.YLeaf{"AddressFamily", virtualRouter.AddressFamily}
+    virtualRouter.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", virtualRouter.SessionName}
+    virtualRouter.EntityData.Leafs["slaves"] = types.YLeaf{"Slaves", virtualRouter.Slaves}
+    virtualRouter.EntityData.Leafs["is-slave"] = types.YLeaf{"IsSlave", virtualRouter.IsSlave}
+    virtualRouter.EntityData.Leafs["followed-session-name"] = types.YLeaf{"FollowedSessionName", virtualRouter.FollowedSessionName}
+    virtualRouter.EntityData.Leafs["secondary-address-count"] = types.YLeaf{"SecondaryAddressCount", virtualRouter.SecondaryAddressCount}
+    virtualRouter.EntityData.Leafs["operational-address-count"] = types.YLeaf{"OperationalAddressCount", virtualRouter.OperationalAddressCount}
+    virtualRouter.EntityData.Leafs["primary-virtual-ip"] = types.YLeaf{"PrimaryVirtualIp", virtualRouter.PrimaryVirtualIp}
+    virtualRouter.EntityData.Leafs["configured-down-address-count"] = types.YLeaf{"ConfiguredDownAddressCount", virtualRouter.ConfiguredDownAddressCount}
+    virtualRouter.EntityData.Leafs["virtual-linklocal-ipv6-address"] = types.YLeaf{"VirtualLinklocalIpv6Address", virtualRouter.VirtualLinklocalIpv6Address}
+    virtualRouter.EntityData.Leafs["primary-state"] = types.YLeaf{"PrimaryState", virtualRouter.PrimaryState}
+    virtualRouter.EntityData.Leafs["master-ip-address"] = types.YLeaf{"MasterIpAddress", virtualRouter.MasterIpAddress}
+    virtualRouter.EntityData.Leafs["master-ipv6-address"] = types.YLeaf{"MasterIpv6Address", virtualRouter.MasterIpv6Address}
+    virtualRouter.EntityData.Leafs["master-priority"] = types.YLeaf{"MasterPriority", virtualRouter.MasterPriority}
+    virtualRouter.EntityData.Leafs["vrrp-state"] = types.YLeaf{"VrrpState", virtualRouter.VrrpState}
+    virtualRouter.EntityData.Leafs["authentication-type"] = types.YLeaf{"AuthenticationType", virtualRouter.AuthenticationType}
+    virtualRouter.EntityData.Leafs["authentication-string"] = types.YLeaf{"AuthenticationString", virtualRouter.AuthenticationString}
+    virtualRouter.EntityData.Leafs["configured-advertize-time"] = types.YLeaf{"ConfiguredAdvertizeTime", virtualRouter.ConfiguredAdvertizeTime}
+    virtualRouter.EntityData.Leafs["oper-advertize-time"] = types.YLeaf{"OperAdvertizeTime", virtualRouter.OperAdvertizeTime}
+    virtualRouter.EntityData.Leafs["min-delay-time"] = types.YLeaf{"MinDelayTime", virtualRouter.MinDelayTime}
+    virtualRouter.EntityData.Leafs["reload-delay-time"] = types.YLeaf{"ReloadDelayTime", virtualRouter.ReloadDelayTime}
+    virtualRouter.EntityData.Leafs["delay-timer-flag"] = types.YLeaf{"DelayTimerFlag", virtualRouter.DelayTimerFlag}
+    virtualRouter.EntityData.Leafs["delay-timer-secs"] = types.YLeaf{"DelayTimerSecs", virtualRouter.DelayTimerSecs}
+    virtualRouter.EntityData.Leafs["delay-timer-msecs"] = types.YLeaf{"DelayTimerMsecs", virtualRouter.DelayTimerMsecs}
+    virtualRouter.EntityData.Leafs["authentication-flag"] = types.YLeaf{"AuthenticationFlag", virtualRouter.AuthenticationFlag}
+    virtualRouter.EntityData.Leafs["force-timer-flag"] = types.YLeaf{"ForceTimerFlag", virtualRouter.ForceTimerFlag}
+    virtualRouter.EntityData.Leafs["preempt-flag"] = types.YLeaf{"PreemptFlag", virtualRouter.PreemptFlag}
+    virtualRouter.EntityData.Leafs["ip-address-owner-flag"] = types.YLeaf{"IpAddressOwnerFlag", virtualRouter.IpAddressOwnerFlag}
+    virtualRouter.EntityData.Leafs["is-accept-mode"] = types.YLeaf{"IsAcceptMode", virtualRouter.IsAcceptMode}
+    virtualRouter.EntityData.Leafs["preempt-delay-time"] = types.YLeaf{"PreemptDelayTime", virtualRouter.PreemptDelayTime}
+    virtualRouter.EntityData.Leafs["configured-priority"] = types.YLeaf{"ConfiguredPriority", virtualRouter.ConfiguredPriority}
+    virtualRouter.EntityData.Leafs["operational-priority"] = types.YLeaf{"OperationalPriority", virtualRouter.OperationalPriority}
+    virtualRouter.EntityData.Leafs["priority-decrement"] = types.YLeaf{"PriorityDecrement", virtualRouter.PriorityDecrement}
+    virtualRouter.EntityData.Leafs["tracked-interface-count"] = types.YLeaf{"TrackedInterfaceCount", virtualRouter.TrackedInterfaceCount}
+    virtualRouter.EntityData.Leafs["tracked-interface-up-count"] = types.YLeaf{"TrackedInterfaceUpCount", virtualRouter.TrackedInterfaceUpCount}
+    virtualRouter.EntityData.Leafs["tracked-item-count"] = types.YLeaf{"TrackedItemCount", virtualRouter.TrackedItemCount}
+    virtualRouter.EntityData.Leafs["tracked-item-up-count"] = types.YLeaf{"TrackedItemUpCount", virtualRouter.TrackedItemUpCount}
+    virtualRouter.EntityData.Leafs["time-in-current-state"] = types.YLeaf{"TimeInCurrentState", virtualRouter.TimeInCurrentState}
+    virtualRouter.EntityData.Leafs["state-change-count"] = types.YLeaf{"StateChangeCount", virtualRouter.StateChangeCount}
+    virtualRouter.EntityData.Leafs["time-vrouter-up"] = types.YLeaf{"TimeVrouterUp", virtualRouter.TimeVrouterUp}
+    virtualRouter.EntityData.Leafs["master-count"] = types.YLeaf{"MasterCount", virtualRouter.MasterCount}
+    virtualRouter.EntityData.Leafs["adverts-received-count"] = types.YLeaf{"AdvertsReceivedCount", virtualRouter.AdvertsReceivedCount}
+    virtualRouter.EntityData.Leafs["advert-interval-error-count"] = types.YLeaf{"AdvertIntervalErrorCount", virtualRouter.AdvertIntervalErrorCount}
+    virtualRouter.EntityData.Leafs["adverts-sent-count"] = types.YLeaf{"AdvertsSentCount", virtualRouter.AdvertsSentCount}
+    virtualRouter.EntityData.Leafs["authentication-fail-count"] = types.YLeaf{"AuthenticationFailCount", virtualRouter.AuthenticationFailCount}
+    virtualRouter.EntityData.Leafs["ttl-error-count"] = types.YLeaf{"TtlErrorCount", virtualRouter.TtlErrorCount}
+    virtualRouter.EntityData.Leafs["priority-zero-received-count"] = types.YLeaf{"PriorityZeroReceivedCount", virtualRouter.PriorityZeroReceivedCount}
+    virtualRouter.EntityData.Leafs["priority-zero-sent-count"] = types.YLeaf{"PriorityZeroSentCount", virtualRouter.PriorityZeroSentCount}
+    virtualRouter.EntityData.Leafs["invalid-packet-count"] = types.YLeaf{"InvalidPacketCount", virtualRouter.InvalidPacketCount}
+    virtualRouter.EntityData.Leafs["address-list-error-count"] = types.YLeaf{"AddressListErrorCount", virtualRouter.AddressListErrorCount}
+    virtualRouter.EntityData.Leafs["invalid-auth-type-count"] = types.YLeaf{"InvalidAuthTypeCount", virtualRouter.InvalidAuthTypeCount}
+    virtualRouter.EntityData.Leafs["auth-type-mismatch-count"] = types.YLeaf{"AuthTypeMismatchCount", virtualRouter.AuthTypeMismatchCount}
+    virtualRouter.EntityData.Leafs["pkt-length-errors-count"] = types.YLeaf{"PktLengthErrorsCount", virtualRouter.PktLengthErrorsCount}
+    virtualRouter.EntityData.Leafs["time-stats-discontinuity"] = types.YLeaf{"TimeStatsDiscontinuity", virtualRouter.TimeStatsDiscontinuity}
+    virtualRouter.EntityData.Leafs["bfd-session-state"] = types.YLeaf{"BfdSessionState", virtualRouter.BfdSessionState}
+    virtualRouter.EntityData.Leafs["bfd-interval"] = types.YLeaf{"BfdInterval", virtualRouter.BfdInterval}
+    virtualRouter.EntityData.Leafs["bfd-multiplier"] = types.YLeaf{"BfdMultiplier", virtualRouter.BfdMultiplier}
+    virtualRouter.EntityData.Leafs["bfd-cfg-remote-ip"] = types.YLeaf{"BfdCfgRemoteIp", virtualRouter.BfdCfgRemoteIp}
+    virtualRouter.EntityData.Leafs["bfd-configured-remote-ipv6-address"] = types.YLeaf{"BfdConfiguredRemoteIpv6Address", virtualRouter.BfdConfiguredRemoteIpv6Address}
+    virtualRouter.EntityData.Leafs["state-from-checkpoint"] = types.YLeaf{"StateFromCheckpoint", virtualRouter.StateFromCheckpoint}
+    virtualRouter.EntityData.Leafs["interface-ipv4-address"] = types.YLeaf{"InterfaceIpv4Address", virtualRouter.InterfaceIpv4Address}
+    virtualRouter.EntityData.Leafs["interface-ipv6-address"] = types.YLeaf{"InterfaceIpv6Address", virtualRouter.InterfaceIpv6Address}
+    virtualRouter.EntityData.Leafs["virtual-mac-address"] = types.YLeaf{"VirtualMacAddress", virtualRouter.VirtualMacAddress}
+    virtualRouter.EntityData.Leafs["virtual-mac-address-state"] = types.YLeaf{"VirtualMacAddressState", virtualRouter.VirtualMacAddressState}
+    virtualRouter.EntityData.Leafs["operational-address"] = types.YLeaf{"OperationalAddress", virtualRouter.OperationalAddress}
+    virtualRouter.EntityData.Leafs["ipv4-configured-down-address"] = types.YLeaf{"Ipv4ConfiguredDownAddress", virtualRouter.Ipv4ConfiguredDownAddress}
+    return &(virtualRouter.EntityData)
 }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = virtualRouter.InterfaceName
-    leafs["virtual-router-id"] = virtualRouter.VirtualRouterId
-    leafs["interface-name-xr"] = virtualRouter.InterfaceNameXr
-    leafs["virtual-router-id-xr"] = virtualRouter.VirtualRouterIdXr
-    leafs["version"] = virtualRouter.Version
-    leafs["address-family"] = virtualRouter.AddressFamily
-    leafs["session-name"] = virtualRouter.SessionName
-    leafs["slaves"] = virtualRouter.Slaves
-    leafs["is-slave"] = virtualRouter.IsSlave
-    leafs["followed-session-name"] = virtualRouter.FollowedSessionName
-    leafs["secondary-address-count"] = virtualRouter.SecondaryAddressCount
-    leafs["operational-address-count"] = virtualRouter.OperationalAddressCount
-    leafs["primary-virtual-ip"] = virtualRouter.PrimaryVirtualIp
-    leafs["configured-down-address-count"] = virtualRouter.ConfiguredDownAddressCount
-    leafs["virtual-linklocal-ipv6-address"] = virtualRouter.VirtualLinklocalIpv6Address
-    leafs["primary-state"] = virtualRouter.PrimaryState
-    leafs["master-ip-address"] = virtualRouter.MasterIpAddress
-    leafs["master-ipv6-address"] = virtualRouter.MasterIpv6Address
-    leafs["master-priority"] = virtualRouter.MasterPriority
-    leafs["vrrp-state"] = virtualRouter.VrrpState
-    leafs["authentication-type"] = virtualRouter.AuthenticationType
-    leafs["authentication-string"] = virtualRouter.AuthenticationString
-    leafs["configured-advertize-time"] = virtualRouter.ConfiguredAdvertizeTime
-    leafs["oper-advertize-time"] = virtualRouter.OperAdvertizeTime
-    leafs["min-delay-time"] = virtualRouter.MinDelayTime
-    leafs["reload-delay-time"] = virtualRouter.ReloadDelayTime
-    leafs["delay-timer-flag"] = virtualRouter.DelayTimerFlag
-    leafs["delay-timer-secs"] = virtualRouter.DelayTimerSecs
-    leafs["delay-timer-msecs"] = virtualRouter.DelayTimerMsecs
-    leafs["authentication-flag"] = virtualRouter.AuthenticationFlag
-    leafs["force-timer-flag"] = virtualRouter.ForceTimerFlag
-    leafs["preempt-flag"] = virtualRouter.PreemptFlag
-    leafs["ip-address-owner-flag"] = virtualRouter.IpAddressOwnerFlag
-    leafs["is-accept-mode"] = virtualRouter.IsAcceptMode
-    leafs["preempt-delay-time"] = virtualRouter.PreemptDelayTime
-    leafs["configured-priority"] = virtualRouter.ConfiguredPriority
-    leafs["operational-priority"] = virtualRouter.OperationalPriority
-    leafs["priority-decrement"] = virtualRouter.PriorityDecrement
-    leafs["tracked-interface-count"] = virtualRouter.TrackedInterfaceCount
-    leafs["tracked-interface-up-count"] = virtualRouter.TrackedInterfaceUpCount
-    leafs["tracked-item-count"] = virtualRouter.TrackedItemCount
-    leafs["tracked-item-up-count"] = virtualRouter.TrackedItemUpCount
-    leafs["time-in-current-state"] = virtualRouter.TimeInCurrentState
-    leafs["state-change-count"] = virtualRouter.StateChangeCount
-    leafs["time-vrouter-up"] = virtualRouter.TimeVrouterUp
-    leafs["master-count"] = virtualRouter.MasterCount
-    leafs["adverts-received-count"] = virtualRouter.AdvertsReceivedCount
-    leafs["advert-interval-error-count"] = virtualRouter.AdvertIntervalErrorCount
-    leafs["adverts-sent-count"] = virtualRouter.AdvertsSentCount
-    leafs["authentication-fail-count"] = virtualRouter.AuthenticationFailCount
-    leafs["ttl-error-count"] = virtualRouter.TtlErrorCount
-    leafs["priority-zero-received-count"] = virtualRouter.PriorityZeroReceivedCount
-    leafs["priority-zero-sent-count"] = virtualRouter.PriorityZeroSentCount
-    leafs["invalid-packet-count"] = virtualRouter.InvalidPacketCount
-    leafs["address-list-error-count"] = virtualRouter.AddressListErrorCount
-    leafs["invalid-auth-type-count"] = virtualRouter.InvalidAuthTypeCount
-    leafs["auth-type-mismatch-count"] = virtualRouter.AuthTypeMismatchCount
-    leafs["pkt-length-errors-count"] = virtualRouter.PktLengthErrorsCount
-    leafs["time-stats-discontinuity"] = virtualRouter.TimeStatsDiscontinuity
-    leafs["bfd-session-state"] = virtualRouter.BfdSessionState
-    leafs["bfd-interval"] = virtualRouter.BfdInterval
-    leafs["bfd-multiplier"] = virtualRouter.BfdMultiplier
-    leafs["bfd-cfg-remote-ip"] = virtualRouter.BfdCfgRemoteIp
-    leafs["bfd-configured-remote-ipv6-address"] = virtualRouter.BfdConfiguredRemoteIpv6Address
-    leafs["state-from-checkpoint"] = virtualRouter.StateFromCheckpoint
-    leafs["interface-ipv4-address"] = virtualRouter.InterfaceIpv4Address
-    leafs["interface-ipv6-address"] = virtualRouter.InterfaceIpv6Address
-    leafs["virtual-mac-address"] = virtualRouter.VirtualMacAddress
-    leafs["virtual-mac-address-state"] = virtualRouter.VirtualMacAddressState
-    leafs["operational-address"] = virtualRouter.OperationalAddress
-    leafs["ipv4-configured-down-address"] = virtualRouter.Ipv4ConfiguredDownAddress
-    return leafs
-}
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetYangName() string { return "virtual-router" }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) SetParent(parent types.Entity) { virtualRouter.parent = parent }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetParent() types.Entity { return virtualRouter.parent }
-
-func (virtualRouter *Vrrp_Ipv4_VirtualRouters_VirtualRouter) GetParentYangName() string { return "virtual-routers" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime
 // Time last resign was sent
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Seconds. The type is interface{} with range: 0..4294967295. Units are
@@ -2909,58 +1924,27 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime struct {
     Nanoseconds interface{}
 }
 
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetFilter() yfilter.YFilter { return resignSentTime.YFilter }
+func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetEntityData() *types.CommonEntityData {
+    resignSentTime.EntityData.YFilter = resignSentTime.YFilter
+    resignSentTime.EntityData.YangName = "resign-sent-time"
+    resignSentTime.EntityData.BundleName = "cisco_ios_xr"
+    resignSentTime.EntityData.ParentYangName = "virtual-router"
+    resignSentTime.EntityData.SegmentPath = "resign-sent-time"
+    resignSentTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    resignSentTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    resignSentTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) SetFilter(yf yfilter.YFilter) { resignSentTime.YFilter = yf }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "nanoseconds" { return "Nanoseconds" }
-    return ""
+    resignSentTime.EntityData.Children = make(map[string]types.YChild)
+    resignSentTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    resignSentTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignSentTime.Seconds}
+    resignSentTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignSentTime.Nanoseconds}
+    return &(resignSentTime.EntityData)
 }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetSegmentPath() string {
-    return "resign-sent-time"
-}
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = resignSentTime.Seconds
-    leafs["nanoseconds"] = resignSentTime.Nanoseconds
-    return leafs
-}
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetYangName() string { return "resign-sent-time" }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) SetParent(parent types.Entity) { resignSentTime.parent = parent }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetParent() types.Entity { return resignSentTime.parent }
-
-func (resignSentTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignSentTime) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime
 // Time last resign was received
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Seconds. The type is interface{} with range: 0..4294967295. Units are
@@ -2972,172 +1956,127 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime struct {
     Nanoseconds interface{}
 }
 
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetFilter() yfilter.YFilter { return resignReceivedTime.YFilter }
+func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetEntityData() *types.CommonEntityData {
+    resignReceivedTime.EntityData.YFilter = resignReceivedTime.YFilter
+    resignReceivedTime.EntityData.YangName = "resign-received-time"
+    resignReceivedTime.EntityData.BundleName = "cisco_ios_xr"
+    resignReceivedTime.EntityData.ParentYangName = "virtual-router"
+    resignReceivedTime.EntityData.SegmentPath = "resign-received-time"
+    resignReceivedTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    resignReceivedTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    resignReceivedTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) SetFilter(yf yfilter.YFilter) { resignReceivedTime.YFilter = yf }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "nanoseconds" { return "Nanoseconds" }
-    return ""
+    resignReceivedTime.EntityData.Children = make(map[string]types.YChild)
+    resignReceivedTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    resignReceivedTime.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", resignReceivedTime.Seconds}
+    resignReceivedTime.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", resignReceivedTime.Nanoseconds}
+    return &(resignReceivedTime.EntityData)
 }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetSegmentPath() string {
-    return "resign-received-time"
-}
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = resignReceivedTime.Seconds
-    leafs["nanoseconds"] = resignReceivedTime.Nanoseconds
-    return leafs
-}
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetYangName() string { return "resign-received-time" }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) SetParent(parent types.Entity) { resignReceivedTime.parent = parent }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetParent() types.Entity { return resignReceivedTime.parent }
-
-func (resignReceivedTime *Vrrp_Ipv4_VirtualRouters_VirtualRouter_ResignReceivedTime) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress
 // IPv6 Operational VRRP addresses
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetFilter() yfilter.YFilter { return ipv6OperationalAddress.YFilter }
+func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetEntityData() *types.CommonEntityData {
+    ipv6OperationalAddress.EntityData.YFilter = ipv6OperationalAddress.YFilter
+    ipv6OperationalAddress.EntityData.YangName = "ipv6-operational-address"
+    ipv6OperationalAddress.EntityData.BundleName = "cisco_ios_xr"
+    ipv6OperationalAddress.EntityData.ParentYangName = "virtual-router"
+    ipv6OperationalAddress.EntityData.SegmentPath = "ipv6-operational-address"
+    ipv6OperationalAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6OperationalAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6OperationalAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) SetFilter(yf yfilter.YFilter) { ipv6OperationalAddress.YFilter = yf }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    ipv6OperationalAddress.EntityData.Children = make(map[string]types.YChild)
+    ipv6OperationalAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6OperationalAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6OperationalAddress.Ipv6Address}
+    return &(ipv6OperationalAddress.EntityData)
 }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetSegmentPath() string {
-    return "ipv6-operational-address"
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6OperationalAddress.Ipv6Address
-    return leafs
-}
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetYangName() string { return "ipv6-operational-address" }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) SetParent(parent types.Entity) { ipv6OperationalAddress.parent = parent }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetParent() types.Entity { return ipv6OperationalAddress.parent }
-
-func (ipv6OperationalAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6OperationalAddress) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress
 // IPv6 Configured but Down VRRP addresses
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPV6Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetFilter() yfilter.YFilter { return ipv6ConfiguredDownAddress.YFilter }
+func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetEntityData() *types.CommonEntityData {
+    ipv6ConfiguredDownAddress.EntityData.YFilter = ipv6ConfiguredDownAddress.YFilter
+    ipv6ConfiguredDownAddress.EntityData.YangName = "ipv6-configured-down-address"
+    ipv6ConfiguredDownAddress.EntityData.BundleName = "cisco_ios_xr"
+    ipv6ConfiguredDownAddress.EntityData.ParentYangName = "virtual-router"
+    ipv6ConfiguredDownAddress.EntityData.SegmentPath = "ipv6-configured-down-address"
+    ipv6ConfiguredDownAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6ConfiguredDownAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6ConfiguredDownAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) SetFilter(yf yfilter.YFilter) { ipv6ConfiguredDownAddress.YFilter = yf }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    ipv6ConfiguredDownAddress.EntityData.Children = make(map[string]types.YChild)
+    ipv6ConfiguredDownAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6ConfiguredDownAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", ipv6ConfiguredDownAddress.Ipv6Address}
+    return &(ipv6ConfiguredDownAddress.EntityData)
 }
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetSegmentPath() string {
-    return "ipv6-configured-down-address"
+// Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo
+// Track Item Info
+type Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // IM Interface. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
+    Interface_ interface{}
+
+    // Virtual Router ID. The type is interface{} with range: 0..4294967295.
+    VirtualRouterIdXr interface{}
+
+    // Type of tracked item. The type is interface{} with range: 0..65535.
+    TrackedItemType interface{}
+
+    // Tracked item index. The type is string with length: 0..32.
+    TrackedItemIndex interface{}
+
+    // State of the tracked item. The type is interface{} with range: 0..255.
+    State interface{}
+
+    // Priority weight of item. The type is interface{} with range: 0..255.
+    Priority interface{}
 }
 
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (trackItemInfo *Vrrp_Ipv4_VirtualRouters_VirtualRouter_TrackItemInfo) GetEntityData() *types.CommonEntityData {
+    trackItemInfo.EntityData.YFilter = trackItemInfo.YFilter
+    trackItemInfo.EntityData.YangName = "track-item-info"
+    trackItemInfo.EntityData.BundleName = "cisco_ios_xr"
+    trackItemInfo.EntityData.ParentYangName = "virtual-router"
+    trackItemInfo.EntityData.SegmentPath = "track-item-info"
+    trackItemInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trackItemInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trackItemInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    trackItemInfo.EntityData.Children = make(map[string]types.YChild)
+    trackItemInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    trackItemInfo.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", trackItemInfo.Interface_}
+    trackItemInfo.EntityData.Leafs["virtual-router-id-xr"] = types.YLeaf{"VirtualRouterIdXr", trackItemInfo.VirtualRouterIdXr}
+    trackItemInfo.EntityData.Leafs["tracked-item-type"] = types.YLeaf{"TrackedItemType", trackItemInfo.TrackedItemType}
+    trackItemInfo.EntityData.Leafs["tracked-item-index"] = types.YLeaf{"TrackedItemIndex", trackItemInfo.TrackedItemIndex}
+    trackItemInfo.EntityData.Leafs["state"] = types.YLeaf{"State", trackItemInfo.State}
+    trackItemInfo.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trackItemInfo.Priority}
+    return &(trackItemInfo.EntityData)
 }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipv6-address"] = ipv6ConfiguredDownAddress.Ipv6Address
-    return leafs
-}
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetYangName() string { return "ipv6-configured-down-address" }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) SetParent(parent types.Entity) { ipv6ConfiguredDownAddress.parent = parent }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetParent() types.Entity { return ipv6ConfiguredDownAddress.parent }
-
-func (ipv6ConfiguredDownAddress *Vrrp_Ipv4_VirtualRouters_VirtualRouter_Ipv6ConfiguredDownAddress) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory
 // State change history
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Old State. The type is VrrpBagProtocolState.
@@ -3153,65 +2092,29 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory struct {
     Time Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time
 }
 
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetFilter() yfilter.YFilter { return stateChangeHistory.YFilter }
+func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetEntityData() *types.CommonEntityData {
+    stateChangeHistory.EntityData.YFilter = stateChangeHistory.YFilter
+    stateChangeHistory.EntityData.YangName = "state-change-history"
+    stateChangeHistory.EntityData.BundleName = "cisco_ios_xr"
+    stateChangeHistory.EntityData.ParentYangName = "virtual-router"
+    stateChangeHistory.EntityData.SegmentPath = "state-change-history"
+    stateChangeHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stateChangeHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stateChangeHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) SetFilter(yf yfilter.YFilter) { stateChangeHistory.YFilter = yf }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetGoName(yname string) string {
-    if yname == "old-state" { return "OldState" }
-    if yname == "new-state" { return "NewState" }
-    if yname == "reason" { return "Reason" }
-    if yname == "time" { return "Time" }
-    return ""
+    stateChangeHistory.EntityData.Children = make(map[string]types.YChild)
+    stateChangeHistory.EntityData.Children["time"] = types.YChild{"Time", &stateChangeHistory.Time}
+    stateChangeHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    stateChangeHistory.EntityData.Leafs["old-state"] = types.YLeaf{"OldState", stateChangeHistory.OldState}
+    stateChangeHistory.EntityData.Leafs["new-state"] = types.YLeaf{"NewState", stateChangeHistory.NewState}
+    stateChangeHistory.EntityData.Leafs["reason"] = types.YLeaf{"Reason", stateChangeHistory.Reason}
+    return &(stateChangeHistory.EntityData)
 }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetSegmentPath() string {
-    return "state-change-history"
-}
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "time" {
-        return &stateChangeHistory.Time
-    }
-    return nil
-}
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["time"] = &stateChangeHistory.Time
-    return children
-}
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["old-state"] = stateChangeHistory.OldState
-    leafs["new-state"] = stateChangeHistory.NewState
-    leafs["reason"] = stateChangeHistory.Reason
-    return leafs
-}
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetYangName() string { return "state-change-history" }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) SetParent(parent types.Entity) { stateChangeHistory.parent = parent }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetParent() types.Entity { return stateChangeHistory.parent }
-
-func (stateChangeHistory *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory) GetParentYangName() string { return "virtual-router" }
 
 // Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time
 // Time of state change
 type Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Seconds. The type is interface{} with range: 0..4294967295. Units are
@@ -3223,137 +2126,67 @@ type Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time struct {
     Nanoseconds interface{}
 }
 
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetFilter() yfilter.YFilter { return time.YFilter }
+func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetEntityData() *types.CommonEntityData {
+    time.EntityData.YFilter = time.YFilter
+    time.EntityData.YangName = "time"
+    time.EntityData.BundleName = "cisco_ios_xr"
+    time.EntityData.ParentYangName = "state-change-history"
+    time.EntityData.SegmentPath = "time"
+    time.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    time.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    time.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) SetFilter(yf yfilter.YFilter) { time.YFilter = yf }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "nanoseconds" { return "Nanoseconds" }
-    return ""
+    time.EntityData.Children = make(map[string]types.YChild)
+    time.EntityData.Leafs = make(map[string]types.YLeaf)
+    time.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", time.Seconds}
+    time.EntityData.Leafs["nanoseconds"] = types.YLeaf{"Nanoseconds", time.Nanoseconds}
+    return &(time.EntityData)
 }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetSegmentPath() string {
-    return "time"
-}
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = time.Seconds
-    leafs["nanoseconds"] = time.Nanoseconds
-    return leafs
-}
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetBundleName() string { return "cisco_ios_xr" }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetYangName() string { return "time" }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) SetParent(parent types.Entity) { time.parent = parent }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetParent() types.Entity { return time.parent }
-
-func (time *Vrrp_Ipv4_VirtualRouters_VirtualRouter_StateChangeHistory_Time) GetParentYangName() string { return "state-change-history" }
 
 // Vrrp_MgoSessions
 // VRRP MGO Session information
 type Vrrp_MgoSessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A VRRP MGO Session. The type is slice of Vrrp_MgoSessions_MgoSession.
     MgoSession []Vrrp_MgoSessions_MgoSession
 }
 
-func (mgoSessions *Vrrp_MgoSessions) GetFilter() yfilter.YFilter { return mgoSessions.YFilter }
+func (mgoSessions *Vrrp_MgoSessions) GetEntityData() *types.CommonEntityData {
+    mgoSessions.EntityData.YFilter = mgoSessions.YFilter
+    mgoSessions.EntityData.YangName = "mgo-sessions"
+    mgoSessions.EntityData.BundleName = "cisco_ios_xr"
+    mgoSessions.EntityData.ParentYangName = "vrrp"
+    mgoSessions.EntityData.SegmentPath = "mgo-sessions"
+    mgoSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mgoSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mgoSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mgoSessions *Vrrp_MgoSessions) SetFilter(yf yfilter.YFilter) { mgoSessions.YFilter = yf }
-
-func (mgoSessions *Vrrp_MgoSessions) GetGoName(yname string) string {
-    if yname == "mgo-session" { return "MgoSession" }
-    return ""
-}
-
-func (mgoSessions *Vrrp_MgoSessions) GetSegmentPath() string {
-    return "mgo-sessions"
-}
-
-func (mgoSessions *Vrrp_MgoSessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mgo-session" {
-        for _, c := range mgoSessions.MgoSession {
-            if mgoSessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_MgoSessions_MgoSession{}
-        mgoSessions.MgoSession = append(mgoSessions.MgoSession, child)
-        return &mgoSessions.MgoSession[len(mgoSessions.MgoSession)-1]
-    }
-    return nil
-}
-
-func (mgoSessions *Vrrp_MgoSessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mgoSessions.EntityData.Children = make(map[string]types.YChild)
+    mgoSessions.EntityData.Children["mgo-session"] = types.YChild{"MgoSession", nil}
     for i := range mgoSessions.MgoSession {
-        children[mgoSessions.MgoSession[i].GetSegmentPath()] = &mgoSessions.MgoSession[i]
+        mgoSessions.EntityData.Children[types.GetSegmentPath(&mgoSessions.MgoSession[i])] = types.YChild{"MgoSession", &mgoSessions.MgoSession[i]}
     }
-    return children
+    mgoSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mgoSessions.EntityData)
 }
-
-func (mgoSessions *Vrrp_MgoSessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mgoSessions *Vrrp_MgoSessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mgoSessions *Vrrp_MgoSessions) GetYangName() string { return "mgo-sessions" }
-
-func (mgoSessions *Vrrp_MgoSessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mgoSessions *Vrrp_MgoSessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mgoSessions *Vrrp_MgoSessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mgoSessions *Vrrp_MgoSessions) SetParent(parent types.Entity) { mgoSessions.parent = parent }
-
-func (mgoSessions *Vrrp_MgoSessions) GetParent() types.Entity { return mgoSessions.parent }
-
-func (mgoSessions *Vrrp_MgoSessions) GetParentYangName() string { return "vrrp" }
 
 // Vrrp_MgoSessions_MgoSession
 // A VRRP MGO Session
 type Vrrp_MgoSessions_MgoSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the session. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SessionName interface{}
 
     // Session Name. The type is string with length: 0..16.
     PrimarySessionName interface{}
 
     // Interface of primary session. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     PrimarySessionInterface interface{}
 
     // Address family of primary session. The type is VrrpBAf.
@@ -3370,80 +2203,35 @@ type Vrrp_MgoSessions_MgoSession struct {
     Slave []Vrrp_MgoSessions_MgoSession_Slave
 }
 
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetFilter() yfilter.YFilter { return mgoSession.YFilter }
+func (mgoSession *Vrrp_MgoSessions_MgoSession) GetEntityData() *types.CommonEntityData {
+    mgoSession.EntityData.YFilter = mgoSession.YFilter
+    mgoSession.EntityData.YangName = "mgo-session"
+    mgoSession.EntityData.BundleName = "cisco_ios_xr"
+    mgoSession.EntityData.ParentYangName = "mgo-sessions"
+    mgoSession.EntityData.SegmentPath = "mgo-session" + "[session-name='" + fmt.Sprintf("%v", mgoSession.SessionName) + "']"
+    mgoSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mgoSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mgoSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mgoSession *Vrrp_MgoSessions_MgoSession) SetFilter(yf yfilter.YFilter) { mgoSession.YFilter = yf }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetGoName(yname string) string {
-    if yname == "session-name" { return "SessionName" }
-    if yname == "primary-session-name" { return "PrimarySessionName" }
-    if yname == "primary-session-interface" { return "PrimarySessionInterface" }
-    if yname == "primary-af-name" { return "PrimaryAfName" }
-    if yname == "primary-session-number" { return "PrimarySessionNumber" }
-    if yname == "primary-session-state" { return "PrimarySessionState" }
-    if yname == "slave" { return "Slave" }
-    return ""
-}
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetSegmentPath() string {
-    return "mgo-session" + "[session-name='" + fmt.Sprintf("%v", mgoSession.SessionName) + "']"
-}
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slave" {
-        for _, c := range mgoSession.Slave {
-            if mgoSession.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Vrrp_MgoSessions_MgoSession_Slave{}
-        mgoSession.Slave = append(mgoSession.Slave, child)
-        return &mgoSession.Slave[len(mgoSession.Slave)-1]
-    }
-    return nil
-}
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mgoSession.EntityData.Children = make(map[string]types.YChild)
+    mgoSession.EntityData.Children["slave"] = types.YChild{"Slave", nil}
     for i := range mgoSession.Slave {
-        children[mgoSession.Slave[i].GetSegmentPath()] = &mgoSession.Slave[i]
+        mgoSession.EntityData.Children[types.GetSegmentPath(&mgoSession.Slave[i])] = types.YChild{"Slave", &mgoSession.Slave[i]}
     }
-    return children
+    mgoSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    mgoSession.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", mgoSession.SessionName}
+    mgoSession.EntityData.Leafs["primary-session-name"] = types.YLeaf{"PrimarySessionName", mgoSession.PrimarySessionName}
+    mgoSession.EntityData.Leafs["primary-session-interface"] = types.YLeaf{"PrimarySessionInterface", mgoSession.PrimarySessionInterface}
+    mgoSession.EntityData.Leafs["primary-af-name"] = types.YLeaf{"PrimaryAfName", mgoSession.PrimaryAfName}
+    mgoSession.EntityData.Leafs["primary-session-number"] = types.YLeaf{"PrimarySessionNumber", mgoSession.PrimarySessionNumber}
+    mgoSession.EntityData.Leafs["primary-session-state"] = types.YLeaf{"PrimarySessionState", mgoSession.PrimarySessionState}
+    return &(mgoSession.EntityData)
 }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-name"] = mgoSession.SessionName
-    leafs["primary-session-name"] = mgoSession.PrimarySessionName
-    leafs["primary-session-interface"] = mgoSession.PrimarySessionInterface
-    leafs["primary-af-name"] = mgoSession.PrimaryAfName
-    leafs["primary-session-number"] = mgoSession.PrimarySessionNumber
-    leafs["primary-session-state"] = mgoSession.PrimarySessionState
-    return leafs
-}
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetYangName() string { return "mgo-session" }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) SetParent(parent types.Entity) { mgoSession.parent = parent }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetParent() types.Entity { return mgoSession.parent }
-
-func (mgoSession *Vrrp_MgoSessions_MgoSession) GetParentYangName() string { return "mgo-sessions" }
 
 // Vrrp_MgoSessions_MgoSession_Slave
 // List of slaves following this primary session
 type Vrrp_MgoSessions_MgoSession_Slave struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface of slave. The type is string with length: 0..64.
@@ -3453,51 +2241,20 @@ type Vrrp_MgoSessions_MgoSession_Slave struct {
     SlaveVirtualRouterId interface{}
 }
 
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetFilter() yfilter.YFilter { return slave.YFilter }
+func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetEntityData() *types.CommonEntityData {
+    slave.EntityData.YFilter = slave.YFilter
+    slave.EntityData.YangName = "slave"
+    slave.EntityData.BundleName = "cisco_ios_xr"
+    slave.EntityData.ParentYangName = "mgo-session"
+    slave.EntityData.SegmentPath = "slave"
+    slave.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slave.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slave.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) SetFilter(yf yfilter.YFilter) { slave.YFilter = yf }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetGoName(yname string) string {
-    if yname == "slave-interface" { return "SlaveInterface" }
-    if yname == "slave-virtual-router-id" { return "SlaveVirtualRouterId" }
-    return ""
+    slave.EntityData.Children = make(map[string]types.YChild)
+    slave.EntityData.Leafs = make(map[string]types.YLeaf)
+    slave.EntityData.Leafs["slave-interface"] = types.YLeaf{"SlaveInterface", slave.SlaveInterface}
+    slave.EntityData.Leafs["slave-virtual-router-id"] = types.YLeaf{"SlaveVirtualRouterId", slave.SlaveVirtualRouterId}
+    return &(slave.EntityData)
 }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetSegmentPath() string {
-    return "slave"
-}
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slave-interface"] = slave.SlaveInterface
-    leafs["slave-virtual-router-id"] = slave.SlaveVirtualRouterId
-    return leafs
-}
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetYangName() string { return "slave" }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) SetParent(parent types.Entity) { slave.parent = parent }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetParent() types.Entity { return slave.parent }
-
-func (slave *Vrrp_MgoSessions_MgoSession_Slave) GetParentYangName() string { return "mgo-session" }
 

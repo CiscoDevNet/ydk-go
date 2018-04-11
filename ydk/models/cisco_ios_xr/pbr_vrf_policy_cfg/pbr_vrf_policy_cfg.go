@@ -27,203 +27,94 @@ func init() {
 // VrfPolicy
 // VRF Policy PBR configuration
 type VrfPolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF Name. The type is slice of VrfPolicy_Vrf.
     Vrf []VrfPolicy_Vrf
 }
 
-func (vrfPolicy *VrfPolicy) GetFilter() yfilter.YFilter { return vrfPolicy.YFilter }
+func (vrfPolicy *VrfPolicy) GetEntityData() *types.CommonEntityData {
+    vrfPolicy.EntityData.YFilter = vrfPolicy.YFilter
+    vrfPolicy.EntityData.YangName = "vrf-policy"
+    vrfPolicy.EntityData.BundleName = "cisco_ios_xr"
+    vrfPolicy.EntityData.ParentYangName = "Cisco-IOS-XR-pbr-vrf-policy-cfg"
+    vrfPolicy.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy"
+    vrfPolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrfPolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrfPolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrfPolicy *VrfPolicy) SetFilter(yf yfilter.YFilter) { vrfPolicy.YFilter = yf }
-
-func (vrfPolicy *VrfPolicy) GetGoName(yname string) string {
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (vrfPolicy *VrfPolicy) GetSegmentPath() string {
-    return "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy"
-}
-
-func (vrfPolicy *VrfPolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        for _, c := range vrfPolicy.Vrf {
-            if vrfPolicy.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := VrfPolicy_Vrf{}
-        vrfPolicy.Vrf = append(vrfPolicy.Vrf, child)
-        return &vrfPolicy.Vrf[len(vrfPolicy.Vrf)-1]
-    }
-    return nil
-}
-
-func (vrfPolicy *VrfPolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrfPolicy.EntityData.Children = make(map[string]types.YChild)
+    vrfPolicy.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range vrfPolicy.Vrf {
-        children[vrfPolicy.Vrf[i].GetSegmentPath()] = &vrfPolicy.Vrf[i]
+        vrfPolicy.EntityData.Children[types.GetSegmentPath(&vrfPolicy.Vrf[i])] = types.YChild{"Vrf", &vrfPolicy.Vrf[i]}
     }
-    return children
+    vrfPolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(vrfPolicy.EntityData)
 }
-
-func (vrfPolicy *VrfPolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (vrfPolicy *VrfPolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrfPolicy *VrfPolicy) GetYangName() string { return "vrf-policy" }
-
-func (vrfPolicy *VrfPolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrfPolicy *VrfPolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrfPolicy *VrfPolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrfPolicy *VrfPolicy) SetParent(parent types.Entity) { vrfPolicy.parent = parent }
-
-func (vrfPolicy *VrfPolicy) GetParent() types.Entity { return vrfPolicy.parent }
-
-func (vrfPolicy *VrfPolicy) GetParentYangName() string { return "Cisco-IOS-XR-pbr-vrf-policy-cfg" }
 
 // VrfPolicy_Vrf
 // VRF Name
 type VrfPolicy_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     VrfName interface{}
 
     // address family. The type is slice of VrfPolicy_Vrf_Afi.
     Afi []VrfPolicy_Vrf_Afi
 }
 
-func (vrf *VrfPolicy_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *VrfPolicy_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "vrf-policy"
+    vrf.EntityData.SegmentPath = "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *VrfPolicy_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *VrfPolicy_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "afi" { return "Afi" }
-    return ""
-}
-
-func (vrf *VrfPolicy_Vrf) GetSegmentPath() string {
-    return "vrf" + "[vrf-name='" + fmt.Sprintf("%v", vrf.VrfName) + "']"
-}
-
-func (vrf *VrfPolicy_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "afi" {
-        for _, c := range vrf.Afi {
-            if vrf.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := VrfPolicy_Vrf_Afi{}
-        vrf.Afi = append(vrf.Afi, child)
-        return &vrf.Afi[len(vrf.Afi)-1]
-    }
-    return nil
-}
-
-func (vrf *VrfPolicy_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Children["afi"] = types.YChild{"Afi", nil}
     for i := range vrf.Afi {
-        children[vrf.Afi[i].GetSegmentPath()] = &vrf.Afi[i]
+        vrf.EntityData.Children[types.GetSegmentPath(&vrf.Afi[i])] = types.YChild{"Afi", &vrf.Afi[i]}
     }
-    return children
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *VrfPolicy_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    return leafs
-}
-
-func (vrf *VrfPolicy_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *VrfPolicy_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *VrfPolicy_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *VrfPolicy_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *VrfPolicy_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *VrfPolicy_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *VrfPolicy_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *VrfPolicy_Vrf) GetParentYangName() string { return "vrf-policy" }
 
 // VrfPolicy_Vrf_Afi
 // address family
 type VrfPolicy_Vrf_Afi struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // This attribute is a key. AFI name. The type is string with pattern: (ipv4).
+    // This attribute is a key. AFI name. The type is string with pattern:
+    // b'(ipv4)|(ipv6)'.
     AfiType interface{}
 
     // Policy map name. The type is string.
     ServicePolicyIn interface{}
 }
 
-func (afi *VrfPolicy_Vrf_Afi) GetFilter() yfilter.YFilter { return afi.YFilter }
+func (afi *VrfPolicy_Vrf_Afi) GetEntityData() *types.CommonEntityData {
+    afi.EntityData.YFilter = afi.YFilter
+    afi.EntityData.YangName = "afi"
+    afi.EntityData.BundleName = "cisco_ios_xr"
+    afi.EntityData.ParentYangName = "vrf"
+    afi.EntityData.SegmentPath = "afi" + "[afi-type='" + fmt.Sprintf("%v", afi.AfiType) + "']"
+    afi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    afi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    afi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (afi *VrfPolicy_Vrf_Afi) SetFilter(yf yfilter.YFilter) { afi.YFilter = yf }
-
-func (afi *VrfPolicy_Vrf_Afi) GetGoName(yname string) string {
-    if yname == "afi-type" { return "AfiType" }
-    if yname == "service-policy-in" { return "ServicePolicyIn" }
-    return ""
+    afi.EntityData.Children = make(map[string]types.YChild)
+    afi.EntityData.Leafs = make(map[string]types.YLeaf)
+    afi.EntityData.Leafs["afi-type"] = types.YLeaf{"AfiType", afi.AfiType}
+    afi.EntityData.Leafs["service-policy-in"] = types.YLeaf{"ServicePolicyIn", afi.ServicePolicyIn}
+    return &(afi.EntityData)
 }
-
-func (afi *VrfPolicy_Vrf_Afi) GetSegmentPath() string {
-    return "afi" + "[afi-type='" + fmt.Sprintf("%v", afi.AfiType) + "']"
-}
-
-func (afi *VrfPolicy_Vrf_Afi) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (afi *VrfPolicy_Vrf_Afi) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (afi *VrfPolicy_Vrf_Afi) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["afi-type"] = afi.AfiType
-    leafs["service-policy-in"] = afi.ServicePolicyIn
-    return leafs
-}
-
-func (afi *VrfPolicy_Vrf_Afi) GetBundleName() string { return "cisco_ios_xr" }
-
-func (afi *VrfPolicy_Vrf_Afi) GetYangName() string { return "afi" }
-
-func (afi *VrfPolicy_Vrf_Afi) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (afi *VrfPolicy_Vrf_Afi) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (afi *VrfPolicy_Vrf_Afi) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (afi *VrfPolicy_Vrf_Afi) SetParent(parent types.Entity) { afi.parent = parent }
-
-func (afi *VrfPolicy_Vrf_Afi) GetParent() types.Entity { return afi.parent }
-
-func (afi *VrfPolicy_Vrf_Afi) GetParentYangName() string { return "vrf" }
 

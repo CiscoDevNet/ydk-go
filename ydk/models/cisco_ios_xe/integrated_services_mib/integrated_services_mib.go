@@ -30,7 +30,7 @@ const (
 
 // INTEGRATEDSERVICESMIB
 type INTEGRATEDSERVICESMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -43,68 +43,27 @@ type INTEGRATEDSERVICESMIB struct {
     Intsrvflowtable INTEGRATEDSERVICESMIB_Intsrvflowtable
 }
 
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetFilter() yfilter.YFilter { return iNTEGRATEDSERVICESMIB.YFilter }
+func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetEntityData() *types.CommonEntityData {
+    iNTEGRATEDSERVICESMIB.EntityData.YFilter = iNTEGRATEDSERVICESMIB.YFilter
+    iNTEGRATEDSERVICESMIB.EntityData.YangName = "INTEGRATED-SERVICES-MIB"
+    iNTEGRATEDSERVICESMIB.EntityData.BundleName = "cisco_ios_xe"
+    iNTEGRATEDSERVICESMIB.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    iNTEGRATEDSERVICESMIB.EntityData.SegmentPath = "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB"
+    iNTEGRATEDSERVICESMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    iNTEGRATEDSERVICESMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    iNTEGRATEDSERVICESMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) SetFilter(yf yfilter.YFilter) { iNTEGRATEDSERVICESMIB.YFilter = yf }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetGoName(yname string) string {
-    if yname == "intSrvGenObjects" { return "Intsrvgenobjects" }
-    if yname == "intSrvIfAttribTable" { return "Intsrvifattribtable" }
-    if yname == "intSrvFlowTable" { return "Intsrvflowtable" }
-    return ""
+    iNTEGRATEDSERVICESMIB.EntityData.Children = make(map[string]types.YChild)
+    iNTEGRATEDSERVICESMIB.EntityData.Children["intSrvGenObjects"] = types.YChild{"Intsrvgenobjects", &iNTEGRATEDSERVICESMIB.Intsrvgenobjects}
+    iNTEGRATEDSERVICESMIB.EntityData.Children["intSrvIfAttribTable"] = types.YChild{"Intsrvifattribtable", &iNTEGRATEDSERVICESMIB.Intsrvifattribtable}
+    iNTEGRATEDSERVICESMIB.EntityData.Children["intSrvFlowTable"] = types.YChild{"Intsrvflowtable", &iNTEGRATEDSERVICESMIB.Intsrvflowtable}
+    iNTEGRATEDSERVICESMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(iNTEGRATEDSERVICESMIB.EntityData)
 }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetSegmentPath() string {
-    return "INTEGRATED-SERVICES-MIB:INTEGRATED-SERVICES-MIB"
-}
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intSrvGenObjects" {
-        return &iNTEGRATEDSERVICESMIB.Intsrvgenobjects
-    }
-    if childYangName == "intSrvIfAttribTable" {
-        return &iNTEGRATEDSERVICESMIB.Intsrvifattribtable
-    }
-    if childYangName == "intSrvFlowTable" {
-        return &iNTEGRATEDSERVICESMIB.Intsrvflowtable
-    }
-    return nil
-}
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["intSrvGenObjects"] = &iNTEGRATEDSERVICESMIB.Intsrvgenobjects
-    children["intSrvIfAttribTable"] = &iNTEGRATEDSERVICESMIB.Intsrvifattribtable
-    children["intSrvFlowTable"] = &iNTEGRATEDSERVICESMIB.Intsrvflowtable
-    return children
-}
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetYangName() string { return "INTEGRATED-SERVICES-MIB" }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) SetParent(parent types.Entity) { iNTEGRATEDSERVICESMIB.parent = parent }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetParent() types.Entity { return iNTEGRATEDSERVICESMIB.parent }
-
-func (iNTEGRATEDSERVICESMIB *INTEGRATEDSERVICESMIB) GetParentYangName() string { return "INTEGRATED-SERVICES-MIB" }
 
 // INTEGRATEDSERVICESMIB_Intsrvgenobjects
 type INTEGRATEDSERVICESMIB_Intsrvgenobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This  object  is  used  to  assign  values  to intSrvFlowNumber  as
@@ -118,57 +77,27 @@ type INTEGRATEDSERVICESMIB_Intsrvgenobjects struct {
     Intsrvflownewindex interface{}
 }
 
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetFilter() yfilter.YFilter { return intsrvgenobjects.YFilter }
+func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetEntityData() *types.CommonEntityData {
+    intsrvgenobjects.EntityData.YFilter = intsrvgenobjects.YFilter
+    intsrvgenobjects.EntityData.YangName = "intSrvGenObjects"
+    intsrvgenobjects.EntityData.BundleName = "cisco_ios_xe"
+    intsrvgenobjects.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    intsrvgenobjects.EntityData.SegmentPath = "intSrvGenObjects"
+    intsrvgenobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intsrvgenobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intsrvgenobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) SetFilter(yf yfilter.YFilter) { intsrvgenobjects.YFilter = yf }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetGoName(yname string) string {
-    if yname == "intSrvFlowNewIndex" { return "Intsrvflownewindex" }
-    return ""
+    intsrvgenobjects.EntityData.Children = make(map[string]types.YChild)
+    intsrvgenobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    intsrvgenobjects.EntityData.Leafs["intSrvFlowNewIndex"] = types.YLeaf{"Intsrvflownewindex", intsrvgenobjects.Intsrvflownewindex}
+    return &(intsrvgenobjects.EntityData)
 }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetSegmentPath() string {
-    return "intSrvGenObjects"
-}
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["intSrvFlowNewIndex"] = intsrvgenobjects.Intsrvflownewindex
-    return leafs
-}
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetYangName() string { return "intSrvGenObjects" }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) SetParent(parent types.Entity) { intsrvgenobjects.parent = parent }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetParent() types.Entity { return intsrvgenobjects.parent }
-
-func (intsrvgenobjects *INTEGRATEDSERVICESMIB_Intsrvgenobjects) GetParentYangName() string { return "INTEGRATED-SERVICES-MIB" }
 
 // INTEGRATEDSERVICESMIB_Intsrvifattribtable
 // The reservable attributes of the system's  in-
 // terfaces.
 type INTEGRATEDSERVICESMIB_Intsrvifattribtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The reservable attributes of  a  given  inter- face. The type is slice of
@@ -176,69 +105,30 @@ type INTEGRATEDSERVICESMIB_Intsrvifattribtable struct {
     Intsrvifattribentry []INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry
 }
 
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetFilter() yfilter.YFilter { return intsrvifattribtable.YFilter }
+func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetEntityData() *types.CommonEntityData {
+    intsrvifattribtable.EntityData.YFilter = intsrvifattribtable.YFilter
+    intsrvifattribtable.EntityData.YangName = "intSrvIfAttribTable"
+    intsrvifattribtable.EntityData.BundleName = "cisco_ios_xe"
+    intsrvifattribtable.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    intsrvifattribtable.EntityData.SegmentPath = "intSrvIfAttribTable"
+    intsrvifattribtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intsrvifattribtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intsrvifattribtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) SetFilter(yf yfilter.YFilter) { intsrvifattribtable.YFilter = yf }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetGoName(yname string) string {
-    if yname == "intSrvIfAttribEntry" { return "Intsrvifattribentry" }
-    return ""
-}
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetSegmentPath() string {
-    return "intSrvIfAttribTable"
-}
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intSrvIfAttribEntry" {
-        for _, c := range intsrvifattribtable.Intsrvifattribentry {
-            if intsrvifattribtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry{}
-        intsrvifattribtable.Intsrvifattribentry = append(intsrvifattribtable.Intsrvifattribentry, child)
-        return &intsrvifattribtable.Intsrvifattribentry[len(intsrvifattribtable.Intsrvifattribentry)-1]
-    }
-    return nil
-}
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    intsrvifattribtable.EntityData.Children = make(map[string]types.YChild)
+    intsrvifattribtable.EntityData.Children["intSrvIfAttribEntry"] = types.YChild{"Intsrvifattribentry", nil}
     for i := range intsrvifattribtable.Intsrvifattribentry {
-        children[intsrvifattribtable.Intsrvifattribentry[i].GetSegmentPath()] = &intsrvifattribtable.Intsrvifattribentry[i]
+        intsrvifattribtable.EntityData.Children[types.GetSegmentPath(&intsrvifattribtable.Intsrvifattribentry[i])] = types.YChild{"Intsrvifattribentry", &intsrvifattribtable.Intsrvifattribentry[i]}
     }
-    return children
+    intsrvifattribtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(intsrvifattribtable.EntityData)
 }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetYangName() string { return "intSrvIfAttribTable" }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) SetParent(parent types.Entity) { intsrvifattribtable.parent = parent }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetParent() types.Entity { return intsrvifattribtable.parent }
-
-func (intsrvifattribtable *INTEGRATEDSERVICESMIB_Intsrvifattribtable) GetParentYangName() string { return "INTEGRATED-SERVICES-MIB" }
 
 // INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry
 // The reservable attributes of  a  given  inter-
 // face.
 type INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -275,69 +165,33 @@ type INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry struct {
     Intsrvifattribstatus interface{}
 }
 
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetFilter() yfilter.YFilter { return intsrvifattribentry.YFilter }
+func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetEntityData() *types.CommonEntityData {
+    intsrvifattribentry.EntityData.YFilter = intsrvifattribentry.YFilter
+    intsrvifattribentry.EntityData.YangName = "intSrvIfAttribEntry"
+    intsrvifattribentry.EntityData.BundleName = "cisco_ios_xe"
+    intsrvifattribentry.EntityData.ParentYangName = "intSrvIfAttribTable"
+    intsrvifattribentry.EntityData.SegmentPath = "intSrvIfAttribEntry" + "[ifIndex='" + fmt.Sprintf("%v", intsrvifattribentry.Ifindex) + "']"
+    intsrvifattribentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intsrvifattribentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intsrvifattribentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) SetFilter(yf yfilter.YFilter) { intsrvifattribentry.YFilter = yf }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "intSrvIfAttribAllocatedBits" { return "Intsrvifattriballocatedbits" }
-    if yname == "intSrvIfAttribMaxAllocatedBits" { return "Intsrvifattribmaxallocatedbits" }
-    if yname == "intSrvIfAttribAllocatedBuffer" { return "Intsrvifattriballocatedbuffer" }
-    if yname == "intSrvIfAttribFlows" { return "Intsrvifattribflows" }
-    if yname == "intSrvIfAttribPropagationDelay" { return "Intsrvifattribpropagationdelay" }
-    if yname == "intSrvIfAttribStatus" { return "Intsrvifattribstatus" }
-    return ""
+    intsrvifattribentry.EntityData.Children = make(map[string]types.YChild)
+    intsrvifattribentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    intsrvifattribentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", intsrvifattribentry.Ifindex}
+    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribAllocatedBits"] = types.YLeaf{"Intsrvifattriballocatedbits", intsrvifattribentry.Intsrvifattriballocatedbits}
+    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribMaxAllocatedBits"] = types.YLeaf{"Intsrvifattribmaxallocatedbits", intsrvifattribentry.Intsrvifattribmaxallocatedbits}
+    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribAllocatedBuffer"] = types.YLeaf{"Intsrvifattriballocatedbuffer", intsrvifattribentry.Intsrvifattriballocatedbuffer}
+    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribFlows"] = types.YLeaf{"Intsrvifattribflows", intsrvifattribentry.Intsrvifattribflows}
+    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribPropagationDelay"] = types.YLeaf{"Intsrvifattribpropagationdelay", intsrvifattribentry.Intsrvifattribpropagationdelay}
+    intsrvifattribentry.EntityData.Leafs["intSrvIfAttribStatus"] = types.YLeaf{"Intsrvifattribstatus", intsrvifattribentry.Intsrvifattribstatus}
+    return &(intsrvifattribentry.EntityData)
 }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetSegmentPath() string {
-    return "intSrvIfAttribEntry" + "[ifIndex='" + fmt.Sprintf("%v", intsrvifattribentry.Ifindex) + "']"
-}
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = intsrvifattribentry.Ifindex
-    leafs["intSrvIfAttribAllocatedBits"] = intsrvifattribentry.Intsrvifattriballocatedbits
-    leafs["intSrvIfAttribMaxAllocatedBits"] = intsrvifattribentry.Intsrvifattribmaxallocatedbits
-    leafs["intSrvIfAttribAllocatedBuffer"] = intsrvifattribentry.Intsrvifattriballocatedbuffer
-    leafs["intSrvIfAttribFlows"] = intsrvifattribentry.Intsrvifattribflows
-    leafs["intSrvIfAttribPropagationDelay"] = intsrvifattribentry.Intsrvifattribpropagationdelay
-    leafs["intSrvIfAttribStatus"] = intsrvifattribentry.Intsrvifattribstatus
-    return leafs
-}
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetYangName() string { return "intSrvIfAttribEntry" }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) SetParent(parent types.Entity) { intsrvifattribentry.parent = parent }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetParent() types.Entity { return intsrvifattribentry.parent }
-
-func (intsrvifattribentry *INTEGRATEDSERVICESMIB_Intsrvifattribtable_Intsrvifattribentry) GetParentYangName() string { return "intSrvIfAttribTable" }
 
 // INTEGRATEDSERVICESMIB_Intsrvflowtable
 // Information describing the reserved flows  us-
 // ing the system's interfaces.
 type INTEGRATEDSERVICESMIB_Intsrvflowtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information describing the use of a given  in- terface   by   a   given  
@@ -347,63 +201,24 @@ type INTEGRATEDSERVICESMIB_Intsrvflowtable struct {
     Intsrvflowentry []INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry
 }
 
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetFilter() yfilter.YFilter { return intsrvflowtable.YFilter }
+func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetEntityData() *types.CommonEntityData {
+    intsrvflowtable.EntityData.YFilter = intsrvflowtable.YFilter
+    intsrvflowtable.EntityData.YangName = "intSrvFlowTable"
+    intsrvflowtable.EntityData.BundleName = "cisco_ios_xe"
+    intsrvflowtable.EntityData.ParentYangName = "INTEGRATED-SERVICES-MIB"
+    intsrvflowtable.EntityData.SegmentPath = "intSrvFlowTable"
+    intsrvflowtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intsrvflowtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intsrvflowtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) SetFilter(yf yfilter.YFilter) { intsrvflowtable.YFilter = yf }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetGoName(yname string) string {
-    if yname == "intSrvFlowEntry" { return "Intsrvflowentry" }
-    return ""
-}
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetSegmentPath() string {
-    return "intSrvFlowTable"
-}
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intSrvFlowEntry" {
-        for _, c := range intsrvflowtable.Intsrvflowentry {
-            if intsrvflowtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry{}
-        intsrvflowtable.Intsrvflowentry = append(intsrvflowtable.Intsrvflowentry, child)
-        return &intsrvflowtable.Intsrvflowentry[len(intsrvflowtable.Intsrvflowentry)-1]
-    }
-    return nil
-}
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    intsrvflowtable.EntityData.Children = make(map[string]types.YChild)
+    intsrvflowtable.EntityData.Children["intSrvFlowEntry"] = types.YChild{"Intsrvflowentry", nil}
     for i := range intsrvflowtable.Intsrvflowentry {
-        children[intsrvflowtable.Intsrvflowentry[i].GetSegmentPath()] = &intsrvflowtable.Intsrvflowentry[i]
+        intsrvflowtable.EntityData.Children[types.GetSegmentPath(&intsrvflowtable.Intsrvflowentry[i])] = types.YChild{"Intsrvflowentry", &intsrvflowtable.Intsrvflowentry[i]}
     }
-    return children
+    intsrvflowtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(intsrvflowtable.EntityData)
 }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetYangName() string { return "intSrvFlowTable" }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) SetParent(parent types.Entity) { intsrvflowtable.parent = parent }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetParent() types.Entity { return intsrvflowtable.parent }
-
-func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetParentYangName() string { return "INTEGRATED-SERVICES-MIB" }
 
 // INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry
 // Information describing the use of a given  in-
@@ -411,7 +226,7 @@ func (intsrvflowtable *INTEGRATEDSERVICESMIB_Intsrvflowtable) GetParentYangName(
 // intSrvFlowPoliced starts counting  at  the  in-
 // stallation of the flow.
 type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The number of this flow.  This is for SNMP In-
@@ -551,99 +366,45 @@ type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry struct {
     Intsrvflowstatus interface{}
 }
 
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetFilter() yfilter.YFilter { return intsrvflowentry.YFilter }
+func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetEntityData() *types.CommonEntityData {
+    intsrvflowentry.EntityData.YFilter = intsrvflowentry.YFilter
+    intsrvflowentry.EntityData.YangName = "intSrvFlowEntry"
+    intsrvflowentry.EntityData.BundleName = "cisco_ios_xe"
+    intsrvflowentry.EntityData.ParentYangName = "intSrvFlowTable"
+    intsrvflowentry.EntityData.SegmentPath = "intSrvFlowEntry" + "[intSrvFlowNumber='" + fmt.Sprintf("%v", intsrvflowentry.Intsrvflownumber) + "']"
+    intsrvflowentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    intsrvflowentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    intsrvflowentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) SetFilter(yf yfilter.YFilter) { intsrvflowentry.YFilter = yf }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetGoName(yname string) string {
-    if yname == "intSrvFlowNumber" { return "Intsrvflownumber" }
-    if yname == "intSrvFlowType" { return "Intsrvflowtype" }
-    if yname == "intSrvFlowOwner" { return "Intsrvflowowner" }
-    if yname == "intSrvFlowDestAddr" { return "Intsrvflowdestaddr" }
-    if yname == "intSrvFlowSenderAddr" { return "Intsrvflowsenderaddr" }
-    if yname == "intSrvFlowDestAddrLength" { return "Intsrvflowdestaddrlength" }
-    if yname == "intSrvFlowSenderAddrLength" { return "Intsrvflowsenderaddrlength" }
-    if yname == "intSrvFlowProtocol" { return "Intsrvflowprotocol" }
-    if yname == "intSrvFlowDestPort" { return "Intsrvflowdestport" }
-    if yname == "intSrvFlowPort" { return "Intsrvflowport" }
-    if yname == "intSrvFlowFlowId" { return "Intsrvflowflowid" }
-    if yname == "intSrvFlowInterface" { return "Intsrvflowinterface" }
-    if yname == "intSrvFlowIfAddr" { return "Intsrvflowifaddr" }
-    if yname == "intSrvFlowRate" { return "Intsrvflowrate" }
-    if yname == "intSrvFlowBurst" { return "Intsrvflowburst" }
-    if yname == "intSrvFlowWeight" { return "Intsrvflowweight" }
-    if yname == "intSrvFlowQueue" { return "Intsrvflowqueue" }
-    if yname == "intSrvFlowMinTU" { return "Intsrvflowmintu" }
-    if yname == "intSrvFlowMaxTU" { return "Intsrvflowmaxtu" }
-    if yname == "intSrvFlowBestEffort" { return "Intsrvflowbesteffort" }
-    if yname == "intSrvFlowPoliced" { return "Intsrvflowpoliced" }
-    if yname == "intSrvFlowDiscard" { return "Intsrvflowdiscard" }
-    if yname == "intSrvFlowService" { return "Intsrvflowservice" }
-    if yname == "intSrvFlowOrder" { return "Intsrvfloworder" }
-    if yname == "intSrvFlowStatus" { return "Intsrvflowstatus" }
-    return ""
+    intsrvflowentry.EntityData.Children = make(map[string]types.YChild)
+    intsrvflowentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    intsrvflowentry.EntityData.Leafs["intSrvFlowNumber"] = types.YLeaf{"Intsrvflownumber", intsrvflowentry.Intsrvflownumber}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowType"] = types.YLeaf{"Intsrvflowtype", intsrvflowentry.Intsrvflowtype}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowOwner"] = types.YLeaf{"Intsrvflowowner", intsrvflowentry.Intsrvflowowner}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowDestAddr"] = types.YLeaf{"Intsrvflowdestaddr", intsrvflowentry.Intsrvflowdestaddr}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowSenderAddr"] = types.YLeaf{"Intsrvflowsenderaddr", intsrvflowentry.Intsrvflowsenderaddr}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowDestAddrLength"] = types.YLeaf{"Intsrvflowdestaddrlength", intsrvflowentry.Intsrvflowdestaddrlength}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowSenderAddrLength"] = types.YLeaf{"Intsrvflowsenderaddrlength", intsrvflowentry.Intsrvflowsenderaddrlength}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowProtocol"] = types.YLeaf{"Intsrvflowprotocol", intsrvflowentry.Intsrvflowprotocol}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowDestPort"] = types.YLeaf{"Intsrvflowdestport", intsrvflowentry.Intsrvflowdestport}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowPort"] = types.YLeaf{"Intsrvflowport", intsrvflowentry.Intsrvflowport}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowFlowId"] = types.YLeaf{"Intsrvflowflowid", intsrvflowentry.Intsrvflowflowid}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowInterface"] = types.YLeaf{"Intsrvflowinterface", intsrvflowentry.Intsrvflowinterface}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowIfAddr"] = types.YLeaf{"Intsrvflowifaddr", intsrvflowentry.Intsrvflowifaddr}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowRate"] = types.YLeaf{"Intsrvflowrate", intsrvflowentry.Intsrvflowrate}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowBurst"] = types.YLeaf{"Intsrvflowburst", intsrvflowentry.Intsrvflowburst}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowWeight"] = types.YLeaf{"Intsrvflowweight", intsrvflowentry.Intsrvflowweight}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowQueue"] = types.YLeaf{"Intsrvflowqueue", intsrvflowentry.Intsrvflowqueue}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowMinTU"] = types.YLeaf{"Intsrvflowmintu", intsrvflowentry.Intsrvflowmintu}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowMaxTU"] = types.YLeaf{"Intsrvflowmaxtu", intsrvflowentry.Intsrvflowmaxtu}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowBestEffort"] = types.YLeaf{"Intsrvflowbesteffort", intsrvflowentry.Intsrvflowbesteffort}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowPoliced"] = types.YLeaf{"Intsrvflowpoliced", intsrvflowentry.Intsrvflowpoliced}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowDiscard"] = types.YLeaf{"Intsrvflowdiscard", intsrvflowentry.Intsrvflowdiscard}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowService"] = types.YLeaf{"Intsrvflowservice", intsrvflowentry.Intsrvflowservice}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowOrder"] = types.YLeaf{"Intsrvfloworder", intsrvflowentry.Intsrvfloworder}
+    intsrvflowentry.EntityData.Leafs["intSrvFlowStatus"] = types.YLeaf{"Intsrvflowstatus", intsrvflowentry.Intsrvflowstatus}
+    return &(intsrvflowentry.EntityData)
 }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetSegmentPath() string {
-    return "intSrvFlowEntry" + "[intSrvFlowNumber='" + fmt.Sprintf("%v", intsrvflowentry.Intsrvflownumber) + "']"
-}
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["intSrvFlowNumber"] = intsrvflowentry.Intsrvflownumber
-    leafs["intSrvFlowType"] = intsrvflowentry.Intsrvflowtype
-    leafs["intSrvFlowOwner"] = intsrvflowentry.Intsrvflowowner
-    leafs["intSrvFlowDestAddr"] = intsrvflowentry.Intsrvflowdestaddr
-    leafs["intSrvFlowSenderAddr"] = intsrvflowentry.Intsrvflowsenderaddr
-    leafs["intSrvFlowDestAddrLength"] = intsrvflowentry.Intsrvflowdestaddrlength
-    leafs["intSrvFlowSenderAddrLength"] = intsrvflowentry.Intsrvflowsenderaddrlength
-    leafs["intSrvFlowProtocol"] = intsrvflowentry.Intsrvflowprotocol
-    leafs["intSrvFlowDestPort"] = intsrvflowentry.Intsrvflowdestport
-    leafs["intSrvFlowPort"] = intsrvflowentry.Intsrvflowport
-    leafs["intSrvFlowFlowId"] = intsrvflowentry.Intsrvflowflowid
-    leafs["intSrvFlowInterface"] = intsrvflowentry.Intsrvflowinterface
-    leafs["intSrvFlowIfAddr"] = intsrvflowentry.Intsrvflowifaddr
-    leafs["intSrvFlowRate"] = intsrvflowentry.Intsrvflowrate
-    leafs["intSrvFlowBurst"] = intsrvflowentry.Intsrvflowburst
-    leafs["intSrvFlowWeight"] = intsrvflowentry.Intsrvflowweight
-    leafs["intSrvFlowQueue"] = intsrvflowentry.Intsrvflowqueue
-    leafs["intSrvFlowMinTU"] = intsrvflowentry.Intsrvflowmintu
-    leafs["intSrvFlowMaxTU"] = intsrvflowentry.Intsrvflowmaxtu
-    leafs["intSrvFlowBestEffort"] = intsrvflowentry.Intsrvflowbesteffort
-    leafs["intSrvFlowPoliced"] = intsrvflowentry.Intsrvflowpoliced
-    leafs["intSrvFlowDiscard"] = intsrvflowentry.Intsrvflowdiscard
-    leafs["intSrvFlowService"] = intsrvflowentry.Intsrvflowservice
-    leafs["intSrvFlowOrder"] = intsrvflowentry.Intsrvfloworder
-    leafs["intSrvFlowStatus"] = intsrvflowentry.Intsrvflowstatus
-    return leafs
-}
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetYangName() string { return "intSrvFlowEntry" }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) SetParent(parent types.Entity) { intsrvflowentry.parent = parent }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetParent() types.Entity { return intsrvflowentry.parent }
-
-func (intsrvflowentry *INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry) GetParentYangName() string { return "intSrvFlowTable" }
 
 // INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner represents queue policy database.
 type INTEGRATEDSERVICESMIB_Intsrvflowtable_Intsrvflowentry_Intsrvflowowner string

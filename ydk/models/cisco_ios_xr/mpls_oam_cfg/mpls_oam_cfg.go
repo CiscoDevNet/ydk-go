@@ -27,7 +27,7 @@ func init() {
 // MplsOam
 // MPLS LSP verification configuration
 type MplsOam struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable/Disable MPLS OAM globally.Without creating this object the MPLS OAM
@@ -42,171 +42,73 @@ type MplsOam struct {
     ReplyMode MplsOam_ReplyMode
 }
 
-func (mplsOam *MplsOam) GetFilter() yfilter.YFilter { return mplsOam.YFilter }
+func (mplsOam *MplsOam) GetEntityData() *types.CommonEntityData {
+    mplsOam.EntityData.YFilter = mplsOam.YFilter
+    mplsOam.EntityData.YangName = "mpls-oam"
+    mplsOam.EntityData.BundleName = "cisco_ios_xr"
+    mplsOam.EntityData.ParentYangName = "Cisco-IOS-XR-mpls-oam-cfg"
+    mplsOam.EntityData.SegmentPath = "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam"
+    mplsOam.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mplsOam.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mplsOam.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mplsOam *MplsOam) SetFilter(yf yfilter.YFilter) { mplsOam.YFilter = yf }
-
-func (mplsOam *MplsOam) GetGoName(yname string) string {
-    if yname == "enable-oam" { return "EnableOam" }
-    if yname == "disable-vendor-extension" { return "DisableVendorExtension" }
-    if yname == "reply-mode" { return "ReplyMode" }
-    return ""
+    mplsOam.EntityData.Children = make(map[string]types.YChild)
+    mplsOam.EntityData.Children["reply-mode"] = types.YChild{"ReplyMode", &mplsOam.ReplyMode}
+    mplsOam.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsOam.EntityData.Leafs["enable-oam"] = types.YLeaf{"EnableOam", mplsOam.EnableOam}
+    mplsOam.EntityData.Leafs["disable-vendor-extension"] = types.YLeaf{"DisableVendorExtension", mplsOam.DisableVendorExtension}
+    return &(mplsOam.EntityData)
 }
-
-func (mplsOam *MplsOam) GetSegmentPath() string {
-    return "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam"
-}
-
-func (mplsOam *MplsOam) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "reply-mode" {
-        return &mplsOam.ReplyMode
-    }
-    return nil
-}
-
-func (mplsOam *MplsOam) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["reply-mode"] = &mplsOam.ReplyMode
-    return children
-}
-
-func (mplsOam *MplsOam) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable-oam"] = mplsOam.EnableOam
-    leafs["disable-vendor-extension"] = mplsOam.DisableVendorExtension
-    return leafs
-}
-
-func (mplsOam *MplsOam) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mplsOam *MplsOam) GetYangName() string { return "mpls-oam" }
-
-func (mplsOam *MplsOam) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mplsOam *MplsOam) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mplsOam *MplsOam) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mplsOam *MplsOam) SetParent(parent types.Entity) { mplsOam.parent = parent }
-
-func (mplsOam *MplsOam) GetParent() types.Entity { return mplsOam.parent }
-
-func (mplsOam *MplsOam) GetParentYangName() string { return "Cisco-IOS-XR-mpls-oam-cfg" }
 
 // MplsOam_ReplyMode
 // Echo request reply mode attributes
 type MplsOam_ReplyMode struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure control channel reply mode.
     ControlChannel MplsOam_ReplyMode_ControlChannel
 }
 
-func (replyMode *MplsOam_ReplyMode) GetFilter() yfilter.YFilter { return replyMode.YFilter }
+func (replyMode *MplsOam_ReplyMode) GetEntityData() *types.CommonEntityData {
+    replyMode.EntityData.YFilter = replyMode.YFilter
+    replyMode.EntityData.YangName = "reply-mode"
+    replyMode.EntityData.BundleName = "cisco_ios_xr"
+    replyMode.EntityData.ParentYangName = "mpls-oam"
+    replyMode.EntityData.SegmentPath = "reply-mode"
+    replyMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    replyMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    replyMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (replyMode *MplsOam_ReplyMode) SetFilter(yf yfilter.YFilter) { replyMode.YFilter = yf }
-
-func (replyMode *MplsOam_ReplyMode) GetGoName(yname string) string {
-    if yname == "control-channel" { return "ControlChannel" }
-    return ""
+    replyMode.EntityData.Children = make(map[string]types.YChild)
+    replyMode.EntityData.Children["control-channel"] = types.YChild{"ControlChannel", &replyMode.ControlChannel}
+    replyMode.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(replyMode.EntityData)
 }
-
-func (replyMode *MplsOam_ReplyMode) GetSegmentPath() string {
-    return "reply-mode"
-}
-
-func (replyMode *MplsOam_ReplyMode) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "control-channel" {
-        return &replyMode.ControlChannel
-    }
-    return nil
-}
-
-func (replyMode *MplsOam_ReplyMode) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["control-channel"] = &replyMode.ControlChannel
-    return children
-}
-
-func (replyMode *MplsOam_ReplyMode) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (replyMode *MplsOam_ReplyMode) GetBundleName() string { return "cisco_ios_xr" }
-
-func (replyMode *MplsOam_ReplyMode) GetYangName() string { return "reply-mode" }
-
-func (replyMode *MplsOam_ReplyMode) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (replyMode *MplsOam_ReplyMode) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (replyMode *MplsOam_ReplyMode) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (replyMode *MplsOam_ReplyMode) SetParent(parent types.Entity) { replyMode.parent = parent }
-
-func (replyMode *MplsOam_ReplyMode) GetParent() types.Entity { return replyMode.parent }
-
-func (replyMode *MplsOam_ReplyMode) GetParentYangName() string { return "mpls-oam" }
 
 // MplsOam_ReplyMode_ControlChannel
 // Configure control channel reply mode
 type MplsOam_ReplyMode_ControlChannel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Use Reverse LSP as the control channel. The type is interface{}.
     AllowReverseLsp interface{}
 }
 
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetFilter() yfilter.YFilter { return controlChannel.YFilter }
+func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetEntityData() *types.CommonEntityData {
+    controlChannel.EntityData.YFilter = controlChannel.YFilter
+    controlChannel.EntityData.YangName = "control-channel"
+    controlChannel.EntityData.BundleName = "cisco_ios_xr"
+    controlChannel.EntityData.ParentYangName = "reply-mode"
+    controlChannel.EntityData.SegmentPath = "control-channel"
+    controlChannel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    controlChannel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    controlChannel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) SetFilter(yf yfilter.YFilter) { controlChannel.YFilter = yf }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetGoName(yname string) string {
-    if yname == "allow-reverse-lsp" { return "AllowReverseLsp" }
-    return ""
+    controlChannel.EntityData.Children = make(map[string]types.YChild)
+    controlChannel.EntityData.Leafs = make(map[string]types.YLeaf)
+    controlChannel.EntityData.Leafs["allow-reverse-lsp"] = types.YLeaf{"AllowReverseLsp", controlChannel.AllowReverseLsp}
+    return &(controlChannel.EntityData)
 }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetSegmentPath() string {
-    return "control-channel"
-}
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["allow-reverse-lsp"] = controlChannel.AllowReverseLsp
-    return leafs
-}
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetYangName() string { return "control-channel" }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) SetParent(parent types.Entity) { controlChannel.parent = parent }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetParent() types.Entity { return controlChannel.parent }
-
-func (controlChannel *MplsOam_ReplyMode_ControlChannel) GetParentYangName() string { return "reply-mode" }
 

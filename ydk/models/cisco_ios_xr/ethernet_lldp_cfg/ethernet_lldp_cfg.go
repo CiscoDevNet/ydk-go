@@ -31,7 +31,7 @@ func init() {
 // Lldp
 // Enable LLDP, or configure global LLDP subcommands
 type Lldp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Length  of time  (in sec) that receiver must keep this packet. The type is
@@ -45,6 +45,10 @@ type Lldp struct {
     // Enable or disable LLDP on Sub-interfaces as well globally. The type is
     // bool. The default value is false.
     EnableSubintf interface{}
+
+    // Enable or disable LLDP on Mgmt interfaces as well globally. The type is
+    // bool. The default value is false.
+    EnableMgmtintf interface{}
 
     // Specify the rate at which LLDP packets are sent (in sec). The type is
     // interface{} with range: 5..65534. The default value is 30.
@@ -62,72 +66,34 @@ type Lldp struct {
     TlvSelect Lldp_TlvSelect
 }
 
-func (lldp *Lldp) GetFilter() yfilter.YFilter { return lldp.YFilter }
+func (lldp *Lldp) GetEntityData() *types.CommonEntityData {
+    lldp.EntityData.YFilter = lldp.YFilter
+    lldp.EntityData.YangName = "lldp"
+    lldp.EntityData.BundleName = "cisco_ios_xr"
+    lldp.EntityData.ParentYangName = "Cisco-IOS-XR-ethernet-lldp-cfg"
+    lldp.EntityData.SegmentPath = "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
+    lldp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lldp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lldp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lldp *Lldp) SetFilter(yf yfilter.YFilter) { lldp.YFilter = yf }
-
-func (lldp *Lldp) GetGoName(yname string) string {
-    if yname == "holdtime" { return "Holdtime" }
-    if yname == "extended-show-width" { return "ExtendedShowWidth" }
-    if yname == "enable-subintf" { return "EnableSubintf" }
-    if yname == "timer" { return "Timer" }
-    if yname == "reinit" { return "Reinit" }
-    if yname == "enable" { return "Enable" }
-    if yname == "tlv-select" { return "TlvSelect" }
-    return ""
+    lldp.EntityData.Children = make(map[string]types.YChild)
+    lldp.EntityData.Children["tlv-select"] = types.YChild{"TlvSelect", &lldp.TlvSelect}
+    lldp.EntityData.Leafs = make(map[string]types.YLeaf)
+    lldp.EntityData.Leafs["holdtime"] = types.YLeaf{"Holdtime", lldp.Holdtime}
+    lldp.EntityData.Leafs["extended-show-width"] = types.YLeaf{"ExtendedShowWidth", lldp.ExtendedShowWidth}
+    lldp.EntityData.Leafs["enable-subintf"] = types.YLeaf{"EnableSubintf", lldp.EnableSubintf}
+    lldp.EntityData.Leafs["enable-mgmtintf"] = types.YLeaf{"EnableMgmtintf", lldp.EnableMgmtintf}
+    lldp.EntityData.Leafs["timer"] = types.YLeaf{"Timer", lldp.Timer}
+    lldp.EntityData.Leafs["reinit"] = types.YLeaf{"Reinit", lldp.Reinit}
+    lldp.EntityData.Leafs["enable"] = types.YLeaf{"Enable", lldp.Enable}
+    return &(lldp.EntityData)
 }
-
-func (lldp *Lldp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
-}
-
-func (lldp *Lldp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tlv-select" {
-        return &lldp.TlvSelect
-    }
-    return nil
-}
-
-func (lldp *Lldp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tlv-select"] = &lldp.TlvSelect
-    return children
-}
-
-func (lldp *Lldp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["holdtime"] = lldp.Holdtime
-    leafs["extended-show-width"] = lldp.ExtendedShowWidth
-    leafs["enable-subintf"] = lldp.EnableSubintf
-    leafs["timer"] = lldp.Timer
-    leafs["reinit"] = lldp.Reinit
-    leafs["enable"] = lldp.Enable
-    return leafs
-}
-
-func (lldp *Lldp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lldp *Lldp) GetYangName() string { return "lldp" }
-
-func (lldp *Lldp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lldp *Lldp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lldp *Lldp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lldp *Lldp) SetParent(parent types.Entity) { lldp.parent = parent }
-
-func (lldp *Lldp) GetParent() types.Entity { return lldp.parent }
-
-func (lldp *Lldp) GetParentYangName() string { return "Cisco-IOS-XR-ethernet-lldp-cfg" }
 
 // Lldp_TlvSelect
 // Selection of LLDP TLVs to disable
 // This type is a presence type.
 type Lldp_TlvSelect struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // enter lldp tlv-select submode. The type is bool. This attribute is
@@ -150,193 +116,83 @@ type Lldp_TlvSelect struct {
     ManagementAddress Lldp_TlvSelect_ManagementAddress
 }
 
-func (tlvSelect *Lldp_TlvSelect) GetFilter() yfilter.YFilter { return tlvSelect.YFilter }
+func (tlvSelect *Lldp_TlvSelect) GetEntityData() *types.CommonEntityData {
+    tlvSelect.EntityData.YFilter = tlvSelect.YFilter
+    tlvSelect.EntityData.YangName = "tlv-select"
+    tlvSelect.EntityData.BundleName = "cisco_ios_xr"
+    tlvSelect.EntityData.ParentYangName = "lldp"
+    tlvSelect.EntityData.SegmentPath = "tlv-select"
+    tlvSelect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tlvSelect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tlvSelect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (tlvSelect *Lldp_TlvSelect) SetFilter(yf yfilter.YFilter) { tlvSelect.YFilter = yf }
-
-func (tlvSelect *Lldp_TlvSelect) GetGoName(yname string) string {
-    if yname == "tlv-select-enter" { return "TlvSelectEnter" }
-    if yname == "system-name" { return "SystemName" }
-    if yname == "port-description" { return "PortDescription" }
-    if yname == "system-description" { return "SystemDescription" }
-    if yname == "system-capabilities" { return "SystemCapabilities" }
-    if yname == "management-address" { return "ManagementAddress" }
-    return ""
+    tlvSelect.EntityData.Children = make(map[string]types.YChild)
+    tlvSelect.EntityData.Children["system-name"] = types.YChild{"SystemName", &tlvSelect.SystemName}
+    tlvSelect.EntityData.Children["port-description"] = types.YChild{"PortDescription", &tlvSelect.PortDescription}
+    tlvSelect.EntityData.Children["system-description"] = types.YChild{"SystemDescription", &tlvSelect.SystemDescription}
+    tlvSelect.EntityData.Children["system-capabilities"] = types.YChild{"SystemCapabilities", &tlvSelect.SystemCapabilities}
+    tlvSelect.EntityData.Children["management-address"] = types.YChild{"ManagementAddress", &tlvSelect.ManagementAddress}
+    tlvSelect.EntityData.Leafs = make(map[string]types.YLeaf)
+    tlvSelect.EntityData.Leafs["tlv-select-enter"] = types.YLeaf{"TlvSelectEnter", tlvSelect.TlvSelectEnter}
+    return &(tlvSelect.EntityData)
 }
-
-func (tlvSelect *Lldp_TlvSelect) GetSegmentPath() string {
-    return "tlv-select"
-}
-
-func (tlvSelect *Lldp_TlvSelect) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "system-name" {
-        return &tlvSelect.SystemName
-    }
-    if childYangName == "port-description" {
-        return &tlvSelect.PortDescription
-    }
-    if childYangName == "system-description" {
-        return &tlvSelect.SystemDescription
-    }
-    if childYangName == "system-capabilities" {
-        return &tlvSelect.SystemCapabilities
-    }
-    if childYangName == "management-address" {
-        return &tlvSelect.ManagementAddress
-    }
-    return nil
-}
-
-func (tlvSelect *Lldp_TlvSelect) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["system-name"] = &tlvSelect.SystemName
-    children["port-description"] = &tlvSelect.PortDescription
-    children["system-description"] = &tlvSelect.SystemDescription
-    children["system-capabilities"] = &tlvSelect.SystemCapabilities
-    children["management-address"] = &tlvSelect.ManagementAddress
-    return children
-}
-
-func (tlvSelect *Lldp_TlvSelect) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tlv-select-enter"] = tlvSelect.TlvSelectEnter
-    return leafs
-}
-
-func (tlvSelect *Lldp_TlvSelect) GetBundleName() string { return "cisco_ios_xr" }
-
-func (tlvSelect *Lldp_TlvSelect) GetYangName() string { return "tlv-select" }
-
-func (tlvSelect *Lldp_TlvSelect) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (tlvSelect *Lldp_TlvSelect) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (tlvSelect *Lldp_TlvSelect) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (tlvSelect *Lldp_TlvSelect) SetParent(parent types.Entity) { tlvSelect.parent = parent }
-
-func (tlvSelect *Lldp_TlvSelect) GetParent() types.Entity { return tlvSelect.parent }
-
-func (tlvSelect *Lldp_TlvSelect) GetParentYangName() string { return "lldp" }
 
 // Lldp_TlvSelect_SystemName
 // System Name TLV
 type Lldp_TlvSelect_SystemName struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable System Name TLV. The type is bool. The default value is false.
     Disable interface{}
 }
 
-func (systemName *Lldp_TlvSelect_SystemName) GetFilter() yfilter.YFilter { return systemName.YFilter }
+func (systemName *Lldp_TlvSelect_SystemName) GetEntityData() *types.CommonEntityData {
+    systemName.EntityData.YFilter = systemName.YFilter
+    systemName.EntityData.YangName = "system-name"
+    systemName.EntityData.BundleName = "cisco_ios_xr"
+    systemName.EntityData.ParentYangName = "tlv-select"
+    systemName.EntityData.SegmentPath = "system-name"
+    systemName.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    systemName.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    systemName.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (systemName *Lldp_TlvSelect_SystemName) SetFilter(yf yfilter.YFilter) { systemName.YFilter = yf }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    systemName.EntityData.Children = make(map[string]types.YChild)
+    systemName.EntityData.Leafs = make(map[string]types.YLeaf)
+    systemName.EntityData.Leafs["disable"] = types.YLeaf{"Disable", systemName.Disable}
+    return &(systemName.EntityData)
 }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetSegmentPath() string {
-    return "system-name"
-}
-
-func (systemName *Lldp_TlvSelect_SystemName) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (systemName *Lldp_TlvSelect_SystemName) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (systemName *Lldp_TlvSelect_SystemName) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = systemName.Disable
-    return leafs
-}
-
-func (systemName *Lldp_TlvSelect_SystemName) GetBundleName() string { return "cisco_ios_xr" }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetYangName() string { return "system-name" }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (systemName *Lldp_TlvSelect_SystemName) SetParent(parent types.Entity) { systemName.parent = parent }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetParent() types.Entity { return systemName.parent }
-
-func (systemName *Lldp_TlvSelect_SystemName) GetParentYangName() string { return "tlv-select" }
 
 // Lldp_TlvSelect_PortDescription
 // Port Description TLV
 type Lldp_TlvSelect_PortDescription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable Port Description TLV. The type is bool. The default value is false.
     Disable interface{}
 }
 
-func (portDescription *Lldp_TlvSelect_PortDescription) GetFilter() yfilter.YFilter { return portDescription.YFilter }
+func (portDescription *Lldp_TlvSelect_PortDescription) GetEntityData() *types.CommonEntityData {
+    portDescription.EntityData.YFilter = portDescription.YFilter
+    portDescription.EntityData.YangName = "port-description"
+    portDescription.EntityData.BundleName = "cisco_ios_xr"
+    portDescription.EntityData.ParentYangName = "tlv-select"
+    portDescription.EntityData.SegmentPath = "port-description"
+    portDescription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    portDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    portDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (portDescription *Lldp_TlvSelect_PortDescription) SetFilter(yf yfilter.YFilter) { portDescription.YFilter = yf }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    portDescription.EntityData.Children = make(map[string]types.YChild)
+    portDescription.EntityData.Leafs = make(map[string]types.YLeaf)
+    portDescription.EntityData.Leafs["disable"] = types.YLeaf{"Disable", portDescription.Disable}
+    return &(portDescription.EntityData)
 }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetSegmentPath() string {
-    return "port-description"
-}
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = portDescription.Disable
-    return leafs
-}
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetBundleName() string { return "cisco_ios_xr" }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetYangName() string { return "port-description" }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) SetParent(parent types.Entity) { portDescription.parent = parent }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetParent() types.Entity { return portDescription.parent }
-
-func (portDescription *Lldp_TlvSelect_PortDescription) GetParentYangName() string { return "tlv-select" }
 
 // Lldp_TlvSelect_SystemDescription
 // System Description TLV
 type Lldp_TlvSelect_SystemDescription struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable System Description TLV. The type is bool. The default value is
@@ -344,56 +200,26 @@ type Lldp_TlvSelect_SystemDescription struct {
     Disable interface{}
 }
 
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetFilter() yfilter.YFilter { return systemDescription.YFilter }
+func (systemDescription *Lldp_TlvSelect_SystemDescription) GetEntityData() *types.CommonEntityData {
+    systemDescription.EntityData.YFilter = systemDescription.YFilter
+    systemDescription.EntityData.YangName = "system-description"
+    systemDescription.EntityData.BundleName = "cisco_ios_xr"
+    systemDescription.EntityData.ParentYangName = "tlv-select"
+    systemDescription.EntityData.SegmentPath = "system-description"
+    systemDescription.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    systemDescription.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    systemDescription.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (systemDescription *Lldp_TlvSelect_SystemDescription) SetFilter(yf yfilter.YFilter) { systemDescription.YFilter = yf }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    systemDescription.EntityData.Children = make(map[string]types.YChild)
+    systemDescription.EntityData.Leafs = make(map[string]types.YLeaf)
+    systemDescription.EntityData.Leafs["disable"] = types.YLeaf{"Disable", systemDescription.Disable}
+    return &(systemDescription.EntityData)
 }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetSegmentPath() string {
-    return "system-description"
-}
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = systemDescription.Disable
-    return leafs
-}
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetBundleName() string { return "cisco_ios_xr" }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetYangName() string { return "system-description" }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) SetParent(parent types.Entity) { systemDescription.parent = parent }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetParent() types.Entity { return systemDescription.parent }
-
-func (systemDescription *Lldp_TlvSelect_SystemDescription) GetParentYangName() string { return "tlv-select" }
 
 // Lldp_TlvSelect_SystemCapabilities
 // System Capabilities TLV
 type Lldp_TlvSelect_SystemCapabilities struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable System Capabilities TLV. The type is bool. The default value is
@@ -401,56 +227,26 @@ type Lldp_TlvSelect_SystemCapabilities struct {
     Disable interface{}
 }
 
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetFilter() yfilter.YFilter { return systemCapabilities.YFilter }
+func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetEntityData() *types.CommonEntityData {
+    systemCapabilities.EntityData.YFilter = systemCapabilities.YFilter
+    systemCapabilities.EntityData.YangName = "system-capabilities"
+    systemCapabilities.EntityData.BundleName = "cisco_ios_xr"
+    systemCapabilities.EntityData.ParentYangName = "tlv-select"
+    systemCapabilities.EntityData.SegmentPath = "system-capabilities"
+    systemCapabilities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    systemCapabilities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    systemCapabilities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) SetFilter(yf yfilter.YFilter) { systemCapabilities.YFilter = yf }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    systemCapabilities.EntityData.Children = make(map[string]types.YChild)
+    systemCapabilities.EntityData.Leafs = make(map[string]types.YLeaf)
+    systemCapabilities.EntityData.Leafs["disable"] = types.YLeaf{"Disable", systemCapabilities.Disable}
+    return &(systemCapabilities.EntityData)
 }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetSegmentPath() string {
-    return "system-capabilities"
-}
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = systemCapabilities.Disable
-    return leafs
-}
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetBundleName() string { return "cisco_ios_xr" }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetYangName() string { return "system-capabilities" }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) SetParent(parent types.Entity) { systemCapabilities.parent = parent }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetParent() types.Entity { return systemCapabilities.parent }
-
-func (systemCapabilities *Lldp_TlvSelect_SystemCapabilities) GetParentYangName() string { return "tlv-select" }
 
 // Lldp_TlvSelect_ManagementAddress
 // Management Address TLV
 type Lldp_TlvSelect_ManagementAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // disable Management Address TLV. The type is bool. The default value is
@@ -458,49 +254,19 @@ type Lldp_TlvSelect_ManagementAddress struct {
     Disable interface{}
 }
 
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetFilter() yfilter.YFilter { return managementAddress.YFilter }
+func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetEntityData() *types.CommonEntityData {
+    managementAddress.EntityData.YFilter = managementAddress.YFilter
+    managementAddress.EntityData.YangName = "management-address"
+    managementAddress.EntityData.BundleName = "cisco_ios_xr"
+    managementAddress.EntityData.ParentYangName = "tlv-select"
+    managementAddress.EntityData.SegmentPath = "management-address"
+    managementAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    managementAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    managementAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) SetFilter(yf yfilter.YFilter) { managementAddress.YFilter = yf }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetGoName(yname string) string {
-    if yname == "disable" { return "Disable" }
-    return ""
+    managementAddress.EntityData.Children = make(map[string]types.YChild)
+    managementAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    managementAddress.EntityData.Leafs["disable"] = types.YLeaf{"Disable", managementAddress.Disable}
+    return &(managementAddress.EntityData)
 }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetSegmentPath() string {
-    return "management-address"
-}
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["disable"] = managementAddress.Disable
-    return leafs
-}
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetYangName() string { return "management-address" }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) SetParent(parent types.Entity) { managementAddress.parent = parent }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetParent() types.Entity { return managementAddress.parent }
-
-func (managementAddress *Lldp_TlvSelect_ManagementAddress) GetParentYangName() string { return "tlv-select" }
 

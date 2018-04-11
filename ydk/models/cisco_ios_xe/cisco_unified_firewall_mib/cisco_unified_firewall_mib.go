@@ -191,7 +191,7 @@ func init() {
 
 // CISCOUNIFIEDFIREWALLMIB
 type CISCOUNIFIEDFIREWALLMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -283,133 +283,40 @@ type CISCOUNIFIEDFIREWALLMIB struct {
     Cufwurlfservertable CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable
 }
 
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetFilter() yfilter.YFilter { return cISCOUNIFIEDFIREWALLMIB.YFilter }
+func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetEntityData() *types.CommonEntityData {
+    cISCOUNIFIEDFIREWALLMIB.EntityData.YFilter = cISCOUNIFIEDFIREWALLMIB.YFilter
+    cISCOUNIFIEDFIREWALLMIB.EntityData.YangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cISCOUNIFIEDFIREWALLMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOUNIFIEDFIREWALLMIB.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cISCOUNIFIEDFIREWALLMIB.EntityData.SegmentPath = "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB"
+    cISCOUNIFIEDFIREWALLMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOUNIFIEDFIREWALLMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOUNIFIEDFIREWALLMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) SetFilter(yf yfilter.YFilter) { cISCOUNIFIEDFIREWALLMIB.YFilter = yf }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetGoName(yname string) string {
-    if yname == "cuFwConnectionGlobals" { return "Cufwconnectionglobals" }
-    if yname == "cuFwConnectionResources" { return "Cufwconnectionresources" }
-    if yname == "cuFwConnectionReportSettings" { return "Cufwconnectionreportsettings" }
-    if yname == "cuFwApplInspectionGrp" { return "Cufwapplinspectiongrp" }
-    if yname == "cufwUrlFilterGlobals" { return "Cufwurlfilterglobals" }
-    if yname == "cufwUrlFilterResourceUsage" { return "Cufwurlfilterresourceusage" }
-    if yname == "cufwAaicGlobals" { return "Cufwaaicglobals" }
-    if yname == "cufwAaicHttpProtocolStats" { return "Cufwaaichttpprotocolstats" }
-    if yname == "cufwL2FwGlobals" { return "Cufwl2Fwglobals" }
-    if yname == "cuFwNotifCntlGrp" { return "Cufwnotifcntlgrp" }
-    if yname == "cufwConnSummaryTable" { return "Cufwconnsummarytable" }
-    if yname == "cufwAppConnSummaryTable" { return "Cufwappconnsummarytable" }
-    if yname == "cufwPolicyConnSummaryTable" { return "Cufwpolicyconnsummarytable" }
-    if yname == "cufwPolicyAppConnSummaryTable" { return "Cufwpolicyappconnsummarytable" }
-    if yname == "cufwInspectionTable" { return "Cufwinspectiontable" }
-    if yname == "cufwUrlfServerTable" { return "Cufwurlfservertable" }
-    return ""
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cuFwConnectionGlobals"] = types.YChild{"Cufwconnectionglobals", &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cuFwConnectionResources"] = types.YChild{"Cufwconnectionresources", &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cuFwConnectionReportSettings"] = types.YChild{"Cufwconnectionreportsettings", &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cuFwApplInspectionGrp"] = types.YChild{"Cufwapplinspectiongrp", &cISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwUrlFilterGlobals"] = types.YChild{"Cufwurlfilterglobals", &cISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwUrlFilterResourceUsage"] = types.YChild{"Cufwurlfilterresourceusage", &cISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwAaicGlobals"] = types.YChild{"Cufwaaicglobals", &cISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwAaicHttpProtocolStats"] = types.YChild{"Cufwaaichttpprotocolstats", &cISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwL2FwGlobals"] = types.YChild{"Cufwl2Fwglobals", &cISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cuFwNotifCntlGrp"] = types.YChild{"Cufwnotifcntlgrp", &cISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwConnSummaryTable"] = types.YChild{"Cufwconnsummarytable", &cISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwAppConnSummaryTable"] = types.YChild{"Cufwappconnsummarytable", &cISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwPolicyConnSummaryTable"] = types.YChild{"Cufwpolicyconnsummarytable", &cISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwPolicyAppConnSummaryTable"] = types.YChild{"Cufwpolicyappconnsummarytable", &cISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwInspectionTable"] = types.YChild{"Cufwinspectiontable", &cISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Children["cufwUrlfServerTable"] = types.YChild{"Cufwurlfservertable", &cISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable}
+    cISCOUNIFIEDFIREWALLMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOUNIFIEDFIREWALLMIB.EntityData)
 }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetSegmentPath() string {
-    return "CISCO-UNIFIED-FIREWALL-MIB:CISCO-UNIFIED-FIREWALL-MIB"
-}
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cuFwConnectionGlobals" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals
-    }
-    if childYangName == "cuFwConnectionResources" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources
-    }
-    if childYangName == "cuFwConnectionReportSettings" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings
-    }
-    if childYangName == "cuFwApplInspectionGrp" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp
-    }
-    if childYangName == "cufwUrlFilterGlobals" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals
-    }
-    if childYangName == "cufwUrlFilterResourceUsage" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage
-    }
-    if childYangName == "cufwAaicGlobals" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals
-    }
-    if childYangName == "cufwAaicHttpProtocolStats" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats
-    }
-    if childYangName == "cufwL2FwGlobals" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals
-    }
-    if childYangName == "cuFwNotifCntlGrp" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp
-    }
-    if childYangName == "cufwConnSummaryTable" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable
-    }
-    if childYangName == "cufwAppConnSummaryTable" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable
-    }
-    if childYangName == "cufwPolicyConnSummaryTable" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable
-    }
-    if childYangName == "cufwPolicyAppConnSummaryTable" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable
-    }
-    if childYangName == "cufwInspectionTable" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable
-    }
-    if childYangName == "cufwUrlfServerTable" {
-        return &cISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable
-    }
-    return nil
-}
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cuFwConnectionGlobals"] = &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionglobals
-    children["cuFwConnectionResources"] = &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionresources
-    children["cuFwConnectionReportSettings"] = &cISCOUNIFIEDFIREWALLMIB.Cufwconnectionreportsettings
-    children["cuFwApplInspectionGrp"] = &cISCOUNIFIEDFIREWALLMIB.Cufwapplinspectiongrp
-    children["cufwUrlFilterGlobals"] = &cISCOUNIFIEDFIREWALLMIB.Cufwurlfilterglobals
-    children["cufwUrlFilterResourceUsage"] = &cISCOUNIFIEDFIREWALLMIB.Cufwurlfilterresourceusage
-    children["cufwAaicGlobals"] = &cISCOUNIFIEDFIREWALLMIB.Cufwaaicglobals
-    children["cufwAaicHttpProtocolStats"] = &cISCOUNIFIEDFIREWALLMIB.Cufwaaichttpprotocolstats
-    children["cufwL2FwGlobals"] = &cISCOUNIFIEDFIREWALLMIB.Cufwl2Fwglobals
-    children["cuFwNotifCntlGrp"] = &cISCOUNIFIEDFIREWALLMIB.Cufwnotifcntlgrp
-    children["cufwConnSummaryTable"] = &cISCOUNIFIEDFIREWALLMIB.Cufwconnsummarytable
-    children["cufwAppConnSummaryTable"] = &cISCOUNIFIEDFIREWALLMIB.Cufwappconnsummarytable
-    children["cufwPolicyConnSummaryTable"] = &cISCOUNIFIEDFIREWALLMIB.Cufwpolicyconnsummarytable
-    children["cufwPolicyAppConnSummaryTable"] = &cISCOUNIFIEDFIREWALLMIB.Cufwpolicyappconnsummarytable
-    children["cufwInspectionTable"] = &cISCOUNIFIEDFIREWALLMIB.Cufwinspectiontable
-    children["cufwUrlfServerTable"] = &cISCOUNIFIEDFIREWALLMIB.Cufwurlfservertable
-    return children
-}
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) SetParent(parent types.Entity) { cISCOUNIFIEDFIREWALLMIB.parent = parent }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetParent() types.Entity { return cISCOUNIFIEDFIREWALLMIB.parent }
-
-func (cISCOUNIFIEDFIREWALLMIB *CISCOUNIFIEDFIREWALLMIB) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals
 type CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Connection Statistics Aggregation  Connection 1  +-----------+ 
@@ -504,77 +411,36 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals struct {
     Cufwconnglobalnumremoteaccess interface{}
 }
 
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetFilter() yfilter.YFilter { return cufwconnectionglobals.YFilter }
+func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetEntityData() *types.CommonEntityData {
+    cufwconnectionglobals.EntityData.YFilter = cufwconnectionglobals.YFilter
+    cufwconnectionglobals.EntityData.YangName = "cuFwConnectionGlobals"
+    cufwconnectionglobals.EntityData.BundleName = "cisco_ios_xe"
+    cufwconnectionglobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwconnectionglobals.EntityData.SegmentPath = "cuFwConnectionGlobals"
+    cufwconnectionglobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwconnectionglobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwconnectionglobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) SetFilter(yf yfilter.YFilter) { cufwconnectionglobals.YFilter = yf }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetGoName(yname string) string {
-    if yname == "cufwConnGlobalNumAttempted" { return "Cufwconnglobalnumattempted" }
-    if yname == "cufwConnGlobalNumSetupsAborted" { return "Cufwconnglobalnumsetupsaborted" }
-    if yname == "cufwConnGlobalNumPolicyDeclined" { return "Cufwconnglobalnumpolicydeclined" }
-    if yname == "cufwConnGlobalNumResDeclined" { return "Cufwconnglobalnumresdeclined" }
-    if yname == "cufwConnGlobalNumHalfOpen" { return "Cufwconnglobalnumhalfopen" }
-    if yname == "cufwConnGlobalNumActive" { return "Cufwconnglobalnumactive" }
-    if yname == "cufwConnGlobalNumExpired" { return "Cufwconnglobalnumexpired" }
-    if yname == "cufwConnGlobalNumAborted" { return "Cufwconnglobalnumaborted" }
-    if yname == "cufwConnGlobalNumEmbryonic" { return "Cufwconnglobalnumembryonic" }
-    if yname == "cufwConnGlobalConnSetupRate1" { return "Cufwconnglobalconnsetuprate1" }
-    if yname == "cufwConnGlobalConnSetupRate5" { return "Cufwconnglobalconnsetuprate5" }
-    if yname == "cufwConnGlobalNumRemoteAccess" { return "Cufwconnglobalnumremoteaccess" }
-    return ""
+    cufwconnectionglobals.EntityData.Children = make(map[string]types.YChild)
+    cufwconnectionglobals.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumAttempted"] = types.YLeaf{"Cufwconnglobalnumattempted", cufwconnectionglobals.Cufwconnglobalnumattempted}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumSetupsAborted"] = types.YLeaf{"Cufwconnglobalnumsetupsaborted", cufwconnectionglobals.Cufwconnglobalnumsetupsaborted}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumPolicyDeclined"] = types.YLeaf{"Cufwconnglobalnumpolicydeclined", cufwconnectionglobals.Cufwconnglobalnumpolicydeclined}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumResDeclined"] = types.YLeaf{"Cufwconnglobalnumresdeclined", cufwconnectionglobals.Cufwconnglobalnumresdeclined}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumHalfOpen"] = types.YLeaf{"Cufwconnglobalnumhalfopen", cufwconnectionglobals.Cufwconnglobalnumhalfopen}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumActive"] = types.YLeaf{"Cufwconnglobalnumactive", cufwconnectionglobals.Cufwconnglobalnumactive}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumExpired"] = types.YLeaf{"Cufwconnglobalnumexpired", cufwconnectionglobals.Cufwconnglobalnumexpired}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumAborted"] = types.YLeaf{"Cufwconnglobalnumaborted", cufwconnectionglobals.Cufwconnglobalnumaborted}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumEmbryonic"] = types.YLeaf{"Cufwconnglobalnumembryonic", cufwconnectionglobals.Cufwconnglobalnumembryonic}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalConnSetupRate1"] = types.YLeaf{"Cufwconnglobalconnsetuprate1", cufwconnectionglobals.Cufwconnglobalconnsetuprate1}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalConnSetupRate5"] = types.YLeaf{"Cufwconnglobalconnsetuprate5", cufwconnectionglobals.Cufwconnglobalconnsetuprate5}
+    cufwconnectionglobals.EntityData.Leafs["cufwConnGlobalNumRemoteAccess"] = types.YLeaf{"Cufwconnglobalnumremoteaccess", cufwconnectionglobals.Cufwconnglobalnumremoteaccess}
+    return &(cufwconnectionglobals.EntityData)
 }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetSegmentPath() string {
-    return "cuFwConnectionGlobals"
-}
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwConnGlobalNumAttempted"] = cufwconnectionglobals.Cufwconnglobalnumattempted
-    leafs["cufwConnGlobalNumSetupsAborted"] = cufwconnectionglobals.Cufwconnglobalnumsetupsaborted
-    leafs["cufwConnGlobalNumPolicyDeclined"] = cufwconnectionglobals.Cufwconnglobalnumpolicydeclined
-    leafs["cufwConnGlobalNumResDeclined"] = cufwconnectionglobals.Cufwconnglobalnumresdeclined
-    leafs["cufwConnGlobalNumHalfOpen"] = cufwconnectionglobals.Cufwconnglobalnumhalfopen
-    leafs["cufwConnGlobalNumActive"] = cufwconnectionglobals.Cufwconnglobalnumactive
-    leafs["cufwConnGlobalNumExpired"] = cufwconnectionglobals.Cufwconnglobalnumexpired
-    leafs["cufwConnGlobalNumAborted"] = cufwconnectionglobals.Cufwconnglobalnumaborted
-    leafs["cufwConnGlobalNumEmbryonic"] = cufwconnectionglobals.Cufwconnglobalnumembryonic
-    leafs["cufwConnGlobalConnSetupRate1"] = cufwconnectionglobals.Cufwconnglobalconnsetuprate1
-    leafs["cufwConnGlobalConnSetupRate5"] = cufwconnectionglobals.Cufwconnglobalconnsetuprate5
-    leafs["cufwConnGlobalNumRemoteAccess"] = cufwconnectionglobals.Cufwconnglobalnumremoteaccess
-    return leafs
-}
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetYangName() string { return "cuFwConnectionGlobals" }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) SetParent(parent types.Entity) { cufwconnectionglobals.parent = parent }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetParent() types.Entity { return cufwconnectionglobals.parent }
-
-func (cufwconnectionglobals *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionglobals) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources
 type CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The amount of memory occupied by all structures required to maintain the
@@ -598,61 +464,28 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources struct {
     Cufwconnresembrconnmemoryusage interface{}
 }
 
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetFilter() yfilter.YFilter { return cufwconnectionresources.YFilter }
+func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetEntityData() *types.CommonEntityData {
+    cufwconnectionresources.EntityData.YFilter = cufwconnectionresources.YFilter
+    cufwconnectionresources.EntityData.YangName = "cuFwConnectionResources"
+    cufwconnectionresources.EntityData.BundleName = "cisco_ios_xe"
+    cufwconnectionresources.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwconnectionresources.EntityData.SegmentPath = "cuFwConnectionResources"
+    cufwconnectionresources.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwconnectionresources.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwconnectionresources.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) SetFilter(yf yfilter.YFilter) { cufwconnectionresources.YFilter = yf }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetGoName(yname string) string {
-    if yname == "cufwConnResMemoryUsage" { return "Cufwconnresmemoryusage" }
-    if yname == "cufwConnResActiveConnMemoryUsage" { return "Cufwconnresactiveconnmemoryusage" }
-    if yname == "cufwConnResHOConnMemoryUsage" { return "Cufwconnreshoconnmemoryusage" }
-    if yname == "cufwConnResEmbrConnMemoryUsage" { return "Cufwconnresembrconnmemoryusage" }
-    return ""
+    cufwconnectionresources.EntityData.Children = make(map[string]types.YChild)
+    cufwconnectionresources.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwconnectionresources.EntityData.Leafs["cufwConnResMemoryUsage"] = types.YLeaf{"Cufwconnresmemoryusage", cufwconnectionresources.Cufwconnresmemoryusage}
+    cufwconnectionresources.EntityData.Leafs["cufwConnResActiveConnMemoryUsage"] = types.YLeaf{"Cufwconnresactiveconnmemoryusage", cufwconnectionresources.Cufwconnresactiveconnmemoryusage}
+    cufwconnectionresources.EntityData.Leafs["cufwConnResHOConnMemoryUsage"] = types.YLeaf{"Cufwconnreshoconnmemoryusage", cufwconnectionresources.Cufwconnreshoconnmemoryusage}
+    cufwconnectionresources.EntityData.Leafs["cufwConnResEmbrConnMemoryUsage"] = types.YLeaf{"Cufwconnresembrconnmemoryusage", cufwconnectionresources.Cufwconnresembrconnmemoryusage}
+    return &(cufwconnectionresources.EntityData)
 }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetSegmentPath() string {
-    return "cuFwConnectionResources"
-}
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwConnResMemoryUsage"] = cufwconnectionresources.Cufwconnresmemoryusage
-    leafs["cufwConnResActiveConnMemoryUsage"] = cufwconnectionresources.Cufwconnresactiveconnmemoryusage
-    leafs["cufwConnResHOConnMemoryUsage"] = cufwconnectionresources.Cufwconnreshoconnmemoryusage
-    leafs["cufwConnResEmbrConnMemoryUsage"] = cufwconnectionresources.Cufwconnresembrconnmemoryusage
-    return leafs
-}
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetYangName() string { return "cuFwConnectionResources" }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) SetParent(parent types.Entity) { cufwconnectionresources.parent = parent }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetParent() types.Entity { return cufwconnectionresources.parent }
-
-func (cufwconnectionresources *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionresources) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings
 type CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Setting this object to 'true' enables the MIB to report connection activity
@@ -669,57 +502,26 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings struct {
     Cufwconnreptappstatslastchanged interface{}
 }
 
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetFilter() yfilter.YFilter { return cufwconnectionreportsettings.YFilter }
+func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetEntityData() *types.CommonEntityData {
+    cufwconnectionreportsettings.EntityData.YFilter = cufwconnectionreportsettings.YFilter
+    cufwconnectionreportsettings.EntityData.YangName = "cuFwConnectionReportSettings"
+    cufwconnectionreportsettings.EntityData.BundleName = "cisco_ios_xe"
+    cufwconnectionreportsettings.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwconnectionreportsettings.EntityData.SegmentPath = "cuFwConnectionReportSettings"
+    cufwconnectionreportsettings.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwconnectionreportsettings.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwconnectionreportsettings.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) SetFilter(yf yfilter.YFilter) { cufwconnectionreportsettings.YFilter = yf }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetGoName(yname string) string {
-    if yname == "cufwConnReptAppStats" { return "Cufwconnreptappstats" }
-    if yname == "cufwConnReptAppStatsLastChanged" { return "Cufwconnreptappstatslastchanged" }
-    return ""
+    cufwconnectionreportsettings.EntityData.Children = make(map[string]types.YChild)
+    cufwconnectionreportsettings.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwconnectionreportsettings.EntityData.Leafs["cufwConnReptAppStats"] = types.YLeaf{"Cufwconnreptappstats", cufwconnectionreportsettings.Cufwconnreptappstats}
+    cufwconnectionreportsettings.EntityData.Leafs["cufwConnReptAppStatsLastChanged"] = types.YLeaf{"Cufwconnreptappstatslastchanged", cufwconnectionreportsettings.Cufwconnreptappstatslastchanged}
+    return &(cufwconnectionreportsettings.EntityData)
 }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetSegmentPath() string {
-    return "cuFwConnectionReportSettings"
-}
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwConnReptAppStats"] = cufwconnectionreportsettings.Cufwconnreptappstats
-    leafs["cufwConnReptAppStatsLastChanged"] = cufwconnectionreportsettings.Cufwconnreptappstatslastchanged
-    return leafs
-}
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetYangName() string { return "cuFwConnectionReportSettings" }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) SetParent(parent types.Entity) { cufwconnectionreportsettings.parent = parent }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetParent() types.Entity { return cufwconnectionreportsettings.parent }
-
-func (cufwconnectionreportsettings *CISCOUNIFIEDFIREWALLMIB_Cufwconnectionreportsettings) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp
 type CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value identifies if audit trail in application  inspection has been
@@ -731,57 +533,26 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp struct {
     Cufwaialertenabled interface{}
 }
 
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetFilter() yfilter.YFilter { return cufwapplinspectiongrp.YFilter }
+func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetEntityData() *types.CommonEntityData {
+    cufwapplinspectiongrp.EntityData.YFilter = cufwapplinspectiongrp.YFilter
+    cufwapplinspectiongrp.EntityData.YangName = "cuFwApplInspectionGrp"
+    cufwapplinspectiongrp.EntityData.BundleName = "cisco_ios_xe"
+    cufwapplinspectiongrp.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwapplinspectiongrp.EntityData.SegmentPath = "cuFwApplInspectionGrp"
+    cufwapplinspectiongrp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwapplinspectiongrp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwapplinspectiongrp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) SetFilter(yf yfilter.YFilter) { cufwapplinspectiongrp.YFilter = yf }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetGoName(yname string) string {
-    if yname == "cufwAIAuditTrailEnabled" { return "Cufwaiaudittrailenabled" }
-    if yname == "cufwAIAlertEnabled" { return "Cufwaialertenabled" }
-    return ""
+    cufwapplinspectiongrp.EntityData.Children = make(map[string]types.YChild)
+    cufwapplinspectiongrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwapplinspectiongrp.EntityData.Leafs["cufwAIAuditTrailEnabled"] = types.YLeaf{"Cufwaiaudittrailenabled", cufwapplinspectiongrp.Cufwaiaudittrailenabled}
+    cufwapplinspectiongrp.EntityData.Leafs["cufwAIAlertEnabled"] = types.YLeaf{"Cufwaialertenabled", cufwapplinspectiongrp.Cufwaialertenabled}
+    return &(cufwapplinspectiongrp.EntityData)
 }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetSegmentPath() string {
-    return "cuFwApplInspectionGrp"
-}
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwAIAuditTrailEnabled"] = cufwapplinspectiongrp.Cufwaiaudittrailenabled
-    leafs["cufwAIAlertEnabled"] = cufwapplinspectiongrp.Cufwaialertenabled
-    return leafs
-}
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetYangName() string { return "cuFwApplInspectionGrp" }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) SetParent(parent types.Entity) { cufwapplinspectiongrp.parent = parent }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetParent() types.Entity { return cufwapplinspectiongrp.parent }
-
-func (cufwapplinspectiongrp *CISCOUNIFIEDFIREWALLMIB_Cufwapplinspectiongrp) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals
 type CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // URL Filtering Operation                                  _________         
@@ -927,91 +698,43 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals struct {
     Cufwurlfurlaccrespsnumresdropped interface{}
 }
 
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetFilter() yfilter.YFilter { return cufwurlfilterglobals.YFilter }
+func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetEntityData() *types.CommonEntityData {
+    cufwurlfilterglobals.EntityData.YFilter = cufwurlfilterglobals.YFilter
+    cufwurlfilterglobals.EntityData.YangName = "cufwUrlFilterGlobals"
+    cufwurlfilterglobals.EntityData.BundleName = "cisco_ios_xe"
+    cufwurlfilterglobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwurlfilterglobals.EntityData.SegmentPath = "cufwUrlFilterGlobals"
+    cufwurlfilterglobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwurlfilterglobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwurlfilterglobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) SetFilter(yf yfilter.YFilter) { cufwurlfilterglobals.YFilter = yf }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetGoName(yname string) string {
-    if yname == "cufwUrlfFunctionEnabled" { return "Cufwurlffunctionenabled" }
-    if yname == "cufwUrlfRequestsNumProcessed" { return "Cufwurlfrequestsnumprocessed" }
-    if yname == "cufwUrlfRequestsProcRate1" { return "Cufwurlfrequestsprocrate1" }
-    if yname == "cufwUrlfRequestsProcRate5" { return "Cufwurlfrequestsprocrate5" }
-    if yname == "cufwUrlfRequestsNumAllowed" { return "Cufwurlfrequestsnumallowed" }
-    if yname == "cufwUrlfRequestsNumDenied" { return "Cufwurlfrequestsnumdenied" }
-    if yname == "cufwUrlfRequestsDeniedRate1" { return "Cufwurlfrequestsdeniedrate1" }
-    if yname == "cufwUrlfRequestsDeniedRate5" { return "Cufwurlfrequestsdeniedrate5" }
-    if yname == "cufwUrlfRequestsNumCacheAllowed" { return "Cufwurlfrequestsnumcacheallowed" }
-    if yname == "cufwUrlfRequestsNumCacheDenied" { return "Cufwurlfrequestsnumcachedenied" }
-    if yname == "cufwUrlfAllowModeReqNumAllowed" { return "Cufwurlfallowmodereqnumallowed" }
-    if yname == "cufwUrlfAllowModeReqNumDenied" { return "Cufwurlfallowmodereqnumdenied" }
-    if yname == "cufwUrlfRequestsNumResDropped" { return "Cufwurlfrequestsnumresdropped" }
-    if yname == "cufwUrlfRequestsResDropRate1" { return "Cufwurlfrequestsresdroprate1" }
-    if yname == "cufwUrlfRequestsResDropRate5" { return "Cufwurlfrequestsresdroprate5" }
-    if yname == "cufwUrlfNumServerTimeouts" { return "Cufwurlfnumservertimeouts" }
-    if yname == "cufwUrlfNumServerRetries" { return "Cufwurlfnumserverretries" }
-    if yname == "cufwUrlfResponsesNumLate" { return "Cufwurlfresponsesnumlate" }
-    if yname == "cufwUrlfUrlAccRespsNumResDropped" { return "Cufwurlfurlaccrespsnumresdropped" }
-    return ""
+    cufwurlfilterglobals.EntityData.Children = make(map[string]types.YChild)
+    cufwurlfilterglobals.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfFunctionEnabled"] = types.YLeaf{"Cufwurlffunctionenabled", cufwurlfilterglobals.Cufwurlffunctionenabled}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsNumProcessed"] = types.YLeaf{"Cufwurlfrequestsnumprocessed", cufwurlfilterglobals.Cufwurlfrequestsnumprocessed}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsProcRate1"] = types.YLeaf{"Cufwurlfrequestsprocrate1", cufwurlfilterglobals.Cufwurlfrequestsprocrate1}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsProcRate5"] = types.YLeaf{"Cufwurlfrequestsprocrate5", cufwurlfilterglobals.Cufwurlfrequestsprocrate5}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsNumAllowed"] = types.YLeaf{"Cufwurlfrequestsnumallowed", cufwurlfilterglobals.Cufwurlfrequestsnumallowed}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsNumDenied"] = types.YLeaf{"Cufwurlfrequestsnumdenied", cufwurlfilterglobals.Cufwurlfrequestsnumdenied}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsDeniedRate1"] = types.YLeaf{"Cufwurlfrequestsdeniedrate1", cufwurlfilterglobals.Cufwurlfrequestsdeniedrate1}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsDeniedRate5"] = types.YLeaf{"Cufwurlfrequestsdeniedrate5", cufwurlfilterglobals.Cufwurlfrequestsdeniedrate5}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsNumCacheAllowed"] = types.YLeaf{"Cufwurlfrequestsnumcacheallowed", cufwurlfilterglobals.Cufwurlfrequestsnumcacheallowed}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsNumCacheDenied"] = types.YLeaf{"Cufwurlfrequestsnumcachedenied", cufwurlfilterglobals.Cufwurlfrequestsnumcachedenied}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfAllowModeReqNumAllowed"] = types.YLeaf{"Cufwurlfallowmodereqnumallowed", cufwurlfilterglobals.Cufwurlfallowmodereqnumallowed}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfAllowModeReqNumDenied"] = types.YLeaf{"Cufwurlfallowmodereqnumdenied", cufwurlfilterglobals.Cufwurlfallowmodereqnumdenied}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsNumResDropped"] = types.YLeaf{"Cufwurlfrequestsnumresdropped", cufwurlfilterglobals.Cufwurlfrequestsnumresdropped}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsResDropRate1"] = types.YLeaf{"Cufwurlfrequestsresdroprate1", cufwurlfilterglobals.Cufwurlfrequestsresdroprate1}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfRequestsResDropRate5"] = types.YLeaf{"Cufwurlfrequestsresdroprate5", cufwurlfilterglobals.Cufwurlfrequestsresdroprate5}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfNumServerTimeouts"] = types.YLeaf{"Cufwurlfnumservertimeouts", cufwurlfilterglobals.Cufwurlfnumservertimeouts}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfNumServerRetries"] = types.YLeaf{"Cufwurlfnumserverretries", cufwurlfilterglobals.Cufwurlfnumserverretries}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfResponsesNumLate"] = types.YLeaf{"Cufwurlfresponsesnumlate", cufwurlfilterglobals.Cufwurlfresponsesnumlate}
+    cufwurlfilterglobals.EntityData.Leafs["cufwUrlfUrlAccRespsNumResDropped"] = types.YLeaf{"Cufwurlfurlaccrespsnumresdropped", cufwurlfilterglobals.Cufwurlfurlaccrespsnumresdropped}
+    return &(cufwurlfilterglobals.EntityData)
 }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetSegmentPath() string {
-    return "cufwUrlFilterGlobals"
-}
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwUrlfFunctionEnabled"] = cufwurlfilterglobals.Cufwurlffunctionenabled
-    leafs["cufwUrlfRequestsNumProcessed"] = cufwurlfilterglobals.Cufwurlfrequestsnumprocessed
-    leafs["cufwUrlfRequestsProcRate1"] = cufwurlfilterglobals.Cufwurlfrequestsprocrate1
-    leafs["cufwUrlfRequestsProcRate5"] = cufwurlfilterglobals.Cufwurlfrequestsprocrate5
-    leafs["cufwUrlfRequestsNumAllowed"] = cufwurlfilterglobals.Cufwurlfrequestsnumallowed
-    leafs["cufwUrlfRequestsNumDenied"] = cufwurlfilterglobals.Cufwurlfrequestsnumdenied
-    leafs["cufwUrlfRequestsDeniedRate1"] = cufwurlfilterglobals.Cufwurlfrequestsdeniedrate1
-    leafs["cufwUrlfRequestsDeniedRate5"] = cufwurlfilterglobals.Cufwurlfrequestsdeniedrate5
-    leafs["cufwUrlfRequestsNumCacheAllowed"] = cufwurlfilterglobals.Cufwurlfrequestsnumcacheallowed
-    leafs["cufwUrlfRequestsNumCacheDenied"] = cufwurlfilterglobals.Cufwurlfrequestsnumcachedenied
-    leafs["cufwUrlfAllowModeReqNumAllowed"] = cufwurlfilterglobals.Cufwurlfallowmodereqnumallowed
-    leafs["cufwUrlfAllowModeReqNumDenied"] = cufwurlfilterglobals.Cufwurlfallowmodereqnumdenied
-    leafs["cufwUrlfRequestsNumResDropped"] = cufwurlfilterglobals.Cufwurlfrequestsnumresdropped
-    leafs["cufwUrlfRequestsResDropRate1"] = cufwurlfilterglobals.Cufwurlfrequestsresdroprate1
-    leafs["cufwUrlfRequestsResDropRate5"] = cufwurlfilterglobals.Cufwurlfrequestsresdroprate5
-    leafs["cufwUrlfNumServerTimeouts"] = cufwurlfilterglobals.Cufwurlfnumservertimeouts
-    leafs["cufwUrlfNumServerRetries"] = cufwurlfilterglobals.Cufwurlfnumserverretries
-    leafs["cufwUrlfResponsesNumLate"] = cufwurlfilterglobals.Cufwurlfresponsesnumlate
-    leafs["cufwUrlfUrlAccRespsNumResDropped"] = cufwurlfilterglobals.Cufwurlfurlaccrespsnumresdropped
-    return leafs
-}
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetYangName() string { return "cufwUrlFilterGlobals" }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) SetParent(parent types.Entity) { cufwurlfilterglobals.parent = parent }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetParent() types.Entity { return cufwurlfilterglobals.parent }
-
-func (cufwurlfilterglobals *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterglobals) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage
 type CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The amount of memory occupied by all the caches used in the firewall to
@@ -1026,57 +749,26 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage struct {
     Cufwurlfrestotalrespcachesize interface{}
 }
 
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetFilter() yfilter.YFilter { return cufwurlfilterresourceusage.YFilter }
+func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetEntityData() *types.CommonEntityData {
+    cufwurlfilterresourceusage.EntityData.YFilter = cufwurlfilterresourceusage.YFilter
+    cufwurlfilterresourceusage.EntityData.YangName = "cufwUrlFilterResourceUsage"
+    cufwurlfilterresourceusage.EntityData.BundleName = "cisco_ios_xe"
+    cufwurlfilterresourceusage.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwurlfilterresourceusage.EntityData.SegmentPath = "cufwUrlFilterResourceUsage"
+    cufwurlfilterresourceusage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwurlfilterresourceusage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwurlfilterresourceusage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) SetFilter(yf yfilter.YFilter) { cufwurlfilterresourceusage.YFilter = yf }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetGoName(yname string) string {
-    if yname == "cufwUrlfResTotalRequestCacheSize" { return "Cufwurlfrestotalrequestcachesize" }
-    if yname == "cufwUrlfResTotalRespCacheSize" { return "Cufwurlfrestotalrespcachesize" }
-    return ""
+    cufwurlfilterresourceusage.EntityData.Children = make(map[string]types.YChild)
+    cufwurlfilterresourceusage.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwurlfilterresourceusage.EntityData.Leafs["cufwUrlfResTotalRequestCacheSize"] = types.YLeaf{"Cufwurlfrestotalrequestcachesize", cufwurlfilterresourceusage.Cufwurlfrestotalrequestcachesize}
+    cufwurlfilterresourceusage.EntityData.Leafs["cufwUrlfResTotalRespCacheSize"] = types.YLeaf{"Cufwurlfrestotalrespcachesize", cufwurlfilterresourceusage.Cufwurlfrestotalrespcachesize}
+    return &(cufwurlfilterresourceusage.EntityData)
 }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetSegmentPath() string {
-    return "cufwUrlFilterResourceUsage"
-}
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwUrlfResTotalRequestCacheSize"] = cufwurlfilterresourceusage.Cufwurlfrestotalrequestcachesize
-    leafs["cufwUrlfResTotalRespCacheSize"] = cufwurlfilterresourceusage.Cufwurlfrestotalrespcachesize
-    return leafs
-}
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetYangName() string { return "cufwUrlFilterResourceUsage" }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) SetParent(parent types.Entity) { cufwurlfilterresourceusage.parent = parent }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetParent() types.Entity { return cufwurlfilterresourceusage.parent }
-
-func (cufwurlfilterresourceusage *CISCOUNIFIEDFIREWALLMIB_Cufwurlfilterresourceusage) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals
 type CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // 'Protocol Operation' is the application protocol specific operation that
@@ -1110,59 +802,27 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals struct {
     Cufwaaicglobalnumbadportrange interface{}
 }
 
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetFilter() yfilter.YFilter { return cufwaaicglobals.YFilter }
+func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetEntityData() *types.CommonEntityData {
+    cufwaaicglobals.EntityData.YFilter = cufwaaicglobals.YFilter
+    cufwaaicglobals.EntityData.YangName = "cufwAaicGlobals"
+    cufwaaicglobals.EntityData.BundleName = "cisco_ios_xe"
+    cufwaaicglobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwaaicglobals.EntityData.SegmentPath = "cufwAaicGlobals"
+    cufwaaicglobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwaaicglobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwaaicglobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) SetFilter(yf yfilter.YFilter) { cufwaaicglobals.YFilter = yf }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetGoName(yname string) string {
-    if yname == "cufwAaicGlobalNumBadProtocolOps" { return "Cufwaaicglobalnumbadprotocolops" }
-    if yname == "cufwAaicGlobalNumBadPDUSize" { return "Cufwaaicglobalnumbadpdusize" }
-    if yname == "cufwAaicGlobalNumBadPortRange" { return "Cufwaaicglobalnumbadportrange" }
-    return ""
+    cufwaaicglobals.EntityData.Children = make(map[string]types.YChild)
+    cufwaaicglobals.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwaaicglobals.EntityData.Leafs["cufwAaicGlobalNumBadProtocolOps"] = types.YLeaf{"Cufwaaicglobalnumbadprotocolops", cufwaaicglobals.Cufwaaicglobalnumbadprotocolops}
+    cufwaaicglobals.EntityData.Leafs["cufwAaicGlobalNumBadPDUSize"] = types.YLeaf{"Cufwaaicglobalnumbadpdusize", cufwaaicglobals.Cufwaaicglobalnumbadpdusize}
+    cufwaaicglobals.EntityData.Leafs["cufwAaicGlobalNumBadPortRange"] = types.YLeaf{"Cufwaaicglobalnumbadportrange", cufwaaicglobals.Cufwaaicglobalnumbadportrange}
+    return &(cufwaaicglobals.EntityData)
 }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetSegmentPath() string {
-    return "cufwAaicGlobals"
-}
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwAaicGlobalNumBadProtocolOps"] = cufwaaicglobals.Cufwaaicglobalnumbadprotocolops
-    leafs["cufwAaicGlobalNumBadPDUSize"] = cufwaaicglobals.Cufwaaicglobalnumbadpdusize
-    leafs["cufwAaicGlobalNumBadPortRange"] = cufwaaicglobals.Cufwaaicglobalnumbadportrange
-    return leafs
-}
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetYangName() string { return "cufwAaicGlobals" }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) SetParent(parent types.Entity) { cufwaaicglobals.parent = parent }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetParent() types.Entity { return cufwaaicglobals.parent }
-
-func (cufwaaicglobals *CISCOUNIFIEDFIREWALLMIB_Cufwaaicglobals) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats
 type CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of PDUs corresponding to HTTP protocol  which were detected to
@@ -1228,67 +888,31 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats struct {
     Cufwaaichttpnumdoubleencodedpkts interface{}
 }
 
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetFilter() yfilter.YFilter { return cufwaaichttpprotocolstats.YFilter }
+func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetEntityData() *types.CommonEntityData {
+    cufwaaichttpprotocolstats.EntityData.YFilter = cufwaaichttpprotocolstats.YFilter
+    cufwaaichttpprotocolstats.EntityData.YangName = "cufwAaicHttpProtocolStats"
+    cufwaaichttpprotocolstats.EntityData.BundleName = "cisco_ios_xe"
+    cufwaaichttpprotocolstats.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwaaichttpprotocolstats.EntityData.SegmentPath = "cufwAaicHttpProtocolStats"
+    cufwaaichttpprotocolstats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwaaichttpprotocolstats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwaaichttpprotocolstats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) SetFilter(yf yfilter.YFilter) { cufwaaichttpprotocolstats.YFilter = yf }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetGoName(yname string) string {
-    if yname == "cufwAaicHttpNumBadProtocolOps" { return "Cufwaaichttpnumbadprotocolops" }
-    if yname == "cufwAaicHttpNumBadPDUSize" { return "Cufwaaichttpnumbadpdusize" }
-    if yname == "cufwAaicHttpNumTunneledConns" { return "Cufwaaichttpnumtunneledconns" }
-    if yname == "cufwAaicHttpNumLargeURIs" { return "Cufwaaichttpnumlargeuris" }
-    if yname == "cufwAaicHttpNumBadContent" { return "Cufwaaichttpnumbadcontent" }
-    if yname == "cufwAaicHttpNumMismatchContent" { return "Cufwaaichttpnummismatchcontent" }
-    if yname == "cufwAaicHttpNumDoubleEncodedPkts" { return "Cufwaaichttpnumdoubleencodedpkts" }
-    return ""
+    cufwaaichttpprotocolstats.EntityData.Children = make(map[string]types.YChild)
+    cufwaaichttpprotocolstats.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumBadProtocolOps"] = types.YLeaf{"Cufwaaichttpnumbadprotocolops", cufwaaichttpprotocolstats.Cufwaaichttpnumbadprotocolops}
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumBadPDUSize"] = types.YLeaf{"Cufwaaichttpnumbadpdusize", cufwaaichttpprotocolstats.Cufwaaichttpnumbadpdusize}
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumTunneledConns"] = types.YLeaf{"Cufwaaichttpnumtunneledconns", cufwaaichttpprotocolstats.Cufwaaichttpnumtunneledconns}
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumLargeURIs"] = types.YLeaf{"Cufwaaichttpnumlargeuris", cufwaaichttpprotocolstats.Cufwaaichttpnumlargeuris}
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumBadContent"] = types.YLeaf{"Cufwaaichttpnumbadcontent", cufwaaichttpprotocolstats.Cufwaaichttpnumbadcontent}
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumMismatchContent"] = types.YLeaf{"Cufwaaichttpnummismatchcontent", cufwaaichttpprotocolstats.Cufwaaichttpnummismatchcontent}
+    cufwaaichttpprotocolstats.EntityData.Leafs["cufwAaicHttpNumDoubleEncodedPkts"] = types.YLeaf{"Cufwaaichttpnumdoubleencodedpkts", cufwaaichttpprotocolstats.Cufwaaichttpnumdoubleencodedpkts}
+    return &(cufwaaichttpprotocolstats.EntityData)
 }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetSegmentPath() string {
-    return "cufwAaicHttpProtocolStats"
-}
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwAaicHttpNumBadProtocolOps"] = cufwaaichttpprotocolstats.Cufwaaichttpnumbadprotocolops
-    leafs["cufwAaicHttpNumBadPDUSize"] = cufwaaichttpprotocolstats.Cufwaaichttpnumbadpdusize
-    leafs["cufwAaicHttpNumTunneledConns"] = cufwaaichttpprotocolstats.Cufwaaichttpnumtunneledconns
-    leafs["cufwAaicHttpNumLargeURIs"] = cufwaaichttpprotocolstats.Cufwaaichttpnumlargeuris
-    leafs["cufwAaicHttpNumBadContent"] = cufwaaichttpprotocolstats.Cufwaaichttpnumbadcontent
-    leafs["cufwAaicHttpNumMismatchContent"] = cufwaaichttpprotocolstats.Cufwaaichttpnummismatchcontent
-    leafs["cufwAaicHttpNumDoubleEncodedPkts"] = cufwaaichttpprotocolstats.Cufwaaichttpnumdoubleencodedpkts
-    return leafs
-}
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetYangName() string { return "cufwAaicHttpProtocolStats" }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) SetParent(parent types.Entity) { cufwaaichttpprotocolstats.parent = parent }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetParent() types.Entity { return cufwaaichttpprotocolstats.parent }
-
-func (cufwaaichttpprotocolstats *CISCOUNIFIEDFIREWALLMIB_Cufwaaichttpprotocolstats) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals
 type CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value indicates if the firewall is operating in transparent (layer 2)
@@ -1351,73 +975,34 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals struct {
     Cufwl2Globalnumspoofedarpresps interface{}
 }
 
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetFilter() yfilter.YFilter { return cufwl2Fwglobals.YFilter }
+func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetEntityData() *types.CommonEntityData {
+    cufwl2Fwglobals.EntityData.YFilter = cufwl2Fwglobals.YFilter
+    cufwl2Fwglobals.EntityData.YangName = "cufwL2FwGlobals"
+    cufwl2Fwglobals.EntityData.BundleName = "cisco_ios_xe"
+    cufwl2Fwglobals.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwl2Fwglobals.EntityData.SegmentPath = "cufwL2FwGlobals"
+    cufwl2Fwglobals.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwl2Fwglobals.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwl2Fwglobals.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) SetFilter(yf yfilter.YFilter) { cufwl2Fwglobals.YFilter = yf }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetGoName(yname string) string {
-    if yname == "cufwL2GlobalEnableStealthMode" { return "Cufwl2Globalenablestealthmode" }
-    if yname == "cufwL2GlobalArpCacheSize" { return "Cufwl2Globalarpcachesize" }
-    if yname == "cufwL2GlobalEnableArpInspection" { return "Cufwl2Globalenablearpinspection" }
-    if yname == "cufwL2GlobalNumArpRequests" { return "Cufwl2Globalnumarprequests" }
-    if yname == "cufwL2GlobalNumIcmpRequests" { return "Cufwl2Globalnumicmprequests" }
-    if yname == "cufwL2GlobalNumFloods" { return "Cufwl2Globalnumfloods" }
-    if yname == "cufwL2GlobalNumDrops" { return "Cufwl2Globalnumdrops" }
-    if yname == "cufwL2GlobalArpOverflowRate5" { return "Cufwl2Globalarpoverflowrate5" }
-    if yname == "cufwL2GlobalNumBadArpResponses" { return "Cufwl2Globalnumbadarpresponses" }
-    if yname == "cufwL2GlobalNumSpoofedArpResps" { return "Cufwl2Globalnumspoofedarpresps" }
-    return ""
+    cufwl2Fwglobals.EntityData.Children = make(map[string]types.YChild)
+    cufwl2Fwglobals.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalEnableStealthMode"] = types.YLeaf{"Cufwl2Globalenablestealthmode", cufwl2Fwglobals.Cufwl2Globalenablestealthmode}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalArpCacheSize"] = types.YLeaf{"Cufwl2Globalarpcachesize", cufwl2Fwglobals.Cufwl2Globalarpcachesize}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalEnableArpInspection"] = types.YLeaf{"Cufwl2Globalenablearpinspection", cufwl2Fwglobals.Cufwl2Globalenablearpinspection}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalNumArpRequests"] = types.YLeaf{"Cufwl2Globalnumarprequests", cufwl2Fwglobals.Cufwl2Globalnumarprequests}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalNumIcmpRequests"] = types.YLeaf{"Cufwl2Globalnumicmprequests", cufwl2Fwglobals.Cufwl2Globalnumicmprequests}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalNumFloods"] = types.YLeaf{"Cufwl2Globalnumfloods", cufwl2Fwglobals.Cufwl2Globalnumfloods}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalNumDrops"] = types.YLeaf{"Cufwl2Globalnumdrops", cufwl2Fwglobals.Cufwl2Globalnumdrops}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalArpOverflowRate5"] = types.YLeaf{"Cufwl2Globalarpoverflowrate5", cufwl2Fwglobals.Cufwl2Globalarpoverflowrate5}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalNumBadArpResponses"] = types.YLeaf{"Cufwl2Globalnumbadarpresponses", cufwl2Fwglobals.Cufwl2Globalnumbadarpresponses}
+    cufwl2Fwglobals.EntityData.Leafs["cufwL2GlobalNumSpoofedArpResps"] = types.YLeaf{"Cufwl2Globalnumspoofedarpresps", cufwl2Fwglobals.Cufwl2Globalnumspoofedarpresps}
+    return &(cufwl2Fwglobals.EntityData)
 }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetSegmentPath() string {
-    return "cufwL2FwGlobals"
-}
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwL2GlobalEnableStealthMode"] = cufwl2Fwglobals.Cufwl2Globalenablestealthmode
-    leafs["cufwL2GlobalArpCacheSize"] = cufwl2Fwglobals.Cufwl2Globalarpcachesize
-    leafs["cufwL2GlobalEnableArpInspection"] = cufwl2Fwglobals.Cufwl2Globalenablearpinspection
-    leafs["cufwL2GlobalNumArpRequests"] = cufwl2Fwglobals.Cufwl2Globalnumarprequests
-    leafs["cufwL2GlobalNumIcmpRequests"] = cufwl2Fwglobals.Cufwl2Globalnumicmprequests
-    leafs["cufwL2GlobalNumFloods"] = cufwl2Fwglobals.Cufwl2Globalnumfloods
-    leafs["cufwL2GlobalNumDrops"] = cufwl2Fwglobals.Cufwl2Globalnumdrops
-    leafs["cufwL2GlobalArpOverflowRate5"] = cufwl2Fwglobals.Cufwl2Globalarpoverflowrate5
-    leafs["cufwL2GlobalNumBadArpResponses"] = cufwl2Fwglobals.Cufwl2Globalnumbadarpresponses
-    leafs["cufwL2GlobalNumSpoofedArpResps"] = cufwl2Fwglobals.Cufwl2Globalnumspoofedarpresps
-    return leafs
-}
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetYangName() string { return "cufwL2FwGlobals" }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) SetParent(parent types.Entity) { cufwl2Fwglobals.parent = parent }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetParent() types.Entity { return cufwl2Fwglobals.parent }
-
-func (cufwl2Fwglobals *CISCOUNIFIEDFIREWALLMIB_Cufwl2Fwglobals) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp
 type CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object defines the administrative state of sending the SNMP
@@ -1436,53 +1021,22 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp struct {
     Cufwcntll2Staticmacaddressmoved interface{}
 }
 
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetFilter() yfilter.YFilter { return cufwnotifcntlgrp.YFilter }
+func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetEntityData() *types.CommonEntityData {
+    cufwnotifcntlgrp.EntityData.YFilter = cufwnotifcntlgrp.YFilter
+    cufwnotifcntlgrp.EntityData.YangName = "cuFwNotifCntlGrp"
+    cufwnotifcntlgrp.EntityData.BundleName = "cisco_ios_xe"
+    cufwnotifcntlgrp.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwnotifcntlgrp.EntityData.SegmentPath = "cuFwNotifCntlGrp"
+    cufwnotifcntlgrp.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwnotifcntlgrp.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwnotifcntlgrp.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) SetFilter(yf yfilter.YFilter) { cufwnotifcntlgrp.YFilter = yf }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetGoName(yname string) string {
-    if yname == "cufwCntlUrlfServerStatusChange" { return "Cufwcntlurlfserverstatuschange" }
-    if yname == "cufwCntlL2StaticMacAddressMoved" { return "Cufwcntll2Staticmacaddressmoved" }
-    return ""
+    cufwnotifcntlgrp.EntityData.Children = make(map[string]types.YChild)
+    cufwnotifcntlgrp.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwnotifcntlgrp.EntityData.Leafs["cufwCntlUrlfServerStatusChange"] = types.YLeaf{"Cufwcntlurlfserverstatuschange", cufwnotifcntlgrp.Cufwcntlurlfserverstatuschange}
+    cufwnotifcntlgrp.EntityData.Leafs["cufwCntlL2StaticMacAddressMoved"] = types.YLeaf{"Cufwcntll2Staticmacaddressmoved", cufwnotifcntlgrp.Cufwcntll2Staticmacaddressmoved}
+    return &(cufwnotifcntlgrp.EntityData)
 }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetSegmentPath() string {
-    return "cuFwNotifCntlGrp"
-}
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwCntlUrlfServerStatusChange"] = cufwnotifcntlgrp.Cufwcntlurlfserverstatuschange
-    leafs["cufwCntlL2StaticMacAddressMoved"] = cufwnotifcntlgrp.Cufwcntll2Staticmacaddressmoved
-    return leafs
-}
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetYangName() string { return "cuFwNotifCntlGrp" }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) SetParent(parent types.Entity) { cufwnotifcntlgrp.parent = parent }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetParent() types.Entity { return cufwnotifcntlgrp.parent }
-
-func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable
 // This table summarizes the connection activity on
@@ -1499,7 +1053,7 @@ func (cufwnotifcntlgrp *CISCOUNIFIEDFIREWALLMIB_Cufwnotifcntlgrp) GetParentYangN
 // yields the summary of TCP connection activity on the 
 // firewall since its reboot.
 type CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the summary of connection activity for a layer3-layer4
@@ -1508,69 +1062,30 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable struct {
     Cufwconnsummaryentry []CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry
 }
 
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetFilter() yfilter.YFilter { return cufwconnsummarytable.YFilter }
+func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetEntityData() *types.CommonEntityData {
+    cufwconnsummarytable.EntityData.YFilter = cufwconnsummarytable.YFilter
+    cufwconnsummarytable.EntityData.YangName = "cufwConnSummaryTable"
+    cufwconnsummarytable.EntityData.BundleName = "cisco_ios_xe"
+    cufwconnsummarytable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwconnsummarytable.EntityData.SegmentPath = "cufwConnSummaryTable"
+    cufwconnsummarytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwconnsummarytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwconnsummarytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) SetFilter(yf yfilter.YFilter) { cufwconnsummarytable.YFilter = yf }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetGoName(yname string) string {
-    if yname == "cufwConnSummaryEntry" { return "Cufwconnsummaryentry" }
-    return ""
-}
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetSegmentPath() string {
-    return "cufwConnSummaryTable"
-}
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cufwConnSummaryEntry" {
-        for _, c := range cufwconnsummarytable.Cufwconnsummaryentry {
-            if cufwconnsummarytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry{}
-        cufwconnsummarytable.Cufwconnsummaryentry = append(cufwconnsummarytable.Cufwconnsummaryentry, child)
-        return &cufwconnsummarytable.Cufwconnsummaryentry[len(cufwconnsummarytable.Cufwconnsummaryentry)-1]
-    }
-    return nil
-}
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cufwconnsummarytable.EntityData.Children = make(map[string]types.YChild)
+    cufwconnsummarytable.EntityData.Children["cufwConnSummaryEntry"] = types.YChild{"Cufwconnsummaryentry", nil}
     for i := range cufwconnsummarytable.Cufwconnsummaryentry {
-        children[cufwconnsummarytable.Cufwconnsummaryentry[i].GetSegmentPath()] = &cufwconnsummarytable.Cufwconnsummaryentry[i]
+        cufwconnsummarytable.EntityData.Children[types.GetSegmentPath(&cufwconnsummarytable.Cufwconnsummaryentry[i])] = types.YChild{"Cufwconnsummaryentry", &cufwconnsummarytable.Cufwconnsummaryentry[i]}
     }
-    return children
+    cufwconnsummarytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cufwconnsummarytable.EntityData)
 }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetYangName() string { return "cufwConnSummaryTable" }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) SetParent(parent types.Entity) { cufwconnsummarytable.parent = parent }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetParent() types.Entity { return cufwconnsummarytable.parent }
-
-func (cufwconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry
 // Each entry contains the summary of connection
 // activity for a layer3-layer4 network protocol.
 type CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The (L3-L4) protocol for which this conceptual 
@@ -1636,69 +1151,30 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry struct {
     Cufwconnsetuprate5 interface{}
 }
 
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetFilter() yfilter.YFilter { return cufwconnsummaryentry.YFilter }
+func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetEntityData() *types.CommonEntityData {
+    cufwconnsummaryentry.EntityData.YFilter = cufwconnsummaryentry.YFilter
+    cufwconnsummaryentry.EntityData.YangName = "cufwConnSummaryEntry"
+    cufwconnsummaryentry.EntityData.BundleName = "cisco_ios_xe"
+    cufwconnsummaryentry.EntityData.ParentYangName = "cufwConnSummaryTable"
+    cufwconnsummaryentry.EntityData.SegmentPath = "cufwConnSummaryEntry" + "[cufwConnProtocol='" + fmt.Sprintf("%v", cufwconnsummaryentry.Cufwconnprotocol) + "']"
+    cufwconnsummaryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwconnsummaryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwconnsummaryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) SetFilter(yf yfilter.YFilter) { cufwconnsummaryentry.YFilter = yf }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetGoName(yname string) string {
-    if yname == "cufwConnProtocol" { return "Cufwconnprotocol" }
-    if yname == "cufwConnNumAttempted" { return "Cufwconnnumattempted" }
-    if yname == "cufwConnNumSetupsAborted" { return "Cufwconnnumsetupsaborted" }
-    if yname == "cufwConnNumPolicyDeclined" { return "Cufwconnnumpolicydeclined" }
-    if yname == "cufwConnNumResDeclined" { return "Cufwconnnumresdeclined" }
-    if yname == "cufwConnNumHalfOpen" { return "Cufwconnnumhalfopen" }
-    if yname == "cufwConnNumActive" { return "Cufwconnnumactive" }
-    if yname == "cufwConnNumAborted" { return "Cufwconnnumaborted" }
-    if yname == "cufwConnSetupRate1" { return "Cufwconnsetuprate1" }
-    if yname == "cufwConnSetupRate5" { return "Cufwconnsetuprate5" }
-    return ""
+    cufwconnsummaryentry.EntityData.Children = make(map[string]types.YChild)
+    cufwconnsummaryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnProtocol"] = types.YLeaf{"Cufwconnprotocol", cufwconnsummaryentry.Cufwconnprotocol}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumAttempted"] = types.YLeaf{"Cufwconnnumattempted", cufwconnsummaryentry.Cufwconnnumattempted}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumSetupsAborted"] = types.YLeaf{"Cufwconnnumsetupsaborted", cufwconnsummaryentry.Cufwconnnumsetupsaborted}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumPolicyDeclined"] = types.YLeaf{"Cufwconnnumpolicydeclined", cufwconnsummaryentry.Cufwconnnumpolicydeclined}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumResDeclined"] = types.YLeaf{"Cufwconnnumresdeclined", cufwconnsummaryentry.Cufwconnnumresdeclined}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumHalfOpen"] = types.YLeaf{"Cufwconnnumhalfopen", cufwconnsummaryentry.Cufwconnnumhalfopen}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumActive"] = types.YLeaf{"Cufwconnnumactive", cufwconnsummaryentry.Cufwconnnumactive}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnNumAborted"] = types.YLeaf{"Cufwconnnumaborted", cufwconnsummaryentry.Cufwconnnumaborted}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnSetupRate1"] = types.YLeaf{"Cufwconnsetuprate1", cufwconnsummaryentry.Cufwconnsetuprate1}
+    cufwconnsummaryentry.EntityData.Leafs["cufwConnSetupRate5"] = types.YLeaf{"Cufwconnsetuprate5", cufwconnsummaryentry.Cufwconnsetuprate5}
+    return &(cufwconnsummaryentry.EntityData)
 }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetSegmentPath() string {
-    return "cufwConnSummaryEntry" + "[cufwConnProtocol='" + fmt.Sprintf("%v", cufwconnsummaryentry.Cufwconnprotocol) + "']"
-}
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwConnProtocol"] = cufwconnsummaryentry.Cufwconnprotocol
-    leafs["cufwConnNumAttempted"] = cufwconnsummaryentry.Cufwconnnumattempted
-    leafs["cufwConnNumSetupsAborted"] = cufwconnsummaryentry.Cufwconnnumsetupsaborted
-    leafs["cufwConnNumPolicyDeclined"] = cufwconnsummaryentry.Cufwconnnumpolicydeclined
-    leafs["cufwConnNumResDeclined"] = cufwconnsummaryentry.Cufwconnnumresdeclined
-    leafs["cufwConnNumHalfOpen"] = cufwconnsummaryentry.Cufwconnnumhalfopen
-    leafs["cufwConnNumActive"] = cufwconnsummaryentry.Cufwconnnumactive
-    leafs["cufwConnNumAborted"] = cufwconnsummaryentry.Cufwconnnumaborted
-    leafs["cufwConnSetupRate1"] = cufwconnsummaryentry.Cufwconnsetuprate1
-    leafs["cufwConnSetupRate5"] = cufwconnsummaryentry.Cufwconnsetuprate5
-    return leafs
-}
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetYangName() string { return "cufwConnSummaryEntry" }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) SetParent(parent types.Entity) { cufwconnsummaryentry.parent = parent }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetParent() types.Entity { return cufwconnsummaryentry.parent }
-
-func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwconnsummaryentry) GetParentYangName() string { return "cufwConnSummaryTable" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable
 // This table lists the summary of firewall 
@@ -1716,7 +1192,7 @@ func (cufwconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwconnsummarytable_Cufwcon
 // 
 //    cufwAppConnProtocol = fwApSmtp
 type CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the summary of connection activity for a distinct layer
@@ -1726,70 +1202,31 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable struct {
     Cufwappconnsummaryentry []CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry
 }
 
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetFilter() yfilter.YFilter { return cufwappconnsummarytable.YFilter }
+func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetEntityData() *types.CommonEntityData {
+    cufwappconnsummarytable.EntityData.YFilter = cufwappconnsummarytable.YFilter
+    cufwappconnsummarytable.EntityData.YangName = "cufwAppConnSummaryTable"
+    cufwappconnsummarytable.EntityData.BundleName = "cisco_ios_xe"
+    cufwappconnsummarytable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwappconnsummarytable.EntityData.SegmentPath = "cufwAppConnSummaryTable"
+    cufwappconnsummarytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwappconnsummarytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwappconnsummarytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) SetFilter(yf yfilter.YFilter) { cufwappconnsummarytable.YFilter = yf }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetGoName(yname string) string {
-    if yname == "cufwAppConnSummaryEntry" { return "Cufwappconnsummaryentry" }
-    return ""
-}
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetSegmentPath() string {
-    return "cufwAppConnSummaryTable"
-}
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cufwAppConnSummaryEntry" {
-        for _, c := range cufwappconnsummarytable.Cufwappconnsummaryentry {
-            if cufwappconnsummarytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry{}
-        cufwappconnsummarytable.Cufwappconnsummaryentry = append(cufwappconnsummarytable.Cufwappconnsummaryentry, child)
-        return &cufwappconnsummarytable.Cufwappconnsummaryentry[len(cufwappconnsummarytable.Cufwappconnsummaryentry)-1]
-    }
-    return nil
-}
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cufwappconnsummarytable.EntityData.Children = make(map[string]types.YChild)
+    cufwappconnsummarytable.EntityData.Children["cufwAppConnSummaryEntry"] = types.YChild{"Cufwappconnsummaryentry", nil}
     for i := range cufwappconnsummarytable.Cufwappconnsummaryentry {
-        children[cufwappconnsummarytable.Cufwappconnsummaryentry[i].GetSegmentPath()] = &cufwappconnsummarytable.Cufwappconnsummaryentry[i]
+        cufwappconnsummarytable.EntityData.Children[types.GetSegmentPath(&cufwappconnsummarytable.Cufwappconnsummaryentry[i])] = types.YChild{"Cufwappconnsummaryentry", &cufwappconnsummarytable.Cufwappconnsummaryentry[i]}
     }
-    return children
+    cufwappconnsummarytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cufwappconnsummarytable.EntityData)
 }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetYangName() string { return "cufwAppConnSummaryTable" }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) SetParent(parent types.Entity) { cufwappconnsummarytable.parent = parent }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetParent() types.Entity { return cufwappconnsummarytable.parent }
-
-func (cufwappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry
 // Each entry contains the summary of connection
 // activity for a distinct layer 7 protocol identified
 // by the index element 'cufwAppConnProtocol'.
 type CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The layer7 protocol for which this conceptual  row
@@ -1861,69 +1298,30 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry str
     Cufwappconnsetuprate5 interface{}
 }
 
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetFilter() yfilter.YFilter { return cufwappconnsummaryentry.YFilter }
+func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetEntityData() *types.CommonEntityData {
+    cufwappconnsummaryentry.EntityData.YFilter = cufwappconnsummaryentry.YFilter
+    cufwappconnsummaryentry.EntityData.YangName = "cufwAppConnSummaryEntry"
+    cufwappconnsummaryentry.EntityData.BundleName = "cisco_ios_xe"
+    cufwappconnsummaryentry.EntityData.ParentYangName = "cufwAppConnSummaryTable"
+    cufwappconnsummaryentry.EntityData.SegmentPath = "cufwAppConnSummaryEntry" + "[cufwAppConnProtocol='" + fmt.Sprintf("%v", cufwappconnsummaryentry.Cufwappconnprotocol) + "']"
+    cufwappconnsummaryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwappconnsummaryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwappconnsummaryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) SetFilter(yf yfilter.YFilter) { cufwappconnsummaryentry.YFilter = yf }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetGoName(yname string) string {
-    if yname == "cufwAppConnProtocol" { return "Cufwappconnprotocol" }
-    if yname == "cufwAppConnNumAttempted" { return "Cufwappconnnumattempted" }
-    if yname == "cufwAppConnNumSetupsAborted" { return "Cufwappconnnumsetupsaborted" }
-    if yname == "cufwAppConnNumPolicyDeclined" { return "Cufwappconnnumpolicydeclined" }
-    if yname == "cufwAppConnNumResDeclined" { return "Cufwappconnnumresdeclined" }
-    if yname == "cufwAppConnNumHalfOpen" { return "Cufwappconnnumhalfopen" }
-    if yname == "cufwAppConnNumActive" { return "Cufwappconnnumactive" }
-    if yname == "cufwAppConnNumAborted" { return "Cufwappconnnumaborted" }
-    if yname == "cufwAppConnSetupRate1" { return "Cufwappconnsetuprate1" }
-    if yname == "cufwAppConnSetupRate5" { return "Cufwappconnsetuprate5" }
-    return ""
+    cufwappconnsummaryentry.EntityData.Children = make(map[string]types.YChild)
+    cufwappconnsummaryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnProtocol"] = types.YLeaf{"Cufwappconnprotocol", cufwappconnsummaryentry.Cufwappconnprotocol}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumAttempted"] = types.YLeaf{"Cufwappconnnumattempted", cufwappconnsummaryentry.Cufwappconnnumattempted}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumSetupsAborted"] = types.YLeaf{"Cufwappconnnumsetupsaborted", cufwappconnsummaryentry.Cufwappconnnumsetupsaborted}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumPolicyDeclined"] = types.YLeaf{"Cufwappconnnumpolicydeclined", cufwappconnsummaryentry.Cufwappconnnumpolicydeclined}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumResDeclined"] = types.YLeaf{"Cufwappconnnumresdeclined", cufwappconnsummaryentry.Cufwappconnnumresdeclined}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumHalfOpen"] = types.YLeaf{"Cufwappconnnumhalfopen", cufwappconnsummaryentry.Cufwappconnnumhalfopen}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumActive"] = types.YLeaf{"Cufwappconnnumactive", cufwappconnsummaryentry.Cufwappconnnumactive}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnNumAborted"] = types.YLeaf{"Cufwappconnnumaborted", cufwappconnsummaryentry.Cufwappconnnumaborted}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnSetupRate1"] = types.YLeaf{"Cufwappconnsetuprate1", cufwappconnsummaryentry.Cufwappconnsetuprate1}
+    cufwappconnsummaryentry.EntityData.Leafs["cufwAppConnSetupRate5"] = types.YLeaf{"Cufwappconnsetuprate5", cufwappconnsummaryentry.Cufwappconnsetuprate5}
+    return &(cufwappconnsummaryentry.EntityData)
 }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetSegmentPath() string {
-    return "cufwAppConnSummaryEntry" + "[cufwAppConnProtocol='" + fmt.Sprintf("%v", cufwappconnsummaryentry.Cufwappconnprotocol) + "']"
-}
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwAppConnProtocol"] = cufwappconnsummaryentry.Cufwappconnprotocol
-    leafs["cufwAppConnNumAttempted"] = cufwappconnsummaryentry.Cufwappconnnumattempted
-    leafs["cufwAppConnNumSetupsAborted"] = cufwappconnsummaryentry.Cufwappconnnumsetupsaborted
-    leafs["cufwAppConnNumPolicyDeclined"] = cufwappconnsummaryentry.Cufwappconnnumpolicydeclined
-    leafs["cufwAppConnNumResDeclined"] = cufwappconnsummaryentry.Cufwappconnnumresdeclined
-    leafs["cufwAppConnNumHalfOpen"] = cufwappconnsummaryentry.Cufwappconnnumhalfopen
-    leafs["cufwAppConnNumActive"] = cufwappconnsummaryentry.Cufwappconnnumactive
-    leafs["cufwAppConnNumAborted"] = cufwappconnsummaryentry.Cufwappconnnumaborted
-    leafs["cufwAppConnSetupRate1"] = cufwappconnsummaryentry.Cufwappconnsetuprate1
-    leafs["cufwAppConnSetupRate5"] = cufwappconnsummaryentry.Cufwappconnsetuprate5
-    return leafs
-}
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetYangName() string { return "cufwAppConnSummaryEntry" }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) SetParent(parent types.Entity) { cufwappconnsummaryentry.parent = parent }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetParent() types.Entity { return cufwappconnsummaryentry.parent }
-
-func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_Cufwappconnsummaryentry) GetParentYangName() string { return "cufwAppConnSummaryTable" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable
 // This table lists the summary of firewall 
@@ -1948,7 +1346,7 @@ func (cufwappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwappconnsummarytable_C
 // 
 //       cufwConnPolicyTargetType =  'targetAll'
 type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the summary of connection activity for a specific
@@ -1958,70 +1356,31 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable struct {
     Cufwpolicyconnsummaryentry []CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry
 }
 
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetFilter() yfilter.YFilter { return cufwpolicyconnsummarytable.YFilter }
+func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetEntityData() *types.CommonEntityData {
+    cufwpolicyconnsummarytable.EntityData.YFilter = cufwpolicyconnsummarytable.YFilter
+    cufwpolicyconnsummarytable.EntityData.YangName = "cufwPolicyConnSummaryTable"
+    cufwpolicyconnsummarytable.EntityData.BundleName = "cisco_ios_xe"
+    cufwpolicyconnsummarytable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwpolicyconnsummarytable.EntityData.SegmentPath = "cufwPolicyConnSummaryTable"
+    cufwpolicyconnsummarytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwpolicyconnsummarytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwpolicyconnsummarytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) SetFilter(yf yfilter.YFilter) { cufwpolicyconnsummarytable.YFilter = yf }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetGoName(yname string) string {
-    if yname == "cufwPolicyConnSummaryEntry" { return "Cufwpolicyconnsummaryentry" }
-    return ""
-}
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetSegmentPath() string {
-    return "cufwPolicyConnSummaryTable"
-}
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cufwPolicyConnSummaryEntry" {
-        for _, c := range cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry {
-            if cufwpolicyconnsummarytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry{}
-        cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry = append(cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry, child)
-        return &cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry[len(cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry)-1]
-    }
-    return nil
-}
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cufwpolicyconnsummarytable.EntityData.Children = make(map[string]types.YChild)
+    cufwpolicyconnsummarytable.EntityData.Children["cufwPolicyConnSummaryEntry"] = types.YChild{"Cufwpolicyconnsummaryentry", nil}
     for i := range cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry {
-        children[cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry[i].GetSegmentPath()] = &cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry[i]
+        cufwpolicyconnsummarytable.EntityData.Children[types.GetSegmentPath(&cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry[i])] = types.YChild{"Cufwpolicyconnsummaryentry", &cufwpolicyconnsummarytable.Cufwpolicyconnsummaryentry[i]}
     }
-    return children
+    cufwpolicyconnsummarytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cufwpolicyconnsummarytable.EntityData)
 }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetYangName() string { return "cufwPolicyConnSummaryTable" }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) SetParent(parent types.Entity) { cufwpolicyconnsummarytable.parent = parent }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetParent() types.Entity { return cufwpolicyconnsummarytable.parent }
-
-func (cufwpolicyconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry
 // Each entry contains the summary of connection
 // activity for a specific protocol in a specific
 // policy applied to the specified policy target.
 type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identity of the firewall policy for which this
@@ -2103,71 +1462,31 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryent
     Cufwpolconnnumaborted interface{}
 }
 
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetFilter() yfilter.YFilter { return cufwpolicyconnsummaryentry.YFilter }
+func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetEntityData() *types.CommonEntityData {
+    cufwpolicyconnsummaryentry.EntityData.YFilter = cufwpolicyconnsummaryentry.YFilter
+    cufwpolicyconnsummaryentry.EntityData.YangName = "cufwPolicyConnSummaryEntry"
+    cufwpolicyconnsummaryentry.EntityData.BundleName = "cisco_ios_xe"
+    cufwpolicyconnsummaryentry.EntityData.ParentYangName = "cufwPolicyConnSummaryTable"
+    cufwpolicyconnsummaryentry.EntityData.SegmentPath = "cufwPolicyConnSummaryEntry" + "[cufwPolConnPolicy='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnpolicy) + "']" + "[cufwPolConnPolicyTargetType='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnpolicytargettype) + "']" + "[cufwPolConnPolicyTarget='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnpolicytarget) + "']" + "[cufwPolConnProtocol='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnprotocol) + "']"
+    cufwpolicyconnsummaryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwpolicyconnsummaryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwpolicyconnsummaryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) SetFilter(yf yfilter.YFilter) { cufwpolicyconnsummaryentry.YFilter = yf }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetGoName(yname string) string {
-    if yname == "cufwPolConnPolicy" { return "Cufwpolconnpolicy" }
-    if yname == "cufwPolConnPolicyTargetType" { return "Cufwpolconnpolicytargettype" }
-    if yname == "cufwPolConnPolicyTarget" { return "Cufwpolconnpolicytarget" }
-    if yname == "cufwPolConnProtocol" { return "Cufwpolconnprotocol" }
-    if yname == "cufwPolConnNumAttempted" { return "Cufwpolconnnumattempted" }
-    if yname == "cufwPolConnNumSetupsAborted" { return "Cufwpolconnnumsetupsaborted" }
-    if yname == "cufwPolConnNumPolicyDeclined" { return "Cufwpolconnnumpolicydeclined" }
-    if yname == "cufwPolConnNumResDeclined" { return "Cufwpolconnnumresdeclined" }
-    if yname == "cufwPolConnNumHalfOpen" { return "Cufwpolconnnumhalfopen" }
-    if yname == "cufwPolConnNumActive" { return "Cufwpolconnnumactive" }
-    if yname == "cufwPolConnNumAborted" { return "Cufwpolconnnumaborted" }
-    return ""
+    cufwpolicyconnsummaryentry.EntityData.Children = make(map[string]types.YChild)
+    cufwpolicyconnsummaryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnPolicy"] = types.YLeaf{"Cufwpolconnpolicy", cufwpolicyconnsummaryentry.Cufwpolconnpolicy}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnPolicyTargetType"] = types.YLeaf{"Cufwpolconnpolicytargettype", cufwpolicyconnsummaryentry.Cufwpolconnpolicytargettype}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnPolicyTarget"] = types.YLeaf{"Cufwpolconnpolicytarget", cufwpolicyconnsummaryentry.Cufwpolconnpolicytarget}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnProtocol"] = types.YLeaf{"Cufwpolconnprotocol", cufwpolicyconnsummaryentry.Cufwpolconnprotocol}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumAttempted"] = types.YLeaf{"Cufwpolconnnumattempted", cufwpolicyconnsummaryentry.Cufwpolconnnumattempted}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumSetupsAborted"] = types.YLeaf{"Cufwpolconnnumsetupsaborted", cufwpolicyconnsummaryentry.Cufwpolconnnumsetupsaborted}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumPolicyDeclined"] = types.YLeaf{"Cufwpolconnnumpolicydeclined", cufwpolicyconnsummaryentry.Cufwpolconnnumpolicydeclined}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumResDeclined"] = types.YLeaf{"Cufwpolconnnumresdeclined", cufwpolicyconnsummaryentry.Cufwpolconnnumresdeclined}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumHalfOpen"] = types.YLeaf{"Cufwpolconnnumhalfopen", cufwpolicyconnsummaryentry.Cufwpolconnnumhalfopen}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumActive"] = types.YLeaf{"Cufwpolconnnumactive", cufwpolicyconnsummaryentry.Cufwpolconnnumactive}
+    cufwpolicyconnsummaryentry.EntityData.Leafs["cufwPolConnNumAborted"] = types.YLeaf{"Cufwpolconnnumaborted", cufwpolicyconnsummaryentry.Cufwpolconnnumaborted}
+    return &(cufwpolicyconnsummaryentry.EntityData)
 }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetSegmentPath() string {
-    return "cufwPolicyConnSummaryEntry" + "[cufwPolConnPolicy='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnpolicy) + "']" + "[cufwPolConnPolicyTargetType='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnpolicytargettype) + "']" + "[cufwPolConnPolicyTarget='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnpolicytarget) + "']" + "[cufwPolConnProtocol='" + fmt.Sprintf("%v", cufwpolicyconnsummaryentry.Cufwpolconnprotocol) + "']"
-}
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwPolConnPolicy"] = cufwpolicyconnsummaryentry.Cufwpolconnpolicy
-    leafs["cufwPolConnPolicyTargetType"] = cufwpolicyconnsummaryentry.Cufwpolconnpolicytargettype
-    leafs["cufwPolConnPolicyTarget"] = cufwpolicyconnsummaryentry.Cufwpolconnpolicytarget
-    leafs["cufwPolConnProtocol"] = cufwpolicyconnsummaryentry.Cufwpolconnprotocol
-    leafs["cufwPolConnNumAttempted"] = cufwpolicyconnsummaryentry.Cufwpolconnnumattempted
-    leafs["cufwPolConnNumSetupsAborted"] = cufwpolicyconnsummaryentry.Cufwpolconnnumsetupsaborted
-    leafs["cufwPolConnNumPolicyDeclined"] = cufwpolicyconnsummaryentry.Cufwpolconnnumpolicydeclined
-    leafs["cufwPolConnNumResDeclined"] = cufwpolicyconnsummaryentry.Cufwpolconnnumresdeclined
-    leafs["cufwPolConnNumHalfOpen"] = cufwpolicyconnsummaryentry.Cufwpolconnnumhalfopen
-    leafs["cufwPolConnNumActive"] = cufwpolicyconnsummaryentry.Cufwpolconnnumactive
-    leafs["cufwPolConnNumAborted"] = cufwpolicyconnsummaryentry.Cufwpolconnnumaborted
-    return leafs
-}
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetYangName() string { return "cufwPolicyConnSummaryEntry" }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) SetParent(parent types.Entity) { cufwpolicyconnsummaryentry.parent = parent }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetParent() types.Entity { return cufwpolicyconnsummaryentry.parent }
-
-func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummarytable_Cufwpolicyconnsummaryentry) GetParentYangName() string { return "cufwPolicyConnSummaryTable" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable
 // This table lists the summary of firewall 
@@ -2193,7 +1512,7 @@ func (cufwpolicyconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyconnsummaryt
 // 
 //       cufwAppConnPolicyTargetType = 'targetALL'
 type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the summary of connection activity for a specific layer
@@ -2203,63 +1522,24 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable struct {
     Cufwpolicyappconnsummaryentry []CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry
 }
 
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetFilter() yfilter.YFilter { return cufwpolicyappconnsummarytable.YFilter }
+func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetEntityData() *types.CommonEntityData {
+    cufwpolicyappconnsummarytable.EntityData.YFilter = cufwpolicyappconnsummarytable.YFilter
+    cufwpolicyappconnsummarytable.EntityData.YangName = "cufwPolicyAppConnSummaryTable"
+    cufwpolicyappconnsummarytable.EntityData.BundleName = "cisco_ios_xe"
+    cufwpolicyappconnsummarytable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwpolicyappconnsummarytable.EntityData.SegmentPath = "cufwPolicyAppConnSummaryTable"
+    cufwpolicyappconnsummarytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwpolicyappconnsummarytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwpolicyappconnsummarytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) SetFilter(yf yfilter.YFilter) { cufwpolicyappconnsummarytable.YFilter = yf }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetGoName(yname string) string {
-    if yname == "cufwPolicyAppConnSummaryEntry" { return "Cufwpolicyappconnsummaryentry" }
-    return ""
-}
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetSegmentPath() string {
-    return "cufwPolicyAppConnSummaryTable"
-}
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cufwPolicyAppConnSummaryEntry" {
-        for _, c := range cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry {
-            if cufwpolicyappconnsummarytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry{}
-        cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry = append(cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry, child)
-        return &cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry[len(cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry)-1]
-    }
-    return nil
-}
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cufwpolicyappconnsummarytable.EntityData.Children = make(map[string]types.YChild)
+    cufwpolicyappconnsummarytable.EntityData.Children["cufwPolicyAppConnSummaryEntry"] = types.YChild{"Cufwpolicyappconnsummaryentry", nil}
     for i := range cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry {
-        children[cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry[i].GetSegmentPath()] = &cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry[i]
+        cufwpolicyappconnsummarytable.EntityData.Children[types.GetSegmentPath(&cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry[i])] = types.YChild{"Cufwpolicyappconnsummaryentry", &cufwpolicyappconnsummarytable.Cufwpolicyappconnsummaryentry[i]}
     }
-    return children
+    cufwpolicyappconnsummarytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cufwpolicyappconnsummarytable.EntityData)
 }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetYangName() string { return "cufwPolicyAppConnSummaryTable" }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) SetParent(parent types.Entity) { cufwpolicyappconnsummarytable.parent = parent }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetParent() types.Entity { return cufwpolicyappconnsummarytable.parent }
-
-func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry
 // Each entry contains the summary of connection
@@ -2267,7 +1547,7 @@ func (cufwpolicyappconnsummarytable *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsu
 // specific policy applied to the specified policy 
 // target.
 type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The identity of the firewall policy for which this
@@ -2357,71 +1637,31 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsumm
     Cufwpolappconnnumaborted interface{}
 }
 
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetFilter() yfilter.YFilter { return cufwpolicyappconnsummaryentry.YFilter }
+func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetEntityData() *types.CommonEntityData {
+    cufwpolicyappconnsummaryentry.EntityData.YFilter = cufwpolicyappconnsummaryentry.YFilter
+    cufwpolicyappconnsummaryentry.EntityData.YangName = "cufwPolicyAppConnSummaryEntry"
+    cufwpolicyappconnsummaryentry.EntityData.BundleName = "cisco_ios_xe"
+    cufwpolicyappconnsummaryentry.EntityData.ParentYangName = "cufwPolicyAppConnSummaryTable"
+    cufwpolicyappconnsummaryentry.EntityData.SegmentPath = "cufwPolicyAppConnSummaryEntry" + "[cufwPolAppConnPolicy='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicy) + "']" + "[cufwPolAppConnPolicyTargetType='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytargettype) + "']" + "[cufwPolAppConnPolicyTarget='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytarget) + "']" + "[cufwPolAppConnProtocol='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnprotocol) + "']"
+    cufwpolicyappconnsummaryentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwpolicyappconnsummaryentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwpolicyappconnsummaryentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) SetFilter(yf yfilter.YFilter) { cufwpolicyappconnsummaryentry.YFilter = yf }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetGoName(yname string) string {
-    if yname == "cufwPolAppConnPolicy" { return "Cufwpolappconnpolicy" }
-    if yname == "cufwPolAppConnPolicyTargetType" { return "Cufwpolappconnpolicytargettype" }
-    if yname == "cufwPolAppConnPolicyTarget" { return "Cufwpolappconnpolicytarget" }
-    if yname == "cufwPolAppConnProtocol" { return "Cufwpolappconnprotocol" }
-    if yname == "cufwPolAppConnNumAttempted" { return "Cufwpolappconnnumattempted" }
-    if yname == "cufwPolAppConnNumSetupsAborted" { return "Cufwpolappconnnumsetupsaborted" }
-    if yname == "cufwPolAppConnNumPolicyDeclined" { return "Cufwpolappconnnumpolicydeclined" }
-    if yname == "cufwPolAppConnNumResDeclined" { return "Cufwpolappconnnumresdeclined" }
-    if yname == "cufwPolAppConnNumHalfOpen" { return "Cufwpolappconnnumhalfopen" }
-    if yname == "cufwPolAppConnNumActive" { return "Cufwpolappconnnumactive" }
-    if yname == "cufwPolAppConnNumAborted" { return "Cufwpolappconnnumaborted" }
-    return ""
+    cufwpolicyappconnsummaryentry.EntityData.Children = make(map[string]types.YChild)
+    cufwpolicyappconnsummaryentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnPolicy"] = types.YLeaf{"Cufwpolappconnpolicy", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicy}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnPolicyTargetType"] = types.YLeaf{"Cufwpolappconnpolicytargettype", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytargettype}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnPolicyTarget"] = types.YLeaf{"Cufwpolappconnpolicytarget", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytarget}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnProtocol"] = types.YLeaf{"Cufwpolappconnprotocol", cufwpolicyappconnsummaryentry.Cufwpolappconnprotocol}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumAttempted"] = types.YLeaf{"Cufwpolappconnnumattempted", cufwpolicyappconnsummaryentry.Cufwpolappconnnumattempted}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumSetupsAborted"] = types.YLeaf{"Cufwpolappconnnumsetupsaborted", cufwpolicyappconnsummaryentry.Cufwpolappconnnumsetupsaborted}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumPolicyDeclined"] = types.YLeaf{"Cufwpolappconnnumpolicydeclined", cufwpolicyappconnsummaryentry.Cufwpolappconnnumpolicydeclined}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumResDeclined"] = types.YLeaf{"Cufwpolappconnnumresdeclined", cufwpolicyappconnsummaryentry.Cufwpolappconnnumresdeclined}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumHalfOpen"] = types.YLeaf{"Cufwpolappconnnumhalfopen", cufwpolicyappconnsummaryentry.Cufwpolappconnnumhalfopen}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumActive"] = types.YLeaf{"Cufwpolappconnnumactive", cufwpolicyappconnsummaryentry.Cufwpolappconnnumactive}
+    cufwpolicyappconnsummaryentry.EntityData.Leafs["cufwPolAppConnNumAborted"] = types.YLeaf{"Cufwpolappconnnumaborted", cufwpolicyappconnsummaryentry.Cufwpolappconnnumaborted}
+    return &(cufwpolicyappconnsummaryentry.EntityData)
 }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetSegmentPath() string {
-    return "cufwPolicyAppConnSummaryEntry" + "[cufwPolAppConnPolicy='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicy) + "']" + "[cufwPolAppConnPolicyTargetType='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytargettype) + "']" + "[cufwPolAppConnPolicyTarget='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytarget) + "']" + "[cufwPolAppConnProtocol='" + fmt.Sprintf("%v", cufwpolicyappconnsummaryentry.Cufwpolappconnprotocol) + "']"
-}
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwPolAppConnPolicy"] = cufwpolicyappconnsummaryentry.Cufwpolappconnpolicy
-    leafs["cufwPolAppConnPolicyTargetType"] = cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytargettype
-    leafs["cufwPolAppConnPolicyTarget"] = cufwpolicyappconnsummaryentry.Cufwpolappconnpolicytarget
-    leafs["cufwPolAppConnProtocol"] = cufwpolicyappconnsummaryentry.Cufwpolappconnprotocol
-    leafs["cufwPolAppConnNumAttempted"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumattempted
-    leafs["cufwPolAppConnNumSetupsAborted"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumsetupsaborted
-    leafs["cufwPolAppConnNumPolicyDeclined"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumpolicydeclined
-    leafs["cufwPolAppConnNumResDeclined"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumresdeclined
-    leafs["cufwPolAppConnNumHalfOpen"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumhalfopen
-    leafs["cufwPolAppConnNumActive"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumactive
-    leafs["cufwPolAppConnNumAborted"] = cufwpolicyappconnsummaryentry.Cufwpolappconnnumaborted
-    return leafs
-}
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetYangName() string { return "cufwPolicyAppConnSummaryEntry" }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) SetParent(parent types.Entity) { cufwpolicyappconnsummaryentry.parent = parent }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetParent() types.Entity { return cufwpolicyappconnsummaryentry.parent }
-
-func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsummarytable_Cufwpolicyappconnsummaryentry) GetParentYangName() string { return "cufwPolicyAppConnSummaryTable" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable
 // This table identifies if an application protocol has
@@ -2435,7 +1675,7 @@ func (cufwpolicyappconnsummaryentry *CISCOUNIFIEDFIREWALLMIB_Cufwpolicyappconnsu
 // identify if a protocol is being subjected to application
 // inspection by the managed firewall.
 type CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the configuration of a specific application inspection
@@ -2444,69 +1684,30 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable struct {
     Cufwinspectionentry []CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry
 }
 
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetFilter() yfilter.YFilter { return cufwinspectiontable.YFilter }
+func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetEntityData() *types.CommonEntityData {
+    cufwinspectiontable.EntityData.YFilter = cufwinspectiontable.YFilter
+    cufwinspectiontable.EntityData.YangName = "cufwInspectionTable"
+    cufwinspectiontable.EntityData.BundleName = "cisco_ios_xe"
+    cufwinspectiontable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwinspectiontable.EntityData.SegmentPath = "cufwInspectionTable"
+    cufwinspectiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwinspectiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwinspectiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) SetFilter(yf yfilter.YFilter) { cufwinspectiontable.YFilter = yf }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetGoName(yname string) string {
-    if yname == "cufwInspectionEntry" { return "Cufwinspectionentry" }
-    return ""
-}
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetSegmentPath() string {
-    return "cufwInspectionTable"
-}
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cufwInspectionEntry" {
-        for _, c := range cufwinspectiontable.Cufwinspectionentry {
-            if cufwinspectiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry{}
-        cufwinspectiontable.Cufwinspectionentry = append(cufwinspectiontable.Cufwinspectionentry, child)
-        return &cufwinspectiontable.Cufwinspectionentry[len(cufwinspectiontable.Cufwinspectionentry)-1]
-    }
-    return nil
-}
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cufwinspectiontable.EntityData.Children = make(map[string]types.YChild)
+    cufwinspectiontable.EntityData.Children["cufwInspectionEntry"] = types.YChild{"Cufwinspectionentry", nil}
     for i := range cufwinspectiontable.Cufwinspectionentry {
-        children[cufwinspectiontable.Cufwinspectionentry[i].GetSegmentPath()] = &cufwinspectiontable.Cufwinspectionentry[i]
+        cufwinspectiontable.EntityData.Children[types.GetSegmentPath(&cufwinspectiontable.Cufwinspectionentry[i])] = types.YChild{"Cufwinspectionentry", &cufwinspectiontable.Cufwinspectionentry[i]}
     }
-    return children
+    cufwinspectiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cufwinspectiontable.EntityData)
 }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetYangName() string { return "cufwInspectionTable" }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) SetParent(parent types.Entity) { cufwinspectiontable.parent = parent }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetParent() types.Entity { return cufwinspectiontable.parent }
-
-func (cufwinspectiontable *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry
 // Each entry contains the configuration of
 // a specific application inspection element.
 type CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the policy that configures the device
@@ -2524,55 +1725,23 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry struct {
     Cufwinspectionstatus interface{}
 }
 
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetFilter() yfilter.YFilter { return cufwinspectionentry.YFilter }
+func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetEntityData() *types.CommonEntityData {
+    cufwinspectionentry.EntityData.YFilter = cufwinspectionentry.YFilter
+    cufwinspectionentry.EntityData.YangName = "cufwInspectionEntry"
+    cufwinspectionentry.EntityData.BundleName = "cisco_ios_xe"
+    cufwinspectionentry.EntityData.ParentYangName = "cufwInspectionTable"
+    cufwinspectionentry.EntityData.SegmentPath = "cufwInspectionEntry" + "[cufwInspectionPolicyName='" + fmt.Sprintf("%v", cufwinspectionentry.Cufwinspectionpolicyname) + "']" + "[cufwInspectionProtocol='" + fmt.Sprintf("%v", cufwinspectionentry.Cufwinspectionprotocol) + "']"
+    cufwinspectionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwinspectionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwinspectionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) SetFilter(yf yfilter.YFilter) { cufwinspectionentry.YFilter = yf }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetGoName(yname string) string {
-    if yname == "cufwInspectionPolicyName" { return "Cufwinspectionpolicyname" }
-    if yname == "cufwInspectionProtocol" { return "Cufwinspectionprotocol" }
-    if yname == "cufwInspectionStatus" { return "Cufwinspectionstatus" }
-    return ""
+    cufwinspectionentry.EntityData.Children = make(map[string]types.YChild)
+    cufwinspectionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwinspectionentry.EntityData.Leafs["cufwInspectionPolicyName"] = types.YLeaf{"Cufwinspectionpolicyname", cufwinspectionentry.Cufwinspectionpolicyname}
+    cufwinspectionentry.EntityData.Leafs["cufwInspectionProtocol"] = types.YLeaf{"Cufwinspectionprotocol", cufwinspectionentry.Cufwinspectionprotocol}
+    cufwinspectionentry.EntityData.Leafs["cufwInspectionStatus"] = types.YLeaf{"Cufwinspectionstatus", cufwinspectionentry.Cufwinspectionstatus}
+    return &(cufwinspectionentry.EntityData)
 }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetSegmentPath() string {
-    return "cufwInspectionEntry" + "[cufwInspectionPolicyName='" + fmt.Sprintf("%v", cufwinspectionentry.Cufwinspectionpolicyname) + "']" + "[cufwInspectionProtocol='" + fmt.Sprintf("%v", cufwinspectionentry.Cufwinspectionprotocol) + "']"
-}
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwInspectionPolicyName"] = cufwinspectionentry.Cufwinspectionpolicyname
-    leafs["cufwInspectionProtocol"] = cufwinspectionentry.Cufwinspectionprotocol
-    leafs["cufwInspectionStatus"] = cufwinspectionentry.Cufwinspectionstatus
-    return leafs
-}
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetYangName() string { return "cufwInspectionEntry" }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) SetParent(parent types.Entity) { cufwinspectionentry.parent = parent }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetParent() types.Entity { return cufwinspectionentry.parent }
-
-func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspectionentry) GetParentYangName() string { return "cufwInspectionTable" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable
 // This table lists the URL filtering servers
@@ -2582,7 +1751,7 @@ func (cufwinspectionentry *CISCOUNIFIEDFIREWALLMIB_Cufwinspectiontable_Cufwinspe
 // This table is not meant as a device to 
 // configure URL filtering servers.
 type CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the configuration of a specific URL filtering server.
@@ -2591,69 +1760,30 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable struct {
     Cufwurlfserverentry []CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry
 }
 
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetFilter() yfilter.YFilter { return cufwurlfservertable.YFilter }
+func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetEntityData() *types.CommonEntityData {
+    cufwurlfservertable.EntityData.YFilter = cufwurlfservertable.YFilter
+    cufwurlfservertable.EntityData.YangName = "cufwUrlfServerTable"
+    cufwurlfservertable.EntityData.BundleName = "cisco_ios_xe"
+    cufwurlfservertable.EntityData.ParentYangName = "CISCO-UNIFIED-FIREWALL-MIB"
+    cufwurlfservertable.EntityData.SegmentPath = "cufwUrlfServerTable"
+    cufwurlfservertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwurlfservertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwurlfservertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) SetFilter(yf yfilter.YFilter) { cufwurlfservertable.YFilter = yf }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetGoName(yname string) string {
-    if yname == "cufwUrlfServerEntry" { return "Cufwurlfserverentry" }
-    return ""
-}
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetSegmentPath() string {
-    return "cufwUrlfServerTable"
-}
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cufwUrlfServerEntry" {
-        for _, c := range cufwurlfservertable.Cufwurlfserverentry {
-            if cufwurlfservertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry{}
-        cufwurlfservertable.Cufwurlfserverentry = append(cufwurlfservertable.Cufwurlfserverentry, child)
-        return &cufwurlfservertable.Cufwurlfserverentry[len(cufwurlfservertable.Cufwurlfserverentry)-1]
-    }
-    return nil
-}
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cufwurlfservertable.EntityData.Children = make(map[string]types.YChild)
+    cufwurlfservertable.EntityData.Children["cufwUrlfServerEntry"] = types.YChild{"Cufwurlfserverentry", nil}
     for i := range cufwurlfservertable.Cufwurlfserverentry {
-        children[cufwurlfservertable.Cufwurlfserverentry[i].GetSegmentPath()] = &cufwurlfservertable.Cufwurlfserverentry[i]
+        cufwurlfservertable.EntityData.Children[types.GetSegmentPath(&cufwurlfservertable.Cufwurlfserverentry[i])] = types.YChild{"Cufwurlfserverentry", &cufwurlfservertable.Cufwurlfserverentry[i]}
     }
-    return children
+    cufwurlfservertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cufwurlfservertable.EntityData)
 }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetYangName() string { return "cufwUrlfServerTable" }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) SetParent(parent types.Entity) { cufwurlfservertable.parent = parent }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetParent() types.Entity { return cufwurlfservertable.parent }
-
-func (cufwurlfservertable *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable) GetParentYangName() string { return "CISCO-UNIFIED-FIREWALL-MIB" }
 
 // CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry
 // Each entry contains the configuration of
 // a specific URL filtering server.
 type CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of the IP address of the URL filtering
@@ -2737,75 +1867,32 @@ type CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry struct {
     Cufwurlfserveravgresptime5 interface{}
 }
 
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetFilter() yfilter.YFilter { return cufwurlfserverentry.YFilter }
+func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetEntityData() *types.CommonEntityData {
+    cufwurlfserverentry.EntityData.YFilter = cufwurlfserverentry.YFilter
+    cufwurlfserverentry.EntityData.YangName = "cufwUrlfServerEntry"
+    cufwurlfserverentry.EntityData.BundleName = "cisco_ios_xe"
+    cufwurlfserverentry.EntityData.ParentYangName = "cufwUrlfServerTable"
+    cufwurlfserverentry.EntityData.SegmentPath = "cufwUrlfServerEntry" + "[cufwUrlfServerAddrType='" + fmt.Sprintf("%v", cufwurlfserverentry.Cufwurlfserveraddrtype) + "']" + "[cufwUrlfServerAddress='" + fmt.Sprintf("%v", cufwurlfserverentry.Cufwurlfserveraddress) + "']" + "[cufwUrlfServerPort='" + fmt.Sprintf("%v", cufwurlfserverentry.Cufwurlfserverport) + "']"
+    cufwurlfserverentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cufwurlfserverentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cufwurlfserverentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) SetFilter(yf yfilter.YFilter) { cufwurlfserverentry.YFilter = yf }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetGoName(yname string) string {
-    if yname == "cufwUrlfServerAddrType" { return "Cufwurlfserveraddrtype" }
-    if yname == "cufwUrlfServerAddress" { return "Cufwurlfserveraddress" }
-    if yname == "cufwUrlfServerPort" { return "Cufwurlfserverport" }
-    if yname == "cufwUrlfServerVendor" { return "Cufwurlfservervendor" }
-    if yname == "cufwUrlfServerStatus" { return "Cufwurlfserverstatus" }
-    if yname == "cufwUrlfServerReqsNumProcessed" { return "Cufwurlfserverreqsnumprocessed" }
-    if yname == "cufwUrlfServerReqsNumAllowed" { return "Cufwurlfserverreqsnumallowed" }
-    if yname == "cufwUrlfServerReqsNumDenied" { return "Cufwurlfserverreqsnumdenied" }
-    if yname == "cufwUrlfServerNumTimeouts" { return "Cufwurlfservernumtimeouts" }
-    if yname == "cufwUrlfServerNumRetries" { return "Cufwurlfservernumretries" }
-    if yname == "cufwUrlfServerRespsNumReceived" { return "Cufwurlfserverrespsnumreceived" }
-    if yname == "cufwUrlfServerRespsNumLate" { return "Cufwurlfserverrespsnumlate" }
-    if yname == "cufwUrlfServerAvgRespTime1" { return "Cufwurlfserveravgresptime1" }
-    if yname == "cufwUrlfServerAvgRespTime5" { return "Cufwurlfserveravgresptime5" }
-    return ""
+    cufwurlfserverentry.EntityData.Children = make(map[string]types.YChild)
+    cufwurlfserverentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerAddrType"] = types.YLeaf{"Cufwurlfserveraddrtype", cufwurlfserverentry.Cufwurlfserveraddrtype}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerAddress"] = types.YLeaf{"Cufwurlfserveraddress", cufwurlfserverentry.Cufwurlfserveraddress}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerPort"] = types.YLeaf{"Cufwurlfserverport", cufwurlfserverentry.Cufwurlfserverport}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerVendor"] = types.YLeaf{"Cufwurlfservervendor", cufwurlfserverentry.Cufwurlfservervendor}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerStatus"] = types.YLeaf{"Cufwurlfserverstatus", cufwurlfserverentry.Cufwurlfserverstatus}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerReqsNumProcessed"] = types.YLeaf{"Cufwurlfserverreqsnumprocessed", cufwurlfserverentry.Cufwurlfserverreqsnumprocessed}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerReqsNumAllowed"] = types.YLeaf{"Cufwurlfserverreqsnumallowed", cufwurlfserverentry.Cufwurlfserverreqsnumallowed}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerReqsNumDenied"] = types.YLeaf{"Cufwurlfserverreqsnumdenied", cufwurlfserverentry.Cufwurlfserverreqsnumdenied}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerNumTimeouts"] = types.YLeaf{"Cufwurlfservernumtimeouts", cufwurlfserverentry.Cufwurlfservernumtimeouts}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerNumRetries"] = types.YLeaf{"Cufwurlfservernumretries", cufwurlfserverentry.Cufwurlfservernumretries}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerRespsNumReceived"] = types.YLeaf{"Cufwurlfserverrespsnumreceived", cufwurlfserverentry.Cufwurlfserverrespsnumreceived}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerRespsNumLate"] = types.YLeaf{"Cufwurlfserverrespsnumlate", cufwurlfserverentry.Cufwurlfserverrespsnumlate}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerAvgRespTime1"] = types.YLeaf{"Cufwurlfserveravgresptime1", cufwurlfserverentry.Cufwurlfserveravgresptime1}
+    cufwurlfserverentry.EntityData.Leafs["cufwUrlfServerAvgRespTime5"] = types.YLeaf{"Cufwurlfserveravgresptime5", cufwurlfserverentry.Cufwurlfserveravgresptime5}
+    return &(cufwurlfserverentry.EntityData)
 }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetSegmentPath() string {
-    return "cufwUrlfServerEntry" + "[cufwUrlfServerAddrType='" + fmt.Sprintf("%v", cufwurlfserverentry.Cufwurlfserveraddrtype) + "']" + "[cufwUrlfServerAddress='" + fmt.Sprintf("%v", cufwurlfserverentry.Cufwurlfserveraddress) + "']" + "[cufwUrlfServerPort='" + fmt.Sprintf("%v", cufwurlfserverentry.Cufwurlfserverport) + "']"
-}
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cufwUrlfServerAddrType"] = cufwurlfserverentry.Cufwurlfserveraddrtype
-    leafs["cufwUrlfServerAddress"] = cufwurlfserverentry.Cufwurlfserveraddress
-    leafs["cufwUrlfServerPort"] = cufwurlfserverentry.Cufwurlfserverport
-    leafs["cufwUrlfServerVendor"] = cufwurlfserverentry.Cufwurlfservervendor
-    leafs["cufwUrlfServerStatus"] = cufwurlfserverentry.Cufwurlfserverstatus
-    leafs["cufwUrlfServerReqsNumProcessed"] = cufwurlfserverentry.Cufwurlfserverreqsnumprocessed
-    leafs["cufwUrlfServerReqsNumAllowed"] = cufwurlfserverentry.Cufwurlfserverreqsnumallowed
-    leafs["cufwUrlfServerReqsNumDenied"] = cufwurlfserverentry.Cufwurlfserverreqsnumdenied
-    leafs["cufwUrlfServerNumTimeouts"] = cufwurlfserverentry.Cufwurlfservernumtimeouts
-    leafs["cufwUrlfServerNumRetries"] = cufwurlfserverentry.Cufwurlfservernumretries
-    leafs["cufwUrlfServerRespsNumReceived"] = cufwurlfserverentry.Cufwurlfserverrespsnumreceived
-    leafs["cufwUrlfServerRespsNumLate"] = cufwurlfserverentry.Cufwurlfserverrespsnumlate
-    leafs["cufwUrlfServerAvgRespTime1"] = cufwurlfserverentry.Cufwurlfserveravgresptime1
-    leafs["cufwUrlfServerAvgRespTime5"] = cufwurlfserverentry.Cufwurlfserveravgresptime5
-    return leafs
-}
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetYangName() string { return "cufwUrlfServerEntry" }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) SetParent(parent types.Entity) { cufwurlfserverentry.parent = parent }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetParent() types.Entity { return cufwurlfserverentry.parent }
-
-func (cufwurlfserverentry *CISCOUNIFIEDFIREWALLMIB_Cufwurlfservertable_Cufwurlfserverentry) GetParentYangName() string { return "cufwUrlfServerTable" }
 

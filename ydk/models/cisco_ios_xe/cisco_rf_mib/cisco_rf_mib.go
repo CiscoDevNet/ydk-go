@@ -67,36 +67,6 @@ const (
     RFState_activeHandback RFState = "activeHandback"
 )
 
-// RFIssuState represents       commitVersion state.
-type RFIssuState string
-
-const (
-    RFIssuState_unset RFIssuState = "unset"
-
-    RFIssuState_init RFIssuState = "init"
-
-    RFIssuState_loadVersion RFIssuState = "loadVersion"
-
-    RFIssuState_runVersion RFIssuState = "runVersion"
-
-    RFIssuState_commitVersion RFIssuState = "commitVersion"
-)
-
-// RFAction represents When read, the value 'noAction' is always returned.
-type RFAction string
-
-const (
-    RFAction_noAction RFAction = "noAction"
-
-    RFAction_reloadPeer RFAction = "reloadPeer"
-
-    RFAction_reloadShelf RFAction = "reloadShelf"
-
-    RFAction_switchActivity RFAction = "switchActivity"
-
-    RFAction_forceSwitchActivity RFAction = "forceSwitchActivity"
-)
-
 // RFMode represents       immediately able to handle new calls.
 type RFMode string
 
@@ -118,17 +88,19 @@ const (
     RFMode_hotStandbyRedundant RFMode = "hotStandbyRedundant"
 )
 
-// RFClientStatus represents       loss if there is a switchover.
-type RFClientStatus string
+// RFAction represents When read, the value 'noAction' is always returned.
+type RFAction string
 
 const (
-    RFClientStatus_noStatus RFClientStatus = "noStatus"
+    RFAction_noAction RFAction = "noAction"
 
-    RFClientStatus_clientNotRedundant RFClientStatus = "clientNotRedundant"
+    RFAction_reloadPeer RFAction = "reloadPeer"
 
-    RFClientStatus_clientRedundancyInProgress RFClientStatus = "clientRedundancyInProgress"
+    RFAction_reloadShelf RFAction = "reloadShelf"
 
-    RFClientStatus_clientRedundant RFClientStatus = "clientRedundant"
+    RFAction_switchActivity RFAction = "switchActivity"
+
+    RFAction_forceSwitchActivity RFAction = "forceSwitchActivity"
 )
 
 // RFSwactReasonType represents     - active unit removal caused an auto SWACT
@@ -150,6 +122,21 @@ const (
     RFSwactReasonType_activeUnitRemoved RFSwactReasonType = "activeUnitRemoved"
 )
 
+// RFIssuState represents       commitVersion state.
+type RFIssuState string
+
+const (
+    RFIssuState_unset RFIssuState = "unset"
+
+    RFIssuState_init RFIssuState = "init"
+
+    RFIssuState_loadVersion RFIssuState = "loadVersion"
+
+    RFIssuState_runVersion RFIssuState = "runVersion"
+
+    RFIssuState_commitVersion RFIssuState = "commitVersion"
+)
+
 // RFIssuStateRev1 represents       commitVersion.
 type RFIssuStateRev1 string
 
@@ -169,9 +156,22 @@ const (
     RFIssuStateRev1_commitVersion RFIssuStateRev1 = "commitVersion"
 )
 
+// RFClientStatus represents       loss if there is a switchover.
+type RFClientStatus string
+
+const (
+    RFClientStatus_noStatus RFClientStatus = "noStatus"
+
+    RFClientStatus_clientNotRedundant RFClientStatus = "clientNotRedundant"
+
+    RFClientStatus_clientRedundancyInProgress RFClientStatus = "clientRedundancyInProgress"
+
+    RFClientStatus_clientRedundant RFClientStatus = "clientRedundant"
+)
+
 // CISCORFMIB
 type CISCORFMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -201,83 +201,30 @@ type CISCORFMIB struct {
     Crfstatusrfclienttable CISCORFMIB_Crfstatusrfclienttable
 }
 
-func (cISCORFMIB *CISCORFMIB) GetFilter() yfilter.YFilter { return cISCORFMIB.YFilter }
+func (cISCORFMIB *CISCORFMIB) GetEntityData() *types.CommonEntityData {
+    cISCORFMIB.EntityData.YFilter = cISCORFMIB.YFilter
+    cISCORFMIB.EntityData.YangName = "CISCO-RF-MIB"
+    cISCORFMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCORFMIB.EntityData.ParentYangName = "CISCO-RF-MIB"
+    cISCORFMIB.EntityData.SegmentPath = "CISCO-RF-MIB:CISCO-RF-MIB"
+    cISCORFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCORFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCORFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCORFMIB *CISCORFMIB) SetFilter(yf yfilter.YFilter) { cISCORFMIB.YFilter = yf }
-
-func (cISCORFMIB *CISCORFMIB) GetGoName(yname string) string {
-    if yname == "cRFStatus" { return "Crfstatus" }
-    if yname == "cRFCfg" { return "Crfcfg" }
-    if yname == "cRFHistory" { return "Crfhistory" }
-    if yname == "cRFStatusRFModeCapsTable" { return "Crfstatusrfmodecapstable" }
-    if yname == "cRFHistorySwitchOverTable" { return "Crfhistoryswitchovertable" }
-    if yname == "cRFStatusRFClientTable" { return "Crfstatusrfclienttable" }
-    return ""
+    cISCORFMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCORFMIB.EntityData.Children["cRFStatus"] = types.YChild{"Crfstatus", &cISCORFMIB.Crfstatus}
+    cISCORFMIB.EntityData.Children["cRFCfg"] = types.YChild{"Crfcfg", &cISCORFMIB.Crfcfg}
+    cISCORFMIB.EntityData.Children["cRFHistory"] = types.YChild{"Crfhistory", &cISCORFMIB.Crfhistory}
+    cISCORFMIB.EntityData.Children["cRFStatusRFModeCapsTable"] = types.YChild{"Crfstatusrfmodecapstable", &cISCORFMIB.Crfstatusrfmodecapstable}
+    cISCORFMIB.EntityData.Children["cRFHistorySwitchOverTable"] = types.YChild{"Crfhistoryswitchovertable", &cISCORFMIB.Crfhistoryswitchovertable}
+    cISCORFMIB.EntityData.Children["cRFStatusRFClientTable"] = types.YChild{"Crfstatusrfclienttable", &cISCORFMIB.Crfstatusrfclienttable}
+    cISCORFMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCORFMIB.EntityData)
 }
-
-func (cISCORFMIB *CISCORFMIB) GetSegmentPath() string {
-    return "CISCO-RF-MIB:CISCO-RF-MIB"
-}
-
-func (cISCORFMIB *CISCORFMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cRFStatus" {
-        return &cISCORFMIB.Crfstatus
-    }
-    if childYangName == "cRFCfg" {
-        return &cISCORFMIB.Crfcfg
-    }
-    if childYangName == "cRFHistory" {
-        return &cISCORFMIB.Crfhistory
-    }
-    if childYangName == "cRFStatusRFModeCapsTable" {
-        return &cISCORFMIB.Crfstatusrfmodecapstable
-    }
-    if childYangName == "cRFHistorySwitchOverTable" {
-        return &cISCORFMIB.Crfhistoryswitchovertable
-    }
-    if childYangName == "cRFStatusRFClientTable" {
-        return &cISCORFMIB.Crfstatusrfclienttable
-    }
-    return nil
-}
-
-func (cISCORFMIB *CISCORFMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cRFStatus"] = &cISCORFMIB.Crfstatus
-    children["cRFCfg"] = &cISCORFMIB.Crfcfg
-    children["cRFHistory"] = &cISCORFMIB.Crfhistory
-    children["cRFStatusRFModeCapsTable"] = &cISCORFMIB.Crfstatusrfmodecapstable
-    children["cRFHistorySwitchOverTable"] = &cISCORFMIB.Crfhistoryswitchovertable
-    children["cRFStatusRFClientTable"] = &cISCORFMIB.Crfstatusrfclienttable
-    return children
-}
-
-func (cISCORFMIB *CISCORFMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCORFMIB *CISCORFMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCORFMIB *CISCORFMIB) GetYangName() string { return "CISCO-RF-MIB" }
-
-func (cISCORFMIB *CISCORFMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCORFMIB *CISCORFMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCORFMIB *CISCORFMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCORFMIB *CISCORFMIB) SetParent(parent types.Entity) { cISCORFMIB.parent = parent }
-
-func (cISCORFMIB *CISCORFMIB) GetParent() types.Entity { return cISCORFMIB.parent }
-
-func (cISCORFMIB *CISCORFMIB) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfstatus
 type CISCORFMIB_Crfstatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A unique identifier for this redundant unit. This identifier is
@@ -360,81 +307,38 @@ type CISCORFMIB_Crfstatus struct {
     Crfstatusissutoversion interface{}
 }
 
-func (crfstatus *CISCORFMIB_Crfstatus) GetFilter() yfilter.YFilter { return crfstatus.YFilter }
+func (crfstatus *CISCORFMIB_Crfstatus) GetEntityData() *types.CommonEntityData {
+    crfstatus.EntityData.YFilter = crfstatus.YFilter
+    crfstatus.EntityData.YangName = "cRFStatus"
+    crfstatus.EntityData.BundleName = "cisco_ios_xe"
+    crfstatus.EntityData.ParentYangName = "CISCO-RF-MIB"
+    crfstatus.EntityData.SegmentPath = "cRFStatus"
+    crfstatus.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfstatus.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfstatus.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfstatus *CISCORFMIB_Crfstatus) SetFilter(yf yfilter.YFilter) { crfstatus.YFilter = yf }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetGoName(yname string) string {
-    if yname == "cRFStatusUnitId" { return "Crfstatusunitid" }
-    if yname == "cRFStatusUnitState" { return "Crfstatusunitstate" }
-    if yname == "cRFStatusPeerUnitId" { return "Crfstatuspeerunitid" }
-    if yname == "cRFStatusPeerUnitState" { return "Crfstatuspeerunitstate" }
-    if yname == "cRFStatusPrimaryMode" { return "Crfstatusprimarymode" }
-    if yname == "cRFStatusDuplexMode" { return "Crfstatusduplexmode" }
-    if yname == "cRFStatusManualSwactInhibit" { return "Crfstatusmanualswactinhibit" }
-    if yname == "cRFStatusLastSwactReasonCode" { return "Crfstatuslastswactreasoncode" }
-    if yname == "cRFStatusFailoverTime" { return "Crfstatusfailovertime" }
-    if yname == "cRFStatusPeerStandByEntryTime" { return "Crfstatuspeerstandbyentrytime" }
-    if yname == "cRFStatusIssuState" { return "Crfstatusissustate" }
-    if yname == "cRFStatusIssuStateRev1" { return "Crfstatusissustaterev1" }
-    if yname == "cRFStatusIssuFromVersion" { return "Crfstatusissufromversion" }
-    if yname == "cRFStatusIssuToVersion" { return "Crfstatusissutoversion" }
-    return ""
+    crfstatus.EntityData.Children = make(map[string]types.YChild)
+    crfstatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    crfstatus.EntityData.Leafs["cRFStatusUnitId"] = types.YLeaf{"Crfstatusunitid", crfstatus.Crfstatusunitid}
+    crfstatus.EntityData.Leafs["cRFStatusUnitState"] = types.YLeaf{"Crfstatusunitstate", crfstatus.Crfstatusunitstate}
+    crfstatus.EntityData.Leafs["cRFStatusPeerUnitId"] = types.YLeaf{"Crfstatuspeerunitid", crfstatus.Crfstatuspeerunitid}
+    crfstatus.EntityData.Leafs["cRFStatusPeerUnitState"] = types.YLeaf{"Crfstatuspeerunitstate", crfstatus.Crfstatuspeerunitstate}
+    crfstatus.EntityData.Leafs["cRFStatusPrimaryMode"] = types.YLeaf{"Crfstatusprimarymode", crfstatus.Crfstatusprimarymode}
+    crfstatus.EntityData.Leafs["cRFStatusDuplexMode"] = types.YLeaf{"Crfstatusduplexmode", crfstatus.Crfstatusduplexmode}
+    crfstatus.EntityData.Leafs["cRFStatusManualSwactInhibit"] = types.YLeaf{"Crfstatusmanualswactinhibit", crfstatus.Crfstatusmanualswactinhibit}
+    crfstatus.EntityData.Leafs["cRFStatusLastSwactReasonCode"] = types.YLeaf{"Crfstatuslastswactreasoncode", crfstatus.Crfstatuslastswactreasoncode}
+    crfstatus.EntityData.Leafs["cRFStatusFailoverTime"] = types.YLeaf{"Crfstatusfailovertime", crfstatus.Crfstatusfailovertime}
+    crfstatus.EntityData.Leafs["cRFStatusPeerStandByEntryTime"] = types.YLeaf{"Crfstatuspeerstandbyentrytime", crfstatus.Crfstatuspeerstandbyentrytime}
+    crfstatus.EntityData.Leafs["cRFStatusIssuState"] = types.YLeaf{"Crfstatusissustate", crfstatus.Crfstatusissustate}
+    crfstatus.EntityData.Leafs["cRFStatusIssuStateRev1"] = types.YLeaf{"Crfstatusissustaterev1", crfstatus.Crfstatusissustaterev1}
+    crfstatus.EntityData.Leafs["cRFStatusIssuFromVersion"] = types.YLeaf{"Crfstatusissufromversion", crfstatus.Crfstatusissufromversion}
+    crfstatus.EntityData.Leafs["cRFStatusIssuToVersion"] = types.YLeaf{"Crfstatusissutoversion", crfstatus.Crfstatusissutoversion}
+    return &(crfstatus.EntityData)
 }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetSegmentPath() string {
-    return "cRFStatus"
-}
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cRFStatusUnitId"] = crfstatus.Crfstatusunitid
-    leafs["cRFStatusUnitState"] = crfstatus.Crfstatusunitstate
-    leafs["cRFStatusPeerUnitId"] = crfstatus.Crfstatuspeerunitid
-    leafs["cRFStatusPeerUnitState"] = crfstatus.Crfstatuspeerunitstate
-    leafs["cRFStatusPrimaryMode"] = crfstatus.Crfstatusprimarymode
-    leafs["cRFStatusDuplexMode"] = crfstatus.Crfstatusduplexmode
-    leafs["cRFStatusManualSwactInhibit"] = crfstatus.Crfstatusmanualswactinhibit
-    leafs["cRFStatusLastSwactReasonCode"] = crfstatus.Crfstatuslastswactreasoncode
-    leafs["cRFStatusFailoverTime"] = crfstatus.Crfstatusfailovertime
-    leafs["cRFStatusPeerStandByEntryTime"] = crfstatus.Crfstatuspeerstandbyentrytime
-    leafs["cRFStatusIssuState"] = crfstatus.Crfstatusissustate
-    leafs["cRFStatusIssuStateRev1"] = crfstatus.Crfstatusissustaterev1
-    leafs["cRFStatusIssuFromVersion"] = crfstatus.Crfstatusissufromversion
-    leafs["cRFStatusIssuToVersion"] = crfstatus.Crfstatusissutoversion
-    return leafs
-}
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetYangName() string { return "cRFStatus" }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfstatus *CISCORFMIB_Crfstatus) SetParent(parent types.Entity) { crfstatus.parent = parent }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetParent() types.Entity { return crfstatus.parent }
-
-func (crfstatus *CISCORFMIB_Crfstatus) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfcfg
 type CISCORFMIB_Crfcfg struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Indicates whether redundant units may communicate synchronization messages
@@ -529,85 +433,40 @@ type CISCORFMIB_Crfcfg struct {
     Crfcfgredundancyopermode interface{}
 }
 
-func (crfcfg *CISCORFMIB_Crfcfg) GetFilter() yfilter.YFilter { return crfcfg.YFilter }
+func (crfcfg *CISCORFMIB_Crfcfg) GetEntityData() *types.CommonEntityData {
+    crfcfg.EntityData.YFilter = crfcfg.YFilter
+    crfcfg.EntityData.YangName = "cRFCfg"
+    crfcfg.EntityData.BundleName = "cisco_ios_xe"
+    crfcfg.EntityData.ParentYangName = "CISCO-RF-MIB"
+    crfcfg.EntityData.SegmentPath = "cRFCfg"
+    crfcfg.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfcfg.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfcfg.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfcfg *CISCORFMIB_Crfcfg) SetFilter(yf yfilter.YFilter) { crfcfg.YFilter = yf }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetGoName(yname string) string {
-    if yname == "cRFCfgSplitMode" { return "Crfcfgsplitmode" }
-    if yname == "cRFCfgKeepaliveThresh" { return "Crfcfgkeepalivethresh" }
-    if yname == "cRFCfgKeepaliveThreshMin" { return "Crfcfgkeepalivethreshmin" }
-    if yname == "cRFCfgKeepaliveThreshMax" { return "Crfcfgkeepalivethreshmax" }
-    if yname == "cRFCfgKeepaliveTimer" { return "Crfcfgkeepalivetimer" }
-    if yname == "cRFCfgKeepaliveTimerMin" { return "Crfcfgkeepalivetimermin" }
-    if yname == "cRFCfgKeepaliveTimerMax" { return "Crfcfgkeepalivetimermax" }
-    if yname == "cRFCfgNotifTimer" { return "Crfcfgnotiftimer" }
-    if yname == "cRFCfgNotifTimerMin" { return "Crfcfgnotiftimermin" }
-    if yname == "cRFCfgNotifTimerMax" { return "Crfcfgnotiftimermax" }
-    if yname == "cRFCfgAdminAction" { return "Crfcfgadminaction" }
-    if yname == "cRFCfgNotifsEnabled" { return "Crfcfgnotifsenabled" }
-    if yname == "cRFCfgMaintenanceMode" { return "Crfcfgmaintenancemode" }
-    if yname == "cRFCfgRedundancyMode" { return "Crfcfgredundancymode" }
-    if yname == "cRFCfgRedundancyModeDescr" { return "Crfcfgredundancymodedescr" }
-    if yname == "cRFCfgRedundancyOperMode" { return "Crfcfgredundancyopermode" }
-    return ""
+    crfcfg.EntityData.Children = make(map[string]types.YChild)
+    crfcfg.EntityData.Leafs = make(map[string]types.YLeaf)
+    crfcfg.EntityData.Leafs["cRFCfgSplitMode"] = types.YLeaf{"Crfcfgsplitmode", crfcfg.Crfcfgsplitmode}
+    crfcfg.EntityData.Leafs["cRFCfgKeepaliveThresh"] = types.YLeaf{"Crfcfgkeepalivethresh", crfcfg.Crfcfgkeepalivethresh}
+    crfcfg.EntityData.Leafs["cRFCfgKeepaliveThreshMin"] = types.YLeaf{"Crfcfgkeepalivethreshmin", crfcfg.Crfcfgkeepalivethreshmin}
+    crfcfg.EntityData.Leafs["cRFCfgKeepaliveThreshMax"] = types.YLeaf{"Crfcfgkeepalivethreshmax", crfcfg.Crfcfgkeepalivethreshmax}
+    crfcfg.EntityData.Leafs["cRFCfgKeepaliveTimer"] = types.YLeaf{"Crfcfgkeepalivetimer", crfcfg.Crfcfgkeepalivetimer}
+    crfcfg.EntityData.Leafs["cRFCfgKeepaliveTimerMin"] = types.YLeaf{"Crfcfgkeepalivetimermin", crfcfg.Crfcfgkeepalivetimermin}
+    crfcfg.EntityData.Leafs["cRFCfgKeepaliveTimerMax"] = types.YLeaf{"Crfcfgkeepalivetimermax", crfcfg.Crfcfgkeepalivetimermax}
+    crfcfg.EntityData.Leafs["cRFCfgNotifTimer"] = types.YLeaf{"Crfcfgnotiftimer", crfcfg.Crfcfgnotiftimer}
+    crfcfg.EntityData.Leafs["cRFCfgNotifTimerMin"] = types.YLeaf{"Crfcfgnotiftimermin", crfcfg.Crfcfgnotiftimermin}
+    crfcfg.EntityData.Leafs["cRFCfgNotifTimerMax"] = types.YLeaf{"Crfcfgnotiftimermax", crfcfg.Crfcfgnotiftimermax}
+    crfcfg.EntityData.Leafs["cRFCfgAdminAction"] = types.YLeaf{"Crfcfgadminaction", crfcfg.Crfcfgadminaction}
+    crfcfg.EntityData.Leafs["cRFCfgNotifsEnabled"] = types.YLeaf{"Crfcfgnotifsenabled", crfcfg.Crfcfgnotifsenabled}
+    crfcfg.EntityData.Leafs["cRFCfgMaintenanceMode"] = types.YLeaf{"Crfcfgmaintenancemode", crfcfg.Crfcfgmaintenancemode}
+    crfcfg.EntityData.Leafs["cRFCfgRedundancyMode"] = types.YLeaf{"Crfcfgredundancymode", crfcfg.Crfcfgredundancymode}
+    crfcfg.EntityData.Leafs["cRFCfgRedundancyModeDescr"] = types.YLeaf{"Crfcfgredundancymodedescr", crfcfg.Crfcfgredundancymodedescr}
+    crfcfg.EntityData.Leafs["cRFCfgRedundancyOperMode"] = types.YLeaf{"Crfcfgredundancyopermode", crfcfg.Crfcfgredundancyopermode}
+    return &(crfcfg.EntityData)
 }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetSegmentPath() string {
-    return "cRFCfg"
-}
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cRFCfgSplitMode"] = crfcfg.Crfcfgsplitmode
-    leafs["cRFCfgKeepaliveThresh"] = crfcfg.Crfcfgkeepalivethresh
-    leafs["cRFCfgKeepaliveThreshMin"] = crfcfg.Crfcfgkeepalivethreshmin
-    leafs["cRFCfgKeepaliveThreshMax"] = crfcfg.Crfcfgkeepalivethreshmax
-    leafs["cRFCfgKeepaliveTimer"] = crfcfg.Crfcfgkeepalivetimer
-    leafs["cRFCfgKeepaliveTimerMin"] = crfcfg.Crfcfgkeepalivetimermin
-    leafs["cRFCfgKeepaliveTimerMax"] = crfcfg.Crfcfgkeepalivetimermax
-    leafs["cRFCfgNotifTimer"] = crfcfg.Crfcfgnotiftimer
-    leafs["cRFCfgNotifTimerMin"] = crfcfg.Crfcfgnotiftimermin
-    leafs["cRFCfgNotifTimerMax"] = crfcfg.Crfcfgnotiftimermax
-    leafs["cRFCfgAdminAction"] = crfcfg.Crfcfgadminaction
-    leafs["cRFCfgNotifsEnabled"] = crfcfg.Crfcfgnotifsenabled
-    leafs["cRFCfgMaintenanceMode"] = crfcfg.Crfcfgmaintenancemode
-    leafs["cRFCfgRedundancyMode"] = crfcfg.Crfcfgredundancymode
-    leafs["cRFCfgRedundancyModeDescr"] = crfcfg.Crfcfgredundancymodedescr
-    leafs["cRFCfgRedundancyOperMode"] = crfcfg.Crfcfgredundancyopermode
-    return leafs
-}
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetYangName() string { return "cRFCfg" }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfcfg *CISCORFMIB_Crfcfg) SetParent(parent types.Entity) { crfcfg.parent = parent }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetParent() types.Entity { return crfcfg.parent }
-
-func (crfcfg *CISCORFMIB_Crfcfg) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfhistory
 type CISCORFMIB_Crfhistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum number of entries permissible in the history table. A value of 0
@@ -626,61 +485,29 @@ type CISCORFMIB_Crfhistory struct {
     Crfhistorystandbyavailtime interface{}
 }
 
-func (crfhistory *CISCORFMIB_Crfhistory) GetFilter() yfilter.YFilter { return crfhistory.YFilter }
+func (crfhistory *CISCORFMIB_Crfhistory) GetEntityData() *types.CommonEntityData {
+    crfhistory.EntityData.YFilter = crfhistory.YFilter
+    crfhistory.EntityData.YangName = "cRFHistory"
+    crfhistory.EntityData.BundleName = "cisco_ios_xe"
+    crfhistory.EntityData.ParentYangName = "CISCO-RF-MIB"
+    crfhistory.EntityData.SegmentPath = "cRFHistory"
+    crfhistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfhistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfhistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfhistory *CISCORFMIB_Crfhistory) SetFilter(yf yfilter.YFilter) { crfhistory.YFilter = yf }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetGoName(yname string) string {
-    if yname == "cRFHistoryTableMaxLength" { return "Crfhistorytablemaxlength" }
-    if yname == "cRFHistoryColdStarts" { return "Crfhistorycoldstarts" }
-    if yname == "cRFHistoryStandByAvailTime" { return "Crfhistorystandbyavailtime" }
-    return ""
+    crfhistory.EntityData.Children = make(map[string]types.YChild)
+    crfhistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    crfhistory.EntityData.Leafs["cRFHistoryTableMaxLength"] = types.YLeaf{"Crfhistorytablemaxlength", crfhistory.Crfhistorytablemaxlength}
+    crfhistory.EntityData.Leafs["cRFHistoryColdStarts"] = types.YLeaf{"Crfhistorycoldstarts", crfhistory.Crfhistorycoldstarts}
+    crfhistory.EntityData.Leafs["cRFHistoryStandByAvailTime"] = types.YLeaf{"Crfhistorystandbyavailtime", crfhistory.Crfhistorystandbyavailtime}
+    return &(crfhistory.EntityData)
 }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetSegmentPath() string {
-    return "cRFHistory"
-}
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cRFHistoryTableMaxLength"] = crfhistory.Crfhistorytablemaxlength
-    leafs["cRFHistoryColdStarts"] = crfhistory.Crfhistorycoldstarts
-    leafs["cRFHistoryStandByAvailTime"] = crfhistory.Crfhistorystandbyavailtime
-    return leafs
-}
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetYangName() string { return "cRFHistory" }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfhistory *CISCORFMIB_Crfhistory) SetParent(parent types.Entity) { crfhistory.parent = parent }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetParent() types.Entity { return crfhistory.parent }
-
-func (crfhistory *CISCORFMIB_Crfhistory) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfstatusrfmodecapstable
 // This table containing a list of redundancy modes that can be
 // supported on the device.
 type CISCORFMIB_Crfstatusrfmodecapstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing the device implementation specific terminology
@@ -690,70 +517,31 @@ type CISCORFMIB_Crfstatusrfmodecapstable struct {
     Crfstatusrfmodecapsentry []CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry
 }
 
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetFilter() yfilter.YFilter { return crfstatusrfmodecapstable.YFilter }
+func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetEntityData() *types.CommonEntityData {
+    crfstatusrfmodecapstable.EntityData.YFilter = crfstatusrfmodecapstable.YFilter
+    crfstatusrfmodecapstable.EntityData.YangName = "cRFStatusRFModeCapsTable"
+    crfstatusrfmodecapstable.EntityData.BundleName = "cisco_ios_xe"
+    crfstatusrfmodecapstable.EntityData.ParentYangName = "CISCO-RF-MIB"
+    crfstatusrfmodecapstable.EntityData.SegmentPath = "cRFStatusRFModeCapsTable"
+    crfstatusrfmodecapstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfstatusrfmodecapstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfstatusrfmodecapstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) SetFilter(yf yfilter.YFilter) { crfstatusrfmodecapstable.YFilter = yf }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetGoName(yname string) string {
-    if yname == "cRFStatusRFModeCapsEntry" { return "Crfstatusrfmodecapsentry" }
-    return ""
-}
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetSegmentPath() string {
-    return "cRFStatusRFModeCapsTable"
-}
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cRFStatusRFModeCapsEntry" {
-        for _, c := range crfstatusrfmodecapstable.Crfstatusrfmodecapsentry {
-            if crfstatusrfmodecapstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry{}
-        crfstatusrfmodecapstable.Crfstatusrfmodecapsentry = append(crfstatusrfmodecapstable.Crfstatusrfmodecapsentry, child)
-        return &crfstatusrfmodecapstable.Crfstatusrfmodecapsentry[len(crfstatusrfmodecapstable.Crfstatusrfmodecapsentry)-1]
-    }
-    return nil
-}
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    crfstatusrfmodecapstable.EntityData.Children = make(map[string]types.YChild)
+    crfstatusrfmodecapstable.EntityData.Children["cRFStatusRFModeCapsEntry"] = types.YChild{"Crfstatusrfmodecapsentry", nil}
     for i := range crfstatusrfmodecapstable.Crfstatusrfmodecapsentry {
-        children[crfstatusrfmodecapstable.Crfstatusrfmodecapsentry[i].GetSegmentPath()] = &crfstatusrfmodecapstable.Crfstatusrfmodecapsentry[i]
+        crfstatusrfmodecapstable.EntityData.Children[types.GetSegmentPath(&crfstatusrfmodecapstable.Crfstatusrfmodecapsentry[i])] = types.YChild{"Crfstatusrfmodecapsentry", &crfstatusrfmodecapstable.Crfstatusrfmodecapsentry[i]}
     }
-    return children
+    crfstatusrfmodecapstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(crfstatusrfmodecapstable.EntityData)
 }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetYangName() string { return "cRFStatusRFModeCapsTable" }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) SetParent(parent types.Entity) { crfstatusrfmodecapstable.parent = parent }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetParent() types.Entity { return crfstatusrfmodecapstable.parent }
-
-func (crfstatusrfmodecapstable *CISCORFMIB_Crfstatusrfmodecapstable) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry
 // An entry containing the device implementation specific
 // terminology associated with the redundancy mode that can be
 // supported on the device.
 type CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The redundancy mode that can be supported on the
@@ -765,53 +553,22 @@ type CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry struct {
     Crfstatusrfmodecapsmodedescr interface{}
 }
 
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetFilter() yfilter.YFilter { return crfstatusrfmodecapsentry.YFilter }
+func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetEntityData() *types.CommonEntityData {
+    crfstatusrfmodecapsentry.EntityData.YFilter = crfstatusrfmodecapsentry.YFilter
+    crfstatusrfmodecapsentry.EntityData.YangName = "cRFStatusRFModeCapsEntry"
+    crfstatusrfmodecapsentry.EntityData.BundleName = "cisco_ios_xe"
+    crfstatusrfmodecapsentry.EntityData.ParentYangName = "cRFStatusRFModeCapsTable"
+    crfstatusrfmodecapsentry.EntityData.SegmentPath = "cRFStatusRFModeCapsEntry" + "[cRFStatusRFModeCapsMode='" + fmt.Sprintf("%v", crfstatusrfmodecapsentry.Crfstatusrfmodecapsmode) + "']"
+    crfstatusrfmodecapsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfstatusrfmodecapsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfstatusrfmodecapsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) SetFilter(yf yfilter.YFilter) { crfstatusrfmodecapsentry.YFilter = yf }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetGoName(yname string) string {
-    if yname == "cRFStatusRFModeCapsMode" { return "Crfstatusrfmodecapsmode" }
-    if yname == "cRFStatusRFModeCapsModeDescr" { return "Crfstatusrfmodecapsmodedescr" }
-    return ""
+    crfstatusrfmodecapsentry.EntityData.Children = make(map[string]types.YChild)
+    crfstatusrfmodecapsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    crfstatusrfmodecapsentry.EntityData.Leafs["cRFStatusRFModeCapsMode"] = types.YLeaf{"Crfstatusrfmodecapsmode", crfstatusrfmodecapsentry.Crfstatusrfmodecapsmode}
+    crfstatusrfmodecapsentry.EntityData.Leafs["cRFStatusRFModeCapsModeDescr"] = types.YLeaf{"Crfstatusrfmodecapsmodedescr", crfstatusrfmodecapsentry.Crfstatusrfmodecapsmodedescr}
+    return &(crfstatusrfmodecapsentry.EntityData)
 }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetSegmentPath() string {
-    return "cRFStatusRFModeCapsEntry" + "[cRFStatusRFModeCapsMode='" + fmt.Sprintf("%v", crfstatusrfmodecapsentry.Crfstatusrfmodecapsmode) + "']"
-}
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cRFStatusRFModeCapsMode"] = crfstatusrfmodecapsentry.Crfstatusrfmodecapsmode
-    leafs["cRFStatusRFModeCapsModeDescr"] = crfstatusrfmodecapsentry.Crfstatusrfmodecapsmodedescr
-    return leafs
-}
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetYangName() string { return "cRFStatusRFModeCapsEntry" }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) SetParent(parent types.Entity) { crfstatusrfmodecapsentry.parent = parent }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetParent() types.Entity { return crfstatusrfmodecapsentry.parent }
-
-func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfmodecapsentry) GetParentYangName() string { return "cRFStatusRFModeCapsTable" }
 
 // CISCORFMIB_Crfhistoryswitchovertable
 // A table that tracks the history of all switchovers that
@@ -821,7 +578,7 @@ func (crfstatusrfmodecapsentry *CISCORFMIB_Crfstatusrfmodecapstable_Crfstatusrfm
 // the table reaches the maximum limit, the next entry
 // would replace the oldest existing entry in the table.
 type CISCORFMIB_Crfhistoryswitchovertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The entries in this table contain the switchover information. Each entry in
@@ -831,63 +588,24 @@ type CISCORFMIB_Crfhistoryswitchovertable struct {
     Crfhistoryswitchoverentry []CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry
 }
 
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetFilter() yfilter.YFilter { return crfhistoryswitchovertable.YFilter }
+func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetEntityData() *types.CommonEntityData {
+    crfhistoryswitchovertable.EntityData.YFilter = crfhistoryswitchovertable.YFilter
+    crfhistoryswitchovertable.EntityData.YangName = "cRFHistorySwitchOverTable"
+    crfhistoryswitchovertable.EntityData.BundleName = "cisco_ios_xe"
+    crfhistoryswitchovertable.EntityData.ParentYangName = "CISCO-RF-MIB"
+    crfhistoryswitchovertable.EntityData.SegmentPath = "cRFHistorySwitchOverTable"
+    crfhistoryswitchovertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfhistoryswitchovertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfhistoryswitchovertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) SetFilter(yf yfilter.YFilter) { crfhistoryswitchovertable.YFilter = yf }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetGoName(yname string) string {
-    if yname == "cRFHistorySwitchOverEntry" { return "Crfhistoryswitchoverentry" }
-    return ""
-}
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetSegmentPath() string {
-    return "cRFHistorySwitchOverTable"
-}
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cRFHistorySwitchOverEntry" {
-        for _, c := range crfhistoryswitchovertable.Crfhistoryswitchoverentry {
-            if crfhistoryswitchovertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry{}
-        crfhistoryswitchovertable.Crfhistoryswitchoverentry = append(crfhistoryswitchovertable.Crfhistoryswitchoverentry, child)
-        return &crfhistoryswitchovertable.Crfhistoryswitchoverentry[len(crfhistoryswitchovertable.Crfhistoryswitchoverentry)-1]
-    }
-    return nil
-}
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    crfhistoryswitchovertable.EntityData.Children = make(map[string]types.YChild)
+    crfhistoryswitchovertable.EntityData.Children["cRFHistorySwitchOverEntry"] = types.YChild{"Crfhistoryswitchoverentry", nil}
     for i := range crfhistoryswitchovertable.Crfhistoryswitchoverentry {
-        children[crfhistoryswitchovertable.Crfhistoryswitchoverentry[i].GetSegmentPath()] = &crfhistoryswitchovertable.Crfhistoryswitchoverentry[i]
+        crfhistoryswitchovertable.EntityData.Children[types.GetSegmentPath(&crfhistoryswitchovertable.Crfhistoryswitchoverentry[i])] = types.YChild{"Crfhistoryswitchoverentry", &crfhistoryswitchovertable.Crfhistoryswitchoverentry[i]}
     }
-    return children
+    crfhistoryswitchovertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(crfhistoryswitchovertable.EntityData)
 }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetYangName() string { return "cRFHistorySwitchOverTable" }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) SetParent(parent types.Entity) { crfhistoryswitchovertable.parent = parent }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetParent() types.Entity { return crfhistoryswitchovertable.parent }
-
-func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry
 // The entries in this table contain the switchover
@@ -895,7 +613,7 @@ func (crfhistoryswitchovertable *CISCORFMIB_Crfhistoryswitchovertable) GetParent
 // cRFHistorySwitchOverIndex. The index wraps around to 1
 // after reaching the maximum value.
 type CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A monotonically increasing integer for the purpose
@@ -918,59 +636,25 @@ type CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry struct {
     Crfhistoryswacttime interface{}
 }
 
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetFilter() yfilter.YFilter { return crfhistoryswitchoverentry.YFilter }
+func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetEntityData() *types.CommonEntityData {
+    crfhistoryswitchoverentry.EntityData.YFilter = crfhistoryswitchoverentry.YFilter
+    crfhistoryswitchoverentry.EntityData.YangName = "cRFHistorySwitchOverEntry"
+    crfhistoryswitchoverentry.EntityData.BundleName = "cisco_ios_xe"
+    crfhistoryswitchoverentry.EntityData.ParentYangName = "cRFHistorySwitchOverTable"
+    crfhistoryswitchoverentry.EntityData.SegmentPath = "cRFHistorySwitchOverEntry" + "[cRFHistorySwitchOverIndex='" + fmt.Sprintf("%v", crfhistoryswitchoverentry.Crfhistoryswitchoverindex) + "']"
+    crfhistoryswitchoverentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfhistoryswitchoverentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfhistoryswitchoverentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) SetFilter(yf yfilter.YFilter) { crfhistoryswitchoverentry.YFilter = yf }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetGoName(yname string) string {
-    if yname == "cRFHistorySwitchOverIndex" { return "Crfhistoryswitchoverindex" }
-    if yname == "cRFHistoryPrevActiveUnitId" { return "Crfhistoryprevactiveunitid" }
-    if yname == "cRFHistoryCurrActiveUnitId" { return "Crfhistorycurractiveunitid" }
-    if yname == "cRFHistorySwitchOverReason" { return "Crfhistoryswitchoverreason" }
-    if yname == "cRFHistorySwactTime" { return "Crfhistoryswacttime" }
-    return ""
+    crfhistoryswitchoverentry.EntityData.Children = make(map[string]types.YChild)
+    crfhistoryswitchoverentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    crfhistoryswitchoverentry.EntityData.Leafs["cRFHistorySwitchOverIndex"] = types.YLeaf{"Crfhistoryswitchoverindex", crfhistoryswitchoverentry.Crfhistoryswitchoverindex}
+    crfhistoryswitchoverentry.EntityData.Leafs["cRFHistoryPrevActiveUnitId"] = types.YLeaf{"Crfhistoryprevactiveunitid", crfhistoryswitchoverentry.Crfhistoryprevactiveunitid}
+    crfhistoryswitchoverentry.EntityData.Leafs["cRFHistoryCurrActiveUnitId"] = types.YLeaf{"Crfhistorycurractiveunitid", crfhistoryswitchoverentry.Crfhistorycurractiveunitid}
+    crfhistoryswitchoverentry.EntityData.Leafs["cRFHistorySwitchOverReason"] = types.YLeaf{"Crfhistoryswitchoverreason", crfhistoryswitchoverentry.Crfhistoryswitchoverreason}
+    crfhistoryswitchoverentry.EntityData.Leafs["cRFHistorySwactTime"] = types.YLeaf{"Crfhistoryswacttime", crfhistoryswitchoverentry.Crfhistoryswacttime}
+    return &(crfhistoryswitchoverentry.EntityData)
 }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetSegmentPath() string {
-    return "cRFHistorySwitchOverEntry" + "[cRFHistorySwitchOverIndex='" + fmt.Sprintf("%v", crfhistoryswitchoverentry.Crfhistoryswitchoverindex) + "']"
-}
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cRFHistorySwitchOverIndex"] = crfhistoryswitchoverentry.Crfhistoryswitchoverindex
-    leafs["cRFHistoryPrevActiveUnitId"] = crfhistoryswitchoverentry.Crfhistoryprevactiveunitid
-    leafs["cRFHistoryCurrActiveUnitId"] = crfhistoryswitchoverentry.Crfhistorycurractiveunitid
-    leafs["cRFHistorySwitchOverReason"] = crfhistoryswitchoverentry.Crfhistoryswitchoverreason
-    leafs["cRFHistorySwactTime"] = crfhistoryswitchoverentry.Crfhistoryswacttime
-    return leafs
-}
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetYangName() string { return "cRFHistorySwitchOverEntry" }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) SetParent(parent types.Entity) { crfhistoryswitchoverentry.parent = parent }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetParent() types.Entity { return crfhistoryswitchoverentry.parent }
-
-func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistoryswitchoverentry) GetParentYangName() string { return "cRFHistorySwitchOverTable" }
 
 // CISCORFMIB_Crfstatusrfclienttable
 // This table contains a list of RF clients that are
@@ -981,7 +665,7 @@ func (crfhistoryswitchoverentry *CISCORFMIB_Crfhistoryswitchovertable_Crfhistory
 // notifications. The purpose of RF clients is to synchronize 
 // any relevant data with the standby unit.
 type CISCORFMIB_Crfstatusrfclienttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry containing information on various clients registered with the
@@ -993,63 +677,24 @@ type CISCORFMIB_Crfstatusrfclienttable struct {
     Crfstatusrfcliententry []CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry
 }
 
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetFilter() yfilter.YFilter { return crfstatusrfclienttable.YFilter }
+func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetEntityData() *types.CommonEntityData {
+    crfstatusrfclienttable.EntityData.YFilter = crfstatusrfclienttable.YFilter
+    crfstatusrfclienttable.EntityData.YangName = "cRFStatusRFClientTable"
+    crfstatusrfclienttable.EntityData.BundleName = "cisco_ios_xe"
+    crfstatusrfclienttable.EntityData.ParentYangName = "CISCO-RF-MIB"
+    crfstatusrfclienttable.EntityData.SegmentPath = "cRFStatusRFClientTable"
+    crfstatusrfclienttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfstatusrfclienttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfstatusrfclienttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) SetFilter(yf yfilter.YFilter) { crfstatusrfclienttable.YFilter = yf }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetGoName(yname string) string {
-    if yname == "cRFStatusRFClientEntry" { return "Crfstatusrfcliententry" }
-    return ""
-}
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetSegmentPath() string {
-    return "cRFStatusRFClientTable"
-}
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cRFStatusRFClientEntry" {
-        for _, c := range crfstatusrfclienttable.Crfstatusrfcliententry {
-            if crfstatusrfclienttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry{}
-        crfstatusrfclienttable.Crfstatusrfcliententry = append(crfstatusrfclienttable.Crfstatusrfcliententry, child)
-        return &crfstatusrfclienttable.Crfstatusrfcliententry[len(crfstatusrfclienttable.Crfstatusrfcliententry)-1]
-    }
-    return nil
-}
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    crfstatusrfclienttable.EntityData.Children = make(map[string]types.YChild)
+    crfstatusrfclienttable.EntityData.Children["cRFStatusRFClientEntry"] = types.YChild{"Crfstatusrfcliententry", nil}
     for i := range crfstatusrfclienttable.Crfstatusrfcliententry {
-        children[crfstatusrfclienttable.Crfstatusrfcliententry[i].GetSegmentPath()] = &crfstatusrfclienttable.Crfstatusrfcliententry[i]
+        crfstatusrfclienttable.EntityData.Children[types.GetSegmentPath(&crfstatusrfclienttable.Crfstatusrfcliententry[i])] = types.YChild{"Crfstatusrfcliententry", &crfstatusrfclienttable.Crfstatusrfcliententry[i]}
     }
-    return children
+    crfstatusrfclienttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(crfstatusrfclienttable.EntityData)
 }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetYangName() string { return "cRFStatusRFClientTable" }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) SetParent(parent types.Entity) { crfstatusrfclienttable.parent = parent }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetParent() types.Entity { return crfstatusrfclienttable.parent }
-
-func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetParentYangName() string { return "CISCO-RF-MIB" }
 
 // CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry
 // An entry containing information on various clients
@@ -1061,7 +706,7 @@ func (crfstatusrfclienttable *CISCORFMIB_Crfstatusrfclienttable) GetParentYangNa
 // is destroyed when that application deregisters from the 
 // Redundancy Facility.
 type CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A unique identifier for the client which
@@ -1089,57 +734,23 @@ type CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry struct {
     Crfstatusrfclientstatus interface{}
 }
 
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetFilter() yfilter.YFilter { return crfstatusrfcliententry.YFilter }
+func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetEntityData() *types.CommonEntityData {
+    crfstatusrfcliententry.EntityData.YFilter = crfstatusrfcliententry.YFilter
+    crfstatusrfcliententry.EntityData.YangName = "cRFStatusRFClientEntry"
+    crfstatusrfcliententry.EntityData.BundleName = "cisco_ios_xe"
+    crfstatusrfcliententry.EntityData.ParentYangName = "cRFStatusRFClientTable"
+    crfstatusrfcliententry.EntityData.SegmentPath = "cRFStatusRFClientEntry" + "[cRFStatusRFClientID='" + fmt.Sprintf("%v", crfstatusrfcliententry.Crfstatusrfclientid) + "']"
+    crfstatusrfcliententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    crfstatusrfcliententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    crfstatusrfcliententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) SetFilter(yf yfilter.YFilter) { crfstatusrfcliententry.YFilter = yf }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetGoName(yname string) string {
-    if yname == "cRFStatusRFClientID" { return "Crfstatusrfclientid" }
-    if yname == "cRFStatusRFClientDescr" { return "Crfstatusrfclientdescr" }
-    if yname == "cRFStatusRFClientSeq" { return "Crfstatusrfclientseq" }
-    if yname == "cRFStatusRFClientRedTime" { return "Crfstatusrfclientredtime" }
-    if yname == "cRFStatusRFClientStatus" { return "Crfstatusrfclientstatus" }
-    return ""
+    crfstatusrfcliententry.EntityData.Children = make(map[string]types.YChild)
+    crfstatusrfcliententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    crfstatusrfcliententry.EntityData.Leafs["cRFStatusRFClientID"] = types.YLeaf{"Crfstatusrfclientid", crfstatusrfcliententry.Crfstatusrfclientid}
+    crfstatusrfcliententry.EntityData.Leafs["cRFStatusRFClientDescr"] = types.YLeaf{"Crfstatusrfclientdescr", crfstatusrfcliententry.Crfstatusrfclientdescr}
+    crfstatusrfcliententry.EntityData.Leafs["cRFStatusRFClientSeq"] = types.YLeaf{"Crfstatusrfclientseq", crfstatusrfcliententry.Crfstatusrfclientseq}
+    crfstatusrfcliententry.EntityData.Leafs["cRFStatusRFClientRedTime"] = types.YLeaf{"Crfstatusrfclientredtime", crfstatusrfcliententry.Crfstatusrfclientredtime}
+    crfstatusrfcliententry.EntityData.Leafs["cRFStatusRFClientStatus"] = types.YLeaf{"Crfstatusrfclientstatus", crfstatusrfcliententry.Crfstatusrfclientstatus}
+    return &(crfstatusrfcliententry.EntityData)
 }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetSegmentPath() string {
-    return "cRFStatusRFClientEntry" + "[cRFStatusRFClientID='" + fmt.Sprintf("%v", crfstatusrfcliententry.Crfstatusrfclientid) + "']"
-}
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cRFStatusRFClientID"] = crfstatusrfcliententry.Crfstatusrfclientid
-    leafs["cRFStatusRFClientDescr"] = crfstatusrfcliententry.Crfstatusrfclientdescr
-    leafs["cRFStatusRFClientSeq"] = crfstatusrfcliententry.Crfstatusrfclientseq
-    leafs["cRFStatusRFClientRedTime"] = crfstatusrfcliententry.Crfstatusrfclientredtime
-    leafs["cRFStatusRFClientStatus"] = crfstatusrfcliententry.Crfstatusrfclientstatus
-    return leafs
-}
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetYangName() string { return "cRFStatusRFClientEntry" }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) SetParent(parent types.Entity) { crfstatusrfcliententry.parent = parent }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetParent() types.Entity { return crfstatusrfcliententry.parent }
-
-func (crfstatusrfcliententry *CISCORFMIB_Crfstatusrfclienttable_Crfstatusrfcliententry) GetParentYangName() string { return "cRFStatusRFClientTable" }
 

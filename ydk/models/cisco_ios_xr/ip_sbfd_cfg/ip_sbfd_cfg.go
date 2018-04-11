@@ -30,7 +30,7 @@ func init() {
 // detecting faultsbetween two different nodes in a
 // network
 type Sbfd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // configure remote target.
@@ -40,64 +40,27 @@ type Sbfd struct {
     LocalDiscriminator Sbfd_LocalDiscriminator
 }
 
-func (sbfd *Sbfd) GetFilter() yfilter.YFilter { return sbfd.YFilter }
+func (sbfd *Sbfd) GetEntityData() *types.CommonEntityData {
+    sbfd.EntityData.YFilter = sbfd.YFilter
+    sbfd.EntityData.YangName = "sbfd"
+    sbfd.EntityData.BundleName = "cisco_ios_xr"
+    sbfd.EntityData.ParentYangName = "Cisco-IOS-XR-ip-sbfd-cfg"
+    sbfd.EntityData.SegmentPath = "Cisco-IOS-XR-ip-sbfd-cfg:sbfd"
+    sbfd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sbfd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sbfd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sbfd *Sbfd) SetFilter(yf yfilter.YFilter) { sbfd.YFilter = yf }
-
-func (sbfd *Sbfd) GetGoName(yname string) string {
-    if yname == "remote-target" { return "RemoteTarget" }
-    if yname == "local-discriminator" { return "LocalDiscriminator" }
-    return ""
+    sbfd.EntityData.Children = make(map[string]types.YChild)
+    sbfd.EntityData.Children["remote-target"] = types.YChild{"RemoteTarget", &sbfd.RemoteTarget}
+    sbfd.EntityData.Children["local-discriminator"] = types.YChild{"LocalDiscriminator", &sbfd.LocalDiscriminator}
+    sbfd.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sbfd.EntityData)
 }
-
-func (sbfd *Sbfd) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-sbfd-cfg:sbfd"
-}
-
-func (sbfd *Sbfd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-target" {
-        return &sbfd.RemoteTarget
-    }
-    if childYangName == "local-discriminator" {
-        return &sbfd.LocalDiscriminator
-    }
-    return nil
-}
-
-func (sbfd *Sbfd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["remote-target"] = &sbfd.RemoteTarget
-    children["local-discriminator"] = &sbfd.LocalDiscriminator
-    return children
-}
-
-func (sbfd *Sbfd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sbfd *Sbfd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sbfd *Sbfd) GetYangName() string { return "sbfd" }
-
-func (sbfd *Sbfd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sbfd *Sbfd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sbfd *Sbfd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sbfd *Sbfd) SetParent(parent types.Entity) { sbfd.parent = parent }
-
-func (sbfd *Sbfd) GetParent() types.Entity { return sbfd.parent }
-
-func (sbfd *Sbfd) GetParentYangName() string { return "Cisco-IOS-XR-ip-sbfd-cfg" }
 
 // Sbfd_RemoteTarget
 // configure remote target
 type Sbfd_RemoteTarget struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv4 address as target.
@@ -107,64 +70,27 @@ type Sbfd_RemoteTarget struct {
     Ipv6Addresses Sbfd_RemoteTarget_Ipv6Addresses
 }
 
-func (remoteTarget *Sbfd_RemoteTarget) GetFilter() yfilter.YFilter { return remoteTarget.YFilter }
+func (remoteTarget *Sbfd_RemoteTarget) GetEntityData() *types.CommonEntityData {
+    remoteTarget.EntityData.YFilter = remoteTarget.YFilter
+    remoteTarget.EntityData.YangName = "remote-target"
+    remoteTarget.EntityData.BundleName = "cisco_ios_xr"
+    remoteTarget.EntityData.ParentYangName = "sbfd"
+    remoteTarget.EntityData.SegmentPath = "remote-target"
+    remoteTarget.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteTarget.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteTarget.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteTarget *Sbfd_RemoteTarget) SetFilter(yf yfilter.YFilter) { remoteTarget.YFilter = yf }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetGoName(yname string) string {
-    if yname == "ipv4-addresses" { return "Ipv4Addresses" }
-    if yname == "ipv6-addresses" { return "Ipv6Addresses" }
-    return ""
+    remoteTarget.EntityData.Children = make(map[string]types.YChild)
+    remoteTarget.EntityData.Children["ipv4-addresses"] = types.YChild{"Ipv4Addresses", &remoteTarget.Ipv4Addresses}
+    remoteTarget.EntityData.Children["ipv6-addresses"] = types.YChild{"Ipv6Addresses", &remoteTarget.Ipv6Addresses}
+    remoteTarget.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(remoteTarget.EntityData)
 }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetSegmentPath() string {
-    return "remote-target"
-}
-
-func (remoteTarget *Sbfd_RemoteTarget) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-addresses" {
-        return &remoteTarget.Ipv4Addresses
-    }
-    if childYangName == "ipv6-addresses" {
-        return &remoteTarget.Ipv6Addresses
-    }
-    return nil
-}
-
-func (remoteTarget *Sbfd_RemoteTarget) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-addresses"] = &remoteTarget.Ipv4Addresses
-    children["ipv6-addresses"] = &remoteTarget.Ipv6Addresses
-    return children
-}
-
-func (remoteTarget *Sbfd_RemoteTarget) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (remoteTarget *Sbfd_RemoteTarget) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetYangName() string { return "remote-target" }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteTarget *Sbfd_RemoteTarget) SetParent(parent types.Entity) { remoteTarget.parent = parent }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetParent() types.Entity { return remoteTarget.parent }
-
-func (remoteTarget *Sbfd_RemoteTarget) GetParentYangName() string { return "sbfd" }
 
 // Sbfd_RemoteTarget_Ipv4Addresses
 // ipv4 address as target
 type Sbfd_RemoteTarget_Ipv4Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP Address Value for RemoteDiscriminatorTable. The type is slice of
@@ -172,72 +98,33 @@ type Sbfd_RemoteTarget_Ipv4Addresses struct {
     Ipv4Address []Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address
 }
 
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetFilter() yfilter.YFilter { return ipv4Addresses.YFilter }
+func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetEntityData() *types.CommonEntityData {
+    ipv4Addresses.EntityData.YFilter = ipv4Addresses.YFilter
+    ipv4Addresses.EntityData.YangName = "ipv4-addresses"
+    ipv4Addresses.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Addresses.EntityData.ParentYangName = "remote-target"
+    ipv4Addresses.EntityData.SegmentPath = "ipv4-addresses"
+    ipv4Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) SetFilter(yf yfilter.YFilter) { ipv4Addresses.YFilter = yf }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetGoName(yname string) string {
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    return ""
-}
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetSegmentPath() string {
-    return "ipv4-addresses"
-}
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-address" {
-        for _, c := range ipv4Addresses.Ipv4Address {
-            if ipv4Addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address{}
-        ipv4Addresses.Ipv4Address = append(ipv4Addresses.Ipv4Address, child)
-        return &ipv4Addresses.Ipv4Address[len(ipv4Addresses.Ipv4Address)-1]
-    }
-    return nil
-}
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv4Addresses.EntityData.Children = make(map[string]types.YChild)
+    ipv4Addresses.EntityData.Children["ipv4-address"] = types.YChild{"Ipv4Address", nil}
     for i := range ipv4Addresses.Ipv4Address {
-        children[ipv4Addresses.Ipv4Address[i].GetSegmentPath()] = &ipv4Addresses.Ipv4Address[i]
+        ipv4Addresses.EntityData.Children[types.GetSegmentPath(&ipv4Addresses.Ipv4Address[i])] = types.YChild{"Ipv4Address", &ipv4Addresses.Ipv4Address[i]}
     }
-    return children
+    ipv4Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4Addresses.EntityData)
 }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetYangName() string { return "ipv4-addresses" }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) SetParent(parent types.Entity) { ipv4Addresses.parent = parent }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetParent() types.Entity { return ipv4Addresses.parent }
-
-func (ipv4Addresses *Sbfd_RemoteTarget_Ipv4Addresses) GetParentYangName() string { return "remote-target" }
 
 // Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address
 // IP Address Value for RemoteDiscriminatorTable
 type Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key.  IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Remote Discriminator value. The type is slice of
@@ -245,70 +132,30 @@ type Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address struct {
     RemoteDiscriminator []Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator
 }
 
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetFilter() yfilter.YFilter { return ipv4Address.YFilter }
+func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetEntityData() *types.CommonEntityData {
+    ipv4Address.EntityData.YFilter = ipv4Address.YFilter
+    ipv4Address.EntityData.YangName = "ipv4-address"
+    ipv4Address.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Address.EntityData.ParentYangName = "ipv4-addresses"
+    ipv4Address.EntityData.SegmentPath = "ipv4-address" + "[address='" + fmt.Sprintf("%v", ipv4Address.Address) + "']"
+    ipv4Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) SetFilter(yf yfilter.YFilter) { ipv4Address.YFilter = yf }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "remote-discriminator" { return "RemoteDiscriminator" }
-    return ""
-}
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetSegmentPath() string {
-    return "ipv4-address" + "[address='" + fmt.Sprintf("%v", ipv4Address.Address) + "']"
-}
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-discriminator" {
-        for _, c := range ipv4Address.RemoteDiscriminator {
-            if ipv4Address.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator{}
-        ipv4Address.RemoteDiscriminator = append(ipv4Address.RemoteDiscriminator, child)
-        return &ipv4Address.RemoteDiscriminator[len(ipv4Address.RemoteDiscriminator)-1]
-    }
-    return nil
-}
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv4Address.EntityData.Children = make(map[string]types.YChild)
+    ipv4Address.EntityData.Children["remote-discriminator"] = types.YChild{"RemoteDiscriminator", nil}
     for i := range ipv4Address.RemoteDiscriminator {
-        children[ipv4Address.RemoteDiscriminator[i].GetSegmentPath()] = &ipv4Address.RemoteDiscriminator[i]
+        ipv4Address.EntityData.Children[types.GetSegmentPath(&ipv4Address.RemoteDiscriminator[i])] = types.YChild{"RemoteDiscriminator", &ipv4Address.RemoteDiscriminator[i]}
     }
-    return children
+    ipv4Address.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Address.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv4Address.Address}
+    return &(ipv4Address.EntityData)
 }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = ipv4Address.Address
-    return leafs
-}
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetYangName() string { return "ipv4-address" }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) SetParent(parent types.Entity) { ipv4Address.parent = parent }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetParent() types.Entity { return ipv4Address.parent }
-
-func (ipv4Address *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address) GetParentYangName() string { return "ipv4-addresses" }
 
 // Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator
 // Remote Discriminator value
 type Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Remote Discriminator Value. The type is
@@ -316,56 +163,26 @@ type Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator struct {
     RemoteDiscriminator interface{}
 }
 
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetFilter() yfilter.YFilter { return remoteDiscriminator.YFilter }
+func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetEntityData() *types.CommonEntityData {
+    remoteDiscriminator.EntityData.YFilter = remoteDiscriminator.YFilter
+    remoteDiscriminator.EntityData.YangName = "remote-discriminator"
+    remoteDiscriminator.EntityData.BundleName = "cisco_ios_xr"
+    remoteDiscriminator.EntityData.ParentYangName = "ipv4-address"
+    remoteDiscriminator.EntityData.SegmentPath = "remote-discriminator" + "[remote-discriminator='" + fmt.Sprintf("%v", remoteDiscriminator.RemoteDiscriminator) + "']"
+    remoteDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) SetFilter(yf yfilter.YFilter) { remoteDiscriminator.YFilter = yf }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetGoName(yname string) string {
-    if yname == "remote-discriminator" { return "RemoteDiscriminator" }
-    return ""
+    remoteDiscriminator.EntityData.Children = make(map[string]types.YChild)
+    remoteDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteDiscriminator.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", remoteDiscriminator.RemoteDiscriminator}
+    return &(remoteDiscriminator.EntityData)
 }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetSegmentPath() string {
-    return "remote-discriminator" + "[remote-discriminator='" + fmt.Sprintf("%v", remoteDiscriminator.RemoteDiscriminator) + "']"
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["remote-discriminator"] = remoteDiscriminator.RemoteDiscriminator
-    return leafs
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetYangName() string { return "remote-discriminator" }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) SetParent(parent types.Entity) { remoteDiscriminator.parent = parent }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetParent() types.Entity { return remoteDiscriminator.parent }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv4Addresses_Ipv4Address_RemoteDiscriminator) GetParentYangName() string { return "ipv4-address" }
 
 // Sbfd_RemoteTarget_Ipv6Addresses
 // ipv6 address as target
 type Sbfd_RemoteTarget_Ipv6Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP Address Value for RemoteDiscriminatorTable. The type is slice of
@@ -373,72 +190,33 @@ type Sbfd_RemoteTarget_Ipv6Addresses struct {
     Ipv6Address []Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address
 }
 
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetFilter() yfilter.YFilter { return ipv6Addresses.YFilter }
+func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetEntityData() *types.CommonEntityData {
+    ipv6Addresses.EntityData.YFilter = ipv6Addresses.YFilter
+    ipv6Addresses.EntityData.YangName = "ipv6-addresses"
+    ipv6Addresses.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Addresses.EntityData.ParentYangName = "remote-target"
+    ipv6Addresses.EntityData.SegmentPath = "ipv6-addresses"
+    ipv6Addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) SetFilter(yf yfilter.YFilter) { ipv6Addresses.YFilter = yf }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetGoName(yname string) string {
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
-}
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetSegmentPath() string {
-    return "ipv6-addresses"
-}
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv6-address" {
-        for _, c := range ipv6Addresses.Ipv6Address {
-            if ipv6Addresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address{}
-        ipv6Addresses.Ipv6Address = append(ipv6Addresses.Ipv6Address, child)
-        return &ipv6Addresses.Ipv6Address[len(ipv6Addresses.Ipv6Address)-1]
-    }
-    return nil
-}
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv6Addresses.EntityData.Children = make(map[string]types.YChild)
+    ipv6Addresses.EntityData.Children["ipv6-address"] = types.YChild{"Ipv6Address", nil}
     for i := range ipv6Addresses.Ipv6Address {
-        children[ipv6Addresses.Ipv6Address[i].GetSegmentPath()] = &ipv6Addresses.Ipv6Address[i]
+        ipv6Addresses.EntityData.Children[types.GetSegmentPath(&ipv6Addresses.Ipv6Address[i])] = types.YChild{"Ipv6Address", &ipv6Addresses.Ipv6Address[i]}
     }
-    return children
+    ipv6Addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Addresses.EntityData)
 }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetYangName() string { return "ipv6-addresses" }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) SetParent(parent types.Entity) { ipv6Addresses.parent = parent }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetParent() types.Entity { return ipv6Addresses.parent }
-
-func (ipv6Addresses *Sbfd_RemoteTarget_Ipv6Addresses) GetParentYangName() string { return "remote-target" }
 
 // Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address
 // IP Address Value for RemoteDiscriminatorTable
 type Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key.  IPv6 adddress. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // Remote Discriminator value. The type is slice of
@@ -446,70 +224,30 @@ type Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address struct {
     RemoteDiscriminator []Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator
 }
 
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetFilter() yfilter.YFilter { return ipv6Address.YFilter }
+func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetEntityData() *types.CommonEntityData {
+    ipv6Address.EntityData.YFilter = ipv6Address.YFilter
+    ipv6Address.EntityData.YangName = "ipv6-address"
+    ipv6Address.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Address.EntityData.ParentYangName = "ipv6-addresses"
+    ipv6Address.EntityData.SegmentPath = "ipv6-address" + "[address='" + fmt.Sprintf("%v", ipv6Address.Address) + "']"
+    ipv6Address.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Address.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Address.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) SetFilter(yf yfilter.YFilter) { ipv6Address.YFilter = yf }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    if yname == "remote-discriminator" { return "RemoteDiscriminator" }
-    return ""
-}
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetSegmentPath() string {
-    return "ipv6-address" + "[address='" + fmt.Sprintf("%v", ipv6Address.Address) + "']"
-}
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "remote-discriminator" {
-        for _, c := range ipv6Address.RemoteDiscriminator {
-            if ipv6Address.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator{}
-        ipv6Address.RemoteDiscriminator = append(ipv6Address.RemoteDiscriminator, child)
-        return &ipv6Address.RemoteDiscriminator[len(ipv6Address.RemoteDiscriminator)-1]
-    }
-    return nil
-}
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv6Address.EntityData.Children = make(map[string]types.YChild)
+    ipv6Address.EntityData.Children["remote-discriminator"] = types.YChild{"RemoteDiscriminator", nil}
     for i := range ipv6Address.RemoteDiscriminator {
-        children[ipv6Address.RemoteDiscriminator[i].GetSegmentPath()] = &ipv6Address.RemoteDiscriminator[i]
+        ipv6Address.EntityData.Children[types.GetSegmentPath(&ipv6Address.RemoteDiscriminator[i])] = types.YChild{"RemoteDiscriminator", &ipv6Address.RemoteDiscriminator[i]}
     }
-    return children
+    ipv6Address.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Address.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv6Address.Address}
+    return &(ipv6Address.EntityData)
 }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = ipv6Address.Address
-    return leafs
-}
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetYangName() string { return "ipv6-address" }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) SetParent(parent types.Entity) { ipv6Address.parent = parent }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetParent() types.Entity { return ipv6Address.parent }
-
-func (ipv6Address *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address) GetParentYangName() string { return "ipv6-addresses" }
 
 // Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator
 // Remote Discriminator value
 type Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Remote Discriminator Value. The type is
@@ -517,56 +255,26 @@ type Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator struct {
     RemoteDiscriminator interface{}
 }
 
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetFilter() yfilter.YFilter { return remoteDiscriminator.YFilter }
+func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetEntityData() *types.CommonEntityData {
+    remoteDiscriminator.EntityData.YFilter = remoteDiscriminator.YFilter
+    remoteDiscriminator.EntityData.YangName = "remote-discriminator"
+    remoteDiscriminator.EntityData.BundleName = "cisco_ios_xr"
+    remoteDiscriminator.EntityData.ParentYangName = "ipv6-address"
+    remoteDiscriminator.EntityData.SegmentPath = "remote-discriminator" + "[remote-discriminator='" + fmt.Sprintf("%v", remoteDiscriminator.RemoteDiscriminator) + "']"
+    remoteDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) SetFilter(yf yfilter.YFilter) { remoteDiscriminator.YFilter = yf }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetGoName(yname string) string {
-    if yname == "remote-discriminator" { return "RemoteDiscriminator" }
-    return ""
+    remoteDiscriminator.EntityData.Children = make(map[string]types.YChild)
+    remoteDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteDiscriminator.EntityData.Leafs["remote-discriminator"] = types.YLeaf{"RemoteDiscriminator", remoteDiscriminator.RemoteDiscriminator}
+    return &(remoteDiscriminator.EntityData)
 }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetSegmentPath() string {
-    return "remote-discriminator" + "[remote-discriminator='" + fmt.Sprintf("%v", remoteDiscriminator.RemoteDiscriminator) + "']"
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["remote-discriminator"] = remoteDiscriminator.RemoteDiscriminator
-    return leafs
-}
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetYangName() string { return "remote-discriminator" }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) SetParent(parent types.Entity) { remoteDiscriminator.parent = parent }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetParent() types.Entity { return remoteDiscriminator.parent }
-
-func (remoteDiscriminator *Sbfd_RemoteTarget_Ipv6Addresses_Ipv6Address_RemoteDiscriminator) GetParentYangName() string { return "ipv6-address" }
 
 // Sbfd_LocalDiscriminator
 // Configure local discriminator
 type Sbfd_LocalDiscriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configure local discriminator from interface address.
@@ -582,75 +290,30 @@ type Sbfd_LocalDiscriminator struct {
     Val32Discriminators Sbfd_LocalDiscriminator_Val32Discriminators
 }
 
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetFilter() yfilter.YFilter { return localDiscriminator.YFilter }
+func (localDiscriminator *Sbfd_LocalDiscriminator) GetEntityData() *types.CommonEntityData {
+    localDiscriminator.EntityData.YFilter = localDiscriminator.YFilter
+    localDiscriminator.EntityData.YangName = "local-discriminator"
+    localDiscriminator.EntityData.BundleName = "cisco_ios_xr"
+    localDiscriminator.EntityData.ParentYangName = "sbfd"
+    localDiscriminator.EntityData.SegmentPath = "local-discriminator"
+    localDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localDiscriminator *Sbfd_LocalDiscriminator) SetFilter(yf yfilter.YFilter) { localDiscriminator.YFilter = yf }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetGoName(yname string) string {
-    if yname == "intf-discriminators" { return "IntfDiscriminators" }
-    if yname == "dynamic-discriminators" { return "DynamicDiscriminators" }
-    if yname == "ipv4-discriminators" { return "Ipv4Discriminators" }
-    if yname == "val32-discriminators" { return "Val32Discriminators" }
-    return ""
+    localDiscriminator.EntityData.Children = make(map[string]types.YChild)
+    localDiscriminator.EntityData.Children["intf-discriminators"] = types.YChild{"IntfDiscriminators", &localDiscriminator.IntfDiscriminators}
+    localDiscriminator.EntityData.Children["dynamic-discriminators"] = types.YChild{"DynamicDiscriminators", &localDiscriminator.DynamicDiscriminators}
+    localDiscriminator.EntityData.Children["ipv4-discriminators"] = types.YChild{"Ipv4Discriminators", &localDiscriminator.Ipv4Discriminators}
+    localDiscriminator.EntityData.Children["val32-discriminators"] = types.YChild{"Val32Discriminators", &localDiscriminator.Val32Discriminators}
+    localDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(localDiscriminator.EntityData)
 }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetSegmentPath() string {
-    return "local-discriminator"
-}
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intf-discriminators" {
-        return &localDiscriminator.IntfDiscriminators
-    }
-    if childYangName == "dynamic-discriminators" {
-        return &localDiscriminator.DynamicDiscriminators
-    }
-    if childYangName == "ipv4-discriminators" {
-        return &localDiscriminator.Ipv4Discriminators
-    }
-    if childYangName == "val32-discriminators" {
-        return &localDiscriminator.Val32Discriminators
-    }
-    return nil
-}
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["intf-discriminators"] = &localDiscriminator.IntfDiscriminators
-    children["dynamic-discriminators"] = &localDiscriminator.DynamicDiscriminators
-    children["ipv4-discriminators"] = &localDiscriminator.Ipv4Discriminators
-    children["val32-discriminators"] = &localDiscriminator.Val32Discriminators
-    return children
-}
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetYangName() string { return "local-discriminator" }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) SetParent(parent types.Entity) { localDiscriminator.parent = parent }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetParent() types.Entity { return localDiscriminator.parent }
-
-func (localDiscriminator *Sbfd_LocalDiscriminator) GetParentYangName() string { return "sbfd" }
 
 // Sbfd_LocalDiscriminator_IntfDiscriminators
 // Configure local discriminator from interface
 // address
 type Sbfd_LocalDiscriminator_IntfDiscriminators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // interface address as discriminator. The type is slice of
@@ -658,125 +321,56 @@ type Sbfd_LocalDiscriminator_IntfDiscriminators struct {
     IntfDiscriminator []Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator
 }
 
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetFilter() yfilter.YFilter { return intfDiscriminators.YFilter }
+func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetEntityData() *types.CommonEntityData {
+    intfDiscriminators.EntityData.YFilter = intfDiscriminators.YFilter
+    intfDiscriminators.EntityData.YangName = "intf-discriminators"
+    intfDiscriminators.EntityData.BundleName = "cisco_ios_xr"
+    intfDiscriminators.EntityData.ParentYangName = "local-discriminator"
+    intfDiscriminators.EntityData.SegmentPath = "intf-discriminators"
+    intfDiscriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intfDiscriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intfDiscriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) SetFilter(yf yfilter.YFilter) { intfDiscriminators.YFilter = yf }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetGoName(yname string) string {
-    if yname == "intf-discriminator" { return "IntfDiscriminator" }
-    return ""
-}
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetSegmentPath() string {
-    return "intf-discriminators"
-}
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intf-discriminator" {
-        for _, c := range intfDiscriminators.IntfDiscriminator {
-            if intfDiscriminators.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator{}
-        intfDiscriminators.IntfDiscriminator = append(intfDiscriminators.IntfDiscriminator, child)
-        return &intfDiscriminators.IntfDiscriminator[len(intfDiscriminators.IntfDiscriminator)-1]
-    }
-    return nil
-}
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    intfDiscriminators.EntityData.Children = make(map[string]types.YChild)
+    intfDiscriminators.EntityData.Children["intf-discriminator"] = types.YChild{"IntfDiscriminator", nil}
     for i := range intfDiscriminators.IntfDiscriminator {
-        children[intfDiscriminators.IntfDiscriminator[i].GetSegmentPath()] = &intfDiscriminators.IntfDiscriminator[i]
+        intfDiscriminators.EntityData.Children[types.GetSegmentPath(&intfDiscriminators.IntfDiscriminator[i])] = types.YChild{"IntfDiscriminator", &intfDiscriminators.IntfDiscriminator[i]}
     }
-    return children
+    intfDiscriminators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(intfDiscriminators.EntityData)
 }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetYangName() string { return "intf-discriminators" }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) SetParent(parent types.Entity) { intfDiscriminators.parent = parent }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetParent() types.Entity { return intfDiscriminators.parent }
-
-func (intfDiscriminators *Sbfd_LocalDiscriminator_IntfDiscriminators) GetParentYangName() string { return "local-discriminator" }
 
 // Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator
 // interface address as discriminator
 type Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 }
 
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetFilter() yfilter.YFilter { return intfDiscriminator.YFilter }
+func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetEntityData() *types.CommonEntityData {
+    intfDiscriminator.EntityData.YFilter = intfDiscriminator.YFilter
+    intfDiscriminator.EntityData.YangName = "intf-discriminator"
+    intfDiscriminator.EntityData.BundleName = "cisco_ios_xr"
+    intfDiscriminator.EntityData.ParentYangName = "intf-discriminators"
+    intfDiscriminator.EntityData.SegmentPath = "intf-discriminator" + "[interface-name='" + fmt.Sprintf("%v", intfDiscriminator.InterfaceName) + "']"
+    intfDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intfDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intfDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) SetFilter(yf yfilter.YFilter) { intfDiscriminator.YFilter = yf }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    return ""
+    intfDiscriminator.EntityData.Children = make(map[string]types.YChild)
+    intfDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    intfDiscriminator.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", intfDiscriminator.InterfaceName}
+    return &(intfDiscriminator.EntityData)
 }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetSegmentPath() string {
-    return "intf-discriminator" + "[interface-name='" + fmt.Sprintf("%v", intfDiscriminator.InterfaceName) + "']"
-}
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = intfDiscriminator.InterfaceName
-    return leafs
-}
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetYangName() string { return "intf-discriminator" }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) SetParent(parent types.Entity) { intfDiscriminator.parent = parent }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetParent() types.Entity { return intfDiscriminator.parent }
-
-func (intfDiscriminator *Sbfd_LocalDiscriminator_IntfDiscriminators_IntfDiscriminator) GetParentYangName() string { return "intf-discriminators" }
 
 // Sbfd_LocalDiscriminator_DynamicDiscriminators
 // Configure local discriminator dynamically
 type Sbfd_LocalDiscriminator_DynamicDiscriminators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local discriminator value. The type is slice of
@@ -784,68 +378,29 @@ type Sbfd_LocalDiscriminator_DynamicDiscriminators struct {
     DynamicDiscriminator []Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator
 }
 
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetFilter() yfilter.YFilter { return dynamicDiscriminators.YFilter }
+func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetEntityData() *types.CommonEntityData {
+    dynamicDiscriminators.EntityData.YFilter = dynamicDiscriminators.YFilter
+    dynamicDiscriminators.EntityData.YangName = "dynamic-discriminators"
+    dynamicDiscriminators.EntityData.BundleName = "cisco_ios_xr"
+    dynamicDiscriminators.EntityData.ParentYangName = "local-discriminator"
+    dynamicDiscriminators.EntityData.SegmentPath = "dynamic-discriminators"
+    dynamicDiscriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicDiscriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicDiscriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) SetFilter(yf yfilter.YFilter) { dynamicDiscriminators.YFilter = yf }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetGoName(yname string) string {
-    if yname == "dynamic-discriminator" { return "DynamicDiscriminator" }
-    return ""
-}
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetSegmentPath() string {
-    return "dynamic-discriminators"
-}
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dynamic-discriminator" {
-        for _, c := range dynamicDiscriminators.DynamicDiscriminator {
-            if dynamicDiscriminators.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator{}
-        dynamicDiscriminators.DynamicDiscriminator = append(dynamicDiscriminators.DynamicDiscriminator, child)
-        return &dynamicDiscriminators.DynamicDiscriminator[len(dynamicDiscriminators.DynamicDiscriminator)-1]
-    }
-    return nil
-}
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    dynamicDiscriminators.EntityData.Children = make(map[string]types.YChild)
+    dynamicDiscriminators.EntityData.Children["dynamic-discriminator"] = types.YChild{"DynamicDiscriminator", nil}
     for i := range dynamicDiscriminators.DynamicDiscriminator {
-        children[dynamicDiscriminators.DynamicDiscriminator[i].GetSegmentPath()] = &dynamicDiscriminators.DynamicDiscriminator[i]
+        dynamicDiscriminators.EntityData.Children[types.GetSegmentPath(&dynamicDiscriminators.DynamicDiscriminator[i])] = types.YChild{"DynamicDiscriminator", &dynamicDiscriminators.DynamicDiscriminator[i]}
     }
-    return children
+    dynamicDiscriminators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dynamicDiscriminators.EntityData)
 }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetYangName() string { return "dynamic-discriminators" }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) SetParent(parent types.Entity) { dynamicDiscriminators.parent = parent }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetParent() types.Entity { return dynamicDiscriminators.parent }
-
-func (dynamicDiscriminators *Sbfd_LocalDiscriminator_DynamicDiscriminators) GetParentYangName() string { return "local-discriminator" }
 
 // Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator
 // Local discriminator value
 type Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Dynamic discriminator value. The type is
@@ -853,57 +408,27 @@ type Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator struct {
     Discriminator interface{}
 }
 
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetFilter() yfilter.YFilter { return dynamicDiscriminator.YFilter }
+func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetEntityData() *types.CommonEntityData {
+    dynamicDiscriminator.EntityData.YFilter = dynamicDiscriminator.YFilter
+    dynamicDiscriminator.EntityData.YangName = "dynamic-discriminator"
+    dynamicDiscriminator.EntityData.BundleName = "cisco_ios_xr"
+    dynamicDiscriminator.EntityData.ParentYangName = "dynamic-discriminators"
+    dynamicDiscriminator.EntityData.SegmentPath = "dynamic-discriminator" + "[discriminator='" + fmt.Sprintf("%v", dynamicDiscriminator.Discriminator) + "']"
+    dynamicDiscriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicDiscriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicDiscriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) SetFilter(yf yfilter.YFilter) { dynamicDiscriminator.YFilter = yf }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetGoName(yname string) string {
-    if yname == "discriminator" { return "Discriminator" }
-    return ""
+    dynamicDiscriminator.EntityData.Children = make(map[string]types.YChild)
+    dynamicDiscriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    dynamicDiscriminator.EntityData.Leafs["discriminator"] = types.YLeaf{"Discriminator", dynamicDiscriminator.Discriminator}
+    return &(dynamicDiscriminator.EntityData)
 }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetSegmentPath() string {
-    return "dynamic-discriminator" + "[discriminator='" + fmt.Sprintf("%v", dynamicDiscriminator.Discriminator) + "']"
-}
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["discriminator"] = dynamicDiscriminator.Discriminator
-    return leafs
-}
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetYangName() string { return "dynamic-discriminator" }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) SetParent(parent types.Entity) { dynamicDiscriminator.parent = parent }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetParent() types.Entity { return dynamicDiscriminator.parent }
-
-func (dynamicDiscriminator *Sbfd_LocalDiscriminator_DynamicDiscriminators_DynamicDiscriminator) GetParentYangName() string { return "dynamic-discriminators" }
 
 // Sbfd_LocalDiscriminator_Ipv4Discriminators
 // Configure local discriminator as an ipv4
 // address
 type Sbfd_LocalDiscriminator_Ipv4Discriminators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ipv4 address as discriminator. The type is slice of
@@ -911,128 +436,59 @@ type Sbfd_LocalDiscriminator_Ipv4Discriminators struct {
     Ipv4Discriminator []Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator
 }
 
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetFilter() yfilter.YFilter { return ipv4Discriminators.YFilter }
+func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetEntityData() *types.CommonEntityData {
+    ipv4Discriminators.EntityData.YFilter = ipv4Discriminators.YFilter
+    ipv4Discriminators.EntityData.YangName = "ipv4-discriminators"
+    ipv4Discriminators.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Discriminators.EntityData.ParentYangName = "local-discriminator"
+    ipv4Discriminators.EntityData.SegmentPath = "ipv4-discriminators"
+    ipv4Discriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Discriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Discriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) SetFilter(yf yfilter.YFilter) { ipv4Discriminators.YFilter = yf }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetGoName(yname string) string {
-    if yname == "ipv4-discriminator" { return "Ipv4Discriminator" }
-    return ""
-}
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetSegmentPath() string {
-    return "ipv4-discriminators"
-}
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-discriminator" {
-        for _, c := range ipv4Discriminators.Ipv4Discriminator {
-            if ipv4Discriminators.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator{}
-        ipv4Discriminators.Ipv4Discriminator = append(ipv4Discriminators.Ipv4Discriminator, child)
-        return &ipv4Discriminators.Ipv4Discriminator[len(ipv4Discriminators.Ipv4Discriminator)-1]
-    }
-    return nil
-}
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipv4Discriminators.EntityData.Children = make(map[string]types.YChild)
+    ipv4Discriminators.EntityData.Children["ipv4-discriminator"] = types.YChild{"Ipv4Discriminator", nil}
     for i := range ipv4Discriminators.Ipv4Discriminator {
-        children[ipv4Discriminators.Ipv4Discriminator[i].GetSegmentPath()] = &ipv4Discriminators.Ipv4Discriminator[i]
+        ipv4Discriminators.EntityData.Children[types.GetSegmentPath(&ipv4Discriminators.Ipv4Discriminator[i])] = types.YChild{"Ipv4Discriminator", &ipv4Discriminators.Ipv4Discriminator[i]}
     }
-    return children
+    ipv4Discriminators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4Discriminators.EntityData)
 }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetYangName() string { return "ipv4-discriminators" }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) SetParent(parent types.Entity) { ipv4Discriminators.parent = parent }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetParent() types.Entity { return ipv4Discriminators.parent }
-
-func (ipv4Discriminators *Sbfd_LocalDiscriminator_Ipv4Discriminators) GetParentYangName() string { return "local-discriminator" }
 
 // Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator
 // ipv4 address as discriminator
 type Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key.  IPv4 address. The type is one of the following
     // types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 }
 
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetFilter() yfilter.YFilter { return ipv4Discriminator.YFilter }
+func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetEntityData() *types.CommonEntityData {
+    ipv4Discriminator.EntityData.YFilter = ipv4Discriminator.YFilter
+    ipv4Discriminator.EntityData.YangName = "ipv4-discriminator"
+    ipv4Discriminator.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Discriminator.EntityData.ParentYangName = "ipv4-discriminators"
+    ipv4Discriminator.EntityData.SegmentPath = "ipv4-discriminator" + "[address='" + fmt.Sprintf("%v", ipv4Discriminator.Address) + "']"
+    ipv4Discriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Discriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Discriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) SetFilter(yf yfilter.YFilter) { ipv4Discriminator.YFilter = yf }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetGoName(yname string) string {
-    if yname == "address" { return "Address" }
-    return ""
+    ipv4Discriminator.EntityData.Children = make(map[string]types.YChild)
+    ipv4Discriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Discriminator.EntityData.Leafs["address"] = types.YLeaf{"Address", ipv4Discriminator.Address}
+    return &(ipv4Discriminator.EntityData)
 }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetSegmentPath() string {
-    return "ipv4-discriminator" + "[address='" + fmt.Sprintf("%v", ipv4Discriminator.Address) + "']"
-}
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["address"] = ipv4Discriminator.Address
-    return leafs
-}
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetYangName() string { return "ipv4-discriminator" }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) SetParent(parent types.Entity) { ipv4Discriminator.parent = parent }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetParent() types.Entity { return ipv4Discriminator.parent }
-
-func (ipv4Discriminator *Sbfd_LocalDiscriminator_Ipv4Discriminators_Ipv4Discriminator) GetParentYangName() string { return "ipv4-discriminators" }
 
 // Sbfd_LocalDiscriminator_Val32Discriminators
 // Configure local discriminator as an integer
 type Sbfd_LocalDiscriminator_Val32Discriminators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local discriminator value. The type is slice of
@@ -1040,68 +496,29 @@ type Sbfd_LocalDiscriminator_Val32Discriminators struct {
     Val32Discriminator []Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator
 }
 
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetFilter() yfilter.YFilter { return val32Discriminators.YFilter }
+func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetEntityData() *types.CommonEntityData {
+    val32Discriminators.EntityData.YFilter = val32Discriminators.YFilter
+    val32Discriminators.EntityData.YangName = "val32-discriminators"
+    val32Discriminators.EntityData.BundleName = "cisco_ios_xr"
+    val32Discriminators.EntityData.ParentYangName = "local-discriminator"
+    val32Discriminators.EntityData.SegmentPath = "val32-discriminators"
+    val32Discriminators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    val32Discriminators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    val32Discriminators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) SetFilter(yf yfilter.YFilter) { val32Discriminators.YFilter = yf }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetGoName(yname string) string {
-    if yname == "val32-discriminator" { return "Val32Discriminator" }
-    return ""
-}
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetSegmentPath() string {
-    return "val32-discriminators"
-}
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "val32-discriminator" {
-        for _, c := range val32Discriminators.Val32Discriminator {
-            if val32Discriminators.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator{}
-        val32Discriminators.Val32Discriminator = append(val32Discriminators.Val32Discriminator, child)
-        return &val32Discriminators.Val32Discriminator[len(val32Discriminators.Val32Discriminator)-1]
-    }
-    return nil
-}
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    val32Discriminators.EntityData.Children = make(map[string]types.YChild)
+    val32Discriminators.EntityData.Children["val32-discriminator"] = types.YChild{"Val32Discriminator", nil}
     for i := range val32Discriminators.Val32Discriminator {
-        children[val32Discriminators.Val32Discriminator[i].GetSegmentPath()] = &val32Discriminators.Val32Discriminator[i]
+        val32Discriminators.EntityData.Children[types.GetSegmentPath(&val32Discriminators.Val32Discriminator[i])] = types.YChild{"Val32Discriminator", &val32Discriminators.Val32Discriminator[i]}
     }
-    return children
+    val32Discriminators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(val32Discriminators.EntityData)
 }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetYangName() string { return "val32-discriminators" }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) SetParent(parent types.Entity) { val32Discriminators.parent = parent }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetParent() types.Entity { return val32Discriminators.parent }
-
-func (val32Discriminators *Sbfd_LocalDiscriminator_Val32Discriminators) GetParentYangName() string { return "local-discriminator" }
 
 // Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator
 // Local discriminator value
 type Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Local discriminator value. The type is interface{}
@@ -1109,49 +526,19 @@ type Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator struct {
     Discriminator interface{}
 }
 
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetFilter() yfilter.YFilter { return val32Discriminator.YFilter }
+func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetEntityData() *types.CommonEntityData {
+    val32Discriminator.EntityData.YFilter = val32Discriminator.YFilter
+    val32Discriminator.EntityData.YangName = "val32-discriminator"
+    val32Discriminator.EntityData.BundleName = "cisco_ios_xr"
+    val32Discriminator.EntityData.ParentYangName = "val32-discriminators"
+    val32Discriminator.EntityData.SegmentPath = "val32-discriminator" + "[discriminator='" + fmt.Sprintf("%v", val32Discriminator.Discriminator) + "']"
+    val32Discriminator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    val32Discriminator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    val32Discriminator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) SetFilter(yf yfilter.YFilter) { val32Discriminator.YFilter = yf }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetGoName(yname string) string {
-    if yname == "discriminator" { return "Discriminator" }
-    return ""
+    val32Discriminator.EntityData.Children = make(map[string]types.YChild)
+    val32Discriminator.EntityData.Leafs = make(map[string]types.YLeaf)
+    val32Discriminator.EntityData.Leafs["discriminator"] = types.YLeaf{"Discriminator", val32Discriminator.Discriminator}
+    return &(val32Discriminator.EntityData)
 }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetSegmentPath() string {
-    return "val32-discriminator" + "[discriminator='" + fmt.Sprintf("%v", val32Discriminator.Discriminator) + "']"
-}
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["discriminator"] = val32Discriminator.Discriminator
-    return leafs
-}
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetBundleName() string { return "cisco_ios_xr" }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetYangName() string { return "val32-discriminator" }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) SetParent(parent types.Entity) { val32Discriminator.parent = parent }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetParent() types.Entity { return val32Discriminator.parent }
-
-func (val32Discriminator *Sbfd_LocalDiscriminator_Val32Discriminators_Val32Discriminator) GetParentYangName() string { return "val32-discriminators" }
 

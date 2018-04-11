@@ -28,10 +28,11 @@ import (
 	"flag"
 	"fmt"
 	"github.com/CiscoDevNet/ydk-go/ydk"
-	ysanity_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/openconfig/bgp"
-	ysanity_bgp_types "github.com/CiscoDevNet/ydk-go/ydk/models/openconfig/bgp_types"
+	ysanity_bgp "github.com/CiscoDevNet/ydk-go/ydk/models/ydktest/openconfig_bgp"
+	ysanity_bgp_types "github.com/CiscoDevNet/ydk-go/ydk/models/ydktest/openconfig_bgp_types"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/services"
+	"github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 )
 
@@ -79,7 +80,7 @@ func main() {
 	if *vPtr {
 		ydk.EnableLogging(ydk.Info)
 	}
-	var ef encoding.EncodingFormat
+	var ef encodingformat.EncodingFormat
 
 	switch encoding_fmt {
 	case "xml":

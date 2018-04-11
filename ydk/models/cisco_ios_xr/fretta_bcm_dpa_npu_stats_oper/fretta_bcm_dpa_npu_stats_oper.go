@@ -27,125 +27,59 @@ func init() {
 // Dpa
 // Stats Data
 type Dpa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Voq or Trap Data.
     Stats Dpa_Stats
 }
 
-func (dpa *Dpa) GetFilter() yfilter.YFilter { return dpa.YFilter }
+func (dpa *Dpa) GetEntityData() *types.CommonEntityData {
+    dpa.EntityData.YFilter = dpa.YFilter
+    dpa.EntityData.YangName = "dpa"
+    dpa.EntityData.BundleName = "cisco_ios_xr"
+    dpa.EntityData.ParentYangName = "Cisco-IOS-XR-fretta-bcm-dpa-npu-stats-oper"
+    dpa.EntityData.SegmentPath = "Cisco-IOS-XR-fretta-bcm-dpa-npu-stats-oper:dpa"
+    dpa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dpa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dpa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dpa *Dpa) SetFilter(yf yfilter.YFilter) { dpa.YFilter = yf }
-
-func (dpa *Dpa) GetGoName(yname string) string {
-    if yname == "stats" { return "Stats" }
-    return ""
+    dpa.EntityData.Children = make(map[string]types.YChild)
+    dpa.EntityData.Children["stats"] = types.YChild{"Stats", &dpa.Stats}
+    dpa.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dpa.EntityData)
 }
-
-func (dpa *Dpa) GetSegmentPath() string {
-    return "Cisco-IOS-XR-fretta-bcm-dpa-npu-stats-oper:dpa"
-}
-
-func (dpa *Dpa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "stats" {
-        return &dpa.Stats
-    }
-    return nil
-}
-
-func (dpa *Dpa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["stats"] = &dpa.Stats
-    return children
-}
-
-func (dpa *Dpa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dpa *Dpa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dpa *Dpa) GetYangName() string { return "dpa" }
-
-func (dpa *Dpa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dpa *Dpa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dpa *Dpa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dpa *Dpa) SetParent(parent types.Entity) { dpa.parent = parent }
-
-func (dpa *Dpa) GetParent() types.Entity { return dpa.parent }
-
-func (dpa *Dpa) GetParentYangName() string { return "Cisco-IOS-XR-fretta-bcm-dpa-npu-stats-oper" }
 
 // Dpa_Stats
 // Voq or Trap Data
 type Dpa_Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DPA data for available nodes.
     Nodes Dpa_Stats_Nodes
 }
 
-func (stats *Dpa_Stats) GetFilter() yfilter.YFilter { return stats.YFilter }
+func (stats *Dpa_Stats) GetEntityData() *types.CommonEntityData {
+    stats.EntityData.YFilter = stats.YFilter
+    stats.EntityData.YangName = "stats"
+    stats.EntityData.BundleName = "cisco_ios_xr"
+    stats.EntityData.ParentYangName = "dpa"
+    stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stats *Dpa_Stats) SetFilter(yf yfilter.YFilter) { stats.YFilter = yf }
-
-func (stats *Dpa_Stats) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    stats.EntityData.Children = make(map[string]types.YChild)
+    stats.EntityData.Children["nodes"] = types.YChild{"Nodes", &stats.Nodes}
+    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(stats.EntityData)
 }
-
-func (stats *Dpa_Stats) GetSegmentPath() string {
-    return "stats"
-}
-
-func (stats *Dpa_Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &stats.Nodes
-    }
-    return nil
-}
-
-func (stats *Dpa_Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &stats.Nodes
-    return children
-}
-
-func (stats *Dpa_Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (stats *Dpa_Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (stats *Dpa_Stats) GetYangName() string { return "stats" }
-
-func (stats *Dpa_Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (stats *Dpa_Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (stats *Dpa_Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (stats *Dpa_Stats) SetParent(parent types.Entity) { stats.parent = parent }
-
-func (stats *Dpa_Stats) GetParent() types.Entity { return stats.parent }
-
-func (stats *Dpa_Stats) GetParentYangName() string { return "dpa" }
 
 // Dpa_Stats_Nodes
 // DPA data for available nodes
 type Dpa_Stats_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DPA operational data for a particular node. The type is slice of
@@ -153,72 +87,33 @@ type Dpa_Stats_Nodes struct {
     Node []Dpa_Stats_Nodes_Node
 }
 
-func (nodes *Dpa_Stats_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Dpa_Stats_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "stats"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Dpa_Stats_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Dpa_Stats_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Dpa_Stats_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Dpa_Stats_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Dpa_Stats_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Dpa_Stats_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Dpa_Stats_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Dpa_Stats_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Dpa_Stats_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Dpa_Stats_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Dpa_Stats_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Dpa_Stats_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Dpa_Stats_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Dpa_Stats_Nodes) GetParentYangName() string { return "stats" }
 
 // Dpa_Stats_Nodes_Node
 // DPA operational data for a particular node
 type Dpa_Stats_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // ASIC statistics table.
@@ -228,66 +123,28 @@ type Dpa_Stats_Nodes_Node struct {
     NpuNumbers Dpa_Stats_Nodes_Node_NpuNumbers
 }
 
-func (node *Dpa_Stats_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Dpa_Stats_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Dpa_Stats_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Dpa_Stats_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "asic-statistics" { return "AsicStatistics" }
-    if yname == "npu-numbers" { return "NpuNumbers" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["asic-statistics"] = types.YChild{"AsicStatistics", &node.AsicStatistics}
+    node.EntityData.Children["npu-numbers"] = types.YChild{"NpuNumbers", &node.NpuNumbers}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Dpa_Stats_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Dpa_Stats_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-statistics" {
-        return &node.AsicStatistics
-    }
-    if childYangName == "npu-numbers" {
-        return &node.NpuNumbers
-    }
-    return nil
-}
-
-func (node *Dpa_Stats_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-statistics"] = &node.AsicStatistics
-    children["npu-numbers"] = &node.NpuNumbers
-    return children
-}
-
-func (node *Dpa_Stats_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Dpa_Stats_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Dpa_Stats_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Dpa_Stats_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Dpa_Stats_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Dpa_Stats_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Dpa_Stats_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Dpa_Stats_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Dpa_Stats_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics
 // ASIC statistics table
 type Dpa_Stats_Nodes_Node_AsicStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ASIC statistics.
@@ -297,64 +154,27 @@ type Dpa_Stats_Nodes_Node_AsicStatistics struct {
     AsicStatisticsDetailForNpuIds Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds
 }
 
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetFilter() yfilter.YFilter { return asicStatistics.YFilter }
+func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetEntityData() *types.CommonEntityData {
+    asicStatistics.EntityData.YFilter = asicStatistics.YFilter
+    asicStatistics.EntityData.YangName = "asic-statistics"
+    asicStatistics.EntityData.BundleName = "cisco_ios_xr"
+    asicStatistics.EntityData.ParentYangName = "node"
+    asicStatistics.EntityData.SegmentPath = "asic-statistics"
+    asicStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) SetFilter(yf yfilter.YFilter) { asicStatistics.YFilter = yf }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetGoName(yname string) string {
-    if yname == "asic-statistics-for-npu-ids" { return "AsicStatisticsForNpuIds" }
-    if yname == "asic-statistics-detail-for-npu-ids" { return "AsicStatisticsDetailForNpuIds" }
-    return ""
+    asicStatistics.EntityData.Children = make(map[string]types.YChild)
+    asicStatistics.EntityData.Children["asic-statistics-for-npu-ids"] = types.YChild{"AsicStatisticsForNpuIds", &asicStatistics.AsicStatisticsForNpuIds}
+    asicStatistics.EntityData.Children["asic-statistics-detail-for-npu-ids"] = types.YChild{"AsicStatisticsDetailForNpuIds", &asicStatistics.AsicStatisticsDetailForNpuIds}
+    asicStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(asicStatistics.EntityData)
 }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetSegmentPath() string {
-    return "asic-statistics"
-}
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-statistics-for-npu-ids" {
-        return &asicStatistics.AsicStatisticsForNpuIds
-    }
-    if childYangName == "asic-statistics-detail-for-npu-ids" {
-        return &asicStatistics.AsicStatisticsDetailForNpuIds
-    }
-    return nil
-}
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-statistics-for-npu-ids"] = &asicStatistics.AsicStatisticsForNpuIds
-    children["asic-statistics-detail-for-npu-ids"] = &asicStatistics.AsicStatisticsDetailForNpuIds
-    return children
-}
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetYangName() string { return "asic-statistics" }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) SetParent(parent types.Entity) { asicStatistics.parent = parent }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetParent() types.Entity { return asicStatistics.parent }
-
-func (asicStatistics *Dpa_Stats_Nodes_Node_AsicStatistics) GetParentYangName() string { return "node" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds
 // ASIC statistics
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ASIC statistics for a particular NPU. The type is slice of
@@ -362,68 +182,29 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds struct {
     AsicStatisticsForNpuId []Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId
 }
 
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetFilter() yfilter.YFilter { return asicStatisticsForNpuIds.YFilter }
+func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetEntityData() *types.CommonEntityData {
+    asicStatisticsForNpuIds.EntityData.YFilter = asicStatisticsForNpuIds.YFilter
+    asicStatisticsForNpuIds.EntityData.YangName = "asic-statistics-for-npu-ids"
+    asicStatisticsForNpuIds.EntityData.BundleName = "cisco_ios_xr"
+    asicStatisticsForNpuIds.EntityData.ParentYangName = "asic-statistics"
+    asicStatisticsForNpuIds.EntityData.SegmentPath = "asic-statistics-for-npu-ids"
+    asicStatisticsForNpuIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicStatisticsForNpuIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicStatisticsForNpuIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) SetFilter(yf yfilter.YFilter) { asicStatisticsForNpuIds.YFilter = yf }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetGoName(yname string) string {
-    if yname == "asic-statistics-for-npu-id" { return "AsicStatisticsForNpuId" }
-    return ""
-}
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetSegmentPath() string {
-    return "asic-statistics-for-npu-ids"
-}
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-statistics-for-npu-id" {
-        for _, c := range asicStatisticsForNpuIds.AsicStatisticsForNpuId {
-            if asicStatisticsForNpuIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId{}
-        asicStatisticsForNpuIds.AsicStatisticsForNpuId = append(asicStatisticsForNpuIds.AsicStatisticsForNpuId, child)
-        return &asicStatisticsForNpuIds.AsicStatisticsForNpuId[len(asicStatisticsForNpuIds.AsicStatisticsForNpuId)-1]
-    }
-    return nil
-}
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    asicStatisticsForNpuIds.EntityData.Children = make(map[string]types.YChild)
+    asicStatisticsForNpuIds.EntityData.Children["asic-statistics-for-npu-id"] = types.YChild{"AsicStatisticsForNpuId", nil}
     for i := range asicStatisticsForNpuIds.AsicStatisticsForNpuId {
-        children[asicStatisticsForNpuIds.AsicStatisticsForNpuId[i].GetSegmentPath()] = &asicStatisticsForNpuIds.AsicStatisticsForNpuId[i]
+        asicStatisticsForNpuIds.EntityData.Children[types.GetSegmentPath(&asicStatisticsForNpuIds.AsicStatisticsForNpuId[i])] = types.YChild{"AsicStatisticsForNpuId", &asicStatisticsForNpuIds.AsicStatisticsForNpuId[i]}
     }
-    return children
+    asicStatisticsForNpuIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(asicStatisticsForNpuIds.EntityData)
 }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetYangName() string { return "asic-statistics-for-npu-ids" }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) SetParent(parent types.Entity) { asicStatisticsForNpuIds.parent = parent }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetParent() types.Entity { return asicStatisticsForNpuIds.parent }
-
-func (asicStatisticsForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds) GetParentYangName() string { return "asic-statistics" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId
 // ASIC statistics for a particular NPU
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. NPU number. The type is interface{} with range:
@@ -449,71 +230,32 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsF
     Statistics Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics
 }
 
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetFilter() yfilter.YFilter { return asicStatisticsForNpuId.YFilter }
+func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetEntityData() *types.CommonEntityData {
+    asicStatisticsForNpuId.EntityData.YFilter = asicStatisticsForNpuId.YFilter
+    asicStatisticsForNpuId.EntityData.YangName = "asic-statistics-for-npu-id"
+    asicStatisticsForNpuId.EntityData.BundleName = "cisco_ios_xr"
+    asicStatisticsForNpuId.EntityData.ParentYangName = "asic-statistics-for-npu-ids"
+    asicStatisticsForNpuId.EntityData.SegmentPath = "asic-statistics-for-npu-id" + "[npu-id='" + fmt.Sprintf("%v", asicStatisticsForNpuId.NpuId) + "']"
+    asicStatisticsForNpuId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicStatisticsForNpuId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicStatisticsForNpuId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) SetFilter(yf yfilter.YFilter) { asicStatisticsForNpuId.YFilter = yf }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetGoName(yname string) string {
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "valid" { return "Valid" }
-    if yname == "rack-number" { return "RackNumber" }
-    if yname == "slot-number" { return "SlotNumber" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    if yname == "chip-version" { return "ChipVersion" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    asicStatisticsForNpuId.EntityData.Children = make(map[string]types.YChild)
+    asicStatisticsForNpuId.EntityData.Children["statistics"] = types.YChild{"Statistics", &asicStatisticsForNpuId.Statistics}
+    asicStatisticsForNpuId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicStatisticsForNpuId.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", asicStatisticsForNpuId.NpuId}
+    asicStatisticsForNpuId.EntityData.Leafs["valid"] = types.YLeaf{"Valid", asicStatisticsForNpuId.Valid}
+    asicStatisticsForNpuId.EntityData.Leafs["rack-number"] = types.YLeaf{"RackNumber", asicStatisticsForNpuId.RackNumber}
+    asicStatisticsForNpuId.EntityData.Leafs["slot-number"] = types.YLeaf{"SlotNumber", asicStatisticsForNpuId.SlotNumber}
+    asicStatisticsForNpuId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicStatisticsForNpuId.AsicInstance}
+    asicStatisticsForNpuId.EntityData.Leafs["chip-version"] = types.YLeaf{"ChipVersion", asicStatisticsForNpuId.ChipVersion}
+    return &(asicStatisticsForNpuId.EntityData)
 }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetSegmentPath() string {
-    return "asic-statistics-for-npu-id" + "[npu-id='" + fmt.Sprintf("%v", asicStatisticsForNpuId.NpuId) + "']"
-}
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &asicStatisticsForNpuId.Statistics
-    }
-    return nil
-}
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &asicStatisticsForNpuId.Statistics
-    return children
-}
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["npu-id"] = asicStatisticsForNpuId.NpuId
-    leafs["valid"] = asicStatisticsForNpuId.Valid
-    leafs["rack-number"] = asicStatisticsForNpuId.RackNumber
-    leafs["slot-number"] = asicStatisticsForNpuId.SlotNumber
-    leafs["asic-instance"] = asicStatisticsForNpuId.AsicInstance
-    leafs["chip-version"] = asicStatisticsForNpuId.ChipVersion
-    return leafs
-}
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetYangName() string { return "asic-statistics-for-npu-id" }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) SetParent(parent types.Entity) { asicStatisticsForNpuId.parent = parent }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetParent() types.Entity { return asicStatisticsForNpuId.parent }
-
-func (asicStatisticsForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId) GetParentYangName() string { return "asic-statistics-for-npu-ids" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics
 // Statistics
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total bytes sent from NIF to IRE. The type is interface{} with range:
@@ -761,176 +503,86 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsF
     NbiTxTotalPktCnt interface{}
 }
 
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "asic-statistics-for-npu-id"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetGoName(yname string) string {
-    if yname == "nbi-rx-total-byte-cnt" { return "NbiRxTotalByteCnt" }
-    if yname == "nbi-rx-total-pkt-cnt" { return "NbiRxTotalPktCnt" }
-    if yname == "ire-cpu-pkt-cnt" { return "IreCpuPktCnt" }
-    if yname == "ire-nif-pkt-cnt" { return "IreNifPktCnt" }
-    if yname == "ire-oamp-pkt-cnt" { return "IreOampPktCnt" }
-    if yname == "ire-olp-pkt-cnt" { return "IreOlpPktCnt" }
-    if yname == "ire-rcy-pkt-cnt" { return "IreRcyPktCnt" }
-    if yname == "ire-fdt-if-cnt" { return "IreFdtIfCnt" }
-    if yname == "idr-mmu-if-cnt" { return "IdrMmuIfCnt" }
-    if yname == "idr-ocb-if-cnt" { return "IdrOcbIfCnt" }
-    if yname == "iqm-enqueue-pkt-cnt" { return "IqmEnqueuePktCnt" }
-    if yname == "iqm-dequeue-pkt-cnt" { return "IqmDequeuePktCnt" }
-    if yname == "iqm-deleted-pkt-cnt" { return "IqmDeletedPktCnt" }
-    if yname == "iqm-enq-discarded-pkt-cnt" { return "IqmEnqDiscardedPktCnt" }
-    if yname == "ipt-egq-pkt-cnt" { return "IptEgqPktCnt" }
-    if yname == "ipt-enq-pkt-cnt" { return "IptEnqPktCnt" }
-    if yname == "ipt-fdt-pkt-cnt" { return "IptFdtPktCnt" }
-    if yname == "ipt-cfg-event-cnt" { return "IptCfgEventCnt" }
-    if yname == "ipt-cfg-byte-cnt" { return "IptCfgByteCnt" }
-    if yname == "fdt-ipt-desc-cell-cnt" { return "FdtIptDescCellCnt" }
-    if yname == "fdt-ire-desc-cell-cnt" { return "FdtIreDescCellCnt" }
-    if yname == "fdt-transmitted-data-cells-cnt" { return "FdtTransmittedDataCellsCnt" }
-    if yname == "fdr-p1-cell-in-cnt" { return "FdrP1CellInCnt" }
-    if yname == "fdr-p2-cell-in-cnt" { return "FdrP2CellInCnt" }
-    if yname == "fdr-p3-cell-in-cnt" { return "FdrP3CellInCnt" }
-    if yname == "fdr-cell-in-cnt-total" { return "FdrCellInCntTotal" }
-    if yname == "fda-cells-in-cnt-p1" { return "FdaCellsInCntP1" }
-    if yname == "fda-cells-in-cnt-p2" { return "FdaCellsInCntP2" }
-    if yname == "fda-cells-in-cnt-p3" { return "FdaCellsInCntP3" }
-    if yname == "fda-cells-in-tdm-cnt" { return "FdaCellsInTdmCnt" }
-    if yname == "fda-cells-in-meshmc-cnt" { return "FdaCellsInMeshmcCnt" }
-    if yname == "fda-cells-in-ipt-cnt" { return "FdaCellsInIptCnt" }
-    if yname == "fda-cells-out-cnt-p1" { return "FdaCellsOutCntP1" }
-    if yname == "fda-cells-out-cnt-p2" { return "FdaCellsOutCntP2" }
-    if yname == "fda-cells-out-cnt-p3" { return "FdaCellsOutCntP3" }
-    if yname == "fda-cells-out-tdm-cnt" { return "FdaCellsOutTdmCnt" }
-    if yname == "fda-cells-out-meshmc-cnt" { return "FdaCellsOutMeshmcCnt" }
-    if yname == "fda-cells-out-ipt-cnt" { return "FdaCellsOutIptCnt" }
-    if yname == "fda-egq-drop-cnt" { return "FdaEgqDropCnt" }
-    if yname == "fda-egq-meshmc-drop-cnt" { return "FdaEgqMeshmcDropCnt" }
-    if yname == "egq-fqp-pkt-cnt" { return "EgqFqpPktCnt" }
-    if yname == "egq-pqp-uc-pkt-cnt" { return "EgqPqpUcPktCnt" }
-    if yname == "egq-pqp-discard-uc-pkt-cnt" { return "EgqPqpDiscardUcPktCnt" }
-    if yname == "egq-pqp-uc-bytes-cnt" { return "EgqPqpUcBytesCnt" }
-    if yname == "egq-pqp-mc-pkt-cnt" { return "EgqPqpMcPktCnt" }
-    if yname == "egq-pqp-discard-mc-pkt-cnt" { return "EgqPqpDiscardMcPktCnt" }
-    if yname == "egq-pqp-mc-bytes-cnt" { return "EgqPqpMcBytesCnt" }
-    if yname == "egq-ehp-uc-pkt-cnt" { return "EgqEhpUcPktCnt" }
-    if yname == "egq-ehp-mc-high-pkt-cnt" { return "EgqEhpMcHighPktCnt" }
-    if yname == "egq-ehp-mc-low-pkt-cnt" { return "EgqEhpMcLowPktCnt" }
-    if yname == "egq-deleted-pkt-cnt" { return "EgqDeletedPktCnt" }
-    if yname == "egq-ehp-mc-high-discard-cnt" { return "EgqEhpMcHighDiscardCnt" }
-    if yname == "egq-ehp-mc-low-discard-cnt" { return "EgqEhpMcLowDiscardCnt" }
-    if yname == "egq-erpp-lag-pruning-discard-cnt" { return "EgqErppLagPruningDiscardCnt" }
-    if yname == "egq-erpp-pmf-discard-cnt" { return "EgqErppPmfDiscardCnt" }
-    if yname == "egq-erpp-vlan-mbr-discard-cnt" { return "EgqErppVlanMbrDiscardCnt" }
-    if yname == "epni-epe-byte-cnt" { return "EpniEpeByteCnt" }
-    if yname == "epni-epe-pkt-cnt" { return "EpniEpePktCnt" }
-    if yname == "epni-epe-discard-cnt" { return "EpniEpeDiscardCnt" }
-    if yname == "nbi-tx-total-byte-cnt" { return "NbiTxTotalByteCnt" }
-    if yname == "nbi-tx-total-pkt-cnt" { return "NbiTxTotalPktCnt" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs["nbi-rx-total-byte-cnt"] = types.YLeaf{"NbiRxTotalByteCnt", statistics.NbiRxTotalByteCnt}
+    statistics.EntityData.Leafs["nbi-rx-total-pkt-cnt"] = types.YLeaf{"NbiRxTotalPktCnt", statistics.NbiRxTotalPktCnt}
+    statistics.EntityData.Leafs["ire-cpu-pkt-cnt"] = types.YLeaf{"IreCpuPktCnt", statistics.IreCpuPktCnt}
+    statistics.EntityData.Leafs["ire-nif-pkt-cnt"] = types.YLeaf{"IreNifPktCnt", statistics.IreNifPktCnt}
+    statistics.EntityData.Leafs["ire-oamp-pkt-cnt"] = types.YLeaf{"IreOampPktCnt", statistics.IreOampPktCnt}
+    statistics.EntityData.Leafs["ire-olp-pkt-cnt"] = types.YLeaf{"IreOlpPktCnt", statistics.IreOlpPktCnt}
+    statistics.EntityData.Leafs["ire-rcy-pkt-cnt"] = types.YLeaf{"IreRcyPktCnt", statistics.IreRcyPktCnt}
+    statistics.EntityData.Leafs["ire-fdt-if-cnt"] = types.YLeaf{"IreFdtIfCnt", statistics.IreFdtIfCnt}
+    statistics.EntityData.Leafs["idr-mmu-if-cnt"] = types.YLeaf{"IdrMmuIfCnt", statistics.IdrMmuIfCnt}
+    statistics.EntityData.Leafs["idr-ocb-if-cnt"] = types.YLeaf{"IdrOcbIfCnt", statistics.IdrOcbIfCnt}
+    statistics.EntityData.Leafs["iqm-enqueue-pkt-cnt"] = types.YLeaf{"IqmEnqueuePktCnt", statistics.IqmEnqueuePktCnt}
+    statistics.EntityData.Leafs["iqm-dequeue-pkt-cnt"] = types.YLeaf{"IqmDequeuePktCnt", statistics.IqmDequeuePktCnt}
+    statistics.EntityData.Leafs["iqm-deleted-pkt-cnt"] = types.YLeaf{"IqmDeletedPktCnt", statistics.IqmDeletedPktCnt}
+    statistics.EntityData.Leafs["iqm-enq-discarded-pkt-cnt"] = types.YLeaf{"IqmEnqDiscardedPktCnt", statistics.IqmEnqDiscardedPktCnt}
+    statistics.EntityData.Leafs["ipt-egq-pkt-cnt"] = types.YLeaf{"IptEgqPktCnt", statistics.IptEgqPktCnt}
+    statistics.EntityData.Leafs["ipt-enq-pkt-cnt"] = types.YLeaf{"IptEnqPktCnt", statistics.IptEnqPktCnt}
+    statistics.EntityData.Leafs["ipt-fdt-pkt-cnt"] = types.YLeaf{"IptFdtPktCnt", statistics.IptFdtPktCnt}
+    statistics.EntityData.Leafs["ipt-cfg-event-cnt"] = types.YLeaf{"IptCfgEventCnt", statistics.IptCfgEventCnt}
+    statistics.EntityData.Leafs["ipt-cfg-byte-cnt"] = types.YLeaf{"IptCfgByteCnt", statistics.IptCfgByteCnt}
+    statistics.EntityData.Leafs["fdt-ipt-desc-cell-cnt"] = types.YLeaf{"FdtIptDescCellCnt", statistics.FdtIptDescCellCnt}
+    statistics.EntityData.Leafs["fdt-ire-desc-cell-cnt"] = types.YLeaf{"FdtIreDescCellCnt", statistics.FdtIreDescCellCnt}
+    statistics.EntityData.Leafs["fdt-transmitted-data-cells-cnt"] = types.YLeaf{"FdtTransmittedDataCellsCnt", statistics.FdtTransmittedDataCellsCnt}
+    statistics.EntityData.Leafs["fdr-p1-cell-in-cnt"] = types.YLeaf{"FdrP1CellInCnt", statistics.FdrP1CellInCnt}
+    statistics.EntityData.Leafs["fdr-p2-cell-in-cnt"] = types.YLeaf{"FdrP2CellInCnt", statistics.FdrP2CellInCnt}
+    statistics.EntityData.Leafs["fdr-p3-cell-in-cnt"] = types.YLeaf{"FdrP3CellInCnt", statistics.FdrP3CellInCnt}
+    statistics.EntityData.Leafs["fdr-cell-in-cnt-total"] = types.YLeaf{"FdrCellInCntTotal", statistics.FdrCellInCntTotal}
+    statistics.EntityData.Leafs["fda-cells-in-cnt-p1"] = types.YLeaf{"FdaCellsInCntP1", statistics.FdaCellsInCntP1}
+    statistics.EntityData.Leafs["fda-cells-in-cnt-p2"] = types.YLeaf{"FdaCellsInCntP2", statistics.FdaCellsInCntP2}
+    statistics.EntityData.Leafs["fda-cells-in-cnt-p3"] = types.YLeaf{"FdaCellsInCntP3", statistics.FdaCellsInCntP3}
+    statistics.EntityData.Leafs["fda-cells-in-tdm-cnt"] = types.YLeaf{"FdaCellsInTdmCnt", statistics.FdaCellsInTdmCnt}
+    statistics.EntityData.Leafs["fda-cells-in-meshmc-cnt"] = types.YLeaf{"FdaCellsInMeshmcCnt", statistics.FdaCellsInMeshmcCnt}
+    statistics.EntityData.Leafs["fda-cells-in-ipt-cnt"] = types.YLeaf{"FdaCellsInIptCnt", statistics.FdaCellsInIptCnt}
+    statistics.EntityData.Leafs["fda-cells-out-cnt-p1"] = types.YLeaf{"FdaCellsOutCntP1", statistics.FdaCellsOutCntP1}
+    statistics.EntityData.Leafs["fda-cells-out-cnt-p2"] = types.YLeaf{"FdaCellsOutCntP2", statistics.FdaCellsOutCntP2}
+    statistics.EntityData.Leafs["fda-cells-out-cnt-p3"] = types.YLeaf{"FdaCellsOutCntP3", statistics.FdaCellsOutCntP3}
+    statistics.EntityData.Leafs["fda-cells-out-tdm-cnt"] = types.YLeaf{"FdaCellsOutTdmCnt", statistics.FdaCellsOutTdmCnt}
+    statistics.EntityData.Leafs["fda-cells-out-meshmc-cnt"] = types.YLeaf{"FdaCellsOutMeshmcCnt", statistics.FdaCellsOutMeshmcCnt}
+    statistics.EntityData.Leafs["fda-cells-out-ipt-cnt"] = types.YLeaf{"FdaCellsOutIptCnt", statistics.FdaCellsOutIptCnt}
+    statistics.EntityData.Leafs["fda-egq-drop-cnt"] = types.YLeaf{"FdaEgqDropCnt", statistics.FdaEgqDropCnt}
+    statistics.EntityData.Leafs["fda-egq-meshmc-drop-cnt"] = types.YLeaf{"FdaEgqMeshmcDropCnt", statistics.FdaEgqMeshmcDropCnt}
+    statistics.EntityData.Leafs["egq-fqp-pkt-cnt"] = types.YLeaf{"EgqFqpPktCnt", statistics.EgqFqpPktCnt}
+    statistics.EntityData.Leafs["egq-pqp-uc-pkt-cnt"] = types.YLeaf{"EgqPqpUcPktCnt", statistics.EgqPqpUcPktCnt}
+    statistics.EntityData.Leafs["egq-pqp-discard-uc-pkt-cnt"] = types.YLeaf{"EgqPqpDiscardUcPktCnt", statistics.EgqPqpDiscardUcPktCnt}
+    statistics.EntityData.Leafs["egq-pqp-uc-bytes-cnt"] = types.YLeaf{"EgqPqpUcBytesCnt", statistics.EgqPqpUcBytesCnt}
+    statistics.EntityData.Leafs["egq-pqp-mc-pkt-cnt"] = types.YLeaf{"EgqPqpMcPktCnt", statistics.EgqPqpMcPktCnt}
+    statistics.EntityData.Leafs["egq-pqp-discard-mc-pkt-cnt"] = types.YLeaf{"EgqPqpDiscardMcPktCnt", statistics.EgqPqpDiscardMcPktCnt}
+    statistics.EntityData.Leafs["egq-pqp-mc-bytes-cnt"] = types.YLeaf{"EgqPqpMcBytesCnt", statistics.EgqPqpMcBytesCnt}
+    statistics.EntityData.Leafs["egq-ehp-uc-pkt-cnt"] = types.YLeaf{"EgqEhpUcPktCnt", statistics.EgqEhpUcPktCnt}
+    statistics.EntityData.Leafs["egq-ehp-mc-high-pkt-cnt"] = types.YLeaf{"EgqEhpMcHighPktCnt", statistics.EgqEhpMcHighPktCnt}
+    statistics.EntityData.Leafs["egq-ehp-mc-low-pkt-cnt"] = types.YLeaf{"EgqEhpMcLowPktCnt", statistics.EgqEhpMcLowPktCnt}
+    statistics.EntityData.Leafs["egq-deleted-pkt-cnt"] = types.YLeaf{"EgqDeletedPktCnt", statistics.EgqDeletedPktCnt}
+    statistics.EntityData.Leafs["egq-ehp-mc-high-discard-cnt"] = types.YLeaf{"EgqEhpMcHighDiscardCnt", statistics.EgqEhpMcHighDiscardCnt}
+    statistics.EntityData.Leafs["egq-ehp-mc-low-discard-cnt"] = types.YLeaf{"EgqEhpMcLowDiscardCnt", statistics.EgqEhpMcLowDiscardCnt}
+    statistics.EntityData.Leafs["egq-erpp-lag-pruning-discard-cnt"] = types.YLeaf{"EgqErppLagPruningDiscardCnt", statistics.EgqErppLagPruningDiscardCnt}
+    statistics.EntityData.Leafs["egq-erpp-pmf-discard-cnt"] = types.YLeaf{"EgqErppPmfDiscardCnt", statistics.EgqErppPmfDiscardCnt}
+    statistics.EntityData.Leafs["egq-erpp-vlan-mbr-discard-cnt"] = types.YLeaf{"EgqErppVlanMbrDiscardCnt", statistics.EgqErppVlanMbrDiscardCnt}
+    statistics.EntityData.Leafs["epni-epe-byte-cnt"] = types.YLeaf{"EpniEpeByteCnt", statistics.EpniEpeByteCnt}
+    statistics.EntityData.Leafs["epni-epe-pkt-cnt"] = types.YLeaf{"EpniEpePktCnt", statistics.EpniEpePktCnt}
+    statistics.EntityData.Leafs["epni-epe-discard-cnt"] = types.YLeaf{"EpniEpeDiscardCnt", statistics.EpniEpeDiscardCnt}
+    statistics.EntityData.Leafs["nbi-tx-total-byte-cnt"] = types.YLeaf{"NbiTxTotalByteCnt", statistics.NbiTxTotalByteCnt}
+    statistics.EntityData.Leafs["nbi-tx-total-pkt-cnt"] = types.YLeaf{"NbiTxTotalPktCnt", statistics.NbiTxTotalPktCnt}
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["nbi-rx-total-byte-cnt"] = statistics.NbiRxTotalByteCnt
-    leafs["nbi-rx-total-pkt-cnt"] = statistics.NbiRxTotalPktCnt
-    leafs["ire-cpu-pkt-cnt"] = statistics.IreCpuPktCnt
-    leafs["ire-nif-pkt-cnt"] = statistics.IreNifPktCnt
-    leafs["ire-oamp-pkt-cnt"] = statistics.IreOampPktCnt
-    leafs["ire-olp-pkt-cnt"] = statistics.IreOlpPktCnt
-    leafs["ire-rcy-pkt-cnt"] = statistics.IreRcyPktCnt
-    leafs["ire-fdt-if-cnt"] = statistics.IreFdtIfCnt
-    leafs["idr-mmu-if-cnt"] = statistics.IdrMmuIfCnt
-    leafs["idr-ocb-if-cnt"] = statistics.IdrOcbIfCnt
-    leafs["iqm-enqueue-pkt-cnt"] = statistics.IqmEnqueuePktCnt
-    leafs["iqm-dequeue-pkt-cnt"] = statistics.IqmDequeuePktCnt
-    leafs["iqm-deleted-pkt-cnt"] = statistics.IqmDeletedPktCnt
-    leafs["iqm-enq-discarded-pkt-cnt"] = statistics.IqmEnqDiscardedPktCnt
-    leafs["ipt-egq-pkt-cnt"] = statistics.IptEgqPktCnt
-    leafs["ipt-enq-pkt-cnt"] = statistics.IptEnqPktCnt
-    leafs["ipt-fdt-pkt-cnt"] = statistics.IptFdtPktCnt
-    leafs["ipt-cfg-event-cnt"] = statistics.IptCfgEventCnt
-    leafs["ipt-cfg-byte-cnt"] = statistics.IptCfgByteCnt
-    leafs["fdt-ipt-desc-cell-cnt"] = statistics.FdtIptDescCellCnt
-    leafs["fdt-ire-desc-cell-cnt"] = statistics.FdtIreDescCellCnt
-    leafs["fdt-transmitted-data-cells-cnt"] = statistics.FdtTransmittedDataCellsCnt
-    leafs["fdr-p1-cell-in-cnt"] = statistics.FdrP1CellInCnt
-    leafs["fdr-p2-cell-in-cnt"] = statistics.FdrP2CellInCnt
-    leafs["fdr-p3-cell-in-cnt"] = statistics.FdrP3CellInCnt
-    leafs["fdr-cell-in-cnt-total"] = statistics.FdrCellInCntTotal
-    leafs["fda-cells-in-cnt-p1"] = statistics.FdaCellsInCntP1
-    leafs["fda-cells-in-cnt-p2"] = statistics.FdaCellsInCntP2
-    leafs["fda-cells-in-cnt-p3"] = statistics.FdaCellsInCntP3
-    leafs["fda-cells-in-tdm-cnt"] = statistics.FdaCellsInTdmCnt
-    leafs["fda-cells-in-meshmc-cnt"] = statistics.FdaCellsInMeshmcCnt
-    leafs["fda-cells-in-ipt-cnt"] = statistics.FdaCellsInIptCnt
-    leafs["fda-cells-out-cnt-p1"] = statistics.FdaCellsOutCntP1
-    leafs["fda-cells-out-cnt-p2"] = statistics.FdaCellsOutCntP2
-    leafs["fda-cells-out-cnt-p3"] = statistics.FdaCellsOutCntP3
-    leafs["fda-cells-out-tdm-cnt"] = statistics.FdaCellsOutTdmCnt
-    leafs["fda-cells-out-meshmc-cnt"] = statistics.FdaCellsOutMeshmcCnt
-    leafs["fda-cells-out-ipt-cnt"] = statistics.FdaCellsOutIptCnt
-    leafs["fda-egq-drop-cnt"] = statistics.FdaEgqDropCnt
-    leafs["fda-egq-meshmc-drop-cnt"] = statistics.FdaEgqMeshmcDropCnt
-    leafs["egq-fqp-pkt-cnt"] = statistics.EgqFqpPktCnt
-    leafs["egq-pqp-uc-pkt-cnt"] = statistics.EgqPqpUcPktCnt
-    leafs["egq-pqp-discard-uc-pkt-cnt"] = statistics.EgqPqpDiscardUcPktCnt
-    leafs["egq-pqp-uc-bytes-cnt"] = statistics.EgqPqpUcBytesCnt
-    leafs["egq-pqp-mc-pkt-cnt"] = statistics.EgqPqpMcPktCnt
-    leafs["egq-pqp-discard-mc-pkt-cnt"] = statistics.EgqPqpDiscardMcPktCnt
-    leafs["egq-pqp-mc-bytes-cnt"] = statistics.EgqPqpMcBytesCnt
-    leafs["egq-ehp-uc-pkt-cnt"] = statistics.EgqEhpUcPktCnt
-    leafs["egq-ehp-mc-high-pkt-cnt"] = statistics.EgqEhpMcHighPktCnt
-    leafs["egq-ehp-mc-low-pkt-cnt"] = statistics.EgqEhpMcLowPktCnt
-    leafs["egq-deleted-pkt-cnt"] = statistics.EgqDeletedPktCnt
-    leafs["egq-ehp-mc-high-discard-cnt"] = statistics.EgqEhpMcHighDiscardCnt
-    leafs["egq-ehp-mc-low-discard-cnt"] = statistics.EgqEhpMcLowDiscardCnt
-    leafs["egq-erpp-lag-pruning-discard-cnt"] = statistics.EgqErppLagPruningDiscardCnt
-    leafs["egq-erpp-pmf-discard-cnt"] = statistics.EgqErppPmfDiscardCnt
-    leafs["egq-erpp-vlan-mbr-discard-cnt"] = statistics.EgqErppVlanMbrDiscardCnt
-    leafs["epni-epe-byte-cnt"] = statistics.EpniEpeByteCnt
-    leafs["epni-epe-pkt-cnt"] = statistics.EpniEpePktCnt
-    leafs["epni-epe-discard-cnt"] = statistics.EpniEpeDiscardCnt
-    leafs["nbi-tx-total-byte-cnt"] = statistics.NbiTxTotalByteCnt
-    leafs["nbi-tx-total-pkt-cnt"] = statistics.NbiTxTotalPktCnt
-    return leafs
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsForNpuIds_AsicStatisticsForNpuId_Statistics) GetParentYangName() string { return "asic-statistics-for-npu-id" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds
 // Detailed ASIC statistics
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Detailed ASIC statistics for a particular NPU. The type is slice of
@@ -938,69 +590,30 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds struct {
     AsicStatisticsDetailForNpuId []Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId
 }
 
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetFilter() yfilter.YFilter { return asicStatisticsDetailForNpuIds.YFilter }
+func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetEntityData() *types.CommonEntityData {
+    asicStatisticsDetailForNpuIds.EntityData.YFilter = asicStatisticsDetailForNpuIds.YFilter
+    asicStatisticsDetailForNpuIds.EntityData.YangName = "asic-statistics-detail-for-npu-ids"
+    asicStatisticsDetailForNpuIds.EntityData.BundleName = "cisco_ios_xr"
+    asicStatisticsDetailForNpuIds.EntityData.ParentYangName = "asic-statistics"
+    asicStatisticsDetailForNpuIds.EntityData.SegmentPath = "asic-statistics-detail-for-npu-ids"
+    asicStatisticsDetailForNpuIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicStatisticsDetailForNpuIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicStatisticsDetailForNpuIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) SetFilter(yf yfilter.YFilter) { asicStatisticsDetailForNpuIds.YFilter = yf }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetGoName(yname string) string {
-    if yname == "asic-statistics-detail-for-npu-id" { return "AsicStatisticsDetailForNpuId" }
-    return ""
-}
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetSegmentPath() string {
-    return "asic-statistics-detail-for-npu-ids"
-}
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-statistics-detail-for-npu-id" {
-        for _, c := range asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId {
-            if asicStatisticsDetailForNpuIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId{}
-        asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId = append(asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId, child)
-        return &asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId[len(asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId)-1]
-    }
-    return nil
-}
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    asicStatisticsDetailForNpuIds.EntityData.Children = make(map[string]types.YChild)
+    asicStatisticsDetailForNpuIds.EntityData.Children["asic-statistics-detail-for-npu-id"] = types.YChild{"AsicStatisticsDetailForNpuId", nil}
     for i := range asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId {
-        children[asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId[i].GetSegmentPath()] = &asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId[i]
+        asicStatisticsDetailForNpuIds.EntityData.Children[types.GetSegmentPath(&asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId[i])] = types.YChild{"AsicStatisticsDetailForNpuId", &asicStatisticsDetailForNpuIds.AsicStatisticsDetailForNpuId[i]}
     }
-    return children
+    asicStatisticsDetailForNpuIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(asicStatisticsDetailForNpuIds.EntityData)
 }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetYangName() string { return "asic-statistics-detail-for-npu-ids" }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) SetParent(parent types.Entity) { asicStatisticsDetailForNpuIds.parent = parent }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetParent() types.Entity { return asicStatisticsDetailForNpuIds.parent }
-
-func (asicStatisticsDetailForNpuIds *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds) GetParentYangName() string { return "asic-statistics" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId
 // Detailed ASIC statistics for a particular
 // NPU
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. NPU number. The type is interface{} with range:
@@ -1026,71 +639,32 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStati
     Statistics Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics
 }
 
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetFilter() yfilter.YFilter { return asicStatisticsDetailForNpuId.YFilter }
+func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetEntityData() *types.CommonEntityData {
+    asicStatisticsDetailForNpuId.EntityData.YFilter = asicStatisticsDetailForNpuId.YFilter
+    asicStatisticsDetailForNpuId.EntityData.YangName = "asic-statistics-detail-for-npu-id"
+    asicStatisticsDetailForNpuId.EntityData.BundleName = "cisco_ios_xr"
+    asicStatisticsDetailForNpuId.EntityData.ParentYangName = "asic-statistics-detail-for-npu-ids"
+    asicStatisticsDetailForNpuId.EntityData.SegmentPath = "asic-statistics-detail-for-npu-id" + "[npu-id='" + fmt.Sprintf("%v", asicStatisticsDetailForNpuId.NpuId) + "']"
+    asicStatisticsDetailForNpuId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicStatisticsDetailForNpuId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicStatisticsDetailForNpuId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) SetFilter(yf yfilter.YFilter) { asicStatisticsDetailForNpuId.YFilter = yf }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetGoName(yname string) string {
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "valid" { return "Valid" }
-    if yname == "rack-number" { return "RackNumber" }
-    if yname == "slot-number" { return "SlotNumber" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    if yname == "chip-version" { return "ChipVersion" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    asicStatisticsDetailForNpuId.EntityData.Children = make(map[string]types.YChild)
+    asicStatisticsDetailForNpuId.EntityData.Children["statistics"] = types.YChild{"Statistics", &asicStatisticsDetailForNpuId.Statistics}
+    asicStatisticsDetailForNpuId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicStatisticsDetailForNpuId.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", asicStatisticsDetailForNpuId.NpuId}
+    asicStatisticsDetailForNpuId.EntityData.Leafs["valid"] = types.YLeaf{"Valid", asicStatisticsDetailForNpuId.Valid}
+    asicStatisticsDetailForNpuId.EntityData.Leafs["rack-number"] = types.YLeaf{"RackNumber", asicStatisticsDetailForNpuId.RackNumber}
+    asicStatisticsDetailForNpuId.EntityData.Leafs["slot-number"] = types.YLeaf{"SlotNumber", asicStatisticsDetailForNpuId.SlotNumber}
+    asicStatisticsDetailForNpuId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicStatisticsDetailForNpuId.AsicInstance}
+    asicStatisticsDetailForNpuId.EntityData.Leafs["chip-version"] = types.YLeaf{"ChipVersion", asicStatisticsDetailForNpuId.ChipVersion}
+    return &(asicStatisticsDetailForNpuId.EntityData)
 }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetSegmentPath() string {
-    return "asic-statistics-detail-for-npu-id" + "[npu-id='" + fmt.Sprintf("%v", asicStatisticsDetailForNpuId.NpuId) + "']"
-}
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &asicStatisticsDetailForNpuId.Statistics
-    }
-    return nil
-}
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &asicStatisticsDetailForNpuId.Statistics
-    return children
-}
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["npu-id"] = asicStatisticsDetailForNpuId.NpuId
-    leafs["valid"] = asicStatisticsDetailForNpuId.Valid
-    leafs["rack-number"] = asicStatisticsDetailForNpuId.RackNumber
-    leafs["slot-number"] = asicStatisticsDetailForNpuId.SlotNumber
-    leafs["asic-instance"] = asicStatisticsDetailForNpuId.AsicInstance
-    leafs["chip-version"] = asicStatisticsDetailForNpuId.ChipVersion
-    return leafs
-}
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetYangName() string { return "asic-statistics-detail-for-npu-id" }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) SetParent(parent types.Entity) { asicStatisticsDetailForNpuId.parent = parent }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetParent() types.Entity { return asicStatisticsDetailForNpuId.parent }
-
-func (asicStatisticsDetailForNpuId *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId) GetParentYangName() string { return "asic-statistics-detail-for-npu-ids" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics
 // Statistics
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of blocks. The type is interface{} with range: 0..255.
@@ -1101,70 +675,30 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStati
     BlockInfo []Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo
 }
 
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "asic-statistics-detail-for-npu-id"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetGoName(yname string) string {
-    if yname == "num-blocks" { return "NumBlocks" }
-    if yname == "block-info" { return "BlockInfo" }
-    return ""
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "block-info" {
-        for _, c := range statistics.BlockInfo {
-            if statistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo{}
-        statistics.BlockInfo = append(statistics.BlockInfo, child)
-        return &statistics.BlockInfo[len(statistics.BlockInfo)-1]
-    }
-    return nil
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["block-info"] = types.YChild{"BlockInfo", nil}
     for i := range statistics.BlockInfo {
-        children[statistics.BlockInfo[i].GetSegmentPath()] = &statistics.BlockInfo[i]
+        statistics.EntityData.Children[types.GetSegmentPath(&statistics.BlockInfo[i])] = types.YChild{"BlockInfo", &statistics.BlockInfo[i]}
     }
-    return children
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    statistics.EntityData.Leafs["num-blocks"] = types.YLeaf{"NumBlocks", statistics.NumBlocks}
+    return &(statistics.EntityData)
 }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["num-blocks"] = statistics.NumBlocks
-    return leafs
-}
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics) GetParentYangName() string { return "asic-statistics-detail-for-npu-id" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo
 // Block information
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Block name. The type is string with length: 0..10.
@@ -1178,72 +712,31 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStati
     FieldInfo []Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo
 }
 
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetFilter() yfilter.YFilter { return blockInfo.YFilter }
+func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetEntityData() *types.CommonEntityData {
+    blockInfo.EntityData.YFilter = blockInfo.YFilter
+    blockInfo.EntityData.YangName = "block-info"
+    blockInfo.EntityData.BundleName = "cisco_ios_xr"
+    blockInfo.EntityData.ParentYangName = "statistics"
+    blockInfo.EntityData.SegmentPath = "block-info"
+    blockInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    blockInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    blockInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) SetFilter(yf yfilter.YFilter) { blockInfo.YFilter = yf }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetGoName(yname string) string {
-    if yname == "block-name" { return "BlockName" }
-    if yname == "num-fields" { return "NumFields" }
-    if yname == "field-info" { return "FieldInfo" }
-    return ""
-}
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetSegmentPath() string {
-    return "block-info"
-}
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "field-info" {
-        for _, c := range blockInfo.FieldInfo {
-            if blockInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo{}
-        blockInfo.FieldInfo = append(blockInfo.FieldInfo, child)
-        return &blockInfo.FieldInfo[len(blockInfo.FieldInfo)-1]
-    }
-    return nil
-}
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    blockInfo.EntityData.Children = make(map[string]types.YChild)
+    blockInfo.EntityData.Children["field-info"] = types.YChild{"FieldInfo", nil}
     for i := range blockInfo.FieldInfo {
-        children[blockInfo.FieldInfo[i].GetSegmentPath()] = &blockInfo.FieldInfo[i]
+        blockInfo.EntityData.Children[types.GetSegmentPath(&blockInfo.FieldInfo[i])] = types.YChild{"FieldInfo", &blockInfo.FieldInfo[i]}
     }
-    return children
+    blockInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    blockInfo.EntityData.Leafs["block-name"] = types.YLeaf{"BlockName", blockInfo.BlockName}
+    blockInfo.EntityData.Leafs["num-fields"] = types.YLeaf{"NumFields", blockInfo.NumFields}
+    return &(blockInfo.EntityData)
 }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["block-name"] = blockInfo.BlockName
-    leafs["num-fields"] = blockInfo.NumFields
-    return leafs
-}
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetYangName() string { return "block-info" }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) SetParent(parent types.Entity) { blockInfo.parent = parent }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetParent() types.Entity { return blockInfo.parent }
-
-func (blockInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo) GetParentYangName() string { return "statistics" }
 
 // Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo
 // Field information
 type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Field name. The type is string with length: 0..80.
@@ -1256,60 +749,28 @@ type Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStati
     IsOverflow interface{}
 }
 
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetFilter() yfilter.YFilter { return fieldInfo.YFilter }
+func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetEntityData() *types.CommonEntityData {
+    fieldInfo.EntityData.YFilter = fieldInfo.YFilter
+    fieldInfo.EntityData.YangName = "field-info"
+    fieldInfo.EntityData.BundleName = "cisco_ios_xr"
+    fieldInfo.EntityData.ParentYangName = "block-info"
+    fieldInfo.EntityData.SegmentPath = "field-info"
+    fieldInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fieldInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fieldInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) SetFilter(yf yfilter.YFilter) { fieldInfo.YFilter = yf }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetGoName(yname string) string {
-    if yname == "field-name" { return "FieldName" }
-    if yname == "field-value" { return "FieldValue" }
-    if yname == "is-overflow" { return "IsOverflow" }
-    return ""
+    fieldInfo.EntityData.Children = make(map[string]types.YChild)
+    fieldInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fieldInfo.EntityData.Leafs["field-name"] = types.YLeaf{"FieldName", fieldInfo.FieldName}
+    fieldInfo.EntityData.Leafs["field-value"] = types.YLeaf{"FieldValue", fieldInfo.FieldValue}
+    fieldInfo.EntityData.Leafs["is-overflow"] = types.YLeaf{"IsOverflow", fieldInfo.IsOverflow}
+    return &(fieldInfo.EntityData)
 }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetSegmentPath() string {
-    return "field-info"
-}
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["field-name"] = fieldInfo.FieldName
-    leafs["field-value"] = fieldInfo.FieldValue
-    leafs["is-overflow"] = fieldInfo.IsOverflow
-    return leafs
-}
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetYangName() string { return "field-info" }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) SetParent(parent types.Entity) { fieldInfo.parent = parent }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetParent() types.Entity { return fieldInfo.parent }
-
-func (fieldInfo *Dpa_Stats_Nodes_Node_AsicStatistics_AsicStatisticsDetailForNpuIds_AsicStatisticsDetailForNpuId_Statistics_BlockInfo_FieldInfo) GetParentYangName() string { return "block-info" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers
 // Ingress Stats
 type Dpa_Stats_Nodes_Node_NpuNumbers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Stats for a particular npu. The type is slice of
@@ -1317,68 +778,29 @@ type Dpa_Stats_Nodes_Node_NpuNumbers struct {
     NpuNumber []Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber
 }
 
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetFilter() yfilter.YFilter { return npuNumbers.YFilter }
+func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetEntityData() *types.CommonEntityData {
+    npuNumbers.EntityData.YFilter = npuNumbers.YFilter
+    npuNumbers.EntityData.YangName = "npu-numbers"
+    npuNumbers.EntityData.BundleName = "cisco_ios_xr"
+    npuNumbers.EntityData.ParentYangName = "node"
+    npuNumbers.EntityData.SegmentPath = "npu-numbers"
+    npuNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    npuNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    npuNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) SetFilter(yf yfilter.YFilter) { npuNumbers.YFilter = yf }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetGoName(yname string) string {
-    if yname == "npu-number" { return "NpuNumber" }
-    return ""
-}
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetSegmentPath() string {
-    return "npu-numbers"
-}
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "npu-number" {
-        for _, c := range npuNumbers.NpuNumber {
-            if npuNumbers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber{}
-        npuNumbers.NpuNumber = append(npuNumbers.NpuNumber, child)
-        return &npuNumbers.NpuNumber[len(npuNumbers.NpuNumber)-1]
-    }
-    return nil
-}
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    npuNumbers.EntityData.Children = make(map[string]types.YChild)
+    npuNumbers.EntityData.Children["npu-number"] = types.YChild{"NpuNumber", nil}
     for i := range npuNumbers.NpuNumber {
-        children[npuNumbers.NpuNumber[i].GetSegmentPath()] = &npuNumbers.NpuNumber[i]
+        npuNumbers.EntityData.Children[types.GetSegmentPath(&npuNumbers.NpuNumber[i])] = types.YChild{"NpuNumber", &npuNumbers.NpuNumber[i]}
     }
-    return children
+    npuNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(npuNumbers.EntityData)
 }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetYangName() string { return "npu-numbers" }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) SetParent(parent types.Entity) { npuNumbers.parent = parent }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetParent() types.Entity { return npuNumbers.parent }
-
-func (npuNumbers *Dpa_Stats_Nodes_Node_NpuNumbers) GetParentYangName() string { return "node" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber
 // Stats for a particular npu
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Npu number. The type is interface{} with range:
@@ -1389,61 +811,27 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber struct {
     Display Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display
 }
 
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetFilter() yfilter.YFilter { return npuNumber.YFilter }
+func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetEntityData() *types.CommonEntityData {
+    npuNumber.EntityData.YFilter = npuNumber.YFilter
+    npuNumber.EntityData.YangName = "npu-number"
+    npuNumber.EntityData.BundleName = "cisco_ios_xr"
+    npuNumber.EntityData.ParentYangName = "npu-numbers"
+    npuNumber.EntityData.SegmentPath = "npu-number" + "[npu-id='" + fmt.Sprintf("%v", npuNumber.NpuId) + "']"
+    npuNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    npuNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    npuNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) SetFilter(yf yfilter.YFilter) { npuNumber.YFilter = yf }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetGoName(yname string) string {
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "display" { return "Display" }
-    return ""
+    npuNumber.EntityData.Children = make(map[string]types.YChild)
+    npuNumber.EntityData.Children["display"] = types.YChild{"Display", &npuNumber.Display}
+    npuNumber.EntityData.Leafs = make(map[string]types.YLeaf)
+    npuNumber.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", npuNumber.NpuId}
+    return &(npuNumber.EntityData)
 }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetSegmentPath() string {
-    return "npu-number" + "[npu-id='" + fmt.Sprintf("%v", npuNumber.NpuId) + "']"
-}
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "display" {
-        return &npuNumber.Display
-    }
-    return nil
-}
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["display"] = &npuNumber.Display
-    return children
-}
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["npu-id"] = npuNumber.NpuId
-    return leafs
-}
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetBundleName() string { return "cisco_ios_xr" }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetYangName() string { return "npu-number" }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) SetParent(parent types.Entity) { npuNumber.parent = parent }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetParent() types.Entity { return npuNumber.parent }
-
-func (npuNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber) GetParentYangName() string { return "npu-numbers" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display
 // show npu specific voq or trap stats
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Voq stats grouped by voq base numbers.
@@ -1456,69 +844,28 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display struct {
     InterfaceHandles Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles
 }
 
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetFilter() yfilter.YFilter { return display.YFilter }
+func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetEntityData() *types.CommonEntityData {
+    display.EntityData.YFilter = display.YFilter
+    display.EntityData.YangName = "display"
+    display.EntityData.BundleName = "cisco_ios_xr"
+    display.EntityData.ParentYangName = "npu-number"
+    display.EntityData.SegmentPath = "display"
+    display.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    display.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    display.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) SetFilter(yf yfilter.YFilter) { display.YFilter = yf }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetGoName(yname string) string {
-    if yname == "base-numbers" { return "BaseNumbers" }
-    if yname == "trap-ids" { return "TrapIds" }
-    if yname == "interface-handles" { return "InterfaceHandles" }
-    return ""
+    display.EntityData.Children = make(map[string]types.YChild)
+    display.EntityData.Children["base-numbers"] = types.YChild{"BaseNumbers", &display.BaseNumbers}
+    display.EntityData.Children["trap-ids"] = types.YChild{"TrapIds", &display.TrapIds}
+    display.EntityData.Children["interface-handles"] = types.YChild{"InterfaceHandles", &display.InterfaceHandles}
+    display.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(display.EntityData)
 }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetSegmentPath() string {
-    return "display"
-}
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base-numbers" {
-        return &display.BaseNumbers
-    }
-    if childYangName == "trap-ids" {
-        return &display.TrapIds
-    }
-    if childYangName == "interface-handles" {
-        return &display.InterfaceHandles
-    }
-    return nil
-}
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["base-numbers"] = &display.BaseNumbers
-    children["trap-ids"] = &display.TrapIds
-    children["interface-handles"] = &display.InterfaceHandles
-    return children
-}
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetBundleName() string { return "cisco_ios_xr" }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetYangName() string { return "display" }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) SetParent(parent types.Entity) { display.parent = parent }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetParent() types.Entity { return display.parent }
-
-func (display *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display) GetParentYangName() string { return "npu-number" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers
 // Voq stats grouped by voq base numbers
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Voq Base Number for a particular voq. The type is slice of
@@ -1526,68 +873,29 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers struct {
     BaseNumber []Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber
 }
 
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetFilter() yfilter.YFilter { return baseNumbers.YFilter }
+func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetEntityData() *types.CommonEntityData {
+    baseNumbers.EntityData.YFilter = baseNumbers.YFilter
+    baseNumbers.EntityData.YangName = "base-numbers"
+    baseNumbers.EntityData.BundleName = "cisco_ios_xr"
+    baseNumbers.EntityData.ParentYangName = "display"
+    baseNumbers.EntityData.SegmentPath = "base-numbers"
+    baseNumbers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseNumbers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseNumbers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) SetFilter(yf yfilter.YFilter) { baseNumbers.YFilter = yf }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetGoName(yname string) string {
-    if yname == "base-number" { return "BaseNumber" }
-    return ""
-}
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetSegmentPath() string {
-    return "base-numbers"
-}
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "base-number" {
-        for _, c := range baseNumbers.BaseNumber {
-            if baseNumbers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber{}
-        baseNumbers.BaseNumber = append(baseNumbers.BaseNumber, child)
-        return &baseNumbers.BaseNumber[len(baseNumbers.BaseNumber)-1]
-    }
-    return nil
-}
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    baseNumbers.EntityData.Children = make(map[string]types.YChild)
+    baseNumbers.EntityData.Children["base-number"] = types.YChild{"BaseNumber", nil}
     for i := range baseNumbers.BaseNumber {
-        children[baseNumbers.BaseNumber[i].GetSegmentPath()] = &baseNumbers.BaseNumber[i]
+        baseNumbers.EntityData.Children[types.GetSegmentPath(&baseNumbers.BaseNumber[i])] = types.YChild{"BaseNumber", &baseNumbers.BaseNumber[i]}
     }
-    return children
+    baseNumbers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(baseNumbers.EntityData)
 }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetYangName() string { return "base-numbers" }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) SetParent(parent types.Entity) { baseNumbers.parent = parent }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetParent() types.Entity { return baseNumbers.parent }
-
-func (baseNumbers *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers) GetParentYangName() string { return "display" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber
 // Voq Base Number for a particular voq
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface handle. The type is interface{} with
@@ -1639,97 +947,44 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber st
     VoqStat []Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat
 }
 
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetFilter() yfilter.YFilter { return baseNumber.YFilter }
+func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetEntityData() *types.CommonEntityData {
+    baseNumber.EntityData.YFilter = baseNumber.YFilter
+    baseNumber.EntityData.YangName = "base-number"
+    baseNumber.EntityData.BundleName = "cisco_ios_xr"
+    baseNumber.EntityData.ParentYangName = "base-numbers"
+    baseNumber.EntityData.SegmentPath = "base-number" + "[base-number='" + fmt.Sprintf("%v", baseNumber.BaseNumber) + "']"
+    baseNumber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    baseNumber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    baseNumber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) SetFilter(yf yfilter.YFilter) { baseNumber.YFilter = yf }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetGoName(yname string) string {
-    if yname == "base-number" { return "BaseNumber" }
-    if yname == "in-use" { return "InUse" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "npu-num" { return "NpuNum" }
-    if yname == "npu-core" { return "NpuCore" }
-    if yname == "port-num" { return "PortNum" }
-    if yname == "if-handle" { return "IfHandle" }
-    if yname == "sys-port" { return "SysPort" }
-    if yname == "pp-port" { return "PpPort" }
-    if yname == "port-speed" { return "PortSpeed" }
-    if yname == "voq-base" { return "VoqBase" }
-    if yname == "connector-id" { return "ConnectorId" }
-    if yname == "is-local-port" { return "IsLocalPort" }
-    if yname == "voq-stat" { return "VoqStat" }
-    return ""
-}
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetSegmentPath() string {
-    return "base-number" + "[base-number='" + fmt.Sprintf("%v", baseNumber.BaseNumber) + "']"
-}
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "voq-stat" {
-        for _, c := range baseNumber.VoqStat {
-            if baseNumber.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat{}
-        baseNumber.VoqStat = append(baseNumber.VoqStat, child)
-        return &baseNumber.VoqStat[len(baseNumber.VoqStat)-1]
-    }
-    return nil
-}
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    baseNumber.EntityData.Children = make(map[string]types.YChild)
+    baseNumber.EntityData.Children["voq-stat"] = types.YChild{"VoqStat", nil}
     for i := range baseNumber.VoqStat {
-        children[baseNumber.VoqStat[i].GetSegmentPath()] = &baseNumber.VoqStat[i]
+        baseNumber.EntityData.Children[types.GetSegmentPath(&baseNumber.VoqStat[i])] = types.YChild{"VoqStat", &baseNumber.VoqStat[i]}
     }
-    return children
+    baseNumber.EntityData.Leafs = make(map[string]types.YLeaf)
+    baseNumber.EntityData.Leafs["base-number"] = types.YLeaf{"BaseNumber", baseNumber.BaseNumber}
+    baseNumber.EntityData.Leafs["in-use"] = types.YLeaf{"InUse", baseNumber.InUse}
+    baseNumber.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", baseNumber.RackNum}
+    baseNumber.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", baseNumber.SlotNum}
+    baseNumber.EntityData.Leafs["npu-num"] = types.YLeaf{"NpuNum", baseNumber.NpuNum}
+    baseNumber.EntityData.Leafs["npu-core"] = types.YLeaf{"NpuCore", baseNumber.NpuCore}
+    baseNumber.EntityData.Leafs["port-num"] = types.YLeaf{"PortNum", baseNumber.PortNum}
+    baseNumber.EntityData.Leafs["if-handle"] = types.YLeaf{"IfHandle", baseNumber.IfHandle}
+    baseNumber.EntityData.Leafs["sys-port"] = types.YLeaf{"SysPort", baseNumber.SysPort}
+    baseNumber.EntityData.Leafs["pp-port"] = types.YLeaf{"PpPort", baseNumber.PpPort}
+    baseNumber.EntityData.Leafs["port-speed"] = types.YLeaf{"PortSpeed", baseNumber.PortSpeed}
+    baseNumber.EntityData.Leafs["voq-base"] = types.YLeaf{"VoqBase", baseNumber.VoqBase}
+    baseNumber.EntityData.Leafs["connector-id"] = types.YLeaf{"ConnectorId", baseNumber.ConnectorId}
+    baseNumber.EntityData.Leafs["is-local-port"] = types.YLeaf{"IsLocalPort", baseNumber.IsLocalPort}
+    return &(baseNumber.EntityData)
 }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["base-number"] = baseNumber.BaseNumber
-    leafs["in-use"] = baseNumber.InUse
-    leafs["rack-num"] = baseNumber.RackNum
-    leafs["slot-num"] = baseNumber.SlotNum
-    leafs["npu-num"] = baseNumber.NpuNum
-    leafs["npu-core"] = baseNumber.NpuCore
-    leafs["port-num"] = baseNumber.PortNum
-    leafs["if-handle"] = baseNumber.IfHandle
-    leafs["sys-port"] = baseNumber.SysPort
-    leafs["pp-port"] = baseNumber.PpPort
-    leafs["port-speed"] = baseNumber.PortSpeed
-    leafs["voq-base"] = baseNumber.VoqBase
-    leafs["connector-id"] = baseNumber.ConnectorId
-    leafs["is-local-port"] = baseNumber.IsLocalPort
-    return leafs
-}
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetBundleName() string { return "cisco_ios_xr" }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetYangName() string { return "base-number" }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) SetParent(parent types.Entity) { baseNumber.parent = parent }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetParent() types.Entity { return baseNumber.parent }
-
-func (baseNumber *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber) GetParentYangName() string { return "base-numbers" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat
 // Keeps a record of the received and dropped
 // packets and bytes on the port
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Bytes Received on the port. The type is interface{} with range:
@@ -1749,62 +1004,29 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_Vo
     DroppedPackets interface{}
 }
 
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetFilter() yfilter.YFilter { return voqStat.YFilter }
+func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetEntityData() *types.CommonEntityData {
+    voqStat.EntityData.YFilter = voqStat.YFilter
+    voqStat.EntityData.YangName = "voq-stat"
+    voqStat.EntityData.BundleName = "cisco_ios_xr"
+    voqStat.EntityData.ParentYangName = "base-number"
+    voqStat.EntityData.SegmentPath = "voq-stat"
+    voqStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    voqStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    voqStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) SetFilter(yf yfilter.YFilter) { voqStat.YFilter = yf }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetGoName(yname string) string {
-    if yname == "received-bytes" { return "ReceivedBytes" }
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "dropped-bytes" { return "DroppedBytes" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    voqStat.EntityData.Children = make(map[string]types.YChild)
+    voqStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    voqStat.EntityData.Leafs["received-bytes"] = types.YLeaf{"ReceivedBytes", voqStat.ReceivedBytes}
+    voqStat.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", voqStat.ReceivedPackets}
+    voqStat.EntityData.Leafs["dropped-bytes"] = types.YLeaf{"DroppedBytes", voqStat.DroppedBytes}
+    voqStat.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", voqStat.DroppedPackets}
+    return &(voqStat.EntityData)
 }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetSegmentPath() string {
-    return "voq-stat"
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-bytes"] = voqStat.ReceivedBytes
-    leafs["received-packets"] = voqStat.ReceivedPackets
-    leafs["dropped-bytes"] = voqStat.DroppedBytes
-    leafs["dropped-packets"] = voqStat.DroppedPackets
-    return leafs
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetYangName() string { return "voq-stat" }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) SetParent(parent types.Entity) { voqStat.parent = parent }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetParent() types.Entity { return voqStat.parent }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_BaseNumbers_BaseNumber_VoqStat) GetParentYangName() string { return "base-number" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds
 // Trap stats for a particular npu
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Filter by specific trap id. The type is slice of
@@ -1812,68 +1034,29 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds struct {
     TrapId []Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId
 }
 
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetFilter() yfilter.YFilter { return trapIds.YFilter }
+func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetEntityData() *types.CommonEntityData {
+    trapIds.EntityData.YFilter = trapIds.YFilter
+    trapIds.EntityData.YangName = "trap-ids"
+    trapIds.EntityData.BundleName = "cisco_ios_xr"
+    trapIds.EntityData.ParentYangName = "display"
+    trapIds.EntityData.SegmentPath = "trap-ids"
+    trapIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trapIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trapIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) SetFilter(yf yfilter.YFilter) { trapIds.YFilter = yf }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetGoName(yname string) string {
-    if yname == "trap-id" { return "TrapId" }
-    return ""
-}
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetSegmentPath() string {
-    return "trap-ids"
-}
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "trap-id" {
-        for _, c := range trapIds.TrapId {
-            if trapIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId{}
-        trapIds.TrapId = append(trapIds.TrapId, child)
-        return &trapIds.TrapId[len(trapIds.TrapId)-1]
-    }
-    return nil
-}
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    trapIds.EntityData.Children = make(map[string]types.YChild)
+    trapIds.EntityData.Children["trap-id"] = types.YChild{"TrapId", nil}
     for i := range trapIds.TrapId {
-        children[trapIds.TrapId[i].GetSegmentPath()] = &trapIds.TrapId[i]
+        trapIds.EntityData.Children[types.GetSegmentPath(&trapIds.TrapId[i])] = types.YChild{"TrapId", &trapIds.TrapId[i]}
     }
-    return children
+    trapIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(trapIds.EntityData)
 }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetYangName() string { return "trap-ids" }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) SetParent(parent types.Entity) { trapIds.parent = parent }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetParent() types.Entity { return trapIds.parent }
-
-func (trapIds *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds) GetParentYangName() string { return "display" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId
 // Filter by specific trap id
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Trap ID. The type is interface{} with range:
@@ -1932,86 +1115,41 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId struct {
     PacketAccepted interface{}
 }
 
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetFilter() yfilter.YFilter { return trapId.YFilter }
+func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetEntityData() *types.CommonEntityData {
+    trapId.EntityData.YFilter = trapId.YFilter
+    trapId.EntityData.YangName = "trap-id"
+    trapId.EntityData.BundleName = "cisco_ios_xr"
+    trapId.EntityData.ParentYangName = "trap-ids"
+    trapId.EntityData.SegmentPath = "trap-id" + "[trap-id='" + fmt.Sprintf("%v", trapId.TrapId) + "']"
+    trapId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    trapId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    trapId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) SetFilter(yf yfilter.YFilter) { trapId.YFilter = yf }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetGoName(yname string) string {
-    if yname == "trap-id" { return "TrapId" }
-    if yname == "trap-strength" { return "TrapStrength" }
-    if yname == "priority" { return "Priority" }
-    if yname == "trap-id-xr" { return "TrapIdXr" }
-    if yname == "gport" { return "Gport" }
-    if yname == "fec-id" { return "FecId" }
-    if yname == "policer-id" { return "PolicerId" }
-    if yname == "stats-id" { return "StatsId" }
-    if yname == "encap-id" { return "EncapId" }
-    if yname == "mc-group" { return "McGroup" }
-    if yname == "trap-string" { return "TrapString" }
-    if yname == "id" { return "Id" }
-    if yname == "offset" { return "Offset" }
-    if yname == "npu-id" { return "NpuId" }
-    if yname == "packet-dropped" { return "PacketDropped" }
-    if yname == "packet-accepted" { return "PacketAccepted" }
-    return ""
+    trapId.EntityData.Children = make(map[string]types.YChild)
+    trapId.EntityData.Leafs = make(map[string]types.YLeaf)
+    trapId.EntityData.Leafs["trap-id"] = types.YLeaf{"TrapId", trapId.TrapId}
+    trapId.EntityData.Leafs["trap-strength"] = types.YLeaf{"TrapStrength", trapId.TrapStrength}
+    trapId.EntityData.Leafs["priority"] = types.YLeaf{"Priority", trapId.Priority}
+    trapId.EntityData.Leafs["trap-id-xr"] = types.YLeaf{"TrapIdXr", trapId.TrapIdXr}
+    trapId.EntityData.Leafs["gport"] = types.YLeaf{"Gport", trapId.Gport}
+    trapId.EntityData.Leafs["fec-id"] = types.YLeaf{"FecId", trapId.FecId}
+    trapId.EntityData.Leafs["policer-id"] = types.YLeaf{"PolicerId", trapId.PolicerId}
+    trapId.EntityData.Leafs["stats-id"] = types.YLeaf{"StatsId", trapId.StatsId}
+    trapId.EntityData.Leafs["encap-id"] = types.YLeaf{"EncapId", trapId.EncapId}
+    trapId.EntityData.Leafs["mc-group"] = types.YLeaf{"McGroup", trapId.McGroup}
+    trapId.EntityData.Leafs["trap-string"] = types.YLeaf{"TrapString", trapId.TrapString}
+    trapId.EntityData.Leafs["id"] = types.YLeaf{"Id", trapId.Id}
+    trapId.EntityData.Leafs["offset"] = types.YLeaf{"Offset", trapId.Offset}
+    trapId.EntityData.Leafs["npu-id"] = types.YLeaf{"NpuId", trapId.NpuId}
+    trapId.EntityData.Leafs["packet-dropped"] = types.YLeaf{"PacketDropped", trapId.PacketDropped}
+    trapId.EntityData.Leafs["packet-accepted"] = types.YLeaf{"PacketAccepted", trapId.PacketAccepted}
+    return &(trapId.EntityData)
 }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetSegmentPath() string {
-    return "trap-id" + "[trap-id='" + fmt.Sprintf("%v", trapId.TrapId) + "']"
-}
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["trap-id"] = trapId.TrapId
-    leafs["trap-strength"] = trapId.TrapStrength
-    leafs["priority"] = trapId.Priority
-    leafs["trap-id-xr"] = trapId.TrapIdXr
-    leafs["gport"] = trapId.Gport
-    leafs["fec-id"] = trapId.FecId
-    leafs["policer-id"] = trapId.PolicerId
-    leafs["stats-id"] = trapId.StatsId
-    leafs["encap-id"] = trapId.EncapId
-    leafs["mc-group"] = trapId.McGroup
-    leafs["trap-string"] = trapId.TrapString
-    leafs["id"] = trapId.Id
-    leafs["offset"] = trapId.Offset
-    leafs["npu-id"] = trapId.NpuId
-    leafs["packet-dropped"] = trapId.PacketDropped
-    leafs["packet-accepted"] = trapId.PacketAccepted
-    return leafs
-}
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetYangName() string { return "trap-id" }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) SetParent(parent types.Entity) { trapId.parent = parent }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetParent() types.Entity { return trapId.parent }
-
-func (trapId *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_TrapIds_TrapId) GetParentYangName() string { return "trap-ids" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles
 // Voq stats grouped by interface handle
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Voq stats for a particular interface handle. The type is slice of
@@ -2019,69 +1157,30 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles struct {
     InterfaceHandle []Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle
 }
 
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetFilter() yfilter.YFilter { return interfaceHandles.YFilter }
+func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetEntityData() *types.CommonEntityData {
+    interfaceHandles.EntityData.YFilter = interfaceHandles.YFilter
+    interfaceHandles.EntityData.YangName = "interface-handles"
+    interfaceHandles.EntityData.BundleName = "cisco_ios_xr"
+    interfaceHandles.EntityData.ParentYangName = "display"
+    interfaceHandles.EntityData.SegmentPath = "interface-handles"
+    interfaceHandles.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceHandles.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceHandles.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) SetFilter(yf yfilter.YFilter) { interfaceHandles.YFilter = yf }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetGoName(yname string) string {
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    return ""
-}
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetSegmentPath() string {
-    return "interface-handles"
-}
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface-handle" {
-        for _, c := range interfaceHandles.InterfaceHandle {
-            if interfaceHandles.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle{}
-        interfaceHandles.InterfaceHandle = append(interfaceHandles.InterfaceHandle, child)
-        return &interfaceHandles.InterfaceHandle[len(interfaceHandles.InterfaceHandle)-1]
-    }
-    return nil
-}
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceHandles.EntityData.Children = make(map[string]types.YChild)
+    interfaceHandles.EntityData.Children["interface-handle"] = types.YChild{"InterfaceHandle", nil}
     for i := range interfaceHandles.InterfaceHandle {
-        children[interfaceHandles.InterfaceHandle[i].GetSegmentPath()] = &interfaceHandles.InterfaceHandle[i]
+        interfaceHandles.EntityData.Children[types.GetSegmentPath(&interfaceHandles.InterfaceHandle[i])] = types.YChild{"InterfaceHandle", &interfaceHandles.InterfaceHandle[i]}
     }
-    return children
+    interfaceHandles.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceHandles.EntityData)
 }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetYangName() string { return "interface-handles" }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) SetParent(parent types.Entity) { interfaceHandles.parent = parent }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetParent() types.Entity { return interfaceHandles.parent }
-
-func (interfaceHandles *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles) GetParentYangName() string { return "display" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle
 // Voq stats for a particular interface
 // handle
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Handle. The type is interface{} with
@@ -2133,97 +1232,44 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_Interfac
     VoqStat []Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat
 }
 
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetFilter() yfilter.YFilter { return interfaceHandle.YFilter }
+func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetEntityData() *types.CommonEntityData {
+    interfaceHandle.EntityData.YFilter = interfaceHandle.YFilter
+    interfaceHandle.EntityData.YangName = "interface-handle"
+    interfaceHandle.EntityData.BundleName = "cisco_ios_xr"
+    interfaceHandle.EntityData.ParentYangName = "interface-handles"
+    interfaceHandle.EntityData.SegmentPath = "interface-handle" + "[interface-handle='" + fmt.Sprintf("%v", interfaceHandle.InterfaceHandle) + "']"
+    interfaceHandle.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceHandle.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceHandle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) SetFilter(yf yfilter.YFilter) { interfaceHandle.YFilter = yf }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetGoName(yname string) string {
-    if yname == "interface-handle" { return "InterfaceHandle" }
-    if yname == "in-use" { return "InUse" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "npu-num" { return "NpuNum" }
-    if yname == "npu-core" { return "NpuCore" }
-    if yname == "port-num" { return "PortNum" }
-    if yname == "if-handle" { return "IfHandle" }
-    if yname == "sys-port" { return "SysPort" }
-    if yname == "pp-port" { return "PpPort" }
-    if yname == "port-speed" { return "PortSpeed" }
-    if yname == "voq-base" { return "VoqBase" }
-    if yname == "connector-id" { return "ConnectorId" }
-    if yname == "is-local-port" { return "IsLocalPort" }
-    if yname == "voq-stat" { return "VoqStat" }
-    return ""
-}
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetSegmentPath() string {
-    return "interface-handle" + "[interface-handle='" + fmt.Sprintf("%v", interfaceHandle.InterfaceHandle) + "']"
-}
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "voq-stat" {
-        for _, c := range interfaceHandle.VoqStat {
-            if interfaceHandle.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat{}
-        interfaceHandle.VoqStat = append(interfaceHandle.VoqStat, child)
-        return &interfaceHandle.VoqStat[len(interfaceHandle.VoqStat)-1]
-    }
-    return nil
-}
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    interfaceHandle.EntityData.Children = make(map[string]types.YChild)
+    interfaceHandle.EntityData.Children["voq-stat"] = types.YChild{"VoqStat", nil}
     for i := range interfaceHandle.VoqStat {
-        children[interfaceHandle.VoqStat[i].GetSegmentPath()] = &interfaceHandle.VoqStat[i]
+        interfaceHandle.EntityData.Children[types.GetSegmentPath(&interfaceHandle.VoqStat[i])] = types.YChild{"VoqStat", &interfaceHandle.VoqStat[i]}
     }
-    return children
+    interfaceHandle.EntityData.Leafs = make(map[string]types.YLeaf)
+    interfaceHandle.EntityData.Leafs["interface-handle"] = types.YLeaf{"InterfaceHandle", interfaceHandle.InterfaceHandle}
+    interfaceHandle.EntityData.Leafs["in-use"] = types.YLeaf{"InUse", interfaceHandle.InUse}
+    interfaceHandle.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", interfaceHandle.RackNum}
+    interfaceHandle.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", interfaceHandle.SlotNum}
+    interfaceHandle.EntityData.Leafs["npu-num"] = types.YLeaf{"NpuNum", interfaceHandle.NpuNum}
+    interfaceHandle.EntityData.Leafs["npu-core"] = types.YLeaf{"NpuCore", interfaceHandle.NpuCore}
+    interfaceHandle.EntityData.Leafs["port-num"] = types.YLeaf{"PortNum", interfaceHandle.PortNum}
+    interfaceHandle.EntityData.Leafs["if-handle"] = types.YLeaf{"IfHandle", interfaceHandle.IfHandle}
+    interfaceHandle.EntityData.Leafs["sys-port"] = types.YLeaf{"SysPort", interfaceHandle.SysPort}
+    interfaceHandle.EntityData.Leafs["pp-port"] = types.YLeaf{"PpPort", interfaceHandle.PpPort}
+    interfaceHandle.EntityData.Leafs["port-speed"] = types.YLeaf{"PortSpeed", interfaceHandle.PortSpeed}
+    interfaceHandle.EntityData.Leafs["voq-base"] = types.YLeaf{"VoqBase", interfaceHandle.VoqBase}
+    interfaceHandle.EntityData.Leafs["connector-id"] = types.YLeaf{"ConnectorId", interfaceHandle.ConnectorId}
+    interfaceHandle.EntityData.Leafs["is-local-port"] = types.YLeaf{"IsLocalPort", interfaceHandle.IsLocalPort}
+    return &(interfaceHandle.EntityData)
 }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-handle"] = interfaceHandle.InterfaceHandle
-    leafs["in-use"] = interfaceHandle.InUse
-    leafs["rack-num"] = interfaceHandle.RackNum
-    leafs["slot-num"] = interfaceHandle.SlotNum
-    leafs["npu-num"] = interfaceHandle.NpuNum
-    leafs["npu-core"] = interfaceHandle.NpuCore
-    leafs["port-num"] = interfaceHandle.PortNum
-    leafs["if-handle"] = interfaceHandle.IfHandle
-    leafs["sys-port"] = interfaceHandle.SysPort
-    leafs["pp-port"] = interfaceHandle.PpPort
-    leafs["port-speed"] = interfaceHandle.PortSpeed
-    leafs["voq-base"] = interfaceHandle.VoqBase
-    leafs["connector-id"] = interfaceHandle.ConnectorId
-    leafs["is-local-port"] = interfaceHandle.IsLocalPort
-    return leafs
-}
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetYangName() string { return "interface-handle" }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) SetParent(parent types.Entity) { interfaceHandle.parent = parent }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetParent() types.Entity { return interfaceHandle.parent }
-
-func (interfaceHandle *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle) GetParentYangName() string { return "interface-handles" }
 
 // Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat
 // Keeps a record of the received and dropped
 // packets and bytes on the port
 type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Bytes Received on the port. The type is interface{} with range:
@@ -2243,55 +1289,22 @@ type Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_Interfac
     DroppedPackets interface{}
 }
 
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetFilter() yfilter.YFilter { return voqStat.YFilter }
+func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetEntityData() *types.CommonEntityData {
+    voqStat.EntityData.YFilter = voqStat.YFilter
+    voqStat.EntityData.YangName = "voq-stat"
+    voqStat.EntityData.BundleName = "cisco_ios_xr"
+    voqStat.EntityData.ParentYangName = "interface-handle"
+    voqStat.EntityData.SegmentPath = "voq-stat"
+    voqStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    voqStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    voqStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) SetFilter(yf yfilter.YFilter) { voqStat.YFilter = yf }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetGoName(yname string) string {
-    if yname == "received-bytes" { return "ReceivedBytes" }
-    if yname == "received-packets" { return "ReceivedPackets" }
-    if yname == "dropped-bytes" { return "DroppedBytes" }
-    if yname == "dropped-packets" { return "DroppedPackets" }
-    return ""
+    voqStat.EntityData.Children = make(map[string]types.YChild)
+    voqStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    voqStat.EntityData.Leafs["received-bytes"] = types.YLeaf{"ReceivedBytes", voqStat.ReceivedBytes}
+    voqStat.EntityData.Leafs["received-packets"] = types.YLeaf{"ReceivedPackets", voqStat.ReceivedPackets}
+    voqStat.EntityData.Leafs["dropped-bytes"] = types.YLeaf{"DroppedBytes", voqStat.DroppedBytes}
+    voqStat.EntityData.Leafs["dropped-packets"] = types.YLeaf{"DroppedPackets", voqStat.DroppedPackets}
+    return &(voqStat.EntityData)
 }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetSegmentPath() string {
-    return "voq-stat"
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-bytes"] = voqStat.ReceivedBytes
-    leafs["received-packets"] = voqStat.ReceivedPackets
-    leafs["dropped-bytes"] = voqStat.DroppedBytes
-    leafs["dropped-packets"] = voqStat.DroppedPackets
-    return leafs
-}
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetYangName() string { return "voq-stat" }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) SetParent(parent types.Entity) { voqStat.parent = parent }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetParent() types.Entity { return voqStat.parent }
-
-func (voqStat *Dpa_Stats_Nodes_Node_NpuNumbers_NpuNumber_Display_InterfaceHandles_InterfaceHandle_VoqStat) GetParentYangName() string { return "interface-handle" }
 

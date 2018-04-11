@@ -31,12 +31,31 @@ module Cisco-IOS-XE-ezpm {
 
   description
     "Cisco XE Native Easy Performance Monitor (ezPM) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-14 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+  revision 2017-08-12 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -521,6 +540,36 @@ module Cisco-IOS-XE-ezpm {
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+  
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+  
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-ezpm-grouping {
+      if-feature ios-features:ezpm;
+    }
+  }
+  
   augment "/ios:native/ios:interface/ios:Tunnel" {
     uses config-interface-ezpm-grouping {
       if-feature ios-features:ezpm;

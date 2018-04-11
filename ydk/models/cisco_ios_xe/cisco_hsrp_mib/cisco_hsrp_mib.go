@@ -67,7 +67,7 @@ const (
 
 // CISCOHSRPMIB
 type CISCOHSRPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -77,63 +77,26 @@ type CISCOHSRPMIB struct {
     Chsrpgrptable CISCOHSRPMIB_Chsrpgrptable
 }
 
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetFilter() yfilter.YFilter { return cISCOHSRPMIB.YFilter }
+func (cISCOHSRPMIB *CISCOHSRPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOHSRPMIB.EntityData.YFilter = cISCOHSRPMIB.YFilter
+    cISCOHSRPMIB.EntityData.YangName = "CISCO-HSRP-MIB"
+    cISCOHSRPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOHSRPMIB.EntityData.ParentYangName = "CISCO-HSRP-MIB"
+    cISCOHSRPMIB.EntityData.SegmentPath = "CISCO-HSRP-MIB:CISCO-HSRP-MIB"
+    cISCOHSRPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOHSRPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOHSRPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOHSRPMIB *CISCOHSRPMIB) SetFilter(yf yfilter.YFilter) { cISCOHSRPMIB.YFilter = yf }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetGoName(yname string) string {
-    if yname == "cHsrpGlobalConfig" { return "Chsrpglobalconfig" }
-    if yname == "cHsrpGrpTable" { return "Chsrpgrptable" }
-    return ""
+    cISCOHSRPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOHSRPMIB.EntityData.Children["cHsrpGlobalConfig"] = types.YChild{"Chsrpglobalconfig", &cISCOHSRPMIB.Chsrpglobalconfig}
+    cISCOHSRPMIB.EntityData.Children["cHsrpGrpTable"] = types.YChild{"Chsrpgrptable", &cISCOHSRPMIB.Chsrpgrptable}
+    cISCOHSRPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOHSRPMIB.EntityData)
 }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetSegmentPath() string {
-    return "CISCO-HSRP-MIB:CISCO-HSRP-MIB"
-}
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpGlobalConfig" {
-        return &cISCOHSRPMIB.Chsrpglobalconfig
-    }
-    if childYangName == "cHsrpGrpTable" {
-        return &cISCOHSRPMIB.Chsrpgrptable
-    }
-    return nil
-}
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cHsrpGlobalConfig"] = &cISCOHSRPMIB.Chsrpglobalconfig
-    children["cHsrpGrpTable"] = &cISCOHSRPMIB.Chsrpgrptable
-    return children
-}
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetYangName() string { return "CISCO-HSRP-MIB" }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) SetParent(parent types.Entity) { cISCOHSRPMIB.parent = parent }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetParent() types.Entity { return cISCOHSRPMIB.parent }
-
-func (cISCOHSRPMIB *CISCOHSRPMIB) GetParentYangName() string { return "CISCO-HSRP-MIB" }
 
 // CISCOHSRPMIB_Chsrpglobalconfig
 type CISCOHSRPMIB_Chsrpglobalconfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The amount of time in minutes a row in cHsrpGrpTable can remain in a state
@@ -142,57 +105,27 @@ type CISCOHSRPMIB_Chsrpglobalconfig struct {
     Chsrpconfigtimeout interface{}
 }
 
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetFilter() yfilter.YFilter { return chsrpglobalconfig.YFilter }
+func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetEntityData() *types.CommonEntityData {
+    chsrpglobalconfig.EntityData.YFilter = chsrpglobalconfig.YFilter
+    chsrpglobalconfig.EntityData.YangName = "cHsrpGlobalConfig"
+    chsrpglobalconfig.EntityData.BundleName = "cisco_ios_xe"
+    chsrpglobalconfig.EntityData.ParentYangName = "CISCO-HSRP-MIB"
+    chsrpglobalconfig.EntityData.SegmentPath = "cHsrpGlobalConfig"
+    chsrpglobalconfig.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpglobalconfig.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpglobalconfig.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) SetFilter(yf yfilter.YFilter) { chsrpglobalconfig.YFilter = yf }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetGoName(yname string) string {
-    if yname == "cHsrpConfigTimeout" { return "Chsrpconfigtimeout" }
-    return ""
+    chsrpglobalconfig.EntityData.Children = make(map[string]types.YChild)
+    chsrpglobalconfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    chsrpglobalconfig.EntityData.Leafs["cHsrpConfigTimeout"] = types.YLeaf{"Chsrpconfigtimeout", chsrpglobalconfig.Chsrpconfigtimeout}
+    return &(chsrpglobalconfig.EntityData)
 }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetSegmentPath() string {
-    return "cHsrpGlobalConfig"
-}
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cHsrpConfigTimeout"] = chsrpglobalconfig.Chsrpconfigtimeout
-    return leafs
-}
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetYangName() string { return "cHsrpGlobalConfig" }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) SetParent(parent types.Entity) { chsrpglobalconfig.parent = parent }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetParent() types.Entity { return chsrpglobalconfig.parent }
-
-func (chsrpglobalconfig *CISCOHSRPMIB_Chsrpglobalconfig) GetParentYangName() string { return "CISCO-HSRP-MIB" }
 
 // CISCOHSRPMIB_Chsrpgrptable
 // A table containing information on each HSRP group
 // for each interface.
 type CISCOHSRPMIB_Chsrpgrptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about an HSRP group. Management applications use
@@ -218,63 +151,24 @@ type CISCOHSRPMIB_Chsrpgrptable struct {
     Chsrpgrpentry []CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry
 }
 
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetFilter() yfilter.YFilter { return chsrpgrptable.YFilter }
+func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetEntityData() *types.CommonEntityData {
+    chsrpgrptable.EntityData.YFilter = chsrpgrptable.YFilter
+    chsrpgrptable.EntityData.YangName = "cHsrpGrpTable"
+    chsrpgrptable.EntityData.BundleName = "cisco_ios_xe"
+    chsrpgrptable.EntityData.ParentYangName = "CISCO-HSRP-MIB"
+    chsrpgrptable.EntityData.SegmentPath = "cHsrpGrpTable"
+    chsrpgrptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpgrptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpgrptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) SetFilter(yf yfilter.YFilter) { chsrpgrptable.YFilter = yf }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetGoName(yname string) string {
-    if yname == "cHsrpGrpEntry" { return "Chsrpgrpentry" }
-    return ""
-}
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetSegmentPath() string {
-    return "cHsrpGrpTable"
-}
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cHsrpGrpEntry" {
-        for _, c := range chsrpgrptable.Chsrpgrpentry {
-            if chsrpgrptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry{}
-        chsrpgrptable.Chsrpgrpentry = append(chsrpgrptable.Chsrpgrpentry, child)
-        return &chsrpgrptable.Chsrpgrpentry[len(chsrpgrptable.Chsrpgrpentry)-1]
-    }
-    return nil
-}
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    chsrpgrptable.EntityData.Children = make(map[string]types.YChild)
+    chsrpgrptable.EntityData.Children["cHsrpGrpEntry"] = types.YChild{"Chsrpgrpentry", nil}
     for i := range chsrpgrptable.Chsrpgrpentry {
-        children[chsrpgrptable.Chsrpgrpentry[i].GetSegmentPath()] = &chsrpgrptable.Chsrpgrpentry[i]
+        chsrpgrptable.EntityData.Children[types.GetSegmentPath(&chsrpgrptable.Chsrpgrpentry[i])] = types.YChild{"Chsrpgrpentry", &chsrpgrptable.Chsrpgrpentry[i]}
     }
-    return children
+    chsrpgrptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(chsrpgrptable.EntityData)
 }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetYangName() string { return "cHsrpGrpTable" }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) SetParent(parent types.Entity) { chsrpgrptable.parent = parent }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetParent() types.Entity { return chsrpgrptable.parent }
-
-func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetParentYangName() string { return "CISCO-HSRP-MIB" }
 
 // CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry
 // Information about an HSRP group. Management applications
@@ -312,7 +206,7 @@ func (chsrpgrptable *CISCOHSRPMIB_Chsrpgrptable) GetParentYangName() string { re
 // configurable period (five minutes by default). This timeout 
 // period can be changed by setting cHsrpConfigTimeout.
 type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -414,7 +308,7 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // is configured (i.e a non zero ip address), this value is used. Otherwise,
     // the agent will attempt to discover the virtual address through a discovery
     // process (which scans the hello messages). The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Chsrpgrpvirtualipaddr interface{}
 
     // If this object is TRUE, cHsrpGrpVirtualIpAddr was a configured one.
@@ -424,12 +318,12 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
 
     // Ip Address of the currently active router for this group. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Chsrpgrpactiverouter interface{}
 
     // Ip Address of the currently standby router for this group. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Chsrpgrpstandbyrouter interface{}
 
     // The current HSRP state of this group on this interface. The type is
@@ -446,7 +340,7 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     // following three MAC  addresses are permitted (functional addresses):       
     // C0:00:00:01:00:00              C0:00:00:02:00:00             
     // C0:00:00:04:00:00. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Chsrpgrpvirtualmacaddr interface{}
 
     // The control that allows modification, creation, and deletion of entries. 
@@ -459,85 +353,37 @@ type CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry struct {
     Chsrpgrpipnone interface{}
 }
 
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetFilter() yfilter.YFilter { return chsrpgrpentry.YFilter }
+func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetEntityData() *types.CommonEntityData {
+    chsrpgrpentry.EntityData.YFilter = chsrpgrpentry.YFilter
+    chsrpgrpentry.EntityData.YangName = "cHsrpGrpEntry"
+    chsrpgrpentry.EntityData.BundleName = "cisco_ios_xe"
+    chsrpgrpentry.EntityData.ParentYangName = "cHsrpGrpTable"
+    chsrpgrpentry.EntityData.SegmentPath = "cHsrpGrpEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpgrpentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpgrpentry.Chsrpgrpnumber) + "']"
+    chsrpgrpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    chsrpgrpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    chsrpgrpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) SetFilter(yf yfilter.YFilter) { chsrpgrpentry.YFilter = yf }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cHsrpGrpNumber" { return "Chsrpgrpnumber" }
-    if yname == "cHsrpGrpAuth" { return "Chsrpgrpauth" }
-    if yname == "cHsrpGrpPriority" { return "Chsrpgrppriority" }
-    if yname == "cHsrpGrpPreempt" { return "Chsrpgrppreempt" }
-    if yname == "cHsrpGrpPreemptDelay" { return "Chsrpgrppreemptdelay" }
-    if yname == "cHsrpGrpUseConfiguredTimers" { return "Chsrpgrpuseconfiguredtimers" }
-    if yname == "cHsrpGrpConfiguredHelloTime" { return "Chsrpgrpconfiguredhellotime" }
-    if yname == "cHsrpGrpConfiguredHoldTime" { return "Chsrpgrpconfiguredholdtime" }
-    if yname == "cHsrpGrpLearnedHelloTime" { return "Chsrpgrplearnedhellotime" }
-    if yname == "cHsrpGrpLearnedHoldTime" { return "Chsrpgrplearnedholdtime" }
-    if yname == "cHsrpGrpVirtualIpAddr" { return "Chsrpgrpvirtualipaddr" }
-    if yname == "cHsrpGrpUseConfigVirtualIpAddr" { return "Chsrpgrpuseconfigvirtualipaddr" }
-    if yname == "cHsrpGrpActiveRouter" { return "Chsrpgrpactiverouter" }
-    if yname == "cHsrpGrpStandbyRouter" { return "Chsrpgrpstandbyrouter" }
-    if yname == "cHsrpGrpStandbyState" { return "Chsrpgrpstandbystate" }
-    if yname == "cHsrpGrpVirtualMacAddr" { return "Chsrpgrpvirtualmacaddr" }
-    if yname == "cHsrpGrpEntryRowStatus" { return "Chsrpgrpentryrowstatus" }
-    if yname == "cHsrpGrpIpNone" { return "Chsrpgrpipnone" }
-    return ""
+    chsrpgrpentry.EntityData.Children = make(map[string]types.YChild)
+    chsrpgrpentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    chsrpgrpentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", chsrpgrpentry.Ifindex}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpNumber"] = types.YLeaf{"Chsrpgrpnumber", chsrpgrpentry.Chsrpgrpnumber}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpAuth"] = types.YLeaf{"Chsrpgrpauth", chsrpgrpentry.Chsrpgrpauth}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpPriority"] = types.YLeaf{"Chsrpgrppriority", chsrpgrpentry.Chsrpgrppriority}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpPreempt"] = types.YLeaf{"Chsrpgrppreempt", chsrpgrpentry.Chsrpgrppreempt}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpPreemptDelay"] = types.YLeaf{"Chsrpgrppreemptdelay", chsrpgrpentry.Chsrpgrppreemptdelay}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpUseConfiguredTimers"] = types.YLeaf{"Chsrpgrpuseconfiguredtimers", chsrpgrpentry.Chsrpgrpuseconfiguredtimers}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpConfiguredHelloTime"] = types.YLeaf{"Chsrpgrpconfiguredhellotime", chsrpgrpentry.Chsrpgrpconfiguredhellotime}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpConfiguredHoldTime"] = types.YLeaf{"Chsrpgrpconfiguredholdtime", chsrpgrpentry.Chsrpgrpconfiguredholdtime}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpLearnedHelloTime"] = types.YLeaf{"Chsrpgrplearnedhellotime", chsrpgrpentry.Chsrpgrplearnedhellotime}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpLearnedHoldTime"] = types.YLeaf{"Chsrpgrplearnedholdtime", chsrpgrpentry.Chsrpgrplearnedholdtime}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpVirtualIpAddr"] = types.YLeaf{"Chsrpgrpvirtualipaddr", chsrpgrpentry.Chsrpgrpvirtualipaddr}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpUseConfigVirtualIpAddr"] = types.YLeaf{"Chsrpgrpuseconfigvirtualipaddr", chsrpgrpentry.Chsrpgrpuseconfigvirtualipaddr}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpActiveRouter"] = types.YLeaf{"Chsrpgrpactiverouter", chsrpgrpentry.Chsrpgrpactiverouter}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpStandbyRouter"] = types.YLeaf{"Chsrpgrpstandbyrouter", chsrpgrpentry.Chsrpgrpstandbyrouter}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpStandbyState"] = types.YLeaf{"Chsrpgrpstandbystate", chsrpgrpentry.Chsrpgrpstandbystate}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpVirtualMacAddr"] = types.YLeaf{"Chsrpgrpvirtualmacaddr", chsrpgrpentry.Chsrpgrpvirtualmacaddr}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpEntryRowStatus"] = types.YLeaf{"Chsrpgrpentryrowstatus", chsrpgrpentry.Chsrpgrpentryrowstatus}
+    chsrpgrpentry.EntityData.Leafs["cHsrpGrpIpNone"] = types.YLeaf{"Chsrpgrpipnone", chsrpgrpentry.Chsrpgrpipnone}
+    return &(chsrpgrpentry.EntityData)
 }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetSegmentPath() string {
-    return "cHsrpGrpEntry" + "[ifIndex='" + fmt.Sprintf("%v", chsrpgrpentry.Ifindex) + "']" + "[cHsrpGrpNumber='" + fmt.Sprintf("%v", chsrpgrpentry.Chsrpgrpnumber) + "']"
-}
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = chsrpgrpentry.Ifindex
-    leafs["cHsrpGrpNumber"] = chsrpgrpentry.Chsrpgrpnumber
-    leafs["cHsrpGrpAuth"] = chsrpgrpentry.Chsrpgrpauth
-    leafs["cHsrpGrpPriority"] = chsrpgrpentry.Chsrpgrppriority
-    leafs["cHsrpGrpPreempt"] = chsrpgrpentry.Chsrpgrppreempt
-    leafs["cHsrpGrpPreemptDelay"] = chsrpgrpentry.Chsrpgrppreemptdelay
-    leafs["cHsrpGrpUseConfiguredTimers"] = chsrpgrpentry.Chsrpgrpuseconfiguredtimers
-    leafs["cHsrpGrpConfiguredHelloTime"] = chsrpgrpentry.Chsrpgrpconfiguredhellotime
-    leafs["cHsrpGrpConfiguredHoldTime"] = chsrpgrpentry.Chsrpgrpconfiguredholdtime
-    leafs["cHsrpGrpLearnedHelloTime"] = chsrpgrpentry.Chsrpgrplearnedhellotime
-    leafs["cHsrpGrpLearnedHoldTime"] = chsrpgrpentry.Chsrpgrplearnedholdtime
-    leafs["cHsrpGrpVirtualIpAddr"] = chsrpgrpentry.Chsrpgrpvirtualipaddr
-    leafs["cHsrpGrpUseConfigVirtualIpAddr"] = chsrpgrpentry.Chsrpgrpuseconfigvirtualipaddr
-    leafs["cHsrpGrpActiveRouter"] = chsrpgrpentry.Chsrpgrpactiverouter
-    leafs["cHsrpGrpStandbyRouter"] = chsrpgrpentry.Chsrpgrpstandbyrouter
-    leafs["cHsrpGrpStandbyState"] = chsrpgrpentry.Chsrpgrpstandbystate
-    leafs["cHsrpGrpVirtualMacAddr"] = chsrpgrpentry.Chsrpgrpvirtualmacaddr
-    leafs["cHsrpGrpEntryRowStatus"] = chsrpgrpentry.Chsrpgrpentryrowstatus
-    leafs["cHsrpGrpIpNone"] = chsrpgrpentry.Chsrpgrpipnone
-    return leafs
-}
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetYangName() string { return "cHsrpGrpEntry" }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) SetParent(parent types.Entity) { chsrpgrpentry.parent = parent }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetParent() types.Entity { return chsrpgrpentry.parent }
-
-func (chsrpgrpentry *CISCOHSRPMIB_Chsrpgrptable_Chsrpgrpentry) GetParentYangName() string { return "cHsrpGrpTable" }
 

@@ -27,259 +27,120 @@ func init() {
 // Macsec
 // Macsec operational data
 type Macsec struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC Security Entity.
     Secy Macsec_Secy
 }
 
-func (macsec *Macsec) GetFilter() yfilter.YFilter { return macsec.YFilter }
+func (macsec *Macsec) GetEntityData() *types.CommonEntityData {
+    macsec.EntityData.YFilter = macsec.YFilter
+    macsec.EntityData.YangName = "macsec"
+    macsec.EntityData.BundleName = "cisco_ios_xr"
+    macsec.EntityData.ParentYangName = "Cisco-IOS-XR-crypto-macsec-secy-oper"
+    macsec.EntityData.SegmentPath = "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec"
+    macsec.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    macsec.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    macsec.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (macsec *Macsec) SetFilter(yf yfilter.YFilter) { macsec.YFilter = yf }
-
-func (macsec *Macsec) GetGoName(yname string) string {
-    if yname == "secy" { return "Secy" }
-    return ""
+    macsec.EntityData.Children = make(map[string]types.YChild)
+    macsec.EntityData.Children["secy"] = types.YChild{"Secy", &macsec.Secy}
+    macsec.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(macsec.EntityData)
 }
-
-func (macsec *Macsec) GetSegmentPath() string {
-    return "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec"
-}
-
-func (macsec *Macsec) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "secy" {
-        return &macsec.Secy
-    }
-    return nil
-}
-
-func (macsec *Macsec) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["secy"] = &macsec.Secy
-    return children
-}
-
-func (macsec *Macsec) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (macsec *Macsec) GetBundleName() string { return "cisco_ios_xr" }
-
-func (macsec *Macsec) GetYangName() string { return "macsec" }
-
-func (macsec *Macsec) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (macsec *Macsec) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (macsec *Macsec) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (macsec *Macsec) SetParent(parent types.Entity) { macsec.parent = parent }
-
-func (macsec *Macsec) GetParent() types.Entity { return macsec.parent }
-
-func (macsec *Macsec) GetParentYangName() string { return "Cisco-IOS-XR-crypto-macsec-secy-oper" }
 
 // Macsec_Secy
 // MAC Security Entity
 type Macsec_Secy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC Security Data.
     Interfaces Macsec_Secy_Interfaces
 }
 
-func (secy *Macsec_Secy) GetFilter() yfilter.YFilter { return secy.YFilter }
+func (secy *Macsec_Secy) GetEntityData() *types.CommonEntityData {
+    secy.EntityData.YFilter = secy.YFilter
+    secy.EntityData.YangName = "secy"
+    secy.EntityData.BundleName = "cisco_ios_xr"
+    secy.EntityData.ParentYangName = "macsec"
+    secy.EntityData.SegmentPath = "secy"
+    secy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    secy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    secy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (secy *Macsec_Secy) SetFilter(yf yfilter.YFilter) { secy.YFilter = yf }
-
-func (secy *Macsec_Secy) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    secy.EntityData.Children = make(map[string]types.YChild)
+    secy.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &secy.Interfaces}
+    secy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(secy.EntityData)
 }
-
-func (secy *Macsec_Secy) GetSegmentPath() string {
-    return "secy"
-}
-
-func (secy *Macsec_Secy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interfaces" {
-        return &secy.Interfaces
-    }
-    return nil
-}
-
-func (secy *Macsec_Secy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["interfaces"] = &secy.Interfaces
-    return children
-}
-
-func (secy *Macsec_Secy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (secy *Macsec_Secy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (secy *Macsec_Secy) GetYangName() string { return "secy" }
-
-func (secy *Macsec_Secy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (secy *Macsec_Secy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (secy *Macsec_Secy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (secy *Macsec_Secy) SetParent(parent types.Entity) { secy.parent = parent }
-
-func (secy *Macsec_Secy) GetParent() types.Entity { return secy.parent }
-
-func (secy *Macsec_Secy) GetParentYangName() string { return "macsec" }
 
 // Macsec_Secy_Interfaces
 // MAC Security Data
 type Macsec_Secy_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MAC Security Data for the Interface. The type is slice of
-    // Macsec_Secy_Interfaces_Interface.
-    Interface []Macsec_Secy_Interfaces_Interface
+    // Macsec_Secy_Interfaces_Interface_.
+    Interface_ []Macsec_Secy_Interfaces_Interface
 }
 
-func (interfaces *Macsec_Secy_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Macsec_Secy_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "secy"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *Macsec_Secy_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Macsec_Secy_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Macsec_Secy_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Macsec_Secy_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Macsec_Secy_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Macsec_Secy_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Macsec_Secy_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Macsec_Secy_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *Macsec_Secy_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Macsec_Secy_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *Macsec_Secy_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *Macsec_Secy_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *Macsec_Secy_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Macsec_Secy_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Macsec_Secy_Interfaces) GetParentYangName() string { return "secy" }
 
 // Macsec_Secy_Interfaces_Interface
 // MAC Security Data for the Interface
 type Macsec_Secy_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     Name interface{}
 
     // MACsec Stats.
     Stats Macsec_Secy_Interfaces_Interface_Stats
 }
 
-func (self *Macsec_Secy_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Macsec_Secy_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *Macsec_Secy_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "stats" { return "Stats" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["stats"] = types.YChild{"Stats", &self.Stats}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    return &(self.EntityData)
 }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
-}
-
-func (self *Macsec_Secy_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "stats" {
-        return &self.Stats
-    }
-    return nil
-}
-
-func (self *Macsec_Secy_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["stats"] = &self.Stats
-    return children
-}
-
-func (self *Macsec_Secy_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = self.Name
-    return leafs
-}
-
-func (self *Macsec_Secy_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *Macsec_Secy_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Macsec_Secy_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // Macsec_Secy_Interfaces_Interface_Stats
 // MACsec Stats
 type Macsec_Secy_Interfaces_Interface_Stats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Interface stats.
@@ -293,78 +154,31 @@ type Macsec_Secy_Interfaces_Interface_Stats struct {
     RxScStats []Macsec_Secy_Interfaces_Interface_Stats_RxScStats
 }
 
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetFilter() yfilter.YFilter { return stats.YFilter }
+func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetEntityData() *types.CommonEntityData {
+    stats.EntityData.YFilter = stats.YFilter
+    stats.EntityData.YangName = "stats"
+    stats.EntityData.BundleName = "cisco_ios_xr"
+    stats.EntityData.ParentYangName = "interface"
+    stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) SetFilter(yf yfilter.YFilter) { stats.YFilter = yf }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetGoName(yname string) string {
-    if yname == "intf-stats" { return "IntfStats" }
-    if yname == "tx-sc-stats" { return "TxScStats" }
-    if yname == "rx-sc-stats" { return "RxScStats" }
-    return ""
-}
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetSegmentPath() string {
-    return "stats"
-}
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "intf-stats" {
-        return &stats.IntfStats
-    }
-    if childYangName == "tx-sc-stats" {
-        return &stats.TxScStats
-    }
-    if childYangName == "rx-sc-stats" {
-        for _, c := range stats.RxScStats {
-            if stats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Macsec_Secy_Interfaces_Interface_Stats_RxScStats{}
-        stats.RxScStats = append(stats.RxScStats, child)
-        return &stats.RxScStats[len(stats.RxScStats)-1]
-    }
-    return nil
-}
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["intf-stats"] = &stats.IntfStats
-    children["tx-sc-stats"] = &stats.TxScStats
+    stats.EntityData.Children = make(map[string]types.YChild)
+    stats.EntityData.Children["intf-stats"] = types.YChild{"IntfStats", &stats.IntfStats}
+    stats.EntityData.Children["tx-sc-stats"] = types.YChild{"TxScStats", &stats.TxScStats}
+    stats.EntityData.Children["rx-sc-stats"] = types.YChild{"RxScStats", nil}
     for i := range stats.RxScStats {
-        children[stats.RxScStats[i].GetSegmentPath()] = &stats.RxScStats[i]
+        stats.EntityData.Children[types.GetSegmentPath(&stats.RxScStats[i])] = types.YChild{"RxScStats", &stats.RxScStats[i]}
     }
-    return children
+    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(stats.EntityData)
 }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetYangName() string { return "stats" }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) SetParent(parent types.Entity) { stats.parent = parent }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetParent() types.Entity { return stats.parent }
-
-func (stats *Macsec_Secy_Interfaces_Interface_Stats) GetParentYangName() string { return "interface" }
 
 // Macsec_Secy_Interfaces_Interface_Stats_IntfStats
 // Interface stats
 type Macsec_Secy_Interfaces_Interface_Stats_IntfStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // InPktsUntagged. The type is interface{} with range:
@@ -412,78 +226,37 @@ type Macsec_Secy_Interfaces_Interface_Stats_IntfStats struct {
     OutOctetsEncrypted interface{}
 }
 
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetFilter() yfilter.YFilter { return intfStats.YFilter }
+func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetEntityData() *types.CommonEntityData {
+    intfStats.EntityData.YFilter = intfStats.YFilter
+    intfStats.EntityData.YangName = "intf-stats"
+    intfStats.EntityData.BundleName = "cisco_ios_xr"
+    intfStats.EntityData.ParentYangName = "stats"
+    intfStats.EntityData.SegmentPath = "intf-stats"
+    intfStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intfStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intfStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) SetFilter(yf yfilter.YFilter) { intfStats.YFilter = yf }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetGoName(yname string) string {
-    if yname == "in-pkts-untagged" { return "InPktsUntagged" }
-    if yname == "in-pkts-no-tag" { return "InPktsNoTag" }
-    if yname == "in-pkts-bad-tag" { return "InPktsBadTag" }
-    if yname == "in-pkts-unknown-sci" { return "InPktsUnknownSci" }
-    if yname == "in-pkts-no-sci" { return "InPktsNoSci" }
-    if yname == "in-pkts-overrun" { return "InPktsOverrun" }
-    if yname == "in-octets-validated" { return "InOctetsValidated" }
-    if yname == "in-octets-decrypted" { return "InOctetsDecrypted" }
-    if yname == "out-pkts-untagged" { return "OutPktsUntagged" }
-    if yname == "out-pkts-too-long" { return "OutPktsTooLong" }
-    if yname == "out-octets-protected" { return "OutOctetsProtected" }
-    if yname == "out-octets-encrypted" { return "OutOctetsEncrypted" }
-    return ""
+    intfStats.EntityData.Children = make(map[string]types.YChild)
+    intfStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    intfStats.EntityData.Leafs["in-pkts-untagged"] = types.YLeaf{"InPktsUntagged", intfStats.InPktsUntagged}
+    intfStats.EntityData.Leafs["in-pkts-no-tag"] = types.YLeaf{"InPktsNoTag", intfStats.InPktsNoTag}
+    intfStats.EntityData.Leafs["in-pkts-bad-tag"] = types.YLeaf{"InPktsBadTag", intfStats.InPktsBadTag}
+    intfStats.EntityData.Leafs["in-pkts-unknown-sci"] = types.YLeaf{"InPktsUnknownSci", intfStats.InPktsUnknownSci}
+    intfStats.EntityData.Leafs["in-pkts-no-sci"] = types.YLeaf{"InPktsNoSci", intfStats.InPktsNoSci}
+    intfStats.EntityData.Leafs["in-pkts-overrun"] = types.YLeaf{"InPktsOverrun", intfStats.InPktsOverrun}
+    intfStats.EntityData.Leafs["in-octets-validated"] = types.YLeaf{"InOctetsValidated", intfStats.InOctetsValidated}
+    intfStats.EntityData.Leafs["in-octets-decrypted"] = types.YLeaf{"InOctetsDecrypted", intfStats.InOctetsDecrypted}
+    intfStats.EntityData.Leafs["out-pkts-untagged"] = types.YLeaf{"OutPktsUntagged", intfStats.OutPktsUntagged}
+    intfStats.EntityData.Leafs["out-pkts-too-long"] = types.YLeaf{"OutPktsTooLong", intfStats.OutPktsTooLong}
+    intfStats.EntityData.Leafs["out-octets-protected"] = types.YLeaf{"OutOctetsProtected", intfStats.OutOctetsProtected}
+    intfStats.EntityData.Leafs["out-octets-encrypted"] = types.YLeaf{"OutOctetsEncrypted", intfStats.OutOctetsEncrypted}
+    return &(intfStats.EntityData)
 }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetSegmentPath() string {
-    return "intf-stats"
-}
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in-pkts-untagged"] = intfStats.InPktsUntagged
-    leafs["in-pkts-no-tag"] = intfStats.InPktsNoTag
-    leafs["in-pkts-bad-tag"] = intfStats.InPktsBadTag
-    leafs["in-pkts-unknown-sci"] = intfStats.InPktsUnknownSci
-    leafs["in-pkts-no-sci"] = intfStats.InPktsNoSci
-    leafs["in-pkts-overrun"] = intfStats.InPktsOverrun
-    leafs["in-octets-validated"] = intfStats.InOctetsValidated
-    leafs["in-octets-decrypted"] = intfStats.InOctetsDecrypted
-    leafs["out-pkts-untagged"] = intfStats.OutPktsUntagged
-    leafs["out-pkts-too-long"] = intfStats.OutPktsTooLong
-    leafs["out-octets-protected"] = intfStats.OutOctetsProtected
-    leafs["out-octets-encrypted"] = intfStats.OutOctetsEncrypted
-    return leafs
-}
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetYangName() string { return "intf-stats" }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) SetParent(parent types.Entity) { intfStats.parent = parent }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetParent() types.Entity { return intfStats.parent }
-
-func (intfStats *Macsec_Secy_Interfaces_Interface_Stats_IntfStats) GetParentYangName() string { return "stats" }
 
 // Macsec_Secy_Interfaces_Interface_Stats_TxScStats
 // Tx SC Stats
 type Macsec_Secy_Interfaces_Interface_Stats_TxScStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tx SCI. The type is interface{} with range: 0..18446744073709551615.
@@ -514,80 +287,35 @@ type Macsec_Secy_Interfaces_Interface_Stats_TxScStats struct {
     TxsaStat []Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat
 }
 
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetFilter() yfilter.YFilter { return txScStats.YFilter }
+func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetEntityData() *types.CommonEntityData {
+    txScStats.EntityData.YFilter = txScStats.YFilter
+    txScStats.EntityData.YangName = "tx-sc-stats"
+    txScStats.EntityData.BundleName = "cisco_ios_xr"
+    txScStats.EntityData.ParentYangName = "stats"
+    txScStats.EntityData.SegmentPath = "tx-sc-stats"
+    txScStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txScStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txScStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) SetFilter(yf yfilter.YFilter) { txScStats.YFilter = yf }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetGoName(yname string) string {
-    if yname == "tx-sci" { return "TxSci" }
-    if yname == "out-pkts-protected" { return "OutPktsProtected" }
-    if yname == "out-pkts-encrypted" { return "OutPktsEncrypted" }
-    if yname == "out-octets-protected" { return "OutOctetsProtected" }
-    if yname == "out-octets-encrypted" { return "OutOctetsEncrypted" }
-    if yname == "out-pkts-too-long" { return "OutPktsTooLong" }
-    if yname == "txsa-stat" { return "TxsaStat" }
-    return ""
-}
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetSegmentPath() string {
-    return "tx-sc-stats"
-}
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "txsa-stat" {
-        for _, c := range txScStats.TxsaStat {
-            if txScStats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat{}
-        txScStats.TxsaStat = append(txScStats.TxsaStat, child)
-        return &txScStats.TxsaStat[len(txScStats.TxsaStat)-1]
-    }
-    return nil
-}
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    txScStats.EntityData.Children = make(map[string]types.YChild)
+    txScStats.EntityData.Children["txsa-stat"] = types.YChild{"TxsaStat", nil}
     for i := range txScStats.TxsaStat {
-        children[txScStats.TxsaStat[i].GetSegmentPath()] = &txScStats.TxsaStat[i]
+        txScStats.EntityData.Children[types.GetSegmentPath(&txScStats.TxsaStat[i])] = types.YChild{"TxsaStat", &txScStats.TxsaStat[i]}
     }
-    return children
+    txScStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    txScStats.EntityData.Leafs["tx-sci"] = types.YLeaf{"TxSci", txScStats.TxSci}
+    txScStats.EntityData.Leafs["out-pkts-protected"] = types.YLeaf{"OutPktsProtected", txScStats.OutPktsProtected}
+    txScStats.EntityData.Leafs["out-pkts-encrypted"] = types.YLeaf{"OutPktsEncrypted", txScStats.OutPktsEncrypted}
+    txScStats.EntityData.Leafs["out-octets-protected"] = types.YLeaf{"OutOctetsProtected", txScStats.OutOctetsProtected}
+    txScStats.EntityData.Leafs["out-octets-encrypted"] = types.YLeaf{"OutOctetsEncrypted", txScStats.OutOctetsEncrypted}
+    txScStats.EntityData.Leafs["out-pkts-too-long"] = types.YLeaf{"OutPktsTooLong", txScStats.OutPktsTooLong}
+    return &(txScStats.EntityData)
 }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tx-sci"] = txScStats.TxSci
-    leafs["out-pkts-protected"] = txScStats.OutPktsProtected
-    leafs["out-pkts-encrypted"] = txScStats.OutPktsEncrypted
-    leafs["out-octets-protected"] = txScStats.OutOctetsProtected
-    leafs["out-octets-encrypted"] = txScStats.OutOctetsEncrypted
-    leafs["out-pkts-too-long"] = txScStats.OutPktsTooLong
-    return leafs
-}
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetYangName() string { return "tx-sc-stats" }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) SetParent(parent types.Entity) { txScStats.parent = parent }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetParent() types.Entity { return txScStats.parent }
-
-func (txScStats *Macsec_Secy_Interfaces_Interface_Stats_TxScStats) GetParentYangName() string { return "stats" }
 
 // Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat
 // tx sa stats
 type Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OutPktsProtected. The type is interface{} with range:
@@ -602,60 +330,28 @@ type Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat struct {
     NextPn interface{}
 }
 
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetFilter() yfilter.YFilter { return txsaStat.YFilter }
+func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetEntityData() *types.CommonEntityData {
+    txsaStat.EntityData.YFilter = txsaStat.YFilter
+    txsaStat.EntityData.YangName = "txsa-stat"
+    txsaStat.EntityData.BundleName = "cisco_ios_xr"
+    txsaStat.EntityData.ParentYangName = "tx-sc-stats"
+    txsaStat.EntityData.SegmentPath = "txsa-stat"
+    txsaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txsaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txsaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) SetFilter(yf yfilter.YFilter) { txsaStat.YFilter = yf }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetGoName(yname string) string {
-    if yname == "out-pkts-protected" { return "OutPktsProtected" }
-    if yname == "out-pkts-encrypted" { return "OutPktsEncrypted" }
-    if yname == "next-pn" { return "NextPn" }
-    return ""
+    txsaStat.EntityData.Children = make(map[string]types.YChild)
+    txsaStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    txsaStat.EntityData.Leafs["out-pkts-protected"] = types.YLeaf{"OutPktsProtected", txsaStat.OutPktsProtected}
+    txsaStat.EntityData.Leafs["out-pkts-encrypted"] = types.YLeaf{"OutPktsEncrypted", txsaStat.OutPktsEncrypted}
+    txsaStat.EntityData.Leafs["next-pn"] = types.YLeaf{"NextPn", txsaStat.NextPn}
+    return &(txsaStat.EntityData)
 }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetSegmentPath() string {
-    return "txsa-stat"
-}
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["out-pkts-protected"] = txsaStat.OutPktsProtected
-    leafs["out-pkts-encrypted"] = txsaStat.OutPktsEncrypted
-    leafs["next-pn"] = txsaStat.NextPn
-    return leafs
-}
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetYangName() string { return "txsa-stat" }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) SetParent(parent types.Entity) { txsaStat.parent = parent }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetParent() types.Entity { return txsaStat.parent }
-
-func (txsaStat *Macsec_Secy_Interfaces_Interface_Stats_TxScStats_TxsaStat) GetParentYangName() string { return "tx-sc-stats" }
 
 // Macsec_Secy_Interfaces_Interface_Stats_RxScStats
 // RX SC Stats List
 type Macsec_Secy_Interfaces_Interface_Stats_RxScStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rx SCI. The type is interface{} with range: 0..18446744073709551615.
@@ -706,92 +402,41 @@ type Macsec_Secy_Interfaces_Interface_Stats_RxScStats struct {
     RxsaStat []Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat
 }
 
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetFilter() yfilter.YFilter { return rxScStats.YFilter }
+func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetEntityData() *types.CommonEntityData {
+    rxScStats.EntityData.YFilter = rxScStats.YFilter
+    rxScStats.EntityData.YangName = "rx-sc-stats"
+    rxScStats.EntityData.BundleName = "cisco_ios_xr"
+    rxScStats.EntityData.ParentYangName = "stats"
+    rxScStats.EntityData.SegmentPath = "rx-sc-stats"
+    rxScStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxScStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxScStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) SetFilter(yf yfilter.YFilter) { rxScStats.YFilter = yf }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetGoName(yname string) string {
-    if yname == "rx-sci" { return "RxSci" }
-    if yname == "in-pkts-unchecked" { return "InPktsUnchecked" }
-    if yname == "in-pkts-delayed" { return "InPktsDelayed" }
-    if yname == "in-pkts-late" { return "InPktsLate" }
-    if yname == "in-pkts-ok" { return "InPktsOk" }
-    if yname == "in-pkts-invalid" { return "InPktsInvalid" }
-    if yname == "in-pkts-not-valid" { return "InPktsNotValid" }
-    if yname == "in-pkts-not-using-sa" { return "InPktsNotUsingSa" }
-    if yname == "in-pkts-unused-sa" { return "InPktsUnusedSa" }
-    if yname == "in-pkts-untagged-hit" { return "InPktsUntaggedHit" }
-    if yname == "in-octets-validated" { return "InOctetsValidated" }
-    if yname == "in-octets-decrypted" { return "InOctetsDecrypted" }
-    if yname == "rxsa-stat" { return "RxsaStat" }
-    return ""
-}
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetSegmentPath() string {
-    return "rx-sc-stats"
-}
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rxsa-stat" {
-        for _, c := range rxScStats.RxsaStat {
-            if rxScStats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat{}
-        rxScStats.RxsaStat = append(rxScStats.RxsaStat, child)
-        return &rxScStats.RxsaStat[len(rxScStats.RxsaStat)-1]
-    }
-    return nil
-}
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rxScStats.EntityData.Children = make(map[string]types.YChild)
+    rxScStats.EntityData.Children["rxsa-stat"] = types.YChild{"RxsaStat", nil}
     for i := range rxScStats.RxsaStat {
-        children[rxScStats.RxsaStat[i].GetSegmentPath()] = &rxScStats.RxsaStat[i]
+        rxScStats.EntityData.Children[types.GetSegmentPath(&rxScStats.RxsaStat[i])] = types.YChild{"RxsaStat", &rxScStats.RxsaStat[i]}
     }
-    return children
+    rxScStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxScStats.EntityData.Leafs["rx-sci"] = types.YLeaf{"RxSci", rxScStats.RxSci}
+    rxScStats.EntityData.Leafs["in-pkts-unchecked"] = types.YLeaf{"InPktsUnchecked", rxScStats.InPktsUnchecked}
+    rxScStats.EntityData.Leafs["in-pkts-delayed"] = types.YLeaf{"InPktsDelayed", rxScStats.InPktsDelayed}
+    rxScStats.EntityData.Leafs["in-pkts-late"] = types.YLeaf{"InPktsLate", rxScStats.InPktsLate}
+    rxScStats.EntityData.Leafs["in-pkts-ok"] = types.YLeaf{"InPktsOk", rxScStats.InPktsOk}
+    rxScStats.EntityData.Leafs["in-pkts-invalid"] = types.YLeaf{"InPktsInvalid", rxScStats.InPktsInvalid}
+    rxScStats.EntityData.Leafs["in-pkts-not-valid"] = types.YLeaf{"InPktsNotValid", rxScStats.InPktsNotValid}
+    rxScStats.EntityData.Leafs["in-pkts-not-using-sa"] = types.YLeaf{"InPktsNotUsingSa", rxScStats.InPktsNotUsingSa}
+    rxScStats.EntityData.Leafs["in-pkts-unused-sa"] = types.YLeaf{"InPktsUnusedSa", rxScStats.InPktsUnusedSa}
+    rxScStats.EntityData.Leafs["in-pkts-untagged-hit"] = types.YLeaf{"InPktsUntaggedHit", rxScStats.InPktsUntaggedHit}
+    rxScStats.EntityData.Leafs["in-octets-validated"] = types.YLeaf{"InOctetsValidated", rxScStats.InOctetsValidated}
+    rxScStats.EntityData.Leafs["in-octets-decrypted"] = types.YLeaf{"InOctetsDecrypted", rxScStats.InOctetsDecrypted}
+    return &(rxScStats.EntityData)
 }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rx-sci"] = rxScStats.RxSci
-    leafs["in-pkts-unchecked"] = rxScStats.InPktsUnchecked
-    leafs["in-pkts-delayed"] = rxScStats.InPktsDelayed
-    leafs["in-pkts-late"] = rxScStats.InPktsLate
-    leafs["in-pkts-ok"] = rxScStats.InPktsOk
-    leafs["in-pkts-invalid"] = rxScStats.InPktsInvalid
-    leafs["in-pkts-not-valid"] = rxScStats.InPktsNotValid
-    leafs["in-pkts-not-using-sa"] = rxScStats.InPktsNotUsingSa
-    leafs["in-pkts-unused-sa"] = rxScStats.InPktsUnusedSa
-    leafs["in-pkts-untagged-hit"] = rxScStats.InPktsUntaggedHit
-    leafs["in-octets-validated"] = rxScStats.InOctetsValidated
-    leafs["in-octets-decrypted"] = rxScStats.InOctetsDecrypted
-    return leafs
-}
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetYangName() string { return "rx-sc-stats" }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) SetParent(parent types.Entity) { rxScStats.parent = parent }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetParent() types.Entity { return rxScStats.parent }
-
-func (rxScStats *Macsec_Secy_Interfaces_Interface_Stats_RxScStats) GetParentYangName() string { return "stats" }
 
 // Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat
 // rxsa stats
 type Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // InPktsOK. The type is interface{} with range: 0..18446744073709551615.
@@ -816,59 +461,24 @@ type Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat struct {
     NextPn interface{}
 }
 
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetFilter() yfilter.YFilter { return rxsaStat.YFilter }
+func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetEntityData() *types.CommonEntityData {
+    rxsaStat.EntityData.YFilter = rxsaStat.YFilter
+    rxsaStat.EntityData.YangName = "rxsa-stat"
+    rxsaStat.EntityData.BundleName = "cisco_ios_xr"
+    rxsaStat.EntityData.ParentYangName = "rx-sc-stats"
+    rxsaStat.EntityData.SegmentPath = "rxsa-stat"
+    rxsaStat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxsaStat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxsaStat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) SetFilter(yf yfilter.YFilter) { rxsaStat.YFilter = yf }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetGoName(yname string) string {
-    if yname == "in-pkts-ok" { return "InPktsOk" }
-    if yname == "in-pkts-invalid" { return "InPktsInvalid" }
-    if yname == "in-pkts-not-valid" { return "InPktsNotValid" }
-    if yname == "in-pkts-not-using-sa" { return "InPktsNotUsingSa" }
-    if yname == "in-pkts-unused-sa" { return "InPktsUnusedSa" }
-    if yname == "next-pn" { return "NextPn" }
-    return ""
+    rxsaStat.EntityData.Children = make(map[string]types.YChild)
+    rxsaStat.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxsaStat.EntityData.Leafs["in-pkts-ok"] = types.YLeaf{"InPktsOk", rxsaStat.InPktsOk}
+    rxsaStat.EntityData.Leafs["in-pkts-invalid"] = types.YLeaf{"InPktsInvalid", rxsaStat.InPktsInvalid}
+    rxsaStat.EntityData.Leafs["in-pkts-not-valid"] = types.YLeaf{"InPktsNotValid", rxsaStat.InPktsNotValid}
+    rxsaStat.EntityData.Leafs["in-pkts-not-using-sa"] = types.YLeaf{"InPktsNotUsingSa", rxsaStat.InPktsNotUsingSa}
+    rxsaStat.EntityData.Leafs["in-pkts-unused-sa"] = types.YLeaf{"InPktsUnusedSa", rxsaStat.InPktsUnusedSa}
+    rxsaStat.EntityData.Leafs["next-pn"] = types.YLeaf{"NextPn", rxsaStat.NextPn}
+    return &(rxsaStat.EntityData)
 }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetSegmentPath() string {
-    return "rxsa-stat"
-}
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["in-pkts-ok"] = rxsaStat.InPktsOk
-    leafs["in-pkts-invalid"] = rxsaStat.InPktsInvalid
-    leafs["in-pkts-not-valid"] = rxsaStat.InPktsNotValid
-    leafs["in-pkts-not-using-sa"] = rxsaStat.InPktsNotUsingSa
-    leafs["in-pkts-unused-sa"] = rxsaStat.InPktsUnusedSa
-    leafs["next-pn"] = rxsaStat.NextPn
-    return leafs
-}
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetYangName() string { return "rxsa-stat" }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) SetParent(parent types.Entity) { rxsaStat.parent = parent }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetParent() types.Entity { return rxsaStat.parent }
-
-func (rxsaStat *Macsec_Secy_Interfaces_Interface_Stats_RxScStats_RxsaStat) GetParentYangName() string { return "rx-sc-stats" }
 

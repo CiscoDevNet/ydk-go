@@ -164,7 +164,7 @@ func init() {
 
 // CISCORTTMONMIB
 type CISCORTTMONMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -378,173 +378,48 @@ type CISCORTTMONMIB struct {
     Rttmonlatestjitteropertable CISCORTTMONMIB_Rttmonlatestjitteropertable
 }
 
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetFilter() yfilter.YFilter { return cISCORTTMONMIB.YFilter }
+func (cISCORTTMONMIB *CISCORTTMONMIB) GetEntityData() *types.CommonEntityData {
+    cISCORTTMONMIB.EntityData.YFilter = cISCORTTMONMIB.YFilter
+    cISCORTTMONMIB.EntityData.YangName = "CISCO-RTTMON-MIB"
+    cISCORTTMONMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCORTTMONMIB.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    cISCORTTMONMIB.EntityData.SegmentPath = "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB"
+    cISCORTTMONMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCORTTMONMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCORTTMONMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCORTTMONMIB *CISCORTTMONMIB) SetFilter(yf yfilter.YFilter) { cISCORTTMONMIB.YFilter = yf }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetGoName(yname string) string {
-    if yname == "rttMonAppl" { return "Rttmonappl" }
-    if yname == "rttMonApplSupportedRttTypesTable" { return "Rttmonapplsupportedrtttypestable" }
-    if yname == "rttMonApplSupportedProtocolsTable" { return "Rttmonapplsupportedprotocolstable" }
-    if yname == "rttMonApplPreConfigedTable" { return "Rttmonapplpreconfigedtable" }
-    if yname == "rttMonApplAuthTable" { return "Rttmonapplauthtable" }
-    if yname == "rttMonCtrlAdminTable" { return "Rttmonctrladmintable" }
-    if yname == "rttMonEchoAdminTable" { return "Rttmonechoadmintable" }
-    if yname == "rttMonFileIOAdminTable" { return "Rttmonfileioadmintable" }
-    if yname == "rttMonScriptAdminTable" { return "Rttmonscriptadmintable" }
-    if yname == "rttMonReactTriggerAdminTable" { return "Rttmonreacttriggeradmintable" }
-    if yname == "rttMonEchoPathAdminTable" { return "Rttmonechopathadmintable" }
-    if yname == "rttMonGrpScheduleAdminTable" { return "Rttmongrpscheduleadmintable" }
-    if yname == "rttMplsVpnMonCtrlTable" { return "Rttmplsvpnmonctrltable" }
-    if yname == "rttMonReactTable" { return "Rttmonreacttable" }
-    if yname == "rttMonGeneratedOperTable" { return "Rttmongeneratedopertable" }
-    if yname == "rttMonStatsCaptureTable" { return "Rttmonstatscapturetable" }
-    if yname == "rttMonStatsCollectTable" { return "Rttmonstatscollecttable" }
-    if yname == "rttMonStatsTotalsTable" { return "Rttmonstatstotalstable" }
-    if yname == "rttMonHTTPStatsTable" { return "Rttmonhttpstatstable" }
-    if yname == "rttMonJitterStatsTable" { return "Rttmonjitterstatstable" }
-    if yname == "rttMonLpdGrpStatsTable" { return "Rttmonlpdgrpstatstable" }
-    if yname == "rttMonHistoryCollectionTable" { return "Rttmonhistorycollectiontable" }
-    if yname == "rttMonLatestHTTPOperTable" { return "Rttmonlatesthttpopertable" }
-    if yname == "rttMonLatestJitterOperTable" { return "Rttmonlatestjitteropertable" }
-    return ""
+    cISCORTTMONMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCORTTMONMIB.EntityData.Children["rttMonAppl"] = types.YChild{"Rttmonappl", &cISCORTTMONMIB.Rttmonappl}
+    cISCORTTMONMIB.EntityData.Children["rttMonApplSupportedRttTypesTable"] = types.YChild{"Rttmonapplsupportedrtttypestable", &cISCORTTMONMIB.Rttmonapplsupportedrtttypestable}
+    cISCORTTMONMIB.EntityData.Children["rttMonApplSupportedProtocolsTable"] = types.YChild{"Rttmonapplsupportedprotocolstable", &cISCORTTMONMIB.Rttmonapplsupportedprotocolstable}
+    cISCORTTMONMIB.EntityData.Children["rttMonApplPreConfigedTable"] = types.YChild{"Rttmonapplpreconfigedtable", &cISCORTTMONMIB.Rttmonapplpreconfigedtable}
+    cISCORTTMONMIB.EntityData.Children["rttMonApplAuthTable"] = types.YChild{"Rttmonapplauthtable", &cISCORTTMONMIB.Rttmonapplauthtable}
+    cISCORTTMONMIB.EntityData.Children["rttMonCtrlAdminTable"] = types.YChild{"Rttmonctrladmintable", &cISCORTTMONMIB.Rttmonctrladmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMonEchoAdminTable"] = types.YChild{"Rttmonechoadmintable", &cISCORTTMONMIB.Rttmonechoadmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMonFileIOAdminTable"] = types.YChild{"Rttmonfileioadmintable", &cISCORTTMONMIB.Rttmonfileioadmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMonScriptAdminTable"] = types.YChild{"Rttmonscriptadmintable", &cISCORTTMONMIB.Rttmonscriptadmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMonReactTriggerAdminTable"] = types.YChild{"Rttmonreacttriggeradmintable", &cISCORTTMONMIB.Rttmonreacttriggeradmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMonEchoPathAdminTable"] = types.YChild{"Rttmonechopathadmintable", &cISCORTTMONMIB.Rttmonechopathadmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMonGrpScheduleAdminTable"] = types.YChild{"Rttmongrpscheduleadmintable", &cISCORTTMONMIB.Rttmongrpscheduleadmintable}
+    cISCORTTMONMIB.EntityData.Children["rttMplsVpnMonCtrlTable"] = types.YChild{"Rttmplsvpnmonctrltable", &cISCORTTMONMIB.Rttmplsvpnmonctrltable}
+    cISCORTTMONMIB.EntityData.Children["rttMonReactTable"] = types.YChild{"Rttmonreacttable", &cISCORTTMONMIB.Rttmonreacttable}
+    cISCORTTMONMIB.EntityData.Children["rttMonGeneratedOperTable"] = types.YChild{"Rttmongeneratedopertable", &cISCORTTMONMIB.Rttmongeneratedopertable}
+    cISCORTTMONMIB.EntityData.Children["rttMonStatsCaptureTable"] = types.YChild{"Rttmonstatscapturetable", &cISCORTTMONMIB.Rttmonstatscapturetable}
+    cISCORTTMONMIB.EntityData.Children["rttMonStatsCollectTable"] = types.YChild{"Rttmonstatscollecttable", &cISCORTTMONMIB.Rttmonstatscollecttable}
+    cISCORTTMONMIB.EntityData.Children["rttMonStatsTotalsTable"] = types.YChild{"Rttmonstatstotalstable", &cISCORTTMONMIB.Rttmonstatstotalstable}
+    cISCORTTMONMIB.EntityData.Children["rttMonHTTPStatsTable"] = types.YChild{"Rttmonhttpstatstable", &cISCORTTMONMIB.Rttmonhttpstatstable}
+    cISCORTTMONMIB.EntityData.Children["rttMonJitterStatsTable"] = types.YChild{"Rttmonjitterstatstable", &cISCORTTMONMIB.Rttmonjitterstatstable}
+    cISCORTTMONMIB.EntityData.Children["rttMonLpdGrpStatsTable"] = types.YChild{"Rttmonlpdgrpstatstable", &cISCORTTMONMIB.Rttmonlpdgrpstatstable}
+    cISCORTTMONMIB.EntityData.Children["rttMonHistoryCollectionTable"] = types.YChild{"Rttmonhistorycollectiontable", &cISCORTTMONMIB.Rttmonhistorycollectiontable}
+    cISCORTTMONMIB.EntityData.Children["rttMonLatestHTTPOperTable"] = types.YChild{"Rttmonlatesthttpopertable", &cISCORTTMONMIB.Rttmonlatesthttpopertable}
+    cISCORTTMONMIB.EntityData.Children["rttMonLatestJitterOperTable"] = types.YChild{"Rttmonlatestjitteropertable", &cISCORTTMONMIB.Rttmonlatestjitteropertable}
+    cISCORTTMONMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCORTTMONMIB.EntityData)
 }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetSegmentPath() string {
-    return "CISCO-RTTMON-MIB:CISCO-RTTMON-MIB"
-}
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonAppl" {
-        return &cISCORTTMONMIB.Rttmonappl
-    }
-    if childYangName == "rttMonApplSupportedRttTypesTable" {
-        return &cISCORTTMONMIB.Rttmonapplsupportedrtttypestable
-    }
-    if childYangName == "rttMonApplSupportedProtocolsTable" {
-        return &cISCORTTMONMIB.Rttmonapplsupportedprotocolstable
-    }
-    if childYangName == "rttMonApplPreConfigedTable" {
-        return &cISCORTTMONMIB.Rttmonapplpreconfigedtable
-    }
-    if childYangName == "rttMonApplAuthTable" {
-        return &cISCORTTMONMIB.Rttmonapplauthtable
-    }
-    if childYangName == "rttMonCtrlAdminTable" {
-        return &cISCORTTMONMIB.Rttmonctrladmintable
-    }
-    if childYangName == "rttMonEchoAdminTable" {
-        return &cISCORTTMONMIB.Rttmonechoadmintable
-    }
-    if childYangName == "rttMonFileIOAdminTable" {
-        return &cISCORTTMONMIB.Rttmonfileioadmintable
-    }
-    if childYangName == "rttMonScriptAdminTable" {
-        return &cISCORTTMONMIB.Rttmonscriptadmintable
-    }
-    if childYangName == "rttMonReactTriggerAdminTable" {
-        return &cISCORTTMONMIB.Rttmonreacttriggeradmintable
-    }
-    if childYangName == "rttMonEchoPathAdminTable" {
-        return &cISCORTTMONMIB.Rttmonechopathadmintable
-    }
-    if childYangName == "rttMonGrpScheduleAdminTable" {
-        return &cISCORTTMONMIB.Rttmongrpscheduleadmintable
-    }
-    if childYangName == "rttMplsVpnMonCtrlTable" {
-        return &cISCORTTMONMIB.Rttmplsvpnmonctrltable
-    }
-    if childYangName == "rttMonReactTable" {
-        return &cISCORTTMONMIB.Rttmonreacttable
-    }
-    if childYangName == "rttMonGeneratedOperTable" {
-        return &cISCORTTMONMIB.Rttmongeneratedopertable
-    }
-    if childYangName == "rttMonStatsCaptureTable" {
-        return &cISCORTTMONMIB.Rttmonstatscapturetable
-    }
-    if childYangName == "rttMonStatsCollectTable" {
-        return &cISCORTTMONMIB.Rttmonstatscollecttable
-    }
-    if childYangName == "rttMonStatsTotalsTable" {
-        return &cISCORTTMONMIB.Rttmonstatstotalstable
-    }
-    if childYangName == "rttMonHTTPStatsTable" {
-        return &cISCORTTMONMIB.Rttmonhttpstatstable
-    }
-    if childYangName == "rttMonJitterStatsTable" {
-        return &cISCORTTMONMIB.Rttmonjitterstatstable
-    }
-    if childYangName == "rttMonLpdGrpStatsTable" {
-        return &cISCORTTMONMIB.Rttmonlpdgrpstatstable
-    }
-    if childYangName == "rttMonHistoryCollectionTable" {
-        return &cISCORTTMONMIB.Rttmonhistorycollectiontable
-    }
-    if childYangName == "rttMonLatestHTTPOperTable" {
-        return &cISCORTTMONMIB.Rttmonlatesthttpopertable
-    }
-    if childYangName == "rttMonLatestJitterOperTable" {
-        return &cISCORTTMONMIB.Rttmonlatestjitteropertable
-    }
-    return nil
-}
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rttMonAppl"] = &cISCORTTMONMIB.Rttmonappl
-    children["rttMonApplSupportedRttTypesTable"] = &cISCORTTMONMIB.Rttmonapplsupportedrtttypestable
-    children["rttMonApplSupportedProtocolsTable"] = &cISCORTTMONMIB.Rttmonapplsupportedprotocolstable
-    children["rttMonApplPreConfigedTable"] = &cISCORTTMONMIB.Rttmonapplpreconfigedtable
-    children["rttMonApplAuthTable"] = &cISCORTTMONMIB.Rttmonapplauthtable
-    children["rttMonCtrlAdminTable"] = &cISCORTTMONMIB.Rttmonctrladmintable
-    children["rttMonEchoAdminTable"] = &cISCORTTMONMIB.Rttmonechoadmintable
-    children["rttMonFileIOAdminTable"] = &cISCORTTMONMIB.Rttmonfileioadmintable
-    children["rttMonScriptAdminTable"] = &cISCORTTMONMIB.Rttmonscriptadmintable
-    children["rttMonReactTriggerAdminTable"] = &cISCORTTMONMIB.Rttmonreacttriggeradmintable
-    children["rttMonEchoPathAdminTable"] = &cISCORTTMONMIB.Rttmonechopathadmintable
-    children["rttMonGrpScheduleAdminTable"] = &cISCORTTMONMIB.Rttmongrpscheduleadmintable
-    children["rttMplsVpnMonCtrlTable"] = &cISCORTTMONMIB.Rttmplsvpnmonctrltable
-    children["rttMonReactTable"] = &cISCORTTMONMIB.Rttmonreacttable
-    children["rttMonGeneratedOperTable"] = &cISCORTTMONMIB.Rttmongeneratedopertable
-    children["rttMonStatsCaptureTable"] = &cISCORTTMONMIB.Rttmonstatscapturetable
-    children["rttMonStatsCollectTable"] = &cISCORTTMONMIB.Rttmonstatscollecttable
-    children["rttMonStatsTotalsTable"] = &cISCORTTMONMIB.Rttmonstatstotalstable
-    children["rttMonHTTPStatsTable"] = &cISCORTTMONMIB.Rttmonhttpstatstable
-    children["rttMonJitterStatsTable"] = &cISCORTTMONMIB.Rttmonjitterstatstable
-    children["rttMonLpdGrpStatsTable"] = &cISCORTTMONMIB.Rttmonlpdgrpstatstable
-    children["rttMonHistoryCollectionTable"] = &cISCORTTMONMIB.Rttmonhistorycollectiontable
-    children["rttMonLatestHTTPOperTable"] = &cISCORTTMONMIB.Rttmonlatesthttpopertable
-    children["rttMonLatestJitterOperTable"] = &cISCORTTMONMIB.Rttmonlatestjitteropertable
-    return children
-}
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetYangName() string { return "CISCO-RTTMON-MIB" }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) SetParent(parent types.Entity) { cISCORTTMONMIB.parent = parent }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetParent() types.Entity { return cISCORTTMONMIB.parent }
-
-func (cISCORTTMONMIB *CISCORTTMONMIB) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonappl
 type CISCORTTMONMIB_Rttmonappl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Round Trip Time monitoring application version string.  The format will be:
@@ -628,71 +503,31 @@ type CISCORTTMONMIB_Rttmonappl struct {
     Rttmonappllpdgrpstatsreset interface{}
 }
 
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetFilter() yfilter.YFilter { return rttmonappl.YFilter }
+func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetEntityData() *types.CommonEntityData {
+    rttmonappl.EntityData.YFilter = rttmonappl.YFilter
+    rttmonappl.EntityData.YangName = "rttMonAppl"
+    rttmonappl.EntityData.BundleName = "cisco_ios_xe"
+    rttmonappl.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonappl.EntityData.SegmentPath = "rttMonAppl"
+    rttmonappl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonappl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonappl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) SetFilter(yf yfilter.YFilter) { rttmonappl.YFilter = yf }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetGoName(yname string) string {
-    if yname == "rttMonApplVersion" { return "Rttmonapplversion" }
-    if yname == "rttMonApplMaxPacketDataSize" { return "Rttmonapplmaxpacketdatasize" }
-    if yname == "rttMonApplTimeOfLastSet" { return "Rttmonappltimeoflastset" }
-    if yname == "rttMonApplNumCtrlAdminEntry" { return "Rttmonapplnumctrladminentry" }
-    if yname == "rttMonApplReset" { return "Rttmonapplreset" }
-    if yname == "rttMonApplPreConfigedReset" { return "Rttmonapplpreconfigedreset" }
-    if yname == "rttMonApplProbeCapacity" { return "Rttmonapplprobecapacity" }
-    if yname == "rttMonApplFreeMemLowWaterMark" { return "Rttmonapplfreememlowwatermark" }
-    if yname == "rttMonApplLatestSetError" { return "Rttmonappllatestseterror" }
-    if yname == "rttMonApplResponder" { return "Rttmonapplresponder" }
-    if yname == "rttMonApplLpdGrpStatsReset" { return "Rttmonappllpdgrpstatsreset" }
-    return ""
+    rttmonappl.EntityData.Children = make(map[string]types.YChild)
+    rttmonappl.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonappl.EntityData.Leafs["rttMonApplVersion"] = types.YLeaf{"Rttmonapplversion", rttmonappl.Rttmonapplversion}
+    rttmonappl.EntityData.Leafs["rttMonApplMaxPacketDataSize"] = types.YLeaf{"Rttmonapplmaxpacketdatasize", rttmonappl.Rttmonapplmaxpacketdatasize}
+    rttmonappl.EntityData.Leafs["rttMonApplTimeOfLastSet"] = types.YLeaf{"Rttmonappltimeoflastset", rttmonappl.Rttmonappltimeoflastset}
+    rttmonappl.EntityData.Leafs["rttMonApplNumCtrlAdminEntry"] = types.YLeaf{"Rttmonapplnumctrladminentry", rttmonappl.Rttmonapplnumctrladminentry}
+    rttmonappl.EntityData.Leafs["rttMonApplReset"] = types.YLeaf{"Rttmonapplreset", rttmonappl.Rttmonapplreset}
+    rttmonappl.EntityData.Leafs["rttMonApplPreConfigedReset"] = types.YLeaf{"Rttmonapplpreconfigedreset", rttmonappl.Rttmonapplpreconfigedreset}
+    rttmonappl.EntityData.Leafs["rttMonApplProbeCapacity"] = types.YLeaf{"Rttmonapplprobecapacity", rttmonappl.Rttmonapplprobecapacity}
+    rttmonappl.EntityData.Leafs["rttMonApplFreeMemLowWaterMark"] = types.YLeaf{"Rttmonapplfreememlowwatermark", rttmonappl.Rttmonapplfreememlowwatermark}
+    rttmonappl.EntityData.Leafs["rttMonApplLatestSetError"] = types.YLeaf{"Rttmonappllatestseterror", rttmonappl.Rttmonappllatestseterror}
+    rttmonappl.EntityData.Leafs["rttMonApplResponder"] = types.YLeaf{"Rttmonapplresponder", rttmonappl.Rttmonapplresponder}
+    rttmonappl.EntityData.Leafs["rttMonApplLpdGrpStatsReset"] = types.YLeaf{"Rttmonappllpdgrpstatsreset", rttmonappl.Rttmonappllpdgrpstatsreset}
+    return &(rttmonappl.EntityData)
 }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetSegmentPath() string {
-    return "rttMonAppl"
-}
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonApplVersion"] = rttmonappl.Rttmonapplversion
-    leafs["rttMonApplMaxPacketDataSize"] = rttmonappl.Rttmonapplmaxpacketdatasize
-    leafs["rttMonApplTimeOfLastSet"] = rttmonappl.Rttmonappltimeoflastset
-    leafs["rttMonApplNumCtrlAdminEntry"] = rttmonappl.Rttmonapplnumctrladminentry
-    leafs["rttMonApplReset"] = rttmonappl.Rttmonapplreset
-    leafs["rttMonApplPreConfigedReset"] = rttmonappl.Rttmonapplpreconfigedreset
-    leafs["rttMonApplProbeCapacity"] = rttmonappl.Rttmonapplprobecapacity
-    leafs["rttMonApplFreeMemLowWaterMark"] = rttmonappl.Rttmonapplfreememlowwatermark
-    leafs["rttMonApplLatestSetError"] = rttmonappl.Rttmonappllatestseterror
-    leafs["rttMonApplResponder"] = rttmonappl.Rttmonapplresponder
-    leafs["rttMonApplLpdGrpStatsReset"] = rttmonappl.Rttmonappllpdgrpstatsreset
-    return leafs
-}
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetYangName() string { return "rttMonAppl" }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) SetParent(parent types.Entity) { rttmonappl.parent = parent }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetParent() types.Entity { return rttmonappl.parent }
-
-func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonapplsupportedrtttypestable
 // A table of which contains the supported Rtt
@@ -701,7 +536,7 @@ func (rttmonappl *CISCORTTMONMIB_Rttmonappl) GetParentYangName() string { return
 // See the RttMonRttType textual convention for
 // the definition of each type.
 type CISCORTTMONMIB_Rttmonapplsupportedrtttypestable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list that presents the valid Rtt Monitor Types. The type is slice of
@@ -709,69 +544,30 @@ type CISCORTTMONMIB_Rttmonapplsupportedrtttypestable struct {
     Rttmonapplsupportedrtttypesentry []CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry
 }
 
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetFilter() yfilter.YFilter { return rttmonapplsupportedrtttypestable.YFilter }
+func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetEntityData() *types.CommonEntityData {
+    rttmonapplsupportedrtttypestable.EntityData.YFilter = rttmonapplsupportedrtttypestable.YFilter
+    rttmonapplsupportedrtttypestable.EntityData.YangName = "rttMonApplSupportedRttTypesTable"
+    rttmonapplsupportedrtttypestable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplsupportedrtttypestable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonapplsupportedrtttypestable.EntityData.SegmentPath = "rttMonApplSupportedRttTypesTable"
+    rttmonapplsupportedrtttypestable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplsupportedrtttypestable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplsupportedrtttypestable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) SetFilter(yf yfilter.YFilter) { rttmonapplsupportedrtttypestable.YFilter = yf }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetGoName(yname string) string {
-    if yname == "rttMonApplSupportedRttTypesEntry" { return "Rttmonapplsupportedrtttypesentry" }
-    return ""
-}
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetSegmentPath() string {
-    return "rttMonApplSupportedRttTypesTable"
-}
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonApplSupportedRttTypesEntry" {
-        for _, c := range rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry {
-            if rttmonapplsupportedrtttypestable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry{}
-        rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry = append(rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry, child)
-        return &rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[len(rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry)-1]
-    }
-    return nil
-}
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonapplsupportedrtttypestable.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplsupportedrtttypestable.EntityData.Children["rttMonApplSupportedRttTypesEntry"] = types.YChild{"Rttmonapplsupportedrtttypesentry", nil}
     for i := range rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry {
-        children[rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[i].GetSegmentPath()] = &rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[i]
+        rttmonapplsupportedrtttypestable.EntityData.Children[types.GetSegmentPath(&rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[i])] = types.YChild{"Rttmonapplsupportedrtttypesentry", &rttmonapplsupportedrtttypestable.Rttmonapplsupportedrtttypesentry[i]}
     }
-    return children
+    rttmonapplsupportedrtttypestable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonapplsupportedrtttypestable.EntityData)
 }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetYangName() string { return "rttMonApplSupportedRttTypesTable" }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) SetParent(parent types.Entity) { rttmonapplsupportedrtttypestable.parent = parent }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetParent() types.Entity { return rttmonapplsupportedrtttypestable.parent }
-
-func (rttmonapplsupportedrtttypestable *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry
 // A list that presents the valid Rtt Monitor
 // Types.
 type CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indexes the supported 'RttMonRttType'
@@ -782,53 +578,22 @@ type CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypes
     Rttmonapplsupportedrtttypesvalid interface{}
 }
 
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetFilter() yfilter.YFilter { return rttmonapplsupportedrtttypesentry.YFilter }
+func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetEntityData() *types.CommonEntityData {
+    rttmonapplsupportedrtttypesentry.EntityData.YFilter = rttmonapplsupportedrtttypesentry.YFilter
+    rttmonapplsupportedrtttypesentry.EntityData.YangName = "rttMonApplSupportedRttTypesEntry"
+    rttmonapplsupportedrtttypesentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplsupportedrtttypesentry.EntityData.ParentYangName = "rttMonApplSupportedRttTypesTable"
+    rttmonapplsupportedrtttypesentry.EntityData.SegmentPath = "rttMonApplSupportedRttTypesEntry" + "[rttMonApplSupportedRttTypes='" + fmt.Sprintf("%v", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypes) + "']"
+    rttmonapplsupportedrtttypesentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplsupportedrtttypesentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplsupportedrtttypesentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) SetFilter(yf yfilter.YFilter) { rttmonapplsupportedrtttypesentry.YFilter = yf }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetGoName(yname string) string {
-    if yname == "rttMonApplSupportedRttTypes" { return "Rttmonapplsupportedrtttypes" }
-    if yname == "rttMonApplSupportedRttTypesValid" { return "Rttmonapplsupportedrtttypesvalid" }
-    return ""
+    rttmonapplsupportedrtttypesentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplsupportedrtttypesentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonapplsupportedrtttypesentry.EntityData.Leafs["rttMonApplSupportedRttTypes"] = types.YLeaf{"Rttmonapplsupportedrtttypes", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypes}
+    rttmonapplsupportedrtttypesentry.EntityData.Leafs["rttMonApplSupportedRttTypesValid"] = types.YLeaf{"Rttmonapplsupportedrtttypesvalid", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypesvalid}
+    return &(rttmonapplsupportedrtttypesentry.EntityData)
 }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetSegmentPath() string {
-    return "rttMonApplSupportedRttTypesEntry" + "[rttMonApplSupportedRttTypes='" + fmt.Sprintf("%v", rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypes) + "']"
-}
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonApplSupportedRttTypes"] = rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypes
-    leafs["rttMonApplSupportedRttTypesValid"] = rttmonapplsupportedrtttypesentry.Rttmonapplsupportedrtttypesvalid
-    return leafs
-}
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetYangName() string { return "rttMonApplSupportedRttTypesEntry" }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) SetParent(parent types.Entity) { rttmonapplsupportedrtttypesentry.parent = parent }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetParent() types.Entity { return rttmonapplsupportedrtttypesentry.parent }
-
-func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttypestable_Rttmonapplsupportedrtttypesentry) GetParentYangName() string { return "rttMonApplSupportedRttTypesTable" }
 
 // CISCORTTMONMIB_Rttmonapplsupportedprotocolstable
 // A table of which contains the supported Rtt
@@ -837,7 +602,7 @@ func (rttmonapplsupportedrtttypesentry *CISCORTTMONMIB_Rttmonapplsupportedrtttyp
 // See the RttMonProtocol textual convention 
 // for the definition of each protocol.
 type CISCORTTMONMIB_Rttmonapplsupportedprotocolstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list that presents the valid Rtt Monitor Protocols. The type is slice of
@@ -845,69 +610,30 @@ type CISCORTTMONMIB_Rttmonapplsupportedprotocolstable struct {
     Rttmonapplsupportedprotocolsentry []CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry
 }
 
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetFilter() yfilter.YFilter { return rttmonapplsupportedprotocolstable.YFilter }
+func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetEntityData() *types.CommonEntityData {
+    rttmonapplsupportedprotocolstable.EntityData.YFilter = rttmonapplsupportedprotocolstable.YFilter
+    rttmonapplsupportedprotocolstable.EntityData.YangName = "rttMonApplSupportedProtocolsTable"
+    rttmonapplsupportedprotocolstable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplsupportedprotocolstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonapplsupportedprotocolstable.EntityData.SegmentPath = "rttMonApplSupportedProtocolsTable"
+    rttmonapplsupportedprotocolstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplsupportedprotocolstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplsupportedprotocolstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) SetFilter(yf yfilter.YFilter) { rttmonapplsupportedprotocolstable.YFilter = yf }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetGoName(yname string) string {
-    if yname == "rttMonApplSupportedProtocolsEntry" { return "Rttmonapplsupportedprotocolsentry" }
-    return ""
-}
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetSegmentPath() string {
-    return "rttMonApplSupportedProtocolsTable"
-}
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonApplSupportedProtocolsEntry" {
-        for _, c := range rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry {
-            if rttmonapplsupportedprotocolstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry{}
-        rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry = append(rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry, child)
-        return &rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[len(rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry)-1]
-    }
-    return nil
-}
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonapplsupportedprotocolstable.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplsupportedprotocolstable.EntityData.Children["rttMonApplSupportedProtocolsEntry"] = types.YChild{"Rttmonapplsupportedprotocolsentry", nil}
     for i := range rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry {
-        children[rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[i].GetSegmentPath()] = &rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[i]
+        rttmonapplsupportedprotocolstable.EntityData.Children[types.GetSegmentPath(&rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[i])] = types.YChild{"Rttmonapplsupportedprotocolsentry", &rttmonapplsupportedprotocolstable.Rttmonapplsupportedprotocolsentry[i]}
     }
-    return children
+    rttmonapplsupportedprotocolstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonapplsupportedprotocolstable.EntityData)
 }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetYangName() string { return "rttMonApplSupportedProtocolsTable" }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) SetParent(parent types.Entity) { rttmonapplsupportedprotocolstable.parent = parent }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetParent() types.Entity { return rttmonapplsupportedprotocolstable.parent }
-
-func (rttmonapplsupportedprotocolstable *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry
 // A list that presents the valid Rtt Monitor
 // Protocols.
 type CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object indexes the supported 'RttMonProtocol'
@@ -919,53 +645,22 @@ type CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotoco
     Rttmonapplsupportedprotocolsvalid interface{}
 }
 
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetFilter() yfilter.YFilter { return rttmonapplsupportedprotocolsentry.YFilter }
+func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetEntityData() *types.CommonEntityData {
+    rttmonapplsupportedprotocolsentry.EntityData.YFilter = rttmonapplsupportedprotocolsentry.YFilter
+    rttmonapplsupportedprotocolsentry.EntityData.YangName = "rttMonApplSupportedProtocolsEntry"
+    rttmonapplsupportedprotocolsentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplsupportedprotocolsentry.EntityData.ParentYangName = "rttMonApplSupportedProtocolsTable"
+    rttmonapplsupportedprotocolsentry.EntityData.SegmentPath = "rttMonApplSupportedProtocolsEntry" + "[rttMonApplSupportedProtocols='" + fmt.Sprintf("%v", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocols) + "']"
+    rttmonapplsupportedprotocolsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplsupportedprotocolsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplsupportedprotocolsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) SetFilter(yf yfilter.YFilter) { rttmonapplsupportedprotocolsentry.YFilter = yf }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetGoName(yname string) string {
-    if yname == "rttMonApplSupportedProtocols" { return "Rttmonapplsupportedprotocols" }
-    if yname == "rttMonApplSupportedProtocolsValid" { return "Rttmonapplsupportedprotocolsvalid" }
-    return ""
+    rttmonapplsupportedprotocolsentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplsupportedprotocolsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonapplsupportedprotocolsentry.EntityData.Leafs["rttMonApplSupportedProtocols"] = types.YLeaf{"Rttmonapplsupportedprotocols", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocols}
+    rttmonapplsupportedprotocolsentry.EntityData.Leafs["rttMonApplSupportedProtocolsValid"] = types.YLeaf{"Rttmonapplsupportedprotocolsvalid", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocolsvalid}
+    return &(rttmonapplsupportedprotocolsentry.EntityData)
 }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetSegmentPath() string {
-    return "rttMonApplSupportedProtocolsEntry" + "[rttMonApplSupportedProtocols='" + fmt.Sprintf("%v", rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocols) + "']"
-}
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonApplSupportedProtocols"] = rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocols
-    leafs["rttMonApplSupportedProtocolsValid"] = rttmonapplsupportedprotocolsentry.Rttmonapplsupportedprotocolsvalid
-    return leafs
-}
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetYangName() string { return "rttMonApplSupportedProtocolsEntry" }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) SetParent(parent types.Entity) { rttmonapplsupportedprotocolsentry.parent = parent }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetParent() types.Entity { return rttmonapplsupportedprotocolsentry.parent }
-
-func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedprotocolstable_Rttmonapplsupportedprotocolsentry) GetParentYangName() string { return "rttMonApplSupportedProtocolsTable" }
 
 // CISCORTTMONMIB_Rttmonapplpreconfigedtable
 // A table of which contains the previously
@@ -975,7 +670,7 @@ func (rttmonapplsupportedprotocolsentry *CISCORTTMONMIB_Rttmonapplsupportedproto
 // via a different mechanism than this application, and
 // are specific to each platform.
 type CISCORTTMONMIB_Rttmonapplpreconfigedtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that describe the previously configured Script Names and
@@ -984,69 +679,30 @@ type CISCORTTMONMIB_Rttmonapplpreconfigedtable struct {
     Rttmonapplpreconfigedentry []CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry
 }
 
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetFilter() yfilter.YFilter { return rttmonapplpreconfigedtable.YFilter }
+func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetEntityData() *types.CommonEntityData {
+    rttmonapplpreconfigedtable.EntityData.YFilter = rttmonapplpreconfigedtable.YFilter
+    rttmonapplpreconfigedtable.EntityData.YangName = "rttMonApplPreConfigedTable"
+    rttmonapplpreconfigedtable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplpreconfigedtable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonapplpreconfigedtable.EntityData.SegmentPath = "rttMonApplPreConfigedTable"
+    rttmonapplpreconfigedtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplpreconfigedtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplpreconfigedtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) SetFilter(yf yfilter.YFilter) { rttmonapplpreconfigedtable.YFilter = yf }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetGoName(yname string) string {
-    if yname == "rttMonApplPreConfigedEntry" { return "Rttmonapplpreconfigedentry" }
-    return ""
-}
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetSegmentPath() string {
-    return "rttMonApplPreConfigedTable"
-}
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonApplPreConfigedEntry" {
-        for _, c := range rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry {
-            if rttmonapplpreconfigedtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry{}
-        rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry = append(rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry, child)
-        return &rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[len(rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry)-1]
-    }
-    return nil
-}
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonapplpreconfigedtable.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplpreconfigedtable.EntityData.Children["rttMonApplPreConfigedEntry"] = types.YChild{"Rttmonapplpreconfigedentry", nil}
     for i := range rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry {
-        children[rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[i].GetSegmentPath()] = &rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[i]
+        rttmonapplpreconfigedtable.EntityData.Children[types.GetSegmentPath(&rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[i])] = types.YChild{"Rttmonapplpreconfigedentry", &rttmonapplpreconfigedtable.Rttmonapplpreconfigedentry[i]}
     }
-    return children
+    rttmonapplpreconfigedtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonapplpreconfigedtable.EntityData)
 }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetYangName() string { return "rttMonApplPreConfigedTable" }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) SetParent(parent types.Entity) { rttmonapplpreconfigedtable.parent = parent }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetParent() types.Entity { return rttmonapplpreconfigedtable.parent }
-
-func (rttmonapplpreconfigedtable *CISCORTTMONMIB_Rttmonapplpreconfigedtable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry
 // A list of objects that describe the previously
 // configured Script Names and File IO targets.
 type CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This is the type of value being stored in the
@@ -1070,55 +726,23 @@ type CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry struct
     Rttmonapplpreconfigedvalid interface{}
 }
 
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetFilter() yfilter.YFilter { return rttmonapplpreconfigedentry.YFilter }
+func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetEntityData() *types.CommonEntityData {
+    rttmonapplpreconfigedentry.EntityData.YFilter = rttmonapplpreconfigedentry.YFilter
+    rttmonapplpreconfigedentry.EntityData.YangName = "rttMonApplPreConfigedEntry"
+    rttmonapplpreconfigedentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplpreconfigedentry.EntityData.ParentYangName = "rttMonApplPreConfigedTable"
+    rttmonapplpreconfigedentry.EntityData.SegmentPath = "rttMonApplPreConfigedEntry" + "[rttMonApplPreConfigedType='" + fmt.Sprintf("%v", rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype) + "']" + "[rttMonApplPreConfigedName='" + fmt.Sprintf("%v", rttmonapplpreconfigedentry.Rttmonapplpreconfigedname) + "']"
+    rttmonapplpreconfigedentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplpreconfigedentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplpreconfigedentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) SetFilter(yf yfilter.YFilter) { rttmonapplpreconfigedentry.YFilter = yf }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetGoName(yname string) string {
-    if yname == "rttMonApplPreConfigedType" { return "Rttmonapplpreconfigedtype" }
-    if yname == "rttMonApplPreConfigedName" { return "Rttmonapplpreconfigedname" }
-    if yname == "rttMonApplPreConfigedValid" { return "Rttmonapplpreconfigedvalid" }
-    return ""
+    rttmonapplpreconfigedentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplpreconfigedentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonapplpreconfigedentry.EntityData.Leafs["rttMonApplPreConfigedType"] = types.YLeaf{"Rttmonapplpreconfigedtype", rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype}
+    rttmonapplpreconfigedentry.EntityData.Leafs["rttMonApplPreConfigedName"] = types.YLeaf{"Rttmonapplpreconfigedname", rttmonapplpreconfigedentry.Rttmonapplpreconfigedname}
+    rttmonapplpreconfigedentry.EntityData.Leafs["rttMonApplPreConfigedValid"] = types.YLeaf{"Rttmonapplpreconfigedvalid", rttmonapplpreconfigedentry.Rttmonapplpreconfigedvalid}
+    return &(rttmonapplpreconfigedentry.EntityData)
 }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetSegmentPath() string {
-    return "rttMonApplPreConfigedEntry" + "[rttMonApplPreConfigedType='" + fmt.Sprintf("%v", rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype) + "']" + "[rttMonApplPreConfigedName='" + fmt.Sprintf("%v", rttmonapplpreconfigedentry.Rttmonapplpreconfigedname) + "']"
-}
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonApplPreConfigedType"] = rttmonapplpreconfigedentry.Rttmonapplpreconfigedtype
-    leafs["rttMonApplPreConfigedName"] = rttmonapplpreconfigedentry.Rttmonapplpreconfigedname
-    leafs["rttMonApplPreConfigedValid"] = rttmonapplpreconfigedentry.Rttmonapplpreconfigedvalid
-    return leafs
-}
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetYangName() string { return "rttMonApplPreConfigedEntry" }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) SetParent(parent types.Entity) { rttmonapplpreconfigedentry.parent = parent }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetParent() types.Entity { return rttmonapplpreconfigedentry.parent }
-
-func (rttmonapplpreconfigedentry *CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry) GetParentYangName() string { return "rttMonApplPreConfigedTable" }
 
 // CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype represents rttMonApplPreConfigedName object.
 type CISCORTTMONMIB_Rttmonapplpreconfigedtable_Rttmonapplpreconfigedentry_Rttmonapplpreconfigedtype string
@@ -1133,7 +757,7 @@ const (
 // A table which contains the definitions for key-strings
 // that will be used in authenticating RTR Control Protocol.
 type CISCORTTMONMIB_Rttmonapplauthtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list that presents the valid parameters for Authenticating RTR Control
@@ -1142,69 +766,30 @@ type CISCORTTMONMIB_Rttmonapplauthtable struct {
     Rttmonapplauthentry []CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry
 }
 
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetFilter() yfilter.YFilter { return rttmonapplauthtable.YFilter }
+func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetEntityData() *types.CommonEntityData {
+    rttmonapplauthtable.EntityData.YFilter = rttmonapplauthtable.YFilter
+    rttmonapplauthtable.EntityData.YangName = "rttMonApplAuthTable"
+    rttmonapplauthtable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplauthtable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonapplauthtable.EntityData.SegmentPath = "rttMonApplAuthTable"
+    rttmonapplauthtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplauthtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplauthtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) SetFilter(yf yfilter.YFilter) { rttmonapplauthtable.YFilter = yf }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetGoName(yname string) string {
-    if yname == "rttMonApplAuthEntry" { return "Rttmonapplauthentry" }
-    return ""
-}
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetSegmentPath() string {
-    return "rttMonApplAuthTable"
-}
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonApplAuthEntry" {
-        for _, c := range rttmonapplauthtable.Rttmonapplauthentry {
-            if rttmonapplauthtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry{}
-        rttmonapplauthtable.Rttmonapplauthentry = append(rttmonapplauthtable.Rttmonapplauthentry, child)
-        return &rttmonapplauthtable.Rttmonapplauthentry[len(rttmonapplauthtable.Rttmonapplauthentry)-1]
-    }
-    return nil
-}
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonapplauthtable.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplauthtable.EntityData.Children["rttMonApplAuthEntry"] = types.YChild{"Rttmonapplauthentry", nil}
     for i := range rttmonapplauthtable.Rttmonapplauthentry {
-        children[rttmonapplauthtable.Rttmonapplauthentry[i].GetSegmentPath()] = &rttmonapplauthtable.Rttmonapplauthentry[i]
+        rttmonapplauthtable.EntityData.Children[types.GetSegmentPath(&rttmonapplauthtable.Rttmonapplauthentry[i])] = types.YChild{"Rttmonapplauthentry", &rttmonapplauthtable.Rttmonapplauthentry[i]}
     }
-    return children
+    rttmonapplauthtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonapplauthtable.EntityData)
 }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetYangName() string { return "rttMonApplAuthTable" }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) SetParent(parent types.Entity) { rttmonapplauthtable.parent = parent }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetParent() types.Entity { return rttmonapplauthtable.parent }
-
-func (rttmonapplauthtable *CISCORTTMONMIB_Rttmonapplauthtable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry
 // A list that presents the valid parameters for Authenticating
 // RTR Control Protocol.
 type CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a row in the
@@ -1244,65 +829,28 @@ type CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry struct {
     Rttmonapplauthstatus interface{}
 }
 
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetFilter() yfilter.YFilter { return rttmonapplauthentry.YFilter }
+func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetEntityData() *types.CommonEntityData {
+    rttmonapplauthentry.EntityData.YFilter = rttmonapplauthentry.YFilter
+    rttmonapplauthentry.EntityData.YangName = "rttMonApplAuthEntry"
+    rttmonapplauthentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonapplauthentry.EntityData.ParentYangName = "rttMonApplAuthTable"
+    rttmonapplauthentry.EntityData.SegmentPath = "rttMonApplAuthEntry" + "[rttMonApplAuthIndex='" + fmt.Sprintf("%v", rttmonapplauthentry.Rttmonapplauthindex) + "']"
+    rttmonapplauthentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonapplauthentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonapplauthentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) SetFilter(yf yfilter.YFilter) { rttmonapplauthentry.YFilter = yf }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetGoName(yname string) string {
-    if yname == "rttMonApplAuthIndex" { return "Rttmonapplauthindex" }
-    if yname == "rttMonApplAuthKeyChain" { return "Rttmonapplauthkeychain" }
-    if yname == "rttMonApplAuthKeyString1" { return "Rttmonapplauthkeystring1" }
-    if yname == "rttMonApplAuthKeyString2" { return "Rttmonapplauthkeystring2" }
-    if yname == "rttMonApplAuthKeyString3" { return "Rttmonapplauthkeystring3" }
-    if yname == "rttMonApplAuthKeyString4" { return "Rttmonapplauthkeystring4" }
-    if yname == "rttMonApplAuthKeyString5" { return "Rttmonapplauthkeystring5" }
-    if yname == "rttMonApplAuthStatus" { return "Rttmonapplauthstatus" }
-    return ""
+    rttmonapplauthentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonapplauthentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthIndex"] = types.YLeaf{"Rttmonapplauthindex", rttmonapplauthentry.Rttmonapplauthindex}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyChain"] = types.YLeaf{"Rttmonapplauthkeychain", rttmonapplauthentry.Rttmonapplauthkeychain}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString1"] = types.YLeaf{"Rttmonapplauthkeystring1", rttmonapplauthentry.Rttmonapplauthkeystring1}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString2"] = types.YLeaf{"Rttmonapplauthkeystring2", rttmonapplauthentry.Rttmonapplauthkeystring2}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString3"] = types.YLeaf{"Rttmonapplauthkeystring3", rttmonapplauthentry.Rttmonapplauthkeystring3}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString4"] = types.YLeaf{"Rttmonapplauthkeystring4", rttmonapplauthentry.Rttmonapplauthkeystring4}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthKeyString5"] = types.YLeaf{"Rttmonapplauthkeystring5", rttmonapplauthentry.Rttmonapplauthkeystring5}
+    rttmonapplauthentry.EntityData.Leafs["rttMonApplAuthStatus"] = types.YLeaf{"Rttmonapplauthstatus", rttmonapplauthentry.Rttmonapplauthstatus}
+    return &(rttmonapplauthentry.EntityData)
 }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetSegmentPath() string {
-    return "rttMonApplAuthEntry" + "[rttMonApplAuthIndex='" + fmt.Sprintf("%v", rttmonapplauthentry.Rttmonapplauthindex) + "']"
-}
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonApplAuthIndex"] = rttmonapplauthentry.Rttmonapplauthindex
-    leafs["rttMonApplAuthKeyChain"] = rttmonapplauthentry.Rttmonapplauthkeychain
-    leafs["rttMonApplAuthKeyString1"] = rttmonapplauthentry.Rttmonapplauthkeystring1
-    leafs["rttMonApplAuthKeyString2"] = rttmonapplauthentry.Rttmonapplauthkeystring2
-    leafs["rttMonApplAuthKeyString3"] = rttmonapplauthentry.Rttmonapplauthkeystring3
-    leafs["rttMonApplAuthKeyString4"] = rttmonapplauthentry.Rttmonapplauthkeystring4
-    leafs["rttMonApplAuthKeyString5"] = rttmonapplauthentry.Rttmonapplauthkeystring5
-    leafs["rttMonApplAuthStatus"] = rttmonapplauthentry.Rttmonapplauthstatus
-    return leafs
-}
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetYangName() string { return "rttMonApplAuthEntry" }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) SetParent(parent types.Entity) { rttmonapplauthentry.parent = parent }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetParent() types.Entity { return rttmonapplauthentry.parent }
-
-func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentry) GetParentYangName() string { return "rttMonApplAuthTable" }
 
 // CISCORTTMONMIB_Rttmonctrladmintable
 // A table of Round Trip Time (RTT) monitoring definitions.
@@ -1319,7 +867,7 @@ func (rttmonapplauthentry *CISCORTTMONMIB_Rttmonapplauthtable_Rttmonapplauthentr
 // implementation.  The object rttMonApplNumCtrlAdminEntry
 // will reflect this tables maximum number of entries.
 type CISCORTTMONMIB_Rttmonctrladmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual RTT control row. The type
@@ -1327,69 +875,30 @@ type CISCORTTMONMIB_Rttmonctrladmintable struct {
     Rttmonctrladminentry []CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry
 }
 
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetFilter() yfilter.YFilter { return rttmonctrladmintable.YFilter }
+func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetEntityData() *types.CommonEntityData {
+    rttmonctrladmintable.EntityData.YFilter = rttmonctrladmintable.YFilter
+    rttmonctrladmintable.EntityData.YangName = "rttMonCtrlAdminTable"
+    rttmonctrladmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonctrladmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonctrladmintable.EntityData.SegmentPath = "rttMonCtrlAdminTable"
+    rttmonctrladmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonctrladmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonctrladmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) SetFilter(yf yfilter.YFilter) { rttmonctrladmintable.YFilter = yf }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminEntry" { return "Rttmonctrladminentry" }
-    return ""
-}
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetSegmentPath() string {
-    return "rttMonCtrlAdminTable"
-}
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonCtrlAdminEntry" {
-        for _, c := range rttmonctrladmintable.Rttmonctrladminentry {
-            if rttmonctrladmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry{}
-        rttmonctrladmintable.Rttmonctrladminentry = append(rttmonctrladmintable.Rttmonctrladminentry, child)
-        return &rttmonctrladmintable.Rttmonctrladminentry[len(rttmonctrladmintable.Rttmonctrladminentry)-1]
-    }
-    return nil
-}
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonctrladmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmonctrladmintable.EntityData.Children["rttMonCtrlAdminEntry"] = types.YChild{"Rttmonctrladminentry", nil}
     for i := range rttmonctrladmintable.Rttmonctrladminentry {
-        children[rttmonctrladmintable.Rttmonctrladminentry[i].GetSegmentPath()] = &rttmonctrladmintable.Rttmonctrladminentry[i]
+        rttmonctrladmintable.EntityData.Children[types.GetSegmentPath(&rttmonctrladmintable.Rttmonctrladminentry[i])] = types.YChild{"Rttmonctrladminentry", &rttmonctrladmintable.Rttmonctrladminentry[i]}
     }
-    return children
+    rttmonctrladmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonctrladmintable.EntityData)
 }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetYangName() string { return "rttMonCtrlAdminTable" }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) SetParent(parent types.Entity) { rttmonctrladmintable.parent = parent }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetParent() types.Entity { return rttmonctrladmintable.parent }
-
-func (rttmonctrladmintable *CISCORTTMONMIB_Rttmonctrladmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry
 // A base list of objects that define a conceptual RTT
 // control row.
 type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a row in the
@@ -2018,149 +1527,70 @@ type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry struct {
     Rttmonlatestrttoperaddress interface{}
 }
 
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetFilter() yfilter.YFilter { return rttmonctrladminentry.YFilter }
+func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetEntityData() *types.CommonEntityData {
+    rttmonctrladminentry.EntityData.YFilter = rttmonctrladminentry.YFilter
+    rttmonctrladminentry.EntityData.YangName = "rttMonCtrlAdminEntry"
+    rttmonctrladminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonctrladminentry.EntityData.ParentYangName = "rttMonCtrlAdminTable"
+    rttmonctrladminentry.EntityData.SegmentPath = "rttMonCtrlAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonctrladminentry.Rttmonctrladminindex) + "']"
+    rttmonctrladminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonctrladminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonctrladminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) SetFilter(yf yfilter.YFilter) { rttmonctrladminentry.YFilter = yf }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonCtrlAdminOwner" { return "Rttmonctrladminowner" }
-    if yname == "rttMonCtrlAdminTag" { return "Rttmonctrladmintag" }
-    if yname == "rttMonCtrlAdminRttType" { return "Rttmonctrladminrtttype" }
-    if yname == "rttMonCtrlAdminThreshold" { return "Rttmonctrladminthreshold" }
-    if yname == "rttMonCtrlAdminFrequency" { return "Rttmonctrladminfrequency" }
-    if yname == "rttMonCtrlAdminTimeout" { return "Rttmonctrladmintimeout" }
-    if yname == "rttMonCtrlAdminVerifyData" { return "Rttmonctrladminverifydata" }
-    if yname == "rttMonCtrlAdminStatus" { return "Rttmonctrladminstatus" }
-    if yname == "rttMonCtrlAdminNvgen" { return "Rttmonctrladminnvgen" }
-    if yname == "rttMonCtrlAdminGroupName" { return "Rttmonctrladmingroupname" }
-    if yname == "rttMonScheduleAdminRttLife" { return "Rttmonscheduleadminrttlife" }
-    if yname == "rttMonScheduleAdminRttStartTime" { return "Rttmonscheduleadminrttstarttime" }
-    if yname == "rttMonScheduleAdminConceptRowAgeout" { return "Rttmonscheduleadminconceptrowageout" }
-    if yname == "rttMonScheduleAdminRttRecurring" { return "Rttmonscheduleadminrttrecurring" }
-    if yname == "rttMonScheduleAdminConceptRowAgeoutV2" { return "Rttmonscheduleadminconceptrowageoutv2" }
-    if yname == "rttMonReactAdminConnectionEnable" { return "Rttmonreactadminconnectionenable" }
-    if yname == "rttMonReactAdminTimeoutEnable" { return "Rttmonreactadmintimeoutenable" }
-    if yname == "rttMonReactAdminThresholdType" { return "Rttmonreactadminthresholdtype" }
-    if yname == "rttMonReactAdminThresholdFalling" { return "Rttmonreactadminthresholdfalling" }
-    if yname == "rttMonReactAdminThresholdCount" { return "Rttmonreactadminthresholdcount" }
-    if yname == "rttMonReactAdminThresholdCount2" { return "Rttmonreactadminthresholdcount2" }
-    if yname == "rttMonReactAdminActionType" { return "Rttmonreactadminactiontype" }
-    if yname == "rttMonReactAdminVerifyErrorEnable" { return "Rttmonreactadminverifyerrorenable" }
-    if yname == "rttMonStatisticsAdminNumHourGroups" { return "Rttmonstatisticsadminnumhourgroups" }
-    if yname == "rttMonStatisticsAdminNumPaths" { return "Rttmonstatisticsadminnumpaths" }
-    if yname == "rttMonStatisticsAdminNumHops" { return "Rttmonstatisticsadminnumhops" }
-    if yname == "rttMonStatisticsAdminNumDistBuckets" { return "Rttmonstatisticsadminnumdistbuckets" }
-    if yname == "rttMonStatisticsAdminDistInterval" { return "Rttmonstatisticsadmindistinterval" }
-    if yname == "rttMonHistoryAdminNumLives" { return "Rttmonhistoryadminnumlives" }
-    if yname == "rttMonHistoryAdminNumBuckets" { return "Rttmonhistoryadminnumbuckets" }
-    if yname == "rttMonHistoryAdminNumSamples" { return "Rttmonhistoryadminnumsamples" }
-    if yname == "rttMonHistoryAdminFilter" { return "Rttmonhistoryadminfilter" }
-    if yname == "rttMonCtrlOperModificationTime" { return "Rttmonctrlopermodificationtime" }
-    if yname == "rttMonCtrlOperDiagText" { return "Rttmonctrloperdiagtext" }
-    if yname == "rttMonCtrlOperResetTime" { return "Rttmonctrloperresettime" }
-    if yname == "rttMonCtrlOperOctetsInUse" { return "Rttmonctrloperoctetsinuse" }
-    if yname == "rttMonCtrlOperConnectionLostOccurred" { return "Rttmonctrloperconnectionlostoccurred" }
-    if yname == "rttMonCtrlOperTimeoutOccurred" { return "Rttmonctrlopertimeoutoccurred" }
-    if yname == "rttMonCtrlOperOverThresholdOccurred" { return "Rttmonctrloperoverthresholdoccurred" }
-    if yname == "rttMonCtrlOperNumRtts" { return "Rttmonctrlopernumrtts" }
-    if yname == "rttMonCtrlOperRttLife" { return "Rttmonctrloperrttlife" }
-    if yname == "rttMonCtrlOperState" { return "Rttmonctrloperstate" }
-    if yname == "rttMonCtrlOperVerifyErrorOccurred" { return "Rttmonctrloperverifyerroroccurred" }
-    if yname == "rttMonLatestRttOperCompletionTime" { return "Rttmonlatestrttopercompletiontime" }
-    if yname == "rttMonLatestRttOperSense" { return "Rttmonlatestrttopersense" }
-    if yname == "rttMonLatestRttOperApplSpecificSense" { return "Rttmonlatestrttoperapplspecificsense" }
-    if yname == "rttMonLatestRttOperSenseDescription" { return "Rttmonlatestrttopersensedescription" }
-    if yname == "rttMonLatestRttOperTime" { return "Rttmonlatestrttopertime" }
-    if yname == "rttMonLatestRttOperAddress" { return "Rttmonlatestrttoperaddress" }
-    return ""
+    rttmonctrladminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonctrladminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonctrladminentry.Rttmonctrladminindex}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminOwner"] = types.YLeaf{"Rttmonctrladminowner", rttmonctrladminentry.Rttmonctrladminowner}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminTag"] = types.YLeaf{"Rttmonctrladmintag", rttmonctrladminentry.Rttmonctrladmintag}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminRttType"] = types.YLeaf{"Rttmonctrladminrtttype", rttmonctrladminentry.Rttmonctrladminrtttype}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminThreshold"] = types.YLeaf{"Rttmonctrladminthreshold", rttmonctrladminentry.Rttmonctrladminthreshold}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminFrequency"] = types.YLeaf{"Rttmonctrladminfrequency", rttmonctrladminentry.Rttmonctrladminfrequency}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminTimeout"] = types.YLeaf{"Rttmonctrladmintimeout", rttmonctrladminentry.Rttmonctrladmintimeout}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminVerifyData"] = types.YLeaf{"Rttmonctrladminverifydata", rttmonctrladminentry.Rttmonctrladminverifydata}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminStatus"] = types.YLeaf{"Rttmonctrladminstatus", rttmonctrladminentry.Rttmonctrladminstatus}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminNvgen"] = types.YLeaf{"Rttmonctrladminnvgen", rttmonctrladminentry.Rttmonctrladminnvgen}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlAdminGroupName"] = types.YLeaf{"Rttmonctrladmingroupname", rttmonctrladminentry.Rttmonctrladmingroupname}
+    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminRttLife"] = types.YLeaf{"Rttmonscheduleadminrttlife", rttmonctrladminentry.Rttmonscheduleadminrttlife}
+    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminRttStartTime"] = types.YLeaf{"Rttmonscheduleadminrttstarttime", rttmonctrladminentry.Rttmonscheduleadminrttstarttime}
+    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminConceptRowAgeout"] = types.YLeaf{"Rttmonscheduleadminconceptrowageout", rttmonctrladminentry.Rttmonscheduleadminconceptrowageout}
+    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminRttRecurring"] = types.YLeaf{"Rttmonscheduleadminrttrecurring", rttmonctrladminentry.Rttmonscheduleadminrttrecurring}
+    rttmonctrladminentry.EntityData.Leafs["rttMonScheduleAdminConceptRowAgeoutV2"] = types.YLeaf{"Rttmonscheduleadminconceptrowageoutv2", rttmonctrladminentry.Rttmonscheduleadminconceptrowageoutv2}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminConnectionEnable"] = types.YLeaf{"Rttmonreactadminconnectionenable", rttmonctrladminentry.Rttmonreactadminconnectionenable}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminTimeoutEnable"] = types.YLeaf{"Rttmonreactadmintimeoutenable", rttmonctrladminentry.Rttmonreactadmintimeoutenable}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdType"] = types.YLeaf{"Rttmonreactadminthresholdtype", rttmonctrladminentry.Rttmonreactadminthresholdtype}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdFalling"] = types.YLeaf{"Rttmonreactadminthresholdfalling", rttmonctrladminentry.Rttmonreactadminthresholdfalling}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdCount"] = types.YLeaf{"Rttmonreactadminthresholdcount", rttmonctrladminentry.Rttmonreactadminthresholdcount}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminThresholdCount2"] = types.YLeaf{"Rttmonreactadminthresholdcount2", rttmonctrladminentry.Rttmonreactadminthresholdcount2}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminActionType"] = types.YLeaf{"Rttmonreactadminactiontype", rttmonctrladminentry.Rttmonreactadminactiontype}
+    rttmonctrladminentry.EntityData.Leafs["rttMonReactAdminVerifyErrorEnable"] = types.YLeaf{"Rttmonreactadminverifyerrorenable", rttmonctrladminentry.Rttmonreactadminverifyerrorenable}
+    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumHourGroups"] = types.YLeaf{"Rttmonstatisticsadminnumhourgroups", rttmonctrladminentry.Rttmonstatisticsadminnumhourgroups}
+    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumPaths"] = types.YLeaf{"Rttmonstatisticsadminnumpaths", rttmonctrladminentry.Rttmonstatisticsadminnumpaths}
+    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumHops"] = types.YLeaf{"Rttmonstatisticsadminnumhops", rttmonctrladminentry.Rttmonstatisticsadminnumhops}
+    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminNumDistBuckets"] = types.YLeaf{"Rttmonstatisticsadminnumdistbuckets", rttmonctrladminentry.Rttmonstatisticsadminnumdistbuckets}
+    rttmonctrladminentry.EntityData.Leafs["rttMonStatisticsAdminDistInterval"] = types.YLeaf{"Rttmonstatisticsadmindistinterval", rttmonctrladminentry.Rttmonstatisticsadmindistinterval}
+    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminNumLives"] = types.YLeaf{"Rttmonhistoryadminnumlives", rttmonctrladminentry.Rttmonhistoryadminnumlives}
+    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminNumBuckets"] = types.YLeaf{"Rttmonhistoryadminnumbuckets", rttmonctrladminentry.Rttmonhistoryadminnumbuckets}
+    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminNumSamples"] = types.YLeaf{"Rttmonhistoryadminnumsamples", rttmonctrladminentry.Rttmonhistoryadminnumsamples}
+    rttmonctrladminentry.EntityData.Leafs["rttMonHistoryAdminFilter"] = types.YLeaf{"Rttmonhistoryadminfilter", rttmonctrladminentry.Rttmonhistoryadminfilter}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperModificationTime"] = types.YLeaf{"Rttmonctrlopermodificationtime", rttmonctrladminentry.Rttmonctrlopermodificationtime}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperDiagText"] = types.YLeaf{"Rttmonctrloperdiagtext", rttmonctrladminentry.Rttmonctrloperdiagtext}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperResetTime"] = types.YLeaf{"Rttmonctrloperresettime", rttmonctrladminentry.Rttmonctrloperresettime}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperOctetsInUse"] = types.YLeaf{"Rttmonctrloperoctetsinuse", rttmonctrladminentry.Rttmonctrloperoctetsinuse}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperConnectionLostOccurred"] = types.YLeaf{"Rttmonctrloperconnectionlostoccurred", rttmonctrladminentry.Rttmonctrloperconnectionlostoccurred}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperTimeoutOccurred"] = types.YLeaf{"Rttmonctrlopertimeoutoccurred", rttmonctrladminentry.Rttmonctrlopertimeoutoccurred}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperOverThresholdOccurred"] = types.YLeaf{"Rttmonctrloperoverthresholdoccurred", rttmonctrladminentry.Rttmonctrloperoverthresholdoccurred}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperNumRtts"] = types.YLeaf{"Rttmonctrlopernumrtts", rttmonctrladminentry.Rttmonctrlopernumrtts}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperRttLife"] = types.YLeaf{"Rttmonctrloperrttlife", rttmonctrladminentry.Rttmonctrloperrttlife}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperState"] = types.YLeaf{"Rttmonctrloperstate", rttmonctrladminentry.Rttmonctrloperstate}
+    rttmonctrladminentry.EntityData.Leafs["rttMonCtrlOperVerifyErrorOccurred"] = types.YLeaf{"Rttmonctrloperverifyerroroccurred", rttmonctrladminentry.Rttmonctrloperverifyerroroccurred}
+    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperCompletionTime"] = types.YLeaf{"Rttmonlatestrttopercompletiontime", rttmonctrladminentry.Rttmonlatestrttopercompletiontime}
+    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperSense"] = types.YLeaf{"Rttmonlatestrttopersense", rttmonctrladminentry.Rttmonlatestrttopersense}
+    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperApplSpecificSense"] = types.YLeaf{"Rttmonlatestrttoperapplspecificsense", rttmonctrladminentry.Rttmonlatestrttoperapplspecificsense}
+    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperSenseDescription"] = types.YLeaf{"Rttmonlatestrttopersensedescription", rttmonctrladminentry.Rttmonlatestrttopersensedescription}
+    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperTime"] = types.YLeaf{"Rttmonlatestrttopertime", rttmonctrladminentry.Rttmonlatestrttopertime}
+    rttmonctrladminentry.EntityData.Leafs["rttMonLatestRttOperAddress"] = types.YLeaf{"Rttmonlatestrttoperaddress", rttmonctrladminentry.Rttmonlatestrttoperaddress}
+    return &(rttmonctrladminentry.EntityData)
 }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetSegmentPath() string {
-    return "rttMonCtrlAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonctrladminentry.Rttmonctrladminindex) + "']"
-}
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonctrladminentry.Rttmonctrladminindex
-    leafs["rttMonCtrlAdminOwner"] = rttmonctrladminentry.Rttmonctrladminowner
-    leafs["rttMonCtrlAdminTag"] = rttmonctrladminentry.Rttmonctrladmintag
-    leafs["rttMonCtrlAdminRttType"] = rttmonctrladminentry.Rttmonctrladminrtttype
-    leafs["rttMonCtrlAdminThreshold"] = rttmonctrladminentry.Rttmonctrladminthreshold
-    leafs["rttMonCtrlAdminFrequency"] = rttmonctrladminentry.Rttmonctrladminfrequency
-    leafs["rttMonCtrlAdminTimeout"] = rttmonctrladminentry.Rttmonctrladmintimeout
-    leafs["rttMonCtrlAdminVerifyData"] = rttmonctrladminentry.Rttmonctrladminverifydata
-    leafs["rttMonCtrlAdminStatus"] = rttmonctrladminentry.Rttmonctrladminstatus
-    leafs["rttMonCtrlAdminNvgen"] = rttmonctrladminentry.Rttmonctrladminnvgen
-    leafs["rttMonCtrlAdminGroupName"] = rttmonctrladminentry.Rttmonctrladmingroupname
-    leafs["rttMonScheduleAdminRttLife"] = rttmonctrladminentry.Rttmonscheduleadminrttlife
-    leafs["rttMonScheduleAdminRttStartTime"] = rttmonctrladminentry.Rttmonscheduleadminrttstarttime
-    leafs["rttMonScheduleAdminConceptRowAgeout"] = rttmonctrladminentry.Rttmonscheduleadminconceptrowageout
-    leafs["rttMonScheduleAdminRttRecurring"] = rttmonctrladminentry.Rttmonscheduleadminrttrecurring
-    leafs["rttMonScheduleAdminConceptRowAgeoutV2"] = rttmonctrladminentry.Rttmonscheduleadminconceptrowageoutv2
-    leafs["rttMonReactAdminConnectionEnable"] = rttmonctrladminentry.Rttmonreactadminconnectionenable
-    leafs["rttMonReactAdminTimeoutEnable"] = rttmonctrladminentry.Rttmonreactadmintimeoutenable
-    leafs["rttMonReactAdminThresholdType"] = rttmonctrladminentry.Rttmonreactadminthresholdtype
-    leafs["rttMonReactAdminThresholdFalling"] = rttmonctrladminentry.Rttmonreactadminthresholdfalling
-    leafs["rttMonReactAdminThresholdCount"] = rttmonctrladminentry.Rttmonreactadminthresholdcount
-    leafs["rttMonReactAdminThresholdCount2"] = rttmonctrladminentry.Rttmonreactadminthresholdcount2
-    leafs["rttMonReactAdminActionType"] = rttmonctrladminentry.Rttmonreactadminactiontype
-    leafs["rttMonReactAdminVerifyErrorEnable"] = rttmonctrladminentry.Rttmonreactadminverifyerrorenable
-    leafs["rttMonStatisticsAdminNumHourGroups"] = rttmonctrladminentry.Rttmonstatisticsadminnumhourgroups
-    leafs["rttMonStatisticsAdminNumPaths"] = rttmonctrladminentry.Rttmonstatisticsadminnumpaths
-    leafs["rttMonStatisticsAdminNumHops"] = rttmonctrladminentry.Rttmonstatisticsadminnumhops
-    leafs["rttMonStatisticsAdminNumDistBuckets"] = rttmonctrladminentry.Rttmonstatisticsadminnumdistbuckets
-    leafs["rttMonStatisticsAdminDistInterval"] = rttmonctrladminentry.Rttmonstatisticsadmindistinterval
-    leafs["rttMonHistoryAdminNumLives"] = rttmonctrladminentry.Rttmonhistoryadminnumlives
-    leafs["rttMonHistoryAdminNumBuckets"] = rttmonctrladminentry.Rttmonhistoryadminnumbuckets
-    leafs["rttMonHistoryAdminNumSamples"] = rttmonctrladminentry.Rttmonhistoryadminnumsamples
-    leafs["rttMonHistoryAdminFilter"] = rttmonctrladminentry.Rttmonhistoryadminfilter
-    leafs["rttMonCtrlOperModificationTime"] = rttmonctrladminentry.Rttmonctrlopermodificationtime
-    leafs["rttMonCtrlOperDiagText"] = rttmonctrladminentry.Rttmonctrloperdiagtext
-    leafs["rttMonCtrlOperResetTime"] = rttmonctrladminentry.Rttmonctrloperresettime
-    leafs["rttMonCtrlOperOctetsInUse"] = rttmonctrladminentry.Rttmonctrloperoctetsinuse
-    leafs["rttMonCtrlOperConnectionLostOccurred"] = rttmonctrladminentry.Rttmonctrloperconnectionlostoccurred
-    leafs["rttMonCtrlOperTimeoutOccurred"] = rttmonctrladminentry.Rttmonctrlopertimeoutoccurred
-    leafs["rttMonCtrlOperOverThresholdOccurred"] = rttmonctrladminentry.Rttmonctrloperoverthresholdoccurred
-    leafs["rttMonCtrlOperNumRtts"] = rttmonctrladminentry.Rttmonctrlopernumrtts
-    leafs["rttMonCtrlOperRttLife"] = rttmonctrladminentry.Rttmonctrloperrttlife
-    leafs["rttMonCtrlOperState"] = rttmonctrladminentry.Rttmonctrloperstate
-    leafs["rttMonCtrlOperVerifyErrorOccurred"] = rttmonctrladminentry.Rttmonctrloperverifyerroroccurred
-    leafs["rttMonLatestRttOperCompletionTime"] = rttmonctrladminentry.Rttmonlatestrttopercompletiontime
-    leafs["rttMonLatestRttOperSense"] = rttmonctrladminentry.Rttmonlatestrttopersense
-    leafs["rttMonLatestRttOperApplSpecificSense"] = rttmonctrladminentry.Rttmonlatestrttoperapplspecificsense
-    leafs["rttMonLatestRttOperSenseDescription"] = rttmonctrladminentry.Rttmonlatestrttopersensedescription
-    leafs["rttMonLatestRttOperTime"] = rttmonctrladminentry.Rttmonlatestrttopertime
-    leafs["rttMonLatestRttOperAddress"] = rttmonctrladminentry.Rttmonlatestrttoperaddress
-    return leafs
-}
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetYangName() string { return "rttMonCtrlAdminEntry" }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) SetParent(parent types.Entity) { rttmonctrladminentry.parent = parent }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetParent() types.Entity { return rttmonctrladminentry.parent }
-
-func (rttmonctrladminentry *CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry) GetParentYangName() string { return "rttMonCtrlAdminTable" }
 
 // CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate represents        part of a multi-bound PDU.
 type CISCORTTMONMIB_Rttmonctrladmintable_Rttmonctrladminentry_Rttmonctrloperstate string
@@ -2238,7 +1668,7 @@ const (
 // rttMonCtrlAdminTable.  Entries in this table are
 // created via the rttMonCtrlAdminStatus object.
 type CISCORTTMONMIB_Rttmonechoadmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for RttMonRttType
@@ -2247,69 +1677,30 @@ type CISCORTTMONMIB_Rttmonechoadmintable struct {
     Rttmonechoadminentry []CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry
 }
 
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetFilter() yfilter.YFilter { return rttmonechoadmintable.YFilter }
+func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetEntityData() *types.CommonEntityData {
+    rttmonechoadmintable.EntityData.YFilter = rttmonechoadmintable.YFilter
+    rttmonechoadmintable.EntityData.YangName = "rttMonEchoAdminTable"
+    rttmonechoadmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonechoadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonechoadmintable.EntityData.SegmentPath = "rttMonEchoAdminTable"
+    rttmonechoadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonechoadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonechoadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) SetFilter(yf yfilter.YFilter) { rttmonechoadmintable.YFilter = yf }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetGoName(yname string) string {
-    if yname == "rttMonEchoAdminEntry" { return "Rttmonechoadminentry" }
-    return ""
-}
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetSegmentPath() string {
-    return "rttMonEchoAdminTable"
-}
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonEchoAdminEntry" {
-        for _, c := range rttmonechoadmintable.Rttmonechoadminentry {
-            if rttmonechoadmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry{}
-        rttmonechoadmintable.Rttmonechoadminentry = append(rttmonechoadmintable.Rttmonechoadminentry, child)
-        return &rttmonechoadmintable.Rttmonechoadminentry[len(rttmonechoadmintable.Rttmonechoadminentry)-1]
-    }
-    return nil
-}
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonechoadmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmonechoadmintable.EntityData.Children["rttMonEchoAdminEntry"] = types.YChild{"Rttmonechoadminentry", nil}
     for i := range rttmonechoadmintable.Rttmonechoadminentry {
-        children[rttmonechoadmintable.Rttmonechoadminentry[i].GetSegmentPath()] = &rttmonechoadmintable.Rttmonechoadminentry[i]
+        rttmonechoadmintable.EntityData.Children[types.GetSegmentPath(&rttmonechoadmintable.Rttmonechoadminentry[i])] = types.YChild{"Rttmonechoadminentry", &rttmonechoadmintable.Rttmonechoadminentry[i]}
     }
-    return children
+    rttmonechoadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonechoadmintable.EntityData)
 }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetYangName() string { return "rttMonEchoAdminTable" }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) SetParent(parent types.Entity) { rttmonechoadmintable.parent = parent }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetParent() types.Entity { return rttmonechoadmintable.parent }
-
-func (rttmonechoadmintable *CISCORTTMONMIB_Rttmonechoadmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry
 // A list of objects that define specific configuration for
 // RttMonRttType conceptual Rtt control rows.
 type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2709,13 +2100,13 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     // This object indicates the MAC address of the target device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminTargetMacAddress and
     // rttMonEchoAdminTargetMPID may not be used in conjunction. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Rttmonechoadmintargetmacaddress interface{}
 
     // This object indicates the MAC address of the source device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminSourceMacAddress and
     // rttMonEchoAdminSourceMPID may not be used in conjunction. The type is
-    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Rttmonechoadminsourcemacaddress interface{}
 
     // This object indicates the source maintenance point ID.  It is only
@@ -2773,203 +2164,97 @@ type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry struct {
     Rttmonechoadmintstampoptimization interface{}
 }
 
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetFilter() yfilter.YFilter { return rttmonechoadminentry.YFilter }
+func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetEntityData() *types.CommonEntityData {
+    rttmonechoadminentry.EntityData.YFilter = rttmonechoadminentry.YFilter
+    rttmonechoadminentry.EntityData.YangName = "rttMonEchoAdminEntry"
+    rttmonechoadminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonechoadminentry.EntityData.ParentYangName = "rttMonEchoAdminTable"
+    rttmonechoadminentry.EntityData.SegmentPath = "rttMonEchoAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonechoadminentry.Rttmonctrladminindex) + "']"
+    rttmonechoadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonechoadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonechoadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) SetFilter(yf yfilter.YFilter) { rttmonechoadminentry.YFilter = yf }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonEchoAdminProtocol" { return "Rttmonechoadminprotocol" }
-    if yname == "rttMonEchoAdminTargetAddress" { return "Rttmonechoadmintargetaddress" }
-    if yname == "rttMonEchoAdminPktDataRequestSize" { return "Rttmonechoadminpktdatarequestsize" }
-    if yname == "rttMonEchoAdminPktDataResponseSize" { return "Rttmonechoadminpktdataresponsesize" }
-    if yname == "rttMonEchoAdminTargetPort" { return "Rttmonechoadmintargetport" }
-    if yname == "rttMonEchoAdminSourceAddress" { return "Rttmonechoadminsourceaddress" }
-    if yname == "rttMonEchoAdminSourcePort" { return "Rttmonechoadminsourceport" }
-    if yname == "rttMonEchoAdminControlEnable" { return "Rttmonechoadmincontrolenable" }
-    if yname == "rttMonEchoAdminTOS" { return "Rttmonechoadmintos" }
-    if yname == "rttMonEchoAdminLSREnable" { return "Rttmonechoadminlsrenable" }
-    if yname == "rttMonEchoAdminTargetAddressString" { return "Rttmonechoadmintargetaddressstring" }
-    if yname == "rttMonEchoAdminNameServer" { return "Rttmonechoadminnameserver" }
-    if yname == "rttMonEchoAdminOperation" { return "Rttmonechoadminoperation" }
-    if yname == "rttMonEchoAdminHTTPVersion" { return "Rttmonechoadminhttpversion" }
-    if yname == "rttMonEchoAdminURL" { return "Rttmonechoadminurl" }
-    if yname == "rttMonEchoAdminCache" { return "Rttmonechoadmincache" }
-    if yname == "rttMonEchoAdminInterval" { return "Rttmonechoadmininterval" }
-    if yname == "rttMonEchoAdminNumPackets" { return "Rttmonechoadminnumpackets" }
-    if yname == "rttMonEchoAdminProxy" { return "Rttmonechoadminproxy" }
-    if yname == "rttMonEchoAdminString1" { return "Rttmonechoadminstring1" }
-    if yname == "rttMonEchoAdminString2" { return "Rttmonechoadminstring2" }
-    if yname == "rttMonEchoAdminString3" { return "Rttmonechoadminstring3" }
-    if yname == "rttMonEchoAdminString4" { return "Rttmonechoadminstring4" }
-    if yname == "rttMonEchoAdminString5" { return "Rttmonechoadminstring5" }
-    if yname == "rttMonEchoAdminMode" { return "Rttmonechoadminmode" }
-    if yname == "rttMonEchoAdminVrfName" { return "Rttmonechoadminvrfname" }
-    if yname == "rttMonEchoAdminCodecType" { return "Rttmonechoadmincodectype" }
-    if yname == "rttMonEchoAdminCodecInterval" { return "Rttmonechoadmincodecinterval" }
-    if yname == "rttMonEchoAdminCodecPayload" { return "Rttmonechoadmincodecpayload" }
-    if yname == "rttMonEchoAdminCodecNumPackets" { return "Rttmonechoadmincodecnumpackets" }
-    if yname == "rttMonEchoAdminICPIFAdvFactor" { return "Rttmonechoadminicpifadvfactor" }
-    if yname == "rttMonEchoAdminLSPFECType" { return "Rttmonechoadminlspfectype" }
-    if yname == "rttMonEchoAdminLSPSelector" { return "Rttmonechoadminlspselector" }
-    if yname == "rttMonEchoAdminLSPReplyMode" { return "Rttmonechoadminlspreplymode" }
-    if yname == "rttMonEchoAdminLSPTTL" { return "Rttmonechoadminlspttl" }
-    if yname == "rttMonEchoAdminLSPExp" { return "Rttmonechoadminlspexp" }
-    if yname == "rttMonEchoAdminPrecision" { return "Rttmonechoadminprecision" }
-    if yname == "rttMonEchoAdminProbePakPriority" { return "Rttmonechoadminprobepakpriority" }
-    if yname == "rttMonEchoAdminOWNTPSyncTolAbs" { return "Rttmonechoadminowntpsynctolabs" }
-    if yname == "rttMonEchoAdminOWNTPSyncTolPct" { return "Rttmonechoadminowntpsynctolpct" }
-    if yname == "rttMonEchoAdminOWNTPSyncTolType" { return "Rttmonechoadminowntpsynctoltype" }
-    if yname == "rttMonEchoAdminCalledNumber" { return "Rttmonechoadmincallednumber" }
-    if yname == "rttMonEchoAdminDetectPoint" { return "Rttmonechoadmindetectpoint" }
-    if yname == "rttMonEchoAdminGKRegistration" { return "Rttmonechoadmingkregistration" }
-    if yname == "rttMonEchoAdminSourceVoicePort" { return "Rttmonechoadminsourcevoiceport" }
-    if yname == "rttMonEchoAdminCallDuration" { return "Rttmonechoadmincallduration" }
-    if yname == "rttMonEchoAdminLSPReplyDscp" { return "Rttmonechoadminlspreplydscp" }
-    if yname == "rttMonEchoAdminLSPNullShim" { return "Rttmonechoadminlspnullshim" }
-    if yname == "rttMonEchoAdminTargetMPID" { return "Rttmonechoadmintargetmpid" }
-    if yname == "rttMonEchoAdminTargetDomainName" { return "Rttmonechoadmintargetdomainname" }
-    if yname == "rttMonEchoAdminTargetVLAN" { return "Rttmonechoadmintargetvlan" }
-    if yname == "rttMonEchoAdminEthernetCOS" { return "Rttmonechoadminethernetcos" }
-    if yname == "rttMonEchoAdminLSPVccvID" { return "Rttmonechoadminlspvccvid" }
-    if yname == "rttMonEchoAdminTargetEVC" { return "Rttmonechoadmintargetevc" }
-    if yname == "rttMonEchoAdminTargetMEPPort" { return "Rttmonechoadmintargetmepport" }
-    if yname == "rttMonEchoAdminVideoTrafficProfile" { return "Rttmonechoadminvideotrafficprofile" }
-    if yname == "rttMonEchoAdminDscp" { return "Rttmonechoadmindscp" }
-    if yname == "rttMonEchoAdminReserveDsp" { return "Rttmonechoadminreservedsp" }
-    if yname == "rttMonEchoAdminInputInterface" { return "Rttmonechoadmininputinterface" }
-    if yname == "rttMonEchoAdminEmulateSourceAddress" { return "Rttmonechoadminemulatesourceaddress" }
-    if yname == "rttMonEchoAdminEmulateSourcePort" { return "Rttmonechoadminemulatesourceport" }
-    if yname == "rttMonEchoAdminEmulateTargetAddress" { return "Rttmonechoadminemulatetargetaddress" }
-    if yname == "rttMonEchoAdminEmulateTargetPort" { return "Rttmonechoadminemulatetargetport" }
-    if yname == "rttMonEchoAdminTargetMacAddress" { return "Rttmonechoadmintargetmacaddress" }
-    if yname == "rttMonEchoAdminSourceMacAddress" { return "Rttmonechoadminsourcemacaddress" }
-    if yname == "rttMonEchoAdminSourceMPID" { return "Rttmonechoadminsourcempid" }
-    if yname == "rttMonEchoAdminEndPointListName" { return "Rttmonechoadminendpointlistname" }
-    if yname == "rttMonEchoAdminSSM" { return "Rttmonechoadminssm" }
-    if yname == "rttMonEchoAdminControlRetry" { return "Rttmonechoadmincontrolretry" }
-    if yname == "rttMonEchoAdminControlTimeout" { return "Rttmonechoadmincontroltimeout" }
-    if yname == "rttMonEchoAdminIgmpTreeInit" { return "Rttmonechoadminigmptreeinit" }
-    if yname == "rttMonEchoAdminEnableBurst" { return "Rttmonechoadminenableburst" }
-    if yname == "rttMonEchoAdminAggBurstCycles" { return "Rttmonechoadminaggburstcycles" }
-    if yname == "rttMonEchoAdminLossRatioNumFrames" { return "Rttmonechoadminlossrationumframes" }
-    if yname == "rttMonEchoAdminAvailNumFrames" { return "Rttmonechoadminavailnumframes" }
-    if yname == "rttMonEchoAdminTstampOptimization" { return "Rttmonechoadmintstampoptimization" }
-    return ""
+    rttmonechoadminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonechoadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonechoadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonechoadminentry.Rttmonctrladminindex}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminProtocol"] = types.YLeaf{"Rttmonechoadminprotocol", rttmonechoadminentry.Rttmonechoadminprotocol}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetAddress"] = types.YLeaf{"Rttmonechoadmintargetaddress", rttmonechoadminentry.Rttmonechoadmintargetaddress}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminPktDataRequestSize"] = types.YLeaf{"Rttmonechoadminpktdatarequestsize", rttmonechoadminentry.Rttmonechoadminpktdatarequestsize}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminPktDataResponseSize"] = types.YLeaf{"Rttmonechoadminpktdataresponsesize", rttmonechoadminentry.Rttmonechoadminpktdataresponsesize}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetPort"] = types.YLeaf{"Rttmonechoadmintargetport", rttmonechoadminentry.Rttmonechoadmintargetport}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceAddress"] = types.YLeaf{"Rttmonechoadminsourceaddress", rttmonechoadminentry.Rttmonechoadminsourceaddress}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourcePort"] = types.YLeaf{"Rttmonechoadminsourceport", rttmonechoadminentry.Rttmonechoadminsourceport}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminControlEnable"] = types.YLeaf{"Rttmonechoadmincontrolenable", rttmonechoadminentry.Rttmonechoadmincontrolenable}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTOS"] = types.YLeaf{"Rttmonechoadmintos", rttmonechoadminentry.Rttmonechoadmintos}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSREnable"] = types.YLeaf{"Rttmonechoadminlsrenable", rttmonechoadminentry.Rttmonechoadminlsrenable}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetAddressString"] = types.YLeaf{"Rttmonechoadmintargetaddressstring", rttmonechoadminentry.Rttmonechoadmintargetaddressstring}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminNameServer"] = types.YLeaf{"Rttmonechoadminnameserver", rttmonechoadminentry.Rttmonechoadminnameserver}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOperation"] = types.YLeaf{"Rttmonechoadminoperation", rttmonechoadminentry.Rttmonechoadminoperation}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminHTTPVersion"] = types.YLeaf{"Rttmonechoadminhttpversion", rttmonechoadminentry.Rttmonechoadminhttpversion}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminURL"] = types.YLeaf{"Rttmonechoadminurl", rttmonechoadminentry.Rttmonechoadminurl}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCache"] = types.YLeaf{"Rttmonechoadmincache", rttmonechoadminentry.Rttmonechoadmincache}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminInterval"] = types.YLeaf{"Rttmonechoadmininterval", rttmonechoadminentry.Rttmonechoadmininterval}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminNumPackets"] = types.YLeaf{"Rttmonechoadminnumpackets", rttmonechoadminentry.Rttmonechoadminnumpackets}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminProxy"] = types.YLeaf{"Rttmonechoadminproxy", rttmonechoadminentry.Rttmonechoadminproxy}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString1"] = types.YLeaf{"Rttmonechoadminstring1", rttmonechoadminentry.Rttmonechoadminstring1}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString2"] = types.YLeaf{"Rttmonechoadminstring2", rttmonechoadminentry.Rttmonechoadminstring2}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString3"] = types.YLeaf{"Rttmonechoadminstring3", rttmonechoadminentry.Rttmonechoadminstring3}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString4"] = types.YLeaf{"Rttmonechoadminstring4", rttmonechoadminentry.Rttmonechoadminstring4}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminString5"] = types.YLeaf{"Rttmonechoadminstring5", rttmonechoadminentry.Rttmonechoadminstring5}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminMode"] = types.YLeaf{"Rttmonechoadminmode", rttmonechoadminentry.Rttmonechoadminmode}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminVrfName"] = types.YLeaf{"Rttmonechoadminvrfname", rttmonechoadminentry.Rttmonechoadminvrfname}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecType"] = types.YLeaf{"Rttmonechoadmincodectype", rttmonechoadminentry.Rttmonechoadmincodectype}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecInterval"] = types.YLeaf{"Rttmonechoadmincodecinterval", rttmonechoadminentry.Rttmonechoadmincodecinterval}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecPayload"] = types.YLeaf{"Rttmonechoadmincodecpayload", rttmonechoadminentry.Rttmonechoadmincodecpayload}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCodecNumPackets"] = types.YLeaf{"Rttmonechoadmincodecnumpackets", rttmonechoadminentry.Rttmonechoadmincodecnumpackets}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminICPIFAdvFactor"] = types.YLeaf{"Rttmonechoadminicpifadvfactor", rttmonechoadminentry.Rttmonechoadminicpifadvfactor}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPFECType"] = types.YLeaf{"Rttmonechoadminlspfectype", rttmonechoadminentry.Rttmonechoadminlspfectype}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPSelector"] = types.YLeaf{"Rttmonechoadminlspselector", rttmonechoadminentry.Rttmonechoadminlspselector}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPReplyMode"] = types.YLeaf{"Rttmonechoadminlspreplymode", rttmonechoadminentry.Rttmonechoadminlspreplymode}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPTTL"] = types.YLeaf{"Rttmonechoadminlspttl", rttmonechoadminentry.Rttmonechoadminlspttl}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPExp"] = types.YLeaf{"Rttmonechoadminlspexp", rttmonechoadminentry.Rttmonechoadminlspexp}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminPrecision"] = types.YLeaf{"Rttmonechoadminprecision", rttmonechoadminentry.Rttmonechoadminprecision}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminProbePakPriority"] = types.YLeaf{"Rttmonechoadminprobepakpriority", rttmonechoadminentry.Rttmonechoadminprobepakpriority}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOWNTPSyncTolAbs"] = types.YLeaf{"Rttmonechoadminowntpsynctolabs", rttmonechoadminentry.Rttmonechoadminowntpsynctolabs}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOWNTPSyncTolPct"] = types.YLeaf{"Rttmonechoadminowntpsynctolpct", rttmonechoadminentry.Rttmonechoadminowntpsynctolpct}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminOWNTPSyncTolType"] = types.YLeaf{"Rttmonechoadminowntpsynctoltype", rttmonechoadminentry.Rttmonechoadminowntpsynctoltype}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCalledNumber"] = types.YLeaf{"Rttmonechoadmincallednumber", rttmonechoadminentry.Rttmonechoadmincallednumber}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminDetectPoint"] = types.YLeaf{"Rttmonechoadmindetectpoint", rttmonechoadminentry.Rttmonechoadmindetectpoint}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminGKRegistration"] = types.YLeaf{"Rttmonechoadmingkregistration", rttmonechoadminentry.Rttmonechoadmingkregistration}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceVoicePort"] = types.YLeaf{"Rttmonechoadminsourcevoiceport", rttmonechoadminentry.Rttmonechoadminsourcevoiceport}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminCallDuration"] = types.YLeaf{"Rttmonechoadmincallduration", rttmonechoadminentry.Rttmonechoadmincallduration}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPReplyDscp"] = types.YLeaf{"Rttmonechoadminlspreplydscp", rttmonechoadminentry.Rttmonechoadminlspreplydscp}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPNullShim"] = types.YLeaf{"Rttmonechoadminlspnullshim", rttmonechoadminentry.Rttmonechoadminlspnullshim}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetMPID"] = types.YLeaf{"Rttmonechoadmintargetmpid", rttmonechoadminentry.Rttmonechoadmintargetmpid}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetDomainName"] = types.YLeaf{"Rttmonechoadmintargetdomainname", rttmonechoadminentry.Rttmonechoadmintargetdomainname}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetVLAN"] = types.YLeaf{"Rttmonechoadmintargetvlan", rttmonechoadminentry.Rttmonechoadmintargetvlan}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEthernetCOS"] = types.YLeaf{"Rttmonechoadminethernetcos", rttmonechoadminentry.Rttmonechoadminethernetcos}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLSPVccvID"] = types.YLeaf{"Rttmonechoadminlspvccvid", rttmonechoadminentry.Rttmonechoadminlspvccvid}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetEVC"] = types.YLeaf{"Rttmonechoadmintargetevc", rttmonechoadminentry.Rttmonechoadmintargetevc}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetMEPPort"] = types.YLeaf{"Rttmonechoadmintargetmepport", rttmonechoadminentry.Rttmonechoadmintargetmepport}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminVideoTrafficProfile"] = types.YLeaf{"Rttmonechoadminvideotrafficprofile", rttmonechoadminentry.Rttmonechoadminvideotrafficprofile}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminDscp"] = types.YLeaf{"Rttmonechoadmindscp", rttmonechoadminentry.Rttmonechoadmindscp}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminReserveDsp"] = types.YLeaf{"Rttmonechoadminreservedsp", rttmonechoadminentry.Rttmonechoadminreservedsp}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminInputInterface"] = types.YLeaf{"Rttmonechoadmininputinterface", rttmonechoadminentry.Rttmonechoadmininputinterface}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateSourceAddress"] = types.YLeaf{"Rttmonechoadminemulatesourceaddress", rttmonechoadminentry.Rttmonechoadminemulatesourceaddress}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateSourcePort"] = types.YLeaf{"Rttmonechoadminemulatesourceport", rttmonechoadminentry.Rttmonechoadminemulatesourceport}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateTargetAddress"] = types.YLeaf{"Rttmonechoadminemulatetargetaddress", rttmonechoadminentry.Rttmonechoadminemulatetargetaddress}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEmulateTargetPort"] = types.YLeaf{"Rttmonechoadminemulatetargetport", rttmonechoadminentry.Rttmonechoadminemulatetargetport}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTargetMacAddress"] = types.YLeaf{"Rttmonechoadmintargetmacaddress", rttmonechoadminentry.Rttmonechoadmintargetmacaddress}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceMacAddress"] = types.YLeaf{"Rttmonechoadminsourcemacaddress", rttmonechoadminentry.Rttmonechoadminsourcemacaddress}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSourceMPID"] = types.YLeaf{"Rttmonechoadminsourcempid", rttmonechoadminentry.Rttmonechoadminsourcempid}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEndPointListName"] = types.YLeaf{"Rttmonechoadminendpointlistname", rttmonechoadminentry.Rttmonechoadminendpointlistname}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminSSM"] = types.YLeaf{"Rttmonechoadminssm", rttmonechoadminentry.Rttmonechoadminssm}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminControlRetry"] = types.YLeaf{"Rttmonechoadmincontrolretry", rttmonechoadminentry.Rttmonechoadmincontrolretry}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminControlTimeout"] = types.YLeaf{"Rttmonechoadmincontroltimeout", rttmonechoadminentry.Rttmonechoadmincontroltimeout}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminIgmpTreeInit"] = types.YLeaf{"Rttmonechoadminigmptreeinit", rttmonechoadminentry.Rttmonechoadminigmptreeinit}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminEnableBurst"] = types.YLeaf{"Rttmonechoadminenableburst", rttmonechoadminentry.Rttmonechoadminenableburst}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminAggBurstCycles"] = types.YLeaf{"Rttmonechoadminaggburstcycles", rttmonechoadminentry.Rttmonechoadminaggburstcycles}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminLossRatioNumFrames"] = types.YLeaf{"Rttmonechoadminlossrationumframes", rttmonechoadminentry.Rttmonechoadminlossrationumframes}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminAvailNumFrames"] = types.YLeaf{"Rttmonechoadminavailnumframes", rttmonechoadminentry.Rttmonechoadminavailnumframes}
+    rttmonechoadminentry.EntityData.Leafs["rttMonEchoAdminTstampOptimization"] = types.YLeaf{"Rttmonechoadmintstampoptimization", rttmonechoadminentry.Rttmonechoadmintstampoptimization}
+    return &(rttmonechoadminentry.EntityData)
 }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetSegmentPath() string {
-    return "rttMonEchoAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonechoadminentry.Rttmonctrladminindex) + "']"
-}
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonechoadminentry.Rttmonctrladminindex
-    leafs["rttMonEchoAdminProtocol"] = rttmonechoadminentry.Rttmonechoadminprotocol
-    leafs["rttMonEchoAdminTargetAddress"] = rttmonechoadminentry.Rttmonechoadmintargetaddress
-    leafs["rttMonEchoAdminPktDataRequestSize"] = rttmonechoadminentry.Rttmonechoadminpktdatarequestsize
-    leafs["rttMonEchoAdminPktDataResponseSize"] = rttmonechoadminentry.Rttmonechoadminpktdataresponsesize
-    leafs["rttMonEchoAdminTargetPort"] = rttmonechoadminentry.Rttmonechoadmintargetport
-    leafs["rttMonEchoAdminSourceAddress"] = rttmonechoadminentry.Rttmonechoadminsourceaddress
-    leafs["rttMonEchoAdminSourcePort"] = rttmonechoadminentry.Rttmonechoadminsourceport
-    leafs["rttMonEchoAdminControlEnable"] = rttmonechoadminentry.Rttmonechoadmincontrolenable
-    leafs["rttMonEchoAdminTOS"] = rttmonechoadminentry.Rttmonechoadmintos
-    leafs["rttMonEchoAdminLSREnable"] = rttmonechoadminentry.Rttmonechoadminlsrenable
-    leafs["rttMonEchoAdminTargetAddressString"] = rttmonechoadminentry.Rttmonechoadmintargetaddressstring
-    leafs["rttMonEchoAdminNameServer"] = rttmonechoadminentry.Rttmonechoadminnameserver
-    leafs["rttMonEchoAdminOperation"] = rttmonechoadminentry.Rttmonechoadminoperation
-    leafs["rttMonEchoAdminHTTPVersion"] = rttmonechoadminentry.Rttmonechoadminhttpversion
-    leafs["rttMonEchoAdminURL"] = rttmonechoadminentry.Rttmonechoadminurl
-    leafs["rttMonEchoAdminCache"] = rttmonechoadminentry.Rttmonechoadmincache
-    leafs["rttMonEchoAdminInterval"] = rttmonechoadminentry.Rttmonechoadmininterval
-    leafs["rttMonEchoAdminNumPackets"] = rttmonechoadminentry.Rttmonechoadminnumpackets
-    leafs["rttMonEchoAdminProxy"] = rttmonechoadminentry.Rttmonechoadminproxy
-    leafs["rttMonEchoAdminString1"] = rttmonechoadminentry.Rttmonechoadminstring1
-    leafs["rttMonEchoAdminString2"] = rttmonechoadminentry.Rttmonechoadminstring2
-    leafs["rttMonEchoAdminString3"] = rttmonechoadminentry.Rttmonechoadminstring3
-    leafs["rttMonEchoAdminString4"] = rttmonechoadminentry.Rttmonechoadminstring4
-    leafs["rttMonEchoAdminString5"] = rttmonechoadminentry.Rttmonechoadminstring5
-    leafs["rttMonEchoAdminMode"] = rttmonechoadminentry.Rttmonechoadminmode
-    leafs["rttMonEchoAdminVrfName"] = rttmonechoadminentry.Rttmonechoadminvrfname
-    leafs["rttMonEchoAdminCodecType"] = rttmonechoadminentry.Rttmonechoadmincodectype
-    leafs["rttMonEchoAdminCodecInterval"] = rttmonechoadminentry.Rttmonechoadmincodecinterval
-    leafs["rttMonEchoAdminCodecPayload"] = rttmonechoadminentry.Rttmonechoadmincodecpayload
-    leafs["rttMonEchoAdminCodecNumPackets"] = rttmonechoadminentry.Rttmonechoadmincodecnumpackets
-    leafs["rttMonEchoAdminICPIFAdvFactor"] = rttmonechoadminentry.Rttmonechoadminicpifadvfactor
-    leafs["rttMonEchoAdminLSPFECType"] = rttmonechoadminentry.Rttmonechoadminlspfectype
-    leafs["rttMonEchoAdminLSPSelector"] = rttmonechoadminentry.Rttmonechoadminlspselector
-    leafs["rttMonEchoAdminLSPReplyMode"] = rttmonechoadminentry.Rttmonechoadminlspreplymode
-    leafs["rttMonEchoAdminLSPTTL"] = rttmonechoadminentry.Rttmonechoadminlspttl
-    leafs["rttMonEchoAdminLSPExp"] = rttmonechoadminentry.Rttmonechoadminlspexp
-    leafs["rttMonEchoAdminPrecision"] = rttmonechoadminentry.Rttmonechoadminprecision
-    leafs["rttMonEchoAdminProbePakPriority"] = rttmonechoadminentry.Rttmonechoadminprobepakpriority
-    leafs["rttMonEchoAdminOWNTPSyncTolAbs"] = rttmonechoadminentry.Rttmonechoadminowntpsynctolabs
-    leafs["rttMonEchoAdminOWNTPSyncTolPct"] = rttmonechoadminentry.Rttmonechoadminowntpsynctolpct
-    leafs["rttMonEchoAdminOWNTPSyncTolType"] = rttmonechoadminentry.Rttmonechoadminowntpsynctoltype
-    leafs["rttMonEchoAdminCalledNumber"] = rttmonechoadminentry.Rttmonechoadmincallednumber
-    leafs["rttMonEchoAdminDetectPoint"] = rttmonechoadminentry.Rttmonechoadmindetectpoint
-    leafs["rttMonEchoAdminGKRegistration"] = rttmonechoadminentry.Rttmonechoadmingkregistration
-    leafs["rttMonEchoAdminSourceVoicePort"] = rttmonechoadminentry.Rttmonechoadminsourcevoiceport
-    leafs["rttMonEchoAdminCallDuration"] = rttmonechoadminentry.Rttmonechoadmincallduration
-    leafs["rttMonEchoAdminLSPReplyDscp"] = rttmonechoadminentry.Rttmonechoadminlspreplydscp
-    leafs["rttMonEchoAdminLSPNullShim"] = rttmonechoadminentry.Rttmonechoadminlspnullshim
-    leafs["rttMonEchoAdminTargetMPID"] = rttmonechoadminentry.Rttmonechoadmintargetmpid
-    leafs["rttMonEchoAdminTargetDomainName"] = rttmonechoadminentry.Rttmonechoadmintargetdomainname
-    leafs["rttMonEchoAdminTargetVLAN"] = rttmonechoadminentry.Rttmonechoadmintargetvlan
-    leafs["rttMonEchoAdminEthernetCOS"] = rttmonechoadminentry.Rttmonechoadminethernetcos
-    leafs["rttMonEchoAdminLSPVccvID"] = rttmonechoadminentry.Rttmonechoadminlspvccvid
-    leafs["rttMonEchoAdminTargetEVC"] = rttmonechoadminentry.Rttmonechoadmintargetevc
-    leafs["rttMonEchoAdminTargetMEPPort"] = rttmonechoadminentry.Rttmonechoadmintargetmepport
-    leafs["rttMonEchoAdminVideoTrafficProfile"] = rttmonechoadminentry.Rttmonechoadminvideotrafficprofile
-    leafs["rttMonEchoAdminDscp"] = rttmonechoadminentry.Rttmonechoadmindscp
-    leafs["rttMonEchoAdminReserveDsp"] = rttmonechoadminentry.Rttmonechoadminreservedsp
-    leafs["rttMonEchoAdminInputInterface"] = rttmonechoadminentry.Rttmonechoadmininputinterface
-    leafs["rttMonEchoAdminEmulateSourceAddress"] = rttmonechoadminentry.Rttmonechoadminemulatesourceaddress
-    leafs["rttMonEchoAdminEmulateSourcePort"] = rttmonechoadminentry.Rttmonechoadminemulatesourceport
-    leafs["rttMonEchoAdminEmulateTargetAddress"] = rttmonechoadminentry.Rttmonechoadminemulatetargetaddress
-    leafs["rttMonEchoAdminEmulateTargetPort"] = rttmonechoadminentry.Rttmonechoadminemulatetargetport
-    leafs["rttMonEchoAdminTargetMacAddress"] = rttmonechoadminentry.Rttmonechoadmintargetmacaddress
-    leafs["rttMonEchoAdminSourceMacAddress"] = rttmonechoadminentry.Rttmonechoadminsourcemacaddress
-    leafs["rttMonEchoAdminSourceMPID"] = rttmonechoadminentry.Rttmonechoadminsourcempid
-    leafs["rttMonEchoAdminEndPointListName"] = rttmonechoadminentry.Rttmonechoadminendpointlistname
-    leafs["rttMonEchoAdminSSM"] = rttmonechoadminentry.Rttmonechoadminssm
-    leafs["rttMonEchoAdminControlRetry"] = rttmonechoadminentry.Rttmonechoadmincontrolretry
-    leafs["rttMonEchoAdminControlTimeout"] = rttmonechoadminentry.Rttmonechoadmincontroltimeout
-    leafs["rttMonEchoAdminIgmpTreeInit"] = rttmonechoadminentry.Rttmonechoadminigmptreeinit
-    leafs["rttMonEchoAdminEnableBurst"] = rttmonechoadminentry.Rttmonechoadminenableburst
-    leafs["rttMonEchoAdminAggBurstCycles"] = rttmonechoadminentry.Rttmonechoadminaggburstcycles
-    leafs["rttMonEchoAdminLossRatioNumFrames"] = rttmonechoadminentry.Rttmonechoadminlossrationumframes
-    leafs["rttMonEchoAdminAvailNumFrames"] = rttmonechoadminentry.Rttmonechoadminavailnumframes
-    leafs["rttMonEchoAdminTstampOptimization"] = rttmonechoadminentry.Rttmonechoadmintstampoptimization
-    return leafs
-}
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetYangName() string { return "rttMonEchoAdminEntry" }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) SetParent(parent types.Entity) { rttmonechoadminentry.parent = parent }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetParent() types.Entity { return rttmonechoadminentry.parent }
-
-func (rttmonechoadminentry *CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry) GetParentYangName() string { return "rttMonEchoAdminTable" }
 
 // CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminlspfectype represents ldpIpv4Prefix   - LDP IPv4 prefix.
 type CISCORTTMONMIB_Rttmonechoadmintable_Rttmonechoadminentry_Rttmonechoadminlspfectype string
@@ -3027,7 +2312,7 @@ const (
 // rttMonCtrlAdminTable.  Entries in this table are
 // created via the rttMonCtrlAdminStatus object.
 type CISCORTTMONMIB_Rttmonfileioadmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for 'fileIO'
@@ -3036,69 +2321,30 @@ type CISCORTTMONMIB_Rttmonfileioadmintable struct {
     Rttmonfileioadminentry []CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry
 }
 
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetFilter() yfilter.YFilter { return rttmonfileioadmintable.YFilter }
+func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetEntityData() *types.CommonEntityData {
+    rttmonfileioadmintable.EntityData.YFilter = rttmonfileioadmintable.YFilter
+    rttmonfileioadmintable.EntityData.YangName = "rttMonFileIOAdminTable"
+    rttmonfileioadmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonfileioadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonfileioadmintable.EntityData.SegmentPath = "rttMonFileIOAdminTable"
+    rttmonfileioadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonfileioadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonfileioadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) SetFilter(yf yfilter.YFilter) { rttmonfileioadmintable.YFilter = yf }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetGoName(yname string) string {
-    if yname == "rttMonFileIOAdminEntry" { return "Rttmonfileioadminentry" }
-    return ""
-}
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetSegmentPath() string {
-    return "rttMonFileIOAdminTable"
-}
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonFileIOAdminEntry" {
-        for _, c := range rttmonfileioadmintable.Rttmonfileioadminentry {
-            if rttmonfileioadmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry{}
-        rttmonfileioadmintable.Rttmonfileioadminentry = append(rttmonfileioadmintable.Rttmonfileioadminentry, child)
-        return &rttmonfileioadmintable.Rttmonfileioadminentry[len(rttmonfileioadmintable.Rttmonfileioadminentry)-1]
-    }
-    return nil
-}
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonfileioadmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmonfileioadmintable.EntityData.Children["rttMonFileIOAdminEntry"] = types.YChild{"Rttmonfileioadminentry", nil}
     for i := range rttmonfileioadmintable.Rttmonfileioadminentry {
-        children[rttmonfileioadmintable.Rttmonfileioadminentry[i].GetSegmentPath()] = &rttmonfileioadmintable.Rttmonfileioadminentry[i]
+        rttmonfileioadmintable.EntityData.Children[types.GetSegmentPath(&rttmonfileioadmintable.Rttmonfileioadminentry[i])] = types.YChild{"Rttmonfileioadminentry", &rttmonfileioadmintable.Rttmonfileioadminentry[i]}
     }
-    return children
+    rttmonfileioadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonfileioadmintable.EntityData)
 }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetYangName() string { return "rttMonFileIOAdminTable" }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) SetParent(parent types.Entity) { rttmonfileioadmintable.parent = parent }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetParent() types.Entity { return rttmonfileioadmintable.parent }
-
-func (rttmonfileioadmintable *CISCORTTMONMIB_Rttmonfileioadmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry
 // A list of objects that define specific configuration for
 // 'fileIO' RttMonRttType conceptual Rtt control rows.
 type CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3119,57 +2365,24 @@ type CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry struct {
     Rttmonfileioadminaction interface{}
 }
 
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetFilter() yfilter.YFilter { return rttmonfileioadminentry.YFilter }
+func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetEntityData() *types.CommonEntityData {
+    rttmonfileioadminentry.EntityData.YFilter = rttmonfileioadminentry.YFilter
+    rttmonfileioadminentry.EntityData.YangName = "rttMonFileIOAdminEntry"
+    rttmonfileioadminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonfileioadminentry.EntityData.ParentYangName = "rttMonFileIOAdminTable"
+    rttmonfileioadminentry.EntityData.SegmentPath = "rttMonFileIOAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonfileioadminentry.Rttmonctrladminindex) + "']"
+    rttmonfileioadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonfileioadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonfileioadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) SetFilter(yf yfilter.YFilter) { rttmonfileioadminentry.YFilter = yf }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonFileIOAdminFilePath" { return "Rttmonfileioadminfilepath" }
-    if yname == "rttMonFileIOAdminSize" { return "Rttmonfileioadminsize" }
-    if yname == "rttMonFileIOAdminAction" { return "Rttmonfileioadminaction" }
-    return ""
+    rttmonfileioadminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonfileioadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonfileioadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonfileioadminentry.Rttmonctrladminindex}
+    rttmonfileioadminentry.EntityData.Leafs["rttMonFileIOAdminFilePath"] = types.YLeaf{"Rttmonfileioadminfilepath", rttmonfileioadminentry.Rttmonfileioadminfilepath}
+    rttmonfileioadminentry.EntityData.Leafs["rttMonFileIOAdminSize"] = types.YLeaf{"Rttmonfileioadminsize", rttmonfileioadminentry.Rttmonfileioadminsize}
+    rttmonfileioadminentry.EntityData.Leafs["rttMonFileIOAdminAction"] = types.YLeaf{"Rttmonfileioadminaction", rttmonfileioadminentry.Rttmonfileioadminaction}
+    return &(rttmonfileioadminentry.EntityData)
 }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetSegmentPath() string {
-    return "rttMonFileIOAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonfileioadminentry.Rttmonctrladminindex) + "']"
-}
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonfileioadminentry.Rttmonctrladminindex
-    leafs["rttMonFileIOAdminFilePath"] = rttmonfileioadminentry.Rttmonfileioadminfilepath
-    leafs["rttMonFileIOAdminSize"] = rttmonfileioadminentry.Rttmonfileioadminsize
-    leafs["rttMonFileIOAdminAction"] = rttmonfileioadminentry.Rttmonfileioadminaction
-    return leafs
-}
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetYangName() string { return "rttMonFileIOAdminEntry" }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) SetParent(parent types.Entity) { rttmonfileioadminentry.parent = parent }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetParent() types.Entity { return rttmonfileioadminentry.parent }
-
-func (rttmonfileioadminentry *CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry) GetParentYangName() string { return "rttMonFileIOAdminTable" }
 
 // CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction represents The File I/O action to be performed.
 type CISCORTTMONMIB_Rttmonfileioadmintable_Rttmonfileioadminentry_Rttmonfileioadminaction string
@@ -3208,7 +2421,7 @@ const (
 // rttMonCtrlAdminTable.  Entries in this table are
 // created via the rttMonCtrlAdminStatus object.
 type CISCORTTMONMIB_Rttmonscriptadmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define specific configuration for 'script'
@@ -3217,69 +2430,30 @@ type CISCORTTMONMIB_Rttmonscriptadmintable struct {
     Rttmonscriptadminentry []CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry
 }
 
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetFilter() yfilter.YFilter { return rttmonscriptadmintable.YFilter }
+func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetEntityData() *types.CommonEntityData {
+    rttmonscriptadmintable.EntityData.YFilter = rttmonscriptadmintable.YFilter
+    rttmonscriptadmintable.EntityData.YangName = "rttMonScriptAdminTable"
+    rttmonscriptadmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonscriptadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonscriptadmintable.EntityData.SegmentPath = "rttMonScriptAdminTable"
+    rttmonscriptadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonscriptadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonscriptadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) SetFilter(yf yfilter.YFilter) { rttmonscriptadmintable.YFilter = yf }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetGoName(yname string) string {
-    if yname == "rttMonScriptAdminEntry" { return "Rttmonscriptadminentry" }
-    return ""
-}
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetSegmentPath() string {
-    return "rttMonScriptAdminTable"
-}
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonScriptAdminEntry" {
-        for _, c := range rttmonscriptadmintable.Rttmonscriptadminentry {
-            if rttmonscriptadmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry{}
-        rttmonscriptadmintable.Rttmonscriptadminentry = append(rttmonscriptadmintable.Rttmonscriptadminentry, child)
-        return &rttmonscriptadmintable.Rttmonscriptadminentry[len(rttmonscriptadmintable.Rttmonscriptadminentry)-1]
-    }
-    return nil
-}
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonscriptadmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmonscriptadmintable.EntityData.Children["rttMonScriptAdminEntry"] = types.YChild{"Rttmonscriptadminentry", nil}
     for i := range rttmonscriptadmintable.Rttmonscriptadminentry {
-        children[rttmonscriptadmintable.Rttmonscriptadminentry[i].GetSegmentPath()] = &rttmonscriptadmintable.Rttmonscriptadminentry[i]
+        rttmonscriptadmintable.EntityData.Children[types.GetSegmentPath(&rttmonscriptadmintable.Rttmonscriptadminentry[i])] = types.YChild{"Rttmonscriptadminentry", &rttmonscriptadmintable.Rttmonscriptadminentry[i]}
     }
-    return children
+    rttmonscriptadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonscriptadmintable.EntityData)
 }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetYangName() string { return "rttMonScriptAdminTable" }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) SetParent(parent types.Entity) { rttmonscriptadmintable.parent = parent }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetParent() types.Entity { return rttmonscriptadmintable.parent }
-
-func (rttmonscriptadmintable *CISCORTTMONMIB_Rttmonscriptadmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry
 // A list of objects that define specific configuration for
 // 'script' RttMonRttType conceptual Rtt control rows.
 type CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3297,55 +2471,23 @@ type CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry struct {
     Rttmonscriptadmincmdlineparams interface{}
 }
 
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetFilter() yfilter.YFilter { return rttmonscriptadminentry.YFilter }
+func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetEntityData() *types.CommonEntityData {
+    rttmonscriptadminentry.EntityData.YFilter = rttmonscriptadminentry.YFilter
+    rttmonscriptadminentry.EntityData.YangName = "rttMonScriptAdminEntry"
+    rttmonscriptadminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonscriptadminentry.EntityData.ParentYangName = "rttMonScriptAdminTable"
+    rttmonscriptadminentry.EntityData.SegmentPath = "rttMonScriptAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonscriptadminentry.Rttmonctrladminindex) + "']"
+    rttmonscriptadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonscriptadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonscriptadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) SetFilter(yf yfilter.YFilter) { rttmonscriptadminentry.YFilter = yf }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonScriptAdminName" { return "Rttmonscriptadminname" }
-    if yname == "rttMonScriptAdminCmdLineParams" { return "Rttmonscriptadmincmdlineparams" }
-    return ""
+    rttmonscriptadminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonscriptadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonscriptadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonscriptadminentry.Rttmonctrladminindex}
+    rttmonscriptadminentry.EntityData.Leafs["rttMonScriptAdminName"] = types.YLeaf{"Rttmonscriptadminname", rttmonscriptadminentry.Rttmonscriptadminname}
+    rttmonscriptadminentry.EntityData.Leafs["rttMonScriptAdminCmdLineParams"] = types.YLeaf{"Rttmonscriptadmincmdlineparams", rttmonscriptadminentry.Rttmonscriptadmincmdlineparams}
+    return &(rttmonscriptadminentry.EntityData)
 }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetSegmentPath() string {
-    return "rttMonScriptAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonscriptadminentry.Rttmonctrladminindex) + "']"
-}
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonscriptadminentry.Rttmonctrladminindex
-    leafs["rttMonScriptAdminName"] = rttmonscriptadminentry.Rttmonscriptadminname
-    leafs["rttMonScriptAdminCmdLineParams"] = rttmonscriptadminentry.Rttmonscriptadmincmdlineparams
-    return leafs
-}
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetYangName() string { return "rttMonScriptAdminEntry" }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) SetParent(parent types.Entity) { rttmonscriptadminentry.parent = parent }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetParent() types.Entity { return rttmonscriptadminentry.parent }
-
-func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscriptadminentry) GetParentYangName() string { return "rttMonScriptAdminTable" }
 
 // CISCORTTMONMIB_Rttmonreacttriggeradmintable
 // A table of which contains the list of conceptual RTT
@@ -3385,7 +2527,7 @@ func (rttmonscriptadminentry *CISCORTTMONMIB_Rttmonscriptadmintable_Rttmonscript
 // object rttMonReactTriggerOperState will 
 // reflect the state of each entry in this table.
 type CISCORTTMONMIB_Rttmonreacttriggeradmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that will be triggered when a reaction condition is
@@ -3394,69 +2536,30 @@ type CISCORTTMONMIB_Rttmonreacttriggeradmintable struct {
     Rttmonreacttriggeradminentry []CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry
 }
 
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetFilter() yfilter.YFilter { return rttmonreacttriggeradmintable.YFilter }
+func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetEntityData() *types.CommonEntityData {
+    rttmonreacttriggeradmintable.EntityData.YFilter = rttmonreacttriggeradmintable.YFilter
+    rttmonreacttriggeradmintable.EntityData.YangName = "rttMonReactTriggerAdminTable"
+    rttmonreacttriggeradmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonreacttriggeradmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonreacttriggeradmintable.EntityData.SegmentPath = "rttMonReactTriggerAdminTable"
+    rttmonreacttriggeradmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonreacttriggeradmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonreacttriggeradmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) SetFilter(yf yfilter.YFilter) { rttmonreacttriggeradmintable.YFilter = yf }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetGoName(yname string) string {
-    if yname == "rttMonReactTriggerAdminEntry" { return "Rttmonreacttriggeradminentry" }
-    return ""
-}
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetSegmentPath() string {
-    return "rttMonReactTriggerAdminTable"
-}
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonReactTriggerAdminEntry" {
-        for _, c := range rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry {
-            if rttmonreacttriggeradmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry{}
-        rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry = append(rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry, child)
-        return &rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[len(rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry)-1]
-    }
-    return nil
-}
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonreacttriggeradmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmonreacttriggeradmintable.EntityData.Children["rttMonReactTriggerAdminEntry"] = types.YChild{"Rttmonreacttriggeradminentry", nil}
     for i := range rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry {
-        children[rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[i].GetSegmentPath()] = &rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[i]
+        rttmonreacttriggeradmintable.EntityData.Children[types.GetSegmentPath(&rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[i])] = types.YChild{"Rttmonreacttriggeradminentry", &rttmonreacttriggeradmintable.Rttmonreacttriggeradminentry[i]}
     }
-    return children
+    rttmonreacttriggeradmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonreacttriggeradmintable.EntityData)
 }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetYangName() string { return "rttMonReactTriggerAdminTable" }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) SetParent(parent types.Entity) { rttmonreacttriggeradmintable.parent = parent }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetParent() types.Entity { return rttmonreacttriggeradmintable.parent }
-
-func (rttmonreacttriggeradmintable *CISCORTTMONMIB_Rttmonreacttriggeradmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry
 // A list of objects that will be triggered when
 // a reaction condition is violated.
 type CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3484,57 +2587,24 @@ type CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry st
     Rttmonreacttriggeroperstate interface{}
 }
 
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetFilter() yfilter.YFilter { return rttmonreacttriggeradminentry.YFilter }
+func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetEntityData() *types.CommonEntityData {
+    rttmonreacttriggeradminentry.EntityData.YFilter = rttmonreacttriggeradminentry.YFilter
+    rttmonreacttriggeradminentry.EntityData.YangName = "rttMonReactTriggerAdminEntry"
+    rttmonreacttriggeradminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonreacttriggeradminentry.EntityData.ParentYangName = "rttMonReactTriggerAdminTable"
+    rttmonreacttriggeradminentry.EntityData.SegmentPath = "rttMonReactTriggerAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreacttriggeradminentry.Rttmonctrladminindex) + "']" + "[rttMonReactTriggerAdminRttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreacttriggeradminentry.Rttmonreacttriggeradminrttmonctrladminindex) + "']"
+    rttmonreacttriggeradminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonreacttriggeradminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonreacttriggeradminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) SetFilter(yf yfilter.YFilter) { rttmonreacttriggeradminentry.YFilter = yf }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonReactTriggerAdminRttMonCtrlAdminIndex" { return "Rttmonreacttriggeradminrttmonctrladminindex" }
-    if yname == "rttMonReactTriggerAdminStatus" { return "Rttmonreacttriggeradminstatus" }
-    if yname == "rttMonReactTriggerOperState" { return "Rttmonreacttriggeroperstate" }
-    return ""
+    rttmonreacttriggeradminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonreacttriggeradminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonreacttriggeradminentry.Rttmonctrladminindex}
+    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonReactTriggerAdminRttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonreacttriggeradminrttmonctrladminindex", rttmonreacttriggeradminentry.Rttmonreacttriggeradminrttmonctrladminindex}
+    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonReactTriggerAdminStatus"] = types.YLeaf{"Rttmonreacttriggeradminstatus", rttmonreacttriggeradminentry.Rttmonreacttriggeradminstatus}
+    rttmonreacttriggeradminentry.EntityData.Leafs["rttMonReactTriggerOperState"] = types.YLeaf{"Rttmonreacttriggeroperstate", rttmonreacttriggeradminentry.Rttmonreacttriggeroperstate}
+    return &(rttmonreacttriggeradminentry.EntityData)
 }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetSegmentPath() string {
-    return "rttMonReactTriggerAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreacttriggeradminentry.Rttmonctrladminindex) + "']" + "[rttMonReactTriggerAdminRttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreacttriggeradminentry.Rttmonreacttriggeradminrttmonctrladminindex) + "']"
-}
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonreacttriggeradminentry.Rttmonctrladminindex
-    leafs["rttMonReactTriggerAdminRttMonCtrlAdminIndex"] = rttmonreacttriggeradminentry.Rttmonreacttriggeradminrttmonctrladminindex
-    leafs["rttMonReactTriggerAdminStatus"] = rttmonreacttriggeradminentry.Rttmonreacttriggeradminstatus
-    leafs["rttMonReactTriggerOperState"] = rttmonreacttriggeradminentry.Rttmonreacttriggeroperstate
-    return leafs
-}
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetYangName() string { return "rttMonReactTriggerAdminEntry" }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) SetParent(parent types.Entity) { rttmonreacttriggeradminentry.parent = parent }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetParent() types.Entity { return rttmonreacttriggeradminentry.parent }
-
-func (rttmonreacttriggeradminentry *CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry) GetParentYangName() string { return "rttMonReactTriggerAdminTable" }
 
 // CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate represents this entry can not be retriggered.
 type CISCORTTMONMIB_Rttmonreacttriggeradmintable_Rttmonreacttriggeradminentry_Rttmonreacttriggeroperstate string
@@ -3557,7 +2627,7 @@ const (
 // 
 // This table is coupled with rttMonCtrlAdminStatus.
 type CISCORTTMONMIB_Rttmonechopathadmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define intermediate hop's IP Address.  This entry
@@ -3568,63 +2638,24 @@ type CISCORTTMONMIB_Rttmonechopathadmintable struct {
     Rttmonechopathadminentry []CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry
 }
 
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetFilter() yfilter.YFilter { return rttmonechopathadmintable.YFilter }
+func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetEntityData() *types.CommonEntityData {
+    rttmonechopathadmintable.EntityData.YFilter = rttmonechopathadmintable.YFilter
+    rttmonechopathadmintable.EntityData.YangName = "rttMonEchoPathAdminTable"
+    rttmonechopathadmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonechopathadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonechopathadmintable.EntityData.SegmentPath = "rttMonEchoPathAdminTable"
+    rttmonechopathadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonechopathadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonechopathadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) SetFilter(yf yfilter.YFilter) { rttmonechopathadmintable.YFilter = yf }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetGoName(yname string) string {
-    if yname == "rttMonEchoPathAdminEntry" { return "Rttmonechopathadminentry" }
-    return ""
-}
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetSegmentPath() string {
-    return "rttMonEchoPathAdminTable"
-}
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonEchoPathAdminEntry" {
-        for _, c := range rttmonechopathadmintable.Rttmonechopathadminentry {
-            if rttmonechopathadmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry{}
-        rttmonechopathadmintable.Rttmonechopathadminentry = append(rttmonechopathadmintable.Rttmonechopathadminentry, child)
-        return &rttmonechopathadmintable.Rttmonechopathadminentry[len(rttmonechopathadmintable.Rttmonechopathadminentry)-1]
-    }
-    return nil
-}
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonechopathadmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmonechopathadmintable.EntityData.Children["rttMonEchoPathAdminEntry"] = types.YChild{"Rttmonechopathadminentry", nil}
     for i := range rttmonechopathadmintable.Rttmonechopathadminentry {
-        children[rttmonechopathadmintable.Rttmonechopathadminentry[i].GetSegmentPath()] = &rttmonechopathadmintable.Rttmonechopathadminentry[i]
+        rttmonechopathadmintable.EntityData.Children[types.GetSegmentPath(&rttmonechopathadmintable.Rttmonechopathadminentry[i])] = types.YChild{"Rttmonechopathadminentry", &rttmonechopathadmintable.Rttmonechopathadminentry[i]}
     }
-    return children
+    rttmonechopathadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonechopathadmintable.EntityData)
 }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetYangName() string { return "rttMonEchoPathAdminTable" }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) SetParent(parent types.Entity) { rttmonechopathadmintable.parent = parent }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetParent() types.Entity { return rttmonechopathadmintable.parent }
-
-func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry
 // A list of objects that define intermediate hop's IP Address.
@@ -3633,7 +2664,7 @@ func (rttmonechopathadmintable *CISCORTTMONMIB_Rttmonechopathadmintable) GetPare
 // 'echo'. The entry gets deleted when the corresponding RTR entry,
 // which has an index of rttMonCtrlAdminIndex, is deleted.
 type CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3654,55 +2685,23 @@ type CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry struct {
     Rttmonechopathadminhopaddress interface{}
 }
 
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetFilter() yfilter.YFilter { return rttmonechopathadminentry.YFilter }
+func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetEntityData() *types.CommonEntityData {
+    rttmonechopathadminentry.EntityData.YFilter = rttmonechopathadminentry.YFilter
+    rttmonechopathadminentry.EntityData.YangName = "rttMonEchoPathAdminEntry"
+    rttmonechopathadminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonechopathadminentry.EntityData.ParentYangName = "rttMonEchoPathAdminTable"
+    rttmonechopathadminentry.EntityData.SegmentPath = "rttMonEchoPathAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonechopathadminentry.Rttmonctrladminindex) + "']" + "[rttMonEchoPathAdminHopIndex='" + fmt.Sprintf("%v", rttmonechopathadminentry.Rttmonechopathadminhopindex) + "']"
+    rttmonechopathadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonechopathadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonechopathadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) SetFilter(yf yfilter.YFilter) { rttmonechopathadminentry.YFilter = yf }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonEchoPathAdminHopIndex" { return "Rttmonechopathadminhopindex" }
-    if yname == "rttMonEchoPathAdminHopAddress" { return "Rttmonechopathadminhopaddress" }
-    return ""
+    rttmonechopathadminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonechopathadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonechopathadminentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonechopathadminentry.Rttmonctrladminindex}
+    rttmonechopathadminentry.EntityData.Leafs["rttMonEchoPathAdminHopIndex"] = types.YLeaf{"Rttmonechopathadminhopindex", rttmonechopathadminentry.Rttmonechopathadminhopindex}
+    rttmonechopathadminentry.EntityData.Leafs["rttMonEchoPathAdminHopAddress"] = types.YLeaf{"Rttmonechopathadminhopaddress", rttmonechopathadminentry.Rttmonechopathadminhopaddress}
+    return &(rttmonechopathadminentry.EntityData)
 }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetSegmentPath() string {
-    return "rttMonEchoPathAdminEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonechopathadminentry.Rttmonctrladminindex) + "']" + "[rttMonEchoPathAdminHopIndex='" + fmt.Sprintf("%v", rttmonechopathadminentry.Rttmonechopathadminhopindex) + "']"
-}
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonechopathadminentry.Rttmonctrladminindex
-    leafs["rttMonEchoPathAdminHopIndex"] = rttmonechopathadminentry.Rttmonechopathadminhopindex
-    leafs["rttMonEchoPathAdminHopAddress"] = rttmonechopathadminentry.Rttmonechopathadminhopaddress
-    return leafs
-}
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetYangName() string { return "rttMonEchoPathAdminEntry" }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) SetParent(parent types.Entity) { rttmonechopathadminentry.parent = parent }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetParent() types.Entity { return rttmonechopathadminentry.parent }
-
-func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonechopathadminentry) GetParentYangName() string { return "rttMonEchoPathAdminTable" }
 
 // CISCORTTMONMIB_Rttmongrpscheduleadmintable
 // A table of Round Trip Time (RTT) monitoring group scheduling
@@ -3715,7 +2714,7 @@ func (rttmonechopathadminentry *CISCORTTMONMIB_Rttmonechopathadmintable_Rttmonec
 // probes identified by the conceptual rows of the
 // rttMonCtrlAdminTable.
 type CISCORTTMONMIB_Rttmongrpscheduleadmintable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that define a conceptual group scheduling control row.
@@ -3724,69 +2723,30 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable struct {
     Rttmongrpscheduleadminentry []CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry
 }
 
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetFilter() yfilter.YFilter { return rttmongrpscheduleadmintable.YFilter }
+func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetEntityData() *types.CommonEntityData {
+    rttmongrpscheduleadmintable.EntityData.YFilter = rttmongrpscheduleadmintable.YFilter
+    rttmongrpscheduleadmintable.EntityData.YangName = "rttMonGrpScheduleAdminTable"
+    rttmongrpscheduleadmintable.EntityData.BundleName = "cisco_ios_xe"
+    rttmongrpscheduleadmintable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmongrpscheduleadmintable.EntityData.SegmentPath = "rttMonGrpScheduleAdminTable"
+    rttmongrpscheduleadmintable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmongrpscheduleadmintable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmongrpscheduleadmintable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) SetFilter(yf yfilter.YFilter) { rttmongrpscheduleadmintable.YFilter = yf }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetGoName(yname string) string {
-    if yname == "rttMonGrpScheduleAdminEntry" { return "Rttmongrpscheduleadminentry" }
-    return ""
-}
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetSegmentPath() string {
-    return "rttMonGrpScheduleAdminTable"
-}
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonGrpScheduleAdminEntry" {
-        for _, c := range rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry {
-            if rttmongrpscheduleadmintable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry{}
-        rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry = append(rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry, child)
-        return &rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[len(rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry)-1]
-    }
-    return nil
-}
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmongrpscheduleadmintable.EntityData.Children = make(map[string]types.YChild)
+    rttmongrpscheduleadmintable.EntityData.Children["rttMonGrpScheduleAdminEntry"] = types.YChild{"Rttmongrpscheduleadminentry", nil}
     for i := range rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry {
-        children[rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[i].GetSegmentPath()] = &rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[i]
+        rttmongrpscheduleadmintable.EntityData.Children[types.GetSegmentPath(&rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[i])] = types.YChild{"Rttmongrpscheduleadminentry", &rttmongrpscheduleadmintable.Rttmongrpscheduleadminentry[i]}
     }
-    return children
+    rttmongrpscheduleadmintable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmongrpscheduleadmintable.EntityData)
 }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetYangName() string { return "rttMonGrpScheduleAdminTable" }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) SetParent(parent types.Entity) { rttmongrpscheduleadmintable.parent = parent }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetParent() types.Entity { return rttmongrpscheduleadmintable.parent }
-
-func (rttmongrpscheduleadmintable *CISCORTTMONMIB_Rttmongrpscheduleadmintable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry
 // A list of objects that define a conceptual group scheduling
 // control row.
 type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a row in the
@@ -3894,75 +2854,33 @@ type CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry stru
     Rttmongrpscheduleadminreset interface{}
 }
 
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetFilter() yfilter.YFilter { return rttmongrpscheduleadminentry.YFilter }
+func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetEntityData() *types.CommonEntityData {
+    rttmongrpscheduleadminentry.EntityData.YFilter = rttmongrpscheduleadminentry.YFilter
+    rttmongrpscheduleadminentry.EntityData.YangName = "rttMonGrpScheduleAdminEntry"
+    rttmongrpscheduleadminentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmongrpscheduleadminentry.EntityData.ParentYangName = "rttMonGrpScheduleAdminTable"
+    rttmongrpscheduleadminentry.EntityData.SegmentPath = "rttMonGrpScheduleAdminEntry" + "[rttMonGrpScheduleAdminIndex='" + fmt.Sprintf("%v", rttmongrpscheduleadminentry.Rttmongrpscheduleadminindex) + "']"
+    rttmongrpscheduleadminentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmongrpscheduleadminentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmongrpscheduleadminentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) SetFilter(yf yfilter.YFilter) { rttmongrpscheduleadminentry.YFilter = yf }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetGoName(yname string) string {
-    if yname == "rttMonGrpScheduleAdminIndex" { return "Rttmongrpscheduleadminindex" }
-    if yname == "rttMonGrpScheduleAdminProbes" { return "Rttmongrpscheduleadminprobes" }
-    if yname == "rttMonGrpScheduleAdminPeriod" { return "Rttmongrpscheduleadminperiod" }
-    if yname == "rttMonGrpScheduleAdminFrequency" { return "Rttmongrpscheduleadminfrequency" }
-    if yname == "rttMonGrpScheduleAdminLife" { return "Rttmongrpscheduleadminlife" }
-    if yname == "rttMonGrpScheduleAdminAgeout" { return "Rttmongrpscheduleadminageout" }
-    if yname == "rttMonGrpScheduleAdminStatus" { return "Rttmongrpscheduleadminstatus" }
-    if yname == "rttMonGrpScheduleAdminFreqMax" { return "Rttmongrpscheduleadminfreqmax" }
-    if yname == "rttMonGrpScheduleAdminFreqMin" { return "Rttmongrpscheduleadminfreqmin" }
-    if yname == "rttMonGrpScheduleAdminStartTime" { return "Rttmongrpscheduleadminstarttime" }
-    if yname == "rttMonGrpScheduleAdminAdd" { return "Rttmongrpscheduleadminadd" }
-    if yname == "rttMonGrpScheduleAdminDelete" { return "Rttmongrpscheduleadmindelete" }
-    if yname == "rttMonGrpScheduleAdminReset" { return "Rttmongrpscheduleadminreset" }
-    return ""
+    rttmongrpscheduleadminentry.EntityData.Children = make(map[string]types.YChild)
+    rttmongrpscheduleadminentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminIndex"] = types.YLeaf{"Rttmongrpscheduleadminindex", rttmongrpscheduleadminentry.Rttmongrpscheduleadminindex}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminProbes"] = types.YLeaf{"Rttmongrpscheduleadminprobes", rttmongrpscheduleadminentry.Rttmongrpscheduleadminprobes}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminPeriod"] = types.YLeaf{"Rttmongrpscheduleadminperiod", rttmongrpscheduleadminentry.Rttmongrpscheduleadminperiod}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminFrequency"] = types.YLeaf{"Rttmongrpscheduleadminfrequency", rttmongrpscheduleadminentry.Rttmongrpscheduleadminfrequency}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminLife"] = types.YLeaf{"Rttmongrpscheduleadminlife", rttmongrpscheduleadminentry.Rttmongrpscheduleadminlife}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminAgeout"] = types.YLeaf{"Rttmongrpscheduleadminageout", rttmongrpscheduleadminentry.Rttmongrpscheduleadminageout}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminStatus"] = types.YLeaf{"Rttmongrpscheduleadminstatus", rttmongrpscheduleadminentry.Rttmongrpscheduleadminstatus}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminFreqMax"] = types.YLeaf{"Rttmongrpscheduleadminfreqmax", rttmongrpscheduleadminentry.Rttmongrpscheduleadminfreqmax}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminFreqMin"] = types.YLeaf{"Rttmongrpscheduleadminfreqmin", rttmongrpscheduleadminentry.Rttmongrpscheduleadminfreqmin}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminStartTime"] = types.YLeaf{"Rttmongrpscheduleadminstarttime", rttmongrpscheduleadminentry.Rttmongrpscheduleadminstarttime}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminAdd"] = types.YLeaf{"Rttmongrpscheduleadminadd", rttmongrpscheduleadminentry.Rttmongrpscheduleadminadd}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminDelete"] = types.YLeaf{"Rttmongrpscheduleadmindelete", rttmongrpscheduleadminentry.Rttmongrpscheduleadmindelete}
+    rttmongrpscheduleadminentry.EntityData.Leafs["rttMonGrpScheduleAdminReset"] = types.YLeaf{"Rttmongrpscheduleadminreset", rttmongrpscheduleadminentry.Rttmongrpscheduleadminreset}
+    return &(rttmongrpscheduleadminentry.EntityData)
 }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetSegmentPath() string {
-    return "rttMonGrpScheduleAdminEntry" + "[rttMonGrpScheduleAdminIndex='" + fmt.Sprintf("%v", rttmongrpscheduleadminentry.Rttmongrpscheduleadminindex) + "']"
-}
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonGrpScheduleAdminIndex"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminindex
-    leafs["rttMonGrpScheduleAdminProbes"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminprobes
-    leafs["rttMonGrpScheduleAdminPeriod"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminperiod
-    leafs["rttMonGrpScheduleAdminFrequency"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminfrequency
-    leafs["rttMonGrpScheduleAdminLife"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminlife
-    leafs["rttMonGrpScheduleAdminAgeout"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminageout
-    leafs["rttMonGrpScheduleAdminStatus"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminstatus
-    leafs["rttMonGrpScheduleAdminFreqMax"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminfreqmax
-    leafs["rttMonGrpScheduleAdminFreqMin"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminfreqmin
-    leafs["rttMonGrpScheduleAdminStartTime"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminstarttime
-    leafs["rttMonGrpScheduleAdminAdd"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminadd
-    leafs["rttMonGrpScheduleAdminDelete"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadmindelete
-    leafs["rttMonGrpScheduleAdminReset"] = rttmongrpscheduleadminentry.Rttmongrpscheduleadminreset
-    return leafs
-}
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetYangName() string { return "rttMonGrpScheduleAdminEntry" }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) SetParent(parent types.Entity) { rttmongrpscheduleadminentry.parent = parent }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetParent() types.Entity { return rttmongrpscheduleadminentry.parent }
-
-func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rttmongrpscheduleadminentry) GetParentYangName() string { return "rttMonGrpScheduleAdminTable" }
 
 // CISCORTTMONMIB_Rttmplsvpnmonctrltable
 // A table of Auto SAA L3 MPLS VPN definitions.
@@ -3983,7 +2901,7 @@ func (rttmongrpscheduleadminentry *CISCORTTMONMIB_Rttmongrpscheduleadmintable_Rt
 //   rttMplsVpnMonCtrlVrfName and
 //   rttMplsVpnMonSchedulePeriod.
 type CISCORTTMONMIB_Rttmplsvpnmonctrltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual Auto SAA L3 MPLS VPN
@@ -3992,69 +2910,30 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable struct {
     Rttmplsvpnmonctrlentry []CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry
 }
 
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetFilter() yfilter.YFilter { return rttmplsvpnmonctrltable.YFilter }
+func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetEntityData() *types.CommonEntityData {
+    rttmplsvpnmonctrltable.EntityData.YFilter = rttmplsvpnmonctrltable.YFilter
+    rttmplsvpnmonctrltable.EntityData.YangName = "rttMplsVpnMonCtrlTable"
+    rttmplsvpnmonctrltable.EntityData.BundleName = "cisco_ios_xe"
+    rttmplsvpnmonctrltable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmplsvpnmonctrltable.EntityData.SegmentPath = "rttMplsVpnMonCtrlTable"
+    rttmplsvpnmonctrltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmplsvpnmonctrltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmplsvpnmonctrltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) SetFilter(yf yfilter.YFilter) { rttmplsvpnmonctrltable.YFilter = yf }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetGoName(yname string) string {
-    if yname == "rttMplsVpnMonCtrlEntry" { return "Rttmplsvpnmonctrlentry" }
-    return ""
-}
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetSegmentPath() string {
-    return "rttMplsVpnMonCtrlTable"
-}
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMplsVpnMonCtrlEntry" {
-        for _, c := range rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry {
-            if rttmplsvpnmonctrltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry{}
-        rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry = append(rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry, child)
-        return &rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[len(rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry)-1]
-    }
-    return nil
-}
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmplsvpnmonctrltable.EntityData.Children = make(map[string]types.YChild)
+    rttmplsvpnmonctrltable.EntityData.Children["rttMplsVpnMonCtrlEntry"] = types.YChild{"Rttmplsvpnmonctrlentry", nil}
     for i := range rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry {
-        children[rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[i].GetSegmentPath()] = &rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[i]
+        rttmplsvpnmonctrltable.EntityData.Children[types.GetSegmentPath(&rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[i])] = types.YChild{"Rttmplsvpnmonctrlentry", &rttmplsvpnmonctrltable.Rttmplsvpnmonctrlentry[i]}
     }
-    return children
+    rttmplsvpnmonctrltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmplsvpnmonctrltable.EntityData)
 }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetYangName() string { return "rttMplsVpnMonCtrlTable" }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) SetParent(parent types.Entity) { rttmplsvpnmonctrltable.parent = parent }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetParent() types.Entity { return rttmplsvpnmonctrltable.parent }
-
-func (rttmplsvpnmonctrltable *CISCORTTMONMIB_Rttmplsvpnmonctrltable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry
 // A base list of objects that define a conceptual Auto SAA L3
 // MPLS VPN control row.
 type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a row in the
@@ -4464,135 +3343,63 @@ type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry struct {
     Rttmplsvpnmonreactlpdretrycount interface{}
 }
 
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetFilter() yfilter.YFilter { return rttmplsvpnmonctrlentry.YFilter }
+func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetEntityData() *types.CommonEntityData {
+    rttmplsvpnmonctrlentry.EntityData.YFilter = rttmplsvpnmonctrlentry.YFilter
+    rttmplsvpnmonctrlentry.EntityData.YangName = "rttMplsVpnMonCtrlEntry"
+    rttmplsvpnmonctrlentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmplsvpnmonctrlentry.EntityData.ParentYangName = "rttMplsVpnMonCtrlTable"
+    rttmplsvpnmonctrlentry.EntityData.SegmentPath = "rttMplsVpnMonCtrlEntry" + "[rttMplsVpnMonCtrlIndex='" + fmt.Sprintf("%v", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlindex) + "']"
+    rttmplsvpnmonctrlentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmplsvpnmonctrlentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmplsvpnmonctrlentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) SetFilter(yf yfilter.YFilter) { rttmplsvpnmonctrlentry.YFilter = yf }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetGoName(yname string) string {
-    if yname == "rttMplsVpnMonCtrlIndex" { return "Rttmplsvpnmonctrlindex" }
-    if yname == "rttMplsVpnMonCtrlRttType" { return "Rttmplsvpnmonctrlrtttype" }
-    if yname == "rttMplsVpnMonCtrlVrfName" { return "Rttmplsvpnmonctrlvrfname" }
-    if yname == "rttMplsVpnMonCtrlTag" { return "Rttmplsvpnmonctrltag" }
-    if yname == "rttMplsVpnMonCtrlThreshold" { return "Rttmplsvpnmonctrlthreshold" }
-    if yname == "rttMplsVpnMonCtrlTimeout" { return "Rttmplsvpnmonctrltimeout" }
-    if yname == "rttMplsVpnMonCtrlScanInterval" { return "Rttmplsvpnmonctrlscaninterval" }
-    if yname == "rttMplsVpnMonCtrlDelScanFactor" { return "Rttmplsvpnmonctrldelscanfactor" }
-    if yname == "rttMplsVpnMonCtrlEXP" { return "Rttmplsvpnmonctrlexp" }
-    if yname == "rttMplsVpnMonCtrlRequestSize" { return "Rttmplsvpnmonctrlrequestsize" }
-    if yname == "rttMplsVpnMonCtrlVerifyData" { return "Rttmplsvpnmonctrlverifydata" }
-    if yname == "rttMplsVpnMonCtrlStorageType" { return "Rttmplsvpnmonctrlstoragetype" }
-    if yname == "rttMplsVpnMonCtrlProbeList" { return "Rttmplsvpnmonctrlprobelist" }
-    if yname == "rttMplsVpnMonCtrlStatus" { return "Rttmplsvpnmonctrlstatus" }
-    if yname == "rttMplsVpnMonCtrlLpd" { return "Rttmplsvpnmonctrllpd" }
-    if yname == "rttMplsVpnMonCtrlLpdGrpList" { return "Rttmplsvpnmonctrllpdgrplist" }
-    if yname == "rttMplsVpnMonCtrlLpdCompTime" { return "Rttmplsvpnmonctrllpdcomptime" }
-    if yname == "rttMplsVpnMonTypeInterval" { return "Rttmplsvpnmontypeinterval" }
-    if yname == "rttMplsVpnMonTypeNumPackets" { return "Rttmplsvpnmontypenumpackets" }
-    if yname == "rttMplsVpnMonTypeDestPort" { return "Rttmplsvpnmontypedestport" }
-    if yname == "rttMplsVpnMonTypeSecFreqType" { return "Rttmplsvpnmontypesecfreqtype" }
-    if yname == "rttMplsVpnMonTypeSecFreqValue" { return "Rttmplsvpnmontypesecfreqvalue" }
-    if yname == "rttMplsVpnMonTypeLspSelector" { return "Rttmplsvpnmontypelspselector" }
-    if yname == "rttMplsVpnMonTypeLSPReplyMode" { return "Rttmplsvpnmontypelspreplymode" }
-    if yname == "rttMplsVpnMonTypeLSPTTL" { return "Rttmplsvpnmontypelspttl" }
-    if yname == "rttMplsVpnMonTypeLSPReplyDscp" { return "Rttmplsvpnmontypelspreplydscp" }
-    if yname == "rttMplsVpnMonTypeLpdMaxSessions" { return "Rttmplsvpnmontypelpdmaxsessions" }
-    if yname == "rttMplsVpnMonTypeLpdSessTimeout" { return "Rttmplsvpnmontypelpdsesstimeout" }
-    if yname == "rttMplsVpnMonTypeLpdEchoTimeout" { return "Rttmplsvpnmontypelpdechotimeout" }
-    if yname == "rttMplsVpnMonTypeLpdEchoInterval" { return "Rttmplsvpnmontypelpdechointerval" }
-    if yname == "rttMplsVpnMonTypeLpdEchoNullShim" { return "Rttmplsvpnmontypelpdechonullshim" }
-    if yname == "rttMplsVpnMonTypeLpdScanPeriod" { return "Rttmplsvpnmontypelpdscanperiod" }
-    if yname == "rttMplsVpnMonTypeLpdStatHours" { return "Rttmplsvpnmontypelpdstathours" }
-    if yname == "rttMplsVpnMonScheduleRttStartTime" { return "Rttmplsvpnmonschedulerttstarttime" }
-    if yname == "rttMplsVpnMonSchedulePeriod" { return "Rttmplsvpnmonscheduleperiod" }
-    if yname == "rttMplsVpnMonScheduleFrequency" { return "Rttmplsvpnmonschedulefrequency" }
-    if yname == "rttMplsVpnMonReactConnectionEnable" { return "Rttmplsvpnmonreactconnectionenable" }
-    if yname == "rttMplsVpnMonReactTimeoutEnable" { return "Rttmplsvpnmonreacttimeoutenable" }
-    if yname == "rttMplsVpnMonReactThresholdType" { return "Rttmplsvpnmonreactthresholdtype" }
-    if yname == "rttMplsVpnMonReactThresholdCount" { return "Rttmplsvpnmonreactthresholdcount" }
-    if yname == "rttMplsVpnMonReactActionType" { return "Rttmplsvpnmonreactactiontype" }
-    if yname == "rttMplsVpnMonReactLpdNotifyType" { return "Rttmplsvpnmonreactlpdnotifytype" }
-    if yname == "rttMplsVpnMonReactLpdRetryCount" { return "Rttmplsvpnmonreactlpdretrycount" }
-    return ""
+    rttmplsvpnmonctrlentry.EntityData.Children = make(map[string]types.YChild)
+    rttmplsvpnmonctrlentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlIndex"] = types.YLeaf{"Rttmplsvpnmonctrlindex", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlindex}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlRttType"] = types.YLeaf{"Rttmplsvpnmonctrlrtttype", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlrtttype}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlVrfName"] = types.YLeaf{"Rttmplsvpnmonctrlvrfname", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlvrfname}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlTag"] = types.YLeaf{"Rttmplsvpnmonctrltag", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrltag}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlThreshold"] = types.YLeaf{"Rttmplsvpnmonctrlthreshold", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlthreshold}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlTimeout"] = types.YLeaf{"Rttmplsvpnmonctrltimeout", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrltimeout}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlScanInterval"] = types.YLeaf{"Rttmplsvpnmonctrlscaninterval", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlscaninterval}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlDelScanFactor"] = types.YLeaf{"Rttmplsvpnmonctrldelscanfactor", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrldelscanfactor}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlEXP"] = types.YLeaf{"Rttmplsvpnmonctrlexp", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlexp}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlRequestSize"] = types.YLeaf{"Rttmplsvpnmonctrlrequestsize", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlrequestsize}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlVerifyData"] = types.YLeaf{"Rttmplsvpnmonctrlverifydata", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlverifydata}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlStorageType"] = types.YLeaf{"Rttmplsvpnmonctrlstoragetype", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlstoragetype}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlProbeList"] = types.YLeaf{"Rttmplsvpnmonctrlprobelist", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlprobelist}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlStatus"] = types.YLeaf{"Rttmplsvpnmonctrlstatus", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlstatus}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlLpd"] = types.YLeaf{"Rttmplsvpnmonctrllpd", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpd}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlLpdGrpList"] = types.YLeaf{"Rttmplsvpnmonctrllpdgrplist", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpdgrplist}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonCtrlLpdCompTime"] = types.YLeaf{"Rttmplsvpnmonctrllpdcomptime", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpdcomptime}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeInterval"] = types.YLeaf{"Rttmplsvpnmontypeinterval", rttmplsvpnmonctrlentry.Rttmplsvpnmontypeinterval}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeNumPackets"] = types.YLeaf{"Rttmplsvpnmontypenumpackets", rttmplsvpnmonctrlentry.Rttmplsvpnmontypenumpackets}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeDestPort"] = types.YLeaf{"Rttmplsvpnmontypedestport", rttmplsvpnmonctrlentry.Rttmplsvpnmontypedestport}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeSecFreqType"] = types.YLeaf{"Rttmplsvpnmontypesecfreqtype", rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqtype}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeSecFreqValue"] = types.YLeaf{"Rttmplsvpnmontypesecfreqvalue", rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqvalue}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLspSelector"] = types.YLeaf{"Rttmplsvpnmontypelspselector", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspselector}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLSPReplyMode"] = types.YLeaf{"Rttmplsvpnmontypelspreplymode", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspreplymode}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLSPTTL"] = types.YLeaf{"Rttmplsvpnmontypelspttl", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspttl}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLSPReplyDscp"] = types.YLeaf{"Rttmplsvpnmontypelspreplydscp", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspreplydscp}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdMaxSessions"] = types.YLeaf{"Rttmplsvpnmontypelpdmaxsessions", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdmaxsessions}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdSessTimeout"] = types.YLeaf{"Rttmplsvpnmontypelpdsesstimeout", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdsesstimeout}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdEchoTimeout"] = types.YLeaf{"Rttmplsvpnmontypelpdechotimeout", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechotimeout}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdEchoInterval"] = types.YLeaf{"Rttmplsvpnmontypelpdechointerval", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechointerval}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdEchoNullShim"] = types.YLeaf{"Rttmplsvpnmontypelpdechonullshim", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechonullshim}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdScanPeriod"] = types.YLeaf{"Rttmplsvpnmontypelpdscanperiod", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdscanperiod}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonTypeLpdStatHours"] = types.YLeaf{"Rttmplsvpnmontypelpdstathours", rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdstathours}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonScheduleRttStartTime"] = types.YLeaf{"Rttmplsvpnmonschedulerttstarttime", rttmplsvpnmonctrlentry.Rttmplsvpnmonschedulerttstarttime}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonSchedulePeriod"] = types.YLeaf{"Rttmplsvpnmonscheduleperiod", rttmplsvpnmonctrlentry.Rttmplsvpnmonscheduleperiod}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonScheduleFrequency"] = types.YLeaf{"Rttmplsvpnmonschedulefrequency", rttmplsvpnmonctrlentry.Rttmplsvpnmonschedulefrequency}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactConnectionEnable"] = types.YLeaf{"Rttmplsvpnmonreactconnectionenable", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactconnectionenable}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactTimeoutEnable"] = types.YLeaf{"Rttmplsvpnmonreacttimeoutenable", rttmplsvpnmonctrlentry.Rttmplsvpnmonreacttimeoutenable}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactThresholdType"] = types.YLeaf{"Rttmplsvpnmonreactthresholdtype", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdtype}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactThresholdCount"] = types.YLeaf{"Rttmplsvpnmonreactthresholdcount", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdcount}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactActionType"] = types.YLeaf{"Rttmplsvpnmonreactactiontype", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactactiontype}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactLpdNotifyType"] = types.YLeaf{"Rttmplsvpnmonreactlpdnotifytype", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdnotifytype}
+    rttmplsvpnmonctrlentry.EntityData.Leafs["rttMplsVpnMonReactLpdRetryCount"] = types.YLeaf{"Rttmplsvpnmonreactlpdretrycount", rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdretrycount}
+    return &(rttmplsvpnmonctrlentry.EntityData)
 }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetSegmentPath() string {
-    return "rttMplsVpnMonCtrlEntry" + "[rttMplsVpnMonCtrlIndex='" + fmt.Sprintf("%v", rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlindex) + "']"
-}
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMplsVpnMonCtrlIndex"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlindex
-    leafs["rttMplsVpnMonCtrlRttType"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlrtttype
-    leafs["rttMplsVpnMonCtrlVrfName"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlvrfname
-    leafs["rttMplsVpnMonCtrlTag"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrltag
-    leafs["rttMplsVpnMonCtrlThreshold"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlthreshold
-    leafs["rttMplsVpnMonCtrlTimeout"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrltimeout
-    leafs["rttMplsVpnMonCtrlScanInterval"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlscaninterval
-    leafs["rttMplsVpnMonCtrlDelScanFactor"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrldelscanfactor
-    leafs["rttMplsVpnMonCtrlEXP"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlexp
-    leafs["rttMplsVpnMonCtrlRequestSize"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlrequestsize
-    leafs["rttMplsVpnMonCtrlVerifyData"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlverifydata
-    leafs["rttMplsVpnMonCtrlStorageType"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlstoragetype
-    leafs["rttMplsVpnMonCtrlProbeList"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlprobelist
-    leafs["rttMplsVpnMonCtrlStatus"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrlstatus
-    leafs["rttMplsVpnMonCtrlLpd"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpd
-    leafs["rttMplsVpnMonCtrlLpdGrpList"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpdgrplist
-    leafs["rttMplsVpnMonCtrlLpdCompTime"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonctrllpdcomptime
-    leafs["rttMplsVpnMonTypeInterval"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypeinterval
-    leafs["rttMplsVpnMonTypeNumPackets"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypenumpackets
-    leafs["rttMplsVpnMonTypeDestPort"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypedestport
-    leafs["rttMplsVpnMonTypeSecFreqType"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqtype
-    leafs["rttMplsVpnMonTypeSecFreqValue"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypesecfreqvalue
-    leafs["rttMplsVpnMonTypeLspSelector"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspselector
-    leafs["rttMplsVpnMonTypeLSPReplyMode"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspreplymode
-    leafs["rttMplsVpnMonTypeLSPTTL"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspttl
-    leafs["rttMplsVpnMonTypeLSPReplyDscp"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelspreplydscp
-    leafs["rttMplsVpnMonTypeLpdMaxSessions"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdmaxsessions
-    leafs["rttMplsVpnMonTypeLpdSessTimeout"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdsesstimeout
-    leafs["rttMplsVpnMonTypeLpdEchoTimeout"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechotimeout
-    leafs["rttMplsVpnMonTypeLpdEchoInterval"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechointerval
-    leafs["rttMplsVpnMonTypeLpdEchoNullShim"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdechonullshim
-    leafs["rttMplsVpnMonTypeLpdScanPeriod"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdscanperiod
-    leafs["rttMplsVpnMonTypeLpdStatHours"] = rttmplsvpnmonctrlentry.Rttmplsvpnmontypelpdstathours
-    leafs["rttMplsVpnMonScheduleRttStartTime"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonschedulerttstarttime
-    leafs["rttMplsVpnMonSchedulePeriod"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonscheduleperiod
-    leafs["rttMplsVpnMonScheduleFrequency"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonschedulefrequency
-    leafs["rttMplsVpnMonReactConnectionEnable"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreactconnectionenable
-    leafs["rttMplsVpnMonReactTimeoutEnable"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreacttimeoutenable
-    leafs["rttMplsVpnMonReactThresholdType"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdtype
-    leafs["rttMplsVpnMonReactThresholdCount"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreactthresholdcount
-    leafs["rttMplsVpnMonReactActionType"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreactactiontype
-    leafs["rttMplsVpnMonReactLpdNotifyType"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdnotifytype
-    leafs["rttMplsVpnMonReactLpdRetryCount"] = rttmplsvpnmonctrlentry.Rttmplsvpnmonreactlpdretrycount
-    return leafs
-}
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetYangName() string { return "rttMplsVpnMonCtrlEntry" }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) SetParent(parent types.Entity) { rttmplsvpnmonctrlentry.parent = parent }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetParent() types.Entity { return rttmplsvpnmonctrlentry.parent }
-
-func (rttmplsvpnmonctrlentry *CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry) GetParentYangName() string { return "rttMplsVpnMonCtrlTable" }
 
 // CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype represents this Auto SAA L3 MPLS VPN.
 type CISCORTTMONMIB_Rttmplsvpnmonctrltable_Rttmplsvpnmonctrlentry_Rttmplsvpnmonreactactiontype string
@@ -4653,7 +3460,7 @@ const (
 // 
 // This table is coupled with rttMonCtrlAdminTable.
 type CISCORTTMONMIB_Rttmonreacttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A base list of objects that define a conceptual reaction configuration
@@ -4662,69 +3469,30 @@ type CISCORTTMONMIB_Rttmonreacttable struct {
     Rttmonreactentry []CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry
 }
 
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetFilter() yfilter.YFilter { return rttmonreacttable.YFilter }
+func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetEntityData() *types.CommonEntityData {
+    rttmonreacttable.EntityData.YFilter = rttmonreacttable.YFilter
+    rttmonreacttable.EntityData.YangName = "rttMonReactTable"
+    rttmonreacttable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonreacttable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonreacttable.EntityData.SegmentPath = "rttMonReactTable"
+    rttmonreacttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonreacttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonreacttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) SetFilter(yf yfilter.YFilter) { rttmonreacttable.YFilter = yf }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetGoName(yname string) string {
-    if yname == "rttMonReactEntry" { return "Rttmonreactentry" }
-    return ""
-}
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetSegmentPath() string {
-    return "rttMonReactTable"
-}
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonReactEntry" {
-        for _, c := range rttmonreacttable.Rttmonreactentry {
-            if rttmonreacttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry{}
-        rttmonreacttable.Rttmonreactentry = append(rttmonreacttable.Rttmonreactentry, child)
-        return &rttmonreacttable.Rttmonreactentry[len(rttmonreacttable.Rttmonreactentry)-1]
-    }
-    return nil
-}
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonreacttable.EntityData.Children = make(map[string]types.YChild)
+    rttmonreacttable.EntityData.Children["rttMonReactEntry"] = types.YChild{"Rttmonreactentry", nil}
     for i := range rttmonreacttable.Rttmonreactentry {
-        children[rttmonreacttable.Rttmonreactentry[i].GetSegmentPath()] = &rttmonreacttable.Rttmonreactentry[i]
+        rttmonreacttable.EntityData.Children[types.GetSegmentPath(&rttmonreacttable.Rttmonreactentry[i])] = types.YChild{"Rttmonreactentry", &rttmonreacttable.Rttmonreactentry[i]}
     }
-    return children
+    rttmonreacttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonreacttable.EntityData)
 }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetYangName() string { return "rttMonReactTable" }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) SetParent(parent types.Entity) { rttmonreacttable.parent = parent }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetParent() types.Entity { return rttmonreacttable.parent }
-
-func (rttmonreacttable *CISCORTTMONMIB_Rttmonreacttable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry
 // A base list of objects that define a conceptual reaction
 // configuration control row.
 type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -4903,73 +3671,32 @@ type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry struct {
     Rttmonreactstatus interface{}
 }
 
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetFilter() yfilter.YFilter { return rttmonreactentry.YFilter }
+func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetEntityData() *types.CommonEntityData {
+    rttmonreactentry.EntityData.YFilter = rttmonreactentry.YFilter
+    rttmonreactentry.EntityData.YangName = "rttMonReactEntry"
+    rttmonreactentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonreactentry.EntityData.ParentYangName = "rttMonReactTable"
+    rttmonreactentry.EntityData.SegmentPath = "rttMonReactEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreactentry.Rttmonctrladminindex) + "']" + "[rttMonReactConfigIndex='" + fmt.Sprintf("%v", rttmonreactentry.Rttmonreactconfigindex) + "']"
+    rttmonreactentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonreactentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonreactentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) SetFilter(yf yfilter.YFilter) { rttmonreactentry.YFilter = yf }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonReactConfigIndex" { return "Rttmonreactconfigindex" }
-    if yname == "rttMonReactVar" { return "Rttmonreactvar" }
-    if yname == "rttMonReactThresholdType" { return "Rttmonreactthresholdtype" }
-    if yname == "rttMonReactActionType" { return "Rttmonreactactiontype" }
-    if yname == "rttMonReactThresholdRising" { return "Rttmonreactthresholdrising" }
-    if yname == "rttMonReactThresholdFalling" { return "Rttmonreactthresholdfalling" }
-    if yname == "rttMonReactThresholdCountX" { return "Rttmonreactthresholdcountx" }
-    if yname == "rttMonReactThresholdCountY" { return "Rttmonreactthresholdcounty" }
-    if yname == "rttMonReactValue" { return "Rttmonreactvalue" }
-    if yname == "rttMonReactOccurred" { return "Rttmonreactoccurred" }
-    if yname == "rttMonReactStatus" { return "Rttmonreactstatus" }
-    return ""
+    rttmonreactentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonreactentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonreactentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonreactentry.Rttmonctrladminindex}
+    rttmonreactentry.EntityData.Leafs["rttMonReactConfigIndex"] = types.YLeaf{"Rttmonreactconfigindex", rttmonreactentry.Rttmonreactconfigindex}
+    rttmonreactentry.EntityData.Leafs["rttMonReactVar"] = types.YLeaf{"Rttmonreactvar", rttmonreactentry.Rttmonreactvar}
+    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdType"] = types.YLeaf{"Rttmonreactthresholdtype", rttmonreactentry.Rttmonreactthresholdtype}
+    rttmonreactentry.EntityData.Leafs["rttMonReactActionType"] = types.YLeaf{"Rttmonreactactiontype", rttmonreactentry.Rttmonreactactiontype}
+    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdRising"] = types.YLeaf{"Rttmonreactthresholdrising", rttmonreactentry.Rttmonreactthresholdrising}
+    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdFalling"] = types.YLeaf{"Rttmonreactthresholdfalling", rttmonreactentry.Rttmonreactthresholdfalling}
+    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdCountX"] = types.YLeaf{"Rttmonreactthresholdcountx", rttmonreactentry.Rttmonreactthresholdcountx}
+    rttmonreactentry.EntityData.Leafs["rttMonReactThresholdCountY"] = types.YLeaf{"Rttmonreactthresholdcounty", rttmonreactentry.Rttmonreactthresholdcounty}
+    rttmonreactentry.EntityData.Leafs["rttMonReactValue"] = types.YLeaf{"Rttmonreactvalue", rttmonreactentry.Rttmonreactvalue}
+    rttmonreactentry.EntityData.Leafs["rttMonReactOccurred"] = types.YLeaf{"Rttmonreactoccurred", rttmonreactentry.Rttmonreactoccurred}
+    rttmonreactentry.EntityData.Leafs["rttMonReactStatus"] = types.YLeaf{"Rttmonreactstatus", rttmonreactentry.Rttmonreactstatus}
+    return &(rttmonreactentry.EntityData)
 }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetSegmentPath() string {
-    return "rttMonReactEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonreactentry.Rttmonctrladminindex) + "']" + "[rttMonReactConfigIndex='" + fmt.Sprintf("%v", rttmonreactentry.Rttmonreactconfigindex) + "']"
-}
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonreactentry.Rttmonctrladminindex
-    leafs["rttMonReactConfigIndex"] = rttmonreactentry.Rttmonreactconfigindex
-    leafs["rttMonReactVar"] = rttmonreactentry.Rttmonreactvar
-    leafs["rttMonReactThresholdType"] = rttmonreactentry.Rttmonreactthresholdtype
-    leafs["rttMonReactActionType"] = rttmonreactentry.Rttmonreactactiontype
-    leafs["rttMonReactThresholdRising"] = rttmonreactentry.Rttmonreactthresholdrising
-    leafs["rttMonReactThresholdFalling"] = rttmonreactentry.Rttmonreactthresholdfalling
-    leafs["rttMonReactThresholdCountX"] = rttmonreactentry.Rttmonreactthresholdcountx
-    leafs["rttMonReactThresholdCountY"] = rttmonreactentry.Rttmonreactthresholdcounty
-    leafs["rttMonReactValue"] = rttmonreactentry.Rttmonreactvalue
-    leafs["rttMonReactOccurred"] = rttmonreactentry.Rttmonreactoccurred
-    leafs["rttMonReactStatus"] = rttmonreactentry.Rttmonreactstatus
-    return leafs
-}
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetYangName() string { return "rttMonReactEntry" }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) SetParent(parent types.Entity) { rttmonreactentry.parent = parent }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetParent() types.Entity { return rttmonreactentry.parent }
-
-func (rttmonreactentry *CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry) GetParentYangName() string { return "rttMonReactTable" }
 
 // CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype represents rttMonReactTriggerAdminTable.
 type CISCORTTMONMIB_Rttmonreacttable_Rttmonreactentry_Rttmonreactactiontype string
@@ -5007,7 +3734,7 @@ const (
 // station,when creating a row via the rttMonCtrlAdminStatus
 // object in the rttMonCtrlAdminTable table.
 type CISCORTTMONMIB_Rttmongeneratedopertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the Generated Oper table corresponding to a child or generated
@@ -5016,70 +3743,31 @@ type CISCORTTMONMIB_Rttmongeneratedopertable struct {
     Rttmongeneratedoperentry []CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry
 }
 
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetFilter() yfilter.YFilter { return rttmongeneratedopertable.YFilter }
+func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetEntityData() *types.CommonEntityData {
+    rttmongeneratedopertable.EntityData.YFilter = rttmongeneratedopertable.YFilter
+    rttmongeneratedopertable.EntityData.YangName = "rttMonGeneratedOperTable"
+    rttmongeneratedopertable.EntityData.BundleName = "cisco_ios_xe"
+    rttmongeneratedopertable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmongeneratedopertable.EntityData.SegmentPath = "rttMonGeneratedOperTable"
+    rttmongeneratedopertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmongeneratedopertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmongeneratedopertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) SetFilter(yf yfilter.YFilter) { rttmongeneratedopertable.YFilter = yf }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetGoName(yname string) string {
-    if yname == "rttMonGeneratedOperEntry" { return "Rttmongeneratedoperentry" }
-    return ""
-}
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetSegmentPath() string {
-    return "rttMonGeneratedOperTable"
-}
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonGeneratedOperEntry" {
-        for _, c := range rttmongeneratedopertable.Rttmongeneratedoperentry {
-            if rttmongeneratedopertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry{}
-        rttmongeneratedopertable.Rttmongeneratedoperentry = append(rttmongeneratedopertable.Rttmongeneratedoperentry, child)
-        return &rttmongeneratedopertable.Rttmongeneratedoperentry[len(rttmongeneratedopertable.Rttmongeneratedoperentry)-1]
-    }
-    return nil
-}
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmongeneratedopertable.EntityData.Children = make(map[string]types.YChild)
+    rttmongeneratedopertable.EntityData.Children["rttMonGeneratedOperEntry"] = types.YChild{"Rttmongeneratedoperentry", nil}
     for i := range rttmongeneratedopertable.Rttmongeneratedoperentry {
-        children[rttmongeneratedopertable.Rttmongeneratedoperentry[i].GetSegmentPath()] = &rttmongeneratedopertable.Rttmongeneratedoperentry[i]
+        rttmongeneratedopertable.EntityData.Children[types.GetSegmentPath(&rttmongeneratedopertable.Rttmongeneratedoperentry[i])] = types.YChild{"Rttmongeneratedoperentry", &rttmongeneratedopertable.Rttmongeneratedoperentry[i]}
     }
-    return children
+    rttmongeneratedopertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmongeneratedopertable.EntityData)
 }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetYangName() string { return "rttMonGeneratedOperTable" }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) SetParent(parent types.Entity) { rttmongeneratedopertable.parent = parent }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetParent() types.Entity { return rttmongeneratedopertable.parent }
-
-func (rttmongeneratedopertable *CISCORTTMONMIB_Rttmongeneratedopertable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry
 // An entry in the Generated Oper table corresponding to
 // a child or generated operation as part of a parent
 // IP SLA operation.
 type CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -5103,57 +3791,24 @@ type CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry struct {
     Rttmongeneratedoperctrladminindex interface{}
 }
 
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetFilter() yfilter.YFilter { return rttmongeneratedoperentry.YFilter }
+func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetEntityData() *types.CommonEntityData {
+    rttmongeneratedoperentry.EntityData.YFilter = rttmongeneratedoperentry.YFilter
+    rttmongeneratedoperentry.EntityData.YangName = "rttMonGeneratedOperEntry"
+    rttmongeneratedoperentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmongeneratedoperentry.EntityData.ParentYangName = "rttMonGeneratedOperTable"
+    rttmongeneratedoperentry.EntityData.SegmentPath = "rttMonGeneratedOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmonctrladminindex) + "']" + "[rttMonGeneratedOperRespIpAddrType='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddrtype) + "']" + "[rttMonGeneratedOperRespIpAddr='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddr) + "']"
+    rttmongeneratedoperentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmongeneratedoperentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmongeneratedoperentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) SetFilter(yf yfilter.YFilter) { rttmongeneratedoperentry.YFilter = yf }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonGeneratedOperRespIpAddrType" { return "Rttmongeneratedoperrespipaddrtype" }
-    if yname == "rttMonGeneratedOperRespIpAddr" { return "Rttmongeneratedoperrespipaddr" }
-    if yname == "rttMonGeneratedOperCtrlAdminIndex" { return "Rttmongeneratedoperctrladminindex" }
-    return ""
+    rttmongeneratedoperentry.EntityData.Children = make(map[string]types.YChild)
+    rttmongeneratedoperentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmongeneratedoperentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmongeneratedoperentry.Rttmonctrladminindex}
+    rttmongeneratedoperentry.EntityData.Leafs["rttMonGeneratedOperRespIpAddrType"] = types.YLeaf{"Rttmongeneratedoperrespipaddrtype", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddrtype}
+    rttmongeneratedoperentry.EntityData.Leafs["rttMonGeneratedOperRespIpAddr"] = types.YLeaf{"Rttmongeneratedoperrespipaddr", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddr}
+    rttmongeneratedoperentry.EntityData.Leafs["rttMonGeneratedOperCtrlAdminIndex"] = types.YLeaf{"Rttmongeneratedoperctrladminindex", rttmongeneratedoperentry.Rttmongeneratedoperctrladminindex}
+    return &(rttmongeneratedoperentry.EntityData)
 }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetSegmentPath() string {
-    return "rttMonGeneratedOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmonctrladminindex) + "']" + "[rttMonGeneratedOperRespIpAddrType='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddrtype) + "']" + "[rttMonGeneratedOperRespIpAddr='" + fmt.Sprintf("%v", rttmongeneratedoperentry.Rttmongeneratedoperrespipaddr) + "']"
-}
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmongeneratedoperentry.Rttmonctrladminindex
-    leafs["rttMonGeneratedOperRespIpAddrType"] = rttmongeneratedoperentry.Rttmongeneratedoperrespipaddrtype
-    leafs["rttMonGeneratedOperRespIpAddr"] = rttmongeneratedoperentry.Rttmongeneratedoperrespipaddr
-    leafs["rttMonGeneratedOperCtrlAdminIndex"] = rttmongeneratedoperentry.Rttmongeneratedoperctrladminindex
-    return leafs
-}
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetYangName() string { return "rttMonGeneratedOperEntry" }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) SetParent(parent types.Entity) { rttmongeneratedoperentry.parent = parent }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetParent() types.Entity { return rttmongeneratedoperentry.parent }
-
-func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmongeneratedoperentry) GetParentYangName() string { return "rttMonGeneratedOperTable" }
 
 // CISCORTTMONMIB_Rttmonstatscapturetable
 // The statistics capture database.
@@ -5212,7 +3867,7 @@ func (rttmongeneratedoperentry *CISCORTTMONMIB_Rttmongeneratedopertable_Rttmonge
 // of get requests in a short period which otherwise would 
 // occur.
 type CISCORTTMONMIB_Rttmonstatscapturetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects which accumulate the results of a series of RTT
@@ -5243,63 +3898,24 @@ type CISCORTTMONMIB_Rttmonstatscapturetable struct {
     Rttmonstatscaptureentry []CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry
 }
 
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetFilter() yfilter.YFilter { return rttmonstatscapturetable.YFilter }
+func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetEntityData() *types.CommonEntityData {
+    rttmonstatscapturetable.EntityData.YFilter = rttmonstatscapturetable.YFilter
+    rttmonstatscapturetable.EntityData.YangName = "rttMonStatsCaptureTable"
+    rttmonstatscapturetable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonstatscapturetable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonstatscapturetable.EntityData.SegmentPath = "rttMonStatsCaptureTable"
+    rttmonstatscapturetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonstatscapturetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonstatscapturetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) SetFilter(yf yfilter.YFilter) { rttmonstatscapturetable.YFilter = yf }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetGoName(yname string) string {
-    if yname == "rttMonStatsCaptureEntry" { return "Rttmonstatscaptureentry" }
-    return ""
-}
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetSegmentPath() string {
-    return "rttMonStatsCaptureTable"
-}
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonStatsCaptureEntry" {
-        for _, c := range rttmonstatscapturetable.Rttmonstatscaptureentry {
-            if rttmonstatscapturetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry{}
-        rttmonstatscapturetable.Rttmonstatscaptureentry = append(rttmonstatscapturetable.Rttmonstatscaptureentry, child)
-        return &rttmonstatscapturetable.Rttmonstatscaptureentry[len(rttmonstatscapturetable.Rttmonstatscaptureentry)-1]
-    }
-    return nil
-}
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonstatscapturetable.EntityData.Children = make(map[string]types.YChild)
+    rttmonstatscapturetable.EntityData.Children["rttMonStatsCaptureEntry"] = types.YChild{"Rttmonstatscaptureentry", nil}
     for i := range rttmonstatscapturetable.Rttmonstatscaptureentry {
-        children[rttmonstatscapturetable.Rttmonstatscaptureentry[i].GetSegmentPath()] = &rttmonstatscapturetable.Rttmonstatscaptureentry[i]
+        rttmonstatscapturetable.EntityData.Children[types.GetSegmentPath(&rttmonstatscapturetable.Rttmonstatscaptureentry[i])] = types.YChild{"Rttmonstatscaptureentry", &rttmonstatscapturetable.Rttmonstatscaptureentry[i]}
     }
-    return children
+    rttmonstatscapturetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonstatscapturetable.EntityData)
 }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetYangName() string { return "rttMonStatsCaptureTable" }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) SetParent(parent types.Entity) { rttmonstatscapturetable.parent = parent }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetParent() types.Entity { return rttmonstatscapturetable.parent }
-
-func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry
 // A list of objects which accumulate the results of a
@@ -5343,7 +3959,7 @@ func (rttmonstatscapturetable *CISCORTTMONMIB_Rttmonstatscapturetable) GetParent
 //   -  The fifth index uniquely creates a statistical
 //       distribution bucket.
 type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -5448,73 +4064,32 @@ type CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry struct {
     Rttmonstatscapturecompletiontimemin interface{}
 }
 
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetFilter() yfilter.YFilter { return rttmonstatscaptureentry.YFilter }
+func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetEntityData() *types.CommonEntityData {
+    rttmonstatscaptureentry.EntityData.YFilter = rttmonstatscaptureentry.YFilter
+    rttmonstatscaptureentry.EntityData.YangName = "rttMonStatsCaptureEntry"
+    rttmonstatscaptureentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonstatscaptureentry.EntityData.ParentYangName = "rttMonStatsCaptureTable"
+    rttmonstatscaptureentry.EntityData.SegmentPath = "rttMonStatsCaptureEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturehopindex) + "']" + "[rttMonStatsCaptureDistIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturedistindex) + "']"
+    rttmonstatscaptureentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonstatscaptureentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonstatscaptureentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) SetFilter(yf yfilter.YFilter) { rttmonstatscaptureentry.YFilter = yf }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonStatsCaptureStartTimeIndex" { return "Rttmonstatscapturestarttimeindex" }
-    if yname == "rttMonStatsCapturePathIndex" { return "Rttmonstatscapturepathindex" }
-    if yname == "rttMonStatsCaptureHopIndex" { return "Rttmonstatscapturehopindex" }
-    if yname == "rttMonStatsCaptureDistIndex" { return "Rttmonstatscapturedistindex" }
-    if yname == "rttMonStatsCaptureCompletions" { return "Rttmonstatscapturecompletions" }
-    if yname == "rttMonStatsCaptureOverThresholds" { return "Rttmonstatscaptureoverthresholds" }
-    if yname == "rttMonStatsCaptureSumCompletionTime" { return "Rttmonstatscapturesumcompletiontime" }
-    if yname == "rttMonStatsCaptureSumCompletionTime2Low" { return "Rttmonstatscapturesumcompletiontime2Low" }
-    if yname == "rttMonStatsCaptureSumCompletionTime2High" { return "Rttmonstatscapturesumcompletiontime2High" }
-    if yname == "rttMonStatsCaptureCompletionTimeMax" { return "Rttmonstatscapturecompletiontimemax" }
-    if yname == "rttMonStatsCaptureCompletionTimeMin" { return "Rttmonstatscapturecompletiontimemin" }
-    return ""
+    rttmonstatscaptureentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonstatscaptureentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonstatscaptureentry.Rttmonctrladminindex}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureStartTimeIndex"] = types.YLeaf{"Rttmonstatscapturestarttimeindex", rttmonstatscaptureentry.Rttmonstatscapturestarttimeindex}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCapturePathIndex"] = types.YLeaf{"Rttmonstatscapturepathindex", rttmonstatscaptureentry.Rttmonstatscapturepathindex}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureHopIndex"] = types.YLeaf{"Rttmonstatscapturehopindex", rttmonstatscaptureentry.Rttmonstatscapturehopindex}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureDistIndex"] = types.YLeaf{"Rttmonstatscapturedistindex", rttmonstatscaptureentry.Rttmonstatscapturedistindex}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureCompletions"] = types.YLeaf{"Rttmonstatscapturecompletions", rttmonstatscaptureentry.Rttmonstatscapturecompletions}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureOverThresholds"] = types.YLeaf{"Rttmonstatscaptureoverthresholds", rttmonstatscaptureentry.Rttmonstatscaptureoverthresholds}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureSumCompletionTime"] = types.YLeaf{"Rttmonstatscapturesumcompletiontime", rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureSumCompletionTime2Low"] = types.YLeaf{"Rttmonstatscapturesumcompletiontime2Low", rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime2Low}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureSumCompletionTime2High"] = types.YLeaf{"Rttmonstatscapturesumcompletiontime2High", rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime2High}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureCompletionTimeMax"] = types.YLeaf{"Rttmonstatscapturecompletiontimemax", rttmonstatscaptureentry.Rttmonstatscapturecompletiontimemax}
+    rttmonstatscaptureentry.EntityData.Leafs["rttMonStatsCaptureCompletionTimeMin"] = types.YLeaf{"Rttmonstatscapturecompletiontimemin", rttmonstatscaptureentry.Rttmonstatscapturecompletiontimemin}
+    return &(rttmonstatscaptureentry.EntityData)
 }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetSegmentPath() string {
-    return "rttMonStatsCaptureEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturehopindex) + "']" + "[rttMonStatsCaptureDistIndex='" + fmt.Sprintf("%v", rttmonstatscaptureentry.Rttmonstatscapturedistindex) + "']"
-}
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonstatscaptureentry.Rttmonctrladminindex
-    leafs["rttMonStatsCaptureStartTimeIndex"] = rttmonstatscaptureentry.Rttmonstatscapturestarttimeindex
-    leafs["rttMonStatsCapturePathIndex"] = rttmonstatscaptureentry.Rttmonstatscapturepathindex
-    leafs["rttMonStatsCaptureHopIndex"] = rttmonstatscaptureentry.Rttmonstatscapturehopindex
-    leafs["rttMonStatsCaptureDistIndex"] = rttmonstatscaptureentry.Rttmonstatscapturedistindex
-    leafs["rttMonStatsCaptureCompletions"] = rttmonstatscaptureentry.Rttmonstatscapturecompletions
-    leafs["rttMonStatsCaptureOverThresholds"] = rttmonstatscaptureentry.Rttmonstatscaptureoverthresholds
-    leafs["rttMonStatsCaptureSumCompletionTime"] = rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime
-    leafs["rttMonStatsCaptureSumCompletionTime2Low"] = rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime2Low
-    leafs["rttMonStatsCaptureSumCompletionTime2High"] = rttmonstatscaptureentry.Rttmonstatscapturesumcompletiontime2High
-    leafs["rttMonStatsCaptureCompletionTimeMax"] = rttmonstatscaptureentry.Rttmonstatscapturecompletiontimemax
-    leafs["rttMonStatsCaptureCompletionTimeMin"] = rttmonstatscaptureentry.Rttmonstatscapturecompletiontimemin
-    return leafs
-}
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetYangName() string { return "rttMonStatsCaptureEntry" }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) SetParent(parent types.Entity) { rttmonstatscaptureentry.parent = parent }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetParent() types.Entity { return rttmonstatscaptureentry.parent }
-
-func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstatscaptureentry) GetParentYangName() string { return "rttMonStatsCaptureTable" }
 
 // CISCORTTMONMIB_Rttmonstatscollecttable
 // The statistics collection database.
@@ -5526,7 +4101,7 @@ func (rttmonstatscaptureentry *CISCORTTMONMIB_Rttmonstatscapturetable_Rttmonstat
 // For a complete table description see
 // the rttMonStatsCaptureTable object.
 type CISCORTTMONMIB_Rttmonstatscollecttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects which accumulate the results of a series of RTT
@@ -5538,63 +4113,24 @@ type CISCORTTMONMIB_Rttmonstatscollecttable struct {
     Rttmonstatscollectentry []CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry
 }
 
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetFilter() yfilter.YFilter { return rttmonstatscollecttable.YFilter }
+func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetEntityData() *types.CommonEntityData {
+    rttmonstatscollecttable.EntityData.YFilter = rttmonstatscollecttable.YFilter
+    rttmonstatscollecttable.EntityData.YangName = "rttMonStatsCollectTable"
+    rttmonstatscollecttable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonstatscollecttable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonstatscollecttable.EntityData.SegmentPath = "rttMonStatsCollectTable"
+    rttmonstatscollecttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonstatscollecttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonstatscollecttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) SetFilter(yf yfilter.YFilter) { rttmonstatscollecttable.YFilter = yf }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetGoName(yname string) string {
-    if yname == "rttMonStatsCollectEntry" { return "Rttmonstatscollectentry" }
-    return ""
-}
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetSegmentPath() string {
-    return "rttMonStatsCollectTable"
-}
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonStatsCollectEntry" {
-        for _, c := range rttmonstatscollecttable.Rttmonstatscollectentry {
-            if rttmonstatscollecttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry{}
-        rttmonstatscollecttable.Rttmonstatscollectentry = append(rttmonstatscollecttable.Rttmonstatscollectentry, child)
-        return &rttmonstatscollecttable.Rttmonstatscollectentry[len(rttmonstatscollecttable.Rttmonstatscollectentry)-1]
-    }
-    return nil
-}
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonstatscollecttable.EntityData.Children = make(map[string]types.YChild)
+    rttmonstatscollecttable.EntityData.Children["rttMonStatsCollectEntry"] = types.YChild{"Rttmonstatscollectentry", nil}
     for i := range rttmonstatscollecttable.Rttmonstatscollectentry {
-        children[rttmonstatscollecttable.Rttmonstatscollectentry[i].GetSegmentPath()] = &rttmonstatscollecttable.Rttmonstatscollectentry[i]
+        rttmonstatscollecttable.EntityData.Children[types.GetSegmentPath(&rttmonstatscollecttable.Rttmonstatscollectentry[i])] = types.YChild{"Rttmonstatscollectentry", &rttmonstatscollecttable.Rttmonstatscollectentry[i]}
     }
-    return children
+    rttmonstatscollecttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonstatscollecttable.EntityData)
 }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetYangName() string { return "rttMonStatsCollectTable" }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) SetParent(parent types.Entity) { rttmonstatscollecttable.parent = parent }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetParent() types.Entity { return rttmonstatscollecttable.parent }
-
-func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry
 // A list of objects which accumulate the results of a
@@ -5607,7 +4143,7 @@ func (rttmonstatscollecttable *CISCORTTMONMIB_Rttmonstatscollecttable) GetParent
 // For a complete entry description see
 // the rttMonStatsCaptureEntry object.
 type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -5767,81 +4303,36 @@ type CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry struct {
     Rttmonstatscollectretrieveerrors interface{}
 }
 
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetFilter() yfilter.YFilter { return rttmonstatscollectentry.YFilter }
+func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetEntityData() *types.CommonEntityData {
+    rttmonstatscollectentry.EntityData.YFilter = rttmonstatscollectentry.YFilter
+    rttmonstatscollectentry.EntityData.YangName = "rttMonStatsCollectEntry"
+    rttmonstatscollectentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonstatscollectentry.EntityData.ParentYangName = "rttMonStatsCollectTable"
+    rttmonstatscollectentry.EntityData.SegmentPath = "rttMonStatsCollectEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturehopindex) + "']"
+    rttmonstatscollectentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonstatscollectentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonstatscollectentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) SetFilter(yf yfilter.YFilter) { rttmonstatscollectentry.YFilter = yf }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonStatsCaptureStartTimeIndex" { return "Rttmonstatscapturestarttimeindex" }
-    if yname == "rttMonStatsCapturePathIndex" { return "Rttmonstatscapturepathindex" }
-    if yname == "rttMonStatsCaptureHopIndex" { return "Rttmonstatscapturehopindex" }
-    if yname == "rttMonStatsCollectNumDisconnects" { return "Rttmonstatscollectnumdisconnects" }
-    if yname == "rttMonStatsCollectTimeouts" { return "Rttmonstatscollecttimeouts" }
-    if yname == "rttMonStatsCollectBusies" { return "Rttmonstatscollectbusies" }
-    if yname == "rttMonStatsCollectNoConnections" { return "Rttmonstatscollectnoconnections" }
-    if yname == "rttMonStatsCollectDrops" { return "Rttmonstatscollectdrops" }
-    if yname == "rttMonStatsCollectSequenceErrors" { return "Rttmonstatscollectsequenceerrors" }
-    if yname == "rttMonStatsCollectVerifyErrors" { return "Rttmonstatscollectverifyerrors" }
-    if yname == "rttMonStatsCollectAddress" { return "Rttmonstatscollectaddress" }
-    if yname == "rttMonControlEnableErrors" { return "Rttmoncontrolenableerrors" }
-    if yname == "rttMonStatsRetrieveErrors" { return "Rttmonstatsretrieveerrors" }
-    if yname == "rttMonStatsCollectCtrlEnErrors" { return "Rttmonstatscollectctrlenerrors" }
-    if yname == "rttMonStatsCollectRetrieveErrors" { return "Rttmonstatscollectretrieveerrors" }
-    return ""
+    rttmonstatscollectentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonstatscollectentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonstatscollectentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonstatscollectentry.Rttmonctrladminindex}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCaptureStartTimeIndex"] = types.YLeaf{"Rttmonstatscapturestarttimeindex", rttmonstatscollectentry.Rttmonstatscapturestarttimeindex}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCapturePathIndex"] = types.YLeaf{"Rttmonstatscapturepathindex", rttmonstatscollectentry.Rttmonstatscapturepathindex}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCaptureHopIndex"] = types.YLeaf{"Rttmonstatscapturehopindex", rttmonstatscollectentry.Rttmonstatscapturehopindex}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectNumDisconnects"] = types.YLeaf{"Rttmonstatscollectnumdisconnects", rttmonstatscollectentry.Rttmonstatscollectnumdisconnects}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectTimeouts"] = types.YLeaf{"Rttmonstatscollecttimeouts", rttmonstatscollectentry.Rttmonstatscollecttimeouts}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectBusies"] = types.YLeaf{"Rttmonstatscollectbusies", rttmonstatscollectentry.Rttmonstatscollectbusies}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectNoConnections"] = types.YLeaf{"Rttmonstatscollectnoconnections", rttmonstatscollectentry.Rttmonstatscollectnoconnections}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectDrops"] = types.YLeaf{"Rttmonstatscollectdrops", rttmonstatscollectentry.Rttmonstatscollectdrops}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectSequenceErrors"] = types.YLeaf{"Rttmonstatscollectsequenceerrors", rttmonstatscollectentry.Rttmonstatscollectsequenceerrors}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectVerifyErrors"] = types.YLeaf{"Rttmonstatscollectverifyerrors", rttmonstatscollectentry.Rttmonstatscollectverifyerrors}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectAddress"] = types.YLeaf{"Rttmonstatscollectaddress", rttmonstatscollectentry.Rttmonstatscollectaddress}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonControlEnableErrors"] = types.YLeaf{"Rttmoncontrolenableerrors", rttmonstatscollectentry.Rttmoncontrolenableerrors}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsRetrieveErrors"] = types.YLeaf{"Rttmonstatsretrieveerrors", rttmonstatscollectentry.Rttmonstatsretrieveerrors}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectCtrlEnErrors"] = types.YLeaf{"Rttmonstatscollectctrlenerrors", rttmonstatscollectentry.Rttmonstatscollectctrlenerrors}
+    rttmonstatscollectentry.EntityData.Leafs["rttMonStatsCollectRetrieveErrors"] = types.YLeaf{"Rttmonstatscollectretrieveerrors", rttmonstatscollectentry.Rttmonstatscollectretrieveerrors}
+    return &(rttmonstatscollectentry.EntityData)
 }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetSegmentPath() string {
-    return "rttMonStatsCollectEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturestarttimeindex) + "']" + "[rttMonStatsCapturePathIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturepathindex) + "']" + "[rttMonStatsCaptureHopIndex='" + fmt.Sprintf("%v", rttmonstatscollectentry.Rttmonstatscapturehopindex) + "']"
-}
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonstatscollectentry.Rttmonctrladminindex
-    leafs["rttMonStatsCaptureStartTimeIndex"] = rttmonstatscollectentry.Rttmonstatscapturestarttimeindex
-    leafs["rttMonStatsCapturePathIndex"] = rttmonstatscollectentry.Rttmonstatscapturepathindex
-    leafs["rttMonStatsCaptureHopIndex"] = rttmonstatscollectentry.Rttmonstatscapturehopindex
-    leafs["rttMonStatsCollectNumDisconnects"] = rttmonstatscollectentry.Rttmonstatscollectnumdisconnects
-    leafs["rttMonStatsCollectTimeouts"] = rttmonstatscollectentry.Rttmonstatscollecttimeouts
-    leafs["rttMonStatsCollectBusies"] = rttmonstatscollectentry.Rttmonstatscollectbusies
-    leafs["rttMonStatsCollectNoConnections"] = rttmonstatscollectentry.Rttmonstatscollectnoconnections
-    leafs["rttMonStatsCollectDrops"] = rttmonstatscollectentry.Rttmonstatscollectdrops
-    leafs["rttMonStatsCollectSequenceErrors"] = rttmonstatscollectentry.Rttmonstatscollectsequenceerrors
-    leafs["rttMonStatsCollectVerifyErrors"] = rttmonstatscollectentry.Rttmonstatscollectverifyerrors
-    leafs["rttMonStatsCollectAddress"] = rttmonstatscollectentry.Rttmonstatscollectaddress
-    leafs["rttMonControlEnableErrors"] = rttmonstatscollectentry.Rttmoncontrolenableerrors
-    leafs["rttMonStatsRetrieveErrors"] = rttmonstatscollectentry.Rttmonstatsretrieveerrors
-    leafs["rttMonStatsCollectCtrlEnErrors"] = rttmonstatscollectentry.Rttmonstatscollectctrlenerrors
-    leafs["rttMonStatsCollectRetrieveErrors"] = rttmonstatscollectentry.Rttmonstatscollectretrieveerrors
-    return leafs
-}
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetYangName() string { return "rttMonStatsCollectEntry" }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) SetParent(parent types.Entity) { rttmonstatscollectentry.parent = parent }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetParent() types.Entity { return rttmonstatscollectentry.parent }
-
-func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstatscollectentry) GetParentYangName() string { return "rttMonStatsCollectTable" }
 
 // CISCORTTMONMIB_Rttmonstatstotalstable
 // The statistics totals database.
@@ -5853,7 +4344,7 @@ func (rttmonstatscollectentry *CISCORTTMONMIB_Rttmonstatscollecttable_Rttmonstat
 // For a complete table description see
 // the rttMonStatsCaptureTable object.
 type CISCORTTMONMIB_Rttmonstatstotalstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects which accumulate the results of a series of RTT
@@ -5865,63 +4356,24 @@ type CISCORTTMONMIB_Rttmonstatstotalstable struct {
     Rttmonstatstotalsentry []CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry
 }
 
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetFilter() yfilter.YFilter { return rttmonstatstotalstable.YFilter }
+func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetEntityData() *types.CommonEntityData {
+    rttmonstatstotalstable.EntityData.YFilter = rttmonstatstotalstable.YFilter
+    rttmonstatstotalstable.EntityData.YangName = "rttMonStatsTotalsTable"
+    rttmonstatstotalstable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonstatstotalstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonstatstotalstable.EntityData.SegmentPath = "rttMonStatsTotalsTable"
+    rttmonstatstotalstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonstatstotalstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonstatstotalstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) SetFilter(yf yfilter.YFilter) { rttmonstatstotalstable.YFilter = yf }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetGoName(yname string) string {
-    if yname == "rttMonStatsTotalsEntry" { return "Rttmonstatstotalsentry" }
-    return ""
-}
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetSegmentPath() string {
-    return "rttMonStatsTotalsTable"
-}
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonStatsTotalsEntry" {
-        for _, c := range rttmonstatstotalstable.Rttmonstatstotalsentry {
-            if rttmonstatstotalstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry{}
-        rttmonstatstotalstable.Rttmonstatstotalsentry = append(rttmonstatstotalstable.Rttmonstatstotalsentry, child)
-        return &rttmonstatstotalstable.Rttmonstatstotalsentry[len(rttmonstatstotalstable.Rttmonstatstotalsentry)-1]
-    }
-    return nil
-}
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonstatstotalstable.EntityData.Children = make(map[string]types.YChild)
+    rttmonstatstotalstable.EntityData.Children["rttMonStatsTotalsEntry"] = types.YChild{"Rttmonstatstotalsentry", nil}
     for i := range rttmonstatstotalstable.Rttmonstatstotalsentry {
-        children[rttmonstatstotalstable.Rttmonstatstotalsentry[i].GetSegmentPath()] = &rttmonstatstotalstable.Rttmonstatstotalsentry[i]
+        rttmonstatstotalstable.EntityData.Children[types.GetSegmentPath(&rttmonstatstotalstable.Rttmonstatstotalsentry[i])] = types.YChild{"Rttmonstatstotalsentry", &rttmonstatstotalstable.Rttmonstatstotalsentry[i]}
     }
-    return children
+    rttmonstatstotalstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonstatstotalstable.EntityData)
 }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetYangName() string { return "rttMonStatsTotalsTable" }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) SetParent(parent types.Entity) { rttmonstatstotalstable.parent = parent }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetParent() types.Entity { return rttmonstatstotalstable.parent }
-
-func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry
 // A list of objects which accumulate the results of a
@@ -5934,7 +4386,7 @@ func (rttmonstatstotalstable *CISCORTTMONMIB_Rttmonstatstotalstable) GetParentYa
 // For a complete entry description see
 // the rttMonStatsCaptureEntry object.
 type CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -5959,57 +4411,24 @@ type CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry struct {
     Rttmonstatstotalsinitiations interface{}
 }
 
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetFilter() yfilter.YFilter { return rttmonstatstotalsentry.YFilter }
+func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetEntityData() *types.CommonEntityData {
+    rttmonstatstotalsentry.EntityData.YFilter = rttmonstatstotalsentry.YFilter
+    rttmonstatstotalsentry.EntityData.YangName = "rttMonStatsTotalsEntry"
+    rttmonstatstotalsentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonstatstotalsentry.EntityData.ParentYangName = "rttMonStatsTotalsTable"
+    rttmonstatstotalsentry.EntityData.SegmentPath = "rttMonStatsTotalsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatstotalsentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatstotalsentry.Rttmonstatscapturestarttimeindex) + "']"
+    rttmonstatstotalsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonstatstotalsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonstatstotalsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) SetFilter(yf yfilter.YFilter) { rttmonstatstotalsentry.YFilter = yf }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonStatsCaptureStartTimeIndex" { return "Rttmonstatscapturestarttimeindex" }
-    if yname == "rttMonStatsTotalsElapsedTime" { return "Rttmonstatstotalselapsedtime" }
-    if yname == "rttMonStatsTotalsInitiations" { return "Rttmonstatstotalsinitiations" }
-    return ""
+    rttmonstatstotalsentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonstatstotalsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonstatstotalsentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonstatstotalsentry.Rttmonctrladminindex}
+    rttmonstatstotalsentry.EntityData.Leafs["rttMonStatsCaptureStartTimeIndex"] = types.YLeaf{"Rttmonstatscapturestarttimeindex", rttmonstatstotalsentry.Rttmonstatscapturestarttimeindex}
+    rttmonstatstotalsentry.EntityData.Leafs["rttMonStatsTotalsElapsedTime"] = types.YLeaf{"Rttmonstatstotalselapsedtime", rttmonstatstotalsentry.Rttmonstatstotalselapsedtime}
+    rttmonstatstotalsentry.EntityData.Leafs["rttMonStatsTotalsInitiations"] = types.YLeaf{"Rttmonstatstotalsinitiations", rttmonstatstotalsentry.Rttmonstatstotalsinitiations}
+    return &(rttmonstatstotalsentry.EntityData)
 }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetSegmentPath() string {
-    return "rttMonStatsTotalsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonstatstotalsentry.Rttmonctrladminindex) + "']" + "[rttMonStatsCaptureStartTimeIndex='" + fmt.Sprintf("%v", rttmonstatstotalsentry.Rttmonstatscapturestarttimeindex) + "']"
-}
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonstatstotalsentry.Rttmonctrladminindex
-    leafs["rttMonStatsCaptureStartTimeIndex"] = rttmonstatstotalsentry.Rttmonstatscapturestarttimeindex
-    leafs["rttMonStatsTotalsElapsedTime"] = rttmonstatstotalsentry.Rttmonstatstotalselapsedtime
-    leafs["rttMonStatsTotalsInitiations"] = rttmonstatstotalsentry.Rttmonstatstotalsinitiations
-    return leafs
-}
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetYangName() string { return "rttMonStatsTotalsEntry" }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) SetParent(parent types.Entity) { rttmonstatstotalsentry.parent = parent }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetParent() types.Entity { return rttmonstatstotalsentry.parent }
-
-func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatstotalsentry) GetParentYangName() string { return "rttMonStatsTotalsTable" }
 
 // CISCORTTMONMIB_Rttmonhttpstatstable
 // The HTTP statistics collection database.
@@ -6023,7 +4442,7 @@ func (rttmonstatstotalsentry *CISCORTTMONMIB_Rttmonstatstotalstable_Rttmonstatst
 // rttMonStatsCaptureTable, except that this table can only 
 // store a maximum of 2 hours of data.
 type CISCORTTMONMIB_Rttmonhttpstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects which accumulate the results of a series of RTT
@@ -6034,63 +4453,24 @@ type CISCORTTMONMIB_Rttmonhttpstatstable struct {
     Rttmonhttpstatsentry []CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry
 }
 
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetFilter() yfilter.YFilter { return rttmonhttpstatstable.YFilter }
+func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetEntityData() *types.CommonEntityData {
+    rttmonhttpstatstable.EntityData.YFilter = rttmonhttpstatstable.YFilter
+    rttmonhttpstatstable.EntityData.YangName = "rttMonHTTPStatsTable"
+    rttmonhttpstatstable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonhttpstatstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonhttpstatstable.EntityData.SegmentPath = "rttMonHTTPStatsTable"
+    rttmonhttpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonhttpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonhttpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) SetFilter(yf yfilter.YFilter) { rttmonhttpstatstable.YFilter = yf }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetGoName(yname string) string {
-    if yname == "rttMonHTTPStatsEntry" { return "Rttmonhttpstatsentry" }
-    return ""
-}
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetSegmentPath() string {
-    return "rttMonHTTPStatsTable"
-}
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonHTTPStatsEntry" {
-        for _, c := range rttmonhttpstatstable.Rttmonhttpstatsentry {
-            if rttmonhttpstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry{}
-        rttmonhttpstatstable.Rttmonhttpstatsentry = append(rttmonhttpstatstable.Rttmonhttpstatsentry, child)
-        return &rttmonhttpstatstable.Rttmonhttpstatsentry[len(rttmonhttpstatstable.Rttmonhttpstatsentry)-1]
-    }
-    return nil
-}
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonhttpstatstable.EntityData.Children = make(map[string]types.YChild)
+    rttmonhttpstatstable.EntityData.Children["rttMonHTTPStatsEntry"] = types.YChild{"Rttmonhttpstatsentry", nil}
     for i := range rttmonhttpstatstable.Rttmonhttpstatsentry {
-        children[rttmonhttpstatstable.Rttmonhttpstatsentry[i].GetSegmentPath()] = &rttmonhttpstatstable.Rttmonhttpstatsentry[i]
+        rttmonhttpstatstable.EntityData.Children[types.GetSegmentPath(&rttmonhttpstatstable.Rttmonhttpstatsentry[i])] = types.YChild{"Rttmonhttpstatsentry", &rttmonhttpstatstable.Rttmonhttpstatsentry[i]}
     }
-    return children
+    rttmonhttpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonhttpstatstable.EntityData)
 }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetYangName() string { return "rttMonHTTPStatsTable" }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) SetParent(parent types.Entity) { rttmonhttpstatstable.parent = parent }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetParent() types.Entity { return rttmonhttpstatstable.parent }
-
-func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry
 // A list of objects which accumulate the results of a
@@ -6100,7 +4480,7 @@ func (rttmonhttpstatstable *CISCORTTMONMIB_Rttmonhttpstatstable) GetParentYangNa
 // is http. The operation of this table is same as that of
 // rttMonStatsCaptureTable.
 type CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -6188,89 +4568,40 @@ type CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry struct {
     Rttmonhttpstatsbusies interface{}
 }
 
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetFilter() yfilter.YFilter { return rttmonhttpstatsentry.YFilter }
+func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetEntityData() *types.CommonEntityData {
+    rttmonhttpstatsentry.EntityData.YFilter = rttmonhttpstatsentry.YFilter
+    rttmonhttpstatsentry.EntityData.YangName = "rttMonHTTPStatsEntry"
+    rttmonhttpstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonhttpstatsentry.EntityData.ParentYangName = "rttMonHTTPStatsTable"
+    rttmonhttpstatsentry.EntityData.SegmentPath = "rttMonHTTPStatsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonhttpstatsentry.Rttmonctrladminindex) + "']" + "[rttMonHTTPStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonhttpstatsentry.Rttmonhttpstatsstarttimeindex) + "']"
+    rttmonhttpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonhttpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonhttpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) SetFilter(yf yfilter.YFilter) { rttmonhttpstatsentry.YFilter = yf }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonHTTPStatsStartTimeIndex" { return "Rttmonhttpstatsstarttimeindex" }
-    if yname == "rttMonHTTPStatsCompletions" { return "Rttmonhttpstatscompletions" }
-    if yname == "rttMonHTTPStatsOverThresholds" { return "Rttmonhttpstatsoverthresholds" }
-    if yname == "rttMonHTTPStatsRTTSum" { return "Rttmonhttpstatsrttsum" }
-    if yname == "rttMonHTTPStatsRTTSum2Low" { return "Rttmonhttpstatsrttsum2Low" }
-    if yname == "rttMonHTTPStatsRTTSum2High" { return "Rttmonhttpstatsrttsum2High" }
-    if yname == "rttMonHTTPStatsRTTMin" { return "Rttmonhttpstatsrttmin" }
-    if yname == "rttMonHTTPStatsRTTMax" { return "Rttmonhttpstatsrttmax" }
-    if yname == "rttMonHTTPStatsDNSRTTSum" { return "Rttmonhttpstatsdnsrttsum" }
-    if yname == "rttMonHTTPStatsTCPConnectRTTSum" { return "Rttmonhttpstatstcpconnectrttsum" }
-    if yname == "rttMonHTTPStatsTransactionRTTSum" { return "Rttmonhttpstatstransactionrttsum" }
-    if yname == "rttMonHTTPStatsMessageBodyOctetsSum" { return "Rttmonhttpstatsmessagebodyoctetssum" }
-    if yname == "rttMonHTTPStatsDNSServerTimeout" { return "Rttmonhttpstatsdnsservertimeout" }
-    if yname == "rttMonHTTPStatsTCPConnectTimeout" { return "Rttmonhttpstatstcpconnecttimeout" }
-    if yname == "rttMonHTTPStatsTransactionTimeout" { return "Rttmonhttpstatstransactiontimeout" }
-    if yname == "rttMonHTTPStatsDNSQueryError" { return "Rttmonhttpstatsdnsqueryerror" }
-    if yname == "rttMonHTTPStatsHTTPError" { return "Rttmonhttpstatshttperror" }
-    if yname == "rttMonHTTPStatsError" { return "Rttmonhttpstatserror" }
-    if yname == "rttMonHTTPStatsBusies" { return "Rttmonhttpstatsbusies" }
-    return ""
+    rttmonhttpstatsentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonhttpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonhttpstatsentry.Rttmonctrladminindex}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsStartTimeIndex"] = types.YLeaf{"Rttmonhttpstatsstarttimeindex", rttmonhttpstatsentry.Rttmonhttpstatsstarttimeindex}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsCompletions"] = types.YLeaf{"Rttmonhttpstatscompletions", rttmonhttpstatsentry.Rttmonhttpstatscompletions}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsOverThresholds"] = types.YLeaf{"Rttmonhttpstatsoverthresholds", rttmonhttpstatsentry.Rttmonhttpstatsoverthresholds}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTSum"] = types.YLeaf{"Rttmonhttpstatsrttsum", rttmonhttpstatsentry.Rttmonhttpstatsrttsum}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTSum2Low"] = types.YLeaf{"Rttmonhttpstatsrttsum2Low", rttmonhttpstatsentry.Rttmonhttpstatsrttsum2Low}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTSum2High"] = types.YLeaf{"Rttmonhttpstatsrttsum2High", rttmonhttpstatsentry.Rttmonhttpstatsrttsum2High}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTMin"] = types.YLeaf{"Rttmonhttpstatsrttmin", rttmonhttpstatsentry.Rttmonhttpstatsrttmin}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsRTTMax"] = types.YLeaf{"Rttmonhttpstatsrttmax", rttmonhttpstatsentry.Rttmonhttpstatsrttmax}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsDNSRTTSum"] = types.YLeaf{"Rttmonhttpstatsdnsrttsum", rttmonhttpstatsentry.Rttmonhttpstatsdnsrttsum}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTCPConnectRTTSum"] = types.YLeaf{"Rttmonhttpstatstcpconnectrttsum", rttmonhttpstatsentry.Rttmonhttpstatstcpconnectrttsum}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTransactionRTTSum"] = types.YLeaf{"Rttmonhttpstatstransactionrttsum", rttmonhttpstatsentry.Rttmonhttpstatstransactionrttsum}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsMessageBodyOctetsSum"] = types.YLeaf{"Rttmonhttpstatsmessagebodyoctetssum", rttmonhttpstatsentry.Rttmonhttpstatsmessagebodyoctetssum}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsDNSServerTimeout"] = types.YLeaf{"Rttmonhttpstatsdnsservertimeout", rttmonhttpstatsentry.Rttmonhttpstatsdnsservertimeout}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTCPConnectTimeout"] = types.YLeaf{"Rttmonhttpstatstcpconnecttimeout", rttmonhttpstatsentry.Rttmonhttpstatstcpconnecttimeout}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsTransactionTimeout"] = types.YLeaf{"Rttmonhttpstatstransactiontimeout", rttmonhttpstatsentry.Rttmonhttpstatstransactiontimeout}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsDNSQueryError"] = types.YLeaf{"Rttmonhttpstatsdnsqueryerror", rttmonhttpstatsentry.Rttmonhttpstatsdnsqueryerror}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsHTTPError"] = types.YLeaf{"Rttmonhttpstatshttperror", rttmonhttpstatsentry.Rttmonhttpstatshttperror}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsError"] = types.YLeaf{"Rttmonhttpstatserror", rttmonhttpstatsentry.Rttmonhttpstatserror}
+    rttmonhttpstatsentry.EntityData.Leafs["rttMonHTTPStatsBusies"] = types.YLeaf{"Rttmonhttpstatsbusies", rttmonhttpstatsentry.Rttmonhttpstatsbusies}
+    return &(rttmonhttpstatsentry.EntityData)
 }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetSegmentPath() string {
-    return "rttMonHTTPStatsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonhttpstatsentry.Rttmonctrladminindex) + "']" + "[rttMonHTTPStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonhttpstatsentry.Rttmonhttpstatsstarttimeindex) + "']"
-}
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonhttpstatsentry.Rttmonctrladminindex
-    leafs["rttMonHTTPStatsStartTimeIndex"] = rttmonhttpstatsentry.Rttmonhttpstatsstarttimeindex
-    leafs["rttMonHTTPStatsCompletions"] = rttmonhttpstatsentry.Rttmonhttpstatscompletions
-    leafs["rttMonHTTPStatsOverThresholds"] = rttmonhttpstatsentry.Rttmonhttpstatsoverthresholds
-    leafs["rttMonHTTPStatsRTTSum"] = rttmonhttpstatsentry.Rttmonhttpstatsrttsum
-    leafs["rttMonHTTPStatsRTTSum2Low"] = rttmonhttpstatsentry.Rttmonhttpstatsrttsum2Low
-    leafs["rttMonHTTPStatsRTTSum2High"] = rttmonhttpstatsentry.Rttmonhttpstatsrttsum2High
-    leafs["rttMonHTTPStatsRTTMin"] = rttmonhttpstatsentry.Rttmonhttpstatsrttmin
-    leafs["rttMonHTTPStatsRTTMax"] = rttmonhttpstatsentry.Rttmonhttpstatsrttmax
-    leafs["rttMonHTTPStatsDNSRTTSum"] = rttmonhttpstatsentry.Rttmonhttpstatsdnsrttsum
-    leafs["rttMonHTTPStatsTCPConnectRTTSum"] = rttmonhttpstatsentry.Rttmonhttpstatstcpconnectrttsum
-    leafs["rttMonHTTPStatsTransactionRTTSum"] = rttmonhttpstatsentry.Rttmonhttpstatstransactionrttsum
-    leafs["rttMonHTTPStatsMessageBodyOctetsSum"] = rttmonhttpstatsentry.Rttmonhttpstatsmessagebodyoctetssum
-    leafs["rttMonHTTPStatsDNSServerTimeout"] = rttmonhttpstatsentry.Rttmonhttpstatsdnsservertimeout
-    leafs["rttMonHTTPStatsTCPConnectTimeout"] = rttmonhttpstatsentry.Rttmonhttpstatstcpconnecttimeout
-    leafs["rttMonHTTPStatsTransactionTimeout"] = rttmonhttpstatsentry.Rttmonhttpstatstransactiontimeout
-    leafs["rttMonHTTPStatsDNSQueryError"] = rttmonhttpstatsentry.Rttmonhttpstatsdnsqueryerror
-    leafs["rttMonHTTPStatsHTTPError"] = rttmonhttpstatsentry.Rttmonhttpstatshttperror
-    leafs["rttMonHTTPStatsError"] = rttmonhttpstatsentry.Rttmonhttpstatserror
-    leafs["rttMonHTTPStatsBusies"] = rttmonhttpstatsentry.Rttmonhttpstatsbusies
-    return leafs
-}
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetYangName() string { return "rttMonHTTPStatsEntry" }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) SetParent(parent types.Entity) { rttmonhttpstatsentry.parent = parent }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetParent() types.Entity { return rttmonhttpstatsentry.parent }
-
-func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatsentry) GetParentYangName() string { return "rttMonHTTPStatsTable" }
 
 // CISCORTTMONMIB_Rttmonjitterstatstable
 // The Jitter statistics collection database.
@@ -6284,7 +4615,7 @@ func (rttmonhttpstatsentry *CISCORTTMONMIB_Rttmonhttpstatstable_Rttmonhttpstatse
 // rttMonStatsCaptureTable, except that this table will store 
 // 2 hours of data.
 type CISCORTTMONMIB_Rttmonjitterstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects which accumulate the results of a series of RTT
@@ -6295,63 +4626,24 @@ type CISCORTTMONMIB_Rttmonjitterstatstable struct {
     Rttmonjitterstatsentry []CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry
 }
 
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetFilter() yfilter.YFilter { return rttmonjitterstatstable.YFilter }
+func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetEntityData() *types.CommonEntityData {
+    rttmonjitterstatstable.EntityData.YFilter = rttmonjitterstatstable.YFilter
+    rttmonjitterstatstable.EntityData.YangName = "rttMonJitterStatsTable"
+    rttmonjitterstatstable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonjitterstatstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonjitterstatstable.EntityData.SegmentPath = "rttMonJitterStatsTable"
+    rttmonjitterstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonjitterstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonjitterstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) SetFilter(yf yfilter.YFilter) { rttmonjitterstatstable.YFilter = yf }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetGoName(yname string) string {
-    if yname == "rttMonJitterStatsEntry" { return "Rttmonjitterstatsentry" }
-    return ""
-}
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetSegmentPath() string {
-    return "rttMonJitterStatsTable"
-}
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonJitterStatsEntry" {
-        for _, c := range rttmonjitterstatstable.Rttmonjitterstatsentry {
-            if rttmonjitterstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry{}
-        rttmonjitterstatstable.Rttmonjitterstatsentry = append(rttmonjitterstatstable.Rttmonjitterstatsentry, child)
-        return &rttmonjitterstatstable.Rttmonjitterstatsentry[len(rttmonjitterstatstable.Rttmonjitterstatsentry)-1]
-    }
-    return nil
-}
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonjitterstatstable.EntityData.Children = make(map[string]types.YChild)
+    rttmonjitterstatstable.EntityData.Children["rttMonJitterStatsEntry"] = types.YChild{"Rttmonjitterstatsentry", nil}
     for i := range rttmonjitterstatstable.Rttmonjitterstatsentry {
-        children[rttmonjitterstatstable.Rttmonjitterstatsentry[i].GetSegmentPath()] = &rttmonjitterstatstable.Rttmonjitterstatsentry[i]
+        rttmonjitterstatstable.EntityData.Children[types.GetSegmentPath(&rttmonjitterstatstable.Rttmonjitterstatsentry[i])] = types.YChild{"Rttmonjitterstatsentry", &rttmonjitterstatstable.Rttmonjitterstatsentry[i]}
     }
-    return children
+    rttmonjitterstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonjitterstatstable.EntityData)
 }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetYangName() string { return "rttMonJitterStatsTable" }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) SetParent(parent types.Entity) { rttmonjitterstatstable.parent = parent }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetParent() types.Entity { return rttmonjitterstatstable.parent }
-
-func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry
 // A list of objects which accumulate the results of a
@@ -6361,7 +4653,7 @@ func (rttmonjitterstatstable *CISCORTTMONMIB_Rttmonjitterstatstable) GetParentYa
 // is jitter. The operation of this table is same as that of
 // rttMonStatsCaptureTable.
 type CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -6682,187 +4974,89 @@ type CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry struct {
     Rttmonjitterstatsowsumdshigh interface{}
 }
 
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetFilter() yfilter.YFilter { return rttmonjitterstatsentry.YFilter }
+func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetEntityData() *types.CommonEntityData {
+    rttmonjitterstatsentry.EntityData.YFilter = rttmonjitterstatsentry.YFilter
+    rttmonjitterstatsentry.EntityData.YangName = "rttMonJitterStatsEntry"
+    rttmonjitterstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonjitterstatsentry.EntityData.ParentYangName = "rttMonJitterStatsTable"
+    rttmonjitterstatsentry.EntityData.SegmentPath = "rttMonJitterStatsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonjitterstatsentry.Rttmonctrladminindex) + "']" + "[rttMonJitterStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonjitterstatsentry.Rttmonjitterstatsstarttimeindex) + "']"
+    rttmonjitterstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonjitterstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonjitterstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) SetFilter(yf yfilter.YFilter) { rttmonjitterstatsentry.YFilter = yf }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonJitterStatsStartTimeIndex" { return "Rttmonjitterstatsstarttimeindex" }
-    if yname == "rttMonJitterStatsCompletions" { return "Rttmonjitterstatscompletions" }
-    if yname == "rttMonJitterStatsOverThresholds" { return "Rttmonjitterstatsoverthresholds" }
-    if yname == "rttMonJitterStatsNumOfRTT" { return "Rttmonjitterstatsnumofrtt" }
-    if yname == "rttMonJitterStatsRTTSum" { return "Rttmonjitterstatsrttsum" }
-    if yname == "rttMonJitterStatsRTTSum2Low" { return "Rttmonjitterstatsrttsum2Low" }
-    if yname == "rttMonJitterStatsRTTSum2High" { return "Rttmonjitterstatsrttsum2High" }
-    if yname == "rttMonJitterStatsRTTMin" { return "Rttmonjitterstatsrttmin" }
-    if yname == "rttMonJitterStatsRTTMax" { return "Rttmonjitterstatsrttmax" }
-    if yname == "rttMonJitterStatsMinOfPositivesSD" { return "Rttmonjitterstatsminofpositivessd" }
-    if yname == "rttMonJitterStatsMaxOfPositivesSD" { return "Rttmonjitterstatsmaxofpositivessd" }
-    if yname == "rttMonJitterStatsNumOfPositivesSD" { return "Rttmonjitterstatsnumofpositivessd" }
-    if yname == "rttMonJitterStatsSumOfPositivesSD" { return "Rttmonjitterstatssumofpositivessd" }
-    if yname == "rttMonJitterStatsSum2PositivesSDLow" { return "Rttmonjitterstatssum2Positivessdlow" }
-    if yname == "rttMonJitterStatsSum2PositivesSDHigh" { return "Rttmonjitterstatssum2Positivessdhigh" }
-    if yname == "rttMonJitterStatsMinOfNegativesSD" { return "Rttmonjitterstatsminofnegativessd" }
-    if yname == "rttMonJitterStatsMaxOfNegativesSD" { return "Rttmonjitterstatsmaxofnegativessd" }
-    if yname == "rttMonJitterStatsNumOfNegativesSD" { return "Rttmonjitterstatsnumofnegativessd" }
-    if yname == "rttMonJitterStatsSumOfNegativesSD" { return "Rttmonjitterstatssumofnegativessd" }
-    if yname == "rttMonJitterStatsSum2NegativesSDLow" { return "Rttmonjitterstatssum2Negativessdlow" }
-    if yname == "rttMonJitterStatsSum2NegativesSDHigh" { return "Rttmonjitterstatssum2Negativessdhigh" }
-    if yname == "rttMonJitterStatsMinOfPositivesDS" { return "Rttmonjitterstatsminofpositivesds" }
-    if yname == "rttMonJitterStatsMaxOfPositivesDS" { return "Rttmonjitterstatsmaxofpositivesds" }
-    if yname == "rttMonJitterStatsNumOfPositivesDS" { return "Rttmonjitterstatsnumofpositivesds" }
-    if yname == "rttMonJitterStatsSumOfPositivesDS" { return "Rttmonjitterstatssumofpositivesds" }
-    if yname == "rttMonJitterStatsSum2PositivesDSLow" { return "Rttmonjitterstatssum2Positivesdslow" }
-    if yname == "rttMonJitterStatsSum2PositivesDSHigh" { return "Rttmonjitterstatssum2Positivesdshigh" }
-    if yname == "rttMonJitterStatsMinOfNegativesDS" { return "Rttmonjitterstatsminofnegativesds" }
-    if yname == "rttMonJitterStatsMaxOfNegativesDS" { return "Rttmonjitterstatsmaxofnegativesds" }
-    if yname == "rttMonJitterStatsNumOfNegativesDS" { return "Rttmonjitterstatsnumofnegativesds" }
-    if yname == "rttMonJitterStatsSumOfNegativesDS" { return "Rttmonjitterstatssumofnegativesds" }
-    if yname == "rttMonJitterStatsSum2NegativesDSLow" { return "Rttmonjitterstatssum2Negativesdslow" }
-    if yname == "rttMonJitterStatsSum2NegativesDSHigh" { return "Rttmonjitterstatssum2Negativesdshigh" }
-    if yname == "rttMonJitterStatsPacketLossSD" { return "Rttmonjitterstatspacketlosssd" }
-    if yname == "rttMonJitterStatsPacketLossDS" { return "Rttmonjitterstatspacketlossds" }
-    if yname == "rttMonJitterStatsPacketOutOfSequence" { return "Rttmonjitterstatspacketoutofsequence" }
-    if yname == "rttMonJitterStatsPacketMIA" { return "Rttmonjitterstatspacketmia" }
-    if yname == "rttMonJitterStatsPacketLateArrival" { return "Rttmonjitterstatspacketlatearrival" }
-    if yname == "rttMonJitterStatsError" { return "Rttmonjitterstatserror" }
-    if yname == "rttMonJitterStatsBusies" { return "Rttmonjitterstatsbusies" }
-    if yname == "rttMonJitterStatsOWSumSD" { return "Rttmonjitterstatsowsumsd" }
-    if yname == "rttMonJitterStatsOWSum2SDLow" { return "Rttmonjitterstatsowsum2Sdlow" }
-    if yname == "rttMonJitterStatsOWSum2SDHigh" { return "Rttmonjitterstatsowsum2Sdhigh" }
-    if yname == "rttMonJitterStatsOWMinSD" { return "Rttmonjitterstatsowminsd" }
-    if yname == "rttMonJitterStatsOWMaxSD" { return "Rttmonjitterstatsowmaxsd" }
-    if yname == "rttMonJitterStatsOWSumDS" { return "Rttmonjitterstatsowsumds" }
-    if yname == "rttMonJitterStatsOWSum2DSLow" { return "Rttmonjitterstatsowsum2Dslow" }
-    if yname == "rttMonJitterStatsOWSum2DSHigh" { return "Rttmonjitterstatsowsum2Dshigh" }
-    if yname == "rttMonJitterStatsOWMinDS" { return "Rttmonjitterstatsowminds" }
-    if yname == "rttMonJitterStatsOWMaxDS" { return "Rttmonjitterstatsowmaxds" }
-    if yname == "rttMonJitterStatsNumOfOW" { return "Rttmonjitterstatsnumofow" }
-    if yname == "rttMonJitterStatsOWMinSDNew" { return "Rttmonjitterstatsowminsdnew" }
-    if yname == "rttMonJitterStatsOWMaxSDNew" { return "Rttmonjitterstatsowmaxsdnew" }
-    if yname == "rttMonJitterStatsOWMinDSNew" { return "Rttmonjitterstatsowmindsnew" }
-    if yname == "rttMonJitterStatsOWMaxDSNew" { return "Rttmonjitterstatsowmaxdsnew" }
-    if yname == "rttMonJitterStatsMinOfMOS" { return "Rttmonjitterstatsminofmos" }
-    if yname == "rttMonJitterStatsMaxOfMOS" { return "Rttmonjitterstatsmaxofmos" }
-    if yname == "rttMonJitterStatsMinOfICPIF" { return "Rttmonjitterstatsminoficpif" }
-    if yname == "rttMonJitterStatsMaxOfICPIF" { return "Rttmonjitterstatsmaxoficpif" }
-    if yname == "rttMonJitterStatsIAJOut" { return "Rttmonjitterstatsiajout" }
-    if yname == "rttMonJitterStatsIAJIn" { return "Rttmonjitterstatsiajin" }
-    if yname == "rttMonJitterStatsAvgJitter" { return "Rttmonjitterstatsavgjitter" }
-    if yname == "rttMonJitterStatsAvgJitterSD" { return "Rttmonjitterstatsavgjittersd" }
-    if yname == "rttMonJitterStatsAvgJitterDS" { return "Rttmonjitterstatsavgjitterds" }
-    if yname == "rttMonJitterStatsUnSyncRTs" { return "Rttmonjitterstatsunsyncrts" }
-    if yname == "rttMonJitterStatsRTTSumHigh" { return "Rttmonjitterstatsrttsumhigh" }
-    if yname == "rttMonJitterStatsOWSumSDHigh" { return "Rttmonjitterstatsowsumsdhigh" }
-    if yname == "rttMonJitterStatsOWSumDSHigh" { return "Rttmonjitterstatsowsumdshigh" }
-    return ""
+    rttmonjitterstatsentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonjitterstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonjitterstatsentry.Rttmonctrladminindex}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsStartTimeIndex"] = types.YLeaf{"Rttmonjitterstatsstarttimeindex", rttmonjitterstatsentry.Rttmonjitterstatsstarttimeindex}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsCompletions"] = types.YLeaf{"Rttmonjitterstatscompletions", rttmonjitterstatsentry.Rttmonjitterstatscompletions}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOverThresholds"] = types.YLeaf{"Rttmonjitterstatsoverthresholds", rttmonjitterstatsentry.Rttmonjitterstatsoverthresholds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfRTT"] = types.YLeaf{"Rttmonjitterstatsnumofrtt", rttmonjitterstatsentry.Rttmonjitterstatsnumofrtt}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSum"] = types.YLeaf{"Rttmonjitterstatsrttsum", rttmonjitterstatsentry.Rttmonjitterstatsrttsum}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSum2Low"] = types.YLeaf{"Rttmonjitterstatsrttsum2Low", rttmonjitterstatsentry.Rttmonjitterstatsrttsum2Low}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSum2High"] = types.YLeaf{"Rttmonjitterstatsrttsum2High", rttmonjitterstatsentry.Rttmonjitterstatsrttsum2High}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTMin"] = types.YLeaf{"Rttmonjitterstatsrttmin", rttmonjitterstatsentry.Rttmonjitterstatsrttmin}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTMax"] = types.YLeaf{"Rttmonjitterstatsrttmax", rttmonjitterstatsentry.Rttmonjitterstatsrttmax}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatsminofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatsminofpositivessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatsmaxofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatsmaxofpositivessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatsnumofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatsnumofpositivessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfPositivesSD"] = types.YLeaf{"Rttmonjitterstatssumofpositivessd", rttmonjitterstatsentry.Rttmonjitterstatssumofpositivessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesSDLow"] = types.YLeaf{"Rttmonjitterstatssum2Positivessdlow", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivessdlow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesSDHigh"] = types.YLeaf{"Rttmonjitterstatssum2Positivessdhigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivessdhigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatsminofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatsminofnegativessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatsmaxofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatsmaxofnegativessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatsnumofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatsnumofnegativessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfNegativesSD"] = types.YLeaf{"Rttmonjitterstatssumofnegativessd", rttmonjitterstatsentry.Rttmonjitterstatssumofnegativessd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesSDLow"] = types.YLeaf{"Rttmonjitterstatssum2Negativessdlow", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativessdlow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesSDHigh"] = types.YLeaf{"Rttmonjitterstatssum2Negativessdhigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativessdhigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatsminofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatsminofpositivesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatsmaxofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatsmaxofpositivesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatsnumofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatsnumofpositivesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfPositivesDS"] = types.YLeaf{"Rttmonjitterstatssumofpositivesds", rttmonjitterstatsentry.Rttmonjitterstatssumofpositivesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesDSLow"] = types.YLeaf{"Rttmonjitterstatssum2Positivesdslow", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivesdslow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2PositivesDSHigh"] = types.YLeaf{"Rttmonjitterstatssum2Positivesdshigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Positivesdshigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatsminofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatsminofnegativesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatsmaxofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatsmaxofnegativesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatsnumofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatsnumofnegativesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSumOfNegativesDS"] = types.YLeaf{"Rttmonjitterstatssumofnegativesds", rttmonjitterstatsentry.Rttmonjitterstatssumofnegativesds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesDSLow"] = types.YLeaf{"Rttmonjitterstatssum2Negativesdslow", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativesdslow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsSum2NegativesDSHigh"] = types.YLeaf{"Rttmonjitterstatssum2Negativesdshigh", rttmonjitterstatsentry.Rttmonjitterstatssum2Negativesdshigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketLossSD"] = types.YLeaf{"Rttmonjitterstatspacketlosssd", rttmonjitterstatsentry.Rttmonjitterstatspacketlosssd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketLossDS"] = types.YLeaf{"Rttmonjitterstatspacketlossds", rttmonjitterstatsentry.Rttmonjitterstatspacketlossds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketOutOfSequence"] = types.YLeaf{"Rttmonjitterstatspacketoutofsequence", rttmonjitterstatsentry.Rttmonjitterstatspacketoutofsequence}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketMIA"] = types.YLeaf{"Rttmonjitterstatspacketmia", rttmonjitterstatsentry.Rttmonjitterstatspacketmia}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsPacketLateArrival"] = types.YLeaf{"Rttmonjitterstatspacketlatearrival", rttmonjitterstatsentry.Rttmonjitterstatspacketlatearrival}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsError"] = types.YLeaf{"Rttmonjitterstatserror", rttmonjitterstatsentry.Rttmonjitterstatserror}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsBusies"] = types.YLeaf{"Rttmonjitterstatsbusies", rttmonjitterstatsentry.Rttmonjitterstatsbusies}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumSD"] = types.YLeaf{"Rttmonjitterstatsowsumsd", rttmonjitterstatsentry.Rttmonjitterstatsowsumsd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2SDLow"] = types.YLeaf{"Rttmonjitterstatsowsum2Sdlow", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Sdlow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2SDHigh"] = types.YLeaf{"Rttmonjitterstatsowsum2Sdhigh", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Sdhigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinSD"] = types.YLeaf{"Rttmonjitterstatsowminsd", rttmonjitterstatsentry.Rttmonjitterstatsowminsd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxSD"] = types.YLeaf{"Rttmonjitterstatsowmaxsd", rttmonjitterstatsentry.Rttmonjitterstatsowmaxsd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumDS"] = types.YLeaf{"Rttmonjitterstatsowsumds", rttmonjitterstatsentry.Rttmonjitterstatsowsumds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2DSLow"] = types.YLeaf{"Rttmonjitterstatsowsum2Dslow", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Dslow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSum2DSHigh"] = types.YLeaf{"Rttmonjitterstatsowsum2Dshigh", rttmonjitterstatsentry.Rttmonjitterstatsowsum2Dshigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinDS"] = types.YLeaf{"Rttmonjitterstatsowminds", rttmonjitterstatsentry.Rttmonjitterstatsowminds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxDS"] = types.YLeaf{"Rttmonjitterstatsowmaxds", rttmonjitterstatsentry.Rttmonjitterstatsowmaxds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsNumOfOW"] = types.YLeaf{"Rttmonjitterstatsnumofow", rttmonjitterstatsentry.Rttmonjitterstatsnumofow}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinSDNew"] = types.YLeaf{"Rttmonjitterstatsowminsdnew", rttmonjitterstatsentry.Rttmonjitterstatsowminsdnew}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxSDNew"] = types.YLeaf{"Rttmonjitterstatsowmaxsdnew", rttmonjitterstatsentry.Rttmonjitterstatsowmaxsdnew}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMinDSNew"] = types.YLeaf{"Rttmonjitterstatsowmindsnew", rttmonjitterstatsentry.Rttmonjitterstatsowmindsnew}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWMaxDSNew"] = types.YLeaf{"Rttmonjitterstatsowmaxdsnew", rttmonjitterstatsentry.Rttmonjitterstatsowmaxdsnew}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfMOS"] = types.YLeaf{"Rttmonjitterstatsminofmos", rttmonjitterstatsentry.Rttmonjitterstatsminofmos}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfMOS"] = types.YLeaf{"Rttmonjitterstatsmaxofmos", rttmonjitterstatsentry.Rttmonjitterstatsmaxofmos}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMinOfICPIF"] = types.YLeaf{"Rttmonjitterstatsminoficpif", rttmonjitterstatsentry.Rttmonjitterstatsminoficpif}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsMaxOfICPIF"] = types.YLeaf{"Rttmonjitterstatsmaxoficpif", rttmonjitterstatsentry.Rttmonjitterstatsmaxoficpif}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsIAJOut"] = types.YLeaf{"Rttmonjitterstatsiajout", rttmonjitterstatsentry.Rttmonjitterstatsiajout}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsIAJIn"] = types.YLeaf{"Rttmonjitterstatsiajin", rttmonjitterstatsentry.Rttmonjitterstatsiajin}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsAvgJitter"] = types.YLeaf{"Rttmonjitterstatsavgjitter", rttmonjitterstatsentry.Rttmonjitterstatsavgjitter}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsAvgJitterSD"] = types.YLeaf{"Rttmonjitterstatsavgjittersd", rttmonjitterstatsentry.Rttmonjitterstatsavgjittersd}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsAvgJitterDS"] = types.YLeaf{"Rttmonjitterstatsavgjitterds", rttmonjitterstatsentry.Rttmonjitterstatsavgjitterds}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsUnSyncRTs"] = types.YLeaf{"Rttmonjitterstatsunsyncrts", rttmonjitterstatsentry.Rttmonjitterstatsunsyncrts}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsRTTSumHigh"] = types.YLeaf{"Rttmonjitterstatsrttsumhigh", rttmonjitterstatsentry.Rttmonjitterstatsrttsumhigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumSDHigh"] = types.YLeaf{"Rttmonjitterstatsowsumsdhigh", rttmonjitterstatsentry.Rttmonjitterstatsowsumsdhigh}
+    rttmonjitterstatsentry.EntityData.Leafs["rttMonJitterStatsOWSumDSHigh"] = types.YLeaf{"Rttmonjitterstatsowsumdshigh", rttmonjitterstatsentry.Rttmonjitterstatsowsumdshigh}
+    return &(rttmonjitterstatsentry.EntityData)
 }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetSegmentPath() string {
-    return "rttMonJitterStatsEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonjitterstatsentry.Rttmonctrladminindex) + "']" + "[rttMonJitterStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonjitterstatsentry.Rttmonjitterstatsstarttimeindex) + "']"
-}
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonjitterstatsentry.Rttmonctrladminindex
-    leafs["rttMonJitterStatsStartTimeIndex"] = rttmonjitterstatsentry.Rttmonjitterstatsstarttimeindex
-    leafs["rttMonJitterStatsCompletions"] = rttmonjitterstatsentry.Rttmonjitterstatscompletions
-    leafs["rttMonJitterStatsOverThresholds"] = rttmonjitterstatsentry.Rttmonjitterstatsoverthresholds
-    leafs["rttMonJitterStatsNumOfRTT"] = rttmonjitterstatsentry.Rttmonjitterstatsnumofrtt
-    leafs["rttMonJitterStatsRTTSum"] = rttmonjitterstatsentry.Rttmonjitterstatsrttsum
-    leafs["rttMonJitterStatsRTTSum2Low"] = rttmonjitterstatsentry.Rttmonjitterstatsrttsum2Low
-    leafs["rttMonJitterStatsRTTSum2High"] = rttmonjitterstatsentry.Rttmonjitterstatsrttsum2High
-    leafs["rttMonJitterStatsRTTMin"] = rttmonjitterstatsentry.Rttmonjitterstatsrttmin
-    leafs["rttMonJitterStatsRTTMax"] = rttmonjitterstatsentry.Rttmonjitterstatsrttmax
-    leafs["rttMonJitterStatsMinOfPositivesSD"] = rttmonjitterstatsentry.Rttmonjitterstatsminofpositivessd
-    leafs["rttMonJitterStatsMaxOfPositivesSD"] = rttmonjitterstatsentry.Rttmonjitterstatsmaxofpositivessd
-    leafs["rttMonJitterStatsNumOfPositivesSD"] = rttmonjitterstatsentry.Rttmonjitterstatsnumofpositivessd
-    leafs["rttMonJitterStatsSumOfPositivesSD"] = rttmonjitterstatsentry.Rttmonjitterstatssumofpositivessd
-    leafs["rttMonJitterStatsSum2PositivesSDLow"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Positivessdlow
-    leafs["rttMonJitterStatsSum2PositivesSDHigh"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Positivessdhigh
-    leafs["rttMonJitterStatsMinOfNegativesSD"] = rttmonjitterstatsentry.Rttmonjitterstatsminofnegativessd
-    leafs["rttMonJitterStatsMaxOfNegativesSD"] = rttmonjitterstatsentry.Rttmonjitterstatsmaxofnegativessd
-    leafs["rttMonJitterStatsNumOfNegativesSD"] = rttmonjitterstatsentry.Rttmonjitterstatsnumofnegativessd
-    leafs["rttMonJitterStatsSumOfNegativesSD"] = rttmonjitterstatsentry.Rttmonjitterstatssumofnegativessd
-    leafs["rttMonJitterStatsSum2NegativesSDLow"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Negativessdlow
-    leafs["rttMonJitterStatsSum2NegativesSDHigh"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Negativessdhigh
-    leafs["rttMonJitterStatsMinOfPositivesDS"] = rttmonjitterstatsentry.Rttmonjitterstatsminofpositivesds
-    leafs["rttMonJitterStatsMaxOfPositivesDS"] = rttmonjitterstatsentry.Rttmonjitterstatsmaxofpositivesds
-    leafs["rttMonJitterStatsNumOfPositivesDS"] = rttmonjitterstatsentry.Rttmonjitterstatsnumofpositivesds
-    leafs["rttMonJitterStatsSumOfPositivesDS"] = rttmonjitterstatsentry.Rttmonjitterstatssumofpositivesds
-    leafs["rttMonJitterStatsSum2PositivesDSLow"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Positivesdslow
-    leafs["rttMonJitterStatsSum2PositivesDSHigh"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Positivesdshigh
-    leafs["rttMonJitterStatsMinOfNegativesDS"] = rttmonjitterstatsentry.Rttmonjitterstatsminofnegativesds
-    leafs["rttMonJitterStatsMaxOfNegativesDS"] = rttmonjitterstatsentry.Rttmonjitterstatsmaxofnegativesds
-    leafs["rttMonJitterStatsNumOfNegativesDS"] = rttmonjitterstatsentry.Rttmonjitterstatsnumofnegativesds
-    leafs["rttMonJitterStatsSumOfNegativesDS"] = rttmonjitterstatsentry.Rttmonjitterstatssumofnegativesds
-    leafs["rttMonJitterStatsSum2NegativesDSLow"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Negativesdslow
-    leafs["rttMonJitterStatsSum2NegativesDSHigh"] = rttmonjitterstatsentry.Rttmonjitterstatssum2Negativesdshigh
-    leafs["rttMonJitterStatsPacketLossSD"] = rttmonjitterstatsentry.Rttmonjitterstatspacketlosssd
-    leafs["rttMonJitterStatsPacketLossDS"] = rttmonjitterstatsentry.Rttmonjitterstatspacketlossds
-    leafs["rttMonJitterStatsPacketOutOfSequence"] = rttmonjitterstatsentry.Rttmonjitterstatspacketoutofsequence
-    leafs["rttMonJitterStatsPacketMIA"] = rttmonjitterstatsentry.Rttmonjitterstatspacketmia
-    leafs["rttMonJitterStatsPacketLateArrival"] = rttmonjitterstatsentry.Rttmonjitterstatspacketlatearrival
-    leafs["rttMonJitterStatsError"] = rttmonjitterstatsentry.Rttmonjitterstatserror
-    leafs["rttMonJitterStatsBusies"] = rttmonjitterstatsentry.Rttmonjitterstatsbusies
-    leafs["rttMonJitterStatsOWSumSD"] = rttmonjitterstatsentry.Rttmonjitterstatsowsumsd
-    leafs["rttMonJitterStatsOWSum2SDLow"] = rttmonjitterstatsentry.Rttmonjitterstatsowsum2Sdlow
-    leafs["rttMonJitterStatsOWSum2SDHigh"] = rttmonjitterstatsentry.Rttmonjitterstatsowsum2Sdhigh
-    leafs["rttMonJitterStatsOWMinSD"] = rttmonjitterstatsentry.Rttmonjitterstatsowminsd
-    leafs["rttMonJitterStatsOWMaxSD"] = rttmonjitterstatsentry.Rttmonjitterstatsowmaxsd
-    leafs["rttMonJitterStatsOWSumDS"] = rttmonjitterstatsentry.Rttmonjitterstatsowsumds
-    leafs["rttMonJitterStatsOWSum2DSLow"] = rttmonjitterstatsentry.Rttmonjitterstatsowsum2Dslow
-    leafs["rttMonJitterStatsOWSum2DSHigh"] = rttmonjitterstatsentry.Rttmonjitterstatsowsum2Dshigh
-    leafs["rttMonJitterStatsOWMinDS"] = rttmonjitterstatsentry.Rttmonjitterstatsowminds
-    leafs["rttMonJitterStatsOWMaxDS"] = rttmonjitterstatsentry.Rttmonjitterstatsowmaxds
-    leafs["rttMonJitterStatsNumOfOW"] = rttmonjitterstatsentry.Rttmonjitterstatsnumofow
-    leafs["rttMonJitterStatsOWMinSDNew"] = rttmonjitterstatsentry.Rttmonjitterstatsowminsdnew
-    leafs["rttMonJitterStatsOWMaxSDNew"] = rttmonjitterstatsentry.Rttmonjitterstatsowmaxsdnew
-    leafs["rttMonJitterStatsOWMinDSNew"] = rttmonjitterstatsentry.Rttmonjitterstatsowmindsnew
-    leafs["rttMonJitterStatsOWMaxDSNew"] = rttmonjitterstatsentry.Rttmonjitterstatsowmaxdsnew
-    leafs["rttMonJitterStatsMinOfMOS"] = rttmonjitterstatsentry.Rttmonjitterstatsminofmos
-    leafs["rttMonJitterStatsMaxOfMOS"] = rttmonjitterstatsentry.Rttmonjitterstatsmaxofmos
-    leafs["rttMonJitterStatsMinOfICPIF"] = rttmonjitterstatsentry.Rttmonjitterstatsminoficpif
-    leafs["rttMonJitterStatsMaxOfICPIF"] = rttmonjitterstatsentry.Rttmonjitterstatsmaxoficpif
-    leafs["rttMonJitterStatsIAJOut"] = rttmonjitterstatsentry.Rttmonjitterstatsiajout
-    leafs["rttMonJitterStatsIAJIn"] = rttmonjitterstatsentry.Rttmonjitterstatsiajin
-    leafs["rttMonJitterStatsAvgJitter"] = rttmonjitterstatsentry.Rttmonjitterstatsavgjitter
-    leafs["rttMonJitterStatsAvgJitterSD"] = rttmonjitterstatsentry.Rttmonjitterstatsavgjittersd
-    leafs["rttMonJitterStatsAvgJitterDS"] = rttmonjitterstatsentry.Rttmonjitterstatsavgjitterds
-    leafs["rttMonJitterStatsUnSyncRTs"] = rttmonjitterstatsentry.Rttmonjitterstatsunsyncrts
-    leafs["rttMonJitterStatsRTTSumHigh"] = rttmonjitterstatsentry.Rttmonjitterstatsrttsumhigh
-    leafs["rttMonJitterStatsOWSumSDHigh"] = rttmonjitterstatsentry.Rttmonjitterstatsowsumsdhigh
-    leafs["rttMonJitterStatsOWSumDSHigh"] = rttmonjitterstatsentry.Rttmonjitterstatsowsumdshigh
-    return leafs
-}
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetYangName() string { return "rttMonJitterStatsEntry" }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) SetParent(parent types.Entity) { rttmonjitterstatsentry.parent = parent }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetParent() types.Entity { return rttmonjitterstatsentry.parent }
-
-func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitterstatsentry) GetParentYangName() string { return "rttMonJitterStatsTable" }
 
 // CISCORTTMONMIB_Rttmonlpdgrpstatstable
 // The Auto SAA L3 MPLS VPN LPD Group Database.
@@ -6889,7 +5083,7 @@ func (rttmonjitterstatsentry *CISCORTTMONMIB_Rttmonjitterstatstable_Rttmonjitter
 // group is uniquely identified by the
 // rttMonLpdGrpStatsStartTimeIndex object.
 type CISCORTTMONMIB_Rttmonlpdgrpstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects which accumulate the results of a set of RTT operations
@@ -6908,63 +5102,24 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable struct {
     Rttmonlpdgrpstatsentry []CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry
 }
 
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetFilter() yfilter.YFilter { return rttmonlpdgrpstatstable.YFilter }
+func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetEntityData() *types.CommonEntityData {
+    rttmonlpdgrpstatstable.EntityData.YFilter = rttmonlpdgrpstatstable.YFilter
+    rttmonlpdgrpstatstable.EntityData.YangName = "rttMonLpdGrpStatsTable"
+    rttmonlpdgrpstatstable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonlpdgrpstatstable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonlpdgrpstatstable.EntityData.SegmentPath = "rttMonLpdGrpStatsTable"
+    rttmonlpdgrpstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonlpdgrpstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonlpdgrpstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) SetFilter(yf yfilter.YFilter) { rttmonlpdgrpstatstable.YFilter = yf }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetGoName(yname string) string {
-    if yname == "rttMonLpdGrpStatsEntry" { return "Rttmonlpdgrpstatsentry" }
-    return ""
-}
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetSegmentPath() string {
-    return "rttMonLpdGrpStatsTable"
-}
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonLpdGrpStatsEntry" {
-        for _, c := range rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry {
-            if rttmonlpdgrpstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry{}
-        rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry = append(rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry, child)
-        return &rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[len(rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry)-1]
-    }
-    return nil
-}
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonlpdgrpstatstable.EntityData.Children = make(map[string]types.YChild)
+    rttmonlpdgrpstatstable.EntityData.Children["rttMonLpdGrpStatsEntry"] = types.YChild{"Rttmonlpdgrpstatsentry", nil}
     for i := range rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry {
-        children[rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[i].GetSegmentPath()] = &rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[i]
+        rttmonlpdgrpstatstable.EntityData.Children[types.GetSegmentPath(&rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[i])] = types.YChild{"Rttmonlpdgrpstatsentry", &rttmonlpdgrpstatstable.Rttmonlpdgrpstatsentry[i]}
     }
-    return children
+    rttmonlpdgrpstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonlpdgrpstatstable.EntityData)
 }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetYangName() string { return "rttMonLpdGrpStatsTable" }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) SetParent(parent types.Entity) { rttmonlpdgrpstatstable.parent = parent }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetParent() types.Entity { return rttmonlpdgrpstatstable.parent }
-
-func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry
 // A list of objects which accumulate the results of a set of RTT
@@ -6986,7 +5141,7 @@ func (rttmonlpdgrpstatstable *CISCORTTMONMIB_Rttmonlpdgrpstatstable) GetParentYa
 //    rttMonLpdGrpStatsStartTimeIndex is used to make this value 
 //    unique.)
 type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Uniquely identifies a row in
@@ -7130,89 +5285,40 @@ type CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry struct {
     Rttmonlpdgrpstatsresettime interface{}
 }
 
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetFilter() yfilter.YFilter { return rttmonlpdgrpstatsentry.YFilter }
+func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetEntityData() *types.CommonEntityData {
+    rttmonlpdgrpstatsentry.EntityData.YFilter = rttmonlpdgrpstatsentry.YFilter
+    rttmonlpdgrpstatsentry.EntityData.YangName = "rttMonLpdGrpStatsEntry"
+    rttmonlpdgrpstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonlpdgrpstatsentry.EntityData.ParentYangName = "rttMonLpdGrpStatsTable"
+    rttmonlpdgrpstatsentry.EntityData.SegmentPath = "rttMonLpdGrpStatsEntry" + "[rttMonLpdGrpStatsGroupIndex='" + fmt.Sprintf("%v", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupindex) + "']" + "[rttMonLpdGrpStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsstarttimeindex) + "']"
+    rttmonlpdgrpstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonlpdgrpstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonlpdgrpstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) SetFilter(yf yfilter.YFilter) { rttmonlpdgrpstatsentry.YFilter = yf }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetGoName(yname string) string {
-    if yname == "rttMonLpdGrpStatsGroupIndex" { return "Rttmonlpdgrpstatsgroupindex" }
-    if yname == "rttMonLpdGrpStatsStartTimeIndex" { return "Rttmonlpdgrpstatsstarttimeindex" }
-    if yname == "rttMonLpdGrpStatsTargetPE" { return "Rttmonlpdgrpstatstargetpe" }
-    if yname == "rttMonLpdGrpStatsNumOfPass" { return "Rttmonlpdgrpstatsnumofpass" }
-    if yname == "rttMonLpdGrpStatsNumOfFail" { return "Rttmonlpdgrpstatsnumoffail" }
-    if yname == "rttMonLpdGrpStatsNumOfTimeout" { return "Rttmonlpdgrpstatsnumoftimeout" }
-    if yname == "rttMonLpdGrpStatsAvgRTT" { return "Rttmonlpdgrpstatsavgrtt" }
-    if yname == "rttMonLpdGrpStatsMinRTT" { return "Rttmonlpdgrpstatsminrtt" }
-    if yname == "rttMonLpdGrpStatsMaxRTT" { return "Rttmonlpdgrpstatsmaxrtt" }
-    if yname == "rttMonLpdGrpStatsMinNumPaths" { return "Rttmonlpdgrpstatsminnumpaths" }
-    if yname == "rttMonLpdGrpStatsMaxNumPaths" { return "Rttmonlpdgrpstatsmaxnumpaths" }
-    if yname == "rttMonLpdGrpStatsLPDStartTime" { return "Rttmonlpdgrpstatslpdstarttime" }
-    if yname == "rttMonLpdGrpStatsLPDFailOccurred" { return "Rttmonlpdgrpstatslpdfailoccurred" }
-    if yname == "rttMonLpdGrpStatsLPDFailCause" { return "Rttmonlpdgrpstatslpdfailcause" }
-    if yname == "rttMonLpdGrpStatsLPDCompTime" { return "Rttmonlpdgrpstatslpdcomptime" }
-    if yname == "rttMonLpdGrpStatsGroupStatus" { return "Rttmonlpdgrpstatsgroupstatus" }
-    if yname == "rttMonLpdGrpStatsGroupProbeIndex" { return "Rttmonlpdgrpstatsgroupprobeindex" }
-    if yname == "rttMonLpdGrpStatsPathIds" { return "Rttmonlpdgrpstatspathids" }
-    if yname == "rttMonLpdGrpStatsProbeStatus" { return "Rttmonlpdgrpstatsprobestatus" }
-    if yname == "rttMonLpdGrpStatsResetTime" { return "Rttmonlpdgrpstatsresettime" }
-    return ""
+    rttmonlpdgrpstatsentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonlpdgrpstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsGroupIndex"] = types.YLeaf{"Rttmonlpdgrpstatsgroupindex", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupindex}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsStartTimeIndex"] = types.YLeaf{"Rttmonlpdgrpstatsstarttimeindex", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsstarttimeindex}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsTargetPE"] = types.YLeaf{"Rttmonlpdgrpstatstargetpe", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatstargetpe}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsNumOfPass"] = types.YLeaf{"Rttmonlpdgrpstatsnumofpass", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumofpass}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsNumOfFail"] = types.YLeaf{"Rttmonlpdgrpstatsnumoffail", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumoffail}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsNumOfTimeout"] = types.YLeaf{"Rttmonlpdgrpstatsnumoftimeout", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumoftimeout}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsAvgRTT"] = types.YLeaf{"Rttmonlpdgrpstatsavgrtt", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsavgrtt}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMinRTT"] = types.YLeaf{"Rttmonlpdgrpstatsminrtt", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsminrtt}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMaxRTT"] = types.YLeaf{"Rttmonlpdgrpstatsmaxrtt", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsmaxrtt}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMinNumPaths"] = types.YLeaf{"Rttmonlpdgrpstatsminnumpaths", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsminnumpaths}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsMaxNumPaths"] = types.YLeaf{"Rttmonlpdgrpstatsmaxnumpaths", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsmaxnumpaths}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDStartTime"] = types.YLeaf{"Rttmonlpdgrpstatslpdstarttime", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdstarttime}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDFailOccurred"] = types.YLeaf{"Rttmonlpdgrpstatslpdfailoccurred", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdfailoccurred}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDFailCause"] = types.YLeaf{"Rttmonlpdgrpstatslpdfailcause", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdfailcause}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsLPDCompTime"] = types.YLeaf{"Rttmonlpdgrpstatslpdcomptime", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdcomptime}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsGroupStatus"] = types.YLeaf{"Rttmonlpdgrpstatsgroupstatus", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupstatus}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsGroupProbeIndex"] = types.YLeaf{"Rttmonlpdgrpstatsgroupprobeindex", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupprobeindex}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsPathIds"] = types.YLeaf{"Rttmonlpdgrpstatspathids", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatspathids}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsProbeStatus"] = types.YLeaf{"Rttmonlpdgrpstatsprobestatus", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsprobestatus}
+    rttmonlpdgrpstatsentry.EntityData.Leafs["rttMonLpdGrpStatsResetTime"] = types.YLeaf{"Rttmonlpdgrpstatsresettime", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsresettime}
+    return &(rttmonlpdgrpstatsentry.EntityData)
 }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetSegmentPath() string {
-    return "rttMonLpdGrpStatsEntry" + "[rttMonLpdGrpStatsGroupIndex='" + fmt.Sprintf("%v", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupindex) + "']" + "[rttMonLpdGrpStatsStartTimeIndex='" + fmt.Sprintf("%v", rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsstarttimeindex) + "']"
-}
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonLpdGrpStatsGroupIndex"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupindex
-    leafs["rttMonLpdGrpStatsStartTimeIndex"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsstarttimeindex
-    leafs["rttMonLpdGrpStatsTargetPE"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatstargetpe
-    leafs["rttMonLpdGrpStatsNumOfPass"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumofpass
-    leafs["rttMonLpdGrpStatsNumOfFail"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumoffail
-    leafs["rttMonLpdGrpStatsNumOfTimeout"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsnumoftimeout
-    leafs["rttMonLpdGrpStatsAvgRTT"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsavgrtt
-    leafs["rttMonLpdGrpStatsMinRTT"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsminrtt
-    leafs["rttMonLpdGrpStatsMaxRTT"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsmaxrtt
-    leafs["rttMonLpdGrpStatsMinNumPaths"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsminnumpaths
-    leafs["rttMonLpdGrpStatsMaxNumPaths"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsmaxnumpaths
-    leafs["rttMonLpdGrpStatsLPDStartTime"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdstarttime
-    leafs["rttMonLpdGrpStatsLPDFailOccurred"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdfailoccurred
-    leafs["rttMonLpdGrpStatsLPDFailCause"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdfailcause
-    leafs["rttMonLpdGrpStatsLPDCompTime"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatslpdcomptime
-    leafs["rttMonLpdGrpStatsGroupStatus"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupstatus
-    leafs["rttMonLpdGrpStatsGroupProbeIndex"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsgroupprobeindex
-    leafs["rttMonLpdGrpStatsPathIds"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatspathids
-    leafs["rttMonLpdGrpStatsProbeStatus"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsprobestatus
-    leafs["rttMonLpdGrpStatsResetTime"] = rttmonlpdgrpstatsentry.Rttmonlpdgrpstatsresettime
-    return leafs
-}
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetYangName() string { return "rttMonLpdGrpStatsEntry" }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) SetParent(parent types.Entity) { rttmonlpdgrpstatsentry.parent = parent }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetParent() types.Entity { return rttmonlpdgrpstatsentry.parent }
-
-func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrpstatsentry) GetParentYangName() string { return "rttMonLpdGrpStatsTable" }
 
 // CISCORTTMONMIB_Rttmonhistorycollectiontable
 // The history collection database.
@@ -7235,7 +5341,7 @@ func (rttmonlpdgrpstatsentry *CISCORTTMONMIB_Rttmonlpdgrpstatstable_Rttmonlpdgrp
 // The path exploration RTT operation will be kept as an
 // entry in this table.
 type CISCORTTMONMIB_Rttmonhistorycollectiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of history objects that are recorded for each RTT operation.  The
@@ -7259,63 +5365,24 @@ type CISCORTTMONMIB_Rttmonhistorycollectiontable struct {
     Rttmonhistorycollectionentry []CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry
 }
 
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetFilter() yfilter.YFilter { return rttmonhistorycollectiontable.YFilter }
+func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetEntityData() *types.CommonEntityData {
+    rttmonhistorycollectiontable.EntityData.YFilter = rttmonhistorycollectiontable.YFilter
+    rttmonhistorycollectiontable.EntityData.YangName = "rttMonHistoryCollectionTable"
+    rttmonhistorycollectiontable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonhistorycollectiontable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonhistorycollectiontable.EntityData.SegmentPath = "rttMonHistoryCollectionTable"
+    rttmonhistorycollectiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonhistorycollectiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonhistorycollectiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) SetFilter(yf yfilter.YFilter) { rttmonhistorycollectiontable.YFilter = yf }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetGoName(yname string) string {
-    if yname == "rttMonHistoryCollectionEntry" { return "Rttmonhistorycollectionentry" }
-    return ""
-}
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetSegmentPath() string {
-    return "rttMonHistoryCollectionTable"
-}
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonHistoryCollectionEntry" {
-        for _, c := range rttmonhistorycollectiontable.Rttmonhistorycollectionentry {
-            if rttmonhistorycollectiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry{}
-        rttmonhistorycollectiontable.Rttmonhistorycollectionentry = append(rttmonhistorycollectiontable.Rttmonhistorycollectionentry, child)
-        return &rttmonhistorycollectiontable.Rttmonhistorycollectionentry[len(rttmonhistorycollectiontable.Rttmonhistorycollectionentry)-1]
-    }
-    return nil
-}
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonhistorycollectiontable.EntityData.Children = make(map[string]types.YChild)
+    rttmonhistorycollectiontable.EntityData.Children["rttMonHistoryCollectionEntry"] = types.YChild{"Rttmonhistorycollectionentry", nil}
     for i := range rttmonhistorycollectiontable.Rttmonhistorycollectionentry {
-        children[rttmonhistorycollectiontable.Rttmonhistorycollectionentry[i].GetSegmentPath()] = &rttmonhistorycollectiontable.Rttmonhistorycollectionentry[i]
+        rttmonhistorycollectiontable.EntityData.Children[types.GetSegmentPath(&rttmonhistorycollectiontable.Rttmonhistorycollectionentry[i])] = types.YChild{"Rttmonhistorycollectionentry", &rttmonhistorycollectiontable.Rttmonhistorycollectionentry[i]}
     }
-    return children
+    rttmonhistorycollectiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonhistorycollectiontable.EntityData)
 }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetYangName() string { return "rttMonHistoryCollectionTable" }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) SetParent(parent types.Entity) { rttmonhistorycollectiontable.parent = parent }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetParent() types.Entity { return rttmonhistorycollectiontable.parent }
-
-func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry
 // A list of history objects that are recorded for each
@@ -7347,7 +5414,7 @@ func (rttmonhistorycollectiontable *CISCORTTMONMIB_Rttmonhistorycollectiontable)
 //       second will be 2 and so on.   For all other values
 //       of rttMonCtrlAdminRttType this will be 1.
 type CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -7428,75 +5495,36 @@ type CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry st
     Rttmonhistorycollectionsensedescription interface{}
 }
 
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetFilter() yfilter.YFilter { return rttmonhistorycollectionentry.YFilter }
+func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetEntityData() *types.CommonEntityData {
+    rttmonhistorycollectionentry.EntityData.YFilter = rttmonhistorycollectionentry.YFilter
+    rttmonhistorycollectionentry.EntityData.YangName = "rttMonHistoryCollectionEntry"
+    rttmonhistorycollectionentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonhistorycollectionentry.EntityData.ParentYangName = "rttMonHistoryCollectionTable"
+    rttmonhistorycollectionentry.EntityData.SegmentPath = "rttMonHistoryCollectionEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonctrladminindex) + "']" + "[rttMonHistoryCollectionLifeIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionlifeindex) + "']" + "[rttMonHistoryCollectionBucketIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionbucketindex) + "']" + "[rttMonHistoryCollectionSampleIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionsampleindex) + "']"
+    rttmonhistorycollectionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonhistorycollectionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonhistorycollectionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) SetFilter(yf yfilter.YFilter) { rttmonhistorycollectionentry.YFilter = yf }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonHistoryCollectionLifeIndex" { return "Rttmonhistorycollectionlifeindex" }
-    if yname == "rttMonHistoryCollectionBucketIndex" { return "Rttmonhistorycollectionbucketindex" }
-    if yname == "rttMonHistoryCollectionSampleIndex" { return "Rttmonhistorycollectionsampleindex" }
-    if yname == "rttMonHistoryCollectionSampleTime" { return "Rttmonhistorycollectionsampletime" }
-    if yname == "rttMonHistoryCollectionAddress" { return "Rttmonhistorycollectionaddress" }
-    if yname == "rttMonHistoryCollectionCompletionTime" { return "Rttmonhistorycollectioncompletiontime" }
-    if yname == "rttMonHistoryCollectionSense" { return "Rttmonhistorycollectionsense" }
-    if yname == "rttMonHistoryCollectionApplSpecificSense" { return "Rttmonhistorycollectionapplspecificsense" }
-    if yname == "rttMonHistoryCollectionSenseDescription" { return "Rttmonhistorycollectionsensedescription" }
-    return ""
+    rttmonhistorycollectionentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonhistorycollectionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonhistorycollectionentry.Rttmonctrladminindex}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionLifeIndex"] = types.YLeaf{"Rttmonhistorycollectionlifeindex", rttmonhistorycollectionentry.Rttmonhistorycollectionlifeindex}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionBucketIndex"] = types.YLeaf{"Rttmonhistorycollectionbucketindex", rttmonhistorycollectionentry.Rttmonhistorycollectionbucketindex}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSampleIndex"] = types.YLeaf{"Rttmonhistorycollectionsampleindex", rttmonhistorycollectionentry.Rttmonhistorycollectionsampleindex}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSampleTime"] = types.YLeaf{"Rttmonhistorycollectionsampletime", rttmonhistorycollectionentry.Rttmonhistorycollectionsampletime}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionAddress"] = types.YLeaf{"Rttmonhistorycollectionaddress", rttmonhistorycollectionentry.Rttmonhistorycollectionaddress}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionCompletionTime"] = types.YLeaf{"Rttmonhistorycollectioncompletiontime", rttmonhistorycollectionentry.Rttmonhistorycollectioncompletiontime}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSense"] = types.YLeaf{"Rttmonhistorycollectionsense", rttmonhistorycollectionentry.Rttmonhistorycollectionsense}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionApplSpecificSense"] = types.YLeaf{"Rttmonhistorycollectionapplspecificsense", rttmonhistorycollectionentry.Rttmonhistorycollectionapplspecificsense}
+    rttmonhistorycollectionentry.EntityData.Leafs["rttMonHistoryCollectionSenseDescription"] = types.YLeaf{"Rttmonhistorycollectionsensedescription", rttmonhistorycollectionentry.Rttmonhistorycollectionsensedescription}
+    return &(rttmonhistorycollectionentry.EntityData)
 }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetSegmentPath() string {
-    return "rttMonHistoryCollectionEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonctrladminindex) + "']" + "[rttMonHistoryCollectionLifeIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionlifeindex) + "']" + "[rttMonHistoryCollectionBucketIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionbucketindex) + "']" + "[rttMonHistoryCollectionSampleIndex='" + fmt.Sprintf("%v", rttmonhistorycollectionentry.Rttmonhistorycollectionsampleindex) + "']"
-}
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonhistorycollectionentry.Rttmonctrladminindex
-    leafs["rttMonHistoryCollectionLifeIndex"] = rttmonhistorycollectionentry.Rttmonhistorycollectionlifeindex
-    leafs["rttMonHistoryCollectionBucketIndex"] = rttmonhistorycollectionentry.Rttmonhistorycollectionbucketindex
-    leafs["rttMonHistoryCollectionSampleIndex"] = rttmonhistorycollectionentry.Rttmonhistorycollectionsampleindex
-    leafs["rttMonHistoryCollectionSampleTime"] = rttmonhistorycollectionentry.Rttmonhistorycollectionsampletime
-    leafs["rttMonHistoryCollectionAddress"] = rttmonhistorycollectionentry.Rttmonhistorycollectionaddress
-    leafs["rttMonHistoryCollectionCompletionTime"] = rttmonhistorycollectionentry.Rttmonhistorycollectioncompletiontime
-    leafs["rttMonHistoryCollectionSense"] = rttmonhistorycollectionentry.Rttmonhistorycollectionsense
-    leafs["rttMonHistoryCollectionApplSpecificSense"] = rttmonhistorycollectionentry.Rttmonhistorycollectionapplspecificsense
-    leafs["rttMonHistoryCollectionSenseDescription"] = rttmonhistorycollectionentry.Rttmonhistorycollectionsensedescription
-    return leafs
-}
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetYangName() string { return "rttMonHistoryCollectionEntry" }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) SetParent(parent types.Entity) { rttmonhistorycollectionentry.parent = parent }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetParent() types.Entity { return rttmonhistorycollectionentry.parent }
-
-func (rttmonhistorycollectionentry *CISCORTTMONMIB_Rttmonhistorycollectiontable_Rttmonhistorycollectionentry) GetParentYangName() string { return "rttMonHistoryCollectionTable" }
 
 // CISCORTTMONMIB_Rttmonlatesthttpopertable
 // A table which contains the status of latest HTTP RTT
 // operation.
 type CISCORTTMONMIB_Rttmonlatesthttpopertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that record the latest HTTP RTT operation. This entry is
@@ -7507,63 +5535,24 @@ type CISCORTTMONMIB_Rttmonlatesthttpopertable struct {
     Rttmonlatesthttpoperentry []CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry
 }
 
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetFilter() yfilter.YFilter { return rttmonlatesthttpopertable.YFilter }
+func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetEntityData() *types.CommonEntityData {
+    rttmonlatesthttpopertable.EntityData.YFilter = rttmonlatesthttpopertable.YFilter
+    rttmonlatesthttpopertable.EntityData.YangName = "rttMonLatestHTTPOperTable"
+    rttmonlatesthttpopertable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonlatesthttpopertable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonlatesthttpopertable.EntityData.SegmentPath = "rttMonLatestHTTPOperTable"
+    rttmonlatesthttpopertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonlatesthttpopertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonlatesthttpopertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) SetFilter(yf yfilter.YFilter) { rttmonlatesthttpopertable.YFilter = yf }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetGoName(yname string) string {
-    if yname == "rttMonLatestHTTPOperEntry" { return "Rttmonlatesthttpoperentry" }
-    return ""
-}
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetSegmentPath() string {
-    return "rttMonLatestHTTPOperTable"
-}
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonLatestHTTPOperEntry" {
-        for _, c := range rttmonlatesthttpopertable.Rttmonlatesthttpoperentry {
-            if rttmonlatesthttpopertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry{}
-        rttmonlatesthttpopertable.Rttmonlatesthttpoperentry = append(rttmonlatesthttpopertable.Rttmonlatesthttpoperentry, child)
-        return &rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[len(rttmonlatesthttpopertable.Rttmonlatesthttpoperentry)-1]
-    }
-    return nil
-}
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonlatesthttpopertable.EntityData.Children = make(map[string]types.YChild)
+    rttmonlatesthttpopertable.EntityData.Children["rttMonLatestHTTPOperEntry"] = types.YChild{"Rttmonlatesthttpoperentry", nil}
     for i := range rttmonlatesthttpopertable.Rttmonlatesthttpoperentry {
-        children[rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[i].GetSegmentPath()] = &rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[i]
+        rttmonlatesthttpopertable.EntityData.Children[types.GetSegmentPath(&rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[i])] = types.YChild{"Rttmonlatesthttpoperentry", &rttmonlatesthttpopertable.Rttmonlatesthttpoperentry[i]}
     }
-    return children
+    rttmonlatesthttpopertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonlatesthttpopertable.EntityData)
 }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetYangName() string { return "rttMonLatestHTTPOperTable" }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) SetParent(parent types.Entity) { rttmonlatesthttpopertable.parent = parent }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetParent() types.Entity { return rttmonlatesthttpopertable.parent }
-
-func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry
 // A list of objects that record the latest HTTP RTT
@@ -7571,7 +5560,7 @@ func (rttmonlatesthttpopertable *CISCORTTMONMIB_Rttmonlatesthttpopertable) GetPa
 // rttMonCtrlAdminEntry is created. Also the entry is 
 // automatically deleted when rttMonCtrlAdminEntry is deleted.
 type CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -7610,71 +5599,34 @@ type CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry struct {
     Rttmonlatesthttperrorsensedescription interface{}
 }
 
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetFilter() yfilter.YFilter { return rttmonlatesthttpoperentry.YFilter }
+func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetEntityData() *types.CommonEntityData {
+    rttmonlatesthttpoperentry.EntityData.YFilter = rttmonlatesthttpoperentry.YFilter
+    rttmonlatesthttpoperentry.EntityData.YangName = "rttMonLatestHTTPOperEntry"
+    rttmonlatesthttpoperentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonlatesthttpoperentry.EntityData.ParentYangName = "rttMonLatestHTTPOperTable"
+    rttmonlatesthttpoperentry.EntityData.SegmentPath = "rttMonLatestHTTPOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonlatesthttpoperentry.Rttmonctrladminindex) + "']"
+    rttmonlatesthttpoperentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonlatesthttpoperentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonlatesthttpoperentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) SetFilter(yf yfilter.YFilter) { rttmonlatesthttpoperentry.YFilter = yf }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonLatestHTTPOperRTT" { return "Rttmonlatesthttpoperrtt" }
-    if yname == "rttMonLatestHTTPOperDNSRTT" { return "Rttmonlatesthttpoperdnsrtt" }
-    if yname == "rttMonLatestHTTPOperTCPConnectRTT" { return "Rttmonlatesthttpopertcpconnectrtt" }
-    if yname == "rttMonLatestHTTPOperTransactionRTT" { return "Rttmonlatesthttpopertransactionrtt" }
-    if yname == "rttMonLatestHTTPOperMessageBodyOctets" { return "Rttmonlatesthttpopermessagebodyoctets" }
-    if yname == "rttMonLatestHTTPOperSense" { return "Rttmonlatesthttpopersense" }
-    if yname == "rttMonLatestHTTPErrorSenseDescription" { return "Rttmonlatesthttperrorsensedescription" }
-    return ""
+    rttmonlatesthttpoperentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonlatesthttpoperentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonlatesthttpoperentry.Rttmonctrladminindex}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperRTT"] = types.YLeaf{"Rttmonlatesthttpoperrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpoperrtt}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperDNSRTT"] = types.YLeaf{"Rttmonlatesthttpoperdnsrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpoperdnsrtt}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperTCPConnectRTT"] = types.YLeaf{"Rttmonlatesthttpopertcpconnectrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpopertcpconnectrtt}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperTransactionRTT"] = types.YLeaf{"Rttmonlatesthttpopertransactionrtt", rttmonlatesthttpoperentry.Rttmonlatesthttpopertransactionrtt}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperMessageBodyOctets"] = types.YLeaf{"Rttmonlatesthttpopermessagebodyoctets", rttmonlatesthttpoperentry.Rttmonlatesthttpopermessagebodyoctets}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPOperSense"] = types.YLeaf{"Rttmonlatesthttpopersense", rttmonlatesthttpoperentry.Rttmonlatesthttpopersense}
+    rttmonlatesthttpoperentry.EntityData.Leafs["rttMonLatestHTTPErrorSenseDescription"] = types.YLeaf{"Rttmonlatesthttperrorsensedescription", rttmonlatesthttpoperentry.Rttmonlatesthttperrorsensedescription}
+    return &(rttmonlatesthttpoperentry.EntityData)
 }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetSegmentPath() string {
-    return "rttMonLatestHTTPOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonlatesthttpoperentry.Rttmonctrladminindex) + "']"
-}
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonlatesthttpoperentry.Rttmonctrladminindex
-    leafs["rttMonLatestHTTPOperRTT"] = rttmonlatesthttpoperentry.Rttmonlatesthttpoperrtt
-    leafs["rttMonLatestHTTPOperDNSRTT"] = rttmonlatesthttpoperentry.Rttmonlatesthttpoperdnsrtt
-    leafs["rttMonLatestHTTPOperTCPConnectRTT"] = rttmonlatesthttpoperentry.Rttmonlatesthttpopertcpconnectrtt
-    leafs["rttMonLatestHTTPOperTransactionRTT"] = rttmonlatesthttpoperentry.Rttmonlatesthttpopertransactionrtt
-    leafs["rttMonLatestHTTPOperMessageBodyOctets"] = rttmonlatesthttpoperentry.Rttmonlatesthttpopermessagebodyoctets
-    leafs["rttMonLatestHTTPOperSense"] = rttmonlatesthttpoperentry.Rttmonlatesthttpopersense
-    leafs["rttMonLatestHTTPErrorSenseDescription"] = rttmonlatesthttpoperentry.Rttmonlatesthttperrorsensedescription
-    return leafs
-}
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetYangName() string { return "rttMonLatestHTTPOperEntry" }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) SetParent(parent types.Entity) { rttmonlatesthttpoperentry.parent = parent }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetParent() types.Entity { return rttmonlatesthttpoperentry.parent }
-
-func (rttmonlatesthttpoperentry *CISCORTTMONMIB_Rttmonlatesthttpopertable_Rttmonlatesthttpoperentry) GetParentYangName() string { return "rttMonLatestHTTPOperTable" }
 
 // CISCORTTMONMIB_Rttmonlatestjitteropertable
 // A table which contains the status of latest Jitter
 // operation.
 type CISCORTTMONMIB_Rttmonlatestjitteropertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A list of objects that record the latest Jitter operation. The type is
@@ -7683,69 +5635,30 @@ type CISCORTTMONMIB_Rttmonlatestjitteropertable struct {
     Rttmonlatestjitteroperentry []CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry
 }
 
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetFilter() yfilter.YFilter { return rttmonlatestjitteropertable.YFilter }
+func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetEntityData() *types.CommonEntityData {
+    rttmonlatestjitteropertable.EntityData.YFilter = rttmonlatestjitteropertable.YFilter
+    rttmonlatestjitteropertable.EntityData.YangName = "rttMonLatestJitterOperTable"
+    rttmonlatestjitteropertable.EntityData.BundleName = "cisco_ios_xe"
+    rttmonlatestjitteropertable.EntityData.ParentYangName = "CISCO-RTTMON-MIB"
+    rttmonlatestjitteropertable.EntityData.SegmentPath = "rttMonLatestJitterOperTable"
+    rttmonlatestjitteropertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonlatestjitteropertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonlatestjitteropertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) SetFilter(yf yfilter.YFilter) { rttmonlatestjitteropertable.YFilter = yf }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetGoName(yname string) string {
-    if yname == "rttMonLatestJitterOperEntry" { return "Rttmonlatestjitteroperentry" }
-    return ""
-}
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetSegmentPath() string {
-    return "rttMonLatestJitterOperTable"
-}
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rttMonLatestJitterOperEntry" {
-        for _, c := range rttmonlatestjitteropertable.Rttmonlatestjitteroperentry {
-            if rttmonlatestjitteropertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry{}
-        rttmonlatestjitteropertable.Rttmonlatestjitteroperentry = append(rttmonlatestjitteropertable.Rttmonlatestjitteroperentry, child)
-        return &rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[len(rttmonlatestjitteropertable.Rttmonlatestjitteroperentry)-1]
-    }
-    return nil
-}
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rttmonlatestjitteropertable.EntityData.Children = make(map[string]types.YChild)
+    rttmonlatestjitteropertable.EntityData.Children["rttMonLatestJitterOperEntry"] = types.YChild{"Rttmonlatestjitteroperentry", nil}
     for i := range rttmonlatestjitteropertable.Rttmonlatestjitteroperentry {
-        children[rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[i].GetSegmentPath()] = &rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[i]
+        rttmonlatestjitteropertable.EntityData.Children[types.GetSegmentPath(&rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[i])] = types.YChild{"Rttmonlatestjitteroperentry", &rttmonlatestjitteropertable.Rttmonlatestjitteroperentry[i]}
     }
-    return children
+    rttmonlatestjitteropertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rttmonlatestjitteropertable.EntityData)
 }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetYangName() string { return "rttMonLatestJitterOperTable" }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) SetParent(parent types.Entity) { rttmonlatestjitteropertable.parent = parent }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetParent() types.Entity { return rttmonlatestjitteropertable.parent }
-
-func (rttmonlatestjitteropertable *CISCORTTMONMIB_Rttmonlatestjitteropertable) GetParentYangName() string { return "CISCO-RTTMON-MIB" }
 
 // CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry
 // A list of objects that record the latest Jitter
 // operation.
 type CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -8018,167 +5931,79 @@ type CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry stru
     Rttmonlatestjitteroperowsum2Dshigh interface{}
 }
 
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetFilter() yfilter.YFilter { return rttmonlatestjitteroperentry.YFilter }
+func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetEntityData() *types.CommonEntityData {
+    rttmonlatestjitteroperentry.EntityData.YFilter = rttmonlatestjitteroperentry.YFilter
+    rttmonlatestjitteroperentry.EntityData.YangName = "rttMonLatestJitterOperEntry"
+    rttmonlatestjitteroperentry.EntityData.BundleName = "cisco_ios_xe"
+    rttmonlatestjitteroperentry.EntityData.ParentYangName = "rttMonLatestJitterOperTable"
+    rttmonlatestjitteroperentry.EntityData.SegmentPath = "rttMonLatestJitterOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonlatestjitteroperentry.Rttmonctrladminindex) + "']"
+    rttmonlatestjitteroperentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    rttmonlatestjitteroperentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    rttmonlatestjitteroperentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) SetFilter(yf yfilter.YFilter) { rttmonlatestjitteroperentry.YFilter = yf }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetGoName(yname string) string {
-    if yname == "rttMonCtrlAdminIndex" { return "Rttmonctrladminindex" }
-    if yname == "rttMonLatestJitterOperNumOfRTT" { return "Rttmonlatestjitteropernumofrtt" }
-    if yname == "rttMonLatestJitterOperRTTSum" { return "Rttmonlatestjitteroperrttsum" }
-    if yname == "rttMonLatestJitterOperRTTSum2" { return "Rttmonlatestjitteroperrttsum2" }
-    if yname == "rttMonLatestJitterOperRTTMin" { return "Rttmonlatestjitteroperrttmin" }
-    if yname == "rttMonLatestJitterOperRTTMax" { return "Rttmonlatestjitteroperrttmax" }
-    if yname == "rttMonLatestJitterOperMinOfPositivesSD" { return "Rttmonlatestjitteroperminofpositivessd" }
-    if yname == "rttMonLatestJitterOperMaxOfPositivesSD" { return "Rttmonlatestjitteropermaxofpositivessd" }
-    if yname == "rttMonLatestJitterOperNumOfPositivesSD" { return "Rttmonlatestjitteropernumofpositivessd" }
-    if yname == "rttMonLatestJitterOperSumOfPositivesSD" { return "Rttmonlatestjitteropersumofpositivessd" }
-    if yname == "rttMonLatestJitterOperSum2PositivesSD" { return "Rttmonlatestjitteropersum2Positivessd" }
-    if yname == "rttMonLatestJitterOperMinOfNegativesSD" { return "Rttmonlatestjitteroperminofnegativessd" }
-    if yname == "rttMonLatestJitterOperMaxOfNegativesSD" { return "Rttmonlatestjitteropermaxofnegativessd" }
-    if yname == "rttMonLatestJitterOperNumOfNegativesSD" { return "Rttmonlatestjitteropernumofnegativessd" }
-    if yname == "rttMonLatestJitterOperSumOfNegativesSD" { return "Rttmonlatestjitteropersumofnegativessd" }
-    if yname == "rttMonLatestJitterOperSum2NegativesSD" { return "Rttmonlatestjitteropersum2Negativessd" }
-    if yname == "rttMonLatestJitterOperMinOfPositivesDS" { return "Rttmonlatestjitteroperminofpositivesds" }
-    if yname == "rttMonLatestJitterOperMaxOfPositivesDS" { return "Rttmonlatestjitteropermaxofpositivesds" }
-    if yname == "rttMonLatestJitterOperNumOfPositivesDS" { return "Rttmonlatestjitteropernumofpositivesds" }
-    if yname == "rttMonLatestJitterOperSumOfPositivesDS" { return "Rttmonlatestjitteropersumofpositivesds" }
-    if yname == "rttMonLatestJitterOperSum2PositivesDS" { return "Rttmonlatestjitteropersum2Positivesds" }
-    if yname == "rttMonLatestJitterOperMinOfNegativesDS" { return "Rttmonlatestjitteroperminofnegativesds" }
-    if yname == "rttMonLatestJitterOperMaxOfNegativesDS" { return "Rttmonlatestjitteropermaxofnegativesds" }
-    if yname == "rttMonLatestJitterOperNumOfNegativesDS" { return "Rttmonlatestjitteropernumofnegativesds" }
-    if yname == "rttMonLatestJitterOperSumOfNegativesDS" { return "Rttmonlatestjitteropersumofnegativesds" }
-    if yname == "rttMonLatestJitterOperSum2NegativesDS" { return "Rttmonlatestjitteropersum2Negativesds" }
-    if yname == "rttMonLatestJitterOperPacketLossSD" { return "Rttmonlatestjitteroperpacketlosssd" }
-    if yname == "rttMonLatestJitterOperPacketLossDS" { return "Rttmonlatestjitteroperpacketlossds" }
-    if yname == "rttMonLatestJitterOperPacketOutOfSequence" { return "Rttmonlatestjitteroperpacketoutofsequence" }
-    if yname == "rttMonLatestJitterOperPacketMIA" { return "Rttmonlatestjitteroperpacketmia" }
-    if yname == "rttMonLatestJitterOperPacketLateArrival" { return "Rttmonlatestjitteroperpacketlatearrival" }
-    if yname == "rttMonLatestJitterOperSense" { return "Rttmonlatestjitteropersense" }
-    if yname == "rttMonLatestJitterErrorSenseDescription" { return "Rttmonlatestjittererrorsensedescription" }
-    if yname == "rttMonLatestJitterOperOWSumSD" { return "Rttmonlatestjitteroperowsumsd" }
-    if yname == "rttMonLatestJitterOperOWSum2SD" { return "Rttmonlatestjitteroperowsum2Sd" }
-    if yname == "rttMonLatestJitterOperOWMinSD" { return "Rttmonlatestjitteroperowminsd" }
-    if yname == "rttMonLatestJitterOperOWMaxSD" { return "Rttmonlatestjitteroperowmaxsd" }
-    if yname == "rttMonLatestJitterOperOWSumDS" { return "Rttmonlatestjitteroperowsumds" }
-    if yname == "rttMonLatestJitterOperOWSum2DS" { return "Rttmonlatestjitteroperowsum2Ds" }
-    if yname == "rttMonLatestJitterOperOWMinDS" { return "Rttmonlatestjitteroperowminds" }
-    if yname == "rttMonLatestJitterOperOWMaxDS" { return "Rttmonlatestjitteroperowmaxds" }
-    if yname == "rttMonLatestJitterOperNumOfOW" { return "Rttmonlatestjitteropernumofow" }
-    if yname == "rttMonLatestJitterOperMOS" { return "Rttmonlatestjitteropermos" }
-    if yname == "rttMonLatestJitterOperICPIF" { return "Rttmonlatestjitteropericpif" }
-    if yname == "rttMonLatestJitterOperIAJOut" { return "Rttmonlatestjitteroperiajout" }
-    if yname == "rttMonLatestJitterOperIAJIn" { return "Rttmonlatestjitteroperiajin" }
-    if yname == "rttMonLatestJitterOperAvgJitter" { return "Rttmonlatestjitteroperavgjitter" }
-    if yname == "rttMonLatestJitterOperAvgSDJ" { return "Rttmonlatestjitteroperavgsdj" }
-    if yname == "rttMonLatestJitterOperAvgDSJ" { return "Rttmonlatestjitteroperavgdsj" }
-    if yname == "rttMonLatestJitterOperOWAvgSD" { return "Rttmonlatestjitteroperowavgsd" }
-    if yname == "rttMonLatestJitterOperOWAvgDS" { return "Rttmonlatestjitteroperowavgds" }
-    if yname == "rttMonLatestJitterOperNTPState" { return "Rttmonlatestjitteroperntpstate" }
-    if yname == "rttMonLatestJitterOperUnSyncRTs" { return "Rttmonlatestjitteroperunsyncrts" }
-    if yname == "rttMonLatestJitterOperRTTSumHigh" { return "Rttmonlatestjitteroperrttsumhigh" }
-    if yname == "rttMonLatestJitterOperRTTSum2High" { return "Rttmonlatestjitteroperrttsum2High" }
-    if yname == "rttMonLatestJitterOperOWSumSDHigh" { return "Rttmonlatestjitteroperowsumsdhigh" }
-    if yname == "rttMonLatestJitterOperOWSum2SDHigh" { return "Rttmonlatestjitteroperowsum2Sdhigh" }
-    if yname == "rttMonLatestJitterOperOWSumDSHigh" { return "Rttmonlatestjitteroperowsumdshigh" }
-    if yname == "rttMonLatestJitterOperOWSum2DSHigh" { return "Rttmonlatestjitteroperowsum2Dshigh" }
-    return ""
+    rttmonlatestjitteroperentry.EntityData.Children = make(map[string]types.YChild)
+    rttmonlatestjitteroperentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonCtrlAdminIndex"] = types.YLeaf{"Rttmonctrladminindex", rttmonlatestjitteroperentry.Rttmonctrladminindex}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfRTT"] = types.YLeaf{"Rttmonlatestjitteropernumofrtt", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofrtt}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSum"] = types.YLeaf{"Rttmonlatestjitteroperrttsum", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSum2"] = types.YLeaf{"Rttmonlatestjitteroperrttsum2", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum2}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTMin"] = types.YLeaf{"Rttmonlatestjitteroperrttmin", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttmin}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTMax"] = types.YLeaf{"Rttmonlatestjitteroperrttmax", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttmax}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteroperminofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofpositivessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteropermaxofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofpositivessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteropernumofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofpositivessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfPositivesSD"] = types.YLeaf{"Rttmonlatestjitteropersumofpositivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofpositivessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2PositivesSD"] = types.YLeaf{"Rttmonlatestjitteropersum2Positivessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Positivessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteroperminofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofnegativessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteropermaxofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofnegativessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteropernumofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofnegativessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfNegativesSD"] = types.YLeaf{"Rttmonlatestjitteropersumofnegativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofnegativessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2NegativesSD"] = types.YLeaf{"Rttmonlatestjitteropersum2Negativessd", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Negativessd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteroperminofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofpositivesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteropermaxofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofpositivesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteropernumofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofpositivesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfPositivesDS"] = types.YLeaf{"Rttmonlatestjitteropersumofpositivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofpositivesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2PositivesDS"] = types.YLeaf{"Rttmonlatestjitteropersum2Positivesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Positivesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMinOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteroperminofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofnegativesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMaxOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteropermaxofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofnegativesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteropernumofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofnegativesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSumOfNegativesDS"] = types.YLeaf{"Rttmonlatestjitteropersumofnegativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofnegativesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSum2NegativesDS"] = types.YLeaf{"Rttmonlatestjitteropersum2Negativesds", rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Negativesds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketLossSD"] = types.YLeaf{"Rttmonlatestjitteroperpacketlosssd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlosssd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketLossDS"] = types.YLeaf{"Rttmonlatestjitteroperpacketlossds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlossds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketOutOfSequence"] = types.YLeaf{"Rttmonlatestjitteroperpacketoutofsequence", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketoutofsequence}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketMIA"] = types.YLeaf{"Rttmonlatestjitteroperpacketmia", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketmia}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperPacketLateArrival"] = types.YLeaf{"Rttmonlatestjitteroperpacketlatearrival", rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlatearrival}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperSense"] = types.YLeaf{"Rttmonlatestjitteropersense", rttmonlatestjitteroperentry.Rttmonlatestjitteropersense}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterErrorSenseDescription"] = types.YLeaf{"Rttmonlatestjittererrorsensedescription", rttmonlatestjitteroperentry.Rttmonlatestjittererrorsensedescription}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumSD"] = types.YLeaf{"Rttmonlatestjitteroperowsumsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumsd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2SD"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Sd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Sd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMinSD"] = types.YLeaf{"Rttmonlatestjitteroperowminsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowminsd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMaxSD"] = types.YLeaf{"Rttmonlatestjitteroperowmaxsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowmaxsd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumDS"] = types.YLeaf{"Rttmonlatestjitteroperowsumds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2DS"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Ds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Ds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMinDS"] = types.YLeaf{"Rttmonlatestjitteroperowminds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowminds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWMaxDS"] = types.YLeaf{"Rttmonlatestjitteroperowmaxds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowmaxds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNumOfOW"] = types.YLeaf{"Rttmonlatestjitteropernumofow", rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofow}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperMOS"] = types.YLeaf{"Rttmonlatestjitteropermos", rttmonlatestjitteroperentry.Rttmonlatestjitteropermos}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperICPIF"] = types.YLeaf{"Rttmonlatestjitteropericpif", rttmonlatestjitteroperentry.Rttmonlatestjitteropericpif}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperIAJOut"] = types.YLeaf{"Rttmonlatestjitteroperiajout", rttmonlatestjitteroperentry.Rttmonlatestjitteroperiajout}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperIAJIn"] = types.YLeaf{"Rttmonlatestjitteroperiajin", rttmonlatestjitteroperentry.Rttmonlatestjitteroperiajin}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperAvgJitter"] = types.YLeaf{"Rttmonlatestjitteroperavgjitter", rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgjitter}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperAvgSDJ"] = types.YLeaf{"Rttmonlatestjitteroperavgsdj", rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgsdj}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperAvgDSJ"] = types.YLeaf{"Rttmonlatestjitteroperavgdsj", rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgdsj}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWAvgSD"] = types.YLeaf{"Rttmonlatestjitteroperowavgsd", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowavgsd}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWAvgDS"] = types.YLeaf{"Rttmonlatestjitteroperowavgds", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowavgds}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperNTPState"] = types.YLeaf{"Rttmonlatestjitteroperntpstate", rttmonlatestjitteroperentry.Rttmonlatestjitteroperntpstate}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperUnSyncRTs"] = types.YLeaf{"Rttmonlatestjitteroperunsyncrts", rttmonlatestjitteroperentry.Rttmonlatestjitteroperunsyncrts}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSumHigh"] = types.YLeaf{"Rttmonlatestjitteroperrttsumhigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsumhigh}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperRTTSum2High"] = types.YLeaf{"Rttmonlatestjitteroperrttsum2High", rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum2High}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumSDHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsumsdhigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumsdhigh}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2SDHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Sdhigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Sdhigh}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSumDSHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsumdshigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumdshigh}
+    rttmonlatestjitteroperentry.EntityData.Leafs["rttMonLatestJitterOperOWSum2DSHigh"] = types.YLeaf{"Rttmonlatestjitteroperowsum2Dshigh", rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Dshigh}
+    return &(rttmonlatestjitteroperentry.EntityData)
 }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetSegmentPath() string {
-    return "rttMonLatestJitterOperEntry" + "[rttMonCtrlAdminIndex='" + fmt.Sprintf("%v", rttmonlatestjitteroperentry.Rttmonctrladminindex) + "']"
-}
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rttMonCtrlAdminIndex"] = rttmonlatestjitteroperentry.Rttmonctrladminindex
-    leafs["rttMonLatestJitterOperNumOfRTT"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofrtt
-    leafs["rttMonLatestJitterOperRTTSum"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum
-    leafs["rttMonLatestJitterOperRTTSum2"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum2
-    leafs["rttMonLatestJitterOperRTTMin"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttmin
-    leafs["rttMonLatestJitterOperRTTMax"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttmax
-    leafs["rttMonLatestJitterOperMinOfPositivesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofpositivessd
-    leafs["rttMonLatestJitterOperMaxOfPositivesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofpositivessd
-    leafs["rttMonLatestJitterOperNumOfPositivesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofpositivessd
-    leafs["rttMonLatestJitterOperSumOfPositivesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofpositivessd
-    leafs["rttMonLatestJitterOperSum2PositivesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Positivessd
-    leafs["rttMonLatestJitterOperMinOfNegativesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofnegativessd
-    leafs["rttMonLatestJitterOperMaxOfNegativesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofnegativessd
-    leafs["rttMonLatestJitterOperNumOfNegativesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofnegativessd
-    leafs["rttMonLatestJitterOperSumOfNegativesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofnegativessd
-    leafs["rttMonLatestJitterOperSum2NegativesSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Negativessd
-    leafs["rttMonLatestJitterOperMinOfPositivesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofpositivesds
-    leafs["rttMonLatestJitterOperMaxOfPositivesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofpositivesds
-    leafs["rttMonLatestJitterOperNumOfPositivesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofpositivesds
-    leafs["rttMonLatestJitterOperSumOfPositivesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofpositivesds
-    leafs["rttMonLatestJitterOperSum2PositivesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Positivesds
-    leafs["rttMonLatestJitterOperMinOfNegativesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperminofnegativesds
-    leafs["rttMonLatestJitterOperMaxOfNegativesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropermaxofnegativesds
-    leafs["rttMonLatestJitterOperNumOfNegativesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofnegativesds
-    leafs["rttMonLatestJitterOperSumOfNegativesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersumofnegativesds
-    leafs["rttMonLatestJitterOperSum2NegativesDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersum2Negativesds
-    leafs["rttMonLatestJitterOperPacketLossSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlosssd
-    leafs["rttMonLatestJitterOperPacketLossDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlossds
-    leafs["rttMonLatestJitterOperPacketOutOfSequence"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketoutofsequence
-    leafs["rttMonLatestJitterOperPacketMIA"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketmia
-    leafs["rttMonLatestJitterOperPacketLateArrival"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperpacketlatearrival
-    leafs["rttMonLatestJitterOperSense"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropersense
-    leafs["rttMonLatestJitterErrorSenseDescription"] = rttmonlatestjitteroperentry.Rttmonlatestjittererrorsensedescription
-    leafs["rttMonLatestJitterOperOWSumSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumsd
-    leafs["rttMonLatestJitterOperOWSum2SD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Sd
-    leafs["rttMonLatestJitterOperOWMinSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowminsd
-    leafs["rttMonLatestJitterOperOWMaxSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowmaxsd
-    leafs["rttMonLatestJitterOperOWSumDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumds
-    leafs["rttMonLatestJitterOperOWSum2DS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Ds
-    leafs["rttMonLatestJitterOperOWMinDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowminds
-    leafs["rttMonLatestJitterOperOWMaxDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowmaxds
-    leafs["rttMonLatestJitterOperNumOfOW"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropernumofow
-    leafs["rttMonLatestJitterOperMOS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropermos
-    leafs["rttMonLatestJitterOperICPIF"] = rttmonlatestjitteroperentry.Rttmonlatestjitteropericpif
-    leafs["rttMonLatestJitterOperIAJOut"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperiajout
-    leafs["rttMonLatestJitterOperIAJIn"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperiajin
-    leafs["rttMonLatestJitterOperAvgJitter"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgjitter
-    leafs["rttMonLatestJitterOperAvgSDJ"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgsdj
-    leafs["rttMonLatestJitterOperAvgDSJ"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperavgdsj
-    leafs["rttMonLatestJitterOperOWAvgSD"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowavgsd
-    leafs["rttMonLatestJitterOperOWAvgDS"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowavgds
-    leafs["rttMonLatestJitterOperNTPState"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperntpstate
-    leafs["rttMonLatestJitterOperUnSyncRTs"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperunsyncrts
-    leafs["rttMonLatestJitterOperRTTSumHigh"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsumhigh
-    leafs["rttMonLatestJitterOperRTTSum2High"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperrttsum2High
-    leafs["rttMonLatestJitterOperOWSumSDHigh"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumsdhigh
-    leafs["rttMonLatestJitterOperOWSum2SDHigh"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Sdhigh
-    leafs["rttMonLatestJitterOperOWSumDSHigh"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsumdshigh
-    leafs["rttMonLatestJitterOperOWSum2DSHigh"] = rttmonlatestjitteroperentry.Rttmonlatestjitteroperowsum2Dshigh
-    return leafs
-}
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetYangName() string { return "rttMonLatestJitterOperEntry" }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) SetParent(parent types.Entity) { rttmonlatestjitteroperentry.parent = parent }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetParent() types.Entity { return rttmonlatestjitteroperentry.parent }
-
-func (rttmonlatestjitteroperentry *CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry) GetParentYangName() string { return "rttMonLatestJitterOperTable" }
 
 // CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate represents on sender and responder is within configured tolerance level.
 type CISCORTTMONMIB_Rttmonlatestjitteropertable_Rttmonlatestjitteroperentry_Rttmonlatestjitteroperntpstate string

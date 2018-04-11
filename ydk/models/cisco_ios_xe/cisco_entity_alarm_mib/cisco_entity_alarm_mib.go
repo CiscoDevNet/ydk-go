@@ -36,7 +36,7 @@ const (
 
 // CISCOENTITYALARMMIB
 type CISCOENTITYALARMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -72,93 +72,32 @@ type CISCOENTITYALARMMIB struct {
     Cealarmfilterprofiletable CISCOENTITYALARMMIB_Cealarmfilterprofiletable
 }
 
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetFilter() yfilter.YFilter { return cISCOENTITYALARMMIB.YFilter }
+func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetEntityData() *types.CommonEntityData {
+    cISCOENTITYALARMMIB.EntityData.YFilter = cISCOENTITYALARMMIB.YFilter
+    cISCOENTITYALARMMIB.EntityData.YangName = "CISCO-ENTITY-ALARM-MIB"
+    cISCOENTITYALARMMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOENTITYALARMMIB.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cISCOENTITYALARMMIB.EntityData.SegmentPath = "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB"
+    cISCOENTITYALARMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOENTITYALARMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOENTITYALARMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) SetFilter(yf yfilter.YFilter) { cISCOENTITYALARMMIB.YFilter = yf }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetGoName(yname string) string {
-    if yname == "ceAlarmMonitoring" { return "Cealarmmonitoring" }
-    if yname == "ceAlarmHistory" { return "Cealarmhistory" }
-    if yname == "ceAlarmFiltering" { return "Cealarmfiltering" }
-    if yname == "ceAlarmDescrMapTable" { return "Cealarmdescrmaptable" }
-    if yname == "ceAlarmDescrTable" { return "Cealarmdescrtable" }
-    if yname == "ceAlarmTable" { return "Cealarmtable" }
-    if yname == "ceAlarmHistTable" { return "Cealarmhisttable" }
-    if yname == "ceAlarmFilterProfileTable" { return "Cealarmfilterprofiletable" }
-    return ""
+    cISCOENTITYALARMMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmMonitoring"] = types.YChild{"Cealarmmonitoring", &cISCOENTITYALARMMIB.Cealarmmonitoring}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmHistory"] = types.YChild{"Cealarmhistory", &cISCOENTITYALARMMIB.Cealarmhistory}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmFiltering"] = types.YChild{"Cealarmfiltering", &cISCOENTITYALARMMIB.Cealarmfiltering}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmDescrMapTable"] = types.YChild{"Cealarmdescrmaptable", &cISCOENTITYALARMMIB.Cealarmdescrmaptable}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmDescrTable"] = types.YChild{"Cealarmdescrtable", &cISCOENTITYALARMMIB.Cealarmdescrtable}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmTable"] = types.YChild{"Cealarmtable", &cISCOENTITYALARMMIB.Cealarmtable}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmHistTable"] = types.YChild{"Cealarmhisttable", &cISCOENTITYALARMMIB.Cealarmhisttable}
+    cISCOENTITYALARMMIB.EntityData.Children["ceAlarmFilterProfileTable"] = types.YChild{"Cealarmfilterprofiletable", &cISCOENTITYALARMMIB.Cealarmfilterprofiletable}
+    cISCOENTITYALARMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOENTITYALARMMIB.EntityData)
 }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetSegmentPath() string {
-    return "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB"
-}
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceAlarmMonitoring" {
-        return &cISCOENTITYALARMMIB.Cealarmmonitoring
-    }
-    if childYangName == "ceAlarmHistory" {
-        return &cISCOENTITYALARMMIB.Cealarmhistory
-    }
-    if childYangName == "ceAlarmFiltering" {
-        return &cISCOENTITYALARMMIB.Cealarmfiltering
-    }
-    if childYangName == "ceAlarmDescrMapTable" {
-        return &cISCOENTITYALARMMIB.Cealarmdescrmaptable
-    }
-    if childYangName == "ceAlarmDescrTable" {
-        return &cISCOENTITYALARMMIB.Cealarmdescrtable
-    }
-    if childYangName == "ceAlarmTable" {
-        return &cISCOENTITYALARMMIB.Cealarmtable
-    }
-    if childYangName == "ceAlarmHistTable" {
-        return &cISCOENTITYALARMMIB.Cealarmhisttable
-    }
-    if childYangName == "ceAlarmFilterProfileTable" {
-        return &cISCOENTITYALARMMIB.Cealarmfilterprofiletable
-    }
-    return nil
-}
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ceAlarmMonitoring"] = &cISCOENTITYALARMMIB.Cealarmmonitoring
-    children["ceAlarmHistory"] = &cISCOENTITYALARMMIB.Cealarmhistory
-    children["ceAlarmFiltering"] = &cISCOENTITYALARMMIB.Cealarmfiltering
-    children["ceAlarmDescrMapTable"] = &cISCOENTITYALARMMIB.Cealarmdescrmaptable
-    children["ceAlarmDescrTable"] = &cISCOENTITYALARMMIB.Cealarmdescrtable
-    children["ceAlarmTable"] = &cISCOENTITYALARMMIB.Cealarmtable
-    children["ceAlarmHistTable"] = &cISCOENTITYALARMMIB.Cealarmhisttable
-    children["ceAlarmFilterProfileTable"] = &cISCOENTITYALARMMIB.Cealarmfilterprofiletable
-    return children
-}
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) SetParent(parent types.Entity) { cISCOENTITYALARMMIB.parent = parent }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetParent() types.Entity { return cISCOENTITYALARMMIB.parent }
-
-func (cISCOENTITYALARMMIB *CISCOENTITYALARMMIB) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmmonitoring
 type CISCOENTITYALARMMIB_Cealarmmonitoring struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The value of this object specifies the number of alarms currently asserted
@@ -190,61 +129,28 @@ type CISCOENTITYALARMMIB_Cealarmmonitoring struct {
     Cealarmcutoff interface{}
 }
 
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetFilter() yfilter.YFilter { return cealarmmonitoring.YFilter }
+func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetEntityData() *types.CommonEntityData {
+    cealarmmonitoring.EntityData.YFilter = cealarmmonitoring.YFilter
+    cealarmmonitoring.EntityData.YangName = "ceAlarmMonitoring"
+    cealarmmonitoring.EntityData.BundleName = "cisco_ios_xe"
+    cealarmmonitoring.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmmonitoring.EntityData.SegmentPath = "ceAlarmMonitoring"
+    cealarmmonitoring.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmmonitoring.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmmonitoring.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) SetFilter(yf yfilter.YFilter) { cealarmmonitoring.YFilter = yf }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetGoName(yname string) string {
-    if yname == "ceAlarmCriticalCount" { return "Cealarmcriticalcount" }
-    if yname == "ceAlarmMajorCount" { return "Cealarmmajorcount" }
-    if yname == "ceAlarmMinorCount" { return "Cealarmminorcount" }
-    if yname == "ceAlarmCutOff" { return "Cealarmcutoff" }
-    return ""
+    cealarmmonitoring.EntityData.Children = make(map[string]types.YChild)
+    cealarmmonitoring.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmmonitoring.EntityData.Leafs["ceAlarmCriticalCount"] = types.YLeaf{"Cealarmcriticalcount", cealarmmonitoring.Cealarmcriticalcount}
+    cealarmmonitoring.EntityData.Leafs["ceAlarmMajorCount"] = types.YLeaf{"Cealarmmajorcount", cealarmmonitoring.Cealarmmajorcount}
+    cealarmmonitoring.EntityData.Leafs["ceAlarmMinorCount"] = types.YLeaf{"Cealarmminorcount", cealarmmonitoring.Cealarmminorcount}
+    cealarmmonitoring.EntityData.Leafs["ceAlarmCutOff"] = types.YLeaf{"Cealarmcutoff", cealarmmonitoring.Cealarmcutoff}
+    return &(cealarmmonitoring.EntityData)
 }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetSegmentPath() string {
-    return "ceAlarmMonitoring"
-}
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmCriticalCount"] = cealarmmonitoring.Cealarmcriticalcount
-    leafs["ceAlarmMajorCount"] = cealarmmonitoring.Cealarmmajorcount
-    leafs["ceAlarmMinorCount"] = cealarmmonitoring.Cealarmminorcount
-    leafs["ceAlarmCutOff"] = cealarmmonitoring.Cealarmcutoff
-    return leafs
-}
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetYangName() string { return "ceAlarmMonitoring" }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) SetParent(parent types.Entity) { cealarmmonitoring.parent = parent }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetParent() types.Entity { return cealarmmonitoring.parent }
-
-func (cealarmmonitoring *CISCOENTITYALARMMIB_Cealarmmonitoring) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmhistory
 type CISCOENTITYALARMMIB_Cealarmhistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies the number of entries that the  ceAlarmHistTable can
@@ -263,57 +169,26 @@ type CISCOENTITYALARMMIB_Cealarmhistory struct {
     Cealarmhistlastindex interface{}
 }
 
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetFilter() yfilter.YFilter { return cealarmhistory.YFilter }
+func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetEntityData() *types.CommonEntityData {
+    cealarmhistory.EntityData.YFilter = cealarmhistory.YFilter
+    cealarmhistory.EntityData.YangName = "ceAlarmHistory"
+    cealarmhistory.EntityData.BundleName = "cisco_ios_xe"
+    cealarmhistory.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmhistory.EntityData.SegmentPath = "ceAlarmHistory"
+    cealarmhistory.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmhistory.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmhistory.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) SetFilter(yf yfilter.YFilter) { cealarmhistory.YFilter = yf }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetGoName(yname string) string {
-    if yname == "ceAlarmHistTableSize" { return "Cealarmhisttablesize" }
-    if yname == "ceAlarmHistLastIndex" { return "Cealarmhistlastindex" }
-    return ""
+    cealarmhistory.EntityData.Children = make(map[string]types.YChild)
+    cealarmhistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmhistory.EntityData.Leafs["ceAlarmHistTableSize"] = types.YLeaf{"Cealarmhisttablesize", cealarmhistory.Cealarmhisttablesize}
+    cealarmhistory.EntityData.Leafs["ceAlarmHistLastIndex"] = types.YLeaf{"Cealarmhistlastindex", cealarmhistory.Cealarmhistlastindex}
+    return &(cealarmhistory.EntityData)
 }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetSegmentPath() string {
-    return "ceAlarmHistory"
-}
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmHistTableSize"] = cealarmhistory.Cealarmhisttablesize
-    leafs["ceAlarmHistLastIndex"] = cealarmhistory.Cealarmhistlastindex
-    return leafs
-}
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetYangName() string { return "ceAlarmHistory" }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) SetParent(parent types.Entity) { cealarmhistory.parent = parent }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetParent() types.Entity { return cealarmhistory.parent }
-
-func (cealarmhistory *CISCOENTITYALARMMIB_Cealarmhistory) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmfiltering
 type CISCOENTITYALARMMIB_Cealarmfiltering struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object specifies a severity threshold governing the generation of
@@ -349,62 +224,30 @@ type CISCOENTITYALARMMIB_Cealarmfiltering struct {
     Cealarmfilterprofileindexnext interface{}
 }
 
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetFilter() yfilter.YFilter { return cealarmfiltering.YFilter }
+func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetEntityData() *types.CommonEntityData {
+    cealarmfiltering.EntityData.YFilter = cealarmfiltering.YFilter
+    cealarmfiltering.EntityData.YangName = "ceAlarmFiltering"
+    cealarmfiltering.EntityData.BundleName = "cisco_ios_xe"
+    cealarmfiltering.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmfiltering.EntityData.SegmentPath = "ceAlarmFiltering"
+    cealarmfiltering.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmfiltering.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmfiltering.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) SetFilter(yf yfilter.YFilter) { cealarmfiltering.YFilter = yf }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetGoName(yname string) string {
-    if yname == "ceAlarmNotifiesEnable" { return "Cealarmnotifiesenable" }
-    if yname == "ceAlarmSyslogEnable" { return "Cealarmsyslogenable" }
-    if yname == "ceAlarmFilterProfileIndexNext" { return "Cealarmfilterprofileindexnext" }
-    return ""
+    cealarmfiltering.EntityData.Children = make(map[string]types.YChild)
+    cealarmfiltering.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmfiltering.EntityData.Leafs["ceAlarmNotifiesEnable"] = types.YLeaf{"Cealarmnotifiesenable", cealarmfiltering.Cealarmnotifiesenable}
+    cealarmfiltering.EntityData.Leafs["ceAlarmSyslogEnable"] = types.YLeaf{"Cealarmsyslogenable", cealarmfiltering.Cealarmsyslogenable}
+    cealarmfiltering.EntityData.Leafs["ceAlarmFilterProfileIndexNext"] = types.YLeaf{"Cealarmfilterprofileindexnext", cealarmfiltering.Cealarmfilterprofileindexnext}
+    return &(cealarmfiltering.EntityData)
 }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetSegmentPath() string {
-    return "ceAlarmFiltering"
-}
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmNotifiesEnable"] = cealarmfiltering.Cealarmnotifiesenable
-    leafs["ceAlarmSyslogEnable"] = cealarmfiltering.Cealarmsyslogenable
-    leafs["ceAlarmFilterProfileIndexNext"] = cealarmfiltering.Cealarmfilterprofileindexnext
-    return leafs
-}
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetYangName() string { return "ceAlarmFiltering" }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) SetParent(parent types.Entity) { cealarmfiltering.parent = parent }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetParent() types.Entity { return cealarmfiltering.parent }
-
-func (cealarmfiltering *CISCOENTITYALARMMIB_Cealarmfiltering) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmdescrmaptable
 // For each type of entity (represented entPhysicalVendorType
 // OID), this table contains a mapping between a unique 
 // ceAlarmDescrIndex and entPhysicalvendorType OID.
 type CISCOENTITYALARMMIB_Cealarmdescrmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A mapping between an alarm description and a vendor type. The type is slice
@@ -412,68 +255,29 @@ type CISCOENTITYALARMMIB_Cealarmdescrmaptable struct {
     Cealarmdescrmapentry []CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry
 }
 
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetFilter() yfilter.YFilter { return cealarmdescrmaptable.YFilter }
+func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetEntityData() *types.CommonEntityData {
+    cealarmdescrmaptable.EntityData.YFilter = cealarmdescrmaptable.YFilter
+    cealarmdescrmaptable.EntityData.YangName = "ceAlarmDescrMapTable"
+    cealarmdescrmaptable.EntityData.BundleName = "cisco_ios_xe"
+    cealarmdescrmaptable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmdescrmaptable.EntityData.SegmentPath = "ceAlarmDescrMapTable"
+    cealarmdescrmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmdescrmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmdescrmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) SetFilter(yf yfilter.YFilter) { cealarmdescrmaptable.YFilter = yf }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetGoName(yname string) string {
-    if yname == "ceAlarmDescrMapEntry" { return "Cealarmdescrmapentry" }
-    return ""
-}
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetSegmentPath() string {
-    return "ceAlarmDescrMapTable"
-}
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceAlarmDescrMapEntry" {
-        for _, c := range cealarmdescrmaptable.Cealarmdescrmapentry {
-            if cealarmdescrmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry{}
-        cealarmdescrmaptable.Cealarmdescrmapentry = append(cealarmdescrmaptable.Cealarmdescrmapentry, child)
-        return &cealarmdescrmaptable.Cealarmdescrmapentry[len(cealarmdescrmaptable.Cealarmdescrmapentry)-1]
-    }
-    return nil
-}
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cealarmdescrmaptable.EntityData.Children = make(map[string]types.YChild)
+    cealarmdescrmaptable.EntityData.Children["ceAlarmDescrMapEntry"] = types.YChild{"Cealarmdescrmapentry", nil}
     for i := range cealarmdescrmaptable.Cealarmdescrmapentry {
-        children[cealarmdescrmaptable.Cealarmdescrmapentry[i].GetSegmentPath()] = &cealarmdescrmaptable.Cealarmdescrmapentry[i]
+        cealarmdescrmaptable.EntityData.Children[types.GetSegmentPath(&cealarmdescrmaptable.Cealarmdescrmapentry[i])] = types.YChild{"Cealarmdescrmapentry", &cealarmdescrmaptable.Cealarmdescrmapentry[i]}
     }
-    return children
+    cealarmdescrmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cealarmdescrmaptable.EntityData)
 }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetYangName() string { return "ceAlarmDescrMapTable" }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) SetParent(parent types.Entity) { cealarmdescrmaptable.parent = parent }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetParent() types.Entity { return cealarmdescrmaptable.parent }
-
-func (cealarmdescrmaptable *CISCOENTITYALARMMIB_Cealarmdescrmaptable) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry
 // A mapping between an alarm description and a vendor type.
 type CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object uniquely identifies an alarm
@@ -484,57 +288,26 @@ type CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry struct {
     // enterprise-specific OID) that uniquely identifies the vendor type of those
     // physical entities that this alarm description applies to. The type is
     // string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Cealarmdescrvendortype interface{}
 }
 
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetFilter() yfilter.YFilter { return cealarmdescrmapentry.YFilter }
+func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetEntityData() *types.CommonEntityData {
+    cealarmdescrmapentry.EntityData.YFilter = cealarmdescrmapentry.YFilter
+    cealarmdescrmapentry.EntityData.YangName = "ceAlarmDescrMapEntry"
+    cealarmdescrmapentry.EntityData.BundleName = "cisco_ios_xe"
+    cealarmdescrmapentry.EntityData.ParentYangName = "ceAlarmDescrMapTable"
+    cealarmdescrmapentry.EntityData.SegmentPath = "ceAlarmDescrMapEntry" + "[ceAlarmDescrIndex='" + fmt.Sprintf("%v", cealarmdescrmapentry.Cealarmdescrindex) + "']"
+    cealarmdescrmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmdescrmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmdescrmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) SetFilter(yf yfilter.YFilter) { cealarmdescrmapentry.YFilter = yf }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetGoName(yname string) string {
-    if yname == "ceAlarmDescrIndex" { return "Cealarmdescrindex" }
-    if yname == "ceAlarmDescrVendorType" { return "Cealarmdescrvendortype" }
-    return ""
+    cealarmdescrmapentry.EntityData.Children = make(map[string]types.YChild)
+    cealarmdescrmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmdescrmapentry.EntityData.Leafs["ceAlarmDescrIndex"] = types.YLeaf{"Cealarmdescrindex", cealarmdescrmapentry.Cealarmdescrindex}
+    cealarmdescrmapentry.EntityData.Leafs["ceAlarmDescrVendorType"] = types.YLeaf{"Cealarmdescrvendortype", cealarmdescrmapentry.Cealarmdescrvendortype}
+    return &(cealarmdescrmapentry.EntityData)
 }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetSegmentPath() string {
-    return "ceAlarmDescrMapEntry" + "[ceAlarmDescrIndex='" + fmt.Sprintf("%v", cealarmdescrmapentry.Cealarmdescrindex) + "']"
-}
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmDescrIndex"] = cealarmdescrmapentry.Cealarmdescrindex
-    leafs["ceAlarmDescrVendorType"] = cealarmdescrmapentry.Cealarmdescrvendortype
-    return leafs
-}
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetYangName() string { return "ceAlarmDescrMapEntry" }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) SetParent(parent types.Entity) { cealarmdescrmapentry.parent = parent }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetParent() types.Entity { return cealarmdescrmapentry.parent }
-
-func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdescrmapentry) GetParentYangName() string { return "ceAlarmDescrMapTable" }
 
 // CISCOENTITYALARMMIB_Cealarmdescrtable
 // This table contains a description for each alarm type
@@ -543,7 +316,7 @@ func (cealarmdescrmapentry *CISCOENTITYALARMMIB_Cealarmdescrmaptable_Cealarmdesc
 // rarely the case that a physical entity type needs to 
 // define every alarm in its alarm space.
 type CISCOENTITYALARMMIB_Cealarmdescrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A collection of attributes that describe an alarm type. The type is slice
@@ -551,68 +324,29 @@ type CISCOENTITYALARMMIB_Cealarmdescrtable struct {
     Cealarmdescrentry []CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry
 }
 
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetFilter() yfilter.YFilter { return cealarmdescrtable.YFilter }
+func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetEntityData() *types.CommonEntityData {
+    cealarmdescrtable.EntityData.YFilter = cealarmdescrtable.YFilter
+    cealarmdescrtable.EntityData.YangName = "ceAlarmDescrTable"
+    cealarmdescrtable.EntityData.BundleName = "cisco_ios_xe"
+    cealarmdescrtable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmdescrtable.EntityData.SegmentPath = "ceAlarmDescrTable"
+    cealarmdescrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmdescrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmdescrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) SetFilter(yf yfilter.YFilter) { cealarmdescrtable.YFilter = yf }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetGoName(yname string) string {
-    if yname == "ceAlarmDescrEntry" { return "Cealarmdescrentry" }
-    return ""
-}
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetSegmentPath() string {
-    return "ceAlarmDescrTable"
-}
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceAlarmDescrEntry" {
-        for _, c := range cealarmdescrtable.Cealarmdescrentry {
-            if cealarmdescrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry{}
-        cealarmdescrtable.Cealarmdescrentry = append(cealarmdescrtable.Cealarmdescrentry, child)
-        return &cealarmdescrtable.Cealarmdescrentry[len(cealarmdescrtable.Cealarmdescrentry)-1]
-    }
-    return nil
-}
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cealarmdescrtable.EntityData.Children = make(map[string]types.YChild)
+    cealarmdescrtable.EntityData.Children["ceAlarmDescrEntry"] = types.YChild{"Cealarmdescrentry", nil}
     for i := range cealarmdescrtable.Cealarmdescrentry {
-        children[cealarmdescrtable.Cealarmdescrentry[i].GetSegmentPath()] = &cealarmdescrtable.Cealarmdescrentry[i]
+        cealarmdescrtable.EntityData.Children[types.GetSegmentPath(&cealarmdescrtable.Cealarmdescrentry[i])] = types.YChild{"Cealarmdescrentry", &cealarmdescrtable.Cealarmdescrentry[i]}
     }
-    return children
+    cealarmdescrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cealarmdescrtable.EntityData)
 }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetYangName() string { return "ceAlarmDescrTable" }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) SetParent(parent types.Entity) { cealarmdescrtable.parent = parent }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetParent() types.Entity { return cealarmdescrtable.parent }
-
-func (cealarmdescrtable *CISCOENTITYALARMMIB_Cealarmdescrtable) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry
 // A collection of attributes that describe an alarm type.
 type CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -648,57 +382,24 @@ type CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry struct {
     Cealarmdescrtext interface{}
 }
 
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetFilter() yfilter.YFilter { return cealarmdescrentry.YFilter }
+func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetEntityData() *types.CommonEntityData {
+    cealarmdescrentry.EntityData.YFilter = cealarmdescrentry.YFilter
+    cealarmdescrentry.EntityData.YangName = "ceAlarmDescrEntry"
+    cealarmdescrentry.EntityData.BundleName = "cisco_ios_xe"
+    cealarmdescrentry.EntityData.ParentYangName = "ceAlarmDescrTable"
+    cealarmdescrentry.EntityData.SegmentPath = "ceAlarmDescrEntry" + "[ceAlarmDescrIndex='" + fmt.Sprintf("%v", cealarmdescrentry.Cealarmdescrindex) + "']" + "[ceAlarmDescrAlarmType='" + fmt.Sprintf("%v", cealarmdescrentry.Cealarmdescralarmtype) + "']"
+    cealarmdescrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmdescrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmdescrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) SetFilter(yf yfilter.YFilter) { cealarmdescrentry.YFilter = yf }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetGoName(yname string) string {
-    if yname == "ceAlarmDescrIndex" { return "Cealarmdescrindex" }
-    if yname == "ceAlarmDescrAlarmType" { return "Cealarmdescralarmtype" }
-    if yname == "ceAlarmDescrSeverity" { return "Cealarmdescrseverity" }
-    if yname == "ceAlarmDescrText" { return "Cealarmdescrtext" }
-    return ""
+    cealarmdescrentry.EntityData.Children = make(map[string]types.YChild)
+    cealarmdescrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmdescrentry.EntityData.Leafs["ceAlarmDescrIndex"] = types.YLeaf{"Cealarmdescrindex", cealarmdescrentry.Cealarmdescrindex}
+    cealarmdescrentry.EntityData.Leafs["ceAlarmDescrAlarmType"] = types.YLeaf{"Cealarmdescralarmtype", cealarmdescrentry.Cealarmdescralarmtype}
+    cealarmdescrentry.EntityData.Leafs["ceAlarmDescrSeverity"] = types.YLeaf{"Cealarmdescrseverity", cealarmdescrentry.Cealarmdescrseverity}
+    cealarmdescrentry.EntityData.Leafs["ceAlarmDescrText"] = types.YLeaf{"Cealarmdescrtext", cealarmdescrentry.Cealarmdescrtext}
+    return &(cealarmdescrentry.EntityData)
 }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetSegmentPath() string {
-    return "ceAlarmDescrEntry" + "[ceAlarmDescrIndex='" + fmt.Sprintf("%v", cealarmdescrentry.Cealarmdescrindex) + "']" + "[ceAlarmDescrAlarmType='" + fmt.Sprintf("%v", cealarmdescrentry.Cealarmdescralarmtype) + "']"
-}
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmDescrIndex"] = cealarmdescrentry.Cealarmdescrindex
-    leafs["ceAlarmDescrAlarmType"] = cealarmdescrentry.Cealarmdescralarmtype
-    leafs["ceAlarmDescrSeverity"] = cealarmdescrentry.Cealarmdescrseverity
-    leafs["ceAlarmDescrText"] = cealarmdescrentry.Cealarmdescrtext
-    return leafs
-}
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetYangName() string { return "ceAlarmDescrEntry" }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) SetParent(parent types.Entity) { cealarmdescrentry.parent = parent }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetParent() types.Entity { return cealarmdescrentry.parent }
-
-func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry) GetParentYangName() string { return "ceAlarmDescrTable" }
 
 // CISCOENTITYALARMMIB_Cealarmtable
 // This table specifies alarm control and status information
@@ -706,7 +407,7 @@ func (cealarmdescrentry *CISCOENTITYALARMMIB_Cealarmdescrtable_Cealarmdescrentry
 // including the alarms currently being asserted by each physical
 // entity capable of generating alarms.
 type CISCOENTITYALARMMIB_Cealarmtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Alarm control and status information related to the  corresponding physical
@@ -716,70 +417,31 @@ type CISCOENTITYALARMMIB_Cealarmtable struct {
     Cealarmentry []CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry
 }
 
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetFilter() yfilter.YFilter { return cealarmtable.YFilter }
+func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetEntityData() *types.CommonEntityData {
+    cealarmtable.EntityData.YFilter = cealarmtable.YFilter
+    cealarmtable.EntityData.YangName = "ceAlarmTable"
+    cealarmtable.EntityData.BundleName = "cisco_ios_xe"
+    cealarmtable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmtable.EntityData.SegmentPath = "ceAlarmTable"
+    cealarmtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) SetFilter(yf yfilter.YFilter) { cealarmtable.YFilter = yf }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetGoName(yname string) string {
-    if yname == "ceAlarmEntry" { return "Cealarmentry" }
-    return ""
-}
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetSegmentPath() string {
-    return "ceAlarmTable"
-}
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceAlarmEntry" {
-        for _, c := range cealarmtable.Cealarmentry {
-            if cealarmtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry{}
-        cealarmtable.Cealarmentry = append(cealarmtable.Cealarmentry, child)
-        return &cealarmtable.Cealarmentry[len(cealarmtable.Cealarmentry)-1]
-    }
-    return nil
-}
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cealarmtable.EntityData.Children = make(map[string]types.YChild)
+    cealarmtable.EntityData.Children["ceAlarmEntry"] = types.YChild{"Cealarmentry", nil}
     for i := range cealarmtable.Cealarmentry {
-        children[cealarmtable.Cealarmentry[i].GetSegmentPath()] = &cealarmtable.Cealarmentry[i]
+        cealarmtable.EntityData.Children[types.GetSegmentPath(&cealarmtable.Cealarmentry[i])] = types.YChild{"Cealarmentry", &cealarmtable.Cealarmentry[i]}
     }
-    return children
+    cealarmtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cealarmtable.EntityData)
 }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetYangName() string { return "ceAlarmTable" }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) SetParent(parent types.Entity) { cealarmtable.parent = parent }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetParent() types.Entity { return cealarmtable.parent }
-
-func (cealarmtable *CISCOENTITYALARMMIB_Cealarmtable) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry
 // Alarm control and status information related to the 
 // corresponding physical entity, including a list of those
 // alarms currently being asserted by that physical entity.
 type CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -817,63 +479,30 @@ type CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry struct {
     Cealarmlist interface{}
 }
 
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetFilter() yfilter.YFilter { return cealarmentry.YFilter }
+func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetEntityData() *types.CommonEntityData {
+    cealarmentry.EntityData.YFilter = cealarmentry.YFilter
+    cealarmentry.EntityData.YangName = "ceAlarmEntry"
+    cealarmentry.EntityData.BundleName = "cisco_ios_xe"
+    cealarmentry.EntityData.ParentYangName = "ceAlarmTable"
+    cealarmentry.EntityData.SegmentPath = "ceAlarmEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cealarmentry.Entphysicalindex) + "']"
+    cealarmentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) SetFilter(yf yfilter.YFilter) { cealarmentry.YFilter = yf }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetGoName(yname string) string {
-    if yname == "entPhysicalIndex" { return "Entphysicalindex" }
-    if yname == "ceAlarmFilterProfile" { return "Cealarmfilterprofile" }
-    if yname == "ceAlarmSeverity" { return "Cealarmseverity" }
-    if yname == "ceAlarmList" { return "Cealarmlist" }
-    return ""
+    cealarmentry.EntityData.Children = make(map[string]types.YChild)
+    cealarmentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmentry.EntityData.Leafs["entPhysicalIndex"] = types.YLeaf{"Entphysicalindex", cealarmentry.Entphysicalindex}
+    cealarmentry.EntityData.Leafs["ceAlarmFilterProfile"] = types.YLeaf{"Cealarmfilterprofile", cealarmentry.Cealarmfilterprofile}
+    cealarmentry.EntityData.Leafs["ceAlarmSeverity"] = types.YLeaf{"Cealarmseverity", cealarmentry.Cealarmseverity}
+    cealarmentry.EntityData.Leafs["ceAlarmList"] = types.YLeaf{"Cealarmlist", cealarmentry.Cealarmlist}
+    return &(cealarmentry.EntityData)
 }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetSegmentPath() string {
-    return "ceAlarmEntry" + "[entPhysicalIndex='" + fmt.Sprintf("%v", cealarmentry.Entphysicalindex) + "']"
-}
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entPhysicalIndex"] = cealarmentry.Entphysicalindex
-    leafs["ceAlarmFilterProfile"] = cealarmentry.Cealarmfilterprofile
-    leafs["ceAlarmSeverity"] = cealarmentry.Cealarmseverity
-    leafs["ceAlarmList"] = cealarmentry.Cealarmlist
-    return leafs
-}
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetYangName() string { return "ceAlarmEntry" }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) SetParent(parent types.Entity) { cealarmentry.parent = parent }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetParent() types.Entity { return cealarmentry.parent }
-
-func (cealarmentry *CISCOENTITYALARMMIB_Cealarmtable_Cealarmentry) GetParentYangName() string { return "ceAlarmTable" }
 
 // CISCOENTITYALARMMIB_Cealarmhisttable
 // This table contains a history of ceAlarmIndicate and
 // ceAlarmClear traps generated by the agent.
 type CISCOENTITYALARMMIB_Cealarmhisttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information conveyed by a ceAlarmIndicate or ceAlarmClear trap. The
@@ -881,69 +510,30 @@ type CISCOENTITYALARMMIB_Cealarmhisttable struct {
     Cealarmhistentry []CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry
 }
 
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetFilter() yfilter.YFilter { return cealarmhisttable.YFilter }
+func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetEntityData() *types.CommonEntityData {
+    cealarmhisttable.EntityData.YFilter = cealarmhisttable.YFilter
+    cealarmhisttable.EntityData.YangName = "ceAlarmHistTable"
+    cealarmhisttable.EntityData.BundleName = "cisco_ios_xe"
+    cealarmhisttable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmhisttable.EntityData.SegmentPath = "ceAlarmHistTable"
+    cealarmhisttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmhisttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmhisttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) SetFilter(yf yfilter.YFilter) { cealarmhisttable.YFilter = yf }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetGoName(yname string) string {
-    if yname == "ceAlarmHistEntry" { return "Cealarmhistentry" }
-    return ""
-}
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetSegmentPath() string {
-    return "ceAlarmHistTable"
-}
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceAlarmHistEntry" {
-        for _, c := range cealarmhisttable.Cealarmhistentry {
-            if cealarmhisttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry{}
-        cealarmhisttable.Cealarmhistentry = append(cealarmhisttable.Cealarmhistentry, child)
-        return &cealarmhisttable.Cealarmhistentry[len(cealarmhisttable.Cealarmhistentry)-1]
-    }
-    return nil
-}
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cealarmhisttable.EntityData.Children = make(map[string]types.YChild)
+    cealarmhisttable.EntityData.Children["ceAlarmHistEntry"] = types.YChild{"Cealarmhistentry", nil}
     for i := range cealarmhisttable.Cealarmhistentry {
-        children[cealarmhisttable.Cealarmhistentry[i].GetSegmentPath()] = &cealarmhisttable.Cealarmhistentry[i]
+        cealarmhisttable.EntityData.Children[types.GetSegmentPath(&cealarmhisttable.Cealarmhistentry[i])] = types.YChild{"Cealarmhistentry", &cealarmhisttable.Cealarmhistentry[i]}
     }
-    return children
+    cealarmhisttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cealarmhisttable.EntityData)
 }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetYangName() string { return "ceAlarmHistTable" }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) SetParent(parent types.Entity) { cealarmhisttable.parent = parent }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetParent() types.Entity { return cealarmhisttable.parent }
-
-func (cealarmhisttable *CISCOENTITYALARMMIB_Cealarmhisttable) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry
 // The information conveyed by a ceAlarmIndicate or
 // ceAlarmClear trap.
 type CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer value uniquely identifying the entry in
@@ -975,61 +565,26 @@ type CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry struct {
     Cealarmhisttimestamp interface{}
 }
 
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetFilter() yfilter.YFilter { return cealarmhistentry.YFilter }
+func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetEntityData() *types.CommonEntityData {
+    cealarmhistentry.EntityData.YFilter = cealarmhistentry.YFilter
+    cealarmhistentry.EntityData.YangName = "ceAlarmHistEntry"
+    cealarmhistentry.EntityData.BundleName = "cisco_ios_xe"
+    cealarmhistentry.EntityData.ParentYangName = "ceAlarmHistTable"
+    cealarmhistentry.EntityData.SegmentPath = "ceAlarmHistEntry" + "[ceAlarmHistIndex='" + fmt.Sprintf("%v", cealarmhistentry.Cealarmhistindex) + "']"
+    cealarmhistentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmhistentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmhistentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) SetFilter(yf yfilter.YFilter) { cealarmhistentry.YFilter = yf }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetGoName(yname string) string {
-    if yname == "ceAlarmHistIndex" { return "Cealarmhistindex" }
-    if yname == "ceAlarmHistType" { return "Cealarmhisttype" }
-    if yname == "ceAlarmHistEntPhysicalIndex" { return "Cealarmhistentphysicalindex" }
-    if yname == "ceAlarmHistAlarmType" { return "Cealarmhistalarmtype" }
-    if yname == "ceAlarmHistSeverity" { return "Cealarmhistseverity" }
-    if yname == "ceAlarmHistTimeStamp" { return "Cealarmhisttimestamp" }
-    return ""
+    cealarmhistentry.EntityData.Children = make(map[string]types.YChild)
+    cealarmhistentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmhistentry.EntityData.Leafs["ceAlarmHistIndex"] = types.YLeaf{"Cealarmhistindex", cealarmhistentry.Cealarmhistindex}
+    cealarmhistentry.EntityData.Leafs["ceAlarmHistType"] = types.YLeaf{"Cealarmhisttype", cealarmhistentry.Cealarmhisttype}
+    cealarmhistentry.EntityData.Leafs["ceAlarmHistEntPhysicalIndex"] = types.YLeaf{"Cealarmhistentphysicalindex", cealarmhistentry.Cealarmhistentphysicalindex}
+    cealarmhistentry.EntityData.Leafs["ceAlarmHistAlarmType"] = types.YLeaf{"Cealarmhistalarmtype", cealarmhistentry.Cealarmhistalarmtype}
+    cealarmhistentry.EntityData.Leafs["ceAlarmHistSeverity"] = types.YLeaf{"Cealarmhistseverity", cealarmhistentry.Cealarmhistseverity}
+    cealarmhistentry.EntityData.Leafs["ceAlarmHistTimeStamp"] = types.YLeaf{"Cealarmhisttimestamp", cealarmhistentry.Cealarmhisttimestamp}
+    return &(cealarmhistentry.EntityData)
 }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetSegmentPath() string {
-    return "ceAlarmHistEntry" + "[ceAlarmHistIndex='" + fmt.Sprintf("%v", cealarmhistentry.Cealarmhistindex) + "']"
-}
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmHistIndex"] = cealarmhistentry.Cealarmhistindex
-    leafs["ceAlarmHistType"] = cealarmhistentry.Cealarmhisttype
-    leafs["ceAlarmHistEntPhysicalIndex"] = cealarmhistentry.Cealarmhistentphysicalindex
-    leafs["ceAlarmHistAlarmType"] = cealarmhistentry.Cealarmhistalarmtype
-    leafs["ceAlarmHistSeverity"] = cealarmhistentry.Cealarmhistseverity
-    leafs["ceAlarmHistTimeStamp"] = cealarmhistentry.Cealarmhisttimestamp
-    return leafs
-}
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetYangName() string { return "ceAlarmHistEntry" }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) SetParent(parent types.Entity) { cealarmhistentry.parent = parent }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetParent() types.Entity { return cealarmhistentry.parent }
-
-func (cealarmhistentry *CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry) GetParentYangName() string { return "ceAlarmHistTable" }
 
 // CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry_Cealarmhisttype represents the result of an alarm being asserted or cleared.
 type CISCOENTITYALARMMIB_Cealarmhisttable_Cealarmhistentry_Cealarmhisttype string
@@ -1043,7 +598,7 @@ const (
 // CISCOENTITYALARMMIB_Cealarmfilterprofiletable
 // This table contains a list of alarm filter profiles.
 type CISCOENTITYALARMMIB_Cealarmfilterprofiletable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // When a physical entity asserts/clears an alarm AND the ceAlarmFilterProfile
@@ -1064,63 +619,24 @@ type CISCOENTITYALARMMIB_Cealarmfilterprofiletable struct {
     Cealarmfilterprofileentry []CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry
 }
 
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetFilter() yfilter.YFilter { return cealarmfilterprofiletable.YFilter }
+func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetEntityData() *types.CommonEntityData {
+    cealarmfilterprofiletable.EntityData.YFilter = cealarmfilterprofiletable.YFilter
+    cealarmfilterprofiletable.EntityData.YangName = "ceAlarmFilterProfileTable"
+    cealarmfilterprofiletable.EntityData.BundleName = "cisco_ios_xe"
+    cealarmfilterprofiletable.EntityData.ParentYangName = "CISCO-ENTITY-ALARM-MIB"
+    cealarmfilterprofiletable.EntityData.SegmentPath = "ceAlarmFilterProfileTable"
+    cealarmfilterprofiletable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmfilterprofiletable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmfilterprofiletable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) SetFilter(yf yfilter.YFilter) { cealarmfilterprofiletable.YFilter = yf }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetGoName(yname string) string {
-    if yname == "ceAlarmFilterProfileEntry" { return "Cealarmfilterprofileentry" }
-    return ""
-}
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetSegmentPath() string {
-    return "ceAlarmFilterProfileTable"
-}
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ceAlarmFilterProfileEntry" {
-        for _, c := range cealarmfilterprofiletable.Cealarmfilterprofileentry {
-            if cealarmfilterprofiletable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry{}
-        cealarmfilterprofiletable.Cealarmfilterprofileentry = append(cealarmfilterprofiletable.Cealarmfilterprofileentry, child)
-        return &cealarmfilterprofiletable.Cealarmfilterprofileentry[len(cealarmfilterprofiletable.Cealarmfilterprofileentry)-1]
-    }
-    return nil
-}
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cealarmfilterprofiletable.EntityData.Children = make(map[string]types.YChild)
+    cealarmfilterprofiletable.EntityData.Children["ceAlarmFilterProfileEntry"] = types.YChild{"Cealarmfilterprofileentry", nil}
     for i := range cealarmfilterprofiletable.Cealarmfilterprofileentry {
-        children[cealarmfilterprofiletable.Cealarmfilterprofileentry[i].GetSegmentPath()] = &cealarmfilterprofiletable.Cealarmfilterprofileentry[i]
+        cealarmfilterprofiletable.EntityData.Children[types.GetSegmentPath(&cealarmfilterprofiletable.Cealarmfilterprofileentry[i])] = types.YChild{"Cealarmfilterprofileentry", &cealarmfilterprofiletable.Cealarmfilterprofileentry[i]}
     }
-    return children
+    cealarmfilterprofiletable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cealarmfilterprofiletable.EntityData)
 }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetYangName() string { return "ceAlarmFilterProfileTable" }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) SetParent(parent types.Entity) { cealarmfilterprofiletable.parent = parent }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetParent() types.Entity { return cealarmfilterprofiletable.parent }
-
-func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) GetParentYangName() string { return "CISCO-ENTITY-ALARM-MIB" }
 
 // CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry
 // When a physical entity asserts/clears an alarm AND the
@@ -1146,7 +662,7 @@ func (cealarmfilterprofiletable *CISCOENTITYALARMMIB_Cealarmfilterprofiletable) 
 //     type is enabled, then the agent generates the appropriate
 //     syslog message.
 type CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This object uniquely identifies the alarm filter
@@ -1193,59 +709,24 @@ type CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry str
     Cealarmfiltersyslogenabled interface{}
 }
 
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetFilter() yfilter.YFilter { return cealarmfilterprofileentry.YFilter }
+func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetEntityData() *types.CommonEntityData {
+    cealarmfilterprofileentry.EntityData.YFilter = cealarmfilterprofileentry.YFilter
+    cealarmfilterprofileentry.EntityData.YangName = "ceAlarmFilterProfileEntry"
+    cealarmfilterprofileentry.EntityData.BundleName = "cisco_ios_xe"
+    cealarmfilterprofileentry.EntityData.ParentYangName = "ceAlarmFilterProfileTable"
+    cealarmfilterprofileentry.EntityData.SegmentPath = "ceAlarmFilterProfileEntry" + "[ceAlarmFilterIndex='" + fmt.Sprintf("%v", cealarmfilterprofileentry.Cealarmfilterindex) + "']"
+    cealarmfilterprofileentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cealarmfilterprofileentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cealarmfilterprofileentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) SetFilter(yf yfilter.YFilter) { cealarmfilterprofileentry.YFilter = yf }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetGoName(yname string) string {
-    if yname == "ceAlarmFilterIndex" { return "Cealarmfilterindex" }
-    if yname == "ceAlarmFilterStatus" { return "Cealarmfilterstatus" }
-    if yname == "ceAlarmFilterAlias" { return "Cealarmfilteralias" }
-    if yname == "ceAlarmFilterAlarmsEnabled" { return "Cealarmfilteralarmsenabled" }
-    if yname == "ceAlarmFilterNotifiesEnabled" { return "Cealarmfilternotifiesenabled" }
-    if yname == "ceAlarmFilterSyslogEnabled" { return "Cealarmfiltersyslogenabled" }
-    return ""
+    cealarmfilterprofileentry.EntityData.Children = make(map[string]types.YChild)
+    cealarmfilterprofileentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cealarmfilterprofileentry.EntityData.Leafs["ceAlarmFilterIndex"] = types.YLeaf{"Cealarmfilterindex", cealarmfilterprofileentry.Cealarmfilterindex}
+    cealarmfilterprofileentry.EntityData.Leafs["ceAlarmFilterStatus"] = types.YLeaf{"Cealarmfilterstatus", cealarmfilterprofileentry.Cealarmfilterstatus}
+    cealarmfilterprofileentry.EntityData.Leafs["ceAlarmFilterAlias"] = types.YLeaf{"Cealarmfilteralias", cealarmfilterprofileentry.Cealarmfilteralias}
+    cealarmfilterprofileentry.EntityData.Leafs["ceAlarmFilterAlarmsEnabled"] = types.YLeaf{"Cealarmfilteralarmsenabled", cealarmfilterprofileentry.Cealarmfilteralarmsenabled}
+    cealarmfilterprofileentry.EntityData.Leafs["ceAlarmFilterNotifiesEnabled"] = types.YLeaf{"Cealarmfilternotifiesenabled", cealarmfilterprofileentry.Cealarmfilternotifiesenabled}
+    cealarmfilterprofileentry.EntityData.Leafs["ceAlarmFilterSyslogEnabled"] = types.YLeaf{"Cealarmfiltersyslogenabled", cealarmfilterprofileentry.Cealarmfiltersyslogenabled}
+    return &(cealarmfilterprofileentry.EntityData)
 }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetSegmentPath() string {
-    return "ceAlarmFilterProfileEntry" + "[ceAlarmFilterIndex='" + fmt.Sprintf("%v", cealarmfilterprofileentry.Cealarmfilterindex) + "']"
-}
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ceAlarmFilterIndex"] = cealarmfilterprofileentry.Cealarmfilterindex
-    leafs["ceAlarmFilterStatus"] = cealarmfilterprofileentry.Cealarmfilterstatus
-    leafs["ceAlarmFilterAlias"] = cealarmfilterprofileentry.Cealarmfilteralias
-    leafs["ceAlarmFilterAlarmsEnabled"] = cealarmfilterprofileentry.Cealarmfilteralarmsenabled
-    leafs["ceAlarmFilterNotifiesEnabled"] = cealarmfilterprofileentry.Cealarmfilternotifiesenabled
-    leafs["ceAlarmFilterSyslogEnabled"] = cealarmfilterprofileentry.Cealarmfiltersyslogenabled
-    return leafs
-}
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetYangName() string { return "ceAlarmFilterProfileEntry" }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) SetParent(parent types.Entity) { cealarmfilterprofileentry.parent = parent }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetParent() types.Entity { return cealarmfilterprofileentry.parent }
-
-func (cealarmfilterprofileentry *CISCOENTITYALARMMIB_Cealarmfilterprofiletable_Cealarmfilterprofileentry) GetParentYangName() string { return "ceAlarmFilterProfileTable" }
 

@@ -27,7 +27,7 @@ func init() {
 // DynamicTemplate
 // All dynamic template configurations
 type DynamicTemplate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Templates of the PPP Type.
@@ -40,141 +40,61 @@ type DynamicTemplate struct {
     SubscriberServices DynamicTemplate_SubscriberServices
 }
 
-func (dynamicTemplate *DynamicTemplate) GetFilter() yfilter.YFilter { return dynamicTemplate.YFilter }
+func (dynamicTemplate *DynamicTemplate) GetEntityData() *types.CommonEntityData {
+    dynamicTemplate.EntityData.YFilter = dynamicTemplate.YFilter
+    dynamicTemplate.EntityData.YangName = "dynamic-template"
+    dynamicTemplate.EntityData.BundleName = "cisco_ios_xr"
+    dynamicTemplate.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg"
+    dynamicTemplate.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template"
+    dynamicTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dynamicTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dynamicTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dynamicTemplate *DynamicTemplate) SetFilter(yf yfilter.YFilter) { dynamicTemplate.YFilter = yf }
-
-func (dynamicTemplate *DynamicTemplate) GetGoName(yname string) string {
-    if yname == "ppps" { return "Ppps" }
-    if yname == "ip-subscribers" { return "IpSubscribers" }
-    if yname == "subscriber-services" { return "SubscriberServices" }
-    return ""
+    dynamicTemplate.EntityData.Children = make(map[string]types.YChild)
+    dynamicTemplate.EntityData.Children["ppps"] = types.YChild{"Ppps", &dynamicTemplate.Ppps}
+    dynamicTemplate.EntityData.Children["ip-subscribers"] = types.YChild{"IpSubscribers", &dynamicTemplate.IpSubscribers}
+    dynamicTemplate.EntityData.Children["subscriber-services"] = types.YChild{"SubscriberServices", &dynamicTemplate.SubscriberServices}
+    dynamicTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dynamicTemplate.EntityData)
 }
-
-func (dynamicTemplate *DynamicTemplate) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg:dynamic-template"
-}
-
-func (dynamicTemplate *DynamicTemplate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ppps" {
-        return &dynamicTemplate.Ppps
-    }
-    if childYangName == "ip-subscribers" {
-        return &dynamicTemplate.IpSubscribers
-    }
-    if childYangName == "subscriber-services" {
-        return &dynamicTemplate.SubscriberServices
-    }
-    return nil
-}
-
-func (dynamicTemplate *DynamicTemplate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ppps"] = &dynamicTemplate.Ppps
-    children["ip-subscribers"] = &dynamicTemplate.IpSubscribers
-    children["subscriber-services"] = &dynamicTemplate.SubscriberServices
-    return children
-}
-
-func (dynamicTemplate *DynamicTemplate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dynamicTemplate *DynamicTemplate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dynamicTemplate *DynamicTemplate) GetYangName() string { return "dynamic-template" }
-
-func (dynamicTemplate *DynamicTemplate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dynamicTemplate *DynamicTemplate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dynamicTemplate *DynamicTemplate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dynamicTemplate *DynamicTemplate) SetParent(parent types.Entity) { dynamicTemplate.parent = parent }
-
-func (dynamicTemplate *DynamicTemplate) GetParent() types.Entity { return dynamicTemplate.parent }
-
-func (dynamicTemplate *DynamicTemplate) GetParentYangName() string { return "Cisco-IOS-XR-subscriber-infra-tmplmgr-cfg" }
 
 // DynamicTemplate_Ppps
 // Templates of the PPP Type
 type DynamicTemplate_Ppps struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Template of the PPP Type. The type is slice of DynamicTemplate_Ppps_Ppp.
     Ppp []DynamicTemplate_Ppps_Ppp
 }
 
-func (ppps *DynamicTemplate_Ppps) GetFilter() yfilter.YFilter { return ppps.YFilter }
+func (ppps *DynamicTemplate_Ppps) GetEntityData() *types.CommonEntityData {
+    ppps.EntityData.YFilter = ppps.YFilter
+    ppps.EntityData.YangName = "ppps"
+    ppps.EntityData.BundleName = "cisco_ios_xr"
+    ppps.EntityData.ParentYangName = "dynamic-template"
+    ppps.EntityData.SegmentPath = "ppps"
+    ppps.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ppps.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ppps.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ppps *DynamicTemplate_Ppps) SetFilter(yf yfilter.YFilter) { ppps.YFilter = yf }
-
-func (ppps *DynamicTemplate_Ppps) GetGoName(yname string) string {
-    if yname == "ppp" { return "Ppp" }
-    return ""
-}
-
-func (ppps *DynamicTemplate_Ppps) GetSegmentPath() string {
-    return "ppps"
-}
-
-func (ppps *DynamicTemplate_Ppps) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ppp" {
-        for _, c := range ppps.Ppp {
-            if ppps.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DynamicTemplate_Ppps_Ppp{}
-        ppps.Ppp = append(ppps.Ppp, child)
-        return &ppps.Ppp[len(ppps.Ppp)-1]
-    }
-    return nil
-}
-
-func (ppps *DynamicTemplate_Ppps) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ppps.EntityData.Children = make(map[string]types.YChild)
+    ppps.EntityData.Children["ppp"] = types.YChild{"Ppp", nil}
     for i := range ppps.Ppp {
-        children[ppps.Ppp[i].GetSegmentPath()] = &ppps.Ppp[i]
+        ppps.EntityData.Children[types.GetSegmentPath(&ppps.Ppp[i])] = types.YChild{"Ppp", &ppps.Ppp[i]}
     }
-    return children
+    ppps.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ppps.EntityData)
 }
-
-func (ppps *DynamicTemplate_Ppps) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ppps *DynamicTemplate_Ppps) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ppps *DynamicTemplate_Ppps) GetYangName() string { return "ppps" }
-
-func (ppps *DynamicTemplate_Ppps) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ppps *DynamicTemplate_Ppps) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ppps *DynamicTemplate_Ppps) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ppps *DynamicTemplate_Ppps) SetParent(parent types.Entity) { ppps.parent = parent }
-
-func (ppps *DynamicTemplate_Ppps) GetParent() types.Entity { return ppps.parent }
-
-func (ppps *DynamicTemplate_Ppps) GetParentYangName() string { return "dynamic-template" }
 
 // DynamicTemplate_Ppps_Ppp
 // A Template of the PPP Type
 type DynamicTemplate_Ppps_Ppp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the template. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Assign the interface to a VRF . The type is string with length: 1..32.
@@ -220,123 +140,40 @@ type DynamicTemplate_Ppps_Ppp struct {
     PppoeTemplate DynamicTemplate_Ppps_Ppp_PppoeTemplate
 }
 
-func (ppp *DynamicTemplate_Ppps_Ppp) GetFilter() yfilter.YFilter { return ppp.YFilter }
+func (ppp *DynamicTemplate_Ppps_Ppp) GetEntityData() *types.CommonEntityData {
+    ppp.EntityData.YFilter = ppp.YFilter
+    ppp.EntityData.YangName = "ppp"
+    ppp.EntityData.BundleName = "cisco_ios_xr"
+    ppp.EntityData.ParentYangName = "ppps"
+    ppp.EntityData.SegmentPath = "ppp" + "[template-name='" + fmt.Sprintf("%v", ppp.TemplateName) + "']"
+    ppp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ppp *DynamicTemplate_Ppps_Ppp) SetFilter(yf yfilter.YFilter) { ppp.YFilter = yf }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetGoName(yname string) string {
-    if yname == "template-name" { return "TemplateName" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" { return "SpanMonitorSessions" }
-    if yname == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" { return "Ipv4PacketFilter" }
-    if yname == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" { return "Ipv6PacketFilter" }
-    if yname == "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" { return "Igmp" }
-    if yname == "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" { return "Ipv4Network" }
-    if yname == "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" { return "Ipv6Network" }
-    if yname == "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" { return "Ipv6Neighbor" }
-    if yname == "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" { return "Dhcpv6" }
-    if yname == "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" { return "Pbr" }
-    if yname == "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template" { return "PppTemplate" }
-    if yname == "Cisco-IOS-XR-qos-ma-bng-cfg:qos" { return "Qos" }
-    if yname == "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" { return "Accounting" }
-    if yname == "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template" { return "PppoeTemplate" }
-    return ""
+    ppp.EntityData.Children = make(map[string]types.YChild)
+    ppp.EntityData.Children["Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"] = types.YChild{"SpanMonitorSessions", &ppp.SpanMonitorSessions}
+    ppp.EntityData.Children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"] = types.YChild{"Ipv4PacketFilter", &ppp.Ipv4PacketFilter}
+    ppp.EntityData.Children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"] = types.YChild{"Ipv6PacketFilter", &ppp.Ipv6PacketFilter}
+    ppp.EntityData.Children["Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"] = types.YChild{"Igmp", &ppp.Igmp}
+    ppp.EntityData.Children["Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"] = types.YChild{"Ipv4Network", &ppp.Ipv4Network}
+    ppp.EntityData.Children["Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"] = types.YChild{"Ipv6Network", &ppp.Ipv6Network}
+    ppp.EntityData.Children["Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"] = types.YChild{"Ipv6Neighbor", &ppp.Ipv6Neighbor}
+    ppp.EntityData.Children["Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"] = types.YChild{"Dhcpv6", &ppp.Dhcpv6}
+    ppp.EntityData.Children["Cisco-IOS-XR-pbr-subscriber-cfg:pbr"] = types.YChild{"Pbr", &ppp.Pbr}
+    ppp.EntityData.Children["Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"] = types.YChild{"PppTemplate", &ppp.PppTemplate}
+    ppp.EntityData.Children["Cisco-IOS-XR-qos-ma-bng-cfg:qos"] = types.YChild{"Qos", &ppp.Qos}
+    ppp.EntityData.Children["Cisco-IOS-XR-subscriber-accounting-cfg:accounting"] = types.YChild{"Accounting", &ppp.Accounting}
+    ppp.EntityData.Children["Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"] = types.YChild{"PppoeTemplate", &ppp.PppoeTemplate}
+    ppp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ppp.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ppp.TemplateName}
+    ppp.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", ppp.Vrf}
+    return &(ppp.EntityData)
 }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetSegmentPath() string {
-    return "ppp" + "[template-name='" + fmt.Sprintf("%v", ppp.TemplateName) + "']"
-}
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" {
-        return &ppp.SpanMonitorSessions
-    }
-    if childYangName == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" {
-        return &ppp.Ipv4PacketFilter
-    }
-    if childYangName == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" {
-        return &ppp.Ipv6PacketFilter
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" {
-        return &ppp.Igmp
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" {
-        return &ppp.Ipv4Network
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" {
-        return &ppp.Ipv6Network
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" {
-        return &ppp.Ipv6Neighbor
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" {
-        return &ppp.Dhcpv6
-    }
-    if childYangName == "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" {
-        return &ppp.Pbr
-    }
-    if childYangName == "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template" {
-        return &ppp.PppTemplate
-    }
-    if childYangName == "Cisco-IOS-XR-qos-ma-bng-cfg:qos" {
-        return &ppp.Qos
-    }
-    if childYangName == "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" {
-        return &ppp.Accounting
-    }
-    if childYangName == "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template" {
-        return &ppp.PppoeTemplate
-    }
-    return nil
-}
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"] = &ppp.SpanMonitorSessions
-    children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"] = &ppp.Ipv4PacketFilter
-    children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"] = &ppp.Ipv6PacketFilter
-    children["Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"] = &ppp.Igmp
-    children["Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"] = &ppp.Ipv4Network
-    children["Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"] = &ppp.Ipv6Network
-    children["Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"] = &ppp.Ipv6Neighbor
-    children["Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"] = &ppp.Dhcpv6
-    children["Cisco-IOS-XR-pbr-subscriber-cfg:pbr"] = &ppp.Pbr
-    children["Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"] = &ppp.PppTemplate
-    children["Cisco-IOS-XR-qos-ma-bng-cfg:qos"] = &ppp.Qos
-    children["Cisco-IOS-XR-subscriber-accounting-cfg:accounting"] = &ppp.Accounting
-    children["Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"] = &ppp.PppoeTemplate
-    return children
-}
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["template-name"] = ppp.TemplateName
-    leafs["vrf"] = ppp.Vrf
-    return leafs
-}
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetYangName() string { return "ppp" }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) SetParent(parent types.Entity) { ppp.parent = parent }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetParent() types.Entity { return ppp.parent }
-
-func (ppp *DynamicTemplate_Ppps_Ppp) GetParentYangName() string { return "ppps" }
 
 // DynamicTemplate_Ppps_Ppp_SpanMonitorSessions
 // Monitor Session container for this template
 type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration for a particular class of Monitor Session. The type is slice
@@ -344,69 +181,30 @@ type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions struct {
     SpanMonitorSession []DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession
 }
 
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetFilter() yfilter.YFilter { return spanMonitorSessions.YFilter }
+func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetEntityData() *types.CommonEntityData {
+    spanMonitorSessions.EntityData.YFilter = spanMonitorSessions.YFilter
+    spanMonitorSessions.EntityData.YangName = "span-monitor-sessions"
+    spanMonitorSessions.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSessions.EntityData.ParentYangName = "ppp"
+    spanMonitorSessions.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+    spanMonitorSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) SetFilter(yf yfilter.YFilter) { spanMonitorSessions.YFilter = yf }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetGoName(yname string) string {
-    if yname == "span-monitor-session" { return "SpanMonitorSession" }
-    return ""
-}
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetSegmentPath() string {
-    return "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
-}
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "span-monitor-session" {
-        for _, c := range spanMonitorSessions.SpanMonitorSession {
-            if spanMonitorSessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession{}
-        spanMonitorSessions.SpanMonitorSession = append(spanMonitorSessions.SpanMonitorSession, child)
-        return &spanMonitorSessions.SpanMonitorSession[len(spanMonitorSessions.SpanMonitorSession)-1]
-    }
-    return nil
-}
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    spanMonitorSessions.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSessions.EntityData.Children["span-monitor-session"] = types.YChild{"SpanMonitorSession", nil}
     for i := range spanMonitorSessions.SpanMonitorSession {
-        children[spanMonitorSessions.SpanMonitorSession[i].GetSegmentPath()] = &spanMonitorSessions.SpanMonitorSession[i]
+        spanMonitorSessions.EntityData.Children[types.GetSegmentPath(&spanMonitorSessions.SpanMonitorSession[i])] = types.YChild{"SpanMonitorSession", &spanMonitorSessions.SpanMonitorSession[i]}
     }
-    return children
+    spanMonitorSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(spanMonitorSessions.EntityData)
 }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetYangName() string { return "span-monitor-sessions" }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) SetParent(parent types.Entity) { spanMonitorSessions.parent = parent }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetParent() types.Entity { return spanMonitorSessions.parent }
-
-func (spanMonitorSessions *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession
 // Configuration for a particular class of Monitor
 // Session
 type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Class. The type is SpanSessionClass.
@@ -426,71 +224,31 @@ type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession struct {
     Acl DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl
 }
 
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetFilter() yfilter.YFilter { return spanMonitorSession.YFilter }
+func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetEntityData() *types.CommonEntityData {
+    spanMonitorSession.EntityData.YFilter = spanMonitorSession.YFilter
+    spanMonitorSession.EntityData.YangName = "span-monitor-session"
+    spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSession.EntityData.ParentYangName = "span-monitor-sessions"
+    spanMonitorSession.EntityData.SegmentPath = "span-monitor-session" + "[session-class='" + fmt.Sprintf("%v", spanMonitorSession.SessionClass) + "']"
+    spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) SetFilter(yf yfilter.YFilter) { spanMonitorSession.YFilter = yf }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetGoName(yname string) string {
-    if yname == "session-class" { return "SessionClass" }
-    if yname == "mirror-first" { return "MirrorFirst" }
-    if yname == "mirror-interval" { return "MirrorInterval" }
-    if yname == "attachment" { return "Attachment" }
-    if yname == "acl" { return "Acl" }
-    return ""
+    spanMonitorSession.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSession.EntityData.Children["attachment"] = types.YChild{"Attachment", &spanMonitorSession.Attachment}
+    spanMonitorSession.EntityData.Children["acl"] = types.YChild{"Acl", &spanMonitorSession.Acl}
+    spanMonitorSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    spanMonitorSession.EntityData.Leafs["session-class"] = types.YLeaf{"SessionClass", spanMonitorSession.SessionClass}
+    spanMonitorSession.EntityData.Leafs["mirror-first"] = types.YLeaf{"MirrorFirst", spanMonitorSession.MirrorFirst}
+    spanMonitorSession.EntityData.Leafs["mirror-interval"] = types.YLeaf{"MirrorInterval", spanMonitorSession.MirrorInterval}
+    return &(spanMonitorSession.EntityData)
 }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetSegmentPath() string {
-    return "span-monitor-session" + "[session-class='" + fmt.Sprintf("%v", spanMonitorSession.SessionClass) + "']"
-}
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "attachment" {
-        return &spanMonitorSession.Attachment
-    }
-    if childYangName == "acl" {
-        return &spanMonitorSession.Acl
-    }
-    return nil
-}
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["attachment"] = &spanMonitorSession.Attachment
-    children["acl"] = &spanMonitorSession.Acl
-    return children
-}
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-class"] = spanMonitorSession.SessionClass
-    leafs["mirror-first"] = spanMonitorSession.MirrorFirst
-    leafs["mirror-interval"] = spanMonitorSession.MirrorInterval
-    return leafs
-}
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetYangName() string { return "span-monitor-session" }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) SetParent(parent types.Entity) { spanMonitorSession.parent = parent }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetParent() types.Entity { return spanMonitorSession.parent }
-
-func (spanMonitorSession *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession) GetParentYangName() string { return "span-monitor-sessions" }
 
 // DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment
 // Attach the interface to a Monitor Session
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session Name. The type is string with length: 1..79. This attribute is
@@ -505,61 +263,29 @@ type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment 
     PortLevelEnable interface{}
 }
 
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetFilter() yfilter.YFilter { return attachment.YFilter }
+func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetEntityData() *types.CommonEntityData {
+    attachment.EntityData.YFilter = attachment.YFilter
+    attachment.EntityData.YangName = "attachment"
+    attachment.EntityData.BundleName = "cisco_ios_xr"
+    attachment.EntityData.ParentYangName = "span-monitor-session"
+    attachment.EntityData.SegmentPath = "attachment"
+    attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) SetFilter(yf yfilter.YFilter) { attachment.YFilter = yf }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetGoName(yname string) string {
-    if yname == "session-name" { return "SessionName" }
-    if yname == "direction" { return "Direction" }
-    if yname == "port-level-enable" { return "PortLevelEnable" }
-    return ""
+    attachment.EntityData.Children = make(map[string]types.YChild)
+    attachment.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachment.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", attachment.SessionName}
+    attachment.EntityData.Leafs["direction"] = types.YLeaf{"Direction", attachment.Direction}
+    attachment.EntityData.Leafs["port-level-enable"] = types.YLeaf{"PortLevelEnable", attachment.PortLevelEnable}
+    return &(attachment.EntityData)
 }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetSegmentPath() string {
-    return "attachment"
-}
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-name"] = attachment.SessionName
-    leafs["direction"] = attachment.Direction
-    leafs["port-level-enable"] = attachment.PortLevelEnable
-    return leafs
-}
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetBundleName() string { return "cisco_ios_xr" }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetYangName() string { return "attachment" }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) SetParent(parent types.Entity) { attachment.parent = parent }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetParent() types.Entity { return attachment.parent }
-
-func (attachment *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Attachment) GetParentYangName() string { return "span-monitor-session" }
 
 // DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl
 // Enable ACL matching for traffic mirroring
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable ACL. The type is interface{}. This attribute is mandatory.
@@ -569,59 +295,28 @@ type DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl struct 
     AclName interface{}
 }
 
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetFilter() yfilter.YFilter { return acl.YFilter }
+func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetEntityData() *types.CommonEntityData {
+    acl.EntityData.YFilter = acl.YFilter
+    acl.EntityData.YangName = "acl"
+    acl.EntityData.BundleName = "cisco_ios_xr"
+    acl.EntityData.ParentYangName = "span-monitor-session"
+    acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) SetFilter(yf yfilter.YFilter) { acl.YFilter = yf }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetGoName(yname string) string {
-    if yname == "acl-enable" { return "AclEnable" }
-    if yname == "acl-name" { return "AclName" }
-    return ""
+    acl.EntityData.Children = make(map[string]types.YChild)
+    acl.EntityData.Leafs = make(map[string]types.YLeaf)
+    acl.EntityData.Leafs["acl-enable"] = types.YLeaf{"AclEnable", acl.AclEnable}
+    acl.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", acl.AclName}
+    return &(acl.EntityData)
 }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetSegmentPath() string {
-    return "acl"
-}
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["acl-enable"] = acl.AclEnable
-    leafs["acl-name"] = acl.AclName
-    return leafs
-}
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetYangName() string { return "acl" }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) SetParent(parent types.Entity) { acl.parent = parent }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetParent() types.Entity { return acl.parent }
-
-func (acl *DynamicTemplate_Ppps_Ppp_SpanMonitorSessions_SpanMonitorSession_Acl) GetParentYangName() string { return "span-monitor-session" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter
 // IPv4 Packet Filtering configuration for the
 // template
 type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 Packet filter to be applied to outbound packets.
@@ -631,73 +326,35 @@ type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter struct {
     Inbound DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound
 }
 
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetFilter() yfilter.YFilter { return ipv4PacketFilter.YFilter }
+func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
+    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4PacketFilter.EntityData.ParentYangName = "ppp"
+    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) SetFilter(yf yfilter.YFilter) { ipv4PacketFilter.YFilter = yf }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetGoName(yname string) string {
-    if yname == "outbound" { return "Outbound" }
-    if yname == "inbound" { return "Inbound" }
-    return ""
+    ipv4PacketFilter.EntityData.Children = make(map[string]types.YChild)
+    ipv4PacketFilter.EntityData.Children["outbound"] = types.YChild{"Outbound", &ipv4PacketFilter.Outbound}
+    ipv4PacketFilter.EntityData.Children["inbound"] = types.YChild{"Inbound", &ipv4PacketFilter.Inbound}
+    ipv4PacketFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4PacketFilter.EntityData)
 }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-}
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "outbound" {
-        return &ipv4PacketFilter.Outbound
-    }
-    if childYangName == "inbound" {
-        return &ipv4PacketFilter.Inbound
-    }
-    return nil
-}
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["outbound"] = &ipv4PacketFilter.Outbound
-    children["inbound"] = &ipv4PacketFilter.Inbound
-    return children
-}
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetYangName() string { return "ipv4-packet-filter" }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) SetParent(parent types.Entity) { ipv4PacketFilter.parent = parent }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetParent() types.Entity { return ipv4PacketFilter.parent }
-
-func (ipv4PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound
 // IPv4 Packet filter to be applied to outbound
 // packets
-// This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
     CommonAclName interface{}
 
     // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..65. This attribute is mandatory.
+    // string with length: 1..65.
     Name interface{}
 
     // Not supported (Leave unspecified). The type is interface{}.
@@ -707,63 +364,30 @@ type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound struct {
     InterfaceStatistics interface{}
 }
 
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-count" { return "HardwareCount" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", outbound.CommonAclName}
+    outbound.EntityData.Leafs["name"] = types.YLeaf{"Name", outbound.Name}
+    outbound.EntityData.Leafs["hardware-count"] = types.YLeaf{"HardwareCount", outbound.HardwareCount}
+    outbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics}
+    return &(outbound.EntityData)
 }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = outbound.CommonAclName
-    leafs["name"] = outbound.Name
-    leafs["hardware-count"] = outbound.HardwareCount
-    leafs["interface-statistics"] = outbound.InterfaceStatistics
-    return leafs
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Outbound) GetParentYangName() string { return "ipv4-packet-filter" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound
 // IPv4 Packet filter to be applied to inbound
 // packets
 type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
@@ -781,63 +405,30 @@ type DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound struct {
     InterfaceStatistics interface{}
 }
 
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-count" { return "HardwareCount" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", inbound.CommonAclName}
+    inbound.EntityData.Leafs["name"] = types.YLeaf{"Name", inbound.Name}
+    inbound.EntityData.Leafs["hardware-count"] = types.YLeaf{"HardwareCount", inbound.HardwareCount}
+    inbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics}
+    return &(inbound.EntityData)
 }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = inbound.CommonAclName
-    leafs["name"] = inbound.Name
-    leafs["hardware-count"] = inbound.HardwareCount
-    leafs["interface-statistics"] = inbound.InterfaceStatistics
-    return leafs
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv4PacketFilter_Inbound) GetParentYangName() string { return "ipv4-packet-filter" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter
 // IPv6 Packet Filtering configuration for the
 // interface
 type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Packet filter to be applied to inbound packets.
@@ -847,65 +438,28 @@ type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter struct {
     Outbound DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound
 }
 
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetFilter() yfilter.YFilter { return ipv6PacketFilter.YFilter }
+func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
+    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv6PacketFilter.EntityData.ParentYangName = "ppp"
+    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) SetFilter(yf yfilter.YFilter) { ipv6PacketFilter.YFilter = yf }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    return ""
+    ipv6PacketFilter.EntityData.Children = make(map[string]types.YChild)
+    ipv6PacketFilter.EntityData.Children["inbound"] = types.YChild{"Inbound", &ipv6PacketFilter.Inbound}
+    ipv6PacketFilter.EntityData.Children["outbound"] = types.YChild{"Outbound", &ipv6PacketFilter.Outbound}
+    ipv6PacketFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6PacketFilter.EntityData)
 }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-}
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "inbound" {
-        return &ipv6PacketFilter.Inbound
-    }
-    if childYangName == "outbound" {
-        return &ipv6PacketFilter.Outbound
-    }
-    return nil
-}
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["inbound"] = &ipv6PacketFilter.Inbound
-    children["outbound"] = &ipv6PacketFilter.Outbound
-    return children
-}
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetYangName() string { return "ipv6-packet-filter" }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) SetParent(parent types.Entity) { ipv6PacketFilter.parent = parent }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetParent() types.Entity { return ipv6PacketFilter.parent }
-
-func (ipv6PacketFilter *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound
 // IPv6 Packet filter to be applied to inbound
 // packets
 type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
@@ -920,188 +474,90 @@ type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound struct {
     InterfaceStatistics interface{}
 }
 
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", inbound.CommonAclName}
+    inbound.EntityData.Leafs["name"] = types.YLeaf{"Name", inbound.Name}
+    inbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics}
+    return &(inbound.EntityData)
 }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = inbound.CommonAclName
-    leafs["name"] = inbound.Name
-    leafs["interface-statistics"] = inbound.InterfaceStatistics
-    return leafs
-}
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Inbound) GetParentYangName() string { return "ipv6-packet-filter" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound
 // IPv6 Packet filter to be applied to outbound
 // packets
-// This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
     CommonAclName interface{}
 
     // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..65. This attribute is mandatory.
+    // string with length: 1..65.
     Name interface{}
 
     // Not supported (Leave unspecified). The type is interface{}.
     InterfaceStatistics interface{}
 }
 
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", outbound.CommonAclName}
+    outbound.EntityData.Leafs["name"] = types.YLeaf{"Name", outbound.Name}
+    outbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics}
+    return &(outbound.EntityData)
 }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = outbound.CommonAclName
-    leafs["name"] = outbound.Name
-    leafs["interface-statistics"] = outbound.InterfaceStatistics
-    return leafs
-}
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *DynamicTemplate_Ppps_Ppp_Ipv6PacketFilter_Outbound) GetParentYangName() string { return "ipv6-packet-filter" }
 
 // DynamicTemplate_Ppps_Ppp_Igmp
 // IGMPconfiguration
 type DynamicTemplate_Ppps_Ppp_Igmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Default VRF.
     DefaultVrf DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf
 }
 
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetFilter() yfilter.YFilter { return igmp.YFilter }
+func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetEntityData() *types.CommonEntityData {
+    igmp.EntityData.YFilter = igmp.YFilter
+    igmp.EntityData.YangName = "igmp"
+    igmp.EntityData.BundleName = "cisco_ios_xr"
+    igmp.EntityData.ParentYangName = "ppp"
+    igmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
+    igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) SetFilter(yf yfilter.YFilter) { igmp.YFilter = yf }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetGoName(yname string) string {
-    if yname == "default-vrf" { return "DefaultVrf" }
-    return ""
+    igmp.EntityData.Children = make(map[string]types.YChild)
+    igmp.EntityData.Children["default-vrf"] = types.YChild{"DefaultVrf", &igmp.DefaultVrf}
+    igmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(igmp.EntityData)
 }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
-}
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "default-vrf" {
-        return &igmp.DefaultVrf
-    }
-    return nil
-}
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["default-vrf"] = &igmp.DefaultVrf
-    return children
-}
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetYangName() string { return "igmp" }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) SetParent(parent types.Entity) { igmp.parent = parent }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetParent() types.Entity { return igmp.parent }
-
-func (igmp *DynamicTemplate_Ppps_Ppp_Igmp) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf
 // Default VRF
 type DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IGMP Max Groups. The type is interface{} with range: 1..40000. The default
@@ -1131,72 +587,33 @@ type DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf struct {
     ExplicitTracking DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking
 }
 
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetFilter() yfilter.YFilter { return defaultVrf.YFilter }
+func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetEntityData() *types.CommonEntityData {
+    defaultVrf.EntityData.YFilter = defaultVrf.YFilter
+    defaultVrf.EntityData.YangName = "default-vrf"
+    defaultVrf.EntityData.BundleName = "cisco_ios_xr"
+    defaultVrf.EntityData.ParentYangName = "igmp"
+    defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) SetFilter(yf yfilter.YFilter) { defaultVrf.YFilter = yf }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetGoName(yname string) string {
-    if yname == "max-groups" { return "MaxGroups" }
-    if yname == "access-group" { return "AccessGroup" }
-    if yname == "version" { return "Version" }
-    if yname == "query-interval" { return "QueryInterval" }
-    if yname == "query-max-response-time" { return "QueryMaxResponseTime" }
-    if yname == "multicast-mode" { return "MulticastMode" }
-    if yname == "explicit-tracking" { return "ExplicitTracking" }
-    return ""
+    defaultVrf.EntityData.Children = make(map[string]types.YChild)
+    defaultVrf.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &defaultVrf.ExplicitTracking}
+    defaultVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultVrf.EntityData.Leafs["max-groups"] = types.YLeaf{"MaxGroups", defaultVrf.MaxGroups}
+    defaultVrf.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", defaultVrf.AccessGroup}
+    defaultVrf.EntityData.Leafs["version"] = types.YLeaf{"Version", defaultVrf.Version}
+    defaultVrf.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", defaultVrf.QueryInterval}
+    defaultVrf.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", defaultVrf.QueryMaxResponseTime}
+    defaultVrf.EntityData.Leafs["multicast-mode"] = types.YLeaf{"MulticastMode", defaultVrf.MulticastMode}
+    return &(defaultVrf.EntityData)
 }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetSegmentPath() string {
-    return "default-vrf"
-}
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "explicit-tracking" {
-        return &defaultVrf.ExplicitTracking
-    }
-    return nil
-}
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["explicit-tracking"] = &defaultVrf.ExplicitTracking
-    return children
-}
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-groups"] = defaultVrf.MaxGroups
-    leafs["access-group"] = defaultVrf.AccessGroup
-    leafs["version"] = defaultVrf.Version
-    leafs["query-interval"] = defaultVrf.QueryInterval
-    leafs["query-max-response-time"] = defaultVrf.QueryMaxResponseTime
-    leafs["multicast-mode"] = defaultVrf.MulticastMode
-    return leafs
-}
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetYangName() string { return "default-vrf" }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) SetParent(parent types.Entity) { defaultVrf.parent = parent }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetParent() types.Entity { return defaultVrf.parent }
-
-func (defaultVrf *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf) GetParentYangName() string { return "igmp" }
 
 // DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking
 // IGMPv3 explicit host tracking
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable or disable, when value is TRUE or FALSE respectively. The type is
@@ -1208,58 +625,27 @@ type DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking struct {
     AccessListName interface{}
 }
 
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetFilter() yfilter.YFilter { return explicitTracking.YFilter }
+func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetEntityData() *types.CommonEntityData {
+    explicitTracking.EntityData.YFilter = explicitTracking.YFilter
+    explicitTracking.EntityData.YangName = "explicit-tracking"
+    explicitTracking.EntityData.BundleName = "cisco_ios_xr"
+    explicitTracking.EntityData.ParentYangName = "default-vrf"
+    explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) SetFilter(yf yfilter.YFilter) { explicitTracking.YFilter = yf }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "access-list-name" { return "AccessListName" }
-    return ""
+    explicitTracking.EntityData.Children = make(map[string]types.YChild)
+    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
+    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    return &(explicitTracking.EntityData)
 }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetSegmentPath() string {
-    return "explicit-tracking"
-}
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = explicitTracking.Enable
-    leafs["access-list-name"] = explicitTracking.AccessListName
-    return leafs
-}
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetBundleName() string { return "cisco_ios_xr" }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetYangName() string { return "explicit-tracking" }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) SetParent(parent types.Entity) { explicitTracking.parent = parent }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetParent() types.Entity { return explicitTracking.parent }
-
-func (explicitTracking *DynamicTemplate_Ppps_Ppp_Igmp_DefaultVrf_ExplicitTracking) GetParentYangName() string { return "default-vrf" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv4Network
 // Interface IPv4 Network configuration data
 type DynamicTemplate_Ppps_Ppp_Ipv4Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable IP processing without an explicit address. The type is string.
@@ -1278,62 +664,29 @@ type DynamicTemplate_Ppps_Ppp_Ipv4Network struct {
     Rpf interface{}
 }
 
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetFilter() yfilter.YFilter { return ipv4Network.YFilter }
+func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "ppp"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) SetFilter(yf yfilter.YFilter) { ipv4Network.YFilter = yf }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetGoName(yname string) string {
-    if yname == "unnumbered" { return "Unnumbered" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "unreachables" { return "Unreachables" }
-    if yname == "rpf" { return "Rpf" }
-    return ""
+    ipv4Network.EntityData.Children = make(map[string]types.YChild)
+    ipv4Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Network.EntityData.Leafs["unnumbered"] = types.YLeaf{"Unnumbered", ipv4Network.Unnumbered}
+    ipv4Network.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv4Network.Mtu}
+    ipv4Network.EntityData.Leafs["unreachables"] = types.YLeaf{"Unreachables", ipv4Network.Unreachables}
+    ipv4Network.EntityData.Leafs["rpf"] = types.YLeaf{"Rpf", ipv4Network.Rpf}
+    return &(ipv4Network.EntityData)
 }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-}
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unnumbered"] = ipv4Network.Unnumbered
-    leafs["mtu"] = ipv4Network.Mtu
-    leafs["unreachables"] = ipv4Network.Unreachables
-    leafs["rpf"] = ipv4Network.Rpf
-    return leafs
-}
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetYangName() string { return "ipv4-network" }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) SetParent(parent types.Entity) { ipv4Network.parent = parent }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetParent() types.Entity { return ipv4Network.parent }
-
-func (ipv4Network *DynamicTemplate_Ppps_Ppp_Ipv4Network) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Network
 // Interface IPv6 Network configuration data
 type DynamicTemplate_Ppps_Ppp_Ipv6Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
@@ -1350,124 +703,55 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Network struct {
     Addresses DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses
 }
 
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetFilter() yfilter.YFilter { return ipv6Network.YFilter }
+func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetEntityData() *types.CommonEntityData {
+    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
+    ipv6Network.EntityData.YangName = "ipv6-network"
+    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Network.EntityData.ParentYangName = "ppp"
+    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) SetFilter(yf yfilter.YFilter) { ipv6Network.YFilter = yf }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetGoName(yname string) string {
-    if yname == "mtu" { return "Mtu" }
-    if yname == "rpf" { return "Rpf" }
-    if yname == "unreachables" { return "Unreachables" }
-    if yname == "addresses" { return "Addresses" }
-    return ""
+    ipv6Network.EntityData.Children = make(map[string]types.YChild)
+    ipv6Network.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv6Network.Addresses}
+    ipv6Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Network.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv6Network.Mtu}
+    ipv6Network.EntityData.Leafs["rpf"] = types.YLeaf{"Rpf", ipv6Network.Rpf}
+    ipv6Network.EntityData.Leafs["unreachables"] = types.YLeaf{"Unreachables", ipv6Network.Unreachables}
+    return &(ipv6Network.EntityData)
 }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-}
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "addresses" {
-        return &ipv6Network.Addresses
-    }
-    return nil
-}
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["addresses"] = &ipv6Network.Addresses
-    return children
-}
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mtu"] = ipv6Network.Mtu
-    leafs["rpf"] = ipv6Network.Rpf
-    leafs["unreachables"] = ipv6Network.Unreachables
-    return leafs
-}
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetYangName() string { return "ipv6-network" }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) SetParent(parent types.Entity) { ipv6Network.parent = parent }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetParent() types.Entity { return ipv6Network.parent }
-
-func (ipv6Network *DynamicTemplate_Ppps_Ppp_Ipv6Network) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses
 // Set the IPv6 address of an interface
 type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Auto IPv6 Interface Configuration.
     AutoConfiguration DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration
 }
 
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetFilter() yfilter.YFilter { return addresses.YFilter }
+func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "ipv6-network"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) SetFilter(yf yfilter.YFilter) { addresses.YFilter = yf }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetGoName(yname string) string {
-    if yname == "auto-configuration" { return "AutoConfiguration" }
-    return ""
+    addresses.EntityData.Children = make(map[string]types.YChild)
+    addresses.EntityData.Children["auto-configuration"] = types.YChild{"AutoConfiguration", &addresses.AutoConfiguration}
+    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addresses.EntityData)
 }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetSegmentPath() string {
-    return "addresses"
-}
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "auto-configuration" {
-        return &addresses.AutoConfiguration
-    }
-    return nil
-}
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["auto-configuration"] = &addresses.AutoConfiguration
-    return children
-}
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetYangName() string { return "addresses" }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) SetParent(parent types.Entity) { addresses.parent = parent }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetParent() types.Entity { return addresses.parent }
-
-func (addresses *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses) GetParentYangName() string { return "ipv6-network" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration
 // Auto IPv6 Interface Configuration
 type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The flag to enable auto ipv6 interface configuration. The type is
@@ -1475,56 +759,26 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration struct {
     Enable interface{}
 }
 
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetFilter() yfilter.YFilter { return autoConfiguration.YFilter }
+func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
+    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
+    autoConfiguration.EntityData.YangName = "auto-configuration"
+    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    autoConfiguration.EntityData.ParentYangName = "addresses"
+    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
+    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) SetFilter(yf yfilter.YFilter) { autoConfiguration.YFilter = yf }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    autoConfiguration.EntityData.Children = make(map[string]types.YChild)
+    autoConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoConfiguration.EntityData.Leafs["enable"] = types.YLeaf{"Enable", autoConfiguration.Enable}
+    return &(autoConfiguration.EntityData)
 }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetSegmentPath() string {
-    return "auto-configuration"
-}
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = autoConfiguration.Enable
-    return leafs
-}
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetYangName() string { return "auto-configuration" }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) SetParent(parent types.Entity) { autoConfiguration.parent = parent }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetParent() types.Entity { return autoConfiguration.parent }
-
-func (autoConfiguration *DynamicTemplate_Ppps_Ppp_Ipv6Network_Addresses_AutoConfiguration) GetParentYangName() string { return "addresses" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Neighbor
 // Interface IPv6 Network configuration data
 type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set the IPv6 framed ipv6 prefix pool for a subscriber interface . The type
@@ -1589,104 +843,45 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor struct {
     RaInitial DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial
 }
 
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetFilter() yfilter.YFilter { return ipv6Neighbor.YFilter }
+func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetEntityData() *types.CommonEntityData {
+    ipv6Neighbor.EntityData.YFilter = ipv6Neighbor.YFilter
+    ipv6Neighbor.EntityData.YangName = "ipv6-neighbor"
+    ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Neighbor.EntityData.ParentYangName = "ppp"
+    ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) SetFilter(yf yfilter.YFilter) { ipv6Neighbor.YFilter = yf }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetGoName(yname string) string {
-    if yname == "framed-prefix-pool" { return "FramedPrefixPool" }
-    if yname == "managed-config" { return "ManagedConfig" }
-    if yname == "other-config" { return "OtherConfig" }
-    if yname == "start-ra-on-ipv6-enable" { return "StartRaOnIpv6Enable" }
-    if yname == "nud-enable" { return "NudEnable" }
-    if yname == "ra-lifetime" { return "RaLifetime" }
-    if yname == "router-preference" { return "RouterPreference" }
-    if yname == "ra-suppress" { return "RaSuppress" }
-    if yname == "ra-unicast" { return "RaUnicast" }
-    if yname == "ra-unspecify-hoplimit" { return "RaUnspecifyHoplimit" }
-    if yname == "ra-suppress-mtu" { return "RaSuppressMtu" }
-    if yname == "suppress-cache-learning" { return "SuppressCacheLearning" }
-    if yname == "reachable-time" { return "ReachableTime" }
-    if yname == "ns-interval" { return "NsInterval" }
-    if yname == "ra-interval" { return "RaInterval" }
-    if yname == "framed-prefix" { return "FramedPrefix" }
-    if yname == "duplicate-address-detection" { return "DuplicateAddressDetection" }
-    if yname == "ra-initial" { return "RaInitial" }
-    return ""
+    ipv6Neighbor.EntityData.Children = make(map[string]types.YChild)
+    ipv6Neighbor.EntityData.Children["ra-interval"] = types.YChild{"RaInterval", &ipv6Neighbor.RaInterval}
+    ipv6Neighbor.EntityData.Children["framed-prefix"] = types.YChild{"FramedPrefix", &ipv6Neighbor.FramedPrefix}
+    ipv6Neighbor.EntityData.Children["duplicate-address-detection"] = types.YChild{"DuplicateAddressDetection", &ipv6Neighbor.DuplicateAddressDetection}
+    ipv6Neighbor.EntityData.Children["ra-initial"] = types.YChild{"RaInitial", &ipv6Neighbor.RaInitial}
+    ipv6Neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Neighbor.EntityData.Leafs["framed-prefix-pool"] = types.YLeaf{"FramedPrefixPool", ipv6Neighbor.FramedPrefixPool}
+    ipv6Neighbor.EntityData.Leafs["managed-config"] = types.YLeaf{"ManagedConfig", ipv6Neighbor.ManagedConfig}
+    ipv6Neighbor.EntityData.Leafs["other-config"] = types.YLeaf{"OtherConfig", ipv6Neighbor.OtherConfig}
+    ipv6Neighbor.EntityData.Leafs["start-ra-on-ipv6-enable"] = types.YLeaf{"StartRaOnIpv6Enable", ipv6Neighbor.StartRaOnIpv6Enable}
+    ipv6Neighbor.EntityData.Leafs["nud-enable"] = types.YLeaf{"NudEnable", ipv6Neighbor.NudEnable}
+    ipv6Neighbor.EntityData.Leafs["ra-lifetime"] = types.YLeaf{"RaLifetime", ipv6Neighbor.RaLifetime}
+    ipv6Neighbor.EntityData.Leafs["router-preference"] = types.YLeaf{"RouterPreference", ipv6Neighbor.RouterPreference}
+    ipv6Neighbor.EntityData.Leafs["ra-suppress"] = types.YLeaf{"RaSuppress", ipv6Neighbor.RaSuppress}
+    ipv6Neighbor.EntityData.Leafs["ra-unicast"] = types.YLeaf{"RaUnicast", ipv6Neighbor.RaUnicast}
+    ipv6Neighbor.EntityData.Leafs["ra-unspecify-hoplimit"] = types.YLeaf{"RaUnspecifyHoplimit", ipv6Neighbor.RaUnspecifyHoplimit}
+    ipv6Neighbor.EntityData.Leafs["ra-suppress-mtu"] = types.YLeaf{"RaSuppressMtu", ipv6Neighbor.RaSuppressMtu}
+    ipv6Neighbor.EntityData.Leafs["suppress-cache-learning"] = types.YLeaf{"SuppressCacheLearning", ipv6Neighbor.SuppressCacheLearning}
+    ipv6Neighbor.EntityData.Leafs["reachable-time"] = types.YLeaf{"ReachableTime", ipv6Neighbor.ReachableTime}
+    ipv6Neighbor.EntityData.Leafs["ns-interval"] = types.YLeaf{"NsInterval", ipv6Neighbor.NsInterval}
+    return &(ipv6Neighbor.EntityData)
 }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
-}
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ra-interval" {
-        return &ipv6Neighbor.RaInterval
-    }
-    if childYangName == "framed-prefix" {
-        return &ipv6Neighbor.FramedPrefix
-    }
-    if childYangName == "duplicate-address-detection" {
-        return &ipv6Neighbor.DuplicateAddressDetection
-    }
-    if childYangName == "ra-initial" {
-        return &ipv6Neighbor.RaInitial
-    }
-    return nil
-}
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ra-interval"] = &ipv6Neighbor.RaInterval
-    children["framed-prefix"] = &ipv6Neighbor.FramedPrefix
-    children["duplicate-address-detection"] = &ipv6Neighbor.DuplicateAddressDetection
-    children["ra-initial"] = &ipv6Neighbor.RaInitial
-    return children
-}
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["framed-prefix-pool"] = ipv6Neighbor.FramedPrefixPool
-    leafs["managed-config"] = ipv6Neighbor.ManagedConfig
-    leafs["other-config"] = ipv6Neighbor.OtherConfig
-    leafs["start-ra-on-ipv6-enable"] = ipv6Neighbor.StartRaOnIpv6Enable
-    leafs["nud-enable"] = ipv6Neighbor.NudEnable
-    leafs["ra-lifetime"] = ipv6Neighbor.RaLifetime
-    leafs["router-preference"] = ipv6Neighbor.RouterPreference
-    leafs["ra-suppress"] = ipv6Neighbor.RaSuppress
-    leafs["ra-unicast"] = ipv6Neighbor.RaUnicast
-    leafs["ra-unspecify-hoplimit"] = ipv6Neighbor.RaUnspecifyHoplimit
-    leafs["ra-suppress-mtu"] = ipv6Neighbor.RaSuppressMtu
-    leafs["suppress-cache-learning"] = ipv6Neighbor.SuppressCacheLearning
-    leafs["reachable-time"] = ipv6Neighbor.ReachableTime
-    leafs["ns-interval"] = ipv6Neighbor.NsInterval
-    return leafs
-}
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetYangName() string { return "ipv6-neighbor" }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) SetParent(parent types.Entity) { ipv6Neighbor.parent = parent }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetParent() types.Entity { return ipv6Neighbor.parent }
-
-func (ipv6Neighbor *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval
 // Set IPv6 Router Advertisement (RA) interval in
 // seconds
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum RA interval in seconds. The type is interface{} with range:
@@ -1698,60 +893,29 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval struct {
     Minimum interface{}
 }
 
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetFilter() yfilter.YFilter { return raInterval.YFilter }
+func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetEntityData() *types.CommonEntityData {
+    raInterval.EntityData.YFilter = raInterval.YFilter
+    raInterval.EntityData.YangName = "ra-interval"
+    raInterval.EntityData.BundleName = "cisco_ios_xr"
+    raInterval.EntityData.ParentYangName = "ipv6-neighbor"
+    raInterval.EntityData.SegmentPath = "ra-interval"
+    raInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) SetFilter(yf yfilter.YFilter) { raInterval.YFilter = yf }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetGoName(yname string) string {
-    if yname == "maximum" { return "Maximum" }
-    if yname == "minimum" { return "Minimum" }
-    return ""
+    raInterval.EntityData.Children = make(map[string]types.YChild)
+    raInterval.EntityData.Leafs = make(map[string]types.YLeaf)
+    raInterval.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", raInterval.Maximum}
+    raInterval.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", raInterval.Minimum}
+    return &(raInterval.EntityData)
 }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetSegmentPath() string {
-    return "ra-interval"
-}
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["maximum"] = raInterval.Maximum
-    leafs["minimum"] = raInterval.Minimum
-    return leafs
-}
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetBundleName() string { return "cisco_ios_xr" }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetYangName() string { return "ra-interval" }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) SetParent(parent types.Entity) { raInterval.parent = parent }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetParent() types.Entity { return raInterval.parent }
-
-func (raInterval *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInterval) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix
 // Set the IPv6 framed ipv6 prefix for a
 // subscriber interface 
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 framed prefix length. The type is interface{} with range: 0..128. This
@@ -1763,58 +927,27 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix struct {
     Prefix interface{}
 }
 
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetFilter() yfilter.YFilter { return framedPrefix.YFilter }
+func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetEntityData() *types.CommonEntityData {
+    framedPrefix.EntityData.YFilter = framedPrefix.YFilter
+    framedPrefix.EntityData.YangName = "framed-prefix"
+    framedPrefix.EntityData.BundleName = "cisco_ios_xr"
+    framedPrefix.EntityData.ParentYangName = "ipv6-neighbor"
+    framedPrefix.EntityData.SegmentPath = "framed-prefix"
+    framedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    framedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    framedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) SetFilter(yf yfilter.YFilter) { framedPrefix.YFilter = yf }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetGoName(yname string) string {
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "prefix" { return "Prefix" }
-    return ""
+    framedPrefix.EntityData.Children = make(map[string]types.YChild)
+    framedPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    framedPrefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", framedPrefix.PrefixLength}
+    framedPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", framedPrefix.Prefix}
+    return &(framedPrefix.EntityData)
 }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetSegmentPath() string {
-    return "framed-prefix"
-}
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-length"] = framedPrefix.PrefixLength
-    leafs["prefix"] = framedPrefix.Prefix
-    return leafs
-}
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetYangName() string { return "framed-prefix" }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) SetParent(parent types.Entity) { framedPrefix.parent = parent }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetParent() types.Entity { return framedPrefix.parent }
-
-func (framedPrefix *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_FramedPrefix) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection
 // Duplicate Address Detection (DAD)
 type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set IPv6 duplicate address detection transmits. The type is interface{}
@@ -1822,57 +955,27 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection struct {
     Attempts interface{}
 }
 
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetFilter() yfilter.YFilter { return duplicateAddressDetection.YFilter }
+func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetEntityData() *types.CommonEntityData {
+    duplicateAddressDetection.EntityData.YFilter = duplicateAddressDetection.YFilter
+    duplicateAddressDetection.EntityData.YangName = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.BundleName = "cisco_ios_xr"
+    duplicateAddressDetection.EntityData.ParentYangName = "ipv6-neighbor"
+    duplicateAddressDetection.EntityData.SegmentPath = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    duplicateAddressDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    duplicateAddressDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) SetFilter(yf yfilter.YFilter) { duplicateAddressDetection.YFilter = yf }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetGoName(yname string) string {
-    if yname == "attempts" { return "Attempts" }
-    return ""
+    duplicateAddressDetection.EntityData.Children = make(map[string]types.YChild)
+    duplicateAddressDetection.EntityData.Leafs = make(map[string]types.YLeaf)
+    duplicateAddressDetection.EntityData.Leafs["attempts"] = types.YLeaf{"Attempts", duplicateAddressDetection.Attempts}
+    return &(duplicateAddressDetection.EntityData)
 }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetSegmentPath() string {
-    return "duplicate-address-detection"
-}
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["attempts"] = duplicateAddressDetection.Attempts
-    return leafs
-}
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetBundleName() string { return "cisco_ios_xr" }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetYangName() string { return "duplicate-address-detection" }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) SetParent(parent types.Entity) { duplicateAddressDetection.parent = parent }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetParent() types.Entity { return duplicateAddressDetection.parent }
-
-func (duplicateAddressDetection *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_DuplicateAddressDetection) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial
 // IPv6 ND RA Initial
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initial RA count. The type is interface{} with range: 0..32. This attribute
@@ -1884,62 +987,31 @@ type DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial struct {
     Interval interface{}
 }
 
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetFilter() yfilter.YFilter { return raInitial.YFilter }
+func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetEntityData() *types.CommonEntityData {
+    raInitial.EntityData.YFilter = raInitial.YFilter
+    raInitial.EntityData.YangName = "ra-initial"
+    raInitial.EntityData.BundleName = "cisco_ios_xr"
+    raInitial.EntityData.ParentYangName = "ipv6-neighbor"
+    raInitial.EntityData.SegmentPath = "ra-initial"
+    raInitial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raInitial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raInitial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) SetFilter(yf yfilter.YFilter) { raInitial.YFilter = yf }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetGoName(yname string) string {
-    if yname == "count" { return "Count" }
-    if yname == "interval" { return "Interval" }
-    return ""
+    raInitial.EntityData.Children = make(map[string]types.YChild)
+    raInitial.EntityData.Leafs = make(map[string]types.YLeaf)
+    raInitial.EntityData.Leafs["count"] = types.YLeaf{"Count", raInitial.Count}
+    raInitial.EntityData.Leafs["interval"] = types.YLeaf{"Interval", raInitial.Interval}
+    return &(raInitial.EntityData)
 }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetSegmentPath() string {
-    return "ra-initial"
-}
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["count"] = raInitial.Count
-    leafs["interval"] = raInitial.Interval
-    return leafs
-}
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetBundleName() string { return "cisco_ios_xr" }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetYangName() string { return "ra-initial" }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) SetParent(parent types.Entity) { raInitial.parent = parent }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetParent() types.Entity { return raInitial.parent }
-
-func (raInitial *DynamicTemplate_Ppps_Ppp_Ipv6Neighbor_RaInitial) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_Ppps_Ppp_Dhcpv6
 // Interface dhcpv6 configuration data
 type DynamicTemplate_Ppps_Ppp_Dhcpv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dns IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsIpv6Address interface{}
 
     // Select proxy/server profile based on mode class name. The type is string.
@@ -1955,83 +1027,44 @@ type DynamicTemplate_Ppps_Ppp_Dhcpv6 struct {
     Class interface{}
 
     // Stateful IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StatefulAddress interface{}
 
     // The prefix to be used for Prefix Delegation.
     DelegatedPrefix DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix
 }
 
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetFilter() yfilter.YFilter { return dhcpv6.YFilter }
+func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetEntityData() *types.CommonEntityData {
+    dhcpv6.EntityData.YFilter = dhcpv6.YFilter
+    dhcpv6.EntityData.YangName = "dhcpv6"
+    dhcpv6.EntityData.BundleName = "cisco_ios_xr"
+    dhcpv6.EntityData.ParentYangName = "ppp"
+    dhcpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"
+    dhcpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) SetFilter(yf yfilter.YFilter) { dhcpv6.YFilter = yf }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetGoName(yname string) string {
-    if yname == "dns-ipv6address" { return "DnsIpv6Address" }
-    if yname == "mode-class" { return "ModeClass" }
-    if yname == "address-pool" { return "AddressPool" }
-    if yname == "delegated-prefix-pool" { return "DelegatedPrefixPool" }
-    if yname == "class" { return "Class" }
-    if yname == "stateful-address" { return "StatefulAddress" }
-    if yname == "delegated-prefix" { return "DelegatedPrefix" }
-    return ""
+    dhcpv6.EntityData.Children = make(map[string]types.YChild)
+    dhcpv6.EntityData.Children["delegated-prefix"] = types.YChild{"DelegatedPrefix", &dhcpv6.DelegatedPrefix}
+    dhcpv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcpv6.EntityData.Leafs["dns-ipv6address"] = types.YLeaf{"DnsIpv6Address", dhcpv6.DnsIpv6Address}
+    dhcpv6.EntityData.Leafs["mode-class"] = types.YLeaf{"ModeClass", dhcpv6.ModeClass}
+    dhcpv6.EntityData.Leafs["address-pool"] = types.YLeaf{"AddressPool", dhcpv6.AddressPool}
+    dhcpv6.EntityData.Leafs["delegated-prefix-pool"] = types.YLeaf{"DelegatedPrefixPool", dhcpv6.DelegatedPrefixPool}
+    dhcpv6.EntityData.Leafs["class"] = types.YLeaf{"Class", dhcpv6.Class}
+    dhcpv6.EntityData.Leafs["stateful-address"] = types.YLeaf{"StatefulAddress", dhcpv6.StatefulAddress}
+    return &(dhcpv6.EntityData)
 }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"
-}
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "delegated-prefix" {
-        return &dhcpv6.DelegatedPrefix
-    }
-    return nil
-}
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["delegated-prefix"] = &dhcpv6.DelegatedPrefix
-    return children
-}
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dns-ipv6address"] = dhcpv6.DnsIpv6Address
-    leafs["mode-class"] = dhcpv6.ModeClass
-    leafs["address-pool"] = dhcpv6.AddressPool
-    leafs["delegated-prefix-pool"] = dhcpv6.DelegatedPrefixPool
-    leafs["class"] = dhcpv6.Class
-    leafs["stateful-address"] = dhcpv6.StatefulAddress
-    return leafs
-}
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetYangName() string { return "dhcpv6" }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) SetParent(parent types.Entity) { dhcpv6.parent = parent }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetParent() types.Entity { return dhcpv6.parent }
-
-func (dhcpv6 *DynamicTemplate_Ppps_Ppp_Dhcpv6) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix
 // The prefix to be used for Prefix Delegation
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Prefix interface{}
 
@@ -2040,58 +1073,27 @@ type DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix struct {
     PrefixLength interface{}
 }
 
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetFilter() yfilter.YFilter { return delegatedPrefix.YFilter }
+func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetEntityData() *types.CommonEntityData {
+    delegatedPrefix.EntityData.YFilter = delegatedPrefix.YFilter
+    delegatedPrefix.EntityData.YangName = "delegated-prefix"
+    delegatedPrefix.EntityData.BundleName = "cisco_ios_xr"
+    delegatedPrefix.EntityData.ParentYangName = "dhcpv6"
+    delegatedPrefix.EntityData.SegmentPath = "delegated-prefix"
+    delegatedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    delegatedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    delegatedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) SetFilter(yf yfilter.YFilter) { delegatedPrefix.YFilter = yf }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    return ""
+    delegatedPrefix.EntityData.Children = make(map[string]types.YChild)
+    delegatedPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    delegatedPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", delegatedPrefix.Prefix}
+    delegatedPrefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", delegatedPrefix.PrefixLength}
+    return &(delegatedPrefix.EntityData)
 }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetSegmentPath() string {
-    return "delegated-prefix"
-}
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix"] = delegatedPrefix.Prefix
-    leafs["prefix-length"] = delegatedPrefix.PrefixLength
-    return leafs
-}
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetYangName() string { return "delegated-prefix" }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) SetParent(parent types.Entity) { delegatedPrefix.parent = parent }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetParent() types.Entity { return delegatedPrefix.parent }
-
-func (delegatedPrefix *DynamicTemplate_Ppps_Ppp_Dhcpv6_DelegatedPrefix) GetParentYangName() string { return "dhcpv6" }
 
 // DynamicTemplate_Ppps_Ppp_Pbr
 // Dynamic Template PBR configuration
 type DynamicTemplate_Ppps_Ppp_Pbr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Class for subscriber ingress policy. The type is string.
@@ -2101,117 +1103,53 @@ type DynamicTemplate_Ppps_Ppp_Pbr struct {
     ServicePolicy DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy
 }
 
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetFilter() yfilter.YFilter { return pbr.YFilter }
+func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetEntityData() *types.CommonEntityData {
+    pbr.EntityData.YFilter = pbr.YFilter
+    pbr.EntityData.YangName = "pbr"
+    pbr.EntityData.BundleName = "cisco_ios_xr"
+    pbr.EntityData.ParentYangName = "ppp"
+    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) SetFilter(yf yfilter.YFilter) { pbr.YFilter = yf }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetGoName(yname string) string {
-    if yname == "service-policy-in" { return "ServicePolicyIn" }
-    if yname == "service-policy" { return "ServicePolicy" }
-    return ""
+    pbr.EntityData.Children = make(map[string]types.YChild)
+    pbr.EntityData.Children["service-policy"] = types.YChild{"ServicePolicy", &pbr.ServicePolicy}
+    pbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbr.EntityData.Leafs["service-policy-in"] = types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn}
+    return &(pbr.EntityData)
 }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetSegmentPath() string {
-    return "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
-}
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-policy" {
-        return &pbr.ServicePolicy
-    }
-    return nil
-}
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-policy"] = &pbr.ServicePolicy
-    return children
-}
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["service-policy-in"] = pbr.ServicePolicyIn
-    return leafs
-}
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetYangName() string { return "pbr" }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) SetParent(parent types.Entity) { pbr.parent = parent }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetParent() types.Entity { return pbr.parent }
-
-func (pbr *DynamicTemplate_Ppps_Ppp_Pbr) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy
 // PBR service policy configuration
 type DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ingress service policy. The type is string.
     Input interface{}
 }
 
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetFilter() yfilter.YFilter { return servicePolicy.YFilter }
+func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "pbr"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) SetFilter(yf yfilter.YFilter) { servicePolicy.YFilter = yf }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    servicePolicy.EntityData.Children = make(map[string]types.YChild)
+    servicePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    servicePolicy.EntityData.Leafs["input"] = types.YLeaf{"Input", servicePolicy.Input}
+    return &(servicePolicy.EntityData)
 }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetSegmentPath() string {
-    return "service-policy"
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input"] = servicePolicy.Input
-    return leafs
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetYangName() string { return "service-policy" }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) SetParent(parent types.Entity) { servicePolicy.parent = parent }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetParent() types.Entity { return servicePolicy.parent }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Pbr_ServicePolicy) GetParentYangName() string { return "pbr" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate
 // PPP template configuration data
 type DynamicTemplate_Ppps_Ppp_PppTemplate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PPP FSM global template configuration data.
@@ -2227,74 +1165,29 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate struct {
     Ipcp DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp
 }
 
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetFilter() yfilter.YFilter { return pppTemplate.YFilter }
+func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetEntityData() *types.CommonEntityData {
+    pppTemplate.EntityData.YFilter = pppTemplate.YFilter
+    pppTemplate.EntityData.YangName = "ppp-template"
+    pppTemplate.EntityData.BundleName = "cisco_ios_xr"
+    pppTemplate.EntityData.ParentYangName = "ppp"
+    pppTemplate.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"
+    pppTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) SetFilter(yf yfilter.YFilter) { pppTemplate.YFilter = yf }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetGoName(yname string) string {
-    if yname == "fsm" { return "Fsm" }
-    if yname == "lcp" { return "Lcp" }
-    if yname == "ipv6cp" { return "Ipv6Cp" }
-    if yname == "ipcp" { return "Ipcp" }
-    return ""
+    pppTemplate.EntityData.Children = make(map[string]types.YChild)
+    pppTemplate.EntityData.Children["fsm"] = types.YChild{"Fsm", &pppTemplate.Fsm}
+    pppTemplate.EntityData.Children["lcp"] = types.YChild{"Lcp", &pppTemplate.Lcp}
+    pppTemplate.EntityData.Children["ipv6cp"] = types.YChild{"Ipv6Cp", &pppTemplate.Ipv6Cp}
+    pppTemplate.EntityData.Children["ipcp"] = types.YChild{"Ipcp", &pppTemplate.Ipcp}
+    pppTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pppTemplate.EntityData)
 }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ppp-ma-gbl-cfg:ppp-template"
-}
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fsm" {
-        return &pppTemplate.Fsm
-    }
-    if childYangName == "lcp" {
-        return &pppTemplate.Lcp
-    }
-    if childYangName == "ipv6cp" {
-        return &pppTemplate.Ipv6Cp
-    }
-    if childYangName == "ipcp" {
-        return &pppTemplate.Ipcp
-    }
-    return nil
-}
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["fsm"] = &pppTemplate.Fsm
-    children["lcp"] = &pppTemplate.Lcp
-    children["ipv6cp"] = &pppTemplate.Ipv6Cp
-    children["ipcp"] = &pppTemplate.Ipcp
-    return children
-}
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetYangName() string { return "ppp-template" }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) SetParent(parent types.Entity) { pppTemplate.parent = parent }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetParent() types.Entity { return pppTemplate.parent }
-
-func (pppTemplate *DynamicTemplate_Ppps_Ppp_PppTemplate) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm
 // PPP FSM global template configuration data
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This specifies the maximum number of consecutive Conf-Naks. The type is
@@ -2315,62 +1208,29 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm struct {
     ProtocolRejectTimeout interface{}
 }
 
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetFilter() yfilter.YFilter { return fsm.YFilter }
+func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetEntityData() *types.CommonEntityData {
+    fsm.EntityData.YFilter = fsm.YFilter
+    fsm.EntityData.YangName = "fsm"
+    fsm.EntityData.BundleName = "cisco_ios_xr"
+    fsm.EntityData.ParentYangName = "ppp-template"
+    fsm.EntityData.SegmentPath = "fsm"
+    fsm.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fsm.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fsm.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) SetFilter(yf yfilter.YFilter) { fsm.YFilter = yf }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetGoName(yname string) string {
-    if yname == "max-consecutive-conf-naks" { return "MaxConsecutiveConfNaks" }
-    if yname == "max-unacknowledged-conf-requests" { return "MaxUnacknowledgedConfRequests" }
-    if yname == "retry-timeout" { return "RetryTimeout" }
-    if yname == "protocol-reject-timeout" { return "ProtocolRejectTimeout" }
-    return ""
+    fsm.EntityData.Children = make(map[string]types.YChild)
+    fsm.EntityData.Leafs = make(map[string]types.YLeaf)
+    fsm.EntityData.Leafs["max-consecutive-conf-naks"] = types.YLeaf{"MaxConsecutiveConfNaks", fsm.MaxConsecutiveConfNaks}
+    fsm.EntityData.Leafs["max-unacknowledged-conf-requests"] = types.YLeaf{"MaxUnacknowledgedConfRequests", fsm.MaxUnacknowledgedConfRequests}
+    fsm.EntityData.Leafs["retry-timeout"] = types.YLeaf{"RetryTimeout", fsm.RetryTimeout}
+    fsm.EntityData.Leafs["protocol-reject-timeout"] = types.YLeaf{"ProtocolRejectTimeout", fsm.ProtocolRejectTimeout}
+    return &(fsm.EntityData)
 }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetSegmentPath() string {
-    return "fsm"
-}
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-consecutive-conf-naks"] = fsm.MaxConsecutiveConfNaks
-    leafs["max-unacknowledged-conf-requests"] = fsm.MaxUnacknowledgedConfRequests
-    leafs["retry-timeout"] = fsm.RetryTimeout
-    leafs["protocol-reject-timeout"] = fsm.ProtocolRejectTimeout
-    return leafs
-}
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetYangName() string { return "fsm" }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) SetParent(parent types.Entity) { fsm.parent = parent }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetParent() types.Entity { return fsm.parent }
-
-func (fsm *DynamicTemplate_Ppps_Ppp_PppTemplate_Fsm) GetParentYangName() string { return "ppp-template" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp
 // PPP LCP global template configuration data
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify whether to ignore attempts to renegotiate LCP. The type is
@@ -2401,83 +1261,34 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp struct {
     Keepalive DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive
 }
 
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetFilter() yfilter.YFilter { return lcp.YFilter }
+func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetEntityData() *types.CommonEntityData {
+    lcp.EntityData.YFilter = lcp.YFilter
+    lcp.EntityData.YangName = "lcp"
+    lcp.EntityData.BundleName = "cisco_ios_xr"
+    lcp.EntityData.ParentYangName = "ppp-template"
+    lcp.EntityData.SegmentPath = "lcp"
+    lcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) SetFilter(yf yfilter.YFilter) { lcp.YFilter = yf }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetGoName(yname string) string {
-    if yname == "renegotiation" { return "Renegotiation" }
-    if yname == "service-type" { return "ServiceType" }
-    if yname == "send-term-request-on-shut-down" { return "SendTermRequestOnShutDown" }
-    if yname == "mru-ignore" { return "MruIgnore" }
-    if yname == "absolute-timeout" { return "AbsoluteTimeout" }
-    if yname == "delay" { return "Delay" }
-    if yname == "authentication" { return "Authentication" }
-    if yname == "keepalive" { return "Keepalive" }
-    return ""
+    lcp.EntityData.Children = make(map[string]types.YChild)
+    lcp.EntityData.Children["absolute-timeout"] = types.YChild{"AbsoluteTimeout", &lcp.AbsoluteTimeout}
+    lcp.EntityData.Children["delay"] = types.YChild{"Delay", &lcp.Delay}
+    lcp.EntityData.Children["authentication"] = types.YChild{"Authentication", &lcp.Authentication}
+    lcp.EntityData.Children["keepalive"] = types.YChild{"Keepalive", &lcp.Keepalive}
+    lcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    lcp.EntityData.Leafs["renegotiation"] = types.YLeaf{"Renegotiation", lcp.Renegotiation}
+    lcp.EntityData.Leafs["service-type"] = types.YLeaf{"ServiceType", lcp.ServiceType}
+    lcp.EntityData.Leafs["send-term-request-on-shut-down"] = types.YLeaf{"SendTermRequestOnShutDown", lcp.SendTermRequestOnShutDown}
+    lcp.EntityData.Leafs["mru-ignore"] = types.YLeaf{"MruIgnore", lcp.MruIgnore}
+    return &(lcp.EntityData)
 }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetSegmentPath() string {
-    return "lcp"
-}
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "absolute-timeout" {
-        return &lcp.AbsoluteTimeout
-    }
-    if childYangName == "delay" {
-        return &lcp.Delay
-    }
-    if childYangName == "authentication" {
-        return &lcp.Authentication
-    }
-    if childYangName == "keepalive" {
-        return &lcp.Keepalive
-    }
-    return nil
-}
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["absolute-timeout"] = &lcp.AbsoluteTimeout
-    children["delay"] = &lcp.Delay
-    children["authentication"] = &lcp.Authentication
-    children["keepalive"] = &lcp.Keepalive
-    return children
-}
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["renegotiation"] = lcp.Renegotiation
-    leafs["service-type"] = lcp.ServiceType
-    leafs["send-term-request-on-shut-down"] = lcp.SendTermRequestOnShutDown
-    leafs["mru-ignore"] = lcp.MruIgnore
-    return leafs
-}
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetYangName() string { return "lcp" }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) SetParent(parent types.Entity) { lcp.parent = parent }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetParent() types.Entity { return lcp.parent }
-
-func (lcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp) GetParentYangName() string { return "ppp-template" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout
 // This specifies the session absolute timeout
 // value
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minutes. The type is interface{} with range: 0..35000000.
@@ -2487,59 +1298,28 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout struct {
     Seconds interface{}
 }
 
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetFilter() yfilter.YFilter { return absoluteTimeout.YFilter }
+func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetEntityData() *types.CommonEntityData {
+    absoluteTimeout.EntityData.YFilter = absoluteTimeout.YFilter
+    absoluteTimeout.EntityData.YangName = "absolute-timeout"
+    absoluteTimeout.EntityData.BundleName = "cisco_ios_xr"
+    absoluteTimeout.EntityData.ParentYangName = "lcp"
+    absoluteTimeout.EntityData.SegmentPath = "absolute-timeout"
+    absoluteTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    absoluteTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    absoluteTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) SetFilter(yf yfilter.YFilter) { absoluteTimeout.YFilter = yf }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetGoName(yname string) string {
-    if yname == "minutes" { return "Minutes" }
-    if yname == "seconds" { return "Seconds" }
-    return ""
+    absoluteTimeout.EntityData.Children = make(map[string]types.YChild)
+    absoluteTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
+    absoluteTimeout.EntityData.Leafs["minutes"] = types.YLeaf{"Minutes", absoluteTimeout.Minutes}
+    absoluteTimeout.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", absoluteTimeout.Seconds}
+    return &(absoluteTimeout.EntityData)
 }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetSegmentPath() string {
-    return "absolute-timeout"
-}
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minutes"] = absoluteTimeout.Minutes
-    leafs["seconds"] = absoluteTimeout.Seconds
-    return leafs
-}
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetBundleName() string { return "cisco_ios_xr" }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetYangName() string { return "absolute-timeout" }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) SetParent(parent types.Entity) { absoluteTimeout.parent = parent }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetParent() types.Entity { return absoluteTimeout.parent }
-
-func (absoluteTimeout *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_AbsoluteTimeout) GetParentYangName() string { return "lcp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay
 // This specifies the time to delay before
 // starting active LCPnegotiations
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Seconds. The type is interface{} with range: 0..255.
@@ -2549,58 +1329,27 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay struct {
     Milliseconds interface{}
 }
 
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetFilter() yfilter.YFilter { return delay.YFilter }
+func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetEntityData() *types.CommonEntityData {
+    delay.EntityData.YFilter = delay.YFilter
+    delay.EntityData.YangName = "delay"
+    delay.EntityData.BundleName = "cisco_ios_xr"
+    delay.EntityData.ParentYangName = "lcp"
+    delay.EntityData.SegmentPath = "delay"
+    delay.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    delay.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    delay.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) SetFilter(yf yfilter.YFilter) { delay.YFilter = yf }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetGoName(yname string) string {
-    if yname == "seconds" { return "Seconds" }
-    if yname == "milliseconds" { return "Milliseconds" }
-    return ""
+    delay.EntityData.Children = make(map[string]types.YChild)
+    delay.EntityData.Leafs = make(map[string]types.YLeaf)
+    delay.EntityData.Leafs["seconds"] = types.YLeaf{"Seconds", delay.Seconds}
+    delay.EntityData.Leafs["milliseconds"] = types.YLeaf{"Milliseconds", delay.Milliseconds}
+    return &(delay.EntityData)
 }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetSegmentPath() string {
-    return "delay"
-}
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["seconds"] = delay.Seconds
-    leafs["milliseconds"] = delay.Milliseconds
-    return leafs
-}
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetBundleName() string { return "cisco_ios_xr" }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetYangName() string { return "delay" }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) SetParent(parent types.Entity) { delay.parent = parent }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetParent() types.Entity { return delay.parent }
-
-func (delay *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Delay) GetParentYangName() string { return "lcp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication
 // PPP authentication parameters
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This specifies the CHAP hostname. The type is string.
@@ -2625,70 +1374,32 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication struct {
     Methods DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods
 }
 
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetFilter() yfilter.YFilter { return authentication.YFilter }
+func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetEntityData() *types.CommonEntityData {
+    authentication.EntityData.YFilter = authentication.YFilter
+    authentication.EntityData.YangName = "authentication"
+    authentication.EntityData.BundleName = "cisco_ios_xr"
+    authentication.EntityData.ParentYangName = "lcp"
+    authentication.EntityData.SegmentPath = "authentication"
+    authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) SetFilter(yf yfilter.YFilter) { authentication.YFilter = yf }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetGoName(yname string) string {
-    if yname == "chap-host-name" { return "ChapHostName" }
-    if yname == "pap" { return "Pap" }
-    if yname == "mschap-host-name" { return "MschapHostName" }
-    if yname == "max-authentication-failures" { return "MaxAuthenticationFailures" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "methods" { return "Methods" }
-    return ""
+    authentication.EntityData.Children = make(map[string]types.YChild)
+    authentication.EntityData.Children["methods"] = types.YChild{"Methods", &authentication.Methods}
+    authentication.EntityData.Leafs = make(map[string]types.YLeaf)
+    authentication.EntityData.Leafs["chap-host-name"] = types.YLeaf{"ChapHostName", authentication.ChapHostName}
+    authentication.EntityData.Leafs["pap"] = types.YLeaf{"Pap", authentication.Pap}
+    authentication.EntityData.Leafs["mschap-host-name"] = types.YLeaf{"MschapHostName", authentication.MschapHostName}
+    authentication.EntityData.Leafs["max-authentication-failures"] = types.YLeaf{"MaxAuthenticationFailures", authentication.MaxAuthenticationFailures}
+    authentication.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", authentication.Timeout}
+    return &(authentication.EntityData)
 }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetSegmentPath() string {
-    return "authentication"
-}
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "methods" {
-        return &authentication.Methods
-    }
-    return nil
-}
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["methods"] = &authentication.Methods
-    return children
-}
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["chap-host-name"] = authentication.ChapHostName
-    leafs["pap"] = authentication.Pap
-    leafs["mschap-host-name"] = authentication.MschapHostName
-    leafs["max-authentication-failures"] = authentication.MaxAuthenticationFailures
-    leafs["timeout"] = authentication.Timeout
-    return leafs
-}
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetBundleName() string { return "cisco_ios_xr" }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetYangName() string { return "authentication" }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) SetParent(parent types.Entity) { authentication.parent = parent }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetParent() types.Entity { return authentication.parent }
-
-func (authentication *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication) GetParentYangName() string { return "lcp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods
 // This specifies the PPP link authentication
 // method
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Select between one and three authentication methods in order of preference.
@@ -2696,57 +1407,27 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods struct {
     Method []interface{}
 }
 
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetFilter() yfilter.YFilter { return methods.YFilter }
+func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetEntityData() *types.CommonEntityData {
+    methods.EntityData.YFilter = methods.YFilter
+    methods.EntityData.YangName = "methods"
+    methods.EntityData.BundleName = "cisco_ios_xr"
+    methods.EntityData.ParentYangName = "authentication"
+    methods.EntityData.SegmentPath = "methods"
+    methods.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    methods.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    methods.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) SetFilter(yf yfilter.YFilter) { methods.YFilter = yf }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetGoName(yname string) string {
-    if yname == "method" { return "Method" }
-    return ""
+    methods.EntityData.Children = make(map[string]types.YChild)
+    methods.EntityData.Leafs = make(map[string]types.YLeaf)
+    methods.EntityData.Leafs["method"] = types.YLeaf{"Method", methods.Method}
+    return &(methods.EntityData)
 }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetSegmentPath() string {
-    return "methods"
-}
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method"] = methods.Method
-    return leafs
-}
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetBundleName() string { return "cisco_ios_xr" }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetYangName() string { return "methods" }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) SetParent(parent types.Entity) { methods.parent = parent }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetParent() types.Entity { return methods.parent }
-
-func (methods *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Authentication_Methods) GetParentYangName() string { return "authentication" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive
 // This specifies the rate at which EchoReq
 // packets are sent
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TRUE to disable keepalives, FALSE to specify a new keepalive interval. The
@@ -2762,60 +1443,28 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive struct {
     RetryCount interface{}
 }
 
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetFilter() yfilter.YFilter { return keepalive.YFilter }
+func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetEntityData() *types.CommonEntityData {
+    keepalive.EntityData.YFilter = keepalive.YFilter
+    keepalive.EntityData.YangName = "keepalive"
+    keepalive.EntityData.BundleName = "cisco_ios_xr"
+    keepalive.EntityData.ParentYangName = "lcp"
+    keepalive.EntityData.SegmentPath = "keepalive"
+    keepalive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    keepalive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    keepalive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) SetFilter(yf yfilter.YFilter) { keepalive.YFilter = yf }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetGoName(yname string) string {
-    if yname == "keepalive-disable" { return "KeepaliveDisable" }
-    if yname == "interval" { return "Interval" }
-    if yname == "retry-count" { return "RetryCount" }
-    return ""
+    keepalive.EntityData.Children = make(map[string]types.YChild)
+    keepalive.EntityData.Leafs = make(map[string]types.YLeaf)
+    keepalive.EntityData.Leafs["keepalive-disable"] = types.YLeaf{"KeepaliveDisable", keepalive.KeepaliveDisable}
+    keepalive.EntityData.Leafs["interval"] = types.YLeaf{"Interval", keepalive.Interval}
+    keepalive.EntityData.Leafs["retry-count"] = types.YLeaf{"RetryCount", keepalive.RetryCount}
+    return &(keepalive.EntityData)
 }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetSegmentPath() string {
-    return "keepalive"
-}
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["keepalive-disable"] = keepalive.KeepaliveDisable
-    leafs["interval"] = keepalive.Interval
-    leafs["retry-count"] = keepalive.RetryCount
-    return leafs
-}
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetBundleName() string { return "cisco_ios_xr" }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetYangName() string { return "keepalive" }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) SetParent(parent types.Entity) { keepalive.parent = parent }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetParent() types.Entity { return keepalive.parent }
-
-func (keepalive *DynamicTemplate_Ppps_Ppp_PppTemplate_Lcp_Keepalive) GetParentYangName() string { return "lcp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp
 // PPP IPv6CP global template configuration data
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify whether to run IPv6CP in Passive mode. The type is interface{}.
@@ -2832,62 +1481,29 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp struct {
     ProtocolReject interface{}
 }
 
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetFilter() yfilter.YFilter { return ipv6Cp.YFilter }
+func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetEntityData() *types.CommonEntityData {
+    ipv6Cp.EntityData.YFilter = ipv6Cp.YFilter
+    ipv6Cp.EntityData.YangName = "ipv6cp"
+    ipv6Cp.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Cp.EntityData.ParentYangName = "ppp-template"
+    ipv6Cp.EntityData.SegmentPath = "ipv6cp"
+    ipv6Cp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Cp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Cp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) SetFilter(yf yfilter.YFilter) { ipv6Cp.YFilter = yf }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetGoName(yname string) string {
-    if yname == "passive" { return "Passive" }
-    if yname == "renegotiation" { return "Renegotiation" }
-    if yname == "peer-interface-id" { return "PeerInterfaceId" }
-    if yname == "protocol-reject" { return "ProtocolReject" }
-    return ""
+    ipv6Cp.EntityData.Children = make(map[string]types.YChild)
+    ipv6Cp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Cp.EntityData.Leafs["passive"] = types.YLeaf{"Passive", ipv6Cp.Passive}
+    ipv6Cp.EntityData.Leafs["renegotiation"] = types.YLeaf{"Renegotiation", ipv6Cp.Renegotiation}
+    ipv6Cp.EntityData.Leafs["peer-interface-id"] = types.YLeaf{"PeerInterfaceId", ipv6Cp.PeerInterfaceId}
+    ipv6Cp.EntityData.Leafs["protocol-reject"] = types.YLeaf{"ProtocolReject", ipv6Cp.ProtocolReject}
+    return &(ipv6Cp.EntityData)
 }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetSegmentPath() string {
-    return "ipv6cp"
-}
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["passive"] = ipv6Cp.Passive
-    leafs["renegotiation"] = ipv6Cp.Renegotiation
-    leafs["peer-interface-id"] = ipv6Cp.PeerInterfaceId
-    leafs["protocol-reject"] = ipv6Cp.ProtocolReject
-    return leafs
-}
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetYangName() string { return "ipv6cp" }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) SetParent(parent types.Entity) { ipv6Cp.parent = parent }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetParent() types.Entity { return ipv6Cp.parent }
-
-func (ipv6Cp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipv6Cp) GetParentYangName() string { return "ppp-template" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp
 // PPP IPCP global template configuration data
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify whether to ignore attempts to renegotiate IPCP. The type is
@@ -2902,7 +1518,7 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp struct {
 
     // Specify the IPv4 netmask to negotiate for the peer. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     PeerNetmask interface{}
 
     // IPCP WINS parameters.
@@ -2915,385 +1531,181 @@ type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp struct {
     PeerAddress DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress
 }
 
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetFilter() yfilter.YFilter { return ipcp.YFilter }
+func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetEntityData() *types.CommonEntityData {
+    ipcp.EntityData.YFilter = ipcp.YFilter
+    ipcp.EntityData.YangName = "ipcp"
+    ipcp.EntityData.BundleName = "cisco_ios_xr"
+    ipcp.EntityData.ParentYangName = "ppp-template"
+    ipcp.EntityData.SegmentPath = "ipcp"
+    ipcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) SetFilter(yf yfilter.YFilter) { ipcp.YFilter = yf }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetGoName(yname string) string {
-    if yname == "renegotiation" { return "Renegotiation" }
-    if yname == "passive" { return "Passive" }
-    if yname == "protocol-reject" { return "ProtocolReject" }
-    if yname == "peer-netmask" { return "PeerNetmask" }
-    if yname == "wins" { return "Wins" }
-    if yname == "dns" { return "Dns" }
-    if yname == "peer-address" { return "PeerAddress" }
-    return ""
+    ipcp.EntityData.Children = make(map[string]types.YChild)
+    ipcp.EntityData.Children["wins"] = types.YChild{"Wins", &ipcp.Wins}
+    ipcp.EntityData.Children["dns"] = types.YChild{"Dns", &ipcp.Dns}
+    ipcp.EntityData.Children["peer-address"] = types.YChild{"PeerAddress", &ipcp.PeerAddress}
+    ipcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipcp.EntityData.Leafs["renegotiation"] = types.YLeaf{"Renegotiation", ipcp.Renegotiation}
+    ipcp.EntityData.Leafs["passive"] = types.YLeaf{"Passive", ipcp.Passive}
+    ipcp.EntityData.Leafs["protocol-reject"] = types.YLeaf{"ProtocolReject", ipcp.ProtocolReject}
+    ipcp.EntityData.Leafs["peer-netmask"] = types.YLeaf{"PeerNetmask", ipcp.PeerNetmask}
+    return &(ipcp.EntityData)
 }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetSegmentPath() string {
-    return "ipcp"
-}
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wins" {
-        return &ipcp.Wins
-    }
-    if childYangName == "dns" {
-        return &ipcp.Dns
-    }
-    if childYangName == "peer-address" {
-        return &ipcp.PeerAddress
-    }
-    return nil
-}
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["wins"] = &ipcp.Wins
-    children["dns"] = &ipcp.Dns
-    children["peer-address"] = &ipcp.PeerAddress
-    return children
-}
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["renegotiation"] = ipcp.Renegotiation
-    leafs["passive"] = ipcp.Passive
-    leafs["protocol-reject"] = ipcp.ProtocolReject
-    leafs["peer-netmask"] = ipcp.PeerNetmask
-    return leafs
-}
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetYangName() string { return "ipcp" }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) SetParent(parent types.Entity) { ipcp.parent = parent }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetParent() types.Entity { return ipcp.parent }
-
-func (ipcp *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp) GetParentYangName() string { return "ppp-template" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins
 // IPCP WINS parameters
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify WINS address(es) to provide.
     WinsAddresses DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses
 }
 
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetFilter() yfilter.YFilter { return wins.YFilter }
+func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetEntityData() *types.CommonEntityData {
+    wins.EntityData.YFilter = wins.YFilter
+    wins.EntityData.YangName = "wins"
+    wins.EntityData.BundleName = "cisco_ios_xr"
+    wins.EntityData.ParentYangName = "ipcp"
+    wins.EntityData.SegmentPath = "wins"
+    wins.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wins.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wins.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) SetFilter(yf yfilter.YFilter) { wins.YFilter = yf }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetGoName(yname string) string {
-    if yname == "wins-addresses" { return "WinsAddresses" }
-    return ""
+    wins.EntityData.Children = make(map[string]types.YChild)
+    wins.EntityData.Children["wins-addresses"] = types.YChild{"WinsAddresses", &wins.WinsAddresses}
+    wins.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(wins.EntityData)
 }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetSegmentPath() string {
-    return "wins"
-}
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "wins-addresses" {
-        return &wins.WinsAddresses
-    }
-    return nil
-}
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["wins-addresses"] = &wins.WinsAddresses
-    return children
-}
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetYangName() string { return "wins" }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) SetParent(parent types.Entity) { wins.parent = parent }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetParent() types.Entity { return wins.parent }
-
-func (wins *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins) GetParentYangName() string { return "ipcp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses
 // Specify WINS address(es) to provide
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Primary WINS IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Primary interface{}
 
     // Secondary WINS IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Secondary interface{}
 }
 
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetFilter() yfilter.YFilter { return winsAddresses.YFilter }
+func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetEntityData() *types.CommonEntityData {
+    winsAddresses.EntityData.YFilter = winsAddresses.YFilter
+    winsAddresses.EntityData.YangName = "wins-addresses"
+    winsAddresses.EntityData.BundleName = "cisco_ios_xr"
+    winsAddresses.EntityData.ParentYangName = "wins"
+    winsAddresses.EntityData.SegmentPath = "wins-addresses"
+    winsAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    winsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    winsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) SetFilter(yf yfilter.YFilter) { winsAddresses.YFilter = yf }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetGoName(yname string) string {
-    if yname == "primary" { return "Primary" }
-    if yname == "secondary" { return "Secondary" }
-    return ""
+    winsAddresses.EntityData.Children = make(map[string]types.YChild)
+    winsAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    winsAddresses.EntityData.Leafs["primary"] = types.YLeaf{"Primary", winsAddresses.Primary}
+    winsAddresses.EntityData.Leafs["secondary"] = types.YLeaf{"Secondary", winsAddresses.Secondary}
+    return &(winsAddresses.EntityData)
 }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetSegmentPath() string {
-    return "wins-addresses"
-}
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["primary"] = winsAddresses.Primary
-    leafs["secondary"] = winsAddresses.Secondary
-    return leafs
-}
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetYangName() string { return "wins-addresses" }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) SetParent(parent types.Entity) { winsAddresses.parent = parent }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetParent() types.Entity { return winsAddresses.parent }
-
-func (winsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Wins_WinsAddresses) GetParentYangName() string { return "wins" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns
 // IPCP DNS parameters
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify DNS address(es) to provide.
     DnsAddresses DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses
 }
 
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetFilter() yfilter.YFilter { return dns.YFilter }
+func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetEntityData() *types.CommonEntityData {
+    dns.EntityData.YFilter = dns.YFilter
+    dns.EntityData.YangName = "dns"
+    dns.EntityData.BundleName = "cisco_ios_xr"
+    dns.EntityData.ParentYangName = "ipcp"
+    dns.EntityData.SegmentPath = "dns"
+    dns.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dns.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dns.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) SetFilter(yf yfilter.YFilter) { dns.YFilter = yf }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetGoName(yname string) string {
-    if yname == "dns-addresses" { return "DnsAddresses" }
-    return ""
+    dns.EntityData.Children = make(map[string]types.YChild)
+    dns.EntityData.Children["dns-addresses"] = types.YChild{"DnsAddresses", &dns.DnsAddresses}
+    dns.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(dns.EntityData)
 }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetSegmentPath() string {
-    return "dns"
-}
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dns-addresses" {
-        return &dns.DnsAddresses
-    }
-    return nil
-}
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dns-addresses"] = &dns.DnsAddresses
-    return children
-}
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetYangName() string { return "dns" }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) SetParent(parent types.Entity) { dns.parent = parent }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetParent() types.Entity { return dns.parent }
-
-func (dns *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns) GetParentYangName() string { return "ipcp" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses
 // Specify DNS address(es) to provide
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Primary DNS IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Primary interface{}
 
     // Secondary DNS IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Secondary interface{}
 }
 
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetFilter() yfilter.YFilter { return dnsAddresses.YFilter }
+func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetEntityData() *types.CommonEntityData {
+    dnsAddresses.EntityData.YFilter = dnsAddresses.YFilter
+    dnsAddresses.EntityData.YangName = "dns-addresses"
+    dnsAddresses.EntityData.BundleName = "cisco_ios_xr"
+    dnsAddresses.EntityData.ParentYangName = "dns"
+    dnsAddresses.EntityData.SegmentPath = "dns-addresses"
+    dnsAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dnsAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dnsAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) SetFilter(yf yfilter.YFilter) { dnsAddresses.YFilter = yf }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetGoName(yname string) string {
-    if yname == "primary" { return "Primary" }
-    if yname == "secondary" { return "Secondary" }
-    return ""
+    dnsAddresses.EntityData.Children = make(map[string]types.YChild)
+    dnsAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    dnsAddresses.EntityData.Leafs["primary"] = types.YLeaf{"Primary", dnsAddresses.Primary}
+    dnsAddresses.EntityData.Leafs["secondary"] = types.YLeaf{"Secondary", dnsAddresses.Secondary}
+    return &(dnsAddresses.EntityData)
 }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetSegmentPath() string {
-    return "dns-addresses"
-}
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["primary"] = dnsAddresses.Primary
-    leafs["secondary"] = dnsAddresses.Secondary
-    return leafs
-}
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetYangName() string { return "dns-addresses" }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) SetParent(parent types.Entity) { dnsAddresses.parent = parent }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetParent() types.Entity { return dnsAddresses.parent }
-
-func (dnsAddresses *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_Dns_DnsAddresses) GetParentYangName() string { return "dns" }
 
 // DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress
 // IPCP address parameters
 type DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify an IP address to assign to peers through IPCP. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
-    Default interface{}
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    Default_ interface{}
 
     // Accepts an IP address from the peer if in the pool, else allocates one from
     // the pool. The type is string.
     Pool interface{}
 }
 
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetFilter() yfilter.YFilter { return peerAddress.YFilter }
+func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetEntityData() *types.CommonEntityData {
+    peerAddress.EntityData.YFilter = peerAddress.YFilter
+    peerAddress.EntityData.YangName = "peer-address"
+    peerAddress.EntityData.BundleName = "cisco_ios_xr"
+    peerAddress.EntityData.ParentYangName = "ipcp"
+    peerAddress.EntityData.SegmentPath = "peer-address"
+    peerAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peerAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peerAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) SetFilter(yf yfilter.YFilter) { peerAddress.YFilter = yf }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetGoName(yname string) string {
-    if yname == "default" { return "Default" }
-    if yname == "pool" { return "Pool" }
-    return ""
+    peerAddress.EntityData.Children = make(map[string]types.YChild)
+    peerAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    peerAddress.EntityData.Leafs["default"] = types.YLeaf{"Default_", peerAddress.Default_}
+    peerAddress.EntityData.Leafs["pool"] = types.YLeaf{"Pool", peerAddress.Pool}
+    return &(peerAddress.EntityData)
 }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetSegmentPath() string {
-    return "peer-address"
-}
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["default"] = peerAddress.Default
-    leafs["pool"] = peerAddress.Pool
-    return leafs
-}
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetYangName() string { return "peer-address" }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) SetParent(parent types.Entity) { peerAddress.parent = parent }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetParent() types.Entity { return peerAddress.parent }
-
-func (peerAddress *DynamicTemplate_Ppps_Ppp_PppTemplate_Ipcp_PeerAddress) GetParentYangName() string { return "ipcp" }
 
 // DynamicTemplate_Ppps_Ppp_Qos
 // QoS dynamically applied configuration template
 type DynamicTemplate_Ppps_Ppp_Qos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service policy to be applied in ingress/egress direction.
@@ -3306,70 +1718,29 @@ type DynamicTemplate_Ppps_Ppp_Qos struct {
     Output DynamicTemplate_Ppps_Ppp_Qos_Output
 }
 
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetFilter() yfilter.YFilter { return qos.YFilter }
+func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "ppp"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) SetFilter(yf yfilter.YFilter) { qos.YFilter = yf }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetGoName(yname string) string {
-    if yname == "service-policy" { return "ServicePolicy" }
-    if yname == "account" { return "Account" }
-    if yname == "output" { return "Output" }
-    return ""
+    qos.EntityData.Children = make(map[string]types.YChild)
+    qos.EntityData.Children["service-policy"] = types.YChild{"ServicePolicy", &qos.ServicePolicy}
+    qos.EntityData.Children["account"] = types.YChild{"Account", &qos.Account}
+    qos.EntityData.Children["output"] = types.YChild{"Output", &qos.Output}
+    qos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qos.EntityData)
 }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetSegmentPath() string {
-    return "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
-}
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-policy" {
-        return &qos.ServicePolicy
-    }
-    if childYangName == "account" {
-        return &qos.Account
-    }
-    if childYangName == "output" {
-        return &qos.Output
-    }
-    return nil
-}
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-policy"] = &qos.ServicePolicy
-    children["account"] = &qos.Account
-    children["output"] = &qos.Output
-    return children
-}
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetYangName() string { return "qos" }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) SetParent(parent types.Entity) { qos.parent = parent }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetParent() types.Entity { return qos.parent }
-
-func (qos *DynamicTemplate_Ppps_Ppp_Qos) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy
 // Service policy to be applied in ingress/egress
 // direction
 type DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber ingress policy.
@@ -3379,65 +1750,28 @@ type DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy struct {
     Output DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output
 }
 
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetFilter() yfilter.YFilter { return servicePolicy.YFilter }
+func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "qos"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) SetFilter(yf yfilter.YFilter) { servicePolicy.YFilter = yf }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    servicePolicy.EntityData.Children = make(map[string]types.YChild)
+    servicePolicy.EntityData.Children["input"] = types.YChild{"Input", &servicePolicy.Input}
+    servicePolicy.EntityData.Children["output"] = types.YChild{"Output", &servicePolicy.Output}
+    servicePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(servicePolicy.EntityData)
 }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetSegmentPath() string {
-    return "service-policy"
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &servicePolicy.Input
-    }
-    if childYangName == "output" {
-        return &servicePolicy.Output
-    }
-    return nil
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &servicePolicy.Input
-    children["output"] = &servicePolicy.Output
-    return children
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetYangName() string { return "service-policy" }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) SetParent(parent types.Entity) { servicePolicy.parent = parent }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetParent() types.Entity { return servicePolicy.parent }
-
-func (servicePolicy *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input
 // Subscriber ingress policy
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of policy-map. The type is string. This attribute is mandatory.
@@ -3459,65 +1793,31 @@ type DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input struct {
     AccountStats interface{}
 }
 
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "service-policy"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetGoName(yname string) string {
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "spi-name" { return "SpiName" }
-    if yname == "merge" { return "Merge" }
-    if yname == "merge-id" { return "MergeId" }
-    if yname == "account-stats" { return "AccountStats" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", input.PolicyName}
+    input.EntityData.Leafs["spi-name"] = types.YLeaf{"SpiName", input.SpiName}
+    input.EntityData.Leafs["merge"] = types.YLeaf{"Merge", input.Merge}
+    input.EntityData.Leafs["merge-id"] = types.YLeaf{"MergeId", input.MergeId}
+    input.EntityData.Leafs["account-stats"] = types.YLeaf{"AccountStats", input.AccountStats}
+    return &(input.EntityData)
 }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-name"] = input.PolicyName
-    leafs["spi-name"] = input.SpiName
-    leafs["merge"] = input.Merge
-    leafs["merge-id"] = input.MergeId
-    leafs["account-stats"] = input.AccountStats
-    return leafs
-}
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetYangName() string { return "input" }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetParent() types.Entity { return input.parent }
-
-func (input *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Input) GetParentYangName() string { return "service-policy" }
 
 // DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output
 // Subscriber egress policy
 // This type is a presence type.
 type DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of policy-map. The type is string. This attribute is mandatory.
@@ -3539,64 +1839,30 @@ type DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output struct {
     AccountStats interface{}
 }
 
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "service-policy"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetGoName(yname string) string {
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "spi-name" { return "SpiName" }
-    if yname == "merge" { return "Merge" }
-    if yname == "merge-id" { return "MergeId" }
-    if yname == "account-stats" { return "AccountStats" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", output.PolicyName}
+    output.EntityData.Leafs["spi-name"] = types.YLeaf{"SpiName", output.SpiName}
+    output.EntityData.Leafs["merge"] = types.YLeaf{"Merge", output.Merge}
+    output.EntityData.Leafs["merge-id"] = types.YLeaf{"MergeId", output.MergeId}
+    output.EntityData.Leafs["account-stats"] = types.YLeaf{"AccountStats", output.AccountStats}
+    return &(output.EntityData)
 }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-name"] = output.PolicyName
-    leafs["spi-name"] = output.SpiName
-    leafs["merge"] = output.Merge
-    leafs["merge-id"] = output.MergeId
-    leafs["account-stats"] = output.AccountStats
-    return leafs
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetYangName() string { return "output" }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_ServicePolicy_Output) GetParentYangName() string { return "service-policy" }
 
 // DynamicTemplate_Ppps_Ppp_Qos_Account
 // QoS L2 overhead accounting
 type DynamicTemplate_Ppps_Ppp_Qos_Account struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ATM adaptation layer AAL. The type is Qosl2DataLink.
@@ -3612,62 +1878,29 @@ type DynamicTemplate_Ppps_Ppp_Qos_Account struct {
     UserDefined interface{}
 }
 
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetFilter() yfilter.YFilter { return account.YFilter }
+func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetEntityData() *types.CommonEntityData {
+    account.EntityData.YFilter = account.YFilter
+    account.EntityData.YangName = "account"
+    account.EntityData.BundleName = "cisco_ios_xr"
+    account.EntityData.ParentYangName = "qos"
+    account.EntityData.SegmentPath = "account"
+    account.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    account.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    account.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) SetFilter(yf yfilter.YFilter) { account.YFilter = yf }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetGoName(yname string) string {
-    if yname == "aal" { return "Aal" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "atm-cell-tax" { return "AtmCellTax" }
-    if yname == "user-defined" { return "UserDefined" }
-    return ""
+    account.EntityData.Children = make(map[string]types.YChild)
+    account.EntityData.Leafs = make(map[string]types.YLeaf)
+    account.EntityData.Leafs["aal"] = types.YLeaf{"Aal", account.Aal}
+    account.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", account.Encapsulation}
+    account.EntityData.Leafs["atm-cell-tax"] = types.YLeaf{"AtmCellTax", account.AtmCellTax}
+    account.EntityData.Leafs["user-defined"] = types.YLeaf{"UserDefined", account.UserDefined}
+    return &(account.EntityData)
 }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetSegmentPath() string {
-    return "account"
-}
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["aal"] = account.Aal
-    leafs["encapsulation"] = account.Encapsulation
-    leafs["atm-cell-tax"] = account.AtmCellTax
-    leafs["user-defined"] = account.UserDefined
-    return leafs
-}
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetBundleName() string { return "cisco_ios_xr" }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetYangName() string { return "account" }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) SetParent(parent types.Entity) { account.parent = parent }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetParent() types.Entity { return account.parent }
-
-func (account *DynamicTemplate_Ppps_Ppp_Qos_Account) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_Ppps_Ppp_Qos_Output
 // QoS to be applied in egress direction
 type DynamicTemplate_Ppps_Ppp_Qos_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum bandwidth value for the subscriber (in kbps). The type is
@@ -3675,56 +1908,26 @@ type DynamicTemplate_Ppps_Ppp_Qos_Output struct {
     MinimumBandwidth interface{}
 }
 
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "qos"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetGoName(yname string) string {
-    if yname == "minimum-bandwidth" { return "MinimumBandwidth" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["minimum-bandwidth"] = types.YLeaf{"MinimumBandwidth", output.MinimumBandwidth}
+    return &(output.EntityData)
 }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minimum-bandwidth"] = output.MinimumBandwidth
-    return leafs
-}
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetYangName() string { return "output" }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DynamicTemplate_Ppps_Ppp_Qos_Output) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_Ppps_Ppp_Accounting
 // Subscriber accounting dynamic-template commands
 type DynamicTemplate_Ppps_Ppp_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber accounting prepaid feature. The type is string.
@@ -3740,71 +1943,29 @@ type DynamicTemplate_Ppps_Ppp_Accounting struct {
     ServiceAccounting DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting
 }
 
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "ppp"
+    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetGoName(yname string) string {
-    if yname == "prepaid-feature" { return "PrepaidFeature" }
-    if yname == "idle-timeout" { return "IdleTimeout" }
-    if yname == "session" { return "Session" }
-    if yname == "service-accounting" { return "ServiceAccounting" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["idle-timeout"] = types.YChild{"IdleTimeout", &accounting.IdleTimeout}
+    accounting.EntityData.Children["session"] = types.YChild{"Session", &accounting.Session}
+    accounting.EntityData.Children["service-accounting"] = types.YChild{"ServiceAccounting", &accounting.ServiceAccounting}
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs["prepaid-feature"] = types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature}
+    return &(accounting.EntityData)
 }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-}
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "idle-timeout" {
-        return &accounting.IdleTimeout
-    }
-    if childYangName == "session" {
-        return &accounting.Session
-    }
-    if childYangName == "service-accounting" {
-        return &accounting.ServiceAccounting
-    }
-    return nil
-}
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["idle-timeout"] = &accounting.IdleTimeout
-    children["session"] = &accounting.Session
-    children["service-accounting"] = &accounting.ServiceAccounting
-    return children
-}
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prepaid-feature"] = accounting.PrepaidFeature
-    return leafs
-}
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *DynamicTemplate_Ppps_Ppp_Accounting) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout
 // Subscriber accounting idle timeout
 type DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Idle timeout value in seconds. The type is interface{} with range:
@@ -3819,60 +1980,28 @@ type DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout struct {
     Direction interface{}
 }
 
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetFilter() yfilter.YFilter { return idleTimeout.YFilter }
+func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
+    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
+    idleTimeout.EntityData.YangName = "idle-timeout"
+    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
+    idleTimeout.EntityData.ParentYangName = "accounting"
+    idleTimeout.EntityData.SegmentPath = "idle-timeout"
+    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) SetFilter(yf yfilter.YFilter) { idleTimeout.YFilter = yf }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetGoName(yname string) string {
-    if yname == "timeout-value" { return "TimeoutValue" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "direction" { return "Direction" }
-    return ""
+    idleTimeout.EntityData.Children = make(map[string]types.YChild)
+    idleTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
+    idleTimeout.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue}
+    idleTimeout.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", idleTimeout.Threshold}
+    idleTimeout.EntityData.Leafs["direction"] = types.YLeaf{"Direction", idleTimeout.Direction}
+    return &(idleTimeout.EntityData)
 }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetSegmentPath() string {
-    return "idle-timeout"
-}
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout-value"] = idleTimeout.TimeoutValue
-    leafs["threshold"] = idleTimeout.Threshold
-    leafs["direction"] = idleTimeout.Direction
-    return leafs
-}
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetBundleName() string { return "cisco_ios_xr" }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetYangName() string { return "idle-timeout" }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) SetParent(parent types.Entity) { idleTimeout.parent = parent }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetParent() types.Entity { return idleTimeout.parent }
-
-func (idleTimeout *DynamicTemplate_Ppps_Ppp_Accounting_IdleTimeout) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_Ppps_Ppp_Accounting_Session
 // Subscriber accounting session accounting
 type DynamicTemplate_Ppps_Ppp_Accounting_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session accounting method list name. The type is string.
@@ -3891,62 +2020,29 @@ type DynamicTemplate_Ppps_Ppp_Accounting_Session struct {
     HoldAcctStart interface{}
 }
 
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "accounting"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    if yname == "periodic-interval" { return "PeriodicInterval" }
-    if yname == "dual-stack-delay" { return "DualStackDelay" }
-    if yname == "hold-acct-start" { return "HoldAcctStart" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", session.MethodListName}
+    session.EntityData.Leafs["periodic-interval"] = types.YLeaf{"PeriodicInterval", session.PeriodicInterval}
+    session.EntityData.Leafs["dual-stack-delay"] = types.YLeaf{"DualStackDelay", session.DualStackDelay}
+    session.EntityData.Leafs["hold-acct-start"] = types.YLeaf{"HoldAcctStart", session.HoldAcctStart}
+    return &(session.EntityData)
 }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = session.MethodListName
-    leafs["periodic-interval"] = session.PeriodicInterval
-    leafs["dual-stack-delay"] = session.DualStackDelay
-    leafs["hold-acct-start"] = session.HoldAcctStart
-    return leafs
-}
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetYangName() string { return "session" }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetParent() types.Entity { return session.parent }
-
-func (session *DynamicTemplate_Ppps_Ppp_Accounting_Session) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting
 // Subscriber accounting service accounting
 type DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service accounting method list name. The type is string.
@@ -3957,58 +2053,27 @@ type DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting struct {
     AccountingInterimInterval interface{}
 }
 
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetFilter() yfilter.YFilter { return serviceAccounting.YFilter }
+func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
+    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
+    serviceAccounting.EntityData.YangName = "service-accounting"
+    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
+    serviceAccounting.EntityData.ParentYangName = "accounting"
+    serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) SetFilter(yf yfilter.YFilter) { serviceAccounting.YFilter = yf }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    if yname == "accounting-interim-interval" { return "AccountingInterimInterval" }
-    return ""
+    serviceAccounting.EntityData.Children = make(map[string]types.YChild)
+    serviceAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceAccounting.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", serviceAccounting.MethodListName}
+    serviceAccounting.EntityData.Leafs["accounting-interim-interval"] = types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval}
+    return &(serviceAccounting.EntityData)
 }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetSegmentPath() string {
-    return "service-accounting"
-}
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = serviceAccounting.MethodListName
-    leafs["accounting-interim-interval"] = serviceAccounting.AccountingInterimInterval
-    return leafs
-}
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetYangName() string { return "service-accounting" }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) SetParent(parent types.Entity) { serviceAccounting.parent = parent }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetParent() types.Entity { return serviceAccounting.parent }
-
-func (serviceAccounting *DynamicTemplate_Ppps_Ppp_Accounting_ServiceAccounting) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_Ppps_Ppp_PppoeTemplate
 // PPPoE template configuration data
 type DynamicTemplate_Ppps_Ppp_PppoeTemplate struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Specify the Port limit (attr 62) to apply to the subscriber. The type is
@@ -4016,56 +2081,26 @@ type DynamicTemplate_Ppps_Ppp_PppoeTemplate struct {
     PortLimit interface{}
 }
 
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetFilter() yfilter.YFilter { return pppoeTemplate.YFilter }
+func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetEntityData() *types.CommonEntityData {
+    pppoeTemplate.EntityData.YFilter = pppoeTemplate.YFilter
+    pppoeTemplate.EntityData.YangName = "pppoe-template"
+    pppoeTemplate.EntityData.BundleName = "cisco_ios_xr"
+    pppoeTemplate.EntityData.ParentYangName = "ppp"
+    pppoeTemplate.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
+    pppoeTemplate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pppoeTemplate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pppoeTemplate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) SetFilter(yf yfilter.YFilter) { pppoeTemplate.YFilter = yf }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetGoName(yname string) string {
-    if yname == "port-limit" { return "PortLimit" }
-    return ""
+    pppoeTemplate.EntityData.Children = make(map[string]types.YChild)
+    pppoeTemplate.EntityData.Leafs = make(map[string]types.YLeaf)
+    pppoeTemplate.EntityData.Leafs["port-limit"] = types.YLeaf{"PortLimit", pppoeTemplate.PortLimit}
+    return &(pppoeTemplate.EntityData)
 }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-template"
-}
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["port-limit"] = pppoeTemplate.PortLimit
-    return leafs
-}
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetYangName() string { return "pppoe-template" }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) SetParent(parent types.Entity) { pppoeTemplate.parent = parent }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetParent() types.Entity { return pppoeTemplate.parent }
-
-func (pppoeTemplate *DynamicTemplate_Ppps_Ppp_PppoeTemplate) GetParentYangName() string { return "ppp" }
 
 // DynamicTemplate_IpSubscribers
 // The IP Subscriber Template Table
 type DynamicTemplate_IpSubscribers struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A IP Subscriber Type Template . The type is slice of
@@ -4073,72 +2108,33 @@ type DynamicTemplate_IpSubscribers struct {
     IpSubscriber []DynamicTemplate_IpSubscribers_IpSubscriber
 }
 
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetFilter() yfilter.YFilter { return ipSubscribers.YFilter }
+func (ipSubscribers *DynamicTemplate_IpSubscribers) GetEntityData() *types.CommonEntityData {
+    ipSubscribers.EntityData.YFilter = ipSubscribers.YFilter
+    ipSubscribers.EntityData.YangName = "ip-subscribers"
+    ipSubscribers.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscribers.EntityData.ParentYangName = "dynamic-template"
+    ipSubscribers.EntityData.SegmentPath = "ip-subscribers"
+    ipSubscribers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscribers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscribers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipSubscribers *DynamicTemplate_IpSubscribers) SetFilter(yf yfilter.YFilter) { ipSubscribers.YFilter = yf }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetGoName(yname string) string {
-    if yname == "ip-subscriber" { return "IpSubscriber" }
-    return ""
-}
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetSegmentPath() string {
-    return "ip-subscribers"
-}
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ip-subscriber" {
-        for _, c := range ipSubscribers.IpSubscriber {
-            if ipSubscribers.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DynamicTemplate_IpSubscribers_IpSubscriber{}
-        ipSubscribers.IpSubscriber = append(ipSubscribers.IpSubscriber, child)
-        return &ipSubscribers.IpSubscriber[len(ipSubscribers.IpSubscriber)-1]
-    }
-    return nil
-}
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipSubscribers.EntityData.Children = make(map[string]types.YChild)
+    ipSubscribers.EntityData.Children["ip-subscriber"] = types.YChild{"IpSubscriber", nil}
     for i := range ipSubscribers.IpSubscriber {
-        children[ipSubscribers.IpSubscriber[i].GetSegmentPath()] = &ipSubscribers.IpSubscriber[i]
+        ipSubscribers.EntityData.Children[types.GetSegmentPath(&ipSubscribers.IpSubscriber[i])] = types.YChild{"IpSubscriber", &ipSubscribers.IpSubscriber[i]}
     }
-    return children
+    ipSubscribers.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipSubscribers.EntityData)
 }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetYangName() string { return "ip-subscribers" }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) SetParent(parent types.Entity) { ipSubscribers.parent = parent }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetParent() types.Entity { return ipSubscribers.parent }
-
-func (ipSubscribers *DynamicTemplate_IpSubscribers) GetParentYangName() string { return "dynamic-template" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber
 // A IP Subscriber Type Template 
 type DynamicTemplate_IpSubscribers_IpSubscriber struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the template. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Assign the interface to a VRF . The type is string with length: 1..32.
@@ -4181,118 +2177,39 @@ type DynamicTemplate_IpSubscribers_IpSubscriber struct {
     Accounting DynamicTemplate_IpSubscribers_IpSubscriber_Accounting
 }
 
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetFilter() yfilter.YFilter { return ipSubscriber.YFilter }
+func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetEntityData() *types.CommonEntityData {
+    ipSubscriber.EntityData.YFilter = ipSubscriber.YFilter
+    ipSubscriber.EntityData.YangName = "ip-subscriber"
+    ipSubscriber.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriber.EntityData.ParentYangName = "ip-subscribers"
+    ipSubscriber.EntityData.SegmentPath = "ip-subscriber" + "[template-name='" + fmt.Sprintf("%v", ipSubscriber.TemplateName) + "']"
+    ipSubscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) SetFilter(yf yfilter.YFilter) { ipSubscriber.YFilter = yf }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetGoName(yname string) string {
-    if yname == "template-name" { return "TemplateName" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" { return "SpanMonitorSessions" }
-    if yname == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" { return "Ipv4PacketFilter" }
-    if yname == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" { return "Ipv6PacketFilter" }
-    if yname == "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd" { return "Dhcpd" }
-    if yname == "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" { return "Igmp" }
-    if yname == "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" { return "Ipv4Network" }
-    if yname == "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" { return "Ipv6Network" }
-    if yname == "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" { return "Ipv6Neighbor" }
-    if yname == "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" { return "Dhcpv6" }
-    if yname == "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" { return "Pbr" }
-    if yname == "Cisco-IOS-XR-qos-ma-bng-cfg:qos" { return "Qos" }
-    if yname == "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" { return "Accounting" }
-    return ""
+    ipSubscriber.EntityData.Children = make(map[string]types.YChild)
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"] = types.YChild{"SpanMonitorSessions", &ipSubscriber.SpanMonitorSessions}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"] = types.YChild{"Ipv4PacketFilter", &ipSubscriber.Ipv4PacketFilter}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"] = types.YChild{"Ipv6PacketFilter", &ipSubscriber.Ipv6PacketFilter}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd"] = types.YChild{"Dhcpd", &ipSubscriber.Dhcpd}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"] = types.YChild{"Igmp", &ipSubscriber.Igmp}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"] = types.YChild{"Ipv4Network", &ipSubscriber.Ipv4Network}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"] = types.YChild{"Ipv6Network", &ipSubscriber.Ipv6Network}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"] = types.YChild{"Ipv6Neighbor", &ipSubscriber.Ipv6Neighbor}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"] = types.YChild{"Dhcpv6", &ipSubscriber.Dhcpv6}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-pbr-subscriber-cfg:pbr"] = types.YChild{"Pbr", &ipSubscriber.Pbr}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-qos-ma-bng-cfg:qos"] = types.YChild{"Qos", &ipSubscriber.Qos}
+    ipSubscriber.EntityData.Children["Cisco-IOS-XR-subscriber-accounting-cfg:accounting"] = types.YChild{"Accounting", &ipSubscriber.Accounting}
+    ipSubscriber.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipSubscriber.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", ipSubscriber.TemplateName}
+    ipSubscriber.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", ipSubscriber.Vrf}
+    return &(ipSubscriber.EntityData)
 }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetSegmentPath() string {
-    return "ip-subscriber" + "[template-name='" + fmt.Sprintf("%v", ipSubscriber.TemplateName) + "']"
-}
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" {
-        return &ipSubscriber.SpanMonitorSessions
-    }
-    if childYangName == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" {
-        return &ipSubscriber.Ipv4PacketFilter
-    }
-    if childYangName == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" {
-        return &ipSubscriber.Ipv6PacketFilter
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd" {
-        return &ipSubscriber.Dhcpd
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp" {
-        return &ipSubscriber.Igmp
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" {
-        return &ipSubscriber.Ipv4Network
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" {
-        return &ipSubscriber.Ipv6Network
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" {
-        return &ipSubscriber.Ipv6Neighbor
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6" {
-        return &ipSubscriber.Dhcpv6
-    }
-    if childYangName == "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" {
-        return &ipSubscriber.Pbr
-    }
-    if childYangName == "Cisco-IOS-XR-qos-ma-bng-cfg:qos" {
-        return &ipSubscriber.Qos
-    }
-    if childYangName == "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" {
-        return &ipSubscriber.Accounting
-    }
-    return nil
-}
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"] = &ipSubscriber.SpanMonitorSessions
-    children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"] = &ipSubscriber.Ipv4PacketFilter
-    children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"] = &ipSubscriber.Ipv6PacketFilter
-    children["Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd"] = &ipSubscriber.Dhcpd
-    children["Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"] = &ipSubscriber.Igmp
-    children["Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"] = &ipSubscriber.Ipv4Network
-    children["Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"] = &ipSubscriber.Ipv6Network
-    children["Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"] = &ipSubscriber.Ipv6Neighbor
-    children["Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"] = &ipSubscriber.Dhcpv6
-    children["Cisco-IOS-XR-pbr-subscriber-cfg:pbr"] = &ipSubscriber.Pbr
-    children["Cisco-IOS-XR-qos-ma-bng-cfg:qos"] = &ipSubscriber.Qos
-    children["Cisco-IOS-XR-subscriber-accounting-cfg:accounting"] = &ipSubscriber.Accounting
-    return children
-}
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["template-name"] = ipSubscriber.TemplateName
-    leafs["vrf"] = ipSubscriber.Vrf
-    return leafs
-}
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetYangName() string { return "ip-subscriber" }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) SetParent(parent types.Entity) { ipSubscriber.parent = parent }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetParent() types.Entity { return ipSubscriber.parent }
-
-func (ipSubscriber *DynamicTemplate_IpSubscribers_IpSubscriber) GetParentYangName() string { return "ip-subscribers" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions
 // Monitor Session container for this template
 type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration for a particular class of Monitor Session. The type is slice
@@ -4301,69 +2218,30 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions struct {
     SpanMonitorSession []DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession
 }
 
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetFilter() yfilter.YFilter { return spanMonitorSessions.YFilter }
+func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetEntityData() *types.CommonEntityData {
+    spanMonitorSessions.EntityData.YFilter = spanMonitorSessions.YFilter
+    spanMonitorSessions.EntityData.YangName = "span-monitor-sessions"
+    spanMonitorSessions.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSessions.EntityData.ParentYangName = "ip-subscriber"
+    spanMonitorSessions.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+    spanMonitorSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) SetFilter(yf yfilter.YFilter) { spanMonitorSessions.YFilter = yf }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetGoName(yname string) string {
-    if yname == "span-monitor-session" { return "SpanMonitorSession" }
-    return ""
-}
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetSegmentPath() string {
-    return "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
-}
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "span-monitor-session" {
-        for _, c := range spanMonitorSessions.SpanMonitorSession {
-            if spanMonitorSessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession{}
-        spanMonitorSessions.SpanMonitorSession = append(spanMonitorSessions.SpanMonitorSession, child)
-        return &spanMonitorSessions.SpanMonitorSession[len(spanMonitorSessions.SpanMonitorSession)-1]
-    }
-    return nil
-}
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    spanMonitorSessions.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSessions.EntityData.Children["span-monitor-session"] = types.YChild{"SpanMonitorSession", nil}
     for i := range spanMonitorSessions.SpanMonitorSession {
-        children[spanMonitorSessions.SpanMonitorSession[i].GetSegmentPath()] = &spanMonitorSessions.SpanMonitorSession[i]
+        spanMonitorSessions.EntityData.Children[types.GetSegmentPath(&spanMonitorSessions.SpanMonitorSession[i])] = types.YChild{"SpanMonitorSession", &spanMonitorSessions.SpanMonitorSession[i]}
     }
-    return children
+    spanMonitorSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(spanMonitorSessions.EntityData)
 }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetYangName() string { return "span-monitor-sessions" }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) SetParent(parent types.Entity) { spanMonitorSessions.parent = parent }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetParent() types.Entity { return spanMonitorSessions.parent }
-
-func (spanMonitorSessions *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession
 // Configuration for a particular class of Monitor
 // Session
 type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Class. The type is SpanSessionClass.
@@ -4383,71 +2261,31 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorS
     Acl DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl
 }
 
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetFilter() yfilter.YFilter { return spanMonitorSession.YFilter }
+func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetEntityData() *types.CommonEntityData {
+    spanMonitorSession.EntityData.YFilter = spanMonitorSession.YFilter
+    spanMonitorSession.EntityData.YangName = "span-monitor-session"
+    spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSession.EntityData.ParentYangName = "span-monitor-sessions"
+    spanMonitorSession.EntityData.SegmentPath = "span-monitor-session" + "[session-class='" + fmt.Sprintf("%v", spanMonitorSession.SessionClass) + "']"
+    spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) SetFilter(yf yfilter.YFilter) { spanMonitorSession.YFilter = yf }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetGoName(yname string) string {
-    if yname == "session-class" { return "SessionClass" }
-    if yname == "mirror-first" { return "MirrorFirst" }
-    if yname == "mirror-interval" { return "MirrorInterval" }
-    if yname == "attachment" { return "Attachment" }
-    if yname == "acl" { return "Acl" }
-    return ""
+    spanMonitorSession.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSession.EntityData.Children["attachment"] = types.YChild{"Attachment", &spanMonitorSession.Attachment}
+    spanMonitorSession.EntityData.Children["acl"] = types.YChild{"Acl", &spanMonitorSession.Acl}
+    spanMonitorSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    spanMonitorSession.EntityData.Leafs["session-class"] = types.YLeaf{"SessionClass", spanMonitorSession.SessionClass}
+    spanMonitorSession.EntityData.Leafs["mirror-first"] = types.YLeaf{"MirrorFirst", spanMonitorSession.MirrorFirst}
+    spanMonitorSession.EntityData.Leafs["mirror-interval"] = types.YLeaf{"MirrorInterval", spanMonitorSession.MirrorInterval}
+    return &(spanMonitorSession.EntityData)
 }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetSegmentPath() string {
-    return "span-monitor-session" + "[session-class='" + fmt.Sprintf("%v", spanMonitorSession.SessionClass) + "']"
-}
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "attachment" {
-        return &spanMonitorSession.Attachment
-    }
-    if childYangName == "acl" {
-        return &spanMonitorSession.Acl
-    }
-    return nil
-}
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["attachment"] = &spanMonitorSession.Attachment
-    children["acl"] = &spanMonitorSession.Acl
-    return children
-}
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-class"] = spanMonitorSession.SessionClass
-    leafs["mirror-first"] = spanMonitorSession.MirrorFirst
-    leafs["mirror-interval"] = spanMonitorSession.MirrorInterval
-    return leafs
-}
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetYangName() string { return "span-monitor-session" }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) SetParent(parent types.Entity) { spanMonitorSession.parent = parent }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetParent() types.Entity { return spanMonitorSession.parent }
-
-func (spanMonitorSession *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession) GetParentYangName() string { return "span-monitor-sessions" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment
 // Attach the interface to a Monitor Session
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session Name. The type is string with length: 1..79. This attribute is
@@ -4462,61 +2300,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorS
     PortLevelEnable interface{}
 }
 
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetFilter() yfilter.YFilter { return attachment.YFilter }
+func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetEntityData() *types.CommonEntityData {
+    attachment.EntityData.YFilter = attachment.YFilter
+    attachment.EntityData.YangName = "attachment"
+    attachment.EntityData.BundleName = "cisco_ios_xr"
+    attachment.EntityData.ParentYangName = "span-monitor-session"
+    attachment.EntityData.SegmentPath = "attachment"
+    attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) SetFilter(yf yfilter.YFilter) { attachment.YFilter = yf }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetGoName(yname string) string {
-    if yname == "session-name" { return "SessionName" }
-    if yname == "direction" { return "Direction" }
-    if yname == "port-level-enable" { return "PortLevelEnable" }
-    return ""
+    attachment.EntityData.Children = make(map[string]types.YChild)
+    attachment.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachment.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", attachment.SessionName}
+    attachment.EntityData.Leafs["direction"] = types.YLeaf{"Direction", attachment.Direction}
+    attachment.EntityData.Leafs["port-level-enable"] = types.YLeaf{"PortLevelEnable", attachment.PortLevelEnable}
+    return &(attachment.EntityData)
 }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetSegmentPath() string {
-    return "attachment"
-}
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-name"] = attachment.SessionName
-    leafs["direction"] = attachment.Direction
-    leafs["port-level-enable"] = attachment.PortLevelEnable
-    return leafs
-}
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetBundleName() string { return "cisco_ios_xr" }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetYangName() string { return "attachment" }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) SetParent(parent types.Entity) { attachment.parent = parent }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetParent() types.Entity { return attachment.parent }
-
-func (attachment *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Attachment) GetParentYangName() string { return "span-monitor-session" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl
 // Enable ACL matching for traffic mirroring
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable ACL. The type is interface{}. This attribute is mandatory.
@@ -4526,59 +2332,28 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorS
     AclName interface{}
 }
 
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetFilter() yfilter.YFilter { return acl.YFilter }
+func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetEntityData() *types.CommonEntityData {
+    acl.EntityData.YFilter = acl.YFilter
+    acl.EntityData.YangName = "acl"
+    acl.EntityData.BundleName = "cisco_ios_xr"
+    acl.EntityData.ParentYangName = "span-monitor-session"
+    acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) SetFilter(yf yfilter.YFilter) { acl.YFilter = yf }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetGoName(yname string) string {
-    if yname == "acl-enable" { return "AclEnable" }
-    if yname == "acl-name" { return "AclName" }
-    return ""
+    acl.EntityData.Children = make(map[string]types.YChild)
+    acl.EntityData.Leafs = make(map[string]types.YLeaf)
+    acl.EntityData.Leafs["acl-enable"] = types.YLeaf{"AclEnable", acl.AclEnable}
+    acl.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", acl.AclName}
+    return &(acl.EntityData)
 }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetSegmentPath() string {
-    return "acl"
-}
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["acl-enable"] = acl.AclEnable
-    leafs["acl-name"] = acl.AclName
-    return leafs
-}
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetYangName() string { return "acl" }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) SetParent(parent types.Entity) { acl.parent = parent }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetParent() types.Entity { return acl.parent }
-
-func (acl *DynamicTemplate_IpSubscribers_IpSubscriber_SpanMonitorSessions_SpanMonitorSession_Acl) GetParentYangName() string { return "span-monitor-session" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter
 // IPv4 Packet Filtering configuration for the
 // template
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 Packet filter to be applied to outbound packets.
@@ -4588,73 +2363,35 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter struct {
     Inbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound
 }
 
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetFilter() yfilter.YFilter { return ipv4PacketFilter.YFilter }
+func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
+    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4PacketFilter.EntityData.ParentYangName = "ip-subscriber"
+    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) SetFilter(yf yfilter.YFilter) { ipv4PacketFilter.YFilter = yf }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetGoName(yname string) string {
-    if yname == "outbound" { return "Outbound" }
-    if yname == "inbound" { return "Inbound" }
-    return ""
+    ipv4PacketFilter.EntityData.Children = make(map[string]types.YChild)
+    ipv4PacketFilter.EntityData.Children["outbound"] = types.YChild{"Outbound", &ipv4PacketFilter.Outbound}
+    ipv4PacketFilter.EntityData.Children["inbound"] = types.YChild{"Inbound", &ipv4PacketFilter.Inbound}
+    ipv4PacketFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4PacketFilter.EntityData)
 }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-}
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "outbound" {
-        return &ipv4PacketFilter.Outbound
-    }
-    if childYangName == "inbound" {
-        return &ipv4PacketFilter.Inbound
-    }
-    return nil
-}
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["outbound"] = &ipv4PacketFilter.Outbound
-    children["inbound"] = &ipv4PacketFilter.Inbound
-    return children
-}
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetYangName() string { return "ipv4-packet-filter" }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) SetParent(parent types.Entity) { ipv4PacketFilter.parent = parent }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetParent() types.Entity { return ipv4PacketFilter.parent }
-
-func (ipv4PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound
 // IPv4 Packet filter to be applied to outbound
 // packets
-// This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
     CommonAclName interface{}
 
     // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..65. This attribute is mandatory.
+    // string with length: 1..65.
     Name interface{}
 
     // Not supported (Leave unspecified). The type is interface{}.
@@ -4664,63 +2401,30 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound struct
     InterfaceStatistics interface{}
 }
 
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-count" { return "HardwareCount" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", outbound.CommonAclName}
+    outbound.EntityData.Leafs["name"] = types.YLeaf{"Name", outbound.Name}
+    outbound.EntityData.Leafs["hardware-count"] = types.YLeaf{"HardwareCount", outbound.HardwareCount}
+    outbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics}
+    return &(outbound.EntityData)
 }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = outbound.CommonAclName
-    leafs["name"] = outbound.Name
-    leafs["hardware-count"] = outbound.HardwareCount
-    leafs["interface-statistics"] = outbound.InterfaceStatistics
-    return leafs
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Outbound) GetParentYangName() string { return "ipv4-packet-filter" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound
 // IPv4 Packet filter to be applied to inbound
 // packets
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
@@ -4738,63 +2442,30 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound struct 
     InterfaceStatistics interface{}
 }
 
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-count" { return "HardwareCount" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", inbound.CommonAclName}
+    inbound.EntityData.Leafs["name"] = types.YLeaf{"Name", inbound.Name}
+    inbound.EntityData.Leafs["hardware-count"] = types.YLeaf{"HardwareCount", inbound.HardwareCount}
+    inbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics}
+    return &(inbound.EntityData)
 }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = inbound.CommonAclName
-    leafs["name"] = inbound.Name
-    leafs["hardware-count"] = inbound.HardwareCount
-    leafs["interface-statistics"] = inbound.InterfaceStatistics
-    return leafs
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4PacketFilter_Inbound) GetParentYangName() string { return "ipv4-packet-filter" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter
 // IPv6 Packet Filtering configuration for the
 // interface
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Packet filter to be applied to inbound packets.
@@ -4804,65 +2475,28 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter struct {
     Outbound DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound
 }
 
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetFilter() yfilter.YFilter { return ipv6PacketFilter.YFilter }
+func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
+    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv6PacketFilter.EntityData.ParentYangName = "ip-subscriber"
+    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) SetFilter(yf yfilter.YFilter) { ipv6PacketFilter.YFilter = yf }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    return ""
+    ipv6PacketFilter.EntityData.Children = make(map[string]types.YChild)
+    ipv6PacketFilter.EntityData.Children["inbound"] = types.YChild{"Inbound", &ipv6PacketFilter.Inbound}
+    ipv6PacketFilter.EntityData.Children["outbound"] = types.YChild{"Outbound", &ipv6PacketFilter.Outbound}
+    ipv6PacketFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6PacketFilter.EntityData)
 }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-}
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "inbound" {
-        return &ipv6PacketFilter.Inbound
-    }
-    if childYangName == "outbound" {
-        return &ipv6PacketFilter.Outbound
-    }
-    return nil
-}
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["inbound"] = &ipv6PacketFilter.Inbound
-    children["outbound"] = &ipv6PacketFilter.Outbound
-    return children
-}
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetYangName() string { return "ipv6-packet-filter" }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) SetParent(parent types.Entity) { ipv6PacketFilter.parent = parent }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetParent() types.Entity { return ipv6PacketFilter.parent }
-
-func (ipv6PacketFilter *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound
 // IPv6 Packet filter to be applied to inbound
 // packets
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
@@ -4877,136 +2511,71 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound struct 
     InterfaceStatistics interface{}
 }
 
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", inbound.CommonAclName}
+    inbound.EntityData.Leafs["name"] = types.YLeaf{"Name", inbound.Name}
+    inbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics}
+    return &(inbound.EntityData)
 }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = inbound.CommonAclName
-    leafs["name"] = inbound.Name
-    leafs["interface-statistics"] = inbound.InterfaceStatistics
-    return leafs
-}
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Inbound) GetParentYangName() string { return "ipv6-packet-filter" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound
 // IPv6 Packet filter to be applied to outbound
 // packets
-// This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
     CommonAclName interface{}
 
     // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..65. This attribute is mandatory.
+    // string with length: 1..65.
     Name interface{}
 
     // Not supported (Leave unspecified). The type is interface{}.
     InterfaceStatistics interface{}
 }
 
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", outbound.CommonAclName}
+    outbound.EntityData.Leafs["name"] = types.YLeaf{"Name", outbound.Name}
+    outbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics}
+    return &(outbound.EntityData)
 }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = outbound.CommonAclName
-    leafs["name"] = outbound.Name
-    leafs["interface-statistics"] = outbound.InterfaceStatistics
-    return leafs
-}
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6PacketFilter_Outbound) GetParentYangName() string { return "ipv6-packet-filter" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd
 // Interface dhcpv4 configuration data
 type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The class to be used for proxy/server profile. The type is string.
     Class interface{}
 
     // The Default Gateway IP address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DefaultGateway interface{}
 
     // The pool to be used for Prefix Delegation. The type is interface{} with
@@ -5017,121 +2586,55 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd struct {
     Dhcpv4Option interface{}
 }
 
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetFilter() yfilter.YFilter { return dhcpd.YFilter }
+func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetEntityData() *types.CommonEntityData {
+    dhcpd.EntityData.YFilter = dhcpd.YFilter
+    dhcpd.EntityData.YangName = "dhcpd"
+    dhcpd.EntityData.BundleName = "cisco_ios_xr"
+    dhcpd.EntityData.ParentYangName = "ip-subscriber"
+    dhcpd.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd"
+    dhcpd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) SetFilter(yf yfilter.YFilter) { dhcpd.YFilter = yf }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetGoName(yname string) string {
-    if yname == "class" { return "Class" }
-    if yname == "default-gateway" { return "DefaultGateway" }
-    if yname == "session-limit" { return "SessionLimit" }
-    if yname == "dhcpv4-option" { return "Dhcpv4Option" }
-    return ""
+    dhcpd.EntityData.Children = make(map[string]types.YChild)
+    dhcpd.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcpd.EntityData.Leafs["class"] = types.YLeaf{"Class", dhcpd.Class}
+    dhcpd.EntityData.Leafs["default-gateway"] = types.YLeaf{"DefaultGateway", dhcpd.DefaultGateway}
+    dhcpd.EntityData.Leafs["session-limit"] = types.YLeaf{"SessionLimit", dhcpd.SessionLimit}
+    dhcpd.EntityData.Leafs["dhcpv4-option"] = types.YLeaf{"Dhcpv4Option", dhcpd.Dhcpv4Option}
+    return &(dhcpd.EntityData)
 }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-dhcpd-subscriber-cfg:dhcpd"
-}
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["class"] = dhcpd.Class
-    leafs["default-gateway"] = dhcpd.DefaultGateway
-    leafs["session-limit"] = dhcpd.SessionLimit
-    leafs["dhcpv4-option"] = dhcpd.Dhcpv4Option
-    return leafs
-}
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetYangName() string { return "dhcpd" }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) SetParent(parent types.Entity) { dhcpd.parent = parent }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetParent() types.Entity { return dhcpd.parent }
-
-func (dhcpd *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpd) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Igmp
 // IGMPconfiguration
 type DynamicTemplate_IpSubscribers_IpSubscriber_Igmp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Default VRF.
     DefaultVrf DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf
 }
 
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetFilter() yfilter.YFilter { return igmp.YFilter }
+func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetEntityData() *types.CommonEntityData {
+    igmp.EntityData.YFilter = igmp.YFilter
+    igmp.EntityData.YangName = "igmp"
+    igmp.EntityData.BundleName = "cisco_ios_xr"
+    igmp.EntityData.ParentYangName = "ip-subscriber"
+    igmp.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
+    igmp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    igmp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    igmp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) SetFilter(yf yfilter.YFilter) { igmp.YFilter = yf }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetGoName(yname string) string {
-    if yname == "default-vrf" { return "DefaultVrf" }
-    return ""
+    igmp.EntityData.Children = make(map[string]types.YChild)
+    igmp.EntityData.Children["default-vrf"] = types.YChild{"DefaultVrf", &igmp.DefaultVrf}
+    igmp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(igmp.EntityData)
 }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-igmp-dyn-tmpl-cfg:igmp"
-}
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "default-vrf" {
-        return &igmp.DefaultVrf
-    }
-    return nil
-}
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["default-vrf"] = &igmp.DefaultVrf
-    return children
-}
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetYangName() string { return "igmp" }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) SetParent(parent types.Entity) { igmp.parent = parent }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetParent() types.Entity { return igmp.parent }
-
-func (igmp *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf
 // Default VRF
 type DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IGMP Max Groups. The type is interface{} with range: 1..40000. The default
@@ -5161,72 +2664,33 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf struct {
     ExplicitTracking DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking
 }
 
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetFilter() yfilter.YFilter { return defaultVrf.YFilter }
+func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetEntityData() *types.CommonEntityData {
+    defaultVrf.EntityData.YFilter = defaultVrf.YFilter
+    defaultVrf.EntityData.YangName = "default-vrf"
+    defaultVrf.EntityData.BundleName = "cisco_ios_xr"
+    defaultVrf.EntityData.ParentYangName = "igmp"
+    defaultVrf.EntityData.SegmentPath = "default-vrf"
+    defaultVrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    defaultVrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    defaultVrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) SetFilter(yf yfilter.YFilter) { defaultVrf.YFilter = yf }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetGoName(yname string) string {
-    if yname == "max-groups" { return "MaxGroups" }
-    if yname == "access-group" { return "AccessGroup" }
-    if yname == "version" { return "Version" }
-    if yname == "query-interval" { return "QueryInterval" }
-    if yname == "query-max-response-time" { return "QueryMaxResponseTime" }
-    if yname == "multicast-mode" { return "MulticastMode" }
-    if yname == "explicit-tracking" { return "ExplicitTracking" }
-    return ""
+    defaultVrf.EntityData.Children = make(map[string]types.YChild)
+    defaultVrf.EntityData.Children["explicit-tracking"] = types.YChild{"ExplicitTracking", &defaultVrf.ExplicitTracking}
+    defaultVrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    defaultVrf.EntityData.Leafs["max-groups"] = types.YLeaf{"MaxGroups", defaultVrf.MaxGroups}
+    defaultVrf.EntityData.Leafs["access-group"] = types.YLeaf{"AccessGroup", defaultVrf.AccessGroup}
+    defaultVrf.EntityData.Leafs["version"] = types.YLeaf{"Version", defaultVrf.Version}
+    defaultVrf.EntityData.Leafs["query-interval"] = types.YLeaf{"QueryInterval", defaultVrf.QueryInterval}
+    defaultVrf.EntityData.Leafs["query-max-response-time"] = types.YLeaf{"QueryMaxResponseTime", defaultVrf.QueryMaxResponseTime}
+    defaultVrf.EntityData.Leafs["multicast-mode"] = types.YLeaf{"MulticastMode", defaultVrf.MulticastMode}
+    return &(defaultVrf.EntityData)
 }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetSegmentPath() string {
-    return "default-vrf"
-}
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "explicit-tracking" {
-        return &defaultVrf.ExplicitTracking
-    }
-    return nil
-}
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["explicit-tracking"] = &defaultVrf.ExplicitTracking
-    return children
-}
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["max-groups"] = defaultVrf.MaxGroups
-    leafs["access-group"] = defaultVrf.AccessGroup
-    leafs["version"] = defaultVrf.Version
-    leafs["query-interval"] = defaultVrf.QueryInterval
-    leafs["query-max-response-time"] = defaultVrf.QueryMaxResponseTime
-    leafs["multicast-mode"] = defaultVrf.MulticastMode
-    return leafs
-}
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetYangName() string { return "default-vrf" }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) SetParent(parent types.Entity) { defaultVrf.parent = parent }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetParent() types.Entity { return defaultVrf.parent }
-
-func (defaultVrf *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf) GetParentYangName() string { return "igmp" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking
 // IGMPv3 explicit host tracking
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable or disable, when value is TRUE or FALSE respectively. The type is
@@ -5238,58 +2702,27 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking
     AccessListName interface{}
 }
 
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetFilter() yfilter.YFilter { return explicitTracking.YFilter }
+func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetEntityData() *types.CommonEntityData {
+    explicitTracking.EntityData.YFilter = explicitTracking.YFilter
+    explicitTracking.EntityData.YangName = "explicit-tracking"
+    explicitTracking.EntityData.BundleName = "cisco_ios_xr"
+    explicitTracking.EntityData.ParentYangName = "default-vrf"
+    explicitTracking.EntityData.SegmentPath = "explicit-tracking"
+    explicitTracking.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    explicitTracking.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    explicitTracking.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) SetFilter(yf yfilter.YFilter) { explicitTracking.YFilter = yf }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "access-list-name" { return "AccessListName" }
-    return ""
+    explicitTracking.EntityData.Children = make(map[string]types.YChild)
+    explicitTracking.EntityData.Leafs = make(map[string]types.YLeaf)
+    explicitTracking.EntityData.Leafs["enable"] = types.YLeaf{"Enable", explicitTracking.Enable}
+    explicitTracking.EntityData.Leafs["access-list-name"] = types.YLeaf{"AccessListName", explicitTracking.AccessListName}
+    return &(explicitTracking.EntityData)
 }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetSegmentPath() string {
-    return "explicit-tracking"
-}
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = explicitTracking.Enable
-    leafs["access-list-name"] = explicitTracking.AccessListName
-    return leafs
-}
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetBundleName() string { return "cisco_ios_xr" }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetYangName() string { return "explicit-tracking" }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) SetParent(parent types.Entity) { explicitTracking.parent = parent }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetParent() types.Entity { return explicitTracking.parent }
-
-func (explicitTracking *DynamicTemplate_IpSubscribers_IpSubscriber_Igmp_DefaultVrf_ExplicitTracking) GetParentYangName() string { return "default-vrf" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network
 // Interface IPv4 Network configuration data
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable IP processing without an explicit address. The type is string.
@@ -5308,62 +2741,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network struct {
     Rpf interface{}
 }
 
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetFilter() yfilter.YFilter { return ipv4Network.YFilter }
+func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "ip-subscriber"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) SetFilter(yf yfilter.YFilter) { ipv4Network.YFilter = yf }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetGoName(yname string) string {
-    if yname == "unnumbered" { return "Unnumbered" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "unreachables" { return "Unreachables" }
-    if yname == "rpf" { return "Rpf" }
-    return ""
+    ipv4Network.EntityData.Children = make(map[string]types.YChild)
+    ipv4Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Network.EntityData.Leafs["unnumbered"] = types.YLeaf{"Unnumbered", ipv4Network.Unnumbered}
+    ipv4Network.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv4Network.Mtu}
+    ipv4Network.EntityData.Leafs["unreachables"] = types.YLeaf{"Unreachables", ipv4Network.Unreachables}
+    ipv4Network.EntityData.Leafs["rpf"] = types.YLeaf{"Rpf", ipv4Network.Rpf}
+    return &(ipv4Network.EntityData)
 }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-}
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unnumbered"] = ipv4Network.Unnumbered
-    leafs["mtu"] = ipv4Network.Mtu
-    leafs["unreachables"] = ipv4Network.Unreachables
-    leafs["rpf"] = ipv4Network.Rpf
-    return leafs
-}
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetYangName() string { return "ipv4-network" }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) SetParent(parent types.Entity) { ipv4Network.parent = parent }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetParent() types.Entity { return ipv4Network.parent }
-
-func (ipv4Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv4Network) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network
 // Interface IPv6 Network configuration data
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
@@ -5380,124 +2780,55 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network struct {
     Addresses DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses
 }
 
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetFilter() yfilter.YFilter { return ipv6Network.YFilter }
+func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetEntityData() *types.CommonEntityData {
+    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
+    ipv6Network.EntityData.YangName = "ipv6-network"
+    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Network.EntityData.ParentYangName = "ip-subscriber"
+    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) SetFilter(yf yfilter.YFilter) { ipv6Network.YFilter = yf }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetGoName(yname string) string {
-    if yname == "mtu" { return "Mtu" }
-    if yname == "rpf" { return "Rpf" }
-    if yname == "unreachables" { return "Unreachables" }
-    if yname == "addresses" { return "Addresses" }
-    return ""
+    ipv6Network.EntityData.Children = make(map[string]types.YChild)
+    ipv6Network.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv6Network.Addresses}
+    ipv6Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Network.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv6Network.Mtu}
+    ipv6Network.EntityData.Leafs["rpf"] = types.YLeaf{"Rpf", ipv6Network.Rpf}
+    ipv6Network.EntityData.Leafs["unreachables"] = types.YLeaf{"Unreachables", ipv6Network.Unreachables}
+    return &(ipv6Network.EntityData)
 }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-}
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "addresses" {
-        return &ipv6Network.Addresses
-    }
-    return nil
-}
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["addresses"] = &ipv6Network.Addresses
-    return children
-}
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mtu"] = ipv6Network.Mtu
-    leafs["rpf"] = ipv6Network.Rpf
-    leafs["unreachables"] = ipv6Network.Unreachables
-    return leafs
-}
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetYangName() string { return "ipv6-network" }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) SetParent(parent types.Entity) { ipv6Network.parent = parent }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetParent() types.Entity { return ipv6Network.parent }
-
-func (ipv6Network *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses
 // Set the IPv6 address of an interface
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Auto IPv6 Interface Configuration.
     AutoConfiguration DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration
 }
 
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetFilter() yfilter.YFilter { return addresses.YFilter }
+func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "ipv6-network"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) SetFilter(yf yfilter.YFilter) { addresses.YFilter = yf }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetGoName(yname string) string {
-    if yname == "auto-configuration" { return "AutoConfiguration" }
-    return ""
+    addresses.EntityData.Children = make(map[string]types.YChild)
+    addresses.EntityData.Children["auto-configuration"] = types.YChild{"AutoConfiguration", &addresses.AutoConfiguration}
+    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addresses.EntityData)
 }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetSegmentPath() string {
-    return "addresses"
-}
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "auto-configuration" {
-        return &addresses.AutoConfiguration
-    }
-    return nil
-}
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["auto-configuration"] = &addresses.AutoConfiguration
-    return children
-}
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetYangName() string { return "addresses" }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) SetParent(parent types.Entity) { addresses.parent = parent }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetParent() types.Entity { return addresses.parent }
-
-func (addresses *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses) GetParentYangName() string { return "ipv6-network" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration
 // Auto IPv6 Interface Configuration
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The flag to enable auto ipv6 interface configuration. The type is
@@ -5505,56 +2836,26 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfig
     Enable interface{}
 }
 
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetFilter() yfilter.YFilter { return autoConfiguration.YFilter }
+func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
+    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
+    autoConfiguration.EntityData.YangName = "auto-configuration"
+    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    autoConfiguration.EntityData.ParentYangName = "addresses"
+    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
+    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) SetFilter(yf yfilter.YFilter) { autoConfiguration.YFilter = yf }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    autoConfiguration.EntityData.Children = make(map[string]types.YChild)
+    autoConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoConfiguration.EntityData.Leafs["enable"] = types.YLeaf{"Enable", autoConfiguration.Enable}
+    return &(autoConfiguration.EntityData)
 }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetSegmentPath() string {
-    return "auto-configuration"
-}
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = autoConfiguration.Enable
-    return leafs
-}
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetYangName() string { return "auto-configuration" }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) SetParent(parent types.Entity) { autoConfiguration.parent = parent }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetParent() types.Entity { return autoConfiguration.parent }
-
-func (autoConfiguration *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Network_Addresses_AutoConfiguration) GetParentYangName() string { return "addresses" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor
 // Interface IPv6 Network configuration data
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set the IPv6 framed ipv6 prefix pool for a subscriber interface . The type
@@ -5619,104 +2920,45 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor struct {
     RaInitial DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial
 }
 
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetFilter() yfilter.YFilter { return ipv6Neighbor.YFilter }
+func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetEntityData() *types.CommonEntityData {
+    ipv6Neighbor.EntityData.YFilter = ipv6Neighbor.YFilter
+    ipv6Neighbor.EntityData.YangName = "ipv6-neighbor"
+    ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Neighbor.EntityData.ParentYangName = "ip-subscriber"
+    ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) SetFilter(yf yfilter.YFilter) { ipv6Neighbor.YFilter = yf }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetGoName(yname string) string {
-    if yname == "framed-prefix-pool" { return "FramedPrefixPool" }
-    if yname == "managed-config" { return "ManagedConfig" }
-    if yname == "other-config" { return "OtherConfig" }
-    if yname == "start-ra-on-ipv6-enable" { return "StartRaOnIpv6Enable" }
-    if yname == "nud-enable" { return "NudEnable" }
-    if yname == "ra-lifetime" { return "RaLifetime" }
-    if yname == "router-preference" { return "RouterPreference" }
-    if yname == "ra-suppress" { return "RaSuppress" }
-    if yname == "ra-unicast" { return "RaUnicast" }
-    if yname == "ra-unspecify-hoplimit" { return "RaUnspecifyHoplimit" }
-    if yname == "ra-suppress-mtu" { return "RaSuppressMtu" }
-    if yname == "suppress-cache-learning" { return "SuppressCacheLearning" }
-    if yname == "reachable-time" { return "ReachableTime" }
-    if yname == "ns-interval" { return "NsInterval" }
-    if yname == "ra-interval" { return "RaInterval" }
-    if yname == "framed-prefix" { return "FramedPrefix" }
-    if yname == "duplicate-address-detection" { return "DuplicateAddressDetection" }
-    if yname == "ra-initial" { return "RaInitial" }
-    return ""
+    ipv6Neighbor.EntityData.Children = make(map[string]types.YChild)
+    ipv6Neighbor.EntityData.Children["ra-interval"] = types.YChild{"RaInterval", &ipv6Neighbor.RaInterval}
+    ipv6Neighbor.EntityData.Children["framed-prefix"] = types.YChild{"FramedPrefix", &ipv6Neighbor.FramedPrefix}
+    ipv6Neighbor.EntityData.Children["duplicate-address-detection"] = types.YChild{"DuplicateAddressDetection", &ipv6Neighbor.DuplicateAddressDetection}
+    ipv6Neighbor.EntityData.Children["ra-initial"] = types.YChild{"RaInitial", &ipv6Neighbor.RaInitial}
+    ipv6Neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Neighbor.EntityData.Leafs["framed-prefix-pool"] = types.YLeaf{"FramedPrefixPool", ipv6Neighbor.FramedPrefixPool}
+    ipv6Neighbor.EntityData.Leafs["managed-config"] = types.YLeaf{"ManagedConfig", ipv6Neighbor.ManagedConfig}
+    ipv6Neighbor.EntityData.Leafs["other-config"] = types.YLeaf{"OtherConfig", ipv6Neighbor.OtherConfig}
+    ipv6Neighbor.EntityData.Leafs["start-ra-on-ipv6-enable"] = types.YLeaf{"StartRaOnIpv6Enable", ipv6Neighbor.StartRaOnIpv6Enable}
+    ipv6Neighbor.EntityData.Leafs["nud-enable"] = types.YLeaf{"NudEnable", ipv6Neighbor.NudEnable}
+    ipv6Neighbor.EntityData.Leafs["ra-lifetime"] = types.YLeaf{"RaLifetime", ipv6Neighbor.RaLifetime}
+    ipv6Neighbor.EntityData.Leafs["router-preference"] = types.YLeaf{"RouterPreference", ipv6Neighbor.RouterPreference}
+    ipv6Neighbor.EntityData.Leafs["ra-suppress"] = types.YLeaf{"RaSuppress", ipv6Neighbor.RaSuppress}
+    ipv6Neighbor.EntityData.Leafs["ra-unicast"] = types.YLeaf{"RaUnicast", ipv6Neighbor.RaUnicast}
+    ipv6Neighbor.EntityData.Leafs["ra-unspecify-hoplimit"] = types.YLeaf{"RaUnspecifyHoplimit", ipv6Neighbor.RaUnspecifyHoplimit}
+    ipv6Neighbor.EntityData.Leafs["ra-suppress-mtu"] = types.YLeaf{"RaSuppressMtu", ipv6Neighbor.RaSuppressMtu}
+    ipv6Neighbor.EntityData.Leafs["suppress-cache-learning"] = types.YLeaf{"SuppressCacheLearning", ipv6Neighbor.SuppressCacheLearning}
+    ipv6Neighbor.EntityData.Leafs["reachable-time"] = types.YLeaf{"ReachableTime", ipv6Neighbor.ReachableTime}
+    ipv6Neighbor.EntityData.Leafs["ns-interval"] = types.YLeaf{"NsInterval", ipv6Neighbor.NsInterval}
+    return &(ipv6Neighbor.EntityData)
 }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
-}
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ra-interval" {
-        return &ipv6Neighbor.RaInterval
-    }
-    if childYangName == "framed-prefix" {
-        return &ipv6Neighbor.FramedPrefix
-    }
-    if childYangName == "duplicate-address-detection" {
-        return &ipv6Neighbor.DuplicateAddressDetection
-    }
-    if childYangName == "ra-initial" {
-        return &ipv6Neighbor.RaInitial
-    }
-    return nil
-}
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ra-interval"] = &ipv6Neighbor.RaInterval
-    children["framed-prefix"] = &ipv6Neighbor.FramedPrefix
-    children["duplicate-address-detection"] = &ipv6Neighbor.DuplicateAddressDetection
-    children["ra-initial"] = &ipv6Neighbor.RaInitial
-    return children
-}
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["framed-prefix-pool"] = ipv6Neighbor.FramedPrefixPool
-    leafs["managed-config"] = ipv6Neighbor.ManagedConfig
-    leafs["other-config"] = ipv6Neighbor.OtherConfig
-    leafs["start-ra-on-ipv6-enable"] = ipv6Neighbor.StartRaOnIpv6Enable
-    leafs["nud-enable"] = ipv6Neighbor.NudEnable
-    leafs["ra-lifetime"] = ipv6Neighbor.RaLifetime
-    leafs["router-preference"] = ipv6Neighbor.RouterPreference
-    leafs["ra-suppress"] = ipv6Neighbor.RaSuppress
-    leafs["ra-unicast"] = ipv6Neighbor.RaUnicast
-    leafs["ra-unspecify-hoplimit"] = ipv6Neighbor.RaUnspecifyHoplimit
-    leafs["ra-suppress-mtu"] = ipv6Neighbor.RaSuppressMtu
-    leafs["suppress-cache-learning"] = ipv6Neighbor.SuppressCacheLearning
-    leafs["reachable-time"] = ipv6Neighbor.ReachableTime
-    leafs["ns-interval"] = ipv6Neighbor.NsInterval
-    return leafs
-}
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetYangName() string { return "ipv6-neighbor" }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) SetParent(parent types.Entity) { ipv6Neighbor.parent = parent }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetParent() types.Entity { return ipv6Neighbor.parent }
-
-func (ipv6Neighbor *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval
 // Set IPv6 Router Advertisement (RA) interval in
 // seconds
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum RA interval in seconds. The type is interface{} with range:
@@ -5728,60 +2970,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval struct {
     Minimum interface{}
 }
 
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetFilter() yfilter.YFilter { return raInterval.YFilter }
+func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetEntityData() *types.CommonEntityData {
+    raInterval.EntityData.YFilter = raInterval.YFilter
+    raInterval.EntityData.YangName = "ra-interval"
+    raInterval.EntityData.BundleName = "cisco_ios_xr"
+    raInterval.EntityData.ParentYangName = "ipv6-neighbor"
+    raInterval.EntityData.SegmentPath = "ra-interval"
+    raInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) SetFilter(yf yfilter.YFilter) { raInterval.YFilter = yf }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetGoName(yname string) string {
-    if yname == "maximum" { return "Maximum" }
-    if yname == "minimum" { return "Minimum" }
-    return ""
+    raInterval.EntityData.Children = make(map[string]types.YChild)
+    raInterval.EntityData.Leafs = make(map[string]types.YLeaf)
+    raInterval.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", raInterval.Maximum}
+    raInterval.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", raInterval.Minimum}
+    return &(raInterval.EntityData)
 }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetSegmentPath() string {
-    return "ra-interval"
-}
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["maximum"] = raInterval.Maximum
-    leafs["minimum"] = raInterval.Minimum
-    return leafs
-}
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetBundleName() string { return "cisco_ios_xr" }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetYangName() string { return "ra-interval" }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) SetParent(parent types.Entity) { raInterval.parent = parent }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetParent() types.Entity { return raInterval.parent }
-
-func (raInterval *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInterval) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix
 // Set the IPv6 framed ipv6 prefix for a
 // subscriber interface 
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 framed prefix length. The type is interface{} with range: 0..128. This
@@ -5793,58 +3004,27 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix struct
     Prefix interface{}
 }
 
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetFilter() yfilter.YFilter { return framedPrefix.YFilter }
+func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetEntityData() *types.CommonEntityData {
+    framedPrefix.EntityData.YFilter = framedPrefix.YFilter
+    framedPrefix.EntityData.YangName = "framed-prefix"
+    framedPrefix.EntityData.BundleName = "cisco_ios_xr"
+    framedPrefix.EntityData.ParentYangName = "ipv6-neighbor"
+    framedPrefix.EntityData.SegmentPath = "framed-prefix"
+    framedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    framedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    framedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) SetFilter(yf yfilter.YFilter) { framedPrefix.YFilter = yf }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetGoName(yname string) string {
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "prefix" { return "Prefix" }
-    return ""
+    framedPrefix.EntityData.Children = make(map[string]types.YChild)
+    framedPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    framedPrefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", framedPrefix.PrefixLength}
+    framedPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", framedPrefix.Prefix}
+    return &(framedPrefix.EntityData)
 }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetSegmentPath() string {
-    return "framed-prefix"
-}
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-length"] = framedPrefix.PrefixLength
-    leafs["prefix"] = framedPrefix.Prefix
-    return leafs
-}
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetYangName() string { return "framed-prefix" }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) SetParent(parent types.Entity) { framedPrefix.parent = parent }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetParent() types.Entity { return framedPrefix.parent }
-
-func (framedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_FramedPrefix) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection
 // Duplicate Address Detection (DAD)
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set IPv6 duplicate address detection transmits. The type is interface{}
@@ -5852,57 +3032,27 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDet
     Attempts interface{}
 }
 
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetFilter() yfilter.YFilter { return duplicateAddressDetection.YFilter }
+func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetEntityData() *types.CommonEntityData {
+    duplicateAddressDetection.EntityData.YFilter = duplicateAddressDetection.YFilter
+    duplicateAddressDetection.EntityData.YangName = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.BundleName = "cisco_ios_xr"
+    duplicateAddressDetection.EntityData.ParentYangName = "ipv6-neighbor"
+    duplicateAddressDetection.EntityData.SegmentPath = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    duplicateAddressDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    duplicateAddressDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) SetFilter(yf yfilter.YFilter) { duplicateAddressDetection.YFilter = yf }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetGoName(yname string) string {
-    if yname == "attempts" { return "Attempts" }
-    return ""
+    duplicateAddressDetection.EntityData.Children = make(map[string]types.YChild)
+    duplicateAddressDetection.EntityData.Leafs = make(map[string]types.YLeaf)
+    duplicateAddressDetection.EntityData.Leafs["attempts"] = types.YLeaf{"Attempts", duplicateAddressDetection.Attempts}
+    return &(duplicateAddressDetection.EntityData)
 }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetSegmentPath() string {
-    return "duplicate-address-detection"
-}
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["attempts"] = duplicateAddressDetection.Attempts
-    return leafs
-}
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetBundleName() string { return "cisco_ios_xr" }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetYangName() string { return "duplicate-address-detection" }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) SetParent(parent types.Entity) { duplicateAddressDetection.parent = parent }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetParent() types.Entity { return duplicateAddressDetection.parent }
-
-func (duplicateAddressDetection *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_DuplicateAddressDetection) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial
 // IPv6 ND RA Initial
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initial RA count. The type is interface{} with range: 0..32. This attribute
@@ -5914,62 +3064,31 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial struct {
     Interval interface{}
 }
 
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetFilter() yfilter.YFilter { return raInitial.YFilter }
+func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetEntityData() *types.CommonEntityData {
+    raInitial.EntityData.YFilter = raInitial.YFilter
+    raInitial.EntityData.YangName = "ra-initial"
+    raInitial.EntityData.BundleName = "cisco_ios_xr"
+    raInitial.EntityData.ParentYangName = "ipv6-neighbor"
+    raInitial.EntityData.SegmentPath = "ra-initial"
+    raInitial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raInitial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raInitial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) SetFilter(yf yfilter.YFilter) { raInitial.YFilter = yf }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetGoName(yname string) string {
-    if yname == "count" { return "Count" }
-    if yname == "interval" { return "Interval" }
-    return ""
+    raInitial.EntityData.Children = make(map[string]types.YChild)
+    raInitial.EntityData.Leafs = make(map[string]types.YLeaf)
+    raInitial.EntityData.Leafs["count"] = types.YLeaf{"Count", raInitial.Count}
+    raInitial.EntityData.Leafs["interval"] = types.YLeaf{"Interval", raInitial.Interval}
+    return &(raInitial.EntityData)
 }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetSegmentPath() string {
-    return "ra-initial"
-}
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["count"] = raInitial.Count
-    leafs["interval"] = raInitial.Interval
-    return leafs
-}
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetBundleName() string { return "cisco_ios_xr" }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetYangName() string { return "ra-initial" }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) SetParent(parent types.Entity) { raInitial.parent = parent }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetParent() types.Entity { return raInitial.parent }
-
-func (raInitial *DynamicTemplate_IpSubscribers_IpSubscriber_Ipv6Neighbor_RaInitial) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6
 // Interface dhcpv6 configuration data
 type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Dns IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DnsIpv6Address interface{}
 
     // Select proxy/server profile based on mode class name. The type is string.
@@ -5985,83 +3104,44 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6 struct {
     Class interface{}
 
     // Stateful IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     StatefulAddress interface{}
 
     // The prefix to be used for Prefix Delegation.
     DelegatedPrefix DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix
 }
 
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetFilter() yfilter.YFilter { return dhcpv6.YFilter }
+func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetEntityData() *types.CommonEntityData {
+    dhcpv6.EntityData.YFilter = dhcpv6.YFilter
+    dhcpv6.EntityData.YangName = "dhcpv6"
+    dhcpv6.EntityData.BundleName = "cisco_ios_xr"
+    dhcpv6.EntityData.ParentYangName = "ip-subscriber"
+    dhcpv6.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"
+    dhcpv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcpv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcpv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) SetFilter(yf yfilter.YFilter) { dhcpv6.YFilter = yf }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetGoName(yname string) string {
-    if yname == "dns-ipv6address" { return "DnsIpv6Address" }
-    if yname == "mode-class" { return "ModeClass" }
-    if yname == "address-pool" { return "AddressPool" }
-    if yname == "delegated-prefix-pool" { return "DelegatedPrefixPool" }
-    if yname == "class" { return "Class" }
-    if yname == "stateful-address" { return "StatefulAddress" }
-    if yname == "delegated-prefix" { return "DelegatedPrefix" }
-    return ""
+    dhcpv6.EntityData.Children = make(map[string]types.YChild)
+    dhcpv6.EntityData.Children["delegated-prefix"] = types.YChild{"DelegatedPrefix", &dhcpv6.DelegatedPrefix}
+    dhcpv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcpv6.EntityData.Leafs["dns-ipv6address"] = types.YLeaf{"DnsIpv6Address", dhcpv6.DnsIpv6Address}
+    dhcpv6.EntityData.Leafs["mode-class"] = types.YLeaf{"ModeClass", dhcpv6.ModeClass}
+    dhcpv6.EntityData.Leafs["address-pool"] = types.YLeaf{"AddressPool", dhcpv6.AddressPool}
+    dhcpv6.EntityData.Leafs["delegated-prefix-pool"] = types.YLeaf{"DelegatedPrefixPool", dhcpv6.DelegatedPrefixPool}
+    dhcpv6.EntityData.Leafs["class"] = types.YLeaf{"Class", dhcpv6.Class}
+    dhcpv6.EntityData.Leafs["stateful-address"] = types.YLeaf{"StatefulAddress", dhcpv6.StatefulAddress}
+    return &(dhcpv6.EntityData)
 }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-new-dhcpv6d-subscriber-cfg:dhcpv6"
-}
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "delegated-prefix" {
-        return &dhcpv6.DelegatedPrefix
-    }
-    return nil
-}
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["delegated-prefix"] = &dhcpv6.DelegatedPrefix
-    return children
-}
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dns-ipv6address"] = dhcpv6.DnsIpv6Address
-    leafs["mode-class"] = dhcpv6.ModeClass
-    leafs["address-pool"] = dhcpv6.AddressPool
-    leafs["delegated-prefix-pool"] = dhcpv6.DelegatedPrefixPool
-    leafs["class"] = dhcpv6.Class
-    leafs["stateful-address"] = dhcpv6.StatefulAddress
-    return leafs
-}
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetYangName() string { return "dhcpv6" }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) SetParent(parent types.Entity) { dhcpv6.parent = parent }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetParent() types.Entity { return dhcpv6.parent }
-
-func (dhcpv6 *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix
 // The prefix to be used for Prefix Delegation
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     // This attribute is mandatory.
     Prefix interface{}
 
@@ -6070,58 +3150,27 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix struct {
     PrefixLength interface{}
 }
 
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetFilter() yfilter.YFilter { return delegatedPrefix.YFilter }
+func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetEntityData() *types.CommonEntityData {
+    delegatedPrefix.EntityData.YFilter = delegatedPrefix.YFilter
+    delegatedPrefix.EntityData.YangName = "delegated-prefix"
+    delegatedPrefix.EntityData.BundleName = "cisco_ios_xr"
+    delegatedPrefix.EntityData.ParentYangName = "dhcpv6"
+    delegatedPrefix.EntityData.SegmentPath = "delegated-prefix"
+    delegatedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    delegatedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    delegatedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) SetFilter(yf yfilter.YFilter) { delegatedPrefix.YFilter = yf }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetGoName(yname string) string {
-    if yname == "prefix" { return "Prefix" }
-    if yname == "prefix-length" { return "PrefixLength" }
-    return ""
+    delegatedPrefix.EntityData.Children = make(map[string]types.YChild)
+    delegatedPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    delegatedPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", delegatedPrefix.Prefix}
+    delegatedPrefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", delegatedPrefix.PrefixLength}
+    return &(delegatedPrefix.EntityData)
 }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetSegmentPath() string {
-    return "delegated-prefix"
-}
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix"] = delegatedPrefix.Prefix
-    leafs["prefix-length"] = delegatedPrefix.PrefixLength
-    return leafs
-}
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetYangName() string { return "delegated-prefix" }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) SetParent(parent types.Entity) { delegatedPrefix.parent = parent }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetParent() types.Entity { return delegatedPrefix.parent }
-
-func (delegatedPrefix *DynamicTemplate_IpSubscribers_IpSubscriber_Dhcpv6_DelegatedPrefix) GetParentYangName() string { return "dhcpv6" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Pbr
 // Dynamic Template PBR configuration
 type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Class for subscriber ingress policy. The type is string.
@@ -6131,117 +3180,53 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr struct {
     ServicePolicy DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy
 }
 
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetFilter() yfilter.YFilter { return pbr.YFilter }
+func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetEntityData() *types.CommonEntityData {
+    pbr.EntityData.YFilter = pbr.YFilter
+    pbr.EntityData.YangName = "pbr"
+    pbr.EntityData.BundleName = "cisco_ios_xr"
+    pbr.EntityData.ParentYangName = "ip-subscriber"
+    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) SetFilter(yf yfilter.YFilter) { pbr.YFilter = yf }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetGoName(yname string) string {
-    if yname == "service-policy-in" { return "ServicePolicyIn" }
-    if yname == "service-policy" { return "ServicePolicy" }
-    return ""
+    pbr.EntityData.Children = make(map[string]types.YChild)
+    pbr.EntityData.Children["service-policy"] = types.YChild{"ServicePolicy", &pbr.ServicePolicy}
+    pbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbr.EntityData.Leafs["service-policy-in"] = types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn}
+    return &(pbr.EntityData)
 }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetSegmentPath() string {
-    return "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
-}
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-policy" {
-        return &pbr.ServicePolicy
-    }
-    return nil
-}
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-policy"] = &pbr.ServicePolicy
-    return children
-}
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["service-policy-in"] = pbr.ServicePolicyIn
-    return leafs
-}
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetYangName() string { return "pbr" }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) SetParent(parent types.Entity) { pbr.parent = parent }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetParent() types.Entity { return pbr.parent }
-
-func (pbr *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy
 // PBR service policy configuration
 type DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ingress service policy. The type is string.
     Input interface{}
 }
 
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetFilter() yfilter.YFilter { return servicePolicy.YFilter }
+func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "pbr"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) SetFilter(yf yfilter.YFilter) { servicePolicy.YFilter = yf }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    servicePolicy.EntityData.Children = make(map[string]types.YChild)
+    servicePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    servicePolicy.EntityData.Leafs["input"] = types.YLeaf{"Input", servicePolicy.Input}
+    return &(servicePolicy.EntityData)
 }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetSegmentPath() string {
-    return "service-policy"
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input"] = servicePolicy.Input
-    return leafs
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetYangName() string { return "service-policy" }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) SetParent(parent types.Entity) { servicePolicy.parent = parent }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetParent() types.Entity { return servicePolicy.parent }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Pbr_ServicePolicy) GetParentYangName() string { return "pbr" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Qos
 // QoS dynamically applied configuration template
 type DynamicTemplate_IpSubscribers_IpSubscriber_Qos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service policy to be applied in ingress/egress direction.
@@ -6254,70 +3239,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Qos struct {
     Output DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output
 }
 
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetFilter() yfilter.YFilter { return qos.YFilter }
+func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "ip-subscriber"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) SetFilter(yf yfilter.YFilter) { qos.YFilter = yf }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetGoName(yname string) string {
-    if yname == "service-policy" { return "ServicePolicy" }
-    if yname == "account" { return "Account" }
-    if yname == "output" { return "Output" }
-    return ""
+    qos.EntityData.Children = make(map[string]types.YChild)
+    qos.EntityData.Children["service-policy"] = types.YChild{"ServicePolicy", &qos.ServicePolicy}
+    qos.EntityData.Children["account"] = types.YChild{"Account", &qos.Account}
+    qos.EntityData.Children["output"] = types.YChild{"Output", &qos.Output}
+    qos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qos.EntityData)
 }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetSegmentPath() string {
-    return "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
-}
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-policy" {
-        return &qos.ServicePolicy
-    }
-    if childYangName == "account" {
-        return &qos.Account
-    }
-    if childYangName == "output" {
-        return &qos.Output
-    }
-    return nil
-}
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-policy"] = &qos.ServicePolicy
-    children["account"] = &qos.Account
-    children["output"] = &qos.Output
-    return children
-}
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetYangName() string { return "qos" }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) SetParent(parent types.Entity) { qos.parent = parent }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetParent() types.Entity { return qos.parent }
-
-func (qos *DynamicTemplate_IpSubscribers_IpSubscriber_Qos) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy
 // Service policy to be applied in ingress/egress
 // direction
 type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber ingress policy.
@@ -6327,65 +3271,28 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy struct {
     Output DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output
 }
 
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetFilter() yfilter.YFilter { return servicePolicy.YFilter }
+func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "qos"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) SetFilter(yf yfilter.YFilter) { servicePolicy.YFilter = yf }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    servicePolicy.EntityData.Children = make(map[string]types.YChild)
+    servicePolicy.EntityData.Children["input"] = types.YChild{"Input", &servicePolicy.Input}
+    servicePolicy.EntityData.Children["output"] = types.YChild{"Output", &servicePolicy.Output}
+    servicePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(servicePolicy.EntityData)
 }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetSegmentPath() string {
-    return "service-policy"
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &servicePolicy.Input
-    }
-    if childYangName == "output" {
-        return &servicePolicy.Output
-    }
-    return nil
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &servicePolicy.Input
-    children["output"] = &servicePolicy.Output
-    return children
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetYangName() string { return "service-policy" }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) SetParent(parent types.Entity) { servicePolicy.parent = parent }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetParent() types.Entity { return servicePolicy.parent }
-
-func (servicePolicy *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input
 // Subscriber ingress policy
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of policy-map. The type is string. This attribute is mandatory.
@@ -6407,65 +3314,31 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input struct {
     AccountStats interface{}
 }
 
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "service-policy"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetGoName(yname string) string {
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "spi-name" { return "SpiName" }
-    if yname == "merge" { return "Merge" }
-    if yname == "merge-id" { return "MergeId" }
-    if yname == "account-stats" { return "AccountStats" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", input.PolicyName}
+    input.EntityData.Leafs["spi-name"] = types.YLeaf{"SpiName", input.SpiName}
+    input.EntityData.Leafs["merge"] = types.YLeaf{"Merge", input.Merge}
+    input.EntityData.Leafs["merge-id"] = types.YLeaf{"MergeId", input.MergeId}
+    input.EntityData.Leafs["account-stats"] = types.YLeaf{"AccountStats", input.AccountStats}
+    return &(input.EntityData)
 }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-name"] = input.PolicyName
-    leafs["spi-name"] = input.SpiName
-    leafs["merge"] = input.Merge
-    leafs["merge-id"] = input.MergeId
-    leafs["account-stats"] = input.AccountStats
-    return leafs
-}
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetYangName() string { return "input" }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetParent() types.Entity { return input.parent }
-
-func (input *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Input) GetParentYangName() string { return "service-policy" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output
 // Subscriber egress policy
 // This type is a presence type.
 type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of policy-map. The type is string. This attribute is mandatory.
@@ -6487,64 +3360,30 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output struct 
     AccountStats interface{}
 }
 
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "service-policy"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetGoName(yname string) string {
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "spi-name" { return "SpiName" }
-    if yname == "merge" { return "Merge" }
-    if yname == "merge-id" { return "MergeId" }
-    if yname == "account-stats" { return "AccountStats" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", output.PolicyName}
+    output.EntityData.Leafs["spi-name"] = types.YLeaf{"SpiName", output.SpiName}
+    output.EntityData.Leafs["merge"] = types.YLeaf{"Merge", output.Merge}
+    output.EntityData.Leafs["merge-id"] = types.YLeaf{"MergeId", output.MergeId}
+    output.EntityData.Leafs["account-stats"] = types.YLeaf{"AccountStats", output.AccountStats}
+    return &(output.EntityData)
 }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-name"] = output.PolicyName
-    leafs["spi-name"] = output.SpiName
-    leafs["merge"] = output.Merge
-    leafs["merge-id"] = output.MergeId
-    leafs["account-stats"] = output.AccountStats
-    return leafs
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetYangName() string { return "output" }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_ServicePolicy_Output) GetParentYangName() string { return "service-policy" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account
 // QoS L2 overhead accounting
 type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ATM adaptation layer AAL. The type is Qosl2DataLink.
@@ -6560,62 +3399,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account struct {
     UserDefined interface{}
 }
 
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetFilter() yfilter.YFilter { return account.YFilter }
+func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetEntityData() *types.CommonEntityData {
+    account.EntityData.YFilter = account.YFilter
+    account.EntityData.YangName = "account"
+    account.EntityData.BundleName = "cisco_ios_xr"
+    account.EntityData.ParentYangName = "qos"
+    account.EntityData.SegmentPath = "account"
+    account.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    account.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    account.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) SetFilter(yf yfilter.YFilter) { account.YFilter = yf }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetGoName(yname string) string {
-    if yname == "aal" { return "Aal" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "atm-cell-tax" { return "AtmCellTax" }
-    if yname == "user-defined" { return "UserDefined" }
-    return ""
+    account.EntityData.Children = make(map[string]types.YChild)
+    account.EntityData.Leafs = make(map[string]types.YLeaf)
+    account.EntityData.Leafs["aal"] = types.YLeaf{"Aal", account.Aal}
+    account.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", account.Encapsulation}
+    account.EntityData.Leafs["atm-cell-tax"] = types.YLeaf{"AtmCellTax", account.AtmCellTax}
+    account.EntityData.Leafs["user-defined"] = types.YLeaf{"UserDefined", account.UserDefined}
+    return &(account.EntityData)
 }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetSegmentPath() string {
-    return "account"
-}
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["aal"] = account.Aal
-    leafs["encapsulation"] = account.Encapsulation
-    leafs["atm-cell-tax"] = account.AtmCellTax
-    leafs["user-defined"] = account.UserDefined
-    return leafs
-}
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetBundleName() string { return "cisco_ios_xr" }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetYangName() string { return "account" }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) SetParent(parent types.Entity) { account.parent = parent }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetParent() types.Entity { return account.parent }
-
-func (account *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Account) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output
 // QoS to be applied in egress direction
 type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum bandwidth value for the subscriber (in kbps). The type is
@@ -6623,56 +3429,26 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output struct {
     MinimumBandwidth interface{}
 }
 
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "qos"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetGoName(yname string) string {
-    if yname == "minimum-bandwidth" { return "MinimumBandwidth" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["minimum-bandwidth"] = types.YLeaf{"MinimumBandwidth", output.MinimumBandwidth}
+    return &(output.EntityData)
 }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minimum-bandwidth"] = output.MinimumBandwidth
-    return leafs
-}
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetYangName() string { return "output" }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DynamicTemplate_IpSubscribers_IpSubscriber_Qos_Output) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Accounting
 // Subscriber accounting dynamic-template commands
 type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber accounting prepaid feature. The type is string.
@@ -6688,71 +3464,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting struct {
     IdleTimeout DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout
 }
 
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "ip-subscriber"
+    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetGoName(yname string) string {
-    if yname == "prepaid-feature" { return "PrepaidFeature" }
-    if yname == "service-accounting" { return "ServiceAccounting" }
-    if yname == "session" { return "Session" }
-    if yname == "idle-timeout" { return "IdleTimeout" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["service-accounting"] = types.YChild{"ServiceAccounting", &accounting.ServiceAccounting}
+    accounting.EntityData.Children["session"] = types.YChild{"Session", &accounting.Session}
+    accounting.EntityData.Children["idle-timeout"] = types.YChild{"IdleTimeout", &accounting.IdleTimeout}
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs["prepaid-feature"] = types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature}
+    return &(accounting.EntityData)
 }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-}
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-accounting" {
-        return &accounting.ServiceAccounting
-    }
-    if childYangName == "session" {
-        return &accounting.Session
-    }
-    if childYangName == "idle-timeout" {
-        return &accounting.IdleTimeout
-    }
-    return nil
-}
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-accounting"] = &accounting.ServiceAccounting
-    children["session"] = &accounting.Session
-    children["idle-timeout"] = &accounting.IdleTimeout
-    return children
-}
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prepaid-feature"] = accounting.PrepaidFeature
-    return leafs
-}
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting) GetParentYangName() string { return "ip-subscriber" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting
 // Subscriber accounting service accounting
 type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service accounting method list name. The type is string.
@@ -6763,58 +3497,27 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting str
     AccountingInterimInterval interface{}
 }
 
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetFilter() yfilter.YFilter { return serviceAccounting.YFilter }
+func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
+    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
+    serviceAccounting.EntityData.YangName = "service-accounting"
+    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
+    serviceAccounting.EntityData.ParentYangName = "accounting"
+    serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) SetFilter(yf yfilter.YFilter) { serviceAccounting.YFilter = yf }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    if yname == "accounting-interim-interval" { return "AccountingInterimInterval" }
-    return ""
+    serviceAccounting.EntityData.Children = make(map[string]types.YChild)
+    serviceAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceAccounting.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", serviceAccounting.MethodListName}
+    serviceAccounting.EntityData.Leafs["accounting-interim-interval"] = types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval}
+    return &(serviceAccounting.EntityData)
 }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetSegmentPath() string {
-    return "service-accounting"
-}
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = serviceAccounting.MethodListName
-    leafs["accounting-interim-interval"] = serviceAccounting.AccountingInterimInterval
-    return leafs
-}
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetYangName() string { return "service-accounting" }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) SetParent(parent types.Entity) { serviceAccounting.parent = parent }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetParent() types.Entity { return serviceAccounting.parent }
-
-func (serviceAccounting *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_ServiceAccounting) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session
 // Subscriber accounting session accounting
 type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session accounting method list name. The type is string.
@@ -6833,62 +3536,29 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session struct {
     HoldAcctStart interface{}
 }
 
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "accounting"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    if yname == "periodic-interval" { return "PeriodicInterval" }
-    if yname == "dual-stack-delay" { return "DualStackDelay" }
-    if yname == "hold-acct-start" { return "HoldAcctStart" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", session.MethodListName}
+    session.EntityData.Leafs["periodic-interval"] = types.YLeaf{"PeriodicInterval", session.PeriodicInterval}
+    session.EntityData.Leafs["dual-stack-delay"] = types.YLeaf{"DualStackDelay", session.DualStackDelay}
+    session.EntityData.Leafs["hold-acct-start"] = types.YLeaf{"HoldAcctStart", session.HoldAcctStart}
+    return &(session.EntityData)
 }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = session.MethodListName
-    leafs["periodic-interval"] = session.PeriodicInterval
-    leafs["dual-stack-delay"] = session.DualStackDelay
-    leafs["hold-acct-start"] = session.HoldAcctStart
-    return leafs
-}
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetYangName() string { return "session" }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetParent() types.Entity { return session.parent }
-
-func (session *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_Session) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout
 // Subscriber accounting idle timeout
 type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Idle timeout value in seconds. The type is interface{} with range:
@@ -6903,60 +3573,28 @@ type DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout struct {
     Direction interface{}
 }
 
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetFilter() yfilter.YFilter { return idleTimeout.YFilter }
+func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
+    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
+    idleTimeout.EntityData.YangName = "idle-timeout"
+    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
+    idleTimeout.EntityData.ParentYangName = "accounting"
+    idleTimeout.EntityData.SegmentPath = "idle-timeout"
+    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) SetFilter(yf yfilter.YFilter) { idleTimeout.YFilter = yf }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetGoName(yname string) string {
-    if yname == "timeout-value" { return "TimeoutValue" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "direction" { return "Direction" }
-    return ""
+    idleTimeout.EntityData.Children = make(map[string]types.YChild)
+    idleTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
+    idleTimeout.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue}
+    idleTimeout.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", idleTimeout.Threshold}
+    idleTimeout.EntityData.Leafs["direction"] = types.YLeaf{"Direction", idleTimeout.Direction}
+    return &(idleTimeout.EntityData)
 }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetSegmentPath() string {
-    return "idle-timeout"
-}
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout-value"] = idleTimeout.TimeoutValue
-    leafs["threshold"] = idleTimeout.Threshold
-    leafs["direction"] = idleTimeout.Direction
-    return leafs
-}
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetBundleName() string { return "cisco_ios_xr" }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetYangName() string { return "idle-timeout" }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) SetParent(parent types.Entity) { idleTimeout.parent = parent }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetParent() types.Entity { return idleTimeout.parent }
-
-func (idleTimeout *DynamicTemplate_IpSubscribers_IpSubscriber_Accounting_IdleTimeout) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_SubscriberServices
 // The Service Type Template Table
 type DynamicTemplate_SubscriberServices struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A Service Type Template . The type is slice of
@@ -6964,72 +3602,33 @@ type DynamicTemplate_SubscriberServices struct {
     SubscriberService []DynamicTemplate_SubscriberServices_SubscriberService
 }
 
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetFilter() yfilter.YFilter { return subscriberServices.YFilter }
+func (subscriberServices *DynamicTemplate_SubscriberServices) GetEntityData() *types.CommonEntityData {
+    subscriberServices.EntityData.YFilter = subscriberServices.YFilter
+    subscriberServices.EntityData.YangName = "subscriber-services"
+    subscriberServices.EntityData.BundleName = "cisco_ios_xr"
+    subscriberServices.EntityData.ParentYangName = "dynamic-template"
+    subscriberServices.EntityData.SegmentPath = "subscriber-services"
+    subscriberServices.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberServices.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberServices.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberServices *DynamicTemplate_SubscriberServices) SetFilter(yf yfilter.YFilter) { subscriberServices.YFilter = yf }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetGoName(yname string) string {
-    if yname == "subscriber-service" { return "SubscriberService" }
-    return ""
-}
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetSegmentPath() string {
-    return "subscriber-services"
-}
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "subscriber-service" {
-        for _, c := range subscriberServices.SubscriberService {
-            if subscriberServices.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DynamicTemplate_SubscriberServices_SubscriberService{}
-        subscriberServices.SubscriberService = append(subscriberServices.SubscriberService, child)
-        return &subscriberServices.SubscriberService[len(subscriberServices.SubscriberService)-1]
-    }
-    return nil
-}
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    subscriberServices.EntityData.Children = make(map[string]types.YChild)
+    subscriberServices.EntityData.Children["subscriber-service"] = types.YChild{"SubscriberService", nil}
     for i := range subscriberServices.SubscriberService {
-        children[subscriberServices.SubscriberService[i].GetSegmentPath()] = &subscriberServices.SubscriberService[i]
+        subscriberServices.EntityData.Children[types.GetSegmentPath(&subscriberServices.SubscriberService[i])] = types.YChild{"SubscriberService", &subscriberServices.SubscriberService[i]}
     }
-    return children
+    subscriberServices.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(subscriberServices.EntityData)
 }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetYangName() string { return "subscriber-services" }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) SetParent(parent types.Entity) { subscriberServices.parent = parent }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetParent() types.Entity { return subscriberServices.parent }
-
-func (subscriberServices *DynamicTemplate_SubscriberServices) GetParentYangName() string { return "dynamic-template" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService
 // A Service Type Template 
 type DynamicTemplate_SubscriberServices_SubscriberService struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The name of the template. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     TemplateName interface{}
 
     // Assign the interface to a VRF . The type is string with length: 1..32.
@@ -7063,103 +3662,36 @@ type DynamicTemplate_SubscriberServices_SubscriberService struct {
     Accounting DynamicTemplate_SubscriberServices_SubscriberService_Accounting
 }
 
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetFilter() yfilter.YFilter { return subscriberService.YFilter }
+func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetEntityData() *types.CommonEntityData {
+    subscriberService.EntityData.YFilter = subscriberService.YFilter
+    subscriberService.EntityData.YangName = "subscriber-service"
+    subscriberService.EntityData.BundleName = "cisco_ios_xr"
+    subscriberService.EntityData.ParentYangName = "subscriber-services"
+    subscriberService.EntityData.SegmentPath = "subscriber-service" + "[template-name='" + fmt.Sprintf("%v", subscriberService.TemplateName) + "']"
+    subscriberService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subscriberService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subscriberService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) SetFilter(yf yfilter.YFilter) { subscriberService.YFilter = yf }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetGoName(yname string) string {
-    if yname == "template-name" { return "TemplateName" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" { return "SpanMonitorSessions" }
-    if yname == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" { return "Ipv4PacketFilter" }
-    if yname == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" { return "Ipv6PacketFilter" }
-    if yname == "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" { return "Ipv4Network" }
-    if yname == "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" { return "Ipv6Network" }
-    if yname == "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" { return "Ipv6Neighbor" }
-    if yname == "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" { return "Pbr" }
-    if yname == "Cisco-IOS-XR-qos-ma-bng-cfg:qos" { return "Qos" }
-    if yname == "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" { return "Accounting" }
-    return ""
+    subscriberService.EntityData.Children = make(map[string]types.YChild)
+    subscriberService.EntityData.Children["Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"] = types.YChild{"SpanMonitorSessions", &subscriberService.SpanMonitorSessions}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"] = types.YChild{"Ipv4PacketFilter", &subscriberService.Ipv4PacketFilter}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"] = types.YChild{"Ipv6PacketFilter", &subscriberService.Ipv6PacketFilter}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"] = types.YChild{"Ipv4Network", &subscriberService.Ipv4Network}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"] = types.YChild{"Ipv6Network", &subscriberService.Ipv6Network}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"] = types.YChild{"Ipv6Neighbor", &subscriberService.Ipv6Neighbor}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-pbr-subscriber-cfg:pbr"] = types.YChild{"Pbr", &subscriberService.Pbr}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-qos-ma-bng-cfg:qos"] = types.YChild{"Qos", &subscriberService.Qos}
+    subscriberService.EntityData.Children["Cisco-IOS-XR-subscriber-accounting-cfg:accounting"] = types.YChild{"Accounting", &subscriberService.Accounting}
+    subscriberService.EntityData.Leafs = make(map[string]types.YLeaf)
+    subscriberService.EntityData.Leafs["template-name"] = types.YLeaf{"TemplateName", subscriberService.TemplateName}
+    subscriberService.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", subscriberService.Vrf}
+    return &(subscriberService.EntityData)
 }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetSegmentPath() string {
-    return "subscriber-service" + "[template-name='" + fmt.Sprintf("%v", subscriberService.TemplateName) + "']"
-}
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions" {
-        return &subscriberService.SpanMonitorSessions
-    }
-    if childYangName == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter" {
-        return &subscriberService.Ipv4PacketFilter
-    }
-    if childYangName == "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter" {
-        return &subscriberService.Ipv6PacketFilter
-    }
-    if childYangName == "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network" {
-        return &subscriberService.Ipv4Network
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network" {
-        return &subscriberService.Ipv6Network
-    }
-    if childYangName == "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor" {
-        return &subscriberService.Ipv6Neighbor
-    }
-    if childYangName == "Cisco-IOS-XR-pbr-subscriber-cfg:pbr" {
-        return &subscriberService.Pbr
-    }
-    if childYangName == "Cisco-IOS-XR-qos-ma-bng-cfg:qos" {
-        return &subscriberService.Qos
-    }
-    if childYangName == "Cisco-IOS-XR-subscriber-accounting-cfg:accounting" {
-        return &subscriberService.Accounting
-    }
-    return nil
-}
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"] = &subscriberService.SpanMonitorSessions
-    children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"] = &subscriberService.Ipv4PacketFilter
-    children["Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"] = &subscriberService.Ipv6PacketFilter
-    children["Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"] = &subscriberService.Ipv4Network
-    children["Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"] = &subscriberService.Ipv6Network
-    children["Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"] = &subscriberService.Ipv6Neighbor
-    children["Cisco-IOS-XR-pbr-subscriber-cfg:pbr"] = &subscriberService.Pbr
-    children["Cisco-IOS-XR-qos-ma-bng-cfg:qos"] = &subscriberService.Qos
-    children["Cisco-IOS-XR-subscriber-accounting-cfg:accounting"] = &subscriberService.Accounting
-    return children
-}
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["template-name"] = subscriberService.TemplateName
-    leafs["vrf"] = subscriberService.Vrf
-    return leafs
-}
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetBundleName() string { return "cisco_ios_xr" }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetYangName() string { return "subscriber-service" }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) SetParent(parent types.Entity) { subscriberService.parent = parent }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetParent() types.Entity { return subscriberService.parent }
-
-func (subscriberService *DynamicTemplate_SubscriberServices_SubscriberService) GetParentYangName() string { return "subscriber-services" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions
 // Monitor Session container for this template
 type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration for a particular class of Monitor Session. The type is slice
@@ -7168,69 +3700,30 @@ type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions st
     SpanMonitorSession []DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession
 }
 
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetFilter() yfilter.YFilter { return spanMonitorSessions.YFilter }
+func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetEntityData() *types.CommonEntityData {
+    spanMonitorSessions.EntityData.YFilter = spanMonitorSessions.YFilter
+    spanMonitorSessions.EntityData.YangName = "span-monitor-sessions"
+    spanMonitorSessions.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSessions.EntityData.ParentYangName = "subscriber-service"
+    spanMonitorSessions.EntityData.SegmentPath = "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
+    spanMonitorSessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) SetFilter(yf yfilter.YFilter) { spanMonitorSessions.YFilter = yf }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetGoName(yname string) string {
-    if yname == "span-monitor-session" { return "SpanMonitorSession" }
-    return ""
-}
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetSegmentPath() string {
-    return "Cisco-IOS-XR-Ethernet-SPAN-subscriber-cfg:span-monitor-sessions"
-}
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "span-monitor-session" {
-        for _, c := range spanMonitorSessions.SpanMonitorSession {
-            if spanMonitorSessions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession{}
-        spanMonitorSessions.SpanMonitorSession = append(spanMonitorSessions.SpanMonitorSession, child)
-        return &spanMonitorSessions.SpanMonitorSession[len(spanMonitorSessions.SpanMonitorSession)-1]
-    }
-    return nil
-}
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    spanMonitorSessions.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSessions.EntityData.Children["span-monitor-session"] = types.YChild{"SpanMonitorSession", nil}
     for i := range spanMonitorSessions.SpanMonitorSession {
-        children[spanMonitorSessions.SpanMonitorSession[i].GetSegmentPath()] = &spanMonitorSessions.SpanMonitorSession[i]
+        spanMonitorSessions.EntityData.Children[types.GetSegmentPath(&spanMonitorSessions.SpanMonitorSession[i])] = types.YChild{"SpanMonitorSession", &spanMonitorSessions.SpanMonitorSession[i]}
     }
-    return children
+    spanMonitorSessions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(spanMonitorSessions.EntityData)
 }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetYangName() string { return "span-monitor-sessions" }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) SetParent(parent types.Entity) { spanMonitorSessions.parent = parent }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetParent() types.Entity { return spanMonitorSessions.parent }
-
-func (spanMonitorSessions *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession
 // Configuration for a particular class of Monitor
 // Session
 type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Session Class. The type is SpanSessionClass.
@@ -7250,71 +3743,31 @@ type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_Sp
     Acl DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl
 }
 
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetFilter() yfilter.YFilter { return spanMonitorSession.YFilter }
+func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetEntityData() *types.CommonEntityData {
+    spanMonitorSession.EntityData.YFilter = spanMonitorSession.YFilter
+    spanMonitorSession.EntityData.YangName = "span-monitor-session"
+    spanMonitorSession.EntityData.BundleName = "cisco_ios_xr"
+    spanMonitorSession.EntityData.ParentYangName = "span-monitor-sessions"
+    spanMonitorSession.EntityData.SegmentPath = "span-monitor-session" + "[session-class='" + fmt.Sprintf("%v", spanMonitorSession.SessionClass) + "']"
+    spanMonitorSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spanMonitorSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spanMonitorSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) SetFilter(yf yfilter.YFilter) { spanMonitorSession.YFilter = yf }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetGoName(yname string) string {
-    if yname == "session-class" { return "SessionClass" }
-    if yname == "mirror-first" { return "MirrorFirst" }
-    if yname == "mirror-interval" { return "MirrorInterval" }
-    if yname == "attachment" { return "Attachment" }
-    if yname == "acl" { return "Acl" }
-    return ""
+    spanMonitorSession.EntityData.Children = make(map[string]types.YChild)
+    spanMonitorSession.EntityData.Children["attachment"] = types.YChild{"Attachment", &spanMonitorSession.Attachment}
+    spanMonitorSession.EntityData.Children["acl"] = types.YChild{"Acl", &spanMonitorSession.Acl}
+    spanMonitorSession.EntityData.Leafs = make(map[string]types.YLeaf)
+    spanMonitorSession.EntityData.Leafs["session-class"] = types.YLeaf{"SessionClass", spanMonitorSession.SessionClass}
+    spanMonitorSession.EntityData.Leafs["mirror-first"] = types.YLeaf{"MirrorFirst", spanMonitorSession.MirrorFirst}
+    spanMonitorSession.EntityData.Leafs["mirror-interval"] = types.YLeaf{"MirrorInterval", spanMonitorSession.MirrorInterval}
+    return &(spanMonitorSession.EntityData)
 }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetSegmentPath() string {
-    return "span-monitor-session" + "[session-class='" + fmt.Sprintf("%v", spanMonitorSession.SessionClass) + "']"
-}
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "attachment" {
-        return &spanMonitorSession.Attachment
-    }
-    if childYangName == "acl" {
-        return &spanMonitorSession.Acl
-    }
-    return nil
-}
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["attachment"] = &spanMonitorSession.Attachment
-    children["acl"] = &spanMonitorSession.Acl
-    return children
-}
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-class"] = spanMonitorSession.SessionClass
-    leafs["mirror-first"] = spanMonitorSession.MirrorFirst
-    leafs["mirror-interval"] = spanMonitorSession.MirrorInterval
-    return leafs
-}
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetYangName() string { return "span-monitor-session" }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) SetParent(parent types.Entity) { spanMonitorSession.parent = parent }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetParent() types.Entity { return spanMonitorSession.parent }
-
-func (spanMonitorSession *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession) GetParentYangName() string { return "span-monitor-sessions" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment
 // Attach the interface to a Monitor Session
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session Name. The type is string with length: 1..79. This attribute is
@@ -7329,61 +3782,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_Sp
     PortLevelEnable interface{}
 }
 
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetFilter() yfilter.YFilter { return attachment.YFilter }
+func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetEntityData() *types.CommonEntityData {
+    attachment.EntityData.YFilter = attachment.YFilter
+    attachment.EntityData.YangName = "attachment"
+    attachment.EntityData.BundleName = "cisco_ios_xr"
+    attachment.EntityData.ParentYangName = "span-monitor-session"
+    attachment.EntityData.SegmentPath = "attachment"
+    attachment.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    attachment.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    attachment.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) SetFilter(yf yfilter.YFilter) { attachment.YFilter = yf }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetGoName(yname string) string {
-    if yname == "session-name" { return "SessionName" }
-    if yname == "direction" { return "Direction" }
-    if yname == "port-level-enable" { return "PortLevelEnable" }
-    return ""
+    attachment.EntityData.Children = make(map[string]types.YChild)
+    attachment.EntityData.Leafs = make(map[string]types.YLeaf)
+    attachment.EntityData.Leafs["session-name"] = types.YLeaf{"SessionName", attachment.SessionName}
+    attachment.EntityData.Leafs["direction"] = types.YLeaf{"Direction", attachment.Direction}
+    attachment.EntityData.Leafs["port-level-enable"] = types.YLeaf{"PortLevelEnable", attachment.PortLevelEnable}
+    return &(attachment.EntityData)
 }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetSegmentPath() string {
-    return "attachment"
-}
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["session-name"] = attachment.SessionName
-    leafs["direction"] = attachment.Direction
-    leafs["port-level-enable"] = attachment.PortLevelEnable
-    return leafs
-}
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetBundleName() string { return "cisco_ios_xr" }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetYangName() string { return "attachment" }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) SetParent(parent types.Entity) { attachment.parent = parent }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetParent() types.Entity { return attachment.parent }
-
-func (attachment *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Attachment) GetParentYangName() string { return "span-monitor-session" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl
 // Enable ACL matching for traffic mirroring
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable ACL. The type is interface{}. This attribute is mandatory.
@@ -7393,59 +3814,28 @@ type DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_Sp
     AclName interface{}
 }
 
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetFilter() yfilter.YFilter { return acl.YFilter }
+func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetEntityData() *types.CommonEntityData {
+    acl.EntityData.YFilter = acl.YFilter
+    acl.EntityData.YangName = "acl"
+    acl.EntityData.BundleName = "cisco_ios_xr"
+    acl.EntityData.ParentYangName = "span-monitor-session"
+    acl.EntityData.SegmentPath = "acl"
+    acl.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acl.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acl.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) SetFilter(yf yfilter.YFilter) { acl.YFilter = yf }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetGoName(yname string) string {
-    if yname == "acl-enable" { return "AclEnable" }
-    if yname == "acl-name" { return "AclName" }
-    return ""
+    acl.EntityData.Children = make(map[string]types.YChild)
+    acl.EntityData.Leafs = make(map[string]types.YLeaf)
+    acl.EntityData.Leafs["acl-enable"] = types.YLeaf{"AclEnable", acl.AclEnable}
+    acl.EntityData.Leafs["acl-name"] = types.YLeaf{"AclName", acl.AclName}
+    return &(acl.EntityData)
 }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetSegmentPath() string {
-    return "acl"
-}
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["acl-enable"] = acl.AclEnable
-    leafs["acl-name"] = acl.AclName
-    return leafs
-}
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetBundleName() string { return "cisco_ios_xr" }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetYangName() string { return "acl" }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) SetParent(parent types.Entity) { acl.parent = parent }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetParent() types.Entity { return acl.parent }
-
-func (acl *DynamicTemplate_SubscriberServices_SubscriberService_SpanMonitorSessions_SpanMonitorSession_Acl) GetParentYangName() string { return "span-monitor-session" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter
 // IPv4 Packet Filtering configuration for the
 // template
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 Packet filter to be applied to outbound packets.
@@ -7455,73 +3845,35 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter struc
     Inbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound
 }
 
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetFilter() yfilter.YFilter { return ipv4PacketFilter.YFilter }
+func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv4PacketFilter.EntityData.YFilter = ipv4PacketFilter.YFilter
+    ipv4PacketFilter.EntityData.YangName = "ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv4PacketFilter.EntityData.ParentYangName = "subscriber-service"
+    ipv4PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
+    ipv4PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) SetFilter(yf yfilter.YFilter) { ipv4PacketFilter.YFilter = yf }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetGoName(yname string) string {
-    if yname == "outbound" { return "Outbound" }
-    if yname == "inbound" { return "Inbound" }
-    return ""
+    ipv4PacketFilter.EntityData.Children = make(map[string]types.YChild)
+    ipv4PacketFilter.EntityData.Children["outbound"] = types.YChild{"Outbound", &ipv4PacketFilter.Outbound}
+    ipv4PacketFilter.EntityData.Children["inbound"] = types.YChild{"Inbound", &ipv4PacketFilter.Inbound}
+    ipv4PacketFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv4PacketFilter.EntityData)
 }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv4-packet-filter"
-}
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "outbound" {
-        return &ipv4PacketFilter.Outbound
-    }
-    if childYangName == "inbound" {
-        return &ipv4PacketFilter.Inbound
-    }
-    return nil
-}
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["outbound"] = &ipv4PacketFilter.Outbound
-    children["inbound"] = &ipv4PacketFilter.Inbound
-    return children
-}
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetYangName() string { return "ipv4-packet-filter" }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) SetParent(parent types.Entity) { ipv4PacketFilter.parent = parent }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetParent() types.Entity { return ipv4PacketFilter.parent }
-
-func (ipv4PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound
 // IPv4 Packet filter to be applied to outbound
 // packets
-// This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
     CommonAclName interface{}
 
     // IPv4 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..65. This attribute is mandatory.
+    // string with length: 1..65.
     Name interface{}
 
     // Not supported (Leave unspecified). The type is interface{}.
@@ -7531,63 +3883,30 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbo
     InterfaceStatistics interface{}
 }
 
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-count" { return "HardwareCount" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", outbound.CommonAclName}
+    outbound.EntityData.Leafs["name"] = types.YLeaf{"Name", outbound.Name}
+    outbound.EntityData.Leafs["hardware-count"] = types.YLeaf{"HardwareCount", outbound.HardwareCount}
+    outbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics}
+    return &(outbound.EntityData)
 }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = outbound.CommonAclName
-    leafs["name"] = outbound.Name
-    leafs["hardware-count"] = outbound.HardwareCount
-    leafs["interface-statistics"] = outbound.InterfaceStatistics
-    return leafs
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Outbound) GetParentYangName() string { return "ipv4-packet-filter" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound
 // IPv4 Packet filter to be applied to inbound
 // packets
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
@@ -7605,63 +3924,30 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbou
     InterfaceStatistics interface{}
 }
 
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv4-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "hardware-count" { return "HardwareCount" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", inbound.CommonAclName}
+    inbound.EntityData.Leafs["name"] = types.YLeaf{"Name", inbound.Name}
+    inbound.EntityData.Leafs["hardware-count"] = types.YLeaf{"HardwareCount", inbound.HardwareCount}
+    inbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics}
+    return &(inbound.EntityData)
 }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = inbound.CommonAclName
-    leafs["name"] = inbound.Name
-    leafs["hardware-count"] = inbound.HardwareCount
-    leafs["interface-statistics"] = inbound.InterfaceStatistics
-    return leafs
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4PacketFilter_Inbound) GetParentYangName() string { return "ipv4-packet-filter" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter
 // IPv6 Packet Filtering configuration for the
 // interface
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 Packet filter to be applied to inbound packets.
@@ -7671,65 +3957,28 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter struc
     Outbound DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound
 }
 
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetFilter() yfilter.YFilter { return ipv6PacketFilter.YFilter }
+func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetEntityData() *types.CommonEntityData {
+    ipv6PacketFilter.EntityData.YFilter = ipv6PacketFilter.YFilter
+    ipv6PacketFilter.EntityData.YangName = "ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.BundleName = "cisco_ios_xr"
+    ipv6PacketFilter.EntityData.ParentYangName = "subscriber-service"
+    ipv6PacketFilter.EntityData.SegmentPath = "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
+    ipv6PacketFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6PacketFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6PacketFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) SetFilter(yf yfilter.YFilter) { ipv6PacketFilter.YFilter = yf }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetGoName(yname string) string {
-    if yname == "inbound" { return "Inbound" }
-    if yname == "outbound" { return "Outbound" }
-    return ""
+    ipv6PacketFilter.EntityData.Children = make(map[string]types.YChild)
+    ipv6PacketFilter.EntityData.Children["inbound"] = types.YChild{"Inbound", &ipv6PacketFilter.Inbound}
+    ipv6PacketFilter.EntityData.Children["outbound"] = types.YChild{"Outbound", &ipv6PacketFilter.Outbound}
+    ipv6PacketFilter.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6PacketFilter.EntityData)
 }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-pfilter-subscriber-cfg:ipv6-packet-filter"
-}
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "inbound" {
-        return &ipv6PacketFilter.Inbound
-    }
-    if childYangName == "outbound" {
-        return &ipv6PacketFilter.Outbound
-    }
-    return nil
-}
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["inbound"] = &ipv6PacketFilter.Inbound
-    children["outbound"] = &ipv6PacketFilter.Outbound
-    return children
-}
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetYangName() string { return "ipv6-packet-filter" }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) SetParent(parent types.Entity) { ipv6PacketFilter.parent = parent }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetParent() types.Entity { return ipv6PacketFilter.parent }
-
-func (ipv6PacketFilter *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound
 // IPv6 Packet filter to be applied to inbound
 // packets
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
@@ -7744,129 +3993,64 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbou
     InterfaceStatistics interface{}
 }
 
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetFilter() yfilter.YFilter { return inbound.YFilter }
+func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetEntityData() *types.CommonEntityData {
+    inbound.EntityData.YFilter = inbound.YFilter
+    inbound.EntityData.YangName = "inbound"
+    inbound.EntityData.BundleName = "cisco_ios_xr"
+    inbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    inbound.EntityData.SegmentPath = "inbound"
+    inbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    inbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    inbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) SetFilter(yf yfilter.YFilter) { inbound.YFilter = yf }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    inbound.EntityData.Children = make(map[string]types.YChild)
+    inbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    inbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", inbound.CommonAclName}
+    inbound.EntityData.Leafs["name"] = types.YLeaf{"Name", inbound.Name}
+    inbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", inbound.InterfaceStatistics}
+    return &(inbound.EntityData)
 }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetSegmentPath() string {
-    return "inbound"
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = inbound.CommonAclName
-    leafs["name"] = inbound.Name
-    leafs["interface-statistics"] = inbound.InterfaceStatistics
-    return leafs
-}
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetYangName() string { return "inbound" }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) SetParent(parent types.Entity) { inbound.parent = parent }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetParent() types.Entity { return inbound.parent }
-
-func (inbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Inbound) GetParentYangName() string { return "ipv6-packet-filter" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound
 // IPv6 Packet filter to be applied to outbound
 // packets
-// This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Not supported (Leave unspecified). The type is string.
     CommonAclName interface{}
 
     // IPv6 Packet Filter Name to be applied to Outbound packets. The type is
-    // string with length: 1..65. This attribute is mandatory.
+    // string with length: 1..65.
     Name interface{}
 
     // Not supported (Leave unspecified). The type is interface{}.
     InterfaceStatistics interface{}
 }
 
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetFilter() yfilter.YFilter { return outbound.YFilter }
+func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetEntityData() *types.CommonEntityData {
+    outbound.EntityData.YFilter = outbound.YFilter
+    outbound.EntityData.YangName = "outbound"
+    outbound.EntityData.BundleName = "cisco_ios_xr"
+    outbound.EntityData.ParentYangName = "ipv6-packet-filter"
+    outbound.EntityData.SegmentPath = "outbound"
+    outbound.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    outbound.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    outbound.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) SetFilter(yf yfilter.YFilter) { outbound.YFilter = yf }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetGoName(yname string) string {
-    if yname == "common-acl-name" { return "CommonAclName" }
-    if yname == "name" { return "Name" }
-    if yname == "interface-statistics" { return "InterfaceStatistics" }
-    return ""
+    outbound.EntityData.Children = make(map[string]types.YChild)
+    outbound.EntityData.Leafs = make(map[string]types.YLeaf)
+    outbound.EntityData.Leafs["common-acl-name"] = types.YLeaf{"CommonAclName", outbound.CommonAclName}
+    outbound.EntityData.Leafs["name"] = types.YLeaf{"Name", outbound.Name}
+    outbound.EntityData.Leafs["interface-statistics"] = types.YLeaf{"InterfaceStatistics", outbound.InterfaceStatistics}
+    return &(outbound.EntityData)
 }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetSegmentPath() string {
-    return "outbound"
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["common-acl-name"] = outbound.CommonAclName
-    leafs["name"] = outbound.Name
-    leafs["interface-statistics"] = outbound.InterfaceStatistics
-    return leafs
-}
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetBundleName() string { return "cisco_ios_xr" }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetYangName() string { return "outbound" }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) SetParent(parent types.Entity) { outbound.parent = parent }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetParent() types.Entity { return outbound.parent }
-
-func (outbound *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6PacketFilter_Outbound) GetParentYangName() string { return "ipv6-packet-filter" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network
 // Interface IPv4 Network configuration data
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable IP processing without an explicit address. The type is string.
@@ -7885,62 +4069,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network struct {
     Rpf interface{}
 }
 
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetFilter() yfilter.YFilter { return ipv4Network.YFilter }
+func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetEntityData() *types.CommonEntityData {
+    ipv4Network.EntityData.YFilter = ipv4Network.YFilter
+    ipv4Network.EntityData.YangName = "ipv4-network"
+    ipv4Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Network.EntityData.ParentYangName = "subscriber-service"
+    ipv4Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
+    ipv4Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) SetFilter(yf yfilter.YFilter) { ipv4Network.YFilter = yf }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetGoName(yname string) string {
-    if yname == "unnumbered" { return "Unnumbered" }
-    if yname == "mtu" { return "Mtu" }
-    if yname == "unreachables" { return "Unreachables" }
-    if yname == "rpf" { return "Rpf" }
-    return ""
+    ipv4Network.EntityData.Children = make(map[string]types.YChild)
+    ipv4Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Network.EntityData.Leafs["unnumbered"] = types.YLeaf{"Unnumbered", ipv4Network.Unnumbered}
+    ipv4Network.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv4Network.Mtu}
+    ipv4Network.EntityData.Leafs["unreachables"] = types.YLeaf{"Unreachables", ipv4Network.Unreachables}
+    ipv4Network.EntityData.Leafs["rpf"] = types.YLeaf{"Rpf", ipv4Network.Rpf}
+    return &(ipv4Network.EntityData)
 }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv4-ma-subscriber-cfg:ipv4-network"
-}
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unnumbered"] = ipv4Network.Unnumbered
-    leafs["mtu"] = ipv4Network.Mtu
-    leafs["unreachables"] = ipv4Network.Unreachables
-    leafs["rpf"] = ipv4Network.Rpf
-    return leafs
-}
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetYangName() string { return "ipv4-network" }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) SetParent(parent types.Entity) { ipv4Network.parent = parent }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetParent() types.Entity { return ipv4Network.parent }
-
-func (ipv4Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv4Network) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network
 // Interface IPv6 Network configuration data
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // MTU Setting of Interface. The type is interface{} with range: 1280..65535.
@@ -7957,124 +4108,55 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network struct {
     Addresses DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses
 }
 
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetFilter() yfilter.YFilter { return ipv6Network.YFilter }
+func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetEntityData() *types.CommonEntityData {
+    ipv6Network.EntityData.YFilter = ipv6Network.YFilter
+    ipv6Network.EntityData.YangName = "ipv6-network"
+    ipv6Network.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Network.EntityData.ParentYangName = "subscriber-service"
+    ipv6Network.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
+    ipv6Network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) SetFilter(yf yfilter.YFilter) { ipv6Network.YFilter = yf }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetGoName(yname string) string {
-    if yname == "mtu" { return "Mtu" }
-    if yname == "rpf" { return "Rpf" }
-    if yname == "unreachables" { return "Unreachables" }
-    if yname == "addresses" { return "Addresses" }
-    return ""
+    ipv6Network.EntityData.Children = make(map[string]types.YChild)
+    ipv6Network.EntityData.Children["addresses"] = types.YChild{"Addresses", &ipv6Network.Addresses}
+    ipv6Network.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Network.EntityData.Leafs["mtu"] = types.YLeaf{"Mtu", ipv6Network.Mtu}
+    ipv6Network.EntityData.Leafs["rpf"] = types.YLeaf{"Rpf", ipv6Network.Rpf}
+    ipv6Network.EntityData.Leafs["unreachables"] = types.YLeaf{"Unreachables", ipv6Network.Unreachables}
+    return &(ipv6Network.EntityData)
 }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-ma-subscriber-cfg:ipv6-network"
-}
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "addresses" {
-        return &ipv6Network.Addresses
-    }
-    return nil
-}
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["addresses"] = &ipv6Network.Addresses
-    return children
-}
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mtu"] = ipv6Network.Mtu
-    leafs["rpf"] = ipv6Network.Rpf
-    leafs["unreachables"] = ipv6Network.Unreachables
-    return leafs
-}
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetYangName() string { return "ipv6-network" }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) SetParent(parent types.Entity) { ipv6Network.parent = parent }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetParent() types.Entity { return ipv6Network.parent }
-
-func (ipv6Network *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses
 // Set the IPv6 address of an interface
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Auto IPv6 Interface Configuration.
     AutoConfiguration DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration
 }
 
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetFilter() yfilter.YFilter { return addresses.YFilter }
+func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetEntityData() *types.CommonEntityData {
+    addresses.EntityData.YFilter = addresses.YFilter
+    addresses.EntityData.YangName = "addresses"
+    addresses.EntityData.BundleName = "cisco_ios_xr"
+    addresses.EntityData.ParentYangName = "ipv6-network"
+    addresses.EntityData.SegmentPath = "addresses"
+    addresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    addresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    addresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) SetFilter(yf yfilter.YFilter) { addresses.YFilter = yf }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetGoName(yname string) string {
-    if yname == "auto-configuration" { return "AutoConfiguration" }
-    return ""
+    addresses.EntityData.Children = make(map[string]types.YChild)
+    addresses.EntityData.Children["auto-configuration"] = types.YChild{"AutoConfiguration", &addresses.AutoConfiguration}
+    addresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(addresses.EntityData)
 }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetSegmentPath() string {
-    return "addresses"
-}
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "auto-configuration" {
-        return &addresses.AutoConfiguration
-    }
-    return nil
-}
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["auto-configuration"] = &addresses.AutoConfiguration
-    return children
-}
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetYangName() string { return "addresses" }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) SetParent(parent types.Entity) { addresses.parent = parent }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetParent() types.Entity { return addresses.parent }
-
-func (addresses *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses) GetParentYangName() string { return "ipv6-network" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration
 // Auto IPv6 Interface Configuration
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The flag to enable auto ipv6 interface configuration. The type is
@@ -8082,56 +4164,26 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_
     Enable interface{}
 }
 
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetFilter() yfilter.YFilter { return autoConfiguration.YFilter }
+func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetEntityData() *types.CommonEntityData {
+    autoConfiguration.EntityData.YFilter = autoConfiguration.YFilter
+    autoConfiguration.EntityData.YangName = "auto-configuration"
+    autoConfiguration.EntityData.BundleName = "cisco_ios_xr"
+    autoConfiguration.EntityData.ParentYangName = "addresses"
+    autoConfiguration.EntityData.SegmentPath = "auto-configuration"
+    autoConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) SetFilter(yf yfilter.YFilter) { autoConfiguration.YFilter = yf }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    return ""
+    autoConfiguration.EntityData.Children = make(map[string]types.YChild)
+    autoConfiguration.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoConfiguration.EntityData.Leafs["enable"] = types.YLeaf{"Enable", autoConfiguration.Enable}
+    return &(autoConfiguration.EntityData)
 }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetSegmentPath() string {
-    return "auto-configuration"
-}
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = autoConfiguration.Enable
-    return leafs
-}
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetYangName() string { return "auto-configuration" }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) SetParent(parent types.Entity) { autoConfiguration.parent = parent }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetParent() types.Entity { return autoConfiguration.parent }
-
-func (autoConfiguration *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Network_Addresses_AutoConfiguration) GetParentYangName() string { return "addresses" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor
 // Interface IPv6 Network configuration data
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set the IPv6 framed ipv6 prefix pool for a subscriber interface . The type
@@ -8196,104 +4248,45 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor struct {
     RaInitial DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial
 }
 
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetFilter() yfilter.YFilter { return ipv6Neighbor.YFilter }
+func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetEntityData() *types.CommonEntityData {
+    ipv6Neighbor.EntityData.YFilter = ipv6Neighbor.YFilter
+    ipv6Neighbor.EntityData.YangName = "ipv6-neighbor"
+    ipv6Neighbor.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Neighbor.EntityData.ParentYangName = "subscriber-service"
+    ipv6Neighbor.EntityData.SegmentPath = "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
+    ipv6Neighbor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Neighbor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Neighbor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) SetFilter(yf yfilter.YFilter) { ipv6Neighbor.YFilter = yf }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetGoName(yname string) string {
-    if yname == "framed-prefix-pool" { return "FramedPrefixPool" }
-    if yname == "managed-config" { return "ManagedConfig" }
-    if yname == "other-config" { return "OtherConfig" }
-    if yname == "start-ra-on-ipv6-enable" { return "StartRaOnIpv6Enable" }
-    if yname == "nud-enable" { return "NudEnable" }
-    if yname == "ra-lifetime" { return "RaLifetime" }
-    if yname == "router-preference" { return "RouterPreference" }
-    if yname == "ra-suppress" { return "RaSuppress" }
-    if yname == "ra-unicast" { return "RaUnicast" }
-    if yname == "ra-unspecify-hoplimit" { return "RaUnspecifyHoplimit" }
-    if yname == "ra-suppress-mtu" { return "RaSuppressMtu" }
-    if yname == "suppress-cache-learning" { return "SuppressCacheLearning" }
-    if yname == "reachable-time" { return "ReachableTime" }
-    if yname == "ns-interval" { return "NsInterval" }
-    if yname == "ra-interval" { return "RaInterval" }
-    if yname == "framed-prefix" { return "FramedPrefix" }
-    if yname == "duplicate-address-detection" { return "DuplicateAddressDetection" }
-    if yname == "ra-initial" { return "RaInitial" }
-    return ""
+    ipv6Neighbor.EntityData.Children = make(map[string]types.YChild)
+    ipv6Neighbor.EntityData.Children["ra-interval"] = types.YChild{"RaInterval", &ipv6Neighbor.RaInterval}
+    ipv6Neighbor.EntityData.Children["framed-prefix"] = types.YChild{"FramedPrefix", &ipv6Neighbor.FramedPrefix}
+    ipv6Neighbor.EntityData.Children["duplicate-address-detection"] = types.YChild{"DuplicateAddressDetection", &ipv6Neighbor.DuplicateAddressDetection}
+    ipv6Neighbor.EntityData.Children["ra-initial"] = types.YChild{"RaInitial", &ipv6Neighbor.RaInitial}
+    ipv6Neighbor.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Neighbor.EntityData.Leafs["framed-prefix-pool"] = types.YLeaf{"FramedPrefixPool", ipv6Neighbor.FramedPrefixPool}
+    ipv6Neighbor.EntityData.Leafs["managed-config"] = types.YLeaf{"ManagedConfig", ipv6Neighbor.ManagedConfig}
+    ipv6Neighbor.EntityData.Leafs["other-config"] = types.YLeaf{"OtherConfig", ipv6Neighbor.OtherConfig}
+    ipv6Neighbor.EntityData.Leafs["start-ra-on-ipv6-enable"] = types.YLeaf{"StartRaOnIpv6Enable", ipv6Neighbor.StartRaOnIpv6Enable}
+    ipv6Neighbor.EntityData.Leafs["nud-enable"] = types.YLeaf{"NudEnable", ipv6Neighbor.NudEnable}
+    ipv6Neighbor.EntityData.Leafs["ra-lifetime"] = types.YLeaf{"RaLifetime", ipv6Neighbor.RaLifetime}
+    ipv6Neighbor.EntityData.Leafs["router-preference"] = types.YLeaf{"RouterPreference", ipv6Neighbor.RouterPreference}
+    ipv6Neighbor.EntityData.Leafs["ra-suppress"] = types.YLeaf{"RaSuppress", ipv6Neighbor.RaSuppress}
+    ipv6Neighbor.EntityData.Leafs["ra-unicast"] = types.YLeaf{"RaUnicast", ipv6Neighbor.RaUnicast}
+    ipv6Neighbor.EntityData.Leafs["ra-unspecify-hoplimit"] = types.YLeaf{"RaUnspecifyHoplimit", ipv6Neighbor.RaUnspecifyHoplimit}
+    ipv6Neighbor.EntityData.Leafs["ra-suppress-mtu"] = types.YLeaf{"RaSuppressMtu", ipv6Neighbor.RaSuppressMtu}
+    ipv6Neighbor.EntityData.Leafs["suppress-cache-learning"] = types.YLeaf{"SuppressCacheLearning", ipv6Neighbor.SuppressCacheLearning}
+    ipv6Neighbor.EntityData.Leafs["reachable-time"] = types.YLeaf{"ReachableTime", ipv6Neighbor.ReachableTime}
+    ipv6Neighbor.EntityData.Leafs["ns-interval"] = types.YLeaf{"NsInterval", ipv6Neighbor.NsInterval}
+    return &(ipv6Neighbor.EntityData)
 }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ipv6-nd-subscriber-cfg:ipv6-neighbor"
-}
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ra-interval" {
-        return &ipv6Neighbor.RaInterval
-    }
-    if childYangName == "framed-prefix" {
-        return &ipv6Neighbor.FramedPrefix
-    }
-    if childYangName == "duplicate-address-detection" {
-        return &ipv6Neighbor.DuplicateAddressDetection
-    }
-    if childYangName == "ra-initial" {
-        return &ipv6Neighbor.RaInitial
-    }
-    return nil
-}
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ra-interval"] = &ipv6Neighbor.RaInterval
-    children["framed-prefix"] = &ipv6Neighbor.FramedPrefix
-    children["duplicate-address-detection"] = &ipv6Neighbor.DuplicateAddressDetection
-    children["ra-initial"] = &ipv6Neighbor.RaInitial
-    return children
-}
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["framed-prefix-pool"] = ipv6Neighbor.FramedPrefixPool
-    leafs["managed-config"] = ipv6Neighbor.ManagedConfig
-    leafs["other-config"] = ipv6Neighbor.OtherConfig
-    leafs["start-ra-on-ipv6-enable"] = ipv6Neighbor.StartRaOnIpv6Enable
-    leafs["nud-enable"] = ipv6Neighbor.NudEnable
-    leafs["ra-lifetime"] = ipv6Neighbor.RaLifetime
-    leafs["router-preference"] = ipv6Neighbor.RouterPreference
-    leafs["ra-suppress"] = ipv6Neighbor.RaSuppress
-    leafs["ra-unicast"] = ipv6Neighbor.RaUnicast
-    leafs["ra-unspecify-hoplimit"] = ipv6Neighbor.RaUnspecifyHoplimit
-    leafs["ra-suppress-mtu"] = ipv6Neighbor.RaSuppressMtu
-    leafs["suppress-cache-learning"] = ipv6Neighbor.SuppressCacheLearning
-    leafs["reachable-time"] = ipv6Neighbor.ReachableTime
-    leafs["ns-interval"] = ipv6Neighbor.NsInterval
-    return leafs
-}
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetYangName() string { return "ipv6-neighbor" }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) SetParent(parent types.Entity) { ipv6Neighbor.parent = parent }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetParent() types.Entity { return ipv6Neighbor.parent }
-
-func (ipv6Neighbor *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval
 // Set IPv6 Router Advertisement (RA) interval in
 // seconds
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Maximum RA interval in seconds. The type is interface{} with range:
@@ -8305,60 +4298,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterva
     Minimum interface{}
 }
 
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetFilter() yfilter.YFilter { return raInterval.YFilter }
+func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetEntityData() *types.CommonEntityData {
+    raInterval.EntityData.YFilter = raInterval.YFilter
+    raInterval.EntityData.YangName = "ra-interval"
+    raInterval.EntityData.BundleName = "cisco_ios_xr"
+    raInterval.EntityData.ParentYangName = "ipv6-neighbor"
+    raInterval.EntityData.SegmentPath = "ra-interval"
+    raInterval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raInterval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raInterval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) SetFilter(yf yfilter.YFilter) { raInterval.YFilter = yf }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetGoName(yname string) string {
-    if yname == "maximum" { return "Maximum" }
-    if yname == "minimum" { return "Minimum" }
-    return ""
+    raInterval.EntityData.Children = make(map[string]types.YChild)
+    raInterval.EntityData.Leafs = make(map[string]types.YLeaf)
+    raInterval.EntityData.Leafs["maximum"] = types.YLeaf{"Maximum", raInterval.Maximum}
+    raInterval.EntityData.Leafs["minimum"] = types.YLeaf{"Minimum", raInterval.Minimum}
+    return &(raInterval.EntityData)
 }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetSegmentPath() string {
-    return "ra-interval"
-}
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["maximum"] = raInterval.Maximum
-    leafs["minimum"] = raInterval.Minimum
-    return leafs
-}
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetBundleName() string { return "cisco_ios_xr" }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetYangName() string { return "ra-interval" }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) SetParent(parent types.Entity) { raInterval.parent = parent }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetParent() types.Entity { return raInterval.parent }
-
-func (raInterval *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInterval) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix
 // Set the IPv6 framed ipv6 prefix for a
 // subscriber interface 
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 framed prefix length. The type is interface{} with range: 0..128. This
@@ -8370,58 +4332,27 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPre
     Prefix interface{}
 }
 
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetFilter() yfilter.YFilter { return framedPrefix.YFilter }
+func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetEntityData() *types.CommonEntityData {
+    framedPrefix.EntityData.YFilter = framedPrefix.YFilter
+    framedPrefix.EntityData.YangName = "framed-prefix"
+    framedPrefix.EntityData.BundleName = "cisco_ios_xr"
+    framedPrefix.EntityData.ParentYangName = "ipv6-neighbor"
+    framedPrefix.EntityData.SegmentPath = "framed-prefix"
+    framedPrefix.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    framedPrefix.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    framedPrefix.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) SetFilter(yf yfilter.YFilter) { framedPrefix.YFilter = yf }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetGoName(yname string) string {
-    if yname == "prefix-length" { return "PrefixLength" }
-    if yname == "prefix" { return "Prefix" }
-    return ""
+    framedPrefix.EntityData.Children = make(map[string]types.YChild)
+    framedPrefix.EntityData.Leafs = make(map[string]types.YLeaf)
+    framedPrefix.EntityData.Leafs["prefix-length"] = types.YLeaf{"PrefixLength", framedPrefix.PrefixLength}
+    framedPrefix.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", framedPrefix.Prefix}
+    return &(framedPrefix.EntityData)
 }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetSegmentPath() string {
-    return "framed-prefix"
-}
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prefix-length"] = framedPrefix.PrefixLength
-    leafs["prefix"] = framedPrefix.Prefix
-    return leafs
-}
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetBundleName() string { return "cisco_ios_xr" }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetYangName() string { return "framed-prefix" }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) SetParent(parent types.Entity) { framedPrefix.parent = parent }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetParent() types.Entity { return framedPrefix.parent }
-
-func (framedPrefix *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_FramedPrefix) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection
 // Duplicate Address Detection (DAD)
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set IPv6 duplicate address detection transmits. The type is interface{}
@@ -8429,57 +4360,27 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_Duplicate
     Attempts interface{}
 }
 
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetFilter() yfilter.YFilter { return duplicateAddressDetection.YFilter }
+func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetEntityData() *types.CommonEntityData {
+    duplicateAddressDetection.EntityData.YFilter = duplicateAddressDetection.YFilter
+    duplicateAddressDetection.EntityData.YangName = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.BundleName = "cisco_ios_xr"
+    duplicateAddressDetection.EntityData.ParentYangName = "ipv6-neighbor"
+    duplicateAddressDetection.EntityData.SegmentPath = "duplicate-address-detection"
+    duplicateAddressDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    duplicateAddressDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    duplicateAddressDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) SetFilter(yf yfilter.YFilter) { duplicateAddressDetection.YFilter = yf }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetGoName(yname string) string {
-    if yname == "attempts" { return "Attempts" }
-    return ""
+    duplicateAddressDetection.EntityData.Children = make(map[string]types.YChild)
+    duplicateAddressDetection.EntityData.Leafs = make(map[string]types.YLeaf)
+    duplicateAddressDetection.EntityData.Leafs["attempts"] = types.YLeaf{"Attempts", duplicateAddressDetection.Attempts}
+    return &(duplicateAddressDetection.EntityData)
 }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetSegmentPath() string {
-    return "duplicate-address-detection"
-}
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["attempts"] = duplicateAddressDetection.Attempts
-    return leafs
-}
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetBundleName() string { return "cisco_ios_xr" }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetYangName() string { return "duplicate-address-detection" }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) SetParent(parent types.Entity) { duplicateAddressDetection.parent = parent }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetParent() types.Entity { return duplicateAddressDetection.parent }
-
-func (duplicateAddressDetection *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_DuplicateAddressDetection) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial
 // IPv6 ND RA Initial
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initial RA count. The type is interface{} with range: 0..32. This attribute
@@ -8491,58 +4392,27 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial
     Interval interface{}
 }
 
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetFilter() yfilter.YFilter { return raInitial.YFilter }
+func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetEntityData() *types.CommonEntityData {
+    raInitial.EntityData.YFilter = raInitial.YFilter
+    raInitial.EntityData.YangName = "ra-initial"
+    raInitial.EntityData.BundleName = "cisco_ios_xr"
+    raInitial.EntityData.ParentYangName = "ipv6-neighbor"
+    raInitial.EntityData.SegmentPath = "ra-initial"
+    raInitial.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    raInitial.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    raInitial.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) SetFilter(yf yfilter.YFilter) { raInitial.YFilter = yf }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetGoName(yname string) string {
-    if yname == "count" { return "Count" }
-    if yname == "interval" { return "Interval" }
-    return ""
+    raInitial.EntityData.Children = make(map[string]types.YChild)
+    raInitial.EntityData.Leafs = make(map[string]types.YLeaf)
+    raInitial.EntityData.Leafs["count"] = types.YLeaf{"Count", raInitial.Count}
+    raInitial.EntityData.Leafs["interval"] = types.YLeaf{"Interval", raInitial.Interval}
+    return &(raInitial.EntityData)
 }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetSegmentPath() string {
-    return "ra-initial"
-}
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["count"] = raInitial.Count
-    leafs["interval"] = raInitial.Interval
-    return leafs
-}
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetBundleName() string { return "cisco_ios_xr" }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetYangName() string { return "ra-initial" }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) SetParent(parent types.Entity) { raInitial.parent = parent }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetParent() types.Entity { return raInitial.parent }
-
-func (raInitial *DynamicTemplate_SubscriberServices_SubscriberService_Ipv6Neighbor_RaInitial) GetParentYangName() string { return "ipv6-neighbor" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Pbr
 // Dynamic Template PBR configuration
 type DynamicTemplate_SubscriberServices_SubscriberService_Pbr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Class for subscriber ingress policy. The type is string.
@@ -8552,117 +4422,53 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Pbr struct {
     ServicePolicy DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy
 }
 
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetFilter() yfilter.YFilter { return pbr.YFilter }
+func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetEntityData() *types.CommonEntityData {
+    pbr.EntityData.YFilter = pbr.YFilter
+    pbr.EntityData.YangName = "pbr"
+    pbr.EntityData.BundleName = "cisco_ios_xr"
+    pbr.EntityData.ParentYangName = "subscriber-service"
+    pbr.EntityData.SegmentPath = "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
+    pbr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) SetFilter(yf yfilter.YFilter) { pbr.YFilter = yf }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetGoName(yname string) string {
-    if yname == "service-policy-in" { return "ServicePolicyIn" }
-    if yname == "service-policy" { return "ServicePolicy" }
-    return ""
+    pbr.EntityData.Children = make(map[string]types.YChild)
+    pbr.EntityData.Children["service-policy"] = types.YChild{"ServicePolicy", &pbr.ServicePolicy}
+    pbr.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbr.EntityData.Leafs["service-policy-in"] = types.YLeaf{"ServicePolicyIn", pbr.ServicePolicyIn}
+    return &(pbr.EntityData)
 }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetSegmentPath() string {
-    return "Cisco-IOS-XR-pbr-subscriber-cfg:pbr"
-}
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-policy" {
-        return &pbr.ServicePolicy
-    }
-    return nil
-}
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-policy"] = &pbr.ServicePolicy
-    return children
-}
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["service-policy-in"] = pbr.ServicePolicyIn
-    return leafs
-}
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetYangName() string { return "pbr" }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) SetParent(parent types.Entity) { pbr.parent = parent }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetParent() types.Entity { return pbr.parent }
-
-func (pbr *DynamicTemplate_SubscriberServices_SubscriberService_Pbr) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy
 // PBR service policy configuration
 type DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ingress service policy. The type is string.
     Input interface{}
 }
 
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetFilter() yfilter.YFilter { return servicePolicy.YFilter }
+func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "pbr"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) SetFilter(yf yfilter.YFilter) { servicePolicy.YFilter = yf }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    return ""
+    servicePolicy.EntityData.Children = make(map[string]types.YChild)
+    servicePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    servicePolicy.EntityData.Leafs["input"] = types.YLeaf{"Input", servicePolicy.Input}
+    return &(servicePolicy.EntityData)
 }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetSegmentPath() string {
-    return "service-policy"
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["input"] = servicePolicy.Input
-    return leafs
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetYangName() string { return "service-policy" }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) SetParent(parent types.Entity) { servicePolicy.parent = parent }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetParent() types.Entity { return servicePolicy.parent }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Pbr_ServicePolicy) GetParentYangName() string { return "pbr" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Qos
 // QoS dynamically applied configuration template
 type DynamicTemplate_SubscriberServices_SubscriberService_Qos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service policy to be applied in ingress/egress direction.
@@ -8675,70 +4481,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Qos struct {
     Output DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output
 }
 
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetFilter() yfilter.YFilter { return qos.YFilter }
+func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "subscriber-service"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) SetFilter(yf yfilter.YFilter) { qos.YFilter = yf }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetGoName(yname string) string {
-    if yname == "service-policy" { return "ServicePolicy" }
-    if yname == "account" { return "Account" }
-    if yname == "output" { return "Output" }
-    return ""
+    qos.EntityData.Children = make(map[string]types.YChild)
+    qos.EntityData.Children["service-policy"] = types.YChild{"ServicePolicy", &qos.ServicePolicy}
+    qos.EntityData.Children["account"] = types.YChild{"Account", &qos.Account}
+    qos.EntityData.Children["output"] = types.YChild{"Output", &qos.Output}
+    qos.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qos.EntityData)
 }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetSegmentPath() string {
-    return "Cisco-IOS-XR-qos-ma-bng-cfg:qos"
-}
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-policy" {
-        return &qos.ServicePolicy
-    }
-    if childYangName == "account" {
-        return &qos.Account
-    }
-    if childYangName == "output" {
-        return &qos.Output
-    }
-    return nil
-}
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-policy"] = &qos.ServicePolicy
-    children["account"] = &qos.Account
-    children["output"] = &qos.Output
-    return children
-}
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetYangName() string { return "qos" }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) SetParent(parent types.Entity) { qos.parent = parent }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetParent() types.Entity { return qos.parent }
-
-func (qos *DynamicTemplate_SubscriberServices_SubscriberService_Qos) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy
 // Service policy to be applied in ingress/egress
 // direction
 type DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber ingress policy.
@@ -8748,65 +4513,28 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy stru
     Output DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output
 }
 
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetFilter() yfilter.YFilter { return servicePolicy.YFilter }
+func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetEntityData() *types.CommonEntityData {
+    servicePolicy.EntityData.YFilter = servicePolicy.YFilter
+    servicePolicy.EntityData.YangName = "service-policy"
+    servicePolicy.EntityData.BundleName = "cisco_ios_xr"
+    servicePolicy.EntityData.ParentYangName = "qos"
+    servicePolicy.EntityData.SegmentPath = "service-policy"
+    servicePolicy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servicePolicy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servicePolicy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) SetFilter(yf yfilter.YFilter) { servicePolicy.YFilter = yf }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    servicePolicy.EntityData.Children = make(map[string]types.YChild)
+    servicePolicy.EntityData.Children["input"] = types.YChild{"Input", &servicePolicy.Input}
+    servicePolicy.EntityData.Children["output"] = types.YChild{"Output", &servicePolicy.Output}
+    servicePolicy.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(servicePolicy.EntityData)
 }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetSegmentPath() string {
-    return "service-policy"
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &servicePolicy.Input
-    }
-    if childYangName == "output" {
-        return &servicePolicy.Output
-    }
-    return nil
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &servicePolicy.Input
-    children["output"] = &servicePolicy.Output
-    return children
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetBundleName() string { return "cisco_ios_xr" }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetYangName() string { return "service-policy" }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) SetParent(parent types.Entity) { servicePolicy.parent = parent }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetParent() types.Entity { return servicePolicy.parent }
-
-func (servicePolicy *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input
 // Subscriber ingress policy
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of policy-map. The type is string. This attribute is mandatory.
@@ -8828,65 +4556,31 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Inpu
     AccountStats interface{}
 }
 
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "service-policy"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetGoName(yname string) string {
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "spi-name" { return "SpiName" }
-    if yname == "merge" { return "Merge" }
-    if yname == "merge-id" { return "MergeId" }
-    if yname == "account-stats" { return "AccountStats" }
-    return ""
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    input.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", input.PolicyName}
+    input.EntityData.Leafs["spi-name"] = types.YLeaf{"SpiName", input.SpiName}
+    input.EntityData.Leafs["merge"] = types.YLeaf{"Merge", input.Merge}
+    input.EntityData.Leafs["merge-id"] = types.YLeaf{"MergeId", input.MergeId}
+    input.EntityData.Leafs["account-stats"] = types.YLeaf{"AccountStats", input.AccountStats}
+    return &(input.EntityData)
 }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-name"] = input.PolicyName
-    leafs["spi-name"] = input.SpiName
-    leafs["merge"] = input.Merge
-    leafs["merge-id"] = input.MergeId
-    leafs["account-stats"] = input.AccountStats
-    return leafs
-}
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetYangName() string { return "input" }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetParent() types.Entity { return input.parent }
-
-func (input *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Input) GetParentYangName() string { return "service-policy" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output
 // Subscriber egress policy
 // This type is a presence type.
 type DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of policy-map. The type is string. This attribute is mandatory.
@@ -8908,64 +4602,30 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Outp
     AccountStats interface{}
 }
 
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "service-policy"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetGoName(yname string) string {
-    if yname == "policy-name" { return "PolicyName" }
-    if yname == "spi-name" { return "SpiName" }
-    if yname == "merge" { return "Merge" }
-    if yname == "merge-id" { return "MergeId" }
-    if yname == "account-stats" { return "AccountStats" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["policy-name"] = types.YLeaf{"PolicyName", output.PolicyName}
+    output.EntityData.Leafs["spi-name"] = types.YLeaf{"SpiName", output.SpiName}
+    output.EntityData.Leafs["merge"] = types.YLeaf{"Merge", output.Merge}
+    output.EntityData.Leafs["merge-id"] = types.YLeaf{"MergeId", output.MergeId}
+    output.EntityData.Leafs["account-stats"] = types.YLeaf{"AccountStats", output.AccountStats}
+    return &(output.EntityData)
 }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["policy-name"] = output.PolicyName
-    leafs["spi-name"] = output.SpiName
-    leafs["merge"] = output.Merge
-    leafs["merge-id"] = output.MergeId
-    leafs["account-stats"] = output.AccountStats
-    return leafs
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetYangName() string { return "output" }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_ServicePolicy_Output) GetParentYangName() string { return "service-policy" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account
 // QoS L2 overhead accounting
 type DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ATM adaptation layer AAL. The type is Qosl2DataLink.
@@ -8981,62 +4641,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account struct {
     UserDefined interface{}
 }
 
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetFilter() yfilter.YFilter { return account.YFilter }
+func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetEntityData() *types.CommonEntityData {
+    account.EntityData.YFilter = account.YFilter
+    account.EntityData.YangName = "account"
+    account.EntityData.BundleName = "cisco_ios_xr"
+    account.EntityData.ParentYangName = "qos"
+    account.EntityData.SegmentPath = "account"
+    account.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    account.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    account.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) SetFilter(yf yfilter.YFilter) { account.YFilter = yf }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetGoName(yname string) string {
-    if yname == "aal" { return "Aal" }
-    if yname == "encapsulation" { return "Encapsulation" }
-    if yname == "atm-cell-tax" { return "AtmCellTax" }
-    if yname == "user-defined" { return "UserDefined" }
-    return ""
+    account.EntityData.Children = make(map[string]types.YChild)
+    account.EntityData.Leafs = make(map[string]types.YLeaf)
+    account.EntityData.Leafs["aal"] = types.YLeaf{"Aal", account.Aal}
+    account.EntityData.Leafs["encapsulation"] = types.YLeaf{"Encapsulation", account.Encapsulation}
+    account.EntityData.Leafs["atm-cell-tax"] = types.YLeaf{"AtmCellTax", account.AtmCellTax}
+    account.EntityData.Leafs["user-defined"] = types.YLeaf{"UserDefined", account.UserDefined}
+    return &(account.EntityData)
 }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetSegmentPath() string {
-    return "account"
-}
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["aal"] = account.Aal
-    leafs["encapsulation"] = account.Encapsulation
-    leafs["atm-cell-tax"] = account.AtmCellTax
-    leafs["user-defined"] = account.UserDefined
-    return leafs
-}
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetBundleName() string { return "cisco_ios_xr" }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetYangName() string { return "account" }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) SetParent(parent types.Entity) { account.parent = parent }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetParent() types.Entity { return account.parent }
-
-func (account *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Account) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output
 // QoS to be applied in egress direction
 type DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum bandwidth value for the subscriber (in kbps). The type is
@@ -9044,56 +4671,26 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output struct {
     MinimumBandwidth interface{}
 }
 
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "qos"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetGoName(yname string) string {
-    if yname == "minimum-bandwidth" { return "MinimumBandwidth" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["minimum-bandwidth"] = types.YLeaf{"MinimumBandwidth", output.MinimumBandwidth}
+    return &(output.EntityData)
 }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["minimum-bandwidth"] = output.MinimumBandwidth
-    return leafs
-}
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetYangName() string { return "output" }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetParent() types.Entity { return output.parent }
-
-func (output *DynamicTemplate_SubscriberServices_SubscriberService_Qos_Output) GetParentYangName() string { return "qos" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Accounting
 // Subscriber accounting dynamic-template commands
 type DynamicTemplate_SubscriberServices_SubscriberService_Accounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Subscriber accounting prepaid feature. The type is string.
@@ -9109,71 +4706,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Accounting struct {
     IdleTimeout DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout
 }
 
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetFilter() yfilter.YFilter { return accounting.YFilter }
+func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetEntityData() *types.CommonEntityData {
+    accounting.EntityData.YFilter = accounting.YFilter
+    accounting.EntityData.YangName = "accounting"
+    accounting.EntityData.BundleName = "cisco_ios_xr"
+    accounting.EntityData.ParentYangName = "subscriber-service"
+    accounting.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
+    accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) SetFilter(yf yfilter.YFilter) { accounting.YFilter = yf }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetGoName(yname string) string {
-    if yname == "prepaid-feature" { return "PrepaidFeature" }
-    if yname == "service-accounting" { return "ServiceAccounting" }
-    if yname == "session" { return "Session" }
-    if yname == "idle-timeout" { return "IdleTimeout" }
-    return ""
+    accounting.EntityData.Children = make(map[string]types.YChild)
+    accounting.EntityData.Children["service-accounting"] = types.YChild{"ServiceAccounting", &accounting.ServiceAccounting}
+    accounting.EntityData.Children["session"] = types.YChild{"Session", &accounting.Session}
+    accounting.EntityData.Children["idle-timeout"] = types.YChild{"IdleTimeout", &accounting.IdleTimeout}
+    accounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    accounting.EntityData.Leafs["prepaid-feature"] = types.YLeaf{"PrepaidFeature", accounting.PrepaidFeature}
+    return &(accounting.EntityData)
 }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-accounting-cfg:accounting"
-}
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "service-accounting" {
-        return &accounting.ServiceAccounting
-    }
-    if childYangName == "session" {
-        return &accounting.Session
-    }
-    if childYangName == "idle-timeout" {
-        return &accounting.IdleTimeout
-    }
-    return nil
-}
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["service-accounting"] = &accounting.ServiceAccounting
-    children["session"] = &accounting.Session
-    children["idle-timeout"] = &accounting.IdleTimeout
-    return children
-}
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["prepaid-feature"] = accounting.PrepaidFeature
-    return leafs
-}
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetYangName() string { return "accounting" }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) SetParent(parent types.Entity) { accounting.parent = parent }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetParent() types.Entity { return accounting.parent }
-
-func (accounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting) GetParentYangName() string { return "subscriber-service" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting
 // Subscriber accounting service accounting
 type DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Service accounting method list name. The type is string.
@@ -9184,58 +4739,27 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAcco
     AccountingInterimInterval interface{}
 }
 
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetFilter() yfilter.YFilter { return serviceAccounting.YFilter }
+func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetEntityData() *types.CommonEntityData {
+    serviceAccounting.EntityData.YFilter = serviceAccounting.YFilter
+    serviceAccounting.EntityData.YangName = "service-accounting"
+    serviceAccounting.EntityData.BundleName = "cisco_ios_xr"
+    serviceAccounting.EntityData.ParentYangName = "accounting"
+    serviceAccounting.EntityData.SegmentPath = "service-accounting"
+    serviceAccounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serviceAccounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serviceAccounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) SetFilter(yf yfilter.YFilter) { serviceAccounting.YFilter = yf }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    if yname == "accounting-interim-interval" { return "AccountingInterimInterval" }
-    return ""
+    serviceAccounting.EntityData.Children = make(map[string]types.YChild)
+    serviceAccounting.EntityData.Leafs = make(map[string]types.YLeaf)
+    serviceAccounting.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", serviceAccounting.MethodListName}
+    serviceAccounting.EntityData.Leafs["accounting-interim-interval"] = types.YLeaf{"AccountingInterimInterval", serviceAccounting.AccountingInterimInterval}
+    return &(serviceAccounting.EntityData)
 }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetSegmentPath() string {
-    return "service-accounting"
-}
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = serviceAccounting.MethodListName
-    leafs["accounting-interim-interval"] = serviceAccounting.AccountingInterimInterval
-    return leafs
-}
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetBundleName() string { return "cisco_ios_xr" }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetYangName() string { return "service-accounting" }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) SetParent(parent types.Entity) { serviceAccounting.parent = parent }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetParent() types.Entity { return serviceAccounting.parent }
-
-func (serviceAccounting *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_ServiceAccounting) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session
 // Subscriber accounting session accounting
 type DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session accounting method list name. The type is string.
@@ -9254,62 +4778,29 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session str
     HoldAcctStart interface{}
 }
 
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetFilter() yfilter.YFilter { return session.YFilter }
+func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetEntityData() *types.CommonEntityData {
+    session.EntityData.YFilter = session.YFilter
+    session.EntityData.YangName = "session"
+    session.EntityData.BundleName = "cisco_ios_xr"
+    session.EntityData.ParentYangName = "accounting"
+    session.EntityData.SegmentPath = "session"
+    session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) SetFilter(yf yfilter.YFilter) { session.YFilter = yf }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetGoName(yname string) string {
-    if yname == "method-list-name" { return "MethodListName" }
-    if yname == "periodic-interval" { return "PeriodicInterval" }
-    if yname == "dual-stack-delay" { return "DualStackDelay" }
-    if yname == "hold-acct-start" { return "HoldAcctStart" }
-    return ""
+    session.EntityData.Children = make(map[string]types.YChild)
+    session.EntityData.Leafs = make(map[string]types.YLeaf)
+    session.EntityData.Leafs["method-list-name"] = types.YLeaf{"MethodListName", session.MethodListName}
+    session.EntityData.Leafs["periodic-interval"] = types.YLeaf{"PeriodicInterval", session.PeriodicInterval}
+    session.EntityData.Leafs["dual-stack-delay"] = types.YLeaf{"DualStackDelay", session.DualStackDelay}
+    session.EntityData.Leafs["hold-acct-start"] = types.YLeaf{"HoldAcctStart", session.HoldAcctStart}
+    return &(session.EntityData)
 }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetSegmentPath() string {
-    return "session"
-}
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["method-list-name"] = session.MethodListName
-    leafs["periodic-interval"] = session.PeriodicInterval
-    leafs["dual-stack-delay"] = session.DualStackDelay
-    leafs["hold-acct-start"] = session.HoldAcctStart
-    return leafs
-}
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetBundleName() string { return "cisco_ios_xr" }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetYangName() string { return "session" }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) SetParent(parent types.Entity) { session.parent = parent }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetParent() types.Entity { return session.parent }
-
-func (session *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_Session) GetParentYangName() string { return "accounting" }
 
 // DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout
 // Subscriber accounting idle timeout
 type DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Idle timeout value in seconds. The type is interface{} with range:
@@ -9324,53 +4815,21 @@ type DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout
     Direction interface{}
 }
 
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetFilter() yfilter.YFilter { return idleTimeout.YFilter }
+func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetEntityData() *types.CommonEntityData {
+    idleTimeout.EntityData.YFilter = idleTimeout.YFilter
+    idleTimeout.EntityData.YangName = "idle-timeout"
+    idleTimeout.EntityData.BundleName = "cisco_ios_xr"
+    idleTimeout.EntityData.ParentYangName = "accounting"
+    idleTimeout.EntityData.SegmentPath = "idle-timeout"
+    idleTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idleTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idleTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) SetFilter(yf yfilter.YFilter) { idleTimeout.YFilter = yf }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetGoName(yname string) string {
-    if yname == "timeout-value" { return "TimeoutValue" }
-    if yname == "threshold" { return "Threshold" }
-    if yname == "direction" { return "Direction" }
-    return ""
+    idleTimeout.EntityData.Children = make(map[string]types.YChild)
+    idleTimeout.EntityData.Leafs = make(map[string]types.YLeaf)
+    idleTimeout.EntityData.Leafs["timeout-value"] = types.YLeaf{"TimeoutValue", idleTimeout.TimeoutValue}
+    idleTimeout.EntityData.Leafs["threshold"] = types.YLeaf{"Threshold", idleTimeout.Threshold}
+    idleTimeout.EntityData.Leafs["direction"] = types.YLeaf{"Direction", idleTimeout.Direction}
+    return &(idleTimeout.EntityData)
 }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetSegmentPath() string {
-    return "idle-timeout"
-}
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timeout-value"] = idleTimeout.TimeoutValue
-    leafs["threshold"] = idleTimeout.Threshold
-    leafs["direction"] = idleTimeout.Direction
-    return leafs
-}
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetBundleName() string { return "cisco_ios_xr" }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetYangName() string { return "idle-timeout" }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) SetParent(parent types.Entity) { idleTimeout.parent = parent }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetParent() types.Entity { return idleTimeout.parent }
-
-func (idleTimeout *DynamicTemplate_SubscriberServices_SubscriberService_Accounting_IdleTimeout) GetParentYangName() string { return "accounting" }
 

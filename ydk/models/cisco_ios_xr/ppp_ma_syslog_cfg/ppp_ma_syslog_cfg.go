@@ -27,115 +27,52 @@ func init() {
 // Ppp
 // PPP configuration
 type Ppp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // syslog option for session status.
     Syslog Ppp_Syslog
 }
 
-func (ppp *Ppp) GetFilter() yfilter.YFilter { return ppp.YFilter }
+func (ppp *Ppp) GetEntityData() *types.CommonEntityData {
+    ppp.EntityData.YFilter = ppp.YFilter
+    ppp.EntityData.YangName = "ppp"
+    ppp.EntityData.BundleName = "cisco_ios_xr"
+    ppp.EntityData.ParentYangName = "Cisco-IOS-XR-ppp-ma-syslog-cfg"
+    ppp.EntityData.SegmentPath = "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp"
+    ppp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ppp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ppp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ppp *Ppp) SetFilter(yf yfilter.YFilter) { ppp.YFilter = yf }
-
-func (ppp *Ppp) GetGoName(yname string) string {
-    if yname == "syslog" { return "Syslog" }
-    return ""
+    ppp.EntityData.Children = make(map[string]types.YChild)
+    ppp.EntityData.Children["syslog"] = types.YChild{"Syslog", &ppp.Syslog}
+    ppp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ppp.EntityData)
 }
-
-func (ppp *Ppp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp"
-}
-
-func (ppp *Ppp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "syslog" {
-        return &ppp.Syslog
-    }
-    return nil
-}
-
-func (ppp *Ppp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["syslog"] = &ppp.Syslog
-    return children
-}
-
-func (ppp *Ppp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ppp *Ppp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ppp *Ppp) GetYangName() string { return "ppp" }
-
-func (ppp *Ppp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ppp *Ppp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ppp *Ppp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ppp *Ppp) SetParent(parent types.Entity) { ppp.parent = parent }
-
-func (ppp *Ppp) GetParent() types.Entity { return ppp.parent }
-
-func (ppp *Ppp) GetParentYangName() string { return "Cisco-IOS-XR-ppp-ma-syslog-cfg" }
 
 // Ppp_Syslog
 // syslog option for session status
 type Ppp_Syslog struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable syslog for ppp session status. The type is interface{}.
     EnableSessionStatus interface{}
 }
 
-func (syslog *Ppp_Syslog) GetFilter() yfilter.YFilter { return syslog.YFilter }
+func (syslog *Ppp_Syslog) GetEntityData() *types.CommonEntityData {
+    syslog.EntityData.YFilter = syslog.YFilter
+    syslog.EntityData.YangName = "syslog"
+    syslog.EntityData.BundleName = "cisco_ios_xr"
+    syslog.EntityData.ParentYangName = "ppp"
+    syslog.EntityData.SegmentPath = "syslog"
+    syslog.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    syslog.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    syslog.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (syslog *Ppp_Syslog) SetFilter(yf yfilter.YFilter) { syslog.YFilter = yf }
-
-func (syslog *Ppp_Syslog) GetGoName(yname string) string {
-    if yname == "enable-session-status" { return "EnableSessionStatus" }
-    return ""
+    syslog.EntityData.Children = make(map[string]types.YChild)
+    syslog.EntityData.Leafs = make(map[string]types.YLeaf)
+    syslog.EntityData.Leafs["enable-session-status"] = types.YLeaf{"EnableSessionStatus", syslog.EnableSessionStatus}
+    return &(syslog.EntityData)
 }
-
-func (syslog *Ppp_Syslog) GetSegmentPath() string {
-    return "syslog"
-}
-
-func (syslog *Ppp_Syslog) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (syslog *Ppp_Syslog) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (syslog *Ppp_Syslog) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable-session-status"] = syslog.EnableSessionStatus
-    return leafs
-}
-
-func (syslog *Ppp_Syslog) GetBundleName() string { return "cisco_ios_xr" }
-
-func (syslog *Ppp_Syslog) GetYangName() string { return "syslog" }
-
-func (syslog *Ppp_Syslog) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (syslog *Ppp_Syslog) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (syslog *Ppp_Syslog) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (syslog *Ppp_Syslog) SetParent(parent types.Entity) { syslog.parent = parent }
-
-func (syslog *Ppp_Syslog) GetParent() types.Entity { return syslog.parent }
-
-func (syslog *Ppp_Syslog) GetParentYangName() string { return "ppp" }
 

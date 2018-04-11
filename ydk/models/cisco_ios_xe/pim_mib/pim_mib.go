@@ -18,7 +18,7 @@ func init() {
 
 // PIMMIB
 type PIMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -68,98 +68,33 @@ type PIMMIB struct {
     Pimcomponenttable PIMMIB_Pimcomponenttable
 }
 
-func (pIMMIB *PIMMIB) GetFilter() yfilter.YFilter { return pIMMIB.YFilter }
+func (pIMMIB *PIMMIB) GetEntityData() *types.CommonEntityData {
+    pIMMIB.EntityData.YFilter = pIMMIB.YFilter
+    pIMMIB.EntityData.YangName = "PIM-MIB"
+    pIMMIB.EntityData.BundleName = "cisco_ios_xe"
+    pIMMIB.EntityData.ParentYangName = "PIM-MIB"
+    pIMMIB.EntityData.SegmentPath = "PIM-MIB:PIM-MIB"
+    pIMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pIMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pIMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pIMMIB *PIMMIB) SetFilter(yf yfilter.YFilter) { pIMMIB.YFilter = yf }
-
-func (pIMMIB *PIMMIB) GetGoName(yname string) string {
-    if yname == "pim" { return "Pim" }
-    if yname == "pimInterfaceTable" { return "Piminterfacetable" }
-    if yname == "pimNeighborTable" { return "Pimneighbortable" }
-    if yname == "pimIpMRouteTable" { return "Pimipmroutetable" }
-    if yname == "pimRPTable" { return "Pimrptable" }
-    if yname == "pimRPSetTable" { return "Pimrpsettable" }
-    if yname == "pimIpMRouteNextHopTable" { return "Pimipmroutenexthoptable" }
-    if yname == "pimCandidateRPTable" { return "Pimcandidaterptable" }
-    if yname == "pimComponentTable" { return "Pimcomponenttable" }
-    return ""
+    pIMMIB.EntityData.Children = make(map[string]types.YChild)
+    pIMMIB.EntityData.Children["pim"] = types.YChild{"Pim", &pIMMIB.Pim}
+    pIMMIB.EntityData.Children["pimInterfaceTable"] = types.YChild{"Piminterfacetable", &pIMMIB.Piminterfacetable}
+    pIMMIB.EntityData.Children["pimNeighborTable"] = types.YChild{"Pimneighbortable", &pIMMIB.Pimneighbortable}
+    pIMMIB.EntityData.Children["pimIpMRouteTable"] = types.YChild{"Pimipmroutetable", &pIMMIB.Pimipmroutetable}
+    pIMMIB.EntityData.Children["pimRPTable"] = types.YChild{"Pimrptable", &pIMMIB.Pimrptable}
+    pIMMIB.EntityData.Children["pimRPSetTable"] = types.YChild{"Pimrpsettable", &pIMMIB.Pimrpsettable}
+    pIMMIB.EntityData.Children["pimIpMRouteNextHopTable"] = types.YChild{"Pimipmroutenexthoptable", &pIMMIB.Pimipmroutenexthoptable}
+    pIMMIB.EntityData.Children["pimCandidateRPTable"] = types.YChild{"Pimcandidaterptable", &pIMMIB.Pimcandidaterptable}
+    pIMMIB.EntityData.Children["pimComponentTable"] = types.YChild{"Pimcomponenttable", &pIMMIB.Pimcomponenttable}
+    pIMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pIMMIB.EntityData)
 }
-
-func (pIMMIB *PIMMIB) GetSegmentPath() string {
-    return "PIM-MIB:PIM-MIB"
-}
-
-func (pIMMIB *PIMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pim" {
-        return &pIMMIB.Pim
-    }
-    if childYangName == "pimInterfaceTable" {
-        return &pIMMIB.Piminterfacetable
-    }
-    if childYangName == "pimNeighborTable" {
-        return &pIMMIB.Pimneighbortable
-    }
-    if childYangName == "pimIpMRouteTable" {
-        return &pIMMIB.Pimipmroutetable
-    }
-    if childYangName == "pimRPTable" {
-        return &pIMMIB.Pimrptable
-    }
-    if childYangName == "pimRPSetTable" {
-        return &pIMMIB.Pimrpsettable
-    }
-    if childYangName == "pimIpMRouteNextHopTable" {
-        return &pIMMIB.Pimipmroutenexthoptable
-    }
-    if childYangName == "pimCandidateRPTable" {
-        return &pIMMIB.Pimcandidaterptable
-    }
-    if childYangName == "pimComponentTable" {
-        return &pIMMIB.Pimcomponenttable
-    }
-    return nil
-}
-
-func (pIMMIB *PIMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pim"] = &pIMMIB.Pim
-    children["pimInterfaceTable"] = &pIMMIB.Piminterfacetable
-    children["pimNeighborTable"] = &pIMMIB.Pimneighbortable
-    children["pimIpMRouteTable"] = &pIMMIB.Pimipmroutetable
-    children["pimRPTable"] = &pIMMIB.Pimrptable
-    children["pimRPSetTable"] = &pIMMIB.Pimrpsettable
-    children["pimIpMRouteNextHopTable"] = &pIMMIB.Pimipmroutenexthoptable
-    children["pimCandidateRPTable"] = &pIMMIB.Pimcandidaterptable
-    children["pimComponentTable"] = &pIMMIB.Pimcomponenttable
-    return children
-}
-
-func (pIMMIB *PIMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pIMMIB *PIMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pIMMIB *PIMMIB) GetYangName() string { return "PIM-MIB" }
-
-func (pIMMIB *PIMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pIMMIB *PIMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pIMMIB *PIMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pIMMIB *PIMMIB) SetParent(parent types.Entity) { pIMMIB.parent = parent }
-
-func (pIMMIB *PIMMIB) GetParent() types.Entity { return pIMMIB.parent }
-
-func (pIMMIB *PIMMIB) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pim
 type PIMMIB_Pim struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The default interval at which periodic PIM-SM Join/Prune messages are to be
@@ -168,58 +103,28 @@ type PIMMIB_Pim struct {
     Pimjoinpruneinterval interface{}
 }
 
-func (pim *PIMMIB_Pim) GetFilter() yfilter.YFilter { return pim.YFilter }
+func (pim *PIMMIB_Pim) GetEntityData() *types.CommonEntityData {
+    pim.EntityData.YFilter = pim.YFilter
+    pim.EntityData.YangName = "pim"
+    pim.EntityData.BundleName = "cisco_ios_xe"
+    pim.EntityData.ParentYangName = "PIM-MIB"
+    pim.EntityData.SegmentPath = "pim"
+    pim.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pim.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pim.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pim *PIMMIB_Pim) SetFilter(yf yfilter.YFilter) { pim.YFilter = yf }
-
-func (pim *PIMMIB_Pim) GetGoName(yname string) string {
-    if yname == "pimJoinPruneInterval" { return "Pimjoinpruneinterval" }
-    return ""
+    pim.EntityData.Children = make(map[string]types.YChild)
+    pim.EntityData.Leafs = make(map[string]types.YLeaf)
+    pim.EntityData.Leafs["pimJoinPruneInterval"] = types.YLeaf{"Pimjoinpruneinterval", pim.Pimjoinpruneinterval}
+    return &(pim.EntityData)
 }
-
-func (pim *PIMMIB_Pim) GetSegmentPath() string {
-    return "pim"
-}
-
-func (pim *PIMMIB_Pim) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pim *PIMMIB_Pim) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pim *PIMMIB_Pim) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimJoinPruneInterval"] = pim.Pimjoinpruneinterval
-    return leafs
-}
-
-func (pim *PIMMIB_Pim) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pim *PIMMIB_Pim) GetYangName() string { return "pim" }
-
-func (pim *PIMMIB_Pim) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pim *PIMMIB_Pim) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pim *PIMMIB_Pim) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pim *PIMMIB_Pim) SetParent(parent types.Entity) { pim.parent = parent }
-
-func (pim *PIMMIB_Pim) GetParent() types.Entity { return pim.parent }
-
-func (pim *PIMMIB_Pim) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Piminterfacetable
 // The (conceptual) table listing the router's PIM interfaces.
 // IGMP and PIM are enabled on all interfaces listed in this
 // table.
 type PIMMIB_Piminterfacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimInterfaceTable. The type is slice of
@@ -227,68 +132,29 @@ type PIMMIB_Piminterfacetable struct {
     Piminterfaceentry []PIMMIB_Piminterfacetable_Piminterfaceentry
 }
 
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetFilter() yfilter.YFilter { return piminterfacetable.YFilter }
+func (piminterfacetable *PIMMIB_Piminterfacetable) GetEntityData() *types.CommonEntityData {
+    piminterfacetable.EntityData.YFilter = piminterfacetable.YFilter
+    piminterfacetable.EntityData.YangName = "pimInterfaceTable"
+    piminterfacetable.EntityData.BundleName = "cisco_ios_xe"
+    piminterfacetable.EntityData.ParentYangName = "PIM-MIB"
+    piminterfacetable.EntityData.SegmentPath = "pimInterfaceTable"
+    piminterfacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    piminterfacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    piminterfacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (piminterfacetable *PIMMIB_Piminterfacetable) SetFilter(yf yfilter.YFilter) { piminterfacetable.YFilter = yf }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetGoName(yname string) string {
-    if yname == "pimInterfaceEntry" { return "Piminterfaceentry" }
-    return ""
-}
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetSegmentPath() string {
-    return "pimInterfaceTable"
-}
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimInterfaceEntry" {
-        for _, c := range piminterfacetable.Piminterfaceentry {
-            if piminterfacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Piminterfacetable_Piminterfaceentry{}
-        piminterfacetable.Piminterfaceentry = append(piminterfacetable.Piminterfaceentry, child)
-        return &piminterfacetable.Piminterfaceentry[len(piminterfacetable.Piminterfaceentry)-1]
-    }
-    return nil
-}
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    piminterfacetable.EntityData.Children = make(map[string]types.YChild)
+    piminterfacetable.EntityData.Children["pimInterfaceEntry"] = types.YChild{"Piminterfaceentry", nil}
     for i := range piminterfacetable.Piminterfaceentry {
-        children[piminterfacetable.Piminterfaceentry[i].GetSegmentPath()] = &piminterfacetable.Piminterfaceentry[i]
+        piminterfacetable.EntityData.Children[types.GetSegmentPath(&piminterfacetable.Piminterfaceentry[i])] = types.YChild{"Piminterfaceentry", &piminterfacetable.Piminterfaceentry[i]}
     }
-    return children
+    piminterfacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(piminterfacetable.EntityData)
 }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetYangName() string { return "pimInterfaceTable" }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) SetParent(parent types.Entity) { piminterfacetable.parent = parent }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetParent() types.Entity { return piminterfacetable.parent }
-
-func (piminterfacetable *PIMMIB_Piminterfacetable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Piminterfacetable_Piminterfaceentry
 // An entry (conceptual row) in the pimInterfaceTable.
 type PIMMIB_Piminterfacetable_Piminterfaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The ifIndex value of this PIM interface. The type
@@ -296,12 +162,12 @@ type PIMMIB_Piminterfacetable_Piminterfaceentry struct {
     Piminterfaceifindex interface{}
 
     // The IP address of the PIM interface. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Piminterfaceaddress interface{}
 
     // The network mask for the IP address of the PIM interface. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Piminterfacenetmask interface{}
 
     // The configured mode of this PIM interface.  A value of sparseDense is only
@@ -311,7 +177,7 @@ type PIMMIB_Piminterfacetable_Piminterfaceentry struct {
     // The Designated Router on this PIM interface.  For point-to- point
     // interfaces, this object has the value 0.0.0.0. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Piminterfacedr interface{}
 
     // The frequency at which PIM Hello messages are transmitted on this
@@ -335,67 +201,29 @@ type PIMMIB_Piminterfacetable_Piminterfaceentry struct {
     Piminterfacecbsrpreference interface{}
 }
 
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetFilter() yfilter.YFilter { return piminterfaceentry.YFilter }
+func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetEntityData() *types.CommonEntityData {
+    piminterfaceentry.EntityData.YFilter = piminterfaceentry.YFilter
+    piminterfaceentry.EntityData.YangName = "pimInterfaceEntry"
+    piminterfaceentry.EntityData.BundleName = "cisco_ios_xe"
+    piminterfaceentry.EntityData.ParentYangName = "pimInterfaceTable"
+    piminterfaceentry.EntityData.SegmentPath = "pimInterfaceEntry" + "[pimInterfaceIfIndex='" + fmt.Sprintf("%v", piminterfaceentry.Piminterfaceifindex) + "']"
+    piminterfaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    piminterfaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    piminterfaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) SetFilter(yf yfilter.YFilter) { piminterfaceentry.YFilter = yf }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetGoName(yname string) string {
-    if yname == "pimInterfaceIfIndex" { return "Piminterfaceifindex" }
-    if yname == "pimInterfaceAddress" { return "Piminterfaceaddress" }
-    if yname == "pimInterfaceNetMask" { return "Piminterfacenetmask" }
-    if yname == "pimInterfaceMode" { return "Piminterfacemode" }
-    if yname == "pimInterfaceDR" { return "Piminterfacedr" }
-    if yname == "pimInterfaceHelloInterval" { return "Piminterfacehellointerval" }
-    if yname == "pimInterfaceStatus" { return "Piminterfacestatus" }
-    if yname == "pimInterfaceJoinPruneInterval" { return "Piminterfacejoinpruneinterval" }
-    if yname == "pimInterfaceCBSRPreference" { return "Piminterfacecbsrpreference" }
-    return ""
+    piminterfaceentry.EntityData.Children = make(map[string]types.YChild)
+    piminterfaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    piminterfaceentry.EntityData.Leafs["pimInterfaceIfIndex"] = types.YLeaf{"Piminterfaceifindex", piminterfaceentry.Piminterfaceifindex}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceAddress"] = types.YLeaf{"Piminterfaceaddress", piminterfaceentry.Piminterfaceaddress}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceNetMask"] = types.YLeaf{"Piminterfacenetmask", piminterfaceentry.Piminterfacenetmask}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceMode"] = types.YLeaf{"Piminterfacemode", piminterfaceentry.Piminterfacemode}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceDR"] = types.YLeaf{"Piminterfacedr", piminterfaceentry.Piminterfacedr}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceHelloInterval"] = types.YLeaf{"Piminterfacehellointerval", piminterfaceentry.Piminterfacehellointerval}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceStatus"] = types.YLeaf{"Piminterfacestatus", piminterfaceentry.Piminterfacestatus}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceJoinPruneInterval"] = types.YLeaf{"Piminterfacejoinpruneinterval", piminterfaceentry.Piminterfacejoinpruneinterval}
+    piminterfaceentry.EntityData.Leafs["pimInterfaceCBSRPreference"] = types.YLeaf{"Piminterfacecbsrpreference", piminterfaceentry.Piminterfacecbsrpreference}
+    return &(piminterfaceentry.EntityData)
 }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetSegmentPath() string {
-    return "pimInterfaceEntry" + "[pimInterfaceIfIndex='" + fmt.Sprintf("%v", piminterfaceentry.Piminterfaceifindex) + "']"
-}
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimInterfaceIfIndex"] = piminterfaceentry.Piminterfaceifindex
-    leafs["pimInterfaceAddress"] = piminterfaceentry.Piminterfaceaddress
-    leafs["pimInterfaceNetMask"] = piminterfaceentry.Piminterfacenetmask
-    leafs["pimInterfaceMode"] = piminterfaceentry.Piminterfacemode
-    leafs["pimInterfaceDR"] = piminterfaceentry.Piminterfacedr
-    leafs["pimInterfaceHelloInterval"] = piminterfaceentry.Piminterfacehellointerval
-    leafs["pimInterfaceStatus"] = piminterfaceentry.Piminterfacestatus
-    leafs["pimInterfaceJoinPruneInterval"] = piminterfaceentry.Piminterfacejoinpruneinterval
-    leafs["pimInterfaceCBSRPreference"] = piminterfaceentry.Piminterfacecbsrpreference
-    return leafs
-}
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetYangName() string { return "pimInterfaceEntry" }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) SetParent(parent types.Entity) { piminterfaceentry.parent = parent }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetParent() types.Entity { return piminterfaceentry.parent }
-
-func (piminterfaceentry *PIMMIB_Piminterfacetable_Piminterfaceentry) GetParentYangName() string { return "pimInterfaceTable" }
 
 // PIMMIB_Piminterfacetable_Piminterfaceentry_Piminterfacemode represents sparseDense is only valid for PIMv1.
 type PIMMIB_Piminterfacetable_Piminterfaceentry_Piminterfacemode string
@@ -411,7 +239,7 @@ const (
 // PIMMIB_Pimneighbortable
 // The (conceptual) table listing the router's PIM neighbors.
 type PIMMIB_Pimneighbortable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimNeighborTable. The type is slice of
@@ -419,73 +247,34 @@ type PIMMIB_Pimneighbortable struct {
     Pimneighborentry []PIMMIB_Pimneighbortable_Pimneighborentry
 }
 
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetFilter() yfilter.YFilter { return pimneighbortable.YFilter }
+func (pimneighbortable *PIMMIB_Pimneighbortable) GetEntityData() *types.CommonEntityData {
+    pimneighbortable.EntityData.YFilter = pimneighbortable.YFilter
+    pimneighbortable.EntityData.YangName = "pimNeighborTable"
+    pimneighbortable.EntityData.BundleName = "cisco_ios_xe"
+    pimneighbortable.EntityData.ParentYangName = "PIM-MIB"
+    pimneighbortable.EntityData.SegmentPath = "pimNeighborTable"
+    pimneighbortable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimneighbortable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimneighbortable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimneighbortable *PIMMIB_Pimneighbortable) SetFilter(yf yfilter.YFilter) { pimneighbortable.YFilter = yf }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetGoName(yname string) string {
-    if yname == "pimNeighborEntry" { return "Pimneighborentry" }
-    return ""
-}
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetSegmentPath() string {
-    return "pimNeighborTable"
-}
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimNeighborEntry" {
-        for _, c := range pimneighbortable.Pimneighborentry {
-            if pimneighbortable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimneighbortable_Pimneighborentry{}
-        pimneighbortable.Pimneighborentry = append(pimneighbortable.Pimneighborentry, child)
-        return &pimneighbortable.Pimneighborentry[len(pimneighbortable.Pimneighborentry)-1]
-    }
-    return nil
-}
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimneighbortable.EntityData.Children = make(map[string]types.YChild)
+    pimneighbortable.EntityData.Children["pimNeighborEntry"] = types.YChild{"Pimneighborentry", nil}
     for i := range pimneighbortable.Pimneighborentry {
-        children[pimneighbortable.Pimneighborentry[i].GetSegmentPath()] = &pimneighbortable.Pimneighborentry[i]
+        pimneighbortable.EntityData.Children[types.GetSegmentPath(&pimneighbortable.Pimneighborentry[i])] = types.YChild{"Pimneighborentry", &pimneighbortable.Pimneighborentry[i]}
     }
-    return children
+    pimneighbortable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimneighbortable.EntityData)
 }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetYangName() string { return "pimNeighborTable" }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) SetParent(parent types.Entity) { pimneighbortable.parent = parent }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetParent() types.Entity { return pimneighbortable.parent }
-
-func (pimneighbortable *PIMMIB_Pimneighbortable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimneighbortable_Pimneighborentry
 // An entry (conceptual row) in the pimNeighborTable.
 type PIMMIB_Pimneighbortable_Pimneighborentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address of the PIM neighbor for which this
     // entry contains information. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimneighboraddress interface{}
 
     // The value of ifIndex for the interface used to reach this PIM neighbor. The
@@ -507,59 +296,25 @@ type PIMMIB_Pimneighbortable_Pimneighborentry struct {
     Pimneighbormode interface{}
 }
 
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetFilter() yfilter.YFilter { return pimneighborentry.YFilter }
+func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetEntityData() *types.CommonEntityData {
+    pimneighborentry.EntityData.YFilter = pimneighborentry.YFilter
+    pimneighborentry.EntityData.YangName = "pimNeighborEntry"
+    pimneighborentry.EntityData.BundleName = "cisco_ios_xe"
+    pimneighborentry.EntityData.ParentYangName = "pimNeighborTable"
+    pimneighborentry.EntityData.SegmentPath = "pimNeighborEntry" + "[pimNeighborAddress='" + fmt.Sprintf("%v", pimneighborentry.Pimneighboraddress) + "']"
+    pimneighborentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimneighborentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimneighborentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) SetFilter(yf yfilter.YFilter) { pimneighborentry.YFilter = yf }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetGoName(yname string) string {
-    if yname == "pimNeighborAddress" { return "Pimneighboraddress" }
-    if yname == "pimNeighborIfIndex" { return "Pimneighborifindex" }
-    if yname == "pimNeighborUpTime" { return "Pimneighboruptime" }
-    if yname == "pimNeighborExpiryTime" { return "Pimneighborexpirytime" }
-    if yname == "pimNeighborMode" { return "Pimneighbormode" }
-    return ""
+    pimneighborentry.EntityData.Children = make(map[string]types.YChild)
+    pimneighborentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimneighborentry.EntityData.Leafs["pimNeighborAddress"] = types.YLeaf{"Pimneighboraddress", pimneighborentry.Pimneighboraddress}
+    pimneighborentry.EntityData.Leafs["pimNeighborIfIndex"] = types.YLeaf{"Pimneighborifindex", pimneighborentry.Pimneighborifindex}
+    pimneighborentry.EntityData.Leafs["pimNeighborUpTime"] = types.YLeaf{"Pimneighboruptime", pimneighborentry.Pimneighboruptime}
+    pimneighborentry.EntityData.Leafs["pimNeighborExpiryTime"] = types.YLeaf{"Pimneighborexpirytime", pimneighborentry.Pimneighborexpirytime}
+    pimneighborentry.EntityData.Leafs["pimNeighborMode"] = types.YLeaf{"Pimneighbormode", pimneighborentry.Pimneighbormode}
+    return &(pimneighborentry.EntityData)
 }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetSegmentPath() string {
-    return "pimNeighborEntry" + "[pimNeighborAddress='" + fmt.Sprintf("%v", pimneighborentry.Pimneighboraddress) + "']"
-}
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimNeighborAddress"] = pimneighborentry.Pimneighboraddress
-    leafs["pimNeighborIfIndex"] = pimneighborentry.Pimneighborifindex
-    leafs["pimNeighborUpTime"] = pimneighborentry.Pimneighboruptime
-    leafs["pimNeighborExpiryTime"] = pimneighborentry.Pimneighborexpirytime
-    leafs["pimNeighborMode"] = pimneighborentry.Pimneighbormode
-    return leafs
-}
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetYangName() string { return "pimNeighborEntry" }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) SetParent(parent types.Entity) { pimneighborentry.parent = parent }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetParent() types.Entity { return pimneighborentry.parent }
-
-func (pimneighborentry *PIMMIB_Pimneighbortable_Pimneighborentry) GetParentYangName() string { return "pimNeighborTable" }
 
 // PIMMIB_Pimneighbortable_Pimneighborentry_Pimneighbormode represents the protocol running on the interface.
 type PIMMIB_Pimneighbortable_Pimneighborentry_Pimneighbormode string
@@ -575,7 +330,7 @@ const (
 // a subset of the rows of the ipMRouteTable defined in the IP
 // Multicast MIB.
 type PIMMIB_Pimipmroutetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimIpMRouteTable.  There is one entry per
@@ -584,86 +339,47 @@ type PIMMIB_Pimipmroutetable struct {
     Pimipmrouteentry []PIMMIB_Pimipmroutetable_Pimipmrouteentry
 }
 
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetFilter() yfilter.YFilter { return pimipmroutetable.YFilter }
+func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetEntityData() *types.CommonEntityData {
+    pimipmroutetable.EntityData.YFilter = pimipmroutetable.YFilter
+    pimipmroutetable.EntityData.YangName = "pimIpMRouteTable"
+    pimipmroutetable.EntityData.BundleName = "cisco_ios_xe"
+    pimipmroutetable.EntityData.ParentYangName = "PIM-MIB"
+    pimipmroutetable.EntityData.SegmentPath = "pimIpMRouteTable"
+    pimipmroutetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimipmroutetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimipmroutetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) SetFilter(yf yfilter.YFilter) { pimipmroutetable.YFilter = yf }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetGoName(yname string) string {
-    if yname == "pimIpMRouteEntry" { return "Pimipmrouteentry" }
-    return ""
-}
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetSegmentPath() string {
-    return "pimIpMRouteTable"
-}
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimIpMRouteEntry" {
-        for _, c := range pimipmroutetable.Pimipmrouteentry {
-            if pimipmroutetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimipmroutetable_Pimipmrouteentry{}
-        pimipmroutetable.Pimipmrouteentry = append(pimipmroutetable.Pimipmrouteentry, child)
-        return &pimipmroutetable.Pimipmrouteentry[len(pimipmroutetable.Pimipmrouteentry)-1]
-    }
-    return nil
-}
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimipmroutetable.EntityData.Children = make(map[string]types.YChild)
+    pimipmroutetable.EntityData.Children["pimIpMRouteEntry"] = types.YChild{"Pimipmrouteentry", nil}
     for i := range pimipmroutetable.Pimipmrouteentry {
-        children[pimipmroutetable.Pimipmrouteentry[i].GetSegmentPath()] = &pimipmroutetable.Pimipmrouteentry[i]
+        pimipmroutetable.EntityData.Children[types.GetSegmentPath(&pimipmroutetable.Pimipmrouteentry[i])] = types.YChild{"Pimipmrouteentry", &pimipmroutetable.Pimipmrouteentry[i]}
     }
-    return children
+    pimipmroutetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimipmroutetable.EntityData)
 }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetYangName() string { return "pimIpMRouteTable" }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) SetParent(parent types.Entity) { pimipmroutetable.parent = parent }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetParent() types.Entity { return pimipmroutetable.parent }
-
-func (pimipmroutetable *PIMMIB_Pimipmroutetable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimipmroutetable_Pimipmrouteentry
 // An entry (conceptual row) in the pimIpMRouteTable.  There
 // is one entry per entry in the ipMRouteTable whose incoming
 // interface is running PIM.
 type PIMMIB_Pimipmroutetable_Pimipmrouteentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry_Ipmroutegroup
     Ipmroutegroup interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry_Ipmroutesource
     Ipmroutesource interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutetable_Ipmrouteentry_Ipmroutesourcemask
     Ipmroutesourcemask interface{}
@@ -695,65 +411,28 @@ type PIMMIB_Pimipmroutetable_Pimipmrouteentry struct {
     Pimipmrouteflags interface{}
 }
 
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetFilter() yfilter.YFilter { return pimipmrouteentry.YFilter }
+func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetEntityData() *types.CommonEntityData {
+    pimipmrouteentry.EntityData.YFilter = pimipmrouteentry.YFilter
+    pimipmrouteentry.EntityData.YangName = "pimIpMRouteEntry"
+    pimipmrouteentry.EntityData.BundleName = "cisco_ios_xe"
+    pimipmrouteentry.EntityData.ParentYangName = "pimIpMRouteTable"
+    pimipmrouteentry.EntityData.SegmentPath = "pimIpMRouteEntry" + "[ipMRouteGroup='" + fmt.Sprintf("%v", pimipmrouteentry.Ipmroutegroup) + "']" + "[ipMRouteSource='" + fmt.Sprintf("%v", pimipmrouteentry.Ipmroutesource) + "']" + "[ipMRouteSourceMask='" + fmt.Sprintf("%v", pimipmrouteentry.Ipmroutesourcemask) + "']"
+    pimipmrouteentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimipmrouteentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimipmrouteentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) SetFilter(yf yfilter.YFilter) { pimipmrouteentry.YFilter = yf }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetGoName(yname string) string {
-    if yname == "ipMRouteGroup" { return "Ipmroutegroup" }
-    if yname == "ipMRouteSource" { return "Ipmroutesource" }
-    if yname == "ipMRouteSourceMask" { return "Ipmroutesourcemask" }
-    if yname == "pimIpMRouteUpstreamAssertTimer" { return "Pimipmrouteupstreamasserttimer" }
-    if yname == "pimIpMRouteAssertMetric" { return "Pimipmrouteassertmetric" }
-    if yname == "pimIpMRouteAssertMetricPref" { return "Pimipmrouteassertmetricpref" }
-    if yname == "pimIpMRouteAssertRPTBit" { return "Pimipmrouteassertrptbit" }
-    if yname == "pimIpMRouteFlags" { return "Pimipmrouteflags" }
-    return ""
+    pimipmrouteentry.EntityData.Children = make(map[string]types.YChild)
+    pimipmrouteentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimipmrouteentry.EntityData.Leafs["ipMRouteGroup"] = types.YLeaf{"Ipmroutegroup", pimipmrouteentry.Ipmroutegroup}
+    pimipmrouteentry.EntityData.Leafs["ipMRouteSource"] = types.YLeaf{"Ipmroutesource", pimipmrouteentry.Ipmroutesource}
+    pimipmrouteentry.EntityData.Leafs["ipMRouteSourceMask"] = types.YLeaf{"Ipmroutesourcemask", pimipmrouteentry.Ipmroutesourcemask}
+    pimipmrouteentry.EntityData.Leafs["pimIpMRouteUpstreamAssertTimer"] = types.YLeaf{"Pimipmrouteupstreamasserttimer", pimipmrouteentry.Pimipmrouteupstreamasserttimer}
+    pimipmrouteentry.EntityData.Leafs["pimIpMRouteAssertMetric"] = types.YLeaf{"Pimipmrouteassertmetric", pimipmrouteentry.Pimipmrouteassertmetric}
+    pimipmrouteentry.EntityData.Leafs["pimIpMRouteAssertMetricPref"] = types.YLeaf{"Pimipmrouteassertmetricpref", pimipmrouteentry.Pimipmrouteassertmetricpref}
+    pimipmrouteentry.EntityData.Leafs["pimIpMRouteAssertRPTBit"] = types.YLeaf{"Pimipmrouteassertrptbit", pimipmrouteentry.Pimipmrouteassertrptbit}
+    pimipmrouteentry.EntityData.Leafs["pimIpMRouteFlags"] = types.YLeaf{"Pimipmrouteflags", pimipmrouteentry.Pimipmrouteflags}
+    return &(pimipmrouteentry.EntityData)
 }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetSegmentPath() string {
-    return "pimIpMRouteEntry" + "[ipMRouteGroup='" + fmt.Sprintf("%v", pimipmrouteentry.Ipmroutegroup) + "']" + "[ipMRouteSource='" + fmt.Sprintf("%v", pimipmrouteentry.Ipmroutesource) + "']" + "[ipMRouteSourceMask='" + fmt.Sprintf("%v", pimipmrouteentry.Ipmroutesourcemask) + "']"
-}
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteGroup"] = pimipmrouteentry.Ipmroutegroup
-    leafs["ipMRouteSource"] = pimipmrouteentry.Ipmroutesource
-    leafs["ipMRouteSourceMask"] = pimipmrouteentry.Ipmroutesourcemask
-    leafs["pimIpMRouteUpstreamAssertTimer"] = pimipmrouteentry.Pimipmrouteupstreamasserttimer
-    leafs["pimIpMRouteAssertMetric"] = pimipmrouteentry.Pimipmrouteassertmetric
-    leafs["pimIpMRouteAssertMetricPref"] = pimipmrouteentry.Pimipmrouteassertmetricpref
-    leafs["pimIpMRouteAssertRPTBit"] = pimipmrouteentry.Pimipmrouteassertrptbit
-    leafs["pimIpMRouteFlags"] = pimipmrouteentry.Pimipmrouteflags
-    return leafs
-}
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetYangName() string { return "pimIpMRouteEntry" }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) SetParent(parent types.Entity) { pimipmrouteentry.parent = parent }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetParent() types.Entity { return pimipmrouteentry.parent }
-
-func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetParentYangName() string { return "pimIpMRouteTable" }
 
 // PIMMIB_Pimrptable
 // The (conceptual) table listing PIM version 1 information
@@ -761,7 +440,7 @@ func (pimipmrouteentry *PIMMIB_Pimipmroutetable_Pimipmrouteentry) GetParentYangN
 // This table is deprecated since its function is replaced by
 // the pimRPSetTable for PIM version 2.
 type PIMMIB_Pimrptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimRPTable.  There is one entry per RP
@@ -770,79 +449,40 @@ type PIMMIB_Pimrptable struct {
     Pimrpentry []PIMMIB_Pimrptable_Pimrpentry
 }
 
-func (pimrptable *PIMMIB_Pimrptable) GetFilter() yfilter.YFilter { return pimrptable.YFilter }
+func (pimrptable *PIMMIB_Pimrptable) GetEntityData() *types.CommonEntityData {
+    pimrptable.EntityData.YFilter = pimrptable.YFilter
+    pimrptable.EntityData.YangName = "pimRPTable"
+    pimrptable.EntityData.BundleName = "cisco_ios_xe"
+    pimrptable.EntityData.ParentYangName = "PIM-MIB"
+    pimrptable.EntityData.SegmentPath = "pimRPTable"
+    pimrptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimrptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimrptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimrptable *PIMMIB_Pimrptable) SetFilter(yf yfilter.YFilter) { pimrptable.YFilter = yf }
-
-func (pimrptable *PIMMIB_Pimrptable) GetGoName(yname string) string {
-    if yname == "pimRPEntry" { return "Pimrpentry" }
-    return ""
-}
-
-func (pimrptable *PIMMIB_Pimrptable) GetSegmentPath() string {
-    return "pimRPTable"
-}
-
-func (pimrptable *PIMMIB_Pimrptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimRPEntry" {
-        for _, c := range pimrptable.Pimrpentry {
-            if pimrptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimrptable_Pimrpentry{}
-        pimrptable.Pimrpentry = append(pimrptable.Pimrpentry, child)
-        return &pimrptable.Pimrpentry[len(pimrptable.Pimrpentry)-1]
-    }
-    return nil
-}
-
-func (pimrptable *PIMMIB_Pimrptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimrptable.EntityData.Children = make(map[string]types.YChild)
+    pimrptable.EntityData.Children["pimRPEntry"] = types.YChild{"Pimrpentry", nil}
     for i := range pimrptable.Pimrpentry {
-        children[pimrptable.Pimrpentry[i].GetSegmentPath()] = &pimrptable.Pimrpentry[i]
+        pimrptable.EntityData.Children[types.GetSegmentPath(&pimrptable.Pimrpentry[i])] = types.YChild{"Pimrpentry", &pimrptable.Pimrpentry[i]}
     }
-    return children
+    pimrptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimrptable.EntityData)
 }
-
-func (pimrptable *PIMMIB_Pimrptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimrptable *PIMMIB_Pimrptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimrptable *PIMMIB_Pimrptable) GetYangName() string { return "pimRPTable" }
-
-func (pimrptable *PIMMIB_Pimrptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimrptable *PIMMIB_Pimrptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimrptable *PIMMIB_Pimrptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimrptable *PIMMIB_Pimrptable) SetParent(parent types.Entity) { pimrptable.parent = parent }
-
-func (pimrptable *PIMMIB_Pimrptable) GetParent() types.Entity { return pimrptable.parent }
-
-func (pimrptable *PIMMIB_Pimrptable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimrptable_Pimrpentry
 // An entry (conceptual row) in the pimRPTable.  There is one
 // entry per RP address for each IP multicast group.
 type PIMMIB_Pimrptable_Pimrpentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains information about an RP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimrpgroupaddress interface{}
 
     // This attribute is a key. The unicast address of the RP. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimrpaddress interface{}
 
     // The state of the RP. The type is Pimrpstate.
@@ -864,61 +504,26 @@ type PIMMIB_Pimrptable_Pimrpentry struct {
     Pimrprowstatus interface{}
 }
 
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetFilter() yfilter.YFilter { return pimrpentry.YFilter }
+func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetEntityData() *types.CommonEntityData {
+    pimrpentry.EntityData.YFilter = pimrpentry.YFilter
+    pimrpentry.EntityData.YangName = "pimRPEntry"
+    pimrpentry.EntityData.BundleName = "cisco_ios_xe"
+    pimrpentry.EntityData.ParentYangName = "pimRPTable"
+    pimrpentry.EntityData.SegmentPath = "pimRPEntry" + "[pimRPGroupAddress='" + fmt.Sprintf("%v", pimrpentry.Pimrpgroupaddress) + "']" + "[pimRPAddress='" + fmt.Sprintf("%v", pimrpentry.Pimrpaddress) + "']"
+    pimrpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimrpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimrpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) SetFilter(yf yfilter.YFilter) { pimrpentry.YFilter = yf }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetGoName(yname string) string {
-    if yname == "pimRPGroupAddress" { return "Pimrpgroupaddress" }
-    if yname == "pimRPAddress" { return "Pimrpaddress" }
-    if yname == "pimRPState" { return "Pimrpstate" }
-    if yname == "pimRPStateTimer" { return "Pimrpstatetimer" }
-    if yname == "pimRPLastChange" { return "Pimrplastchange" }
-    if yname == "pimRPRowStatus" { return "Pimrprowstatus" }
-    return ""
+    pimrpentry.EntityData.Children = make(map[string]types.YChild)
+    pimrpentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimrpentry.EntityData.Leafs["pimRPGroupAddress"] = types.YLeaf{"Pimrpgroupaddress", pimrpentry.Pimrpgroupaddress}
+    pimrpentry.EntityData.Leafs["pimRPAddress"] = types.YLeaf{"Pimrpaddress", pimrpentry.Pimrpaddress}
+    pimrpentry.EntityData.Leafs["pimRPState"] = types.YLeaf{"Pimrpstate", pimrpentry.Pimrpstate}
+    pimrpentry.EntityData.Leafs["pimRPStateTimer"] = types.YLeaf{"Pimrpstatetimer", pimrpentry.Pimrpstatetimer}
+    pimrpentry.EntityData.Leafs["pimRPLastChange"] = types.YLeaf{"Pimrplastchange", pimrpentry.Pimrplastchange}
+    pimrpentry.EntityData.Leafs["pimRPRowStatus"] = types.YLeaf{"Pimrprowstatus", pimrpentry.Pimrprowstatus}
+    return &(pimrpentry.EntityData)
 }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetSegmentPath() string {
-    return "pimRPEntry" + "[pimRPGroupAddress='" + fmt.Sprintf("%v", pimrpentry.Pimrpgroupaddress) + "']" + "[pimRPAddress='" + fmt.Sprintf("%v", pimrpentry.Pimrpaddress) + "']"
-}
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimRPGroupAddress"] = pimrpentry.Pimrpgroupaddress
-    leafs["pimRPAddress"] = pimrpentry.Pimrpaddress
-    leafs["pimRPState"] = pimrpentry.Pimrpstate
-    leafs["pimRPStateTimer"] = pimrpentry.Pimrpstatetimer
-    leafs["pimRPLastChange"] = pimrpentry.Pimrplastchange
-    leafs["pimRPRowStatus"] = pimrpentry.Pimrprowstatus
-    return leafs
-}
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetYangName() string { return "pimRPEntry" }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) SetParent(parent types.Entity) { pimrpentry.parent = parent }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetParent() types.Entity { return pimrpentry.parent }
-
-func (pimrpentry *PIMMIB_Pimrptable_Pimrpentry) GetParentYangName() string { return "pimRPTable" }
 
 // PIMMIB_Pimrptable_Pimrpentry_Pimrpstate represents The state of the RP.
 type PIMMIB_Pimrptable_Pimrpentry_Pimrpstate string
@@ -937,7 +542,7 @@ const (
 // the local router is not the BSR, this information is
 // obtained from received RP-Set messages.
 type PIMMIB_Pimrpsettable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimRPSetTable. The type is slice of
@@ -945,68 +550,29 @@ type PIMMIB_Pimrpsettable struct {
     Pimrpsetentry []PIMMIB_Pimrpsettable_Pimrpsetentry
 }
 
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetFilter() yfilter.YFilter { return pimrpsettable.YFilter }
+func (pimrpsettable *PIMMIB_Pimrpsettable) GetEntityData() *types.CommonEntityData {
+    pimrpsettable.EntityData.YFilter = pimrpsettable.YFilter
+    pimrpsettable.EntityData.YangName = "pimRPSetTable"
+    pimrpsettable.EntityData.BundleName = "cisco_ios_xe"
+    pimrpsettable.EntityData.ParentYangName = "PIM-MIB"
+    pimrpsettable.EntityData.SegmentPath = "pimRPSetTable"
+    pimrpsettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimrpsettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimrpsettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimrpsettable *PIMMIB_Pimrpsettable) SetFilter(yf yfilter.YFilter) { pimrpsettable.YFilter = yf }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetGoName(yname string) string {
-    if yname == "pimRPSetEntry" { return "Pimrpsetentry" }
-    return ""
-}
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetSegmentPath() string {
-    return "pimRPSetTable"
-}
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimRPSetEntry" {
-        for _, c := range pimrpsettable.Pimrpsetentry {
-            if pimrpsettable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimrpsettable_Pimrpsetentry{}
-        pimrpsettable.Pimrpsetentry = append(pimrpsettable.Pimrpsetentry, child)
-        return &pimrpsettable.Pimrpsetentry[len(pimrpsettable.Pimrpsetentry)-1]
-    }
-    return nil
-}
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimrpsettable.EntityData.Children = make(map[string]types.YChild)
+    pimrpsettable.EntityData.Children["pimRPSetEntry"] = types.YChild{"Pimrpsetentry", nil}
     for i := range pimrpsettable.Pimrpsetentry {
-        children[pimrpsettable.Pimrpsetentry[i].GetSegmentPath()] = &pimrpsettable.Pimrpsetentry[i]
+        pimrpsettable.EntityData.Children[types.GetSegmentPath(&pimrpsettable.Pimrpsetentry[i])] = types.YChild{"Pimrpsetentry", &pimrpsettable.Pimrpsetentry[i]}
     }
-    return children
+    pimrpsettable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimrpsettable.EntityData)
 }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetYangName() string { return "pimRPSetTable" }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) SetParent(parent types.Entity) { pimrpsettable.parent = parent }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetParent() types.Entity { return pimrpsettable.parent }
-
-func (pimrpsettable *PIMMIB_Pimrpsettable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimrpsettable_Pimrpsetentry
 // An entry (conceptual row) in the pimRPSetTable.
 type PIMMIB_Pimrpsettable_Pimrpsetentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key.  A number uniquely identifying the component. 
@@ -1018,19 +584,19 @@ type PIMMIB_Pimrpsettable_Pimrpsetentry struct {
     // combined with pimRPSetGroupMask, gives the group prefix for which this
     // entry contains information about the Candidate-RP. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimrpsetgroupaddress interface{}
 
     // This attribute is a key. The multicast group address mask which, when
     // combined with pimRPSetGroupAddress, gives the group prefix for which this
     // entry contains information about the Candidate-RP. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimrpsetgroupmask interface{}
 
     // This attribute is a key. The IP address of the Candidate-RP. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimrpsetaddress interface{}
 
     // The holdtime of a Candidate-RP.  If the local router is not the BSR, this
@@ -1043,68 +609,33 @@ type PIMMIB_Pimrpsettable_Pimrpsetentry struct {
     Pimrpsetexpirytime interface{}
 }
 
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetFilter() yfilter.YFilter { return pimrpsetentry.YFilter }
+func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetEntityData() *types.CommonEntityData {
+    pimrpsetentry.EntityData.YFilter = pimrpsetentry.YFilter
+    pimrpsetentry.EntityData.YangName = "pimRPSetEntry"
+    pimrpsetentry.EntityData.BundleName = "cisco_ios_xe"
+    pimrpsetentry.EntityData.ParentYangName = "pimRPSetTable"
+    pimrpsetentry.EntityData.SegmentPath = "pimRPSetEntry" + "[pimRPSetComponent='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetcomponent) + "']" + "[pimRPSetGroupAddress='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetgroupaddress) + "']" + "[pimRPSetGroupMask='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetgroupmask) + "']" + "[pimRPSetAddress='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetaddress) + "']"
+    pimrpsetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimrpsetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimrpsetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) SetFilter(yf yfilter.YFilter) { pimrpsetentry.YFilter = yf }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetGoName(yname string) string {
-    if yname == "pimRPSetComponent" { return "Pimrpsetcomponent" }
-    if yname == "pimRPSetGroupAddress" { return "Pimrpsetgroupaddress" }
-    if yname == "pimRPSetGroupMask" { return "Pimrpsetgroupmask" }
-    if yname == "pimRPSetAddress" { return "Pimrpsetaddress" }
-    if yname == "pimRPSetHoldTime" { return "Pimrpsetholdtime" }
-    if yname == "pimRPSetExpiryTime" { return "Pimrpsetexpirytime" }
-    return ""
+    pimrpsetentry.EntityData.Children = make(map[string]types.YChild)
+    pimrpsetentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimrpsetentry.EntityData.Leafs["pimRPSetComponent"] = types.YLeaf{"Pimrpsetcomponent", pimrpsetentry.Pimrpsetcomponent}
+    pimrpsetentry.EntityData.Leafs["pimRPSetGroupAddress"] = types.YLeaf{"Pimrpsetgroupaddress", pimrpsetentry.Pimrpsetgroupaddress}
+    pimrpsetentry.EntityData.Leafs["pimRPSetGroupMask"] = types.YLeaf{"Pimrpsetgroupmask", pimrpsetentry.Pimrpsetgroupmask}
+    pimrpsetentry.EntityData.Leafs["pimRPSetAddress"] = types.YLeaf{"Pimrpsetaddress", pimrpsetentry.Pimrpsetaddress}
+    pimrpsetentry.EntityData.Leafs["pimRPSetHoldTime"] = types.YLeaf{"Pimrpsetholdtime", pimrpsetentry.Pimrpsetholdtime}
+    pimrpsetentry.EntityData.Leafs["pimRPSetExpiryTime"] = types.YLeaf{"Pimrpsetexpirytime", pimrpsetentry.Pimrpsetexpirytime}
+    return &(pimrpsetentry.EntityData)
 }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetSegmentPath() string {
-    return "pimRPSetEntry" + "[pimRPSetComponent='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetcomponent) + "']" + "[pimRPSetGroupAddress='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetgroupaddress) + "']" + "[pimRPSetGroupMask='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetgroupmask) + "']" + "[pimRPSetAddress='" + fmt.Sprintf("%v", pimrpsetentry.Pimrpsetaddress) + "']"
-}
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimRPSetComponent"] = pimrpsetentry.Pimrpsetcomponent
-    leafs["pimRPSetGroupAddress"] = pimrpsetentry.Pimrpsetgroupaddress
-    leafs["pimRPSetGroupMask"] = pimrpsetentry.Pimrpsetgroupmask
-    leafs["pimRPSetAddress"] = pimrpsetentry.Pimrpsetaddress
-    leafs["pimRPSetHoldTime"] = pimrpsetentry.Pimrpsetholdtime
-    leafs["pimRPSetExpiryTime"] = pimrpsetentry.Pimrpsetexpirytime
-    return leafs
-}
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetYangName() string { return "pimRPSetEntry" }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) SetParent(parent types.Entity) { pimrpsetentry.parent = parent }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetParent() types.Entity { return pimrpsetentry.parent }
-
-func (pimrpsetentry *PIMMIB_Pimrpsettable_Pimrpsetentry) GetParentYangName() string { return "pimRPSetTable" }
 
 // PIMMIB_Pimipmroutenexthoptable
 // The (conceptual) table listing PIM-specific information on
 // a subset of the rows of the ipMRouteNextHopTable defined in
 // the IP Multicast MIB.
 type PIMMIB_Pimipmroutenexthoptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimIpMRouteNextHopTable. There is one
@@ -1114,63 +645,24 @@ type PIMMIB_Pimipmroutenexthoptable struct {
     Pimipmroutenexthopentry []PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry
 }
 
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetFilter() yfilter.YFilter { return pimipmroutenexthoptable.YFilter }
+func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetEntityData() *types.CommonEntityData {
+    pimipmroutenexthoptable.EntityData.YFilter = pimipmroutenexthoptable.YFilter
+    pimipmroutenexthoptable.EntityData.YangName = "pimIpMRouteNextHopTable"
+    pimipmroutenexthoptable.EntityData.BundleName = "cisco_ios_xe"
+    pimipmroutenexthoptable.EntityData.ParentYangName = "PIM-MIB"
+    pimipmroutenexthoptable.EntityData.SegmentPath = "pimIpMRouteNextHopTable"
+    pimipmroutenexthoptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimipmroutenexthoptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimipmroutenexthoptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) SetFilter(yf yfilter.YFilter) { pimipmroutenexthoptable.YFilter = yf }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetGoName(yname string) string {
-    if yname == "pimIpMRouteNextHopEntry" { return "Pimipmroutenexthopentry" }
-    return ""
-}
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetSegmentPath() string {
-    return "pimIpMRouteNextHopTable"
-}
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimIpMRouteNextHopEntry" {
-        for _, c := range pimipmroutenexthoptable.Pimipmroutenexthopentry {
-            if pimipmroutenexthoptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry{}
-        pimipmroutenexthoptable.Pimipmroutenexthopentry = append(pimipmroutenexthoptable.Pimipmroutenexthopentry, child)
-        return &pimipmroutenexthoptable.Pimipmroutenexthopentry[len(pimipmroutenexthoptable.Pimipmroutenexthopentry)-1]
-    }
-    return nil
-}
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimipmroutenexthoptable.EntityData.Children = make(map[string]types.YChild)
+    pimipmroutenexthoptable.EntityData.Children["pimIpMRouteNextHopEntry"] = types.YChild{"Pimipmroutenexthopentry", nil}
     for i := range pimipmroutenexthoptable.Pimipmroutenexthopentry {
-        children[pimipmroutenexthoptable.Pimipmroutenexthopentry[i].GetSegmentPath()] = &pimipmroutenexthoptable.Pimipmroutenexthopentry[i]
+        pimipmroutenexthoptable.EntityData.Children[types.GetSegmentPath(&pimipmroutenexthoptable.Pimipmroutenexthopentry[i])] = types.YChild{"Pimipmroutenexthopentry", &pimipmroutenexthoptable.Pimipmroutenexthopentry[i]}
     }
-    return children
+    pimipmroutenexthoptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimipmroutenexthoptable.EntityData)
 }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetYangName() string { return "pimIpMRouteNextHopTable" }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) SetParent(parent types.Entity) { pimipmroutenexthoptable.parent = parent }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetParent() types.Entity { return pimipmroutenexthoptable.parent }
-
-func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry
 // An entry (conceptual row) in the pimIpMRouteNextHopTable.
@@ -1178,23 +670,23 @@ func (pimipmroutenexthoptable *PIMMIB_Pimipmroutenexthoptable) GetParentYangName
 // whose interface is running PIM and whose
 // ipMRouteNextHopState is pruned(1).
 type PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry_Ipmroutenexthopgroup
     Ipmroutenexthopgroup interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry_Ipmroutenexthopsource
     Ipmroutenexthopsource interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry_Ipmroutenexthopsourcemask
     Ipmroutenexthopsourcemask interface{}
@@ -1205,7 +697,7 @@ type PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry struct {
     Ipmroutenexthopifindex interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     // Refers to
     // ipmroute_std_mib.IPMROUTESTDMIB_Ipmroutenexthoptable_Ipmroutenexthopentry_Ipmroutenexthopaddress
     Ipmroutenexthopaddress interface{}
@@ -1216,61 +708,26 @@ type PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry struct {
     Pimipmroutenexthopprunereason interface{}
 }
 
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetFilter() yfilter.YFilter { return pimipmroutenexthopentry.YFilter }
+func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetEntityData() *types.CommonEntityData {
+    pimipmroutenexthopentry.EntityData.YFilter = pimipmroutenexthopentry.YFilter
+    pimipmroutenexthopentry.EntityData.YangName = "pimIpMRouteNextHopEntry"
+    pimipmroutenexthopentry.EntityData.BundleName = "cisco_ios_xe"
+    pimipmroutenexthopentry.EntityData.ParentYangName = "pimIpMRouteNextHopTable"
+    pimipmroutenexthopentry.EntityData.SegmentPath = "pimIpMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopgroup) + "']" + "[ipMRouteNextHopSource='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopsource) + "']" + "[ipMRouteNextHopSourceMask='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopsourcemask) + "']" + "[ipMRouteNextHopIfIndex='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopifindex) + "']" + "[ipMRouteNextHopAddress='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopaddress) + "']"
+    pimipmroutenexthopentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimipmroutenexthopentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimipmroutenexthopentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) SetFilter(yf yfilter.YFilter) { pimipmroutenexthopentry.YFilter = yf }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetGoName(yname string) string {
-    if yname == "ipMRouteNextHopGroup" { return "Ipmroutenexthopgroup" }
-    if yname == "ipMRouteNextHopSource" { return "Ipmroutenexthopsource" }
-    if yname == "ipMRouteNextHopSourceMask" { return "Ipmroutenexthopsourcemask" }
-    if yname == "ipMRouteNextHopIfIndex" { return "Ipmroutenexthopifindex" }
-    if yname == "ipMRouteNextHopAddress" { return "Ipmroutenexthopaddress" }
-    if yname == "pimIpMRouteNextHopPruneReason" { return "Pimipmroutenexthopprunereason" }
-    return ""
+    pimipmroutenexthopentry.EntityData.Children = make(map[string]types.YChild)
+    pimipmroutenexthopentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopGroup"] = types.YLeaf{"Ipmroutenexthopgroup", pimipmroutenexthopentry.Ipmroutenexthopgroup}
+    pimipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopSource"] = types.YLeaf{"Ipmroutenexthopsource", pimipmroutenexthopentry.Ipmroutenexthopsource}
+    pimipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopSourceMask"] = types.YLeaf{"Ipmroutenexthopsourcemask", pimipmroutenexthopentry.Ipmroutenexthopsourcemask}
+    pimipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopIfIndex"] = types.YLeaf{"Ipmroutenexthopifindex", pimipmroutenexthopentry.Ipmroutenexthopifindex}
+    pimipmroutenexthopentry.EntityData.Leafs["ipMRouteNextHopAddress"] = types.YLeaf{"Ipmroutenexthopaddress", pimipmroutenexthopentry.Ipmroutenexthopaddress}
+    pimipmroutenexthopentry.EntityData.Leafs["pimIpMRouteNextHopPruneReason"] = types.YLeaf{"Pimipmroutenexthopprunereason", pimipmroutenexthopentry.Pimipmroutenexthopprunereason}
+    return &(pimipmroutenexthopentry.EntityData)
 }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetSegmentPath() string {
-    return "pimIpMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopgroup) + "']" + "[ipMRouteNextHopSource='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopsource) + "']" + "[ipMRouteNextHopSourceMask='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopsourcemask) + "']" + "[ipMRouteNextHopIfIndex='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopifindex) + "']" + "[ipMRouteNextHopAddress='" + fmt.Sprintf("%v", pimipmroutenexthopentry.Ipmroutenexthopaddress) + "']"
-}
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipMRouteNextHopGroup"] = pimipmroutenexthopentry.Ipmroutenexthopgroup
-    leafs["ipMRouteNextHopSource"] = pimipmroutenexthopentry.Ipmroutenexthopsource
-    leafs["ipMRouteNextHopSourceMask"] = pimipmroutenexthopentry.Ipmroutenexthopsourcemask
-    leafs["ipMRouteNextHopIfIndex"] = pimipmroutenexthopentry.Ipmroutenexthopifindex
-    leafs["ipMRouteNextHopAddress"] = pimipmroutenexthopentry.Ipmroutenexthopaddress
-    leafs["pimIpMRouteNextHopPruneReason"] = pimipmroutenexthopentry.Pimipmroutenexthopprunereason
-    return leafs
-}
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetYangName() string { return "pimIpMRouteNextHopEntry" }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) SetParent(parent types.Entity) { pimipmroutenexthopentry.parent = parent }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetParent() types.Entity { return pimipmroutenexthopentry.parent }
-
-func (pimipmroutenexthopentry *PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry) GetParentYangName() string { return "pimIpMRouteNextHopTable" }
 
 // PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry_Pimipmroutenexthopprunereason represents PIM Assert processing.
 type PIMMIB_Pimipmroutenexthoptable_Pimipmroutenexthopentry_Pimipmroutenexthopprunereason string
@@ -1297,7 +754,7 @@ const (
 // (providing the value of pimComponentCRPHoldTime is non-
 // zero).
 type PIMMIB_Pimcandidaterptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimCandidateRPTable. The type is slice of
@@ -1305,87 +762,48 @@ type PIMMIB_Pimcandidaterptable struct {
     Pimcandidaterpentry []PIMMIB_Pimcandidaterptable_Pimcandidaterpentry
 }
 
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetFilter() yfilter.YFilter { return pimcandidaterptable.YFilter }
+func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetEntityData() *types.CommonEntityData {
+    pimcandidaterptable.EntityData.YFilter = pimcandidaterptable.YFilter
+    pimcandidaterptable.EntityData.YangName = "pimCandidateRPTable"
+    pimcandidaterptable.EntityData.BundleName = "cisco_ios_xe"
+    pimcandidaterptable.EntityData.ParentYangName = "PIM-MIB"
+    pimcandidaterptable.EntityData.SegmentPath = "pimCandidateRPTable"
+    pimcandidaterptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimcandidaterptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimcandidaterptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) SetFilter(yf yfilter.YFilter) { pimcandidaterptable.YFilter = yf }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetGoName(yname string) string {
-    if yname == "pimCandidateRPEntry" { return "Pimcandidaterpentry" }
-    return ""
-}
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetSegmentPath() string {
-    return "pimCandidateRPTable"
-}
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimCandidateRPEntry" {
-        for _, c := range pimcandidaterptable.Pimcandidaterpentry {
-            if pimcandidaterptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimcandidaterptable_Pimcandidaterpentry{}
-        pimcandidaterptable.Pimcandidaterpentry = append(pimcandidaterptable.Pimcandidaterpentry, child)
-        return &pimcandidaterptable.Pimcandidaterpentry[len(pimcandidaterptable.Pimcandidaterpentry)-1]
-    }
-    return nil
-}
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimcandidaterptable.EntityData.Children = make(map[string]types.YChild)
+    pimcandidaterptable.EntityData.Children["pimCandidateRPEntry"] = types.YChild{"Pimcandidaterpentry", nil}
     for i := range pimcandidaterptable.Pimcandidaterpentry {
-        children[pimcandidaterptable.Pimcandidaterpentry[i].GetSegmentPath()] = &pimcandidaterptable.Pimcandidaterpentry[i]
+        pimcandidaterptable.EntityData.Children[types.GetSegmentPath(&pimcandidaterptable.Pimcandidaterpentry[i])] = types.YChild{"Pimcandidaterpentry", &pimcandidaterptable.Pimcandidaterpentry[i]}
     }
-    return children
+    pimcandidaterptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimcandidaterptable.EntityData)
 }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetYangName() string { return "pimCandidateRPTable" }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) SetParent(parent types.Entity) { pimcandidaterptable.parent = parent }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetParent() types.Entity { return pimcandidaterptable.parent }
-
-func (pimcandidaterptable *PIMMIB_Pimcandidaterptable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimcandidaterptable_Pimcandidaterpentry
 // An entry (conceptual row) in the pimCandidateRPTable.
 type PIMMIB_Pimcandidaterptable_Pimcandidaterpentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP multicast group address which, when
     // combined with pimCandidateRPGroupMask, identifies a group prefix for which
     // the local router will advertise itself as a Candidate-RP. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimcandidaterpgroupaddress interface{}
 
     // This attribute is a key. The multicast group address mask which, when
     // combined with pimCandidateRPGroupMask, identifies a group prefix for which
     // the local router will advertise itself as a Candidate-RP. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimcandidaterpgroupmask interface{}
 
     // The (unicast) address of the interface which will be      advertised as a
     // Candidate-RP. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimcandidaterpaddress interface{}
 
     // The status of this row, by which new entries may be created, or old entries
@@ -1393,57 +811,24 @@ type PIMMIB_Pimcandidaterptable_Pimcandidaterpentry struct {
     Pimcandidaterprowstatus interface{}
 }
 
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetFilter() yfilter.YFilter { return pimcandidaterpentry.YFilter }
+func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetEntityData() *types.CommonEntityData {
+    pimcandidaterpentry.EntityData.YFilter = pimcandidaterpentry.YFilter
+    pimcandidaterpentry.EntityData.YangName = "pimCandidateRPEntry"
+    pimcandidaterpentry.EntityData.BundleName = "cisco_ios_xe"
+    pimcandidaterpentry.EntityData.ParentYangName = "pimCandidateRPTable"
+    pimcandidaterpentry.EntityData.SegmentPath = "pimCandidateRPEntry" + "[pimCandidateRPGroupAddress='" + fmt.Sprintf("%v", pimcandidaterpentry.Pimcandidaterpgroupaddress) + "']" + "[pimCandidateRPGroupMask='" + fmt.Sprintf("%v", pimcandidaterpentry.Pimcandidaterpgroupmask) + "']"
+    pimcandidaterpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimcandidaterpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimcandidaterpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) SetFilter(yf yfilter.YFilter) { pimcandidaterpentry.YFilter = yf }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetGoName(yname string) string {
-    if yname == "pimCandidateRPGroupAddress" { return "Pimcandidaterpgroupaddress" }
-    if yname == "pimCandidateRPGroupMask" { return "Pimcandidaterpgroupmask" }
-    if yname == "pimCandidateRPAddress" { return "Pimcandidaterpaddress" }
-    if yname == "pimCandidateRPRowStatus" { return "Pimcandidaterprowstatus" }
-    return ""
+    pimcandidaterpentry.EntityData.Children = make(map[string]types.YChild)
+    pimcandidaterpentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimcandidaterpentry.EntityData.Leafs["pimCandidateRPGroupAddress"] = types.YLeaf{"Pimcandidaterpgroupaddress", pimcandidaterpentry.Pimcandidaterpgroupaddress}
+    pimcandidaterpentry.EntityData.Leafs["pimCandidateRPGroupMask"] = types.YLeaf{"Pimcandidaterpgroupmask", pimcandidaterpentry.Pimcandidaterpgroupmask}
+    pimcandidaterpentry.EntityData.Leafs["pimCandidateRPAddress"] = types.YLeaf{"Pimcandidaterpaddress", pimcandidaterpentry.Pimcandidaterpaddress}
+    pimcandidaterpentry.EntityData.Leafs["pimCandidateRPRowStatus"] = types.YLeaf{"Pimcandidaterprowstatus", pimcandidaterpentry.Pimcandidaterprowstatus}
+    return &(pimcandidaterpentry.EntityData)
 }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetSegmentPath() string {
-    return "pimCandidateRPEntry" + "[pimCandidateRPGroupAddress='" + fmt.Sprintf("%v", pimcandidaterpentry.Pimcandidaterpgroupaddress) + "']" + "[pimCandidateRPGroupMask='" + fmt.Sprintf("%v", pimcandidaterpentry.Pimcandidaterpgroupmask) + "']"
-}
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimCandidateRPGroupAddress"] = pimcandidaterpentry.Pimcandidaterpgroupaddress
-    leafs["pimCandidateRPGroupMask"] = pimcandidaterpentry.Pimcandidaterpgroupmask
-    leafs["pimCandidateRPAddress"] = pimcandidaterpentry.Pimcandidaterpaddress
-    leafs["pimCandidateRPRowStatus"] = pimcandidaterpentry.Pimcandidaterprowstatus
-    return leafs
-}
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetYangName() string { return "pimCandidateRPEntry" }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) SetParent(parent types.Entity) { pimcandidaterpentry.parent = parent }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetParent() types.Entity { return pimcandidaterpentry.parent }
-
-func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetParentYangName() string { return "pimCandidateRPTable" }
 
 // PIMMIB_Pimcomponenttable
 // The (conceptual) table containing objects specific to a PIM
@@ -1455,7 +840,7 @@ func (pimcandidaterpentry *PIMMIB_Pimcandidaterptable_Pimcandidaterpentry) GetPa
 // may form a border between two PIM-SM domains and do not
 // forward Bootstrap messages between them.
 type PIMMIB_Pimcomponenttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry (conceptual row) in the pimComponentTable. The type is slice of
@@ -1463,68 +848,29 @@ type PIMMIB_Pimcomponenttable struct {
     Pimcomponententry []PIMMIB_Pimcomponenttable_Pimcomponententry
 }
 
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetFilter() yfilter.YFilter { return pimcomponenttable.YFilter }
+func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetEntityData() *types.CommonEntityData {
+    pimcomponenttable.EntityData.YFilter = pimcomponenttable.YFilter
+    pimcomponenttable.EntityData.YangName = "pimComponentTable"
+    pimcomponenttable.EntityData.BundleName = "cisco_ios_xe"
+    pimcomponenttable.EntityData.ParentYangName = "PIM-MIB"
+    pimcomponenttable.EntityData.SegmentPath = "pimComponentTable"
+    pimcomponenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimcomponenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimcomponenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) SetFilter(yf yfilter.YFilter) { pimcomponenttable.YFilter = yf }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetGoName(yname string) string {
-    if yname == "pimComponentEntry" { return "Pimcomponententry" }
-    return ""
-}
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetSegmentPath() string {
-    return "pimComponentTable"
-}
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pimComponentEntry" {
-        for _, c := range pimcomponenttable.Pimcomponententry {
-            if pimcomponenttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := PIMMIB_Pimcomponenttable_Pimcomponententry{}
-        pimcomponenttable.Pimcomponententry = append(pimcomponenttable.Pimcomponententry, child)
-        return &pimcomponenttable.Pimcomponententry[len(pimcomponenttable.Pimcomponententry)-1]
-    }
-    return nil
-}
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pimcomponenttable.EntityData.Children = make(map[string]types.YChild)
+    pimcomponenttable.EntityData.Children["pimComponentEntry"] = types.YChild{"Pimcomponententry", nil}
     for i := range pimcomponenttable.Pimcomponententry {
-        children[pimcomponenttable.Pimcomponententry[i].GetSegmentPath()] = &pimcomponenttable.Pimcomponententry[i]
+        pimcomponenttable.EntityData.Children[types.GetSegmentPath(&pimcomponenttable.Pimcomponententry[i])] = types.YChild{"Pimcomponententry", &pimcomponenttable.Pimcomponententry[i]}
     }
-    return children
+    pimcomponenttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pimcomponenttable.EntityData)
 }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetYangName() string { return "pimComponentTable" }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) SetParent(parent types.Entity) { pimcomponenttable.parent = parent }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetParent() types.Entity { return pimcomponenttable.parent }
-
-func (pimcomponenttable *PIMMIB_Pimcomponenttable) GetParentYangName() string { return "PIM-MIB" }
 
 // PIMMIB_Pimcomponenttable_Pimcomponententry
 // An entry (conceptual row) in the pimComponentTable.
 type PIMMIB_Pimcomponenttable_Pimcomponententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A number uniquely identifying the component.  Each
@@ -1536,7 +882,7 @@ type PIMMIB_Pimcomponenttable_Pimcomponententry struct {
 
     // The IP address of the bootstrap router (BSR) for the local PIM region. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Pimcomponentbsraddress interface{}
 
     // The minimum time remaining before the bootstrap router in the local domain
@@ -1558,57 +904,23 @@ type PIMMIB_Pimcomponenttable_Pimcomponententry struct {
     Pimcomponentstatus interface{}
 }
 
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetFilter() yfilter.YFilter { return pimcomponententry.YFilter }
+func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetEntityData() *types.CommonEntityData {
+    pimcomponententry.EntityData.YFilter = pimcomponententry.YFilter
+    pimcomponententry.EntityData.YangName = "pimComponentEntry"
+    pimcomponententry.EntityData.BundleName = "cisco_ios_xe"
+    pimcomponententry.EntityData.ParentYangName = "pimComponentTable"
+    pimcomponententry.EntityData.SegmentPath = "pimComponentEntry" + "[pimComponentIndex='" + fmt.Sprintf("%v", pimcomponententry.Pimcomponentindex) + "']"
+    pimcomponententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    pimcomponententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    pimcomponententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) SetFilter(yf yfilter.YFilter) { pimcomponententry.YFilter = yf }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetGoName(yname string) string {
-    if yname == "pimComponentIndex" { return "Pimcomponentindex" }
-    if yname == "pimComponentBSRAddress" { return "Pimcomponentbsraddress" }
-    if yname == "pimComponentBSRExpiryTime" { return "Pimcomponentbsrexpirytime" }
-    if yname == "pimComponentCRPHoldTime" { return "Pimcomponentcrpholdtime" }
-    if yname == "pimComponentStatus" { return "Pimcomponentstatus" }
-    return ""
+    pimcomponententry.EntityData.Children = make(map[string]types.YChild)
+    pimcomponententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    pimcomponententry.EntityData.Leafs["pimComponentIndex"] = types.YLeaf{"Pimcomponentindex", pimcomponententry.Pimcomponentindex}
+    pimcomponententry.EntityData.Leafs["pimComponentBSRAddress"] = types.YLeaf{"Pimcomponentbsraddress", pimcomponententry.Pimcomponentbsraddress}
+    pimcomponententry.EntityData.Leafs["pimComponentBSRExpiryTime"] = types.YLeaf{"Pimcomponentbsrexpirytime", pimcomponententry.Pimcomponentbsrexpirytime}
+    pimcomponententry.EntityData.Leafs["pimComponentCRPHoldTime"] = types.YLeaf{"Pimcomponentcrpholdtime", pimcomponententry.Pimcomponentcrpholdtime}
+    pimcomponententry.EntityData.Leafs["pimComponentStatus"] = types.YLeaf{"Pimcomponentstatus", pimcomponententry.Pimcomponentstatus}
+    return &(pimcomponententry.EntityData)
 }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetSegmentPath() string {
-    return "pimComponentEntry" + "[pimComponentIndex='" + fmt.Sprintf("%v", pimcomponententry.Pimcomponentindex) + "']"
-}
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pimComponentIndex"] = pimcomponententry.Pimcomponentindex
-    leafs["pimComponentBSRAddress"] = pimcomponententry.Pimcomponentbsraddress
-    leafs["pimComponentBSRExpiryTime"] = pimcomponententry.Pimcomponentbsrexpirytime
-    leafs["pimComponentCRPHoldTime"] = pimcomponententry.Pimcomponentcrpholdtime
-    leafs["pimComponentStatus"] = pimcomponententry.Pimcomponentstatus
-    return leafs
-}
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetYangName() string { return "pimComponentEntry" }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) SetParent(parent types.Entity) { pimcomponententry.parent = parent }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetParent() types.Entity { return pimcomponententry.parent }
-
-func (pimcomponententry *PIMMIB_Pimcomponenttable_Pimcomponententry) GetParentYangName() string { return "pimComponentTable" }
 

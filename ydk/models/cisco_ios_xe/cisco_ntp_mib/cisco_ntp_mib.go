@@ -127,7 +127,7 @@ const (
 
 // CISCONTPMIB
 type CISCONTPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -152,68 +152,27 @@ type CISCONTPMIB struct {
     Cntpfilterregistertable CISCONTPMIB_Cntpfilterregistertable
 }
 
-func (cISCONTPMIB *CISCONTPMIB) GetFilter() yfilter.YFilter { return cISCONTPMIB.YFilter }
+func (cISCONTPMIB *CISCONTPMIB) GetEntityData() *types.CommonEntityData {
+    cISCONTPMIB.EntityData.YFilter = cISCONTPMIB.YFilter
+    cISCONTPMIB.EntityData.YangName = "CISCO-NTP-MIB"
+    cISCONTPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCONTPMIB.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cISCONTPMIB.EntityData.SegmentPath = "CISCO-NTP-MIB:CISCO-NTP-MIB"
+    cISCONTPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCONTPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCONTPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCONTPMIB *CISCONTPMIB) SetFilter(yf yfilter.YFilter) { cISCONTPMIB.YFilter = yf }
-
-func (cISCONTPMIB *CISCONTPMIB) GetGoName(yname string) string {
-    if yname == "cntpSystem" { return "Cntpsystem" }
-    if yname == "cntpPeersVarTable" { return "Cntppeersvartable" }
-    if yname == "cntpFilterRegisterTable" { return "Cntpfilterregistertable" }
-    return ""
+    cISCONTPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCONTPMIB.EntityData.Children["cntpSystem"] = types.YChild{"Cntpsystem", &cISCONTPMIB.Cntpsystem}
+    cISCONTPMIB.EntityData.Children["cntpPeersVarTable"] = types.YChild{"Cntppeersvartable", &cISCONTPMIB.Cntppeersvartable}
+    cISCONTPMIB.EntityData.Children["cntpFilterRegisterTable"] = types.YChild{"Cntpfilterregistertable", &cISCONTPMIB.Cntpfilterregistertable}
+    cISCONTPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCONTPMIB.EntityData)
 }
-
-func (cISCONTPMIB *CISCONTPMIB) GetSegmentPath() string {
-    return "CISCO-NTP-MIB:CISCO-NTP-MIB"
-}
-
-func (cISCONTPMIB *CISCONTPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cntpSystem" {
-        return &cISCONTPMIB.Cntpsystem
-    }
-    if childYangName == "cntpPeersVarTable" {
-        return &cISCONTPMIB.Cntppeersvartable
-    }
-    if childYangName == "cntpFilterRegisterTable" {
-        return &cISCONTPMIB.Cntpfilterregistertable
-    }
-    return nil
-}
-
-func (cISCONTPMIB *CISCONTPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cntpSystem"] = &cISCONTPMIB.Cntpsystem
-    children["cntpPeersVarTable"] = &cISCONTPMIB.Cntppeersvartable
-    children["cntpFilterRegisterTable"] = &cISCONTPMIB.Cntpfilterregistertable
-    return children
-}
-
-func (cISCONTPMIB *CISCONTPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCONTPMIB *CISCONTPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCONTPMIB *CISCONTPMIB) GetYangName() string { return "CISCO-NTP-MIB" }
-
-func (cISCONTPMIB *CISCONTPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCONTPMIB *CISCONTPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCONTPMIB *CISCONTPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCONTPMIB *CISCONTPMIB) SetParent(parent types.Entity) { cISCONTPMIB.parent = parent }
-
-func (cISCONTPMIB *CISCONTPMIB) GetParent() types.Entity { return cISCONTPMIB.parent }
-
-func (cISCONTPMIB *CISCONTPMIB) GetParentYangName() string { return "CISCO-NTP-MIB" }
 
 // CISCONTPMIB_Cntpsystem
 type CISCONTPMIB_Cntpsystem struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Two-bit code warning of an impending leap second to be inserted in the NTP
@@ -277,71 +236,31 @@ type CISCONTPMIB_Cntpsystem struct {
     Cntpsyssrvstatus interface{}
 }
 
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetFilter() yfilter.YFilter { return cntpsystem.YFilter }
+func (cntpsystem *CISCONTPMIB_Cntpsystem) GetEntityData() *types.CommonEntityData {
+    cntpsystem.EntityData.YFilter = cntpsystem.YFilter
+    cntpsystem.EntityData.YangName = "cntpSystem"
+    cntpsystem.EntityData.BundleName = "cisco_ios_xe"
+    cntpsystem.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cntpsystem.EntityData.SegmentPath = "cntpSystem"
+    cntpsystem.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpsystem.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpsystem.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cntpsystem *CISCONTPMIB_Cntpsystem) SetFilter(yf yfilter.YFilter) { cntpsystem.YFilter = yf }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetGoName(yname string) string {
-    if yname == "cntpSysLeap" { return "Cntpsysleap" }
-    if yname == "cntpSysStratum" { return "Cntpsysstratum" }
-    if yname == "cntpSysPrecision" { return "Cntpsysprecision" }
-    if yname == "cntpSysRootDelay" { return "Cntpsysrootdelay" }
-    if yname == "cntpSysRootDispersion" { return "Cntpsysrootdispersion" }
-    if yname == "cntpSysRefId" { return "Cntpsysrefid" }
-    if yname == "cntpSysRefTime" { return "Cntpsysreftime" }
-    if yname == "cntpSysPoll" { return "Cntpsyspoll" }
-    if yname == "cntpSysPeer" { return "Cntpsyspeer" }
-    if yname == "cntpSysClock" { return "Cntpsysclock" }
-    if yname == "cntpSysSrvStatus" { return "Cntpsyssrvstatus" }
-    return ""
+    cntpsystem.EntityData.Children = make(map[string]types.YChild)
+    cntpsystem.EntityData.Leafs = make(map[string]types.YLeaf)
+    cntpsystem.EntityData.Leafs["cntpSysLeap"] = types.YLeaf{"Cntpsysleap", cntpsystem.Cntpsysleap}
+    cntpsystem.EntityData.Leafs["cntpSysStratum"] = types.YLeaf{"Cntpsysstratum", cntpsystem.Cntpsysstratum}
+    cntpsystem.EntityData.Leafs["cntpSysPrecision"] = types.YLeaf{"Cntpsysprecision", cntpsystem.Cntpsysprecision}
+    cntpsystem.EntityData.Leafs["cntpSysRootDelay"] = types.YLeaf{"Cntpsysrootdelay", cntpsystem.Cntpsysrootdelay}
+    cntpsystem.EntityData.Leafs["cntpSysRootDispersion"] = types.YLeaf{"Cntpsysrootdispersion", cntpsystem.Cntpsysrootdispersion}
+    cntpsystem.EntityData.Leafs["cntpSysRefId"] = types.YLeaf{"Cntpsysrefid", cntpsystem.Cntpsysrefid}
+    cntpsystem.EntityData.Leafs["cntpSysRefTime"] = types.YLeaf{"Cntpsysreftime", cntpsystem.Cntpsysreftime}
+    cntpsystem.EntityData.Leafs["cntpSysPoll"] = types.YLeaf{"Cntpsyspoll", cntpsystem.Cntpsyspoll}
+    cntpsystem.EntityData.Leafs["cntpSysPeer"] = types.YLeaf{"Cntpsyspeer", cntpsystem.Cntpsyspeer}
+    cntpsystem.EntityData.Leafs["cntpSysClock"] = types.YLeaf{"Cntpsysclock", cntpsystem.Cntpsysclock}
+    cntpsystem.EntityData.Leafs["cntpSysSrvStatus"] = types.YLeaf{"Cntpsyssrvstatus", cntpsystem.Cntpsyssrvstatus}
+    return &(cntpsystem.EntityData)
 }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetSegmentPath() string {
-    return "cntpSystem"
-}
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cntpSysLeap"] = cntpsystem.Cntpsysleap
-    leafs["cntpSysStratum"] = cntpsystem.Cntpsysstratum
-    leafs["cntpSysPrecision"] = cntpsystem.Cntpsysprecision
-    leafs["cntpSysRootDelay"] = cntpsystem.Cntpsysrootdelay
-    leafs["cntpSysRootDispersion"] = cntpsystem.Cntpsysrootdispersion
-    leafs["cntpSysRefId"] = cntpsystem.Cntpsysrefid
-    leafs["cntpSysRefTime"] = cntpsystem.Cntpsysreftime
-    leafs["cntpSysPoll"] = cntpsystem.Cntpsyspoll
-    leafs["cntpSysPeer"] = cntpsystem.Cntpsyspeer
-    leafs["cntpSysClock"] = cntpsystem.Cntpsysclock
-    leafs["cntpSysSrvStatus"] = cntpsystem.Cntpsyssrvstatus
-    return leafs
-}
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetYangName() string { return "cntpSystem" }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) SetParent(parent types.Entity) { cntpsystem.parent = parent }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetParent() types.Entity { return cntpsystem.parent }
-
-func (cntpsystem *CISCONTPMIB_Cntpsystem) GetParentYangName() string { return "CISCO-NTP-MIB" }
 
 // CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus represents 6: server is synchronized to a remote NTP server
 type CISCONTPMIB_Cntpsystem_Cntpsyssrvstatus string
@@ -366,7 +285,7 @@ const (
 // peers are also NTP servers but running on different
 // hosts.
 type CISCONTPMIB_Cntppeersvartable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each peers' entry provides NTP information retrieved from a particular peer
@@ -383,63 +302,24 @@ type CISCONTPMIB_Cntppeersvartable struct {
     Cntppeersvarentry []CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry
 }
 
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetFilter() yfilter.YFilter { return cntppeersvartable.YFilter }
+func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetEntityData() *types.CommonEntityData {
+    cntppeersvartable.EntityData.YFilter = cntppeersvartable.YFilter
+    cntppeersvartable.EntityData.YangName = "cntpPeersVarTable"
+    cntppeersvartable.EntityData.BundleName = "cisco_ios_xe"
+    cntppeersvartable.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cntppeersvartable.EntityData.SegmentPath = "cntpPeersVarTable"
+    cntppeersvartable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntppeersvartable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntppeersvartable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) SetFilter(yf yfilter.YFilter) { cntppeersvartable.YFilter = yf }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetGoName(yname string) string {
-    if yname == "cntpPeersVarEntry" { return "Cntppeersvarentry" }
-    return ""
-}
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetSegmentPath() string {
-    return "cntpPeersVarTable"
-}
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cntpPeersVarEntry" {
-        for _, c := range cntppeersvartable.Cntppeersvarentry {
-            if cntppeersvartable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry{}
-        cntppeersvartable.Cntppeersvarentry = append(cntppeersvartable.Cntppeersvarentry, child)
-        return &cntppeersvartable.Cntppeersvarentry[len(cntppeersvartable.Cntppeersvarentry)-1]
-    }
-    return nil
-}
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cntppeersvartable.EntityData.Children = make(map[string]types.YChild)
+    cntppeersvartable.EntityData.Children["cntpPeersVarEntry"] = types.YChild{"Cntppeersvarentry", nil}
     for i := range cntppeersvartable.Cntppeersvarentry {
-        children[cntppeersvartable.Cntppeersvarentry[i].GetSegmentPath()] = &cntppeersvartable.Cntppeersvarentry[i]
+        cntppeersvartable.EntityData.Children[types.GetSegmentPath(&cntppeersvartable.Cntppeersvarentry[i])] = types.YChild{"Cntppeersvarentry", &cntppeersvartable.Cntppeersvarentry[i]}
     }
-    return children
+    cntppeersvartable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cntppeersvartable.EntityData)
 }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetYangName() string { return "cntpPeersVarTable" }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) SetParent(parent types.Entity) { cntppeersvartable.parent = parent }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetParent() types.Entity { return cntppeersvartable.parent }
-
-func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetParentYangName() string { return "CISCO-NTP-MIB" }
 
 // CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry
 // Each peers' entry provides NTP information retrieved
@@ -460,7 +340,7 @@ func (cntppeersvartable *CISCONTPMIB_Cntppeersvartable) GetParentYangName() stri
 // to set a value for cntpPeersPeerAddress or
 // cntpPeersPeerName to make the row active.
 type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer value greater than 0 that uniquely
@@ -477,7 +357,7 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
     // should be set either for this object or the corresponding instance of 
     // cntpPeersPeerName, before the row is made active. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cntppeerspeeraddress interface{}
 
     // The UDP port number on which the peer receives NTP messages. The type is
@@ -486,7 +366,7 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
 
     // The IP address of the local host.  Multi-homing can be supported using this
     // object. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Cntppeershostaddress interface{}
 
     // The UDP port number on which the local host receives NTP messages. The type
@@ -657,111 +537,51 @@ type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry struct {
     Cntppeerspeername interface{}
 }
 
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetFilter() yfilter.YFilter { return cntppeersvarentry.YFilter }
+func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetEntityData() *types.CommonEntityData {
+    cntppeersvarentry.EntityData.YFilter = cntppeersvarentry.YFilter
+    cntppeersvarentry.EntityData.YangName = "cntpPeersVarEntry"
+    cntppeersvarentry.EntityData.BundleName = "cisco_ios_xe"
+    cntppeersvarentry.EntityData.ParentYangName = "cntpPeersVarTable"
+    cntppeersvarentry.EntityData.SegmentPath = "cntpPeersVarEntry" + "[cntpPeersAssocId='" + fmt.Sprintf("%v", cntppeersvarentry.Cntppeersassocid) + "']"
+    cntppeersvarentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntppeersvarentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntppeersvarentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) SetFilter(yf yfilter.YFilter) { cntppeersvarentry.YFilter = yf }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetGoName(yname string) string {
-    if yname == "cntpPeersAssocId" { return "Cntppeersassocid" }
-    if yname == "cntpPeersConfigured" { return "Cntppeersconfigured" }
-    if yname == "cntpPeersPeerAddress" { return "Cntppeerspeeraddress" }
-    if yname == "cntpPeersPeerPort" { return "Cntppeerspeerport" }
-    if yname == "cntpPeersHostAddress" { return "Cntppeershostaddress" }
-    if yname == "cntpPeersHostPort" { return "Cntppeershostport" }
-    if yname == "cntpPeersLeap" { return "Cntppeersleap" }
-    if yname == "cntpPeersMode" { return "Cntppeersmode" }
-    if yname == "cntpPeersStratum" { return "Cntppeersstratum" }
-    if yname == "cntpPeersPeerPoll" { return "Cntppeerspeerpoll" }
-    if yname == "cntpPeersHostPoll" { return "Cntppeershostpoll" }
-    if yname == "cntpPeersPrecision" { return "Cntppeersprecision" }
-    if yname == "cntpPeersRootDelay" { return "Cntppeersrootdelay" }
-    if yname == "cntpPeersRootDispersion" { return "Cntppeersrootdispersion" }
-    if yname == "cntpPeersRefId" { return "Cntppeersrefid" }
-    if yname == "cntpPeersRefTime" { return "Cntppeersreftime" }
-    if yname == "cntpPeersOrgTime" { return "Cntppeersorgtime" }
-    if yname == "cntpPeersReceiveTime" { return "Cntppeersreceivetime" }
-    if yname == "cntpPeersTransmitTime" { return "Cntppeerstransmittime" }
-    if yname == "cntpPeersUpdateTime" { return "Cntppeersupdatetime" }
-    if yname == "cntpPeersReach" { return "Cntppeersreach" }
-    if yname == "cntpPeersTimer" { return "Cntppeerstimer" }
-    if yname == "cntpPeersOffset" { return "Cntppeersoffset" }
-    if yname == "cntpPeersDelay" { return "Cntppeersdelay" }
-    if yname == "cntpPeersDispersion" { return "Cntppeersdispersion" }
-    if yname == "cntpPeersFilterValidEntries" { return "Cntppeersfiltervalidentries" }
-    if yname == "cntpPeersEntryStatus" { return "Cntppeersentrystatus" }
-    if yname == "cntpPeersUpdateTimeRev1" { return "Cntppeersupdatetimerev1" }
-    if yname == "cntpPeersPrefPeer" { return "Cntppeersprefpeer" }
-    if yname == "cntpPeersPeerType" { return "Cntppeerspeertype" }
-    if yname == "cntpPeersPeerName" { return "Cntppeerspeername" }
-    return ""
+    cntppeersvarentry.EntityData.Children = make(map[string]types.YChild)
+    cntppeersvarentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cntppeersvarentry.EntityData.Leafs["cntpPeersAssocId"] = types.YLeaf{"Cntppeersassocid", cntppeersvarentry.Cntppeersassocid}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersConfigured"] = types.YLeaf{"Cntppeersconfigured", cntppeersvarentry.Cntppeersconfigured}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerAddress"] = types.YLeaf{"Cntppeerspeeraddress", cntppeersvarentry.Cntppeerspeeraddress}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerPort"] = types.YLeaf{"Cntppeerspeerport", cntppeersvarentry.Cntppeerspeerport}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersHostAddress"] = types.YLeaf{"Cntppeershostaddress", cntppeersvarentry.Cntppeershostaddress}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersHostPort"] = types.YLeaf{"Cntppeershostport", cntppeersvarentry.Cntppeershostport}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersLeap"] = types.YLeaf{"Cntppeersleap", cntppeersvarentry.Cntppeersleap}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersMode"] = types.YLeaf{"Cntppeersmode", cntppeersvarentry.Cntppeersmode}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersStratum"] = types.YLeaf{"Cntppeersstratum", cntppeersvarentry.Cntppeersstratum}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerPoll"] = types.YLeaf{"Cntppeerspeerpoll", cntppeersvarentry.Cntppeerspeerpoll}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersHostPoll"] = types.YLeaf{"Cntppeershostpoll", cntppeersvarentry.Cntppeershostpoll}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPrecision"] = types.YLeaf{"Cntppeersprecision", cntppeersvarentry.Cntppeersprecision}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersRootDelay"] = types.YLeaf{"Cntppeersrootdelay", cntppeersvarentry.Cntppeersrootdelay}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersRootDispersion"] = types.YLeaf{"Cntppeersrootdispersion", cntppeersvarentry.Cntppeersrootdispersion}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersRefId"] = types.YLeaf{"Cntppeersrefid", cntppeersvarentry.Cntppeersrefid}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersRefTime"] = types.YLeaf{"Cntppeersreftime", cntppeersvarentry.Cntppeersreftime}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersOrgTime"] = types.YLeaf{"Cntppeersorgtime", cntppeersvarentry.Cntppeersorgtime}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersReceiveTime"] = types.YLeaf{"Cntppeersreceivetime", cntppeersvarentry.Cntppeersreceivetime}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersTransmitTime"] = types.YLeaf{"Cntppeerstransmittime", cntppeersvarentry.Cntppeerstransmittime}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersUpdateTime"] = types.YLeaf{"Cntppeersupdatetime", cntppeersvarentry.Cntppeersupdatetime}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersReach"] = types.YLeaf{"Cntppeersreach", cntppeersvarentry.Cntppeersreach}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersTimer"] = types.YLeaf{"Cntppeerstimer", cntppeersvarentry.Cntppeerstimer}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersOffset"] = types.YLeaf{"Cntppeersoffset", cntppeersvarentry.Cntppeersoffset}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersDelay"] = types.YLeaf{"Cntppeersdelay", cntppeersvarentry.Cntppeersdelay}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersDispersion"] = types.YLeaf{"Cntppeersdispersion", cntppeersvarentry.Cntppeersdispersion}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersFilterValidEntries"] = types.YLeaf{"Cntppeersfiltervalidentries", cntppeersvarentry.Cntppeersfiltervalidentries}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersEntryStatus"] = types.YLeaf{"Cntppeersentrystatus", cntppeersvarentry.Cntppeersentrystatus}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersUpdateTimeRev1"] = types.YLeaf{"Cntppeersupdatetimerev1", cntppeersvarentry.Cntppeersupdatetimerev1}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPrefPeer"] = types.YLeaf{"Cntppeersprefpeer", cntppeersvarentry.Cntppeersprefpeer}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerType"] = types.YLeaf{"Cntppeerspeertype", cntppeersvarentry.Cntppeerspeertype}
+    cntppeersvarentry.EntityData.Leafs["cntpPeersPeerName"] = types.YLeaf{"Cntppeerspeername", cntppeersvarentry.Cntppeerspeername}
+    return &(cntppeersvarentry.EntityData)
 }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetSegmentPath() string {
-    return "cntpPeersVarEntry" + "[cntpPeersAssocId='" + fmt.Sprintf("%v", cntppeersvarentry.Cntppeersassocid) + "']"
-}
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cntpPeersAssocId"] = cntppeersvarentry.Cntppeersassocid
-    leafs["cntpPeersConfigured"] = cntppeersvarentry.Cntppeersconfigured
-    leafs["cntpPeersPeerAddress"] = cntppeersvarentry.Cntppeerspeeraddress
-    leafs["cntpPeersPeerPort"] = cntppeersvarentry.Cntppeerspeerport
-    leafs["cntpPeersHostAddress"] = cntppeersvarentry.Cntppeershostaddress
-    leafs["cntpPeersHostPort"] = cntppeersvarentry.Cntppeershostport
-    leafs["cntpPeersLeap"] = cntppeersvarentry.Cntppeersleap
-    leafs["cntpPeersMode"] = cntppeersvarentry.Cntppeersmode
-    leafs["cntpPeersStratum"] = cntppeersvarentry.Cntppeersstratum
-    leafs["cntpPeersPeerPoll"] = cntppeersvarentry.Cntppeerspeerpoll
-    leafs["cntpPeersHostPoll"] = cntppeersvarentry.Cntppeershostpoll
-    leafs["cntpPeersPrecision"] = cntppeersvarentry.Cntppeersprecision
-    leafs["cntpPeersRootDelay"] = cntppeersvarentry.Cntppeersrootdelay
-    leafs["cntpPeersRootDispersion"] = cntppeersvarentry.Cntppeersrootdispersion
-    leafs["cntpPeersRefId"] = cntppeersvarentry.Cntppeersrefid
-    leafs["cntpPeersRefTime"] = cntppeersvarentry.Cntppeersreftime
-    leafs["cntpPeersOrgTime"] = cntppeersvarentry.Cntppeersorgtime
-    leafs["cntpPeersReceiveTime"] = cntppeersvarentry.Cntppeersreceivetime
-    leafs["cntpPeersTransmitTime"] = cntppeersvarentry.Cntppeerstransmittime
-    leafs["cntpPeersUpdateTime"] = cntppeersvarentry.Cntppeersupdatetime
-    leafs["cntpPeersReach"] = cntppeersvarentry.Cntppeersreach
-    leafs["cntpPeersTimer"] = cntppeersvarentry.Cntppeerstimer
-    leafs["cntpPeersOffset"] = cntppeersvarentry.Cntppeersoffset
-    leafs["cntpPeersDelay"] = cntppeersvarentry.Cntppeersdelay
-    leafs["cntpPeersDispersion"] = cntppeersvarentry.Cntppeersdispersion
-    leafs["cntpPeersFilterValidEntries"] = cntppeersvarentry.Cntppeersfiltervalidentries
-    leafs["cntpPeersEntryStatus"] = cntppeersvarentry.Cntppeersentrystatus
-    leafs["cntpPeersUpdateTimeRev1"] = cntppeersvarentry.Cntppeersupdatetimerev1
-    leafs["cntpPeersPrefPeer"] = cntppeersvarentry.Cntppeersprefpeer
-    leafs["cntpPeersPeerType"] = cntppeersvarentry.Cntppeerspeertype
-    leafs["cntpPeersPeerName"] = cntppeersvarentry.Cntppeerspeername
-    return leafs
-}
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetYangName() string { return "cntpPeersVarEntry" }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) SetParent(parent types.Entity) { cntppeersvarentry.parent = parent }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetParent() types.Entity { return cntppeersvarentry.parent }
-
-func (cntppeersvarentry *CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry) GetParentYangName() string { return "cntpPeersVarTable" }
 
 // CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode represents symmetricActive(1).
 type CISCONTPMIB_Cntppeersvartable_Cntppeersvarentry_Cntppeersmode string
@@ -804,7 +624,7 @@ const (
 // algorthims to minimize the error in the calculated
 // time.
 type CISCONTPMIB_Cntpfilterregistertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry corresponds to one stage of the shift register, i.e., one
@@ -815,63 +635,24 @@ type CISCONTPMIB_Cntpfilterregistertable struct {
     Cntpfilterregisterentry []CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry
 }
 
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetFilter() yfilter.YFilter { return cntpfilterregistertable.YFilter }
+func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetEntityData() *types.CommonEntityData {
+    cntpfilterregistertable.EntityData.YFilter = cntpfilterregistertable.YFilter
+    cntpfilterregistertable.EntityData.YangName = "cntpFilterRegisterTable"
+    cntpfilterregistertable.EntityData.BundleName = "cisco_ios_xe"
+    cntpfilterregistertable.EntityData.ParentYangName = "CISCO-NTP-MIB"
+    cntpfilterregistertable.EntityData.SegmentPath = "cntpFilterRegisterTable"
+    cntpfilterregistertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpfilterregistertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpfilterregistertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) SetFilter(yf yfilter.YFilter) { cntpfilterregistertable.YFilter = yf }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetGoName(yname string) string {
-    if yname == "cntpFilterRegisterEntry" { return "Cntpfilterregisterentry" }
-    return ""
-}
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetSegmentPath() string {
-    return "cntpFilterRegisterTable"
-}
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cntpFilterRegisterEntry" {
-        for _, c := range cntpfilterregistertable.Cntpfilterregisterentry {
-            if cntpfilterregistertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry{}
-        cntpfilterregistertable.Cntpfilterregisterentry = append(cntpfilterregistertable.Cntpfilterregisterentry, child)
-        return &cntpfilterregistertable.Cntpfilterregisterentry[len(cntpfilterregistertable.Cntpfilterregisterentry)-1]
-    }
-    return nil
-}
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cntpfilterregistertable.EntityData.Children = make(map[string]types.YChild)
+    cntpfilterregistertable.EntityData.Children["cntpFilterRegisterEntry"] = types.YChild{"Cntpfilterregisterentry", nil}
     for i := range cntpfilterregistertable.Cntpfilterregisterentry {
-        children[cntpfilterregistertable.Cntpfilterregisterentry[i].GetSegmentPath()] = &cntpfilterregistertable.Cntpfilterregisterentry[i]
+        cntpfilterregistertable.EntityData.Children[types.GetSegmentPath(&cntpfilterregistertable.Cntpfilterregisterentry[i])] = types.YChild{"Cntpfilterregisterentry", &cntpfilterregistertable.Cntpfilterregisterentry[i]}
     }
-    return children
+    cntpfilterregistertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cntpfilterregistertable.EntityData)
 }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetYangName() string { return "cntpFilterRegisterTable" }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) SetParent(parent types.Entity) { cntpfilterregistertable.parent = parent }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetParent() types.Entity { return cntpfilterregistertable.parent }
-
-func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetParentYangName() string { return "CISCO-NTP-MIB" }
 
 // CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry
 // Each entry corresponds to one stage of the shift
@@ -881,7 +662,7 @@ func (cntpfilterregistertable *CISCONTPMIB_Cntpfilterregistertable) GetParentYan
 // Entries are automatically created whenever a peer is
 // configured and deleted when the peer is removed.
 type CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..2147483647.
@@ -914,57 +695,23 @@ type CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry struct {
     Cntpfilterpeersdispersion interface{}
 }
 
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetFilter() yfilter.YFilter { return cntpfilterregisterentry.YFilter }
+func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetEntityData() *types.CommonEntityData {
+    cntpfilterregisterentry.EntityData.YFilter = cntpfilterregisterentry.YFilter
+    cntpfilterregisterentry.EntityData.YangName = "cntpFilterRegisterEntry"
+    cntpfilterregisterentry.EntityData.BundleName = "cisco_ios_xe"
+    cntpfilterregisterentry.EntityData.ParentYangName = "cntpFilterRegisterTable"
+    cntpfilterregisterentry.EntityData.SegmentPath = "cntpFilterRegisterEntry" + "[cntpPeersAssocId='" + fmt.Sprintf("%v", cntpfilterregisterentry.Cntppeersassocid) + "']" + "[cntpFilterIndex='" + fmt.Sprintf("%v", cntpfilterregisterentry.Cntpfilterindex) + "']"
+    cntpfilterregisterentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cntpfilterregisterentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cntpfilterregisterentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) SetFilter(yf yfilter.YFilter) { cntpfilterregisterentry.YFilter = yf }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetGoName(yname string) string {
-    if yname == "cntpPeersAssocId" { return "Cntppeersassocid" }
-    if yname == "cntpFilterIndex" { return "Cntpfilterindex" }
-    if yname == "cntpFilterPeersOffset" { return "Cntpfilterpeersoffset" }
-    if yname == "cntpFilterPeersDelay" { return "Cntpfilterpeersdelay" }
-    if yname == "cntpFilterPeersDispersion" { return "Cntpfilterpeersdispersion" }
-    return ""
+    cntpfilterregisterentry.EntityData.Children = make(map[string]types.YChild)
+    cntpfilterregisterentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cntpfilterregisterentry.EntityData.Leafs["cntpPeersAssocId"] = types.YLeaf{"Cntppeersassocid", cntpfilterregisterentry.Cntppeersassocid}
+    cntpfilterregisterentry.EntityData.Leafs["cntpFilterIndex"] = types.YLeaf{"Cntpfilterindex", cntpfilterregisterentry.Cntpfilterindex}
+    cntpfilterregisterentry.EntityData.Leafs["cntpFilterPeersOffset"] = types.YLeaf{"Cntpfilterpeersoffset", cntpfilterregisterentry.Cntpfilterpeersoffset}
+    cntpfilterregisterentry.EntityData.Leafs["cntpFilterPeersDelay"] = types.YLeaf{"Cntpfilterpeersdelay", cntpfilterregisterentry.Cntpfilterpeersdelay}
+    cntpfilterregisterentry.EntityData.Leafs["cntpFilterPeersDispersion"] = types.YLeaf{"Cntpfilterpeersdispersion", cntpfilterregisterentry.Cntpfilterpeersdispersion}
+    return &(cntpfilterregisterentry.EntityData)
 }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetSegmentPath() string {
-    return "cntpFilterRegisterEntry" + "[cntpPeersAssocId='" + fmt.Sprintf("%v", cntpfilterregisterentry.Cntppeersassocid) + "']" + "[cntpFilterIndex='" + fmt.Sprintf("%v", cntpfilterregisterentry.Cntpfilterindex) + "']"
-}
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cntpPeersAssocId"] = cntpfilterregisterentry.Cntppeersassocid
-    leafs["cntpFilterIndex"] = cntpfilterregisterentry.Cntpfilterindex
-    leafs["cntpFilterPeersOffset"] = cntpfilterregisterentry.Cntpfilterpeersoffset
-    leafs["cntpFilterPeersDelay"] = cntpfilterregisterentry.Cntpfilterpeersdelay
-    leafs["cntpFilterPeersDispersion"] = cntpfilterregisterentry.Cntpfilterpeersdispersion
-    return leafs
-}
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetYangName() string { return "cntpFilterRegisterEntry" }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) SetParent(parent types.Entity) { cntpfilterregisterentry.parent = parent }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetParent() types.Entity { return cntpfilterregisterentry.parent }
-
-func (cntpfilterregisterentry *CISCONTPMIB_Cntpfilterregistertable_Cntpfilterregisterentry) GetParentYangName() string { return "cntpFilterRegisterTable" }
 

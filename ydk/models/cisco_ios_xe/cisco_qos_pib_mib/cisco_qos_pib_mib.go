@@ -37,6 +37,21 @@ const (
     QueueRange_sixtyFourQ QueueRange = "sixtyFourQ"
 )
 
+// ThresholdSetRange represents parameters packets are randomly dropped.
+type ThresholdSetRange string
+
+const (
+    ThresholdSetRange_zeroT ThresholdSetRange = "zeroT"
+
+    ThresholdSetRange_oneT ThresholdSetRange = "oneT"
+
+    ThresholdSetRange_twoT ThresholdSetRange = "twoT"
+
+    ThresholdSetRange_fourT ThresholdSetRange = "fourT"
+
+    ThresholdSetRange_eightT ThresholdSetRange = "eightT"
+)
+
 // QosInterfaceQueueType represents number of DSCPs.
 type QosInterfaceQueueType string
 
@@ -132,24 +147,9 @@ const (
     QosInterfaceQueueType_oneP7Q2t QosInterfaceQueueType = "oneP7Q2t"
 )
 
-// ThresholdSetRange represents parameters packets are randomly dropped.
-type ThresholdSetRange string
-
-const (
-    ThresholdSetRange_zeroT ThresholdSetRange = "zeroT"
-
-    ThresholdSetRange_oneT ThresholdSetRange = "oneT"
-
-    ThresholdSetRange_twoT ThresholdSetRange = "twoT"
-
-    ThresholdSetRange_fourT ThresholdSetRange = "fourT"
-
-    ThresholdSetRange_eightT ThresholdSetRange = "eightT"
-)
-
 // CISCOQOSPIBMIB
 type CISCOQOSPIBMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This class contains a single policy instance that identifies the current
@@ -252,139 +252,38 @@ type CISCOQOSPIBMIB struct {
     Qosifweightstable CISCOQOSPIBMIB_Qosifweightstable
 }
 
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetFilter() yfilter.YFilter { return cISCOQOSPIBMIB.YFilter }
+func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetEntityData() *types.CommonEntityData {
+    cISCOQOSPIBMIB.EntityData.YFilter = cISCOQOSPIBMIB.YFilter
+    cISCOQOSPIBMIB.EntityData.YangName = "CISCO-QOS-PIB-MIB"
+    cISCOQOSPIBMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOQOSPIBMIB.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    cISCOQOSPIBMIB.EntityData.SegmentPath = "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB"
+    cISCOQOSPIBMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOQOSPIBMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOQOSPIBMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) SetFilter(yf yfilter.YFilter) { cISCOQOSPIBMIB.YFilter = yf }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetGoName(yname string) string {
-    if yname == "qosDevicePibIncarnationTable" { return "Qosdevicepibincarnationtable" }
-    if yname == "qosDeviceAttributeTable" { return "Qosdeviceattributetable" }
-    if yname == "qosInterfaceTypeTable" { return "Qosinterfacetypetable" }
-    if yname == "qosDiffServMappingTable" { return "Qosdiffservmappingtable" }
-    if yname == "qosCosToDscpTable" { return "Qoscostodscptable" }
-    if yname == "qosUnmatchedPolicyTable" { return "Qosunmatchedpolicytable" }
-    if yname == "qosPolicerTable" { return "Qospolicertable" }
-    if yname == "qosAggregateTable" { return "Qosaggregatetable" }
-    if yname == "qosMacClassificationTable" { return "Qosmacclassificationtable" }
-    if yname == "qosIpAceTable" { return "Qosipacetable" }
-    if yname == "qosIpAclDefinitionTable" { return "Qosipacldefinitiontable" }
-    if yname == "qosIpAclActionTable" { return "Qosipaclactiontable" }
-    if yname == "qosIfSchedulingPreferencesTable" { return "Qosifschedulingpreferencestable" }
-    if yname == "qosIfDropPreferenceTable" { return "Qosifdroppreferencetable" }
-    if yname == "qosIfDscpAssignmentTable" { return "Qosifdscpassignmenttable" }
-    if yname == "qosIfRedTable" { return "Qosifredtable" }
-    if yname == "qosIfTailDropTable" { return "Qosiftaildroptable" }
-    if yname == "qosIfWeightsTable" { return "Qosifweightstable" }
-    return ""
+    cISCOQOSPIBMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOQOSPIBMIB.EntityData.Children["qosDevicePibIncarnationTable"] = types.YChild{"Qosdevicepibincarnationtable", &cISCOQOSPIBMIB.Qosdevicepibincarnationtable}
+    cISCOQOSPIBMIB.EntityData.Children["qosDeviceAttributeTable"] = types.YChild{"Qosdeviceattributetable", &cISCOQOSPIBMIB.Qosdeviceattributetable}
+    cISCOQOSPIBMIB.EntityData.Children["qosInterfaceTypeTable"] = types.YChild{"Qosinterfacetypetable", &cISCOQOSPIBMIB.Qosinterfacetypetable}
+    cISCOQOSPIBMIB.EntityData.Children["qosDiffServMappingTable"] = types.YChild{"Qosdiffservmappingtable", &cISCOQOSPIBMIB.Qosdiffservmappingtable}
+    cISCOQOSPIBMIB.EntityData.Children["qosCosToDscpTable"] = types.YChild{"Qoscostodscptable", &cISCOQOSPIBMIB.Qoscostodscptable}
+    cISCOQOSPIBMIB.EntityData.Children["qosUnmatchedPolicyTable"] = types.YChild{"Qosunmatchedpolicytable", &cISCOQOSPIBMIB.Qosunmatchedpolicytable}
+    cISCOQOSPIBMIB.EntityData.Children["qosPolicerTable"] = types.YChild{"Qospolicertable", &cISCOQOSPIBMIB.Qospolicertable}
+    cISCOQOSPIBMIB.EntityData.Children["qosAggregateTable"] = types.YChild{"Qosaggregatetable", &cISCOQOSPIBMIB.Qosaggregatetable}
+    cISCOQOSPIBMIB.EntityData.Children["qosMacClassificationTable"] = types.YChild{"Qosmacclassificationtable", &cISCOQOSPIBMIB.Qosmacclassificationtable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIpAceTable"] = types.YChild{"Qosipacetable", &cISCOQOSPIBMIB.Qosipacetable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIpAclDefinitionTable"] = types.YChild{"Qosipacldefinitiontable", &cISCOQOSPIBMIB.Qosipacldefinitiontable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIpAclActionTable"] = types.YChild{"Qosipaclactiontable", &cISCOQOSPIBMIB.Qosipaclactiontable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIfSchedulingPreferencesTable"] = types.YChild{"Qosifschedulingpreferencestable", &cISCOQOSPIBMIB.Qosifschedulingpreferencestable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIfDropPreferenceTable"] = types.YChild{"Qosifdroppreferencetable", &cISCOQOSPIBMIB.Qosifdroppreferencetable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIfDscpAssignmentTable"] = types.YChild{"Qosifdscpassignmenttable", &cISCOQOSPIBMIB.Qosifdscpassignmenttable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIfRedTable"] = types.YChild{"Qosifredtable", &cISCOQOSPIBMIB.Qosifredtable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIfTailDropTable"] = types.YChild{"Qosiftaildroptable", &cISCOQOSPIBMIB.Qosiftaildroptable}
+    cISCOQOSPIBMIB.EntityData.Children["qosIfWeightsTable"] = types.YChild{"Qosifweightstable", &cISCOQOSPIBMIB.Qosifweightstable}
+    cISCOQOSPIBMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOQOSPIBMIB.EntityData)
 }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetSegmentPath() string {
-    return "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB"
-}
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosDevicePibIncarnationTable" {
-        return &cISCOQOSPIBMIB.Qosdevicepibincarnationtable
-    }
-    if childYangName == "qosDeviceAttributeTable" {
-        return &cISCOQOSPIBMIB.Qosdeviceattributetable
-    }
-    if childYangName == "qosInterfaceTypeTable" {
-        return &cISCOQOSPIBMIB.Qosinterfacetypetable
-    }
-    if childYangName == "qosDiffServMappingTable" {
-        return &cISCOQOSPIBMIB.Qosdiffservmappingtable
-    }
-    if childYangName == "qosCosToDscpTable" {
-        return &cISCOQOSPIBMIB.Qoscostodscptable
-    }
-    if childYangName == "qosUnmatchedPolicyTable" {
-        return &cISCOQOSPIBMIB.Qosunmatchedpolicytable
-    }
-    if childYangName == "qosPolicerTable" {
-        return &cISCOQOSPIBMIB.Qospolicertable
-    }
-    if childYangName == "qosAggregateTable" {
-        return &cISCOQOSPIBMIB.Qosaggregatetable
-    }
-    if childYangName == "qosMacClassificationTable" {
-        return &cISCOQOSPIBMIB.Qosmacclassificationtable
-    }
-    if childYangName == "qosIpAceTable" {
-        return &cISCOQOSPIBMIB.Qosipacetable
-    }
-    if childYangName == "qosIpAclDefinitionTable" {
-        return &cISCOQOSPIBMIB.Qosipacldefinitiontable
-    }
-    if childYangName == "qosIpAclActionTable" {
-        return &cISCOQOSPIBMIB.Qosipaclactiontable
-    }
-    if childYangName == "qosIfSchedulingPreferencesTable" {
-        return &cISCOQOSPIBMIB.Qosifschedulingpreferencestable
-    }
-    if childYangName == "qosIfDropPreferenceTable" {
-        return &cISCOQOSPIBMIB.Qosifdroppreferencetable
-    }
-    if childYangName == "qosIfDscpAssignmentTable" {
-        return &cISCOQOSPIBMIB.Qosifdscpassignmenttable
-    }
-    if childYangName == "qosIfRedTable" {
-        return &cISCOQOSPIBMIB.Qosifredtable
-    }
-    if childYangName == "qosIfTailDropTable" {
-        return &cISCOQOSPIBMIB.Qosiftaildroptable
-    }
-    if childYangName == "qosIfWeightsTable" {
-        return &cISCOQOSPIBMIB.Qosifweightstable
-    }
-    return nil
-}
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["qosDevicePibIncarnationTable"] = &cISCOQOSPIBMIB.Qosdevicepibincarnationtable
-    children["qosDeviceAttributeTable"] = &cISCOQOSPIBMIB.Qosdeviceattributetable
-    children["qosInterfaceTypeTable"] = &cISCOQOSPIBMIB.Qosinterfacetypetable
-    children["qosDiffServMappingTable"] = &cISCOQOSPIBMIB.Qosdiffservmappingtable
-    children["qosCosToDscpTable"] = &cISCOQOSPIBMIB.Qoscostodscptable
-    children["qosUnmatchedPolicyTable"] = &cISCOQOSPIBMIB.Qosunmatchedpolicytable
-    children["qosPolicerTable"] = &cISCOQOSPIBMIB.Qospolicertable
-    children["qosAggregateTable"] = &cISCOQOSPIBMIB.Qosaggregatetable
-    children["qosMacClassificationTable"] = &cISCOQOSPIBMIB.Qosmacclassificationtable
-    children["qosIpAceTable"] = &cISCOQOSPIBMIB.Qosipacetable
-    children["qosIpAclDefinitionTable"] = &cISCOQOSPIBMIB.Qosipacldefinitiontable
-    children["qosIpAclActionTable"] = &cISCOQOSPIBMIB.Qosipaclactiontable
-    children["qosIfSchedulingPreferencesTable"] = &cISCOQOSPIBMIB.Qosifschedulingpreferencestable
-    children["qosIfDropPreferenceTable"] = &cISCOQOSPIBMIB.Qosifdroppreferencetable
-    children["qosIfDscpAssignmentTable"] = &cISCOQOSPIBMIB.Qosifdscpassignmenttable
-    children["qosIfRedTable"] = &cISCOQOSPIBMIB.Qosifredtable
-    children["qosIfTailDropTable"] = &cISCOQOSPIBMIB.Qosiftaildroptable
-    children["qosIfWeightsTable"] = &cISCOQOSPIBMIB.Qosifweightstable
-    return children
-}
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetYangName() string { return "CISCO-QOS-PIB-MIB" }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) SetParent(parent types.Entity) { cISCOQOSPIBMIB.parent = parent }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetParent() types.Entity { return cISCOQOSPIBMIB.parent }
-
-func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosdevicepibincarnationtable
 // This class contains a single policy instance that identifies
@@ -393,7 +292,7 @@ func (cISCOQOSPIBMIB *CISCOQOSPIBMIB) GetParentYangName() string { return "CISCO
 // the PDP at client connect time so that the PDP can (attempt
 // to) ascertain the current state of the PIB.
 type CISCOQOSPIBMIB_Qosdevicepibincarnationtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The single policy instance of this class identifies the current incarnation
@@ -403,70 +302,31 @@ type CISCOQOSPIBMIB_Qosdevicepibincarnationtable struct {
     Qosdevicepibincarnationentry []CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry
 }
 
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetFilter() yfilter.YFilter { return qosdevicepibincarnationtable.YFilter }
+func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetEntityData() *types.CommonEntityData {
+    qosdevicepibincarnationtable.EntityData.YFilter = qosdevicepibincarnationtable.YFilter
+    qosdevicepibincarnationtable.EntityData.YangName = "qosDevicePibIncarnationTable"
+    qosdevicepibincarnationtable.EntityData.BundleName = "cisco_ios_xe"
+    qosdevicepibincarnationtable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosdevicepibincarnationtable.EntityData.SegmentPath = "qosDevicePibIncarnationTable"
+    qosdevicepibincarnationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosdevicepibincarnationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosdevicepibincarnationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) SetFilter(yf yfilter.YFilter) { qosdevicepibincarnationtable.YFilter = yf }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetGoName(yname string) string {
-    if yname == "qosDevicePibIncarnationEntry" { return "Qosdevicepibincarnationentry" }
-    return ""
-}
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetSegmentPath() string {
-    return "qosDevicePibIncarnationTable"
-}
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosDevicePibIncarnationEntry" {
-        for _, c := range qosdevicepibincarnationtable.Qosdevicepibincarnationentry {
-            if qosdevicepibincarnationtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry{}
-        qosdevicepibincarnationtable.Qosdevicepibincarnationentry = append(qosdevicepibincarnationtable.Qosdevicepibincarnationentry, child)
-        return &qosdevicepibincarnationtable.Qosdevicepibincarnationentry[len(qosdevicepibincarnationtable.Qosdevicepibincarnationentry)-1]
-    }
-    return nil
-}
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosdevicepibincarnationtable.EntityData.Children = make(map[string]types.YChild)
+    qosdevicepibincarnationtable.EntityData.Children["qosDevicePibIncarnationEntry"] = types.YChild{"Qosdevicepibincarnationentry", nil}
     for i := range qosdevicepibincarnationtable.Qosdevicepibincarnationentry {
-        children[qosdevicepibincarnationtable.Qosdevicepibincarnationentry[i].GetSegmentPath()] = &qosdevicepibincarnationtable.Qosdevicepibincarnationentry[i]
+        qosdevicepibincarnationtable.EntityData.Children[types.GetSegmentPath(&qosdevicepibincarnationtable.Qosdevicepibincarnationentry[i])] = types.YChild{"Qosdevicepibincarnationentry", &qosdevicepibincarnationtable.Qosdevicepibincarnationentry[i]}
     }
-    return children
+    qosdevicepibincarnationtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosdevicepibincarnationtable.EntityData)
 }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetYangName() string { return "qosDevicePibIncarnationTable" }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) SetParent(parent types.Entity) { qosdevicepibincarnationtable.parent = parent }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetParent() types.Entity { return qosdevicepibincarnationtable.parent }
-
-func (qosdevicepibincarnationtable *CISCOQOSPIBMIB_Qosdevicepibincarnationtable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry
 // The single policy instance of this class identifies the
 // current incarnation of the PIB and the PDP that installed
 // this incarnation.
 type CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -489,57 +349,24 @@ type CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry st
     Qosdevicepibttl interface{}
 }
 
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetFilter() yfilter.YFilter { return qosdevicepibincarnationentry.YFilter }
+func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetEntityData() *types.CommonEntityData {
+    qosdevicepibincarnationentry.EntityData.YFilter = qosdevicepibincarnationentry.YFilter
+    qosdevicepibincarnationentry.EntityData.YangName = "qosDevicePibIncarnationEntry"
+    qosdevicepibincarnationentry.EntityData.BundleName = "cisco_ios_xe"
+    qosdevicepibincarnationentry.EntityData.ParentYangName = "qosDevicePibIncarnationTable"
+    qosdevicepibincarnationentry.EntityData.SegmentPath = "qosDevicePibIncarnationEntry" + "[qosDeviceIncarnationId='" + fmt.Sprintf("%v", qosdevicepibincarnationentry.Qosdeviceincarnationid) + "']"
+    qosdevicepibincarnationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosdevicepibincarnationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosdevicepibincarnationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) SetFilter(yf yfilter.YFilter) { qosdevicepibincarnationentry.YFilter = yf }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetGoName(yname string) string {
-    if yname == "qosDeviceIncarnationId" { return "Qosdeviceincarnationid" }
-    if yname == "qosDevicePdpName" { return "Qosdevicepdpname" }
-    if yname == "qosDevicePibIncarnation" { return "Qosdevicepibincarnation" }
-    if yname == "qosDevicePibTtl" { return "Qosdevicepibttl" }
-    return ""
+    qosdevicepibincarnationentry.EntityData.Children = make(map[string]types.YChild)
+    qosdevicepibincarnationentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosdevicepibincarnationentry.EntityData.Leafs["qosDeviceIncarnationId"] = types.YLeaf{"Qosdeviceincarnationid", qosdevicepibincarnationentry.Qosdeviceincarnationid}
+    qosdevicepibincarnationentry.EntityData.Leafs["qosDevicePdpName"] = types.YLeaf{"Qosdevicepdpname", qosdevicepibincarnationentry.Qosdevicepdpname}
+    qosdevicepibincarnationentry.EntityData.Leafs["qosDevicePibIncarnation"] = types.YLeaf{"Qosdevicepibincarnation", qosdevicepibincarnationentry.Qosdevicepibincarnation}
+    qosdevicepibincarnationentry.EntityData.Leafs["qosDevicePibTtl"] = types.YLeaf{"Qosdevicepibttl", qosdevicepibincarnationentry.Qosdevicepibttl}
+    return &(qosdevicepibincarnationentry.EntityData)
 }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetSegmentPath() string {
-    return "qosDevicePibIncarnationEntry" + "[qosDeviceIncarnationId='" + fmt.Sprintf("%v", qosdevicepibincarnationentry.Qosdeviceincarnationid) + "']"
-}
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosDeviceIncarnationId"] = qosdevicepibincarnationentry.Qosdeviceincarnationid
-    leafs["qosDevicePdpName"] = qosdevicepibincarnationentry.Qosdevicepdpname
-    leafs["qosDevicePibIncarnation"] = qosdevicepibincarnationentry.Qosdevicepibincarnation
-    leafs["qosDevicePibTtl"] = qosdevicepibincarnationentry.Qosdevicepibttl
-    return leafs
-}
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetYangName() string { return "qosDevicePibIncarnationEntry" }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) SetParent(parent types.Entity) { qosdevicepibincarnationentry.parent = parent }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetParent() types.Entity { return qosdevicepibincarnationentry.parent }
-
-func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_Qosdevicepibincarnationentry) GetParentYangName() string { return "qosDevicePibIncarnationTable" }
 
 // CISCOQOSPIBMIB_Qosdeviceattributetable
 // The single instance of this class indicates specific
@@ -550,7 +377,7 @@ func (qosdevicepibincarnationentry *CISCOQOSPIBMIB_Qosdevicepibincarnationtable_
 // policing, support for flow based policing, aggregate based
 // policing, traffic shaping capabilities, etc.
 type CISCOQOSPIBMIB_Qosdeviceattributetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The single instance of this class indicates specific attributes of the
@@ -559,69 +386,30 @@ type CISCOQOSPIBMIB_Qosdeviceattributetable struct {
     Qosdeviceattributeentry []CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry
 }
 
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetFilter() yfilter.YFilter { return qosdeviceattributetable.YFilter }
+func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetEntityData() *types.CommonEntityData {
+    qosdeviceattributetable.EntityData.YFilter = qosdeviceattributetable.YFilter
+    qosdeviceattributetable.EntityData.YangName = "qosDeviceAttributeTable"
+    qosdeviceattributetable.EntityData.BundleName = "cisco_ios_xe"
+    qosdeviceattributetable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosdeviceattributetable.EntityData.SegmentPath = "qosDeviceAttributeTable"
+    qosdeviceattributetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosdeviceattributetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosdeviceattributetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) SetFilter(yf yfilter.YFilter) { qosdeviceattributetable.YFilter = yf }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetGoName(yname string) string {
-    if yname == "qosDeviceAttributeEntry" { return "Qosdeviceattributeentry" }
-    return ""
-}
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetSegmentPath() string {
-    return "qosDeviceAttributeTable"
-}
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosDeviceAttributeEntry" {
-        for _, c := range qosdeviceattributetable.Qosdeviceattributeentry {
-            if qosdeviceattributetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry{}
-        qosdeviceattributetable.Qosdeviceattributeentry = append(qosdeviceattributetable.Qosdeviceattributeentry, child)
-        return &qosdeviceattributetable.Qosdeviceattributeentry[len(qosdeviceattributetable.Qosdeviceattributeentry)-1]
-    }
-    return nil
-}
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosdeviceattributetable.EntityData.Children = make(map[string]types.YChild)
+    qosdeviceattributetable.EntityData.Children["qosDeviceAttributeEntry"] = types.YChild{"Qosdeviceattributeentry", nil}
     for i := range qosdeviceattributetable.Qosdeviceattributeentry {
-        children[qosdeviceattributetable.Qosdeviceattributeentry[i].GetSegmentPath()] = &qosdeviceattributetable.Qosdeviceattributeentry[i]
+        qosdeviceattributetable.EntityData.Children[types.GetSegmentPath(&qosdeviceattributetable.Qosdeviceattributeentry[i])] = types.YChild{"Qosdeviceattributeentry", &qosdeviceattributetable.Qosdeviceattributeentry[i]}
     }
-    return children
+    qosdeviceattributetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosdeviceattributetable.EntityData)
 }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetYangName() string { return "qosDeviceAttributeTable" }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) SetParent(parent types.Entity) { qosdeviceattributetable.parent = parent }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetParent() types.Entity { return qosdeviceattributetable.parent }
-
-func (qosdeviceattributetable *CISCOQOSPIBMIB_Qosdeviceattributetable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry
 // The single instance of this class indicates specific
 // attributes of the device.
 type CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -635,13 +423,13 @@ type CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry struct {
 
     // The address of the PDP configured to be the primary PDP for the device. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Qosdeviceprimarypdp interface{}
 
     // The address of the PDP configured to be the secondary PDP for the device. 
     // An address of zero indicates no secondary is configured. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Qosdevicesecondarypdp interface{}
 
     // The maximum size message that this PEP is capable of receiving in bytes.  A
@@ -656,61 +444,26 @@ type CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry struct {
     Qosdevicecapabilities interface{}
 }
 
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetFilter() yfilter.YFilter { return qosdeviceattributeentry.YFilter }
+func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetEntityData() *types.CommonEntityData {
+    qosdeviceattributeentry.EntityData.YFilter = qosdeviceattributeentry.YFilter
+    qosdeviceattributeentry.EntityData.YangName = "qosDeviceAttributeEntry"
+    qosdeviceattributeentry.EntityData.BundleName = "cisco_ios_xe"
+    qosdeviceattributeentry.EntityData.ParentYangName = "qosDeviceAttributeTable"
+    qosdeviceattributeentry.EntityData.SegmentPath = "qosDeviceAttributeEntry" + "[qosDeviceAttributeId='" + fmt.Sprintf("%v", qosdeviceattributeentry.Qosdeviceattributeid) + "']"
+    qosdeviceattributeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosdeviceattributeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosdeviceattributeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) SetFilter(yf yfilter.YFilter) { qosdeviceattributeentry.YFilter = yf }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetGoName(yname string) string {
-    if yname == "qosDeviceAttributeId" { return "Qosdeviceattributeid" }
-    if yname == "qosDevicePepDomain" { return "Qosdevicepepdomain" }
-    if yname == "qosDevicePrimaryPdp" { return "Qosdeviceprimarypdp" }
-    if yname == "qosDeviceSecondaryPdp" { return "Qosdevicesecondarypdp" }
-    if yname == "qosDeviceMaxMessageSize" { return "Qosdevicemaxmessagesize" }
-    if yname == "qosDeviceCapabilities" { return "Qosdevicecapabilities" }
-    return ""
+    qosdeviceattributeentry.EntityData.Children = make(map[string]types.YChild)
+    qosdeviceattributeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosdeviceattributeentry.EntityData.Leafs["qosDeviceAttributeId"] = types.YLeaf{"Qosdeviceattributeid", qosdeviceattributeentry.Qosdeviceattributeid}
+    qosdeviceattributeentry.EntityData.Leafs["qosDevicePepDomain"] = types.YLeaf{"Qosdevicepepdomain", qosdeviceattributeentry.Qosdevicepepdomain}
+    qosdeviceattributeentry.EntityData.Leafs["qosDevicePrimaryPdp"] = types.YLeaf{"Qosdeviceprimarypdp", qosdeviceattributeentry.Qosdeviceprimarypdp}
+    qosdeviceattributeentry.EntityData.Leafs["qosDeviceSecondaryPdp"] = types.YLeaf{"Qosdevicesecondarypdp", qosdeviceattributeentry.Qosdevicesecondarypdp}
+    qosdeviceattributeentry.EntityData.Leafs["qosDeviceMaxMessageSize"] = types.YLeaf{"Qosdevicemaxmessagesize", qosdeviceattributeentry.Qosdevicemaxmessagesize}
+    qosdeviceattributeentry.EntityData.Leafs["qosDeviceCapabilities"] = types.YLeaf{"Qosdevicecapabilities", qosdeviceattributeentry.Qosdevicecapabilities}
+    return &(qosdeviceattributeentry.EntityData)
 }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetSegmentPath() string {
-    return "qosDeviceAttributeEntry" + "[qosDeviceAttributeId='" + fmt.Sprintf("%v", qosdeviceattributeentry.Qosdeviceattributeid) + "']"
-}
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosDeviceAttributeId"] = qosdeviceattributeentry.Qosdeviceattributeid
-    leafs["qosDevicePepDomain"] = qosdeviceattributeentry.Qosdevicepepdomain
-    leafs["qosDevicePrimaryPdp"] = qosdeviceattributeentry.Qosdeviceprimarypdp
-    leafs["qosDeviceSecondaryPdp"] = qosdeviceattributeentry.Qosdevicesecondarypdp
-    leafs["qosDeviceMaxMessageSize"] = qosdeviceattributeentry.Qosdevicemaxmessagesize
-    leafs["qosDeviceCapabilities"] = qosdeviceattributeentry.Qosdevicecapabilities
-    return leafs
-}
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetYangName() string { return "qosDeviceAttributeEntry" }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) SetParent(parent types.Entity) { qosdeviceattributeentry.parent = parent }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetParent() types.Entity { return qosdeviceattributeentry.parent }
-
-func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdeviceattributeentry) GetParentYangName() string { return "qosDeviceAttributeTable" }
 
 // CISCOQOSPIBMIB_Qosinterfacetypetable
 // This class describes the interface types of the interfaces
@@ -718,7 +471,7 @@ func (qosdeviceattributeentry *CISCOQOSPIBMIB_Qosdeviceattributetable_Qosdevicea
 // combination and capabilities of interfaces.  The PEP does not
 // report which specific interfaces have which characteristics.
 type CISCOQOSPIBMIB_Qosinterfacetypetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class describes a role combination for an interface
@@ -727,69 +480,30 @@ type CISCOQOSPIBMIB_Qosinterfacetypetable struct {
     Qosinterfacetypeentry []CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry
 }
 
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetFilter() yfilter.YFilter { return qosinterfacetypetable.YFilter }
+func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetEntityData() *types.CommonEntityData {
+    qosinterfacetypetable.EntityData.YFilter = qosinterfacetypetable.YFilter
+    qosinterfacetypetable.EntityData.YangName = "qosInterfaceTypeTable"
+    qosinterfacetypetable.EntityData.BundleName = "cisco_ios_xe"
+    qosinterfacetypetable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosinterfacetypetable.EntityData.SegmentPath = "qosInterfaceTypeTable"
+    qosinterfacetypetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosinterfacetypetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosinterfacetypetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) SetFilter(yf yfilter.YFilter) { qosinterfacetypetable.YFilter = yf }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetGoName(yname string) string {
-    if yname == "qosInterfaceTypeEntry" { return "Qosinterfacetypeentry" }
-    return ""
-}
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetSegmentPath() string {
-    return "qosInterfaceTypeTable"
-}
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosInterfaceTypeEntry" {
-        for _, c := range qosinterfacetypetable.Qosinterfacetypeentry {
-            if qosinterfacetypetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry{}
-        qosinterfacetypetable.Qosinterfacetypeentry = append(qosinterfacetypetable.Qosinterfacetypeentry, child)
-        return &qosinterfacetypetable.Qosinterfacetypeentry[len(qosinterfacetypetable.Qosinterfacetypeentry)-1]
-    }
-    return nil
-}
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosinterfacetypetable.EntityData.Children = make(map[string]types.YChild)
+    qosinterfacetypetable.EntityData.Children["qosInterfaceTypeEntry"] = types.YChild{"Qosinterfacetypeentry", nil}
     for i := range qosinterfacetypetable.Qosinterfacetypeentry {
-        children[qosinterfacetypetable.Qosinterfacetypeentry[i].GetSegmentPath()] = &qosinterfacetypetable.Qosinterfacetypeentry[i]
+        qosinterfacetypetable.EntityData.Children[types.GetSegmentPath(&qosinterfacetypetable.Qosinterfacetypeentry[i])] = types.YChild{"Qosinterfacetypeentry", &qosinterfacetypetable.Qosinterfacetypeentry[i]}
     }
-    return children
+    qosinterfacetypetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosinterfacetypetable.EntityData)
 }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetYangName() string { return "qosInterfaceTypeTable" }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) SetParent(parent types.Entity) { qosinterfacetypetable.parent = parent }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetParent() types.Entity { return qosinterfacetypetable.parent }
-
-func (qosinterfacetypetable *CISCOQOSPIBMIB_Qosinterfacetypetable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry
 // An instance of this class describes a role combination for
 // an interface type of an interface that exists on the device.
 type CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -809,57 +523,24 @@ type CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry struct {
     Qosinterfacetypecapabilities interface{}
 }
 
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetFilter() yfilter.YFilter { return qosinterfacetypeentry.YFilter }
+func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetEntityData() *types.CommonEntityData {
+    qosinterfacetypeentry.EntityData.YFilter = qosinterfacetypeentry.YFilter
+    qosinterfacetypeentry.EntityData.YangName = "qosInterfaceTypeEntry"
+    qosinterfacetypeentry.EntityData.BundleName = "cisco_ios_xe"
+    qosinterfacetypeentry.EntityData.ParentYangName = "qosInterfaceTypeTable"
+    qosinterfacetypeentry.EntityData.SegmentPath = "qosInterfaceTypeEntry" + "[qosInterfaceTypeId='" + fmt.Sprintf("%v", qosinterfacetypeentry.Qosinterfacetypeid) + "']"
+    qosinterfacetypeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosinterfacetypeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosinterfacetypeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) SetFilter(yf yfilter.YFilter) { qosinterfacetypeentry.YFilter = yf }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetGoName(yname string) string {
-    if yname == "qosInterfaceTypeId" { return "Qosinterfacetypeid" }
-    if yname == "qosInterfaceQueueType" { return "Qosinterfacequeuetype" }
-    if yname == "qosInterfaceTypeRoles" { return "Qosinterfacetyperoles" }
-    if yname == "qosInterfaceTypeCapabilities" { return "Qosinterfacetypecapabilities" }
-    return ""
+    qosinterfacetypeentry.EntityData.Children = make(map[string]types.YChild)
+    qosinterfacetypeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosinterfacetypeentry.EntityData.Leafs["qosInterfaceTypeId"] = types.YLeaf{"Qosinterfacetypeid", qosinterfacetypeentry.Qosinterfacetypeid}
+    qosinterfacetypeentry.EntityData.Leafs["qosInterfaceQueueType"] = types.YLeaf{"Qosinterfacequeuetype", qosinterfacetypeentry.Qosinterfacequeuetype}
+    qosinterfacetypeentry.EntityData.Leafs["qosInterfaceTypeRoles"] = types.YLeaf{"Qosinterfacetyperoles", qosinterfacetypeentry.Qosinterfacetyperoles}
+    qosinterfacetypeentry.EntityData.Leafs["qosInterfaceTypeCapabilities"] = types.YLeaf{"Qosinterfacetypecapabilities", qosinterfacetypeentry.Qosinterfacetypecapabilities}
+    return &(qosinterfacetypeentry.EntityData)
 }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetSegmentPath() string {
-    return "qosInterfaceTypeEntry" + "[qosInterfaceTypeId='" + fmt.Sprintf("%v", qosinterfacetypeentry.Qosinterfacetypeid) + "']"
-}
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosInterfaceTypeId"] = qosinterfacetypeentry.Qosinterfacetypeid
-    leafs["qosInterfaceQueueType"] = qosinterfacetypeentry.Qosinterfacequeuetype
-    leafs["qosInterfaceTypeRoles"] = qosinterfacetypeentry.Qosinterfacetyperoles
-    leafs["qosInterfaceTypeCapabilities"] = qosinterfacetypeentry.Qosinterfacetypecapabilities
-    return leafs
-}
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetYangName() string { return "qosInterfaceTypeEntry" }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) SetParent(parent types.Entity) { qosinterfacetypeentry.parent = parent }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetParent() types.Entity { return qosinterfacetypeentry.parent }
-
-func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacetypeentry) GetParentYangName() string { return "qosInterfaceTypeTable" }
 
 // CISCOQOSPIBMIB_Qosdiffservmappingtable
 // Maps each DSCP to a marked-down DSCP.  Also maps each DSCP to
@@ -869,7 +550,7 @@ func (qosinterfacetypeentry *CISCOQOSPIBMIB_Qosinterfacetypetable_Qosinterfacety
 // delete and install in a single decision) but not deleted
 // unless all instances are deleted.
 type CISCOQOSPIBMIB_Qosdiffservmappingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class represents mappings from a DSCP. The type is
@@ -877,68 +558,29 @@ type CISCOQOSPIBMIB_Qosdiffservmappingtable struct {
     Qosdiffservmappingentry []CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry
 }
 
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetFilter() yfilter.YFilter { return qosdiffservmappingtable.YFilter }
+func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetEntityData() *types.CommonEntityData {
+    qosdiffservmappingtable.EntityData.YFilter = qosdiffservmappingtable.YFilter
+    qosdiffservmappingtable.EntityData.YangName = "qosDiffServMappingTable"
+    qosdiffservmappingtable.EntityData.BundleName = "cisco_ios_xe"
+    qosdiffservmappingtable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosdiffservmappingtable.EntityData.SegmentPath = "qosDiffServMappingTable"
+    qosdiffservmappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosdiffservmappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosdiffservmappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) SetFilter(yf yfilter.YFilter) { qosdiffservmappingtable.YFilter = yf }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetGoName(yname string) string {
-    if yname == "qosDiffServMappingEntry" { return "Qosdiffservmappingentry" }
-    return ""
-}
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetSegmentPath() string {
-    return "qosDiffServMappingTable"
-}
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosDiffServMappingEntry" {
-        for _, c := range qosdiffservmappingtable.Qosdiffservmappingentry {
-            if qosdiffservmappingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry{}
-        qosdiffservmappingtable.Qosdiffservmappingentry = append(qosdiffservmappingtable.Qosdiffservmappingentry, child)
-        return &qosdiffservmappingtable.Qosdiffservmappingentry[len(qosdiffservmappingtable.Qosdiffservmappingentry)-1]
-    }
-    return nil
-}
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosdiffservmappingtable.EntityData.Children = make(map[string]types.YChild)
+    qosdiffservmappingtable.EntityData.Children["qosDiffServMappingEntry"] = types.YChild{"Qosdiffservmappingentry", nil}
     for i := range qosdiffservmappingtable.Qosdiffservmappingentry {
-        children[qosdiffservmappingtable.Qosdiffservmappingentry[i].GetSegmentPath()] = &qosdiffservmappingtable.Qosdiffservmappingentry[i]
+        qosdiffservmappingtable.EntityData.Children[types.GetSegmentPath(&qosdiffservmappingtable.Qosdiffservmappingentry[i])] = types.YChild{"Qosdiffservmappingentry", &qosdiffservmappingtable.Qosdiffservmappingentry[i]}
     }
-    return children
+    qosdiffservmappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosdiffservmappingtable.EntityData)
 }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetYangName() string { return "qosDiffServMappingTable" }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) SetParent(parent types.Entity) { qosdiffservmappingtable.parent = parent }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetParent() types.Entity { return qosdiffservmappingtable.parent }
-
-func (qosdiffservmappingtable *CISCOQOSPIBMIB_Qosdiffservmappingtable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry
 // An instance of this class represents mappings from a DSCP.
 type CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A DSCP for which this entry contains mappings. The
@@ -954,55 +596,23 @@ type CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry struct {
     Qosl2Cos interface{}
 }
 
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetFilter() yfilter.YFilter { return qosdiffservmappingentry.YFilter }
+func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetEntityData() *types.CommonEntityData {
+    qosdiffservmappingentry.EntityData.YFilter = qosdiffservmappingentry.YFilter
+    qosdiffservmappingentry.EntityData.YangName = "qosDiffServMappingEntry"
+    qosdiffservmappingentry.EntityData.BundleName = "cisco_ios_xe"
+    qosdiffservmappingentry.EntityData.ParentYangName = "qosDiffServMappingTable"
+    qosdiffservmappingentry.EntityData.SegmentPath = "qosDiffServMappingEntry" + "[qosDscp='" + fmt.Sprintf("%v", qosdiffservmappingentry.Qosdscp) + "']"
+    qosdiffservmappingentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosdiffservmappingentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosdiffservmappingentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) SetFilter(yf yfilter.YFilter) { qosdiffservmappingentry.YFilter = yf }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetGoName(yname string) string {
-    if yname == "qosDscp" { return "Qosdscp" }
-    if yname == "qosMarkedDscp" { return "Qosmarkeddscp" }
-    if yname == "qosL2Cos" { return "Qosl2Cos" }
-    return ""
+    qosdiffservmappingentry.EntityData.Children = make(map[string]types.YChild)
+    qosdiffservmappingentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosdiffservmappingentry.EntityData.Leafs["qosDscp"] = types.YLeaf{"Qosdscp", qosdiffservmappingentry.Qosdscp}
+    qosdiffservmappingentry.EntityData.Leafs["qosMarkedDscp"] = types.YLeaf{"Qosmarkeddscp", qosdiffservmappingentry.Qosmarkeddscp}
+    qosdiffservmappingentry.EntityData.Leafs["qosL2Cos"] = types.YLeaf{"Qosl2Cos", qosdiffservmappingentry.Qosl2Cos}
+    return &(qosdiffservmappingentry.EntityData)
 }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetSegmentPath() string {
-    return "qosDiffServMappingEntry" + "[qosDscp='" + fmt.Sprintf("%v", qosdiffservmappingentry.Qosdscp) + "']"
-}
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosDscp"] = qosdiffservmappingentry.Qosdscp
-    leafs["qosMarkedDscp"] = qosdiffservmappingentry.Qosmarkeddscp
-    leafs["qosL2Cos"] = qosdiffservmappingentry.Qosl2Cos
-    return leafs
-}
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetYangName() string { return "qosDiffServMappingEntry" }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) SetParent(parent types.Entity) { qosdiffservmappingentry.parent = parent }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetParent() types.Entity { return qosdiffservmappingentry.parent }
-
-func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffservmappingentry) GetParentYangName() string { return "qosDiffServMappingTable" }
 
 // CISCOQOSPIBMIB_Qoscostodscptable
 // Maps each of eight CoS values to a DSCP.  When configured for
@@ -1011,7 +621,7 @@ func (qosdiffservmappingentry *CISCOQOSPIBMIB_Qosdiffservmappingtable_Qosdiffser
 // delete and install in a single decision) but not deleted
 // unless all instances are deleted.
 type CISCOQOSPIBMIB_Qoscostodscptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class maps a CoS value to a DSCP. The type is slice of
@@ -1019,68 +629,29 @@ type CISCOQOSPIBMIB_Qoscostodscptable struct {
     Qoscostodscpentry []CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry
 }
 
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetFilter() yfilter.YFilter { return qoscostodscptable.YFilter }
+func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetEntityData() *types.CommonEntityData {
+    qoscostodscptable.EntityData.YFilter = qoscostodscptable.YFilter
+    qoscostodscptable.EntityData.YangName = "qosCosToDscpTable"
+    qoscostodscptable.EntityData.BundleName = "cisco_ios_xe"
+    qoscostodscptable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qoscostodscptable.EntityData.SegmentPath = "qosCosToDscpTable"
+    qoscostodscptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qoscostodscptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qoscostodscptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) SetFilter(yf yfilter.YFilter) { qoscostodscptable.YFilter = yf }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetGoName(yname string) string {
-    if yname == "qosCosToDscpEntry" { return "Qoscostodscpentry" }
-    return ""
-}
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetSegmentPath() string {
-    return "qosCosToDscpTable"
-}
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosCosToDscpEntry" {
-        for _, c := range qoscostodscptable.Qoscostodscpentry {
-            if qoscostodscptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry{}
-        qoscostodscptable.Qoscostodscpentry = append(qoscostodscptable.Qoscostodscpentry, child)
-        return &qoscostodscptable.Qoscostodscpentry[len(qoscostodscptable.Qoscostodscpentry)-1]
-    }
-    return nil
-}
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qoscostodscptable.EntityData.Children = make(map[string]types.YChild)
+    qoscostodscptable.EntityData.Children["qosCosToDscpEntry"] = types.YChild{"Qoscostodscpentry", nil}
     for i := range qoscostodscptable.Qoscostodscpentry {
-        children[qoscostodscptable.Qoscostodscpentry[i].GetSegmentPath()] = &qoscostodscptable.Qoscostodscpentry[i]
+        qoscostodscptable.EntityData.Children[types.GetSegmentPath(&qoscostodscptable.Qoscostodscpentry[i])] = types.YChild{"Qoscostodscpentry", &qoscostodscptable.Qoscostodscpentry[i]}
     }
-    return children
+    qoscostodscptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qoscostodscptable.EntityData)
 }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetYangName() string { return "qosCosToDscpTable" }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) SetParent(parent types.Entity) { qoscostodscptable.parent = parent }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetParent() types.Entity { return qoscostodscptable.parent }
-
-func (qoscostodscptable *CISCOQOSPIBMIB_Qoscostodscptable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry
 // An instance of this class maps a CoS value to a DSCP.
 type CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The L2 CoS value that is being mapped. The type is
@@ -1092,60 +663,29 @@ type CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry struct {
     Qoscostodscpdscp interface{}
 }
 
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetFilter() yfilter.YFilter { return qoscostodscpentry.YFilter }
+func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetEntityData() *types.CommonEntityData {
+    qoscostodscpentry.EntityData.YFilter = qoscostodscpentry.YFilter
+    qoscostodscpentry.EntityData.YangName = "qosCosToDscpEntry"
+    qoscostodscpentry.EntityData.BundleName = "cisco_ios_xe"
+    qoscostodscpentry.EntityData.ParentYangName = "qosCosToDscpTable"
+    qoscostodscpentry.EntityData.SegmentPath = "qosCosToDscpEntry" + "[qosCosToDscpCos='" + fmt.Sprintf("%v", qoscostodscpentry.Qoscostodscpcos) + "']"
+    qoscostodscpentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qoscostodscpentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qoscostodscpentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) SetFilter(yf yfilter.YFilter) { qoscostodscpentry.YFilter = yf }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetGoName(yname string) string {
-    if yname == "qosCosToDscpCos" { return "Qoscostodscpcos" }
-    if yname == "qosCosToDscpDscp" { return "Qoscostodscpdscp" }
-    return ""
+    qoscostodscpentry.EntityData.Children = make(map[string]types.YChild)
+    qoscostodscpentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qoscostodscpentry.EntityData.Leafs["qosCosToDscpCos"] = types.YLeaf{"Qoscostodscpcos", qoscostodscpentry.Qoscostodscpcos}
+    qoscostodscpentry.EntityData.Leafs["qosCosToDscpDscp"] = types.YLeaf{"Qoscostodscpdscp", qoscostodscpentry.Qoscostodscpdscp}
+    return &(qoscostodscpentry.EntityData)
 }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetSegmentPath() string {
-    return "qosCosToDscpEntry" + "[qosCosToDscpCos='" + fmt.Sprintf("%v", qoscostodscpentry.Qoscostodscpcos) + "']"
-}
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosCosToDscpCos"] = qoscostodscpentry.Qoscostodscpcos
-    leafs["qosCosToDscpDscp"] = qoscostodscpentry.Qoscostodscpdscp
-    return leafs
-}
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetYangName() string { return "qosCosToDscpEntry" }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) SetParent(parent types.Entity) { qoscostodscpentry.parent = parent }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetParent() types.Entity { return qoscostodscpentry.parent }
-
-func (qoscostodscpentry *CISCOQOSPIBMIB_Qoscostodscptable_Qoscostodscpentry) GetParentYangName() string { return "qosCosToDscpTable" }
 
 // CISCOQOSPIBMIB_Qosunmatchedpolicytable
 // A policy class that specifies what QoS to apply to a packet
 // that does not match any other policy configured for this role
 // combination for a particular direction of traffic.
 type CISCOQOSPIBMIB_Qosunmatchedpolicytable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies the unmatched policy for a particular
@@ -1154,70 +694,31 @@ type CISCOQOSPIBMIB_Qosunmatchedpolicytable struct {
     Qosunmatchedpolicyentry []CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry
 }
 
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetFilter() yfilter.YFilter { return qosunmatchedpolicytable.YFilter }
+func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetEntityData() *types.CommonEntityData {
+    qosunmatchedpolicytable.EntityData.YFilter = qosunmatchedpolicytable.YFilter
+    qosunmatchedpolicytable.EntityData.YangName = "qosUnmatchedPolicyTable"
+    qosunmatchedpolicytable.EntityData.BundleName = "cisco_ios_xe"
+    qosunmatchedpolicytable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosunmatchedpolicytable.EntityData.SegmentPath = "qosUnmatchedPolicyTable"
+    qosunmatchedpolicytable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosunmatchedpolicytable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosunmatchedpolicytable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) SetFilter(yf yfilter.YFilter) { qosunmatchedpolicytable.YFilter = yf }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetGoName(yname string) string {
-    if yname == "qosUnmatchedPolicyEntry" { return "Qosunmatchedpolicyentry" }
-    return ""
-}
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetSegmentPath() string {
-    return "qosUnmatchedPolicyTable"
-}
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosUnmatchedPolicyEntry" {
-        for _, c := range qosunmatchedpolicytable.Qosunmatchedpolicyentry {
-            if qosunmatchedpolicytable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry{}
-        qosunmatchedpolicytable.Qosunmatchedpolicyentry = append(qosunmatchedpolicytable.Qosunmatchedpolicyentry, child)
-        return &qosunmatchedpolicytable.Qosunmatchedpolicyentry[len(qosunmatchedpolicytable.Qosunmatchedpolicyentry)-1]
-    }
-    return nil
-}
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosunmatchedpolicytable.EntityData.Children = make(map[string]types.YChild)
+    qosunmatchedpolicytable.EntityData.Children["qosUnmatchedPolicyEntry"] = types.YChild{"Qosunmatchedpolicyentry", nil}
     for i := range qosunmatchedpolicytable.Qosunmatchedpolicyentry {
-        children[qosunmatchedpolicytable.Qosunmatchedpolicyentry[i].GetSegmentPath()] = &qosunmatchedpolicytable.Qosunmatchedpolicyentry[i]
+        qosunmatchedpolicytable.EntityData.Children[types.GetSegmentPath(&qosunmatchedpolicytable.Qosunmatchedpolicyentry[i])] = types.YChild{"Qosunmatchedpolicyentry", &qosunmatchedpolicytable.Qosunmatchedpolicyentry[i]}
     }
-    return children
+    qosunmatchedpolicytable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosunmatchedpolicytable.EntityData)
 }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetYangName() string { return "qosUnmatchedPolicyTable" }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) SetParent(parent types.Entity) { qosunmatchedpolicytable.parent = parent }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetParent() types.Entity { return qosunmatchedpolicytable.parent }
-
-func (qosunmatchedpolicytable *CISCOQOSPIBMIB_Qosunmatchedpolicytable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry
 // An instance of this class specifies the unmatched policy
 // for a particular role combination for incoming or outgoing
 // traffic.
 type CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -1263,63 +764,27 @@ type CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry struct {
     Qosunmatchedpolicyaggregateid interface{}
 }
 
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetFilter() yfilter.YFilter { return qosunmatchedpolicyentry.YFilter }
+func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetEntityData() *types.CommonEntityData {
+    qosunmatchedpolicyentry.EntityData.YFilter = qosunmatchedpolicyentry.YFilter
+    qosunmatchedpolicyentry.EntityData.YangName = "qosUnmatchedPolicyEntry"
+    qosunmatchedpolicyentry.EntityData.BundleName = "cisco_ios_xe"
+    qosunmatchedpolicyentry.EntityData.ParentYangName = "qosUnmatchedPolicyTable"
+    qosunmatchedpolicyentry.EntityData.SegmentPath = "qosUnmatchedPolicyEntry" + "[qosUnmatchedPolicyId='" + fmt.Sprintf("%v", qosunmatchedpolicyentry.Qosunmatchedpolicyid) + "']"
+    qosunmatchedpolicyentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosunmatchedpolicyentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosunmatchedpolicyentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) SetFilter(yf yfilter.YFilter) { qosunmatchedpolicyentry.YFilter = yf }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetGoName(yname string) string {
-    if yname == "qosUnmatchedPolicyId" { return "Qosunmatchedpolicyid" }
-    if yname == "qosUnmatchedPolicyRole" { return "Qosunmatchedpolicyrole" }
-    if yname == "qosUnmatchedPolicyDirection" { return "Qosunmatchedpolicydirection" }
-    if yname == "qosUnmatchedPolicyDscp" { return "Qosunmatchedpolicydscp" }
-    if yname == "qosUnmatchedPolicyDscpTrusted" { return "Qosunmatchedpolicydscptrusted" }
-    if yname == "qosUnmatchPolMicroFlowPolicerId" { return "Qosunmatchpolmicroflowpolicerid" }
-    if yname == "qosUnmatchedPolicyAggregateId" { return "Qosunmatchedpolicyaggregateid" }
-    return ""
+    qosunmatchedpolicyentry.EntityData.Children = make(map[string]types.YChild)
+    qosunmatchedpolicyentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchedPolicyId"] = types.YLeaf{"Qosunmatchedpolicyid", qosunmatchedpolicyentry.Qosunmatchedpolicyid}
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchedPolicyRole"] = types.YLeaf{"Qosunmatchedpolicyrole", qosunmatchedpolicyentry.Qosunmatchedpolicyrole}
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchedPolicyDirection"] = types.YLeaf{"Qosunmatchedpolicydirection", qosunmatchedpolicyentry.Qosunmatchedpolicydirection}
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchedPolicyDscp"] = types.YLeaf{"Qosunmatchedpolicydscp", qosunmatchedpolicyentry.Qosunmatchedpolicydscp}
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchedPolicyDscpTrusted"] = types.YLeaf{"Qosunmatchedpolicydscptrusted", qosunmatchedpolicyentry.Qosunmatchedpolicydscptrusted}
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchPolMicroFlowPolicerId"] = types.YLeaf{"Qosunmatchpolmicroflowpolicerid", qosunmatchedpolicyentry.Qosunmatchpolmicroflowpolicerid}
+    qosunmatchedpolicyentry.EntityData.Leafs["qosUnmatchedPolicyAggregateId"] = types.YLeaf{"Qosunmatchedpolicyaggregateid", qosunmatchedpolicyentry.Qosunmatchedpolicyaggregateid}
+    return &(qosunmatchedpolicyentry.EntityData)
 }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetSegmentPath() string {
-    return "qosUnmatchedPolicyEntry" + "[qosUnmatchedPolicyId='" + fmt.Sprintf("%v", qosunmatchedpolicyentry.Qosunmatchedpolicyid) + "']"
-}
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosUnmatchedPolicyId"] = qosunmatchedpolicyentry.Qosunmatchedpolicyid
-    leafs["qosUnmatchedPolicyRole"] = qosunmatchedpolicyentry.Qosunmatchedpolicyrole
-    leafs["qosUnmatchedPolicyDirection"] = qosunmatchedpolicyentry.Qosunmatchedpolicydirection
-    leafs["qosUnmatchedPolicyDscp"] = qosunmatchedpolicyentry.Qosunmatchedpolicydscp
-    leafs["qosUnmatchedPolicyDscpTrusted"] = qosunmatchedpolicyentry.Qosunmatchedpolicydscptrusted
-    leafs["qosUnmatchPolMicroFlowPolicerId"] = qosunmatchedpolicyentry.Qosunmatchpolmicroflowpolicerid
-    leafs["qosUnmatchedPolicyAggregateId"] = qosunmatchedpolicyentry.Qosunmatchedpolicyaggregateid
-    return leafs
-}
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetYangName() string { return "qosUnmatchedPolicyEntry" }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) SetParent(parent types.Entity) { qosunmatchedpolicyentry.parent = parent }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetParent() types.Entity { return qosunmatchedpolicyentry.parent }
-
-func (qosunmatchedpolicyentry *CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry) GetParentYangName() string { return "qosUnmatchedPolicyTable" }
 
 // CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry_Qosunmatchedpolicydirection represents which this instance applies.
 type CISCOQOSPIBMIB_Qosunmatchedpolicytable_Qosunmatchedpolicyentry_Qosunmatchedpolicydirection string
@@ -1336,7 +801,7 @@ const (
 // according to a token bucket scheme where an average rate and
 // burst size is specified.
 type CISCOQOSPIBMIB_Qospolicertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies a set of policing parameters. The type
@@ -1344,69 +809,30 @@ type CISCOQOSPIBMIB_Qospolicertable struct {
     Qospolicerentry []CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry
 }
 
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetFilter() yfilter.YFilter { return qospolicertable.YFilter }
+func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetEntityData() *types.CommonEntityData {
+    qospolicertable.EntityData.YFilter = qospolicertable.YFilter
+    qospolicertable.EntityData.YangName = "qosPolicerTable"
+    qospolicertable.EntityData.BundleName = "cisco_ios_xe"
+    qospolicertable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qospolicertable.EntityData.SegmentPath = "qosPolicerTable"
+    qospolicertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qospolicertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qospolicertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) SetFilter(yf yfilter.YFilter) { qospolicertable.YFilter = yf }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetGoName(yname string) string {
-    if yname == "qosPolicerEntry" { return "Qospolicerentry" }
-    return ""
-}
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetSegmentPath() string {
-    return "qosPolicerTable"
-}
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosPolicerEntry" {
-        for _, c := range qospolicertable.Qospolicerentry {
-            if qospolicertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry{}
-        qospolicertable.Qospolicerentry = append(qospolicertable.Qospolicerentry, child)
-        return &qospolicertable.Qospolicerentry[len(qospolicertable.Qospolicerentry)-1]
-    }
-    return nil
-}
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qospolicertable.EntityData.Children = make(map[string]types.YChild)
+    qospolicertable.EntityData.Children["qosPolicerEntry"] = types.YChild{"Qospolicerentry", nil}
     for i := range qospolicertable.Qospolicerentry {
-        children[qospolicertable.Qospolicerentry[i].GetSegmentPath()] = &qospolicertable.Qospolicerentry[i]
+        qospolicertable.EntityData.Children[types.GetSegmentPath(&qospolicertable.Qospolicerentry[i])] = types.YChild{"Qospolicerentry", &qospolicertable.Qospolicerentry[i]}
     }
-    return children
+    qospolicertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qospolicertable.EntityData)
 }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetYangName() string { return "qosPolicerTable" }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) SetParent(parent types.Entity) { qospolicertable.parent = parent }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetParent() types.Entity { return qospolicertable.parent }
-
-func (qospolicertable *CISCOQOSPIBMIB_Qospolicertable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry
 // An instance of this class specifies a set of policing
 // parameters.
 type CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -1433,59 +859,25 @@ type CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry struct {
     Qospoliceraction interface{}
 }
 
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetFilter() yfilter.YFilter { return qospolicerentry.YFilter }
+func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetEntityData() *types.CommonEntityData {
+    qospolicerentry.EntityData.YFilter = qospolicerentry.YFilter
+    qospolicerentry.EntityData.YangName = "qosPolicerEntry"
+    qospolicerentry.EntityData.BundleName = "cisco_ios_xe"
+    qospolicerentry.EntityData.ParentYangName = "qosPolicerTable"
+    qospolicerentry.EntityData.SegmentPath = "qosPolicerEntry" + "[qosPolicerId='" + fmt.Sprintf("%v", qospolicerentry.Qospolicerid) + "']"
+    qospolicerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qospolicerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qospolicerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) SetFilter(yf yfilter.YFilter) { qospolicerentry.YFilter = yf }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetGoName(yname string) string {
-    if yname == "qosPolicerId" { return "Qospolicerid" }
-    if yname == "qosPolicerRate" { return "Qospolicerrate" }
-    if yname == "qosPolicerNormalBurst" { return "Qospolicernormalburst" }
-    if yname == "qosPolicerExcessBurst" { return "Qospolicerexcessburst" }
-    if yname == "qosPolicerAction" { return "Qospoliceraction" }
-    return ""
+    qospolicerentry.EntityData.Children = make(map[string]types.YChild)
+    qospolicerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qospolicerentry.EntityData.Leafs["qosPolicerId"] = types.YLeaf{"Qospolicerid", qospolicerentry.Qospolicerid}
+    qospolicerentry.EntityData.Leafs["qosPolicerRate"] = types.YLeaf{"Qospolicerrate", qospolicerentry.Qospolicerrate}
+    qospolicerentry.EntityData.Leafs["qosPolicerNormalBurst"] = types.YLeaf{"Qospolicernormalburst", qospolicerentry.Qospolicernormalburst}
+    qospolicerentry.EntityData.Leafs["qosPolicerExcessBurst"] = types.YLeaf{"Qospolicerexcessburst", qospolicerentry.Qospolicerexcessburst}
+    qospolicerentry.EntityData.Leafs["qosPolicerAction"] = types.YLeaf{"Qospoliceraction", qospolicerentry.Qospoliceraction}
+    return &(qospolicerentry.EntityData)
 }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetSegmentPath() string {
-    return "qosPolicerEntry" + "[qosPolicerId='" + fmt.Sprintf("%v", qospolicerentry.Qospolicerid) + "']"
-}
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosPolicerId"] = qospolicerentry.Qospolicerid
-    leafs["qosPolicerRate"] = qospolicerentry.Qospolicerrate
-    leafs["qosPolicerNormalBurst"] = qospolicerentry.Qospolicernormalburst
-    leafs["qosPolicerExcessBurst"] = qospolicerentry.Qospolicerexcessburst
-    leafs["qosPolicerAction"] = qospolicerentry.Qospoliceraction
-    return leafs
-}
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetYangName() string { return "qosPolicerEntry" }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) SetParent(parent types.Entity) { qospolicerentry.parent = parent }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetParent() types.Entity { return qospolicerentry.parent }
-
-func (qospolicerentry *CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry) GetParentYangName() string { return "qosPolicerTable" }
 
 // CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry_Qospoliceraction represents specified by qosPolicerRate.
 type CISCOQOSPIBMIB_Qospolicertable_Qospolicerentry_Qospoliceraction string
@@ -1502,7 +894,7 @@ const (
 // Instances of this class identify aggregate flows and the
 // policer to apply to each.
 type CISCOQOSPIBMIB_Qosaggregatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies the policer to apply to an aggregate
@@ -1511,69 +903,30 @@ type CISCOQOSPIBMIB_Qosaggregatetable struct {
     Qosaggregateentry []CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry
 }
 
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetFilter() yfilter.YFilter { return qosaggregatetable.YFilter }
+func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetEntityData() *types.CommonEntityData {
+    qosaggregatetable.EntityData.YFilter = qosaggregatetable.YFilter
+    qosaggregatetable.EntityData.YangName = "qosAggregateTable"
+    qosaggregatetable.EntityData.BundleName = "cisco_ios_xe"
+    qosaggregatetable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosaggregatetable.EntityData.SegmentPath = "qosAggregateTable"
+    qosaggregatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosaggregatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosaggregatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) SetFilter(yf yfilter.YFilter) { qosaggregatetable.YFilter = yf }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetGoName(yname string) string {
-    if yname == "qosAggregateEntry" { return "Qosaggregateentry" }
-    return ""
-}
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetSegmentPath() string {
-    return "qosAggregateTable"
-}
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosAggregateEntry" {
-        for _, c := range qosaggregatetable.Qosaggregateentry {
-            if qosaggregatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry{}
-        qosaggregatetable.Qosaggregateentry = append(qosaggregatetable.Qosaggregateentry, child)
-        return &qosaggregatetable.Qosaggregateentry[len(qosaggregatetable.Qosaggregateentry)-1]
-    }
-    return nil
-}
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosaggregatetable.EntityData.Children = make(map[string]types.YChild)
+    qosaggregatetable.EntityData.Children["qosAggregateEntry"] = types.YChild{"Qosaggregateentry", nil}
     for i := range qosaggregatetable.Qosaggregateentry {
-        children[qosaggregatetable.Qosaggregateentry[i].GetSegmentPath()] = &qosaggregatetable.Qosaggregateentry[i]
+        qosaggregatetable.EntityData.Children[types.GetSegmentPath(&qosaggregatetable.Qosaggregateentry[i])] = types.YChild{"Qosaggregateentry", &qosaggregatetable.Qosaggregateentry[i]}
     }
-    return children
+    qosaggregatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosaggregatetable.EntityData)
 }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetYangName() string { return "qosAggregateTable" }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) SetParent(parent types.Entity) { qosaggregatetable.parent = parent }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetParent() types.Entity { return qosaggregatetable.parent }
-
-func (qosaggregatetable *CISCOQOSPIBMIB_Qosaggregatetable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry
 // An instance of this class specifies the policer to apply to
 // an aggregate flow.
 type CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -1586,58 +939,27 @@ type CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry struct {
     Qosaggregatepolicerid interface{}
 }
 
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetFilter() yfilter.YFilter { return qosaggregateentry.YFilter }
+func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetEntityData() *types.CommonEntityData {
+    qosaggregateentry.EntityData.YFilter = qosaggregateentry.YFilter
+    qosaggregateentry.EntityData.YangName = "qosAggregateEntry"
+    qosaggregateentry.EntityData.BundleName = "cisco_ios_xe"
+    qosaggregateentry.EntityData.ParentYangName = "qosAggregateTable"
+    qosaggregateentry.EntityData.SegmentPath = "qosAggregateEntry" + "[qosAggregateId='" + fmt.Sprintf("%v", qosaggregateentry.Qosaggregateid) + "']"
+    qosaggregateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosaggregateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosaggregateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) SetFilter(yf yfilter.YFilter) { qosaggregateentry.YFilter = yf }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetGoName(yname string) string {
-    if yname == "qosAggregateId" { return "Qosaggregateid" }
-    if yname == "qosAggregatePolicerId" { return "Qosaggregatepolicerid" }
-    return ""
+    qosaggregateentry.EntityData.Children = make(map[string]types.YChild)
+    qosaggregateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosaggregateentry.EntityData.Leafs["qosAggregateId"] = types.YLeaf{"Qosaggregateid", qosaggregateentry.Qosaggregateid}
+    qosaggregateentry.EntityData.Leafs["qosAggregatePolicerId"] = types.YLeaf{"Qosaggregatepolicerid", qosaggregateentry.Qosaggregatepolicerid}
+    return &(qosaggregateentry.EntityData)
 }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetSegmentPath() string {
-    return "qosAggregateEntry" + "[qosAggregateId='" + fmt.Sprintf("%v", qosaggregateentry.Qosaggregateid) + "']"
-}
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosAggregateId"] = qosaggregateentry.Qosaggregateid
-    leafs["qosAggregatePolicerId"] = qosaggregateentry.Qosaggregatepolicerid
-    return leafs
-}
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetYangName() string { return "qosAggregateEntry" }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) SetParent(parent types.Entity) { qosaggregateentry.parent = parent }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetParent() types.Entity { return qosaggregateentry.parent }
-
-func (qosaggregateentry *CISCOQOSPIBMIB_Qosaggregatetable_Qosaggregateentry) GetParentYangName() string { return "qosAggregateTable" }
 
 // CISCOQOSPIBMIB_Qosmacclassificationtable
 // A class of MAC/Vlan tuples and their associated CoS values.
 type CISCOQOSPIBMIB_Qosmacclassificationtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies the mapping of a VLAN and a MAC address
@@ -1646,69 +968,30 @@ type CISCOQOSPIBMIB_Qosmacclassificationtable struct {
     Qosmacclassificationentry []CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry
 }
 
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetFilter() yfilter.YFilter { return qosmacclassificationtable.YFilter }
+func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetEntityData() *types.CommonEntityData {
+    qosmacclassificationtable.EntityData.YFilter = qosmacclassificationtable.YFilter
+    qosmacclassificationtable.EntityData.YangName = "qosMacClassificationTable"
+    qosmacclassificationtable.EntityData.BundleName = "cisco_ios_xe"
+    qosmacclassificationtable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosmacclassificationtable.EntityData.SegmentPath = "qosMacClassificationTable"
+    qosmacclassificationtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosmacclassificationtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosmacclassificationtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) SetFilter(yf yfilter.YFilter) { qosmacclassificationtable.YFilter = yf }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetGoName(yname string) string {
-    if yname == "qosMacClassificationEntry" { return "Qosmacclassificationentry" }
-    return ""
-}
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetSegmentPath() string {
-    return "qosMacClassificationTable"
-}
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosMacClassificationEntry" {
-        for _, c := range qosmacclassificationtable.Qosmacclassificationentry {
-            if qosmacclassificationtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry{}
-        qosmacclassificationtable.Qosmacclassificationentry = append(qosmacclassificationtable.Qosmacclassificationentry, child)
-        return &qosmacclassificationtable.Qosmacclassificationentry[len(qosmacclassificationtable.Qosmacclassificationentry)-1]
-    }
-    return nil
-}
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosmacclassificationtable.EntityData.Children = make(map[string]types.YChild)
+    qosmacclassificationtable.EntityData.Children["qosMacClassificationEntry"] = types.YChild{"Qosmacclassificationentry", nil}
     for i := range qosmacclassificationtable.Qosmacclassificationentry {
-        children[qosmacclassificationtable.Qosmacclassificationentry[i].GetSegmentPath()] = &qosmacclassificationtable.Qosmacclassificationentry[i]
+        qosmacclassificationtable.EntityData.Children[types.GetSegmentPath(&qosmacclassificationtable.Qosmacclassificationentry[i])] = types.YChild{"Qosmacclassificationentry", &qosmacclassificationtable.Qosmacclassificationentry[i]}
     }
-    return children
+    qosmacclassificationtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosmacclassificationtable.EntityData)
 }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetYangName() string { return "qosMacClassificationTable" }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) SetParent(parent types.Entity) { qosmacclassificationtable.parent = parent }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetParent() types.Entity { return qosmacclassificationtable.parent }
-
-func (qosmacclassificationtable *CISCOQOSPIBMIB_Qosmacclassificationtable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry
 // An instance of this class specifies the mapping of a VLAN
 // and a MAC address to a CoS value.
 type CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -1720,7 +1003,7 @@ type CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry struct {
     Qosdstmacvlan interface{}
 
     // The destination MAC address of the L2 frame. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Qosdstmacaddress interface{}
 
     // The CoS to assign the packet with the associated MAC/VLAN tuple.  Note that
@@ -1729,62 +1012,29 @@ type CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry struct {
     Qosdstmaccos interface{}
 }
 
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetFilter() yfilter.YFilter { return qosmacclassificationentry.YFilter }
+func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetEntityData() *types.CommonEntityData {
+    qosmacclassificationentry.EntityData.YFilter = qosmacclassificationentry.YFilter
+    qosmacclassificationentry.EntityData.YangName = "qosMacClassificationEntry"
+    qosmacclassificationentry.EntityData.BundleName = "cisco_ios_xe"
+    qosmacclassificationentry.EntityData.ParentYangName = "qosMacClassificationTable"
+    qosmacclassificationentry.EntityData.SegmentPath = "qosMacClassificationEntry" + "[qosMacClassificationId='" + fmt.Sprintf("%v", qosmacclassificationentry.Qosmacclassificationid) + "']"
+    qosmacclassificationentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosmacclassificationentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosmacclassificationentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) SetFilter(yf yfilter.YFilter) { qosmacclassificationentry.YFilter = yf }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetGoName(yname string) string {
-    if yname == "qosMacClassificationId" { return "Qosmacclassificationid" }
-    if yname == "qosDstMacVlan" { return "Qosdstmacvlan" }
-    if yname == "qosDstMacAddress" { return "Qosdstmacaddress" }
-    if yname == "qosDstMacCos" { return "Qosdstmaccos" }
-    return ""
+    qosmacclassificationentry.EntityData.Children = make(map[string]types.YChild)
+    qosmacclassificationentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosmacclassificationentry.EntityData.Leafs["qosMacClassificationId"] = types.YLeaf{"Qosmacclassificationid", qosmacclassificationentry.Qosmacclassificationid}
+    qosmacclassificationentry.EntityData.Leafs["qosDstMacVlan"] = types.YLeaf{"Qosdstmacvlan", qosmacclassificationentry.Qosdstmacvlan}
+    qosmacclassificationentry.EntityData.Leafs["qosDstMacAddress"] = types.YLeaf{"Qosdstmacaddress", qosmacclassificationentry.Qosdstmacaddress}
+    qosmacclassificationentry.EntityData.Leafs["qosDstMacCos"] = types.YLeaf{"Qosdstmaccos", qosmacclassificationentry.Qosdstmaccos}
+    return &(qosmacclassificationentry.EntityData)
 }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetSegmentPath() string {
-    return "qosMacClassificationEntry" + "[qosMacClassificationId='" + fmt.Sprintf("%v", qosmacclassificationentry.Qosmacclassificationid) + "']"
-}
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosMacClassificationId"] = qosmacclassificationentry.Qosmacclassificationid
-    leafs["qosDstMacVlan"] = qosmacclassificationentry.Qosdstmacvlan
-    leafs["qosDstMacAddress"] = qosmacclassificationentry.Qosdstmacaddress
-    leafs["qosDstMacCos"] = qosmacclassificationentry.Qosdstmaccos
-    return leafs
-}
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetYangName() string { return "qosMacClassificationEntry" }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) SetParent(parent types.Entity) { qosmacclassificationentry.parent = parent }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetParent() types.Entity { return qosmacclassificationentry.parent }
-
-func (qosmacclassificationentry *CISCOQOSPIBMIB_Qosmacclassificationtable_Qosmacclassificationentry) GetParentYangName() string { return "qosMacClassificationTable" }
 
 // CISCOQOSPIBMIB_Qosipacetable
 // ACE definitions.
 type CISCOQOSPIBMIB_Qosipacetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies an ACE. The type is slice of
@@ -1792,68 +1042,29 @@ type CISCOQOSPIBMIB_Qosipacetable struct {
     Qosipaceentry []CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry
 }
 
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetFilter() yfilter.YFilter { return qosipacetable.YFilter }
+func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetEntityData() *types.CommonEntityData {
+    qosipacetable.EntityData.YFilter = qosipacetable.YFilter
+    qosipacetable.EntityData.YangName = "qosIpAceTable"
+    qosipacetable.EntityData.BundleName = "cisco_ios_xe"
+    qosipacetable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosipacetable.EntityData.SegmentPath = "qosIpAceTable"
+    qosipacetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosipacetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosipacetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) SetFilter(yf yfilter.YFilter) { qosipacetable.YFilter = yf }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetGoName(yname string) string {
-    if yname == "qosIpAceEntry" { return "Qosipaceentry" }
-    return ""
-}
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetSegmentPath() string {
-    return "qosIpAceTable"
-}
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIpAceEntry" {
-        for _, c := range qosipacetable.Qosipaceentry {
-            if qosipacetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry{}
-        qosipacetable.Qosipaceentry = append(qosipacetable.Qosipaceentry, child)
-        return &qosipacetable.Qosipaceentry[len(qosipacetable.Qosipaceentry)-1]
-    }
-    return nil
-}
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosipacetable.EntityData.Children = make(map[string]types.YChild)
+    qosipacetable.EntityData.Children["qosIpAceEntry"] = types.YChild{"Qosipaceentry", nil}
     for i := range qosipacetable.Qosipaceentry {
-        children[qosipacetable.Qosipaceentry[i].GetSegmentPath()] = &qosipacetable.Qosipaceentry[i]
+        qosipacetable.EntityData.Children[types.GetSegmentPath(&qosipacetable.Qosipaceentry[i])] = types.YChild{"Qosipaceentry", &qosipacetable.Qosipaceentry[i]}
     }
-    return children
+    qosipacetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosipacetable.EntityData)
 }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetYangName() string { return "qosIpAceTable" }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) SetParent(parent types.Entity) { qosipacetable.parent = parent }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetParent() types.Entity { return qosipacetable.parent }
-
-func (qosipacetable *CISCOQOSPIBMIB_Qosipacetable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry
 // An instance of this class specifies an ACE.
 type CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -1862,22 +1073,22 @@ type CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry struct {
 
     // The IP address to match against the packet's destination IP address. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Qosipacedstaddr interface{}
 
     // A mask for the matching of the destination IP address. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Qosipacedstaddrmask interface{}
 
     // The IP address to match against the packet's source IP address. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Qosipacesrcaddr interface{}
 
     // A mask for the matching of the source IP address. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Qosipacesrcaddrmask interface{}
 
     // The minimum value that the DSCP in the packet can have and match this ACE.
@@ -1917,81 +1128,39 @@ type CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry struct {
     Qosipacepermit interface{}
 }
 
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetFilter() yfilter.YFilter { return qosipaceentry.YFilter }
+func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetEntityData() *types.CommonEntityData {
+    qosipaceentry.EntityData.YFilter = qosipaceentry.YFilter
+    qosipaceentry.EntityData.YangName = "qosIpAceEntry"
+    qosipaceentry.EntityData.BundleName = "cisco_ios_xe"
+    qosipaceentry.EntityData.ParentYangName = "qosIpAceTable"
+    qosipaceentry.EntityData.SegmentPath = "qosIpAceEntry" + "[qosIpAceId='" + fmt.Sprintf("%v", qosipaceentry.Qosipaceid) + "']"
+    qosipaceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosipaceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosipaceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) SetFilter(yf yfilter.YFilter) { qosipaceentry.YFilter = yf }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetGoName(yname string) string {
-    if yname == "qosIpAceId" { return "Qosipaceid" }
-    if yname == "qosIpAceDstAddr" { return "Qosipacedstaddr" }
-    if yname == "qosIpAceDstAddrMask" { return "Qosipacedstaddrmask" }
-    if yname == "qosIpAceSrcAddr" { return "Qosipacesrcaddr" }
-    if yname == "qosIpAceSrcAddrMask" { return "Qosipacesrcaddrmask" }
-    if yname == "qosIpAceDscpMin" { return "Qosipacedscpmin" }
-    if yname == "qosIpAceDscpMax" { return "Qosipacedscpmax" }
-    if yname == "qosIpAceProtocol" { return "Qosipaceprotocol" }
-    if yname == "qosIpAceDstL4PortMin" { return "Qosipacedstl4Portmin" }
-    if yname == "qosIpAceDstL4PortMax" { return "Qosipacedstl4Portmax" }
-    if yname == "qosIpAceSrcL4PortMin" { return "Qosipacesrcl4Portmin" }
-    if yname == "qosIpAceSrcL4PortMax" { return "Qosipacesrcl4Portmax" }
-    if yname == "qosIpAcePermit" { return "Qosipacepermit" }
-    return ""
+    qosipaceentry.EntityData.Children = make(map[string]types.YChild)
+    qosipaceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosipaceentry.EntityData.Leafs["qosIpAceId"] = types.YLeaf{"Qosipaceid", qosipaceentry.Qosipaceid}
+    qosipaceentry.EntityData.Leafs["qosIpAceDstAddr"] = types.YLeaf{"Qosipacedstaddr", qosipaceentry.Qosipacedstaddr}
+    qosipaceentry.EntityData.Leafs["qosIpAceDstAddrMask"] = types.YLeaf{"Qosipacedstaddrmask", qosipaceentry.Qosipacedstaddrmask}
+    qosipaceentry.EntityData.Leafs["qosIpAceSrcAddr"] = types.YLeaf{"Qosipacesrcaddr", qosipaceentry.Qosipacesrcaddr}
+    qosipaceentry.EntityData.Leafs["qosIpAceSrcAddrMask"] = types.YLeaf{"Qosipacesrcaddrmask", qosipaceentry.Qosipacesrcaddrmask}
+    qosipaceentry.EntityData.Leafs["qosIpAceDscpMin"] = types.YLeaf{"Qosipacedscpmin", qosipaceentry.Qosipacedscpmin}
+    qosipaceentry.EntityData.Leafs["qosIpAceDscpMax"] = types.YLeaf{"Qosipacedscpmax", qosipaceentry.Qosipacedscpmax}
+    qosipaceentry.EntityData.Leafs["qosIpAceProtocol"] = types.YLeaf{"Qosipaceprotocol", qosipaceentry.Qosipaceprotocol}
+    qosipaceentry.EntityData.Leafs["qosIpAceDstL4PortMin"] = types.YLeaf{"Qosipacedstl4Portmin", qosipaceentry.Qosipacedstl4Portmin}
+    qosipaceentry.EntityData.Leafs["qosIpAceDstL4PortMax"] = types.YLeaf{"Qosipacedstl4Portmax", qosipaceentry.Qosipacedstl4Portmax}
+    qosipaceentry.EntityData.Leafs["qosIpAceSrcL4PortMin"] = types.YLeaf{"Qosipacesrcl4Portmin", qosipaceentry.Qosipacesrcl4Portmin}
+    qosipaceentry.EntityData.Leafs["qosIpAceSrcL4PortMax"] = types.YLeaf{"Qosipacesrcl4Portmax", qosipaceentry.Qosipacesrcl4Portmax}
+    qosipaceentry.EntityData.Leafs["qosIpAcePermit"] = types.YLeaf{"Qosipacepermit", qosipaceentry.Qosipacepermit}
+    return &(qosipaceentry.EntityData)
 }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetSegmentPath() string {
-    return "qosIpAceEntry" + "[qosIpAceId='" + fmt.Sprintf("%v", qosipaceentry.Qosipaceid) + "']"
-}
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIpAceId"] = qosipaceentry.Qosipaceid
-    leafs["qosIpAceDstAddr"] = qosipaceentry.Qosipacedstaddr
-    leafs["qosIpAceDstAddrMask"] = qosipaceentry.Qosipacedstaddrmask
-    leafs["qosIpAceSrcAddr"] = qosipaceentry.Qosipacesrcaddr
-    leafs["qosIpAceSrcAddrMask"] = qosipaceentry.Qosipacesrcaddrmask
-    leafs["qosIpAceDscpMin"] = qosipaceentry.Qosipacedscpmin
-    leafs["qosIpAceDscpMax"] = qosipaceentry.Qosipacedscpmax
-    leafs["qosIpAceProtocol"] = qosipaceentry.Qosipaceprotocol
-    leafs["qosIpAceDstL4PortMin"] = qosipaceentry.Qosipacedstl4Portmin
-    leafs["qosIpAceDstL4PortMax"] = qosipaceentry.Qosipacedstl4Portmax
-    leafs["qosIpAceSrcL4PortMin"] = qosipaceentry.Qosipacesrcl4Portmin
-    leafs["qosIpAceSrcL4PortMax"] = qosipaceentry.Qosipacesrcl4Portmax
-    leafs["qosIpAcePermit"] = qosipaceentry.Qosipacepermit
-    return leafs
-}
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetYangName() string { return "qosIpAceEntry" }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) SetParent(parent types.Entity) { qosipaceentry.parent = parent }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetParent() types.Entity { return qosipaceentry.parent }
-
-func (qosipaceentry *CISCOQOSPIBMIB_Qosipacetable_Qosipaceentry) GetParentYangName() string { return "qosIpAceTable" }
 
 // CISCOQOSPIBMIB_Qosipacldefinitiontable
 // A class that defines a set of ACLs each being an ordered list
 // of ACEs.
 type CISCOQOSPIBMIB_Qosipacldefinitiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies an ACE in an ACL and its order with
@@ -2000,69 +1169,30 @@ type CISCOQOSPIBMIB_Qosipacldefinitiontable struct {
     Qosipacldefinitionentry []CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry
 }
 
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetFilter() yfilter.YFilter { return qosipacldefinitiontable.YFilter }
+func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetEntityData() *types.CommonEntityData {
+    qosipacldefinitiontable.EntityData.YFilter = qosipacldefinitiontable.YFilter
+    qosipacldefinitiontable.EntityData.YangName = "qosIpAclDefinitionTable"
+    qosipacldefinitiontable.EntityData.BundleName = "cisco_ios_xe"
+    qosipacldefinitiontable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosipacldefinitiontable.EntityData.SegmentPath = "qosIpAclDefinitionTable"
+    qosipacldefinitiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosipacldefinitiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosipacldefinitiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) SetFilter(yf yfilter.YFilter) { qosipacldefinitiontable.YFilter = yf }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetGoName(yname string) string {
-    if yname == "qosIpAclDefinitionEntry" { return "Qosipacldefinitionentry" }
-    return ""
-}
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetSegmentPath() string {
-    return "qosIpAclDefinitionTable"
-}
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIpAclDefinitionEntry" {
-        for _, c := range qosipacldefinitiontable.Qosipacldefinitionentry {
-            if qosipacldefinitiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry{}
-        qosipacldefinitiontable.Qosipacldefinitionentry = append(qosipacldefinitiontable.Qosipacldefinitionentry, child)
-        return &qosipacldefinitiontable.Qosipacldefinitionentry[len(qosipacldefinitiontable.Qosipacldefinitionentry)-1]
-    }
-    return nil
-}
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosipacldefinitiontable.EntityData.Children = make(map[string]types.YChild)
+    qosipacldefinitiontable.EntityData.Children["qosIpAclDefinitionEntry"] = types.YChild{"Qosipacldefinitionentry", nil}
     for i := range qosipacldefinitiontable.Qosipacldefinitionentry {
-        children[qosipacldefinitiontable.Qosipacldefinitionentry[i].GetSegmentPath()] = &qosipacldefinitiontable.Qosipacldefinitionentry[i]
+        qosipacldefinitiontable.EntityData.Children[types.GetSegmentPath(&qosipacldefinitiontable.Qosipacldefinitionentry[i])] = types.YChild{"Qosipacldefinitionentry", &qosipacldefinitiontable.Qosipacldefinitionentry[i]}
     }
-    return children
+    qosipacldefinitiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosipacldefinitiontable.EntityData)
 }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetYangName() string { return "qosIpAclDefinitionTable" }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) SetParent(parent types.Entity) { qosipacldefinitiontable.parent = parent }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetParent() types.Entity { return qosipacldefinitiontable.parent }
-
-func (qosipacldefinitiontable *CISCOQOSPIBMIB_Qosipacldefinitiontable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry
 // An instance of this class specifies an ACE in an ACL and its
 // order with respect to other ACEs in the same ACL.
 type CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -2085,57 +1215,24 @@ type CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry struct {
     Qosipacldefaceid interface{}
 }
 
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetFilter() yfilter.YFilter { return qosipacldefinitionentry.YFilter }
+func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetEntityData() *types.CommonEntityData {
+    qosipacldefinitionentry.EntityData.YFilter = qosipacldefinitionentry.YFilter
+    qosipacldefinitionentry.EntityData.YangName = "qosIpAclDefinitionEntry"
+    qosipacldefinitionentry.EntityData.BundleName = "cisco_ios_xe"
+    qosipacldefinitionentry.EntityData.ParentYangName = "qosIpAclDefinitionTable"
+    qosipacldefinitionentry.EntityData.SegmentPath = "qosIpAclDefinitionEntry" + "[qosIpAclDefinitionId='" + fmt.Sprintf("%v", qosipacldefinitionentry.Qosipacldefinitionid) + "']"
+    qosipacldefinitionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosipacldefinitionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosipacldefinitionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) SetFilter(yf yfilter.YFilter) { qosipacldefinitionentry.YFilter = yf }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetGoName(yname string) string {
-    if yname == "qosIpAclDefinitionId" { return "Qosipacldefinitionid" }
-    if yname == "qosIpAclId" { return "Qosipaclid" }
-    if yname == "qosIpAceOrder" { return "Qosipaceorder" }
-    if yname == "qosIpAclDefAceId" { return "Qosipacldefaceid" }
-    return ""
+    qosipacldefinitionentry.EntityData.Children = make(map[string]types.YChild)
+    qosipacldefinitionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosipacldefinitionentry.EntityData.Leafs["qosIpAclDefinitionId"] = types.YLeaf{"Qosipacldefinitionid", qosipacldefinitionentry.Qosipacldefinitionid}
+    qosipacldefinitionentry.EntityData.Leafs["qosIpAclId"] = types.YLeaf{"Qosipaclid", qosipacldefinitionentry.Qosipaclid}
+    qosipacldefinitionentry.EntityData.Leafs["qosIpAceOrder"] = types.YLeaf{"Qosipaceorder", qosipacldefinitionentry.Qosipaceorder}
+    qosipacldefinitionentry.EntityData.Leafs["qosIpAclDefAceId"] = types.YLeaf{"Qosipacldefaceid", qosipacldefinitionentry.Qosipacldefaceid}
+    return &(qosipacldefinitionentry.EntityData)
 }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetSegmentPath() string {
-    return "qosIpAclDefinitionEntry" + "[qosIpAclDefinitionId='" + fmt.Sprintf("%v", qosipacldefinitionentry.Qosipacldefinitionid) + "']"
-}
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIpAclDefinitionId"] = qosipacldefinitionentry.Qosipacldefinitionid
-    leafs["qosIpAclId"] = qosipacldefinitionentry.Qosipaclid
-    leafs["qosIpAceOrder"] = qosipacldefinitionentry.Qosipaceorder
-    leafs["qosIpAclDefAceId"] = qosipacldefinitionentry.Qosipacldefaceid
-    return leafs
-}
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetYangName() string { return "qosIpAclDefinitionEntry" }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) SetParent(parent types.Entity) { qosipacldefinitionentry.parent = parent }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetParent() types.Entity { return qosipacldefinitionentry.parent }
-
-func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipacldefinitionentry) GetParentYangName() string { return "qosIpAclDefinitionTable" }
 
 // CISCOQOSPIBMIB_Qosipaclactiontable
 // A class that applies a set of ACLs to interfaces specifying,
@@ -2145,7 +1242,7 @@ func (qosipacldefinitionentry *CISCOQOSPIBMIB_Qosipacldefinitiontable_Qosipaclde
 // ACL.  Interfaces are specified abstractly in terms of
 // interface role combinations.
 type CISCOQOSPIBMIB_Qosipaclactiontable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class applies an ACL to traffic in a particular
@@ -2155,63 +1252,24 @@ type CISCOQOSPIBMIB_Qosipaclactiontable struct {
     Qosipaclactionentry []CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry
 }
 
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetFilter() yfilter.YFilter { return qosipaclactiontable.YFilter }
+func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetEntityData() *types.CommonEntityData {
+    qosipaclactiontable.EntityData.YFilter = qosipaclactiontable.YFilter
+    qosipaclactiontable.EntityData.YangName = "qosIpAclActionTable"
+    qosipaclactiontable.EntityData.BundleName = "cisco_ios_xe"
+    qosipaclactiontable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosipaclactiontable.EntityData.SegmentPath = "qosIpAclActionTable"
+    qosipaclactiontable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosipaclactiontable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosipaclactiontable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) SetFilter(yf yfilter.YFilter) { qosipaclactiontable.YFilter = yf }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetGoName(yname string) string {
-    if yname == "qosIpAclActionEntry" { return "Qosipaclactionentry" }
-    return ""
-}
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetSegmentPath() string {
-    return "qosIpAclActionTable"
-}
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIpAclActionEntry" {
-        for _, c := range qosipaclactiontable.Qosipaclactionentry {
-            if qosipaclactiontable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry{}
-        qosipaclactiontable.Qosipaclactionentry = append(qosipaclactiontable.Qosipaclactionentry, child)
-        return &qosipaclactiontable.Qosipaclactionentry[len(qosipaclactiontable.Qosipaclactionentry)-1]
-    }
-    return nil
-}
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosipaclactiontable.EntityData.Children = make(map[string]types.YChild)
+    qosipaclactiontable.EntityData.Children["qosIpAclActionEntry"] = types.YChild{"Qosipaclactionentry", nil}
     for i := range qosipaclactiontable.Qosipaclactionentry {
-        children[qosipaclactiontable.Qosipaclactionentry[i].GetSegmentPath()] = &qosipaclactiontable.Qosipaclactionentry[i]
+        qosipaclactiontable.EntityData.Children[types.GetSegmentPath(&qosipaclactiontable.Qosipaclactionentry[i])] = types.YChild{"Qosipaclactionentry", &qosipaclactiontable.Qosipaclactionentry[i]}
     }
-    return children
+    qosipaclactiontable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosipaclactiontable.EntityData)
 }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetYangName() string { return "qosIpAclActionTable" }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) SetParent(parent types.Entity) { qosipaclactiontable.parent = parent }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetParent() types.Entity { return qosipaclactiontable.parent }
-
-func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry
 // An instance of this class applies an ACL to traffic in a
@@ -2219,7 +1277,7 @@ func (qosipaclactiontable *CISCOQOSPIBMIB_Qosipaclactiontable) GetParentYangName
 // combination, and specifies the action for packets which match
 // the ACL.
 type CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -2274,67 +1332,29 @@ type CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry struct {
     Qosipaclaggregateid interface{}
 }
 
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetFilter() yfilter.YFilter { return qosipaclactionentry.YFilter }
+func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetEntityData() *types.CommonEntityData {
+    qosipaclactionentry.EntityData.YFilter = qosipaclactionentry.YFilter
+    qosipaclactionentry.EntityData.YangName = "qosIpAclActionEntry"
+    qosipaclactionentry.EntityData.BundleName = "cisco_ios_xe"
+    qosipaclactionentry.EntityData.ParentYangName = "qosIpAclActionTable"
+    qosipaclactionentry.EntityData.SegmentPath = "qosIpAclActionEntry" + "[qosIpAclActionId='" + fmt.Sprintf("%v", qosipaclactionentry.Qosipaclactionid) + "']"
+    qosipaclactionentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosipaclactionentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosipaclactionentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) SetFilter(yf yfilter.YFilter) { qosipaclactionentry.YFilter = yf }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetGoName(yname string) string {
-    if yname == "qosIpAclActionId" { return "Qosipaclactionid" }
-    if yname == "qosIpAclActAclId" { return "Qosipaclactaclid" }
-    if yname == "qosIpAclInterfaceRoles" { return "Qosipaclinterfaceroles" }
-    if yname == "qosIpAclInterfaceDirection" { return "Qosipaclinterfacedirection" }
-    if yname == "qosIpAclOrder" { return "Qosipaclorder" }
-    if yname == "qosIpAclDscp" { return "Qosipacldscp" }
-    if yname == "qosIpAclDscpTrusted" { return "Qosipacldscptrusted" }
-    if yname == "qosIpAclMicroFlowPolicerId" { return "Qosipaclmicroflowpolicerid" }
-    if yname == "qosIpAclAggregateId" { return "Qosipaclaggregateid" }
-    return ""
+    qosipaclactionentry.EntityData.Children = make(map[string]types.YChild)
+    qosipaclactionentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosipaclactionentry.EntityData.Leafs["qosIpAclActionId"] = types.YLeaf{"Qosipaclactionid", qosipaclactionentry.Qosipaclactionid}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclActAclId"] = types.YLeaf{"Qosipaclactaclid", qosipaclactionentry.Qosipaclactaclid}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclInterfaceRoles"] = types.YLeaf{"Qosipaclinterfaceroles", qosipaclactionentry.Qosipaclinterfaceroles}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclInterfaceDirection"] = types.YLeaf{"Qosipaclinterfacedirection", qosipaclactionentry.Qosipaclinterfacedirection}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclOrder"] = types.YLeaf{"Qosipaclorder", qosipaclactionentry.Qosipaclorder}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclDscp"] = types.YLeaf{"Qosipacldscp", qosipaclactionentry.Qosipacldscp}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclDscpTrusted"] = types.YLeaf{"Qosipacldscptrusted", qosipaclactionentry.Qosipacldscptrusted}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclMicroFlowPolicerId"] = types.YLeaf{"Qosipaclmicroflowpolicerid", qosipaclactionentry.Qosipaclmicroflowpolicerid}
+    qosipaclactionentry.EntityData.Leafs["qosIpAclAggregateId"] = types.YLeaf{"Qosipaclaggregateid", qosipaclactionentry.Qosipaclaggregateid}
+    return &(qosipaclactionentry.EntityData)
 }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetSegmentPath() string {
-    return "qosIpAclActionEntry" + "[qosIpAclActionId='" + fmt.Sprintf("%v", qosipaclactionentry.Qosipaclactionid) + "']"
-}
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIpAclActionId"] = qosipaclactionentry.Qosipaclactionid
-    leafs["qosIpAclActAclId"] = qosipaclactionentry.Qosipaclactaclid
-    leafs["qosIpAclInterfaceRoles"] = qosipaclactionentry.Qosipaclinterfaceroles
-    leafs["qosIpAclInterfaceDirection"] = qosipaclactionentry.Qosipaclinterfacedirection
-    leafs["qosIpAclOrder"] = qosipaclactionentry.Qosipaclorder
-    leafs["qosIpAclDscp"] = qosipaclactionentry.Qosipacldscp
-    leafs["qosIpAclDscpTrusted"] = qosipaclactionentry.Qosipacldscptrusted
-    leafs["qosIpAclMicroFlowPolicerId"] = qosipaclactionentry.Qosipaclmicroflowpolicerid
-    leafs["qosIpAclAggregateId"] = qosipaclactionentry.Qosipaclaggregateid
-    return leafs
-}
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetYangName() string { return "qosIpAclActionEntry" }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) SetParent(parent types.Entity) { qosipaclactionentry.parent = parent }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetParent() types.Entity { return qosipaclactionentry.parent }
-
-func (qosipaclactionentry *CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry) GetParentYangName() string { return "qosIpAclActionTable" }
 
 // CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry_Qosipaclinterfacedirection represents which this ACL applies.
 type CISCOQOSPIBMIB_Qosipaclactiontable_Qosipaclactionentry_Qosipaclinterfacedirection string
@@ -2350,7 +1370,7 @@ const (
 // chooses if it supports multiple scheduling types.  Higher
 // values are preferred over lower values.
 type CISCOQOSPIBMIB_Qosifschedulingpreferencestable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies a scheduling preference for a
@@ -2360,70 +1380,31 @@ type CISCOQOSPIBMIB_Qosifschedulingpreferencestable struct {
     Qosifschedulingpreferenceentry []CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry
 }
 
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetFilter() yfilter.YFilter { return qosifschedulingpreferencestable.YFilter }
+func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetEntityData() *types.CommonEntityData {
+    qosifschedulingpreferencestable.EntityData.YFilter = qosifschedulingpreferencestable.YFilter
+    qosifschedulingpreferencestable.EntityData.YangName = "qosIfSchedulingPreferencesTable"
+    qosifschedulingpreferencestable.EntityData.BundleName = "cisco_ios_xe"
+    qosifschedulingpreferencestable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosifschedulingpreferencestable.EntityData.SegmentPath = "qosIfSchedulingPreferencesTable"
+    qosifschedulingpreferencestable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifschedulingpreferencestable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifschedulingpreferencestable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) SetFilter(yf yfilter.YFilter) { qosifschedulingpreferencestable.YFilter = yf }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetGoName(yname string) string {
-    if yname == "qosIfSchedulingPreferenceEntry" { return "Qosifschedulingpreferenceentry" }
-    return ""
-}
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetSegmentPath() string {
-    return "qosIfSchedulingPreferencesTable"
-}
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIfSchedulingPreferenceEntry" {
-        for _, c := range qosifschedulingpreferencestable.Qosifschedulingpreferenceentry {
-            if qosifschedulingpreferencestable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry{}
-        qosifschedulingpreferencestable.Qosifschedulingpreferenceentry = append(qosifschedulingpreferencestable.Qosifschedulingpreferenceentry, child)
-        return &qosifschedulingpreferencestable.Qosifschedulingpreferenceentry[len(qosifschedulingpreferencestable.Qosifschedulingpreferenceentry)-1]
-    }
-    return nil
-}
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosifschedulingpreferencestable.EntityData.Children = make(map[string]types.YChild)
+    qosifschedulingpreferencestable.EntityData.Children["qosIfSchedulingPreferenceEntry"] = types.YChild{"Qosifschedulingpreferenceentry", nil}
     for i := range qosifschedulingpreferencestable.Qosifschedulingpreferenceentry {
-        children[qosifschedulingpreferencestable.Qosifschedulingpreferenceentry[i].GetSegmentPath()] = &qosifschedulingpreferencestable.Qosifschedulingpreferenceentry[i]
+        qosifschedulingpreferencestable.EntityData.Children[types.GetSegmentPath(&qosifschedulingpreferencestable.Qosifschedulingpreferenceentry[i])] = types.YChild{"Qosifschedulingpreferenceentry", &qosifschedulingpreferencestable.Qosifschedulingpreferenceentry[i]}
     }
-    return children
+    qosifschedulingpreferencestable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosifschedulingpreferencestable.EntityData)
 }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetYangName() string { return "qosIfSchedulingPreferencesTable" }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) SetParent(parent types.Entity) { qosifschedulingpreferencestable.parent = parent }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetParent() types.Entity { return qosifschedulingpreferencestable.parent }
-
-func (qosifschedulingpreferencestable *CISCOQOSPIBMIB_Qosifschedulingpreferencestable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry
 // An instance of this class specifies a scheduling preference
 // for a queue-type on an interface with a particular role
 // combination.
 type CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -2448,59 +1429,25 @@ type CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceent
     Qosifschedulingqueuetype interface{}
 }
 
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetFilter() yfilter.YFilter { return qosifschedulingpreferenceentry.YFilter }
+func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetEntityData() *types.CommonEntityData {
+    qosifschedulingpreferenceentry.EntityData.YFilter = qosifschedulingpreferenceentry.YFilter
+    qosifschedulingpreferenceentry.EntityData.YangName = "qosIfSchedulingPreferenceEntry"
+    qosifschedulingpreferenceentry.EntityData.BundleName = "cisco_ios_xe"
+    qosifschedulingpreferenceentry.EntityData.ParentYangName = "qosIfSchedulingPreferencesTable"
+    qosifschedulingpreferenceentry.EntityData.SegmentPath = "qosIfSchedulingPreferenceEntry" + "[qosIfSchedulingPreferenceId='" + fmt.Sprintf("%v", qosifschedulingpreferenceentry.Qosifschedulingpreferenceid) + "']"
+    qosifschedulingpreferenceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifschedulingpreferenceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifschedulingpreferenceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) SetFilter(yf yfilter.YFilter) { qosifschedulingpreferenceentry.YFilter = yf }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetGoName(yname string) string {
-    if yname == "qosIfSchedulingPreferenceId" { return "Qosifschedulingpreferenceid" }
-    if yname == "qosIfSchedulingRoles" { return "Qosifschedulingroles" }
-    if yname == "qosIfSchedulingPreference" { return "Qosifschedulingpreference" }
-    if yname == "qosIfSchedulingDiscipline" { return "Qosifschedulingdiscipline" }
-    if yname == "qosIfSchedulingQueueType" { return "Qosifschedulingqueuetype" }
-    return ""
+    qosifschedulingpreferenceentry.EntityData.Children = make(map[string]types.YChild)
+    qosifschedulingpreferenceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosifschedulingpreferenceentry.EntityData.Leafs["qosIfSchedulingPreferenceId"] = types.YLeaf{"Qosifschedulingpreferenceid", qosifschedulingpreferenceentry.Qosifschedulingpreferenceid}
+    qosifschedulingpreferenceentry.EntityData.Leafs["qosIfSchedulingRoles"] = types.YLeaf{"Qosifschedulingroles", qosifschedulingpreferenceentry.Qosifschedulingroles}
+    qosifschedulingpreferenceentry.EntityData.Leafs["qosIfSchedulingPreference"] = types.YLeaf{"Qosifschedulingpreference", qosifschedulingpreferenceentry.Qosifschedulingpreference}
+    qosifschedulingpreferenceentry.EntityData.Leafs["qosIfSchedulingDiscipline"] = types.YLeaf{"Qosifschedulingdiscipline", qosifschedulingpreferenceentry.Qosifschedulingdiscipline}
+    qosifschedulingpreferenceentry.EntityData.Leafs["qosIfSchedulingQueueType"] = types.YLeaf{"Qosifschedulingqueuetype", qosifschedulingpreferenceentry.Qosifschedulingqueuetype}
+    return &(qosifschedulingpreferenceentry.EntityData)
 }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetSegmentPath() string {
-    return "qosIfSchedulingPreferenceEntry" + "[qosIfSchedulingPreferenceId='" + fmt.Sprintf("%v", qosifschedulingpreferenceentry.Qosifschedulingpreferenceid) + "']"
-}
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIfSchedulingPreferenceId"] = qosifschedulingpreferenceentry.Qosifschedulingpreferenceid
-    leafs["qosIfSchedulingRoles"] = qosifschedulingpreferenceentry.Qosifschedulingroles
-    leafs["qosIfSchedulingPreference"] = qosifschedulingpreferenceentry.Qosifschedulingpreference
-    leafs["qosIfSchedulingDiscipline"] = qosifschedulingpreferenceentry.Qosifschedulingdiscipline
-    leafs["qosIfSchedulingQueueType"] = qosifschedulingpreferenceentry.Qosifschedulingqueuetype
-    return leafs
-}
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetYangName() string { return "qosIfSchedulingPreferenceEntry" }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) SetParent(parent types.Entity) { qosifschedulingpreferenceentry.parent = parent }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetParent() types.Entity { return qosifschedulingpreferenceentry.parent }
-
-func (qosifschedulingpreferenceentry *CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry) GetParentYangName() string { return "qosIfSchedulingPreferencesTable" }
 
 // CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry_Qosifschedulingdiscipline represents An enumerate type for all the known scheduling disciplines.
 type CISCOQOSPIBMIB_Qosifschedulingpreferencestable_Qosifschedulingpreferenceentry_Qosifschedulingdiscipline string
@@ -2528,7 +1475,7 @@ const (
 // interface chooses if it supports multiple drop mechanisms.
 // Higher values are preferred over lower values.
 type CISCOQOSPIBMIB_Qosifdroppreferencetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies a drop preference for a drop mechanism
@@ -2537,70 +1484,31 @@ type CISCOQOSPIBMIB_Qosifdroppreferencetable struct {
     Qosifdroppreferenceentry []CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry
 }
 
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetFilter() yfilter.YFilter { return qosifdroppreferencetable.YFilter }
+func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetEntityData() *types.CommonEntityData {
+    qosifdroppreferencetable.EntityData.YFilter = qosifdroppreferencetable.YFilter
+    qosifdroppreferencetable.EntityData.YangName = "qosIfDropPreferenceTable"
+    qosifdroppreferencetable.EntityData.BundleName = "cisco_ios_xe"
+    qosifdroppreferencetable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosifdroppreferencetable.EntityData.SegmentPath = "qosIfDropPreferenceTable"
+    qosifdroppreferencetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifdroppreferencetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifdroppreferencetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) SetFilter(yf yfilter.YFilter) { qosifdroppreferencetable.YFilter = yf }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetGoName(yname string) string {
-    if yname == "qosIfDropPreferenceEntry" { return "Qosifdroppreferenceentry" }
-    return ""
-}
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetSegmentPath() string {
-    return "qosIfDropPreferenceTable"
-}
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIfDropPreferenceEntry" {
-        for _, c := range qosifdroppreferencetable.Qosifdroppreferenceentry {
-            if qosifdroppreferencetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry{}
-        qosifdroppreferencetable.Qosifdroppreferenceentry = append(qosifdroppreferencetable.Qosifdroppreferenceentry, child)
-        return &qosifdroppreferencetable.Qosifdroppreferenceentry[len(qosifdroppreferencetable.Qosifdroppreferenceentry)-1]
-    }
-    return nil
-}
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosifdroppreferencetable.EntityData.Children = make(map[string]types.YChild)
+    qosifdroppreferencetable.EntityData.Children["qosIfDropPreferenceEntry"] = types.YChild{"Qosifdroppreferenceentry", nil}
     for i := range qosifdroppreferencetable.Qosifdroppreferenceentry {
-        children[qosifdroppreferencetable.Qosifdroppreferenceentry[i].GetSegmentPath()] = &qosifdroppreferencetable.Qosifdroppreferenceentry[i]
+        qosifdroppreferencetable.EntityData.Children[types.GetSegmentPath(&qosifdroppreferencetable.Qosifdroppreferenceentry[i])] = types.YChild{"Qosifdroppreferenceentry", &qosifdroppreferencetable.Qosifdroppreferenceentry[i]}
     }
-    return children
+    qosifdroppreferencetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosifdroppreferencetable.EntityData)
 }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetYangName() string { return "qosIfDropPreferenceTable" }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) SetParent(parent types.Entity) { qosifdroppreferencetable.parent = parent }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetParent() types.Entity { return qosifdroppreferencetable.parent }
-
-func (qosifdroppreferencetable *CISCOQOSPIBMIB_Qosifdroppreferencetable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry
 // An instance of this class specifies a drop preference for
 // a drop mechanism on an interface with a particular role
 // combination.
 type CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -2621,57 +1529,24 @@ type CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry struct {
     Qosifdropdiscipline interface{}
 }
 
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetFilter() yfilter.YFilter { return qosifdroppreferenceentry.YFilter }
+func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetEntityData() *types.CommonEntityData {
+    qosifdroppreferenceentry.EntityData.YFilter = qosifdroppreferenceentry.YFilter
+    qosifdroppreferenceentry.EntityData.YangName = "qosIfDropPreferenceEntry"
+    qosifdroppreferenceentry.EntityData.BundleName = "cisco_ios_xe"
+    qosifdroppreferenceentry.EntityData.ParentYangName = "qosIfDropPreferenceTable"
+    qosifdroppreferenceentry.EntityData.SegmentPath = "qosIfDropPreferenceEntry" + "[qosIfDropPreferenceId='" + fmt.Sprintf("%v", qosifdroppreferenceentry.Qosifdroppreferenceid) + "']"
+    qosifdroppreferenceentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifdroppreferenceentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifdroppreferenceentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) SetFilter(yf yfilter.YFilter) { qosifdroppreferenceentry.YFilter = yf }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetGoName(yname string) string {
-    if yname == "qosIfDropPreferenceId" { return "Qosifdroppreferenceid" }
-    if yname == "qosIfDropRoles" { return "Qosifdroproles" }
-    if yname == "qosIfDropPreference" { return "Qosifdroppreference" }
-    if yname == "qosIfDropDiscipline" { return "Qosifdropdiscipline" }
-    return ""
+    qosifdroppreferenceentry.EntityData.Children = make(map[string]types.YChild)
+    qosifdroppreferenceentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosifdroppreferenceentry.EntityData.Leafs["qosIfDropPreferenceId"] = types.YLeaf{"Qosifdroppreferenceid", qosifdroppreferenceentry.Qosifdroppreferenceid}
+    qosifdroppreferenceentry.EntityData.Leafs["qosIfDropRoles"] = types.YLeaf{"Qosifdroproles", qosifdroppreferenceentry.Qosifdroproles}
+    qosifdroppreferenceentry.EntityData.Leafs["qosIfDropPreference"] = types.YLeaf{"Qosifdroppreference", qosifdroppreferenceentry.Qosifdroppreference}
+    qosifdroppreferenceentry.EntityData.Leafs["qosIfDropDiscipline"] = types.YLeaf{"Qosifdropdiscipline", qosifdroppreferenceentry.Qosifdropdiscipline}
+    return &(qosifdroppreferenceentry.EntityData)
 }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetSegmentPath() string {
-    return "qosIfDropPreferenceEntry" + "[qosIfDropPreferenceId='" + fmt.Sprintf("%v", qosifdroppreferenceentry.Qosifdroppreferenceid) + "']"
-}
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIfDropPreferenceId"] = qosifdroppreferenceentry.Qosifdroppreferenceid
-    leafs["qosIfDropRoles"] = qosifdroppreferenceentry.Qosifdroproles
-    leafs["qosIfDropPreference"] = qosifdroppreferenceentry.Qosifdroppreference
-    leafs["qosIfDropDiscipline"] = qosifdroppreferenceentry.Qosifdropdiscipline
-    return leafs
-}
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetYangName() string { return "qosIfDropPreferenceEntry" }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) SetParent(parent types.Entity) { qosifdroppreferenceentry.parent = parent }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetParent() types.Entity { return qosifdroppreferenceentry.parent }
-
-func (qosifdroppreferenceentry *CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry) GetParentYangName() string { return "qosIfDropPreferenceTable" }
 
 // CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry_Qosifdropdiscipline represents An enumerate type for all the known drop mechanisms.
 type CISCOQOSPIBMIB_Qosifdroppreferencetable_Qosifdroppreferenceentry_Qosifdropdiscipline string
@@ -2686,7 +1561,7 @@ const (
 // The assignment of each DSCP to a queue and threshold for each
 // interface queue type.
 type CISCOQOSPIBMIB_Qosifdscpassignmenttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies the queue and threshold set for a
@@ -2696,70 +1571,31 @@ type CISCOQOSPIBMIB_Qosifdscpassignmenttable struct {
     Qosifdscpassignmententry []CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry
 }
 
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetFilter() yfilter.YFilter { return qosifdscpassignmenttable.YFilter }
+func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetEntityData() *types.CommonEntityData {
+    qosifdscpassignmenttable.EntityData.YFilter = qosifdscpassignmenttable.YFilter
+    qosifdscpassignmenttable.EntityData.YangName = "qosIfDscpAssignmentTable"
+    qosifdscpassignmenttable.EntityData.BundleName = "cisco_ios_xe"
+    qosifdscpassignmenttable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosifdscpassignmenttable.EntityData.SegmentPath = "qosIfDscpAssignmentTable"
+    qosifdscpassignmenttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifdscpassignmenttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifdscpassignmenttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) SetFilter(yf yfilter.YFilter) { qosifdscpassignmenttable.YFilter = yf }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetGoName(yname string) string {
-    if yname == "qosIfDscpAssignmentEntry" { return "Qosifdscpassignmententry" }
-    return ""
-}
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetSegmentPath() string {
-    return "qosIfDscpAssignmentTable"
-}
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIfDscpAssignmentEntry" {
-        for _, c := range qosifdscpassignmenttable.Qosifdscpassignmententry {
-            if qosifdscpassignmenttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry{}
-        qosifdscpassignmenttable.Qosifdscpassignmententry = append(qosifdscpassignmenttable.Qosifdscpassignmententry, child)
-        return &qosifdscpassignmenttable.Qosifdscpassignmententry[len(qosifdscpassignmenttable.Qosifdscpassignmententry)-1]
-    }
-    return nil
-}
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosifdscpassignmenttable.EntityData.Children = make(map[string]types.YChild)
+    qosifdscpassignmenttable.EntityData.Children["qosIfDscpAssignmentEntry"] = types.YChild{"Qosifdscpassignmententry", nil}
     for i := range qosifdscpassignmenttable.Qosifdscpassignmententry {
-        children[qosifdscpassignmenttable.Qosifdscpassignmententry[i].GetSegmentPath()] = &qosifdscpassignmenttable.Qosifdscpassignmententry[i]
+        qosifdscpassignmenttable.EntityData.Children[types.GetSegmentPath(&qosifdscpassignmenttable.Qosifdscpassignmententry[i])] = types.YChild{"Qosifdscpassignmententry", &qosifdscpassignmenttable.Qosifdscpassignmententry[i]}
     }
-    return children
+    qosifdscpassignmenttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosifdscpassignmenttable.EntityData)
 }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetYangName() string { return "qosIfDscpAssignmentTable" }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) SetParent(parent types.Entity) { qosifdscpassignmenttable.parent = parent }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetParent() types.Entity { return qosifdscpassignmenttable.parent }
-
-func (qosifdscpassignmenttable *CISCOQOSPIBMIB_Qosifdscpassignmenttable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry
 // An instance of this class specifies the queue and threshold
 // set for a packet with a particular DSCP on an interface of
 // a particular type with a particular role combination.
 type CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -2787,61 +1623,26 @@ type CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry struct {
     Qosifthresholdset interface{}
 }
 
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetFilter() yfilter.YFilter { return qosifdscpassignmententry.YFilter }
+func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetEntityData() *types.CommonEntityData {
+    qosifdscpassignmententry.EntityData.YFilter = qosifdscpassignmententry.YFilter
+    qosifdscpassignmententry.EntityData.YangName = "qosIfDscpAssignmentEntry"
+    qosifdscpassignmententry.EntityData.BundleName = "cisco_ios_xe"
+    qosifdscpassignmententry.EntityData.ParentYangName = "qosIfDscpAssignmentTable"
+    qosifdscpassignmententry.EntityData.SegmentPath = "qosIfDscpAssignmentEntry" + "[qosIfDscpAssignmentId='" + fmt.Sprintf("%v", qosifdscpassignmententry.Qosifdscpassignmentid) + "']"
+    qosifdscpassignmententry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifdscpassignmententry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifdscpassignmententry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) SetFilter(yf yfilter.YFilter) { qosifdscpassignmententry.YFilter = yf }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetGoName(yname string) string {
-    if yname == "qosIfDscpAssignmentId" { return "Qosifdscpassignmentid" }
-    if yname == "qosIfDscpRoles" { return "Qosifdscproles" }
-    if yname == "qosIfQueueType" { return "Qosifqueuetype" }
-    if yname == "qosIfDscp" { return "Qosifdscp" }
-    if yname == "qosIfQueue" { return "Qosifqueue" }
-    if yname == "qosIfThresholdSet" { return "Qosifthresholdset" }
-    return ""
+    qosifdscpassignmententry.EntityData.Children = make(map[string]types.YChild)
+    qosifdscpassignmententry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosifdscpassignmententry.EntityData.Leafs["qosIfDscpAssignmentId"] = types.YLeaf{"Qosifdscpassignmentid", qosifdscpassignmententry.Qosifdscpassignmentid}
+    qosifdscpassignmententry.EntityData.Leafs["qosIfDscpRoles"] = types.YLeaf{"Qosifdscproles", qosifdscpassignmententry.Qosifdscproles}
+    qosifdscpassignmententry.EntityData.Leafs["qosIfQueueType"] = types.YLeaf{"Qosifqueuetype", qosifdscpassignmententry.Qosifqueuetype}
+    qosifdscpassignmententry.EntityData.Leafs["qosIfDscp"] = types.YLeaf{"Qosifdscp", qosifdscpassignmententry.Qosifdscp}
+    qosifdscpassignmententry.EntityData.Leafs["qosIfQueue"] = types.YLeaf{"Qosifqueue", qosifdscpassignmententry.Qosifqueue}
+    qosifdscpassignmententry.EntityData.Leafs["qosIfThresholdSet"] = types.YLeaf{"Qosifthresholdset", qosifdscpassignmententry.Qosifthresholdset}
+    return &(qosifdscpassignmententry.EntityData)
 }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetSegmentPath() string {
-    return "qosIfDscpAssignmentEntry" + "[qosIfDscpAssignmentId='" + fmt.Sprintf("%v", qosifdscpassignmententry.Qosifdscpassignmentid) + "']"
-}
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIfDscpAssignmentId"] = qosifdscpassignmententry.Qosifdscpassignmentid
-    leafs["qosIfDscpRoles"] = qosifdscpassignmententry.Qosifdscproles
-    leafs["qosIfQueueType"] = qosifdscpassignmententry.Qosifqueuetype
-    leafs["qosIfDscp"] = qosifdscpassignmententry.Qosifdscp
-    leafs["qosIfQueue"] = qosifdscpassignmententry.Qosifqueue
-    leafs["qosIfThresholdSet"] = qosifdscpassignmententry.Qosifthresholdset
-    return leafs
-}
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetYangName() string { return "qosIfDscpAssignmentEntry" }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) SetParent(parent types.Entity) { qosifdscpassignmententry.parent = parent }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetParent() types.Entity { return qosifdscpassignmententry.parent }
-
-func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdscpassignmententry) GetParentYangName() string { return "qosIfDscpAssignmentTable" }
 
 // CISCOQOSPIBMIB_Qosifredtable
 // A class of lower and upper values for each threshold set in a
@@ -2852,7 +1653,7 @@ func (qosifdscpassignmententry *CISCOQOSPIBMIB_Qosifdscpassignmenttable_Qosifdsc
 // dropped.  If the size of the queue is between the lower and
 // the upper then packets are randomly dropped.
 type CISCOQOSPIBMIB_Qosifredtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies threshold limits for a particular RED
@@ -2862,70 +1663,31 @@ type CISCOQOSPIBMIB_Qosifredtable struct {
     Qosifredentry []CISCOQOSPIBMIB_Qosifredtable_Qosifredentry
 }
 
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetFilter() yfilter.YFilter { return qosifredtable.YFilter }
+func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetEntityData() *types.CommonEntityData {
+    qosifredtable.EntityData.YFilter = qosifredtable.YFilter
+    qosifredtable.EntityData.YangName = "qosIfRedTable"
+    qosifredtable.EntityData.BundleName = "cisco_ios_xe"
+    qosifredtable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosifredtable.EntityData.SegmentPath = "qosIfRedTable"
+    qosifredtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifredtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifredtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) SetFilter(yf yfilter.YFilter) { qosifredtable.YFilter = yf }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetGoName(yname string) string {
-    if yname == "qosIfRedEntry" { return "Qosifredentry" }
-    return ""
-}
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetSegmentPath() string {
-    return "qosIfRedTable"
-}
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIfRedEntry" {
-        for _, c := range qosifredtable.Qosifredentry {
-            if qosifredtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosifredtable_Qosifredentry{}
-        qosifredtable.Qosifredentry = append(qosifredtable.Qosifredentry, child)
-        return &qosifredtable.Qosifredentry[len(qosifredtable.Qosifredentry)-1]
-    }
-    return nil
-}
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosifredtable.EntityData.Children = make(map[string]types.YChild)
+    qosifredtable.EntityData.Children["qosIfRedEntry"] = types.YChild{"Qosifredentry", nil}
     for i := range qosifredtable.Qosifredentry {
-        children[qosifredtable.Qosifredentry[i].GetSegmentPath()] = &qosifredtable.Qosifredentry[i]
+        qosifredtable.EntityData.Children[types.GetSegmentPath(&qosifredtable.Qosifredentry[i])] = types.YChild{"Qosifredentry", &qosifredtable.Qosifredentry[i]}
     }
-    return children
+    qosifredtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosifredtable.EntityData)
 }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetYangName() string { return "qosIfRedTable" }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) SetParent(parent types.Entity) { qosifredtable.parent = parent }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetParent() types.Entity { return qosifredtable.parent }
-
-func (qosifredtable *CISCOQOSPIBMIB_Qosifredtable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosifredtable_Qosifredentry
 // An instance of this class specifies threshold limits for a
 // particular RED threshold of a given threshold set on an
 // interface and with a particular role combination.
 type CISCOQOSPIBMIB_Qosifredtable_Qosifredentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -2954,61 +1716,26 @@ type CISCOQOSPIBMIB_Qosifredtable_Qosifredentry struct {
     Qosifredthresholdsetupper interface{}
 }
 
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetFilter() yfilter.YFilter { return qosifredentry.YFilter }
+func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetEntityData() *types.CommonEntityData {
+    qosifredentry.EntityData.YFilter = qosifredentry.YFilter
+    qosifredentry.EntityData.YangName = "qosIfRedEntry"
+    qosifredentry.EntityData.BundleName = "cisco_ios_xe"
+    qosifredentry.EntityData.ParentYangName = "qosIfRedTable"
+    qosifredentry.EntityData.SegmentPath = "qosIfRedEntry" + "[qosIfRedId='" + fmt.Sprintf("%v", qosifredentry.Qosifredid) + "']"
+    qosifredentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifredentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifredentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) SetFilter(yf yfilter.YFilter) { qosifredentry.YFilter = yf }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetGoName(yname string) string {
-    if yname == "qosIfRedId" { return "Qosifredid" }
-    if yname == "qosIfRedRoles" { return "Qosifredroles" }
-    if yname == "qosIfRedNumThresholdSets" { return "Qosifrednumthresholdsets" }
-    if yname == "qosIfRedThresholdSet" { return "Qosifredthresholdset" }
-    if yname == "qosIfRedThresholdSetLower" { return "Qosifredthresholdsetlower" }
-    if yname == "qosIfRedThresholdSetUpper" { return "Qosifredthresholdsetupper" }
-    return ""
+    qosifredentry.EntityData.Children = make(map[string]types.YChild)
+    qosifredentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosifredentry.EntityData.Leafs["qosIfRedId"] = types.YLeaf{"Qosifredid", qosifredentry.Qosifredid}
+    qosifredentry.EntityData.Leafs["qosIfRedRoles"] = types.YLeaf{"Qosifredroles", qosifredentry.Qosifredroles}
+    qosifredentry.EntityData.Leafs["qosIfRedNumThresholdSets"] = types.YLeaf{"Qosifrednumthresholdsets", qosifredentry.Qosifrednumthresholdsets}
+    qosifredentry.EntityData.Leafs["qosIfRedThresholdSet"] = types.YLeaf{"Qosifredthresholdset", qosifredentry.Qosifredthresholdset}
+    qosifredentry.EntityData.Leafs["qosIfRedThresholdSetLower"] = types.YLeaf{"Qosifredthresholdsetlower", qosifredentry.Qosifredthresholdsetlower}
+    qosifredentry.EntityData.Leafs["qosIfRedThresholdSetUpper"] = types.YLeaf{"Qosifredthresholdsetupper", qosifredentry.Qosifredthresholdsetupper}
+    return &(qosifredentry.EntityData)
 }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetSegmentPath() string {
-    return "qosIfRedEntry" + "[qosIfRedId='" + fmt.Sprintf("%v", qosifredentry.Qosifredid) + "']"
-}
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIfRedId"] = qosifredentry.Qosifredid
-    leafs["qosIfRedRoles"] = qosifredentry.Qosifredroles
-    leafs["qosIfRedNumThresholdSets"] = qosifredentry.Qosifrednumthresholdsets
-    leafs["qosIfRedThresholdSet"] = qosifredentry.Qosifredthresholdset
-    leafs["qosIfRedThresholdSetLower"] = qosifredentry.Qosifredthresholdsetlower
-    leafs["qosIfRedThresholdSetUpper"] = qosifredentry.Qosifredthresholdsetupper
-    return leafs
-}
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetYangName() string { return "qosIfRedEntry" }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) SetParent(parent types.Entity) { qosifredentry.parent = parent }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetParent() types.Entity { return qosifredentry.parent }
-
-func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetParentYangName() string { return "qosIfRedTable" }
 
 // CISCOQOSPIBMIB_Qosiftaildroptable
 // A class for threshold sets in a queue supporting tail drop.
@@ -3018,7 +1745,7 @@ func (qosifredentry *CISCOQOSPIBMIB_Qosifredtable_Qosifredentry) GetParentYangNa
 // of the queue is above the specified value then packets are
 // always dropped.
 type CISCOQOSPIBMIB_Qosiftaildroptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies the queue depth for a particular
@@ -3027,70 +1754,31 @@ type CISCOQOSPIBMIB_Qosiftaildroptable struct {
     Qosiftaildropentry []CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry
 }
 
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetFilter() yfilter.YFilter { return qosiftaildroptable.YFilter }
+func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetEntityData() *types.CommonEntityData {
+    qosiftaildroptable.EntityData.YFilter = qosiftaildroptable.YFilter
+    qosiftaildroptable.EntityData.YangName = "qosIfTailDropTable"
+    qosiftaildroptable.EntityData.BundleName = "cisco_ios_xe"
+    qosiftaildroptable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosiftaildroptable.EntityData.SegmentPath = "qosIfTailDropTable"
+    qosiftaildroptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosiftaildroptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosiftaildroptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) SetFilter(yf yfilter.YFilter) { qosiftaildroptable.YFilter = yf }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetGoName(yname string) string {
-    if yname == "qosIfTailDropEntry" { return "Qosiftaildropentry" }
-    return ""
-}
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetSegmentPath() string {
-    return "qosIfTailDropTable"
-}
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIfTailDropEntry" {
-        for _, c := range qosiftaildroptable.Qosiftaildropentry {
-            if qosiftaildroptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry{}
-        qosiftaildroptable.Qosiftaildropentry = append(qosiftaildroptable.Qosiftaildropentry, child)
-        return &qosiftaildroptable.Qosiftaildropentry[len(qosiftaildroptable.Qosiftaildropentry)-1]
-    }
-    return nil
-}
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosiftaildroptable.EntityData.Children = make(map[string]types.YChild)
+    qosiftaildroptable.EntityData.Children["qosIfTailDropEntry"] = types.YChild{"Qosiftaildropentry", nil}
     for i := range qosiftaildroptable.Qosiftaildropentry {
-        children[qosiftaildroptable.Qosiftaildropentry[i].GetSegmentPath()] = &qosiftaildroptable.Qosiftaildropentry[i]
+        qosiftaildroptable.EntityData.Children[types.GetSegmentPath(&qosiftaildroptable.Qosiftaildropentry[i])] = types.YChild{"Qosiftaildropentry", &qosiftaildroptable.Qosiftaildropentry[i]}
     }
-    return children
+    qosiftaildroptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosiftaildroptable.EntityData)
 }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetYangName() string { return "qosIfTailDropTable" }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) SetParent(parent types.Entity) { qosiftaildroptable.parent = parent }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetParent() types.Entity { return qosiftaildroptable.parent }
-
-func (qosiftaildroptable *CISCOQOSPIBMIB_Qosiftaildroptable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry
 // An instance of this class specifies the queue depth for a
 // particular tail-drop threshold set on an interface with a
 // particular role combination.
 type CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -3114,59 +1802,25 @@ type CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry struct {
     Qosiftaildropthresholdsetvalue interface{}
 }
 
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetFilter() yfilter.YFilter { return qosiftaildropentry.YFilter }
+func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetEntityData() *types.CommonEntityData {
+    qosiftaildropentry.EntityData.YFilter = qosiftaildropentry.YFilter
+    qosiftaildropentry.EntityData.YangName = "qosIfTailDropEntry"
+    qosiftaildropentry.EntityData.BundleName = "cisco_ios_xe"
+    qosiftaildropentry.EntityData.ParentYangName = "qosIfTailDropTable"
+    qosiftaildropentry.EntityData.SegmentPath = "qosIfTailDropEntry" + "[qosIfTailDropId='" + fmt.Sprintf("%v", qosiftaildropentry.Qosiftaildropid) + "']"
+    qosiftaildropentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosiftaildropentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosiftaildropentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) SetFilter(yf yfilter.YFilter) { qosiftaildropentry.YFilter = yf }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetGoName(yname string) string {
-    if yname == "qosIfTailDropId" { return "Qosiftaildropid" }
-    if yname == "qosIfTailDropRoles" { return "Qosiftaildroproles" }
-    if yname == "qosIfTailDropNumThresholdSets" { return "Qosiftaildropnumthresholdsets" }
-    if yname == "qosIfTailDropThresholdSet" { return "Qosiftaildropthresholdset" }
-    if yname == "qosIfTailDropThresholdSetValue" { return "Qosiftaildropthresholdsetvalue" }
-    return ""
+    qosiftaildropentry.EntityData.Children = make(map[string]types.YChild)
+    qosiftaildropentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosiftaildropentry.EntityData.Leafs["qosIfTailDropId"] = types.YLeaf{"Qosiftaildropid", qosiftaildropentry.Qosiftaildropid}
+    qosiftaildropentry.EntityData.Leafs["qosIfTailDropRoles"] = types.YLeaf{"Qosiftaildroproles", qosiftaildropentry.Qosiftaildroproles}
+    qosiftaildropentry.EntityData.Leafs["qosIfTailDropNumThresholdSets"] = types.YLeaf{"Qosiftaildropnumthresholdsets", qosiftaildropentry.Qosiftaildropnumthresholdsets}
+    qosiftaildropentry.EntityData.Leafs["qosIfTailDropThresholdSet"] = types.YLeaf{"Qosiftaildropthresholdset", qosiftaildropentry.Qosiftaildropthresholdset}
+    qosiftaildropentry.EntityData.Leafs["qosIfTailDropThresholdSetValue"] = types.YLeaf{"Qosiftaildropthresholdsetvalue", qosiftaildropentry.Qosiftaildropthresholdsetvalue}
+    return &(qosiftaildropentry.EntityData)
 }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetSegmentPath() string {
-    return "qosIfTailDropEntry" + "[qosIfTailDropId='" + fmt.Sprintf("%v", qosiftaildropentry.Qosiftaildropid) + "']"
-}
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIfTailDropId"] = qosiftaildropentry.Qosiftaildropid
-    leafs["qosIfTailDropRoles"] = qosiftaildropentry.Qosiftaildroproles
-    leafs["qosIfTailDropNumThresholdSets"] = qosiftaildropentry.Qosiftaildropnumthresholdsets
-    leafs["qosIfTailDropThresholdSet"] = qosiftaildropentry.Qosiftaildropthresholdset
-    leafs["qosIfTailDropThresholdSetValue"] = qosiftaildropentry.Qosiftaildropthresholdsetvalue
-    return leafs
-}
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetYangName() string { return "qosIfTailDropEntry" }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) SetParent(parent types.Entity) { qosiftaildropentry.parent = parent }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetParent() types.Entity { return qosiftaildropentry.parent }
-
-func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) GetParentYangName() string { return "qosIfTailDropTable" }
 
 // CISCOQOSPIBMIB_Qosifweightstable
 // A class of scheduling weights for each queue of an interface
@@ -3176,7 +1830,7 @@ func (qosiftaildropentry *CISCOQOSPIBMIB_Qosiftaildroptable_Qosiftaildropentry) 
 // priority queues with the highest queue number having the
 // highest priority.  WRR is applied to the non-priority queues.
 type CISCOQOSPIBMIB_Qosifweightstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An instance of this class specifies the scheduling weight for a particular
@@ -3186,70 +1840,31 @@ type CISCOQOSPIBMIB_Qosifweightstable struct {
     Qosifweightsentry []CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry
 }
 
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetFilter() yfilter.YFilter { return qosifweightstable.YFilter }
+func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetEntityData() *types.CommonEntityData {
+    qosifweightstable.EntityData.YFilter = qosifweightstable.YFilter
+    qosifweightstable.EntityData.YangName = "qosIfWeightsTable"
+    qosifweightstable.EntityData.BundleName = "cisco_ios_xe"
+    qosifweightstable.EntityData.ParentYangName = "CISCO-QOS-PIB-MIB"
+    qosifweightstable.EntityData.SegmentPath = "qosIfWeightsTable"
+    qosifweightstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifweightstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifweightstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) SetFilter(yf yfilter.YFilter) { qosifweightstable.YFilter = yf }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetGoName(yname string) string {
-    if yname == "qosIfWeightsEntry" { return "Qosifweightsentry" }
-    return ""
-}
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetSegmentPath() string {
-    return "qosIfWeightsTable"
-}
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "qosIfWeightsEntry" {
-        for _, c := range qosifweightstable.Qosifweightsentry {
-            if qosifweightstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry{}
-        qosifweightstable.Qosifweightsentry = append(qosifweightstable.Qosifweightsentry, child)
-        return &qosifweightstable.Qosifweightsentry[len(qosifweightstable.Qosifweightsentry)-1]
-    }
-    return nil
-}
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    qosifweightstable.EntityData.Children = make(map[string]types.YChild)
+    qosifweightstable.EntityData.Children["qosIfWeightsEntry"] = types.YChild{"Qosifweightsentry", nil}
     for i := range qosifweightstable.Qosifweightsentry {
-        children[qosifweightstable.Qosifweightsentry[i].GetSegmentPath()] = &qosifweightstable.Qosifweightsentry[i]
+        qosifweightstable.EntityData.Children[types.GetSegmentPath(&qosifweightstable.Qosifweightsentry[i])] = types.YChild{"Qosifweightsentry", &qosifweightstable.Qosifweightsentry[i]}
     }
-    return children
+    qosifweightstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(qosifweightstable.EntityData)
 }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetYangName() string { return "qosIfWeightsTable" }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) SetParent(parent types.Entity) { qosifweightstable.parent = parent }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetParent() types.Entity { return qosifweightstable.parent }
-
-func (qosifweightstable *CISCOQOSPIBMIB_Qosifweightstable) GetParentYangName() string { return "CISCO-QOS-PIB-MIB" }
 
 // CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry
 // An instance of this class specifies the scheduling weight for
 // a particular queue of an interface with a particular number
 // of queues and with a particular role combination.
 type CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. An integer index to identify the instance of the
@@ -3285,59 +1900,24 @@ type CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry struct {
     Qosifweightsqueuesize interface{}
 }
 
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetFilter() yfilter.YFilter { return qosifweightsentry.YFilter }
+func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetEntityData() *types.CommonEntityData {
+    qosifweightsentry.EntityData.YFilter = qosifweightsentry.YFilter
+    qosifweightsentry.EntityData.YangName = "qosIfWeightsEntry"
+    qosifweightsentry.EntityData.BundleName = "cisco_ios_xe"
+    qosifweightsentry.EntityData.ParentYangName = "qosIfWeightsTable"
+    qosifweightsentry.EntityData.SegmentPath = "qosIfWeightsEntry" + "[qosIfWeightsId='" + fmt.Sprintf("%v", qosifweightsentry.Qosifweightsid) + "']"
+    qosifweightsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    qosifweightsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    qosifweightsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) SetFilter(yf yfilter.YFilter) { qosifweightsentry.YFilter = yf }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetGoName(yname string) string {
-    if yname == "qosIfWeightsId" { return "Qosifweightsid" }
-    if yname == "qosIfWeightsRoles" { return "Qosifweightsroles" }
-    if yname == "qosIfWeightsNumQueues" { return "Qosifweightsnumqueues" }
-    if yname == "qosIfWeightsQueue" { return "Qosifweightsqueue" }
-    if yname == "qosIfWeightsDrainSize" { return "Qosifweightsdrainsize" }
-    if yname == "qosIfWeightsQueueSize" { return "Qosifweightsqueuesize" }
-    return ""
+    qosifweightsentry.EntityData.Children = make(map[string]types.YChild)
+    qosifweightsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    qosifweightsentry.EntityData.Leafs["qosIfWeightsId"] = types.YLeaf{"Qosifweightsid", qosifweightsentry.Qosifweightsid}
+    qosifweightsentry.EntityData.Leafs["qosIfWeightsRoles"] = types.YLeaf{"Qosifweightsroles", qosifweightsentry.Qosifweightsroles}
+    qosifweightsentry.EntityData.Leafs["qosIfWeightsNumQueues"] = types.YLeaf{"Qosifweightsnumqueues", qosifweightsentry.Qosifweightsnumqueues}
+    qosifweightsentry.EntityData.Leafs["qosIfWeightsQueue"] = types.YLeaf{"Qosifweightsqueue", qosifweightsentry.Qosifweightsqueue}
+    qosifweightsentry.EntityData.Leafs["qosIfWeightsDrainSize"] = types.YLeaf{"Qosifweightsdrainsize", qosifweightsentry.Qosifweightsdrainsize}
+    qosifweightsentry.EntityData.Leafs["qosIfWeightsQueueSize"] = types.YLeaf{"Qosifweightsqueuesize", qosifweightsentry.Qosifweightsqueuesize}
+    return &(qosifweightsentry.EntityData)
 }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetSegmentPath() string {
-    return "qosIfWeightsEntry" + "[qosIfWeightsId='" + fmt.Sprintf("%v", qosifweightsentry.Qosifweightsid) + "']"
-}
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["qosIfWeightsId"] = qosifweightsentry.Qosifweightsid
-    leafs["qosIfWeightsRoles"] = qosifweightsentry.Qosifweightsroles
-    leafs["qosIfWeightsNumQueues"] = qosifweightsentry.Qosifweightsnumqueues
-    leafs["qosIfWeightsQueue"] = qosifweightsentry.Qosifweightsqueue
-    leafs["qosIfWeightsDrainSize"] = qosifweightsentry.Qosifweightsdrainsize
-    leafs["qosIfWeightsQueueSize"] = qosifweightsentry.Qosifweightsqueuesize
-    return leafs
-}
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetYangName() string { return "qosIfWeightsEntry" }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) SetParent(parent types.Entity) { qosifweightsentry.parent = parent }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetParent() types.Entity { return qosifweightsentry.parent }
-
-func (qosifweightsentry *CISCOQOSPIBMIB_Qosifweightstable_Qosifweightsentry) GetParentYangName() string { return "qosIfWeightsTable" }
 

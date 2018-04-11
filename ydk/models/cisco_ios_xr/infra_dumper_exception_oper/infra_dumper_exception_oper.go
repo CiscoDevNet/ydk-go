@@ -27,66 +27,33 @@ func init() {
 // Exception
 // Show all exception dump configuration
 type Exception struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // exception bag.
     Enter Exception_Enter
 }
 
-func (exception *Exception) GetFilter() yfilter.YFilter { return exception.YFilter }
+func (exception *Exception) GetEntityData() *types.CommonEntityData {
+    exception.EntityData.YFilter = exception.YFilter
+    exception.EntityData.YangName = "exception"
+    exception.EntityData.BundleName = "cisco_ios_xr"
+    exception.EntityData.ParentYangName = "Cisco-IOS-XR-infra-dumper-exception-oper"
+    exception.EntityData.SegmentPath = "Cisco-IOS-XR-infra-dumper-exception-oper:exception"
+    exception.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    exception.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    exception.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (exception *Exception) SetFilter(yf yfilter.YFilter) { exception.YFilter = yf }
-
-func (exception *Exception) GetGoName(yname string) string {
-    if yname == "enter" { return "Enter" }
-    return ""
+    exception.EntityData.Children = make(map[string]types.YChild)
+    exception.EntityData.Children["enter"] = types.YChild{"Enter", &exception.Enter}
+    exception.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(exception.EntityData)
 }
-
-func (exception *Exception) GetSegmentPath() string {
-    return "Cisco-IOS-XR-infra-dumper-exception-oper:exception"
-}
-
-func (exception *Exception) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "enter" {
-        return &exception.Enter
-    }
-    return nil
-}
-
-func (exception *Exception) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["enter"] = &exception.Enter
-    return children
-}
-
-func (exception *Exception) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (exception *Exception) GetBundleName() string { return "cisco_ios_xr" }
-
-func (exception *Exception) GetYangName() string { return "exception" }
-
-func (exception *Exception) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (exception *Exception) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (exception *Exception) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (exception *Exception) SetParent(parent types.Entity) { exception.parent = parent }
-
-func (exception *Exception) GetParent() types.Entity { return exception.parent }
-
-func (exception *Exception) GetParentYangName() string { return "Cisco-IOS-XR-infra-dumper-exception-oper" }
 
 // Exception_Enter
 // exception bag
 type Exception_Enter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Pak MEM. The type is string.
@@ -141,124 +108,42 @@ type Exception_Enter struct {
     Qsize Exception_Enter_Qsize
 }
 
-func (enter *Exception_Enter) GetFilter() yfilter.YFilter { return enter.YFilter }
+func (enter *Exception_Enter) GetEntityData() *types.CommonEntityData {
+    enter.EntityData.YFilter = enter.YFilter
+    enter.EntityData.YangName = "enter"
+    enter.EntityData.BundleName = "cisco_ios_xr"
+    enter.EntityData.ParentYangName = "exception"
+    enter.EntityData.SegmentPath = "enter"
+    enter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    enter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    enter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (enter *Exception_Enter) SetFilter(yf yfilter.YFilter) { enter.YFilter = yf }
-
-func (enter *Exception_Enter) GetGoName(yname string) string {
-    if yname == "pak-mem" { return "PakMem" }
-    if yname == "sparse" { return "Sparse" }
-    if yname == "spr-size" { return "SprSize" }
-    if yname == "core-verification" { return "CoreVerification" }
-    if yname == "dump-time-out" { return "DumpTimeOut" }
-    if yname == "display-config1" { return "DisplayConfig1" }
-    if yname == "display-config2" { return "DisplayConfig2" }
-    if yname == "display-config3" { return "DisplayConfig3" }
-    if yname == "display-fall-back-config1" { return "DisplayFallBackConfig1" }
-    if yname == "display-fall-back-config2" { return "DisplayFallBackConfig2" }
-    if yname == "display-fall-back-config3" { return "DisplayFallBackConfig3" }
-    if yname == "kernel-config" { return "KernelConfig" }
-    if yname == "kernel-route-config" { return "KernelRouteConfig" }
-    if yname == "core-size" { return "CoreSize" }
-    if yname == "memory-threshold" { return "MemoryThreshold" }
-    if yname == "proc-size" { return "ProcSize" }
-    if yname == "qsize" { return "Qsize" }
-    return ""
+    enter.EntityData.Children = make(map[string]types.YChild)
+    enter.EntityData.Children["display-config1"] = types.YChild{"DisplayConfig1", &enter.DisplayConfig1}
+    enter.EntityData.Children["display-config2"] = types.YChild{"DisplayConfig2", &enter.DisplayConfig2}
+    enter.EntityData.Children["display-config3"] = types.YChild{"DisplayConfig3", &enter.DisplayConfig3}
+    enter.EntityData.Children["display-fall-back-config1"] = types.YChild{"DisplayFallBackConfig1", &enter.DisplayFallBackConfig1}
+    enter.EntityData.Children["display-fall-back-config2"] = types.YChild{"DisplayFallBackConfig2", &enter.DisplayFallBackConfig2}
+    enter.EntityData.Children["display-fall-back-config3"] = types.YChild{"DisplayFallBackConfig3", &enter.DisplayFallBackConfig3}
+    enter.EntityData.Children["kernel-config"] = types.YChild{"KernelConfig", &enter.KernelConfig}
+    enter.EntityData.Children["kernel-route-config"] = types.YChild{"KernelRouteConfig", &enter.KernelRouteConfig}
+    enter.EntityData.Children["core-size"] = types.YChild{"CoreSize", &enter.CoreSize}
+    enter.EntityData.Children["memory-threshold"] = types.YChild{"MemoryThreshold", &enter.MemoryThreshold}
+    enter.EntityData.Children["proc-size"] = types.YChild{"ProcSize", &enter.ProcSize}
+    enter.EntityData.Children["qsize"] = types.YChild{"Qsize", &enter.Qsize}
+    enter.EntityData.Leafs = make(map[string]types.YLeaf)
+    enter.EntityData.Leafs["pak-mem"] = types.YLeaf{"PakMem", enter.PakMem}
+    enter.EntityData.Leafs["sparse"] = types.YLeaf{"Sparse", enter.Sparse}
+    enter.EntityData.Leafs["spr-size"] = types.YLeaf{"SprSize", enter.SprSize}
+    enter.EntityData.Leafs["core-verification"] = types.YLeaf{"CoreVerification", enter.CoreVerification}
+    enter.EntityData.Leafs["dump-time-out"] = types.YLeaf{"DumpTimeOut", enter.DumpTimeOut}
+    return &(enter.EntityData)
 }
-
-func (enter *Exception_Enter) GetSegmentPath() string {
-    return "enter"
-}
-
-func (enter *Exception_Enter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "display-config1" {
-        return &enter.DisplayConfig1
-    }
-    if childYangName == "display-config2" {
-        return &enter.DisplayConfig2
-    }
-    if childYangName == "display-config3" {
-        return &enter.DisplayConfig3
-    }
-    if childYangName == "display-fall-back-config1" {
-        return &enter.DisplayFallBackConfig1
-    }
-    if childYangName == "display-fall-back-config2" {
-        return &enter.DisplayFallBackConfig2
-    }
-    if childYangName == "display-fall-back-config3" {
-        return &enter.DisplayFallBackConfig3
-    }
-    if childYangName == "kernel-config" {
-        return &enter.KernelConfig
-    }
-    if childYangName == "kernel-route-config" {
-        return &enter.KernelRouteConfig
-    }
-    if childYangName == "core-size" {
-        return &enter.CoreSize
-    }
-    if childYangName == "memory-threshold" {
-        return &enter.MemoryThreshold
-    }
-    if childYangName == "proc-size" {
-        return &enter.ProcSize
-    }
-    if childYangName == "qsize" {
-        return &enter.Qsize
-    }
-    return nil
-}
-
-func (enter *Exception_Enter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["display-config1"] = &enter.DisplayConfig1
-    children["display-config2"] = &enter.DisplayConfig2
-    children["display-config3"] = &enter.DisplayConfig3
-    children["display-fall-back-config1"] = &enter.DisplayFallBackConfig1
-    children["display-fall-back-config2"] = &enter.DisplayFallBackConfig2
-    children["display-fall-back-config3"] = &enter.DisplayFallBackConfig3
-    children["kernel-config"] = &enter.KernelConfig
-    children["kernel-route-config"] = &enter.KernelRouteConfig
-    children["core-size"] = &enter.CoreSize
-    children["memory-threshold"] = &enter.MemoryThreshold
-    children["proc-size"] = &enter.ProcSize
-    children["qsize"] = &enter.Qsize
-    return children
-}
-
-func (enter *Exception_Enter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pak-mem"] = enter.PakMem
-    leafs["sparse"] = enter.Sparse
-    leafs["spr-size"] = enter.SprSize
-    leafs["core-verification"] = enter.CoreVerification
-    leafs["dump-time-out"] = enter.DumpTimeOut
-    return leafs
-}
-
-func (enter *Exception_Enter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (enter *Exception_Enter) GetYangName() string { return "enter" }
-
-func (enter *Exception_Enter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (enter *Exception_Enter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (enter *Exception_Enter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (enter *Exception_Enter) SetParent(parent types.Entity) { enter.parent = parent }
-
-func (enter *Exception_Enter) GetParent() types.Entity { return enter.parent }
-
-func (enter *Exception_Enter) GetParentYangName() string { return "exception" }
 
 // Exception_Enter_DisplayConfig1
 // Display Configuration
 type Exception_Enter_DisplayConfig1 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -280,66 +165,31 @@ type Exception_Enter_DisplayConfig1 struct {
     RangeHigh interface{}
 }
 
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetFilter() yfilter.YFilter { return displayConfig1.YFilter }
+func (displayConfig1 *Exception_Enter_DisplayConfig1) GetEntityData() *types.CommonEntityData {
+    displayConfig1.EntityData.YFilter = displayConfig1.YFilter
+    displayConfig1.EntityData.YangName = "display-config1"
+    displayConfig1.EntityData.BundleName = "cisco_ios_xr"
+    displayConfig1.EntityData.ParentYangName = "enter"
+    displayConfig1.EntityData.SegmentPath = "display-config1"
+    displayConfig1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    displayConfig1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    displayConfig1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (displayConfig1 *Exception_Enter_DisplayConfig1) SetFilter(yf yfilter.YFilter) { displayConfig1.YFilter = yf }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetGoName(yname string) string {
-    if yname == "choice" { return "Choice" }
-    if yname == "path" { return "Path" }
-    if yname == "compress" { return "Compress" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "range-low" { return "RangeLow" }
-    if yname == "range-high" { return "RangeHigh" }
-    return ""
+    displayConfig1.EntityData.Children = make(map[string]types.YChild)
+    displayConfig1.EntityData.Leafs = make(map[string]types.YLeaf)
+    displayConfig1.EntityData.Leafs["choice"] = types.YLeaf{"Choice", displayConfig1.Choice}
+    displayConfig1.EntityData.Leafs["path"] = types.YLeaf{"Path", displayConfig1.Path}
+    displayConfig1.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayConfig1.Compress}
+    displayConfig1.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayConfig1.FileName}
+    displayConfig1.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayConfig1.RangeLow}
+    displayConfig1.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayConfig1.RangeHigh}
+    return &(displayConfig1.EntityData)
 }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetSegmentPath() string {
-    return "display-config1"
-}
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice"] = displayConfig1.Choice
-    leafs["path"] = displayConfig1.Path
-    leafs["compress"] = displayConfig1.Compress
-    leafs["file-name"] = displayConfig1.FileName
-    leafs["range-low"] = displayConfig1.RangeLow
-    leafs["range-high"] = displayConfig1.RangeHigh
-    return leafs
-}
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetBundleName() string { return "cisco_ios_xr" }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetYangName() string { return "display-config1" }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) SetParent(parent types.Entity) { displayConfig1.parent = parent }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetParent() types.Entity { return displayConfig1.parent }
-
-func (displayConfig1 *Exception_Enter_DisplayConfig1) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_DisplayConfig2
 // Display Configuration
 type Exception_Enter_DisplayConfig2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -361,66 +211,31 @@ type Exception_Enter_DisplayConfig2 struct {
     RangeHigh interface{}
 }
 
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetFilter() yfilter.YFilter { return displayConfig2.YFilter }
+func (displayConfig2 *Exception_Enter_DisplayConfig2) GetEntityData() *types.CommonEntityData {
+    displayConfig2.EntityData.YFilter = displayConfig2.YFilter
+    displayConfig2.EntityData.YangName = "display-config2"
+    displayConfig2.EntityData.BundleName = "cisco_ios_xr"
+    displayConfig2.EntityData.ParentYangName = "enter"
+    displayConfig2.EntityData.SegmentPath = "display-config2"
+    displayConfig2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    displayConfig2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    displayConfig2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (displayConfig2 *Exception_Enter_DisplayConfig2) SetFilter(yf yfilter.YFilter) { displayConfig2.YFilter = yf }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetGoName(yname string) string {
-    if yname == "choice" { return "Choice" }
-    if yname == "path" { return "Path" }
-    if yname == "compress" { return "Compress" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "range-low" { return "RangeLow" }
-    if yname == "range-high" { return "RangeHigh" }
-    return ""
+    displayConfig2.EntityData.Children = make(map[string]types.YChild)
+    displayConfig2.EntityData.Leafs = make(map[string]types.YLeaf)
+    displayConfig2.EntityData.Leafs["choice"] = types.YLeaf{"Choice", displayConfig2.Choice}
+    displayConfig2.EntityData.Leafs["path"] = types.YLeaf{"Path", displayConfig2.Path}
+    displayConfig2.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayConfig2.Compress}
+    displayConfig2.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayConfig2.FileName}
+    displayConfig2.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayConfig2.RangeLow}
+    displayConfig2.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayConfig2.RangeHigh}
+    return &(displayConfig2.EntityData)
 }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetSegmentPath() string {
-    return "display-config2"
-}
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice"] = displayConfig2.Choice
-    leafs["path"] = displayConfig2.Path
-    leafs["compress"] = displayConfig2.Compress
-    leafs["file-name"] = displayConfig2.FileName
-    leafs["range-low"] = displayConfig2.RangeLow
-    leafs["range-high"] = displayConfig2.RangeHigh
-    return leafs
-}
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetYangName() string { return "display-config2" }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) SetParent(parent types.Entity) { displayConfig2.parent = parent }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetParent() types.Entity { return displayConfig2.parent }
-
-func (displayConfig2 *Exception_Enter_DisplayConfig2) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_DisplayConfig3
 // Display Configuration
 type Exception_Enter_DisplayConfig3 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -442,66 +257,31 @@ type Exception_Enter_DisplayConfig3 struct {
     RangeHigh interface{}
 }
 
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetFilter() yfilter.YFilter { return displayConfig3.YFilter }
+func (displayConfig3 *Exception_Enter_DisplayConfig3) GetEntityData() *types.CommonEntityData {
+    displayConfig3.EntityData.YFilter = displayConfig3.YFilter
+    displayConfig3.EntityData.YangName = "display-config3"
+    displayConfig3.EntityData.BundleName = "cisco_ios_xr"
+    displayConfig3.EntityData.ParentYangName = "enter"
+    displayConfig3.EntityData.SegmentPath = "display-config3"
+    displayConfig3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    displayConfig3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    displayConfig3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (displayConfig3 *Exception_Enter_DisplayConfig3) SetFilter(yf yfilter.YFilter) { displayConfig3.YFilter = yf }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetGoName(yname string) string {
-    if yname == "choice" { return "Choice" }
-    if yname == "path" { return "Path" }
-    if yname == "compress" { return "Compress" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "range-low" { return "RangeLow" }
-    if yname == "range-high" { return "RangeHigh" }
-    return ""
+    displayConfig3.EntityData.Children = make(map[string]types.YChild)
+    displayConfig3.EntityData.Leafs = make(map[string]types.YLeaf)
+    displayConfig3.EntityData.Leafs["choice"] = types.YLeaf{"Choice", displayConfig3.Choice}
+    displayConfig3.EntityData.Leafs["path"] = types.YLeaf{"Path", displayConfig3.Path}
+    displayConfig3.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayConfig3.Compress}
+    displayConfig3.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayConfig3.FileName}
+    displayConfig3.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayConfig3.RangeLow}
+    displayConfig3.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayConfig3.RangeHigh}
+    return &(displayConfig3.EntityData)
 }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetSegmentPath() string {
-    return "display-config3"
-}
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice"] = displayConfig3.Choice
-    leafs["path"] = displayConfig3.Path
-    leafs["compress"] = displayConfig3.Compress
-    leafs["file-name"] = displayConfig3.FileName
-    leafs["range-low"] = displayConfig3.RangeLow
-    leafs["range-high"] = displayConfig3.RangeHigh
-    return leafs
-}
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetBundleName() string { return "cisco_ios_xr" }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetYangName() string { return "display-config3" }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) SetParent(parent types.Entity) { displayConfig3.parent = parent }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetParent() types.Entity { return displayConfig3.parent }
-
-func (displayConfig3 *Exception_Enter_DisplayConfig3) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_DisplayFallBackConfig1
 // Display fallback Configuration
 type Exception_Enter_DisplayFallBackConfig1 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -526,68 +306,32 @@ type Exception_Enter_DisplayFallBackConfig1 struct {
     RangeHigh interface{}
 }
 
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetFilter() yfilter.YFilter { return displayFallBackConfig1.YFilter }
+func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetEntityData() *types.CommonEntityData {
+    displayFallBackConfig1.EntityData.YFilter = displayFallBackConfig1.YFilter
+    displayFallBackConfig1.EntityData.YangName = "display-fall-back-config1"
+    displayFallBackConfig1.EntityData.BundleName = "cisco_ios_xr"
+    displayFallBackConfig1.EntityData.ParentYangName = "enter"
+    displayFallBackConfig1.EntityData.SegmentPath = "display-fall-back-config1"
+    displayFallBackConfig1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    displayFallBackConfig1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    displayFallBackConfig1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) SetFilter(yf yfilter.YFilter) { displayFallBackConfig1.YFilter = yf }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetGoName(yname string) string {
-    if yname == "choice-fall-back" { return "ChoiceFallBack" }
-    if yname == "path" { return "Path" }
-    if yname == "compress" { return "Compress" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "boot-device-str" { return "BootDeviceStr" }
-    if yname == "range-low" { return "RangeLow" }
-    if yname == "range-high" { return "RangeHigh" }
-    return ""
+    displayFallBackConfig1.EntityData.Children = make(map[string]types.YChild)
+    displayFallBackConfig1.EntityData.Leafs = make(map[string]types.YLeaf)
+    displayFallBackConfig1.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", displayFallBackConfig1.ChoiceFallBack}
+    displayFallBackConfig1.EntityData.Leafs["path"] = types.YLeaf{"Path", displayFallBackConfig1.Path}
+    displayFallBackConfig1.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayFallBackConfig1.Compress}
+    displayFallBackConfig1.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayFallBackConfig1.FileName}
+    displayFallBackConfig1.EntityData.Leafs["boot-device-str"] = types.YLeaf{"BootDeviceStr", displayFallBackConfig1.BootDeviceStr}
+    displayFallBackConfig1.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayFallBackConfig1.RangeLow}
+    displayFallBackConfig1.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayFallBackConfig1.RangeHigh}
+    return &(displayFallBackConfig1.EntityData)
 }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetSegmentPath() string {
-    return "display-fall-back-config1"
-}
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice-fall-back"] = displayFallBackConfig1.ChoiceFallBack
-    leafs["path"] = displayFallBackConfig1.Path
-    leafs["compress"] = displayFallBackConfig1.Compress
-    leafs["file-name"] = displayFallBackConfig1.FileName
-    leafs["boot-device-str"] = displayFallBackConfig1.BootDeviceStr
-    leafs["range-low"] = displayFallBackConfig1.RangeLow
-    leafs["range-high"] = displayFallBackConfig1.RangeHigh
-    return leafs
-}
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetBundleName() string { return "cisco_ios_xr" }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetYangName() string { return "display-fall-back-config1" }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) SetParent(parent types.Entity) { displayFallBackConfig1.parent = parent }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetParent() types.Entity { return displayFallBackConfig1.parent }
-
-func (displayFallBackConfig1 *Exception_Enter_DisplayFallBackConfig1) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_DisplayFallBackConfig2
 // Display fallback Configuration
 type Exception_Enter_DisplayFallBackConfig2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -612,68 +356,32 @@ type Exception_Enter_DisplayFallBackConfig2 struct {
     RangeHigh interface{}
 }
 
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetFilter() yfilter.YFilter { return displayFallBackConfig2.YFilter }
+func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetEntityData() *types.CommonEntityData {
+    displayFallBackConfig2.EntityData.YFilter = displayFallBackConfig2.YFilter
+    displayFallBackConfig2.EntityData.YangName = "display-fall-back-config2"
+    displayFallBackConfig2.EntityData.BundleName = "cisco_ios_xr"
+    displayFallBackConfig2.EntityData.ParentYangName = "enter"
+    displayFallBackConfig2.EntityData.SegmentPath = "display-fall-back-config2"
+    displayFallBackConfig2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    displayFallBackConfig2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    displayFallBackConfig2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) SetFilter(yf yfilter.YFilter) { displayFallBackConfig2.YFilter = yf }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetGoName(yname string) string {
-    if yname == "choice-fall-back" { return "ChoiceFallBack" }
-    if yname == "path" { return "Path" }
-    if yname == "compress" { return "Compress" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "boot-device-str" { return "BootDeviceStr" }
-    if yname == "range-low" { return "RangeLow" }
-    if yname == "range-high" { return "RangeHigh" }
-    return ""
+    displayFallBackConfig2.EntityData.Children = make(map[string]types.YChild)
+    displayFallBackConfig2.EntityData.Leafs = make(map[string]types.YLeaf)
+    displayFallBackConfig2.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", displayFallBackConfig2.ChoiceFallBack}
+    displayFallBackConfig2.EntityData.Leafs["path"] = types.YLeaf{"Path", displayFallBackConfig2.Path}
+    displayFallBackConfig2.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayFallBackConfig2.Compress}
+    displayFallBackConfig2.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayFallBackConfig2.FileName}
+    displayFallBackConfig2.EntityData.Leafs["boot-device-str"] = types.YLeaf{"BootDeviceStr", displayFallBackConfig2.BootDeviceStr}
+    displayFallBackConfig2.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayFallBackConfig2.RangeLow}
+    displayFallBackConfig2.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayFallBackConfig2.RangeHigh}
+    return &(displayFallBackConfig2.EntityData)
 }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetSegmentPath() string {
-    return "display-fall-back-config2"
-}
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice-fall-back"] = displayFallBackConfig2.ChoiceFallBack
-    leafs["path"] = displayFallBackConfig2.Path
-    leafs["compress"] = displayFallBackConfig2.Compress
-    leafs["file-name"] = displayFallBackConfig2.FileName
-    leafs["boot-device-str"] = displayFallBackConfig2.BootDeviceStr
-    leafs["range-low"] = displayFallBackConfig2.RangeLow
-    leafs["range-high"] = displayFallBackConfig2.RangeHigh
-    return leafs
-}
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetYangName() string { return "display-fall-back-config2" }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) SetParent(parent types.Entity) { displayFallBackConfig2.parent = parent }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetParent() types.Entity { return displayFallBackConfig2.parent }
-
-func (displayFallBackConfig2 *Exception_Enter_DisplayFallBackConfig2) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_DisplayFallBackConfig3
 // Display fallback Configuration
 type Exception_Enter_DisplayFallBackConfig3 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -698,68 +406,32 @@ type Exception_Enter_DisplayFallBackConfig3 struct {
     RangeHigh interface{}
 }
 
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetFilter() yfilter.YFilter { return displayFallBackConfig3.YFilter }
+func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetEntityData() *types.CommonEntityData {
+    displayFallBackConfig3.EntityData.YFilter = displayFallBackConfig3.YFilter
+    displayFallBackConfig3.EntityData.YangName = "display-fall-back-config3"
+    displayFallBackConfig3.EntityData.BundleName = "cisco_ios_xr"
+    displayFallBackConfig3.EntityData.ParentYangName = "enter"
+    displayFallBackConfig3.EntityData.SegmentPath = "display-fall-back-config3"
+    displayFallBackConfig3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    displayFallBackConfig3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    displayFallBackConfig3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) SetFilter(yf yfilter.YFilter) { displayFallBackConfig3.YFilter = yf }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetGoName(yname string) string {
-    if yname == "choice-fall-back" { return "ChoiceFallBack" }
-    if yname == "path" { return "Path" }
-    if yname == "compress" { return "Compress" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "boot-device-str" { return "BootDeviceStr" }
-    if yname == "range-low" { return "RangeLow" }
-    if yname == "range-high" { return "RangeHigh" }
-    return ""
+    displayFallBackConfig3.EntityData.Children = make(map[string]types.YChild)
+    displayFallBackConfig3.EntityData.Leafs = make(map[string]types.YLeaf)
+    displayFallBackConfig3.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", displayFallBackConfig3.ChoiceFallBack}
+    displayFallBackConfig3.EntityData.Leafs["path"] = types.YLeaf{"Path", displayFallBackConfig3.Path}
+    displayFallBackConfig3.EntityData.Leafs["compress"] = types.YLeaf{"Compress", displayFallBackConfig3.Compress}
+    displayFallBackConfig3.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", displayFallBackConfig3.FileName}
+    displayFallBackConfig3.EntityData.Leafs["boot-device-str"] = types.YLeaf{"BootDeviceStr", displayFallBackConfig3.BootDeviceStr}
+    displayFallBackConfig3.EntityData.Leafs["range-low"] = types.YLeaf{"RangeLow", displayFallBackConfig3.RangeLow}
+    displayFallBackConfig3.EntityData.Leafs["range-high"] = types.YLeaf{"RangeHigh", displayFallBackConfig3.RangeHigh}
+    return &(displayFallBackConfig3.EntityData)
 }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetSegmentPath() string {
-    return "display-fall-back-config3"
-}
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice-fall-back"] = displayFallBackConfig3.ChoiceFallBack
-    leafs["path"] = displayFallBackConfig3.Path
-    leafs["compress"] = displayFallBackConfig3.Compress
-    leafs["file-name"] = displayFallBackConfig3.FileName
-    leafs["boot-device-str"] = displayFallBackConfig3.BootDeviceStr
-    leafs["range-low"] = displayFallBackConfig3.RangeLow
-    leafs["range-high"] = displayFallBackConfig3.RangeHigh
-    return leafs
-}
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetBundleName() string { return "cisco_ios_xr" }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetYangName() string { return "display-fall-back-config3" }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) SetParent(parent types.Entity) { displayFallBackConfig3.parent = parent }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetParent() types.Entity { return displayFallBackConfig3.parent }
-
-func (displayFallBackConfig3 *Exception_Enter_DisplayFallBackConfig3) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_KernelConfig
 // Kernel Configuration
 type Exception_Enter_KernelConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Choice . The type is string.
@@ -775,62 +447,29 @@ type Exception_Enter_KernelConfig struct {
     Memory interface{}
 }
 
-func (kernelConfig *Exception_Enter_KernelConfig) GetFilter() yfilter.YFilter { return kernelConfig.YFilter }
+func (kernelConfig *Exception_Enter_KernelConfig) GetEntityData() *types.CommonEntityData {
+    kernelConfig.EntityData.YFilter = kernelConfig.YFilter
+    kernelConfig.EntityData.YangName = "kernel-config"
+    kernelConfig.EntityData.BundleName = "cisco_ios_xr"
+    kernelConfig.EntityData.ParentYangName = "enter"
+    kernelConfig.EntityData.SegmentPath = "kernel-config"
+    kernelConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    kernelConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    kernelConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (kernelConfig *Exception_Enter_KernelConfig) SetFilter(yf yfilter.YFilter) { kernelConfig.YFilter = yf }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetGoName(yname string) string {
-    if yname == "choice-fall-back" { return "ChoiceFallBack" }
-    if yname == "path" { return "Path" }
-    if yname == "file-name" { return "FileName" }
-    if yname == "memory" { return "Memory" }
-    return ""
+    kernelConfig.EntityData.Children = make(map[string]types.YChild)
+    kernelConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    kernelConfig.EntityData.Leafs["choice-fall-back"] = types.YLeaf{"ChoiceFallBack", kernelConfig.ChoiceFallBack}
+    kernelConfig.EntityData.Leafs["path"] = types.YLeaf{"Path", kernelConfig.Path}
+    kernelConfig.EntityData.Leafs["file-name"] = types.YLeaf{"FileName", kernelConfig.FileName}
+    kernelConfig.EntityData.Leafs["memory"] = types.YLeaf{"Memory", kernelConfig.Memory}
+    return &(kernelConfig.EntityData)
 }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetSegmentPath() string {
-    return "kernel-config"
-}
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["choice-fall-back"] = kernelConfig.ChoiceFallBack
-    leafs["path"] = kernelConfig.Path
-    leafs["file-name"] = kernelConfig.FileName
-    leafs["memory"] = kernelConfig.Memory
-    return leafs
-}
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetYangName() string { return "kernel-config" }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (kernelConfig *Exception_Enter_KernelConfig) SetParent(parent types.Entity) { kernelConfig.parent = parent }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetParent() types.Entity { return kernelConfig.parent }
-
-func (kernelConfig *Exception_Enter_KernelConfig) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_KernelRouteConfig
 // Kernel Route Configuration
 type Exception_Enter_KernelRouteConfig struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Slot . The type is interface{} with range: 0..4294967295.
@@ -852,283 +491,128 @@ type Exception_Enter_KernelRouteConfig struct {
     NextHop interface{}
 }
 
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetFilter() yfilter.YFilter { return kernelRouteConfig.YFilter }
+func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetEntityData() *types.CommonEntityData {
+    kernelRouteConfig.EntityData.YFilter = kernelRouteConfig.YFilter
+    kernelRouteConfig.EntityData.YangName = "kernel-route-config"
+    kernelRouteConfig.EntityData.BundleName = "cisco_ios_xr"
+    kernelRouteConfig.EntityData.ParentYangName = "enter"
+    kernelRouteConfig.EntityData.SegmentPath = "kernel-route-config"
+    kernelRouteConfig.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    kernelRouteConfig.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    kernelRouteConfig.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) SetFilter(yf yfilter.YFilter) { kernelRouteConfig.YFilter = yf }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    if yname == "port" { return "Port" }
-    if yname == "ip-addr" { return "IpAddr" }
-    if yname == "mask" { return "Mask" }
-    if yname == "destination" { return "Destination" }
-    if yname == "next-hop" { return "NextHop" }
-    return ""
+    kernelRouteConfig.EntityData.Children = make(map[string]types.YChild)
+    kernelRouteConfig.EntityData.Leafs = make(map[string]types.YLeaf)
+    kernelRouteConfig.EntityData.Leafs["slot"] = types.YLeaf{"Slot", kernelRouteConfig.Slot}
+    kernelRouteConfig.EntityData.Leafs["port"] = types.YLeaf{"Port", kernelRouteConfig.Port}
+    kernelRouteConfig.EntityData.Leafs["ip-addr"] = types.YLeaf{"IpAddr", kernelRouteConfig.IpAddr}
+    kernelRouteConfig.EntityData.Leafs["mask"] = types.YLeaf{"Mask", kernelRouteConfig.Mask}
+    kernelRouteConfig.EntityData.Leafs["destination"] = types.YLeaf{"Destination", kernelRouteConfig.Destination}
+    kernelRouteConfig.EntityData.Leafs["next-hop"] = types.YLeaf{"NextHop", kernelRouteConfig.NextHop}
+    return &(kernelRouteConfig.EntityData)
 }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetSegmentPath() string {
-    return "kernel-route-config"
-}
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slot"] = kernelRouteConfig.Slot
-    leafs["port"] = kernelRouteConfig.Port
-    leafs["ip-addr"] = kernelRouteConfig.IpAddr
-    leafs["mask"] = kernelRouteConfig.Mask
-    leafs["destination"] = kernelRouteConfig.Destination
-    leafs["next-hop"] = kernelRouteConfig.NextHop
-    return leafs
-}
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetBundleName() string { return "cisco_ios_xr" }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetYangName() string { return "kernel-route-config" }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) SetParent(parent types.Entity) { kernelRouteConfig.parent = parent }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetParent() types.Entity { return kernelRouteConfig.parent }
-
-func (kernelRouteConfig *Exception_Enter_KernelRouteConfig) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_CoreSize
 // Core Size
 type Exception_Enter_CoreSize struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String interface{}
+    String_ interface{}
 }
 
-func (coreSize *Exception_Enter_CoreSize) GetFilter() yfilter.YFilter { return coreSize.YFilter }
+func (coreSize *Exception_Enter_CoreSize) GetEntityData() *types.CommonEntityData {
+    coreSize.EntityData.YFilter = coreSize.YFilter
+    coreSize.EntityData.YangName = "core-size"
+    coreSize.EntityData.BundleName = "cisco_ios_xr"
+    coreSize.EntityData.ParentYangName = "enter"
+    coreSize.EntityData.SegmentPath = "core-size"
+    coreSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    coreSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    coreSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (coreSize *Exception_Enter_CoreSize) SetFilter(yf yfilter.YFilter) { coreSize.YFilter = yf }
-
-func (coreSize *Exception_Enter_CoreSize) GetGoName(yname string) string {
-    if yname == "string" { return "String" }
-    return ""
+    coreSize.EntityData.Children = make(map[string]types.YChild)
+    coreSize.EntityData.Leafs = make(map[string]types.YLeaf)
+    coreSize.EntityData.Leafs["string"] = types.YLeaf{"String_", coreSize.String_}
+    return &(coreSize.EntityData)
 }
-
-func (coreSize *Exception_Enter_CoreSize) GetSegmentPath() string {
-    return "core-size"
-}
-
-func (coreSize *Exception_Enter_CoreSize) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (coreSize *Exception_Enter_CoreSize) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (coreSize *Exception_Enter_CoreSize) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["string"] = coreSize.String
-    return leafs
-}
-
-func (coreSize *Exception_Enter_CoreSize) GetBundleName() string { return "cisco_ios_xr" }
-
-func (coreSize *Exception_Enter_CoreSize) GetYangName() string { return "core-size" }
-
-func (coreSize *Exception_Enter_CoreSize) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (coreSize *Exception_Enter_CoreSize) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (coreSize *Exception_Enter_CoreSize) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (coreSize *Exception_Enter_CoreSize) SetParent(parent types.Entity) { coreSize.parent = parent }
-
-func (coreSize *Exception_Enter_CoreSize) GetParent() types.Entity { return coreSize.parent }
-
-func (coreSize *Exception_Enter_CoreSize) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_MemoryThreshold
 // Memory Threshold 
 type Exception_Enter_MemoryThreshold struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String interface{}
+    String_ interface{}
 }
 
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetFilter() yfilter.YFilter { return memoryThreshold.YFilter }
+func (memoryThreshold *Exception_Enter_MemoryThreshold) GetEntityData() *types.CommonEntityData {
+    memoryThreshold.EntityData.YFilter = memoryThreshold.YFilter
+    memoryThreshold.EntityData.YangName = "memory-threshold"
+    memoryThreshold.EntityData.BundleName = "cisco_ios_xr"
+    memoryThreshold.EntityData.ParentYangName = "enter"
+    memoryThreshold.EntityData.SegmentPath = "memory-threshold"
+    memoryThreshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    memoryThreshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    memoryThreshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (memoryThreshold *Exception_Enter_MemoryThreshold) SetFilter(yf yfilter.YFilter) { memoryThreshold.YFilter = yf }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetGoName(yname string) string {
-    if yname == "string" { return "String" }
-    return ""
+    memoryThreshold.EntityData.Children = make(map[string]types.YChild)
+    memoryThreshold.EntityData.Leafs = make(map[string]types.YLeaf)
+    memoryThreshold.EntityData.Leafs["string"] = types.YLeaf{"String_", memoryThreshold.String_}
+    return &(memoryThreshold.EntityData)
 }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetSegmentPath() string {
-    return "memory-threshold"
-}
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["string"] = memoryThreshold.String
-    return leafs
-}
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetBundleName() string { return "cisco_ios_xr" }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetYangName() string { return "memory-threshold" }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) SetParent(parent types.Entity) { memoryThreshold.parent = parent }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetParent() types.Entity { return memoryThreshold.parent }
-
-func (memoryThreshold *Exception_Enter_MemoryThreshold) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_ProcSize
 // Proc Size
 type Exception_Enter_ProcSize struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String interface{}
+    String_ interface{}
 }
 
-func (procSize *Exception_Enter_ProcSize) GetFilter() yfilter.YFilter { return procSize.YFilter }
+func (procSize *Exception_Enter_ProcSize) GetEntityData() *types.CommonEntityData {
+    procSize.EntityData.YFilter = procSize.YFilter
+    procSize.EntityData.YangName = "proc-size"
+    procSize.EntityData.BundleName = "cisco_ios_xr"
+    procSize.EntityData.ParentYangName = "enter"
+    procSize.EntityData.SegmentPath = "proc-size"
+    procSize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    procSize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    procSize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (procSize *Exception_Enter_ProcSize) SetFilter(yf yfilter.YFilter) { procSize.YFilter = yf }
-
-func (procSize *Exception_Enter_ProcSize) GetGoName(yname string) string {
-    if yname == "string" { return "String" }
-    return ""
+    procSize.EntityData.Children = make(map[string]types.YChild)
+    procSize.EntityData.Leafs = make(map[string]types.YLeaf)
+    procSize.EntityData.Leafs["string"] = types.YLeaf{"String_", procSize.String_}
+    return &(procSize.EntityData)
 }
-
-func (procSize *Exception_Enter_ProcSize) GetSegmentPath() string {
-    return "proc-size"
-}
-
-func (procSize *Exception_Enter_ProcSize) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (procSize *Exception_Enter_ProcSize) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (procSize *Exception_Enter_ProcSize) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["string"] = procSize.String
-    return leafs
-}
-
-func (procSize *Exception_Enter_ProcSize) GetBundleName() string { return "cisco_ios_xr" }
-
-func (procSize *Exception_Enter_ProcSize) GetYangName() string { return "proc-size" }
-
-func (procSize *Exception_Enter_ProcSize) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (procSize *Exception_Enter_ProcSize) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (procSize *Exception_Enter_ProcSize) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (procSize *Exception_Enter_ProcSize) SetParent(parent types.Entity) { procSize.parent = parent }
-
-func (procSize *Exception_Enter_ProcSize) GetParent() types.Entity { return procSize.parent }
-
-func (procSize *Exception_Enter_ProcSize) GetParentYangName() string { return "enter" }
 
 // Exception_Enter_Qsize
 // QSIZE 
 type Exception_Enter_Qsize struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // String  . The type is string.
-    String interface{}
+    String_ interface{}
 }
 
-func (qsize *Exception_Enter_Qsize) GetFilter() yfilter.YFilter { return qsize.YFilter }
+func (qsize *Exception_Enter_Qsize) GetEntityData() *types.CommonEntityData {
+    qsize.EntityData.YFilter = qsize.YFilter
+    qsize.EntityData.YangName = "qsize"
+    qsize.EntityData.BundleName = "cisco_ios_xr"
+    qsize.EntityData.ParentYangName = "enter"
+    qsize.EntityData.SegmentPath = "qsize"
+    qsize.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qsize.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qsize.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qsize *Exception_Enter_Qsize) SetFilter(yf yfilter.YFilter) { qsize.YFilter = yf }
-
-func (qsize *Exception_Enter_Qsize) GetGoName(yname string) string {
-    if yname == "string" { return "String" }
-    return ""
+    qsize.EntityData.Children = make(map[string]types.YChild)
+    qsize.EntityData.Leafs = make(map[string]types.YLeaf)
+    qsize.EntityData.Leafs["string"] = types.YLeaf{"String_", qsize.String_}
+    return &(qsize.EntityData)
 }
-
-func (qsize *Exception_Enter_Qsize) GetSegmentPath() string {
-    return "qsize"
-}
-
-func (qsize *Exception_Enter_Qsize) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qsize *Exception_Enter_Qsize) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qsize *Exception_Enter_Qsize) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["string"] = qsize.String
-    return leafs
-}
-
-func (qsize *Exception_Enter_Qsize) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qsize *Exception_Enter_Qsize) GetYangName() string { return "qsize" }
-
-func (qsize *Exception_Enter_Qsize) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qsize *Exception_Enter_Qsize) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qsize *Exception_Enter_Qsize) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qsize *Exception_Enter_Qsize) SetParent(parent types.Entity) { qsize.parent = parent }
-
-func (qsize *Exception_Enter_Qsize) GetParent() types.Entity { return qsize.parent }
-
-func (qsize *Exception_Enter_Qsize) GetParentYangName() string { return "enter" }
 

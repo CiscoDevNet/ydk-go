@@ -24,65 +24,32 @@ func init() {
 
 // CISCOUBEMIB
 type CISCOUBEMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     Ciscoubemibobjects CISCOUBEMIB_Ciscoubemibobjects
 }
 
-func (cISCOUBEMIB *CISCOUBEMIB) GetFilter() yfilter.YFilter { return cISCOUBEMIB.YFilter }
+func (cISCOUBEMIB *CISCOUBEMIB) GetEntityData() *types.CommonEntityData {
+    cISCOUBEMIB.EntityData.YFilter = cISCOUBEMIB.YFilter
+    cISCOUBEMIB.EntityData.YangName = "CISCO-UBE-MIB"
+    cISCOUBEMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOUBEMIB.EntityData.ParentYangName = "CISCO-UBE-MIB"
+    cISCOUBEMIB.EntityData.SegmentPath = "CISCO-UBE-MIB:CISCO-UBE-MIB"
+    cISCOUBEMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOUBEMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOUBEMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOUBEMIB *CISCOUBEMIB) SetFilter(yf yfilter.YFilter) { cISCOUBEMIB.YFilter = yf }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetGoName(yname string) string {
-    if yname == "ciscoUbeMIBObjects" { return "Ciscoubemibobjects" }
-    return ""
+    cISCOUBEMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOUBEMIB.EntityData.Children["ciscoUbeMIBObjects"] = types.YChild{"Ciscoubemibobjects", &cISCOUBEMIB.Ciscoubemibobjects}
+    cISCOUBEMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOUBEMIB.EntityData)
 }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetSegmentPath() string {
-    return "CISCO-UBE-MIB:CISCO-UBE-MIB"
-}
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ciscoUbeMIBObjects" {
-        return &cISCOUBEMIB.Ciscoubemibobjects
-    }
-    return nil
-}
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ciscoUbeMIBObjects"] = &cISCOUBEMIB.Ciscoubemibobjects
-    return children
-}
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetYangName() string { return "CISCO-UBE-MIB" }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOUBEMIB *CISCOUBEMIB) SetParent(parent types.Entity) { cISCOUBEMIB.parent = parent }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetParent() types.Entity { return cISCOUBEMIB.parent }
-
-func (cISCOUBEMIB *CISCOUBEMIB) GetParentYangName() string { return "CISCO-UBE-MIB" }
 
 // CISCOUBEMIB_Ciscoubemibobjects
 type CISCOUBEMIB_Ciscoubemibobjects struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object represents, whether the Cisco Unified Border Element (CUBE) is
@@ -101,53 +68,21 @@ type CISCOUBEMIB_Ciscoubemibobjects struct {
     Cubetotalsessionallowed interface{}
 }
 
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetFilter() yfilter.YFilter { return ciscoubemibobjects.YFilter }
+func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetEntityData() *types.CommonEntityData {
+    ciscoubemibobjects.EntityData.YFilter = ciscoubemibobjects.YFilter
+    ciscoubemibobjects.EntityData.YangName = "ciscoUbeMIBObjects"
+    ciscoubemibobjects.EntityData.BundleName = "cisco_ios_xe"
+    ciscoubemibobjects.EntityData.ParentYangName = "CISCO-UBE-MIB"
+    ciscoubemibobjects.EntityData.SegmentPath = "ciscoUbeMIBObjects"
+    ciscoubemibobjects.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciscoubemibobjects.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciscoubemibobjects.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) SetFilter(yf yfilter.YFilter) { ciscoubemibobjects.YFilter = yf }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetGoName(yname string) string {
-    if yname == "cubeEnabled" { return "Cubeenabled" }
-    if yname == "cubeVersion" { return "Cubeversion" }
-    if yname == "cubeTotalSessionAllowed" { return "Cubetotalsessionallowed" }
-    return ""
+    ciscoubemibobjects.EntityData.Children = make(map[string]types.YChild)
+    ciscoubemibobjects.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciscoubemibobjects.EntityData.Leafs["cubeEnabled"] = types.YLeaf{"Cubeenabled", ciscoubemibobjects.Cubeenabled}
+    ciscoubemibobjects.EntityData.Leafs["cubeVersion"] = types.YLeaf{"Cubeversion", ciscoubemibobjects.Cubeversion}
+    ciscoubemibobjects.EntityData.Leafs["cubeTotalSessionAllowed"] = types.YLeaf{"Cubetotalsessionallowed", ciscoubemibobjects.Cubetotalsessionallowed}
+    return &(ciscoubemibobjects.EntityData)
 }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetSegmentPath() string {
-    return "ciscoUbeMIBObjects"
-}
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cubeEnabled"] = ciscoubemibobjects.Cubeenabled
-    leafs["cubeVersion"] = ciscoubemibobjects.Cubeversion
-    leafs["cubeTotalSessionAllowed"] = ciscoubemibobjects.Cubetotalsessionallowed
-    return leafs
-}
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetYangName() string { return "ciscoUbeMIBObjects" }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) SetParent(parent types.Entity) { ciscoubemibobjects.parent = parent }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetParent() types.Entity { return ciscoubemibobjects.parent }
-
-func (ciscoubemibobjects *CISCOUBEMIB_Ciscoubemibobjects) GetParentYangName() string { return "CISCO-UBE-MIB" }
 

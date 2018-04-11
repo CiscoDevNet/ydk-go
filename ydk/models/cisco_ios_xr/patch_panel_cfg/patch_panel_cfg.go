@@ -28,7 +28,7 @@ func init() {
 // patch-panel service submode
 // This type is a presence type.
 type PatchPanel struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Enable patch-panel service. The type is interface{}. This attribute is
@@ -40,63 +40,30 @@ type PatchPanel struct {
     UserName interface{}
 
     // Password name to be used for Authentication with Patch-Panel. The type is
-    // string with pattern: (!.+)|([^!].+).
+    // string with pattern: b'(!.+)|([^!].+)'.
     Password interface{}
 
     // IP address for patch-panel. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 }
 
-func (patchPanel *PatchPanel) GetFilter() yfilter.YFilter { return patchPanel.YFilter }
+func (patchPanel *PatchPanel) GetEntityData() *types.CommonEntityData {
+    patchPanel.EntityData.YFilter = patchPanel.YFilter
+    patchPanel.EntityData.YangName = "patch-panel"
+    patchPanel.EntityData.BundleName = "cisco_ios_xr"
+    patchPanel.EntityData.ParentYangName = "Cisco-IOS-XR-patch-panel-cfg"
+    patchPanel.EntityData.SegmentPath = "Cisco-IOS-XR-patch-panel-cfg:patch-panel"
+    patchPanel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    patchPanel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    patchPanel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (patchPanel *PatchPanel) SetFilter(yf yfilter.YFilter) { patchPanel.YFilter = yf }
-
-func (patchPanel *PatchPanel) GetGoName(yname string) string {
-    if yname == "enable" { return "Enable" }
-    if yname == "user-name" { return "UserName" }
-    if yname == "password" { return "Password" }
-    if yname == "ipv4" { return "Ipv4" }
-    return ""
+    patchPanel.EntityData.Children = make(map[string]types.YChild)
+    patchPanel.EntityData.Leafs = make(map[string]types.YLeaf)
+    patchPanel.EntityData.Leafs["enable"] = types.YLeaf{"Enable", patchPanel.Enable}
+    patchPanel.EntityData.Leafs["user-name"] = types.YLeaf{"UserName", patchPanel.UserName}
+    patchPanel.EntityData.Leafs["password"] = types.YLeaf{"Password", patchPanel.Password}
+    patchPanel.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", patchPanel.Ipv4}
+    return &(patchPanel.EntityData)
 }
-
-func (patchPanel *PatchPanel) GetSegmentPath() string {
-    return "Cisco-IOS-XR-patch-panel-cfg:patch-panel"
-}
-
-func (patchPanel *PatchPanel) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (patchPanel *PatchPanel) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (patchPanel *PatchPanel) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["enable"] = patchPanel.Enable
-    leafs["user-name"] = patchPanel.UserName
-    leafs["password"] = patchPanel.Password
-    leafs["ipv4"] = patchPanel.Ipv4
-    return leafs
-}
-
-func (patchPanel *PatchPanel) GetBundleName() string { return "cisco_ios_xr" }
-
-func (patchPanel *PatchPanel) GetYangName() string { return "patch-panel" }
-
-func (patchPanel *PatchPanel) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (patchPanel *PatchPanel) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (patchPanel *PatchPanel) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (patchPanel *PatchPanel) SetParent(parent types.Entity) { patchPanel.parent = parent }
-
-func (patchPanel *PatchPanel) GetParent() types.Entity { return patchPanel.parent }
-
-func (patchPanel *PatchPanel) GetParentYangName() string { return "Cisco-IOS-XR-patch-panel-cfg" }
 

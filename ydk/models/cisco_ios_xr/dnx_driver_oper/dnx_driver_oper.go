@@ -24,21 +24,63 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-dnx-driver-oper:fia", reflect.TypeOf(Fia{}))
 }
 
-// SliceState represents Slice state
-type SliceState string
+// AsicInitMethod represents Asic init method
+type AsicInitMethod string
 
 const (
-    // slice oper unset
-    SliceState_slice_oper_unset SliceState = "slice-oper-unset"
+    // asic init method unset
+    AsicInitMethod_asic_init_method_unset AsicInitMethod = "asic-init-method-unset"
 
-    // slice oper down
-    SliceState_slice_oper_down SliceState = "slice-oper-down"
+    // asic init method no reset
+    AsicInitMethod_asic_init_method_no_reset AsicInitMethod = "asic-init-method-no-reset"
 
-    // slice oper up
-    SliceState_slice_oper_up SliceState = "slice-oper-up"
+    // asic init method pon reset
+    AsicInitMethod_asic_init_method_pon_reset AsicInitMethod = "asic-init-method-pon-reset"
 
-    // slice oper na
-    SliceState_slice_oper_na SliceState = "slice-oper-na"
+    // asic init method pon reset on intr
+    AsicInitMethod_asic_init_method_pon_reset_on_intr AsicInitMethod = "asic-init-method-pon-reset-on-intr"
+
+    // asic init method hard reset
+    AsicInitMethod_asic_init_method_hard_reset AsicInitMethod = "asic-init-method-hard-reset"
+
+    // asic init method warmboot
+    AsicInitMethod_asic_init_method_warmboot AsicInitMethod = "asic-init-method-warmboot"
+
+    // asic init method issu wb
+    AsicInitMethod_asic_init_method_issu_wb AsicInitMethod = "asic-init-method-issu-wb"
+
+    // asic init method pci shutdown
+    AsicInitMethod_asic_init_method_pci_shutdown AsicInitMethod = "asic-init-method-pci-shutdown"
+
+    // asic init method quiesce
+    AsicInitMethod_asic_init_method_quiesce AsicInitMethod = "asic-init-method-quiesce"
+
+    // asic init method issu started
+    AsicInitMethod_asic_init_method_issu_started AsicInitMethod = "asic-init-method-issu-started"
+
+    // asic init method issu rollback
+    AsicInitMethod_asic_init_method_issu_rollback AsicInitMethod = "asic-init-method-issu-rollback"
+
+    // asic init method issu abort
+    AsicInitMethod_asic_init_method_issu_abort AsicInitMethod = "asic-init-method-issu-abort"
+
+    // asic init method slice cleanup
+    AsicInitMethod_asic_init_method_slice_cleanup AsicInitMethod = "asic-init-method-slice-cleanup"
+
+    // asic init method lc remove
+    AsicInitMethod_asic_init_method_lc_remove AsicInitMethod = "asic-init-method-lc-remove"
+
+    // asic init method node down
+    AsicInitMethod_asic_init_method_node_down AsicInitMethod = "asic-init-method-node-down"
+
+    // asic init method intr
+    AsicInitMethod_asic_init_method_intr AsicInitMethod = "asic-init-method-intr"
+
+    // asic init method board reload
+    AsicInitMethod_asic_init_method_board_reload AsicInitMethod = "asic-init-method-board-reload"
+
+    // asic init method max
+    AsicInitMethod_asic_init_method_max AsicInitMethod = "asic-init-method-max"
 )
 
 // AsicAccessState represents Asic access state
@@ -124,69 +166,6 @@ const (
     AsicAccessState_asic_state_max AsicAccessState = "asic-state-max"
 )
 
-// LinkErrorState represents Link error state
-type LinkErrorState string
-
-const (
-    // link error unset
-    LinkErrorState_link_error_unset LinkErrorState = "link-error-unset"
-
-    // link error none
-    LinkErrorState_link_error_none LinkErrorState = "link-error-none"
-
-    // link error shut
-    LinkErrorState_link_error_shut LinkErrorState = "link-error-shut"
-
-    // link error max
-    LinkErrorState_link_error_max LinkErrorState = "link-error-max"
-)
-
-// FcMode represents Fc mode
-type FcMode string
-
-const (
-    // fc mode unset
-    FcMode_fc_mode_unset FcMode = "fc-mode-unset"
-
-    // fc mode unavail
-    FcMode_fc_mode_unavail FcMode = "fc-mode-unavail"
-
-    // fc mode inband
-    FcMode_fc_mode_inband FcMode = "fc-mode-inband"
-
-    // fc mode oob
-    FcMode_fc_mode_oob FcMode = "fc-mode-oob"
-)
-
-// Asic represents Asic
-type Asic string
-
-const (
-    // asic unset
-    Asic_asic_unset Asic = "asic-unset"
-
-    // asic unavail
-    Asic_asic_unavail Asic = "asic-unavail"
-
-    // asic fia
-    Asic_asic_fia Asic = "asic-fia"
-
-    // asic s123
-    Asic_asic_s123 Asic = "asic-s123"
-
-    // asic s13
-    Asic_asic_s13 Asic = "asic-s13"
-
-    // asic s2
-    Asic_asic_s2 Asic = "asic-s2"
-
-    // asic b2b
-    Asic_asic_b2b Asic = "asic-b2b"
-
-    // asic type unknown
-    Asic_asic_type_unknown Asic = "asic-type-unknown"
-)
-
 // AsicOperState represents Asic oper state
 type AsicOperState string
 
@@ -207,21 +186,55 @@ const (
     AsicOperState_asic_card_down AsicOperState = "asic-card-down"
 )
 
-// Link represents Link
-type Link string
+// SliceState represents Slice state
+type SliceState string
 
 const (
-    // link type unset
-    Link_link_type_unset Link = "link-type-unset"
+    // slice oper unset
+    SliceState_slice_oper_unset SliceState = "slice-oper-unset"
 
-    // link type unavail
-    Link_link_type_unavail Link = "link-type-unavail"
+    // slice oper down
+    SliceState_slice_oper_down SliceState = "slice-oper-down"
 
-    // link type tx
-    Link_link_type_tx Link = "link-type-tx"
+    // slice oper up
+    SliceState_slice_oper_up SliceState = "slice-oper-up"
 
-    // link type rx
-    Link_link_type_rx Link = "link-type-rx"
+    // slice oper na
+    SliceState_slice_oper_na SliceState = "slice-oper-na"
+)
+
+// FcMode represents Fc mode
+type FcMode string
+
+const (
+    // fc mode unset
+    FcMode_fc_mode_unset FcMode = "fc-mode-unset"
+
+    // fc mode unavail
+    FcMode_fc_mode_unavail FcMode = "fc-mode-unavail"
+
+    // fc mode inband
+    FcMode_fc_mode_inband FcMode = "fc-mode-inband"
+
+    // fc mode oob
+    FcMode_fc_mode_oob FcMode = "fc-mode-oob"
+)
+
+// LinkErrorState represents Link error state
+type LinkErrorState string
+
+const (
+    // link error unset
+    LinkErrorState_link_error_unset LinkErrorState = "link-error-unset"
+
+    // link error none
+    LinkErrorState_link_error_none LinkErrorState = "link-error-none"
+
+    // link error shut
+    LinkErrorState_link_error_shut LinkErrorState = "link-error-shut"
+
+    // link error max
+    LinkErrorState_link_error_max LinkErrorState = "link-error-max"
 )
 
 // OperState represents Oper state
@@ -242,65 +255,6 @@ const (
 
     // card down
     OperState_card_down OperState = "card-down"
-)
-
-// AsicInitMethod represents Asic init method
-type AsicInitMethod string
-
-const (
-    // asic init method unset
-    AsicInitMethod_asic_init_method_unset AsicInitMethod = "asic-init-method-unset"
-
-    // asic init method no reset
-    AsicInitMethod_asic_init_method_no_reset AsicInitMethod = "asic-init-method-no-reset"
-
-    // asic init method pon reset
-    AsicInitMethod_asic_init_method_pon_reset AsicInitMethod = "asic-init-method-pon-reset"
-
-    // asic init method pon reset on intr
-    AsicInitMethod_asic_init_method_pon_reset_on_intr AsicInitMethod = "asic-init-method-pon-reset-on-intr"
-
-    // asic init method hard reset
-    AsicInitMethod_asic_init_method_hard_reset AsicInitMethod = "asic-init-method-hard-reset"
-
-    // asic init method warmboot
-    AsicInitMethod_asic_init_method_warmboot AsicInitMethod = "asic-init-method-warmboot"
-
-    // asic init method issu wb
-    AsicInitMethod_asic_init_method_issu_wb AsicInitMethod = "asic-init-method-issu-wb"
-
-    // asic init method pci shutdown
-    AsicInitMethod_asic_init_method_pci_shutdown AsicInitMethod = "asic-init-method-pci-shutdown"
-
-    // asic init method quiesce
-    AsicInitMethod_asic_init_method_quiesce AsicInitMethod = "asic-init-method-quiesce"
-
-    // asic init method issu started
-    AsicInitMethod_asic_init_method_issu_started AsicInitMethod = "asic-init-method-issu-started"
-
-    // asic init method issu rollback
-    AsicInitMethod_asic_init_method_issu_rollback AsicInitMethod = "asic-init-method-issu-rollback"
-
-    // asic init method issu abort
-    AsicInitMethod_asic_init_method_issu_abort AsicInitMethod = "asic-init-method-issu-abort"
-
-    // asic init method slice cleanup
-    AsicInitMethod_asic_init_method_slice_cleanup AsicInitMethod = "asic-init-method-slice-cleanup"
-
-    // asic init method lc remove
-    AsicInitMethod_asic_init_method_lc_remove AsicInitMethod = "asic-init-method-lc-remove"
-
-    // asic init method node down
-    AsicInitMethod_asic_init_method_node_down AsicInitMethod = "asic-init-method-node-down"
-
-    // asic init method intr
-    AsicInitMethod_asic_init_method_intr AsicInitMethod = "asic-init-method-intr"
-
-    // asic init method board reload
-    AsicInitMethod_asic_init_method_board_reload AsicInitMethod = "asic-init-method-board-reload"
-
-    // asic init method max
-    AsicInitMethod_asic_init_method_max AsicInitMethod = "asic-init-method-max"
 )
 
 // AdminState represents Admin state
@@ -343,6 +297,52 @@ const (
     LinkStage_link_stage_unknown LinkStage = "link-stage-unknown"
 )
 
+// Link represents Link
+type Link string
+
+const (
+    // link type unset
+    Link_link_type_unset Link = "link-type-unset"
+
+    // link type unavail
+    Link_link_type_unavail Link = "link-type-unavail"
+
+    // link type tx
+    Link_link_type_tx Link = "link-type-tx"
+
+    // link type rx
+    Link_link_type_rx Link = "link-type-rx"
+)
+
+// Asic represents Asic
+type Asic string
+
+const (
+    // asic unset
+    Asic_asic_unset Asic = "asic-unset"
+
+    // asic unavail
+    Asic_asic_unavail Asic = "asic-unavail"
+
+    // asic fia
+    Asic_asic_fia Asic = "asic-fia"
+
+    // asic s123
+    Asic_asic_s123 Asic = "asic-s123"
+
+    // asic s13
+    Asic_asic_s13 Asic = "asic-s13"
+
+    // asic s2
+    Asic_asic_s2 Asic = "asic-s2"
+
+    // asic b2b
+    Asic_asic_b2b Asic = "asic-b2b"
+
+    // asic type unknown
+    Asic_asic_type_unknown Asic = "asic-type-unknown"
+)
+
 // Rack represents Rack
 type Rack string
 
@@ -360,66 +360,33 @@ const (
 // Fia
 // FIA driver operational data
 type Fia struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // FIA driver operational data for available nodes.
     Nodes Fia_Nodes
 }
 
-func (fia *Fia) GetFilter() yfilter.YFilter { return fia.YFilter }
+func (fia *Fia) GetEntityData() *types.CommonEntityData {
+    fia.EntityData.YFilter = fia.YFilter
+    fia.EntityData.YangName = "fia"
+    fia.EntityData.BundleName = "cisco_ios_xr"
+    fia.EntityData.ParentYangName = "Cisco-IOS-XR-dnx-driver-oper"
+    fia.EntityData.SegmentPath = "Cisco-IOS-XR-dnx-driver-oper:fia"
+    fia.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fia.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fia.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fia *Fia) SetFilter(yf yfilter.YFilter) { fia.YFilter = yf }
-
-func (fia *Fia) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    fia.EntityData.Children = make(map[string]types.YChild)
+    fia.EntityData.Children["nodes"] = types.YChild{"Nodes", &fia.Nodes}
+    fia.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fia.EntityData)
 }
-
-func (fia *Fia) GetSegmentPath() string {
-    return "Cisco-IOS-XR-dnx-driver-oper:fia"
-}
-
-func (fia *Fia) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &fia.Nodes
-    }
-    return nil
-}
-
-func (fia *Fia) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &fia.Nodes
-    return children
-}
-
-func (fia *Fia) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fia *Fia) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fia *Fia) GetYangName() string { return "fia" }
-
-func (fia *Fia) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fia *Fia) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fia *Fia) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fia *Fia) SetParent(parent types.Entity) { fia.parent = parent }
-
-func (fia *Fia) GetParent() types.Entity { return fia.parent }
-
-func (fia *Fia) GetParentYangName() string { return "Cisco-IOS-XR-dnx-driver-oper" }
 
 // Fia_Nodes
 // FIA driver operational data for available nodes
 type Fia_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // FIA operational data for a particular node. The type is slice of
@@ -427,72 +394,33 @@ type Fia_Nodes struct {
     Node []Fia_Nodes_Node
 }
 
-func (nodes *Fia_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Fia_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "fia"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Fia_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Fia_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Fia_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Fia_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Fia_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Fia_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Fia_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Fia_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Fia_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Fia_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Fia_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Fia_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Fia_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Fia_Nodes) GetParentYangName() string { return "fia" }
 
 // Fia_Nodes_Node
 // FIA operational data for a particular node
 type Fia_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // FIA link rx information.
@@ -517,150 +445,59 @@ type Fia_Nodes_Node struct {
     AsicStatistics Fia_Nodes_Node_AsicStatistics
 }
 
-func (node *Fia_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Fia_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Fia_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Fia_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "rx-link-information" { return "RxLinkInformation" }
-    if yname == "driver-information" { return "DriverInformation" }
-    if yname == "clear-statistics" { return "ClearStatistics" }
-    if yname == "tx-link-information" { return "TxLinkInformation" }
-    if yname == "diag-shell" { return "DiagShell" }
-    if yname == "oir-history" { return "OirHistory" }
-    if yname == "asic-statistics" { return "AsicStatistics" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["rx-link-information"] = types.YChild{"RxLinkInformation", &node.RxLinkInformation}
+    node.EntityData.Children["driver-information"] = types.YChild{"DriverInformation", &node.DriverInformation}
+    node.EntityData.Children["clear-statistics"] = types.YChild{"ClearStatistics", &node.ClearStatistics}
+    node.EntityData.Children["tx-link-information"] = types.YChild{"TxLinkInformation", &node.TxLinkInformation}
+    node.EntityData.Children["diag-shell"] = types.YChild{"DiagShell", &node.DiagShell}
+    node.EntityData.Children["oir-history"] = types.YChild{"OirHistory", &node.OirHistory}
+    node.EntityData.Children["asic-statistics"] = types.YChild{"AsicStatistics", &node.AsicStatistics}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Fia_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Fia_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rx-link-information" {
-        return &node.RxLinkInformation
-    }
-    if childYangName == "driver-information" {
-        return &node.DriverInformation
-    }
-    if childYangName == "clear-statistics" {
-        return &node.ClearStatistics
-    }
-    if childYangName == "tx-link-information" {
-        return &node.TxLinkInformation
-    }
-    if childYangName == "diag-shell" {
-        return &node.DiagShell
-    }
-    if childYangName == "oir-history" {
-        return &node.OirHistory
-    }
-    if childYangName == "asic-statistics" {
-        return &node.AsicStatistics
-    }
-    return nil
-}
-
-func (node *Fia_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rx-link-information"] = &node.RxLinkInformation
-    children["driver-information"] = &node.DriverInformation
-    children["clear-statistics"] = &node.ClearStatistics
-    children["tx-link-information"] = &node.TxLinkInformation
-    children["diag-shell"] = &node.DiagShell
-    children["oir-history"] = &node.OirHistory
-    children["asic-statistics"] = &node.AsicStatistics
-    return children
-}
-
-func (node *Fia_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Fia_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Fia_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Fia_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Fia_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Fia_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Fia_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Fia_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Fia_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Fia_Nodes_Node_RxLinkInformation
 // FIA link rx information
 type Fia_Nodes_Node_RxLinkInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Option table for link rx information.
     LinkOptions Fia_Nodes_Node_RxLinkInformation_LinkOptions
 }
 
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetFilter() yfilter.YFilter { return rxLinkInformation.YFilter }
+func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetEntityData() *types.CommonEntityData {
+    rxLinkInformation.EntityData.YFilter = rxLinkInformation.YFilter
+    rxLinkInformation.EntityData.YangName = "rx-link-information"
+    rxLinkInformation.EntityData.BundleName = "cisco_ios_xr"
+    rxLinkInformation.EntityData.ParentYangName = "node"
+    rxLinkInformation.EntityData.SegmentPath = "rx-link-information"
+    rxLinkInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLinkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLinkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) SetFilter(yf yfilter.YFilter) { rxLinkInformation.YFilter = yf }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetGoName(yname string) string {
-    if yname == "link-options" { return "LinkOptions" }
-    return ""
+    rxLinkInformation.EntityData.Children = make(map[string]types.YChild)
+    rxLinkInformation.EntityData.Children["link-options"] = types.YChild{"LinkOptions", &rxLinkInformation.LinkOptions}
+    rxLinkInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rxLinkInformation.EntityData)
 }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetSegmentPath() string {
-    return "rx-link-information"
-}
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "link-options" {
-        return &rxLinkInformation.LinkOptions
-    }
-    return nil
-}
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["link-options"] = &rxLinkInformation.LinkOptions
-    return children
-}
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetYangName() string { return "rx-link-information" }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) SetParent(parent types.Entity) { rxLinkInformation.parent = parent }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetParent() types.Entity { return rxLinkInformation.parent }
-
-func (rxLinkInformation *Fia_Nodes_Node_RxLinkInformation) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_RxLinkInformation_LinkOptions
 // Option table for link rx information
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Option : topo , flag , stats. The type is slice of
@@ -668,133 +505,60 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions struct {
     LinkOption []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption
 }
 
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetFilter() yfilter.YFilter { return linkOptions.YFilter }
+func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetEntityData() *types.CommonEntityData {
+    linkOptions.EntityData.YFilter = linkOptions.YFilter
+    linkOptions.EntityData.YangName = "link-options"
+    linkOptions.EntityData.BundleName = "cisco_ios_xr"
+    linkOptions.EntityData.ParentYangName = "rx-link-information"
+    linkOptions.EntityData.SegmentPath = "link-options"
+    linkOptions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkOptions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkOptions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) SetFilter(yf yfilter.YFilter) { linkOptions.YFilter = yf }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetGoName(yname string) string {
-    if yname == "link-option" { return "LinkOption" }
-    return ""
-}
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetSegmentPath() string {
-    return "link-options"
-}
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "link-option" {
-        for _, c := range linkOptions.LinkOption {
-            if linkOptions.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption{}
-        linkOptions.LinkOption = append(linkOptions.LinkOption, child)
-        return &linkOptions.LinkOption[len(linkOptions.LinkOption)-1]
-    }
-    return nil
-}
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    linkOptions.EntityData.Children = make(map[string]types.YChild)
+    linkOptions.EntityData.Children["link-option"] = types.YChild{"LinkOption", nil}
     for i := range linkOptions.LinkOption {
-        children[linkOptions.LinkOption[i].GetSegmentPath()] = &linkOptions.LinkOption[i]
+        linkOptions.EntityData.Children[types.GetSegmentPath(&linkOptions.LinkOption[i])] = types.YChild{"LinkOption", &linkOptions.LinkOption[i]}
     }
-    return children
+    linkOptions.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(linkOptions.EntityData)
 }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetBundleName() string { return "cisco_ios_xr" }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetYangName() string { return "link-options" }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) SetParent(parent types.Entity) { linkOptions.parent = parent }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetParent() types.Entity { return linkOptions.parent }
-
-func (linkOptions *Fia_Nodes_Node_RxLinkInformation_LinkOptions) GetParentYangName() string { return "rx-link-information" }
 
 // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption
 // Option : topo , flag , stats
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Link option. The type is string with pattern:
-    // (flap)|(topo).
+    // b'(flap)|(topo)'.
     Option interface{}
 
     // Instance table for rx information.
     RxAsicInstances Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances
 }
 
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetFilter() yfilter.YFilter { return linkOption.YFilter }
+func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetEntityData() *types.CommonEntityData {
+    linkOption.EntityData.YFilter = linkOption.YFilter
+    linkOption.EntityData.YangName = "link-option"
+    linkOption.EntityData.BundleName = "cisco_ios_xr"
+    linkOption.EntityData.ParentYangName = "link-options"
+    linkOption.EntityData.SegmentPath = "link-option" + "[option='" + fmt.Sprintf("%v", linkOption.Option) + "']"
+    linkOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) SetFilter(yf yfilter.YFilter) { linkOption.YFilter = yf }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetGoName(yname string) string {
-    if yname == "option" { return "Option" }
-    if yname == "rx-asic-instances" { return "RxAsicInstances" }
-    return ""
+    linkOption.EntityData.Children = make(map[string]types.YChild)
+    linkOption.EntityData.Children["rx-asic-instances"] = types.YChild{"RxAsicInstances", &linkOption.RxAsicInstances}
+    linkOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkOption.EntityData.Leafs["option"] = types.YLeaf{"Option", linkOption.Option}
+    return &(linkOption.EntityData)
 }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetSegmentPath() string {
-    return "link-option" + "[option='" + fmt.Sprintf("%v", linkOption.Option) + "']"
-}
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rx-asic-instances" {
-        return &linkOption.RxAsicInstances
-    }
-    return nil
-}
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rx-asic-instances"] = &linkOption.RxAsicInstances
-    return children
-}
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["option"] = linkOption.Option
-    return leafs
-}
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetYangName() string { return "link-option" }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) SetParent(parent types.Entity) { linkOption.parent = parent }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetParent() types.Entity { return linkOption.parent }
-
-func (linkOption *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption) GetParentYangName() string { return "link-options" }
 
 // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances
 // Instance table for rx information
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Instance number for rx link information. The type is slice of
@@ -802,68 +566,29 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances str
     RxAsicInstance []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance
 }
 
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetFilter() yfilter.YFilter { return rxAsicInstances.YFilter }
+func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetEntityData() *types.CommonEntityData {
+    rxAsicInstances.EntityData.YFilter = rxAsicInstances.YFilter
+    rxAsicInstances.EntityData.YangName = "rx-asic-instances"
+    rxAsicInstances.EntityData.BundleName = "cisco_ios_xr"
+    rxAsicInstances.EntityData.ParentYangName = "link-option"
+    rxAsicInstances.EntityData.SegmentPath = "rx-asic-instances"
+    rxAsicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) SetFilter(yf yfilter.YFilter) { rxAsicInstances.YFilter = yf }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetGoName(yname string) string {
-    if yname == "rx-asic-instance" { return "RxAsicInstance" }
-    return ""
-}
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetSegmentPath() string {
-    return "rx-asic-instances"
-}
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rx-asic-instance" {
-        for _, c := range rxAsicInstances.RxAsicInstance {
-            if rxAsicInstances.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance{}
-        rxAsicInstances.RxAsicInstance = append(rxAsicInstances.RxAsicInstance, child)
-        return &rxAsicInstances.RxAsicInstance[len(rxAsicInstances.RxAsicInstance)-1]
-    }
-    return nil
-}
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rxAsicInstances.EntityData.Children = make(map[string]types.YChild)
+    rxAsicInstances.EntityData.Children["rx-asic-instance"] = types.YChild{"RxAsicInstance", nil}
     for i := range rxAsicInstances.RxAsicInstance {
-        children[rxAsicInstances.RxAsicInstance[i].GetSegmentPath()] = &rxAsicInstances.RxAsicInstance[i]
+        rxAsicInstances.EntityData.Children[types.GetSegmentPath(&rxAsicInstances.RxAsicInstance[i])] = types.YChild{"RxAsicInstance", &rxAsicInstances.RxAsicInstance[i]}
     }
-    return children
+    rxAsicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rxAsicInstances.EntityData)
 }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetYangName() string { return "rx-asic-instances" }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) SetParent(parent types.Entity) { rxAsicInstances.parent = parent }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetParent() types.Entity { return rxAsicInstances.parent }
-
-func (rxAsicInstances *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances) GetParentYangName() string { return "link-option" }
 
 // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance
 // Instance number for rx link information
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Receive instance. The type is interface{} with
@@ -874,61 +599,27 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     RxLinks Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks
 }
 
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetFilter() yfilter.YFilter { return rxAsicInstance.YFilter }
+func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetEntityData() *types.CommonEntityData {
+    rxAsicInstance.EntityData.YFilter = rxAsicInstance.YFilter
+    rxAsicInstance.EntityData.YangName = "rx-asic-instance"
+    rxAsicInstance.EntityData.BundleName = "cisco_ios_xr"
+    rxAsicInstance.EntityData.ParentYangName = "rx-asic-instances"
+    rxAsicInstance.EntityData.SegmentPath = "rx-asic-instance" + "[instance='" + fmt.Sprintf("%v", rxAsicInstance.Instance) + "']"
+    rxAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) SetFilter(yf yfilter.YFilter) { rxAsicInstance.YFilter = yf }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetGoName(yname string) string {
-    if yname == "instance" { return "Instance" }
-    if yname == "rx-links" { return "RxLinks" }
-    return ""
+    rxAsicInstance.EntityData.Children = make(map[string]types.YChild)
+    rxAsicInstance.EntityData.Children["rx-links"] = types.YChild{"RxLinks", &rxAsicInstance.RxLinks}
+    rxAsicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxAsicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", rxAsicInstance.Instance}
+    return &(rxAsicInstance.EntityData)
 }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetSegmentPath() string {
-    return "rx-asic-instance" + "[instance='" + fmt.Sprintf("%v", rxAsicInstance.Instance) + "']"
-}
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rx-links" {
-        return &rxAsicInstance.RxLinks
-    }
-    return nil
-}
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rx-links"] = &rxAsicInstance.RxLinks
-    return children
-}
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instance"] = rxAsicInstance.Instance
-    return leafs
-}
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetYangName() string { return "rx-asic-instance" }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) SetParent(parent types.Entity) { rxAsicInstance.parent = parent }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetParent() types.Entity { return rxAsicInstance.parent }
-
-func (rxAsicInstance *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance) GetParentYangName() string { return "rx-asic-instances" }
 
 // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks
 // Link table class for rx information
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link number for rx link information. The type is slice of
@@ -936,68 +627,29 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     RxLink []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink
 }
 
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetFilter() yfilter.YFilter { return rxLinks.YFilter }
+func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetEntityData() *types.CommonEntityData {
+    rxLinks.EntityData.YFilter = rxLinks.YFilter
+    rxLinks.EntityData.YangName = "rx-links"
+    rxLinks.EntityData.BundleName = "cisco_ios_xr"
+    rxLinks.EntityData.ParentYangName = "rx-asic-instance"
+    rxLinks.EntityData.SegmentPath = "rx-links"
+    rxLinks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) SetFilter(yf yfilter.YFilter) { rxLinks.YFilter = yf }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetGoName(yname string) string {
-    if yname == "rx-link" { return "RxLink" }
-    return ""
-}
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetSegmentPath() string {
-    return "rx-links"
-}
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rx-link" {
-        for _, c := range rxLinks.RxLink {
-            if rxLinks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink{}
-        rxLinks.RxLink = append(rxLinks.RxLink, child)
-        return &rxLinks.RxLink[len(rxLinks.RxLink)-1]
-    }
-    return nil
-}
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rxLinks.EntityData.Children = make(map[string]types.YChild)
+    rxLinks.EntityData.Children["rx-link"] = types.YChild{"RxLink", nil}
     for i := range rxLinks.RxLink {
-        children[rxLinks.RxLink[i].GetSegmentPath()] = &rxLinks.RxLink[i]
+        rxLinks.EntityData.Children[types.GetSegmentPath(&rxLinks.RxLink[i])] = types.YChild{"RxLink", &rxLinks.RxLink[i]}
     }
-    return children
+    rxLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(rxLinks.EntityData)
 }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetYangName() string { return "rx-links" }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) SetParent(parent types.Entity) { rxLinks.parent = parent }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetParent() types.Entity { return rxLinks.parent }
-
-func (rxLinks *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks) GetParentYangName() string { return "rx-asic-instance" }
 
 // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink
 // Link number for rx link information
 type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Start number. The type is interface{} with range: 0..47.
@@ -1007,82 +659,40 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     EndNumber interface{}
 
     // RX link status option. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     StatusOption interface{}
 
     // Single link information. The type is slice of
     // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink.
-    RxLink []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink
+    RxLink []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_
 }
 
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetFilter() yfilter.YFilter { return rxLink.YFilter }
+func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetEntityData() *types.CommonEntityData {
+    rxLink.EntityData.YFilter = rxLink.YFilter
+    rxLink.EntityData.YangName = "rx-link"
+    rxLink.EntityData.BundleName = "cisco_ios_xr"
+    rxLink.EntityData.ParentYangName = "rx-links"
+    rxLink.EntityData.SegmentPath = "rx-link"
+    rxLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) SetFilter(yf yfilter.YFilter) { rxLink.YFilter = yf }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetGoName(yname string) string {
-    if yname == "start-number" { return "StartNumber" }
-    if yname == "end-number" { return "EndNumber" }
-    if yname == "status-option" { return "StatusOption" }
-    if yname == "rx-link" { return "RxLink" }
-    return ""
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetSegmentPath() string {
-    return "rx-link"
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rx-link" {
-        for _, c := range rxLink.RxLink {
-            if rxLink.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink{}
-        rxLink.RxLink = append(rxLink.RxLink, child)
-        return &rxLink.RxLink[len(rxLink.RxLink)-1]
-    }
-    return nil
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    rxLink.EntityData.Children = make(map[string]types.YChild)
+    rxLink.EntityData.Children["rx-link"] = types.YChild{"RxLink", nil}
     for i := range rxLink.RxLink {
-        children[rxLink.RxLink[i].GetSegmentPath()] = &rxLink.RxLink[i]
+        rxLink.EntityData.Children[types.GetSegmentPath(&rxLink.RxLink[i])] = types.YChild{"RxLink", &rxLink.RxLink[i]}
     }
-    return children
+    rxLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLink.EntityData.Leafs["start-number"] = types.YLeaf{"StartNumber", rxLink.StartNumber}
+    rxLink.EntityData.Leafs["end-number"] = types.YLeaf{"EndNumber", rxLink.EndNumber}
+    rxLink.EntityData.Leafs["status-option"] = types.YLeaf{"StatusOption", rxLink.StatusOption}
+    return &(rxLink.EntityData)
 }
 
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-number"] = rxLink.StartNumber
-    leafs["end-number"] = rxLink.EndNumber
-    leafs["status-option"] = rxLink.StatusOption
-    return leafs
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetYangName() string { return "rx-link" }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) SetParent(parent types.Entity) { rxLink.parent = parent }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetParent() types.Entity { return rxLink.parent }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink) GetParentYangName() string { return "rx-links" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_
 // Single link information
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single link. The type is interface{} with range:
@@ -1128,112 +738,54 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     UncorrectableErrors interface{}
 
     // this link.
-    ThisLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink
+    ThisLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink
 
     // far end link.
-    FarEndLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink
+    FarEndLink Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink
 
     // far end link in hw.
-    FarEndLinkInHw Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw
+    FarEndLinkInHw Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw
 
     // history.
-    History Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History
+    History Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History
 }
 
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetFilter() yfilter.YFilter { return rxLink.YFilter }
+func (rxLink_ *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_) GetEntityData() *types.CommonEntityData {
+    rxLink_.EntityData.YFilter = rxLink_.YFilter
+    rxLink_.EntityData.YangName = "rx-link"
+    rxLink_.EntityData.BundleName = "cisco_ios_xr"
+    rxLink_.EntityData.ParentYangName = "rx-link"
+    rxLink_.EntityData.SegmentPath = "rx-link" + "[link='" + fmt.Sprintf("%v", rxLink_.Link) + "']"
+    rxLink_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLink_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLink_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) SetFilter(yf yfilter.YFilter) { rxLink.YFilter = yf }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetGoName(yname string) string {
-    if yname == "link" { return "Link" }
-    if yname == "speed" { return "Speed" }
-    if yname == "stage" { return "Stage" }
-    if yname == "is-link-valid" { return "IsLinkValid" }
-    if yname == "is-conf-pending" { return "IsConfPending" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state" { return "OperState" }
-    if yname == "error-state" { return "ErrorState" }
-    if yname == "flags" { return "Flags" }
-    if yname == "flap-cnt" { return "FlapCnt" }
-    if yname == "num-admin-shuts" { return "NumAdminShuts" }
-    if yname == "correctable-errors" { return "CorrectableErrors" }
-    if yname == "uncorrectable-errors" { return "UncorrectableErrors" }
-    if yname == "this-link" { return "ThisLink" }
-    if yname == "far-end-link" { return "FarEndLink" }
-    if yname == "far-end-link-in-hw" { return "FarEndLinkInHw" }
-    if yname == "history" { return "History" }
-    return ""
+    rxLink_.EntityData.Children = make(map[string]types.YChild)
+    rxLink_.EntityData.Children["this-link"] = types.YChild{"ThisLink", &rxLink_.ThisLink}
+    rxLink_.EntityData.Children["far-end-link"] = types.YChild{"FarEndLink", &rxLink_.FarEndLink}
+    rxLink_.EntityData.Children["far-end-link-in-hw"] = types.YChild{"FarEndLinkInHw", &rxLink_.FarEndLinkInHw}
+    rxLink_.EntityData.Children["history"] = types.YChild{"History", &rxLink_.History}
+    rxLink_.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLink_.EntityData.Leafs["link"] = types.YLeaf{"Link", rxLink_.Link}
+    rxLink_.EntityData.Leafs["speed"] = types.YLeaf{"Speed", rxLink_.Speed}
+    rxLink_.EntityData.Leafs["stage"] = types.YLeaf{"Stage", rxLink_.Stage}
+    rxLink_.EntityData.Leafs["is-link-valid"] = types.YLeaf{"IsLinkValid", rxLink_.IsLinkValid}
+    rxLink_.EntityData.Leafs["is-conf-pending"] = types.YLeaf{"IsConfPending", rxLink_.IsConfPending}
+    rxLink_.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", rxLink_.AdminState}
+    rxLink_.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", rxLink_.OperState}
+    rxLink_.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", rxLink_.ErrorState}
+    rxLink_.EntityData.Leafs["flags"] = types.YLeaf{"Flags", rxLink_.Flags}
+    rxLink_.EntityData.Leafs["flap-cnt"] = types.YLeaf{"FlapCnt", rxLink_.FlapCnt}
+    rxLink_.EntityData.Leafs["num-admin-shuts"] = types.YLeaf{"NumAdminShuts", rxLink_.NumAdminShuts}
+    rxLink_.EntityData.Leafs["correctable-errors"] = types.YLeaf{"CorrectableErrors", rxLink_.CorrectableErrors}
+    rxLink_.EntityData.Leafs["uncorrectable-errors"] = types.YLeaf{"UncorrectableErrors", rxLink_.UncorrectableErrors}
+    return &(rxLink_.EntityData)
 }
 
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetSegmentPath() string {
-    return "rx-link" + "[link='" + fmt.Sprintf("%v", rxLink.Link) + "']"
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "this-link" {
-        return &rxLink.ThisLink
-    }
-    if childYangName == "far-end-link" {
-        return &rxLink.FarEndLink
-    }
-    if childYangName == "far-end-link-in-hw" {
-        return &rxLink.FarEndLinkInHw
-    }
-    if childYangName == "history" {
-        return &rxLink.History
-    }
-    return nil
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["this-link"] = &rxLink.ThisLink
-    children["far-end-link"] = &rxLink.FarEndLink
-    children["far-end-link-in-hw"] = &rxLink.FarEndLinkInHw
-    children["history"] = &rxLink.History
-    return children
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link"] = rxLink.Link
-    leafs["speed"] = rxLink.Speed
-    leafs["stage"] = rxLink.Stage
-    leafs["is-link-valid"] = rxLink.IsLinkValid
-    leafs["is-conf-pending"] = rxLink.IsConfPending
-    leafs["admin-state"] = rxLink.AdminState
-    leafs["oper-state"] = rxLink.OperState
-    leafs["error-state"] = rxLink.ErrorState
-    leafs["flags"] = rxLink.Flags
-    leafs["flap-cnt"] = rxLink.FlapCnt
-    leafs["num-admin-shuts"] = rxLink.NumAdminShuts
-    leafs["correctable-errors"] = rxLink.CorrectableErrors
-    leafs["uncorrectable-errors"] = rxLink.UncorrectableErrors
-    return leafs
-}
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetYangName() string { return "rx-link" }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) SetParent(parent types.Entity) { rxLink.parent = parent }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetParent() types.Entity { return rxLink.parent }
-
-func (rxLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink) GetParentYangName() string { return "rx-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink
 // this link
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link Type. The type is Link.
@@ -1249,70 +801,33 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId
+    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId
 }
 
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetFilter() yfilter.YFilter { return thisLink.YFilter }
+func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink) GetEntityData() *types.CommonEntityData {
+    thisLink.EntityData.YFilter = thisLink.YFilter
+    thisLink.EntityData.YangName = "this-link"
+    thisLink.EntityData.BundleName = "cisco_ios_xr"
+    thisLink.EntityData.ParentYangName = "rx-link"
+    thisLink.EntityData.SegmentPath = "this-link"
+    thisLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    thisLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    thisLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) SetFilter(yf yfilter.YFilter) { thisLink.YFilter = yf }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetGoName(yname string) string {
-    if yname == "link-type" { return "LinkType" }
-    if yname == "link-stage" { return "LinkStage" }
-    if yname == "link-num" { return "LinkNum" }
-    if yname == "phy-link-num" { return "PhyLinkNum" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    thisLink.EntityData.Children = make(map[string]types.YChild)
+    thisLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &thisLink.AsicId}
+    thisLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    thisLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", thisLink.LinkType}
+    thisLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", thisLink.LinkStage}
+    thisLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", thisLink.LinkNum}
+    thisLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", thisLink.PhyLinkNum}
+    return &(thisLink.EntityData)
 }
 
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetSegmentPath() string {
-    return "this-link"
-}
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &thisLink.AsicId
-    }
-    return nil
-}
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &thisLink.AsicId
-    return children
-}
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-type"] = thisLink.LinkType
-    leafs["link-stage"] = thisLink.LinkStage
-    leafs["link-num"] = thisLink.LinkNum
-    leafs["phy-link-num"] = thisLink.PhyLinkNum
-    return leafs
-}
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetYangName() string { return "this-link" }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) SetParent(parent types.Entity) { thisLink.parent = parent }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetParent() types.Entity { return thisLink.parent }
-
-func (thisLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink) GetParentYangName() string { return "rx-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId
 // asic id
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -1331,64 +846,30 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__ThisLink_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "this-link"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_ThisLink_AsicId) GetParentYangName() string { return "this-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink
 // far end link
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link Type. The type is Link.
@@ -1404,70 +885,33 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId
+    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId
 }
 
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetFilter() yfilter.YFilter { return farEndLink.YFilter }
+func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink) GetEntityData() *types.CommonEntityData {
+    farEndLink.EntityData.YFilter = farEndLink.YFilter
+    farEndLink.EntityData.YangName = "far-end-link"
+    farEndLink.EntityData.BundleName = "cisco_ios_xr"
+    farEndLink.EntityData.ParentYangName = "rx-link"
+    farEndLink.EntityData.SegmentPath = "far-end-link"
+    farEndLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    farEndLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    farEndLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) SetFilter(yf yfilter.YFilter) { farEndLink.YFilter = yf }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetGoName(yname string) string {
-    if yname == "link-type" { return "LinkType" }
-    if yname == "link-stage" { return "LinkStage" }
-    if yname == "link-num" { return "LinkNum" }
-    if yname == "phy-link-num" { return "PhyLinkNum" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    farEndLink.EntityData.Children = make(map[string]types.YChild)
+    farEndLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &farEndLink.AsicId}
+    farEndLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    farEndLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", farEndLink.LinkType}
+    farEndLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", farEndLink.LinkStage}
+    farEndLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", farEndLink.LinkNum}
+    farEndLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", farEndLink.PhyLinkNum}
+    return &(farEndLink.EntityData)
 }
 
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetSegmentPath() string {
-    return "far-end-link"
-}
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &farEndLink.AsicId
-    }
-    return nil
-}
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &farEndLink.AsicId
-    return children
-}
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-type"] = farEndLink.LinkType
-    leafs["link-stage"] = farEndLink.LinkStage
-    leafs["link-num"] = farEndLink.LinkNum
-    leafs["phy-link-num"] = farEndLink.PhyLinkNum
-    return leafs
-}
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetYangName() string { return "far-end-link" }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) SetParent(parent types.Entity) { farEndLink.parent = parent }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetParent() types.Entity { return farEndLink.parent }
-
-func (farEndLink *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink) GetParentYangName() string { return "rx-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId
 // asic id
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -1486,64 +930,30 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLink_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "far-end-link"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLink_AsicId) GetParentYangName() string { return "far-end-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw
 // far end link in hw
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link Type. The type is Link.
@@ -1559,70 +969,33 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId
+    AsicId Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId
 }
 
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetFilter() yfilter.YFilter { return farEndLinkInHw.YFilter }
+func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw) GetEntityData() *types.CommonEntityData {
+    farEndLinkInHw.EntityData.YFilter = farEndLinkInHw.YFilter
+    farEndLinkInHw.EntityData.YangName = "far-end-link-in-hw"
+    farEndLinkInHw.EntityData.BundleName = "cisco_ios_xr"
+    farEndLinkInHw.EntityData.ParentYangName = "rx-link"
+    farEndLinkInHw.EntityData.SegmentPath = "far-end-link-in-hw"
+    farEndLinkInHw.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    farEndLinkInHw.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    farEndLinkInHw.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) SetFilter(yf yfilter.YFilter) { farEndLinkInHw.YFilter = yf }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetGoName(yname string) string {
-    if yname == "link-type" { return "LinkType" }
-    if yname == "link-stage" { return "LinkStage" }
-    if yname == "link-num" { return "LinkNum" }
-    if yname == "phy-link-num" { return "PhyLinkNum" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    farEndLinkInHw.EntityData.Children = make(map[string]types.YChild)
+    farEndLinkInHw.EntityData.Children["asic-id"] = types.YChild{"AsicId", &farEndLinkInHw.AsicId}
+    farEndLinkInHw.EntityData.Leafs = make(map[string]types.YLeaf)
+    farEndLinkInHw.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", farEndLinkInHw.LinkType}
+    farEndLinkInHw.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", farEndLinkInHw.LinkStage}
+    farEndLinkInHw.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", farEndLinkInHw.LinkNum}
+    farEndLinkInHw.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", farEndLinkInHw.PhyLinkNum}
+    return &(farEndLinkInHw.EntityData)
 }
 
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetSegmentPath() string {
-    return "far-end-link-in-hw"
-}
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &farEndLinkInHw.AsicId
-    }
-    return nil
-}
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &farEndLinkInHw.AsicId
-    return children
-}
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-type"] = farEndLinkInHw.LinkType
-    leafs["link-stage"] = farEndLinkInHw.LinkStage
-    leafs["link-num"] = farEndLinkInHw.LinkNum
-    leafs["phy-link-num"] = farEndLinkInHw.PhyLinkNum
-    return leafs
-}
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetBundleName() string { return "cisco_ios_xr" }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetYangName() string { return "far-end-link-in-hw" }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) SetParent(parent types.Entity) { farEndLinkInHw.parent = parent }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetParent() types.Entity { return farEndLinkInHw.parent }
-
-func (farEndLinkInHw *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw) GetParentYangName() string { return "rx-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId
 // asic id
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -1641,64 +1014,30 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__FarEndLinkInHw_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "far-end-link-in-hw"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
 
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_FarEndLinkInHw_AsicId) GetParentYangName() string { return "far-end-link-in-hw" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History
 // history
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // histnum. The type is interface{} with range: 0..255.
@@ -1708,76 +1047,35 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     StartIndex interface{}
 
     // hist. The type is slice of
-    // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist.
-    Hist []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist
+    // Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist.
+    Hist []Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist
 }
 
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetFilter() yfilter.YFilter { return history.YFilter }
+func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History) GetEntityData() *types.CommonEntityData {
+    history.EntityData.YFilter = history.YFilter
+    history.EntityData.YangName = "history"
+    history.EntityData.BundleName = "cisco_ios_xr"
+    history.EntityData.ParentYangName = "rx-link"
+    history.EntityData.SegmentPath = "history"
+    history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) SetFilter(yf yfilter.YFilter) { history.YFilter = yf }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetGoName(yname string) string {
-    if yname == "histnum" { return "Histnum" }
-    if yname == "start-index" { return "StartIndex" }
-    if yname == "hist" { return "Hist" }
-    return ""
-}
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetSegmentPath() string {
-    return "history"
-}
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hist" {
-        for _, c := range history.Hist {
-            if history.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist{}
-        history.Hist = append(history.Hist, child)
-        return &history.Hist[len(history.Hist)-1]
-    }
-    return nil
-}
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    history.EntityData.Children = make(map[string]types.YChild)
+    history.EntityData.Children["hist"] = types.YChild{"Hist", nil}
     for i := range history.Hist {
-        children[history.Hist[i].GetSegmentPath()] = &history.Hist[i]
+        history.EntityData.Children[types.GetSegmentPath(&history.Hist[i])] = types.YChild{"Hist", &history.Hist[i]}
     }
-    return children
+    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs["histnum"] = types.YLeaf{"Histnum", history.Histnum}
+    history.EntityData.Leafs["start-index"] = types.YLeaf{"StartIndex", history.StartIndex}
+    return &(history.EntityData)
 }
 
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["histnum"] = history.Histnum
-    leafs["start-index"] = history.StartIndex
-    return leafs
-}
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetBundleName() string { return "cisco_ios_xr" }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetYangName() string { return "history" }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) SetParent(parent types.Entity) { history.parent = parent }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetParent() types.Entity { return history.parent }
-
-func (history *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History) GetParentYangName() string { return "rx-link" }
-
-// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist
+// Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist
 // hist
-type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist struct {
-    parent types.Entity
+type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Admin State. The type is AdminState.
@@ -1796,64 +1094,30 @@ type Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxA
     Reasons interface{}
 }
 
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetFilter() yfilter.YFilter { return hist.YFilter }
+func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink__History_Hist) GetEntityData() *types.CommonEntityData {
+    hist.EntityData.YFilter = hist.YFilter
+    hist.EntityData.YangName = "hist"
+    hist.EntityData.BundleName = "cisco_ios_xr"
+    hist.EntityData.ParentYangName = "history"
+    hist.EntityData.SegmentPath = "hist"
+    hist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) SetFilter(yf yfilter.YFilter) { hist.YFilter = yf }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetGoName(yname string) string {
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state" { return "OperState" }
-    if yname == "error-state" { return "ErrorState" }
-    if yname == "timestamp" { return "Timestamp" }
-    if yname == "reasons" { return "Reasons" }
-    return ""
+    hist.EntityData.Children = make(map[string]types.YChild)
+    hist.EntityData.Leafs = make(map[string]types.YLeaf)
+    hist.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", hist.AdminState}
+    hist.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", hist.OperState}
+    hist.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", hist.ErrorState}
+    hist.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", hist.Timestamp}
+    hist.EntityData.Leafs["reasons"] = types.YLeaf{"Reasons", hist.Reasons}
+    return &(hist.EntityData)
 }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetSegmentPath() string {
-    return "hist"
-}
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["admin-state"] = hist.AdminState
-    leafs["oper-state"] = hist.OperState
-    leafs["error-state"] = hist.ErrorState
-    leafs["timestamp"] = hist.Timestamp
-    leafs["reasons"] = hist.Reasons
-    return leafs
-}
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetYangName() string { return "hist" }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) SetParent(parent types.Entity) { hist.parent = parent }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetParent() types.Entity { return hist.parent }
-
-func (hist *Fia_Nodes_Node_RxLinkInformation_LinkOptions_LinkOption_RxAsicInstances_RxAsicInstance_RxLinks_RxLink_RxLink_History_Hist) GetParentYangName() string { return "history" }
 
 // Fia_Nodes_Node_DriverInformation
 // FIA driver information
 type Fia_Nodes_Node_DriverInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // drv version. The type is interface{} with range: 0..4294967295.
@@ -1999,170 +1263,77 @@ type Fia_Nodes_Node_DriverInformation struct {
     CardInfo []Fia_Nodes_Node_DriverInformation_CardInfo
 }
 
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetFilter() yfilter.YFilter { return driverInformation.YFilter }
+func (driverInformation *Fia_Nodes_Node_DriverInformation) GetEntityData() *types.CommonEntityData {
+    driverInformation.EntityData.YFilter = driverInformation.YFilter
+    driverInformation.EntityData.YangName = "driver-information"
+    driverInformation.EntityData.BundleName = "cisco_ios_xr"
+    driverInformation.EntityData.ParentYangName = "node"
+    driverInformation.EntityData.SegmentPath = "driver-information"
+    driverInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    driverInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    driverInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (driverInformation *Fia_Nodes_Node_DriverInformation) SetFilter(yf yfilter.YFilter) { driverInformation.YFilter = yf }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetGoName(yname string) string {
-    if yname == "drv-version" { return "DrvVersion" }
-    if yname == "coeff-major-rev" { return "CoeffMajorRev" }
-    if yname == "coeff-minor-rev" { return "CoeffMinorRev" }
-    if yname == "functional-role" { return "FunctionalRole" }
-    if yname == "issu-role" { return "IssuRole" }
-    if yname == "node-id" { return "NodeId" }
-    if yname == "rack-type" { return "RackType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "is-driver-ready" { return "IsDriverReady" }
-    if yname == "card-avail-mask" { return "CardAvailMask" }
-    if yname == "asic-avail-mask" { return "AsicAvailMask" }
-    if yname == "exp-asic-avail-mask" { return "ExpAsicAvailMask" }
-    if yname == "ucmc-ratio" { return "UcmcRatio" }
-    if yname == "asic-oper-notify-to-fsdb-pending-bmap" { return "AsicOperNotifyToFsdbPendingBmap" }
-    if yname == "is-full-fgid-download-req" { return "IsFullFgidDownloadReq" }
-    if yname == "is-fgid-download-in-progress" { return "IsFgidDownloadInProgress" }
-    if yname == "is-fgid-download-completed" { return "IsFgidDownloadCompleted" }
-    if yname == "fsdb-conn-active" { return "FsdbConnActive" }
-    if yname == "fgid-conn-active" { return "FgidConnActive" }
-    if yname == "issu-mgr-conn-active" { return "IssuMgrConnActive" }
-    if yname == "fsdb-reg-active" { return "FsdbRegActive" }
-    if yname == "fgid-reg-active" { return "FgidRegActive" }
-    if yname == "issu-mgr-reg-active" { return "IssuMgrRegActive" }
-    if yname == "num-pm-conn-reqs" { return "NumPmConnReqs" }
-    if yname == "num-fsdb-conn-reqs" { return "NumFsdbConnReqs" }
-    if yname == "num-fgid-conn-reqs" { return "NumFgidConnReqs" }
-    if yname == "num-fstats-conn-reqs" { return "NumFstatsConnReqs" }
-    if yname == "num-cm-conn-reqs" { return "NumCmConnReqs" }
-    if yname == "num-issu-mgr-conn-reqs" { return "NumIssuMgrConnReqs" }
-    if yname == "num-peer-fia-conn-reqs" { return "NumPeerFiaConnReqs" }
-    if yname == "is-gaspp-registered" { return "IsGasppRegistered" }
-    if yname == "is-cih-registered" { return "IsCihRegistered" }
-    if yname == "drvr-initial-startup-timestamp" { return "DrvrInitialStartupTimestamp" }
-    if yname == "drvr-current-startup-timestamp" { return "DrvrCurrentStartupTimestamp" }
-    if yname == "num-intf-ports" { return "NumIntfPorts" }
-    if yname == "uc-weight" { return "UcWeight" }
-    if yname == "respawn-count" { return "RespawnCount" }
-    if yname == "total-asics" { return "TotalAsics" }
-    if yname == "issu-ready-ntfy-pending" { return "IssuReadyNtfyPending" }
-    if yname == "issu-abort-sent" { return "IssuAbortSent" }
-    if yname == "issu-abort-rcvd" { return "IssuAbortRcvd" }
-    if yname == "fabric-mode" { return "FabricMode" }
-    if yname == "fc-mode" { return "FcMode" }
-    if yname == "board-rev-id" { return "BoardRevId" }
-    if yname == "device-info" { return "DeviceInfo" }
-    if yname == "card-info" { return "CardInfo" }
-    return ""
-}
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetSegmentPath() string {
-    return "driver-information"
-}
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "device-info" {
-        for _, c := range driverInformation.DeviceInfo {
-            if driverInformation.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_DriverInformation_DeviceInfo{}
-        driverInformation.DeviceInfo = append(driverInformation.DeviceInfo, child)
-        return &driverInformation.DeviceInfo[len(driverInformation.DeviceInfo)-1]
-    }
-    if childYangName == "card-info" {
-        for _, c := range driverInformation.CardInfo {
-            if driverInformation.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_DriverInformation_CardInfo{}
-        driverInformation.CardInfo = append(driverInformation.CardInfo, child)
-        return &driverInformation.CardInfo[len(driverInformation.CardInfo)-1]
-    }
-    return nil
-}
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    driverInformation.EntityData.Children = make(map[string]types.YChild)
+    driverInformation.EntityData.Children["device-info"] = types.YChild{"DeviceInfo", nil}
     for i := range driverInformation.DeviceInfo {
-        children[driverInformation.DeviceInfo[i].GetSegmentPath()] = &driverInformation.DeviceInfo[i]
+        driverInformation.EntityData.Children[types.GetSegmentPath(&driverInformation.DeviceInfo[i])] = types.YChild{"DeviceInfo", &driverInformation.DeviceInfo[i]}
     }
+    driverInformation.EntityData.Children["card-info"] = types.YChild{"CardInfo", nil}
     for i := range driverInformation.CardInfo {
-        children[driverInformation.CardInfo[i].GetSegmentPath()] = &driverInformation.CardInfo[i]
+        driverInformation.EntityData.Children[types.GetSegmentPath(&driverInformation.CardInfo[i])] = types.YChild{"CardInfo", &driverInformation.CardInfo[i]}
     }
-    return children
+    driverInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    driverInformation.EntityData.Leafs["drv-version"] = types.YLeaf{"DrvVersion", driverInformation.DrvVersion}
+    driverInformation.EntityData.Leafs["coeff-major-rev"] = types.YLeaf{"CoeffMajorRev", driverInformation.CoeffMajorRev}
+    driverInformation.EntityData.Leafs["coeff-minor-rev"] = types.YLeaf{"CoeffMinorRev", driverInformation.CoeffMinorRev}
+    driverInformation.EntityData.Leafs["functional-role"] = types.YLeaf{"FunctionalRole", driverInformation.FunctionalRole}
+    driverInformation.EntityData.Leafs["issu-role"] = types.YLeaf{"IssuRole", driverInformation.IssuRole}
+    driverInformation.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", driverInformation.NodeId}
+    driverInformation.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", driverInformation.RackType}
+    driverInformation.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", driverInformation.RackNum}
+    driverInformation.EntityData.Leafs["is-driver-ready"] = types.YLeaf{"IsDriverReady", driverInformation.IsDriverReady}
+    driverInformation.EntityData.Leafs["card-avail-mask"] = types.YLeaf{"CardAvailMask", driverInformation.CardAvailMask}
+    driverInformation.EntityData.Leafs["asic-avail-mask"] = types.YLeaf{"AsicAvailMask", driverInformation.AsicAvailMask}
+    driverInformation.EntityData.Leafs["exp-asic-avail-mask"] = types.YLeaf{"ExpAsicAvailMask", driverInformation.ExpAsicAvailMask}
+    driverInformation.EntityData.Leafs["ucmc-ratio"] = types.YLeaf{"UcmcRatio", driverInformation.UcmcRatio}
+    driverInformation.EntityData.Leafs["asic-oper-notify-to-fsdb-pending-bmap"] = types.YLeaf{"AsicOperNotifyToFsdbPendingBmap", driverInformation.AsicOperNotifyToFsdbPendingBmap}
+    driverInformation.EntityData.Leafs["is-full-fgid-download-req"] = types.YLeaf{"IsFullFgidDownloadReq", driverInformation.IsFullFgidDownloadReq}
+    driverInformation.EntityData.Leafs["is-fgid-download-in-progress"] = types.YLeaf{"IsFgidDownloadInProgress", driverInformation.IsFgidDownloadInProgress}
+    driverInformation.EntityData.Leafs["is-fgid-download-completed"] = types.YLeaf{"IsFgidDownloadCompleted", driverInformation.IsFgidDownloadCompleted}
+    driverInformation.EntityData.Leafs["fsdb-conn-active"] = types.YLeaf{"FsdbConnActive", driverInformation.FsdbConnActive}
+    driverInformation.EntityData.Leafs["fgid-conn-active"] = types.YLeaf{"FgidConnActive", driverInformation.FgidConnActive}
+    driverInformation.EntityData.Leafs["issu-mgr-conn-active"] = types.YLeaf{"IssuMgrConnActive", driverInformation.IssuMgrConnActive}
+    driverInformation.EntityData.Leafs["fsdb-reg-active"] = types.YLeaf{"FsdbRegActive", driverInformation.FsdbRegActive}
+    driverInformation.EntityData.Leafs["fgid-reg-active"] = types.YLeaf{"FgidRegActive", driverInformation.FgidRegActive}
+    driverInformation.EntityData.Leafs["issu-mgr-reg-active"] = types.YLeaf{"IssuMgrRegActive", driverInformation.IssuMgrRegActive}
+    driverInformation.EntityData.Leafs["num-pm-conn-reqs"] = types.YLeaf{"NumPmConnReqs", driverInformation.NumPmConnReqs}
+    driverInformation.EntityData.Leafs["num-fsdb-conn-reqs"] = types.YLeaf{"NumFsdbConnReqs", driverInformation.NumFsdbConnReqs}
+    driverInformation.EntityData.Leafs["num-fgid-conn-reqs"] = types.YLeaf{"NumFgidConnReqs", driverInformation.NumFgidConnReqs}
+    driverInformation.EntityData.Leafs["num-fstats-conn-reqs"] = types.YLeaf{"NumFstatsConnReqs", driverInformation.NumFstatsConnReqs}
+    driverInformation.EntityData.Leafs["num-cm-conn-reqs"] = types.YLeaf{"NumCmConnReqs", driverInformation.NumCmConnReqs}
+    driverInformation.EntityData.Leafs["num-issu-mgr-conn-reqs"] = types.YLeaf{"NumIssuMgrConnReqs", driverInformation.NumIssuMgrConnReqs}
+    driverInformation.EntityData.Leafs["num-peer-fia-conn-reqs"] = types.YLeaf{"NumPeerFiaConnReqs", driverInformation.NumPeerFiaConnReqs}
+    driverInformation.EntityData.Leafs["is-gaspp-registered"] = types.YLeaf{"IsGasppRegistered", driverInformation.IsGasppRegistered}
+    driverInformation.EntityData.Leafs["is-cih-registered"] = types.YLeaf{"IsCihRegistered", driverInformation.IsCihRegistered}
+    driverInformation.EntityData.Leafs["drvr-initial-startup-timestamp"] = types.YLeaf{"DrvrInitialStartupTimestamp", driverInformation.DrvrInitialStartupTimestamp}
+    driverInformation.EntityData.Leafs["drvr-current-startup-timestamp"] = types.YLeaf{"DrvrCurrentStartupTimestamp", driverInformation.DrvrCurrentStartupTimestamp}
+    driverInformation.EntityData.Leafs["num-intf-ports"] = types.YLeaf{"NumIntfPorts", driverInformation.NumIntfPorts}
+    driverInformation.EntityData.Leafs["uc-weight"] = types.YLeaf{"UcWeight", driverInformation.UcWeight}
+    driverInformation.EntityData.Leafs["respawn-count"] = types.YLeaf{"RespawnCount", driverInformation.RespawnCount}
+    driverInformation.EntityData.Leafs["total-asics"] = types.YLeaf{"TotalAsics", driverInformation.TotalAsics}
+    driverInformation.EntityData.Leafs["issu-ready-ntfy-pending"] = types.YLeaf{"IssuReadyNtfyPending", driverInformation.IssuReadyNtfyPending}
+    driverInformation.EntityData.Leafs["issu-abort-sent"] = types.YLeaf{"IssuAbortSent", driverInformation.IssuAbortSent}
+    driverInformation.EntityData.Leafs["issu-abort-rcvd"] = types.YLeaf{"IssuAbortRcvd", driverInformation.IssuAbortRcvd}
+    driverInformation.EntityData.Leafs["fabric-mode"] = types.YLeaf{"FabricMode", driverInformation.FabricMode}
+    driverInformation.EntityData.Leafs["fc-mode"] = types.YLeaf{"FcMode", driverInformation.FcMode}
+    driverInformation.EntityData.Leafs["board-rev-id"] = types.YLeaf{"BoardRevId", driverInformation.BoardRevId}
+    return &(driverInformation.EntityData)
 }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["drv-version"] = driverInformation.DrvVersion
-    leafs["coeff-major-rev"] = driverInformation.CoeffMajorRev
-    leafs["coeff-minor-rev"] = driverInformation.CoeffMinorRev
-    leafs["functional-role"] = driverInformation.FunctionalRole
-    leafs["issu-role"] = driverInformation.IssuRole
-    leafs["node-id"] = driverInformation.NodeId
-    leafs["rack-type"] = driverInformation.RackType
-    leafs["rack-num"] = driverInformation.RackNum
-    leafs["is-driver-ready"] = driverInformation.IsDriverReady
-    leafs["card-avail-mask"] = driverInformation.CardAvailMask
-    leafs["asic-avail-mask"] = driverInformation.AsicAvailMask
-    leafs["exp-asic-avail-mask"] = driverInformation.ExpAsicAvailMask
-    leafs["ucmc-ratio"] = driverInformation.UcmcRatio
-    leafs["asic-oper-notify-to-fsdb-pending-bmap"] = driverInformation.AsicOperNotifyToFsdbPendingBmap
-    leafs["is-full-fgid-download-req"] = driverInformation.IsFullFgidDownloadReq
-    leafs["is-fgid-download-in-progress"] = driverInformation.IsFgidDownloadInProgress
-    leafs["is-fgid-download-completed"] = driverInformation.IsFgidDownloadCompleted
-    leafs["fsdb-conn-active"] = driverInformation.FsdbConnActive
-    leafs["fgid-conn-active"] = driverInformation.FgidConnActive
-    leafs["issu-mgr-conn-active"] = driverInformation.IssuMgrConnActive
-    leafs["fsdb-reg-active"] = driverInformation.FsdbRegActive
-    leafs["fgid-reg-active"] = driverInformation.FgidRegActive
-    leafs["issu-mgr-reg-active"] = driverInformation.IssuMgrRegActive
-    leafs["num-pm-conn-reqs"] = driverInformation.NumPmConnReqs
-    leafs["num-fsdb-conn-reqs"] = driverInformation.NumFsdbConnReqs
-    leafs["num-fgid-conn-reqs"] = driverInformation.NumFgidConnReqs
-    leafs["num-fstats-conn-reqs"] = driverInformation.NumFstatsConnReqs
-    leafs["num-cm-conn-reqs"] = driverInformation.NumCmConnReqs
-    leafs["num-issu-mgr-conn-reqs"] = driverInformation.NumIssuMgrConnReqs
-    leafs["num-peer-fia-conn-reqs"] = driverInformation.NumPeerFiaConnReqs
-    leafs["is-gaspp-registered"] = driverInformation.IsGasppRegistered
-    leafs["is-cih-registered"] = driverInformation.IsCihRegistered
-    leafs["drvr-initial-startup-timestamp"] = driverInformation.DrvrInitialStartupTimestamp
-    leafs["drvr-current-startup-timestamp"] = driverInformation.DrvrCurrentStartupTimestamp
-    leafs["num-intf-ports"] = driverInformation.NumIntfPorts
-    leafs["uc-weight"] = driverInformation.UcWeight
-    leafs["respawn-count"] = driverInformation.RespawnCount
-    leafs["total-asics"] = driverInformation.TotalAsics
-    leafs["issu-ready-ntfy-pending"] = driverInformation.IssuReadyNtfyPending
-    leafs["issu-abort-sent"] = driverInformation.IssuAbortSent
-    leafs["issu-abort-rcvd"] = driverInformation.IssuAbortRcvd
-    leafs["fabric-mode"] = driverInformation.FabricMode
-    leafs["fc-mode"] = driverInformation.FcMode
-    leafs["board-rev-id"] = driverInformation.BoardRevId
-    return leafs
-}
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetYangName() string { return "driver-information" }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) SetParent(parent types.Entity) { driverInformation.parent = parent }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetParent() types.Entity { return driverInformation.parent }
-
-func (driverInformation *Fia_Nodes_Node_DriverInformation) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_DriverInformation_DeviceInfo
 // device info
 type Fia_Nodes_Node_DriverInformation_DeviceInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // is valid. The type is bool.
@@ -2202,81 +1373,37 @@ type Fia_Nodes_Node_DriverInformation_DeviceInfo struct {
     AsicId Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId
 }
 
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetFilter() yfilter.YFilter { return deviceInfo.YFilter }
+func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetEntityData() *types.CommonEntityData {
+    deviceInfo.EntityData.YFilter = deviceInfo.YFilter
+    deviceInfo.EntityData.YangName = "device-info"
+    deviceInfo.EntityData.BundleName = "cisco_ios_xr"
+    deviceInfo.EntityData.ParentYangName = "driver-information"
+    deviceInfo.EntityData.SegmentPath = "device-info"
+    deviceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    deviceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    deviceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) SetFilter(yf yfilter.YFilter) { deviceInfo.YFilter = yf }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetGoName(yname string) string {
-    if yname == "is-valid" { return "IsValid" }
-    if yname == "fapid" { return "Fapid" }
-    if yname == "hotplug-event" { return "HotplugEvent" }
-    if yname == "slice-state" { return "SliceState" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state" { return "OperState" }
-    if yname == "asic-state" { return "AsicState" }
-    if yname == "last-init-cause" { return "LastInitCause" }
-    if yname == "num-pon-resets" { return "NumPonResets" }
-    if yname == "num-hard-resets" { return "NumHardResets" }
-    if yname == "local-switch-state" { return "LocalSwitchState" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    deviceInfo.EntityData.Children = make(map[string]types.YChild)
+    deviceInfo.EntityData.Children["asic-id"] = types.YChild{"AsicId", &deviceInfo.AsicId}
+    deviceInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    deviceInfo.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", deviceInfo.IsValid}
+    deviceInfo.EntityData.Leafs["fapid"] = types.YLeaf{"Fapid", deviceInfo.Fapid}
+    deviceInfo.EntityData.Leafs["hotplug-event"] = types.YLeaf{"HotplugEvent", deviceInfo.HotplugEvent}
+    deviceInfo.EntityData.Leafs["slice-state"] = types.YLeaf{"SliceState", deviceInfo.SliceState}
+    deviceInfo.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", deviceInfo.AdminState}
+    deviceInfo.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", deviceInfo.OperState}
+    deviceInfo.EntityData.Leafs["asic-state"] = types.YLeaf{"AsicState", deviceInfo.AsicState}
+    deviceInfo.EntityData.Leafs["last-init-cause"] = types.YLeaf{"LastInitCause", deviceInfo.LastInitCause}
+    deviceInfo.EntityData.Leafs["num-pon-resets"] = types.YLeaf{"NumPonResets", deviceInfo.NumPonResets}
+    deviceInfo.EntityData.Leafs["num-hard-resets"] = types.YLeaf{"NumHardResets", deviceInfo.NumHardResets}
+    deviceInfo.EntityData.Leafs["local-switch-state"] = types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState}
+    return &(deviceInfo.EntityData)
 }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetSegmentPath() string {
-    return "device-info"
-}
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &deviceInfo.AsicId
-    }
-    return nil
-}
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &deviceInfo.AsicId
-    return children
-}
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-valid"] = deviceInfo.IsValid
-    leafs["fapid"] = deviceInfo.Fapid
-    leafs["hotplug-event"] = deviceInfo.HotplugEvent
-    leafs["slice-state"] = deviceInfo.SliceState
-    leafs["admin-state"] = deviceInfo.AdminState
-    leafs["oper-state"] = deviceInfo.OperState
-    leafs["asic-state"] = deviceInfo.AsicState
-    leafs["last-init-cause"] = deviceInfo.LastInitCause
-    leafs["num-pon-resets"] = deviceInfo.NumPonResets
-    leafs["num-hard-resets"] = deviceInfo.NumHardResets
-    leafs["local-switch-state"] = deviceInfo.LocalSwitchState
-    return leafs
-}
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetYangName() string { return "device-info" }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) SetParent(parent types.Entity) { deviceInfo.parent = parent }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetParent() types.Entity { return deviceInfo.parent }
-
-func (deviceInfo *Fia_Nodes_Node_DriverInformation_DeviceInfo) GetParentYangName() string { return "driver-information" }
 
 // Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId
 // asic id
 type Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -2295,64 +1422,30 @@ type Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId struct {
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "device-info"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_DriverInformation_DeviceInfo_AsicId) GetParentYangName() string { return "device-info" }
 
 // Fia_Nodes_Node_DriverInformation_CardInfo
 // card info
 type Fia_Nodes_Node_DriverInformation_CardInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card type. The type is interface{} with range: -2147483648..2147483647.
@@ -2406,89 +1499,41 @@ type Fia_Nodes_Node_DriverInformation_CardInfo struct {
     OirCircularBuffer Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer
 }
 
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetFilter() yfilter.YFilter { return cardInfo.YFilter }
+func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetEntityData() *types.CommonEntityData {
+    cardInfo.EntityData.YFilter = cardInfo.YFilter
+    cardInfo.EntityData.YangName = "card-info"
+    cardInfo.EntityData.BundleName = "cisco_ios_xr"
+    cardInfo.EntityData.ParentYangName = "driver-information"
+    cardInfo.EntityData.SegmentPath = "card-info"
+    cardInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) SetFilter(yf yfilter.YFilter) { cardInfo.YFilter = yf }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetGoName(yname string) string {
-    if yname == "card-type" { return "CardType" }
-    if yname == "card-name" { return "CardName" }
-    if yname == "slot-no" { return "SlotNo" }
-    if yname == "card-flag" { return "CardFlag" }
-    if yname == "evt-flag" { return "EvtFlag" }
-    if yname == "reg-flag" { return "RegFlag" }
-    if yname == "instance" { return "Instance" }
-    if yname == "card-state" { return "CardState" }
-    if yname == "exp-num-asics" { return "ExpNumAsics" }
-    if yname == "exp-num-asics-per-fsdb" { return "ExpNumAsicsPerFsdb" }
-    if yname == "is-powered" { return "IsPowered" }
-    if yname == "cxp-avail-bitmap" { return "CxpAvailBitmap" }
-    if yname == "num-ilkns-per-asic" { return "NumIlknsPerAsic" }
-    if yname == "num-local-ports-per-ilkn" { return "NumLocalPortsPerIlkn" }
-    if yname == "num-cos-per-port" { return "NumCosPerPort" }
-    if yname == "oir-circular-buffer" { return "OirCircularBuffer" }
-    return ""
+    cardInfo.EntityData.Children = make(map[string]types.YChild)
+    cardInfo.EntityData.Children["oir-circular-buffer"] = types.YChild{"OirCircularBuffer", &cardInfo.OirCircularBuffer}
+    cardInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", cardInfo.CardType}
+    cardInfo.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", cardInfo.CardName}
+    cardInfo.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", cardInfo.SlotNo}
+    cardInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", cardInfo.CardFlag}
+    cardInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", cardInfo.EvtFlag}
+    cardInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", cardInfo.RegFlag}
+    cardInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", cardInfo.Instance}
+    cardInfo.EntityData.Leafs["card-state"] = types.YLeaf{"CardState", cardInfo.CardState}
+    cardInfo.EntityData.Leafs["exp-num-asics"] = types.YLeaf{"ExpNumAsics", cardInfo.ExpNumAsics}
+    cardInfo.EntityData.Leafs["exp-num-asics-per-fsdb"] = types.YLeaf{"ExpNumAsicsPerFsdb", cardInfo.ExpNumAsicsPerFsdb}
+    cardInfo.EntityData.Leafs["is-powered"] = types.YLeaf{"IsPowered", cardInfo.IsPowered}
+    cardInfo.EntityData.Leafs["cxp-avail-bitmap"] = types.YLeaf{"CxpAvailBitmap", cardInfo.CxpAvailBitmap}
+    cardInfo.EntityData.Leafs["num-ilkns-per-asic"] = types.YLeaf{"NumIlknsPerAsic", cardInfo.NumIlknsPerAsic}
+    cardInfo.EntityData.Leafs["num-local-ports-per-ilkn"] = types.YLeaf{"NumLocalPortsPerIlkn", cardInfo.NumLocalPortsPerIlkn}
+    cardInfo.EntityData.Leafs["num-cos-per-port"] = types.YLeaf{"NumCosPerPort", cardInfo.NumCosPerPort}
+    return &(cardInfo.EntityData)
 }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetSegmentPath() string {
-    return "card-info"
-}
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "oir-circular-buffer" {
-        return &cardInfo.OirCircularBuffer
-    }
-    return nil
-}
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["oir-circular-buffer"] = &cardInfo.OirCircularBuffer
-    return children
-}
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-type"] = cardInfo.CardType
-    leafs["card-name"] = cardInfo.CardName
-    leafs["slot-no"] = cardInfo.SlotNo
-    leafs["card-flag"] = cardInfo.CardFlag
-    leafs["evt-flag"] = cardInfo.EvtFlag
-    leafs["reg-flag"] = cardInfo.RegFlag
-    leafs["instance"] = cardInfo.Instance
-    leafs["card-state"] = cardInfo.CardState
-    leafs["exp-num-asics"] = cardInfo.ExpNumAsics
-    leafs["exp-num-asics-per-fsdb"] = cardInfo.ExpNumAsicsPerFsdb
-    leafs["is-powered"] = cardInfo.IsPowered
-    leafs["cxp-avail-bitmap"] = cardInfo.CxpAvailBitmap
-    leafs["num-ilkns-per-asic"] = cardInfo.NumIlknsPerAsic
-    leafs["num-local-ports-per-ilkn"] = cardInfo.NumLocalPortsPerIlkn
-    leafs["num-cos-per-port"] = cardInfo.NumCosPerPort
-    return leafs
-}
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetYangName() string { return "card-info" }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) SetParent(parent types.Entity) { cardInfo.parent = parent }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetParent() types.Entity { return cardInfo.parent }
-
-func (cardInfo *Fia_Nodes_Node_DriverInformation_CardInfo) GetParentYangName() string { return "driver-information" }
 
 // Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer
 // oir circular buffer
 type Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // count. The type is interface{} with range: -2147483648..2147483647.
@@ -2505,74 +1550,32 @@ type Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer struct {
     FiaOirInfo []Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo
 }
 
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetFilter() yfilter.YFilter { return oirCircularBuffer.YFilter }
+func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetEntityData() *types.CommonEntityData {
+    oirCircularBuffer.EntityData.YFilter = oirCircularBuffer.YFilter
+    oirCircularBuffer.EntityData.YangName = "oir-circular-buffer"
+    oirCircularBuffer.EntityData.BundleName = "cisco_ios_xr"
+    oirCircularBuffer.EntityData.ParentYangName = "card-info"
+    oirCircularBuffer.EntityData.SegmentPath = "oir-circular-buffer"
+    oirCircularBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oirCircularBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oirCircularBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) SetFilter(yf yfilter.YFilter) { oirCircularBuffer.YFilter = yf }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetGoName(yname string) string {
-    if yname == "count" { return "Count" }
-    if yname == "start" { return "Start" }
-    if yname == "end" { return "End" }
-    if yname == "fia-oir-info" { return "FiaOirInfo" }
-    return ""
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetSegmentPath() string {
-    return "oir-circular-buffer"
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fia-oir-info" {
-        for _, c := range oirCircularBuffer.FiaOirInfo {
-            if oirCircularBuffer.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo{}
-        oirCircularBuffer.FiaOirInfo = append(oirCircularBuffer.FiaOirInfo, child)
-        return &oirCircularBuffer.FiaOirInfo[len(oirCircularBuffer.FiaOirInfo)-1]
-    }
-    return nil
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    oirCircularBuffer.EntityData.Children = make(map[string]types.YChild)
+    oirCircularBuffer.EntityData.Children["fia-oir-info"] = types.YChild{"FiaOirInfo", nil}
     for i := range oirCircularBuffer.FiaOirInfo {
-        children[oirCircularBuffer.FiaOirInfo[i].GetSegmentPath()] = &oirCircularBuffer.FiaOirInfo[i]
+        oirCircularBuffer.EntityData.Children[types.GetSegmentPath(&oirCircularBuffer.FiaOirInfo[i])] = types.YChild{"FiaOirInfo", &oirCircularBuffer.FiaOirInfo[i]}
     }
-    return children
+    oirCircularBuffer.EntityData.Leafs = make(map[string]types.YLeaf)
+    oirCircularBuffer.EntityData.Leafs["count"] = types.YLeaf{"Count", oirCircularBuffer.Count}
+    oirCircularBuffer.EntityData.Leafs["start"] = types.YLeaf{"Start", oirCircularBuffer.Start}
+    oirCircularBuffer.EntityData.Leafs["end"] = types.YLeaf{"End", oirCircularBuffer.End}
+    return &(oirCircularBuffer.EntityData)
 }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["count"] = oirCircularBuffer.Count
-    leafs["start"] = oirCircularBuffer.Start
-    leafs["end"] = oirCircularBuffer.End
-    return leafs
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetYangName() string { return "oir-circular-buffer" }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) SetParent(parent types.Entity) { oirCircularBuffer.parent = parent }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetParent() types.Entity { return oirCircularBuffer.parent }
-
-func (oirCircularBuffer *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer) GetParentYangName() string { return "card-info" }
 
 // Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo
 // fia oir info
 type Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card flag. The type is interface{} with range: -2147483648..2147483647.
@@ -2598,128 +1601,59 @@ type Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo stru
     CurCardState interface{}
 }
 
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetFilter() yfilter.YFilter { return fiaOirInfo.YFilter }
+func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetEntityData() *types.CommonEntityData {
+    fiaOirInfo.EntityData.YFilter = fiaOirInfo.YFilter
+    fiaOirInfo.EntityData.YangName = "fia-oir-info"
+    fiaOirInfo.EntityData.BundleName = "cisco_ios_xr"
+    fiaOirInfo.EntityData.ParentYangName = "oir-circular-buffer"
+    fiaOirInfo.EntityData.SegmentPath = "fia-oir-info"
+    fiaOirInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fiaOirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fiaOirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) SetFilter(yf yfilter.YFilter) { fiaOirInfo.YFilter = yf }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetGoName(yname string) string {
-    if yname == "card-flag" { return "CardFlag" }
-    if yname == "card-type" { return "CardType" }
-    if yname == "reg-flag" { return "RegFlag" }
-    if yname == "evt-flag" { return "EvtFlag" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "instance" { return "Instance" }
-    if yname == "cur-card-state" { return "CurCardState" }
-    return ""
+    fiaOirInfo.EntityData.Children = make(map[string]types.YChild)
+    fiaOirInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fiaOirInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", fiaOirInfo.CardFlag}
+    fiaOirInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", fiaOirInfo.CardType}
+    fiaOirInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", fiaOirInfo.RegFlag}
+    fiaOirInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", fiaOirInfo.EvtFlag}
+    fiaOirInfo.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", fiaOirInfo.RackNum}
+    fiaOirInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", fiaOirInfo.Instance}
+    fiaOirInfo.EntityData.Leafs["cur-card-state"] = types.YLeaf{"CurCardState", fiaOirInfo.CurCardState}
+    return &(fiaOirInfo.EntityData)
 }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetSegmentPath() string {
-    return "fia-oir-info"
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-flag"] = fiaOirInfo.CardFlag
-    leafs["card-type"] = fiaOirInfo.CardType
-    leafs["reg-flag"] = fiaOirInfo.RegFlag
-    leafs["evt-flag"] = fiaOirInfo.EvtFlag
-    leafs["rack-num"] = fiaOirInfo.RackNum
-    leafs["instance"] = fiaOirInfo.Instance
-    leafs["cur-card-state"] = fiaOirInfo.CurCardState
-    return leafs
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetYangName() string { return "fia-oir-info" }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) SetParent(parent types.Entity) { fiaOirInfo.parent = parent }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetParent() types.Entity { return fiaOirInfo.parent }
-
-func (fiaOirInfo *Fia_Nodes_Node_DriverInformation_CardInfo_OirCircularBuffer_FiaOirInfo) GetParentYangName() string { return "oir-circular-buffer" }
 
 // Fia_Nodes_Node_ClearStatistics
 // Clear statistics information
 type Fia_Nodes_Node_ClearStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Instance table for clear statistics information.
     AsicInstances Fia_Nodes_Node_ClearStatistics_AsicInstances
 }
 
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetFilter() yfilter.YFilter { return clearStatistics.YFilter }
+func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetEntityData() *types.CommonEntityData {
+    clearStatistics.EntityData.YFilter = clearStatistics.YFilter
+    clearStatistics.EntityData.YangName = "clear-statistics"
+    clearStatistics.EntityData.BundleName = "cisco_ios_xr"
+    clearStatistics.EntityData.ParentYangName = "node"
+    clearStatistics.EntityData.SegmentPath = "clear-statistics"
+    clearStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clearStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clearStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) SetFilter(yf yfilter.YFilter) { clearStatistics.YFilter = yf }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetGoName(yname string) string {
-    if yname == "asic-instances" { return "AsicInstances" }
-    return ""
+    clearStatistics.EntityData.Children = make(map[string]types.YChild)
+    clearStatistics.EntityData.Children["asic-instances"] = types.YChild{"AsicInstances", &clearStatistics.AsicInstances}
+    clearStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clearStatistics.EntityData)
 }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetSegmentPath() string {
-    return "clear-statistics"
-}
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-instances" {
-        return &clearStatistics.AsicInstances
-    }
-    return nil
-}
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-instances"] = &clearStatistics.AsicInstances
-    return children
-}
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetYangName() string { return "clear-statistics" }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) SetParent(parent types.Entity) { clearStatistics.parent = parent }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetParent() types.Entity { return clearStatistics.parent }
-
-func (clearStatistics *Fia_Nodes_Node_ClearStatistics) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_ClearStatistics_AsicInstances
 // Instance table for clear statistics
 // information
 type Fia_Nodes_Node_ClearStatistics_AsicInstances struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Asic instance to be cleared. The type is slice of
@@ -2727,68 +1661,29 @@ type Fia_Nodes_Node_ClearStatistics_AsicInstances struct {
     AsicInstance []Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance
 }
 
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetFilter() yfilter.YFilter { return asicInstances.YFilter }
+func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetEntityData() *types.CommonEntityData {
+    asicInstances.EntityData.YFilter = asicInstances.YFilter
+    asicInstances.EntityData.YangName = "asic-instances"
+    asicInstances.EntityData.BundleName = "cisco_ios_xr"
+    asicInstances.EntityData.ParentYangName = "clear-statistics"
+    asicInstances.EntityData.SegmentPath = "asic-instances"
+    asicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) SetFilter(yf yfilter.YFilter) { asicInstances.YFilter = yf }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetGoName(yname string) string {
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
-}
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetSegmentPath() string {
-    return "asic-instances"
-}
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-instance" {
-        for _, c := range asicInstances.AsicInstance {
-            if asicInstances.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance{}
-        asicInstances.AsicInstance = append(asicInstances.AsicInstance, child)
-        return &asicInstances.AsicInstance[len(asicInstances.AsicInstance)-1]
-    }
-    return nil
-}
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    asicInstances.EntityData.Children = make(map[string]types.YChild)
+    asicInstances.EntityData.Children["asic-instance"] = types.YChild{"AsicInstance", nil}
     for i := range asicInstances.AsicInstance {
-        children[asicInstances.AsicInstance[i].GetSegmentPath()] = &asicInstances.AsicInstance[i]
+        asicInstances.EntityData.Children[types.GetSegmentPath(&asicInstances.AsicInstance[i])] = types.YChild{"AsicInstance", &asicInstances.AsicInstance[i]}
     }
-    return children
+    asicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(asicInstances.EntityData)
 }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetYangName() string { return "asic-instances" }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) SetParent(parent types.Entity) { asicInstances.parent = parent }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetParent() types.Entity { return asicInstances.parent }
-
-func (asicInstances *Fia_Nodes_Node_ClearStatistics_AsicInstances) GetParentYangName() string { return "clear-statistics" }
 
 // Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance
 // Asic instance to be cleared
 type Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Asic instance. The type is interface{} with range:
@@ -2800,235 +1695,105 @@ type Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance struct {
     Instance interface{}
 }
 
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetFilter() yfilter.YFilter { return asicInstance.YFilter }
+func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetEntityData() *types.CommonEntityData {
+    asicInstance.EntityData.YFilter = asicInstance.YFilter
+    asicInstance.EntityData.YangName = "asic-instance"
+    asicInstance.EntityData.BundleName = "cisco_ios_xr"
+    asicInstance.EntityData.ParentYangName = "asic-instances"
+    asicInstance.EntityData.SegmentPath = "asic-instance" + "[asic-instance='" + fmt.Sprintf("%v", asicInstance.AsicInstance) + "']"
+    asicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) SetFilter(yf yfilter.YFilter) { asicInstance.YFilter = yf }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetGoName(yname string) string {
-    if yname == "asic-instance" { return "AsicInstance" }
-    if yname == "instance" { return "Instance" }
-    return ""
+    asicInstance.EntityData.Children = make(map[string]types.YChild)
+    asicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicInstance.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicInstance.AsicInstance}
+    asicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", asicInstance.Instance}
+    return &(asicInstance.EntityData)
 }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetSegmentPath() string {
-    return "asic-instance" + "[asic-instance='" + fmt.Sprintf("%v", asicInstance.AsicInstance) + "']"
-}
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["asic-instance"] = asicInstance.AsicInstance
-    leafs["instance"] = asicInstance.Instance
-    return leafs
-}
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetYangName() string { return "asic-instance" }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) SetParent(parent types.Entity) { asicInstance.parent = parent }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetParent() types.Entity { return asicInstance.parent }
-
-func (asicInstance *Fia_Nodes_Node_ClearStatistics_AsicInstances_AsicInstance) GetParentYangName() string { return "asic-instances" }
 
 // Fia_Nodes_Node_TxLinkInformation
 // FIA link TX information
 type Fia_Nodes_Node_TxLinkInformation struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link table for tx information.
     TxStatusOptionTable Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable
 }
 
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetFilter() yfilter.YFilter { return txLinkInformation.YFilter }
+func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetEntityData() *types.CommonEntityData {
+    txLinkInformation.EntityData.YFilter = txLinkInformation.YFilter
+    txLinkInformation.EntityData.YangName = "tx-link-information"
+    txLinkInformation.EntityData.BundleName = "cisco_ios_xr"
+    txLinkInformation.EntityData.ParentYangName = "node"
+    txLinkInformation.EntityData.SegmentPath = "tx-link-information"
+    txLinkInformation.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLinkInformation.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLinkInformation.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) SetFilter(yf yfilter.YFilter) { txLinkInformation.YFilter = yf }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetGoName(yname string) string {
-    if yname == "tx-status-option-table" { return "TxStatusOptionTable" }
-    return ""
+    txLinkInformation.EntityData.Children = make(map[string]types.YChild)
+    txLinkInformation.EntityData.Children["tx-status-option-table"] = types.YChild{"TxStatusOptionTable", &txLinkInformation.TxStatusOptionTable}
+    txLinkInformation.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(txLinkInformation.EntityData)
 }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetSegmentPath() string {
-    return "tx-link-information"
-}
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-status-option-table" {
-        return &txLinkInformation.TxStatusOptionTable
-    }
-    return nil
-}
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tx-status-option-table"] = &txLinkInformation.TxStatusOptionTable
-    return children
-}
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetYangName() string { return "tx-link-information" }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) SetParent(parent types.Entity) { txLinkInformation.parent = parent }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetParent() types.Entity { return txLinkInformation.parent }
-
-func (txLinkInformation *Fia_Nodes_Node_TxLinkInformation) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable
 // Link table for tx information
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Option: data, ctrl, all- for now none.
     TxStatusOption Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption
 }
 
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetFilter() yfilter.YFilter { return txStatusOptionTable.YFilter }
+func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetEntityData() *types.CommonEntityData {
+    txStatusOptionTable.EntityData.YFilter = txStatusOptionTable.YFilter
+    txStatusOptionTable.EntityData.YangName = "tx-status-option-table"
+    txStatusOptionTable.EntityData.BundleName = "cisco_ios_xr"
+    txStatusOptionTable.EntityData.ParentYangName = "tx-link-information"
+    txStatusOptionTable.EntityData.SegmentPath = "tx-status-option-table"
+    txStatusOptionTable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txStatusOptionTable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txStatusOptionTable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) SetFilter(yf yfilter.YFilter) { txStatusOptionTable.YFilter = yf }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetGoName(yname string) string {
-    if yname == "tx-status-option" { return "TxStatusOption" }
-    return ""
+    txStatusOptionTable.EntityData.Children = make(map[string]types.YChild)
+    txStatusOptionTable.EntityData.Children["tx-status-option"] = types.YChild{"TxStatusOption", &txStatusOptionTable.TxStatusOption}
+    txStatusOptionTable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(txStatusOptionTable.EntityData)
 }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetSegmentPath() string {
-    return "tx-status-option-table"
-}
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-status-option" {
-        return &txStatusOptionTable.TxStatusOption
-    }
-    return nil
-}
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tx-status-option"] = &txStatusOptionTable.TxStatusOption
-    return children
-}
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetYangName() string { return "tx-status-option-table" }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) SetParent(parent types.Entity) { txStatusOptionTable.parent = parent }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetParent() types.Entity { return txStatusOptionTable.parent }
-
-func (txStatusOptionTable *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable) GetParentYangName() string { return "tx-link-information" }
 
 // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption
 // Option: data, ctrl, all- for now none
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Instance table for tx information.
     TxAsicInstances Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances
 }
 
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetFilter() yfilter.YFilter { return txStatusOption.YFilter }
+func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetEntityData() *types.CommonEntityData {
+    txStatusOption.EntityData.YFilter = txStatusOption.YFilter
+    txStatusOption.EntityData.YangName = "tx-status-option"
+    txStatusOption.EntityData.BundleName = "cisco_ios_xr"
+    txStatusOption.EntityData.ParentYangName = "tx-status-option-table"
+    txStatusOption.EntityData.SegmentPath = "tx-status-option"
+    txStatusOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txStatusOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txStatusOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) SetFilter(yf yfilter.YFilter) { txStatusOption.YFilter = yf }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetGoName(yname string) string {
-    if yname == "tx-asic-instances" { return "TxAsicInstances" }
-    return ""
+    txStatusOption.EntityData.Children = make(map[string]types.YChild)
+    txStatusOption.EntityData.Children["tx-asic-instances"] = types.YChild{"TxAsicInstances", &txStatusOption.TxAsicInstances}
+    txStatusOption.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(txStatusOption.EntityData)
 }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetSegmentPath() string {
-    return "tx-status-option"
-}
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-asic-instances" {
-        return &txStatusOption.TxAsicInstances
-    }
-    return nil
-}
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tx-asic-instances"] = &txStatusOption.TxAsicInstances
-    return children
-}
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetYangName() string { return "tx-status-option" }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) SetParent(parent types.Entity) { txStatusOption.parent = parent }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetParent() types.Entity { return txStatusOption.parent }
-
-func (txStatusOption *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption) GetParentYangName() string { return "tx-status-option-table" }
 
 // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances
 // Instance table for tx information
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Instance number for tx link information. The type is slice of
@@ -3036,68 +1801,29 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     TxAsicInstance []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance
 }
 
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetFilter() yfilter.YFilter { return txAsicInstances.YFilter }
+func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetEntityData() *types.CommonEntityData {
+    txAsicInstances.EntityData.YFilter = txAsicInstances.YFilter
+    txAsicInstances.EntityData.YangName = "tx-asic-instances"
+    txAsicInstances.EntityData.BundleName = "cisco_ios_xr"
+    txAsicInstances.EntityData.ParentYangName = "tx-status-option"
+    txAsicInstances.EntityData.SegmentPath = "tx-asic-instances"
+    txAsicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) SetFilter(yf yfilter.YFilter) { txAsicInstances.YFilter = yf }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetGoName(yname string) string {
-    if yname == "tx-asic-instance" { return "TxAsicInstance" }
-    return ""
-}
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetSegmentPath() string {
-    return "tx-asic-instances"
-}
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-asic-instance" {
-        for _, c := range txAsicInstances.TxAsicInstance {
-            if txAsicInstances.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance{}
-        txAsicInstances.TxAsicInstance = append(txAsicInstances.TxAsicInstance, child)
-        return &txAsicInstances.TxAsicInstance[len(txAsicInstances.TxAsicInstance)-1]
-    }
-    return nil
-}
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    txAsicInstances.EntityData.Children = make(map[string]types.YChild)
+    txAsicInstances.EntityData.Children["tx-asic-instance"] = types.YChild{"TxAsicInstance", nil}
     for i := range txAsicInstances.TxAsicInstance {
-        children[txAsicInstances.TxAsicInstance[i].GetSegmentPath()] = &txAsicInstances.TxAsicInstance[i]
+        txAsicInstances.EntityData.Children[types.GetSegmentPath(&txAsicInstances.TxAsicInstance[i])] = types.YChild{"TxAsicInstance", &txAsicInstances.TxAsicInstance[i]}
     }
-    return children
+    txAsicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(txAsicInstances.EntityData)
 }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetYangName() string { return "tx-asic-instances" }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) SetParent(parent types.Entity) { txAsicInstances.parent = parent }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetParent() types.Entity { return txAsicInstances.parent }
-
-func (txAsicInstances *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances) GetParentYangName() string { return "tx-status-option" }
 
 // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance
 // Instance number for tx link information
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Transmit instance. The type is interface{} with
@@ -3108,61 +1834,27 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     TxLinks Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks
 }
 
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetFilter() yfilter.YFilter { return txAsicInstance.YFilter }
+func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetEntityData() *types.CommonEntityData {
+    txAsicInstance.EntityData.YFilter = txAsicInstance.YFilter
+    txAsicInstance.EntityData.YangName = "tx-asic-instance"
+    txAsicInstance.EntityData.BundleName = "cisco_ios_xr"
+    txAsicInstance.EntityData.ParentYangName = "tx-asic-instances"
+    txAsicInstance.EntityData.SegmentPath = "tx-asic-instance" + "[instance='" + fmt.Sprintf("%v", txAsicInstance.Instance) + "']"
+    txAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) SetFilter(yf yfilter.YFilter) { txAsicInstance.YFilter = yf }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetGoName(yname string) string {
-    if yname == "instance" { return "Instance" }
-    if yname == "tx-links" { return "TxLinks" }
-    return ""
+    txAsicInstance.EntityData.Children = make(map[string]types.YChild)
+    txAsicInstance.EntityData.Children["tx-links"] = types.YChild{"TxLinks", &txAsicInstance.TxLinks}
+    txAsicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    txAsicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", txAsicInstance.Instance}
+    return &(txAsicInstance.EntityData)
 }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetSegmentPath() string {
-    return "tx-asic-instance" + "[instance='" + fmt.Sprintf("%v", txAsicInstance.Instance) + "']"
-}
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-links" {
-        return &txAsicInstance.TxLinks
-    }
-    return nil
-}
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["tx-links"] = &txAsicInstance.TxLinks
-    return children
-}
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instance"] = txAsicInstance.Instance
-    return leafs
-}
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetYangName() string { return "tx-asic-instance" }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) SetParent(parent types.Entity) { txAsicInstance.parent = parent }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetParent() types.Entity { return txAsicInstance.parent }
-
-func (txAsicInstance *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance) GetParentYangName() string { return "tx-asic-instances" }
 
 // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks
 // Link table for tx information
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link number for tx link information. The type is slice of
@@ -3170,68 +1862,29 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     TxLink []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink
 }
 
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetFilter() yfilter.YFilter { return txLinks.YFilter }
+func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetEntityData() *types.CommonEntityData {
+    txLinks.EntityData.YFilter = txLinks.YFilter
+    txLinks.EntityData.YangName = "tx-links"
+    txLinks.EntityData.BundleName = "cisco_ios_xr"
+    txLinks.EntityData.ParentYangName = "tx-asic-instance"
+    txLinks.EntityData.SegmentPath = "tx-links"
+    txLinks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) SetFilter(yf yfilter.YFilter) { txLinks.YFilter = yf }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetGoName(yname string) string {
-    if yname == "tx-link" { return "TxLink" }
-    return ""
-}
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetSegmentPath() string {
-    return "tx-links"
-}
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-link" {
-        for _, c := range txLinks.TxLink {
-            if txLinks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink{}
-        txLinks.TxLink = append(txLinks.TxLink, child)
-        return &txLinks.TxLink[len(txLinks.TxLink)-1]
-    }
-    return nil
-}
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    txLinks.EntityData.Children = make(map[string]types.YChild)
+    txLinks.EntityData.Children["tx-link"] = types.YChild{"TxLink", nil}
     for i := range txLinks.TxLink {
-        children[txLinks.TxLink[i].GetSegmentPath()] = &txLinks.TxLink[i]
+        txLinks.EntityData.Children[types.GetSegmentPath(&txLinks.TxLink[i])] = types.YChild{"TxLink", &txLinks.TxLink[i]}
     }
-    return children
+    txLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(txLinks.EntityData)
 }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetYangName() string { return "tx-links" }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) SetParent(parent types.Entity) { txLinks.parent = parent }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetParent() types.Entity { return txLinks.parent }
-
-func (txLinks *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks) GetParentYangName() string { return "tx-asic-instance" }
 
 // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink
 // Link number for tx link information
 type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Start number. The type is interface{} with range: 0..47.
@@ -3242,75 +1895,34 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
 
     // Single link information. The type is slice of
     // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink.
-    TxLink []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink
+    TxLink []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_
 }
 
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetFilter() yfilter.YFilter { return txLink.YFilter }
+func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetEntityData() *types.CommonEntityData {
+    txLink.EntityData.YFilter = txLink.YFilter
+    txLink.EntityData.YangName = "tx-link"
+    txLink.EntityData.BundleName = "cisco_ios_xr"
+    txLink.EntityData.ParentYangName = "tx-links"
+    txLink.EntityData.SegmentPath = "tx-link"
+    txLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) SetFilter(yf yfilter.YFilter) { txLink.YFilter = yf }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetGoName(yname string) string {
-    if yname == "start-number" { return "StartNumber" }
-    if yname == "end-number" { return "EndNumber" }
-    if yname == "tx-link" { return "TxLink" }
-    return ""
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetSegmentPath() string {
-    return "tx-link"
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "tx-link" {
-        for _, c := range txLink.TxLink {
-            if txLink.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink{}
-        txLink.TxLink = append(txLink.TxLink, child)
-        return &txLink.TxLink[len(txLink.TxLink)-1]
-    }
-    return nil
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    txLink.EntityData.Children = make(map[string]types.YChild)
+    txLink.EntityData.Children["tx-link"] = types.YChild{"TxLink", nil}
     for i := range txLink.TxLink {
-        children[txLink.TxLink[i].GetSegmentPath()] = &txLink.TxLink[i]
+        txLink.EntityData.Children[types.GetSegmentPath(&txLink.TxLink[i])] = types.YChild{"TxLink", &txLink.TxLink[i]}
     }
-    return children
+    txLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    txLink.EntityData.Leafs["start-number"] = types.YLeaf{"StartNumber", txLink.StartNumber}
+    txLink.EntityData.Leafs["end-number"] = types.YLeaf{"EndNumber", txLink.EndNumber}
+    return &(txLink.EntityData)
 }
 
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["start-number"] = txLink.StartNumber
-    leafs["end-number"] = txLink.EndNumber
-    return leafs
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetYangName() string { return "tx-link" }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) SetParent(parent types.Entity) { txLink.parent = parent }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetParent() types.Entity { return txLink.parent }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink) GetParentYangName() string { return "tx-links" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_
 // Single link information
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single Link. The type is interface{} with range:
@@ -3351,110 +1963,53 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     NumAdminShuts interface{}
 
     // this link.
-    ThisLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink
+    ThisLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink
 
     // far end link.
-    FarEndLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink
+    FarEndLink Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink
 
     // stats.
-    Stats Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats
+    Stats Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats
 
     // history.
-    History Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History
+    History Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History
 }
 
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetFilter() yfilter.YFilter { return txLink.YFilter }
+func (txLink_ *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_) GetEntityData() *types.CommonEntityData {
+    txLink_.EntityData.YFilter = txLink_.YFilter
+    txLink_.EntityData.YangName = "tx-link"
+    txLink_.EntityData.BundleName = "cisco_ios_xr"
+    txLink_.EntityData.ParentYangName = "tx-link"
+    txLink_.EntityData.SegmentPath = "tx-link" + "[link='" + fmt.Sprintf("%v", txLink_.Link) + "']"
+    txLink_.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLink_.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLink_.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) SetFilter(yf yfilter.YFilter) { txLink.YFilter = yf }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetGoName(yname string) string {
-    if yname == "link" { return "Link" }
-    if yname == "speed" { return "Speed" }
-    if yname == "stage" { return "Stage" }
-    if yname == "is-link-valid" { return "IsLinkValid" }
-    if yname == "is-conf-pending" { return "IsConfPending" }
-    if yname == "is-power-enabled" { return "IsPowerEnabled" }
-    if yname == "coeff1" { return "Coeff1" }
-    if yname == "coeff2" { return "Coeff2" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state" { return "OperState" }
-    if yname == "error-state" { return "ErrorState" }
-    if yname == "num-admin-shuts" { return "NumAdminShuts" }
-    if yname == "this-link" { return "ThisLink" }
-    if yname == "far-end-link" { return "FarEndLink" }
-    if yname == "stats" { return "Stats" }
-    if yname == "history" { return "History" }
-    return ""
+    txLink_.EntityData.Children = make(map[string]types.YChild)
+    txLink_.EntityData.Children["this-link"] = types.YChild{"ThisLink", &txLink_.ThisLink}
+    txLink_.EntityData.Children["far-end-link"] = types.YChild{"FarEndLink", &txLink_.FarEndLink}
+    txLink_.EntityData.Children["stats"] = types.YChild{"Stats", &txLink_.Stats}
+    txLink_.EntityData.Children["history"] = types.YChild{"History", &txLink_.History}
+    txLink_.EntityData.Leafs = make(map[string]types.YLeaf)
+    txLink_.EntityData.Leafs["link"] = types.YLeaf{"Link", txLink_.Link}
+    txLink_.EntityData.Leafs["speed"] = types.YLeaf{"Speed", txLink_.Speed}
+    txLink_.EntityData.Leafs["stage"] = types.YLeaf{"Stage", txLink_.Stage}
+    txLink_.EntityData.Leafs["is-link-valid"] = types.YLeaf{"IsLinkValid", txLink_.IsLinkValid}
+    txLink_.EntityData.Leafs["is-conf-pending"] = types.YLeaf{"IsConfPending", txLink_.IsConfPending}
+    txLink_.EntityData.Leafs["is-power-enabled"] = types.YLeaf{"IsPowerEnabled", txLink_.IsPowerEnabled}
+    txLink_.EntityData.Leafs["coeff1"] = types.YLeaf{"Coeff1", txLink_.Coeff1}
+    txLink_.EntityData.Leafs["coeff2"] = types.YLeaf{"Coeff2", txLink_.Coeff2}
+    txLink_.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", txLink_.AdminState}
+    txLink_.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", txLink_.OperState}
+    txLink_.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", txLink_.ErrorState}
+    txLink_.EntityData.Leafs["num-admin-shuts"] = types.YLeaf{"NumAdminShuts", txLink_.NumAdminShuts}
+    return &(txLink_.EntityData)
 }
 
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetSegmentPath() string {
-    return "tx-link" + "[link='" + fmt.Sprintf("%v", txLink.Link) + "']"
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "this-link" {
-        return &txLink.ThisLink
-    }
-    if childYangName == "far-end-link" {
-        return &txLink.FarEndLink
-    }
-    if childYangName == "stats" {
-        return &txLink.Stats
-    }
-    if childYangName == "history" {
-        return &txLink.History
-    }
-    return nil
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["this-link"] = &txLink.ThisLink
-    children["far-end-link"] = &txLink.FarEndLink
-    children["stats"] = &txLink.Stats
-    children["history"] = &txLink.History
-    return children
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link"] = txLink.Link
-    leafs["speed"] = txLink.Speed
-    leafs["stage"] = txLink.Stage
-    leafs["is-link-valid"] = txLink.IsLinkValid
-    leafs["is-conf-pending"] = txLink.IsConfPending
-    leafs["is-power-enabled"] = txLink.IsPowerEnabled
-    leafs["coeff1"] = txLink.Coeff1
-    leafs["coeff2"] = txLink.Coeff2
-    leafs["admin-state"] = txLink.AdminState
-    leafs["oper-state"] = txLink.OperState
-    leafs["error-state"] = txLink.ErrorState
-    leafs["num-admin-shuts"] = txLink.NumAdminShuts
-    return leafs
-}
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetYangName() string { return "tx-link" }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) SetParent(parent types.Entity) { txLink.parent = parent }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetParent() types.Entity { return txLink.parent }
-
-func (txLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink) GetParentYangName() string { return "tx-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink
 // this link
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link Type. The type is Link.
@@ -3470,70 +2025,33 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId
+    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId
 }
 
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetFilter() yfilter.YFilter { return thisLink.YFilter }
+func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink) GetEntityData() *types.CommonEntityData {
+    thisLink.EntityData.YFilter = thisLink.YFilter
+    thisLink.EntityData.YangName = "this-link"
+    thisLink.EntityData.BundleName = "cisco_ios_xr"
+    thisLink.EntityData.ParentYangName = "tx-link"
+    thisLink.EntityData.SegmentPath = "this-link"
+    thisLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    thisLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    thisLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) SetFilter(yf yfilter.YFilter) { thisLink.YFilter = yf }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetGoName(yname string) string {
-    if yname == "link-type" { return "LinkType" }
-    if yname == "link-stage" { return "LinkStage" }
-    if yname == "link-num" { return "LinkNum" }
-    if yname == "phy-link-num" { return "PhyLinkNum" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    thisLink.EntityData.Children = make(map[string]types.YChild)
+    thisLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &thisLink.AsicId}
+    thisLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    thisLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", thisLink.LinkType}
+    thisLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", thisLink.LinkStage}
+    thisLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", thisLink.LinkNum}
+    thisLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", thisLink.PhyLinkNum}
+    return &(thisLink.EntityData)
 }
 
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetSegmentPath() string {
-    return "this-link"
-}
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &thisLink.AsicId
-    }
-    return nil
-}
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &thisLink.AsicId
-    return children
-}
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-type"] = thisLink.LinkType
-    leafs["link-stage"] = thisLink.LinkStage
-    leafs["link-num"] = thisLink.LinkNum
-    leafs["phy-link-num"] = thisLink.PhyLinkNum
-    return leafs
-}
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetYangName() string { return "this-link" }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) SetParent(parent types.Entity) { thisLink.parent = parent }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetParent() types.Entity { return thisLink.parent }
-
-func (thisLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink) GetParentYangName() string { return "tx-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId
 // asic id
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -3552,64 +2070,30 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__ThisLink_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "this-link"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_ThisLink_AsicId) GetParentYangName() string { return "this-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink
 // far end link
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link Type. The type is Link.
@@ -3625,70 +2109,33 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     PhyLinkNum interface{}
 
     // asic id.
-    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId
+    AsicId Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId
 }
 
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetFilter() yfilter.YFilter { return farEndLink.YFilter }
+func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink) GetEntityData() *types.CommonEntityData {
+    farEndLink.EntityData.YFilter = farEndLink.YFilter
+    farEndLink.EntityData.YangName = "far-end-link"
+    farEndLink.EntityData.BundleName = "cisco_ios_xr"
+    farEndLink.EntityData.ParentYangName = "tx-link"
+    farEndLink.EntityData.SegmentPath = "far-end-link"
+    farEndLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    farEndLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    farEndLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) SetFilter(yf yfilter.YFilter) { farEndLink.YFilter = yf }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetGoName(yname string) string {
-    if yname == "link-type" { return "LinkType" }
-    if yname == "link-stage" { return "LinkStage" }
-    if yname == "link-num" { return "LinkNum" }
-    if yname == "phy-link-num" { return "PhyLinkNum" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    farEndLink.EntityData.Children = make(map[string]types.YChild)
+    farEndLink.EntityData.Children["asic-id"] = types.YChild{"AsicId", &farEndLink.AsicId}
+    farEndLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    farEndLink.EntityData.Leafs["link-type"] = types.YLeaf{"LinkType", farEndLink.LinkType}
+    farEndLink.EntityData.Leafs["link-stage"] = types.YLeaf{"LinkStage", farEndLink.LinkStage}
+    farEndLink.EntityData.Leafs["link-num"] = types.YLeaf{"LinkNum", farEndLink.LinkNum}
+    farEndLink.EntityData.Leafs["phy-link-num"] = types.YLeaf{"PhyLinkNum", farEndLink.PhyLinkNum}
+    return &(farEndLink.EntityData)
 }
 
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetSegmentPath() string {
-    return "far-end-link"
-}
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &farEndLink.AsicId
-    }
-    return nil
-}
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &farEndLink.AsicId
-    return children
-}
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-type"] = farEndLink.LinkType
-    leafs["link-stage"] = farEndLink.LinkStage
-    leafs["link-num"] = farEndLink.LinkNum
-    leafs["phy-link-num"] = farEndLink.PhyLinkNum
-    return leafs
-}
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetYangName() string { return "far-end-link" }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) SetParent(parent types.Entity) { farEndLink.parent = parent }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetParent() types.Entity { return farEndLink.parent }
-
-func (farEndLink *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink) GetParentYangName() string { return "tx-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId
 // asic id
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -3707,120 +2154,56 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__FarEndLink_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "far-end-link"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
 
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_FarEndLink_AsicId) GetParentYangName() string { return "far-end-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats
 // stats
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // dummy. The type is interface{} with range: 0..4294967295.
     Dummy interface{}
 }
 
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetFilter() yfilter.YFilter { return stats.YFilter }
+func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__Stats) GetEntityData() *types.CommonEntityData {
+    stats.EntityData.YFilter = stats.YFilter
+    stats.EntityData.YangName = "stats"
+    stats.EntityData.BundleName = "cisco_ios_xr"
+    stats.EntityData.ParentYangName = "tx-link"
+    stats.EntityData.SegmentPath = "stats"
+    stats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    stats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    stats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) SetFilter(yf yfilter.YFilter) { stats.YFilter = yf }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetGoName(yname string) string {
-    if yname == "dummy" { return "Dummy" }
-    return ""
+    stats.EntityData.Children = make(map[string]types.YChild)
+    stats.EntityData.Leafs = make(map[string]types.YLeaf)
+    stats.EntityData.Leafs["dummy"] = types.YLeaf{"Dummy", stats.Dummy}
+    return &(stats.EntityData)
 }
 
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetSegmentPath() string {
-    return "stats"
-}
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dummy"] = stats.Dummy
-    return leafs
-}
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetYangName() string { return "stats" }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) SetParent(parent types.Entity) { stats.parent = parent }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetParent() types.Entity { return stats.parent }
-
-func (stats *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_Stats) GetParentYangName() string { return "tx-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History
 // history
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // histnum. The type is interface{} with range: 0..255.
@@ -3830,76 +2213,35 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     StartIndex interface{}
 
     // hist. The type is slice of
-    // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist.
-    Hist []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist
+    // Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist.
+    Hist []Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist
 }
 
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetFilter() yfilter.YFilter { return history.YFilter }
+func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History) GetEntityData() *types.CommonEntityData {
+    history.EntityData.YFilter = history.YFilter
+    history.EntityData.YangName = "history"
+    history.EntityData.BundleName = "cisco_ios_xr"
+    history.EntityData.ParentYangName = "tx-link"
+    history.EntityData.SegmentPath = "history"
+    history.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    history.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    history.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) SetFilter(yf yfilter.YFilter) { history.YFilter = yf }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetGoName(yname string) string {
-    if yname == "histnum" { return "Histnum" }
-    if yname == "start-index" { return "StartIndex" }
-    if yname == "hist" { return "Hist" }
-    return ""
-}
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetSegmentPath() string {
-    return "history"
-}
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hist" {
-        for _, c := range history.Hist {
-            if history.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist{}
-        history.Hist = append(history.Hist, child)
-        return &history.Hist[len(history.Hist)-1]
-    }
-    return nil
-}
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    history.EntityData.Children = make(map[string]types.YChild)
+    history.EntityData.Children["hist"] = types.YChild{"Hist", nil}
     for i := range history.Hist {
-        children[history.Hist[i].GetSegmentPath()] = &history.Hist[i]
+        history.EntityData.Children[types.GetSegmentPath(&history.Hist[i])] = types.YChild{"Hist", &history.Hist[i]}
     }
-    return children
+    history.EntityData.Leafs = make(map[string]types.YLeaf)
+    history.EntityData.Leafs["histnum"] = types.YLeaf{"Histnum", history.Histnum}
+    history.EntityData.Leafs["start-index"] = types.YLeaf{"StartIndex", history.StartIndex}
+    return &(history.EntityData)
 }
 
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["histnum"] = history.Histnum
-    leafs["start-index"] = history.StartIndex
-    return leafs
-}
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetBundleName() string { return "cisco_ios_xr" }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetYangName() string { return "history" }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) SetParent(parent types.Entity) { history.parent = parent }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetParent() types.Entity { return history.parent }
-
-func (history *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History) GetParentYangName() string { return "tx-link" }
-
-// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist
+// Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist
 // hist
-type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist struct {
-    parent types.Entity
+type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Admin State. The type is AdminState.
@@ -3918,123 +2260,56 @@ type Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicI
     Reasons interface{}
 }
 
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetFilter() yfilter.YFilter { return hist.YFilter }
+func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink__History_Hist) GetEntityData() *types.CommonEntityData {
+    hist.EntityData.YFilter = hist.YFilter
+    hist.EntityData.YangName = "hist"
+    hist.EntityData.BundleName = "cisco_ios_xr"
+    hist.EntityData.ParentYangName = "history"
+    hist.EntityData.SegmentPath = "hist"
+    hist.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hist.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hist.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) SetFilter(yf yfilter.YFilter) { hist.YFilter = yf }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetGoName(yname string) string {
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state" { return "OperState" }
-    if yname == "error-state" { return "ErrorState" }
-    if yname == "timestamp" { return "Timestamp" }
-    if yname == "reasons" { return "Reasons" }
-    return ""
+    hist.EntityData.Children = make(map[string]types.YChild)
+    hist.EntityData.Leafs = make(map[string]types.YLeaf)
+    hist.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", hist.AdminState}
+    hist.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", hist.OperState}
+    hist.EntityData.Leafs["error-state"] = types.YLeaf{"ErrorState", hist.ErrorState}
+    hist.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", hist.Timestamp}
+    hist.EntityData.Leafs["reasons"] = types.YLeaf{"Reasons", hist.Reasons}
+    return &(hist.EntityData)
 }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetSegmentPath() string {
-    return "hist"
-}
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["admin-state"] = hist.AdminState
-    leafs["oper-state"] = hist.OperState
-    leafs["error-state"] = hist.ErrorState
-    leafs["timestamp"] = hist.Timestamp
-    leafs["reasons"] = hist.Reasons
-    return leafs
-}
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetYangName() string { return "hist" }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) SetParent(parent types.Entity) { hist.parent = parent }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetParent() types.Entity { return hist.parent }
-
-func (hist *Fia_Nodes_Node_TxLinkInformation_TxStatusOptionTable_TxStatusOption_TxAsicInstances_TxAsicInstance_TxLinks_TxLink_TxLink_History_Hist) GetParentYangName() string { return "history" }
 
 // Fia_Nodes_Node_DiagShell
 // FIA diag shell information
 type Fia_Nodes_Node_DiagShell struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unit table for diag shell.
     DiagShellUnits Fia_Nodes_Node_DiagShell_DiagShellUnits
 }
 
-func (diagShell *Fia_Nodes_Node_DiagShell) GetFilter() yfilter.YFilter { return diagShell.YFilter }
+func (diagShell *Fia_Nodes_Node_DiagShell) GetEntityData() *types.CommonEntityData {
+    diagShell.EntityData.YFilter = diagShell.YFilter
+    diagShell.EntityData.YangName = "diag-shell"
+    diagShell.EntityData.BundleName = "cisco_ios_xr"
+    diagShell.EntityData.ParentYangName = "node"
+    diagShell.EntityData.SegmentPath = "diag-shell"
+    diagShell.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diagShell.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diagShell.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (diagShell *Fia_Nodes_Node_DiagShell) SetFilter(yf yfilter.YFilter) { diagShell.YFilter = yf }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetGoName(yname string) string {
-    if yname == "diag-shell-units" { return "DiagShellUnits" }
-    return ""
+    diagShell.EntityData.Children = make(map[string]types.YChild)
+    diagShell.EntityData.Children["diag-shell-units"] = types.YChild{"DiagShellUnits", &diagShell.DiagShellUnits}
+    diagShell.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(diagShell.EntityData)
 }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetSegmentPath() string {
-    return "diag-shell"
-}
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "diag-shell-units" {
-        return &diagShell.DiagShellUnits
-    }
-    return nil
-}
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["diag-shell-units"] = &diagShell.DiagShellUnits
-    return children
-}
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetBundleName() string { return "cisco_ios_xr" }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetYangName() string { return "diag-shell" }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) SetParent(parent types.Entity) { diagShell.parent = parent }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetParent() types.Entity { return diagShell.parent }
-
-func (diagShell *Fia_Nodes_Node_DiagShell) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_DiagShell_DiagShellUnits
 // Unit table for diag shell
 type Fia_Nodes_Node_DiagShell_DiagShellUnits struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unit number for diag shell statistics. The type is slice of
@@ -4042,68 +2317,29 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits struct {
     DiagShellUnit []Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit
 }
 
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetFilter() yfilter.YFilter { return diagShellUnits.YFilter }
+func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetEntityData() *types.CommonEntityData {
+    diagShellUnits.EntityData.YFilter = diagShellUnits.YFilter
+    diagShellUnits.EntityData.YangName = "diag-shell-units"
+    diagShellUnits.EntityData.BundleName = "cisco_ios_xr"
+    diagShellUnits.EntityData.ParentYangName = "diag-shell"
+    diagShellUnits.EntityData.SegmentPath = "diag-shell-units"
+    diagShellUnits.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diagShellUnits.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diagShellUnits.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) SetFilter(yf yfilter.YFilter) { diagShellUnits.YFilter = yf }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetGoName(yname string) string {
-    if yname == "diag-shell-unit" { return "DiagShellUnit" }
-    return ""
-}
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetSegmentPath() string {
-    return "diag-shell-units"
-}
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "diag-shell-unit" {
-        for _, c := range diagShellUnits.DiagShellUnit {
-            if diagShellUnits.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit{}
-        diagShellUnits.DiagShellUnit = append(diagShellUnits.DiagShellUnit, child)
-        return &diagShellUnits.DiagShellUnit[len(diagShellUnits.DiagShellUnit)-1]
-    }
-    return nil
-}
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    diagShellUnits.EntityData.Children = make(map[string]types.YChild)
+    diagShellUnits.EntityData.Children["diag-shell-unit"] = types.YChild{"DiagShellUnit", nil}
     for i := range diagShellUnits.DiagShellUnit {
-        children[diagShellUnits.DiagShellUnit[i].GetSegmentPath()] = &diagShellUnits.DiagShellUnit[i]
+        diagShellUnits.EntityData.Children[types.GetSegmentPath(&diagShellUnits.DiagShellUnit[i])] = types.YChild{"DiagShellUnit", &diagShellUnits.DiagShellUnit[i]}
     }
-    return children
+    diagShellUnits.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(diagShellUnits.EntityData)
 }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetBundleName() string { return "cisco_ios_xr" }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetYangName() string { return "diag-shell-units" }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) SetParent(parent types.Entity) { diagShellUnits.parent = parent }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetParent() types.Entity { return diagShellUnits.parent }
-
-func (diagShellUnits *Fia_Nodes_Node_DiagShell_DiagShellUnits) GetParentYangName() string { return "diag-shell" }
 
 // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit
 // Unit number for diag shell statistics
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Unit number. The type is interface{} with range:
@@ -4114,61 +2350,27 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit struct {
     Commands Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands
 }
 
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetFilter() yfilter.YFilter { return diagShellUnit.YFilter }
+func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetEntityData() *types.CommonEntityData {
+    diagShellUnit.EntityData.YFilter = diagShellUnit.YFilter
+    diagShellUnit.EntityData.YangName = "diag-shell-unit"
+    diagShellUnit.EntityData.BundleName = "cisco_ios_xr"
+    diagShellUnit.EntityData.ParentYangName = "diag-shell-units"
+    diagShellUnit.EntityData.SegmentPath = "diag-shell-unit" + "[unit='" + fmt.Sprintf("%v", diagShellUnit.Unit) + "']"
+    diagShellUnit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diagShellUnit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diagShellUnit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) SetFilter(yf yfilter.YFilter) { diagShellUnit.YFilter = yf }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetGoName(yname string) string {
-    if yname == "unit" { return "Unit" }
-    if yname == "commands" { return "Commands" }
-    return ""
+    diagShellUnit.EntityData.Children = make(map[string]types.YChild)
+    diagShellUnit.EntityData.Children["commands"] = types.YChild{"Commands", &diagShellUnit.Commands}
+    diagShellUnit.EntityData.Leafs = make(map[string]types.YLeaf)
+    diagShellUnit.EntityData.Leafs["unit"] = types.YLeaf{"Unit", diagShellUnit.Unit}
+    return &(diagShellUnit.EntityData)
 }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetSegmentPath() string {
-    return "diag-shell-unit" + "[unit='" + fmt.Sprintf("%v", diagShellUnit.Unit) + "']"
-}
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "commands" {
-        return &diagShellUnit.Commands
-    }
-    return nil
-}
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["commands"] = &diagShellUnit.Commands
-    return children
-}
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["unit"] = diagShellUnit.Unit
-    return leafs
-}
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetYangName() string { return "diag-shell-unit" }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) SetParent(parent types.Entity) { diagShellUnit.parent = parent }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetParent() types.Entity { return diagShellUnit.parent }
-
-func (diagShellUnit *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit) GetParentYangName() string { return "diag-shell-units" }
 
 // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands
 // Command table for diag shell
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Command for diag shell statistics. The type is slice of
@@ -4176,68 +2378,29 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands struct {
     Command []Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command
 }
 
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetFilter() yfilter.YFilter { return commands.YFilter }
+func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetEntityData() *types.CommonEntityData {
+    commands.EntityData.YFilter = commands.YFilter
+    commands.EntityData.YangName = "commands"
+    commands.EntityData.BundleName = "cisco_ios_xr"
+    commands.EntityData.ParentYangName = "diag-shell-unit"
+    commands.EntityData.SegmentPath = "commands"
+    commands.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    commands.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    commands.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) SetFilter(yf yfilter.YFilter) { commands.YFilter = yf }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetGoName(yname string) string {
-    if yname == "command" { return "Command" }
-    return ""
-}
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetSegmentPath() string {
-    return "commands"
-}
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "command" {
-        for _, c := range commands.Command {
-            if commands.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command{}
-        commands.Command = append(commands.Command, child)
-        return &commands.Command[len(commands.Command)-1]
-    }
-    return nil
-}
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    commands.EntityData.Children = make(map[string]types.YChild)
+    commands.EntityData.Children["command"] = types.YChild{"Command", nil}
     for i := range commands.Command {
-        children[commands.Command[i].GetSegmentPath()] = &commands.Command[i]
+        commands.EntityData.Children[types.GetSegmentPath(&commands.Command[i])] = types.YChild{"Command", &commands.Command[i]}
     }
-    return children
+    commands.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(commands.EntityData)
 }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetBundleName() string { return "cisco_ios_xr" }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetYangName() string { return "commands" }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) SetParent(parent types.Entity) { commands.parent = parent }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetParent() types.Entity { return commands.parent }
-
-func (commands *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands) GetParentYangName() string { return "diag-shell-unit" }
 
 // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command
 // Command for diag shell statistics
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Shell command. The type is string.
@@ -4248,191 +2411,87 @@ type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command stru
     Output []Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output
 }
 
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetFilter() yfilter.YFilter { return command.YFilter }
+func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetEntityData() *types.CommonEntityData {
+    command.EntityData.YFilter = command.YFilter
+    command.EntityData.YangName = "command"
+    command.EntityData.BundleName = "cisco_ios_xr"
+    command.EntityData.ParentYangName = "commands"
+    command.EntityData.SegmentPath = "command" + "[cmd='" + fmt.Sprintf("%v", command.Cmd) + "']"
+    command.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    command.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    command.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) SetFilter(yf yfilter.YFilter) { command.YFilter = yf }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetGoName(yname string) string {
-    if yname == "cmd" { return "Cmd" }
-    if yname == "output" { return "Output" }
-    return ""
-}
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetSegmentPath() string {
-    return "command" + "[cmd='" + fmt.Sprintf("%v", command.Cmd) + "']"
-}
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "output" {
-        for _, c := range command.Output {
-            if command.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output{}
-        command.Output = append(command.Output, child)
-        return &command.Output[len(command.Output)-1]
-    }
-    return nil
-}
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    command.EntityData.Children = make(map[string]types.YChild)
+    command.EntityData.Children["output"] = types.YChild{"Output", nil}
     for i := range command.Output {
-        children[command.Output[i].GetSegmentPath()] = &command.Output[i]
+        command.EntityData.Children[types.GetSegmentPath(&command.Output[i])] = types.YChild{"Output", &command.Output[i]}
     }
-    return children
+    command.EntityData.Leafs = make(map[string]types.YLeaf)
+    command.EntityData.Leafs["cmd"] = types.YLeaf{"Cmd", command.Cmd}
+    return &(command.EntityData)
 }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmd"] = command.Cmd
-    return leafs
-}
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetBundleName() string { return "cisco_ios_xr" }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetYangName() string { return "command" }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) SetParent(parent types.Entity) { command.parent = parent }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetParent() types.Entity { return command.parent }
-
-func (command *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command) GetParentYangName() string { return "commands" }
 
 // Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output
 // Added to support datalist
 type Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. First line. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Output interface{}
 
     // output xr. The type is string.
     OutputXr interface{}
 }
 
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "command"
+    output.EntityData.SegmentPath = "output" + "[output='" + fmt.Sprintf("%v", output.Output) + "']"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetGoName(yname string) string {
-    if yname == "output" { return "Output" }
-    if yname == "output-xr" { return "OutputXr" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    output.EntityData.Leafs["output"] = types.YLeaf{"Output", output.Output}
+    output.EntityData.Leafs["output-xr"] = types.YLeaf{"OutputXr", output.OutputXr}
+    return &(output.EntityData)
 }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetSegmentPath() string {
-    return "output" + "[output='" + fmt.Sprintf("%v", output.Output) + "']"
-}
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["output"] = output.Output
-    leafs["output-xr"] = output.OutputXr
-    return leafs
-}
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetYangName() string { return "output" }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Fia_Nodes_Node_DiagShell_DiagShellUnits_DiagShellUnit_Commands_Command_Output) GetParentYangName() string { return "command" }
 
 // Fia_Nodes_Node_OirHistory
 // FIA operational data of oir history
 type Fia_Nodes_Node_OirHistory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Flag table for history.
     Flags Fia_Nodes_Node_OirHistory_Flags
 }
 
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetFilter() yfilter.YFilter { return oirHistory.YFilter }
+func (oirHistory *Fia_Nodes_Node_OirHistory) GetEntityData() *types.CommonEntityData {
+    oirHistory.EntityData.YFilter = oirHistory.YFilter
+    oirHistory.EntityData.YangName = "oir-history"
+    oirHistory.EntityData.BundleName = "cisco_ios_xr"
+    oirHistory.EntityData.ParentYangName = "node"
+    oirHistory.EntityData.SegmentPath = "oir-history"
+    oirHistory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oirHistory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oirHistory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (oirHistory *Fia_Nodes_Node_OirHistory) SetFilter(yf yfilter.YFilter) { oirHistory.YFilter = yf }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetGoName(yname string) string {
-    if yname == "flags" { return "Flags" }
-    return ""
+    oirHistory.EntityData.Children = make(map[string]types.YChild)
+    oirHistory.EntityData.Children["flags"] = types.YChild{"Flags", &oirHistory.Flags}
+    oirHistory.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(oirHistory.EntityData)
 }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetSegmentPath() string {
-    return "oir-history"
-}
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "flags" {
-        return &oirHistory.Flags
-    }
-    return nil
-}
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["flags"] = &oirHistory.Flags
-    return children
-}
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetYangName() string { return "oir-history" }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) SetParent(parent types.Entity) { oirHistory.parent = parent }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetParent() types.Entity { return oirHistory.parent }
-
-func (oirHistory *Fia_Nodes_Node_OirHistory) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_OirHistory_Flags
 // Flag table for history
 type Fia_Nodes_Node_OirHistory_Flags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Flag value for physical location. The type is slice of
@@ -4440,68 +2499,29 @@ type Fia_Nodes_Node_OirHistory_Flags struct {
     Flag []Fia_Nodes_Node_OirHistory_Flags_Flag
 }
 
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetFilter() yfilter.YFilter { return flags.YFilter }
+func (flags *Fia_Nodes_Node_OirHistory_Flags) GetEntityData() *types.CommonEntityData {
+    flags.EntityData.YFilter = flags.YFilter
+    flags.EntityData.YangName = "flags"
+    flags.EntityData.BundleName = "cisco_ios_xr"
+    flags.EntityData.ParentYangName = "oir-history"
+    flags.EntityData.SegmentPath = "flags"
+    flags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (flags *Fia_Nodes_Node_OirHistory_Flags) SetFilter(yf yfilter.YFilter) { flags.YFilter = yf }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetGoName(yname string) string {
-    if yname == "flag" { return "Flag" }
-    return ""
-}
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetSegmentPath() string {
-    return "flags"
-}
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "flag" {
-        for _, c := range flags.Flag {
-            if flags.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_OirHistory_Flags_Flag{}
-        flags.Flag = append(flags.Flag, child)
-        return &flags.Flag[len(flags.Flag)-1]
-    }
-    return nil
-}
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    flags.EntityData.Children = make(map[string]types.YChild)
+    flags.EntityData.Children["flag"] = types.YChild{"Flag", nil}
     for i := range flags.Flag {
-        children[flags.Flag[i].GetSegmentPath()] = &flags.Flag[i]
+        flags.EntityData.Children[types.GetSegmentPath(&flags.Flag[i])] = types.YChild{"Flag", &flags.Flag[i]}
     }
-    return children
+    flags.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(flags.EntityData)
 }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetYangName() string { return "flags" }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) SetParent(parent types.Entity) { flags.parent = parent }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetParent() types.Entity { return flags.parent }
-
-func (flags *Fia_Nodes_Node_OirHistory_Flags) GetParentYangName() string { return "oir-history" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag
 // Flag value for physical location
 type Fia_Nodes_Node_OirHistory_Flags_Flag struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Flag value. The type is interface{} with range:
@@ -4512,61 +2532,27 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag struct {
     Slots Fia_Nodes_Node_OirHistory_Flags_Flag_Slots
 }
 
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetFilter() yfilter.YFilter { return flag.YFilter }
+func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetEntityData() *types.CommonEntityData {
+    flag.EntityData.YFilter = flag.YFilter
+    flag.EntityData.YangName = "flag"
+    flag.EntityData.BundleName = "cisco_ios_xr"
+    flag.EntityData.ParentYangName = "flags"
+    flag.EntityData.SegmentPath = "flag" + "[flag='" + fmt.Sprintf("%v", flag.Flag) + "']"
+    flag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    flag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    flag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) SetFilter(yf yfilter.YFilter) { flag.YFilter = yf }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetGoName(yname string) string {
-    if yname == "flag" { return "Flag" }
-    if yname == "slots" { return "Slots" }
-    return ""
+    flag.EntityData.Children = make(map[string]types.YChild)
+    flag.EntityData.Children["slots"] = types.YChild{"Slots", &flag.Slots}
+    flag.EntityData.Leafs = make(map[string]types.YLeaf)
+    flag.EntityData.Leafs["flag"] = types.YLeaf{"Flag", flag.Flag}
+    return &(flag.EntityData)
 }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetSegmentPath() string {
-    return "flag" + "[flag='" + fmt.Sprintf("%v", flag.Flag) + "']"
-}
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slots" {
-        return &flag.Slots
-    }
-    return nil
-}
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["slots"] = &flag.Slots
-    return children
-}
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["flag"] = flag.Flag
-    return leafs
-}
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetBundleName() string { return "cisco_ios_xr" }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetYangName() string { return "flag" }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) SetParent(parent types.Entity) { flag.parent = parent }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetParent() types.Entity { return flag.parent }
-
-func (flag *Fia_Nodes_Node_OirHistory_Flags_Flag) GetParentYangName() string { return "flags" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots
 // Slot table for history
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Slot number for getting history. The type is slice of
@@ -4574,68 +2560,29 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots struct {
     Slot []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot
 }
 
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetFilter() yfilter.YFilter { return slots.YFilter }
+func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetEntityData() *types.CommonEntityData {
+    slots.EntityData.YFilter = slots.YFilter
+    slots.EntityData.YangName = "slots"
+    slots.EntityData.BundleName = "cisco_ios_xr"
+    slots.EntityData.ParentYangName = "flag"
+    slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) SetFilter(yf yfilter.YFilter) { slots.YFilter = yf }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    return ""
-}
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetSegmentPath() string {
-    return "slots"
-}
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slot" {
-        for _, c := range slots.Slot {
-            if slots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot{}
-        slots.Slot = append(slots.Slot, child)
-        return &slots.Slot[len(slots.Slot)-1]
-    }
-    return nil
-}
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    slots.EntityData.Children = make(map[string]types.YChild)
+    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
     for i := range slots.Slot {
-        children[slots.Slot[i].GetSegmentPath()] = &slots.Slot[i]
+        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
     }
-    return children
+    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(slots.EntityData)
 }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetYangName() string { return "slots" }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) SetParent(parent types.Entity) { slots.parent = parent }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetParent() types.Entity { return slots.parent }
-
-func (slots *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots) GetParentYangName() string { return "flag" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot
 // Slot number for getting history
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot number. The type is interface{} with range:
@@ -4786,172 +2733,78 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot struct {
     CardInfo []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo
 }
 
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetFilter() yfilter.YFilter { return slot.YFilter }
+func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetEntityData() *types.CommonEntityData {
+    slot.EntityData.YFilter = slot.YFilter
+    slot.EntityData.YangName = "slot"
+    slot.EntityData.BundleName = "cisco_ios_xr"
+    slot.EntityData.ParentYangName = "slots"
+    slot.EntityData.SegmentPath = "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
+    slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) SetFilter(yf yfilter.YFilter) { slot.YFilter = yf }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    if yname == "drv-version" { return "DrvVersion" }
-    if yname == "coeff-major-rev" { return "CoeffMajorRev" }
-    if yname == "coeff-minor-rev" { return "CoeffMinorRev" }
-    if yname == "functional-role" { return "FunctionalRole" }
-    if yname == "issu-role" { return "IssuRole" }
-    if yname == "node-id" { return "NodeId" }
-    if yname == "rack-type" { return "RackType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "is-driver-ready" { return "IsDriverReady" }
-    if yname == "card-avail-mask" { return "CardAvailMask" }
-    if yname == "asic-avail-mask" { return "AsicAvailMask" }
-    if yname == "exp-asic-avail-mask" { return "ExpAsicAvailMask" }
-    if yname == "ucmc-ratio" { return "UcmcRatio" }
-    if yname == "asic-oper-notify-to-fsdb-pending-bmap" { return "AsicOperNotifyToFsdbPendingBmap" }
-    if yname == "is-full-fgid-download-req" { return "IsFullFgidDownloadReq" }
-    if yname == "is-fgid-download-in-progress" { return "IsFgidDownloadInProgress" }
-    if yname == "is-fgid-download-completed" { return "IsFgidDownloadCompleted" }
-    if yname == "fsdb-conn-active" { return "FsdbConnActive" }
-    if yname == "fgid-conn-active" { return "FgidConnActive" }
-    if yname == "issu-mgr-conn-active" { return "IssuMgrConnActive" }
-    if yname == "fsdb-reg-active" { return "FsdbRegActive" }
-    if yname == "fgid-reg-active" { return "FgidRegActive" }
-    if yname == "issu-mgr-reg-active" { return "IssuMgrRegActive" }
-    if yname == "num-pm-conn-reqs" { return "NumPmConnReqs" }
-    if yname == "num-fsdb-conn-reqs" { return "NumFsdbConnReqs" }
-    if yname == "num-fgid-conn-reqs" { return "NumFgidConnReqs" }
-    if yname == "num-fstats-conn-reqs" { return "NumFstatsConnReqs" }
-    if yname == "num-cm-conn-reqs" { return "NumCmConnReqs" }
-    if yname == "num-issu-mgr-conn-reqs" { return "NumIssuMgrConnReqs" }
-    if yname == "num-peer-fia-conn-reqs" { return "NumPeerFiaConnReqs" }
-    if yname == "is-gaspp-registered" { return "IsGasppRegistered" }
-    if yname == "is-cih-registered" { return "IsCihRegistered" }
-    if yname == "drvr-initial-startup-timestamp" { return "DrvrInitialStartupTimestamp" }
-    if yname == "drvr-current-startup-timestamp" { return "DrvrCurrentStartupTimestamp" }
-    if yname == "num-intf-ports" { return "NumIntfPorts" }
-    if yname == "uc-weight" { return "UcWeight" }
-    if yname == "respawn-count" { return "RespawnCount" }
-    if yname == "total-asics" { return "TotalAsics" }
-    if yname == "issu-ready-ntfy-pending" { return "IssuReadyNtfyPending" }
-    if yname == "issu-abort-sent" { return "IssuAbortSent" }
-    if yname == "issu-abort-rcvd" { return "IssuAbortRcvd" }
-    if yname == "fabric-mode" { return "FabricMode" }
-    if yname == "fc-mode" { return "FcMode" }
-    if yname == "board-rev-id" { return "BoardRevId" }
-    if yname == "device-info" { return "DeviceInfo" }
-    if yname == "card-info" { return "CardInfo" }
-    return ""
-}
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetSegmentPath() string {
-    return "slot" + "[slot='" + fmt.Sprintf("%v", slot.Slot) + "']"
-}
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "device-info" {
-        for _, c := range slot.DeviceInfo {
-            if slot.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo{}
-        slot.DeviceInfo = append(slot.DeviceInfo, child)
-        return &slot.DeviceInfo[len(slot.DeviceInfo)-1]
-    }
-    if childYangName == "card-info" {
-        for _, c := range slot.CardInfo {
-            if slot.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo{}
-        slot.CardInfo = append(slot.CardInfo, child)
-        return &slot.CardInfo[len(slot.CardInfo)-1]
-    }
-    return nil
-}
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    slot.EntityData.Children = make(map[string]types.YChild)
+    slot.EntityData.Children["device-info"] = types.YChild{"DeviceInfo", nil}
     for i := range slot.DeviceInfo {
-        children[slot.DeviceInfo[i].GetSegmentPath()] = &slot.DeviceInfo[i]
+        slot.EntityData.Children[types.GetSegmentPath(&slot.DeviceInfo[i])] = types.YChild{"DeviceInfo", &slot.DeviceInfo[i]}
     }
+    slot.EntityData.Children["card-info"] = types.YChild{"CardInfo", nil}
     for i := range slot.CardInfo {
-        children[slot.CardInfo[i].GetSegmentPath()] = &slot.CardInfo[i]
+        slot.EntityData.Children[types.GetSegmentPath(&slot.CardInfo[i])] = types.YChild{"CardInfo", &slot.CardInfo[i]}
     }
-    return children
+    slot.EntityData.Leafs = make(map[string]types.YLeaf)
+    slot.EntityData.Leafs["slot"] = types.YLeaf{"Slot", slot.Slot}
+    slot.EntityData.Leafs["drv-version"] = types.YLeaf{"DrvVersion", slot.DrvVersion}
+    slot.EntityData.Leafs["coeff-major-rev"] = types.YLeaf{"CoeffMajorRev", slot.CoeffMajorRev}
+    slot.EntityData.Leafs["coeff-minor-rev"] = types.YLeaf{"CoeffMinorRev", slot.CoeffMinorRev}
+    slot.EntityData.Leafs["functional-role"] = types.YLeaf{"FunctionalRole", slot.FunctionalRole}
+    slot.EntityData.Leafs["issu-role"] = types.YLeaf{"IssuRole", slot.IssuRole}
+    slot.EntityData.Leafs["node-id"] = types.YLeaf{"NodeId", slot.NodeId}
+    slot.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", slot.RackType}
+    slot.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", slot.RackNum}
+    slot.EntityData.Leafs["is-driver-ready"] = types.YLeaf{"IsDriverReady", slot.IsDriverReady}
+    slot.EntityData.Leafs["card-avail-mask"] = types.YLeaf{"CardAvailMask", slot.CardAvailMask}
+    slot.EntityData.Leafs["asic-avail-mask"] = types.YLeaf{"AsicAvailMask", slot.AsicAvailMask}
+    slot.EntityData.Leafs["exp-asic-avail-mask"] = types.YLeaf{"ExpAsicAvailMask", slot.ExpAsicAvailMask}
+    slot.EntityData.Leafs["ucmc-ratio"] = types.YLeaf{"UcmcRatio", slot.UcmcRatio}
+    slot.EntityData.Leafs["asic-oper-notify-to-fsdb-pending-bmap"] = types.YLeaf{"AsicOperNotifyToFsdbPendingBmap", slot.AsicOperNotifyToFsdbPendingBmap}
+    slot.EntityData.Leafs["is-full-fgid-download-req"] = types.YLeaf{"IsFullFgidDownloadReq", slot.IsFullFgidDownloadReq}
+    slot.EntityData.Leafs["is-fgid-download-in-progress"] = types.YLeaf{"IsFgidDownloadInProgress", slot.IsFgidDownloadInProgress}
+    slot.EntityData.Leafs["is-fgid-download-completed"] = types.YLeaf{"IsFgidDownloadCompleted", slot.IsFgidDownloadCompleted}
+    slot.EntityData.Leafs["fsdb-conn-active"] = types.YLeaf{"FsdbConnActive", slot.FsdbConnActive}
+    slot.EntityData.Leafs["fgid-conn-active"] = types.YLeaf{"FgidConnActive", slot.FgidConnActive}
+    slot.EntityData.Leafs["issu-mgr-conn-active"] = types.YLeaf{"IssuMgrConnActive", slot.IssuMgrConnActive}
+    slot.EntityData.Leafs["fsdb-reg-active"] = types.YLeaf{"FsdbRegActive", slot.FsdbRegActive}
+    slot.EntityData.Leafs["fgid-reg-active"] = types.YLeaf{"FgidRegActive", slot.FgidRegActive}
+    slot.EntityData.Leafs["issu-mgr-reg-active"] = types.YLeaf{"IssuMgrRegActive", slot.IssuMgrRegActive}
+    slot.EntityData.Leafs["num-pm-conn-reqs"] = types.YLeaf{"NumPmConnReqs", slot.NumPmConnReqs}
+    slot.EntityData.Leafs["num-fsdb-conn-reqs"] = types.YLeaf{"NumFsdbConnReqs", slot.NumFsdbConnReqs}
+    slot.EntityData.Leafs["num-fgid-conn-reqs"] = types.YLeaf{"NumFgidConnReqs", slot.NumFgidConnReqs}
+    slot.EntityData.Leafs["num-fstats-conn-reqs"] = types.YLeaf{"NumFstatsConnReqs", slot.NumFstatsConnReqs}
+    slot.EntityData.Leafs["num-cm-conn-reqs"] = types.YLeaf{"NumCmConnReqs", slot.NumCmConnReqs}
+    slot.EntityData.Leafs["num-issu-mgr-conn-reqs"] = types.YLeaf{"NumIssuMgrConnReqs", slot.NumIssuMgrConnReqs}
+    slot.EntityData.Leafs["num-peer-fia-conn-reqs"] = types.YLeaf{"NumPeerFiaConnReqs", slot.NumPeerFiaConnReqs}
+    slot.EntityData.Leafs["is-gaspp-registered"] = types.YLeaf{"IsGasppRegistered", slot.IsGasppRegistered}
+    slot.EntityData.Leafs["is-cih-registered"] = types.YLeaf{"IsCihRegistered", slot.IsCihRegistered}
+    slot.EntityData.Leafs["drvr-initial-startup-timestamp"] = types.YLeaf{"DrvrInitialStartupTimestamp", slot.DrvrInitialStartupTimestamp}
+    slot.EntityData.Leafs["drvr-current-startup-timestamp"] = types.YLeaf{"DrvrCurrentStartupTimestamp", slot.DrvrCurrentStartupTimestamp}
+    slot.EntityData.Leafs["num-intf-ports"] = types.YLeaf{"NumIntfPorts", slot.NumIntfPorts}
+    slot.EntityData.Leafs["uc-weight"] = types.YLeaf{"UcWeight", slot.UcWeight}
+    slot.EntityData.Leafs["respawn-count"] = types.YLeaf{"RespawnCount", slot.RespawnCount}
+    slot.EntityData.Leafs["total-asics"] = types.YLeaf{"TotalAsics", slot.TotalAsics}
+    slot.EntityData.Leafs["issu-ready-ntfy-pending"] = types.YLeaf{"IssuReadyNtfyPending", slot.IssuReadyNtfyPending}
+    slot.EntityData.Leafs["issu-abort-sent"] = types.YLeaf{"IssuAbortSent", slot.IssuAbortSent}
+    slot.EntityData.Leafs["issu-abort-rcvd"] = types.YLeaf{"IssuAbortRcvd", slot.IssuAbortRcvd}
+    slot.EntityData.Leafs["fabric-mode"] = types.YLeaf{"FabricMode", slot.FabricMode}
+    slot.EntityData.Leafs["fc-mode"] = types.YLeaf{"FcMode", slot.FcMode}
+    slot.EntityData.Leafs["board-rev-id"] = types.YLeaf{"BoardRevId", slot.BoardRevId}
+    return &(slot.EntityData)
 }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slot"] = slot.Slot
-    leafs["drv-version"] = slot.DrvVersion
-    leafs["coeff-major-rev"] = slot.CoeffMajorRev
-    leafs["coeff-minor-rev"] = slot.CoeffMinorRev
-    leafs["functional-role"] = slot.FunctionalRole
-    leafs["issu-role"] = slot.IssuRole
-    leafs["node-id"] = slot.NodeId
-    leafs["rack-type"] = slot.RackType
-    leafs["rack-num"] = slot.RackNum
-    leafs["is-driver-ready"] = slot.IsDriverReady
-    leafs["card-avail-mask"] = slot.CardAvailMask
-    leafs["asic-avail-mask"] = slot.AsicAvailMask
-    leafs["exp-asic-avail-mask"] = slot.ExpAsicAvailMask
-    leafs["ucmc-ratio"] = slot.UcmcRatio
-    leafs["asic-oper-notify-to-fsdb-pending-bmap"] = slot.AsicOperNotifyToFsdbPendingBmap
-    leafs["is-full-fgid-download-req"] = slot.IsFullFgidDownloadReq
-    leafs["is-fgid-download-in-progress"] = slot.IsFgidDownloadInProgress
-    leafs["is-fgid-download-completed"] = slot.IsFgidDownloadCompleted
-    leafs["fsdb-conn-active"] = slot.FsdbConnActive
-    leafs["fgid-conn-active"] = slot.FgidConnActive
-    leafs["issu-mgr-conn-active"] = slot.IssuMgrConnActive
-    leafs["fsdb-reg-active"] = slot.FsdbRegActive
-    leafs["fgid-reg-active"] = slot.FgidRegActive
-    leafs["issu-mgr-reg-active"] = slot.IssuMgrRegActive
-    leafs["num-pm-conn-reqs"] = slot.NumPmConnReqs
-    leafs["num-fsdb-conn-reqs"] = slot.NumFsdbConnReqs
-    leafs["num-fgid-conn-reqs"] = slot.NumFgidConnReqs
-    leafs["num-fstats-conn-reqs"] = slot.NumFstatsConnReqs
-    leafs["num-cm-conn-reqs"] = slot.NumCmConnReqs
-    leafs["num-issu-mgr-conn-reqs"] = slot.NumIssuMgrConnReqs
-    leafs["num-peer-fia-conn-reqs"] = slot.NumPeerFiaConnReqs
-    leafs["is-gaspp-registered"] = slot.IsGasppRegistered
-    leafs["is-cih-registered"] = slot.IsCihRegistered
-    leafs["drvr-initial-startup-timestamp"] = slot.DrvrInitialStartupTimestamp
-    leafs["drvr-current-startup-timestamp"] = slot.DrvrCurrentStartupTimestamp
-    leafs["num-intf-ports"] = slot.NumIntfPorts
-    leafs["uc-weight"] = slot.UcWeight
-    leafs["respawn-count"] = slot.RespawnCount
-    leafs["total-asics"] = slot.TotalAsics
-    leafs["issu-ready-ntfy-pending"] = slot.IssuReadyNtfyPending
-    leafs["issu-abort-sent"] = slot.IssuAbortSent
-    leafs["issu-abort-rcvd"] = slot.IssuAbortRcvd
-    leafs["fabric-mode"] = slot.FabricMode
-    leafs["fc-mode"] = slot.FcMode
-    leafs["board-rev-id"] = slot.BoardRevId
-    return leafs
-}
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetYangName() string { return "slot" }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) SetParent(parent types.Entity) { slot.parent = parent }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetParent() types.Entity { return slot.parent }
-
-func (slot *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot) GetParentYangName() string { return "slots" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo
 // device info
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // is valid. The type is bool.
@@ -4991,81 +2844,37 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo struct {
     AsicId Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId
 }
 
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetFilter() yfilter.YFilter { return deviceInfo.YFilter }
+func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetEntityData() *types.CommonEntityData {
+    deviceInfo.EntityData.YFilter = deviceInfo.YFilter
+    deviceInfo.EntityData.YangName = "device-info"
+    deviceInfo.EntityData.BundleName = "cisco_ios_xr"
+    deviceInfo.EntityData.ParentYangName = "slot"
+    deviceInfo.EntityData.SegmentPath = "device-info"
+    deviceInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    deviceInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    deviceInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) SetFilter(yf yfilter.YFilter) { deviceInfo.YFilter = yf }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetGoName(yname string) string {
-    if yname == "is-valid" { return "IsValid" }
-    if yname == "fapid" { return "Fapid" }
-    if yname == "hotplug-event" { return "HotplugEvent" }
-    if yname == "slice-state" { return "SliceState" }
-    if yname == "admin-state" { return "AdminState" }
-    if yname == "oper-state" { return "OperState" }
-    if yname == "asic-state" { return "AsicState" }
-    if yname == "last-init-cause" { return "LastInitCause" }
-    if yname == "num-pon-resets" { return "NumPonResets" }
-    if yname == "num-hard-resets" { return "NumHardResets" }
-    if yname == "local-switch-state" { return "LocalSwitchState" }
-    if yname == "asic-id" { return "AsicId" }
-    return ""
+    deviceInfo.EntityData.Children = make(map[string]types.YChild)
+    deviceInfo.EntityData.Children["asic-id"] = types.YChild{"AsicId", &deviceInfo.AsicId}
+    deviceInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    deviceInfo.EntityData.Leafs["is-valid"] = types.YLeaf{"IsValid", deviceInfo.IsValid}
+    deviceInfo.EntityData.Leafs["fapid"] = types.YLeaf{"Fapid", deviceInfo.Fapid}
+    deviceInfo.EntityData.Leafs["hotplug-event"] = types.YLeaf{"HotplugEvent", deviceInfo.HotplugEvent}
+    deviceInfo.EntityData.Leafs["slice-state"] = types.YLeaf{"SliceState", deviceInfo.SliceState}
+    deviceInfo.EntityData.Leafs["admin-state"] = types.YLeaf{"AdminState", deviceInfo.AdminState}
+    deviceInfo.EntityData.Leafs["oper-state"] = types.YLeaf{"OperState", deviceInfo.OperState}
+    deviceInfo.EntityData.Leafs["asic-state"] = types.YLeaf{"AsicState", deviceInfo.AsicState}
+    deviceInfo.EntityData.Leafs["last-init-cause"] = types.YLeaf{"LastInitCause", deviceInfo.LastInitCause}
+    deviceInfo.EntityData.Leafs["num-pon-resets"] = types.YLeaf{"NumPonResets", deviceInfo.NumPonResets}
+    deviceInfo.EntityData.Leafs["num-hard-resets"] = types.YLeaf{"NumHardResets", deviceInfo.NumHardResets}
+    deviceInfo.EntityData.Leafs["local-switch-state"] = types.YLeaf{"LocalSwitchState", deviceInfo.LocalSwitchState}
+    return &(deviceInfo.EntityData)
 }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetSegmentPath() string {
-    return "device-info"
-}
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "asic-id" {
-        return &deviceInfo.AsicId
-    }
-    return nil
-}
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["asic-id"] = &deviceInfo.AsicId
-    return children
-}
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-valid"] = deviceInfo.IsValid
-    leafs["fapid"] = deviceInfo.Fapid
-    leafs["hotplug-event"] = deviceInfo.HotplugEvent
-    leafs["slice-state"] = deviceInfo.SliceState
-    leafs["admin-state"] = deviceInfo.AdminState
-    leafs["oper-state"] = deviceInfo.OperState
-    leafs["asic-state"] = deviceInfo.AsicState
-    leafs["last-init-cause"] = deviceInfo.LastInitCause
-    leafs["num-pon-resets"] = deviceInfo.NumPonResets
-    leafs["num-hard-resets"] = deviceInfo.NumHardResets
-    leafs["local-switch-state"] = deviceInfo.LocalSwitchState
-    return leafs
-}
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetYangName() string { return "device-info" }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) SetParent(parent types.Entity) { deviceInfo.parent = parent }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetParent() types.Entity { return deviceInfo.parent }
-
-func (deviceInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo) GetParentYangName() string { return "slot" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId
 // asic id
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack Type. The type is Rack.
@@ -5084,64 +2893,30 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId struct {
     AsicInstance interface{}
 }
 
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetFilter() yfilter.YFilter { return asicId.YFilter }
+func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetEntityData() *types.CommonEntityData {
+    asicId.EntityData.YFilter = asicId.YFilter
+    asicId.EntityData.YangName = "asic-id"
+    asicId.EntityData.BundleName = "cisco_ios_xr"
+    asicId.EntityData.ParentYangName = "device-info"
+    asicId.EntityData.SegmentPath = "asic-id"
+    asicId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) SetFilter(yf yfilter.YFilter) { asicId.YFilter = yf }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetGoName(yname string) string {
-    if yname == "rack-type" { return "RackType" }
-    if yname == "asic-type" { return "AsicType" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "slot-num" { return "SlotNum" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    return ""
+    asicId.EntityData.Children = make(map[string]types.YChild)
+    asicId.EntityData.Leafs = make(map[string]types.YLeaf)
+    asicId.EntityData.Leafs["rack-type"] = types.YLeaf{"RackType", asicId.RackType}
+    asicId.EntityData.Leafs["asic-type"] = types.YLeaf{"AsicType", asicId.AsicType}
+    asicId.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", asicId.RackNum}
+    asicId.EntityData.Leafs["slot-num"] = types.YLeaf{"SlotNum", asicId.SlotNum}
+    asicId.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", asicId.AsicInstance}
+    return &(asicId.EntityData)
 }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetSegmentPath() string {
-    return "asic-id"
-}
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-type"] = asicId.RackType
-    leafs["asic-type"] = asicId.AsicType
-    leafs["rack-num"] = asicId.RackNum
-    leafs["slot-num"] = asicId.SlotNum
-    leafs["asic-instance"] = asicId.AsicInstance
-    return leafs
-}
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetYangName() string { return "asic-id" }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) SetParent(parent types.Entity) { asicId.parent = parent }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetParent() types.Entity { return asicId.parent }
-
-func (asicId *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_DeviceInfo_AsicId) GetParentYangName() string { return "device-info" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo
 // card info
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card type. The type is interface{} with range: -2147483648..2147483647.
@@ -5195,89 +2970,41 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo struct {
     OirCircularBuffer Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer
 }
 
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetFilter() yfilter.YFilter { return cardInfo.YFilter }
+func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetEntityData() *types.CommonEntityData {
+    cardInfo.EntityData.YFilter = cardInfo.YFilter
+    cardInfo.EntityData.YangName = "card-info"
+    cardInfo.EntityData.BundleName = "cisco_ios_xr"
+    cardInfo.EntityData.ParentYangName = "slot"
+    cardInfo.EntityData.SegmentPath = "card-info"
+    cardInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) SetFilter(yf yfilter.YFilter) { cardInfo.YFilter = yf }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetGoName(yname string) string {
-    if yname == "card-type" { return "CardType" }
-    if yname == "card-name" { return "CardName" }
-    if yname == "slot-no" { return "SlotNo" }
-    if yname == "card-flag" { return "CardFlag" }
-    if yname == "evt-flag" { return "EvtFlag" }
-    if yname == "reg-flag" { return "RegFlag" }
-    if yname == "instance" { return "Instance" }
-    if yname == "card-state" { return "CardState" }
-    if yname == "exp-num-asics" { return "ExpNumAsics" }
-    if yname == "exp-num-asics-per-fsdb" { return "ExpNumAsicsPerFsdb" }
-    if yname == "is-powered" { return "IsPowered" }
-    if yname == "cxp-avail-bitmap" { return "CxpAvailBitmap" }
-    if yname == "num-ilkns-per-asic" { return "NumIlknsPerAsic" }
-    if yname == "num-local-ports-per-ilkn" { return "NumLocalPortsPerIlkn" }
-    if yname == "num-cos-per-port" { return "NumCosPerPort" }
-    if yname == "oir-circular-buffer" { return "OirCircularBuffer" }
-    return ""
+    cardInfo.EntityData.Children = make(map[string]types.YChild)
+    cardInfo.EntityData.Children["oir-circular-buffer"] = types.YChild{"OirCircularBuffer", &cardInfo.OirCircularBuffer}
+    cardInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", cardInfo.CardType}
+    cardInfo.EntityData.Leafs["card-name"] = types.YLeaf{"CardName", cardInfo.CardName}
+    cardInfo.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", cardInfo.SlotNo}
+    cardInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", cardInfo.CardFlag}
+    cardInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", cardInfo.EvtFlag}
+    cardInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", cardInfo.RegFlag}
+    cardInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", cardInfo.Instance}
+    cardInfo.EntityData.Leafs["card-state"] = types.YLeaf{"CardState", cardInfo.CardState}
+    cardInfo.EntityData.Leafs["exp-num-asics"] = types.YLeaf{"ExpNumAsics", cardInfo.ExpNumAsics}
+    cardInfo.EntityData.Leafs["exp-num-asics-per-fsdb"] = types.YLeaf{"ExpNumAsicsPerFsdb", cardInfo.ExpNumAsicsPerFsdb}
+    cardInfo.EntityData.Leafs["is-powered"] = types.YLeaf{"IsPowered", cardInfo.IsPowered}
+    cardInfo.EntityData.Leafs["cxp-avail-bitmap"] = types.YLeaf{"CxpAvailBitmap", cardInfo.CxpAvailBitmap}
+    cardInfo.EntityData.Leafs["num-ilkns-per-asic"] = types.YLeaf{"NumIlknsPerAsic", cardInfo.NumIlknsPerAsic}
+    cardInfo.EntityData.Leafs["num-local-ports-per-ilkn"] = types.YLeaf{"NumLocalPortsPerIlkn", cardInfo.NumLocalPortsPerIlkn}
+    cardInfo.EntityData.Leafs["num-cos-per-port"] = types.YLeaf{"NumCosPerPort", cardInfo.NumCosPerPort}
+    return &(cardInfo.EntityData)
 }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetSegmentPath() string {
-    return "card-info"
-}
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "oir-circular-buffer" {
-        return &cardInfo.OirCircularBuffer
-    }
-    return nil
-}
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["oir-circular-buffer"] = &cardInfo.OirCircularBuffer
-    return children
-}
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-type"] = cardInfo.CardType
-    leafs["card-name"] = cardInfo.CardName
-    leafs["slot-no"] = cardInfo.SlotNo
-    leafs["card-flag"] = cardInfo.CardFlag
-    leafs["evt-flag"] = cardInfo.EvtFlag
-    leafs["reg-flag"] = cardInfo.RegFlag
-    leafs["instance"] = cardInfo.Instance
-    leafs["card-state"] = cardInfo.CardState
-    leafs["exp-num-asics"] = cardInfo.ExpNumAsics
-    leafs["exp-num-asics-per-fsdb"] = cardInfo.ExpNumAsicsPerFsdb
-    leafs["is-powered"] = cardInfo.IsPowered
-    leafs["cxp-avail-bitmap"] = cardInfo.CxpAvailBitmap
-    leafs["num-ilkns-per-asic"] = cardInfo.NumIlknsPerAsic
-    leafs["num-local-ports-per-ilkn"] = cardInfo.NumLocalPortsPerIlkn
-    leafs["num-cos-per-port"] = cardInfo.NumCosPerPort
-    return leafs
-}
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetYangName() string { return "card-info" }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) SetParent(parent types.Entity) { cardInfo.parent = parent }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetParent() types.Entity { return cardInfo.parent }
-
-func (cardInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo) GetParentYangName() string { return "slot" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer
 // oir circular buffer
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // count. The type is interface{} with range: -2147483648..2147483647.
@@ -5294,74 +3021,32 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer 
     FiaOirInfo []Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo
 }
 
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetFilter() yfilter.YFilter { return oirCircularBuffer.YFilter }
+func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetEntityData() *types.CommonEntityData {
+    oirCircularBuffer.EntityData.YFilter = oirCircularBuffer.YFilter
+    oirCircularBuffer.EntityData.YangName = "oir-circular-buffer"
+    oirCircularBuffer.EntityData.BundleName = "cisco_ios_xr"
+    oirCircularBuffer.EntityData.ParentYangName = "card-info"
+    oirCircularBuffer.EntityData.SegmentPath = "oir-circular-buffer"
+    oirCircularBuffer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oirCircularBuffer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oirCircularBuffer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) SetFilter(yf yfilter.YFilter) { oirCircularBuffer.YFilter = yf }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetGoName(yname string) string {
-    if yname == "count" { return "Count" }
-    if yname == "start" { return "Start" }
-    if yname == "end" { return "End" }
-    if yname == "fia-oir-info" { return "FiaOirInfo" }
-    return ""
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetSegmentPath() string {
-    return "oir-circular-buffer"
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fia-oir-info" {
-        for _, c := range oirCircularBuffer.FiaOirInfo {
-            if oirCircularBuffer.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo{}
-        oirCircularBuffer.FiaOirInfo = append(oirCircularBuffer.FiaOirInfo, child)
-        return &oirCircularBuffer.FiaOirInfo[len(oirCircularBuffer.FiaOirInfo)-1]
-    }
-    return nil
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    oirCircularBuffer.EntityData.Children = make(map[string]types.YChild)
+    oirCircularBuffer.EntityData.Children["fia-oir-info"] = types.YChild{"FiaOirInfo", nil}
     for i := range oirCircularBuffer.FiaOirInfo {
-        children[oirCircularBuffer.FiaOirInfo[i].GetSegmentPath()] = &oirCircularBuffer.FiaOirInfo[i]
+        oirCircularBuffer.EntityData.Children[types.GetSegmentPath(&oirCircularBuffer.FiaOirInfo[i])] = types.YChild{"FiaOirInfo", &oirCircularBuffer.FiaOirInfo[i]}
     }
-    return children
+    oirCircularBuffer.EntityData.Leafs = make(map[string]types.YLeaf)
+    oirCircularBuffer.EntityData.Leafs["count"] = types.YLeaf{"Count", oirCircularBuffer.Count}
+    oirCircularBuffer.EntityData.Leafs["start"] = types.YLeaf{"Start", oirCircularBuffer.Start}
+    oirCircularBuffer.EntityData.Leafs["end"] = types.YLeaf{"End", oirCircularBuffer.End}
+    return &(oirCircularBuffer.EntityData)
 }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["count"] = oirCircularBuffer.Count
-    leafs["start"] = oirCircularBuffer.Start
-    leafs["end"] = oirCircularBuffer.End
-    return leafs
-}
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetYangName() string { return "oir-circular-buffer" }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) SetParent(parent types.Entity) { oirCircularBuffer.parent = parent }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetParent() types.Entity { return oirCircularBuffer.parent }
-
-func (oirCircularBuffer *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer) GetParentYangName() string { return "card-info" }
 
 // Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo
 // fia oir info
 type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // card flag. The type is interface{} with range: -2147483648..2147483647.
@@ -5387,127 +3072,58 @@ type Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_
     CurCardState interface{}
 }
 
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetFilter() yfilter.YFilter { return fiaOirInfo.YFilter }
+func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetEntityData() *types.CommonEntityData {
+    fiaOirInfo.EntityData.YFilter = fiaOirInfo.YFilter
+    fiaOirInfo.EntityData.YangName = "fia-oir-info"
+    fiaOirInfo.EntityData.BundleName = "cisco_ios_xr"
+    fiaOirInfo.EntityData.ParentYangName = "oir-circular-buffer"
+    fiaOirInfo.EntityData.SegmentPath = "fia-oir-info"
+    fiaOirInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fiaOirInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fiaOirInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) SetFilter(yf yfilter.YFilter) { fiaOirInfo.YFilter = yf }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetGoName(yname string) string {
-    if yname == "card-flag" { return "CardFlag" }
-    if yname == "card-type" { return "CardType" }
-    if yname == "reg-flag" { return "RegFlag" }
-    if yname == "evt-flag" { return "EvtFlag" }
-    if yname == "rack-num" { return "RackNum" }
-    if yname == "instance" { return "Instance" }
-    if yname == "cur-card-state" { return "CurCardState" }
-    return ""
+    fiaOirInfo.EntityData.Children = make(map[string]types.YChild)
+    fiaOirInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fiaOirInfo.EntityData.Leafs["card-flag"] = types.YLeaf{"CardFlag", fiaOirInfo.CardFlag}
+    fiaOirInfo.EntityData.Leafs["card-type"] = types.YLeaf{"CardType", fiaOirInfo.CardType}
+    fiaOirInfo.EntityData.Leafs["reg-flag"] = types.YLeaf{"RegFlag", fiaOirInfo.RegFlag}
+    fiaOirInfo.EntityData.Leafs["evt-flag"] = types.YLeaf{"EvtFlag", fiaOirInfo.EvtFlag}
+    fiaOirInfo.EntityData.Leafs["rack-num"] = types.YLeaf{"RackNum", fiaOirInfo.RackNum}
+    fiaOirInfo.EntityData.Leafs["instance"] = types.YLeaf{"Instance", fiaOirInfo.Instance}
+    fiaOirInfo.EntityData.Leafs["cur-card-state"] = types.YLeaf{"CurCardState", fiaOirInfo.CurCardState}
+    return &(fiaOirInfo.EntityData)
 }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetSegmentPath() string {
-    return "fia-oir-info"
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["card-flag"] = fiaOirInfo.CardFlag
-    leafs["card-type"] = fiaOirInfo.CardType
-    leafs["reg-flag"] = fiaOirInfo.RegFlag
-    leafs["evt-flag"] = fiaOirInfo.EvtFlag
-    leafs["rack-num"] = fiaOirInfo.RackNum
-    leafs["instance"] = fiaOirInfo.Instance
-    leafs["cur-card-state"] = fiaOirInfo.CurCardState
-    return leafs
-}
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetYangName() string { return "fia-oir-info" }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) SetParent(parent types.Entity) { fiaOirInfo.parent = parent }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetParent() types.Entity { return fiaOirInfo.parent }
-
-func (fiaOirInfo *Fia_Nodes_Node_OirHistory_Flags_Flag_Slots_Slot_CardInfo_OirCircularBuffer_FiaOirInfo) GetParentYangName() string { return "oir-circular-buffer" }
 
 // Fia_Nodes_Node_AsicStatistics
 // FIA asic statistics information
 type Fia_Nodes_Node_AsicStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Instance table for statistics.
     StatisticsAsicInstances Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances
 }
 
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetFilter() yfilter.YFilter { return asicStatistics.YFilter }
+func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetEntityData() *types.CommonEntityData {
+    asicStatistics.EntityData.YFilter = asicStatistics.YFilter
+    asicStatistics.EntityData.YangName = "asic-statistics"
+    asicStatistics.EntityData.BundleName = "cisco_ios_xr"
+    asicStatistics.EntityData.ParentYangName = "node"
+    asicStatistics.EntityData.SegmentPath = "asic-statistics"
+    asicStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    asicStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    asicStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) SetFilter(yf yfilter.YFilter) { asicStatistics.YFilter = yf }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetGoName(yname string) string {
-    if yname == "statistics-asic-instances" { return "StatisticsAsicInstances" }
-    return ""
+    asicStatistics.EntityData.Children = make(map[string]types.YChild)
+    asicStatistics.EntityData.Children["statistics-asic-instances"] = types.YChild{"StatisticsAsicInstances", &asicStatistics.StatisticsAsicInstances}
+    asicStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(asicStatistics.EntityData)
 }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetSegmentPath() string {
-    return "asic-statistics"
-}
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics-asic-instances" {
-        return &asicStatistics.StatisticsAsicInstances
-    }
-    return nil
-}
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics-asic-instances"] = &asicStatistics.StatisticsAsicInstances
-    return children
-}
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetYangName() string { return "asic-statistics" }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) SetParent(parent types.Entity) { asicStatistics.parent = parent }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetParent() types.Entity { return asicStatistics.parent }
-
-func (asicStatistics *Fia_Nodes_Node_AsicStatistics) GetParentYangName() string { return "node" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances
 // Instance table for statistics
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Asic instance for statistics. The type is slice of
@@ -5515,68 +3131,29 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances struct {
     StatisticsAsicInstance []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance
 }
 
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetFilter() yfilter.YFilter { return statisticsAsicInstances.YFilter }
+func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetEntityData() *types.CommonEntityData {
+    statisticsAsicInstances.EntityData.YFilter = statisticsAsicInstances.YFilter
+    statisticsAsicInstances.EntityData.YangName = "statistics-asic-instances"
+    statisticsAsicInstances.EntityData.BundleName = "cisco_ios_xr"
+    statisticsAsicInstances.EntityData.ParentYangName = "asic-statistics"
+    statisticsAsicInstances.EntityData.SegmentPath = "statistics-asic-instances"
+    statisticsAsicInstances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statisticsAsicInstances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statisticsAsicInstances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) SetFilter(yf yfilter.YFilter) { statisticsAsicInstances.YFilter = yf }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetGoName(yname string) string {
-    if yname == "statistics-asic-instance" { return "StatisticsAsicInstance" }
-    return ""
-}
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetSegmentPath() string {
-    return "statistics-asic-instances"
-}
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics-asic-instance" {
-        for _, c := range statisticsAsicInstances.StatisticsAsicInstance {
-            if statisticsAsicInstances.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance{}
-        statisticsAsicInstances.StatisticsAsicInstance = append(statisticsAsicInstances.StatisticsAsicInstance, child)
-        return &statisticsAsicInstances.StatisticsAsicInstance[len(statisticsAsicInstances.StatisticsAsicInstance)-1]
-    }
-    return nil
-}
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statisticsAsicInstances.EntityData.Children = make(map[string]types.YChild)
+    statisticsAsicInstances.EntityData.Children["statistics-asic-instance"] = types.YChild{"StatisticsAsicInstance", nil}
     for i := range statisticsAsicInstances.StatisticsAsicInstance {
-        children[statisticsAsicInstances.StatisticsAsicInstance[i].GetSegmentPath()] = &statisticsAsicInstances.StatisticsAsicInstance[i]
+        statisticsAsicInstances.EntityData.Children[types.GetSegmentPath(&statisticsAsicInstances.StatisticsAsicInstance[i])] = types.YChild{"StatisticsAsicInstance", &statisticsAsicInstances.StatisticsAsicInstance[i]}
     }
-    return children
+    statisticsAsicInstances.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statisticsAsicInstances.EntityData)
 }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetYangName() string { return "statistics-asic-instances" }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) SetParent(parent types.Entity) { statisticsAsicInstances.parent = parent }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetParent() types.Entity { return statisticsAsicInstances.parent }
-
-func (statisticsAsicInstances *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances) GetParentYangName() string { return "asic-statistics" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance
 // Asic instance for statistics
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Asic instance. The type is interface{} with range:
@@ -5590,125 +3167,54 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     FmacStatistics Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics
 }
 
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetFilter() yfilter.YFilter { return statisticsAsicInstance.YFilter }
+func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetEntityData() *types.CommonEntityData {
+    statisticsAsicInstance.EntityData.YFilter = statisticsAsicInstance.YFilter
+    statisticsAsicInstance.EntityData.YangName = "statistics-asic-instance"
+    statisticsAsicInstance.EntityData.BundleName = "cisco_ios_xr"
+    statisticsAsicInstance.EntityData.ParentYangName = "statistics-asic-instances"
+    statisticsAsicInstance.EntityData.SegmentPath = "statistics-asic-instance" + "[instance='" + fmt.Sprintf("%v", statisticsAsicInstance.Instance) + "']"
+    statisticsAsicInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statisticsAsicInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statisticsAsicInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) SetFilter(yf yfilter.YFilter) { statisticsAsicInstance.YFilter = yf }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetGoName(yname string) string {
-    if yname == "instance" { return "Instance" }
-    if yname == "pbc-statistics" { return "PbcStatistics" }
-    if yname == "fmac-statistics" { return "FmacStatistics" }
-    return ""
+    statisticsAsicInstance.EntityData.Children = make(map[string]types.YChild)
+    statisticsAsicInstance.EntityData.Children["pbc-statistics"] = types.YChild{"PbcStatistics", &statisticsAsicInstance.PbcStatistics}
+    statisticsAsicInstance.EntityData.Children["fmac-statistics"] = types.YChild{"FmacStatistics", &statisticsAsicInstance.FmacStatistics}
+    statisticsAsicInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    statisticsAsicInstance.EntityData.Leafs["instance"] = types.YLeaf{"Instance", statisticsAsicInstance.Instance}
+    return &(statisticsAsicInstance.EntityData)
 }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetSegmentPath() string {
-    return "statistics-asic-instance" + "[instance='" + fmt.Sprintf("%v", statisticsAsicInstance.Instance) + "']"
-}
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbc-statistics" {
-        return &statisticsAsicInstance.PbcStatistics
-    }
-    if childYangName == "fmac-statistics" {
-        return &statisticsAsicInstance.FmacStatistics
-    }
-    return nil
-}
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pbc-statistics"] = &statisticsAsicInstance.PbcStatistics
-    children["fmac-statistics"] = &statisticsAsicInstance.FmacStatistics
-    return children
-}
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["instance"] = statisticsAsicInstance.Instance
-    return leafs
-}
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetYangName() string { return "statistics-asic-instance" }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) SetParent(parent types.Entity) { statisticsAsicInstance.parent = parent }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetParent() types.Entity { return statisticsAsicInstance.parent }
-
-func (statisticsAsicInstance *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance) GetParentYangName() string { return "statistics-asic-instances" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics
 // Packet Byte Counter for a Asic
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PBC stats bag.
     PbcStats Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats
 }
 
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetFilter() yfilter.YFilter { return pbcStatistics.YFilter }
+func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetEntityData() *types.CommonEntityData {
+    pbcStatistics.EntityData.YFilter = pbcStatistics.YFilter
+    pbcStatistics.EntityData.YangName = "pbc-statistics"
+    pbcStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbcStatistics.EntityData.ParentYangName = "statistics-asic-instance"
+    pbcStatistics.EntityData.SegmentPath = "pbc-statistics"
+    pbcStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbcStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbcStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) SetFilter(yf yfilter.YFilter) { pbcStatistics.YFilter = yf }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetGoName(yname string) string {
-    if yname == "pbc-stats" { return "PbcStats" }
-    return ""
+    pbcStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbcStatistics.EntityData.Children["pbc-stats"] = types.YChild{"PbcStats", &pbcStatistics.PbcStats}
+    pbcStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pbcStatistics.EntityData)
 }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetSegmentPath() string {
-    return "pbc-statistics"
-}
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbc-stats" {
-        return &pbcStatistics.PbcStats
-    }
-    return nil
-}
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pbc-stats"] = &pbcStatistics.PbcStats
-    return children
-}
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetYangName() string { return "pbc-statistics" }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) SetParent(parent types.Entity) { pbcStatistics.parent = parent }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetParent() types.Entity { return pbcStatistics.parent }
-
-func (pbcStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics) GetParentYangName() string { return "statistics-asic-instance" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats
 // PBC stats bag
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // valid. The type is bool.
@@ -5730,69 +3236,31 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     StatsInfo Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo
 }
 
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetFilter() yfilter.YFilter { return pbcStats.YFilter }
+func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetEntityData() *types.CommonEntityData {
+    pbcStats.EntityData.YFilter = pbcStats.YFilter
+    pbcStats.EntityData.YangName = "pbc-stats"
+    pbcStats.EntityData.BundleName = "cisco_ios_xr"
+    pbcStats.EntityData.ParentYangName = "pbc-statistics"
+    pbcStats.EntityData.SegmentPath = "pbc-stats"
+    pbcStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbcStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbcStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) SetFilter(yf yfilter.YFilter) { pbcStats.YFilter = yf }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetGoName(yname string) string {
-    if yname == "valid" { return "Valid" }
-    if yname == "rack-no" { return "RackNo" }
-    if yname == "slot-no" { return "SlotNo" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    if yname == "chip-ver" { return "ChipVer" }
-    if yname == "stats-info" { return "StatsInfo" }
-    return ""
+    pbcStats.EntityData.Children = make(map[string]types.YChild)
+    pbcStats.EntityData.Children["stats-info"] = types.YChild{"StatsInfo", &pbcStats.StatsInfo}
+    pbcStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbcStats.EntityData.Leafs["valid"] = types.YLeaf{"Valid", pbcStats.Valid}
+    pbcStats.EntityData.Leafs["rack-no"] = types.YLeaf{"RackNo", pbcStats.RackNo}
+    pbcStats.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", pbcStats.SlotNo}
+    pbcStats.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", pbcStats.AsicInstance}
+    pbcStats.EntityData.Leafs["chip-ver"] = types.YLeaf{"ChipVer", pbcStats.ChipVer}
+    return &(pbcStats.EntityData)
 }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetSegmentPath() string {
-    return "pbc-stats"
-}
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "stats-info" {
-        return &pbcStats.StatsInfo
-    }
-    return nil
-}
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["stats-info"] = &pbcStats.StatsInfo
-    return children
-}
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["valid"] = pbcStats.Valid
-    leafs["rack-no"] = pbcStats.RackNo
-    leafs["slot-no"] = pbcStats.SlotNo
-    leafs["asic-instance"] = pbcStats.AsicInstance
-    leafs["chip-ver"] = pbcStats.ChipVer
-    return leafs
-}
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetYangName() string { return "pbc-stats" }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) SetParent(parent types.Entity) { pbcStats.parent = parent }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetParent() types.Entity { return pbcStats.parent }
-
-func (pbcStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats) GetParentYangName() string { return "pbc-statistics" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo
 // stats info
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Num Blocks. The type is interface{} with range: 0..255.
@@ -5803,70 +3271,30 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     BlockInfo []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo
 }
 
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetFilter() yfilter.YFilter { return statsInfo.YFilter }
+func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetEntityData() *types.CommonEntityData {
+    statsInfo.EntityData.YFilter = statsInfo.YFilter
+    statsInfo.EntityData.YangName = "stats-info"
+    statsInfo.EntityData.BundleName = "cisco_ios_xr"
+    statsInfo.EntityData.ParentYangName = "pbc-stats"
+    statsInfo.EntityData.SegmentPath = "stats-info"
+    statsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) SetFilter(yf yfilter.YFilter) { statsInfo.YFilter = yf }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetGoName(yname string) string {
-    if yname == "num-blocks" { return "NumBlocks" }
-    if yname == "block-info" { return "BlockInfo" }
-    return ""
-}
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetSegmentPath() string {
-    return "stats-info"
-}
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "block-info" {
-        for _, c := range statsInfo.BlockInfo {
-            if statsInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo{}
-        statsInfo.BlockInfo = append(statsInfo.BlockInfo, child)
-        return &statsInfo.BlockInfo[len(statsInfo.BlockInfo)-1]
-    }
-    return nil
-}
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    statsInfo.EntityData.Children = make(map[string]types.YChild)
+    statsInfo.EntityData.Children["block-info"] = types.YChild{"BlockInfo", nil}
     for i := range statsInfo.BlockInfo {
-        children[statsInfo.BlockInfo[i].GetSegmentPath()] = &statsInfo.BlockInfo[i]
+        statsInfo.EntityData.Children[types.GetSegmentPath(&statsInfo.BlockInfo[i])] = types.YChild{"BlockInfo", &statsInfo.BlockInfo[i]}
     }
-    return children
+    statsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    statsInfo.EntityData.Leafs["num-blocks"] = types.YLeaf{"NumBlocks", statsInfo.NumBlocks}
+    return &(statsInfo.EntityData)
 }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["num-blocks"] = statsInfo.NumBlocks
-    return leafs
-}
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetYangName() string { return "stats-info" }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) SetParent(parent types.Entity) { statsInfo.parent = parent }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetParent() types.Entity { return statsInfo.parent }
-
-func (statsInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo) GetParentYangName() string { return "pbc-stats" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo
 // block info
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Block Name. The type is string with length: 0..10.
@@ -5880,72 +3308,31 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     FieldInfo []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo
 }
 
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetFilter() yfilter.YFilter { return blockInfo.YFilter }
+func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetEntityData() *types.CommonEntityData {
+    blockInfo.EntityData.YFilter = blockInfo.YFilter
+    blockInfo.EntityData.YangName = "block-info"
+    blockInfo.EntityData.BundleName = "cisco_ios_xr"
+    blockInfo.EntityData.ParentYangName = "stats-info"
+    blockInfo.EntityData.SegmentPath = "block-info"
+    blockInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    blockInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    blockInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) SetFilter(yf yfilter.YFilter) { blockInfo.YFilter = yf }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetGoName(yname string) string {
-    if yname == "block-name" { return "BlockName" }
-    if yname == "num-fields" { return "NumFields" }
-    if yname == "field-info" { return "FieldInfo" }
-    return ""
-}
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetSegmentPath() string {
-    return "block-info"
-}
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "field-info" {
-        for _, c := range blockInfo.FieldInfo {
-            if blockInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo{}
-        blockInfo.FieldInfo = append(blockInfo.FieldInfo, child)
-        return &blockInfo.FieldInfo[len(blockInfo.FieldInfo)-1]
-    }
-    return nil
-}
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    blockInfo.EntityData.Children = make(map[string]types.YChild)
+    blockInfo.EntityData.Children["field-info"] = types.YChild{"FieldInfo", nil}
     for i := range blockInfo.FieldInfo {
-        children[blockInfo.FieldInfo[i].GetSegmentPath()] = &blockInfo.FieldInfo[i]
+        blockInfo.EntityData.Children[types.GetSegmentPath(&blockInfo.FieldInfo[i])] = types.YChild{"FieldInfo", &blockInfo.FieldInfo[i]}
     }
-    return children
+    blockInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    blockInfo.EntityData.Leafs["block-name"] = types.YLeaf{"BlockName", blockInfo.BlockName}
+    blockInfo.EntityData.Leafs["num-fields"] = types.YLeaf{"NumFields", blockInfo.NumFields}
+    return &(blockInfo.EntityData)
 }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["block-name"] = blockInfo.BlockName
-    leafs["num-fields"] = blockInfo.NumFields
-    return leafs
-}
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetYangName() string { return "block-info" }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) SetParent(parent types.Entity) { blockInfo.parent = parent }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetParent() types.Entity { return blockInfo.parent }
-
-func (blockInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo) GetParentYangName() string { return "stats-info" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo
 // field info
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Field Name. The type is string with length: 0..80.
@@ -5958,119 +3345,54 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     IsOvf interface{}
 }
 
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetFilter() yfilter.YFilter { return fieldInfo.YFilter }
+func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetEntityData() *types.CommonEntityData {
+    fieldInfo.EntityData.YFilter = fieldInfo.YFilter
+    fieldInfo.EntityData.YangName = "field-info"
+    fieldInfo.EntityData.BundleName = "cisco_ios_xr"
+    fieldInfo.EntityData.ParentYangName = "block-info"
+    fieldInfo.EntityData.SegmentPath = "field-info"
+    fieldInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fieldInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fieldInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) SetFilter(yf yfilter.YFilter) { fieldInfo.YFilter = yf }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetGoName(yname string) string {
-    if yname == "field-name" { return "FieldName" }
-    if yname == "field-value" { return "FieldValue" }
-    if yname == "is-ovf" { return "IsOvf" }
-    return ""
+    fieldInfo.EntityData.Children = make(map[string]types.YChild)
+    fieldInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    fieldInfo.EntityData.Leafs["field-name"] = types.YLeaf{"FieldName", fieldInfo.FieldName}
+    fieldInfo.EntityData.Leafs["field-value"] = types.YLeaf{"FieldValue", fieldInfo.FieldValue}
+    fieldInfo.EntityData.Leafs["is-ovf"] = types.YLeaf{"IsOvf", fieldInfo.IsOvf}
+    return &(fieldInfo.EntityData)
 }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetSegmentPath() string {
-    return "field-info"
-}
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["field-name"] = fieldInfo.FieldName
-    leafs["field-value"] = fieldInfo.FieldValue
-    leafs["is-ovf"] = fieldInfo.IsOvf
-    return leafs
-}
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetYangName() string { return "field-info" }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) SetParent(parent types.Entity) { fieldInfo.parent = parent }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetParent() types.Entity { return fieldInfo.parent }
-
-func (fieldInfo *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_PbcStatistics_PbcStats_StatsInfo_BlockInfo_FieldInfo) GetParentYangName() string { return "block-info" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics
 // Statistics of FMAC
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link table for statistics.
     FmacLinks Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks
 }
 
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetFilter() yfilter.YFilter { return fmacStatistics.YFilter }
+func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetEntityData() *types.CommonEntityData {
+    fmacStatistics.EntityData.YFilter = fmacStatistics.YFilter
+    fmacStatistics.EntityData.YangName = "fmac-statistics"
+    fmacStatistics.EntityData.BundleName = "cisco_ios_xr"
+    fmacStatistics.EntityData.ParentYangName = "statistics-asic-instance"
+    fmacStatistics.EntityData.SegmentPath = "fmac-statistics"
+    fmacStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fmacStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fmacStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) SetFilter(yf yfilter.YFilter) { fmacStatistics.YFilter = yf }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetGoName(yname string) string {
-    if yname == "fmac-links" { return "FmacLinks" }
-    return ""
+    fmacStatistics.EntityData.Children = make(map[string]types.YChild)
+    fmacStatistics.EntityData.Children["fmac-links"] = types.YChild{"FmacLinks", &fmacStatistics.FmacLinks}
+    fmacStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fmacStatistics.EntityData)
 }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetSegmentPath() string {
-    return "fmac-statistics"
-}
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fmac-links" {
-        return &fmacStatistics.FmacLinks
-    }
-    return nil
-}
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["fmac-links"] = &fmacStatistics.FmacLinks
-    return children
-}
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetYangName() string { return "fmac-statistics" }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) SetParent(parent types.Entity) { fmacStatistics.parent = parent }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetParent() types.Entity { return fmacStatistics.parent }
-
-func (fmacStatistics *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics) GetParentYangName() string { return "statistics-asic-instance" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks
 // Link table for statistics
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link number for statistics. The type is slice of
@@ -6078,68 +3400,29 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     FmacLink []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink
 }
 
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetFilter() yfilter.YFilter { return fmacLinks.YFilter }
+func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetEntityData() *types.CommonEntityData {
+    fmacLinks.EntityData.YFilter = fmacLinks.YFilter
+    fmacLinks.EntityData.YangName = "fmac-links"
+    fmacLinks.EntityData.BundleName = "cisco_ios_xr"
+    fmacLinks.EntityData.ParentYangName = "fmac-statistics"
+    fmacLinks.EntityData.SegmentPath = "fmac-links"
+    fmacLinks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fmacLinks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fmacLinks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) SetFilter(yf yfilter.YFilter) { fmacLinks.YFilter = yf }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetGoName(yname string) string {
-    if yname == "fmac-link" { return "FmacLink" }
-    return ""
-}
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetSegmentPath() string {
-    return "fmac-links"
-}
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fmac-link" {
-        for _, c := range fmacLinks.FmacLink {
-            if fmacLinks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink{}
-        fmacLinks.FmacLink = append(fmacLinks.FmacLink, child)
-        return &fmacLinks.FmacLink[len(fmacLinks.FmacLink)-1]
-    }
-    return nil
-}
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    fmacLinks.EntityData.Children = make(map[string]types.YChild)
+    fmacLinks.EntityData.Children["fmac-link"] = types.YChild{"FmacLink", nil}
     for i := range fmacLinks.FmacLink {
-        children[fmacLinks.FmacLink[i].GetSegmentPath()] = &fmacLinks.FmacLink[i]
+        fmacLinks.EntityData.Children[types.GetSegmentPath(&fmacLinks.FmacLink[i])] = types.YChild{"FmacLink", &fmacLinks.FmacLink[i]}
     }
-    return children
+    fmacLinks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fmacLinks.EntityData)
 }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetYangName() string { return "fmac-links" }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) SetParent(parent types.Entity) { fmacLinks.parent = parent }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetParent() types.Entity { return fmacLinks.parent }
-
-func (fmacLinks *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks) GetParentYangName() string { return "fmac-statistics" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink
 // Link number for statistics
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Link number. The type is interface{} with range:
@@ -6151,70 +3434,30 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     FmacAsic []Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic
 }
 
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetFilter() yfilter.YFilter { return fmacLink.YFilter }
+func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetEntityData() *types.CommonEntityData {
+    fmacLink.EntityData.YFilter = fmacLink.YFilter
+    fmacLink.EntityData.YangName = "fmac-link"
+    fmacLink.EntityData.BundleName = "cisco_ios_xr"
+    fmacLink.EntityData.ParentYangName = "fmac-links"
+    fmacLink.EntityData.SegmentPath = "fmac-link" + "[link='" + fmt.Sprintf("%v", fmacLink.Link) + "']"
+    fmacLink.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fmacLink.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fmacLink.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) SetFilter(yf yfilter.YFilter) { fmacLink.YFilter = yf }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetGoName(yname string) string {
-    if yname == "link" { return "Link" }
-    if yname == "fmac-asic" { return "FmacAsic" }
-    return ""
-}
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetSegmentPath() string {
-    return "fmac-link" + "[link='" + fmt.Sprintf("%v", fmacLink.Link) + "']"
-}
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fmac-asic" {
-        for _, c := range fmacLink.FmacAsic {
-            if fmacLink.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic{}
-        fmacLink.FmacAsic = append(fmacLink.FmacAsic, child)
-        return &fmacLink.FmacAsic[len(fmacLink.FmacAsic)-1]
-    }
-    return nil
-}
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    fmacLink.EntityData.Children = make(map[string]types.YChild)
+    fmacLink.EntityData.Children["fmac-asic"] = types.YChild{"FmacAsic", nil}
     for i := range fmacLink.FmacAsic {
-        children[fmacLink.FmacAsic[i].GetSegmentPath()] = &fmacLink.FmacAsic[i]
+        fmacLink.EntityData.Children[types.GetSegmentPath(&fmacLink.FmacAsic[i])] = types.YChild{"FmacAsic", &fmacLink.FmacAsic[i]}
     }
-    return children
+    fmacLink.EntityData.Leafs = make(map[string]types.YLeaf)
+    fmacLink.EntityData.Leafs["link"] = types.YLeaf{"Link", fmacLink.Link}
+    return &(fmacLink.EntityData)
 }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link"] = fmacLink.Link
-    return leafs
-}
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetYangName() string { return "fmac-link" }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) SetParent(parent types.Entity) { fmacLink.parent = parent }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetParent() types.Entity { return fmacLink.parent }
-
-func (fmacLink *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink) GetParentYangName() string { return "fmac-links" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic
 // Single aisc information
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single asic. The type is interface{} with range:
@@ -6246,78 +3489,34 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     IncrStats Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats
 }
 
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetFilter() yfilter.YFilter { return fmacAsic.YFilter }
+func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetEntityData() *types.CommonEntityData {
+    fmacAsic.EntityData.YFilter = fmacAsic.YFilter
+    fmacAsic.EntityData.YangName = "fmac-asic"
+    fmacAsic.EntityData.BundleName = "cisco_ios_xr"
+    fmacAsic.EntityData.ParentYangName = "fmac-link"
+    fmacAsic.EntityData.SegmentPath = "fmac-asic" + "[asic='" + fmt.Sprintf("%v", fmacAsic.Asic) + "']"
+    fmacAsic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fmacAsic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fmacAsic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) SetFilter(yf yfilter.YFilter) { fmacAsic.YFilter = yf }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetGoName(yname string) string {
-    if yname == "asic" { return "Asic" }
-    if yname == "valid" { return "Valid" }
-    if yname == "rack-no" { return "RackNo" }
-    if yname == "slot-no" { return "SlotNo" }
-    if yname == "asic-instance" { return "AsicInstance" }
-    if yname == "link-no" { return "LinkNo" }
-    if yname == "link-valid" { return "LinkValid" }
-    if yname == "aggr-stats" { return "AggrStats" }
-    if yname == "incr-stats" { return "IncrStats" }
-    return ""
+    fmacAsic.EntityData.Children = make(map[string]types.YChild)
+    fmacAsic.EntityData.Children["aggr-stats"] = types.YChild{"AggrStats", &fmacAsic.AggrStats}
+    fmacAsic.EntityData.Children["incr-stats"] = types.YChild{"IncrStats", &fmacAsic.IncrStats}
+    fmacAsic.EntityData.Leafs = make(map[string]types.YLeaf)
+    fmacAsic.EntityData.Leafs["asic"] = types.YLeaf{"Asic", fmacAsic.Asic}
+    fmacAsic.EntityData.Leafs["valid"] = types.YLeaf{"Valid", fmacAsic.Valid}
+    fmacAsic.EntityData.Leafs["rack-no"] = types.YLeaf{"RackNo", fmacAsic.RackNo}
+    fmacAsic.EntityData.Leafs["slot-no"] = types.YLeaf{"SlotNo", fmacAsic.SlotNo}
+    fmacAsic.EntityData.Leafs["asic-instance"] = types.YLeaf{"AsicInstance", fmacAsic.AsicInstance}
+    fmacAsic.EntityData.Leafs["link-no"] = types.YLeaf{"LinkNo", fmacAsic.LinkNo}
+    fmacAsic.EntityData.Leafs["link-valid"] = types.YLeaf{"LinkValid", fmacAsic.LinkValid}
+    return &(fmacAsic.EntityData)
 }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetSegmentPath() string {
-    return "fmac-asic" + "[asic='" + fmt.Sprintf("%v", fmacAsic.Asic) + "']"
-}
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "aggr-stats" {
-        return &fmacAsic.AggrStats
-    }
-    if childYangName == "incr-stats" {
-        return &fmacAsic.IncrStats
-    }
-    return nil
-}
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["aggr-stats"] = &fmacAsic.AggrStats
-    children["incr-stats"] = &fmacAsic.IncrStats
-    return children
-}
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["asic"] = fmacAsic.Asic
-    leafs["valid"] = fmacAsic.Valid
-    leafs["rack-no"] = fmacAsic.RackNo
-    leafs["slot-no"] = fmacAsic.SlotNo
-    leafs["asic-instance"] = fmacAsic.AsicInstance
-    leafs["link-no"] = fmacAsic.LinkNo
-    leafs["link-valid"] = fmacAsic.LinkValid
-    return leafs
-}
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetYangName() string { return "fmac-asic" }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) SetParent(parent types.Entity) { fmacAsic.parent = parent }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetParent() types.Entity { return fmacAsic.parent }
-
-func (fmacAsic *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic) GetParentYangName() string { return "fmac-link" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats
 // aggr stats
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // link error status.
@@ -6330,69 +3529,28 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     OvfStatus Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus
 }
 
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetFilter() yfilter.YFilter { return aggrStats.YFilter }
+func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetEntityData() *types.CommonEntityData {
+    aggrStats.EntityData.YFilter = aggrStats.YFilter
+    aggrStats.EntityData.YangName = "aggr-stats"
+    aggrStats.EntityData.BundleName = "cisco_ios_xr"
+    aggrStats.EntityData.ParentYangName = "fmac-asic"
+    aggrStats.EntityData.SegmentPath = "aggr-stats"
+    aggrStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    aggrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    aggrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) SetFilter(yf yfilter.YFilter) { aggrStats.YFilter = yf }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetGoName(yname string) string {
-    if yname == "link-error-status" { return "LinkErrorStatus" }
-    if yname == "link-counters" { return "LinkCounters" }
-    if yname == "ovf-status" { return "OvfStatus" }
-    return ""
+    aggrStats.EntityData.Children = make(map[string]types.YChild)
+    aggrStats.EntityData.Children["link-error-status"] = types.YChild{"LinkErrorStatus", &aggrStats.LinkErrorStatus}
+    aggrStats.EntityData.Children["link-counters"] = types.YChild{"LinkCounters", &aggrStats.LinkCounters}
+    aggrStats.EntityData.Children["ovf-status"] = types.YChild{"OvfStatus", &aggrStats.OvfStatus}
+    aggrStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(aggrStats.EntityData)
 }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetSegmentPath() string {
-    return "aggr-stats"
-}
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "link-error-status" {
-        return &aggrStats.LinkErrorStatus
-    }
-    if childYangName == "link-counters" {
-        return &aggrStats.LinkCounters
-    }
-    if childYangName == "ovf-status" {
-        return &aggrStats.OvfStatus
-    }
-    return nil
-}
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["link-error-status"] = &aggrStats.LinkErrorStatus
-    children["link-counters"] = &aggrStats.LinkCounters
-    children["ovf-status"] = &aggrStats.OvfStatus
-    return children
-}
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetYangName() string { return "aggr-stats" }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) SetParent(parent types.Entity) { aggrStats.parent = parent }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetParent() types.Entity { return aggrStats.parent }
-
-func (aggrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats) GetParentYangName() string { return "fmac-asic" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus
 // link error status
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // link crc error. The type is interface{} with range: 0..4294967295.
@@ -6421,70 +3579,33 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     ErrorTokenCount interface{}
 }
 
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetFilter() yfilter.YFilter { return linkErrorStatus.YFilter }
+func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetEntityData() *types.CommonEntityData {
+    linkErrorStatus.EntityData.YFilter = linkErrorStatus.YFilter
+    linkErrorStatus.EntityData.YangName = "link-error-status"
+    linkErrorStatus.EntityData.BundleName = "cisco_ios_xr"
+    linkErrorStatus.EntityData.ParentYangName = "aggr-stats"
+    linkErrorStatus.EntityData.SegmentPath = "link-error-status"
+    linkErrorStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkErrorStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkErrorStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) SetFilter(yf yfilter.YFilter) { linkErrorStatus.YFilter = yf }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetGoName(yname string) string {
-    if yname == "link-crc-error" { return "LinkCrcError" }
-    if yname == "link-size-error" { return "LinkSizeError" }
-    if yname == "link-mis-align-error" { return "LinkMisAlignError" }
-    if yname == "link-code-group-error" { return "LinkCodeGroupError" }
-    if yname == "link-no-sig-lock-error" { return "LinkNoSigLockError" }
-    if yname == "link-no-sig-accept-error" { return "LinkNoSigAcceptError" }
-    if yname == "link-tokens-error" { return "LinkTokensError" }
-    if yname == "error-token-count" { return "ErrorTokenCount" }
-    return ""
+    linkErrorStatus.EntityData.Children = make(map[string]types.YChild)
+    linkErrorStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkErrorStatus.EntityData.Leafs["link-crc-error"] = types.YLeaf{"LinkCrcError", linkErrorStatus.LinkCrcError}
+    linkErrorStatus.EntityData.Leafs["link-size-error"] = types.YLeaf{"LinkSizeError", linkErrorStatus.LinkSizeError}
+    linkErrorStatus.EntityData.Leafs["link-mis-align-error"] = types.YLeaf{"LinkMisAlignError", linkErrorStatus.LinkMisAlignError}
+    linkErrorStatus.EntityData.Leafs["link-code-group-error"] = types.YLeaf{"LinkCodeGroupError", linkErrorStatus.LinkCodeGroupError}
+    linkErrorStatus.EntityData.Leafs["link-no-sig-lock-error"] = types.YLeaf{"LinkNoSigLockError", linkErrorStatus.LinkNoSigLockError}
+    linkErrorStatus.EntityData.Leafs["link-no-sig-accept-error"] = types.YLeaf{"LinkNoSigAcceptError", linkErrorStatus.LinkNoSigAcceptError}
+    linkErrorStatus.EntityData.Leafs["link-tokens-error"] = types.YLeaf{"LinkTokensError", linkErrorStatus.LinkTokensError}
+    linkErrorStatus.EntityData.Leafs["error-token-count"] = types.YLeaf{"ErrorTokenCount", linkErrorStatus.ErrorTokenCount}
+    return &(linkErrorStatus.EntityData)
 }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetSegmentPath() string {
-    return "link-error-status"
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-crc-error"] = linkErrorStatus.LinkCrcError
-    leafs["link-size-error"] = linkErrorStatus.LinkSizeError
-    leafs["link-mis-align-error"] = linkErrorStatus.LinkMisAlignError
-    leafs["link-code-group-error"] = linkErrorStatus.LinkCodeGroupError
-    leafs["link-no-sig-lock-error"] = linkErrorStatus.LinkNoSigLockError
-    leafs["link-no-sig-accept-error"] = linkErrorStatus.LinkNoSigAcceptError
-    leafs["link-tokens-error"] = linkErrorStatus.LinkTokensError
-    leafs["error-token-count"] = linkErrorStatus.ErrorTokenCount
-    return leafs
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetYangName() string { return "link-error-status" }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) SetParent(parent types.Entity) { linkErrorStatus.parent = parent }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetParent() types.Entity { return linkErrorStatus.parent }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkErrorStatus) GetParentYangName() string { return "aggr-stats" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters
 // link counters
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TX Control cells counter. The type is interface{} with range:
@@ -6544,82 +3665,39 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     Rx8B10BCodeErrors interface{}
 }
 
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetFilter() yfilter.YFilter { return linkCounters.YFilter }
+func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetEntityData() *types.CommonEntityData {
+    linkCounters.EntityData.YFilter = linkCounters.YFilter
+    linkCounters.EntityData.YangName = "link-counters"
+    linkCounters.EntityData.BundleName = "cisco_ios_xr"
+    linkCounters.EntityData.ParentYangName = "aggr-stats"
+    linkCounters.EntityData.SegmentPath = "link-counters"
+    linkCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) SetFilter(yf yfilter.YFilter) { linkCounters.YFilter = yf }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetGoName(yname string) string {
-    if yname == "tx-control-cells-counter" { return "TxControlCellsCounter" }
-    if yname == "tx-data-cell-counter" { return "TxDataCellCounter" }
-    if yname == "tx-data-byte-counter" { return "TxDataByteCounter" }
-    if yname == "rx-crc-errors-counter" { return "RxCrcErrorsCounter" }
-    if yname == "rx-lfec-fec-correctable-error" { return "RxLfecFecCorrectableError" }
-    if yname == "rx-8b-10b-disparity-errors" { return "Rx8B10BDisparityErrors" }
-    if yname == "rx-control-cells-counter" { return "RxControlCellsCounter" }
-    if yname == "rx-data-cell-counter" { return "RxDataCellCounter" }
-    if yname == "rx-data-byte-counter" { return "RxDataByteCounter" }
-    if yname == "rx-dropped-retransmitted-control" { return "RxDroppedRetransmittedControl" }
-    if yname == "tx-asyn-fifo-rate" { return "TxAsynFifoRate" }
-    if yname == "rx-asyn-fifo-rate" { return "RxAsynFifoRate" }
-    if yname == "rx-lfec-fec-uncorrectable-errors" { return "RxLfecFecUncorrectableErrors" }
-    if yname == "rx-8b-10b-code-errors" { return "Rx8B10BCodeErrors" }
-    return ""
+    linkCounters.EntityData.Children = make(map[string]types.YChild)
+    linkCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkCounters.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", linkCounters.TxControlCellsCounter}
+    linkCounters.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", linkCounters.TxDataCellCounter}
+    linkCounters.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", linkCounters.TxDataByteCounter}
+    linkCounters.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", linkCounters.RxCrcErrorsCounter}
+    linkCounters.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", linkCounters.RxLfecFecCorrectableError}
+    linkCounters.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", linkCounters.Rx8B10BDisparityErrors}
+    linkCounters.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", linkCounters.RxControlCellsCounter}
+    linkCounters.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", linkCounters.RxDataCellCounter}
+    linkCounters.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", linkCounters.RxDataByteCounter}
+    linkCounters.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", linkCounters.RxDroppedRetransmittedControl}
+    linkCounters.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", linkCounters.TxAsynFifoRate}
+    linkCounters.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", linkCounters.RxAsynFifoRate}
+    linkCounters.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", linkCounters.RxLfecFecUncorrectableErrors}
+    linkCounters.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", linkCounters.Rx8B10BCodeErrors}
+    return &(linkCounters.EntityData)
 }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetSegmentPath() string {
-    return "link-counters"
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tx-control-cells-counter"] = linkCounters.TxControlCellsCounter
-    leafs["tx-data-cell-counter"] = linkCounters.TxDataCellCounter
-    leafs["tx-data-byte-counter"] = linkCounters.TxDataByteCounter
-    leafs["rx-crc-errors-counter"] = linkCounters.RxCrcErrorsCounter
-    leafs["rx-lfec-fec-correctable-error"] = linkCounters.RxLfecFecCorrectableError
-    leafs["rx-8b-10b-disparity-errors"] = linkCounters.Rx8B10BDisparityErrors
-    leafs["rx-control-cells-counter"] = linkCounters.RxControlCellsCounter
-    leafs["rx-data-cell-counter"] = linkCounters.RxDataCellCounter
-    leafs["rx-data-byte-counter"] = linkCounters.RxDataByteCounter
-    leafs["rx-dropped-retransmitted-control"] = linkCounters.RxDroppedRetransmittedControl
-    leafs["tx-asyn-fifo-rate"] = linkCounters.TxAsynFifoRate
-    leafs["rx-asyn-fifo-rate"] = linkCounters.RxAsynFifoRate
-    leafs["rx-lfec-fec-uncorrectable-errors"] = linkCounters.RxLfecFecUncorrectableErrors
-    leafs["rx-8b-10b-code-errors"] = linkCounters.Rx8B10BCodeErrors
-    return leafs
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetYangName() string { return "link-counters" }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) SetParent(parent types.Entity) { linkCounters.parent = parent }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetParent() types.Entity { return linkCounters.parent }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_LinkCounters) GetParentYangName() string { return "aggr-stats" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus
 // ovf status
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TX Control cells counter. The type is string with length: 0..6.
@@ -6665,82 +3743,39 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     Rx8B10BCodeErrors interface{}
 }
 
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetFilter() yfilter.YFilter { return ovfStatus.YFilter }
+func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetEntityData() *types.CommonEntityData {
+    ovfStatus.EntityData.YFilter = ovfStatus.YFilter
+    ovfStatus.EntityData.YangName = "ovf-status"
+    ovfStatus.EntityData.BundleName = "cisco_ios_xr"
+    ovfStatus.EntityData.ParentYangName = "aggr-stats"
+    ovfStatus.EntityData.SegmentPath = "ovf-status"
+    ovfStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ovfStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ovfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) SetFilter(yf yfilter.YFilter) { ovfStatus.YFilter = yf }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetGoName(yname string) string {
-    if yname == "tx-control-cells-counter" { return "TxControlCellsCounter" }
-    if yname == "tx-data-cell-counter" { return "TxDataCellCounter" }
-    if yname == "tx-data-byte-counter" { return "TxDataByteCounter" }
-    if yname == "rx-crc-errors-counter" { return "RxCrcErrorsCounter" }
-    if yname == "rx-lfec-fec-correctable-error" { return "RxLfecFecCorrectableError" }
-    if yname == "rx-8b-10b-disparity-errors" { return "Rx8B10BDisparityErrors" }
-    if yname == "rx-control-cells-counter" { return "RxControlCellsCounter" }
-    if yname == "rx-data-cell-counter" { return "RxDataCellCounter" }
-    if yname == "rx-data-byte-counter" { return "RxDataByteCounter" }
-    if yname == "rx-dropped-retransmitted-control" { return "RxDroppedRetransmittedControl" }
-    if yname == "tx-asyn-fifo-rate" { return "TxAsynFifoRate" }
-    if yname == "rx-asyn-fifo-rate" { return "RxAsynFifoRate" }
-    if yname == "rx-lfec-fec-uncorrectable-errors" { return "RxLfecFecUncorrectableErrors" }
-    if yname == "rx-8b-10b-code-errors" { return "Rx8B10BCodeErrors" }
-    return ""
+    ovfStatus.EntityData.Children = make(map[string]types.YChild)
+    ovfStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    ovfStatus.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", ovfStatus.TxControlCellsCounter}
+    ovfStatus.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", ovfStatus.TxDataCellCounter}
+    ovfStatus.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", ovfStatus.TxDataByteCounter}
+    ovfStatus.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", ovfStatus.RxCrcErrorsCounter}
+    ovfStatus.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", ovfStatus.RxLfecFecCorrectableError}
+    ovfStatus.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", ovfStatus.Rx8B10BDisparityErrors}
+    ovfStatus.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", ovfStatus.RxControlCellsCounter}
+    ovfStatus.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", ovfStatus.RxDataCellCounter}
+    ovfStatus.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", ovfStatus.RxDataByteCounter}
+    ovfStatus.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", ovfStatus.RxDroppedRetransmittedControl}
+    ovfStatus.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", ovfStatus.TxAsynFifoRate}
+    ovfStatus.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", ovfStatus.RxAsynFifoRate}
+    ovfStatus.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", ovfStatus.RxLfecFecUncorrectableErrors}
+    ovfStatus.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", ovfStatus.Rx8B10BCodeErrors}
+    return &(ovfStatus.EntityData)
 }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetSegmentPath() string {
-    return "ovf-status"
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tx-control-cells-counter"] = ovfStatus.TxControlCellsCounter
-    leafs["tx-data-cell-counter"] = ovfStatus.TxDataCellCounter
-    leafs["tx-data-byte-counter"] = ovfStatus.TxDataByteCounter
-    leafs["rx-crc-errors-counter"] = ovfStatus.RxCrcErrorsCounter
-    leafs["rx-lfec-fec-correctable-error"] = ovfStatus.RxLfecFecCorrectableError
-    leafs["rx-8b-10b-disparity-errors"] = ovfStatus.Rx8B10BDisparityErrors
-    leafs["rx-control-cells-counter"] = ovfStatus.RxControlCellsCounter
-    leafs["rx-data-cell-counter"] = ovfStatus.RxDataCellCounter
-    leafs["rx-data-byte-counter"] = ovfStatus.RxDataByteCounter
-    leafs["rx-dropped-retransmitted-control"] = ovfStatus.RxDroppedRetransmittedControl
-    leafs["tx-asyn-fifo-rate"] = ovfStatus.TxAsynFifoRate
-    leafs["rx-asyn-fifo-rate"] = ovfStatus.RxAsynFifoRate
-    leafs["rx-lfec-fec-uncorrectable-errors"] = ovfStatus.RxLfecFecUncorrectableErrors
-    leafs["rx-8b-10b-code-errors"] = ovfStatus.Rx8B10BCodeErrors
-    return leafs
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetYangName() string { return "ovf-status" }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) SetParent(parent types.Entity) { ovfStatus.parent = parent }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetParent() types.Entity { return ovfStatus.parent }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_AggrStats_OvfStatus) GetParentYangName() string { return "aggr-stats" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats
 // incr stats
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // link error status.
@@ -6753,69 +3788,28 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     OvfStatus Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus
 }
 
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetFilter() yfilter.YFilter { return incrStats.YFilter }
+func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetEntityData() *types.CommonEntityData {
+    incrStats.EntityData.YFilter = incrStats.YFilter
+    incrStats.EntityData.YangName = "incr-stats"
+    incrStats.EntityData.BundleName = "cisco_ios_xr"
+    incrStats.EntityData.ParentYangName = "fmac-asic"
+    incrStats.EntityData.SegmentPath = "incr-stats"
+    incrStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    incrStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    incrStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) SetFilter(yf yfilter.YFilter) { incrStats.YFilter = yf }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetGoName(yname string) string {
-    if yname == "link-error-status" { return "LinkErrorStatus" }
-    if yname == "link-counters" { return "LinkCounters" }
-    if yname == "ovf-status" { return "OvfStatus" }
-    return ""
+    incrStats.EntityData.Children = make(map[string]types.YChild)
+    incrStats.EntityData.Children["link-error-status"] = types.YChild{"LinkErrorStatus", &incrStats.LinkErrorStatus}
+    incrStats.EntityData.Children["link-counters"] = types.YChild{"LinkCounters", &incrStats.LinkCounters}
+    incrStats.EntityData.Children["ovf-status"] = types.YChild{"OvfStatus", &incrStats.OvfStatus}
+    incrStats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(incrStats.EntityData)
 }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetSegmentPath() string {
-    return "incr-stats"
-}
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "link-error-status" {
-        return &incrStats.LinkErrorStatus
-    }
-    if childYangName == "link-counters" {
-        return &incrStats.LinkCounters
-    }
-    if childYangName == "ovf-status" {
-        return &incrStats.OvfStatus
-    }
-    return nil
-}
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["link-error-status"] = &incrStats.LinkErrorStatus
-    children["link-counters"] = &incrStats.LinkCounters
-    children["ovf-status"] = &incrStats.OvfStatus
-    return children
-}
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetYangName() string { return "incr-stats" }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) SetParent(parent types.Entity) { incrStats.parent = parent }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetParent() types.Entity { return incrStats.parent }
-
-func (incrStats *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats) GetParentYangName() string { return "fmac-asic" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus
 // link error status
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // link crc error. The type is interface{} with range: 0..4294967295.
@@ -6844,70 +3838,33 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     ErrorTokenCount interface{}
 }
 
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetFilter() yfilter.YFilter { return linkErrorStatus.YFilter }
+func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetEntityData() *types.CommonEntityData {
+    linkErrorStatus.EntityData.YFilter = linkErrorStatus.YFilter
+    linkErrorStatus.EntityData.YangName = "link-error-status"
+    linkErrorStatus.EntityData.BundleName = "cisco_ios_xr"
+    linkErrorStatus.EntityData.ParentYangName = "incr-stats"
+    linkErrorStatus.EntityData.SegmentPath = "link-error-status"
+    linkErrorStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkErrorStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkErrorStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) SetFilter(yf yfilter.YFilter) { linkErrorStatus.YFilter = yf }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetGoName(yname string) string {
-    if yname == "link-crc-error" { return "LinkCrcError" }
-    if yname == "link-size-error" { return "LinkSizeError" }
-    if yname == "link-mis-align-error" { return "LinkMisAlignError" }
-    if yname == "link-code-group-error" { return "LinkCodeGroupError" }
-    if yname == "link-no-sig-lock-error" { return "LinkNoSigLockError" }
-    if yname == "link-no-sig-accept-error" { return "LinkNoSigAcceptError" }
-    if yname == "link-tokens-error" { return "LinkTokensError" }
-    if yname == "error-token-count" { return "ErrorTokenCount" }
-    return ""
+    linkErrorStatus.EntityData.Children = make(map[string]types.YChild)
+    linkErrorStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkErrorStatus.EntityData.Leafs["link-crc-error"] = types.YLeaf{"LinkCrcError", linkErrorStatus.LinkCrcError}
+    linkErrorStatus.EntityData.Leafs["link-size-error"] = types.YLeaf{"LinkSizeError", linkErrorStatus.LinkSizeError}
+    linkErrorStatus.EntityData.Leafs["link-mis-align-error"] = types.YLeaf{"LinkMisAlignError", linkErrorStatus.LinkMisAlignError}
+    linkErrorStatus.EntityData.Leafs["link-code-group-error"] = types.YLeaf{"LinkCodeGroupError", linkErrorStatus.LinkCodeGroupError}
+    linkErrorStatus.EntityData.Leafs["link-no-sig-lock-error"] = types.YLeaf{"LinkNoSigLockError", linkErrorStatus.LinkNoSigLockError}
+    linkErrorStatus.EntityData.Leafs["link-no-sig-accept-error"] = types.YLeaf{"LinkNoSigAcceptError", linkErrorStatus.LinkNoSigAcceptError}
+    linkErrorStatus.EntityData.Leafs["link-tokens-error"] = types.YLeaf{"LinkTokensError", linkErrorStatus.LinkTokensError}
+    linkErrorStatus.EntityData.Leafs["error-token-count"] = types.YLeaf{"ErrorTokenCount", linkErrorStatus.ErrorTokenCount}
+    return &(linkErrorStatus.EntityData)
 }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetSegmentPath() string {
-    return "link-error-status"
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["link-crc-error"] = linkErrorStatus.LinkCrcError
-    leafs["link-size-error"] = linkErrorStatus.LinkSizeError
-    leafs["link-mis-align-error"] = linkErrorStatus.LinkMisAlignError
-    leafs["link-code-group-error"] = linkErrorStatus.LinkCodeGroupError
-    leafs["link-no-sig-lock-error"] = linkErrorStatus.LinkNoSigLockError
-    leafs["link-no-sig-accept-error"] = linkErrorStatus.LinkNoSigAcceptError
-    leafs["link-tokens-error"] = linkErrorStatus.LinkTokensError
-    leafs["error-token-count"] = linkErrorStatus.ErrorTokenCount
-    return leafs
-}
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetYangName() string { return "link-error-status" }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) SetParent(parent types.Entity) { linkErrorStatus.parent = parent }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetParent() types.Entity { return linkErrorStatus.parent }
-
-func (linkErrorStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkErrorStatus) GetParentYangName() string { return "incr-stats" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters
 // link counters
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TX Control cells counter. The type is interface{} with range:
@@ -6967,82 +3924,39 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     Rx8B10BCodeErrors interface{}
 }
 
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetFilter() yfilter.YFilter { return linkCounters.YFilter }
+func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetEntityData() *types.CommonEntityData {
+    linkCounters.EntityData.YFilter = linkCounters.YFilter
+    linkCounters.EntityData.YangName = "link-counters"
+    linkCounters.EntityData.BundleName = "cisco_ios_xr"
+    linkCounters.EntityData.ParentYangName = "incr-stats"
+    linkCounters.EntityData.SegmentPath = "link-counters"
+    linkCounters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    linkCounters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    linkCounters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) SetFilter(yf yfilter.YFilter) { linkCounters.YFilter = yf }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetGoName(yname string) string {
-    if yname == "tx-control-cells-counter" { return "TxControlCellsCounter" }
-    if yname == "tx-data-cell-counter" { return "TxDataCellCounter" }
-    if yname == "tx-data-byte-counter" { return "TxDataByteCounter" }
-    if yname == "rx-crc-errors-counter" { return "RxCrcErrorsCounter" }
-    if yname == "rx-lfec-fec-correctable-error" { return "RxLfecFecCorrectableError" }
-    if yname == "rx-8b-10b-disparity-errors" { return "Rx8B10BDisparityErrors" }
-    if yname == "rx-control-cells-counter" { return "RxControlCellsCounter" }
-    if yname == "rx-data-cell-counter" { return "RxDataCellCounter" }
-    if yname == "rx-data-byte-counter" { return "RxDataByteCounter" }
-    if yname == "rx-dropped-retransmitted-control" { return "RxDroppedRetransmittedControl" }
-    if yname == "tx-asyn-fifo-rate" { return "TxAsynFifoRate" }
-    if yname == "rx-asyn-fifo-rate" { return "RxAsynFifoRate" }
-    if yname == "rx-lfec-fec-uncorrectable-errors" { return "RxLfecFecUncorrectableErrors" }
-    if yname == "rx-8b-10b-code-errors" { return "Rx8B10BCodeErrors" }
-    return ""
+    linkCounters.EntityData.Children = make(map[string]types.YChild)
+    linkCounters.EntityData.Leafs = make(map[string]types.YLeaf)
+    linkCounters.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", linkCounters.TxControlCellsCounter}
+    linkCounters.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", linkCounters.TxDataCellCounter}
+    linkCounters.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", linkCounters.TxDataByteCounter}
+    linkCounters.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", linkCounters.RxCrcErrorsCounter}
+    linkCounters.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", linkCounters.RxLfecFecCorrectableError}
+    linkCounters.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", linkCounters.Rx8B10BDisparityErrors}
+    linkCounters.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", linkCounters.RxControlCellsCounter}
+    linkCounters.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", linkCounters.RxDataCellCounter}
+    linkCounters.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", linkCounters.RxDataByteCounter}
+    linkCounters.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", linkCounters.RxDroppedRetransmittedControl}
+    linkCounters.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", linkCounters.TxAsynFifoRate}
+    linkCounters.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", linkCounters.RxAsynFifoRate}
+    linkCounters.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", linkCounters.RxLfecFecUncorrectableErrors}
+    linkCounters.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", linkCounters.Rx8B10BCodeErrors}
+    return &(linkCounters.EntityData)
 }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetSegmentPath() string {
-    return "link-counters"
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tx-control-cells-counter"] = linkCounters.TxControlCellsCounter
-    leafs["tx-data-cell-counter"] = linkCounters.TxDataCellCounter
-    leafs["tx-data-byte-counter"] = linkCounters.TxDataByteCounter
-    leafs["rx-crc-errors-counter"] = linkCounters.RxCrcErrorsCounter
-    leafs["rx-lfec-fec-correctable-error"] = linkCounters.RxLfecFecCorrectableError
-    leafs["rx-8b-10b-disparity-errors"] = linkCounters.Rx8B10BDisparityErrors
-    leafs["rx-control-cells-counter"] = linkCounters.RxControlCellsCounter
-    leafs["rx-data-cell-counter"] = linkCounters.RxDataCellCounter
-    leafs["rx-data-byte-counter"] = linkCounters.RxDataByteCounter
-    leafs["rx-dropped-retransmitted-control"] = linkCounters.RxDroppedRetransmittedControl
-    leafs["tx-asyn-fifo-rate"] = linkCounters.TxAsynFifoRate
-    leafs["rx-asyn-fifo-rate"] = linkCounters.RxAsynFifoRate
-    leafs["rx-lfec-fec-uncorrectable-errors"] = linkCounters.RxLfecFecUncorrectableErrors
-    leafs["rx-8b-10b-code-errors"] = linkCounters.Rx8B10BCodeErrors
-    return leafs
-}
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetYangName() string { return "link-counters" }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) SetParent(parent types.Entity) { linkCounters.parent = parent }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetParent() types.Entity { return linkCounters.parent }
-
-func (linkCounters *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_LinkCounters) GetParentYangName() string { return "incr-stats" }
 
 // Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus
 // ovf status
 type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // TX Control cells counter. The type is string with length: 0..6.
@@ -7088,75 +4002,32 @@ type Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstanc
     Rx8B10BCodeErrors interface{}
 }
 
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetFilter() yfilter.YFilter { return ovfStatus.YFilter }
+func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetEntityData() *types.CommonEntityData {
+    ovfStatus.EntityData.YFilter = ovfStatus.YFilter
+    ovfStatus.EntityData.YangName = "ovf-status"
+    ovfStatus.EntityData.BundleName = "cisco_ios_xr"
+    ovfStatus.EntityData.ParentYangName = "incr-stats"
+    ovfStatus.EntityData.SegmentPath = "ovf-status"
+    ovfStatus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ovfStatus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ovfStatus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) SetFilter(yf yfilter.YFilter) { ovfStatus.YFilter = yf }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetGoName(yname string) string {
-    if yname == "tx-control-cells-counter" { return "TxControlCellsCounter" }
-    if yname == "tx-data-cell-counter" { return "TxDataCellCounter" }
-    if yname == "tx-data-byte-counter" { return "TxDataByteCounter" }
-    if yname == "rx-crc-errors-counter" { return "RxCrcErrorsCounter" }
-    if yname == "rx-lfec-fec-correctable-error" { return "RxLfecFecCorrectableError" }
-    if yname == "rx-8b-10b-disparity-errors" { return "Rx8B10BDisparityErrors" }
-    if yname == "rx-control-cells-counter" { return "RxControlCellsCounter" }
-    if yname == "rx-data-cell-counter" { return "RxDataCellCounter" }
-    if yname == "rx-data-byte-counter" { return "RxDataByteCounter" }
-    if yname == "rx-dropped-retransmitted-control" { return "RxDroppedRetransmittedControl" }
-    if yname == "tx-asyn-fifo-rate" { return "TxAsynFifoRate" }
-    if yname == "rx-asyn-fifo-rate" { return "RxAsynFifoRate" }
-    if yname == "rx-lfec-fec-uncorrectable-errors" { return "RxLfecFecUncorrectableErrors" }
-    if yname == "rx-8b-10b-code-errors" { return "Rx8B10BCodeErrors" }
-    return ""
+    ovfStatus.EntityData.Children = make(map[string]types.YChild)
+    ovfStatus.EntityData.Leafs = make(map[string]types.YLeaf)
+    ovfStatus.EntityData.Leafs["tx-control-cells-counter"] = types.YLeaf{"TxControlCellsCounter", ovfStatus.TxControlCellsCounter}
+    ovfStatus.EntityData.Leafs["tx-data-cell-counter"] = types.YLeaf{"TxDataCellCounter", ovfStatus.TxDataCellCounter}
+    ovfStatus.EntityData.Leafs["tx-data-byte-counter"] = types.YLeaf{"TxDataByteCounter", ovfStatus.TxDataByteCounter}
+    ovfStatus.EntityData.Leafs["rx-crc-errors-counter"] = types.YLeaf{"RxCrcErrorsCounter", ovfStatus.RxCrcErrorsCounter}
+    ovfStatus.EntityData.Leafs["rx-lfec-fec-correctable-error"] = types.YLeaf{"RxLfecFecCorrectableError", ovfStatus.RxLfecFecCorrectableError}
+    ovfStatus.EntityData.Leafs["rx-8b-10b-disparity-errors"] = types.YLeaf{"Rx8B10BDisparityErrors", ovfStatus.Rx8B10BDisparityErrors}
+    ovfStatus.EntityData.Leafs["rx-control-cells-counter"] = types.YLeaf{"RxControlCellsCounter", ovfStatus.RxControlCellsCounter}
+    ovfStatus.EntityData.Leafs["rx-data-cell-counter"] = types.YLeaf{"RxDataCellCounter", ovfStatus.RxDataCellCounter}
+    ovfStatus.EntityData.Leafs["rx-data-byte-counter"] = types.YLeaf{"RxDataByteCounter", ovfStatus.RxDataByteCounter}
+    ovfStatus.EntityData.Leafs["rx-dropped-retransmitted-control"] = types.YLeaf{"RxDroppedRetransmittedControl", ovfStatus.RxDroppedRetransmittedControl}
+    ovfStatus.EntityData.Leafs["tx-asyn-fifo-rate"] = types.YLeaf{"TxAsynFifoRate", ovfStatus.TxAsynFifoRate}
+    ovfStatus.EntityData.Leafs["rx-asyn-fifo-rate"] = types.YLeaf{"RxAsynFifoRate", ovfStatus.RxAsynFifoRate}
+    ovfStatus.EntityData.Leafs["rx-lfec-fec-uncorrectable-errors"] = types.YLeaf{"RxLfecFecUncorrectableErrors", ovfStatus.RxLfecFecUncorrectableErrors}
+    ovfStatus.EntityData.Leafs["rx-8b-10b-code-errors"] = types.YLeaf{"Rx8B10BCodeErrors", ovfStatus.Rx8B10BCodeErrors}
+    return &(ovfStatus.EntityData)
 }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetSegmentPath() string {
-    return "ovf-status"
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["tx-control-cells-counter"] = ovfStatus.TxControlCellsCounter
-    leafs["tx-data-cell-counter"] = ovfStatus.TxDataCellCounter
-    leafs["tx-data-byte-counter"] = ovfStatus.TxDataByteCounter
-    leafs["rx-crc-errors-counter"] = ovfStatus.RxCrcErrorsCounter
-    leafs["rx-lfec-fec-correctable-error"] = ovfStatus.RxLfecFecCorrectableError
-    leafs["rx-8b-10b-disparity-errors"] = ovfStatus.Rx8B10BDisparityErrors
-    leafs["rx-control-cells-counter"] = ovfStatus.RxControlCellsCounter
-    leafs["rx-data-cell-counter"] = ovfStatus.RxDataCellCounter
-    leafs["rx-data-byte-counter"] = ovfStatus.RxDataByteCounter
-    leafs["rx-dropped-retransmitted-control"] = ovfStatus.RxDroppedRetransmittedControl
-    leafs["tx-asyn-fifo-rate"] = ovfStatus.TxAsynFifoRate
-    leafs["rx-asyn-fifo-rate"] = ovfStatus.RxAsynFifoRate
-    leafs["rx-lfec-fec-uncorrectable-errors"] = ovfStatus.RxLfecFecUncorrectableErrors
-    leafs["rx-8b-10b-code-errors"] = ovfStatus.Rx8B10BCodeErrors
-    return leafs
-}
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetYangName() string { return "ovf-status" }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) SetParent(parent types.Entity) { ovfStatus.parent = parent }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetParent() types.Entity { return ovfStatus.parent }
-
-func (ovfStatus *Fia_Nodes_Node_AsicStatistics_StatisticsAsicInstances_StatisticsAsicInstance_FmacStatistics_FmacLinks_FmacLink_FmacAsic_IncrStats_OvfStatus) GetParentYangName() string { return "incr-stats" }
 

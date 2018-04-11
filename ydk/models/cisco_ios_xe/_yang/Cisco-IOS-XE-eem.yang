@@ -27,12 +27,27 @@ module Cisco-IOS-XE-eem {
 
   description
     "Cisco XE Native Embedded Event Manager (EEM) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-20 {
+    description
+      "fix event oir event removal";
+  }
+ 
+  revision 2017-09-20 {
+    description
+      "Add some applet event support";
+  }
+ 
+  revision 2017-08-03 {
+    description
+      "Add event time full support";
+  }
+
   revision 2017-04-13 {
     description
       "Add event track";
@@ -58,6 +73,87 @@ module Cisco-IOS-XE-eem {
       enum "ne";
     }
   }
+
+  grouping eem-default-group {
+    leaf default {
+      description
+        "Default action timer";
+      type uint32;
+    }
+  }
+
+  grouping eem-maxrun-group {
+    leaf maxrun {
+      description
+        "Maximum runtime of applet";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+  }
+
+  grouping eem-maxrun-incomplete-group {
+    leaf maxrun {
+      description
+        "Maximum runtime of applet";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+  }
+
+  grouping eem-ratelimit-group {
+    leaf ratelimit {
+      description
+        "seconds[.milliseconds] value";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+  }
+
+  grouping eem-ratelimit-incomplete-group {
+    leaf ratelimit {
+      description
+        "seconds[.milliseconds] value";
+      type uint32 {
+        range "0..31536000";
+      }
+    }
+  }
+
+  grouping eem-timer-cron-group {
+    uses eem-maxrun-group;
+    leaf name {
+      description
+        "Timer name string";
+      type string;
+    }
+    uses eem-ratelimit-group;
+    leaf cron-entry {
+      description
+        "Cron entry for cron timer";
+      type string;
+    }
+  }
+
+  grouping eem-timer-common-group {
+    uses eem-maxrun-group;
+    leaf name {
+      description
+        "Timer name string";
+      type string;
+    }
+    uses eem-ratelimit-group;
+    leaf time {
+      description
+        "Time period for watchdog / countdown / absolute timer";
+      type uint32 {
+        range "1..2085978494";
+      }
+    }
+  }
+
 
   grouping config-eem-grouping {
     container manager {
@@ -148,55 +244,25 @@ module Cisco-IOS-XE-eem {
           container timer {
             description
               "Timer event";
+            container absolute  {
+              description
+                "Absolute timer event";
+              uses eem-timer-common-group;
+            }
+            container countdown {
+              description
+                "Countdown timer event";
+              uses eem-timer-common-group;
+            }
+            container cron {
+              description
+                "cron timer event";
+              uses eem-timer-cron-group;
+            }
             container watchdog {
               description
                 "Watchdog timer event";
-              container name {
-                description
-                  "Name of the timer";
-                list timer-name {
-                  key "timer-name";
-                  leaf timer-name {
-                    type string;
-                  }
-                  container time {
-                    description
-                      "Time period for watchdog / countdown / absolute timer";
-                    list time-in-seconds {
-                      key "time-in-seconds";
-                      leaf time-in-seconds {
-                        description
-                          "Enter seconds[.milliseconds] value";
-                        type uint32 {
-                          range "1..2085978494";
-                        }
-                      }
-                      container maxrun {
-                        description
-                          "Maximum runtime of applet";
-                        list timer-in-seconds {
-                          key "timer-in-seconds";
-                          leaf timer-in-seconds {
-                            description
-                              "Enter seconds[.milliseconds] value";
-                            type uint32 {
-                              range "0..31536000";
-                            }
-                          }
-                          leaf ratelimit {
-                            description 
-                              "Limit trigger to once per given time period.
-                               Enter seconds[.milliseconds] value";
-                            type uint32 {
-                               range "0..31536000";
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+              uses eem-timer-common-group;
             }
           } 
 
@@ -263,6 +329,98 @@ module Cisco-IOS-XE-eem {
                 enum "up";
               }
             }
+          }
+          container none {
+            description
+              "Manually run policy event";
+            presence true;
+            uses eem-default-group;
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
+            leaf sync {
+              description
+                "EEM policy execution sync or async";
+              type enumeration {
+                enum "yes";
+                enum "no";
+              }
+            }
+          }
+          container resource {
+            description 
+              "Resource event";
+            leaf policy {
+              description
+                "Resource policy name string";
+              type string;
+            } 
+            uses eem-maxrun-incomplete-group;
+            uses eem-ratelimit-incomplete-group;
+          }
+          container rpc {
+            description
+              "Remote Procedure Call event";
+            presence true;
+            uses eem-default-group;
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
+          }
+          container config {
+            description
+              "Configuration policy event";
+            presence true;
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
+          }
+          container env {
+            description
+              "Environmental event";
+            container severity {
+              description
+                "alarm severity";
+              choice severty-level {
+                container major {
+                  description
+                    "major environmental alarm";
+                  presence true;
+                  uses eem-maxrun-group;
+                  uses eem-ratelimit-group;
+                }
+                container minor {
+                  description
+                    "minor environmental alarm";
+                  presence true;
+                  uses eem-maxrun-group;
+                  uses eem-ratelimit-group;
+                }
+              }
+            }
+          }
+          container oir {
+            description
+              "OIR event";
+            presence true;
+            leaf event {
+              description
+                "OIR event";
+              type enumeration {
+                enum "all";
+                enum "insert";
+                enum "removal";
+              }
+            }
+            uses eem-maxrun-group;
+          }
+          container rf {
+            description
+              "event match string";
+            leaf event {
+              description
+                "Event match string";
+              type string;
+            }
+            uses eem-maxrun-group;
+            uses eem-ratelimit-group;
           }
         }
         list action {

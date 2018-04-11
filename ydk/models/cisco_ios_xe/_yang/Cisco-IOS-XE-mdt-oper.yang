@@ -28,6 +28,16 @@ module Cisco-IOS-XE-mdt-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2017-09-20 {
+    description
+      "TLS support for Native stream";
+    reference "2.1.0";
+  }
+  revision 2017-07-01 {
+    description
+      "Add support for VRFs";
+    reference "2.0.0";
+  }
   revision 2017-03-02 {
     description
       "Initial revision";
@@ -151,6 +161,7 @@ module Cisco-IOS-XE-mdt-oper {
       "MDT stream table element.";
     leaf-list stream {
       type string;
+      ordered-by user;
       description
         "Name of a supported stream.";
     }
@@ -227,6 +238,11 @@ module Cisco-IOS-XE-mdt-oper {
       description
         "Comments related to receiver state.";
     }
+    leaf security-profile {
+      type string;
+      description
+        "Receiver security profile.";
+    }
   }
 
   grouping mdt-connection-id {
@@ -241,6 +257,17 @@ module Cisco-IOS-XE-mdt-oper {
       type uint16;
       description
         "Network port";
+    }
+    leaf source-vrf {
+      type string;
+      description
+        "Network instance name for the VRF that the
+         connection originates from.";
+    }
+    leaf source-address {
+      type inet:ip-address;
+      description
+        "The source address used for the connection.";
     }
   }
 
@@ -271,6 +298,11 @@ module Cisco-IOS-XE-mdt-oper {
         "List of subscription specific statistics for this
          connection.";
       uses mdt-oper:mdt-sub-con-stats;
+    }
+    leaf security-profile {
+      type string;
+      description
+        "Security profile used with this connection.";
     }
   }
 
@@ -312,7 +344,7 @@ module Cisco-IOS-XE-mdt-oper {
       uses mdt-oper:mdt-subscription-oper;
     }
     list mdt-connections {
-      key "address port";
+      key "address port source-vrf source-address";
       description
         "MDT subscription connection operational data.";
       uses mdt-oper:mdt-connection-data;

@@ -57,56 +57,26 @@ const (
 // Qos
 // Global QOS configuration.
 type Qos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Name of the fabric service policy. The type is string with length: 0..63.
     FabricServicePolicy interface{}
 }
 
-func (qos *Qos) GetFilter() yfilter.YFilter { return qos.YFilter }
+func (qos *Qos) GetEntityData() *types.CommonEntityData {
+    qos.EntityData.YFilter = qos.YFilter
+    qos.EntityData.YangName = "qos"
+    qos.EntityData.BundleName = "cisco_ios_xr"
+    qos.EntityData.ParentYangName = "Cisco-IOS-XR-qos-ma-cfg"
+    qos.EntityData.SegmentPath = "Cisco-IOS-XR-qos-ma-cfg:qos"
+    qos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    qos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    qos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (qos *Qos) SetFilter(yf yfilter.YFilter) { qos.YFilter = yf }
-
-func (qos *Qos) GetGoName(yname string) string {
-    if yname == "fabric-service-policy" { return "FabricServicePolicy" }
-    return ""
+    qos.EntityData.Children = make(map[string]types.YChild)
+    qos.EntityData.Leafs = make(map[string]types.YLeaf)
+    qos.EntityData.Leafs["fabric-service-policy"] = types.YLeaf{"FabricServicePolicy", qos.FabricServicePolicy}
+    return &(qos.EntityData)
 }
-
-func (qos *Qos) GetSegmentPath() string {
-    return "Cisco-IOS-XR-qos-ma-cfg:qos"
-}
-
-func (qos *Qos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (qos *Qos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (qos *Qos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fabric-service-policy"] = qos.FabricServicePolicy
-    return leafs
-}
-
-func (qos *Qos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (qos *Qos) GetYangName() string { return "qos" }
-
-func (qos *Qos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (qos *Qos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (qos *Qos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (qos *Qos) SetParent(parent types.Entity) { qos.parent = parent }
-
-func (qos *Qos) GetParent() types.Entity { return qos.parent }
-
-func (qos *Qos) GetParentYangName() string { return "Cisco-IOS-XR-qos-ma-cfg" }
 

@@ -27,271 +27,126 @@ func init() {
 // LptsIfib
 // lpts ifib database
 type LptsIfib struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node ifib database.
     Nodes LptsIfib_Nodes
 }
 
-func (lptsIfib *LptsIfib) GetFilter() yfilter.YFilter { return lptsIfib.YFilter }
+func (lptsIfib *LptsIfib) GetEntityData() *types.CommonEntityData {
+    lptsIfib.EntityData.YFilter = lptsIfib.YFilter
+    lptsIfib.EntityData.YangName = "lpts-ifib"
+    lptsIfib.EntityData.BundleName = "cisco_ios_xr"
+    lptsIfib.EntityData.ParentYangName = "Cisco-IOS-XR-lpts-ifib-oper"
+    lptsIfib.EntityData.SegmentPath = "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib"
+    lptsIfib.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lptsIfib.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lptsIfib.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lptsIfib *LptsIfib) SetFilter(yf yfilter.YFilter) { lptsIfib.YFilter = yf }
-
-func (lptsIfib *LptsIfib) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    lptsIfib.EntityData.Children = make(map[string]types.YChild)
+    lptsIfib.EntityData.Children["nodes"] = types.YChild{"Nodes", &lptsIfib.Nodes}
+    lptsIfib.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lptsIfib.EntityData)
 }
-
-func (lptsIfib *LptsIfib) GetSegmentPath() string {
-    return "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib"
-}
-
-func (lptsIfib *LptsIfib) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &lptsIfib.Nodes
-    }
-    return nil
-}
-
-func (lptsIfib *LptsIfib) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &lptsIfib.Nodes
-    return children
-}
-
-func (lptsIfib *LptsIfib) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lptsIfib *LptsIfib) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lptsIfib *LptsIfib) GetYangName() string { return "lpts-ifib" }
-
-func (lptsIfib *LptsIfib) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lptsIfib *LptsIfib) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lptsIfib *LptsIfib) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lptsIfib *LptsIfib) SetParent(parent types.Entity) { lptsIfib.parent = parent }
-
-func (lptsIfib *LptsIfib) GetParent() types.Entity { return lptsIfib.parent }
-
-func (lptsIfib *LptsIfib) GetParentYangName() string { return "Cisco-IOS-XR-lpts-ifib-oper" }
 
 // LptsIfib_Nodes
 // Node ifib database
 type LptsIfib_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per node slice . The type is slice of LptsIfib_Nodes_Node.
     Node []LptsIfib_Nodes_Node
 }
 
-func (nodes *LptsIfib_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *LptsIfib_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "lpts-ifib"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *LptsIfib_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *LptsIfib_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *LptsIfib_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *LptsIfib_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LptsIfib_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *LptsIfib_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *LptsIfib_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *LptsIfib_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *LptsIfib_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *LptsIfib_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *LptsIfib_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *LptsIfib_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *LptsIfib_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *LptsIfib_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *LptsIfib_Nodes) GetParentYangName() string { return "lpts-ifib" }
 
 // LptsIfib_Nodes_Node
 // Per node slice 
 type LptsIfib_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Slice specific.
     SliceIds LptsIfib_Nodes_Node_SliceIds
 }
 
-func (node *LptsIfib_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *LptsIfib_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *LptsIfib_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *LptsIfib_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "slice-ids" { return "SliceIds" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["slice-ids"] = types.YChild{"SliceIds", &node.SliceIds}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *LptsIfib_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *LptsIfib_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slice-ids" {
-        return &node.SliceIds
-    }
-    return nil
-}
-
-func (node *LptsIfib_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["slice-ids"] = &node.SliceIds
-    return children
-}
-
-func (node *LptsIfib_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *LptsIfib_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *LptsIfib_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *LptsIfib_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *LptsIfib_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *LptsIfib_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *LptsIfib_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *LptsIfib_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *LptsIfib_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // LptsIfib_Nodes_Node_SliceIds
 // Slice specific
 type LptsIfib_Nodes_Node_SliceIds struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // slice types. The type is slice of LptsIfib_Nodes_Node_SliceIds_SliceId.
     SliceId []LptsIfib_Nodes_Node_SliceIds_SliceId
 }
 
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetFilter() yfilter.YFilter { return sliceIds.YFilter }
+func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetEntityData() *types.CommonEntityData {
+    sliceIds.EntityData.YFilter = sliceIds.YFilter
+    sliceIds.EntityData.YangName = "slice-ids"
+    sliceIds.EntityData.BundleName = "cisco_ios_xr"
+    sliceIds.EntityData.ParentYangName = "node"
+    sliceIds.EntityData.SegmentPath = "slice-ids"
+    sliceIds.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sliceIds.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sliceIds.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) SetFilter(yf yfilter.YFilter) { sliceIds.YFilter = yf }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetGoName(yname string) string {
-    if yname == "slice-id" { return "SliceId" }
-    return ""
-}
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetSegmentPath() string {
-    return "slice-ids"
-}
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slice-id" {
-        for _, c := range sliceIds.SliceId {
-            if sliceIds.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LptsIfib_Nodes_Node_SliceIds_SliceId{}
-        sliceIds.SliceId = append(sliceIds.SliceId, child)
-        return &sliceIds.SliceId[len(sliceIds.SliceId)-1]
-    }
-    return nil
-}
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sliceIds.EntityData.Children = make(map[string]types.YChild)
+    sliceIds.EntityData.Children["slice-id"] = types.YChild{"SliceId", nil}
     for i := range sliceIds.SliceId {
-        children[sliceIds.SliceId[i].GetSegmentPath()] = &sliceIds.SliceId[i]
+        sliceIds.EntityData.Children[types.GetSegmentPath(&sliceIds.SliceId[i])] = types.YChild{"SliceId", &sliceIds.SliceId[i]}
     }
-    return children
+    sliceIds.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sliceIds.EntityData)
 }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetYangName() string { return "slice-ids" }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) SetParent(parent types.Entity) { sliceIds.parent = parent }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetParent() types.Entity { return sliceIds.parent }
-
-func (sliceIds *LptsIfib_Nodes_Node_SliceIds) GetParentYangName() string { return "node" }
 
 // LptsIfib_Nodes_Node_SliceIds_SliceId
 // slice types
 type LptsIfib_Nodes_Node_SliceIds_SliceId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Type value. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SliceName interface{}
 
     // Data for single pre-ifib entry. The type is slice of
@@ -299,70 +154,30 @@ type LptsIfib_Nodes_Node_SliceIds_SliceId struct {
     Entry []LptsIfib_Nodes_Node_SliceIds_SliceId_Entry
 }
 
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetFilter() yfilter.YFilter { return sliceId.YFilter }
+func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetEntityData() *types.CommonEntityData {
+    sliceId.EntityData.YFilter = sliceId.YFilter
+    sliceId.EntityData.YangName = "slice-id"
+    sliceId.EntityData.BundleName = "cisco_ios_xr"
+    sliceId.EntityData.ParentYangName = "slice-ids"
+    sliceId.EntityData.SegmentPath = "slice-id" + "[slice-name='" + fmt.Sprintf("%v", sliceId.SliceName) + "']"
+    sliceId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sliceId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sliceId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) SetFilter(yf yfilter.YFilter) { sliceId.YFilter = yf }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetGoName(yname string) string {
-    if yname == "slice-name" { return "SliceName" }
-    if yname == "entry" { return "Entry" }
-    return ""
-}
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetSegmentPath() string {
-    return "slice-id" + "[slice-name='" + fmt.Sprintf("%v", sliceId.SliceName) + "']"
-}
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "entry" {
-        for _, c := range sliceId.Entry {
-            if sliceId.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := LptsIfib_Nodes_Node_SliceIds_SliceId_Entry{}
-        sliceId.Entry = append(sliceId.Entry, child)
-        return &sliceId.Entry[len(sliceId.Entry)-1]
-    }
-    return nil
-}
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    sliceId.EntityData.Children = make(map[string]types.YChild)
+    sliceId.EntityData.Children["entry"] = types.YChild{"Entry", nil}
     for i := range sliceId.Entry {
-        children[sliceId.Entry[i].GetSegmentPath()] = &sliceId.Entry[i]
+        sliceId.EntityData.Children[types.GetSegmentPath(&sliceId.Entry[i])] = types.YChild{"Entry", &sliceId.Entry[i]}
     }
-    return children
+    sliceId.EntityData.Leafs = make(map[string]types.YLeaf)
+    sliceId.EntityData.Leafs["slice-name"] = types.YLeaf{"SliceName", sliceId.SliceName}
+    return &(sliceId.EntityData)
 }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slice-name"] = sliceId.SliceName
-    return leafs
-}
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetYangName() string { return "slice-id" }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) SetParent(parent types.Entity) { sliceId.parent = parent }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetParent() types.Entity { return sliceId.parent }
-
-func (sliceId *LptsIfib_Nodes_Node_SliceIds_SliceId) GetParentYangName() string { return "slice-ids" }
 
 // LptsIfib_Nodes_Node_SliceIds_SliceId_Entry
 // Data for single pre-ifib entry
 type LptsIfib_Nodes_Node_SliceIds_SliceId_Entry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Single Pre-ifib entry. The type is interface{}
@@ -448,99 +263,44 @@ type LptsIfib_Nodes_Node_SliceIds_SliceId_Entry struct {
     IfibProgramTime interface{}
 }
 
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetFilter() yfilter.YFilter { return entry.YFilter }
+func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetEntityData() *types.CommonEntityData {
+    entry.EntityData.YFilter = entry.YFilter
+    entry.EntityData.YangName = "entry"
+    entry.EntityData.BundleName = "cisco_ios_xr"
+    entry.EntityData.ParentYangName = "slice-id"
+    entry.EntityData.SegmentPath = "entry" + "[entry='" + fmt.Sprintf("%v", entry.Entry) + "']"
+    entry.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    entry.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    entry.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) SetFilter(yf yfilter.YFilter) { entry.YFilter = yf }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetGoName(yname string) string {
-    if yname == "entry" { return "Entry" }
-    if yname == "destination-type" { return "DestinationType" }
-    if yname == "destination-value" { return "DestinationValue" }
-    if yname == "source-port" { return "SourcePort" }
-    if yname == "destination-addr" { return "DestinationAddr" }
-    if yname == "source-addr" { return "SourceAddr" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "vid" { return "Vid" }
-    if yname == "l3protocol" { return "L3Protocol" }
-    if yname == "l4protocol" { return "L4Protocol" }
-    if yname == "intf-name" { return "IntfName" }
-    if yname == "intf-handle" { return "IntfHandle" }
-    if yname == "is-syn" { return "IsSyn" }
-    if yname == "opcode" { return "Opcode" }
-    if yname == "accepts" { return "Accepts" }
-    if yname == "drops" { return "Drops" }
-    if yname == "flow-type" { return "FlowType" }
-    if yname == "listener-tag" { return "ListenerTag" }
-    if yname == "local-flag" { return "LocalFlag" }
-    if yname == "is-fgid" { return "IsFgid" }
-    if yname == "deliver-list-short" { return "DeliverListShort" }
-    if yname == "deliver-list-long" { return "DeliverListLong" }
-    if yname == "min-ttl" { return "MinTtl" }
-    if yname == "pending-ifibq-delay" { return "PendingIfibqDelay" }
-    if yname == "sl-ifibq-delay" { return "SlIfibqDelay" }
-    if yname == "ifib-program-time" { return "IfibProgramTime" }
-    return ""
+    entry.EntityData.Children = make(map[string]types.YChild)
+    entry.EntityData.Leafs = make(map[string]types.YLeaf)
+    entry.EntityData.Leafs["entry"] = types.YLeaf{"Entry", entry.Entry}
+    entry.EntityData.Leafs["destination-type"] = types.YLeaf{"DestinationType", entry.DestinationType}
+    entry.EntityData.Leafs["destination-value"] = types.YLeaf{"DestinationValue", entry.DestinationValue}
+    entry.EntityData.Leafs["source-port"] = types.YLeaf{"SourcePort", entry.SourcePort}
+    entry.EntityData.Leafs["destination-addr"] = types.YLeaf{"DestinationAddr", entry.DestinationAddr}
+    entry.EntityData.Leafs["source-addr"] = types.YLeaf{"SourceAddr", entry.SourceAddr}
+    entry.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", entry.VrfName}
+    entry.EntityData.Leafs["vid"] = types.YLeaf{"Vid", entry.Vid}
+    entry.EntityData.Leafs["l3protocol"] = types.YLeaf{"L3Protocol", entry.L3Protocol}
+    entry.EntityData.Leafs["l4protocol"] = types.YLeaf{"L4Protocol", entry.L4Protocol}
+    entry.EntityData.Leafs["intf-name"] = types.YLeaf{"IntfName", entry.IntfName}
+    entry.EntityData.Leafs["intf-handle"] = types.YLeaf{"IntfHandle", entry.IntfHandle}
+    entry.EntityData.Leafs["is-syn"] = types.YLeaf{"IsSyn", entry.IsSyn}
+    entry.EntityData.Leafs["opcode"] = types.YLeaf{"Opcode", entry.Opcode}
+    entry.EntityData.Leafs["accepts"] = types.YLeaf{"Accepts", entry.Accepts}
+    entry.EntityData.Leafs["drops"] = types.YLeaf{"Drops", entry.Drops}
+    entry.EntityData.Leafs["flow-type"] = types.YLeaf{"FlowType", entry.FlowType}
+    entry.EntityData.Leafs["listener-tag"] = types.YLeaf{"ListenerTag", entry.ListenerTag}
+    entry.EntityData.Leafs["local-flag"] = types.YLeaf{"LocalFlag", entry.LocalFlag}
+    entry.EntityData.Leafs["is-fgid"] = types.YLeaf{"IsFgid", entry.IsFgid}
+    entry.EntityData.Leafs["deliver-list-short"] = types.YLeaf{"DeliverListShort", entry.DeliverListShort}
+    entry.EntityData.Leafs["deliver-list-long"] = types.YLeaf{"DeliverListLong", entry.DeliverListLong}
+    entry.EntityData.Leafs["min-ttl"] = types.YLeaf{"MinTtl", entry.MinTtl}
+    entry.EntityData.Leafs["pending-ifibq-delay"] = types.YLeaf{"PendingIfibqDelay", entry.PendingIfibqDelay}
+    entry.EntityData.Leafs["sl-ifibq-delay"] = types.YLeaf{"SlIfibqDelay", entry.SlIfibqDelay}
+    entry.EntityData.Leafs["ifib-program-time"] = types.YLeaf{"IfibProgramTime", entry.IfibProgramTime}
+    return &(entry.EntityData)
 }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetSegmentPath() string {
-    return "entry" + "[entry='" + fmt.Sprintf("%v", entry.Entry) + "']"
-}
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entry"] = entry.Entry
-    leafs["destination-type"] = entry.DestinationType
-    leafs["destination-value"] = entry.DestinationValue
-    leafs["source-port"] = entry.SourcePort
-    leafs["destination-addr"] = entry.DestinationAddr
-    leafs["source-addr"] = entry.SourceAddr
-    leafs["vrf-name"] = entry.VrfName
-    leafs["vid"] = entry.Vid
-    leafs["l3protocol"] = entry.L3Protocol
-    leafs["l4protocol"] = entry.L4Protocol
-    leafs["intf-name"] = entry.IntfName
-    leafs["intf-handle"] = entry.IntfHandle
-    leafs["is-syn"] = entry.IsSyn
-    leafs["opcode"] = entry.Opcode
-    leafs["accepts"] = entry.Accepts
-    leafs["drops"] = entry.Drops
-    leafs["flow-type"] = entry.FlowType
-    leafs["listener-tag"] = entry.ListenerTag
-    leafs["local-flag"] = entry.LocalFlag
-    leafs["is-fgid"] = entry.IsFgid
-    leafs["deliver-list-short"] = entry.DeliverListShort
-    leafs["deliver-list-long"] = entry.DeliverListLong
-    leafs["min-ttl"] = entry.MinTtl
-    leafs["pending-ifibq-delay"] = entry.PendingIfibqDelay
-    leafs["sl-ifibq-delay"] = entry.SlIfibqDelay
-    leafs["ifib-program-time"] = entry.IfibProgramTime
-    return leafs
-}
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetBundleName() string { return "cisco_ios_xr" }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetYangName() string { return "entry" }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) SetParent(parent types.Entity) { entry.parent = parent }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetParent() types.Entity { return entry.parent }
-
-func (entry *LptsIfib_Nodes_Node_SliceIds_SliceId_Entry) GetParentYangName() string { return "slice-id" }
 

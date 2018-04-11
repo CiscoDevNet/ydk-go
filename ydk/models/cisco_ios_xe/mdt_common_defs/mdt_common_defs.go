@@ -24,6 +24,13 @@ const (
     // A limited set of the Xpath 1.0 expressions is
     // supported.
     MdtSubFilterType_sub_filter_type_xpath MdtSubFilterType = "sub-filter-type-xpath"
+
+    // TDL-URI defining the data items of interest.
+    MdtSubFilterType_sub_filter_type_tdl_uri MdtSubFilterType = "sub-filter-type-tdl-uri"
+
+    // tdl-transform define transform scheme 
+    // to be subscribed.
+    MdtSubFilterType_sub_filter_type_tdl_transform MdtSubFilterType = "sub-filter-type-tdl-transform"
 )
 
 // MdtSubUpdateTrigger represents Types of subscription update triggers.

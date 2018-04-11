@@ -19,6 +19,19 @@ func init() {
     ydk.RegisterEntity("openconfig-lacp:lacp", reflect.TypeOf(Lacp{}))
 }
 
+// LacpActivityType represents interface in the aggregate
+type LacpActivityType string
+
+const (
+    // Interface is an active member, i.e., will detect and
+    // maintain aggregates
+    LacpActivityType_ACTIVE LacpActivityType = "ACTIVE"
+
+    // Interface is a passive member, i.e., it participates
+    // with an active partner
+    LacpActivityType_PASSIVE LacpActivityType = "PASSIVE"
+)
+
 // LacpTimeoutType represents Type of timeout used, short or long, by LACP participants
 type LacpTimeoutType string
 
@@ -34,30 +47,6 @@ const (
     LacpTimeoutType_SHORT LacpTimeoutType = "SHORT"
 )
 
-// LacpPeriodType represents LACP messages
-type LacpPeriodType string
-
-const (
-    // Send LACP packets every second
-    LacpPeriodType_FAST LacpPeriodType = "FAST"
-
-    // Send LACP packets every 30 seconds
-    LacpPeriodType_SLOW LacpPeriodType = "SLOW"
-)
-
-// LacpActivityType represents interface in the aggregate
-type LacpActivityType string
-
-const (
-    // Interface is an active member, i.e., will detect and
-    // maintain aggregates
-    LacpActivityType_ACTIVE LacpActivityType = "ACTIVE"
-
-    // Interface is a passive member, i.e., it participates
-    // with an active partner
-    LacpActivityType_PASSIVE LacpActivityType = "PASSIVE"
-)
-
 // LacpSynchronizationType represents Indicates LACP synchronization state of participant
 type LacpSynchronizationType string
 
@@ -71,11 +60,22 @@ const (
     LacpSynchronizationType_OUT_SYNC LacpSynchronizationType = "OUT_SYNC"
 )
 
+// LacpPeriodType represents LACP messages
+type LacpPeriodType string
+
+const (
+    // Send LACP packets every second
+    LacpPeriodType_FAST LacpPeriodType = "FAST"
+
+    // Send LACP packets every 30 seconds
+    LacpPeriodType_SLOW LacpPeriodType = "SLOW"
+)
+
 // Lacp
 // Configuration and operational state data for LACP protocol
 // operation on the aggregate interface
 type Lacp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Configuration data for LACP.
@@ -88,69 +88,28 @@ type Lacp struct {
     Interfaces Lacp_Interfaces
 }
 
-func (lacp *Lacp) GetFilter() yfilter.YFilter { return lacp.YFilter }
+func (lacp *Lacp) GetEntityData() *types.CommonEntityData {
+    lacp.EntityData.YFilter = lacp.YFilter
+    lacp.EntityData.YangName = "lacp"
+    lacp.EntityData.BundleName = "openconfig"
+    lacp.EntityData.ParentYangName = "openconfig-lacp"
+    lacp.EntityData.SegmentPath = "openconfig-lacp:lacp"
+    lacp.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    lacp.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    lacp.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (lacp *Lacp) SetFilter(yf yfilter.YFilter) { lacp.YFilter = yf }
-
-func (lacp *Lacp) GetGoName(yname string) string {
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    if yname == "interfaces" { return "Interfaces" }
-    return ""
+    lacp.EntityData.Children = make(map[string]types.YChild)
+    lacp.EntityData.Children["config"] = types.YChild{"Config", &lacp.Config}
+    lacp.EntityData.Children["state"] = types.YChild{"State", &lacp.State}
+    lacp.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &lacp.Interfaces}
+    lacp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lacp.EntityData)
 }
-
-func (lacp *Lacp) GetSegmentPath() string {
-    return "openconfig-lacp:lacp"
-}
-
-func (lacp *Lacp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &lacp.Config
-    }
-    if childYangName == "state" {
-        return &lacp.State
-    }
-    if childYangName == "interfaces" {
-        return &lacp.Interfaces
-    }
-    return nil
-}
-
-func (lacp *Lacp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &lacp.Config
-    children["state"] = &lacp.State
-    children["interfaces"] = &lacp.Interfaces
-    return children
-}
-
-func (lacp *Lacp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lacp *Lacp) GetBundleName() string { return "openconfig" }
-
-func (lacp *Lacp) GetYangName() string { return "lacp" }
-
-func (lacp *Lacp) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (lacp *Lacp) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (lacp *Lacp) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (lacp *Lacp) SetParent(parent types.Entity) { lacp.parent = parent }
-
-func (lacp *Lacp) GetParent() types.Entity { return lacp.parent }
-
-func (lacp *Lacp) GetParentYangName() string { return "openconfig-lacp" }
 
 // Lacp_Config
 // Configuration data for LACP
 type Lacp_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sytem priority used by the node on this LAG interface. Lower value is
@@ -159,56 +118,26 @@ type Lacp_Config struct {
     SystemPriority interface{}
 }
 
-func (config *Lacp_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *Lacp_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "lacp"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *Lacp_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *Lacp_Config) GetGoName(yname string) string {
-    if yname == "system-priority" { return "SystemPriority" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs["system-priority"] = types.YLeaf{"SystemPriority", config.SystemPriority}
+    return &(config.EntityData)
 }
-
-func (config *Lacp_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *Lacp_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *Lacp_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *Lacp_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["system-priority"] = config.SystemPriority
-    return leafs
-}
-
-func (config *Lacp_Config) GetBundleName() string { return "openconfig" }
-
-func (config *Lacp_Config) GetYangName() string { return "config" }
-
-func (config *Lacp_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *Lacp_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *Lacp_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *Lacp_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *Lacp_Config) GetParent() types.Entity { return config.parent }
-
-func (config *Lacp_Config) GetParentYangName() string { return "lacp" }
 
 // Lacp_State
 // Operational state data for LACP
 type Lacp_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Sytem priority used by the node on this LAG interface. Lower value is
@@ -217,126 +146,57 @@ type Lacp_State struct {
     SystemPriority interface{}
 }
 
-func (state *Lacp_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *Lacp_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "lacp"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *Lacp_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *Lacp_State) GetGoName(yname string) string {
-    if yname == "system-priority" { return "SystemPriority" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["system-priority"] = types.YLeaf{"SystemPriority", state.SystemPriority}
+    return &(state.EntityData)
 }
-
-func (state *Lacp_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *Lacp_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *Lacp_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *Lacp_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["system-priority"] = state.SystemPriority
-    return leafs
-}
-
-func (state *Lacp_State) GetBundleName() string { return "openconfig" }
-
-func (state *Lacp_State) GetYangName() string { return "state" }
-
-func (state *Lacp_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *Lacp_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *Lacp_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *Lacp_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *Lacp_State) GetParent() types.Entity { return state.parent }
-
-func (state *Lacp_State) GetParentYangName() string { return "lacp" }
 
 // Lacp_Interfaces
 // Enclosing container for the list of LACP-enabled
 // interfaces
 type Lacp_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of aggregate interfaces managed by LACP. The type is slice of
-    // Lacp_Interfaces_Interface.
-    Interface []Lacp_Interfaces_Interface
+    // Lacp_Interfaces_Interface_.
+    Interface_ []Lacp_Interfaces_Interface
 }
 
-func (interfaces *Lacp_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *Lacp_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "openconfig"
+    interfaces.EntityData.ParentYangName = "lacp"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (interfaces *Lacp_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *Lacp_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *Lacp_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *Lacp_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Lacp_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *Lacp_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *Lacp_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *Lacp_Interfaces) GetBundleName() string { return "openconfig" }
-
-func (interfaces *Lacp_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *Lacp_Interfaces) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (interfaces *Lacp_Interfaces) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (interfaces *Lacp_Interfaces) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (interfaces *Lacp_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *Lacp_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *Lacp_Interfaces) GetParentYangName() string { return "lacp" }
 
 // Lacp_Interfaces_Interface
 // List of aggregate interfaces managed by LACP
 type Lacp_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Reference to the list key. The type is string.
@@ -355,71 +215,29 @@ type Lacp_Interfaces_Interface struct {
     Members Lacp_Interfaces_Interface_Members
 }
 
-func (self *Lacp_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *Lacp_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "openconfig"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
+    self.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    self.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (self *Lacp_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *Lacp_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "config" { return "Config" }
-    if yname == "state" { return "State" }
-    if yname == "members" { return "Members" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["config"] = types.YChild{"Config", &self.Config}
+    self.EntityData.Children["state"] = types.YChild{"State", &self.State}
+    self.EntityData.Children["members"] = types.YChild{"Members", &self.Members}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["name"] = types.YLeaf{"Name", self.Name}
+    return &(self.EntityData)
 }
-
-func (self *Lacp_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[name='" + fmt.Sprintf("%v", self.Name) + "']"
-}
-
-func (self *Lacp_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "config" {
-        return &self.Config
-    }
-    if childYangName == "state" {
-        return &self.State
-    }
-    if childYangName == "members" {
-        return &self.Members
-    }
-    return nil
-}
-
-func (self *Lacp_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["config"] = &self.Config
-    children["state"] = &self.State
-    children["members"] = &self.Members
-    return children
-}
-
-func (self *Lacp_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = self.Name
-    return leafs
-}
-
-func (self *Lacp_Interfaces_Interface) GetBundleName() string { return "openconfig" }
-
-func (self *Lacp_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *Lacp_Interfaces_Interface) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (self *Lacp_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (self *Lacp_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (self *Lacp_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *Lacp_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *Lacp_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // Lacp_Interfaces_Interface_Config
 // Configuration data for each LACP aggregate interface
 type Lacp_Interfaces_Interface_Config struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reference to the interface on which LACP should be configured.   The type
@@ -438,7 +256,7 @@ type Lacp_Interfaces_Interface_Config struct {
 
     // The MAC address portion of the node's System ID. This is combined with the
     // system priority to construct the 8-octet system-id. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SystemIdMac interface{}
 
     // Sytem priority used by the node on this LAG interface. Lower value is
@@ -447,65 +265,31 @@ type Lacp_Interfaces_Interface_Config struct {
     SystemPriority interface{}
 }
 
-func (config *Lacp_Interfaces_Interface_Config) GetFilter() yfilter.YFilter { return config.YFilter }
+func (config *Lacp_Interfaces_Interface_Config) GetEntityData() *types.CommonEntityData {
+    config.EntityData.YFilter = config.YFilter
+    config.EntityData.YangName = "config"
+    config.EntityData.BundleName = "openconfig"
+    config.EntityData.ParentYangName = "interface"
+    config.EntityData.SegmentPath = "config"
+    config.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    config.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    config.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (config *Lacp_Interfaces_Interface_Config) SetFilter(yf yfilter.YFilter) { config.YFilter = yf }
-
-func (config *Lacp_Interfaces_Interface_Config) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "interval" { return "Interval" }
-    if yname == "lacp-mode" { return "LacpMode" }
-    if yname == "system-id-mac" { return "SystemIdMac" }
-    if yname == "system-priority" { return "SystemPriority" }
-    return ""
+    config.EntityData.Children = make(map[string]types.YChild)
+    config.EntityData.Leafs = make(map[string]types.YLeaf)
+    config.EntityData.Leafs["name"] = types.YLeaf{"Name", config.Name}
+    config.EntityData.Leafs["interval"] = types.YLeaf{"Interval", config.Interval}
+    config.EntityData.Leafs["lacp-mode"] = types.YLeaf{"LacpMode", config.LacpMode}
+    config.EntityData.Leafs["system-id-mac"] = types.YLeaf{"SystemIdMac", config.SystemIdMac}
+    config.EntityData.Leafs["system-priority"] = types.YLeaf{"SystemPriority", config.SystemPriority}
+    return &(config.EntityData)
 }
-
-func (config *Lacp_Interfaces_Interface_Config) GetSegmentPath() string {
-    return "config"
-}
-
-func (config *Lacp_Interfaces_Interface_Config) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (config *Lacp_Interfaces_Interface_Config) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (config *Lacp_Interfaces_Interface_Config) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = config.Name
-    leafs["interval"] = config.Interval
-    leafs["lacp-mode"] = config.LacpMode
-    leafs["system-id-mac"] = config.SystemIdMac
-    leafs["system-priority"] = config.SystemPriority
-    return leafs
-}
-
-func (config *Lacp_Interfaces_Interface_Config) GetBundleName() string { return "openconfig" }
-
-func (config *Lacp_Interfaces_Interface_Config) GetYangName() string { return "config" }
-
-func (config *Lacp_Interfaces_Interface_Config) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (config *Lacp_Interfaces_Interface_Config) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (config *Lacp_Interfaces_Interface_Config) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (config *Lacp_Interfaces_Interface_Config) SetParent(parent types.Entity) { config.parent = parent }
-
-func (config *Lacp_Interfaces_Interface_Config) GetParent() types.Entity { return config.parent }
-
-func (config *Lacp_Interfaces_Interface_Config) GetParentYangName() string { return "interface" }
 
 // Lacp_Interfaces_Interface_State
 // Operational state data for each LACP aggregate
 // interface
 type Lacp_Interfaces_Interface_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reference to the interface on which LACP should be configured.   The type
@@ -524,7 +308,7 @@ type Lacp_Interfaces_Interface_State struct {
 
     // The MAC address portion of the node's System ID. This is combined with the
     // system priority to construct the 8-octet system-id. The type is string with
-    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SystemIdMac interface{}
 
     // Sytem priority used by the node on this LAG interface. Lower value is
@@ -533,66 +317,32 @@ type Lacp_Interfaces_Interface_State struct {
     SystemPriority interface{}
 }
 
-func (state *Lacp_Interfaces_Interface_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *Lacp_Interfaces_Interface_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "interface"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *Lacp_Interfaces_Interface_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *Lacp_Interfaces_Interface_State) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "interval" { return "Interval" }
-    if yname == "lacp-mode" { return "LacpMode" }
-    if yname == "system-id-mac" { return "SystemIdMac" }
-    if yname == "system-priority" { return "SystemPriority" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["name"] = types.YLeaf{"Name", state.Name}
+    state.EntityData.Leafs["interval"] = types.YLeaf{"Interval", state.Interval}
+    state.EntityData.Leafs["lacp-mode"] = types.YLeaf{"LacpMode", state.LacpMode}
+    state.EntityData.Leafs["system-id-mac"] = types.YLeaf{"SystemIdMac", state.SystemIdMac}
+    state.EntityData.Leafs["system-priority"] = types.YLeaf{"SystemPriority", state.SystemPriority}
+    return &(state.EntityData)
 }
-
-func (state *Lacp_Interfaces_Interface_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *Lacp_Interfaces_Interface_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (state *Lacp_Interfaces_Interface_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (state *Lacp_Interfaces_Interface_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = state.Name
-    leafs["interval"] = state.Interval
-    leafs["lacp-mode"] = state.LacpMode
-    leafs["system-id-mac"] = state.SystemIdMac
-    leafs["system-priority"] = state.SystemPriority
-    return leafs
-}
-
-func (state *Lacp_Interfaces_Interface_State) GetBundleName() string { return "openconfig" }
-
-func (state *Lacp_Interfaces_Interface_State) GetYangName() string { return "state" }
-
-func (state *Lacp_Interfaces_Interface_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *Lacp_Interfaces_Interface_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *Lacp_Interfaces_Interface_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *Lacp_Interfaces_Interface_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *Lacp_Interfaces_Interface_State) GetParent() types.Entity { return state.parent }
-
-func (state *Lacp_Interfaces_Interface_State) GetParentYangName() string { return "interface" }
 
 // Lacp_Interfaces_Interface_Members
 // Enclosing container for the list of members interfaces of
 // the aggregate. This list is considered operational state
 // only so is labeled config false and has no config container
 type Lacp_Interfaces_Interface_Members struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of member interfaces and their associated status for a LACP-controlled
@@ -602,63 +352,24 @@ type Lacp_Interfaces_Interface_Members struct {
     Member []Lacp_Interfaces_Interface_Members_Member
 }
 
-func (members *Lacp_Interfaces_Interface_Members) GetFilter() yfilter.YFilter { return members.YFilter }
+func (members *Lacp_Interfaces_Interface_Members) GetEntityData() *types.CommonEntityData {
+    members.EntityData.YFilter = members.YFilter
+    members.EntityData.YangName = "members"
+    members.EntityData.BundleName = "openconfig"
+    members.EntityData.ParentYangName = "interface"
+    members.EntityData.SegmentPath = "members"
+    members.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    members.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    members.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (members *Lacp_Interfaces_Interface_Members) SetFilter(yf yfilter.YFilter) { members.YFilter = yf }
-
-func (members *Lacp_Interfaces_Interface_Members) GetGoName(yname string) string {
-    if yname == "member" { return "Member" }
-    return ""
-}
-
-func (members *Lacp_Interfaces_Interface_Members) GetSegmentPath() string {
-    return "members"
-}
-
-func (members *Lacp_Interfaces_Interface_Members) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "member" {
-        for _, c := range members.Member {
-            if members.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Lacp_Interfaces_Interface_Members_Member{}
-        members.Member = append(members.Member, child)
-        return &members.Member[len(members.Member)-1]
-    }
-    return nil
-}
-
-func (members *Lacp_Interfaces_Interface_Members) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    members.EntityData.Children = make(map[string]types.YChild)
+    members.EntityData.Children["member"] = types.YChild{"Member", nil}
     for i := range members.Member {
-        children[members.Member[i].GetSegmentPath()] = &members.Member[i]
+        members.EntityData.Children[types.GetSegmentPath(&members.Member[i])] = types.YChild{"Member", &members.Member[i]}
     }
-    return children
+    members.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(members.EntityData)
 }
-
-func (members *Lacp_Interfaces_Interface_Members) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (members *Lacp_Interfaces_Interface_Members) GetBundleName() string { return "openconfig" }
-
-func (members *Lacp_Interfaces_Interface_Members) GetYangName() string { return "members" }
-
-func (members *Lacp_Interfaces_Interface_Members) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (members *Lacp_Interfaces_Interface_Members) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (members *Lacp_Interfaces_Interface_Members) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (members *Lacp_Interfaces_Interface_Members) SetParent(parent types.Entity) { members.parent = parent }
-
-func (members *Lacp_Interfaces_Interface_Members) GetParent() types.Entity { return members.parent }
-
-func (members *Lacp_Interfaces_Interface_Members) GetParentYangName() string { return "interface" }
 
 // Lacp_Interfaces_Interface_Members_Member
 // List of member interfaces and their associated status for
@@ -666,78 +377,44 @@ func (members *Lacp_Interfaces_Interface_Members) GetParentYangName() string { r
 // configurable here -- each interface indicates items
 // its participation in the LAG.
 type Lacp_Interfaces_Interface_Members_Member struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Reference to aggregate member interface. The type
     // is string. Refers to
-    // lacp.Lacp_Interfaces_Interface_Members_Member_State_Interface
-    Interface interface{}
+    // lacp.Lacp_Interfaces_Interface_Members_Member_State_Interface_
+    Interface_ interface{}
 
     // Operational state data for aggregate members.
     State Lacp_Interfaces_Interface_Members_Member_State
 }
 
-func (member *Lacp_Interfaces_Interface_Members_Member) GetFilter() yfilter.YFilter { return member.YFilter }
+func (member *Lacp_Interfaces_Interface_Members_Member) GetEntityData() *types.CommonEntityData {
+    member.EntityData.YFilter = member.YFilter
+    member.EntityData.YangName = "member"
+    member.EntityData.BundleName = "openconfig"
+    member.EntityData.ParentYangName = "members"
+    member.EntityData.SegmentPath = "member" + "[interface='" + fmt.Sprintf("%v", member.Interface_) + "']"
+    member.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    member.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    member.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (member *Lacp_Interfaces_Interface_Members_Member) SetFilter(yf yfilter.YFilter) { member.YFilter = yf }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "state" { return "State" }
-    return ""
+    member.EntityData.Children = make(map[string]types.YChild)
+    member.EntityData.Children["state"] = types.YChild{"State", &member.State}
+    member.EntityData.Leafs = make(map[string]types.YLeaf)
+    member.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", member.Interface_}
+    return &(member.EntityData)
 }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetSegmentPath() string {
-    return "member" + "[interface='" + fmt.Sprintf("%v", member.Interface) + "']"
-}
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "state" {
-        return &member.State
-    }
-    return nil
-}
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["state"] = &member.State
-    return children
-}
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = member.Interface
-    return leafs
-}
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetBundleName() string { return "openconfig" }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetYangName() string { return "member" }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) SetParent(parent types.Entity) { member.parent = parent }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetParent() types.Entity { return member.parent }
-
-func (member *Lacp_Interfaces_Interface_Members_Member) GetParentYangName() string { return "members" }
 
 // Lacp_Interfaces_Interface_Members_Member_State
 // Operational state data for aggregate members
 type Lacp_Interfaces_Interface_Members_Member_State struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Reference to interface member of the LACP aggregate. The type is string.
     // Refers to interfaces.Interfaces_Interface_Name
-    Interface interface{}
+    Interface_ interface{}
 
     // Indicates participant is active or passive. The type is LacpActivityType.
     Activity interface{}
@@ -764,7 +441,7 @@ type Lacp_Interfaces_Interface_Members_Member_State struct {
     Distributing interface{}
 
     // MAC address that defines the local system ID for the aggregate interface.
-    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SystemId interface{}
 
     // Current operational value of the key for the aggregate interface. The type
@@ -772,7 +449,7 @@ type Lacp_Interfaces_Interface_Members_Member_State struct {
     OperKey interface{}
 
     // MAC address representing the protocol partner's interface system ID. The
-    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     PartnerId interface{}
 
     // Operational value of the protocol partner's key. The type is interface{}
@@ -783,81 +460,37 @@ type Lacp_Interfaces_Interface_Members_Member_State struct {
     Counters Lacp_Interfaces_Interface_Members_Member_State_Counters
 }
 
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetFilter() yfilter.YFilter { return state.YFilter }
+func (state *Lacp_Interfaces_Interface_Members_Member_State) GetEntityData() *types.CommonEntityData {
+    state.EntityData.YFilter = state.YFilter
+    state.EntityData.YangName = "state"
+    state.EntityData.BundleName = "openconfig"
+    state.EntityData.ParentYangName = "member"
+    state.EntityData.SegmentPath = "state"
+    state.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    state.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    state.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (state *Lacp_Interfaces_Interface_Members_Member_State) SetFilter(yf yfilter.YFilter) { state.YFilter = yf }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    if yname == "activity" { return "Activity" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "synchronization" { return "Synchronization" }
-    if yname == "aggregatable" { return "Aggregatable" }
-    if yname == "collecting" { return "Collecting" }
-    if yname == "distributing" { return "Distributing" }
-    if yname == "system-id" { return "SystemId" }
-    if yname == "oper-key" { return "OperKey" }
-    if yname == "partner-id" { return "PartnerId" }
-    if yname == "partner-key" { return "PartnerKey" }
-    if yname == "counters" { return "Counters" }
-    return ""
+    state.EntityData.Children = make(map[string]types.YChild)
+    state.EntityData.Children["counters"] = types.YChild{"Counters", &state.Counters}
+    state.EntityData.Leafs = make(map[string]types.YLeaf)
+    state.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", state.Interface_}
+    state.EntityData.Leafs["activity"] = types.YLeaf{"Activity", state.Activity}
+    state.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", state.Timeout}
+    state.EntityData.Leafs["synchronization"] = types.YLeaf{"Synchronization", state.Synchronization}
+    state.EntityData.Leafs["aggregatable"] = types.YLeaf{"Aggregatable", state.Aggregatable}
+    state.EntityData.Leafs["collecting"] = types.YLeaf{"Collecting", state.Collecting}
+    state.EntityData.Leafs["distributing"] = types.YLeaf{"Distributing", state.Distributing}
+    state.EntityData.Leafs["system-id"] = types.YLeaf{"SystemId", state.SystemId}
+    state.EntityData.Leafs["oper-key"] = types.YLeaf{"OperKey", state.OperKey}
+    state.EntityData.Leafs["partner-id"] = types.YLeaf{"PartnerId", state.PartnerId}
+    state.EntityData.Leafs["partner-key"] = types.YLeaf{"PartnerKey", state.PartnerKey}
+    return &(state.EntityData)
 }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetSegmentPath() string {
-    return "state"
-}
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "counters" {
-        return &state.Counters
-    }
-    return nil
-}
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["counters"] = &state.Counters
-    return children
-}
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface"] = state.Interface
-    leafs["activity"] = state.Activity
-    leafs["timeout"] = state.Timeout
-    leafs["synchronization"] = state.Synchronization
-    leafs["aggregatable"] = state.Aggregatable
-    leafs["collecting"] = state.Collecting
-    leafs["distributing"] = state.Distributing
-    leafs["system-id"] = state.SystemId
-    leafs["oper-key"] = state.OperKey
-    leafs["partner-id"] = state.PartnerId
-    leafs["partner-key"] = state.PartnerKey
-    return leafs
-}
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetBundleName() string { return "openconfig" }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetYangName() string { return "state" }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) SetParent(parent types.Entity) { state.parent = parent }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetParent() types.Entity { return state.parent }
-
-func (state *Lacp_Interfaces_Interface_Members_Member_State) GetParentYangName() string { return "member" }
 
 // Lacp_Interfaces_Interface_Members_Member_State_Counters
 // LACP protocol counters
 type Lacp_Interfaces_Interface_Members_Member_State_Counters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of LACPDUs received. The type is interface{} with range:
@@ -885,59 +518,24 @@ type Lacp_Interfaces_Interface_Members_Member_State_Counters struct {
     LacpErrors interface{}
 }
 
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetFilter() yfilter.YFilter { return counters.YFilter }
+func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetEntityData() *types.CommonEntityData {
+    counters.EntityData.YFilter = counters.YFilter
+    counters.EntityData.YangName = "counters"
+    counters.EntityData.BundleName = "openconfig"
+    counters.EntityData.ParentYangName = "state"
+    counters.EntityData.SegmentPath = "counters"
+    counters.EntityData.CapabilitiesTable = openconfig.GetCapabilities()
+    counters.EntityData.NamespaceTable = openconfig.GetNamespaces()
+    counters.EntityData.BundleYangModelsLocation = openconfig.GetModelsPath()
 
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) SetFilter(yf yfilter.YFilter) { counters.YFilter = yf }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetGoName(yname string) string {
-    if yname == "lacp-in-pkts" { return "LacpInPkts" }
-    if yname == "lacp-out-pkts" { return "LacpOutPkts" }
-    if yname == "lacp-rx-errors" { return "LacpRxErrors" }
-    if yname == "lacp-tx-errors" { return "LacpTxErrors" }
-    if yname == "lacp-unknown-errors" { return "LacpUnknownErrors" }
-    if yname == "lacp-errors" { return "LacpErrors" }
-    return ""
+    counters.EntityData.Children = make(map[string]types.YChild)
+    counters.EntityData.Leafs = make(map[string]types.YLeaf)
+    counters.EntityData.Leafs["lacp-in-pkts"] = types.YLeaf{"LacpInPkts", counters.LacpInPkts}
+    counters.EntityData.Leafs["lacp-out-pkts"] = types.YLeaf{"LacpOutPkts", counters.LacpOutPkts}
+    counters.EntityData.Leafs["lacp-rx-errors"] = types.YLeaf{"LacpRxErrors", counters.LacpRxErrors}
+    counters.EntityData.Leafs["lacp-tx-errors"] = types.YLeaf{"LacpTxErrors", counters.LacpTxErrors}
+    counters.EntityData.Leafs["lacp-unknown-errors"] = types.YLeaf{"LacpUnknownErrors", counters.LacpUnknownErrors}
+    counters.EntityData.Leafs["lacp-errors"] = types.YLeaf{"LacpErrors", counters.LacpErrors}
+    return &(counters.EntityData)
 }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetSegmentPath() string {
-    return "counters"
-}
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lacp-in-pkts"] = counters.LacpInPkts
-    leafs["lacp-out-pkts"] = counters.LacpOutPkts
-    leafs["lacp-rx-errors"] = counters.LacpRxErrors
-    leafs["lacp-tx-errors"] = counters.LacpTxErrors
-    leafs["lacp-unknown-errors"] = counters.LacpUnknownErrors
-    leafs["lacp-errors"] = counters.LacpErrors
-    return leafs
-}
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetBundleName() string { return "openconfig" }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetYangName() string { return "counters" }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetBundleYangModelsLocation() string { return openconfig.GetModelsPath() }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetCapabilitiesTable() map[string]string {
-    return openconfig.GetCapabilities() }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetNamespaceTable() map[string]string {
-    return openconfig.GetNamespaces() }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) SetParent(parent types.Entity) { counters.parent = parent }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetParent() types.Entity { return counters.parent }
-
-func (counters *Lacp_Interfaces_Interface_Members_Member_State_Counters) GetParentYangName() string { return "state" }
 

@@ -27,138 +27,66 @@ func init() {
 // Diag
 // Diag information
 type Diag struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of racks.
     Racks Diag_Racks
 }
 
-func (diag *Diag) GetFilter() yfilter.YFilter { return diag.YFilter }
+func (diag *Diag) GetEntityData() *types.CommonEntityData {
+    diag.EntityData.YFilter = diag.YFilter
+    diag.EntityData.YangName = "diag"
+    diag.EntityData.BundleName = "cisco_ios_xr"
+    diag.EntityData.ParentYangName = "Cisco-IOS-XR-sdr-invmgr-diag-oper"
+    diag.EntityData.SegmentPath = "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag"
+    diag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    diag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    diag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (diag *Diag) SetFilter(yf yfilter.YFilter) { diag.YFilter = yf }
-
-func (diag *Diag) GetGoName(yname string) string {
-    if yname == "racks" { return "Racks" }
-    return ""
+    diag.EntityData.Children = make(map[string]types.YChild)
+    diag.EntityData.Children["racks"] = types.YChild{"Racks", &diag.Racks}
+    diag.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(diag.EntityData)
 }
-
-func (diag *Diag) GetSegmentPath() string {
-    return "Cisco-IOS-XR-sdr-invmgr-diag-oper:diag"
-}
-
-func (diag *Diag) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "racks" {
-        return &diag.Racks
-    }
-    return nil
-}
-
-func (diag *Diag) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["racks"] = &diag.Racks
-    return children
-}
-
-func (diag *Diag) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (diag *Diag) GetBundleName() string { return "cisco_ios_xr" }
-
-func (diag *Diag) GetYangName() string { return "diag" }
-
-func (diag *Diag) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (diag *Diag) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (diag *Diag) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (diag *Diag) SetParent(parent types.Entity) { diag.parent = parent }
-
-func (diag *Diag) GetParent() types.Entity { return diag.parent }
-
-func (diag *Diag) GetParentYangName() string { return "Cisco-IOS-XR-sdr-invmgr-diag-oper" }
 
 // Diag_Racks
 // Table of racks
 type Diag_Racks struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Rack name. The type is slice of Diag_Racks_Rack.
     Rack []Diag_Racks_Rack
 }
 
-func (racks *Diag_Racks) GetFilter() yfilter.YFilter { return racks.YFilter }
+func (racks *Diag_Racks) GetEntityData() *types.CommonEntityData {
+    racks.EntityData.YFilter = racks.YFilter
+    racks.EntityData.YangName = "racks"
+    racks.EntityData.BundleName = "cisco_ios_xr"
+    racks.EntityData.ParentYangName = "diag"
+    racks.EntityData.SegmentPath = "racks"
+    racks.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    racks.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    racks.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (racks *Diag_Racks) SetFilter(yf yfilter.YFilter) { racks.YFilter = yf }
-
-func (racks *Diag_Racks) GetGoName(yname string) string {
-    if yname == "rack" { return "Rack" }
-    return ""
-}
-
-func (racks *Diag_Racks) GetSegmentPath() string {
-    return "racks"
-}
-
-func (racks *Diag_Racks) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rack" {
-        for _, c := range racks.Rack {
-            if racks.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack{}
-        racks.Rack = append(racks.Rack, child)
-        return &racks.Rack[len(racks.Rack)-1]
-    }
-    return nil
-}
-
-func (racks *Diag_Racks) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    racks.EntityData.Children = make(map[string]types.YChild)
+    racks.EntityData.Children["rack"] = types.YChild{"Rack", nil}
     for i := range racks.Rack {
-        children[racks.Rack[i].GetSegmentPath()] = &racks.Rack[i]
+        racks.EntityData.Children[types.GetSegmentPath(&racks.Rack[i])] = types.YChild{"Rack", &racks.Rack[i]}
     }
-    return children
+    racks.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(racks.EntityData)
 }
-
-func (racks *Diag_Racks) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (racks *Diag_Racks) GetBundleName() string { return "cisco_ios_xr" }
-
-func (racks *Diag_Racks) GetYangName() string { return "racks" }
-
-func (racks *Diag_Racks) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (racks *Diag_Racks) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (racks *Diag_Racks) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (racks *Diag_Racks) SetParent(parent types.Entity) { racks.parent = parent }
-
-func (racks *Diag_Racks) GetParent() types.Entity { return racks.parent }
-
-func (racks *Diag_Racks) GetParentYangName() string { return "diag" }
 
 // Diag_Racks_Rack
 // Rack name
 type Diag_Racks_Rack struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     RackName interface{}
 
     // Table for rack power shelf .
@@ -174,76 +102,30 @@ type Diag_Racks_Rack struct {
     Chassis Diag_Racks_Rack_Chassis
 }
 
-func (rack *Diag_Racks_Rack) GetFilter() yfilter.YFilter { return rack.YFilter }
+func (rack *Diag_Racks_Rack) GetEntityData() *types.CommonEntityData {
+    rack.EntityData.YFilter = rack.YFilter
+    rack.EntityData.YangName = "rack"
+    rack.EntityData.BundleName = "cisco_ios_xr"
+    rack.EntityData.ParentYangName = "racks"
+    rack.EntityData.SegmentPath = "rack" + "[rack-name='" + fmt.Sprintf("%v", rack.RackName) + "']"
+    rack.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rack.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rack.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rack *Diag_Racks_Rack) SetFilter(yf yfilter.YFilter) { rack.YFilter = yf }
-
-func (rack *Diag_Racks_Rack) GetGoName(yname string) string {
-    if yname == "rack-name" { return "RackName" }
-    if yname == "power-shelfs" { return "PowerShelfs" }
-    if yname == "fan-traies" { return "FanTraies" }
-    if yname == "slots" { return "Slots" }
-    if yname == "chassis" { return "Chassis" }
-    return ""
+    rack.EntityData.Children = make(map[string]types.YChild)
+    rack.EntityData.Children["power-shelfs"] = types.YChild{"PowerShelfs", &rack.PowerShelfs}
+    rack.EntityData.Children["fan-traies"] = types.YChild{"FanTraies", &rack.FanTraies}
+    rack.EntityData.Children["slots"] = types.YChild{"Slots", &rack.Slots}
+    rack.EntityData.Children["chassis"] = types.YChild{"Chassis", &rack.Chassis}
+    rack.EntityData.Leafs = make(map[string]types.YLeaf)
+    rack.EntityData.Leafs["rack-name"] = types.YLeaf{"RackName", rack.RackName}
+    return &(rack.EntityData)
 }
-
-func (rack *Diag_Racks_Rack) GetSegmentPath() string {
-    return "rack" + "[rack-name='" + fmt.Sprintf("%v", rack.RackName) + "']"
-}
-
-func (rack *Diag_Racks_Rack) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "power-shelfs" {
-        return &rack.PowerShelfs
-    }
-    if childYangName == "fan-traies" {
-        return &rack.FanTraies
-    }
-    if childYangName == "slots" {
-        return &rack.Slots
-    }
-    if childYangName == "chassis" {
-        return &rack.Chassis
-    }
-    return nil
-}
-
-func (rack *Diag_Racks_Rack) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["power-shelfs"] = &rack.PowerShelfs
-    children["fan-traies"] = &rack.FanTraies
-    children["slots"] = &rack.Slots
-    children["chassis"] = &rack.Chassis
-    return children
-}
-
-func (rack *Diag_Racks_Rack) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["rack-name"] = rack.RackName
-    return leafs
-}
-
-func (rack *Diag_Racks_Rack) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rack *Diag_Racks_Rack) GetYangName() string { return "rack" }
-
-func (rack *Diag_Racks_Rack) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rack *Diag_Racks_Rack) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rack *Diag_Racks_Rack) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rack *Diag_Racks_Rack) SetParent(parent types.Entity) { rack.parent = parent }
-
-func (rack *Diag_Racks_Rack) GetParent() types.Entity { return rack.parent }
-
-func (rack *Diag_Racks_Rack) GetParentYangName() string { return "racks" }
 
 // Diag_Racks_Rack_PowerShelfs
 // Table for rack power shelf 
 type Diag_Racks_Rack_PowerShelfs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Power shelf name. The type is slice of
@@ -251,133 +133,60 @@ type Diag_Racks_Rack_PowerShelfs struct {
     PowerShelf []Diag_Racks_Rack_PowerShelfs_PowerShelf
 }
 
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetFilter() yfilter.YFilter { return powerShelfs.YFilter }
+func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetEntityData() *types.CommonEntityData {
+    powerShelfs.EntityData.YFilter = powerShelfs.YFilter
+    powerShelfs.EntityData.YangName = "power-shelfs"
+    powerShelfs.EntityData.BundleName = "cisco_ios_xr"
+    powerShelfs.EntityData.ParentYangName = "rack"
+    powerShelfs.EntityData.SegmentPath = "power-shelfs"
+    powerShelfs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerShelfs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerShelfs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) SetFilter(yf yfilter.YFilter) { powerShelfs.YFilter = yf }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetGoName(yname string) string {
-    if yname == "power-shelf" { return "PowerShelf" }
-    return ""
-}
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetSegmentPath() string {
-    return "power-shelfs"
-}
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "power-shelf" {
-        for _, c := range powerShelfs.PowerShelf {
-            if powerShelfs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack_PowerShelfs_PowerShelf{}
-        powerShelfs.PowerShelf = append(powerShelfs.PowerShelf, child)
-        return &powerShelfs.PowerShelf[len(powerShelfs.PowerShelf)-1]
-    }
-    return nil
-}
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    powerShelfs.EntityData.Children = make(map[string]types.YChild)
+    powerShelfs.EntityData.Children["power-shelf"] = types.YChild{"PowerShelf", nil}
     for i := range powerShelfs.PowerShelf {
-        children[powerShelfs.PowerShelf[i].GetSegmentPath()] = &powerShelfs.PowerShelf[i]
+        powerShelfs.EntityData.Children[types.GetSegmentPath(&powerShelfs.PowerShelf[i])] = types.YChild{"PowerShelf", &powerShelfs.PowerShelf[i]}
     }
-    return children
+    powerShelfs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(powerShelfs.EntityData)
 }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetYangName() string { return "power-shelfs" }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) SetParent(parent types.Entity) { powerShelfs.parent = parent }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetParent() types.Entity { return powerShelfs.parent }
-
-func (powerShelfs *Diag_Racks_Rack_PowerShelfs) GetParentYangName() string { return "rack" }
 
 // Diag_Racks_Rack_PowerShelfs_PowerShelf
 // Power shelf name
 type Diag_Racks_Rack_PowerShelfs_PowerShelf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Power Shelf name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PowerShelfName interface{}
 
     // Table for rack power supply .
     PowerSupplies Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies
 }
 
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetFilter() yfilter.YFilter { return powerShelf.YFilter }
+func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetEntityData() *types.CommonEntityData {
+    powerShelf.EntityData.YFilter = powerShelf.YFilter
+    powerShelf.EntityData.YangName = "power-shelf"
+    powerShelf.EntityData.BundleName = "cisco_ios_xr"
+    powerShelf.EntityData.ParentYangName = "power-shelfs"
+    powerShelf.EntityData.SegmentPath = "power-shelf" + "[power-shelf-name='" + fmt.Sprintf("%v", powerShelf.PowerShelfName) + "']"
+    powerShelf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerShelf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerShelf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) SetFilter(yf yfilter.YFilter) { powerShelf.YFilter = yf }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetGoName(yname string) string {
-    if yname == "power-shelf-name" { return "PowerShelfName" }
-    if yname == "power-supplies" { return "PowerSupplies" }
-    return ""
+    powerShelf.EntityData.Children = make(map[string]types.YChild)
+    powerShelf.EntityData.Children["power-supplies"] = types.YChild{"PowerSupplies", &powerShelf.PowerSupplies}
+    powerShelf.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerShelf.EntityData.Leafs["power-shelf-name"] = types.YLeaf{"PowerShelfName", powerShelf.PowerShelfName}
+    return &(powerShelf.EntityData)
 }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetSegmentPath() string {
-    return "power-shelf" + "[power-shelf-name='" + fmt.Sprintf("%v", powerShelf.PowerShelfName) + "']"
-}
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "power-supplies" {
-        return &powerShelf.PowerSupplies
-    }
-    return nil
-}
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["power-supplies"] = &powerShelf.PowerSupplies
-    return children
-}
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["power-shelf-name"] = powerShelf.PowerShelfName
-    return leafs
-}
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetYangName() string { return "power-shelf" }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) SetParent(parent types.Entity) { powerShelf.parent = parent }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetParent() types.Entity { return powerShelf.parent }
-
-func (powerShelf *Diag_Racks_Rack_PowerShelfs_PowerShelf) GetParentYangName() string { return "power-shelfs" }
 
 // Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies
 // Table for rack power supply 
 type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Power Supply name. The type is slice of
@@ -385,133 +194,60 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies struct {
     PowerSupply []Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply
 }
 
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetFilter() yfilter.YFilter { return powerSupplies.YFilter }
+func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetEntityData() *types.CommonEntityData {
+    powerSupplies.EntityData.YFilter = powerSupplies.YFilter
+    powerSupplies.EntityData.YangName = "power-supplies"
+    powerSupplies.EntityData.BundleName = "cisco_ios_xr"
+    powerSupplies.EntityData.ParentYangName = "power-shelf"
+    powerSupplies.EntityData.SegmentPath = "power-supplies"
+    powerSupplies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerSupplies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerSupplies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) SetFilter(yf yfilter.YFilter) { powerSupplies.YFilter = yf }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetGoName(yname string) string {
-    if yname == "power-supply" { return "PowerSupply" }
-    return ""
-}
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetSegmentPath() string {
-    return "power-supplies"
-}
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "power-supply" {
-        for _, c := range powerSupplies.PowerSupply {
-            if powerSupplies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply{}
-        powerSupplies.PowerSupply = append(powerSupplies.PowerSupply, child)
-        return &powerSupplies.PowerSupply[len(powerSupplies.PowerSupply)-1]
-    }
-    return nil
-}
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    powerSupplies.EntityData.Children = make(map[string]types.YChild)
+    powerSupplies.EntityData.Children["power-supply"] = types.YChild{"PowerSupply", nil}
     for i := range powerSupplies.PowerSupply {
-        children[powerSupplies.PowerSupply[i].GetSegmentPath()] = &powerSupplies.PowerSupply[i]
+        powerSupplies.EntityData.Children[types.GetSegmentPath(&powerSupplies.PowerSupply[i])] = types.YChild{"PowerSupply", &powerSupplies.PowerSupply[i]}
     }
-    return children
+    powerSupplies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(powerSupplies.EntityData)
 }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetYangName() string { return "power-supplies" }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) SetParent(parent types.Entity) { powerSupplies.parent = parent }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetParent() types.Entity { return powerSupplies.parent }
-
-func (powerSupplies *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies) GetParentYangName() string { return "power-shelf" }
 
 // Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply
 // Power Supply name
 type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Power Supply name. The type is string with
-    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     PowerSupplyName interface{}
 
     // Basic information.
     Information Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information
 }
 
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetFilter() yfilter.YFilter { return powerSupply.YFilter }
+func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetEntityData() *types.CommonEntityData {
+    powerSupply.EntityData.YFilter = powerSupply.YFilter
+    powerSupply.EntityData.YangName = "power-supply"
+    powerSupply.EntityData.BundleName = "cisco_ios_xr"
+    powerSupply.EntityData.ParentYangName = "power-supplies"
+    powerSupply.EntityData.SegmentPath = "power-supply" + "[power-supply-name='" + fmt.Sprintf("%v", powerSupply.PowerSupplyName) + "']"
+    powerSupply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    powerSupply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    powerSupply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) SetFilter(yf yfilter.YFilter) { powerSupply.YFilter = yf }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetGoName(yname string) string {
-    if yname == "power-supply-name" { return "PowerSupplyName" }
-    if yname == "information" { return "Information" }
-    return ""
+    powerSupply.EntityData.Children = make(map[string]types.YChild)
+    powerSupply.EntityData.Children["information"] = types.YChild{"Information", &powerSupply.Information}
+    powerSupply.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerSupply.EntityData.Leafs["power-supply-name"] = types.YLeaf{"PowerSupplyName", powerSupply.PowerSupplyName}
+    return &(powerSupply.EntityData)
 }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetSegmentPath() string {
-    return "power-supply" + "[power-supply-name='" + fmt.Sprintf("%v", powerSupply.PowerSupplyName) + "']"
-}
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "information" {
-        return &powerSupply.Information
-    }
-    return nil
-}
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["information"] = &powerSupply.Information
-    return children
-}
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["power-supply-name"] = powerSupply.PowerSupplyName
-    return leafs
-}
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetYangName() string { return "power-supply" }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) SetParent(parent types.Entity) { powerSupply.parent = parent }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetParent() types.Entity { return powerSupply.parent }
-
-func (powerSupply *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply) GetParentYangName() string { return "power-supplies" }
 
 // Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information
 // Basic information
 type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A textual description of physical entity. The type is string with length:
@@ -689,171 +425,82 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Informatio
     Rma Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma
 }
 
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetFilter() yfilter.YFilter { return information.YFilter }
+func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetEntityData() *types.CommonEntityData {
+    information.EntityData.YFilter = information.YFilter
+    information.EntityData.YangName = "information"
+    information.EntityData.BundleName = "cisco_ios_xr"
+    information.EntityData.ParentYangName = "power-supply"
+    information.EntityData.SegmentPath = "information"
+    information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) SetFilter(yf yfilter.YFilter) { information.YFilter = yf }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "idprom-format-rev" { return "IdpromFormatRev" }
-    if yname == "controller-family" { return "ControllerFamily" }
-    if yname == "controller-type" { return "ControllerType" }
-    if yname == "vid" { return "Vid" }
-    if yname == "hwid" { return "Hwid" }
-    if yname == "pid" { return "Pid" }
-    if yname == "udi-description" { return "UdiDescription" }
-    if yname == "udi-name" { return "UdiName" }
-    if yname == "clei" { return "Clei" }
-    if yname == "eci" { return "Eci" }
-    if yname == "top-assem-part-num" { return "TopAssemPartNum" }
-    if yname == "top-assem-vid" { return "TopAssemVid" }
-    if yname == "pca-num" { return "PcaNum" }
-    if yname == "pcavid" { return "Pcavid" }
-    if yname == "chassis-sid" { return "ChassisSid" }
-    if yname == "dev-num1" { return "DevNum1" }
-    if yname == "dev-num2" { return "DevNum2" }
-    if yname == "dev-num3" { return "DevNum3" }
-    if yname == "dev-num4" { return "DevNum4" }
-    if yname == "dev-num5" { return "DevNum5" }
-    if yname == "dev-num6" { return "DevNum6" }
-    if yname == "dev-num7" { return "DevNum7" }
-    if yname == "manu-test-data" { return "ManuTestData" }
-    if yname == "asset-id" { return "AssetId" }
-    if yname == "asset-alias" { return "AssetAlias" }
-    if yname == "base-mac-address1" { return "BaseMacAddress1" }
-    if yname == "mac-add-blk-size1" { return "MacAddBlkSize1" }
-    if yname == "base-mac-address2" { return "BaseMacAddress2" }
-    if yname == "mac-add-blk-size2" { return "MacAddBlkSize2" }
-    if yname == "base-mac-address3" { return "BaseMacAddress3" }
-    if yname == "mac-add-blk-size3" { return "MacAddBlkSize3" }
-    if yname == "base-mac-address4" { return "BaseMacAddress4" }
-    if yname == "mac-add-blk-size4" { return "MacAddBlkSize4" }
-    if yname == "pcb-serial-num" { return "PcbSerialNum" }
-    if yname == "power-supply-type" { return "PowerSupplyType" }
-    if yname == "power-consumption" { return "PowerConsumption" }
-    if yname == "block-signature" { return "BlockSignature" }
-    if yname == "block-version" { return "BlockVersion" }
-    if yname == "block-length" { return "BlockLength" }
-    if yname == "block-checksum" { return "BlockChecksum" }
-    if yname == "eeprom-size" { return "EepromSize" }
-    if yname == "block-count" { return "BlockCount" }
-    if yname == "fru-major-type" { return "FruMajorType" }
-    if yname == "fru-minor-type" { return "FruMinorType" }
-    if yname == "oem-string" { return "OemString" }
-    if yname == "product-id" { return "ProductId" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "part-number" { return "PartNumber" }
-    if yname == "part-revision" { return "PartRevision" }
-    if yname == "mfg-deviation" { return "MfgDeviation" }
-    if yname == "hw-version" { return "HwVersion" }
-    if yname == "mfg-bits" { return "MfgBits" }
-    if yname == "engineer-use" { return "EngineerUse" }
-    if yname == "snmpoid" { return "Snmpoid" }
-    if yname == "rma-code" { return "RmaCode" }
-    if yname == "rma" { return "Rma" }
-    return ""
+    information.EntityData.Children = make(map[string]types.YChild)
+    information.EntityData.Children["rma"] = types.YChild{"Rma", &information.Rma}
+    information.EntityData.Leafs = make(map[string]types.YLeaf)
+    information.EntityData.Leafs["description"] = types.YLeaf{"Description", information.Description}
+    information.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", information.IdpromFormatRev}
+    information.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", information.ControllerFamily}
+    information.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", information.ControllerType}
+    information.EntityData.Leafs["vid"] = types.YLeaf{"Vid", information.Vid}
+    information.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", information.Hwid}
+    information.EntityData.Leafs["pid"] = types.YLeaf{"Pid", information.Pid}
+    information.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", information.UdiDescription}
+    information.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", information.UdiName}
+    information.EntityData.Leafs["clei"] = types.YLeaf{"Clei", information.Clei}
+    information.EntityData.Leafs["eci"] = types.YLeaf{"Eci", information.Eci}
+    information.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", information.TopAssemPartNum}
+    information.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", information.TopAssemVid}
+    information.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", information.PcaNum}
+    information.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", information.Pcavid}
+    information.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", information.ChassisSid}
+    information.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", information.DevNum1}
+    information.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", information.DevNum2}
+    information.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", information.DevNum3}
+    information.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", information.DevNum4}
+    information.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", information.DevNum5}
+    information.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", information.DevNum6}
+    information.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", information.DevNum7}
+    information.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", information.ManuTestData}
+    information.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", information.AssetId}
+    information.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", information.AssetAlias}
+    information.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", information.BaseMacAddress1}
+    information.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", information.MacAddBlkSize1}
+    information.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", information.BaseMacAddress2}
+    information.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", information.MacAddBlkSize2}
+    information.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", information.BaseMacAddress3}
+    information.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", information.MacAddBlkSize3}
+    information.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", information.BaseMacAddress4}
+    information.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", information.MacAddBlkSize4}
+    information.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", information.PcbSerialNum}
+    information.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", information.PowerSupplyType}
+    information.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", information.PowerConsumption}
+    information.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", information.BlockSignature}
+    information.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", information.BlockVersion}
+    information.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", information.BlockLength}
+    information.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", information.BlockChecksum}
+    information.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", information.EepromSize}
+    information.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", information.BlockCount}
+    information.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", information.FruMajorType}
+    information.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", information.FruMinorType}
+    information.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", information.OemString}
+    information.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", information.ProductId}
+    information.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", information.SerialNumber}
+    information.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", information.PartNumber}
+    information.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", information.PartRevision}
+    information.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", information.MfgDeviation}
+    information.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", information.HwVersion}
+    information.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", information.MfgBits}
+    information.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", information.EngineerUse}
+    information.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", information.Snmpoid}
+    information.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", information.RmaCode}
+    return &(information.EntityData)
 }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetSegmentPath() string {
-    return "information"
-}
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rma" {
-        return &information.Rma
-    }
-    return nil
-}
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rma"] = &information.Rma
-    return children
-}
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = information.Description
-    leafs["idprom-format-rev"] = information.IdpromFormatRev
-    leafs["controller-family"] = information.ControllerFamily
-    leafs["controller-type"] = information.ControllerType
-    leafs["vid"] = information.Vid
-    leafs["hwid"] = information.Hwid
-    leafs["pid"] = information.Pid
-    leafs["udi-description"] = information.UdiDescription
-    leafs["udi-name"] = information.UdiName
-    leafs["clei"] = information.Clei
-    leafs["eci"] = information.Eci
-    leafs["top-assem-part-num"] = information.TopAssemPartNum
-    leafs["top-assem-vid"] = information.TopAssemVid
-    leafs["pca-num"] = information.PcaNum
-    leafs["pcavid"] = information.Pcavid
-    leafs["chassis-sid"] = information.ChassisSid
-    leafs["dev-num1"] = information.DevNum1
-    leafs["dev-num2"] = information.DevNum2
-    leafs["dev-num3"] = information.DevNum3
-    leafs["dev-num4"] = information.DevNum4
-    leafs["dev-num5"] = information.DevNum5
-    leafs["dev-num6"] = information.DevNum6
-    leafs["dev-num7"] = information.DevNum7
-    leafs["manu-test-data"] = information.ManuTestData
-    leafs["asset-id"] = information.AssetId
-    leafs["asset-alias"] = information.AssetAlias
-    leafs["base-mac-address1"] = information.BaseMacAddress1
-    leafs["mac-add-blk-size1"] = information.MacAddBlkSize1
-    leafs["base-mac-address2"] = information.BaseMacAddress2
-    leafs["mac-add-blk-size2"] = information.MacAddBlkSize2
-    leafs["base-mac-address3"] = information.BaseMacAddress3
-    leafs["mac-add-blk-size3"] = information.MacAddBlkSize3
-    leafs["base-mac-address4"] = information.BaseMacAddress4
-    leafs["mac-add-blk-size4"] = information.MacAddBlkSize4
-    leafs["pcb-serial-num"] = information.PcbSerialNum
-    leafs["power-supply-type"] = information.PowerSupplyType
-    leafs["power-consumption"] = information.PowerConsumption
-    leafs["block-signature"] = information.BlockSignature
-    leafs["block-version"] = information.BlockVersion
-    leafs["block-length"] = information.BlockLength
-    leafs["block-checksum"] = information.BlockChecksum
-    leafs["eeprom-size"] = information.EepromSize
-    leafs["block-count"] = information.BlockCount
-    leafs["fru-major-type"] = information.FruMajorType
-    leafs["fru-minor-type"] = information.FruMinorType
-    leafs["oem-string"] = information.OemString
-    leafs["product-id"] = information.ProductId
-    leafs["serial-number"] = information.SerialNumber
-    leafs["part-number"] = information.PartNumber
-    leafs["part-revision"] = information.PartRevision
-    leafs["mfg-deviation"] = information.MfgDeviation
-    leafs["hw-version"] = information.HwVersion
-    leafs["mfg-bits"] = information.MfgBits
-    leafs["engineer-use"] = information.EngineerUse
-    leafs["snmpoid"] = information.Snmpoid
-    leafs["rma-code"] = information.RmaCode
-    return leafs
-}
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetBundleName() string { return "cisco_ios_xr" }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetYangName() string { return "information" }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) SetParent(parent types.Entity) { information.parent = parent }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetParent() types.Entity { return information.parent }
-
-func (information *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information) GetParentYangName() string { return "power-supply" }
 
 // Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma
 // RMA Data
 type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Test history. The type is string with length: 0..255.
@@ -867,193 +514,88 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Informatio
     RmaHistory interface{}
 }
 
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetFilter() yfilter.YFilter { return rma.YFilter }
+func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetEntityData() *types.CommonEntityData {
+    rma.EntityData.YFilter = rma.YFilter
+    rma.EntityData.YangName = "rma"
+    rma.EntityData.BundleName = "cisco_ios_xr"
+    rma.EntityData.ParentYangName = "information"
+    rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) SetFilter(yf yfilter.YFilter) { rma.YFilter = yf }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetGoName(yname string) string {
-    if yname == "test-history" { return "TestHistory" }
-    if yname == "rma-number" { return "RmaNumber" }
-    if yname == "rma-history" { return "RmaHistory" }
-    return ""
+    rma.EntityData.Children = make(map[string]types.YChild)
+    rma.EntityData.Leafs = make(map[string]types.YLeaf)
+    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
+    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
+    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    return &(rma.EntityData)
 }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetSegmentPath() string {
-    return "rma"
-}
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["test-history"] = rma.TestHistory
-    leafs["rma-number"] = rma.RmaNumber
-    leafs["rma-history"] = rma.RmaHistory
-    return leafs
-}
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetYangName() string { return "rma" }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) SetParent(parent types.Entity) { rma.parent = parent }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetParent() types.Entity { return rma.parent }
-
-func (rma *Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply_Information_Rma) GetParentYangName() string { return "information" }
 
 // Diag_Racks_Rack_FanTraies
 // Table for rack fan trays
 type Diag_Racks_Rack_FanTraies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Fan tray name. The type is slice of Diag_Racks_Rack_FanTraies_FanTray.
     FanTray []Diag_Racks_Rack_FanTraies_FanTray
 }
 
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetFilter() yfilter.YFilter { return fanTraies.YFilter }
+func (fanTraies *Diag_Racks_Rack_FanTraies) GetEntityData() *types.CommonEntityData {
+    fanTraies.EntityData.YFilter = fanTraies.YFilter
+    fanTraies.EntityData.YangName = "fan-traies"
+    fanTraies.EntityData.BundleName = "cisco_ios_xr"
+    fanTraies.EntityData.ParentYangName = "rack"
+    fanTraies.EntityData.SegmentPath = "fan-traies"
+    fanTraies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fanTraies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fanTraies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fanTraies *Diag_Racks_Rack_FanTraies) SetFilter(yf yfilter.YFilter) { fanTraies.YFilter = yf }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetGoName(yname string) string {
-    if yname == "fan-tray" { return "FanTray" }
-    return ""
-}
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetSegmentPath() string {
-    return "fan-traies"
-}
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fan-tray" {
-        for _, c := range fanTraies.FanTray {
-            if fanTraies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack_FanTraies_FanTray{}
-        fanTraies.FanTray = append(fanTraies.FanTray, child)
-        return &fanTraies.FanTray[len(fanTraies.FanTray)-1]
-    }
-    return nil
-}
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    fanTraies.EntityData.Children = make(map[string]types.YChild)
+    fanTraies.EntityData.Children["fan-tray"] = types.YChild{"FanTray", nil}
     for i := range fanTraies.FanTray {
-        children[fanTraies.FanTray[i].GetSegmentPath()] = &fanTraies.FanTray[i]
+        fanTraies.EntityData.Children[types.GetSegmentPath(&fanTraies.FanTray[i])] = types.YChild{"FanTray", &fanTraies.FanTray[i]}
     }
-    return children
+    fanTraies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fanTraies.EntityData)
 }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetYangName() string { return "fan-traies" }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) SetParent(parent types.Entity) { fanTraies.parent = parent }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetParent() types.Entity { return fanTraies.parent }
-
-func (fanTraies *Diag_Racks_Rack_FanTraies) GetParentYangName() string { return "rack" }
 
 // Diag_Racks_Rack_FanTraies_FanTray
 // Fan tray name
 type Diag_Racks_Rack_FanTraies_FanTray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fan tray name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     FanTrayName interface{}
 
     // Table for rack fans .
     Fanses Diag_Racks_Rack_FanTraies_FanTray_Fanses
 }
 
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetFilter() yfilter.YFilter { return fanTray.YFilter }
+func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetEntityData() *types.CommonEntityData {
+    fanTray.EntityData.YFilter = fanTray.YFilter
+    fanTray.EntityData.YangName = "fan-tray"
+    fanTray.EntityData.BundleName = "cisco_ios_xr"
+    fanTray.EntityData.ParentYangName = "fan-traies"
+    fanTray.EntityData.SegmentPath = "fan-tray" + "[fan-tray-name='" + fmt.Sprintf("%v", fanTray.FanTrayName) + "']"
+    fanTray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fanTray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fanTray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) SetFilter(yf yfilter.YFilter) { fanTray.YFilter = yf }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetGoName(yname string) string {
-    if yname == "fan-tray-name" { return "FanTrayName" }
-    if yname == "fanses" { return "Fanses" }
-    return ""
+    fanTray.EntityData.Children = make(map[string]types.YChild)
+    fanTray.EntityData.Children["fanses"] = types.YChild{"Fanses", &fanTray.Fanses}
+    fanTray.EntityData.Leafs = make(map[string]types.YLeaf)
+    fanTray.EntityData.Leafs["fan-tray-name"] = types.YLeaf{"FanTrayName", fanTray.FanTrayName}
+    return &(fanTray.EntityData)
 }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetSegmentPath() string {
-    return "fan-tray" + "[fan-tray-name='" + fmt.Sprintf("%v", fanTray.FanTrayName) + "']"
-}
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fanses" {
-        return &fanTray.Fanses
-    }
-    return nil
-}
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["fanses"] = &fanTray.Fanses
-    return children
-}
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fan-tray-name"] = fanTray.FanTrayName
-    return leafs
-}
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetYangName() string { return "fan-tray" }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) SetParent(parent types.Entity) { fanTray.parent = parent }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetParent() types.Entity { return fanTray.parent }
-
-func (fanTray *Diag_Racks_Rack_FanTraies_FanTray) GetParentYangName() string { return "fan-traies" }
 
 // Diag_Racks_Rack_FanTraies_FanTray_Fanses
 // Table for rack fans 
 type Diag_Racks_Rack_FanTraies_FanTray_Fanses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Fan name. The type is slice of
@@ -1061,133 +603,60 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses struct {
     Fans []Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans
 }
 
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetFilter() yfilter.YFilter { return fanses.YFilter }
+func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetEntityData() *types.CommonEntityData {
+    fanses.EntityData.YFilter = fanses.YFilter
+    fanses.EntityData.YangName = "fanses"
+    fanses.EntityData.BundleName = "cisco_ios_xr"
+    fanses.EntityData.ParentYangName = "fan-tray"
+    fanses.EntityData.SegmentPath = "fanses"
+    fanses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fanses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fanses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) SetFilter(yf yfilter.YFilter) { fanses.YFilter = yf }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetGoName(yname string) string {
-    if yname == "fans" { return "Fans" }
-    return ""
-}
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetSegmentPath() string {
-    return "fanses"
-}
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "fans" {
-        for _, c := range fanses.Fans {
-            if fanses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans{}
-        fanses.Fans = append(fanses.Fans, child)
-        return &fanses.Fans[len(fanses.Fans)-1]
-    }
-    return nil
-}
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    fanses.EntityData.Children = make(map[string]types.YChild)
+    fanses.EntityData.Children["fans"] = types.YChild{"Fans", nil}
     for i := range fanses.Fans {
-        children[fanses.Fans[i].GetSegmentPath()] = &fanses.Fans[i]
+        fanses.EntityData.Children[types.GetSegmentPath(&fanses.Fans[i])] = types.YChild{"Fans", &fanses.Fans[i]}
     }
-    return children
+    fanses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(fanses.EntityData)
 }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetYangName() string { return "fanses" }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) SetParent(parent types.Entity) { fanses.parent = parent }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetParent() types.Entity { return fanses.parent }
-
-func (fanses *Diag_Racks_Rack_FanTraies_FanTray_Fanses) GetParentYangName() string { return "fan-tray" }
 
 // Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans
 // Fan name
 type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Fans name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     FansName interface{}
 
     // Basic information.
     Information Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information
 }
 
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetFilter() yfilter.YFilter { return fans.YFilter }
+func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetEntityData() *types.CommonEntityData {
+    fans.EntityData.YFilter = fans.YFilter
+    fans.EntityData.YangName = "fans"
+    fans.EntityData.BundleName = "cisco_ios_xr"
+    fans.EntityData.ParentYangName = "fanses"
+    fans.EntityData.SegmentPath = "fans" + "[fans-name='" + fmt.Sprintf("%v", fans.FansName) + "']"
+    fans.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fans.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fans.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) SetFilter(yf yfilter.YFilter) { fans.YFilter = yf }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetGoName(yname string) string {
-    if yname == "fans-name" { return "FansName" }
-    if yname == "information" { return "Information" }
-    return ""
+    fans.EntityData.Children = make(map[string]types.YChild)
+    fans.EntityData.Children["information"] = types.YChild{"Information", &fans.Information}
+    fans.EntityData.Leafs = make(map[string]types.YLeaf)
+    fans.EntityData.Leafs["fans-name"] = types.YLeaf{"FansName", fans.FansName}
+    return &(fans.EntityData)
 }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetSegmentPath() string {
-    return "fans" + "[fans-name='" + fmt.Sprintf("%v", fans.FansName) + "']"
-}
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "information" {
-        return &fans.Information
-    }
-    return nil
-}
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["information"] = &fans.Information
-    return children
-}
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fans-name"] = fans.FansName
-    return leafs
-}
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetBundleName() string { return "cisco_ios_xr" }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetYangName() string { return "fans" }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) SetParent(parent types.Entity) { fans.parent = parent }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetParent() types.Entity { return fans.parent }
-
-func (fans *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans) GetParentYangName() string { return "fanses" }
 
 // Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information
 // Basic information
 type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A textual description of physical entity. The type is string with length:
@@ -1365,171 +834,82 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information struct {
     Rma Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma
 }
 
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetFilter() yfilter.YFilter { return information.YFilter }
+func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetEntityData() *types.CommonEntityData {
+    information.EntityData.YFilter = information.YFilter
+    information.EntityData.YangName = "information"
+    information.EntityData.BundleName = "cisco_ios_xr"
+    information.EntityData.ParentYangName = "fans"
+    information.EntityData.SegmentPath = "information"
+    information.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    information.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    information.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) SetFilter(yf yfilter.YFilter) { information.YFilter = yf }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "idprom-format-rev" { return "IdpromFormatRev" }
-    if yname == "controller-family" { return "ControllerFamily" }
-    if yname == "controller-type" { return "ControllerType" }
-    if yname == "vid" { return "Vid" }
-    if yname == "hwid" { return "Hwid" }
-    if yname == "pid" { return "Pid" }
-    if yname == "udi-description" { return "UdiDescription" }
-    if yname == "udi-name" { return "UdiName" }
-    if yname == "clei" { return "Clei" }
-    if yname == "eci" { return "Eci" }
-    if yname == "top-assem-part-num" { return "TopAssemPartNum" }
-    if yname == "top-assem-vid" { return "TopAssemVid" }
-    if yname == "pca-num" { return "PcaNum" }
-    if yname == "pcavid" { return "Pcavid" }
-    if yname == "chassis-sid" { return "ChassisSid" }
-    if yname == "dev-num1" { return "DevNum1" }
-    if yname == "dev-num2" { return "DevNum2" }
-    if yname == "dev-num3" { return "DevNum3" }
-    if yname == "dev-num4" { return "DevNum4" }
-    if yname == "dev-num5" { return "DevNum5" }
-    if yname == "dev-num6" { return "DevNum6" }
-    if yname == "dev-num7" { return "DevNum7" }
-    if yname == "manu-test-data" { return "ManuTestData" }
-    if yname == "asset-id" { return "AssetId" }
-    if yname == "asset-alias" { return "AssetAlias" }
-    if yname == "base-mac-address1" { return "BaseMacAddress1" }
-    if yname == "mac-add-blk-size1" { return "MacAddBlkSize1" }
-    if yname == "base-mac-address2" { return "BaseMacAddress2" }
-    if yname == "mac-add-blk-size2" { return "MacAddBlkSize2" }
-    if yname == "base-mac-address3" { return "BaseMacAddress3" }
-    if yname == "mac-add-blk-size3" { return "MacAddBlkSize3" }
-    if yname == "base-mac-address4" { return "BaseMacAddress4" }
-    if yname == "mac-add-blk-size4" { return "MacAddBlkSize4" }
-    if yname == "pcb-serial-num" { return "PcbSerialNum" }
-    if yname == "power-supply-type" { return "PowerSupplyType" }
-    if yname == "power-consumption" { return "PowerConsumption" }
-    if yname == "block-signature" { return "BlockSignature" }
-    if yname == "block-version" { return "BlockVersion" }
-    if yname == "block-length" { return "BlockLength" }
-    if yname == "block-checksum" { return "BlockChecksum" }
-    if yname == "eeprom-size" { return "EepromSize" }
-    if yname == "block-count" { return "BlockCount" }
-    if yname == "fru-major-type" { return "FruMajorType" }
-    if yname == "fru-minor-type" { return "FruMinorType" }
-    if yname == "oem-string" { return "OemString" }
-    if yname == "product-id" { return "ProductId" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "part-number" { return "PartNumber" }
-    if yname == "part-revision" { return "PartRevision" }
-    if yname == "mfg-deviation" { return "MfgDeviation" }
-    if yname == "hw-version" { return "HwVersion" }
-    if yname == "mfg-bits" { return "MfgBits" }
-    if yname == "engineer-use" { return "EngineerUse" }
-    if yname == "snmpoid" { return "Snmpoid" }
-    if yname == "rma-code" { return "RmaCode" }
-    if yname == "rma" { return "Rma" }
-    return ""
+    information.EntityData.Children = make(map[string]types.YChild)
+    information.EntityData.Children["rma"] = types.YChild{"Rma", &information.Rma}
+    information.EntityData.Leafs = make(map[string]types.YLeaf)
+    information.EntityData.Leafs["description"] = types.YLeaf{"Description", information.Description}
+    information.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", information.IdpromFormatRev}
+    information.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", information.ControllerFamily}
+    information.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", information.ControllerType}
+    information.EntityData.Leafs["vid"] = types.YLeaf{"Vid", information.Vid}
+    information.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", information.Hwid}
+    information.EntityData.Leafs["pid"] = types.YLeaf{"Pid", information.Pid}
+    information.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", information.UdiDescription}
+    information.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", information.UdiName}
+    information.EntityData.Leafs["clei"] = types.YLeaf{"Clei", information.Clei}
+    information.EntityData.Leafs["eci"] = types.YLeaf{"Eci", information.Eci}
+    information.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", information.TopAssemPartNum}
+    information.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", information.TopAssemVid}
+    information.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", information.PcaNum}
+    information.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", information.Pcavid}
+    information.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", information.ChassisSid}
+    information.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", information.DevNum1}
+    information.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", information.DevNum2}
+    information.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", information.DevNum3}
+    information.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", information.DevNum4}
+    information.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", information.DevNum5}
+    information.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", information.DevNum6}
+    information.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", information.DevNum7}
+    information.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", information.ManuTestData}
+    information.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", information.AssetId}
+    information.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", information.AssetAlias}
+    information.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", information.BaseMacAddress1}
+    information.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", information.MacAddBlkSize1}
+    information.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", information.BaseMacAddress2}
+    information.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", information.MacAddBlkSize2}
+    information.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", information.BaseMacAddress3}
+    information.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", information.MacAddBlkSize3}
+    information.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", information.BaseMacAddress4}
+    information.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", information.MacAddBlkSize4}
+    information.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", information.PcbSerialNum}
+    information.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", information.PowerSupplyType}
+    information.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", information.PowerConsumption}
+    information.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", information.BlockSignature}
+    information.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", information.BlockVersion}
+    information.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", information.BlockLength}
+    information.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", information.BlockChecksum}
+    information.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", information.EepromSize}
+    information.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", information.BlockCount}
+    information.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", information.FruMajorType}
+    information.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", information.FruMinorType}
+    information.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", information.OemString}
+    information.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", information.ProductId}
+    information.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", information.SerialNumber}
+    information.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", information.PartNumber}
+    information.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", information.PartRevision}
+    information.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", information.MfgDeviation}
+    information.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", information.HwVersion}
+    information.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", information.MfgBits}
+    information.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", information.EngineerUse}
+    information.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", information.Snmpoid}
+    information.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", information.RmaCode}
+    return &(information.EntityData)
 }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetSegmentPath() string {
-    return "information"
-}
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rma" {
-        return &information.Rma
-    }
-    return nil
-}
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rma"] = &information.Rma
-    return children
-}
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = information.Description
-    leafs["idprom-format-rev"] = information.IdpromFormatRev
-    leafs["controller-family"] = information.ControllerFamily
-    leafs["controller-type"] = information.ControllerType
-    leafs["vid"] = information.Vid
-    leafs["hwid"] = information.Hwid
-    leafs["pid"] = information.Pid
-    leafs["udi-description"] = information.UdiDescription
-    leafs["udi-name"] = information.UdiName
-    leafs["clei"] = information.Clei
-    leafs["eci"] = information.Eci
-    leafs["top-assem-part-num"] = information.TopAssemPartNum
-    leafs["top-assem-vid"] = information.TopAssemVid
-    leafs["pca-num"] = information.PcaNum
-    leafs["pcavid"] = information.Pcavid
-    leafs["chassis-sid"] = information.ChassisSid
-    leafs["dev-num1"] = information.DevNum1
-    leafs["dev-num2"] = information.DevNum2
-    leafs["dev-num3"] = information.DevNum3
-    leafs["dev-num4"] = information.DevNum4
-    leafs["dev-num5"] = information.DevNum5
-    leafs["dev-num6"] = information.DevNum6
-    leafs["dev-num7"] = information.DevNum7
-    leafs["manu-test-data"] = information.ManuTestData
-    leafs["asset-id"] = information.AssetId
-    leafs["asset-alias"] = information.AssetAlias
-    leafs["base-mac-address1"] = information.BaseMacAddress1
-    leafs["mac-add-blk-size1"] = information.MacAddBlkSize1
-    leafs["base-mac-address2"] = information.BaseMacAddress2
-    leafs["mac-add-blk-size2"] = information.MacAddBlkSize2
-    leafs["base-mac-address3"] = information.BaseMacAddress3
-    leafs["mac-add-blk-size3"] = information.MacAddBlkSize3
-    leafs["base-mac-address4"] = information.BaseMacAddress4
-    leafs["mac-add-blk-size4"] = information.MacAddBlkSize4
-    leafs["pcb-serial-num"] = information.PcbSerialNum
-    leafs["power-supply-type"] = information.PowerSupplyType
-    leafs["power-consumption"] = information.PowerConsumption
-    leafs["block-signature"] = information.BlockSignature
-    leafs["block-version"] = information.BlockVersion
-    leafs["block-length"] = information.BlockLength
-    leafs["block-checksum"] = information.BlockChecksum
-    leafs["eeprom-size"] = information.EepromSize
-    leafs["block-count"] = information.BlockCount
-    leafs["fru-major-type"] = information.FruMajorType
-    leafs["fru-minor-type"] = information.FruMinorType
-    leafs["oem-string"] = information.OemString
-    leafs["product-id"] = information.ProductId
-    leafs["serial-number"] = information.SerialNumber
-    leafs["part-number"] = information.PartNumber
-    leafs["part-revision"] = information.PartRevision
-    leafs["mfg-deviation"] = information.MfgDeviation
-    leafs["hw-version"] = information.HwVersion
-    leafs["mfg-bits"] = information.MfgBits
-    leafs["engineer-use"] = information.EngineerUse
-    leafs["snmpoid"] = information.Snmpoid
-    leafs["rma-code"] = information.RmaCode
-    return leafs
-}
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetBundleName() string { return "cisco_ios_xr" }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetYangName() string { return "information" }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) SetParent(parent types.Entity) { information.parent = parent }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetParent() types.Entity { return information.parent }
-
-func (information *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information) GetParentYangName() string { return "fans" }
 
 // Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma
 // RMA Data
 type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Test history. The type is string with length: 0..255.
@@ -1543,193 +923,88 @@ type Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma struct {
     RmaHistory interface{}
 }
 
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetFilter() yfilter.YFilter { return rma.YFilter }
+func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetEntityData() *types.CommonEntityData {
+    rma.EntityData.YFilter = rma.YFilter
+    rma.EntityData.YangName = "rma"
+    rma.EntityData.BundleName = "cisco_ios_xr"
+    rma.EntityData.ParentYangName = "information"
+    rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) SetFilter(yf yfilter.YFilter) { rma.YFilter = yf }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetGoName(yname string) string {
-    if yname == "test-history" { return "TestHistory" }
-    if yname == "rma-number" { return "RmaNumber" }
-    if yname == "rma-history" { return "RmaHistory" }
-    return ""
+    rma.EntityData.Children = make(map[string]types.YChild)
+    rma.EntityData.Leafs = make(map[string]types.YLeaf)
+    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
+    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
+    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    return &(rma.EntityData)
 }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetSegmentPath() string {
-    return "rma"
-}
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["test-history"] = rma.TestHistory
-    leafs["rma-number"] = rma.RmaNumber
-    leafs["rma-history"] = rma.RmaHistory
-    return leafs
-}
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetYangName() string { return "rma" }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) SetParent(parent types.Entity) { rma.parent = parent }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetParent() types.Entity { return rma.parent }
-
-func (rma *Diag_Racks_Rack_FanTraies_FanTray_Fanses_Fans_Information_Rma) GetParentYangName() string { return "information" }
 
 // Diag_Racks_Rack_Slots
 // Table of slots
 type Diag_Racks_Rack_Slots struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Slot name. The type is slice of Diag_Racks_Rack_Slots_Slot.
     Slot []Diag_Racks_Rack_Slots_Slot
 }
 
-func (slots *Diag_Racks_Rack_Slots) GetFilter() yfilter.YFilter { return slots.YFilter }
+func (slots *Diag_Racks_Rack_Slots) GetEntityData() *types.CommonEntityData {
+    slots.EntityData.YFilter = slots.YFilter
+    slots.EntityData.YangName = "slots"
+    slots.EntityData.BundleName = "cisco_ios_xr"
+    slots.EntityData.ParentYangName = "rack"
+    slots.EntityData.SegmentPath = "slots"
+    slots.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slots.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slots.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slots *Diag_Racks_Rack_Slots) SetFilter(yf yfilter.YFilter) { slots.YFilter = yf }
-
-func (slots *Diag_Racks_Rack_Slots) GetGoName(yname string) string {
-    if yname == "slot" { return "Slot" }
-    return ""
-}
-
-func (slots *Diag_Racks_Rack_Slots) GetSegmentPath() string {
-    return "slots"
-}
-
-func (slots *Diag_Racks_Rack_Slots) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "slot" {
-        for _, c := range slots.Slot {
-            if slots.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack_Slots_Slot{}
-        slots.Slot = append(slots.Slot, child)
-        return &slots.Slot[len(slots.Slot)-1]
-    }
-    return nil
-}
-
-func (slots *Diag_Racks_Rack_Slots) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    slots.EntityData.Children = make(map[string]types.YChild)
+    slots.EntityData.Children["slot"] = types.YChild{"Slot", nil}
     for i := range slots.Slot {
-        children[slots.Slot[i].GetSegmentPath()] = &slots.Slot[i]
+        slots.EntityData.Children[types.GetSegmentPath(&slots.Slot[i])] = types.YChild{"Slot", &slots.Slot[i]}
     }
-    return children
+    slots.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(slots.EntityData)
 }
-
-func (slots *Diag_Racks_Rack_Slots) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (slots *Diag_Racks_Rack_Slots) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slots *Diag_Racks_Rack_Slots) GetYangName() string { return "slots" }
-
-func (slots *Diag_Racks_Rack_Slots) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slots *Diag_Racks_Rack_Slots) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slots *Diag_Racks_Rack_Slots) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slots *Diag_Racks_Rack_Slots) SetParent(parent types.Entity) { slots.parent = parent }
-
-func (slots *Diag_Racks_Rack_Slots) GetParent() types.Entity { return slots.parent }
-
-func (slots *Diag_Racks_Rack_Slots) GetParentYangName() string { return "rack" }
 
 // Diag_Racks_Rack_Slots_Slot
 // Slot name
 type Diag_Racks_Rack_Slots_Slot struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     SlotName interface{}
 
     // Table of instances.
     Instances Diag_Racks_Rack_Slots_Slot_Instances
 }
 
-func (slot *Diag_Racks_Rack_Slots_Slot) GetFilter() yfilter.YFilter { return slot.YFilter }
+func (slot *Diag_Racks_Rack_Slots_Slot) GetEntityData() *types.CommonEntityData {
+    slot.EntityData.YFilter = slot.YFilter
+    slot.EntityData.YangName = "slot"
+    slot.EntityData.BundleName = "cisco_ios_xr"
+    slot.EntityData.ParentYangName = "slots"
+    slot.EntityData.SegmentPath = "slot" + "[slot-name='" + fmt.Sprintf("%v", slot.SlotName) + "']"
+    slot.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    slot.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    slot.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (slot *Diag_Racks_Rack_Slots_Slot) SetFilter(yf yfilter.YFilter) { slot.YFilter = yf }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetGoName(yname string) string {
-    if yname == "slot-name" { return "SlotName" }
-    if yname == "instances" { return "Instances" }
-    return ""
+    slot.EntityData.Children = make(map[string]types.YChild)
+    slot.EntityData.Children["instances"] = types.YChild{"Instances", &slot.Instances}
+    slot.EntityData.Leafs = make(map[string]types.YLeaf)
+    slot.EntityData.Leafs["slot-name"] = types.YLeaf{"SlotName", slot.SlotName}
+    return &(slot.EntityData)
 }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetSegmentPath() string {
-    return "slot" + "[slot-name='" + fmt.Sprintf("%v", slot.SlotName) + "']"
-}
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "instances" {
-        return &slot.Instances
-    }
-    return nil
-}
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["instances"] = &slot.Instances
-    return children
-}
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slot-name"] = slot.SlotName
-    return leafs
-}
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetBundleName() string { return "cisco_ios_xr" }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetYangName() string { return "slot" }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) SetParent(parent types.Entity) { slot.parent = parent }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetParent() types.Entity { return slot.parent }
-
-func (slot *Diag_Racks_Rack_Slots_Slot) GetParentYangName() string { return "slots" }
 
 // Diag_Racks_Rack_Slots_Slot_Instances
 // Table of instances
 type Diag_Racks_Rack_Slots_Slot_Instances struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // instance number. The type is slice of
@@ -1737,133 +1012,60 @@ type Diag_Racks_Rack_Slots_Slot_Instances struct {
     Instance []Diag_Racks_Rack_Slots_Slot_Instances_Instance
 }
 
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetFilter() yfilter.YFilter { return instances.YFilter }
+func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetEntityData() *types.CommonEntityData {
+    instances.EntityData.YFilter = instances.YFilter
+    instances.EntityData.YangName = "instances"
+    instances.EntityData.BundleName = "cisco_ios_xr"
+    instances.EntityData.ParentYangName = "slot"
+    instances.EntityData.SegmentPath = "instances"
+    instances.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    instances.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    instances.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) SetFilter(yf yfilter.YFilter) { instances.YFilter = yf }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetGoName(yname string) string {
-    if yname == "instance" { return "Instance" }
-    return ""
-}
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetSegmentPath() string {
-    return "instances"
-}
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "instance" {
-        for _, c := range instances.Instance {
-            if instances.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Diag_Racks_Rack_Slots_Slot_Instances_Instance{}
-        instances.Instance = append(instances.Instance, child)
-        return &instances.Instance[len(instances.Instance)-1]
-    }
-    return nil
-}
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    instances.EntityData.Children = make(map[string]types.YChild)
+    instances.EntityData.Children["instance"] = types.YChild{"Instance", nil}
     for i := range instances.Instance {
-        children[instances.Instance[i].GetSegmentPath()] = &instances.Instance[i]
+        instances.EntityData.Children[types.GetSegmentPath(&instances.Instance[i])] = types.YChild{"Instance", &instances.Instance[i]}
     }
-    return children
+    instances.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(instances.EntityData)
 }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetBundleName() string { return "cisco_ios_xr" }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetYangName() string { return "instances" }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) SetParent(parent types.Entity) { instances.parent = parent }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetParent() types.Entity { return instances.parent }
-
-func (instances *Diag_Racks_Rack_Slots_Slot_Instances) GetParentYangName() string { return "slot" }
 
 // Diag_Racks_Rack_Slots_Slot_Instances_Instance
 // instance number
 type Diag_Racks_Rack_Slots_Slot_Instances_Instance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Instance name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     Name interface{}
 
     // Detail information.
     Detail Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail
 }
 
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetFilter() yfilter.YFilter { return instance.YFilter }
+func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetEntityData() *types.CommonEntityData {
+    instance.EntityData.YFilter = instance.YFilter
+    instance.EntityData.YangName = "instance"
+    instance.EntityData.BundleName = "cisco_ios_xr"
+    instance.EntityData.ParentYangName = "instances"
+    instance.EntityData.SegmentPath = "instance" + "[name='" + fmt.Sprintf("%v", instance.Name) + "']"
+    instance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    instance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    instance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) SetFilter(yf yfilter.YFilter) { instance.YFilter = yf }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "detail" { return "Detail" }
-    return ""
+    instance.EntityData.Children = make(map[string]types.YChild)
+    instance.EntityData.Children["detail"] = types.YChild{"Detail", &instance.Detail}
+    instance.EntityData.Leafs = make(map[string]types.YLeaf)
+    instance.EntityData.Leafs["name"] = types.YLeaf{"Name", instance.Name}
+    return &(instance.EntityData)
 }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetSegmentPath() string {
-    return "instance" + "[name='" + fmt.Sprintf("%v", instance.Name) + "']"
-}
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "detail" {
-        return &instance.Detail
-    }
-    return nil
-}
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["detail"] = &instance.Detail
-    return children
-}
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = instance.Name
-    return leafs
-}
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetYangName() string { return "instance" }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) SetParent(parent types.Entity) { instance.parent = parent }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetParent() types.Entity { return instance.parent }
-
-func (instance *Diag_Racks_Rack_Slots_Slot_Instances_Instance) GetParentYangName() string { return "instances" }
 
 // Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail
 // Detail information
 type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node operational state . The type is string with length: 0..255.
@@ -1873,61 +1075,27 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail struct {
     CardInstance Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance
 }
 
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetFilter() yfilter.YFilter { return detail.YFilter }
+func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetEntityData() *types.CommonEntityData {
+    detail.EntityData.YFilter = detail.YFilter
+    detail.EntityData.YangName = "detail"
+    detail.EntityData.BundleName = "cisco_ios_xr"
+    detail.EntityData.ParentYangName = "instance"
+    detail.EntityData.SegmentPath = "detail"
+    detail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    detail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    detail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) SetFilter(yf yfilter.YFilter) { detail.YFilter = yf }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetGoName(yname string) string {
-    if yname == "node-operational-state" { return "NodeOperationalState" }
-    if yname == "card-instance" { return "CardInstance" }
-    return ""
+    detail.EntityData.Children = make(map[string]types.YChild)
+    detail.EntityData.Children["card-instance"] = types.YChild{"CardInstance", &detail.CardInstance}
+    detail.EntityData.Leafs = make(map[string]types.YLeaf)
+    detail.EntityData.Leafs["node-operational-state"] = types.YLeaf{"NodeOperationalState", detail.NodeOperationalState}
+    return &(detail.EntityData)
 }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetSegmentPath() string {
-    return "detail"
-}
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "card-instance" {
-        return &detail.CardInstance
-    }
-    return nil
-}
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["card-instance"] = &detail.CardInstance
-    return children
-}
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-operational-state"] = detail.NodeOperationalState
-    return leafs
-}
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetYangName() string { return "detail" }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) SetParent(parent types.Entity) { detail.parent = parent }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetParent() types.Entity { return detail.parent }
-
-func (detail *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail) GetParentYangName() string { return "instance" }
 
 // Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance
 // Card instance
 type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A textual description of physical entity. The type is string with length:
@@ -2105,171 +1273,82 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance struct {
     Rma Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma
 }
 
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetFilter() yfilter.YFilter { return cardInstance.YFilter }
+func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetEntityData() *types.CommonEntityData {
+    cardInstance.EntityData.YFilter = cardInstance.YFilter
+    cardInstance.EntityData.YangName = "card-instance"
+    cardInstance.EntityData.BundleName = "cisco_ios_xr"
+    cardInstance.EntityData.ParentYangName = "detail"
+    cardInstance.EntityData.SegmentPath = "card-instance"
+    cardInstance.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cardInstance.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cardInstance.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) SetFilter(yf yfilter.YFilter) { cardInstance.YFilter = yf }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "idprom-format-rev" { return "IdpromFormatRev" }
-    if yname == "controller-family" { return "ControllerFamily" }
-    if yname == "controller-type" { return "ControllerType" }
-    if yname == "vid" { return "Vid" }
-    if yname == "hwid" { return "Hwid" }
-    if yname == "pid" { return "Pid" }
-    if yname == "udi-description" { return "UdiDescription" }
-    if yname == "udi-name" { return "UdiName" }
-    if yname == "clei" { return "Clei" }
-    if yname == "eci" { return "Eci" }
-    if yname == "top-assem-part-num" { return "TopAssemPartNum" }
-    if yname == "top-assem-vid" { return "TopAssemVid" }
-    if yname == "pca-num" { return "PcaNum" }
-    if yname == "pcavid" { return "Pcavid" }
-    if yname == "chassis-sid" { return "ChassisSid" }
-    if yname == "dev-num1" { return "DevNum1" }
-    if yname == "dev-num2" { return "DevNum2" }
-    if yname == "dev-num3" { return "DevNum3" }
-    if yname == "dev-num4" { return "DevNum4" }
-    if yname == "dev-num5" { return "DevNum5" }
-    if yname == "dev-num6" { return "DevNum6" }
-    if yname == "dev-num7" { return "DevNum7" }
-    if yname == "manu-test-data" { return "ManuTestData" }
-    if yname == "asset-id" { return "AssetId" }
-    if yname == "asset-alias" { return "AssetAlias" }
-    if yname == "base-mac-address1" { return "BaseMacAddress1" }
-    if yname == "mac-add-blk-size1" { return "MacAddBlkSize1" }
-    if yname == "base-mac-address2" { return "BaseMacAddress2" }
-    if yname == "mac-add-blk-size2" { return "MacAddBlkSize2" }
-    if yname == "base-mac-address3" { return "BaseMacAddress3" }
-    if yname == "mac-add-blk-size3" { return "MacAddBlkSize3" }
-    if yname == "base-mac-address4" { return "BaseMacAddress4" }
-    if yname == "mac-add-blk-size4" { return "MacAddBlkSize4" }
-    if yname == "pcb-serial-num" { return "PcbSerialNum" }
-    if yname == "power-supply-type" { return "PowerSupplyType" }
-    if yname == "power-consumption" { return "PowerConsumption" }
-    if yname == "block-signature" { return "BlockSignature" }
-    if yname == "block-version" { return "BlockVersion" }
-    if yname == "block-length" { return "BlockLength" }
-    if yname == "block-checksum" { return "BlockChecksum" }
-    if yname == "eeprom-size" { return "EepromSize" }
-    if yname == "block-count" { return "BlockCount" }
-    if yname == "fru-major-type" { return "FruMajorType" }
-    if yname == "fru-minor-type" { return "FruMinorType" }
-    if yname == "oem-string" { return "OemString" }
-    if yname == "product-id" { return "ProductId" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "part-number" { return "PartNumber" }
-    if yname == "part-revision" { return "PartRevision" }
-    if yname == "mfg-deviation" { return "MfgDeviation" }
-    if yname == "hw-version" { return "HwVersion" }
-    if yname == "mfg-bits" { return "MfgBits" }
-    if yname == "engineer-use" { return "EngineerUse" }
-    if yname == "snmpoid" { return "Snmpoid" }
-    if yname == "rma-code" { return "RmaCode" }
-    if yname == "rma" { return "Rma" }
-    return ""
+    cardInstance.EntityData.Children = make(map[string]types.YChild)
+    cardInstance.EntityData.Children["rma"] = types.YChild{"Rma", &cardInstance.Rma}
+    cardInstance.EntityData.Leafs = make(map[string]types.YLeaf)
+    cardInstance.EntityData.Leafs["description"] = types.YLeaf{"Description", cardInstance.Description}
+    cardInstance.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", cardInstance.IdpromFormatRev}
+    cardInstance.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", cardInstance.ControllerFamily}
+    cardInstance.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", cardInstance.ControllerType}
+    cardInstance.EntityData.Leafs["vid"] = types.YLeaf{"Vid", cardInstance.Vid}
+    cardInstance.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", cardInstance.Hwid}
+    cardInstance.EntityData.Leafs["pid"] = types.YLeaf{"Pid", cardInstance.Pid}
+    cardInstance.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", cardInstance.UdiDescription}
+    cardInstance.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", cardInstance.UdiName}
+    cardInstance.EntityData.Leafs["clei"] = types.YLeaf{"Clei", cardInstance.Clei}
+    cardInstance.EntityData.Leafs["eci"] = types.YLeaf{"Eci", cardInstance.Eci}
+    cardInstance.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", cardInstance.TopAssemPartNum}
+    cardInstance.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", cardInstance.TopAssemVid}
+    cardInstance.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", cardInstance.PcaNum}
+    cardInstance.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", cardInstance.Pcavid}
+    cardInstance.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", cardInstance.ChassisSid}
+    cardInstance.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", cardInstance.DevNum1}
+    cardInstance.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", cardInstance.DevNum2}
+    cardInstance.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", cardInstance.DevNum3}
+    cardInstance.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", cardInstance.DevNum4}
+    cardInstance.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", cardInstance.DevNum5}
+    cardInstance.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", cardInstance.DevNum6}
+    cardInstance.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", cardInstance.DevNum7}
+    cardInstance.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", cardInstance.ManuTestData}
+    cardInstance.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", cardInstance.AssetId}
+    cardInstance.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", cardInstance.AssetAlias}
+    cardInstance.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", cardInstance.BaseMacAddress1}
+    cardInstance.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", cardInstance.MacAddBlkSize1}
+    cardInstance.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", cardInstance.BaseMacAddress2}
+    cardInstance.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", cardInstance.MacAddBlkSize2}
+    cardInstance.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", cardInstance.BaseMacAddress3}
+    cardInstance.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", cardInstance.MacAddBlkSize3}
+    cardInstance.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", cardInstance.BaseMacAddress4}
+    cardInstance.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", cardInstance.MacAddBlkSize4}
+    cardInstance.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", cardInstance.PcbSerialNum}
+    cardInstance.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", cardInstance.PowerSupplyType}
+    cardInstance.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", cardInstance.PowerConsumption}
+    cardInstance.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", cardInstance.BlockSignature}
+    cardInstance.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", cardInstance.BlockVersion}
+    cardInstance.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", cardInstance.BlockLength}
+    cardInstance.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", cardInstance.BlockChecksum}
+    cardInstance.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", cardInstance.EepromSize}
+    cardInstance.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", cardInstance.BlockCount}
+    cardInstance.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", cardInstance.FruMajorType}
+    cardInstance.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", cardInstance.FruMinorType}
+    cardInstance.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", cardInstance.OemString}
+    cardInstance.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", cardInstance.ProductId}
+    cardInstance.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", cardInstance.SerialNumber}
+    cardInstance.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", cardInstance.PartNumber}
+    cardInstance.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", cardInstance.PartRevision}
+    cardInstance.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", cardInstance.MfgDeviation}
+    cardInstance.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", cardInstance.HwVersion}
+    cardInstance.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", cardInstance.MfgBits}
+    cardInstance.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", cardInstance.EngineerUse}
+    cardInstance.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", cardInstance.Snmpoid}
+    cardInstance.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", cardInstance.RmaCode}
+    return &(cardInstance.EntityData)
 }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetSegmentPath() string {
-    return "card-instance"
-}
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rma" {
-        return &cardInstance.Rma
-    }
-    return nil
-}
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rma"] = &cardInstance.Rma
-    return children
-}
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = cardInstance.Description
-    leafs["idprom-format-rev"] = cardInstance.IdpromFormatRev
-    leafs["controller-family"] = cardInstance.ControllerFamily
-    leafs["controller-type"] = cardInstance.ControllerType
-    leafs["vid"] = cardInstance.Vid
-    leafs["hwid"] = cardInstance.Hwid
-    leafs["pid"] = cardInstance.Pid
-    leafs["udi-description"] = cardInstance.UdiDescription
-    leafs["udi-name"] = cardInstance.UdiName
-    leafs["clei"] = cardInstance.Clei
-    leafs["eci"] = cardInstance.Eci
-    leafs["top-assem-part-num"] = cardInstance.TopAssemPartNum
-    leafs["top-assem-vid"] = cardInstance.TopAssemVid
-    leafs["pca-num"] = cardInstance.PcaNum
-    leafs["pcavid"] = cardInstance.Pcavid
-    leafs["chassis-sid"] = cardInstance.ChassisSid
-    leafs["dev-num1"] = cardInstance.DevNum1
-    leafs["dev-num2"] = cardInstance.DevNum2
-    leafs["dev-num3"] = cardInstance.DevNum3
-    leafs["dev-num4"] = cardInstance.DevNum4
-    leafs["dev-num5"] = cardInstance.DevNum5
-    leafs["dev-num6"] = cardInstance.DevNum6
-    leafs["dev-num7"] = cardInstance.DevNum7
-    leafs["manu-test-data"] = cardInstance.ManuTestData
-    leafs["asset-id"] = cardInstance.AssetId
-    leafs["asset-alias"] = cardInstance.AssetAlias
-    leafs["base-mac-address1"] = cardInstance.BaseMacAddress1
-    leafs["mac-add-blk-size1"] = cardInstance.MacAddBlkSize1
-    leafs["base-mac-address2"] = cardInstance.BaseMacAddress2
-    leafs["mac-add-blk-size2"] = cardInstance.MacAddBlkSize2
-    leafs["base-mac-address3"] = cardInstance.BaseMacAddress3
-    leafs["mac-add-blk-size3"] = cardInstance.MacAddBlkSize3
-    leafs["base-mac-address4"] = cardInstance.BaseMacAddress4
-    leafs["mac-add-blk-size4"] = cardInstance.MacAddBlkSize4
-    leafs["pcb-serial-num"] = cardInstance.PcbSerialNum
-    leafs["power-supply-type"] = cardInstance.PowerSupplyType
-    leafs["power-consumption"] = cardInstance.PowerConsumption
-    leafs["block-signature"] = cardInstance.BlockSignature
-    leafs["block-version"] = cardInstance.BlockVersion
-    leafs["block-length"] = cardInstance.BlockLength
-    leafs["block-checksum"] = cardInstance.BlockChecksum
-    leafs["eeprom-size"] = cardInstance.EepromSize
-    leafs["block-count"] = cardInstance.BlockCount
-    leafs["fru-major-type"] = cardInstance.FruMajorType
-    leafs["fru-minor-type"] = cardInstance.FruMinorType
-    leafs["oem-string"] = cardInstance.OemString
-    leafs["product-id"] = cardInstance.ProductId
-    leafs["serial-number"] = cardInstance.SerialNumber
-    leafs["part-number"] = cardInstance.PartNumber
-    leafs["part-revision"] = cardInstance.PartRevision
-    leafs["mfg-deviation"] = cardInstance.MfgDeviation
-    leafs["hw-version"] = cardInstance.HwVersion
-    leafs["mfg-bits"] = cardInstance.MfgBits
-    leafs["engineer-use"] = cardInstance.EngineerUse
-    leafs["snmpoid"] = cardInstance.Snmpoid
-    leafs["rma-code"] = cardInstance.RmaCode
-    return leafs
-}
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetYangName() string { return "card-instance" }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) SetParent(parent types.Entity) { cardInstance.parent = parent }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetParent() types.Entity { return cardInstance.parent }
-
-func (cardInstance *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance) GetParentYangName() string { return "detail" }
 
 // Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma
 // RMA Data
 type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Test history. The type is string with length: 0..255.
@@ -2283,60 +1362,28 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma struc
     RmaHistory interface{}
 }
 
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetFilter() yfilter.YFilter { return rma.YFilter }
+func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetEntityData() *types.CommonEntityData {
+    rma.EntityData.YFilter = rma.YFilter
+    rma.EntityData.YangName = "rma"
+    rma.EntityData.BundleName = "cisco_ios_xr"
+    rma.EntityData.ParentYangName = "card-instance"
+    rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) SetFilter(yf yfilter.YFilter) { rma.YFilter = yf }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetGoName(yname string) string {
-    if yname == "test-history" { return "TestHistory" }
-    if yname == "rma-number" { return "RmaNumber" }
-    if yname == "rma-history" { return "RmaHistory" }
-    return ""
+    rma.EntityData.Children = make(map[string]types.YChild)
+    rma.EntityData.Leafs = make(map[string]types.YLeaf)
+    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
+    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
+    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    return &(rma.EntityData)
 }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetSegmentPath() string {
-    return "rma"
-}
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["test-history"] = rma.TestHistory
-    leafs["rma-number"] = rma.RmaNumber
-    leafs["rma-history"] = rma.RmaHistory
-    return leafs
-}
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetYangName() string { return "rma" }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) SetParent(parent types.Entity) { rma.parent = parent }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetParent() types.Entity { return rma.parent }
-
-func (rma *Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_CardInstance_Rma) GetParentYangName() string { return "card-instance" }
 
 // Diag_Racks_Rack_Chassis
 // Chassis information
 type Diag_Racks_Rack_Chassis struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A textual description of physical entity. The type is string with length:
@@ -2514,171 +1561,82 @@ type Diag_Racks_Rack_Chassis struct {
     Rma Diag_Racks_Rack_Chassis_Rma
 }
 
-func (chassis *Diag_Racks_Rack_Chassis) GetFilter() yfilter.YFilter { return chassis.YFilter }
+func (chassis *Diag_Racks_Rack_Chassis) GetEntityData() *types.CommonEntityData {
+    chassis.EntityData.YFilter = chassis.YFilter
+    chassis.EntityData.YangName = "chassis"
+    chassis.EntityData.BundleName = "cisco_ios_xr"
+    chassis.EntityData.ParentYangName = "rack"
+    chassis.EntityData.SegmentPath = "chassis"
+    chassis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    chassis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    chassis.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (chassis *Diag_Racks_Rack_Chassis) SetFilter(yf yfilter.YFilter) { chassis.YFilter = yf }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetGoName(yname string) string {
-    if yname == "description" { return "Description" }
-    if yname == "idprom-format-rev" { return "IdpromFormatRev" }
-    if yname == "controller-family" { return "ControllerFamily" }
-    if yname == "controller-type" { return "ControllerType" }
-    if yname == "vid" { return "Vid" }
-    if yname == "hwid" { return "Hwid" }
-    if yname == "pid" { return "Pid" }
-    if yname == "udi-description" { return "UdiDescription" }
-    if yname == "udi-name" { return "UdiName" }
-    if yname == "clei" { return "Clei" }
-    if yname == "eci" { return "Eci" }
-    if yname == "top-assem-part-num" { return "TopAssemPartNum" }
-    if yname == "top-assem-vid" { return "TopAssemVid" }
-    if yname == "pca-num" { return "PcaNum" }
-    if yname == "pcavid" { return "Pcavid" }
-    if yname == "chassis-sid" { return "ChassisSid" }
-    if yname == "dev-num1" { return "DevNum1" }
-    if yname == "dev-num2" { return "DevNum2" }
-    if yname == "dev-num3" { return "DevNum3" }
-    if yname == "dev-num4" { return "DevNum4" }
-    if yname == "dev-num5" { return "DevNum5" }
-    if yname == "dev-num6" { return "DevNum6" }
-    if yname == "dev-num7" { return "DevNum7" }
-    if yname == "manu-test-data" { return "ManuTestData" }
-    if yname == "asset-id" { return "AssetId" }
-    if yname == "asset-alias" { return "AssetAlias" }
-    if yname == "base-mac-address1" { return "BaseMacAddress1" }
-    if yname == "mac-add-blk-size1" { return "MacAddBlkSize1" }
-    if yname == "base-mac-address2" { return "BaseMacAddress2" }
-    if yname == "mac-add-blk-size2" { return "MacAddBlkSize2" }
-    if yname == "base-mac-address3" { return "BaseMacAddress3" }
-    if yname == "mac-add-blk-size3" { return "MacAddBlkSize3" }
-    if yname == "base-mac-address4" { return "BaseMacAddress4" }
-    if yname == "mac-add-blk-size4" { return "MacAddBlkSize4" }
-    if yname == "pcb-serial-num" { return "PcbSerialNum" }
-    if yname == "power-supply-type" { return "PowerSupplyType" }
-    if yname == "power-consumption" { return "PowerConsumption" }
-    if yname == "block-signature" { return "BlockSignature" }
-    if yname == "block-version" { return "BlockVersion" }
-    if yname == "block-length" { return "BlockLength" }
-    if yname == "block-checksum" { return "BlockChecksum" }
-    if yname == "eeprom-size" { return "EepromSize" }
-    if yname == "block-count" { return "BlockCount" }
-    if yname == "fru-major-type" { return "FruMajorType" }
-    if yname == "fru-minor-type" { return "FruMinorType" }
-    if yname == "oem-string" { return "OemString" }
-    if yname == "product-id" { return "ProductId" }
-    if yname == "serial-number" { return "SerialNumber" }
-    if yname == "part-number" { return "PartNumber" }
-    if yname == "part-revision" { return "PartRevision" }
-    if yname == "mfg-deviation" { return "MfgDeviation" }
-    if yname == "hw-version" { return "HwVersion" }
-    if yname == "mfg-bits" { return "MfgBits" }
-    if yname == "engineer-use" { return "EngineerUse" }
-    if yname == "snmpoid" { return "Snmpoid" }
-    if yname == "rma-code" { return "RmaCode" }
-    if yname == "rma" { return "Rma" }
-    return ""
+    chassis.EntityData.Children = make(map[string]types.YChild)
+    chassis.EntityData.Children["rma"] = types.YChild{"Rma", &chassis.Rma}
+    chassis.EntityData.Leafs = make(map[string]types.YLeaf)
+    chassis.EntityData.Leafs["description"] = types.YLeaf{"Description", chassis.Description}
+    chassis.EntityData.Leafs["idprom-format-rev"] = types.YLeaf{"IdpromFormatRev", chassis.IdpromFormatRev}
+    chassis.EntityData.Leafs["controller-family"] = types.YLeaf{"ControllerFamily", chassis.ControllerFamily}
+    chassis.EntityData.Leafs["controller-type"] = types.YLeaf{"ControllerType", chassis.ControllerType}
+    chassis.EntityData.Leafs["vid"] = types.YLeaf{"Vid", chassis.Vid}
+    chassis.EntityData.Leafs["hwid"] = types.YLeaf{"Hwid", chassis.Hwid}
+    chassis.EntityData.Leafs["pid"] = types.YLeaf{"Pid", chassis.Pid}
+    chassis.EntityData.Leafs["udi-description"] = types.YLeaf{"UdiDescription", chassis.UdiDescription}
+    chassis.EntityData.Leafs["udi-name"] = types.YLeaf{"UdiName", chassis.UdiName}
+    chassis.EntityData.Leafs["clei"] = types.YLeaf{"Clei", chassis.Clei}
+    chassis.EntityData.Leafs["eci"] = types.YLeaf{"Eci", chassis.Eci}
+    chassis.EntityData.Leafs["top-assem-part-num"] = types.YLeaf{"TopAssemPartNum", chassis.TopAssemPartNum}
+    chassis.EntityData.Leafs["top-assem-vid"] = types.YLeaf{"TopAssemVid", chassis.TopAssemVid}
+    chassis.EntityData.Leafs["pca-num"] = types.YLeaf{"PcaNum", chassis.PcaNum}
+    chassis.EntityData.Leafs["pcavid"] = types.YLeaf{"Pcavid", chassis.Pcavid}
+    chassis.EntityData.Leafs["chassis-sid"] = types.YLeaf{"ChassisSid", chassis.ChassisSid}
+    chassis.EntityData.Leafs["dev-num1"] = types.YLeaf{"DevNum1", chassis.DevNum1}
+    chassis.EntityData.Leafs["dev-num2"] = types.YLeaf{"DevNum2", chassis.DevNum2}
+    chassis.EntityData.Leafs["dev-num3"] = types.YLeaf{"DevNum3", chassis.DevNum3}
+    chassis.EntityData.Leafs["dev-num4"] = types.YLeaf{"DevNum4", chassis.DevNum4}
+    chassis.EntityData.Leafs["dev-num5"] = types.YLeaf{"DevNum5", chassis.DevNum5}
+    chassis.EntityData.Leafs["dev-num6"] = types.YLeaf{"DevNum6", chassis.DevNum6}
+    chassis.EntityData.Leafs["dev-num7"] = types.YLeaf{"DevNum7", chassis.DevNum7}
+    chassis.EntityData.Leafs["manu-test-data"] = types.YLeaf{"ManuTestData", chassis.ManuTestData}
+    chassis.EntityData.Leafs["asset-id"] = types.YLeaf{"AssetId", chassis.AssetId}
+    chassis.EntityData.Leafs["asset-alias"] = types.YLeaf{"AssetAlias", chassis.AssetAlias}
+    chassis.EntityData.Leafs["base-mac-address1"] = types.YLeaf{"BaseMacAddress1", chassis.BaseMacAddress1}
+    chassis.EntityData.Leafs["mac-add-blk-size1"] = types.YLeaf{"MacAddBlkSize1", chassis.MacAddBlkSize1}
+    chassis.EntityData.Leafs["base-mac-address2"] = types.YLeaf{"BaseMacAddress2", chassis.BaseMacAddress2}
+    chassis.EntityData.Leafs["mac-add-blk-size2"] = types.YLeaf{"MacAddBlkSize2", chassis.MacAddBlkSize2}
+    chassis.EntityData.Leafs["base-mac-address3"] = types.YLeaf{"BaseMacAddress3", chassis.BaseMacAddress3}
+    chassis.EntityData.Leafs["mac-add-blk-size3"] = types.YLeaf{"MacAddBlkSize3", chassis.MacAddBlkSize3}
+    chassis.EntityData.Leafs["base-mac-address4"] = types.YLeaf{"BaseMacAddress4", chassis.BaseMacAddress4}
+    chassis.EntityData.Leafs["mac-add-blk-size4"] = types.YLeaf{"MacAddBlkSize4", chassis.MacAddBlkSize4}
+    chassis.EntityData.Leafs["pcb-serial-num"] = types.YLeaf{"PcbSerialNum", chassis.PcbSerialNum}
+    chassis.EntityData.Leafs["power-supply-type"] = types.YLeaf{"PowerSupplyType", chassis.PowerSupplyType}
+    chassis.EntityData.Leafs["power-consumption"] = types.YLeaf{"PowerConsumption", chassis.PowerConsumption}
+    chassis.EntityData.Leafs["block-signature"] = types.YLeaf{"BlockSignature", chassis.BlockSignature}
+    chassis.EntityData.Leafs["block-version"] = types.YLeaf{"BlockVersion", chassis.BlockVersion}
+    chassis.EntityData.Leafs["block-length"] = types.YLeaf{"BlockLength", chassis.BlockLength}
+    chassis.EntityData.Leafs["block-checksum"] = types.YLeaf{"BlockChecksum", chassis.BlockChecksum}
+    chassis.EntityData.Leafs["eeprom-size"] = types.YLeaf{"EepromSize", chassis.EepromSize}
+    chassis.EntityData.Leafs["block-count"] = types.YLeaf{"BlockCount", chassis.BlockCount}
+    chassis.EntityData.Leafs["fru-major-type"] = types.YLeaf{"FruMajorType", chassis.FruMajorType}
+    chassis.EntityData.Leafs["fru-minor-type"] = types.YLeaf{"FruMinorType", chassis.FruMinorType}
+    chassis.EntityData.Leafs["oem-string"] = types.YLeaf{"OemString", chassis.OemString}
+    chassis.EntityData.Leafs["product-id"] = types.YLeaf{"ProductId", chassis.ProductId}
+    chassis.EntityData.Leafs["serial-number"] = types.YLeaf{"SerialNumber", chassis.SerialNumber}
+    chassis.EntityData.Leafs["part-number"] = types.YLeaf{"PartNumber", chassis.PartNumber}
+    chassis.EntityData.Leafs["part-revision"] = types.YLeaf{"PartRevision", chassis.PartRevision}
+    chassis.EntityData.Leafs["mfg-deviation"] = types.YLeaf{"MfgDeviation", chassis.MfgDeviation}
+    chassis.EntityData.Leafs["hw-version"] = types.YLeaf{"HwVersion", chassis.HwVersion}
+    chassis.EntityData.Leafs["mfg-bits"] = types.YLeaf{"MfgBits", chassis.MfgBits}
+    chassis.EntityData.Leafs["engineer-use"] = types.YLeaf{"EngineerUse", chassis.EngineerUse}
+    chassis.EntityData.Leafs["snmpoid"] = types.YLeaf{"Snmpoid", chassis.Snmpoid}
+    chassis.EntityData.Leafs["rma-code"] = types.YLeaf{"RmaCode", chassis.RmaCode}
+    return &(chassis.EntityData)
 }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetSegmentPath() string {
-    return "chassis"
-}
-
-func (chassis *Diag_Racks_Rack_Chassis) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "rma" {
-        return &chassis.Rma
-    }
-    return nil
-}
-
-func (chassis *Diag_Racks_Rack_Chassis) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["rma"] = &chassis.Rma
-    return children
-}
-
-func (chassis *Diag_Racks_Rack_Chassis) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["description"] = chassis.Description
-    leafs["idprom-format-rev"] = chassis.IdpromFormatRev
-    leafs["controller-family"] = chassis.ControllerFamily
-    leafs["controller-type"] = chassis.ControllerType
-    leafs["vid"] = chassis.Vid
-    leafs["hwid"] = chassis.Hwid
-    leafs["pid"] = chassis.Pid
-    leafs["udi-description"] = chassis.UdiDescription
-    leafs["udi-name"] = chassis.UdiName
-    leafs["clei"] = chassis.Clei
-    leafs["eci"] = chassis.Eci
-    leafs["top-assem-part-num"] = chassis.TopAssemPartNum
-    leafs["top-assem-vid"] = chassis.TopAssemVid
-    leafs["pca-num"] = chassis.PcaNum
-    leafs["pcavid"] = chassis.Pcavid
-    leafs["chassis-sid"] = chassis.ChassisSid
-    leafs["dev-num1"] = chassis.DevNum1
-    leafs["dev-num2"] = chassis.DevNum2
-    leafs["dev-num3"] = chassis.DevNum3
-    leafs["dev-num4"] = chassis.DevNum4
-    leafs["dev-num5"] = chassis.DevNum5
-    leafs["dev-num6"] = chassis.DevNum6
-    leafs["dev-num7"] = chassis.DevNum7
-    leafs["manu-test-data"] = chassis.ManuTestData
-    leafs["asset-id"] = chassis.AssetId
-    leafs["asset-alias"] = chassis.AssetAlias
-    leafs["base-mac-address1"] = chassis.BaseMacAddress1
-    leafs["mac-add-blk-size1"] = chassis.MacAddBlkSize1
-    leafs["base-mac-address2"] = chassis.BaseMacAddress2
-    leafs["mac-add-blk-size2"] = chassis.MacAddBlkSize2
-    leafs["base-mac-address3"] = chassis.BaseMacAddress3
-    leafs["mac-add-blk-size3"] = chassis.MacAddBlkSize3
-    leafs["base-mac-address4"] = chassis.BaseMacAddress4
-    leafs["mac-add-blk-size4"] = chassis.MacAddBlkSize4
-    leafs["pcb-serial-num"] = chassis.PcbSerialNum
-    leafs["power-supply-type"] = chassis.PowerSupplyType
-    leafs["power-consumption"] = chassis.PowerConsumption
-    leafs["block-signature"] = chassis.BlockSignature
-    leafs["block-version"] = chassis.BlockVersion
-    leafs["block-length"] = chassis.BlockLength
-    leafs["block-checksum"] = chassis.BlockChecksum
-    leafs["eeprom-size"] = chassis.EepromSize
-    leafs["block-count"] = chassis.BlockCount
-    leafs["fru-major-type"] = chassis.FruMajorType
-    leafs["fru-minor-type"] = chassis.FruMinorType
-    leafs["oem-string"] = chassis.OemString
-    leafs["product-id"] = chassis.ProductId
-    leafs["serial-number"] = chassis.SerialNumber
-    leafs["part-number"] = chassis.PartNumber
-    leafs["part-revision"] = chassis.PartRevision
-    leafs["mfg-deviation"] = chassis.MfgDeviation
-    leafs["hw-version"] = chassis.HwVersion
-    leafs["mfg-bits"] = chassis.MfgBits
-    leafs["engineer-use"] = chassis.EngineerUse
-    leafs["snmpoid"] = chassis.Snmpoid
-    leafs["rma-code"] = chassis.RmaCode
-    return leafs
-}
-
-func (chassis *Diag_Racks_Rack_Chassis) GetBundleName() string { return "cisco_ios_xr" }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetYangName() string { return "chassis" }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (chassis *Diag_Racks_Rack_Chassis) SetParent(parent types.Entity) { chassis.parent = parent }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetParent() types.Entity { return chassis.parent }
-
-func (chassis *Diag_Racks_Rack_Chassis) GetParentYangName() string { return "rack" }
 
 // Diag_Racks_Rack_Chassis_Rma
 // RMA Data
 type Diag_Racks_Rack_Chassis_Rma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Test history. The type is string with length: 0..255.
@@ -2692,53 +1650,21 @@ type Diag_Racks_Rack_Chassis_Rma struct {
     RmaHistory interface{}
 }
 
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetFilter() yfilter.YFilter { return rma.YFilter }
+func (rma *Diag_Racks_Rack_Chassis_Rma) GetEntityData() *types.CommonEntityData {
+    rma.EntityData.YFilter = rma.YFilter
+    rma.EntityData.YangName = "rma"
+    rma.EntityData.BundleName = "cisco_ios_xr"
+    rma.EntityData.ParentYangName = "chassis"
+    rma.EntityData.SegmentPath = "rma"
+    rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rma *Diag_Racks_Rack_Chassis_Rma) SetFilter(yf yfilter.YFilter) { rma.YFilter = yf }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetGoName(yname string) string {
-    if yname == "test-history" { return "TestHistory" }
-    if yname == "rma-number" { return "RmaNumber" }
-    if yname == "rma-history" { return "RmaHistory" }
-    return ""
+    rma.EntityData.Children = make(map[string]types.YChild)
+    rma.EntityData.Leafs = make(map[string]types.YLeaf)
+    rma.EntityData.Leafs["test-history"] = types.YLeaf{"TestHistory", rma.TestHistory}
+    rma.EntityData.Leafs["rma-number"] = types.YLeaf{"RmaNumber", rma.RmaNumber}
+    rma.EntityData.Leafs["rma-history"] = types.YLeaf{"RmaHistory", rma.RmaHistory}
+    return &(rma.EntityData)
 }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetSegmentPath() string {
-    return "rma"
-}
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["test-history"] = rma.TestHistory
-    leafs["rma-number"] = rma.RmaNumber
-    leafs["rma-history"] = rma.RmaHistory
-    return leafs
-}
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetYangName() string { return "rma" }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) SetParent(parent types.Entity) { rma.parent = parent }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetParent() types.Entity { return rma.parent }
-
-func (rma *Diag_Racks_Rack_Chassis_Rma) GetParentYangName() string { return "chassis" }
 

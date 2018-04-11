@@ -47,7 +47,7 @@ const (
 
 // OSPFMIB
 type OSPFMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -163,138 +163,41 @@ type OSPFMIB struct {
     Ospfarealsacounttable OSPFMIB_Ospfarealsacounttable
 }
 
-func (oSPFMIB *OSPFMIB) GetFilter() yfilter.YFilter { return oSPFMIB.YFilter }
+func (oSPFMIB *OSPFMIB) GetEntityData() *types.CommonEntityData {
+    oSPFMIB.EntityData.YFilter = oSPFMIB.YFilter
+    oSPFMIB.EntityData.YangName = "OSPF-MIB"
+    oSPFMIB.EntityData.BundleName = "cisco_ios_xe"
+    oSPFMIB.EntityData.ParentYangName = "OSPF-MIB"
+    oSPFMIB.EntityData.SegmentPath = "OSPF-MIB:OSPF-MIB"
+    oSPFMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    oSPFMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    oSPFMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (oSPFMIB *OSPFMIB) SetFilter(yf yfilter.YFilter) { oSPFMIB.YFilter = yf }
-
-func (oSPFMIB *OSPFMIB) GetGoName(yname string) string {
-    if yname == "ospfGeneralGroup" { return "Ospfgeneralgroup" }
-    if yname == "ospfAreaTable" { return "Ospfareatable" }
-    if yname == "ospfStubAreaTable" { return "Ospfstubareatable" }
-    if yname == "ospfLsdbTable" { return "Ospflsdbtable" }
-    if yname == "ospfAreaRangeTable" { return "Ospfarearangetable" }
-    if yname == "ospfHostTable" { return "Ospfhosttable" }
-    if yname == "ospfIfTable" { return "Ospfiftable" }
-    if yname == "ospfIfMetricTable" { return "Ospfifmetrictable" }
-    if yname == "ospfVirtIfTable" { return "Ospfvirtiftable" }
-    if yname == "ospfNbrTable" { return "Ospfnbrtable" }
-    if yname == "ospfVirtNbrTable" { return "Ospfvirtnbrtable" }
-    if yname == "ospfExtLsdbTable" { return "Ospfextlsdbtable" }
-    if yname == "ospfAreaAggregateTable" { return "Ospfareaaggregatetable" }
-    if yname == "ospfLocalLsdbTable" { return "Ospflocallsdbtable" }
-    if yname == "ospfVirtLocalLsdbTable" { return "Ospfvirtlocallsdbtable" }
-    if yname == "ospfAsLsdbTable" { return "Ospfaslsdbtable" }
-    if yname == "ospfAreaLsaCountTable" { return "Ospfarealsacounttable" }
-    return ""
+    oSPFMIB.EntityData.Children = make(map[string]types.YChild)
+    oSPFMIB.EntityData.Children["ospfGeneralGroup"] = types.YChild{"Ospfgeneralgroup", &oSPFMIB.Ospfgeneralgroup}
+    oSPFMIB.EntityData.Children["ospfAreaTable"] = types.YChild{"Ospfareatable", &oSPFMIB.Ospfareatable}
+    oSPFMIB.EntityData.Children["ospfStubAreaTable"] = types.YChild{"Ospfstubareatable", &oSPFMIB.Ospfstubareatable}
+    oSPFMIB.EntityData.Children["ospfLsdbTable"] = types.YChild{"Ospflsdbtable", &oSPFMIB.Ospflsdbtable}
+    oSPFMIB.EntityData.Children["ospfAreaRangeTable"] = types.YChild{"Ospfarearangetable", &oSPFMIB.Ospfarearangetable}
+    oSPFMIB.EntityData.Children["ospfHostTable"] = types.YChild{"Ospfhosttable", &oSPFMIB.Ospfhosttable}
+    oSPFMIB.EntityData.Children["ospfIfTable"] = types.YChild{"Ospfiftable", &oSPFMIB.Ospfiftable}
+    oSPFMIB.EntityData.Children["ospfIfMetricTable"] = types.YChild{"Ospfifmetrictable", &oSPFMIB.Ospfifmetrictable}
+    oSPFMIB.EntityData.Children["ospfVirtIfTable"] = types.YChild{"Ospfvirtiftable", &oSPFMIB.Ospfvirtiftable}
+    oSPFMIB.EntityData.Children["ospfNbrTable"] = types.YChild{"Ospfnbrtable", &oSPFMIB.Ospfnbrtable}
+    oSPFMIB.EntityData.Children["ospfVirtNbrTable"] = types.YChild{"Ospfvirtnbrtable", &oSPFMIB.Ospfvirtnbrtable}
+    oSPFMIB.EntityData.Children["ospfExtLsdbTable"] = types.YChild{"Ospfextlsdbtable", &oSPFMIB.Ospfextlsdbtable}
+    oSPFMIB.EntityData.Children["ospfAreaAggregateTable"] = types.YChild{"Ospfareaaggregatetable", &oSPFMIB.Ospfareaaggregatetable}
+    oSPFMIB.EntityData.Children["ospfLocalLsdbTable"] = types.YChild{"Ospflocallsdbtable", &oSPFMIB.Ospflocallsdbtable}
+    oSPFMIB.EntityData.Children["ospfVirtLocalLsdbTable"] = types.YChild{"Ospfvirtlocallsdbtable", &oSPFMIB.Ospfvirtlocallsdbtable}
+    oSPFMIB.EntityData.Children["ospfAsLsdbTable"] = types.YChild{"Ospfaslsdbtable", &oSPFMIB.Ospfaslsdbtable}
+    oSPFMIB.EntityData.Children["ospfAreaLsaCountTable"] = types.YChild{"Ospfarealsacounttable", &oSPFMIB.Ospfarealsacounttable}
+    oSPFMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(oSPFMIB.EntityData)
 }
-
-func (oSPFMIB *OSPFMIB) GetSegmentPath() string {
-    return "OSPF-MIB:OSPF-MIB"
-}
-
-func (oSPFMIB *OSPFMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfGeneralGroup" {
-        return &oSPFMIB.Ospfgeneralgroup
-    }
-    if childYangName == "ospfAreaTable" {
-        return &oSPFMIB.Ospfareatable
-    }
-    if childYangName == "ospfStubAreaTable" {
-        return &oSPFMIB.Ospfstubareatable
-    }
-    if childYangName == "ospfLsdbTable" {
-        return &oSPFMIB.Ospflsdbtable
-    }
-    if childYangName == "ospfAreaRangeTable" {
-        return &oSPFMIB.Ospfarearangetable
-    }
-    if childYangName == "ospfHostTable" {
-        return &oSPFMIB.Ospfhosttable
-    }
-    if childYangName == "ospfIfTable" {
-        return &oSPFMIB.Ospfiftable
-    }
-    if childYangName == "ospfIfMetricTable" {
-        return &oSPFMIB.Ospfifmetrictable
-    }
-    if childYangName == "ospfVirtIfTable" {
-        return &oSPFMIB.Ospfvirtiftable
-    }
-    if childYangName == "ospfNbrTable" {
-        return &oSPFMIB.Ospfnbrtable
-    }
-    if childYangName == "ospfVirtNbrTable" {
-        return &oSPFMIB.Ospfvirtnbrtable
-    }
-    if childYangName == "ospfExtLsdbTable" {
-        return &oSPFMIB.Ospfextlsdbtable
-    }
-    if childYangName == "ospfAreaAggregateTable" {
-        return &oSPFMIB.Ospfareaaggregatetable
-    }
-    if childYangName == "ospfLocalLsdbTable" {
-        return &oSPFMIB.Ospflocallsdbtable
-    }
-    if childYangName == "ospfVirtLocalLsdbTable" {
-        return &oSPFMIB.Ospfvirtlocallsdbtable
-    }
-    if childYangName == "ospfAsLsdbTable" {
-        return &oSPFMIB.Ospfaslsdbtable
-    }
-    if childYangName == "ospfAreaLsaCountTable" {
-        return &oSPFMIB.Ospfarealsacounttable
-    }
-    return nil
-}
-
-func (oSPFMIB *OSPFMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ospfGeneralGroup"] = &oSPFMIB.Ospfgeneralgroup
-    children["ospfAreaTable"] = &oSPFMIB.Ospfareatable
-    children["ospfStubAreaTable"] = &oSPFMIB.Ospfstubareatable
-    children["ospfLsdbTable"] = &oSPFMIB.Ospflsdbtable
-    children["ospfAreaRangeTable"] = &oSPFMIB.Ospfarearangetable
-    children["ospfHostTable"] = &oSPFMIB.Ospfhosttable
-    children["ospfIfTable"] = &oSPFMIB.Ospfiftable
-    children["ospfIfMetricTable"] = &oSPFMIB.Ospfifmetrictable
-    children["ospfVirtIfTable"] = &oSPFMIB.Ospfvirtiftable
-    children["ospfNbrTable"] = &oSPFMIB.Ospfnbrtable
-    children["ospfVirtNbrTable"] = &oSPFMIB.Ospfvirtnbrtable
-    children["ospfExtLsdbTable"] = &oSPFMIB.Ospfextlsdbtable
-    children["ospfAreaAggregateTable"] = &oSPFMIB.Ospfareaaggregatetable
-    children["ospfLocalLsdbTable"] = &oSPFMIB.Ospflocallsdbtable
-    children["ospfVirtLocalLsdbTable"] = &oSPFMIB.Ospfvirtlocallsdbtable
-    children["ospfAsLsdbTable"] = &oSPFMIB.Ospfaslsdbtable
-    children["ospfAreaLsaCountTable"] = &oSPFMIB.Ospfarealsacounttable
-    return children
-}
-
-func (oSPFMIB *OSPFMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (oSPFMIB *OSPFMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (oSPFMIB *OSPFMIB) GetYangName() string { return "OSPF-MIB" }
-
-func (oSPFMIB *OSPFMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (oSPFMIB *OSPFMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (oSPFMIB *OSPFMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (oSPFMIB *OSPFMIB) SetParent(parent types.Entity) { oSPFMIB.parent = parent }
-
-func (oSPFMIB *OSPFMIB) GetParent() types.Entity { return oSPFMIB.parent }
-
-func (oSPFMIB *OSPFMIB) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfgeneralgroup
 type OSPFMIB_Ospfgeneralgroup struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A 32-bit integer uniquely identifying the router in the Autonomous System.
@@ -302,7 +205,7 @@ type OSPFMIB_Ospfgeneralgroup struct {
     // one of the router's IP interface addresses.  This object is persistent and
     // when written the entity SHOULD save the change to non-volatile storage. The
     // type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfrouterid interface{}
 
     // The administrative status of OSPF in the router.  The value 'enabled'
@@ -477,105 +380,48 @@ type OSPFMIB_Ospfgeneralgroup struct {
     Ospfdiscontinuitytime interface{}
 }
 
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetFilter() yfilter.YFilter { return ospfgeneralgroup.YFilter }
+func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetEntityData() *types.CommonEntityData {
+    ospfgeneralgroup.EntityData.YFilter = ospfgeneralgroup.YFilter
+    ospfgeneralgroup.EntityData.YangName = "ospfGeneralGroup"
+    ospfgeneralgroup.EntityData.BundleName = "cisco_ios_xe"
+    ospfgeneralgroup.EntityData.ParentYangName = "OSPF-MIB"
+    ospfgeneralgroup.EntityData.SegmentPath = "ospfGeneralGroup"
+    ospfgeneralgroup.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfgeneralgroup.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfgeneralgroup.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) SetFilter(yf yfilter.YFilter) { ospfgeneralgroup.YFilter = yf }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetGoName(yname string) string {
-    if yname == "ospfRouterId" { return "Ospfrouterid" }
-    if yname == "ospfAdminStat" { return "Ospfadminstat" }
-    if yname == "ospfVersionNumber" { return "Ospfversionnumber" }
-    if yname == "ospfAreaBdrRtrStatus" { return "Ospfareabdrrtrstatus" }
-    if yname == "ospfASBdrRtrStatus" { return "Ospfasbdrrtrstatus" }
-    if yname == "ospfExternLsaCount" { return "Ospfexternlsacount" }
-    if yname == "ospfExternLsaCksumSum" { return "Ospfexternlsacksumsum" }
-    if yname == "ospfTOSSupport" { return "Ospftossupport" }
-    if yname == "ospfOriginateNewLsas" { return "Ospforiginatenewlsas" }
-    if yname == "ospfRxNewLsas" { return "Ospfrxnewlsas" }
-    if yname == "ospfExtLsdbLimit" { return "Ospfextlsdblimit" }
-    if yname == "ospfMulticastExtensions" { return "Ospfmulticastextensions" }
-    if yname == "ospfExitOverflowInterval" { return "Ospfexitoverflowinterval" }
-    if yname == "ospfDemandExtensions" { return "Ospfdemandextensions" }
-    if yname == "ospfRFC1583Compatibility" { return "Ospfrfc1583Compatibility" }
-    if yname == "ospfOpaqueLsaSupport" { return "Ospfopaquelsasupport" }
-    if yname == "ospfReferenceBandwidth" { return "Ospfreferencebandwidth" }
-    if yname == "ospfRestartSupport" { return "Ospfrestartsupport" }
-    if yname == "ospfRestartInterval" { return "Ospfrestartinterval" }
-    if yname == "ospfRestartStrictLsaChecking" { return "Ospfrestartstrictlsachecking" }
-    if yname == "ospfRestartStatus" { return "Ospfrestartstatus" }
-    if yname == "ospfRestartAge" { return "Ospfrestartage" }
-    if yname == "ospfRestartExitReason" { return "Ospfrestartexitreason" }
-    if yname == "ospfAsLsaCount" { return "Ospfaslsacount" }
-    if yname == "ospfAsLsaCksumSum" { return "Ospfaslsacksumsum" }
-    if yname == "ospfStubRouterSupport" { return "Ospfstubroutersupport" }
-    if yname == "ospfStubRouterAdvertisement" { return "Ospfstubrouteradvertisement" }
-    if yname == "ospfDiscontinuityTime" { return "Ospfdiscontinuitytime" }
-    return ""
+    ospfgeneralgroup.EntityData.Children = make(map[string]types.YChild)
+    ospfgeneralgroup.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfgeneralgroup.EntityData.Leafs["ospfRouterId"] = types.YLeaf{"Ospfrouterid", ospfgeneralgroup.Ospfrouterid}
+    ospfgeneralgroup.EntityData.Leafs["ospfAdminStat"] = types.YLeaf{"Ospfadminstat", ospfgeneralgroup.Ospfadminstat}
+    ospfgeneralgroup.EntityData.Leafs["ospfVersionNumber"] = types.YLeaf{"Ospfversionnumber", ospfgeneralgroup.Ospfversionnumber}
+    ospfgeneralgroup.EntityData.Leafs["ospfAreaBdrRtrStatus"] = types.YLeaf{"Ospfareabdrrtrstatus", ospfgeneralgroup.Ospfareabdrrtrstatus}
+    ospfgeneralgroup.EntityData.Leafs["ospfASBdrRtrStatus"] = types.YLeaf{"Ospfasbdrrtrstatus", ospfgeneralgroup.Ospfasbdrrtrstatus}
+    ospfgeneralgroup.EntityData.Leafs["ospfExternLsaCount"] = types.YLeaf{"Ospfexternlsacount", ospfgeneralgroup.Ospfexternlsacount}
+    ospfgeneralgroup.EntityData.Leafs["ospfExternLsaCksumSum"] = types.YLeaf{"Ospfexternlsacksumsum", ospfgeneralgroup.Ospfexternlsacksumsum}
+    ospfgeneralgroup.EntityData.Leafs["ospfTOSSupport"] = types.YLeaf{"Ospftossupport", ospfgeneralgroup.Ospftossupport}
+    ospfgeneralgroup.EntityData.Leafs["ospfOriginateNewLsas"] = types.YLeaf{"Ospforiginatenewlsas", ospfgeneralgroup.Ospforiginatenewlsas}
+    ospfgeneralgroup.EntityData.Leafs["ospfRxNewLsas"] = types.YLeaf{"Ospfrxnewlsas", ospfgeneralgroup.Ospfrxnewlsas}
+    ospfgeneralgroup.EntityData.Leafs["ospfExtLsdbLimit"] = types.YLeaf{"Ospfextlsdblimit", ospfgeneralgroup.Ospfextlsdblimit}
+    ospfgeneralgroup.EntityData.Leafs["ospfMulticastExtensions"] = types.YLeaf{"Ospfmulticastextensions", ospfgeneralgroup.Ospfmulticastextensions}
+    ospfgeneralgroup.EntityData.Leafs["ospfExitOverflowInterval"] = types.YLeaf{"Ospfexitoverflowinterval", ospfgeneralgroup.Ospfexitoverflowinterval}
+    ospfgeneralgroup.EntityData.Leafs["ospfDemandExtensions"] = types.YLeaf{"Ospfdemandextensions", ospfgeneralgroup.Ospfdemandextensions}
+    ospfgeneralgroup.EntityData.Leafs["ospfRFC1583Compatibility"] = types.YLeaf{"Ospfrfc1583Compatibility", ospfgeneralgroup.Ospfrfc1583Compatibility}
+    ospfgeneralgroup.EntityData.Leafs["ospfOpaqueLsaSupport"] = types.YLeaf{"Ospfopaquelsasupport", ospfgeneralgroup.Ospfopaquelsasupport}
+    ospfgeneralgroup.EntityData.Leafs["ospfReferenceBandwidth"] = types.YLeaf{"Ospfreferencebandwidth", ospfgeneralgroup.Ospfreferencebandwidth}
+    ospfgeneralgroup.EntityData.Leafs["ospfRestartSupport"] = types.YLeaf{"Ospfrestartsupport", ospfgeneralgroup.Ospfrestartsupport}
+    ospfgeneralgroup.EntityData.Leafs["ospfRestartInterval"] = types.YLeaf{"Ospfrestartinterval", ospfgeneralgroup.Ospfrestartinterval}
+    ospfgeneralgroup.EntityData.Leafs["ospfRestartStrictLsaChecking"] = types.YLeaf{"Ospfrestartstrictlsachecking", ospfgeneralgroup.Ospfrestartstrictlsachecking}
+    ospfgeneralgroup.EntityData.Leafs["ospfRestartStatus"] = types.YLeaf{"Ospfrestartstatus", ospfgeneralgroup.Ospfrestartstatus}
+    ospfgeneralgroup.EntityData.Leafs["ospfRestartAge"] = types.YLeaf{"Ospfrestartage", ospfgeneralgroup.Ospfrestartage}
+    ospfgeneralgroup.EntityData.Leafs["ospfRestartExitReason"] = types.YLeaf{"Ospfrestartexitreason", ospfgeneralgroup.Ospfrestartexitreason}
+    ospfgeneralgroup.EntityData.Leafs["ospfAsLsaCount"] = types.YLeaf{"Ospfaslsacount", ospfgeneralgroup.Ospfaslsacount}
+    ospfgeneralgroup.EntityData.Leafs["ospfAsLsaCksumSum"] = types.YLeaf{"Ospfaslsacksumsum", ospfgeneralgroup.Ospfaslsacksumsum}
+    ospfgeneralgroup.EntityData.Leafs["ospfStubRouterSupport"] = types.YLeaf{"Ospfstubroutersupport", ospfgeneralgroup.Ospfstubroutersupport}
+    ospfgeneralgroup.EntityData.Leafs["ospfStubRouterAdvertisement"] = types.YLeaf{"Ospfstubrouteradvertisement", ospfgeneralgroup.Ospfstubrouteradvertisement}
+    ospfgeneralgroup.EntityData.Leafs["ospfDiscontinuityTime"] = types.YLeaf{"Ospfdiscontinuitytime", ospfgeneralgroup.Ospfdiscontinuitytime}
+    return &(ospfgeneralgroup.EntityData)
 }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetSegmentPath() string {
-    return "ospfGeneralGroup"
-}
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfRouterId"] = ospfgeneralgroup.Ospfrouterid
-    leafs["ospfAdminStat"] = ospfgeneralgroup.Ospfadminstat
-    leafs["ospfVersionNumber"] = ospfgeneralgroup.Ospfversionnumber
-    leafs["ospfAreaBdrRtrStatus"] = ospfgeneralgroup.Ospfareabdrrtrstatus
-    leafs["ospfASBdrRtrStatus"] = ospfgeneralgroup.Ospfasbdrrtrstatus
-    leafs["ospfExternLsaCount"] = ospfgeneralgroup.Ospfexternlsacount
-    leafs["ospfExternLsaCksumSum"] = ospfgeneralgroup.Ospfexternlsacksumsum
-    leafs["ospfTOSSupport"] = ospfgeneralgroup.Ospftossupport
-    leafs["ospfOriginateNewLsas"] = ospfgeneralgroup.Ospforiginatenewlsas
-    leafs["ospfRxNewLsas"] = ospfgeneralgroup.Ospfrxnewlsas
-    leafs["ospfExtLsdbLimit"] = ospfgeneralgroup.Ospfextlsdblimit
-    leafs["ospfMulticastExtensions"] = ospfgeneralgroup.Ospfmulticastextensions
-    leafs["ospfExitOverflowInterval"] = ospfgeneralgroup.Ospfexitoverflowinterval
-    leafs["ospfDemandExtensions"] = ospfgeneralgroup.Ospfdemandextensions
-    leafs["ospfRFC1583Compatibility"] = ospfgeneralgroup.Ospfrfc1583Compatibility
-    leafs["ospfOpaqueLsaSupport"] = ospfgeneralgroup.Ospfopaquelsasupport
-    leafs["ospfReferenceBandwidth"] = ospfgeneralgroup.Ospfreferencebandwidth
-    leafs["ospfRestartSupport"] = ospfgeneralgroup.Ospfrestartsupport
-    leafs["ospfRestartInterval"] = ospfgeneralgroup.Ospfrestartinterval
-    leafs["ospfRestartStrictLsaChecking"] = ospfgeneralgroup.Ospfrestartstrictlsachecking
-    leafs["ospfRestartStatus"] = ospfgeneralgroup.Ospfrestartstatus
-    leafs["ospfRestartAge"] = ospfgeneralgroup.Ospfrestartage
-    leafs["ospfRestartExitReason"] = ospfgeneralgroup.Ospfrestartexitreason
-    leafs["ospfAsLsaCount"] = ospfgeneralgroup.Ospfaslsacount
-    leafs["ospfAsLsaCksumSum"] = ospfgeneralgroup.Ospfaslsacksumsum
-    leafs["ospfStubRouterSupport"] = ospfgeneralgroup.Ospfstubroutersupport
-    leafs["ospfStubRouterAdvertisement"] = ospfgeneralgroup.Ospfstubrouteradvertisement
-    leafs["ospfDiscontinuityTime"] = ospfgeneralgroup.Ospfdiscontinuitytime
-    return leafs
-}
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetYangName() string { return "ospfGeneralGroup" }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) SetParent(parent types.Entity) { ospfgeneralgroup.parent = parent }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetParent() types.Entity { return ospfgeneralgroup.parent }
-
-func (ospfgeneralgroup *OSPFMIB_Ospfgeneralgroup) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfgeneralgroup_Ospfrestartexitreason represents a restart attempt is currently underway.
 type OSPFMIB_Ospfgeneralgroup_Ospfrestartexitreason string
@@ -637,7 +483,7 @@ const (
 // as part of these areas.  Area 0.0.0.0, by definition,
 // is the backbone area.
 type OSPFMIB_Ospfareatable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information describing the configured parameters and cumulative statistics
@@ -649,63 +495,24 @@ type OSPFMIB_Ospfareatable struct {
     Ospfareaentry []OSPFMIB_Ospfareatable_Ospfareaentry
 }
 
-func (ospfareatable *OSPFMIB_Ospfareatable) GetFilter() yfilter.YFilter { return ospfareatable.YFilter }
+func (ospfareatable *OSPFMIB_Ospfareatable) GetEntityData() *types.CommonEntityData {
+    ospfareatable.EntityData.YFilter = ospfareatable.YFilter
+    ospfareatable.EntityData.YangName = "ospfAreaTable"
+    ospfareatable.EntityData.BundleName = "cisco_ios_xe"
+    ospfareatable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfareatable.EntityData.SegmentPath = "ospfAreaTable"
+    ospfareatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfareatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfareatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfareatable *OSPFMIB_Ospfareatable) SetFilter(yf yfilter.YFilter) { ospfareatable.YFilter = yf }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetGoName(yname string) string {
-    if yname == "ospfAreaEntry" { return "Ospfareaentry" }
-    return ""
-}
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetSegmentPath() string {
-    return "ospfAreaTable"
-}
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfAreaEntry" {
-        for _, c := range ospfareatable.Ospfareaentry {
-            if ospfareatable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfareatable_Ospfareaentry{}
-        ospfareatable.Ospfareaentry = append(ospfareatable.Ospfareaentry, child)
-        return &ospfareatable.Ospfareaentry[len(ospfareatable.Ospfareaentry)-1]
-    }
-    return nil
-}
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfareatable.EntityData.Children = make(map[string]types.YChild)
+    ospfareatable.EntityData.Children["ospfAreaEntry"] = types.YChild{"Ospfareaentry", nil}
     for i := range ospfareatable.Ospfareaentry {
-        children[ospfareatable.Ospfareaentry[i].GetSegmentPath()] = &ospfareatable.Ospfareaentry[i]
+        ospfareatable.EntityData.Children[types.GetSegmentPath(&ospfareatable.Ospfareaentry[i])] = types.YChild{"Ospfareaentry", &ospfareatable.Ospfareaentry[i]}
     }
-    return children
+    ospfareatable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfareatable.EntityData)
 }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetYangName() string { return "ospfAreaTable" }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) SetParent(parent types.Entity) { ospfareatable.parent = parent }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetParent() types.Entity { return ospfareatable.parent }
-
-func (ospfareatable *OSPFMIB_Ospfareatable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfareatable_Ospfareaentry
 // Information describing the configured parameters and
@@ -718,13 +525,13 @@ func (ospfareatable *OSPFMIB_Ospfareatable) GetParentYangName() string { return 
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfareatable_Ospfareaentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. A 32-bit integer uniquely identifying an area.
     // Area ID 0.0.0.0 is used for the OSPF backbone. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfareaid interface{}
 
     // The authentication type specified for an area. The type is
@@ -839,87 +646,39 @@ type OSPFMIB_Ospfareatable_Ospfareaentry struct {
     Cospfareanssatranslatorevents interface{}
 }
 
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetFilter() yfilter.YFilter { return ospfareaentry.YFilter }
+func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetEntityData() *types.CommonEntityData {
+    ospfareaentry.EntityData.YFilter = ospfareaentry.YFilter
+    ospfareaentry.EntityData.YangName = "ospfAreaEntry"
+    ospfareaentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfareaentry.EntityData.ParentYangName = "ospfAreaTable"
+    ospfareaentry.EntityData.SegmentPath = "ospfAreaEntry" + "[ospfAreaId='" + fmt.Sprintf("%v", ospfareaentry.Ospfareaid) + "']"
+    ospfareaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfareaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfareaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) SetFilter(yf yfilter.YFilter) { ospfareaentry.YFilter = yf }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetGoName(yname string) string {
-    if yname == "ospfAreaId" { return "Ospfareaid" }
-    if yname == "ospfAuthType" { return "Ospfauthtype" }
-    if yname == "ospfImportAsExtern" { return "Ospfimportasextern" }
-    if yname == "ospfSpfRuns" { return "Ospfspfruns" }
-    if yname == "ospfAreaBdrRtrCount" { return "Ospfareabdrrtrcount" }
-    if yname == "ospfAsBdrRtrCount" { return "Ospfasbdrrtrcount" }
-    if yname == "ospfAreaLsaCount" { return "Ospfarealsacount" }
-    if yname == "ospfAreaLsaCksumSum" { return "Ospfarealsacksumsum" }
-    if yname == "ospfAreaSummary" { return "Ospfareasummary" }
-    if yname == "ospfAreaStatus" { return "Ospfareastatus" }
-    if yname == "ospfAreaNssaTranslatorRole" { return "Ospfareanssatranslatorrole" }
-    if yname == "ospfAreaNssaTranslatorState" { return "Ospfareanssatranslatorstate" }
-    if yname == "ospfAreaNssaTranslatorStabilityInterval" { return "Ospfareanssatranslatorstabilityinterval" }
-    if yname == "ospfAreaNssaTranslatorEvents" { return "Ospfareanssatranslatorevents" }
-    if yname == "cospfOpaqueAreaLsaCount" { return "Cospfopaquearealsacount" }
-    if yname == "cospfOpaqueAreaLsaCksumSum" { return "Cospfopaquearealsacksumsum" }
-    if yname == "cospfAreaNssaTranslatorRole" { return "Cospfareanssatranslatorrole" }
-    if yname == "cospfAreaNssaTranslatorState" { return "Cospfareanssatranslatorstate" }
-    if yname == "cospfAreaNssaTranslatorEvents" { return "Cospfareanssatranslatorevents" }
-    return ""
+    ospfareaentry.EntityData.Children = make(map[string]types.YChild)
+    ospfareaentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfareaentry.EntityData.Leafs["ospfAreaId"] = types.YLeaf{"Ospfareaid", ospfareaentry.Ospfareaid}
+    ospfareaentry.EntityData.Leafs["ospfAuthType"] = types.YLeaf{"Ospfauthtype", ospfareaentry.Ospfauthtype}
+    ospfareaentry.EntityData.Leafs["ospfImportAsExtern"] = types.YLeaf{"Ospfimportasextern", ospfareaentry.Ospfimportasextern}
+    ospfareaentry.EntityData.Leafs["ospfSpfRuns"] = types.YLeaf{"Ospfspfruns", ospfareaentry.Ospfspfruns}
+    ospfareaentry.EntityData.Leafs["ospfAreaBdrRtrCount"] = types.YLeaf{"Ospfareabdrrtrcount", ospfareaentry.Ospfareabdrrtrcount}
+    ospfareaentry.EntityData.Leafs["ospfAsBdrRtrCount"] = types.YLeaf{"Ospfasbdrrtrcount", ospfareaentry.Ospfasbdrrtrcount}
+    ospfareaentry.EntityData.Leafs["ospfAreaLsaCount"] = types.YLeaf{"Ospfarealsacount", ospfareaentry.Ospfarealsacount}
+    ospfareaentry.EntityData.Leafs["ospfAreaLsaCksumSum"] = types.YLeaf{"Ospfarealsacksumsum", ospfareaentry.Ospfarealsacksumsum}
+    ospfareaentry.EntityData.Leafs["ospfAreaSummary"] = types.YLeaf{"Ospfareasummary", ospfareaentry.Ospfareasummary}
+    ospfareaentry.EntityData.Leafs["ospfAreaStatus"] = types.YLeaf{"Ospfareastatus", ospfareaentry.Ospfareastatus}
+    ospfareaentry.EntityData.Leafs["ospfAreaNssaTranslatorRole"] = types.YLeaf{"Ospfareanssatranslatorrole", ospfareaentry.Ospfareanssatranslatorrole}
+    ospfareaentry.EntityData.Leafs["ospfAreaNssaTranslatorState"] = types.YLeaf{"Ospfareanssatranslatorstate", ospfareaentry.Ospfareanssatranslatorstate}
+    ospfareaentry.EntityData.Leafs["ospfAreaNssaTranslatorStabilityInterval"] = types.YLeaf{"Ospfareanssatranslatorstabilityinterval", ospfareaentry.Ospfareanssatranslatorstabilityinterval}
+    ospfareaentry.EntityData.Leafs["ospfAreaNssaTranslatorEvents"] = types.YLeaf{"Ospfareanssatranslatorevents", ospfareaentry.Ospfareanssatranslatorevents}
+    ospfareaentry.EntityData.Leafs["cospfOpaqueAreaLsaCount"] = types.YLeaf{"Cospfopaquearealsacount", ospfareaentry.Cospfopaquearealsacount}
+    ospfareaentry.EntityData.Leafs["cospfOpaqueAreaLsaCksumSum"] = types.YLeaf{"Cospfopaquearealsacksumsum", ospfareaentry.Cospfopaquearealsacksumsum}
+    ospfareaentry.EntityData.Leafs["cospfAreaNssaTranslatorRole"] = types.YLeaf{"Cospfareanssatranslatorrole", ospfareaentry.Cospfareanssatranslatorrole}
+    ospfareaentry.EntityData.Leafs["cospfAreaNssaTranslatorState"] = types.YLeaf{"Cospfareanssatranslatorstate", ospfareaentry.Cospfareanssatranslatorstate}
+    ospfareaentry.EntityData.Leafs["cospfAreaNssaTranslatorEvents"] = types.YLeaf{"Cospfareanssatranslatorevents", ospfareaentry.Cospfareanssatranslatorevents}
+    return &(ospfareaentry.EntityData)
 }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetSegmentPath() string {
-    return "ospfAreaEntry" + "[ospfAreaId='" + fmt.Sprintf("%v", ospfareaentry.Ospfareaid) + "']"
-}
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfAreaId"] = ospfareaentry.Ospfareaid
-    leafs["ospfAuthType"] = ospfareaentry.Ospfauthtype
-    leafs["ospfImportAsExtern"] = ospfareaentry.Ospfimportasextern
-    leafs["ospfSpfRuns"] = ospfareaentry.Ospfspfruns
-    leafs["ospfAreaBdrRtrCount"] = ospfareaentry.Ospfareabdrrtrcount
-    leafs["ospfAsBdrRtrCount"] = ospfareaentry.Ospfasbdrrtrcount
-    leafs["ospfAreaLsaCount"] = ospfareaentry.Ospfarealsacount
-    leafs["ospfAreaLsaCksumSum"] = ospfareaentry.Ospfarealsacksumsum
-    leafs["ospfAreaSummary"] = ospfareaentry.Ospfareasummary
-    leafs["ospfAreaStatus"] = ospfareaentry.Ospfareastatus
-    leafs["ospfAreaNssaTranslatorRole"] = ospfareaentry.Ospfareanssatranslatorrole
-    leafs["ospfAreaNssaTranslatorState"] = ospfareaentry.Ospfareanssatranslatorstate
-    leafs["ospfAreaNssaTranslatorStabilityInterval"] = ospfareaentry.Ospfareanssatranslatorstabilityinterval
-    leafs["ospfAreaNssaTranslatorEvents"] = ospfareaentry.Ospfareanssatranslatorevents
-    leafs["cospfOpaqueAreaLsaCount"] = ospfareaentry.Cospfopaquearealsacount
-    leafs["cospfOpaqueAreaLsaCksumSum"] = ospfareaentry.Cospfopaquearealsacksumsum
-    leafs["cospfAreaNssaTranslatorRole"] = ospfareaentry.Cospfareanssatranslatorrole
-    leafs["cospfAreaNssaTranslatorState"] = ospfareaentry.Cospfareanssatranslatorstate
-    leafs["cospfAreaNssaTranslatorEvents"] = ospfareaentry.Cospfareanssatranslatorevents
-    return leafs
-}
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetYangName() string { return "ospfAreaEntry" }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) SetParent(parent types.Entity) { ospfareaentry.parent = parent }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetParent() types.Entity { return ospfareaentry.parent }
-
-func (ospfareaentry *OSPFMIB_Ospfareatable_Ospfareaentry) GetParentYangName() string { return "ospfAreaTable" }
 
 // OSPFMIB_Ospfareatable_Ospfareaentry_Cospfareanssatranslatorrole represents type-5 LSAs.
 type OSPFMIB_Ospfareatable_Ospfareaentry_Cospfareanssatranslatorrole string
@@ -985,7 +744,7 @@ const (
 // The set of metrics that will be advertised
 // by a default Area Border Router into a stub area.
 type OSPFMIB_Ospfstubareatable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The metric for a given Type of Service that will be advertised by a default
@@ -996,63 +755,24 @@ type OSPFMIB_Ospfstubareatable struct {
     Ospfstubareaentry []OSPFMIB_Ospfstubareatable_Ospfstubareaentry
 }
 
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetFilter() yfilter.YFilter { return ospfstubareatable.YFilter }
+func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetEntityData() *types.CommonEntityData {
+    ospfstubareatable.EntityData.YFilter = ospfstubareatable.YFilter
+    ospfstubareatable.EntityData.YangName = "ospfStubAreaTable"
+    ospfstubareatable.EntityData.BundleName = "cisco_ios_xe"
+    ospfstubareatable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfstubareatable.EntityData.SegmentPath = "ospfStubAreaTable"
+    ospfstubareatable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfstubareatable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfstubareatable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) SetFilter(yf yfilter.YFilter) { ospfstubareatable.YFilter = yf }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetGoName(yname string) string {
-    if yname == "ospfStubAreaEntry" { return "Ospfstubareaentry" }
-    return ""
-}
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetSegmentPath() string {
-    return "ospfStubAreaTable"
-}
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfStubAreaEntry" {
-        for _, c := range ospfstubareatable.Ospfstubareaentry {
-            if ospfstubareatable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfstubareatable_Ospfstubareaentry{}
-        ospfstubareatable.Ospfstubareaentry = append(ospfstubareatable.Ospfstubareaentry, child)
-        return &ospfstubareatable.Ospfstubareaentry[len(ospfstubareatable.Ospfstubareaentry)-1]
-    }
-    return nil
-}
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfstubareatable.EntityData.Children = make(map[string]types.YChild)
+    ospfstubareatable.EntityData.Children["ospfStubAreaEntry"] = types.YChild{"Ospfstubareaentry", nil}
     for i := range ospfstubareatable.Ospfstubareaentry {
-        children[ospfstubareatable.Ospfstubareaentry[i].GetSegmentPath()] = &ospfstubareatable.Ospfstubareaentry[i]
+        ospfstubareatable.EntityData.Children[types.GetSegmentPath(&ospfstubareatable.Ospfstubareaentry[i])] = types.YChild{"Ospfstubareaentry", &ospfstubareatable.Ospfstubareaentry[i]}
     }
-    return children
+    ospfstubareatable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfstubareatable.EntityData)
 }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetYangName() string { return "ospfStubAreaTable" }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) SetParent(parent types.Entity) { ospfstubareatable.parent = parent }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetParent() types.Entity { return ospfstubareatable.parent }
-
-func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfstubareatable_Ospfstubareaentry
 // The metric for a given Type of Service that
@@ -1063,13 +783,13 @@ func (ospfstubareatable *OSPFMIB_Ospfstubareatable) GetParentYangName() string {
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfstubareatable_Ospfstubareaentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The 32-bit identifier for the stub area.  On
     // creation, this can be derived from the instance. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfstubareaid interface{}
 
     // This attribute is a key. The Type of Service associated with the metric. 
@@ -1093,59 +813,25 @@ type OSPFMIB_Ospfstubareatable_Ospfstubareaentry struct {
     Ospfstubmetrictype interface{}
 }
 
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetFilter() yfilter.YFilter { return ospfstubareaentry.YFilter }
+func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetEntityData() *types.CommonEntityData {
+    ospfstubareaentry.EntityData.YFilter = ospfstubareaentry.YFilter
+    ospfstubareaentry.EntityData.YangName = "ospfStubAreaEntry"
+    ospfstubareaentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfstubareaentry.EntityData.ParentYangName = "ospfStubAreaTable"
+    ospfstubareaentry.EntityData.SegmentPath = "ospfStubAreaEntry" + "[ospfStubAreaId='" + fmt.Sprintf("%v", ospfstubareaentry.Ospfstubareaid) + "']" + "[ospfStubTOS='" + fmt.Sprintf("%v", ospfstubareaentry.Ospfstubtos) + "']"
+    ospfstubareaentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfstubareaentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfstubareaentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) SetFilter(yf yfilter.YFilter) { ospfstubareaentry.YFilter = yf }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetGoName(yname string) string {
-    if yname == "ospfStubAreaId" { return "Ospfstubareaid" }
-    if yname == "ospfStubTOS" { return "Ospfstubtos" }
-    if yname == "ospfStubMetric" { return "Ospfstubmetric" }
-    if yname == "ospfStubStatus" { return "Ospfstubstatus" }
-    if yname == "ospfStubMetricType" { return "Ospfstubmetrictype" }
-    return ""
+    ospfstubareaentry.EntityData.Children = make(map[string]types.YChild)
+    ospfstubareaentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfstubareaentry.EntityData.Leafs["ospfStubAreaId"] = types.YLeaf{"Ospfstubareaid", ospfstubareaentry.Ospfstubareaid}
+    ospfstubareaentry.EntityData.Leafs["ospfStubTOS"] = types.YLeaf{"Ospfstubtos", ospfstubareaentry.Ospfstubtos}
+    ospfstubareaentry.EntityData.Leafs["ospfStubMetric"] = types.YLeaf{"Ospfstubmetric", ospfstubareaentry.Ospfstubmetric}
+    ospfstubareaentry.EntityData.Leafs["ospfStubStatus"] = types.YLeaf{"Ospfstubstatus", ospfstubareaentry.Ospfstubstatus}
+    ospfstubareaentry.EntityData.Leafs["ospfStubMetricType"] = types.YLeaf{"Ospfstubmetrictype", ospfstubareaentry.Ospfstubmetrictype}
+    return &(ospfstubareaentry.EntityData)
 }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetSegmentPath() string {
-    return "ospfStubAreaEntry" + "[ospfStubAreaId='" + fmt.Sprintf("%v", ospfstubareaentry.Ospfstubareaid) + "']" + "[ospfStubTOS='" + fmt.Sprintf("%v", ospfstubareaentry.Ospfstubtos) + "']"
-}
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfStubAreaId"] = ospfstubareaentry.Ospfstubareaid
-    leafs["ospfStubTOS"] = ospfstubareaentry.Ospfstubtos
-    leafs["ospfStubMetric"] = ospfstubareaentry.Ospfstubmetric
-    leafs["ospfStubStatus"] = ospfstubareaentry.Ospfstubstatus
-    leafs["ospfStubMetricType"] = ospfstubareaentry.Ospfstubmetrictype
-    return leafs
-}
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetYangName() string { return "ospfStubAreaEntry" }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) SetParent(parent types.Entity) { ospfstubareaentry.parent = parent }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetParent() types.Entity { return ospfstubareaentry.parent }
-
-func (ospfstubareaentry *OSPFMIB_Ospfstubareatable_Ospfstubareaentry) GetParentYangName() string { return "ospfStubAreaTable" }
 
 // OSPFMIB_Ospfstubareatable_Ospfstubareaentry_Ospfstubmetrictype represents advertised as a default route.
 type OSPFMIB_Ospfstubareatable_Ospfstubareaentry_Ospfstubmetrictype string
@@ -1163,7 +849,7 @@ const (
 // The LSDB contains the link state advertisements
 // from throughout the areas that the device is attached to.
 type OSPFMIB_Ospflsdbtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single link state advertisement. The type is slice of
@@ -1171,73 +857,34 @@ type OSPFMIB_Ospflsdbtable struct {
     Ospflsdbentry []OSPFMIB_Ospflsdbtable_Ospflsdbentry
 }
 
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetFilter() yfilter.YFilter { return ospflsdbtable.YFilter }
+func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetEntityData() *types.CommonEntityData {
+    ospflsdbtable.EntityData.YFilter = ospflsdbtable.YFilter
+    ospflsdbtable.EntityData.YangName = "ospfLsdbTable"
+    ospflsdbtable.EntityData.BundleName = "cisco_ios_xe"
+    ospflsdbtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospflsdbtable.EntityData.SegmentPath = "ospfLsdbTable"
+    ospflsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospflsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospflsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) SetFilter(yf yfilter.YFilter) { ospflsdbtable.YFilter = yf }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetGoName(yname string) string {
-    if yname == "ospfLsdbEntry" { return "Ospflsdbentry" }
-    return ""
-}
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetSegmentPath() string {
-    return "ospfLsdbTable"
-}
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfLsdbEntry" {
-        for _, c := range ospflsdbtable.Ospflsdbentry {
-            if ospflsdbtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospflsdbtable_Ospflsdbentry{}
-        ospflsdbtable.Ospflsdbentry = append(ospflsdbtable.Ospflsdbentry, child)
-        return &ospflsdbtable.Ospflsdbentry[len(ospflsdbtable.Ospflsdbentry)-1]
-    }
-    return nil
-}
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospflsdbtable.EntityData.Children = make(map[string]types.YChild)
+    ospflsdbtable.EntityData.Children["ospfLsdbEntry"] = types.YChild{"Ospflsdbentry", nil}
     for i := range ospflsdbtable.Ospflsdbentry {
-        children[ospflsdbtable.Ospflsdbentry[i].GetSegmentPath()] = &ospflsdbtable.Ospflsdbentry[i]
+        ospflsdbtable.EntityData.Children[types.GetSegmentPath(&ospflsdbtable.Ospflsdbentry[i])] = types.YChild{"Ospflsdbentry", &ospflsdbtable.Ospflsdbentry[i]}
     }
-    return children
+    ospflsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospflsdbtable.EntityData)
 }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetYangName() string { return "ospfLsdbTable" }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) SetParent(parent types.Entity) { ospflsdbtable.parent = parent }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetParent() types.Entity { return ospflsdbtable.parent }
-
-func (ospflsdbtable *OSPFMIB_Ospflsdbtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospflsdbtable_Ospflsdbentry
 // A single link state advertisement.
 type OSPFMIB_Ospflsdbtable_Ospflsdbentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The 32-bit identifier of the area from which the
     // LSA was received. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospflsdbareaid interface{}
 
     // This attribute is a key. The type of the link state advertisement. Each
@@ -1251,13 +898,13 @@ type OSPFMIB_Ospflsdbtable_Ospflsdbentry struct {
     // containing either a Router ID or an IP address; it identifies the piece of
     // the routing domain that is being described by the advertisement. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospflsdblsid interface{}
 
     // This attribute is a key. The 32-bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospflsdbrouterid interface{}
 
     // The sequence number field is a signed 32-bit integer.  It starts with the
@@ -1286,65 +933,28 @@ type OSPFMIB_Ospflsdbtable_Ospflsdbentry struct {
     Ospflsdbadvertisement interface{}
 }
 
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetFilter() yfilter.YFilter { return ospflsdbentry.YFilter }
+func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetEntityData() *types.CommonEntityData {
+    ospflsdbentry.EntityData.YFilter = ospflsdbentry.YFilter
+    ospflsdbentry.EntityData.YangName = "ospfLsdbEntry"
+    ospflsdbentry.EntityData.BundleName = "cisco_ios_xe"
+    ospflsdbentry.EntityData.ParentYangName = "ospfLsdbTable"
+    ospflsdbentry.EntityData.SegmentPath = "ospfLsdbEntry" + "[ospfLsdbAreaId='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdbareaid) + "']" + "[ospfLsdbType='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdbtype) + "']" + "[ospfLsdbLsid='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdblsid) + "']" + "[ospfLsdbRouterId='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdbrouterid) + "']"
+    ospflsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospflsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospflsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) SetFilter(yf yfilter.YFilter) { ospflsdbentry.YFilter = yf }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetGoName(yname string) string {
-    if yname == "ospfLsdbAreaId" { return "Ospflsdbareaid" }
-    if yname == "ospfLsdbType" { return "Ospflsdbtype" }
-    if yname == "ospfLsdbLsid" { return "Ospflsdblsid" }
-    if yname == "ospfLsdbRouterId" { return "Ospflsdbrouterid" }
-    if yname == "ospfLsdbSequence" { return "Ospflsdbsequence" }
-    if yname == "ospfLsdbAge" { return "Ospflsdbage" }
-    if yname == "ospfLsdbChecksum" { return "Ospflsdbchecksum" }
-    if yname == "ospfLsdbAdvertisement" { return "Ospflsdbadvertisement" }
-    return ""
+    ospflsdbentry.EntityData.Children = make(map[string]types.YChild)
+    ospflsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospflsdbentry.EntityData.Leafs["ospfLsdbAreaId"] = types.YLeaf{"Ospflsdbareaid", ospflsdbentry.Ospflsdbareaid}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbType"] = types.YLeaf{"Ospflsdbtype", ospflsdbentry.Ospflsdbtype}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbLsid"] = types.YLeaf{"Ospflsdblsid", ospflsdbentry.Ospflsdblsid}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbRouterId"] = types.YLeaf{"Ospflsdbrouterid", ospflsdbentry.Ospflsdbrouterid}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbSequence"] = types.YLeaf{"Ospflsdbsequence", ospflsdbentry.Ospflsdbsequence}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbAge"] = types.YLeaf{"Ospflsdbage", ospflsdbentry.Ospflsdbage}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbChecksum"] = types.YLeaf{"Ospflsdbchecksum", ospflsdbentry.Ospflsdbchecksum}
+    ospflsdbentry.EntityData.Leafs["ospfLsdbAdvertisement"] = types.YLeaf{"Ospflsdbadvertisement", ospflsdbentry.Ospflsdbadvertisement}
+    return &(ospflsdbentry.EntityData)
 }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetSegmentPath() string {
-    return "ospfLsdbEntry" + "[ospfLsdbAreaId='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdbareaid) + "']" + "[ospfLsdbType='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdbtype) + "']" + "[ospfLsdbLsid='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdblsid) + "']" + "[ospfLsdbRouterId='" + fmt.Sprintf("%v", ospflsdbentry.Ospflsdbrouterid) + "']"
-}
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfLsdbAreaId"] = ospflsdbentry.Ospflsdbareaid
-    leafs["ospfLsdbType"] = ospflsdbentry.Ospflsdbtype
-    leafs["ospfLsdbLsid"] = ospflsdbentry.Ospflsdblsid
-    leafs["ospfLsdbRouterId"] = ospflsdbentry.Ospflsdbrouterid
-    leafs["ospfLsdbSequence"] = ospflsdbentry.Ospflsdbsequence
-    leafs["ospfLsdbAge"] = ospflsdbentry.Ospflsdbage
-    leafs["ospfLsdbChecksum"] = ospflsdbentry.Ospflsdbchecksum
-    leafs["ospfLsdbAdvertisement"] = ospflsdbentry.Ospflsdbadvertisement
-    return leafs
-}
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetYangName() string { return "ospfLsdbEntry" }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) SetParent(parent types.Entity) { ospflsdbentry.parent = parent }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetParent() types.Entity { return ospflsdbentry.parent }
-
-func (ospflsdbentry *OSPFMIB_Ospflsdbtable_Ospflsdbentry) GetParentYangName() string { return "ospfLsdbTable" }
 
 // OSPFMIB_Ospflsdbtable_Ospflsdbentry_Ospflsdbtype represents in the ospfAsLsdbTable rather than here.
 type OSPFMIB_Ospflsdbtable_Ospflsdbentry_Ospflsdbtype string
@@ -1381,7 +991,7 @@ const (
 // Note that this table is obsoleted and is replaced
 // by the Area Aggregate Table.
 type OSPFMIB_Ospfarearangetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single area address range.  Information in this table is persistent and
@@ -1391,63 +1001,24 @@ type OSPFMIB_Ospfarearangetable struct {
     Ospfarearangeentry []OSPFMIB_Ospfarearangetable_Ospfarearangeentry
 }
 
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetFilter() yfilter.YFilter { return ospfarearangetable.YFilter }
+func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetEntityData() *types.CommonEntityData {
+    ospfarearangetable.EntityData.YFilter = ospfarearangetable.YFilter
+    ospfarearangetable.EntityData.YangName = "ospfAreaRangeTable"
+    ospfarearangetable.EntityData.BundleName = "cisco_ios_xe"
+    ospfarearangetable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfarearangetable.EntityData.SegmentPath = "ospfAreaRangeTable"
+    ospfarearangetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfarearangetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfarearangetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) SetFilter(yf yfilter.YFilter) { ospfarearangetable.YFilter = yf }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetGoName(yname string) string {
-    if yname == "ospfAreaRangeEntry" { return "Ospfarearangeentry" }
-    return ""
-}
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetSegmentPath() string {
-    return "ospfAreaRangeTable"
-}
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfAreaRangeEntry" {
-        for _, c := range ospfarearangetable.Ospfarearangeentry {
-            if ospfarearangetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfarearangetable_Ospfarearangeentry{}
-        ospfarearangetable.Ospfarearangeentry = append(ospfarearangetable.Ospfarearangeentry, child)
-        return &ospfarearangetable.Ospfarearangeentry[len(ospfarearangetable.Ospfarearangeentry)-1]
-    }
-    return nil
-}
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfarearangetable.EntityData.Children = make(map[string]types.YChild)
+    ospfarearangetable.EntityData.Children["ospfAreaRangeEntry"] = types.YChild{"Ospfarearangeentry", nil}
     for i := range ospfarearangetable.Ospfarearangeentry {
-        children[ospfarearangetable.Ospfarearangeentry[i].GetSegmentPath()] = &ospfarearangetable.Ospfarearangeentry[i]
+        ospfarearangetable.EntityData.Children[types.GetSegmentPath(&ospfarearangetable.Ospfarearangeentry[i])] = types.YChild{"Ospfarearangeentry", &ospfarearangetable.Ospfarearangeentry[i]}
     }
-    return children
+    ospfarearangetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfarearangetable.EntityData)
 }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetYangName() string { return "ospfAreaRangeTable" }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) SetParent(parent types.Entity) { ospfarearangetable.parent = parent }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetParent() types.Entity { return ospfarearangetable.parent }
-
-func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfarearangetable_Ospfarearangeentry
 // A single area address range.
@@ -1456,22 +1027,22 @@ func (ospfarearangetable *OSPFMIB_Ospfarearangetable) GetParentYangName() string
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfarearangetable_Ospfarearangeentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The area that the address range is to be found
     // within. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfarearangeareaid interface{}
 
     // This attribute is a key. The IP address of the net or subnet indicated by
     // the range. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfarearangenet interface{}
 
     // The subnet mask that pertains to the net or subnet. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfarearangemask interface{}
 
     // This object permits management of the table by facilitating actions such as
@@ -1486,59 +1057,25 @@ type OSPFMIB_Ospfarearangetable_Ospfarearangeentry struct {
     Ospfarearangeeffect interface{}
 }
 
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetFilter() yfilter.YFilter { return ospfarearangeentry.YFilter }
+func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetEntityData() *types.CommonEntityData {
+    ospfarearangeentry.EntityData.YFilter = ospfarearangeentry.YFilter
+    ospfarearangeentry.EntityData.YangName = "ospfAreaRangeEntry"
+    ospfarearangeentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfarearangeentry.EntityData.ParentYangName = "ospfAreaRangeTable"
+    ospfarearangeentry.EntityData.SegmentPath = "ospfAreaRangeEntry" + "[ospfAreaRangeAreaId='" + fmt.Sprintf("%v", ospfarearangeentry.Ospfarearangeareaid) + "']" + "[ospfAreaRangeNet='" + fmt.Sprintf("%v", ospfarearangeentry.Ospfarearangenet) + "']"
+    ospfarearangeentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfarearangeentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfarearangeentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) SetFilter(yf yfilter.YFilter) { ospfarearangeentry.YFilter = yf }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetGoName(yname string) string {
-    if yname == "ospfAreaRangeAreaId" { return "Ospfarearangeareaid" }
-    if yname == "ospfAreaRangeNet" { return "Ospfarearangenet" }
-    if yname == "ospfAreaRangeMask" { return "Ospfarearangemask" }
-    if yname == "ospfAreaRangeStatus" { return "Ospfarearangestatus" }
-    if yname == "ospfAreaRangeEffect" { return "Ospfarearangeeffect" }
-    return ""
+    ospfarearangeentry.EntityData.Children = make(map[string]types.YChild)
+    ospfarearangeentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfarearangeentry.EntityData.Leafs["ospfAreaRangeAreaId"] = types.YLeaf{"Ospfarearangeareaid", ospfarearangeentry.Ospfarearangeareaid}
+    ospfarearangeentry.EntityData.Leafs["ospfAreaRangeNet"] = types.YLeaf{"Ospfarearangenet", ospfarearangeentry.Ospfarearangenet}
+    ospfarearangeentry.EntityData.Leafs["ospfAreaRangeMask"] = types.YLeaf{"Ospfarearangemask", ospfarearangeentry.Ospfarearangemask}
+    ospfarearangeentry.EntityData.Leafs["ospfAreaRangeStatus"] = types.YLeaf{"Ospfarearangestatus", ospfarearangeentry.Ospfarearangestatus}
+    ospfarearangeentry.EntityData.Leafs["ospfAreaRangeEffect"] = types.YLeaf{"Ospfarearangeeffect", ospfarearangeentry.Ospfarearangeeffect}
+    return &(ospfarearangeentry.EntityData)
 }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetSegmentPath() string {
-    return "ospfAreaRangeEntry" + "[ospfAreaRangeAreaId='" + fmt.Sprintf("%v", ospfarearangeentry.Ospfarearangeareaid) + "']" + "[ospfAreaRangeNet='" + fmt.Sprintf("%v", ospfarearangeentry.Ospfarearangenet) + "']"
-}
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfAreaRangeAreaId"] = ospfarearangeentry.Ospfarearangeareaid
-    leafs["ospfAreaRangeNet"] = ospfarearangeentry.Ospfarearangenet
-    leafs["ospfAreaRangeMask"] = ospfarearangeentry.Ospfarearangemask
-    leafs["ospfAreaRangeStatus"] = ospfarearangeentry.Ospfarearangestatus
-    leafs["ospfAreaRangeEffect"] = ospfarearangeentry.Ospfarearangeeffect
-    return leafs
-}
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetYangName() string { return "ospfAreaRangeEntry" }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) SetParent(parent types.Entity) { ospfarearangeentry.parent = parent }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetParent() types.Entity { return ospfarearangeentry.parent }
-
-func (ospfarearangeentry *OSPFMIB_Ospfarearangetable_Ospfarearangeentry) GetParentYangName() string { return "ospfAreaRangeTable" }
 
 // OSPFMIB_Ospfarearangetable_Ospfarearangeentry_Ospfarearangeeffect represents being advertised at all outside the area.
 type OSPFMIB_Ospfarearangetable_Ospfarearangeentry_Ospfarearangeeffect string
@@ -1556,7 +1093,7 @@ const (
 // of service should be advertised for them,
 // and what areas they are found within.
 type OSPFMIB_Ospfhosttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A metric to be advertised, for a given type of service, when a given host
@@ -1566,63 +1103,24 @@ type OSPFMIB_Ospfhosttable struct {
     Ospfhostentry []OSPFMIB_Ospfhosttable_Ospfhostentry
 }
 
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetFilter() yfilter.YFilter { return ospfhosttable.YFilter }
+func (ospfhosttable *OSPFMIB_Ospfhosttable) GetEntityData() *types.CommonEntityData {
+    ospfhosttable.EntityData.YFilter = ospfhosttable.YFilter
+    ospfhosttable.EntityData.YangName = "ospfHostTable"
+    ospfhosttable.EntityData.BundleName = "cisco_ios_xe"
+    ospfhosttable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfhosttable.EntityData.SegmentPath = "ospfHostTable"
+    ospfhosttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfhosttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfhosttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfhosttable *OSPFMIB_Ospfhosttable) SetFilter(yf yfilter.YFilter) { ospfhosttable.YFilter = yf }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetGoName(yname string) string {
-    if yname == "ospfHostEntry" { return "Ospfhostentry" }
-    return ""
-}
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetSegmentPath() string {
-    return "ospfHostTable"
-}
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfHostEntry" {
-        for _, c := range ospfhosttable.Ospfhostentry {
-            if ospfhosttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfhosttable_Ospfhostentry{}
-        ospfhosttable.Ospfhostentry = append(ospfhosttable.Ospfhostentry, child)
-        return &ospfhosttable.Ospfhostentry[len(ospfhosttable.Ospfhostentry)-1]
-    }
-    return nil
-}
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfhosttable.EntityData.Children = make(map[string]types.YChild)
+    ospfhosttable.EntityData.Children["ospfHostEntry"] = types.YChild{"Ospfhostentry", nil}
     for i := range ospfhosttable.Ospfhostentry {
-        children[ospfhosttable.Ospfhostentry[i].GetSegmentPath()] = &ospfhosttable.Ospfhostentry[i]
+        ospfhosttable.EntityData.Children[types.GetSegmentPath(&ospfhosttable.Ospfhostentry[i])] = types.YChild{"Ospfhostentry", &ospfhosttable.Ospfhostentry[i]}
     }
-    return children
+    ospfhosttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfhosttable.EntityData)
 }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetYangName() string { return "ospfHostTable" }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) SetParent(parent types.Entity) { ospfhosttable.parent = parent }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetParent() types.Entity { return ospfhosttable.parent }
-
-func (ospfhosttable *OSPFMIB_Ospfhosttable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfhosttable_Ospfhostentry
 // A metric to be advertised, for a given type of
@@ -1632,12 +1130,12 @@ func (ospfhosttable *OSPFMIB_Ospfhosttable) GetParentYangName() string { return 
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfhosttable_Ospfhostentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address of the host. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfhostipaddress interface{}
 
     // This attribute is a key. The Type of Service of the route being configured.
@@ -1655,77 +1153,42 @@ type OSPFMIB_Ospfhosttable_Ospfhostentry struct {
 
     // The OSPF area to which the host belongs. Deprecated by ospfHostCfgAreaID.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfhostareaid interface{}
 
     // To configure the OSPF area to which the host belongs. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfhostcfgareaid interface{}
 }
 
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetFilter() yfilter.YFilter { return ospfhostentry.YFilter }
+func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetEntityData() *types.CommonEntityData {
+    ospfhostentry.EntityData.YFilter = ospfhostentry.YFilter
+    ospfhostentry.EntityData.YangName = "ospfHostEntry"
+    ospfhostentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfhostentry.EntityData.ParentYangName = "ospfHostTable"
+    ospfhostentry.EntityData.SegmentPath = "ospfHostEntry" + "[ospfHostIpAddress='" + fmt.Sprintf("%v", ospfhostentry.Ospfhostipaddress) + "']" + "[ospfHostTOS='" + fmt.Sprintf("%v", ospfhostentry.Ospfhosttos) + "']"
+    ospfhostentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfhostentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfhostentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) SetFilter(yf yfilter.YFilter) { ospfhostentry.YFilter = yf }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetGoName(yname string) string {
-    if yname == "ospfHostIpAddress" { return "Ospfhostipaddress" }
-    if yname == "ospfHostTOS" { return "Ospfhosttos" }
-    if yname == "ospfHostMetric" { return "Ospfhostmetric" }
-    if yname == "ospfHostStatus" { return "Ospfhoststatus" }
-    if yname == "ospfHostAreaID" { return "Ospfhostareaid" }
-    if yname == "ospfHostCfgAreaID" { return "Ospfhostcfgareaid" }
-    return ""
+    ospfhostentry.EntityData.Children = make(map[string]types.YChild)
+    ospfhostentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfhostentry.EntityData.Leafs["ospfHostIpAddress"] = types.YLeaf{"Ospfhostipaddress", ospfhostentry.Ospfhostipaddress}
+    ospfhostentry.EntityData.Leafs["ospfHostTOS"] = types.YLeaf{"Ospfhosttos", ospfhostentry.Ospfhosttos}
+    ospfhostentry.EntityData.Leafs["ospfHostMetric"] = types.YLeaf{"Ospfhostmetric", ospfhostentry.Ospfhostmetric}
+    ospfhostentry.EntityData.Leafs["ospfHostStatus"] = types.YLeaf{"Ospfhoststatus", ospfhostentry.Ospfhoststatus}
+    ospfhostentry.EntityData.Leafs["ospfHostAreaID"] = types.YLeaf{"Ospfhostareaid", ospfhostentry.Ospfhostareaid}
+    ospfhostentry.EntityData.Leafs["ospfHostCfgAreaID"] = types.YLeaf{"Ospfhostcfgareaid", ospfhostentry.Ospfhostcfgareaid}
+    return &(ospfhostentry.EntityData)
 }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetSegmentPath() string {
-    return "ospfHostEntry" + "[ospfHostIpAddress='" + fmt.Sprintf("%v", ospfhostentry.Ospfhostipaddress) + "']" + "[ospfHostTOS='" + fmt.Sprintf("%v", ospfhostentry.Ospfhosttos) + "']"
-}
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfHostIpAddress"] = ospfhostentry.Ospfhostipaddress
-    leafs["ospfHostTOS"] = ospfhostentry.Ospfhosttos
-    leafs["ospfHostMetric"] = ospfhostentry.Ospfhostmetric
-    leafs["ospfHostStatus"] = ospfhostentry.Ospfhoststatus
-    leafs["ospfHostAreaID"] = ospfhostentry.Ospfhostareaid
-    leafs["ospfHostCfgAreaID"] = ospfhostentry.Ospfhostcfgareaid
-    return leafs
-}
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetYangName() string { return "ospfHostEntry" }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) SetParent(parent types.Entity) { ospfhostentry.parent = parent }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetParent() types.Entity { return ospfhostentry.parent }
-
-func (ospfhostentry *OSPFMIB_Ospfhosttable_Ospfhostentry) GetParentYangName() string { return "ospfHostTable" }
 
 // OSPFMIB_Ospfiftable
 // The OSPF Interface Table describes the interfaces
 // from the viewpoint of OSPF.
 // It augments the ipAddrTable with OSPF specific information.
 type OSPFMIB_Ospfiftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The OSPF interface entry describes one interface from the viewpoint of
@@ -1735,63 +1198,24 @@ type OSPFMIB_Ospfiftable struct {
     Ospfifentry []OSPFMIB_Ospfiftable_Ospfifentry
 }
 
-func (ospfiftable *OSPFMIB_Ospfiftable) GetFilter() yfilter.YFilter { return ospfiftable.YFilter }
+func (ospfiftable *OSPFMIB_Ospfiftable) GetEntityData() *types.CommonEntityData {
+    ospfiftable.EntityData.YFilter = ospfiftable.YFilter
+    ospfiftable.EntityData.YangName = "ospfIfTable"
+    ospfiftable.EntityData.BundleName = "cisco_ios_xe"
+    ospfiftable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfiftable.EntityData.SegmentPath = "ospfIfTable"
+    ospfiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfiftable *OSPFMIB_Ospfiftable) SetFilter(yf yfilter.YFilter) { ospfiftable.YFilter = yf }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetGoName(yname string) string {
-    if yname == "ospfIfEntry" { return "Ospfifentry" }
-    return ""
-}
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetSegmentPath() string {
-    return "ospfIfTable"
-}
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfIfEntry" {
-        for _, c := range ospfiftable.Ospfifentry {
-            if ospfiftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfiftable_Ospfifentry{}
-        ospfiftable.Ospfifentry = append(ospfiftable.Ospfifentry, child)
-        return &ospfiftable.Ospfifentry[len(ospfiftable.Ospfifentry)-1]
-    }
-    return nil
-}
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfiftable.EntityData.Children = make(map[string]types.YChild)
+    ospfiftable.EntityData.Children["ospfIfEntry"] = types.YChild{"Ospfifentry", nil}
     for i := range ospfiftable.Ospfifentry {
-        children[ospfiftable.Ospfifentry[i].GetSegmentPath()] = &ospfiftable.Ospfifentry[i]
+        ospfiftable.EntityData.Children[types.GetSegmentPath(&ospfiftable.Ospfifentry[i])] = types.YChild{"Ospfifentry", &ospfiftable.Ospfifentry[i]}
     }
-    return children
+    ospfiftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfiftable.EntityData)
 }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetYangName() string { return "ospfIfTable" }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) SetParent(parent types.Entity) { ospfiftable.parent = parent }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetParent() types.Entity { return ospfiftable.parent }
-
-func (ospfiftable *OSPFMIB_Ospfiftable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfiftable_Ospfifentry
 // The OSPF interface entry describes one interface
@@ -1801,12 +1225,12 @@ func (ospfiftable *OSPFMIB_Ospfiftable) GetParentYangName() string { return "OSP
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfiftable_Ospfifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address of this OSPF interface. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifipaddress interface{}
 
     // This attribute is a key. For the purpose of easing the instancing of
@@ -1819,7 +1243,7 @@ type OSPFMIB_Ospfiftable_Ospfifentry struct {
     // A 32-bit integer uniquely identifying the area to which the interface
     // connects.  Area ID 0.0.0.0 is used for the OSPF backbone. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifareaid interface{}
 
     // The OSPF interface type. By way of a default, this field may be intuited
@@ -1877,12 +1301,12 @@ type OSPFMIB_Ospfiftable_Ospfifentry struct {
     Ospfifstate interface{}
 
     // The IP address of the designated router. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifdesignatedrouter interface{}
 
     // The IP address of the backup designated router. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifbackupdesignatedrouter interface{}
 
     // The number of times this OSPF interface has changed its state or an error
@@ -1943,12 +1367,12 @@ type OSPFMIB_Ospfiftable_Ospfifentry struct {
     Ospfiflsacksumsum interface{}
 
     // The Router ID of the designated router. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifdesignatedrouterid interface{}
 
     // The Router ID of the backup designated router. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifbackupdesignatedrouterid interface{}
 
     // The total number of link-local link state advertisements in this
@@ -1965,101 +1389,46 @@ type OSPFMIB_Ospfiftable_Ospfifentry struct {
     Cospfiflsacksumsum interface{}
 }
 
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetFilter() yfilter.YFilter { return ospfifentry.YFilter }
+func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetEntityData() *types.CommonEntityData {
+    ospfifentry.EntityData.YFilter = ospfifentry.YFilter
+    ospfifentry.EntityData.YangName = "ospfIfEntry"
+    ospfifentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfifentry.EntityData.ParentYangName = "ospfIfTable"
+    ospfifentry.EntityData.SegmentPath = "ospfIfEntry" + "[ospfIfIpAddress='" + fmt.Sprintf("%v", ospfifentry.Ospfifipaddress) + "']" + "[ospfAddressLessIf='" + fmt.Sprintf("%v", ospfifentry.Ospfaddresslessif) + "']"
+    ospfifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) SetFilter(yf yfilter.YFilter) { ospfifentry.YFilter = yf }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetGoName(yname string) string {
-    if yname == "ospfIfIpAddress" { return "Ospfifipaddress" }
-    if yname == "ospfAddressLessIf" { return "Ospfaddresslessif" }
-    if yname == "ospfIfAreaId" { return "Ospfifareaid" }
-    if yname == "ospfIfType" { return "Ospfiftype" }
-    if yname == "ospfIfAdminStat" { return "Ospfifadminstat" }
-    if yname == "ospfIfRtrPriority" { return "Ospfifrtrpriority" }
-    if yname == "ospfIfTransitDelay" { return "Ospfiftransitdelay" }
-    if yname == "ospfIfRetransInterval" { return "Ospfifretransinterval" }
-    if yname == "ospfIfHelloInterval" { return "Ospfifhellointerval" }
-    if yname == "ospfIfRtrDeadInterval" { return "Ospfifrtrdeadinterval" }
-    if yname == "ospfIfPollInterval" { return "Ospfifpollinterval" }
-    if yname == "ospfIfState" { return "Ospfifstate" }
-    if yname == "ospfIfDesignatedRouter" { return "Ospfifdesignatedrouter" }
-    if yname == "ospfIfBackupDesignatedRouter" { return "Ospfifbackupdesignatedrouter" }
-    if yname == "ospfIfEvents" { return "Ospfifevents" }
-    if yname == "ospfIfAuthKey" { return "Ospfifauthkey" }
-    if yname == "ospfIfStatus" { return "Ospfifstatus" }
-    if yname == "ospfIfMulticastForwarding" { return "Ospfifmulticastforwarding" }
-    if yname == "ospfIfDemand" { return "Ospfifdemand" }
-    if yname == "ospfIfAuthType" { return "Ospfifauthtype" }
-    if yname == "ospfIfLsaCount" { return "Ospfiflsacount" }
-    if yname == "ospfIfLsaCksumSum" { return "Ospfiflsacksumsum" }
-    if yname == "ospfIfDesignatedRouterId" { return "Ospfifdesignatedrouterid" }
-    if yname == "ospfIfBackupDesignatedRouterId" { return "Ospfifbackupdesignatedrouterid" }
-    if yname == "cospfIfLsaCount" { return "Cospfiflsacount" }
-    if yname == "cospfIfLsaCksumSum" { return "Cospfiflsacksumsum" }
-    return ""
+    ospfifentry.EntityData.Children = make(map[string]types.YChild)
+    ospfifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfifentry.EntityData.Leafs["ospfIfIpAddress"] = types.YLeaf{"Ospfifipaddress", ospfifentry.Ospfifipaddress}
+    ospfifentry.EntityData.Leafs["ospfAddressLessIf"] = types.YLeaf{"Ospfaddresslessif", ospfifentry.Ospfaddresslessif}
+    ospfifentry.EntityData.Leafs["ospfIfAreaId"] = types.YLeaf{"Ospfifareaid", ospfifentry.Ospfifareaid}
+    ospfifentry.EntityData.Leafs["ospfIfType"] = types.YLeaf{"Ospfiftype", ospfifentry.Ospfiftype}
+    ospfifentry.EntityData.Leafs["ospfIfAdminStat"] = types.YLeaf{"Ospfifadminstat", ospfifentry.Ospfifadminstat}
+    ospfifentry.EntityData.Leafs["ospfIfRtrPriority"] = types.YLeaf{"Ospfifrtrpriority", ospfifentry.Ospfifrtrpriority}
+    ospfifentry.EntityData.Leafs["ospfIfTransitDelay"] = types.YLeaf{"Ospfiftransitdelay", ospfifentry.Ospfiftransitdelay}
+    ospfifentry.EntityData.Leafs["ospfIfRetransInterval"] = types.YLeaf{"Ospfifretransinterval", ospfifentry.Ospfifretransinterval}
+    ospfifentry.EntityData.Leafs["ospfIfHelloInterval"] = types.YLeaf{"Ospfifhellointerval", ospfifentry.Ospfifhellointerval}
+    ospfifentry.EntityData.Leafs["ospfIfRtrDeadInterval"] = types.YLeaf{"Ospfifrtrdeadinterval", ospfifentry.Ospfifrtrdeadinterval}
+    ospfifentry.EntityData.Leafs["ospfIfPollInterval"] = types.YLeaf{"Ospfifpollinterval", ospfifentry.Ospfifpollinterval}
+    ospfifentry.EntityData.Leafs["ospfIfState"] = types.YLeaf{"Ospfifstate", ospfifentry.Ospfifstate}
+    ospfifentry.EntityData.Leafs["ospfIfDesignatedRouter"] = types.YLeaf{"Ospfifdesignatedrouter", ospfifentry.Ospfifdesignatedrouter}
+    ospfifentry.EntityData.Leafs["ospfIfBackupDesignatedRouter"] = types.YLeaf{"Ospfifbackupdesignatedrouter", ospfifentry.Ospfifbackupdesignatedrouter}
+    ospfifentry.EntityData.Leafs["ospfIfEvents"] = types.YLeaf{"Ospfifevents", ospfifentry.Ospfifevents}
+    ospfifentry.EntityData.Leafs["ospfIfAuthKey"] = types.YLeaf{"Ospfifauthkey", ospfifentry.Ospfifauthkey}
+    ospfifentry.EntityData.Leafs["ospfIfStatus"] = types.YLeaf{"Ospfifstatus", ospfifentry.Ospfifstatus}
+    ospfifentry.EntityData.Leafs["ospfIfMulticastForwarding"] = types.YLeaf{"Ospfifmulticastforwarding", ospfifentry.Ospfifmulticastforwarding}
+    ospfifentry.EntityData.Leafs["ospfIfDemand"] = types.YLeaf{"Ospfifdemand", ospfifentry.Ospfifdemand}
+    ospfifentry.EntityData.Leafs["ospfIfAuthType"] = types.YLeaf{"Ospfifauthtype", ospfifentry.Ospfifauthtype}
+    ospfifentry.EntityData.Leafs["ospfIfLsaCount"] = types.YLeaf{"Ospfiflsacount", ospfifentry.Ospfiflsacount}
+    ospfifentry.EntityData.Leafs["ospfIfLsaCksumSum"] = types.YLeaf{"Ospfiflsacksumsum", ospfifentry.Ospfiflsacksumsum}
+    ospfifentry.EntityData.Leafs["ospfIfDesignatedRouterId"] = types.YLeaf{"Ospfifdesignatedrouterid", ospfifentry.Ospfifdesignatedrouterid}
+    ospfifentry.EntityData.Leafs["ospfIfBackupDesignatedRouterId"] = types.YLeaf{"Ospfifbackupdesignatedrouterid", ospfifentry.Ospfifbackupdesignatedrouterid}
+    ospfifentry.EntityData.Leafs["cospfIfLsaCount"] = types.YLeaf{"Cospfiflsacount", ospfifentry.Cospfiflsacount}
+    ospfifentry.EntityData.Leafs["cospfIfLsaCksumSum"] = types.YLeaf{"Cospfiflsacksumsum", ospfifentry.Cospfiflsacksumsum}
+    return &(ospfifentry.EntityData)
 }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetSegmentPath() string {
-    return "ospfIfEntry" + "[ospfIfIpAddress='" + fmt.Sprintf("%v", ospfifentry.Ospfifipaddress) + "']" + "[ospfAddressLessIf='" + fmt.Sprintf("%v", ospfifentry.Ospfaddresslessif) + "']"
-}
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfIfIpAddress"] = ospfifentry.Ospfifipaddress
-    leafs["ospfAddressLessIf"] = ospfifentry.Ospfaddresslessif
-    leafs["ospfIfAreaId"] = ospfifentry.Ospfifareaid
-    leafs["ospfIfType"] = ospfifentry.Ospfiftype
-    leafs["ospfIfAdminStat"] = ospfifentry.Ospfifadminstat
-    leafs["ospfIfRtrPriority"] = ospfifentry.Ospfifrtrpriority
-    leafs["ospfIfTransitDelay"] = ospfifentry.Ospfiftransitdelay
-    leafs["ospfIfRetransInterval"] = ospfifentry.Ospfifretransinterval
-    leafs["ospfIfHelloInterval"] = ospfifentry.Ospfifhellointerval
-    leafs["ospfIfRtrDeadInterval"] = ospfifentry.Ospfifrtrdeadinterval
-    leafs["ospfIfPollInterval"] = ospfifentry.Ospfifpollinterval
-    leafs["ospfIfState"] = ospfifentry.Ospfifstate
-    leafs["ospfIfDesignatedRouter"] = ospfifentry.Ospfifdesignatedrouter
-    leafs["ospfIfBackupDesignatedRouter"] = ospfifentry.Ospfifbackupdesignatedrouter
-    leafs["ospfIfEvents"] = ospfifentry.Ospfifevents
-    leafs["ospfIfAuthKey"] = ospfifentry.Ospfifauthkey
-    leafs["ospfIfStatus"] = ospfifentry.Ospfifstatus
-    leafs["ospfIfMulticastForwarding"] = ospfifentry.Ospfifmulticastforwarding
-    leafs["ospfIfDemand"] = ospfifentry.Ospfifdemand
-    leafs["ospfIfAuthType"] = ospfifentry.Ospfifauthtype
-    leafs["ospfIfLsaCount"] = ospfifentry.Ospfiflsacount
-    leafs["ospfIfLsaCksumSum"] = ospfifentry.Ospfiflsacksumsum
-    leafs["ospfIfDesignatedRouterId"] = ospfifentry.Ospfifdesignatedrouterid
-    leafs["ospfIfBackupDesignatedRouterId"] = ospfifentry.Ospfifbackupdesignatedrouterid
-    leafs["cospfIfLsaCount"] = ospfifentry.Cospfiflsacount
-    leafs["cospfIfLsaCksumSum"] = ospfifentry.Cospfiflsacksumsum
-    return leafs
-}
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetYangName() string { return "ospfIfEntry" }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) SetParent(parent types.Entity) { ospfifentry.parent = parent }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetParent() types.Entity { return ospfifentry.parent }
-
-func (ospfifentry *OSPFMIB_Ospfiftable_Ospfifentry) GetParentYangName() string { return "ospfIfTable" }
 
 // OSPFMIB_Ospfiftable_Ospfifentry_Ospfifmulticastforwarding represents disables all multicast forwarding.
 type OSPFMIB_Ospfiftable_Ospfifentry_Ospfifmulticastforwarding string
@@ -2141,7 +1510,7 @@ const (
 // Note that the default reference bandwidth can be configured
 // using the general group object ospfReferenceBandwidth.
 type OSPFMIB_Ospfifmetrictable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A particular TOS metric for a non-virtual interface identified by the
@@ -2151,63 +1520,24 @@ type OSPFMIB_Ospfifmetrictable struct {
     Ospfifmetricentry []OSPFMIB_Ospfifmetrictable_Ospfifmetricentry
 }
 
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetFilter() yfilter.YFilter { return ospfifmetrictable.YFilter }
+func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetEntityData() *types.CommonEntityData {
+    ospfifmetrictable.EntityData.YFilter = ospfifmetrictable.YFilter
+    ospfifmetrictable.EntityData.YangName = "ospfIfMetricTable"
+    ospfifmetrictable.EntityData.BundleName = "cisco_ios_xe"
+    ospfifmetrictable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfifmetrictable.EntityData.SegmentPath = "ospfIfMetricTable"
+    ospfifmetrictable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfifmetrictable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfifmetrictable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) SetFilter(yf yfilter.YFilter) { ospfifmetrictable.YFilter = yf }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetGoName(yname string) string {
-    if yname == "ospfIfMetricEntry" { return "Ospfifmetricentry" }
-    return ""
-}
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetSegmentPath() string {
-    return "ospfIfMetricTable"
-}
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfIfMetricEntry" {
-        for _, c := range ospfifmetrictable.Ospfifmetricentry {
-            if ospfifmetrictable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfifmetrictable_Ospfifmetricentry{}
-        ospfifmetrictable.Ospfifmetricentry = append(ospfifmetrictable.Ospfifmetricentry, child)
-        return &ospfifmetrictable.Ospfifmetricentry[len(ospfifmetrictable.Ospfifmetricentry)-1]
-    }
-    return nil
-}
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfifmetrictable.EntityData.Children = make(map[string]types.YChild)
+    ospfifmetrictable.EntityData.Children["ospfIfMetricEntry"] = types.YChild{"Ospfifmetricentry", nil}
     for i := range ospfifmetrictable.Ospfifmetricentry {
-        children[ospfifmetrictable.Ospfifmetricentry[i].GetSegmentPath()] = &ospfifmetrictable.Ospfifmetricentry[i]
+        ospfifmetrictable.EntityData.Children[types.GetSegmentPath(&ospfifmetrictable.Ospfifmetricentry[i])] = types.YChild{"Ospfifmetricentry", &ospfifmetrictable.Ospfifmetricentry[i]}
     }
-    return children
+    ospfifmetrictable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfifmetrictable.EntityData)
 }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetYangName() string { return "ospfIfMetricTable" }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) SetParent(parent types.Entity) { ospfifmetrictable.parent = parent }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetParent() types.Entity { return ospfifmetrictable.parent }
-
-func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfifmetrictable_Ospfifmetricentry
 // A particular TOS metric for a non-virtual interface
@@ -2217,13 +1547,13 @@ func (ospfifmetrictable *OSPFMIB_Ospfifmetrictable) GetParentYangName() string {
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfifmetrictable_Ospfifmetricentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address of this OSPF interface.  On row
     // creation, this can be derived from the instance. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfifmetricipaddress interface{}
 
     // This attribute is a key. For the purpose of easing the instancing of
@@ -2250,65 +1580,31 @@ type OSPFMIB_Ospfifmetrictable_Ospfifmetricentry struct {
     Ospfifmetricstatus interface{}
 }
 
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetFilter() yfilter.YFilter { return ospfifmetricentry.YFilter }
+func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetEntityData() *types.CommonEntityData {
+    ospfifmetricentry.EntityData.YFilter = ospfifmetricentry.YFilter
+    ospfifmetricentry.EntityData.YangName = "ospfIfMetricEntry"
+    ospfifmetricentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfifmetricentry.EntityData.ParentYangName = "ospfIfMetricTable"
+    ospfifmetricentry.EntityData.SegmentPath = "ospfIfMetricEntry" + "[ospfIfMetricIpAddress='" + fmt.Sprintf("%v", ospfifmetricentry.Ospfifmetricipaddress) + "']" + "[ospfIfMetricAddressLessIf='" + fmt.Sprintf("%v", ospfifmetricentry.Ospfifmetricaddresslessif) + "']" + "[ospfIfMetricTOS='" + fmt.Sprintf("%v", ospfifmetricentry.Ospfifmetrictos) + "']"
+    ospfifmetricentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfifmetricentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfifmetricentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) SetFilter(yf yfilter.YFilter) { ospfifmetricentry.YFilter = yf }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetGoName(yname string) string {
-    if yname == "ospfIfMetricIpAddress" { return "Ospfifmetricipaddress" }
-    if yname == "ospfIfMetricAddressLessIf" { return "Ospfifmetricaddresslessif" }
-    if yname == "ospfIfMetricTOS" { return "Ospfifmetrictos" }
-    if yname == "ospfIfMetricValue" { return "Ospfifmetricvalue" }
-    if yname == "ospfIfMetricStatus" { return "Ospfifmetricstatus" }
-    return ""
+    ospfifmetricentry.EntityData.Children = make(map[string]types.YChild)
+    ospfifmetricentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfifmetricentry.EntityData.Leafs["ospfIfMetricIpAddress"] = types.YLeaf{"Ospfifmetricipaddress", ospfifmetricentry.Ospfifmetricipaddress}
+    ospfifmetricentry.EntityData.Leafs["ospfIfMetricAddressLessIf"] = types.YLeaf{"Ospfifmetricaddresslessif", ospfifmetricentry.Ospfifmetricaddresslessif}
+    ospfifmetricentry.EntityData.Leafs["ospfIfMetricTOS"] = types.YLeaf{"Ospfifmetrictos", ospfifmetricentry.Ospfifmetrictos}
+    ospfifmetricentry.EntityData.Leafs["ospfIfMetricValue"] = types.YLeaf{"Ospfifmetricvalue", ospfifmetricentry.Ospfifmetricvalue}
+    ospfifmetricentry.EntityData.Leafs["ospfIfMetricStatus"] = types.YLeaf{"Ospfifmetricstatus", ospfifmetricentry.Ospfifmetricstatus}
+    return &(ospfifmetricentry.EntityData)
 }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetSegmentPath() string {
-    return "ospfIfMetricEntry" + "[ospfIfMetricIpAddress='" + fmt.Sprintf("%v", ospfifmetricentry.Ospfifmetricipaddress) + "']" + "[ospfIfMetricAddressLessIf='" + fmt.Sprintf("%v", ospfifmetricentry.Ospfifmetricaddresslessif) + "']" + "[ospfIfMetricTOS='" + fmt.Sprintf("%v", ospfifmetricentry.Ospfifmetrictos) + "']"
-}
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfIfMetricIpAddress"] = ospfifmetricentry.Ospfifmetricipaddress
-    leafs["ospfIfMetricAddressLessIf"] = ospfifmetricentry.Ospfifmetricaddresslessif
-    leafs["ospfIfMetricTOS"] = ospfifmetricentry.Ospfifmetrictos
-    leafs["ospfIfMetricValue"] = ospfifmetricentry.Ospfifmetricvalue
-    leafs["ospfIfMetricStatus"] = ospfifmetricentry.Ospfifmetricstatus
-    return leafs
-}
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetYangName() string { return "ospfIfMetricEntry" }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) SetParent(parent types.Entity) { ospfifmetricentry.parent = parent }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetParent() types.Entity { return ospfifmetricentry.parent }
-
-func (ospfifmetricentry *OSPFMIB_Ospfifmetrictable_Ospfifmetricentry) GetParentYangName() string { return "ospfIfMetricTable" }
 
 // OSPFMIB_Ospfvirtiftable
 // Information about this router's virtual interfaces
 // that the OSPF Process is configured to carry on.
 type OSPFMIB_Ospfvirtiftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a single virtual interface.  Information in this table is
@@ -2318,63 +1614,24 @@ type OSPFMIB_Ospfvirtiftable struct {
     Ospfvirtifentry []OSPFMIB_Ospfvirtiftable_Ospfvirtifentry
 }
 
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetFilter() yfilter.YFilter { return ospfvirtiftable.YFilter }
+func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetEntityData() *types.CommonEntityData {
+    ospfvirtiftable.EntityData.YFilter = ospfvirtiftable.YFilter
+    ospfvirtiftable.EntityData.YangName = "ospfVirtIfTable"
+    ospfvirtiftable.EntityData.BundleName = "cisco_ios_xe"
+    ospfvirtiftable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfvirtiftable.EntityData.SegmentPath = "ospfVirtIfTable"
+    ospfvirtiftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfvirtiftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfvirtiftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) SetFilter(yf yfilter.YFilter) { ospfvirtiftable.YFilter = yf }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetGoName(yname string) string {
-    if yname == "ospfVirtIfEntry" { return "Ospfvirtifentry" }
-    return ""
-}
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetSegmentPath() string {
-    return "ospfVirtIfTable"
-}
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfVirtIfEntry" {
-        for _, c := range ospfvirtiftable.Ospfvirtifentry {
-            if ospfvirtiftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfvirtiftable_Ospfvirtifentry{}
-        ospfvirtiftable.Ospfvirtifentry = append(ospfvirtiftable.Ospfvirtifentry, child)
-        return &ospfvirtiftable.Ospfvirtifentry[len(ospfvirtiftable.Ospfvirtifentry)-1]
-    }
-    return nil
-}
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfvirtiftable.EntityData.Children = make(map[string]types.YChild)
+    ospfvirtiftable.EntityData.Children["ospfVirtIfEntry"] = types.YChild{"Ospfvirtifentry", nil}
     for i := range ospfvirtiftable.Ospfvirtifentry {
-        children[ospfvirtiftable.Ospfvirtifentry[i].GetSegmentPath()] = &ospfvirtiftable.Ospfvirtifentry[i]
+        ospfvirtiftable.EntityData.Children[types.GetSegmentPath(&ospfvirtiftable.Ospfvirtifentry[i])] = types.YChild{"Ospfvirtifentry", &ospfvirtiftable.Ospfvirtifentry[i]}
     }
-    return children
+    ospfvirtiftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfvirtiftable.EntityData)
 }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetYangName() string { return "ospfVirtIfTable" }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) SetParent(parent types.Entity) { ospfvirtiftable.parent = parent }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetParent() types.Entity { return ospfvirtiftable.parent }
-
-func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfvirtiftable_Ospfvirtifentry
 // Information about a single virtual interface.
@@ -2383,17 +1640,17 @@ func (ospfvirtiftable *OSPFMIB_Ospfvirtiftable) GetParentYangName() string { ret
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfvirtiftable_Ospfvirtifentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The transit area that the virtual link traverses. 
     // By definition, this is not 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtifareaid interface{}
 
     // This attribute is a key. The Router ID of the virtual neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtifneighbor interface{}
 
     // The estimated number of seconds it takes to transmit a Link State update
@@ -2482,79 +1739,35 @@ type OSPFMIB_Ospfvirtiftable_Ospfvirtifentry struct {
     Cospfvirtiflsacksumsum interface{}
 }
 
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetFilter() yfilter.YFilter { return ospfvirtifentry.YFilter }
+func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetEntityData() *types.CommonEntityData {
+    ospfvirtifentry.EntityData.YFilter = ospfvirtifentry.YFilter
+    ospfvirtifentry.EntityData.YangName = "ospfVirtIfEntry"
+    ospfvirtifentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfvirtifentry.EntityData.ParentYangName = "ospfVirtIfTable"
+    ospfvirtifentry.EntityData.SegmentPath = "ospfVirtIfEntry" + "[ospfVirtIfAreaId='" + fmt.Sprintf("%v", ospfvirtifentry.Ospfvirtifareaid) + "']" + "[ospfVirtIfNeighbor='" + fmt.Sprintf("%v", ospfvirtifentry.Ospfvirtifneighbor) + "']"
+    ospfvirtifentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfvirtifentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfvirtifentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) SetFilter(yf yfilter.YFilter) { ospfvirtifentry.YFilter = yf }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetGoName(yname string) string {
-    if yname == "ospfVirtIfAreaId" { return "Ospfvirtifareaid" }
-    if yname == "ospfVirtIfNeighbor" { return "Ospfvirtifneighbor" }
-    if yname == "ospfVirtIfTransitDelay" { return "Ospfvirtiftransitdelay" }
-    if yname == "ospfVirtIfRetransInterval" { return "Ospfvirtifretransinterval" }
-    if yname == "ospfVirtIfHelloInterval" { return "Ospfvirtifhellointerval" }
-    if yname == "ospfVirtIfRtrDeadInterval" { return "Ospfvirtifrtrdeadinterval" }
-    if yname == "ospfVirtIfState" { return "Ospfvirtifstate" }
-    if yname == "ospfVirtIfEvents" { return "Ospfvirtifevents" }
-    if yname == "ospfVirtIfAuthKey" { return "Ospfvirtifauthkey" }
-    if yname == "ospfVirtIfStatus" { return "Ospfvirtifstatus" }
-    if yname == "ospfVirtIfAuthType" { return "Ospfvirtifauthtype" }
-    if yname == "ospfVirtIfLsaCount" { return "Ospfvirtiflsacount" }
-    if yname == "ospfVirtIfLsaCksumSum" { return "Ospfvirtiflsacksumsum" }
-    if yname == "cospfVirtIfLsaCount" { return "Cospfvirtiflsacount" }
-    if yname == "cospfVirtIfLsaCksumSum" { return "Cospfvirtiflsacksumsum" }
-    return ""
+    ospfvirtifentry.EntityData.Children = make(map[string]types.YChild)
+    ospfvirtifentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfAreaId"] = types.YLeaf{"Ospfvirtifareaid", ospfvirtifentry.Ospfvirtifareaid}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfNeighbor"] = types.YLeaf{"Ospfvirtifneighbor", ospfvirtifentry.Ospfvirtifneighbor}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfTransitDelay"] = types.YLeaf{"Ospfvirtiftransitdelay", ospfvirtifentry.Ospfvirtiftransitdelay}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfRetransInterval"] = types.YLeaf{"Ospfvirtifretransinterval", ospfvirtifentry.Ospfvirtifretransinterval}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfHelloInterval"] = types.YLeaf{"Ospfvirtifhellointerval", ospfvirtifentry.Ospfvirtifhellointerval}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfRtrDeadInterval"] = types.YLeaf{"Ospfvirtifrtrdeadinterval", ospfvirtifentry.Ospfvirtifrtrdeadinterval}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfState"] = types.YLeaf{"Ospfvirtifstate", ospfvirtifentry.Ospfvirtifstate}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfEvents"] = types.YLeaf{"Ospfvirtifevents", ospfvirtifentry.Ospfvirtifevents}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfAuthKey"] = types.YLeaf{"Ospfvirtifauthkey", ospfvirtifentry.Ospfvirtifauthkey}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfStatus"] = types.YLeaf{"Ospfvirtifstatus", ospfvirtifentry.Ospfvirtifstatus}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfAuthType"] = types.YLeaf{"Ospfvirtifauthtype", ospfvirtifentry.Ospfvirtifauthtype}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfLsaCount"] = types.YLeaf{"Ospfvirtiflsacount", ospfvirtifentry.Ospfvirtiflsacount}
+    ospfvirtifentry.EntityData.Leafs["ospfVirtIfLsaCksumSum"] = types.YLeaf{"Ospfvirtiflsacksumsum", ospfvirtifentry.Ospfvirtiflsacksumsum}
+    ospfvirtifentry.EntityData.Leafs["cospfVirtIfLsaCount"] = types.YLeaf{"Cospfvirtiflsacount", ospfvirtifentry.Cospfvirtiflsacount}
+    ospfvirtifentry.EntityData.Leafs["cospfVirtIfLsaCksumSum"] = types.YLeaf{"Cospfvirtiflsacksumsum", ospfvirtifentry.Cospfvirtiflsacksumsum}
+    return &(ospfvirtifentry.EntityData)
 }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetSegmentPath() string {
-    return "ospfVirtIfEntry" + "[ospfVirtIfAreaId='" + fmt.Sprintf("%v", ospfvirtifentry.Ospfvirtifareaid) + "']" + "[ospfVirtIfNeighbor='" + fmt.Sprintf("%v", ospfvirtifentry.Ospfvirtifneighbor) + "']"
-}
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfVirtIfAreaId"] = ospfvirtifentry.Ospfvirtifareaid
-    leafs["ospfVirtIfNeighbor"] = ospfvirtifentry.Ospfvirtifneighbor
-    leafs["ospfVirtIfTransitDelay"] = ospfvirtifentry.Ospfvirtiftransitdelay
-    leafs["ospfVirtIfRetransInterval"] = ospfvirtifentry.Ospfvirtifretransinterval
-    leafs["ospfVirtIfHelloInterval"] = ospfvirtifentry.Ospfvirtifhellointerval
-    leafs["ospfVirtIfRtrDeadInterval"] = ospfvirtifentry.Ospfvirtifrtrdeadinterval
-    leafs["ospfVirtIfState"] = ospfvirtifentry.Ospfvirtifstate
-    leafs["ospfVirtIfEvents"] = ospfvirtifentry.Ospfvirtifevents
-    leafs["ospfVirtIfAuthKey"] = ospfvirtifentry.Ospfvirtifauthkey
-    leafs["ospfVirtIfStatus"] = ospfvirtifentry.Ospfvirtifstatus
-    leafs["ospfVirtIfAuthType"] = ospfvirtifentry.Ospfvirtifauthtype
-    leafs["ospfVirtIfLsaCount"] = ospfvirtifentry.Ospfvirtiflsacount
-    leafs["ospfVirtIfLsaCksumSum"] = ospfvirtifentry.Ospfvirtiflsacksumsum
-    leafs["cospfVirtIfLsaCount"] = ospfvirtifentry.Cospfvirtiflsacount
-    leafs["cospfVirtIfLsaCksumSum"] = ospfvirtifentry.Cospfvirtiflsacksumsum
-    return leafs
-}
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetYangName() string { return "ospfVirtIfEntry" }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) SetParent(parent types.Entity) { ospfvirtifentry.parent = parent }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetParent() types.Entity { return ospfvirtifentry.parent }
-
-func (ospfvirtifentry *OSPFMIB_Ospfvirtiftable_Ospfvirtifentry) GetParentYangName() string { return "ospfVirtIfTable" }
 
 // OSPFMIB_Ospfvirtiftable_Ospfvirtifentry_Ospfvirtifstate represents OSPF virtual interface states.
 type OSPFMIB_Ospfvirtiftable_Ospfvirtifentry_Ospfvirtifstate string
@@ -2569,7 +1782,7 @@ const (
 // A table describing all non-virtual neighbors
 // in the locality of the OSPF router.
 type OSPFMIB_Ospfnbrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The information regarding a single neighbor.  Information in this table is
@@ -2579,63 +1792,24 @@ type OSPFMIB_Ospfnbrtable struct {
     Ospfnbrentry []OSPFMIB_Ospfnbrtable_Ospfnbrentry
 }
 
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetFilter() yfilter.YFilter { return ospfnbrtable.YFilter }
+func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetEntityData() *types.CommonEntityData {
+    ospfnbrtable.EntityData.YFilter = ospfnbrtable.YFilter
+    ospfnbrtable.EntityData.YangName = "ospfNbrTable"
+    ospfnbrtable.EntityData.BundleName = "cisco_ios_xe"
+    ospfnbrtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfnbrtable.EntityData.SegmentPath = "ospfNbrTable"
+    ospfnbrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfnbrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfnbrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) SetFilter(yf yfilter.YFilter) { ospfnbrtable.YFilter = yf }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetGoName(yname string) string {
-    if yname == "ospfNbrEntry" { return "Ospfnbrentry" }
-    return ""
-}
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetSegmentPath() string {
-    return "ospfNbrTable"
-}
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfNbrEntry" {
-        for _, c := range ospfnbrtable.Ospfnbrentry {
-            if ospfnbrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfnbrtable_Ospfnbrentry{}
-        ospfnbrtable.Ospfnbrentry = append(ospfnbrtable.Ospfnbrentry, child)
-        return &ospfnbrtable.Ospfnbrentry[len(ospfnbrtable.Ospfnbrentry)-1]
-    }
-    return nil
-}
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfnbrtable.EntityData.Children = make(map[string]types.YChild)
+    ospfnbrtable.EntityData.Children["ospfNbrEntry"] = types.YChild{"Ospfnbrentry", nil}
     for i := range ospfnbrtable.Ospfnbrentry {
-        children[ospfnbrtable.Ospfnbrentry[i].GetSegmentPath()] = &ospfnbrtable.Ospfnbrentry[i]
+        ospfnbrtable.EntityData.Children[types.GetSegmentPath(&ospfnbrtable.Ospfnbrentry[i])] = types.YChild{"Ospfnbrentry", &ospfnbrtable.Ospfnbrentry[i]}
     }
-    return children
+    ospfnbrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfnbrtable.EntityData)
 }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetYangName() string { return "ospfNbrTable" }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) SetParent(parent types.Entity) { ospfnbrtable.parent = parent }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetParent() types.Entity { return ospfnbrtable.parent }
-
-func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfnbrtable_Ospfnbrentry
 // The information regarding a single neighbor.
@@ -2645,14 +1819,14 @@ func (ospfnbrtable *OSPFMIB_Ospfnbrtable) GetParentYangName() string { return "O
 // 
 // storage.
 type OSPFMIB_Ospfnbrtable_Ospfnbrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address this neighbor is using in its IP
     // source address.  Note that, on addressless links, this will not be 0.0.0.0
     // but the  address of another of the neighbor's interfaces. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfnbripaddr interface{}
 
     // This attribute is a key. On an interface having an IP address, zero. On
@@ -2664,7 +1838,7 @@ type OSPFMIB_Ospfnbrtable_Ospfnbrentry struct {
     // A 32-bit integer (represented as a type IpAddress) uniquely identifying the
     // neighboring router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfnbrrtrid interface{}
 
     // A bit mask corresponding to the neighbor's options field.  Bit 0, if set,
@@ -2728,77 +1902,34 @@ type OSPFMIB_Ospfnbrtable_Ospfnbrentry struct {
     Ospfnbrrestarthelperexitreason interface{}
 }
 
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetFilter() yfilter.YFilter { return ospfnbrentry.YFilter }
+func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetEntityData() *types.CommonEntityData {
+    ospfnbrentry.EntityData.YFilter = ospfnbrentry.YFilter
+    ospfnbrentry.EntityData.YangName = "ospfNbrEntry"
+    ospfnbrentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfnbrentry.EntityData.ParentYangName = "ospfNbrTable"
+    ospfnbrentry.EntityData.SegmentPath = "ospfNbrEntry" + "[ospfNbrIpAddr='" + fmt.Sprintf("%v", ospfnbrentry.Ospfnbripaddr) + "']" + "[ospfNbrAddressLessIndex='" + fmt.Sprintf("%v", ospfnbrentry.Ospfnbraddresslessindex) + "']"
+    ospfnbrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfnbrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfnbrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) SetFilter(yf yfilter.YFilter) { ospfnbrentry.YFilter = yf }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetGoName(yname string) string {
-    if yname == "ospfNbrIpAddr" { return "Ospfnbripaddr" }
-    if yname == "ospfNbrAddressLessIndex" { return "Ospfnbraddresslessindex" }
-    if yname == "ospfNbrRtrId" { return "Ospfnbrrtrid" }
-    if yname == "ospfNbrOptions" { return "Ospfnbroptions" }
-    if yname == "ospfNbrPriority" { return "Ospfnbrpriority" }
-    if yname == "ospfNbrState" { return "Ospfnbrstate" }
-    if yname == "ospfNbrEvents" { return "Ospfnbrevents" }
-    if yname == "ospfNbrLsRetransQLen" { return "Ospfnbrlsretransqlen" }
-    if yname == "ospfNbmaNbrStatus" { return "Ospfnbmanbrstatus" }
-    if yname == "ospfNbmaNbrPermanence" { return "Ospfnbmanbrpermanence" }
-    if yname == "ospfNbrHelloSuppressed" { return "Ospfnbrhellosuppressed" }
-    if yname == "ospfNbrRestartHelperStatus" { return "Ospfnbrrestarthelperstatus" }
-    if yname == "ospfNbrRestartHelperAge" { return "Ospfnbrrestarthelperage" }
-    if yname == "ospfNbrRestartHelperExitReason" { return "Ospfnbrrestarthelperexitreason" }
-    return ""
+    ospfnbrentry.EntityData.Children = make(map[string]types.YChild)
+    ospfnbrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfnbrentry.EntityData.Leafs["ospfNbrIpAddr"] = types.YLeaf{"Ospfnbripaddr", ospfnbrentry.Ospfnbripaddr}
+    ospfnbrentry.EntityData.Leafs["ospfNbrAddressLessIndex"] = types.YLeaf{"Ospfnbraddresslessindex", ospfnbrentry.Ospfnbraddresslessindex}
+    ospfnbrentry.EntityData.Leafs["ospfNbrRtrId"] = types.YLeaf{"Ospfnbrrtrid", ospfnbrentry.Ospfnbrrtrid}
+    ospfnbrentry.EntityData.Leafs["ospfNbrOptions"] = types.YLeaf{"Ospfnbroptions", ospfnbrentry.Ospfnbroptions}
+    ospfnbrentry.EntityData.Leafs["ospfNbrPriority"] = types.YLeaf{"Ospfnbrpriority", ospfnbrentry.Ospfnbrpriority}
+    ospfnbrentry.EntityData.Leafs["ospfNbrState"] = types.YLeaf{"Ospfnbrstate", ospfnbrentry.Ospfnbrstate}
+    ospfnbrentry.EntityData.Leafs["ospfNbrEvents"] = types.YLeaf{"Ospfnbrevents", ospfnbrentry.Ospfnbrevents}
+    ospfnbrentry.EntityData.Leafs["ospfNbrLsRetransQLen"] = types.YLeaf{"Ospfnbrlsretransqlen", ospfnbrentry.Ospfnbrlsretransqlen}
+    ospfnbrentry.EntityData.Leafs["ospfNbmaNbrStatus"] = types.YLeaf{"Ospfnbmanbrstatus", ospfnbrentry.Ospfnbmanbrstatus}
+    ospfnbrentry.EntityData.Leafs["ospfNbmaNbrPermanence"] = types.YLeaf{"Ospfnbmanbrpermanence", ospfnbrentry.Ospfnbmanbrpermanence}
+    ospfnbrentry.EntityData.Leafs["ospfNbrHelloSuppressed"] = types.YLeaf{"Ospfnbrhellosuppressed", ospfnbrentry.Ospfnbrhellosuppressed}
+    ospfnbrentry.EntityData.Leafs["ospfNbrRestartHelperStatus"] = types.YLeaf{"Ospfnbrrestarthelperstatus", ospfnbrentry.Ospfnbrrestarthelperstatus}
+    ospfnbrentry.EntityData.Leafs["ospfNbrRestartHelperAge"] = types.YLeaf{"Ospfnbrrestarthelperage", ospfnbrentry.Ospfnbrrestarthelperage}
+    ospfnbrentry.EntityData.Leafs["ospfNbrRestartHelperExitReason"] = types.YLeaf{"Ospfnbrrestarthelperexitreason", ospfnbrentry.Ospfnbrrestarthelperexitreason}
+    return &(ospfnbrentry.EntityData)
 }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetSegmentPath() string {
-    return "ospfNbrEntry" + "[ospfNbrIpAddr='" + fmt.Sprintf("%v", ospfnbrentry.Ospfnbripaddr) + "']" + "[ospfNbrAddressLessIndex='" + fmt.Sprintf("%v", ospfnbrentry.Ospfnbraddresslessindex) + "']"
-}
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfNbrIpAddr"] = ospfnbrentry.Ospfnbripaddr
-    leafs["ospfNbrAddressLessIndex"] = ospfnbrentry.Ospfnbraddresslessindex
-    leafs["ospfNbrRtrId"] = ospfnbrentry.Ospfnbrrtrid
-    leafs["ospfNbrOptions"] = ospfnbrentry.Ospfnbroptions
-    leafs["ospfNbrPriority"] = ospfnbrentry.Ospfnbrpriority
-    leafs["ospfNbrState"] = ospfnbrentry.Ospfnbrstate
-    leafs["ospfNbrEvents"] = ospfnbrentry.Ospfnbrevents
-    leafs["ospfNbrLsRetransQLen"] = ospfnbrentry.Ospfnbrlsretransqlen
-    leafs["ospfNbmaNbrStatus"] = ospfnbrentry.Ospfnbmanbrstatus
-    leafs["ospfNbmaNbrPermanence"] = ospfnbrentry.Ospfnbmanbrpermanence
-    leafs["ospfNbrHelloSuppressed"] = ospfnbrentry.Ospfnbrhellosuppressed
-    leafs["ospfNbrRestartHelperStatus"] = ospfnbrentry.Ospfnbrrestarthelperstatus
-    leafs["ospfNbrRestartHelperAge"] = ospfnbrentry.Ospfnbrrestarthelperage
-    leafs["ospfNbrRestartHelperExitReason"] = ospfnbrentry.Ospfnbrrestarthelperexitreason
-    return leafs
-}
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetYangName() string { return "ospfNbrEntry" }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) SetParent(parent types.Entity) { ospfnbrentry.parent = parent }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetParent() types.Entity { return ospfnbrentry.parent }
-
-func (ospfnbrentry *OSPFMIB_Ospfnbrtable_Ospfnbrentry) GetParentYangName() string { return "ospfNbrTable" }
 
 // OSPFMIB_Ospfnbrtable_Ospfnbrentry_Ospfnbmanbrpermanence represents became known.
 type OSPFMIB_Ospfnbrtable_Ospfnbrentry_Ospfnbmanbrpermanence string
@@ -2859,7 +1990,7 @@ const (
 // Since virtual links are configured
 // in the Virtual Interface Table, this table is read-only.
 type OSPFMIB_Ospfvirtnbrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Virtual neighbor information. The type is slice of
@@ -2867,84 +1998,45 @@ type OSPFMIB_Ospfvirtnbrtable struct {
     Ospfvirtnbrentry []OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry
 }
 
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetFilter() yfilter.YFilter { return ospfvirtnbrtable.YFilter }
+func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetEntityData() *types.CommonEntityData {
+    ospfvirtnbrtable.EntityData.YFilter = ospfvirtnbrtable.YFilter
+    ospfvirtnbrtable.EntityData.YangName = "ospfVirtNbrTable"
+    ospfvirtnbrtable.EntityData.BundleName = "cisco_ios_xe"
+    ospfvirtnbrtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfvirtnbrtable.EntityData.SegmentPath = "ospfVirtNbrTable"
+    ospfvirtnbrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfvirtnbrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfvirtnbrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) SetFilter(yf yfilter.YFilter) { ospfvirtnbrtable.YFilter = yf }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetGoName(yname string) string {
-    if yname == "ospfVirtNbrEntry" { return "Ospfvirtnbrentry" }
-    return ""
-}
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetSegmentPath() string {
-    return "ospfVirtNbrTable"
-}
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfVirtNbrEntry" {
-        for _, c := range ospfvirtnbrtable.Ospfvirtnbrentry {
-            if ospfvirtnbrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry{}
-        ospfvirtnbrtable.Ospfvirtnbrentry = append(ospfvirtnbrtable.Ospfvirtnbrentry, child)
-        return &ospfvirtnbrtable.Ospfvirtnbrentry[len(ospfvirtnbrtable.Ospfvirtnbrentry)-1]
-    }
-    return nil
-}
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfvirtnbrtable.EntityData.Children = make(map[string]types.YChild)
+    ospfvirtnbrtable.EntityData.Children["ospfVirtNbrEntry"] = types.YChild{"Ospfvirtnbrentry", nil}
     for i := range ospfvirtnbrtable.Ospfvirtnbrentry {
-        children[ospfvirtnbrtable.Ospfvirtnbrentry[i].GetSegmentPath()] = &ospfvirtnbrtable.Ospfvirtnbrentry[i]
+        ospfvirtnbrtable.EntityData.Children[types.GetSegmentPath(&ospfvirtnbrtable.Ospfvirtnbrentry[i])] = types.YChild{"Ospfvirtnbrentry", &ospfvirtnbrtable.Ospfvirtnbrentry[i]}
     }
-    return children
+    ospfvirtnbrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfvirtnbrtable.EntityData)
 }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetYangName() string { return "ospfVirtNbrTable" }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) SetParent(parent types.Entity) { ospfvirtnbrtable.parent = parent }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetParent() types.Entity { return ospfvirtnbrtable.parent }
-
-func (ospfvirtnbrtable *OSPFMIB_Ospfvirtnbrtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry
 // Virtual neighbor information.
 type OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The Transit Area Identifier. The type is string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtnbrarea interface{}
 
     // This attribute is a key. A 32-bit integer uniquely identifying the
     // neighboring router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtnbrrtrid interface{}
 
     // The IP address this virtual neighbor is using. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtnbripaddr interface{}
 
     // A bit mask corresponding to the neighbor's options field.  Bit 1, if set,
@@ -2988,71 +2080,31 @@ type OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry struct {
     Ospfvirtnbrrestarthelperexitreason interface{}
 }
 
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetFilter() yfilter.YFilter { return ospfvirtnbrentry.YFilter }
+func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetEntityData() *types.CommonEntityData {
+    ospfvirtnbrentry.EntityData.YFilter = ospfvirtnbrentry.YFilter
+    ospfvirtnbrentry.EntityData.YangName = "ospfVirtNbrEntry"
+    ospfvirtnbrentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfvirtnbrentry.EntityData.ParentYangName = "ospfVirtNbrTable"
+    ospfvirtnbrentry.EntityData.SegmentPath = "ospfVirtNbrEntry" + "[ospfVirtNbrArea='" + fmt.Sprintf("%v", ospfvirtnbrentry.Ospfvirtnbrarea) + "']" + "[ospfVirtNbrRtrId='" + fmt.Sprintf("%v", ospfvirtnbrentry.Ospfvirtnbrrtrid) + "']"
+    ospfvirtnbrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfvirtnbrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfvirtnbrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) SetFilter(yf yfilter.YFilter) { ospfvirtnbrentry.YFilter = yf }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetGoName(yname string) string {
-    if yname == "ospfVirtNbrArea" { return "Ospfvirtnbrarea" }
-    if yname == "ospfVirtNbrRtrId" { return "Ospfvirtnbrrtrid" }
-    if yname == "ospfVirtNbrIpAddr" { return "Ospfvirtnbripaddr" }
-    if yname == "ospfVirtNbrOptions" { return "Ospfvirtnbroptions" }
-    if yname == "ospfVirtNbrState" { return "Ospfvirtnbrstate" }
-    if yname == "ospfVirtNbrEvents" { return "Ospfvirtnbrevents" }
-    if yname == "ospfVirtNbrLsRetransQLen" { return "Ospfvirtnbrlsretransqlen" }
-    if yname == "ospfVirtNbrHelloSuppressed" { return "Ospfvirtnbrhellosuppressed" }
-    if yname == "ospfVirtNbrRestartHelperStatus" { return "Ospfvirtnbrrestarthelperstatus" }
-    if yname == "ospfVirtNbrRestartHelperAge" { return "Ospfvirtnbrrestarthelperage" }
-    if yname == "ospfVirtNbrRestartHelperExitReason" { return "Ospfvirtnbrrestarthelperexitreason" }
-    return ""
+    ospfvirtnbrentry.EntityData.Children = make(map[string]types.YChild)
+    ospfvirtnbrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrArea"] = types.YLeaf{"Ospfvirtnbrarea", ospfvirtnbrentry.Ospfvirtnbrarea}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrRtrId"] = types.YLeaf{"Ospfvirtnbrrtrid", ospfvirtnbrentry.Ospfvirtnbrrtrid}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrIpAddr"] = types.YLeaf{"Ospfvirtnbripaddr", ospfvirtnbrentry.Ospfvirtnbripaddr}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrOptions"] = types.YLeaf{"Ospfvirtnbroptions", ospfvirtnbrentry.Ospfvirtnbroptions}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrState"] = types.YLeaf{"Ospfvirtnbrstate", ospfvirtnbrentry.Ospfvirtnbrstate}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrEvents"] = types.YLeaf{"Ospfvirtnbrevents", ospfvirtnbrentry.Ospfvirtnbrevents}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrLsRetransQLen"] = types.YLeaf{"Ospfvirtnbrlsretransqlen", ospfvirtnbrentry.Ospfvirtnbrlsretransqlen}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrHelloSuppressed"] = types.YLeaf{"Ospfvirtnbrhellosuppressed", ospfvirtnbrentry.Ospfvirtnbrhellosuppressed}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrRestartHelperStatus"] = types.YLeaf{"Ospfvirtnbrrestarthelperstatus", ospfvirtnbrentry.Ospfvirtnbrrestarthelperstatus}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrRestartHelperAge"] = types.YLeaf{"Ospfvirtnbrrestarthelperage", ospfvirtnbrentry.Ospfvirtnbrrestarthelperage}
+    ospfvirtnbrentry.EntityData.Leafs["ospfVirtNbrRestartHelperExitReason"] = types.YLeaf{"Ospfvirtnbrrestarthelperexitreason", ospfvirtnbrentry.Ospfvirtnbrrestarthelperexitreason}
+    return &(ospfvirtnbrentry.EntityData)
 }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetSegmentPath() string {
-    return "ospfVirtNbrEntry" + "[ospfVirtNbrArea='" + fmt.Sprintf("%v", ospfvirtnbrentry.Ospfvirtnbrarea) + "']" + "[ospfVirtNbrRtrId='" + fmt.Sprintf("%v", ospfvirtnbrentry.Ospfvirtnbrrtrid) + "']"
-}
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfVirtNbrArea"] = ospfvirtnbrentry.Ospfvirtnbrarea
-    leafs["ospfVirtNbrRtrId"] = ospfvirtnbrentry.Ospfvirtnbrrtrid
-    leafs["ospfVirtNbrIpAddr"] = ospfvirtnbrentry.Ospfvirtnbripaddr
-    leafs["ospfVirtNbrOptions"] = ospfvirtnbrentry.Ospfvirtnbroptions
-    leafs["ospfVirtNbrState"] = ospfvirtnbrentry.Ospfvirtnbrstate
-    leafs["ospfVirtNbrEvents"] = ospfvirtnbrentry.Ospfvirtnbrevents
-    leafs["ospfVirtNbrLsRetransQLen"] = ospfvirtnbrentry.Ospfvirtnbrlsretransqlen
-    leafs["ospfVirtNbrHelloSuppressed"] = ospfvirtnbrentry.Ospfvirtnbrhellosuppressed
-    leafs["ospfVirtNbrRestartHelperStatus"] = ospfvirtnbrentry.Ospfvirtnbrrestarthelperstatus
-    leafs["ospfVirtNbrRestartHelperAge"] = ospfvirtnbrentry.Ospfvirtnbrrestarthelperage
-    leafs["ospfVirtNbrRestartHelperExitReason"] = ospfvirtnbrentry.Ospfvirtnbrrestarthelperexitreason
-    return leafs
-}
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetYangName() string { return "ospfVirtNbrEntry" }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) SetParent(parent types.Entity) { ospfvirtnbrentry.parent = parent }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetParent() types.Entity { return ospfvirtnbrentry.parent }
-
-func (ospfvirtnbrentry *OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry) GetParentYangName() string { return "ospfVirtNbrTable" }
 
 // OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry_Ospfvirtnbrrestarthelperexitreason represents as a graceful restart helper for the neighbor.
 type OSPFMIB_Ospfvirtnbrtable_Ospfvirtnbrentry_Ospfvirtnbrrestarthelperexitreason string
@@ -3112,7 +2164,7 @@ const (
 // Note that external LSAs are also in the AS-scope link state
 // database.
 type OSPFMIB_Ospfextlsdbtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single link state advertisement. The type is slice of
@@ -3120,68 +2172,29 @@ type OSPFMIB_Ospfextlsdbtable struct {
     Ospfextlsdbentry []OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry
 }
 
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetFilter() yfilter.YFilter { return ospfextlsdbtable.YFilter }
+func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetEntityData() *types.CommonEntityData {
+    ospfextlsdbtable.EntityData.YFilter = ospfextlsdbtable.YFilter
+    ospfextlsdbtable.EntityData.YangName = "ospfExtLsdbTable"
+    ospfextlsdbtable.EntityData.BundleName = "cisco_ios_xe"
+    ospfextlsdbtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfextlsdbtable.EntityData.SegmentPath = "ospfExtLsdbTable"
+    ospfextlsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfextlsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfextlsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) SetFilter(yf yfilter.YFilter) { ospfextlsdbtable.YFilter = yf }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetGoName(yname string) string {
-    if yname == "ospfExtLsdbEntry" { return "Ospfextlsdbentry" }
-    return ""
-}
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetSegmentPath() string {
-    return "ospfExtLsdbTable"
-}
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfExtLsdbEntry" {
-        for _, c := range ospfextlsdbtable.Ospfextlsdbentry {
-            if ospfextlsdbtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry{}
-        ospfextlsdbtable.Ospfextlsdbentry = append(ospfextlsdbtable.Ospfextlsdbentry, child)
-        return &ospfextlsdbtable.Ospfextlsdbentry[len(ospfextlsdbtable.Ospfextlsdbentry)-1]
-    }
-    return nil
-}
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfextlsdbtable.EntityData.Children = make(map[string]types.YChild)
+    ospfextlsdbtable.EntityData.Children["ospfExtLsdbEntry"] = types.YChild{"Ospfextlsdbentry", nil}
     for i := range ospfextlsdbtable.Ospfextlsdbentry {
-        children[ospfextlsdbtable.Ospfextlsdbentry[i].GetSegmentPath()] = &ospfextlsdbtable.Ospfextlsdbentry[i]
+        ospfextlsdbtable.EntityData.Children[types.GetSegmentPath(&ospfextlsdbtable.Ospfextlsdbentry[i])] = types.YChild{"Ospfextlsdbentry", &ospfextlsdbtable.Ospfextlsdbentry[i]}
     }
-    return children
+    ospfextlsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfextlsdbtable.EntityData)
 }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetYangName() string { return "ospfExtLsdbTable" }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) SetParent(parent types.Entity) { ospfextlsdbtable.parent = parent }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetParent() types.Entity { return ospfextlsdbtable.parent }
-
-func (ospfextlsdbtable *OSPFMIB_Ospfextlsdbtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry
 // A single link state advertisement.
 type OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of the link state advertisement. Each
@@ -3193,13 +2206,13 @@ type OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry struct {
     // containing either a Router ID or an IP address; it identifies the piece of
     // the routing domain that is being described by the advertisement. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfextlsdblsid interface{}
 
     // This attribute is a key. The 32-bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfextlsdbrouterid interface{}
 
     // The sequence number field is a signed 32-bit integer.  It starts with the
@@ -3227,63 +2240,27 @@ type OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry struct {
     Ospfextlsdbadvertisement interface{}
 }
 
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetFilter() yfilter.YFilter { return ospfextlsdbentry.YFilter }
+func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetEntityData() *types.CommonEntityData {
+    ospfextlsdbentry.EntityData.YFilter = ospfextlsdbentry.YFilter
+    ospfextlsdbentry.EntityData.YangName = "ospfExtLsdbEntry"
+    ospfextlsdbentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfextlsdbentry.EntityData.ParentYangName = "ospfExtLsdbTable"
+    ospfextlsdbentry.EntityData.SegmentPath = "ospfExtLsdbEntry" + "[ospfExtLsdbType='" + fmt.Sprintf("%v", ospfextlsdbentry.Ospfextlsdbtype) + "']" + "[ospfExtLsdbLsid='" + fmt.Sprintf("%v", ospfextlsdbentry.Ospfextlsdblsid) + "']" + "[ospfExtLsdbRouterId='" + fmt.Sprintf("%v", ospfextlsdbentry.Ospfextlsdbrouterid) + "']"
+    ospfextlsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfextlsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfextlsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) SetFilter(yf yfilter.YFilter) { ospfextlsdbentry.YFilter = yf }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetGoName(yname string) string {
-    if yname == "ospfExtLsdbType" { return "Ospfextlsdbtype" }
-    if yname == "ospfExtLsdbLsid" { return "Ospfextlsdblsid" }
-    if yname == "ospfExtLsdbRouterId" { return "Ospfextlsdbrouterid" }
-    if yname == "ospfExtLsdbSequence" { return "Ospfextlsdbsequence" }
-    if yname == "ospfExtLsdbAge" { return "Ospfextlsdbage" }
-    if yname == "ospfExtLsdbChecksum" { return "Ospfextlsdbchecksum" }
-    if yname == "ospfExtLsdbAdvertisement" { return "Ospfextlsdbadvertisement" }
-    return ""
+    ospfextlsdbentry.EntityData.Children = make(map[string]types.YChild)
+    ospfextlsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbType"] = types.YLeaf{"Ospfextlsdbtype", ospfextlsdbentry.Ospfextlsdbtype}
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbLsid"] = types.YLeaf{"Ospfextlsdblsid", ospfextlsdbentry.Ospfextlsdblsid}
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbRouterId"] = types.YLeaf{"Ospfextlsdbrouterid", ospfextlsdbentry.Ospfextlsdbrouterid}
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbSequence"] = types.YLeaf{"Ospfextlsdbsequence", ospfextlsdbentry.Ospfextlsdbsequence}
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbAge"] = types.YLeaf{"Ospfextlsdbage", ospfextlsdbentry.Ospfextlsdbage}
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbChecksum"] = types.YLeaf{"Ospfextlsdbchecksum", ospfextlsdbentry.Ospfextlsdbchecksum}
+    ospfextlsdbentry.EntityData.Leafs["ospfExtLsdbAdvertisement"] = types.YLeaf{"Ospfextlsdbadvertisement", ospfextlsdbentry.Ospfextlsdbadvertisement}
+    return &(ospfextlsdbentry.EntityData)
 }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetSegmentPath() string {
-    return "ospfExtLsdbEntry" + "[ospfExtLsdbType='" + fmt.Sprintf("%v", ospfextlsdbentry.Ospfextlsdbtype) + "']" + "[ospfExtLsdbLsid='" + fmt.Sprintf("%v", ospfextlsdbentry.Ospfextlsdblsid) + "']" + "[ospfExtLsdbRouterId='" + fmt.Sprintf("%v", ospfextlsdbentry.Ospfextlsdbrouterid) + "']"
-}
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfExtLsdbType"] = ospfextlsdbentry.Ospfextlsdbtype
-    leafs["ospfExtLsdbLsid"] = ospfextlsdbentry.Ospfextlsdblsid
-    leafs["ospfExtLsdbRouterId"] = ospfextlsdbentry.Ospfextlsdbrouterid
-    leafs["ospfExtLsdbSequence"] = ospfextlsdbentry.Ospfextlsdbsequence
-    leafs["ospfExtLsdbAge"] = ospfextlsdbentry.Ospfextlsdbage
-    leafs["ospfExtLsdbChecksum"] = ospfextlsdbentry.Ospfextlsdbchecksum
-    leafs["ospfExtLsdbAdvertisement"] = ospfextlsdbentry.Ospfextlsdbadvertisement
-    return leafs
-}
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetYangName() string { return "ospfExtLsdbEntry" }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) SetParent(parent types.Entity) { ospfextlsdbentry.parent = parent }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetParent() types.Entity { return ospfextlsdbentry.parent }
-
-func (ospfextlsdbentry *OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry) GetParentYangName() string { return "ospfExtLsdbTable" }
 
 // OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry_Ospfextlsdbtype represents format.
 type OSPFMIB_Ospfextlsdbtable_Ospfextlsdbentry_Ospfextlsdbtype string
@@ -3310,7 +2287,7 @@ const (
 // and 10.1.0.0 mask 255.255.0.0),
 // the most specific match is the preferred one.
 type OSPFMIB_Ospfareaaggregatetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single area aggregate entry.  Information in this table is persistent and
@@ -3320,63 +2297,24 @@ type OSPFMIB_Ospfareaaggregatetable struct {
     Ospfareaaggregateentry []OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry
 }
 
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetFilter() yfilter.YFilter { return ospfareaaggregatetable.YFilter }
+func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetEntityData() *types.CommonEntityData {
+    ospfareaaggregatetable.EntityData.YFilter = ospfareaaggregatetable.YFilter
+    ospfareaaggregatetable.EntityData.YangName = "ospfAreaAggregateTable"
+    ospfareaaggregatetable.EntityData.BundleName = "cisco_ios_xe"
+    ospfareaaggregatetable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfareaaggregatetable.EntityData.SegmentPath = "ospfAreaAggregateTable"
+    ospfareaaggregatetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfareaaggregatetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfareaaggregatetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) SetFilter(yf yfilter.YFilter) { ospfareaaggregatetable.YFilter = yf }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetGoName(yname string) string {
-    if yname == "ospfAreaAggregateEntry" { return "Ospfareaaggregateentry" }
-    return ""
-}
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetSegmentPath() string {
-    return "ospfAreaAggregateTable"
-}
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfAreaAggregateEntry" {
-        for _, c := range ospfareaaggregatetable.Ospfareaaggregateentry {
-            if ospfareaaggregatetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry{}
-        ospfareaaggregatetable.Ospfareaaggregateentry = append(ospfareaaggregatetable.Ospfareaaggregateentry, child)
-        return &ospfareaaggregatetable.Ospfareaaggregateentry[len(ospfareaaggregatetable.Ospfareaaggregateentry)-1]
-    }
-    return nil
-}
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfareaaggregatetable.EntityData.Children = make(map[string]types.YChild)
+    ospfareaaggregatetable.EntityData.Children["ospfAreaAggregateEntry"] = types.YChild{"Ospfareaaggregateentry", nil}
     for i := range ospfareaaggregatetable.Ospfareaaggregateentry {
-        children[ospfareaaggregatetable.Ospfareaaggregateentry[i].GetSegmentPath()] = &ospfareaaggregatetable.Ospfareaaggregateentry[i]
+        ospfareaaggregatetable.EntityData.Children[types.GetSegmentPath(&ospfareaaggregatetable.Ospfareaaggregateentry[i])] = types.YChild{"Ospfareaaggregateentry", &ospfareaaggregatetable.Ospfareaaggregateentry[i]}
     }
-    return children
+    ospfareaaggregatetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfareaaggregatetable.EntityData)
 }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetYangName() string { return "ospfAreaAggregateTable" }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) SetParent(parent types.Entity) { ospfareaaggregatetable.parent = parent }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetParent() types.Entity { return ospfareaaggregatetable.parent }
-
-func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry
 // A single area aggregate entry.
@@ -3385,12 +2323,12 @@ func (ospfareaaggregatetable *OSPFMIB_Ospfareaaggregatetable) GetParentYangName(
 // is written the entity SHOULD save the change to non-volatile
 // storage.
 type OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The area within which the address aggregate is to
     // be found. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfareaaggregateareaid interface{}
 
     // This attribute is a key. The type of the address aggregate.  This field
@@ -3400,12 +2338,12 @@ type OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry struct {
 
     // This attribute is a key. The IP address of the net or subnet indicated by
     // the range. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfareaaggregatenet interface{}
 
     // This attribute is a key. The subnet mask that pertains to the net or
     // subnet. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfareaaggregatemask interface{}
 
     // This object permits management of the table by facilitating actions such as
@@ -3424,63 +2362,27 @@ type OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry struct {
     Ospfareaaggregateextroutetag interface{}
 }
 
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetFilter() yfilter.YFilter { return ospfareaaggregateentry.YFilter }
+func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetEntityData() *types.CommonEntityData {
+    ospfareaaggregateentry.EntityData.YFilter = ospfareaaggregateentry.YFilter
+    ospfareaaggregateentry.EntityData.YangName = "ospfAreaAggregateEntry"
+    ospfareaaggregateentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfareaaggregateentry.EntityData.ParentYangName = "ospfAreaAggregateTable"
+    ospfareaaggregateentry.EntityData.SegmentPath = "ospfAreaAggregateEntry" + "[ospfAreaAggregateAreaID='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregateareaid) + "']" + "[ospfAreaAggregateLsdbType='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregatelsdbtype) + "']" + "[ospfAreaAggregateNet='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregatenet) + "']" + "[ospfAreaAggregateMask='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregatemask) + "']"
+    ospfareaaggregateentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfareaaggregateentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfareaaggregateentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) SetFilter(yf yfilter.YFilter) { ospfareaaggregateentry.YFilter = yf }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetGoName(yname string) string {
-    if yname == "ospfAreaAggregateAreaID" { return "Ospfareaaggregateareaid" }
-    if yname == "ospfAreaAggregateLsdbType" { return "Ospfareaaggregatelsdbtype" }
-    if yname == "ospfAreaAggregateNet" { return "Ospfareaaggregatenet" }
-    if yname == "ospfAreaAggregateMask" { return "Ospfareaaggregatemask" }
-    if yname == "ospfAreaAggregateStatus" { return "Ospfareaaggregatestatus" }
-    if yname == "ospfAreaAggregateEffect" { return "Ospfareaaggregateeffect" }
-    if yname == "ospfAreaAggregateExtRouteTag" { return "Ospfareaaggregateextroutetag" }
-    return ""
+    ospfareaaggregateentry.EntityData.Children = make(map[string]types.YChild)
+    ospfareaaggregateentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateAreaID"] = types.YLeaf{"Ospfareaaggregateareaid", ospfareaaggregateentry.Ospfareaaggregateareaid}
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateLsdbType"] = types.YLeaf{"Ospfareaaggregatelsdbtype", ospfareaaggregateentry.Ospfareaaggregatelsdbtype}
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateNet"] = types.YLeaf{"Ospfareaaggregatenet", ospfareaaggregateentry.Ospfareaaggregatenet}
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateMask"] = types.YLeaf{"Ospfareaaggregatemask", ospfareaaggregateentry.Ospfareaaggregatemask}
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateStatus"] = types.YLeaf{"Ospfareaaggregatestatus", ospfareaaggregateentry.Ospfareaaggregatestatus}
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateEffect"] = types.YLeaf{"Ospfareaaggregateeffect", ospfareaaggregateentry.Ospfareaaggregateeffect}
+    ospfareaaggregateentry.EntityData.Leafs["ospfAreaAggregateExtRouteTag"] = types.YLeaf{"Ospfareaaggregateextroutetag", ospfareaaggregateentry.Ospfareaaggregateextroutetag}
+    return &(ospfareaaggregateentry.EntityData)
 }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetSegmentPath() string {
-    return "ospfAreaAggregateEntry" + "[ospfAreaAggregateAreaID='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregateareaid) + "']" + "[ospfAreaAggregateLsdbType='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregatelsdbtype) + "']" + "[ospfAreaAggregateNet='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregatenet) + "']" + "[ospfAreaAggregateMask='" + fmt.Sprintf("%v", ospfareaaggregateentry.Ospfareaaggregatemask) + "']"
-}
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfAreaAggregateAreaID"] = ospfareaaggregateentry.Ospfareaaggregateareaid
-    leafs["ospfAreaAggregateLsdbType"] = ospfareaaggregateentry.Ospfareaaggregatelsdbtype
-    leafs["ospfAreaAggregateNet"] = ospfareaaggregateentry.Ospfareaaggregatenet
-    leafs["ospfAreaAggregateMask"] = ospfareaaggregateentry.Ospfareaaggregatemask
-    leafs["ospfAreaAggregateStatus"] = ospfareaaggregateentry.Ospfareaaggregatestatus
-    leafs["ospfAreaAggregateEffect"] = ospfareaaggregateentry.Ospfareaaggregateeffect
-    leafs["ospfAreaAggregateExtRouteTag"] = ospfareaaggregateentry.Ospfareaaggregateextroutetag
-    return leafs
-}
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetYangName() string { return "ospfAreaAggregateEntry" }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) SetParent(parent types.Entity) { ospfareaaggregateentry.parent = parent }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetParent() types.Entity { return ospfareaaggregateentry.parent }
-
-func (ospfareaaggregateentry *OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry) GetParentYangName() string { return "ospfAreaAggregateTable" }
 
 // OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry_Ospfareaaggregateeffect represents being advertised at all outside the area.
 type OSPFMIB_Ospfareaaggregatetable_Ospfareaaggregateentry_Ospfareaaggregateeffect string
@@ -3511,7 +2413,7 @@ const (
 // support type-9 LSAs that are defined
 // in 'The OSPF Opaque LSA Option'.
 type OSPFMIB_Ospflocallsdbtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single link state advertisement. The type is slice of
@@ -3519,73 +2421,34 @@ type OSPFMIB_Ospflocallsdbtable struct {
     Ospflocallsdbentry []OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry
 }
 
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetFilter() yfilter.YFilter { return ospflocallsdbtable.YFilter }
+func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetEntityData() *types.CommonEntityData {
+    ospflocallsdbtable.EntityData.YFilter = ospflocallsdbtable.YFilter
+    ospflocallsdbtable.EntityData.YangName = "ospfLocalLsdbTable"
+    ospflocallsdbtable.EntityData.BundleName = "cisco_ios_xe"
+    ospflocallsdbtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospflocallsdbtable.EntityData.SegmentPath = "ospfLocalLsdbTable"
+    ospflocallsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospflocallsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospflocallsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) SetFilter(yf yfilter.YFilter) { ospflocallsdbtable.YFilter = yf }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetGoName(yname string) string {
-    if yname == "ospfLocalLsdbEntry" { return "Ospflocallsdbentry" }
-    return ""
-}
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetSegmentPath() string {
-    return "ospfLocalLsdbTable"
-}
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfLocalLsdbEntry" {
-        for _, c := range ospflocallsdbtable.Ospflocallsdbentry {
-            if ospflocallsdbtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry{}
-        ospflocallsdbtable.Ospflocallsdbentry = append(ospflocallsdbtable.Ospflocallsdbentry, child)
-        return &ospflocallsdbtable.Ospflocallsdbentry[len(ospflocallsdbtable.Ospflocallsdbentry)-1]
-    }
-    return nil
-}
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospflocallsdbtable.EntityData.Children = make(map[string]types.YChild)
+    ospflocallsdbtable.EntityData.Children["ospfLocalLsdbEntry"] = types.YChild{"Ospflocallsdbentry", nil}
     for i := range ospflocallsdbtable.Ospflocallsdbentry {
-        children[ospflocallsdbtable.Ospflocallsdbentry[i].GetSegmentPath()] = &ospflocallsdbtable.Ospflocallsdbentry[i]
+        ospflocallsdbtable.EntityData.Children[types.GetSegmentPath(&ospflocallsdbtable.Ospflocallsdbentry[i])] = types.YChild{"Ospflocallsdbentry", &ospflocallsdbtable.Ospflocallsdbentry[i]}
     }
-    return children
+    ospflocallsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospflocallsdbtable.EntityData)
 }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetYangName() string { return "ospfLocalLsdbTable" }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) SetParent(parent types.Entity) { ospflocallsdbtable.parent = parent }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetParent() types.Entity { return ospflocallsdbtable.parent }
-
-func (ospflocallsdbtable *OSPFMIB_Ospflocallsdbtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry
 // A single link state advertisement.
 type OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IP address of the interface from which the LSA
     // was received if the interface is numbered. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospflocallsdbipaddress interface{}
 
     // This attribute is a key. The interface index of the interface from which
@@ -3602,13 +2465,13 @@ type OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry struct {
     // containing a 32-bit identifier in IP address format; it identifies the
     // piece of the routing domain that is being described by the advertisement.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospflocallsdblsid interface{}
 
     // This attribute is a key. The 32-bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospflocallsdbrouterid interface{}
 
     // The sequence number field is a signed 32-bit integer.  It starts with the
@@ -3637,67 +2500,29 @@ type OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry struct {
     Ospflocallsdbadvertisement interface{}
 }
 
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetFilter() yfilter.YFilter { return ospflocallsdbentry.YFilter }
+func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetEntityData() *types.CommonEntityData {
+    ospflocallsdbentry.EntityData.YFilter = ospflocallsdbentry.YFilter
+    ospflocallsdbentry.EntityData.YangName = "ospfLocalLsdbEntry"
+    ospflocallsdbentry.EntityData.BundleName = "cisco_ios_xe"
+    ospflocallsdbentry.EntityData.ParentYangName = "ospfLocalLsdbTable"
+    ospflocallsdbentry.EntityData.SegmentPath = "ospfLocalLsdbEntry" + "[ospfLocalLsdbIpAddress='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbipaddress) + "']" + "[ospfLocalLsdbAddressLessIf='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbaddresslessif) + "']" + "[ospfLocalLsdbType='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbtype) + "']" + "[ospfLocalLsdbLsid='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdblsid) + "']" + "[ospfLocalLsdbRouterId='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbrouterid) + "']"
+    ospflocallsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospflocallsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospflocallsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) SetFilter(yf yfilter.YFilter) { ospflocallsdbentry.YFilter = yf }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetGoName(yname string) string {
-    if yname == "ospfLocalLsdbIpAddress" { return "Ospflocallsdbipaddress" }
-    if yname == "ospfLocalLsdbAddressLessIf" { return "Ospflocallsdbaddresslessif" }
-    if yname == "ospfLocalLsdbType" { return "Ospflocallsdbtype" }
-    if yname == "ospfLocalLsdbLsid" { return "Ospflocallsdblsid" }
-    if yname == "ospfLocalLsdbRouterId" { return "Ospflocallsdbrouterid" }
-    if yname == "ospfLocalLsdbSequence" { return "Ospflocallsdbsequence" }
-    if yname == "ospfLocalLsdbAge" { return "Ospflocallsdbage" }
-    if yname == "ospfLocalLsdbChecksum" { return "Ospflocallsdbchecksum" }
-    if yname == "ospfLocalLsdbAdvertisement" { return "Ospflocallsdbadvertisement" }
-    return ""
+    ospflocallsdbentry.EntityData.Children = make(map[string]types.YChild)
+    ospflocallsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbIpAddress"] = types.YLeaf{"Ospflocallsdbipaddress", ospflocallsdbentry.Ospflocallsdbipaddress}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbAddressLessIf"] = types.YLeaf{"Ospflocallsdbaddresslessif", ospflocallsdbentry.Ospflocallsdbaddresslessif}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbType"] = types.YLeaf{"Ospflocallsdbtype", ospflocallsdbentry.Ospflocallsdbtype}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbLsid"] = types.YLeaf{"Ospflocallsdblsid", ospflocallsdbentry.Ospflocallsdblsid}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbRouterId"] = types.YLeaf{"Ospflocallsdbrouterid", ospflocallsdbentry.Ospflocallsdbrouterid}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbSequence"] = types.YLeaf{"Ospflocallsdbsequence", ospflocallsdbentry.Ospflocallsdbsequence}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbAge"] = types.YLeaf{"Ospflocallsdbage", ospflocallsdbentry.Ospflocallsdbage}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbChecksum"] = types.YLeaf{"Ospflocallsdbchecksum", ospflocallsdbentry.Ospflocallsdbchecksum}
+    ospflocallsdbentry.EntityData.Leafs["ospfLocalLsdbAdvertisement"] = types.YLeaf{"Ospflocallsdbadvertisement", ospflocallsdbentry.Ospflocallsdbadvertisement}
+    return &(ospflocallsdbentry.EntityData)
 }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetSegmentPath() string {
-    return "ospfLocalLsdbEntry" + "[ospfLocalLsdbIpAddress='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbipaddress) + "']" + "[ospfLocalLsdbAddressLessIf='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbaddresslessif) + "']" + "[ospfLocalLsdbType='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbtype) + "']" + "[ospfLocalLsdbLsid='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdblsid) + "']" + "[ospfLocalLsdbRouterId='" + fmt.Sprintf("%v", ospflocallsdbentry.Ospflocallsdbrouterid) + "']"
-}
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfLocalLsdbIpAddress"] = ospflocallsdbentry.Ospflocallsdbipaddress
-    leafs["ospfLocalLsdbAddressLessIf"] = ospflocallsdbentry.Ospflocallsdbaddresslessif
-    leafs["ospfLocalLsdbType"] = ospflocallsdbentry.Ospflocallsdbtype
-    leafs["ospfLocalLsdbLsid"] = ospflocallsdbentry.Ospflocallsdblsid
-    leafs["ospfLocalLsdbRouterId"] = ospflocallsdbentry.Ospflocallsdbrouterid
-    leafs["ospfLocalLsdbSequence"] = ospflocallsdbentry.Ospflocallsdbsequence
-    leafs["ospfLocalLsdbAge"] = ospflocallsdbentry.Ospflocallsdbage
-    leafs["ospfLocalLsdbChecksum"] = ospflocallsdbentry.Ospflocallsdbchecksum
-    leafs["ospfLocalLsdbAdvertisement"] = ospflocallsdbentry.Ospflocallsdbadvertisement
-    return leafs
-}
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetYangName() string { return "ospfLocalLsdbEntry" }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) SetParent(parent types.Entity) { ospflocallsdbentry.parent = parent }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetParent() types.Entity { return ospflocallsdbentry.parent }
-
-func (ospflocallsdbentry *OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry) GetParentYangName() string { return "ospfLocalLsdbTable" }
 
 // OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry_Ospflocallsdbtype represents advertisement format.
 type OSPFMIB_Ospflocallsdbtable_Ospflocallsdbentry_Ospflocallsdbtype string
@@ -3717,7 +2542,7 @@ const (
 // interface.  This table is implemented to support type-9 LSAs
 // that are defined in 'The OSPF Opaque LSA Option'.
 type OSPFMIB_Ospfvirtlocallsdbtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single link state advertisement. The type is slice of
@@ -3725,78 +2550,39 @@ type OSPFMIB_Ospfvirtlocallsdbtable struct {
     Ospfvirtlocallsdbentry []OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry
 }
 
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetFilter() yfilter.YFilter { return ospfvirtlocallsdbtable.YFilter }
+func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetEntityData() *types.CommonEntityData {
+    ospfvirtlocallsdbtable.EntityData.YFilter = ospfvirtlocallsdbtable.YFilter
+    ospfvirtlocallsdbtable.EntityData.YangName = "ospfVirtLocalLsdbTable"
+    ospfvirtlocallsdbtable.EntityData.BundleName = "cisco_ios_xe"
+    ospfvirtlocallsdbtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfvirtlocallsdbtable.EntityData.SegmentPath = "ospfVirtLocalLsdbTable"
+    ospfvirtlocallsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfvirtlocallsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfvirtlocallsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) SetFilter(yf yfilter.YFilter) { ospfvirtlocallsdbtable.YFilter = yf }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetGoName(yname string) string {
-    if yname == "ospfVirtLocalLsdbEntry" { return "Ospfvirtlocallsdbentry" }
-    return ""
-}
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetSegmentPath() string {
-    return "ospfVirtLocalLsdbTable"
-}
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfVirtLocalLsdbEntry" {
-        for _, c := range ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry {
-            if ospfvirtlocallsdbtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry{}
-        ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry = append(ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry, child)
-        return &ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry[len(ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry)-1]
-    }
-    return nil
-}
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfvirtlocallsdbtable.EntityData.Children = make(map[string]types.YChild)
+    ospfvirtlocallsdbtable.EntityData.Children["ospfVirtLocalLsdbEntry"] = types.YChild{"Ospfvirtlocallsdbentry", nil}
     for i := range ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry {
-        children[ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry[i].GetSegmentPath()] = &ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry[i]
+        ospfvirtlocallsdbtable.EntityData.Children[types.GetSegmentPath(&ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry[i])] = types.YChild{"Ospfvirtlocallsdbentry", &ospfvirtlocallsdbtable.Ospfvirtlocallsdbentry[i]}
     }
-    return children
+    ospfvirtlocallsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfvirtlocallsdbtable.EntityData)
 }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetYangName() string { return "ospfVirtLocalLsdbTable" }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) SetParent(parent types.Entity) { ospfvirtlocallsdbtable.parent = parent }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetParent() types.Entity { return ospfvirtlocallsdbtable.parent }
-
-func (ospfvirtlocallsdbtable *OSPFMIB_Ospfvirtlocallsdbtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry
 // A single link state advertisement.
 type OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The transit area that the virtual link traverses. 
     // By definition, this is not 0.0.0.0. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtlocallsdbtransitarea interface{}
 
     // This attribute is a key. The Router ID of the virtual neighbor. The type is
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtlocallsdbneighbor interface{}
 
     // This attribute is a key. The type of the link state advertisement. Each
@@ -3808,13 +2594,13 @@ type OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry struct {
     // containing a 32-bit identifier in IP address format; it identifies the
     // piece of the routing domain that is being described by the advertisement.
     // The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtlocallsdblsid interface{}
 
     // This attribute is a key. The 32-bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfvirtlocallsdbrouterid interface{}
 
     // The sequence number field is a signed 32-bit integer.  It starts with the
@@ -3842,67 +2628,29 @@ type OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry struct {
     Ospfvirtlocallsdbadvertisement interface{}
 }
 
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetFilter() yfilter.YFilter { return ospfvirtlocallsdbentry.YFilter }
+func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetEntityData() *types.CommonEntityData {
+    ospfvirtlocallsdbentry.EntityData.YFilter = ospfvirtlocallsdbentry.YFilter
+    ospfvirtlocallsdbentry.EntityData.YangName = "ospfVirtLocalLsdbEntry"
+    ospfvirtlocallsdbentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfvirtlocallsdbentry.EntityData.ParentYangName = "ospfVirtLocalLsdbTable"
+    ospfvirtlocallsdbentry.EntityData.SegmentPath = "ospfVirtLocalLsdbEntry" + "[ospfVirtLocalLsdbTransitArea='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbtransitarea) + "']" + "[ospfVirtLocalLsdbNeighbor='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbneighbor) + "']" + "[ospfVirtLocalLsdbType='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype) + "']" + "[ospfVirtLocalLsdbLsid='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdblsid) + "']" + "[ospfVirtLocalLsdbRouterId='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbrouterid) + "']"
+    ospfvirtlocallsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfvirtlocallsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfvirtlocallsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) SetFilter(yf yfilter.YFilter) { ospfvirtlocallsdbentry.YFilter = yf }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetGoName(yname string) string {
-    if yname == "ospfVirtLocalLsdbTransitArea" { return "Ospfvirtlocallsdbtransitarea" }
-    if yname == "ospfVirtLocalLsdbNeighbor" { return "Ospfvirtlocallsdbneighbor" }
-    if yname == "ospfVirtLocalLsdbType" { return "Ospfvirtlocallsdbtype" }
-    if yname == "ospfVirtLocalLsdbLsid" { return "Ospfvirtlocallsdblsid" }
-    if yname == "ospfVirtLocalLsdbRouterId" { return "Ospfvirtlocallsdbrouterid" }
-    if yname == "ospfVirtLocalLsdbSequence" { return "Ospfvirtlocallsdbsequence" }
-    if yname == "ospfVirtLocalLsdbAge" { return "Ospfvirtlocallsdbage" }
-    if yname == "ospfVirtLocalLsdbChecksum" { return "Ospfvirtlocallsdbchecksum" }
-    if yname == "ospfVirtLocalLsdbAdvertisement" { return "Ospfvirtlocallsdbadvertisement" }
-    return ""
+    ospfvirtlocallsdbentry.EntityData.Children = make(map[string]types.YChild)
+    ospfvirtlocallsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbTransitArea"] = types.YLeaf{"Ospfvirtlocallsdbtransitarea", ospfvirtlocallsdbentry.Ospfvirtlocallsdbtransitarea}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbNeighbor"] = types.YLeaf{"Ospfvirtlocallsdbneighbor", ospfvirtlocallsdbentry.Ospfvirtlocallsdbneighbor}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbType"] = types.YLeaf{"Ospfvirtlocallsdbtype", ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbLsid"] = types.YLeaf{"Ospfvirtlocallsdblsid", ospfvirtlocallsdbentry.Ospfvirtlocallsdblsid}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbRouterId"] = types.YLeaf{"Ospfvirtlocallsdbrouterid", ospfvirtlocallsdbentry.Ospfvirtlocallsdbrouterid}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbSequence"] = types.YLeaf{"Ospfvirtlocallsdbsequence", ospfvirtlocallsdbentry.Ospfvirtlocallsdbsequence}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbAge"] = types.YLeaf{"Ospfvirtlocallsdbage", ospfvirtlocallsdbentry.Ospfvirtlocallsdbage}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbChecksum"] = types.YLeaf{"Ospfvirtlocallsdbchecksum", ospfvirtlocallsdbentry.Ospfvirtlocallsdbchecksum}
+    ospfvirtlocallsdbentry.EntityData.Leafs["ospfVirtLocalLsdbAdvertisement"] = types.YLeaf{"Ospfvirtlocallsdbadvertisement", ospfvirtlocallsdbentry.Ospfvirtlocallsdbadvertisement}
+    return &(ospfvirtlocallsdbentry.EntityData)
 }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetSegmentPath() string {
-    return "ospfVirtLocalLsdbEntry" + "[ospfVirtLocalLsdbTransitArea='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbtransitarea) + "']" + "[ospfVirtLocalLsdbNeighbor='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbneighbor) + "']" + "[ospfVirtLocalLsdbType='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype) + "']" + "[ospfVirtLocalLsdbLsid='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdblsid) + "']" + "[ospfVirtLocalLsdbRouterId='" + fmt.Sprintf("%v", ospfvirtlocallsdbentry.Ospfvirtlocallsdbrouterid) + "']"
-}
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfVirtLocalLsdbTransitArea"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbtransitarea
-    leafs["ospfVirtLocalLsdbNeighbor"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbneighbor
-    leafs["ospfVirtLocalLsdbType"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbtype
-    leafs["ospfVirtLocalLsdbLsid"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdblsid
-    leafs["ospfVirtLocalLsdbRouterId"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbrouterid
-    leafs["ospfVirtLocalLsdbSequence"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbsequence
-    leafs["ospfVirtLocalLsdbAge"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbage
-    leafs["ospfVirtLocalLsdbChecksum"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbchecksum
-    leafs["ospfVirtLocalLsdbAdvertisement"] = ospfvirtlocallsdbentry.Ospfvirtlocallsdbadvertisement
-    return leafs
-}
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetYangName() string { return "ospfVirtLocalLsdbEntry" }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) SetParent(parent types.Entity) { ospfvirtlocallsdbentry.parent = parent }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetParent() types.Entity { return ospfvirtlocallsdbentry.parent }
-
-func (ospfvirtlocallsdbentry *OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry) GetParentYangName() string { return "ospfVirtLocalLsdbTable" }
 
 // OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry_Ospfvirtlocallsdbtype represents advertisement format.
 type OSPFMIB_Ospfvirtlocallsdbtable_Ospfvirtlocallsdbentry_Ospfvirtlocallsdbtype string
@@ -3923,7 +2671,7 @@ const (
 // LSAs to be displayed once for the router rather
 // than once in each non-stub area.
 type OSPFMIB_Ospfaslsdbtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A single link state advertisement. The type is slice of
@@ -3931,68 +2679,29 @@ type OSPFMIB_Ospfaslsdbtable struct {
     Ospfaslsdbentry []OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry
 }
 
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetFilter() yfilter.YFilter { return ospfaslsdbtable.YFilter }
+func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetEntityData() *types.CommonEntityData {
+    ospfaslsdbtable.EntityData.YFilter = ospfaslsdbtable.YFilter
+    ospfaslsdbtable.EntityData.YangName = "ospfAsLsdbTable"
+    ospfaslsdbtable.EntityData.BundleName = "cisco_ios_xe"
+    ospfaslsdbtable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfaslsdbtable.EntityData.SegmentPath = "ospfAsLsdbTable"
+    ospfaslsdbtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfaslsdbtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfaslsdbtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) SetFilter(yf yfilter.YFilter) { ospfaslsdbtable.YFilter = yf }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetGoName(yname string) string {
-    if yname == "ospfAsLsdbEntry" { return "Ospfaslsdbentry" }
-    return ""
-}
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetSegmentPath() string {
-    return "ospfAsLsdbTable"
-}
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfAsLsdbEntry" {
-        for _, c := range ospfaslsdbtable.Ospfaslsdbentry {
-            if ospfaslsdbtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry{}
-        ospfaslsdbtable.Ospfaslsdbentry = append(ospfaslsdbtable.Ospfaslsdbentry, child)
-        return &ospfaslsdbtable.Ospfaslsdbentry[len(ospfaslsdbtable.Ospfaslsdbentry)-1]
-    }
-    return nil
-}
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfaslsdbtable.EntityData.Children = make(map[string]types.YChild)
+    ospfaslsdbtable.EntityData.Children["ospfAsLsdbEntry"] = types.YChild{"Ospfaslsdbentry", nil}
     for i := range ospfaslsdbtable.Ospfaslsdbentry {
-        children[ospfaslsdbtable.Ospfaslsdbentry[i].GetSegmentPath()] = &ospfaslsdbtable.Ospfaslsdbentry[i]
+        ospfaslsdbtable.EntityData.Children[types.GetSegmentPath(&ospfaslsdbtable.Ospfaslsdbentry[i])] = types.YChild{"Ospfaslsdbentry", &ospfaslsdbtable.Ospfaslsdbentry[i]}
     }
-    return children
+    ospfaslsdbtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfaslsdbtable.EntityData)
 }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetYangName() string { return "ospfAsLsdbTable" }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) SetParent(parent types.Entity) { ospfaslsdbtable.parent = parent }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetParent() types.Entity { return ospfaslsdbtable.parent }
-
-func (ospfaslsdbtable *OSPFMIB_Ospfaslsdbtable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry
 // A single link state advertisement.
 type OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of the link state advertisement. Each
@@ -4004,13 +2713,13 @@ type OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry struct {
     // containing either a Router ID or an IP address;  it identifies the piece of
     // the routing domain that is being described by the advertisement. The type
     // is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfaslsdblsid interface{}
 
     // This attribute is a key. The 32-bit number that uniquely identifies the
     // originating router in the Autonomous System. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfaslsdbrouterid interface{}
 
     // The sequence number field is a signed 32-bit integer.  It starts with the
@@ -4038,63 +2747,27 @@ type OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry struct {
     Ospfaslsdbadvertisement interface{}
 }
 
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetFilter() yfilter.YFilter { return ospfaslsdbentry.YFilter }
+func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetEntityData() *types.CommonEntityData {
+    ospfaslsdbentry.EntityData.YFilter = ospfaslsdbentry.YFilter
+    ospfaslsdbentry.EntityData.YangName = "ospfAsLsdbEntry"
+    ospfaslsdbentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfaslsdbentry.EntityData.ParentYangName = "ospfAsLsdbTable"
+    ospfaslsdbentry.EntityData.SegmentPath = "ospfAsLsdbEntry" + "[ospfAsLsdbType='" + fmt.Sprintf("%v", ospfaslsdbentry.Ospfaslsdbtype) + "']" + "[ospfAsLsdbLsid='" + fmt.Sprintf("%v", ospfaslsdbentry.Ospfaslsdblsid) + "']" + "[ospfAsLsdbRouterId='" + fmt.Sprintf("%v", ospfaslsdbentry.Ospfaslsdbrouterid) + "']"
+    ospfaslsdbentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfaslsdbentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfaslsdbentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) SetFilter(yf yfilter.YFilter) { ospfaslsdbentry.YFilter = yf }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetGoName(yname string) string {
-    if yname == "ospfAsLsdbType" { return "Ospfaslsdbtype" }
-    if yname == "ospfAsLsdbLsid" { return "Ospfaslsdblsid" }
-    if yname == "ospfAsLsdbRouterId" { return "Ospfaslsdbrouterid" }
-    if yname == "ospfAsLsdbSequence" { return "Ospfaslsdbsequence" }
-    if yname == "ospfAsLsdbAge" { return "Ospfaslsdbage" }
-    if yname == "ospfAsLsdbChecksum" { return "Ospfaslsdbchecksum" }
-    if yname == "ospfAsLsdbAdvertisement" { return "Ospfaslsdbadvertisement" }
-    return ""
+    ospfaslsdbentry.EntityData.Children = make(map[string]types.YChild)
+    ospfaslsdbentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbType"] = types.YLeaf{"Ospfaslsdbtype", ospfaslsdbentry.Ospfaslsdbtype}
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbLsid"] = types.YLeaf{"Ospfaslsdblsid", ospfaslsdbentry.Ospfaslsdblsid}
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbRouterId"] = types.YLeaf{"Ospfaslsdbrouterid", ospfaslsdbentry.Ospfaslsdbrouterid}
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbSequence"] = types.YLeaf{"Ospfaslsdbsequence", ospfaslsdbentry.Ospfaslsdbsequence}
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbAge"] = types.YLeaf{"Ospfaslsdbage", ospfaslsdbentry.Ospfaslsdbage}
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbChecksum"] = types.YLeaf{"Ospfaslsdbchecksum", ospfaslsdbentry.Ospfaslsdbchecksum}
+    ospfaslsdbentry.EntityData.Leafs["ospfAsLsdbAdvertisement"] = types.YLeaf{"Ospfaslsdbadvertisement", ospfaslsdbentry.Ospfaslsdbadvertisement}
+    return &(ospfaslsdbentry.EntityData)
 }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetSegmentPath() string {
-    return "ospfAsLsdbEntry" + "[ospfAsLsdbType='" + fmt.Sprintf("%v", ospfaslsdbentry.Ospfaslsdbtype) + "']" + "[ospfAsLsdbLsid='" + fmt.Sprintf("%v", ospfaslsdbentry.Ospfaslsdblsid) + "']" + "[ospfAsLsdbRouterId='" + fmt.Sprintf("%v", ospfaslsdbentry.Ospfaslsdbrouterid) + "']"
-}
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfAsLsdbType"] = ospfaslsdbentry.Ospfaslsdbtype
-    leafs["ospfAsLsdbLsid"] = ospfaslsdbentry.Ospfaslsdblsid
-    leafs["ospfAsLsdbRouterId"] = ospfaslsdbentry.Ospfaslsdbrouterid
-    leafs["ospfAsLsdbSequence"] = ospfaslsdbentry.Ospfaslsdbsequence
-    leafs["ospfAsLsdbAge"] = ospfaslsdbentry.Ospfaslsdbage
-    leafs["ospfAsLsdbChecksum"] = ospfaslsdbentry.Ospfaslsdbchecksum
-    leafs["ospfAsLsdbAdvertisement"] = ospfaslsdbentry.Ospfaslsdbadvertisement
-    return leafs
-}
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetYangName() string { return "ospfAsLsdbEntry" }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) SetParent(parent types.Entity) { ospfaslsdbentry.parent = parent }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetParent() types.Entity { return ospfaslsdbentry.parent }
-
-func (ospfaslsdbentry *OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry) GetParentYangName() string { return "ospfAsLsdbTable" }
 
 // OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry_Ospfaslsdbtype represents advertisement format.
 type OSPFMIB_Ospfaslsdbtable_Ospfaslsdbentry_Ospfaslsdbtype string
@@ -4108,7 +2781,7 @@ const (
 // OSPFMIB_Ospfarealsacounttable
 // This table maintains per-area, per-LSA-type counters
 type OSPFMIB_Ospfarealsacounttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry with a number of link advertisements  of a given type for a given
@@ -4117,75 +2790,36 @@ type OSPFMIB_Ospfarealsacounttable struct {
     Ospfarealsacountentry []OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry
 }
 
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetFilter() yfilter.YFilter { return ospfarealsacounttable.YFilter }
+func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetEntityData() *types.CommonEntityData {
+    ospfarealsacounttable.EntityData.YFilter = ospfarealsacounttable.YFilter
+    ospfarealsacounttable.EntityData.YangName = "ospfAreaLsaCountTable"
+    ospfarealsacounttable.EntityData.BundleName = "cisco_ios_xe"
+    ospfarealsacounttable.EntityData.ParentYangName = "OSPF-MIB"
+    ospfarealsacounttable.EntityData.SegmentPath = "ospfAreaLsaCountTable"
+    ospfarealsacounttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfarealsacounttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfarealsacounttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) SetFilter(yf yfilter.YFilter) { ospfarealsacounttable.YFilter = yf }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetGoName(yname string) string {
-    if yname == "ospfAreaLsaCountEntry" { return "Ospfarealsacountentry" }
-    return ""
-}
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetSegmentPath() string {
-    return "ospfAreaLsaCountTable"
-}
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ospfAreaLsaCountEntry" {
-        for _, c := range ospfarealsacounttable.Ospfarealsacountentry {
-            if ospfarealsacounttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry{}
-        ospfarealsacounttable.Ospfarealsacountentry = append(ospfarealsacounttable.Ospfarealsacountentry, child)
-        return &ospfarealsacounttable.Ospfarealsacountentry[len(ospfarealsacounttable.Ospfarealsacountentry)-1]
-    }
-    return nil
-}
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ospfarealsacounttable.EntityData.Children = make(map[string]types.YChild)
+    ospfarealsacounttable.EntityData.Children["ospfAreaLsaCountEntry"] = types.YChild{"Ospfarealsacountentry", nil}
     for i := range ospfarealsacounttable.Ospfarealsacountentry {
-        children[ospfarealsacounttable.Ospfarealsacountentry[i].GetSegmentPath()] = &ospfarealsacounttable.Ospfarealsacountentry[i]
+        ospfarealsacounttable.EntityData.Children[types.GetSegmentPath(&ospfarealsacounttable.Ospfarealsacountentry[i])] = types.YChild{"Ospfarealsacountentry", &ospfarealsacounttable.Ospfarealsacountentry[i]}
     }
-    return children
+    ospfarealsacounttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ospfarealsacounttable.EntityData)
 }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetYangName() string { return "ospfAreaLsaCountTable" }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) SetParent(parent types.Entity) { ospfarealsacounttable.parent = parent }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetParent() types.Entity { return ospfarealsacounttable.parent }
-
-func (ospfarealsacounttable *OSPFMIB_Ospfarealsacounttable) GetParentYangName() string { return "OSPF-MIB" }
 
 // OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry
 // An entry with a number of link advertisements
 // 
 // of a given type for a given area.
 type OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. This entry Area ID. The type is string with
     // pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ospfarealsacountareaid interface{}
 
     // This attribute is a key. This entry LSA type. The type is
@@ -4197,55 +2831,23 @@ type OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry struct {
     Ospfarealsacountnumber interface{}
 }
 
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetFilter() yfilter.YFilter { return ospfarealsacountentry.YFilter }
+func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetEntityData() *types.CommonEntityData {
+    ospfarealsacountentry.EntityData.YFilter = ospfarealsacountentry.YFilter
+    ospfarealsacountentry.EntityData.YangName = "ospfAreaLsaCountEntry"
+    ospfarealsacountentry.EntityData.BundleName = "cisco_ios_xe"
+    ospfarealsacountentry.EntityData.ParentYangName = "ospfAreaLsaCountTable"
+    ospfarealsacountentry.EntityData.SegmentPath = "ospfAreaLsaCountEntry" + "[ospfAreaLsaCountAreaId='" + fmt.Sprintf("%v", ospfarealsacountentry.Ospfarealsacountareaid) + "']" + "[ospfAreaLsaCountLsaType='" + fmt.Sprintf("%v", ospfarealsacountentry.Ospfarealsacountlsatype) + "']"
+    ospfarealsacountentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ospfarealsacountentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ospfarealsacountentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) SetFilter(yf yfilter.YFilter) { ospfarealsacountentry.YFilter = yf }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetGoName(yname string) string {
-    if yname == "ospfAreaLsaCountAreaId" { return "Ospfarealsacountareaid" }
-    if yname == "ospfAreaLsaCountLsaType" { return "Ospfarealsacountlsatype" }
-    if yname == "ospfAreaLsaCountNumber" { return "Ospfarealsacountnumber" }
-    return ""
+    ospfarealsacountentry.EntityData.Children = make(map[string]types.YChild)
+    ospfarealsacountentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ospfarealsacountentry.EntityData.Leafs["ospfAreaLsaCountAreaId"] = types.YLeaf{"Ospfarealsacountareaid", ospfarealsacountentry.Ospfarealsacountareaid}
+    ospfarealsacountentry.EntityData.Leafs["ospfAreaLsaCountLsaType"] = types.YLeaf{"Ospfarealsacountlsatype", ospfarealsacountentry.Ospfarealsacountlsatype}
+    ospfarealsacountentry.EntityData.Leafs["ospfAreaLsaCountNumber"] = types.YLeaf{"Ospfarealsacountnumber", ospfarealsacountentry.Ospfarealsacountnumber}
+    return &(ospfarealsacountentry.EntityData)
 }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetSegmentPath() string {
-    return "ospfAreaLsaCountEntry" + "[ospfAreaLsaCountAreaId='" + fmt.Sprintf("%v", ospfarealsacountentry.Ospfarealsacountareaid) + "']" + "[ospfAreaLsaCountLsaType='" + fmt.Sprintf("%v", ospfarealsacountentry.Ospfarealsacountlsatype) + "']"
-}
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ospfAreaLsaCountAreaId"] = ospfarealsacountentry.Ospfarealsacountareaid
-    leafs["ospfAreaLsaCountLsaType"] = ospfarealsacountentry.Ospfarealsacountlsatype
-    leafs["ospfAreaLsaCountNumber"] = ospfarealsacountentry.Ospfarealsacountnumber
-    return leafs
-}
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetYangName() string { return "ospfAreaLsaCountEntry" }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) SetParent(parent types.Entity) { ospfarealsacountentry.parent = parent }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetParent() types.Entity { return ospfarealsacountentry.parent }
-
-func (ospfarealsacountentry *OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry) GetParentYangName() string { return "ospfAreaLsaCountTable" }
 
 // OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry_Ospfarealsacountlsatype represents This entry LSA type.
 type OSPFMIB_Ospfarealsacounttable_Ospfarealsacountentry_Ospfarealsacountlsatype string

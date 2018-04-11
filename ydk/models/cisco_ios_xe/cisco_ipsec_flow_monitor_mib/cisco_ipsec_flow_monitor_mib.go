@@ -74,13 +74,22 @@ func init() {
     ydk.RegisterEntity("CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB", reflect.TypeOf(CISCOIPSECFLOWMONITORMIB{}))
 }
 
-// TunnelStatus represents type cannot be used to create a Tunnel.
-type TunnelStatus string
+// IkePeerType represents  2. a host name.
+type IkePeerType string
 
 const (
-    TunnelStatus_active TunnelStatus = "active"
+    IkePeerType_ipAddrPeer IkePeerType = "ipAddrPeer"
 
-    TunnelStatus_destroy TunnelStatus = "destroy"
+    IkePeerType_namePeer IkePeerType = "namePeer"
+)
+
+// IkeNegoMode represents The IPsec Phase-1 IKE negotiation mode.
+type IkeNegoMode string
+
+const (
+    IkeNegoMode_main IkeNegoMode = "main"
+
+    IkeNegoMode_aggressive IkeNegoMode = "aggressive"
 )
 
 // IkeHashAlgo represents IKE negotiations.
@@ -109,6 +118,17 @@ const (
     IkeAuthMethod_revPublicKey IkeAuthMethod = "revPublicKey"
 )
 
+// DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
+type DiffHellmanGrp string
+
+const (
+    DiffHellmanGrp_none DiffHellmanGrp = "none"
+
+    DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
+
+    DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
+)
+
 // KeyType represents The type of key used by an IPsec Phase-2 Tunnel.
 type KeyType string
 
@@ -118,22 +138,13 @@ const (
     KeyType_manual KeyType = "manual"
 )
 
-// TrapStatus represents The administrative status for sending a TRAP.
-type TrapStatus string
+// EncapMode represents Tunnel.
+type EncapMode string
 
 const (
-    TrapStatus_enabled TrapStatus = "enabled"
+    EncapMode_tunnel EncapMode = "tunnel"
 
-    TrapStatus_disabled TrapStatus = "disabled"
-)
-
-// CompAlgo represents security association of an IPsec Phase-2 Tunnel.
-type CompAlgo string
-
-const (
-    CompAlgo_none CompAlgo = "none"
-
-    CompAlgo_ldf CompAlgo = "ldf"
+    EncapMode_transport EncapMode = "transport"
 )
 
 // EncryptAlgo represents The encryption algorithm used in negotiations.
@@ -147,33 +158,6 @@ const (
     EncryptAlgo_des3 EncryptAlgo = "des3"
 )
 
-// IkePeerType represents  2. a host name.
-type IkePeerType string
-
-const (
-    IkePeerType_ipAddrPeer IkePeerType = "ipAddrPeer"
-
-    IkePeerType_namePeer IkePeerType = "namePeer"
-)
-
-// IkeNegoMode represents The IPsec Phase-1 IKE negotiation mode.
-type IkeNegoMode string
-
-const (
-    IkeNegoMode_main IkeNegoMode = "main"
-
-    IkeNegoMode_aggressive IkeNegoMode = "aggressive"
-)
-
-// EncapMode represents Tunnel.
-type EncapMode string
-
-const (
-    EncapMode_tunnel EncapMode = "tunnel"
-
-    EncapMode_transport EncapMode = "transport"
-)
-
 // AuthAlgo represents security association of an IPsec Phase-2 Tunnel.
 type AuthAlgo string
 
@@ -183,6 +167,15 @@ const (
     AuthAlgo_hmacMd5 AuthAlgo = "hmacMd5"
 
     AuthAlgo_hmacSha AuthAlgo = "hmacSha"
+)
+
+// CompAlgo represents security association of an IPsec Phase-2 Tunnel.
+type CompAlgo string
+
+const (
+    CompAlgo_none CompAlgo = "none"
+
+    CompAlgo_ldf CompAlgo = "ldf"
 )
 
 // EndPtType represents The type of identity use to specify an IPsec End Point.
@@ -196,20 +189,27 @@ const (
     EndPtType_ipSubnet EndPtType = "ipSubnet"
 )
 
-// DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
-type DiffHellmanGrp string
+// TunnelStatus represents type cannot be used to create a Tunnel.
+type TunnelStatus string
 
 const (
-    DiffHellmanGrp_none DiffHellmanGrp = "none"
+    TunnelStatus_active TunnelStatus = "active"
 
-    DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
+    TunnelStatus_destroy TunnelStatus = "destroy"
+)
 
-    DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
+// TrapStatus represents The administrative status for sending a TRAP.
+type TrapStatus string
+
+const (
+    TrapStatus_enabled TrapStatus = "enabled"
+
+    TrapStatus_disabled TrapStatus = "disabled"
 )
 
 // CISCOIPSECFLOWMONITORMIB
 type CISCOIPSECFLOWMONITORMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -293,203 +293,68 @@ type CISCOIPSECFLOWMONITORMIB struct {
     Cipsecfailtable CISCOIPSECFLOWMONITORMIB_Cipsecfailtable
 }
 
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetFilter() yfilter.YFilter { return cISCOIPSECFLOWMONITORMIB.YFilter }
+func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPSECFLOWMONITORMIB.EntityData.YFilter = cISCOIPSECFLOWMONITORMIB.YFilter
+    cISCOIPSECFLOWMONITORMIB.EntityData.YangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cISCOIPSECFLOWMONITORMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPSECFLOWMONITORMIB.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cISCOIPSECFLOWMONITORMIB.EntityData.SegmentPath = "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cISCOIPSECFLOWMONITORMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPSECFLOWMONITORMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPSECFLOWMONITORMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) SetFilter(yf yfilter.YFilter) { cISCOIPSECFLOWMONITORMIB.YFilter = yf }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetGoName(yname string) string {
-    if yname == "cipSecLevels" { return "Cipseclevels" }
-    if yname == "cikeGlobalStats" { return "Cikeglobalstats" }
-    if yname == "cipSecGlobalStats" { return "Cipsecglobalstats" }
-    if yname == "cipSecHistGlobalCntl" { return "Cipsechistglobalcntl" }
-    if yname == "cipSecFailGlobalCntl" { return "Cipsecfailglobalcntl" }
-    if yname == "cipSecTrapCntl" { return "Cipsectrapcntl" }
-    if yname == "cikePeerTable" { return "Cikepeertable" }
-    if yname == "cikeTunnelTable" { return "Ciketunneltable" }
-    if yname == "cikePeerCorrTable" { return "Cikepeercorrtable" }
-    if yname == "cikePhase1GWStatsTable" { return "Cikephase1Gwstatstable" }
-    if yname == "cipSecTunnelTable" { return "Cipsectunneltable" }
-    if yname == "cipSecEndPtTable" { return "Cipsecendpttable" }
-    if yname == "cipSecSpiTable" { return "Cipsecspitable" }
-    if yname == "cipSecPhase2GWStatsTable" { return "Cipsecphase2Gwstatstable" }
-    if yname == "cikeTunnelHistTable" { return "Ciketunnelhisttable" }
-    if yname == "cipSecTunnelHistTable" { return "Cipsectunnelhisttable" }
-    if yname == "cipSecEndPtHistTable" { return "Cipsecendpthisttable" }
-    if yname == "cikeFailTable" { return "Cikefailtable" }
-    if yname == "cipSecFailTable" { return "Cipsecfailtable" }
-    return ""
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecLevels"] = types.YChild{"Cipseclevels", &cISCOIPSECFLOWMONITORMIB.Cipseclevels}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikeGlobalStats"] = types.YChild{"Cikeglobalstats", &cISCOIPSECFLOWMONITORMIB.Cikeglobalstats}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecGlobalStats"] = types.YChild{"Cipsecglobalstats", &cISCOIPSECFLOWMONITORMIB.Cipsecglobalstats}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecHistGlobalCntl"] = types.YChild{"Cipsechistglobalcntl", &cISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecFailGlobalCntl"] = types.YChild{"Cipsecfailglobalcntl", &cISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecTrapCntl"] = types.YChild{"Cipsectrapcntl", &cISCOIPSECFLOWMONITORMIB.Cipsectrapcntl}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikePeerTable"] = types.YChild{"Cikepeertable", &cISCOIPSECFLOWMONITORMIB.Cikepeertable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikeTunnelTable"] = types.YChild{"Ciketunneltable", &cISCOIPSECFLOWMONITORMIB.Ciketunneltable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikePeerCorrTable"] = types.YChild{"Cikepeercorrtable", &cISCOIPSECFLOWMONITORMIB.Cikepeercorrtable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikePhase1GWStatsTable"] = types.YChild{"Cikephase1Gwstatstable", &cISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecTunnelTable"] = types.YChild{"Cipsectunneltable", &cISCOIPSECFLOWMONITORMIB.Cipsectunneltable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecEndPtTable"] = types.YChild{"Cipsecendpttable", &cISCOIPSECFLOWMONITORMIB.Cipsecendpttable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecSpiTable"] = types.YChild{"Cipsecspitable", &cISCOIPSECFLOWMONITORMIB.Cipsecspitable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecPhase2GWStatsTable"] = types.YChild{"Cipsecphase2Gwstatstable", &cISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikeTunnelHistTable"] = types.YChild{"Ciketunnelhisttable", &cISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecTunnelHistTable"] = types.YChild{"Cipsectunnelhisttable", &cISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecEndPtHistTable"] = types.YChild{"Cipsecendpthisttable", &cISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cikeFailTable"] = types.YChild{"Cikefailtable", &cISCOIPSECFLOWMONITORMIB.Cikefailtable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Children["cipSecFailTable"] = types.YChild{"Cipsecfailtable", &cISCOIPSECFLOWMONITORMIB.Cipsecfailtable}
+    cISCOIPSECFLOWMONITORMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPSECFLOWMONITORMIB.EntityData)
 }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetSegmentPath() string {
-    return "CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB"
-}
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecLevels" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipseclevels
-    }
-    if childYangName == "cikeGlobalStats" {
-        return &cISCOIPSECFLOWMONITORMIB.Cikeglobalstats
-    }
-    if childYangName == "cipSecGlobalStats" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecglobalstats
-    }
-    if childYangName == "cipSecHistGlobalCntl" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl
-    }
-    if childYangName == "cipSecFailGlobalCntl" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl
-    }
-    if childYangName == "cipSecTrapCntl" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsectrapcntl
-    }
-    if childYangName == "cikePeerTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cikepeertable
-    }
-    if childYangName == "cikeTunnelTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Ciketunneltable
-    }
-    if childYangName == "cikePeerCorrTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cikepeercorrtable
-    }
-    if childYangName == "cikePhase1GWStatsTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable
-    }
-    if childYangName == "cipSecTunnelTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsectunneltable
-    }
-    if childYangName == "cipSecEndPtTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecendpttable
-    }
-    if childYangName == "cipSecSpiTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecspitable
-    }
-    if childYangName == "cipSecPhase2GWStatsTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable
-    }
-    if childYangName == "cikeTunnelHistTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable
-    }
-    if childYangName == "cipSecTunnelHistTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable
-    }
-    if childYangName == "cipSecEndPtHistTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable
-    }
-    if childYangName == "cikeFailTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cikefailtable
-    }
-    if childYangName == "cipSecFailTable" {
-        return &cISCOIPSECFLOWMONITORMIB.Cipsecfailtable
-    }
-    return nil
-}
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cipSecLevels"] = &cISCOIPSECFLOWMONITORMIB.Cipseclevels
-    children["cikeGlobalStats"] = &cISCOIPSECFLOWMONITORMIB.Cikeglobalstats
-    children["cipSecGlobalStats"] = &cISCOIPSECFLOWMONITORMIB.Cipsecglobalstats
-    children["cipSecHistGlobalCntl"] = &cISCOIPSECFLOWMONITORMIB.Cipsechistglobalcntl
-    children["cipSecFailGlobalCntl"] = &cISCOIPSECFLOWMONITORMIB.Cipsecfailglobalcntl
-    children["cipSecTrapCntl"] = &cISCOIPSECFLOWMONITORMIB.Cipsectrapcntl
-    children["cikePeerTable"] = &cISCOIPSECFLOWMONITORMIB.Cikepeertable
-    children["cikeTunnelTable"] = &cISCOIPSECFLOWMONITORMIB.Ciketunneltable
-    children["cikePeerCorrTable"] = &cISCOIPSECFLOWMONITORMIB.Cikepeercorrtable
-    children["cikePhase1GWStatsTable"] = &cISCOIPSECFLOWMONITORMIB.Cikephase1Gwstatstable
-    children["cipSecTunnelTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsectunneltable
-    children["cipSecEndPtTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsecendpttable
-    children["cipSecSpiTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsecspitable
-    children["cipSecPhase2GWStatsTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsecphase2Gwstatstable
-    children["cikeTunnelHistTable"] = &cISCOIPSECFLOWMONITORMIB.Ciketunnelhisttable
-    children["cipSecTunnelHistTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsectunnelhisttable
-    children["cipSecEndPtHistTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsecendpthisttable
-    children["cikeFailTable"] = &cISCOIPSECFLOWMONITORMIB.Cikefailtable
-    children["cipSecFailTable"] = &cISCOIPSECFLOWMONITORMIB.Cipsecfailtable
-    return children
-}
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) SetParent(parent types.Entity) { cISCOIPSECFLOWMONITORMIB.parent = parent }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetParent() types.Entity { return cISCOIPSECFLOWMONITORMIB.parent }
-
-func (cISCOIPSECFLOWMONITORMIB *CISCOIPSECFLOWMONITORMIB) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipseclevels
 type CISCOIPSECFLOWMONITORMIB_Cipseclevels struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The level of the IPsec MIB. The type is interface{} with range: 1..4096.
     Cipsecmiblevel interface{}
 }
 
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetFilter() yfilter.YFilter { return cipseclevels.YFilter }
+func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetEntityData() *types.CommonEntityData {
+    cipseclevels.EntityData.YFilter = cipseclevels.YFilter
+    cipseclevels.EntityData.YangName = "cipSecLevels"
+    cipseclevels.EntityData.BundleName = "cisco_ios_xe"
+    cipseclevels.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipseclevels.EntityData.SegmentPath = "cipSecLevels"
+    cipseclevels.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipseclevels.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipseclevels.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) SetFilter(yf yfilter.YFilter) { cipseclevels.YFilter = yf }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetGoName(yname string) string {
-    if yname == "cipSecMibLevel" { return "Cipsecmiblevel" }
-    return ""
+    cipseclevels.EntityData.Children = make(map[string]types.YChild)
+    cipseclevels.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipseclevels.EntityData.Leafs["cipSecMibLevel"] = types.YLeaf{"Cipsecmiblevel", cipseclevels.Cipsecmiblevel}
+    return &(cipseclevels.EntityData)
 }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetSegmentPath() string {
-    return "cipSecLevels"
-}
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecMibLevel"] = cipseclevels.Cipsecmiblevel
-    return leafs
-}
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetYangName() string { return "cipSecLevels" }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) SetParent(parent types.Entity) { cipseclevels.parent = parent }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetParent() types.Entity { return cipseclevels.parent }
-
-func (cipseclevels *CISCOIPSECFLOWMONITORMIB_Cipseclevels) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikeglobalstats
 type CISCOIPSECFLOWMONITORMIB_Cikeglobalstats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of currently active IPsec Phase-1 IKE Tunnels. The type is
@@ -624,105 +489,50 @@ type CISCOIPSECFLOWMONITORMIB_Cikeglobalstats struct {
     Cikeglobalnosafails interface{}
 }
 
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetFilter() yfilter.YFilter { return cikeglobalstats.YFilter }
+func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetEntityData() *types.CommonEntityData {
+    cikeglobalstats.EntityData.YFilter = cikeglobalstats.YFilter
+    cikeglobalstats.EntityData.YangName = "cikeGlobalStats"
+    cikeglobalstats.EntityData.BundleName = "cisco_ios_xe"
+    cikeglobalstats.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cikeglobalstats.EntityData.SegmentPath = "cikeGlobalStats"
+    cikeglobalstats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikeglobalstats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikeglobalstats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) SetFilter(yf yfilter.YFilter) { cikeglobalstats.YFilter = yf }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetGoName(yname string) string {
-    if yname == "cikeGlobalActiveTunnels" { return "Cikeglobalactivetunnels" }
-    if yname == "cikeGlobalPreviousTunnels" { return "Cikeglobalprevioustunnels" }
-    if yname == "cikeGlobalInOctets" { return "Cikeglobalinoctets" }
-    if yname == "cikeGlobalInPkts" { return "Cikeglobalinpkts" }
-    if yname == "cikeGlobalInDropPkts" { return "Cikeglobalindroppkts" }
-    if yname == "cikeGlobalInNotifys" { return "Cikeglobalinnotifys" }
-    if yname == "cikeGlobalInP2Exchgs" { return "Cikeglobalinp2Exchgs" }
-    if yname == "cikeGlobalInP2ExchgInvalids" { return "Cikeglobalinp2Exchginvalids" }
-    if yname == "cikeGlobalInP2ExchgRejects" { return "Cikeglobalinp2Exchgrejects" }
-    if yname == "cikeGlobalInP2SaDelRequests" { return "Cikeglobalinp2Sadelrequests" }
-    if yname == "cikeGlobalOutOctets" { return "Cikeglobaloutoctets" }
-    if yname == "cikeGlobalOutPkts" { return "Cikeglobaloutpkts" }
-    if yname == "cikeGlobalOutDropPkts" { return "Cikeglobaloutdroppkts" }
-    if yname == "cikeGlobalOutNotifys" { return "Cikeglobaloutnotifys" }
-    if yname == "cikeGlobalOutP2Exchgs" { return "Cikeglobaloutp2Exchgs" }
-    if yname == "cikeGlobalOutP2ExchgInvalids" { return "Cikeglobaloutp2Exchginvalids" }
-    if yname == "cikeGlobalOutP2ExchgRejects" { return "Cikeglobaloutp2Exchgrejects" }
-    if yname == "cikeGlobalOutP2SaDelRequests" { return "Cikeglobaloutp2Sadelrequests" }
-    if yname == "cikeGlobalInitTunnels" { return "Cikeglobalinittunnels" }
-    if yname == "cikeGlobalInitTunnelFails" { return "Cikeglobalinittunnelfails" }
-    if yname == "cikeGlobalRespTunnelFails" { return "Cikeglobalresptunnelfails" }
-    if yname == "cikeGlobalSysCapFails" { return "Cikeglobalsyscapfails" }
-    if yname == "cikeGlobalAuthFails" { return "Cikeglobalauthfails" }
-    if yname == "cikeGlobalDecryptFails" { return "Cikeglobaldecryptfails" }
-    if yname == "cikeGlobalHashValidFails" { return "Cikeglobalhashvalidfails" }
-    if yname == "cikeGlobalNoSaFails" { return "Cikeglobalnosafails" }
-    return ""
+    cikeglobalstats.EntityData.Children = make(map[string]types.YChild)
+    cikeglobalstats.EntityData.Leafs = make(map[string]types.YLeaf)
+    cikeglobalstats.EntityData.Leafs["cikeGlobalActiveTunnels"] = types.YLeaf{"Cikeglobalactivetunnels", cikeglobalstats.Cikeglobalactivetunnels}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalPreviousTunnels"] = types.YLeaf{"Cikeglobalprevioustunnels", cikeglobalstats.Cikeglobalprevioustunnels}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInOctets"] = types.YLeaf{"Cikeglobalinoctets", cikeglobalstats.Cikeglobalinoctets}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInPkts"] = types.YLeaf{"Cikeglobalinpkts", cikeglobalstats.Cikeglobalinpkts}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInDropPkts"] = types.YLeaf{"Cikeglobalindroppkts", cikeglobalstats.Cikeglobalindroppkts}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInNotifys"] = types.YLeaf{"Cikeglobalinnotifys", cikeglobalstats.Cikeglobalinnotifys}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInP2Exchgs"] = types.YLeaf{"Cikeglobalinp2Exchgs", cikeglobalstats.Cikeglobalinp2Exchgs}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInP2ExchgInvalids"] = types.YLeaf{"Cikeglobalinp2Exchginvalids", cikeglobalstats.Cikeglobalinp2Exchginvalids}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInP2ExchgRejects"] = types.YLeaf{"Cikeglobalinp2Exchgrejects", cikeglobalstats.Cikeglobalinp2Exchgrejects}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInP2SaDelRequests"] = types.YLeaf{"Cikeglobalinp2Sadelrequests", cikeglobalstats.Cikeglobalinp2Sadelrequests}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutOctets"] = types.YLeaf{"Cikeglobaloutoctets", cikeglobalstats.Cikeglobaloutoctets}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutPkts"] = types.YLeaf{"Cikeglobaloutpkts", cikeglobalstats.Cikeglobaloutpkts}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutDropPkts"] = types.YLeaf{"Cikeglobaloutdroppkts", cikeglobalstats.Cikeglobaloutdroppkts}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutNotifys"] = types.YLeaf{"Cikeglobaloutnotifys", cikeglobalstats.Cikeglobaloutnotifys}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutP2Exchgs"] = types.YLeaf{"Cikeglobaloutp2Exchgs", cikeglobalstats.Cikeglobaloutp2Exchgs}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutP2ExchgInvalids"] = types.YLeaf{"Cikeglobaloutp2Exchginvalids", cikeglobalstats.Cikeglobaloutp2Exchginvalids}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutP2ExchgRejects"] = types.YLeaf{"Cikeglobaloutp2Exchgrejects", cikeglobalstats.Cikeglobaloutp2Exchgrejects}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalOutP2SaDelRequests"] = types.YLeaf{"Cikeglobaloutp2Sadelrequests", cikeglobalstats.Cikeglobaloutp2Sadelrequests}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInitTunnels"] = types.YLeaf{"Cikeglobalinittunnels", cikeglobalstats.Cikeglobalinittunnels}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalInitTunnelFails"] = types.YLeaf{"Cikeglobalinittunnelfails", cikeglobalstats.Cikeglobalinittunnelfails}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalRespTunnelFails"] = types.YLeaf{"Cikeglobalresptunnelfails", cikeglobalstats.Cikeglobalresptunnelfails}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalSysCapFails"] = types.YLeaf{"Cikeglobalsyscapfails", cikeglobalstats.Cikeglobalsyscapfails}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalAuthFails"] = types.YLeaf{"Cikeglobalauthfails", cikeglobalstats.Cikeglobalauthfails}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalDecryptFails"] = types.YLeaf{"Cikeglobaldecryptfails", cikeglobalstats.Cikeglobaldecryptfails}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalHashValidFails"] = types.YLeaf{"Cikeglobalhashvalidfails", cikeglobalstats.Cikeglobalhashvalidfails}
+    cikeglobalstats.EntityData.Leafs["cikeGlobalNoSaFails"] = types.YLeaf{"Cikeglobalnosafails", cikeglobalstats.Cikeglobalnosafails}
+    return &(cikeglobalstats.EntityData)
 }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetSegmentPath() string {
-    return "cikeGlobalStats"
-}
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cikeGlobalActiveTunnels"] = cikeglobalstats.Cikeglobalactivetunnels
-    leafs["cikeGlobalPreviousTunnels"] = cikeglobalstats.Cikeglobalprevioustunnels
-    leafs["cikeGlobalInOctets"] = cikeglobalstats.Cikeglobalinoctets
-    leafs["cikeGlobalInPkts"] = cikeglobalstats.Cikeglobalinpkts
-    leafs["cikeGlobalInDropPkts"] = cikeglobalstats.Cikeglobalindroppkts
-    leafs["cikeGlobalInNotifys"] = cikeglobalstats.Cikeglobalinnotifys
-    leafs["cikeGlobalInP2Exchgs"] = cikeglobalstats.Cikeglobalinp2Exchgs
-    leafs["cikeGlobalInP2ExchgInvalids"] = cikeglobalstats.Cikeglobalinp2Exchginvalids
-    leafs["cikeGlobalInP2ExchgRejects"] = cikeglobalstats.Cikeglobalinp2Exchgrejects
-    leafs["cikeGlobalInP2SaDelRequests"] = cikeglobalstats.Cikeglobalinp2Sadelrequests
-    leafs["cikeGlobalOutOctets"] = cikeglobalstats.Cikeglobaloutoctets
-    leafs["cikeGlobalOutPkts"] = cikeglobalstats.Cikeglobaloutpkts
-    leafs["cikeGlobalOutDropPkts"] = cikeglobalstats.Cikeglobaloutdroppkts
-    leafs["cikeGlobalOutNotifys"] = cikeglobalstats.Cikeglobaloutnotifys
-    leafs["cikeGlobalOutP2Exchgs"] = cikeglobalstats.Cikeglobaloutp2Exchgs
-    leafs["cikeGlobalOutP2ExchgInvalids"] = cikeglobalstats.Cikeglobaloutp2Exchginvalids
-    leafs["cikeGlobalOutP2ExchgRejects"] = cikeglobalstats.Cikeglobaloutp2Exchgrejects
-    leafs["cikeGlobalOutP2SaDelRequests"] = cikeglobalstats.Cikeglobaloutp2Sadelrequests
-    leafs["cikeGlobalInitTunnels"] = cikeglobalstats.Cikeglobalinittunnels
-    leafs["cikeGlobalInitTunnelFails"] = cikeglobalstats.Cikeglobalinittunnelfails
-    leafs["cikeGlobalRespTunnelFails"] = cikeglobalstats.Cikeglobalresptunnelfails
-    leafs["cikeGlobalSysCapFails"] = cikeglobalstats.Cikeglobalsyscapfails
-    leafs["cikeGlobalAuthFails"] = cikeglobalstats.Cikeglobalauthfails
-    leafs["cikeGlobalDecryptFails"] = cikeglobalstats.Cikeglobaldecryptfails
-    leafs["cikeGlobalHashValidFails"] = cikeglobalstats.Cikeglobalhashvalidfails
-    leafs["cikeGlobalNoSaFails"] = cikeglobalstats.Cikeglobalnosafails
-    return leafs
-}
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetYangName() string { return "cikeGlobalStats" }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) SetParent(parent types.Entity) { cikeglobalstats.parent = parent }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetParent() types.Entity { return cikeglobalstats.parent }
-
-func (cikeglobalstats *CISCOIPSECFLOWMONITORMIB_Cikeglobalstats) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats
 type CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The total number of currently active IPsec Phase-2 Tunnels. The type is
@@ -893,113 +703,54 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats struct {
     Cipsecglobalsyscapfails interface{}
 }
 
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetFilter() yfilter.YFilter { return cipsecglobalstats.YFilter }
+func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetEntityData() *types.CommonEntityData {
+    cipsecglobalstats.EntityData.YFilter = cipsecglobalstats.YFilter
+    cipsecglobalstats.EntityData.YangName = "cipSecGlobalStats"
+    cipsecglobalstats.EntityData.BundleName = "cisco_ios_xe"
+    cipsecglobalstats.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecglobalstats.EntityData.SegmentPath = "cipSecGlobalStats"
+    cipsecglobalstats.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecglobalstats.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecglobalstats.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) SetFilter(yf yfilter.YFilter) { cipsecglobalstats.YFilter = yf }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetGoName(yname string) string {
-    if yname == "cipSecGlobalActiveTunnels" { return "Cipsecglobalactivetunnels" }
-    if yname == "cipSecGlobalPreviousTunnels" { return "Cipsecglobalprevioustunnels" }
-    if yname == "cipSecGlobalInOctets" { return "Cipsecglobalinoctets" }
-    if yname == "cipSecGlobalHcInOctets" { return "Cipsecglobalhcinoctets" }
-    if yname == "cipSecGlobalInOctWraps" { return "Cipsecglobalinoctwraps" }
-    if yname == "cipSecGlobalInDecompOctets" { return "Cipsecglobalindecompoctets" }
-    if yname == "cipSecGlobalHcInDecompOctets" { return "Cipsecglobalhcindecompoctets" }
-    if yname == "cipSecGlobalInDecompOctWraps" { return "Cipsecglobalindecompoctwraps" }
-    if yname == "cipSecGlobalInPkts" { return "Cipsecglobalinpkts" }
-    if yname == "cipSecGlobalInDrops" { return "Cipsecglobalindrops" }
-    if yname == "cipSecGlobalInReplayDrops" { return "Cipsecglobalinreplaydrops" }
-    if yname == "cipSecGlobalInAuths" { return "Cipsecglobalinauths" }
-    if yname == "cipSecGlobalInAuthFails" { return "Cipsecglobalinauthfails" }
-    if yname == "cipSecGlobalInDecrypts" { return "Cipsecglobalindecrypts" }
-    if yname == "cipSecGlobalInDecryptFails" { return "Cipsecglobalindecryptfails" }
-    if yname == "cipSecGlobalOutOctets" { return "Cipsecglobaloutoctets" }
-    if yname == "cipSecGlobalHcOutOctets" { return "Cipsecglobalhcoutoctets" }
-    if yname == "cipSecGlobalOutOctWraps" { return "Cipsecglobaloutoctwraps" }
-    if yname == "cipSecGlobalOutUncompOctets" { return "Cipsecglobaloutuncompoctets" }
-    if yname == "cipSecGlobalHcOutUncompOctets" { return "Cipsecglobalhcoutuncompoctets" }
-    if yname == "cipSecGlobalOutUncompOctWraps" { return "Cipsecglobaloutuncompoctwraps" }
-    if yname == "cipSecGlobalOutPkts" { return "Cipsecglobaloutpkts" }
-    if yname == "cipSecGlobalOutDrops" { return "Cipsecglobaloutdrops" }
-    if yname == "cipSecGlobalOutAuths" { return "Cipsecglobaloutauths" }
-    if yname == "cipSecGlobalOutAuthFails" { return "Cipsecglobaloutauthfails" }
-    if yname == "cipSecGlobalOutEncrypts" { return "Cipsecglobaloutencrypts" }
-    if yname == "cipSecGlobalOutEncryptFails" { return "Cipsecglobaloutencryptfails" }
-    if yname == "cipSecGlobalProtocolUseFails" { return "Cipsecglobalprotocolusefails" }
-    if yname == "cipSecGlobalNoSaFails" { return "Cipsecglobalnosafails" }
-    if yname == "cipSecGlobalSysCapFails" { return "Cipsecglobalsyscapfails" }
-    return ""
+    cipsecglobalstats.EntityData.Children = make(map[string]types.YChild)
+    cipsecglobalstats.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalActiveTunnels"] = types.YLeaf{"Cipsecglobalactivetunnels", cipsecglobalstats.Cipsecglobalactivetunnels}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalPreviousTunnels"] = types.YLeaf{"Cipsecglobalprevioustunnels", cipsecglobalstats.Cipsecglobalprevioustunnels}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInOctets"] = types.YLeaf{"Cipsecglobalinoctets", cipsecglobalstats.Cipsecglobalinoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalHcInOctets"] = types.YLeaf{"Cipsecglobalhcinoctets", cipsecglobalstats.Cipsecglobalhcinoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInOctWraps"] = types.YLeaf{"Cipsecglobalinoctwraps", cipsecglobalstats.Cipsecglobalinoctwraps}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInDecompOctets"] = types.YLeaf{"Cipsecglobalindecompoctets", cipsecglobalstats.Cipsecglobalindecompoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalHcInDecompOctets"] = types.YLeaf{"Cipsecglobalhcindecompoctets", cipsecglobalstats.Cipsecglobalhcindecompoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInDecompOctWraps"] = types.YLeaf{"Cipsecglobalindecompoctwraps", cipsecglobalstats.Cipsecglobalindecompoctwraps}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInPkts"] = types.YLeaf{"Cipsecglobalinpkts", cipsecglobalstats.Cipsecglobalinpkts}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInDrops"] = types.YLeaf{"Cipsecglobalindrops", cipsecglobalstats.Cipsecglobalindrops}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInReplayDrops"] = types.YLeaf{"Cipsecglobalinreplaydrops", cipsecglobalstats.Cipsecglobalinreplaydrops}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInAuths"] = types.YLeaf{"Cipsecglobalinauths", cipsecglobalstats.Cipsecglobalinauths}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInAuthFails"] = types.YLeaf{"Cipsecglobalinauthfails", cipsecglobalstats.Cipsecglobalinauthfails}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInDecrypts"] = types.YLeaf{"Cipsecglobalindecrypts", cipsecglobalstats.Cipsecglobalindecrypts}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalInDecryptFails"] = types.YLeaf{"Cipsecglobalindecryptfails", cipsecglobalstats.Cipsecglobalindecryptfails}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutOctets"] = types.YLeaf{"Cipsecglobaloutoctets", cipsecglobalstats.Cipsecglobaloutoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalHcOutOctets"] = types.YLeaf{"Cipsecglobalhcoutoctets", cipsecglobalstats.Cipsecglobalhcoutoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutOctWraps"] = types.YLeaf{"Cipsecglobaloutoctwraps", cipsecglobalstats.Cipsecglobaloutoctwraps}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutUncompOctets"] = types.YLeaf{"Cipsecglobaloutuncompoctets", cipsecglobalstats.Cipsecglobaloutuncompoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalHcOutUncompOctets"] = types.YLeaf{"Cipsecglobalhcoutuncompoctets", cipsecglobalstats.Cipsecglobalhcoutuncompoctets}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutUncompOctWraps"] = types.YLeaf{"Cipsecglobaloutuncompoctwraps", cipsecglobalstats.Cipsecglobaloutuncompoctwraps}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutPkts"] = types.YLeaf{"Cipsecglobaloutpkts", cipsecglobalstats.Cipsecglobaloutpkts}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutDrops"] = types.YLeaf{"Cipsecglobaloutdrops", cipsecglobalstats.Cipsecglobaloutdrops}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutAuths"] = types.YLeaf{"Cipsecglobaloutauths", cipsecglobalstats.Cipsecglobaloutauths}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutAuthFails"] = types.YLeaf{"Cipsecglobaloutauthfails", cipsecglobalstats.Cipsecglobaloutauthfails}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutEncrypts"] = types.YLeaf{"Cipsecglobaloutencrypts", cipsecglobalstats.Cipsecglobaloutencrypts}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalOutEncryptFails"] = types.YLeaf{"Cipsecglobaloutencryptfails", cipsecglobalstats.Cipsecglobaloutencryptfails}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalProtocolUseFails"] = types.YLeaf{"Cipsecglobalprotocolusefails", cipsecglobalstats.Cipsecglobalprotocolusefails}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalNoSaFails"] = types.YLeaf{"Cipsecglobalnosafails", cipsecglobalstats.Cipsecglobalnosafails}
+    cipsecglobalstats.EntityData.Leafs["cipSecGlobalSysCapFails"] = types.YLeaf{"Cipsecglobalsyscapfails", cipsecglobalstats.Cipsecglobalsyscapfails}
+    return &(cipsecglobalstats.EntityData)
 }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetSegmentPath() string {
-    return "cipSecGlobalStats"
-}
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecGlobalActiveTunnels"] = cipsecglobalstats.Cipsecglobalactivetunnels
-    leafs["cipSecGlobalPreviousTunnels"] = cipsecglobalstats.Cipsecglobalprevioustunnels
-    leafs["cipSecGlobalInOctets"] = cipsecglobalstats.Cipsecglobalinoctets
-    leafs["cipSecGlobalHcInOctets"] = cipsecglobalstats.Cipsecglobalhcinoctets
-    leafs["cipSecGlobalInOctWraps"] = cipsecglobalstats.Cipsecglobalinoctwraps
-    leafs["cipSecGlobalInDecompOctets"] = cipsecglobalstats.Cipsecglobalindecompoctets
-    leafs["cipSecGlobalHcInDecompOctets"] = cipsecglobalstats.Cipsecglobalhcindecompoctets
-    leafs["cipSecGlobalInDecompOctWraps"] = cipsecglobalstats.Cipsecglobalindecompoctwraps
-    leafs["cipSecGlobalInPkts"] = cipsecglobalstats.Cipsecglobalinpkts
-    leafs["cipSecGlobalInDrops"] = cipsecglobalstats.Cipsecglobalindrops
-    leafs["cipSecGlobalInReplayDrops"] = cipsecglobalstats.Cipsecglobalinreplaydrops
-    leafs["cipSecGlobalInAuths"] = cipsecglobalstats.Cipsecglobalinauths
-    leafs["cipSecGlobalInAuthFails"] = cipsecglobalstats.Cipsecglobalinauthfails
-    leafs["cipSecGlobalInDecrypts"] = cipsecglobalstats.Cipsecglobalindecrypts
-    leafs["cipSecGlobalInDecryptFails"] = cipsecglobalstats.Cipsecglobalindecryptfails
-    leafs["cipSecGlobalOutOctets"] = cipsecglobalstats.Cipsecglobaloutoctets
-    leafs["cipSecGlobalHcOutOctets"] = cipsecglobalstats.Cipsecglobalhcoutoctets
-    leafs["cipSecGlobalOutOctWraps"] = cipsecglobalstats.Cipsecglobaloutoctwraps
-    leafs["cipSecGlobalOutUncompOctets"] = cipsecglobalstats.Cipsecglobaloutuncompoctets
-    leafs["cipSecGlobalHcOutUncompOctets"] = cipsecglobalstats.Cipsecglobalhcoutuncompoctets
-    leafs["cipSecGlobalOutUncompOctWraps"] = cipsecglobalstats.Cipsecglobaloutuncompoctwraps
-    leafs["cipSecGlobalOutPkts"] = cipsecglobalstats.Cipsecglobaloutpkts
-    leafs["cipSecGlobalOutDrops"] = cipsecglobalstats.Cipsecglobaloutdrops
-    leafs["cipSecGlobalOutAuths"] = cipsecglobalstats.Cipsecglobaloutauths
-    leafs["cipSecGlobalOutAuthFails"] = cipsecglobalstats.Cipsecglobaloutauthfails
-    leafs["cipSecGlobalOutEncrypts"] = cipsecglobalstats.Cipsecglobaloutencrypts
-    leafs["cipSecGlobalOutEncryptFails"] = cipsecglobalstats.Cipsecglobaloutencryptfails
-    leafs["cipSecGlobalProtocolUseFails"] = cipsecglobalstats.Cipsecglobalprotocolusefails
-    leafs["cipSecGlobalNoSaFails"] = cipsecglobalstats.Cipsecglobalnosafails
-    leafs["cipSecGlobalSysCapFails"] = cipsecglobalstats.Cipsecglobalsyscapfails
-    return leafs
-}
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetYangName() string { return "cipSecGlobalStats" }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) SetParent(parent types.Entity) { cipsecglobalstats.parent = parent }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetParent() types.Entity { return cipsecglobalstats.parent }
-
-func (cipsecglobalstats *CISCOIPSECFLOWMONITORMIB_Cipsecglobalstats) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl
 type CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The window size of the IPsec Phase-1 and Phase-2 History Tables.  The IPsec
@@ -1025,53 +776,22 @@ type CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl struct {
     Cipsechistcheckpoint interface{}
 }
 
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetFilter() yfilter.YFilter { return cipsechistglobalcntl.YFilter }
+func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetEntityData() *types.CommonEntityData {
+    cipsechistglobalcntl.EntityData.YFilter = cipsechistglobalcntl.YFilter
+    cipsechistglobalcntl.EntityData.YangName = "cipSecHistGlobalCntl"
+    cipsechistglobalcntl.EntityData.BundleName = "cisco_ios_xe"
+    cipsechistglobalcntl.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsechistglobalcntl.EntityData.SegmentPath = "cipSecHistGlobalCntl"
+    cipsechistglobalcntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsechistglobalcntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsechistglobalcntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) SetFilter(yf yfilter.YFilter) { cipsechistglobalcntl.YFilter = yf }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetGoName(yname string) string {
-    if yname == "cipSecHistTableSize" { return "Cipsechisttablesize" }
-    if yname == "cipSecHistCheckPoint" { return "Cipsechistcheckpoint" }
-    return ""
+    cipsechistglobalcntl.EntityData.Children = make(map[string]types.YChild)
+    cipsechistglobalcntl.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsechistglobalcntl.EntityData.Leafs["cipSecHistTableSize"] = types.YLeaf{"Cipsechisttablesize", cipsechistglobalcntl.Cipsechisttablesize}
+    cipsechistglobalcntl.EntityData.Leafs["cipSecHistCheckPoint"] = types.YLeaf{"Cipsechistcheckpoint", cipsechistglobalcntl.Cipsechistcheckpoint}
+    return &(cipsechistglobalcntl.EntityData)
 }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetSegmentPath() string {
-    return "cipSecHistGlobalCntl"
-}
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecHistTableSize"] = cipsechistglobalcntl.Cipsechisttablesize
-    leafs["cipSecHistCheckPoint"] = cipsechistglobalcntl.Cipsechistcheckpoint
-    return leafs
-}
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetYangName() string { return "cipSecHistGlobalCntl" }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) SetParent(parent types.Entity) { cipsechistglobalcntl.parent = parent }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetParent() types.Entity { return cipsechistglobalcntl.parent }
-
-func (cipsechistglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl_Cipsechistcheckpoint represents    for each active IPsec Phase-2 Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Cipsechistglobalcntl_Cipsechistcheckpoint string
@@ -1084,7 +804,7 @@ const (
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl
 type CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The window size of the IPsec Phase-1 and Phase-2 Failure Tables.  The IPsec
@@ -1099,55 +819,25 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl struct {
     Cipsecfailtablesize interface{}
 }
 
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetFilter() yfilter.YFilter { return cipsecfailglobalcntl.YFilter }
+func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetEntityData() *types.CommonEntityData {
+    cipsecfailglobalcntl.EntityData.YFilter = cipsecfailglobalcntl.YFilter
+    cipsecfailglobalcntl.EntityData.YangName = "cipSecFailGlobalCntl"
+    cipsecfailglobalcntl.EntityData.BundleName = "cisco_ios_xe"
+    cipsecfailglobalcntl.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecfailglobalcntl.EntityData.SegmentPath = "cipSecFailGlobalCntl"
+    cipsecfailglobalcntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecfailglobalcntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecfailglobalcntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) SetFilter(yf yfilter.YFilter) { cipsecfailglobalcntl.YFilter = yf }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetGoName(yname string) string {
-    if yname == "cipSecFailTableSize" { return "Cipsecfailtablesize" }
-    return ""
+    cipsecfailglobalcntl.EntityData.Children = make(map[string]types.YChild)
+    cipsecfailglobalcntl.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecfailglobalcntl.EntityData.Leafs["cipSecFailTableSize"] = types.YLeaf{"Cipsecfailtablesize", cipsecfailglobalcntl.Cipsecfailtablesize}
+    return &(cipsecfailglobalcntl.EntityData)
 }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetSegmentPath() string {
-    return "cipSecFailGlobalCntl"
-}
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecFailTableSize"] = cipsecfailglobalcntl.Cipsecfailtablesize
-    return leafs
-}
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetYangName() string { return "cipSecFailGlobalCntl" }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) SetParent(parent types.Entity) { cipsecfailglobalcntl.parent = parent }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetParent() types.Entity { return cipsecfailglobalcntl.parent }
-
-func (cipsecfailglobalcntl *CISCOIPSECFLOWMONITORMIB_Cipsecfailglobalcntl) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl
 type CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This object defines the administrative state of sending the IPsec IKE
@@ -1203,75 +893,33 @@ type CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl struct {
     Cipsectrapcntlipsecnosa interface{}
 }
 
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetFilter() yfilter.YFilter { return cipsectrapcntl.YFilter }
+func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetEntityData() *types.CommonEntityData {
+    cipsectrapcntl.EntityData.YFilter = cipsectrapcntl.YFilter
+    cipsectrapcntl.EntityData.YangName = "cipSecTrapCntl"
+    cipsectrapcntl.EntityData.BundleName = "cisco_ios_xe"
+    cipsectrapcntl.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsectrapcntl.EntityData.SegmentPath = "cipSecTrapCntl"
+    cipsectrapcntl.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsectrapcntl.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsectrapcntl.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) SetFilter(yf yfilter.YFilter) { cipsectrapcntl.YFilter = yf }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetGoName(yname string) string {
-    if yname == "cipSecTrapCntlIkeTunnelStart" { return "Cipsectrapcntliketunnelstart" }
-    if yname == "cipSecTrapCntlIkeTunnelStop" { return "Cipsectrapcntliketunnelstop" }
-    if yname == "cipSecTrapCntlIkeSysFailure" { return "Cipsectrapcntlikesysfailure" }
-    if yname == "cipSecTrapCntlIkeCertCrlFailure" { return "Cipsectrapcntlikecertcrlfailure" }
-    if yname == "cipSecTrapCntlIkeProtocolFail" { return "Cipsectrapcntlikeprotocolfail" }
-    if yname == "cipSecTrapCntlIkeNoSa" { return "Cipsectrapcntlikenosa" }
-    if yname == "cipSecTrapCntlIpSecTunnelStart" { return "Cipsectrapcntlipsectunnelstart" }
-    if yname == "cipSecTrapCntlIpSecTunnelStop" { return "Cipsectrapcntlipsectunnelstop" }
-    if yname == "cipSecTrapCntlIpSecSysFailure" { return "Cipsectrapcntlipsecsysfailure" }
-    if yname == "cipSecTrapCntlIpSecSetUpFailure" { return "Cipsectrapcntlipsecsetupfailure" }
-    if yname == "cipSecTrapCntlIpSecEarlyTunTerm" { return "Cipsectrapcntlipsecearlytunterm" }
-    if yname == "cipSecTrapCntlIpSecProtocolFail" { return "Cipsectrapcntlipsecprotocolfail" }
-    if yname == "cipSecTrapCntlIpSecNoSa" { return "Cipsectrapcntlipsecnosa" }
-    return ""
+    cipsectrapcntl.EntityData.Children = make(map[string]types.YChild)
+    cipsectrapcntl.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIkeTunnelStart"] = types.YLeaf{"Cipsectrapcntliketunnelstart", cipsectrapcntl.Cipsectrapcntliketunnelstart}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIkeTunnelStop"] = types.YLeaf{"Cipsectrapcntliketunnelstop", cipsectrapcntl.Cipsectrapcntliketunnelstop}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIkeSysFailure"] = types.YLeaf{"Cipsectrapcntlikesysfailure", cipsectrapcntl.Cipsectrapcntlikesysfailure}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIkeCertCrlFailure"] = types.YLeaf{"Cipsectrapcntlikecertcrlfailure", cipsectrapcntl.Cipsectrapcntlikecertcrlfailure}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIkeProtocolFail"] = types.YLeaf{"Cipsectrapcntlikeprotocolfail", cipsectrapcntl.Cipsectrapcntlikeprotocolfail}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIkeNoSa"] = types.YLeaf{"Cipsectrapcntlikenosa", cipsectrapcntl.Cipsectrapcntlikenosa}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecTunnelStart"] = types.YLeaf{"Cipsectrapcntlipsectunnelstart", cipsectrapcntl.Cipsectrapcntlipsectunnelstart}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecTunnelStop"] = types.YLeaf{"Cipsectrapcntlipsectunnelstop", cipsectrapcntl.Cipsectrapcntlipsectunnelstop}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecSysFailure"] = types.YLeaf{"Cipsectrapcntlipsecsysfailure", cipsectrapcntl.Cipsectrapcntlipsecsysfailure}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecSetUpFailure"] = types.YLeaf{"Cipsectrapcntlipsecsetupfailure", cipsectrapcntl.Cipsectrapcntlipsecsetupfailure}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecEarlyTunTerm"] = types.YLeaf{"Cipsectrapcntlipsecearlytunterm", cipsectrapcntl.Cipsectrapcntlipsecearlytunterm}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecProtocolFail"] = types.YLeaf{"Cipsectrapcntlipsecprotocolfail", cipsectrapcntl.Cipsectrapcntlipsecprotocolfail}
+    cipsectrapcntl.EntityData.Leafs["cipSecTrapCntlIpSecNoSa"] = types.YLeaf{"Cipsectrapcntlipsecnosa", cipsectrapcntl.Cipsectrapcntlipsecnosa}
+    return &(cipsectrapcntl.EntityData)
 }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetSegmentPath() string {
-    return "cipSecTrapCntl"
-}
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecTrapCntlIkeTunnelStart"] = cipsectrapcntl.Cipsectrapcntliketunnelstart
-    leafs["cipSecTrapCntlIkeTunnelStop"] = cipsectrapcntl.Cipsectrapcntliketunnelstop
-    leafs["cipSecTrapCntlIkeSysFailure"] = cipsectrapcntl.Cipsectrapcntlikesysfailure
-    leafs["cipSecTrapCntlIkeCertCrlFailure"] = cipsectrapcntl.Cipsectrapcntlikecertcrlfailure
-    leafs["cipSecTrapCntlIkeProtocolFail"] = cipsectrapcntl.Cipsectrapcntlikeprotocolfail
-    leafs["cipSecTrapCntlIkeNoSa"] = cipsectrapcntl.Cipsectrapcntlikenosa
-    leafs["cipSecTrapCntlIpSecTunnelStart"] = cipsectrapcntl.Cipsectrapcntlipsectunnelstart
-    leafs["cipSecTrapCntlIpSecTunnelStop"] = cipsectrapcntl.Cipsectrapcntlipsectunnelstop
-    leafs["cipSecTrapCntlIpSecSysFailure"] = cipsectrapcntl.Cipsectrapcntlipsecsysfailure
-    leafs["cipSecTrapCntlIpSecSetUpFailure"] = cipsectrapcntl.Cipsectrapcntlipsecsetupfailure
-    leafs["cipSecTrapCntlIpSecEarlyTunTerm"] = cipsectrapcntl.Cipsectrapcntlipsecearlytunterm
-    leafs["cipSecTrapCntlIpSecProtocolFail"] = cipsectrapcntl.Cipsectrapcntlipsecprotocolfail
-    leafs["cipSecTrapCntlIpSecNoSa"] = cipsectrapcntl.Cipsectrapcntlipsecnosa
-    return leafs
-}
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetYangName() string { return "cipSecTrapCntl" }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) SetParent(parent types.Entity) { cipsectrapcntl.parent = parent }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetParent() types.Entity { return cipsectrapcntl.parent }
-
-func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikepeertable
 // The IPsec Phase-1 Internet Key Exchange Peer Table.
@@ -1282,7 +930,7 @@ func (cipsectrapcntl *CISCOIPSECFLOWMONITORMIB_Cipsectrapcntl) GetParentYangName
 // IPsec Phase-1 IKE peer association may or may not
 // be currently active.
 type CISCOIPSECFLOWMONITORMIB_Cikepeertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with an IPsec Phase-1 IKE
@@ -1291,69 +939,30 @@ type CISCOIPSECFLOWMONITORMIB_Cikepeertable struct {
     Cikepeerentry []CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry
 }
 
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetFilter() yfilter.YFilter { return cikepeertable.YFilter }
+func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetEntityData() *types.CommonEntityData {
+    cikepeertable.EntityData.YFilter = cikepeertable.YFilter
+    cikepeertable.EntityData.YangName = "cikePeerTable"
+    cikepeertable.EntityData.BundleName = "cisco_ios_xe"
+    cikepeertable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cikepeertable.EntityData.SegmentPath = "cikePeerTable"
+    cikepeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikepeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikepeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) SetFilter(yf yfilter.YFilter) { cikepeertable.YFilter = yf }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetGoName(yname string) string {
-    if yname == "cikePeerEntry" { return "Cikepeerentry" }
-    return ""
-}
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetSegmentPath() string {
-    return "cikePeerTable"
-}
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cikePeerEntry" {
-        for _, c := range cikepeertable.Cikepeerentry {
-            if cikepeertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry{}
-        cikepeertable.Cikepeerentry = append(cikepeertable.Cikepeerentry, child)
-        return &cikepeertable.Cikepeerentry[len(cikepeertable.Cikepeerentry)-1]
-    }
-    return nil
-}
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cikepeertable.EntityData.Children = make(map[string]types.YChild)
+    cikepeertable.EntityData.Children["cikePeerEntry"] = types.YChild{"Cikepeerentry", nil}
     for i := range cikepeertable.Cikepeerentry {
-        children[cikepeertable.Cikepeerentry[i].GetSegmentPath()] = &cikepeertable.Cikepeerentry[i]
+        cikepeertable.EntityData.Children[types.GetSegmentPath(&cikepeertable.Cikepeerentry[i])] = types.YChild{"Cikepeerentry", &cikepeertable.Cikepeerentry[i]}
     }
-    return children
+    cikepeertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cikepeertable.EntityData)
 }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetYangName() string { return "cikePeerTable" }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) SetParent(parent types.Entity) { cikepeertable.parent = parent }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetParent() types.Entity { return cikepeertable.parent }
-
-func (cikepeertable *CISCOIPSECFLOWMONITORMIB_Cikepeertable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry
 // Each entry contains the attributes associated
 // with an IPsec Phase-1 IKE peer association.
 type CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of local peer identity.  The local peer
@@ -1401,74 +1010,36 @@ type CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry struct {
     Cikepeeractivetunnelindex interface{}
 }
 
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetFilter() yfilter.YFilter { return cikepeerentry.YFilter }
+func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetEntityData() *types.CommonEntityData {
+    cikepeerentry.EntityData.YFilter = cikepeerentry.YFilter
+    cikepeerentry.EntityData.YangName = "cikePeerEntry"
+    cikepeerentry.EntityData.BundleName = "cisco_ios_xe"
+    cikepeerentry.EntityData.ParentYangName = "cikePeerTable"
+    cikepeerentry.EntityData.SegmentPath = "cikePeerEntry" + "[cikePeerLocalType='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerlocaltype) + "']" + "[cikePeerLocalValue='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerlocalvalue) + "']" + "[cikePeerRemoteType='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerremotetype) + "']" + "[cikePeerRemoteValue='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerremotevalue) + "']" + "[cikePeerIntIndex='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerintindex) + "']"
+    cikepeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikepeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikepeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) SetFilter(yf yfilter.YFilter) { cikepeerentry.YFilter = yf }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetGoName(yname string) string {
-    if yname == "cikePeerLocalType" { return "Cikepeerlocaltype" }
-    if yname == "cikePeerLocalValue" { return "Cikepeerlocalvalue" }
-    if yname == "cikePeerRemoteType" { return "Cikepeerremotetype" }
-    if yname == "cikePeerRemoteValue" { return "Cikepeerremotevalue" }
-    if yname == "cikePeerIntIndex" { return "Cikepeerintindex" }
-    if yname == "cikePeerLocalAddr" { return "Cikepeerlocaladdr" }
-    if yname == "cikePeerRemoteAddr" { return "Cikepeerremoteaddr" }
-    if yname == "cikePeerActiveTime" { return "Cikepeeractivetime" }
-    if yname == "cikePeerActiveTunnelIndex" { return "Cikepeeractivetunnelindex" }
-    return ""
+    cikepeerentry.EntityData.Children = make(map[string]types.YChild)
+    cikepeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cikepeerentry.EntityData.Leafs["cikePeerLocalType"] = types.YLeaf{"Cikepeerlocaltype", cikepeerentry.Cikepeerlocaltype}
+    cikepeerentry.EntityData.Leafs["cikePeerLocalValue"] = types.YLeaf{"Cikepeerlocalvalue", cikepeerentry.Cikepeerlocalvalue}
+    cikepeerentry.EntityData.Leafs["cikePeerRemoteType"] = types.YLeaf{"Cikepeerremotetype", cikepeerentry.Cikepeerremotetype}
+    cikepeerentry.EntityData.Leafs["cikePeerRemoteValue"] = types.YLeaf{"Cikepeerremotevalue", cikepeerentry.Cikepeerremotevalue}
+    cikepeerentry.EntityData.Leafs["cikePeerIntIndex"] = types.YLeaf{"Cikepeerintindex", cikepeerentry.Cikepeerintindex}
+    cikepeerentry.EntityData.Leafs["cikePeerLocalAddr"] = types.YLeaf{"Cikepeerlocaladdr", cikepeerentry.Cikepeerlocaladdr}
+    cikepeerentry.EntityData.Leafs["cikePeerRemoteAddr"] = types.YLeaf{"Cikepeerremoteaddr", cikepeerentry.Cikepeerremoteaddr}
+    cikepeerentry.EntityData.Leafs["cikePeerActiveTime"] = types.YLeaf{"Cikepeeractivetime", cikepeerentry.Cikepeeractivetime}
+    cikepeerentry.EntityData.Leafs["cikePeerActiveTunnelIndex"] = types.YLeaf{"Cikepeeractivetunnelindex", cikepeerentry.Cikepeeractivetunnelindex}
+    return &(cikepeerentry.EntityData)
 }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetSegmentPath() string {
-    return "cikePeerEntry" + "[cikePeerLocalType='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerlocaltype) + "']" + "[cikePeerLocalValue='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerlocalvalue) + "']" + "[cikePeerRemoteType='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerremotetype) + "']" + "[cikePeerRemoteValue='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerremotevalue) + "']" + "[cikePeerIntIndex='" + fmt.Sprintf("%v", cikepeerentry.Cikepeerintindex) + "']"
-}
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cikePeerLocalType"] = cikepeerentry.Cikepeerlocaltype
-    leafs["cikePeerLocalValue"] = cikepeerentry.Cikepeerlocalvalue
-    leafs["cikePeerRemoteType"] = cikepeerentry.Cikepeerremotetype
-    leafs["cikePeerRemoteValue"] = cikepeerentry.Cikepeerremotevalue
-    leafs["cikePeerIntIndex"] = cikepeerentry.Cikepeerintindex
-    leafs["cikePeerLocalAddr"] = cikepeerentry.Cikepeerlocaladdr
-    leafs["cikePeerRemoteAddr"] = cikepeerentry.Cikepeerremoteaddr
-    leafs["cikePeerActiveTime"] = cikepeerentry.Cikepeeractivetime
-    leafs["cikePeerActiveTunnelIndex"] = cikepeerentry.Cikepeeractivetunnelindex
-    return leafs
-}
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetYangName() string { return "cikePeerEntry" }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) SetParent(parent types.Entity) { cikepeerentry.parent = parent }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetParent() types.Entity { return cikepeerentry.parent }
-
-func (cikepeerentry *CISCOIPSECFLOWMONITORMIB_Cikepeertable_Cikepeerentry) GetParentYangName() string { return "cikePeerTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Ciketunneltable
 // The IPsec Phase-1 Internet Key Exchange Tunnel Table.
 // There is one entry in this table for each active IPsec
 // Phase-1 IKE Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Ciketunneltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with an active IPsec Phase-1
@@ -1477,69 +1048,30 @@ type CISCOIPSECFLOWMONITORMIB_Ciketunneltable struct {
     Ciketunnelentry []CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry
 }
 
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetFilter() yfilter.YFilter { return ciketunneltable.YFilter }
+func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetEntityData() *types.CommonEntityData {
+    ciketunneltable.EntityData.YFilter = ciketunneltable.YFilter
+    ciketunneltable.EntityData.YangName = "cikeTunnelTable"
+    ciketunneltable.EntityData.BundleName = "cisco_ios_xe"
+    ciketunneltable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    ciketunneltable.EntityData.SegmentPath = "cikeTunnelTable"
+    ciketunneltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciketunneltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciketunneltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) SetFilter(yf yfilter.YFilter) { ciketunneltable.YFilter = yf }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetGoName(yname string) string {
-    if yname == "cikeTunnelEntry" { return "Ciketunnelentry" }
-    return ""
-}
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetSegmentPath() string {
-    return "cikeTunnelTable"
-}
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cikeTunnelEntry" {
-        for _, c := range ciketunneltable.Ciketunnelentry {
-            if ciketunneltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry{}
-        ciketunneltable.Ciketunnelentry = append(ciketunneltable.Ciketunnelentry, child)
-        return &ciketunneltable.Ciketunnelentry[len(ciketunneltable.Ciketunnelentry)-1]
-    }
-    return nil
-}
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciketunneltable.EntityData.Children = make(map[string]types.YChild)
+    ciketunneltable.EntityData.Children["cikeTunnelEntry"] = types.YChild{"Ciketunnelentry", nil}
     for i := range ciketunneltable.Ciketunnelentry {
-        children[ciketunneltable.Ciketunnelentry[i].GetSegmentPath()] = &ciketunneltable.Ciketunnelentry[i]
+        ciketunneltable.EntityData.Children[types.GetSegmentPath(&ciketunneltable.Ciketunnelentry[i])] = types.YChild{"Ciketunnelentry", &ciketunneltable.Ciketunnelentry[i]}
     }
-    return children
+    ciketunneltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciketunneltable.EntityData)
 }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetYangName() string { return "cikeTunnelTable" }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) SetParent(parent types.Entity) { ciketunneltable.parent = parent }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetParent() types.Entity { return ciketunneltable.parent }
-
-func (ciketunneltable *CISCOIPSECFLOWMONITORMIB_Ciketunneltable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry
 // Each entry contains the attributes associated with
 // an active IPsec Phase-1 IKE Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the IPsec Phase-1 IKE Tunnel Table.
@@ -1703,119 +1235,55 @@ type CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry struct {
     Ciketunstatus interface{}
 }
 
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetFilter() yfilter.YFilter { return ciketunnelentry.YFilter }
+func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetEntityData() *types.CommonEntityData {
+    ciketunnelentry.EntityData.YFilter = ciketunnelentry.YFilter
+    ciketunnelentry.EntityData.YangName = "cikeTunnelEntry"
+    ciketunnelentry.EntityData.BundleName = "cisco_ios_xe"
+    ciketunnelentry.EntityData.ParentYangName = "cikeTunnelTable"
+    ciketunnelentry.EntityData.SegmentPath = "cikeTunnelEntry" + "[cikeTunIndex='" + fmt.Sprintf("%v", ciketunnelentry.Ciketunindex) + "']"
+    ciketunnelentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciketunnelentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciketunnelentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) SetFilter(yf yfilter.YFilter) { ciketunnelentry.YFilter = yf }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetGoName(yname string) string {
-    if yname == "cikeTunIndex" { return "Ciketunindex" }
-    if yname == "cikeTunLocalType" { return "Ciketunlocaltype" }
-    if yname == "cikeTunLocalValue" { return "Ciketunlocalvalue" }
-    if yname == "cikeTunLocalAddr" { return "Ciketunlocaladdr" }
-    if yname == "cikeTunLocalName" { return "Ciketunlocalname" }
-    if yname == "cikeTunRemoteType" { return "Ciketunremotetype" }
-    if yname == "cikeTunRemoteValue" { return "Ciketunremotevalue" }
-    if yname == "cikeTunRemoteAddr" { return "Ciketunremoteaddr" }
-    if yname == "cikeTunRemoteName" { return "Ciketunremotename" }
-    if yname == "cikeTunNegoMode" { return "Ciketunnegomode" }
-    if yname == "cikeTunDiffHellmanGrp" { return "Ciketundiffhellmangrp" }
-    if yname == "cikeTunEncryptAlgo" { return "Ciketunencryptalgo" }
-    if yname == "cikeTunHashAlgo" { return "Ciketunhashalgo" }
-    if yname == "cikeTunAuthMethod" { return "Ciketunauthmethod" }
-    if yname == "cikeTunLifeTime" { return "Ciketunlifetime" }
-    if yname == "cikeTunActiveTime" { return "Ciketunactivetime" }
-    if yname == "cikeTunSaRefreshThreshold" { return "Ciketunsarefreshthreshold" }
-    if yname == "cikeTunTotalRefreshes" { return "Ciketuntotalrefreshes" }
-    if yname == "cikeTunInOctets" { return "Ciketuninoctets" }
-    if yname == "cikeTunInPkts" { return "Ciketuninpkts" }
-    if yname == "cikeTunInDropPkts" { return "Ciketunindroppkts" }
-    if yname == "cikeTunInNotifys" { return "Ciketuninnotifys" }
-    if yname == "cikeTunInP2Exchgs" { return "Ciketuninp2Exchgs" }
-    if yname == "cikeTunInP2ExchgInvalids" { return "Ciketuninp2Exchginvalids" }
-    if yname == "cikeTunInP2ExchgRejects" { return "Ciketuninp2Exchgrejects" }
-    if yname == "cikeTunInP2SaDelRequests" { return "Ciketuninp2Sadelrequests" }
-    if yname == "cikeTunOutOctets" { return "Ciketunoutoctets" }
-    if yname == "cikeTunOutPkts" { return "Ciketunoutpkts" }
-    if yname == "cikeTunOutDropPkts" { return "Ciketunoutdroppkts" }
-    if yname == "cikeTunOutNotifys" { return "Ciketunoutnotifys" }
-    if yname == "cikeTunOutP2Exchgs" { return "Ciketunoutp2Exchgs" }
-    if yname == "cikeTunOutP2ExchgInvalids" { return "Ciketunoutp2Exchginvalids" }
-    if yname == "cikeTunOutP2ExchgRejects" { return "Ciketunoutp2Exchgrejects" }
-    if yname == "cikeTunOutP2SaDelRequests" { return "Ciketunoutp2Sadelrequests" }
-    if yname == "cikeTunStatus" { return "Ciketunstatus" }
-    return ""
+    ciketunnelentry.EntityData.Children = make(map[string]types.YChild)
+    ciketunnelentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciketunnelentry.EntityData.Leafs["cikeTunIndex"] = types.YLeaf{"Ciketunindex", ciketunnelentry.Ciketunindex}
+    ciketunnelentry.EntityData.Leafs["cikeTunLocalType"] = types.YLeaf{"Ciketunlocaltype", ciketunnelentry.Ciketunlocaltype}
+    ciketunnelentry.EntityData.Leafs["cikeTunLocalValue"] = types.YLeaf{"Ciketunlocalvalue", ciketunnelentry.Ciketunlocalvalue}
+    ciketunnelentry.EntityData.Leafs["cikeTunLocalAddr"] = types.YLeaf{"Ciketunlocaladdr", ciketunnelentry.Ciketunlocaladdr}
+    ciketunnelentry.EntityData.Leafs["cikeTunLocalName"] = types.YLeaf{"Ciketunlocalname", ciketunnelentry.Ciketunlocalname}
+    ciketunnelentry.EntityData.Leafs["cikeTunRemoteType"] = types.YLeaf{"Ciketunremotetype", ciketunnelentry.Ciketunremotetype}
+    ciketunnelentry.EntityData.Leafs["cikeTunRemoteValue"] = types.YLeaf{"Ciketunremotevalue", ciketunnelentry.Ciketunremotevalue}
+    ciketunnelentry.EntityData.Leafs["cikeTunRemoteAddr"] = types.YLeaf{"Ciketunremoteaddr", ciketunnelentry.Ciketunremoteaddr}
+    ciketunnelentry.EntityData.Leafs["cikeTunRemoteName"] = types.YLeaf{"Ciketunremotename", ciketunnelentry.Ciketunremotename}
+    ciketunnelentry.EntityData.Leafs["cikeTunNegoMode"] = types.YLeaf{"Ciketunnegomode", ciketunnelentry.Ciketunnegomode}
+    ciketunnelentry.EntityData.Leafs["cikeTunDiffHellmanGrp"] = types.YLeaf{"Ciketundiffhellmangrp", ciketunnelentry.Ciketundiffhellmangrp}
+    ciketunnelentry.EntityData.Leafs["cikeTunEncryptAlgo"] = types.YLeaf{"Ciketunencryptalgo", ciketunnelentry.Ciketunencryptalgo}
+    ciketunnelentry.EntityData.Leafs["cikeTunHashAlgo"] = types.YLeaf{"Ciketunhashalgo", ciketunnelentry.Ciketunhashalgo}
+    ciketunnelentry.EntityData.Leafs["cikeTunAuthMethod"] = types.YLeaf{"Ciketunauthmethod", ciketunnelentry.Ciketunauthmethod}
+    ciketunnelentry.EntityData.Leafs["cikeTunLifeTime"] = types.YLeaf{"Ciketunlifetime", ciketunnelentry.Ciketunlifetime}
+    ciketunnelentry.EntityData.Leafs["cikeTunActiveTime"] = types.YLeaf{"Ciketunactivetime", ciketunnelentry.Ciketunactivetime}
+    ciketunnelentry.EntityData.Leafs["cikeTunSaRefreshThreshold"] = types.YLeaf{"Ciketunsarefreshthreshold", ciketunnelentry.Ciketunsarefreshthreshold}
+    ciketunnelentry.EntityData.Leafs["cikeTunTotalRefreshes"] = types.YLeaf{"Ciketuntotalrefreshes", ciketunnelentry.Ciketuntotalrefreshes}
+    ciketunnelentry.EntityData.Leafs["cikeTunInOctets"] = types.YLeaf{"Ciketuninoctets", ciketunnelentry.Ciketuninoctets}
+    ciketunnelentry.EntityData.Leafs["cikeTunInPkts"] = types.YLeaf{"Ciketuninpkts", ciketunnelentry.Ciketuninpkts}
+    ciketunnelentry.EntityData.Leafs["cikeTunInDropPkts"] = types.YLeaf{"Ciketunindroppkts", ciketunnelentry.Ciketunindroppkts}
+    ciketunnelentry.EntityData.Leafs["cikeTunInNotifys"] = types.YLeaf{"Ciketuninnotifys", ciketunnelentry.Ciketuninnotifys}
+    ciketunnelentry.EntityData.Leafs["cikeTunInP2Exchgs"] = types.YLeaf{"Ciketuninp2Exchgs", ciketunnelentry.Ciketuninp2Exchgs}
+    ciketunnelentry.EntityData.Leafs["cikeTunInP2ExchgInvalids"] = types.YLeaf{"Ciketuninp2Exchginvalids", ciketunnelentry.Ciketuninp2Exchginvalids}
+    ciketunnelentry.EntityData.Leafs["cikeTunInP2ExchgRejects"] = types.YLeaf{"Ciketuninp2Exchgrejects", ciketunnelentry.Ciketuninp2Exchgrejects}
+    ciketunnelentry.EntityData.Leafs["cikeTunInP2SaDelRequests"] = types.YLeaf{"Ciketuninp2Sadelrequests", ciketunnelentry.Ciketuninp2Sadelrequests}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutOctets"] = types.YLeaf{"Ciketunoutoctets", ciketunnelentry.Ciketunoutoctets}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutPkts"] = types.YLeaf{"Ciketunoutpkts", ciketunnelentry.Ciketunoutpkts}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutDropPkts"] = types.YLeaf{"Ciketunoutdroppkts", ciketunnelentry.Ciketunoutdroppkts}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutNotifys"] = types.YLeaf{"Ciketunoutnotifys", ciketunnelentry.Ciketunoutnotifys}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutP2Exchgs"] = types.YLeaf{"Ciketunoutp2Exchgs", ciketunnelentry.Ciketunoutp2Exchgs}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutP2ExchgInvalids"] = types.YLeaf{"Ciketunoutp2Exchginvalids", ciketunnelentry.Ciketunoutp2Exchginvalids}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutP2ExchgRejects"] = types.YLeaf{"Ciketunoutp2Exchgrejects", ciketunnelentry.Ciketunoutp2Exchgrejects}
+    ciketunnelentry.EntityData.Leafs["cikeTunOutP2SaDelRequests"] = types.YLeaf{"Ciketunoutp2Sadelrequests", ciketunnelentry.Ciketunoutp2Sadelrequests}
+    ciketunnelentry.EntityData.Leafs["cikeTunStatus"] = types.YLeaf{"Ciketunstatus", ciketunnelentry.Ciketunstatus}
+    return &(ciketunnelentry.EntityData)
 }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetSegmentPath() string {
-    return "cikeTunnelEntry" + "[cikeTunIndex='" + fmt.Sprintf("%v", ciketunnelentry.Ciketunindex) + "']"
-}
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cikeTunIndex"] = ciketunnelentry.Ciketunindex
-    leafs["cikeTunLocalType"] = ciketunnelentry.Ciketunlocaltype
-    leafs["cikeTunLocalValue"] = ciketunnelentry.Ciketunlocalvalue
-    leafs["cikeTunLocalAddr"] = ciketunnelentry.Ciketunlocaladdr
-    leafs["cikeTunLocalName"] = ciketunnelentry.Ciketunlocalname
-    leafs["cikeTunRemoteType"] = ciketunnelentry.Ciketunremotetype
-    leafs["cikeTunRemoteValue"] = ciketunnelentry.Ciketunremotevalue
-    leafs["cikeTunRemoteAddr"] = ciketunnelentry.Ciketunremoteaddr
-    leafs["cikeTunRemoteName"] = ciketunnelentry.Ciketunremotename
-    leafs["cikeTunNegoMode"] = ciketunnelentry.Ciketunnegomode
-    leafs["cikeTunDiffHellmanGrp"] = ciketunnelentry.Ciketundiffhellmangrp
-    leafs["cikeTunEncryptAlgo"] = ciketunnelentry.Ciketunencryptalgo
-    leafs["cikeTunHashAlgo"] = ciketunnelentry.Ciketunhashalgo
-    leafs["cikeTunAuthMethod"] = ciketunnelentry.Ciketunauthmethod
-    leafs["cikeTunLifeTime"] = ciketunnelentry.Ciketunlifetime
-    leafs["cikeTunActiveTime"] = ciketunnelentry.Ciketunactivetime
-    leafs["cikeTunSaRefreshThreshold"] = ciketunnelentry.Ciketunsarefreshthreshold
-    leafs["cikeTunTotalRefreshes"] = ciketunnelentry.Ciketuntotalrefreshes
-    leafs["cikeTunInOctets"] = ciketunnelentry.Ciketuninoctets
-    leafs["cikeTunInPkts"] = ciketunnelentry.Ciketuninpkts
-    leafs["cikeTunInDropPkts"] = ciketunnelentry.Ciketunindroppkts
-    leafs["cikeTunInNotifys"] = ciketunnelentry.Ciketuninnotifys
-    leafs["cikeTunInP2Exchgs"] = ciketunnelentry.Ciketuninp2Exchgs
-    leafs["cikeTunInP2ExchgInvalids"] = ciketunnelentry.Ciketuninp2Exchginvalids
-    leafs["cikeTunInP2ExchgRejects"] = ciketunnelentry.Ciketuninp2Exchgrejects
-    leafs["cikeTunInP2SaDelRequests"] = ciketunnelentry.Ciketuninp2Sadelrequests
-    leafs["cikeTunOutOctets"] = ciketunnelentry.Ciketunoutoctets
-    leafs["cikeTunOutPkts"] = ciketunnelentry.Ciketunoutpkts
-    leafs["cikeTunOutDropPkts"] = ciketunnelentry.Ciketunoutdroppkts
-    leafs["cikeTunOutNotifys"] = ciketunnelentry.Ciketunoutnotifys
-    leafs["cikeTunOutP2Exchgs"] = ciketunnelentry.Ciketunoutp2Exchgs
-    leafs["cikeTunOutP2ExchgInvalids"] = ciketunnelentry.Ciketunoutp2Exchginvalids
-    leafs["cikeTunOutP2ExchgRejects"] = ciketunnelentry.Ciketunoutp2Exchgrejects
-    leafs["cikeTunOutP2SaDelRequests"] = ciketunnelentry.Ciketunoutp2Sadelrequests
-    leafs["cikeTunStatus"] = ciketunnelentry.Ciketunstatus
-    return leafs
-}
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetYangName() string { return "cikeTunnelEntry" }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) SetParent(parent types.Entity) { ciketunnelentry.parent = parent }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetParent() types.Entity { return ciketunnelentry.parent }
-
-func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry) GetParentYangName() string { return "cikeTunnelTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable
 // The IPsec Phase-1 Internet Key Exchange Peer
@@ -1824,7 +1292,7 @@ func (ciketunnelentry *CISCOIPSECFLOWMONITORMIB_Ciketunneltable_Ciketunnelentry)
 // this table for each active IPsec Phase-2
 // Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes of an IPsec Phase-1 IKE Peer Association
@@ -1833,70 +1301,31 @@ type CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable struct {
     Cikepeercorrentry []CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry
 }
 
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetFilter() yfilter.YFilter { return cikepeercorrtable.YFilter }
+func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetEntityData() *types.CommonEntityData {
+    cikepeercorrtable.EntityData.YFilter = cikepeercorrtable.YFilter
+    cikepeercorrtable.EntityData.YangName = "cikePeerCorrTable"
+    cikepeercorrtable.EntityData.BundleName = "cisco_ios_xe"
+    cikepeercorrtable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cikepeercorrtable.EntityData.SegmentPath = "cikePeerCorrTable"
+    cikepeercorrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikepeercorrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikepeercorrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) SetFilter(yf yfilter.YFilter) { cikepeercorrtable.YFilter = yf }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetGoName(yname string) string {
-    if yname == "cikePeerCorrEntry" { return "Cikepeercorrentry" }
-    return ""
-}
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetSegmentPath() string {
-    return "cikePeerCorrTable"
-}
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cikePeerCorrEntry" {
-        for _, c := range cikepeercorrtable.Cikepeercorrentry {
-            if cikepeercorrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry{}
-        cikepeercorrtable.Cikepeercorrentry = append(cikepeercorrtable.Cikepeercorrentry, child)
-        return &cikepeercorrtable.Cikepeercorrentry[len(cikepeercorrtable.Cikepeercorrentry)-1]
-    }
-    return nil
-}
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cikepeercorrtable.EntityData.Children = make(map[string]types.YChild)
+    cikepeercorrtable.EntityData.Children["cikePeerCorrEntry"] = types.YChild{"Cikepeercorrentry", nil}
     for i := range cikepeercorrtable.Cikepeercorrentry {
-        children[cikepeercorrtable.Cikepeercorrentry[i].GetSegmentPath()] = &cikepeercorrtable.Cikepeercorrentry[i]
+        cikepeercorrtable.EntityData.Children[types.GetSegmentPath(&cikepeercorrtable.Cikepeercorrentry[i])] = types.YChild{"Cikepeercorrentry", &cikepeercorrtable.Cikepeercorrentry[i]}
     }
-    return children
+    cikepeercorrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cikepeercorrtable.EntityData)
 }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetYangName() string { return "cikePeerCorrTable" }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) SetParent(parent types.Entity) { cikepeercorrtable.parent = parent }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetParent() types.Entity { return cikepeercorrtable.parent }
-
-func (cikepeercorrtable *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry
 // Each entry contains the attributes of an
 // IPsec Phase-1 IKE Peer Association to IPsec
 // Phase-2 Tunnel Correlation.
 type CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type of local peer identity. The local peer
@@ -1939,70 +1368,34 @@ type CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry struct {
     Cikepeercorripsectunindex interface{}
 }
 
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetFilter() yfilter.YFilter { return cikepeercorrentry.YFilter }
+func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetEntityData() *types.CommonEntityData {
+    cikepeercorrentry.EntityData.YFilter = cikepeercorrentry.YFilter
+    cikepeercorrentry.EntityData.YangName = "cikePeerCorrEntry"
+    cikepeercorrentry.EntityData.BundleName = "cisco_ios_xe"
+    cikepeercorrentry.EntityData.ParentYangName = "cikePeerCorrTable"
+    cikepeercorrentry.EntityData.SegmentPath = "cikePeerCorrEntry" + "[cikePeerCorrLocalType='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrlocaltype) + "']" + "[cikePeerCorrLocalValue='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrlocalvalue) + "']" + "[cikePeerCorrRemoteType='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrremotetype) + "']" + "[cikePeerCorrRemoteValue='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrremotevalue) + "']" + "[cikePeerCorrIntIndex='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrintindex) + "']" + "[cikePeerCorrSeqNum='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrseqnum) + "']"
+    cikepeercorrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikepeercorrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikepeercorrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) SetFilter(yf yfilter.YFilter) { cikepeercorrentry.YFilter = yf }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetGoName(yname string) string {
-    if yname == "cikePeerCorrLocalType" { return "Cikepeercorrlocaltype" }
-    if yname == "cikePeerCorrLocalValue" { return "Cikepeercorrlocalvalue" }
-    if yname == "cikePeerCorrRemoteType" { return "Cikepeercorrremotetype" }
-    if yname == "cikePeerCorrRemoteValue" { return "Cikepeercorrremotevalue" }
-    if yname == "cikePeerCorrIntIndex" { return "Cikepeercorrintindex" }
-    if yname == "cikePeerCorrSeqNum" { return "Cikepeercorrseqnum" }
-    if yname == "cikePeerCorrIpSecTunIndex" { return "Cikepeercorripsectunindex" }
-    return ""
+    cikepeercorrentry.EntityData.Children = make(map[string]types.YChild)
+    cikepeercorrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrLocalType"] = types.YLeaf{"Cikepeercorrlocaltype", cikepeercorrentry.Cikepeercorrlocaltype}
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrLocalValue"] = types.YLeaf{"Cikepeercorrlocalvalue", cikepeercorrentry.Cikepeercorrlocalvalue}
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrRemoteType"] = types.YLeaf{"Cikepeercorrremotetype", cikepeercorrentry.Cikepeercorrremotetype}
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrRemoteValue"] = types.YLeaf{"Cikepeercorrremotevalue", cikepeercorrentry.Cikepeercorrremotevalue}
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrIntIndex"] = types.YLeaf{"Cikepeercorrintindex", cikepeercorrentry.Cikepeercorrintindex}
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrSeqNum"] = types.YLeaf{"Cikepeercorrseqnum", cikepeercorrentry.Cikepeercorrseqnum}
+    cikepeercorrentry.EntityData.Leafs["cikePeerCorrIpSecTunIndex"] = types.YLeaf{"Cikepeercorripsectunindex", cikepeercorrentry.Cikepeercorripsectunindex}
+    return &(cikepeercorrentry.EntityData)
 }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetSegmentPath() string {
-    return "cikePeerCorrEntry" + "[cikePeerCorrLocalType='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrlocaltype) + "']" + "[cikePeerCorrLocalValue='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrlocalvalue) + "']" + "[cikePeerCorrRemoteType='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrremotetype) + "']" + "[cikePeerCorrRemoteValue='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrremotevalue) + "']" + "[cikePeerCorrIntIndex='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrintindex) + "']" + "[cikePeerCorrSeqNum='" + fmt.Sprintf("%v", cikepeercorrentry.Cikepeercorrseqnum) + "']"
-}
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cikePeerCorrLocalType"] = cikepeercorrentry.Cikepeercorrlocaltype
-    leafs["cikePeerCorrLocalValue"] = cikepeercorrentry.Cikepeercorrlocalvalue
-    leafs["cikePeerCorrRemoteType"] = cikepeercorrentry.Cikepeercorrremotetype
-    leafs["cikePeerCorrRemoteValue"] = cikepeercorrentry.Cikepeercorrremotevalue
-    leafs["cikePeerCorrIntIndex"] = cikepeercorrentry.Cikepeercorrintindex
-    leafs["cikePeerCorrSeqNum"] = cikepeercorrentry.Cikepeercorrseqnum
-    leafs["cikePeerCorrIpSecTunIndex"] = cikepeercorrentry.Cikepeercorripsectunindex
-    return leafs
-}
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetYangName() string { return "cikePeerCorrEntry" }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) SetParent(parent types.Entity) { cikepeercorrentry.parent = parent }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetParent() types.Entity { return cikepeercorrentry.parent }
-
-func (cikepeercorrentry *CISCOIPSECFLOWMONITORMIB_Cikepeercorrtable_Cikepeercorrentry) GetParentYangName() string { return "cikePeerCorrTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable
 // Phase-1 IKE stats information is included in this table.
 // Each entry is related to a specific gateway which is 
 // identified by 'cmgwIndex'.
 type CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes of an Phase-1 IKE stats information for
@@ -2012,63 +1405,24 @@ type CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable struct {
     Cikephase1Gwstatsentry []CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry
 }
 
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetFilter() yfilter.YFilter { return cikephase1Gwstatstable.YFilter }
+func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetEntityData() *types.CommonEntityData {
+    cikephase1Gwstatstable.EntityData.YFilter = cikephase1Gwstatstable.YFilter
+    cikephase1Gwstatstable.EntityData.YangName = "cikePhase1GWStatsTable"
+    cikephase1Gwstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cikephase1Gwstatstable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cikephase1Gwstatstable.EntityData.SegmentPath = "cikePhase1GWStatsTable"
+    cikephase1Gwstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikephase1Gwstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikephase1Gwstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) SetFilter(yf yfilter.YFilter) { cikephase1Gwstatstable.YFilter = yf }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetGoName(yname string) string {
-    if yname == "cikePhase1GWStatsEntry" { return "Cikephase1Gwstatsentry" }
-    return ""
-}
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetSegmentPath() string {
-    return "cikePhase1GWStatsTable"
-}
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cikePhase1GWStatsEntry" {
-        for _, c := range cikephase1Gwstatstable.Cikephase1Gwstatsentry {
-            if cikephase1Gwstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry{}
-        cikephase1Gwstatstable.Cikephase1Gwstatsentry = append(cikephase1Gwstatstable.Cikephase1Gwstatsentry, child)
-        return &cikephase1Gwstatstable.Cikephase1Gwstatsentry[len(cikephase1Gwstatstable.Cikephase1Gwstatsentry)-1]
-    }
-    return nil
-}
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cikephase1Gwstatstable.EntityData.Children = make(map[string]types.YChild)
+    cikephase1Gwstatstable.EntityData.Children["cikePhase1GWStatsEntry"] = types.YChild{"Cikephase1Gwstatsentry", nil}
     for i := range cikephase1Gwstatstable.Cikephase1Gwstatsentry {
-        children[cikephase1Gwstatstable.Cikephase1Gwstatsentry[i].GetSegmentPath()] = &cikephase1Gwstatstable.Cikephase1Gwstatsentry[i]
+        cikephase1Gwstatstable.EntityData.Children[types.GetSegmentPath(&cikephase1Gwstatstable.Cikephase1Gwstatsentry[i])] = types.YChild{"Cikephase1Gwstatsentry", &cikephase1Gwstatstable.Cikephase1Gwstatsentry[i]}
     }
-    return children
+    cikephase1Gwstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cikephase1Gwstatstable.EntityData)
 }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetYangName() string { return "cikePhase1GWStatsTable" }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) SetParent(parent types.Entity) { cikephase1Gwstatstable.parent = parent }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetParent() types.Entity { return cikephase1Gwstatstable.parent }
-
-func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry
 // Each entry contains the attributes of an Phase-1 IKE stats
@@ -2077,7 +1431,7 @@ func (cikephase1Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable) G
 // There is only one entry for each gateway. The entry 
 // is created when a gateway up and cannot be deleted.
 type CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2216,110 +1570,54 @@ type CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry stru
     Cikephase1Gwnosafails interface{}
 }
 
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetFilter() yfilter.YFilter { return cikephase1Gwstatsentry.YFilter }
+func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetEntityData() *types.CommonEntityData {
+    cikephase1Gwstatsentry.EntityData.YFilter = cikephase1Gwstatsentry.YFilter
+    cikephase1Gwstatsentry.EntityData.YangName = "cikePhase1GWStatsEntry"
+    cikephase1Gwstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cikephase1Gwstatsentry.EntityData.ParentYangName = "cikePhase1GWStatsTable"
+    cikephase1Gwstatsentry.EntityData.SegmentPath = "cikePhase1GWStatsEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cikephase1Gwstatsentry.Cmgwindex) + "']"
+    cikephase1Gwstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikephase1Gwstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikephase1Gwstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) SetFilter(yf yfilter.YFilter) { cikephase1Gwstatsentry.YFilter = yf }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cikePhase1GWActiveTunnels" { return "Cikephase1Gwactivetunnels" }
-    if yname == "cikePhase1GWPreviousTunnels" { return "Cikephase1Gwprevioustunnels" }
-    if yname == "cikePhase1GWInOctets" { return "Cikephase1Gwinoctets" }
-    if yname == "cikePhase1GWInPkts" { return "Cikephase1Gwinpkts" }
-    if yname == "cikePhase1GWInDropPkts" { return "Cikephase1Gwindroppkts" }
-    if yname == "cikePhase1GWInNotifys" { return "Cikephase1Gwinnotifys" }
-    if yname == "cikePhase1GWInP2Exchgs" { return "Cikephase1Gwinp2Exchgs" }
-    if yname == "cikePhase1GWInP2ExchgInvalids" { return "Cikephase1Gwinp2Exchginvalids" }
-    if yname == "cikePhase1GWInP2ExchgRejects" { return "Cikephase1Gwinp2Exchgrejects" }
-    if yname == "cikePhase1GWInP2SaDelRequests" { return "Cikephase1Gwinp2Sadelrequests" }
-    if yname == "cikePhase1GWOutOctets" { return "Cikephase1Gwoutoctets" }
-    if yname == "cikePhase1GWOutPkts" { return "Cikephase1Gwoutpkts" }
-    if yname == "cikePhase1GWOutDropPkts" { return "Cikephase1Gwoutdroppkts" }
-    if yname == "cikePhase1GWOutNotifys" { return "Cikephase1Gwoutnotifys" }
-    if yname == "cikePhase1GWOutP2Exchgs" { return "Cikephase1Gwoutp2Exchgs" }
-    if yname == "cikePhase1GWOutP2ExchgInvalids" { return "Cikephase1Gwoutp2Exchginvalids" }
-    if yname == "cikePhase1GWOutP2ExchgRejects" { return "Cikephase1Gwoutp2Exchgrejects" }
-    if yname == "cikePhase1GWOutP2SaDelRequests" { return "Cikephase1Gwoutp2Sadelrequests" }
-    if yname == "cikePhase1GWInitTunnels" { return "Cikephase1Gwinittunnels" }
-    if yname == "cikePhase1GWInitTunnelFails" { return "Cikephase1Gwinittunnelfails" }
-    if yname == "cikePhase1GWRespTunnelFails" { return "Cikephase1Gwresptunnelfails" }
-    if yname == "cikePhase1GWSysCapFails" { return "Cikephase1Gwsyscapfails" }
-    if yname == "cikePhase1GWAuthFails" { return "Cikephase1Gwauthfails" }
-    if yname == "cikePhase1GWDecryptFails" { return "Cikephase1Gwdecryptfails" }
-    if yname == "cikePhase1GWHashValidFails" { return "Cikephase1Gwhashvalidfails" }
-    if yname == "cikePhase1GWNoSaFails" { return "Cikephase1Gwnosafails" }
-    return ""
+    cikephase1Gwstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cikephase1Gwstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cikephase1Gwstatsentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cikephase1Gwstatsentry.Cmgwindex}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWActiveTunnels"] = types.YLeaf{"Cikephase1Gwactivetunnels", cikephase1Gwstatsentry.Cikephase1Gwactivetunnels}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWPreviousTunnels"] = types.YLeaf{"Cikephase1Gwprevioustunnels", cikephase1Gwstatsentry.Cikephase1Gwprevioustunnels}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInOctets"] = types.YLeaf{"Cikephase1Gwinoctets", cikephase1Gwstatsentry.Cikephase1Gwinoctets}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInPkts"] = types.YLeaf{"Cikephase1Gwinpkts", cikephase1Gwstatsentry.Cikephase1Gwinpkts}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInDropPkts"] = types.YLeaf{"Cikephase1Gwindroppkts", cikephase1Gwstatsentry.Cikephase1Gwindroppkts}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInNotifys"] = types.YLeaf{"Cikephase1Gwinnotifys", cikephase1Gwstatsentry.Cikephase1Gwinnotifys}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInP2Exchgs"] = types.YLeaf{"Cikephase1Gwinp2Exchgs", cikephase1Gwstatsentry.Cikephase1Gwinp2Exchgs}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInP2ExchgInvalids"] = types.YLeaf{"Cikephase1Gwinp2Exchginvalids", cikephase1Gwstatsentry.Cikephase1Gwinp2Exchginvalids}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInP2ExchgRejects"] = types.YLeaf{"Cikephase1Gwinp2Exchgrejects", cikephase1Gwstatsentry.Cikephase1Gwinp2Exchgrejects}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInP2SaDelRequests"] = types.YLeaf{"Cikephase1Gwinp2Sadelrequests", cikephase1Gwstatsentry.Cikephase1Gwinp2Sadelrequests}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutOctets"] = types.YLeaf{"Cikephase1Gwoutoctets", cikephase1Gwstatsentry.Cikephase1Gwoutoctets}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutPkts"] = types.YLeaf{"Cikephase1Gwoutpkts", cikephase1Gwstatsentry.Cikephase1Gwoutpkts}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutDropPkts"] = types.YLeaf{"Cikephase1Gwoutdroppkts", cikephase1Gwstatsentry.Cikephase1Gwoutdroppkts}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutNotifys"] = types.YLeaf{"Cikephase1Gwoutnotifys", cikephase1Gwstatsentry.Cikephase1Gwoutnotifys}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutP2Exchgs"] = types.YLeaf{"Cikephase1Gwoutp2Exchgs", cikephase1Gwstatsentry.Cikephase1Gwoutp2Exchgs}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutP2ExchgInvalids"] = types.YLeaf{"Cikephase1Gwoutp2Exchginvalids", cikephase1Gwstatsentry.Cikephase1Gwoutp2Exchginvalids}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutP2ExchgRejects"] = types.YLeaf{"Cikephase1Gwoutp2Exchgrejects", cikephase1Gwstatsentry.Cikephase1Gwoutp2Exchgrejects}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWOutP2SaDelRequests"] = types.YLeaf{"Cikephase1Gwoutp2Sadelrequests", cikephase1Gwstatsentry.Cikephase1Gwoutp2Sadelrequests}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInitTunnels"] = types.YLeaf{"Cikephase1Gwinittunnels", cikephase1Gwstatsentry.Cikephase1Gwinittunnels}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWInitTunnelFails"] = types.YLeaf{"Cikephase1Gwinittunnelfails", cikephase1Gwstatsentry.Cikephase1Gwinittunnelfails}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWRespTunnelFails"] = types.YLeaf{"Cikephase1Gwresptunnelfails", cikephase1Gwstatsentry.Cikephase1Gwresptunnelfails}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWSysCapFails"] = types.YLeaf{"Cikephase1Gwsyscapfails", cikephase1Gwstatsentry.Cikephase1Gwsyscapfails}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWAuthFails"] = types.YLeaf{"Cikephase1Gwauthfails", cikephase1Gwstatsentry.Cikephase1Gwauthfails}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWDecryptFails"] = types.YLeaf{"Cikephase1Gwdecryptfails", cikephase1Gwstatsentry.Cikephase1Gwdecryptfails}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWHashValidFails"] = types.YLeaf{"Cikephase1Gwhashvalidfails", cikephase1Gwstatsentry.Cikephase1Gwhashvalidfails}
+    cikephase1Gwstatsentry.EntityData.Leafs["cikePhase1GWNoSaFails"] = types.YLeaf{"Cikephase1Gwnosafails", cikephase1Gwstatsentry.Cikephase1Gwnosafails}
+    return &(cikephase1Gwstatsentry.EntityData)
 }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetSegmentPath() string {
-    return "cikePhase1GWStatsEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cikephase1Gwstatsentry.Cmgwindex) + "']"
-}
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cikephase1Gwstatsentry.Cmgwindex
-    leafs["cikePhase1GWActiveTunnels"] = cikephase1Gwstatsentry.Cikephase1Gwactivetunnels
-    leafs["cikePhase1GWPreviousTunnels"] = cikephase1Gwstatsentry.Cikephase1Gwprevioustunnels
-    leafs["cikePhase1GWInOctets"] = cikephase1Gwstatsentry.Cikephase1Gwinoctets
-    leafs["cikePhase1GWInPkts"] = cikephase1Gwstatsentry.Cikephase1Gwinpkts
-    leafs["cikePhase1GWInDropPkts"] = cikephase1Gwstatsentry.Cikephase1Gwindroppkts
-    leafs["cikePhase1GWInNotifys"] = cikephase1Gwstatsentry.Cikephase1Gwinnotifys
-    leafs["cikePhase1GWInP2Exchgs"] = cikephase1Gwstatsentry.Cikephase1Gwinp2Exchgs
-    leafs["cikePhase1GWInP2ExchgInvalids"] = cikephase1Gwstatsentry.Cikephase1Gwinp2Exchginvalids
-    leafs["cikePhase1GWInP2ExchgRejects"] = cikephase1Gwstatsentry.Cikephase1Gwinp2Exchgrejects
-    leafs["cikePhase1GWInP2SaDelRequests"] = cikephase1Gwstatsentry.Cikephase1Gwinp2Sadelrequests
-    leafs["cikePhase1GWOutOctets"] = cikephase1Gwstatsentry.Cikephase1Gwoutoctets
-    leafs["cikePhase1GWOutPkts"] = cikephase1Gwstatsentry.Cikephase1Gwoutpkts
-    leafs["cikePhase1GWOutDropPkts"] = cikephase1Gwstatsentry.Cikephase1Gwoutdroppkts
-    leafs["cikePhase1GWOutNotifys"] = cikephase1Gwstatsentry.Cikephase1Gwoutnotifys
-    leafs["cikePhase1GWOutP2Exchgs"] = cikephase1Gwstatsentry.Cikephase1Gwoutp2Exchgs
-    leafs["cikePhase1GWOutP2ExchgInvalids"] = cikephase1Gwstatsentry.Cikephase1Gwoutp2Exchginvalids
-    leafs["cikePhase1GWOutP2ExchgRejects"] = cikephase1Gwstatsentry.Cikephase1Gwoutp2Exchgrejects
-    leafs["cikePhase1GWOutP2SaDelRequests"] = cikephase1Gwstatsentry.Cikephase1Gwoutp2Sadelrequests
-    leafs["cikePhase1GWInitTunnels"] = cikephase1Gwstatsentry.Cikephase1Gwinittunnels
-    leafs["cikePhase1GWInitTunnelFails"] = cikephase1Gwstatsentry.Cikephase1Gwinittunnelfails
-    leafs["cikePhase1GWRespTunnelFails"] = cikephase1Gwstatsentry.Cikephase1Gwresptunnelfails
-    leafs["cikePhase1GWSysCapFails"] = cikephase1Gwstatsentry.Cikephase1Gwsyscapfails
-    leafs["cikePhase1GWAuthFails"] = cikephase1Gwstatsentry.Cikephase1Gwauthfails
-    leafs["cikePhase1GWDecryptFails"] = cikephase1Gwstatsentry.Cikephase1Gwdecryptfails
-    leafs["cikePhase1GWHashValidFails"] = cikephase1Gwstatsentry.Cikephase1Gwhashvalidfails
-    leafs["cikePhase1GWNoSaFails"] = cikephase1Gwstatsentry.Cikephase1Gwnosafails
-    return leafs
-}
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetYangName() string { return "cikePhase1GWStatsEntry" }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) SetParent(parent types.Entity) { cikephase1Gwstatsentry.parent = parent }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetParent() types.Entity { return cikephase1Gwstatsentry.parent }
-
-func (cikephase1Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cikephase1Gwstatstable_Cikephase1Gwstatsentry) GetParentYangName() string { return "cikePhase1GWStatsTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsectunneltable
 // The IPsec Phase-2 Tunnel Table.
 // There is one entry in this table for 
 // each active IPsec Phase-2 Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Cipsectunneltable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with an active IPsec Phase-2
@@ -2328,69 +1626,30 @@ type CISCOIPSECFLOWMONITORMIB_Cipsectunneltable struct {
     Cipsectunnelentry []CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry
 }
 
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetFilter() yfilter.YFilter { return cipsectunneltable.YFilter }
+func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetEntityData() *types.CommonEntityData {
+    cipsectunneltable.EntityData.YFilter = cipsectunneltable.YFilter
+    cipsectunneltable.EntityData.YangName = "cipSecTunnelTable"
+    cipsectunneltable.EntityData.BundleName = "cisco_ios_xe"
+    cipsectunneltable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsectunneltable.EntityData.SegmentPath = "cipSecTunnelTable"
+    cipsectunneltable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsectunneltable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsectunneltable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) SetFilter(yf yfilter.YFilter) { cipsectunneltable.YFilter = yf }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetGoName(yname string) string {
-    if yname == "cipSecTunnelEntry" { return "Cipsectunnelentry" }
-    return ""
-}
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetSegmentPath() string {
-    return "cipSecTunnelTable"
-}
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecTunnelEntry" {
-        for _, c := range cipsectunneltable.Cipsectunnelentry {
-            if cipsectunneltable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry{}
-        cipsectunneltable.Cipsectunnelentry = append(cipsectunneltable.Cipsectunnelentry, child)
-        return &cipsectunneltable.Cipsectunnelentry[len(cipsectunneltable.Cipsectunnelentry)-1]
-    }
-    return nil
-}
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsectunneltable.EntityData.Children = make(map[string]types.YChild)
+    cipsectunneltable.EntityData.Children["cipSecTunnelEntry"] = types.YChild{"Cipsectunnelentry", nil}
     for i := range cipsectunneltable.Cipsectunnelentry {
-        children[cipsectunneltable.Cipsectunnelentry[i].GetSegmentPath()] = &cipsectunneltable.Cipsectunnelentry[i]
+        cipsectunneltable.EntityData.Children[types.GetSegmentPath(&cipsectunneltable.Cipsectunnelentry[i])] = types.YChild{"Cipsectunnelentry", &cipsectunneltable.Cipsectunnelentry[i]}
     }
-    return children
+    cipsectunneltable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsectunneltable.EntityData)
 }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetYangName() string { return "cipSecTunnelTable" }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) SetParent(parent types.Entity) { cipsectunneltable.parent = parent }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetParent() types.Entity { return cipsectunneltable.parent }
-
-func (cipsectunneltable *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry
 // Each entry contains the attributes
 // associated with an active IPsec Phase-2 Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the IPsec Phase-2 Tunnel Table. The
@@ -2646,151 +1905,71 @@ type CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry struct {
     Cipsectunstatus interface{}
 }
 
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetFilter() yfilter.YFilter { return cipsectunnelentry.YFilter }
+func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetEntityData() *types.CommonEntityData {
+    cipsectunnelentry.EntityData.YFilter = cipsectunnelentry.YFilter
+    cipsectunnelentry.EntityData.YangName = "cipSecTunnelEntry"
+    cipsectunnelentry.EntityData.BundleName = "cisco_ios_xe"
+    cipsectunnelentry.EntityData.ParentYangName = "cipSecTunnelTable"
+    cipsectunnelentry.EntityData.SegmentPath = "cipSecTunnelEntry" + "[cipSecTunIndex='" + fmt.Sprintf("%v", cipsectunnelentry.Cipsectunindex) + "']"
+    cipsectunnelentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsectunnelentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsectunnelentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) SetFilter(yf yfilter.YFilter) { cipsectunnelentry.YFilter = yf }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetGoName(yname string) string {
-    if yname == "cipSecTunIndex" { return "Cipsectunindex" }
-    if yname == "cipSecTunIkeTunnelIndex" { return "Cipsectuniketunnelindex" }
-    if yname == "cipSecTunIkeTunnelAlive" { return "Cipsectuniketunnelalive" }
-    if yname == "cipSecTunLocalAddr" { return "Cipsectunlocaladdr" }
-    if yname == "cipSecTunRemoteAddr" { return "Cipsectunremoteaddr" }
-    if yname == "cipSecTunKeyType" { return "Cipsectunkeytype" }
-    if yname == "cipSecTunEncapMode" { return "Cipsectunencapmode" }
-    if yname == "cipSecTunLifeSize" { return "Cipsectunlifesize" }
-    if yname == "cipSecTunLifeTime" { return "Cipsectunlifetime" }
-    if yname == "cipSecTunActiveTime" { return "Cipsectunactivetime" }
-    if yname == "cipSecTunSaLifeSizeThreshold" { return "Cipsectunsalifesizethreshold" }
-    if yname == "cipSecTunSaLifeTimeThreshold" { return "Cipsectunsalifetimethreshold" }
-    if yname == "cipSecTunTotalRefreshes" { return "Cipsectuntotalrefreshes" }
-    if yname == "cipSecTunExpiredSaInstances" { return "Cipsectunexpiredsainstances" }
-    if yname == "cipSecTunCurrentSaInstances" { return "Cipsectuncurrentsainstances" }
-    if yname == "cipSecTunInSaDiffHellmanGrp" { return "Cipsectuninsadiffhellmangrp" }
-    if yname == "cipSecTunInSaEncryptAlgo" { return "Cipsectuninsaencryptalgo" }
-    if yname == "cipSecTunInSaAhAuthAlgo" { return "Cipsectuninsaahauthalgo" }
-    if yname == "cipSecTunInSaEspAuthAlgo" { return "Cipsectuninsaespauthalgo" }
-    if yname == "cipSecTunInSaDecompAlgo" { return "Cipsectuninsadecompalgo" }
-    if yname == "cipSecTunOutSaDiffHellmanGrp" { return "Cipsectunoutsadiffhellmangrp" }
-    if yname == "cipSecTunOutSaEncryptAlgo" { return "Cipsectunoutsaencryptalgo" }
-    if yname == "cipSecTunOutSaAhAuthAlgo" { return "Cipsectunoutsaahauthalgo" }
-    if yname == "cipSecTunOutSaEspAuthAlgo" { return "Cipsectunoutsaespauthalgo" }
-    if yname == "cipSecTunOutSaCompAlgo" { return "Cipsectunoutsacompalgo" }
-    if yname == "cipSecTunInOctets" { return "Cipsectuninoctets" }
-    if yname == "cipSecTunHcInOctets" { return "Cipsectunhcinoctets" }
-    if yname == "cipSecTunInOctWraps" { return "Cipsectuninoctwraps" }
-    if yname == "cipSecTunInDecompOctets" { return "Cipsectunindecompoctets" }
-    if yname == "cipSecTunHcInDecompOctets" { return "Cipsectunhcindecompoctets" }
-    if yname == "cipSecTunInDecompOctWraps" { return "Cipsectunindecompoctwraps" }
-    if yname == "cipSecTunInPkts" { return "Cipsectuninpkts" }
-    if yname == "cipSecTunInDropPkts" { return "Cipsectunindroppkts" }
-    if yname == "cipSecTunInReplayDropPkts" { return "Cipsectuninreplaydroppkts" }
-    if yname == "cipSecTunInAuths" { return "Cipsectuninauths" }
-    if yname == "cipSecTunInAuthFails" { return "Cipsectuninauthfails" }
-    if yname == "cipSecTunInDecrypts" { return "Cipsectunindecrypts" }
-    if yname == "cipSecTunInDecryptFails" { return "Cipsectunindecryptfails" }
-    if yname == "cipSecTunOutOctets" { return "Cipsectunoutoctets" }
-    if yname == "cipSecTunHcOutOctets" { return "Cipsectunhcoutoctets" }
-    if yname == "cipSecTunOutOctWraps" { return "Cipsectunoutoctwraps" }
-    if yname == "cipSecTunOutUncompOctets" { return "Cipsectunoutuncompoctets" }
-    if yname == "cipSecTunHcOutUncompOctets" { return "Cipsectunhcoutuncompoctets" }
-    if yname == "cipSecTunOutUncompOctWraps" { return "Cipsectunoutuncompoctwraps" }
-    if yname == "cipSecTunOutPkts" { return "Cipsectunoutpkts" }
-    if yname == "cipSecTunOutDropPkts" { return "Cipsectunoutdroppkts" }
-    if yname == "cipSecTunOutAuths" { return "Cipsectunoutauths" }
-    if yname == "cipSecTunOutAuthFails" { return "Cipsectunoutauthfails" }
-    if yname == "cipSecTunOutEncrypts" { return "Cipsectunoutencrypts" }
-    if yname == "cipSecTunOutEncryptFails" { return "Cipsectunoutencryptfails" }
-    if yname == "cipSecTunStatus" { return "Cipsectunstatus" }
-    return ""
+    cipsectunnelentry.EntityData.Children = make(map[string]types.YChild)
+    cipsectunnelentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsectunnelentry.EntityData.Leafs["cipSecTunIndex"] = types.YLeaf{"Cipsectunindex", cipsectunnelentry.Cipsectunindex}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunIkeTunnelIndex"] = types.YLeaf{"Cipsectuniketunnelindex", cipsectunnelentry.Cipsectuniketunnelindex}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunIkeTunnelAlive"] = types.YLeaf{"Cipsectuniketunnelalive", cipsectunnelentry.Cipsectuniketunnelalive}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunLocalAddr"] = types.YLeaf{"Cipsectunlocaladdr", cipsectunnelentry.Cipsectunlocaladdr}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunRemoteAddr"] = types.YLeaf{"Cipsectunremoteaddr", cipsectunnelentry.Cipsectunremoteaddr}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunKeyType"] = types.YLeaf{"Cipsectunkeytype", cipsectunnelentry.Cipsectunkeytype}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunEncapMode"] = types.YLeaf{"Cipsectunencapmode", cipsectunnelentry.Cipsectunencapmode}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunLifeSize"] = types.YLeaf{"Cipsectunlifesize", cipsectunnelentry.Cipsectunlifesize}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunLifeTime"] = types.YLeaf{"Cipsectunlifetime", cipsectunnelentry.Cipsectunlifetime}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunActiveTime"] = types.YLeaf{"Cipsectunactivetime", cipsectunnelentry.Cipsectunactivetime}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunSaLifeSizeThreshold"] = types.YLeaf{"Cipsectunsalifesizethreshold", cipsectunnelentry.Cipsectunsalifesizethreshold}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunSaLifeTimeThreshold"] = types.YLeaf{"Cipsectunsalifetimethreshold", cipsectunnelentry.Cipsectunsalifetimethreshold}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunTotalRefreshes"] = types.YLeaf{"Cipsectuntotalrefreshes", cipsectunnelentry.Cipsectuntotalrefreshes}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunExpiredSaInstances"] = types.YLeaf{"Cipsectunexpiredsainstances", cipsectunnelentry.Cipsectunexpiredsainstances}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunCurrentSaInstances"] = types.YLeaf{"Cipsectuncurrentsainstances", cipsectunnelentry.Cipsectuncurrentsainstances}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInSaDiffHellmanGrp"] = types.YLeaf{"Cipsectuninsadiffhellmangrp", cipsectunnelentry.Cipsectuninsadiffhellmangrp}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInSaEncryptAlgo"] = types.YLeaf{"Cipsectuninsaencryptalgo", cipsectunnelentry.Cipsectuninsaencryptalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInSaAhAuthAlgo"] = types.YLeaf{"Cipsectuninsaahauthalgo", cipsectunnelentry.Cipsectuninsaahauthalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInSaEspAuthAlgo"] = types.YLeaf{"Cipsectuninsaespauthalgo", cipsectunnelentry.Cipsectuninsaespauthalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInSaDecompAlgo"] = types.YLeaf{"Cipsectuninsadecompalgo", cipsectunnelentry.Cipsectuninsadecompalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutSaDiffHellmanGrp"] = types.YLeaf{"Cipsectunoutsadiffhellmangrp", cipsectunnelentry.Cipsectunoutsadiffhellmangrp}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutSaEncryptAlgo"] = types.YLeaf{"Cipsectunoutsaencryptalgo", cipsectunnelentry.Cipsectunoutsaencryptalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutSaAhAuthAlgo"] = types.YLeaf{"Cipsectunoutsaahauthalgo", cipsectunnelentry.Cipsectunoutsaahauthalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutSaEspAuthAlgo"] = types.YLeaf{"Cipsectunoutsaespauthalgo", cipsectunnelentry.Cipsectunoutsaespauthalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutSaCompAlgo"] = types.YLeaf{"Cipsectunoutsacompalgo", cipsectunnelentry.Cipsectunoutsacompalgo}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInOctets"] = types.YLeaf{"Cipsectuninoctets", cipsectunnelentry.Cipsectuninoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunHcInOctets"] = types.YLeaf{"Cipsectunhcinoctets", cipsectunnelentry.Cipsectunhcinoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInOctWraps"] = types.YLeaf{"Cipsectuninoctwraps", cipsectunnelentry.Cipsectuninoctwraps}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInDecompOctets"] = types.YLeaf{"Cipsectunindecompoctets", cipsectunnelentry.Cipsectunindecompoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunHcInDecompOctets"] = types.YLeaf{"Cipsectunhcindecompoctets", cipsectunnelentry.Cipsectunhcindecompoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInDecompOctWraps"] = types.YLeaf{"Cipsectunindecompoctwraps", cipsectunnelentry.Cipsectunindecompoctwraps}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInPkts"] = types.YLeaf{"Cipsectuninpkts", cipsectunnelentry.Cipsectuninpkts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInDropPkts"] = types.YLeaf{"Cipsectunindroppkts", cipsectunnelentry.Cipsectunindroppkts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInReplayDropPkts"] = types.YLeaf{"Cipsectuninreplaydroppkts", cipsectunnelentry.Cipsectuninreplaydroppkts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInAuths"] = types.YLeaf{"Cipsectuninauths", cipsectunnelentry.Cipsectuninauths}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInAuthFails"] = types.YLeaf{"Cipsectuninauthfails", cipsectunnelentry.Cipsectuninauthfails}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInDecrypts"] = types.YLeaf{"Cipsectunindecrypts", cipsectunnelentry.Cipsectunindecrypts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunInDecryptFails"] = types.YLeaf{"Cipsectunindecryptfails", cipsectunnelentry.Cipsectunindecryptfails}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutOctets"] = types.YLeaf{"Cipsectunoutoctets", cipsectunnelentry.Cipsectunoutoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunHcOutOctets"] = types.YLeaf{"Cipsectunhcoutoctets", cipsectunnelentry.Cipsectunhcoutoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutOctWraps"] = types.YLeaf{"Cipsectunoutoctwraps", cipsectunnelentry.Cipsectunoutoctwraps}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutUncompOctets"] = types.YLeaf{"Cipsectunoutuncompoctets", cipsectunnelentry.Cipsectunoutuncompoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunHcOutUncompOctets"] = types.YLeaf{"Cipsectunhcoutuncompoctets", cipsectunnelentry.Cipsectunhcoutuncompoctets}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutUncompOctWraps"] = types.YLeaf{"Cipsectunoutuncompoctwraps", cipsectunnelentry.Cipsectunoutuncompoctwraps}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutPkts"] = types.YLeaf{"Cipsectunoutpkts", cipsectunnelentry.Cipsectunoutpkts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutDropPkts"] = types.YLeaf{"Cipsectunoutdroppkts", cipsectunnelentry.Cipsectunoutdroppkts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutAuths"] = types.YLeaf{"Cipsectunoutauths", cipsectunnelentry.Cipsectunoutauths}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutAuthFails"] = types.YLeaf{"Cipsectunoutauthfails", cipsectunnelentry.Cipsectunoutauthfails}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutEncrypts"] = types.YLeaf{"Cipsectunoutencrypts", cipsectunnelentry.Cipsectunoutencrypts}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunOutEncryptFails"] = types.YLeaf{"Cipsectunoutencryptfails", cipsectunnelentry.Cipsectunoutencryptfails}
+    cipsectunnelentry.EntityData.Leafs["cipSecTunStatus"] = types.YLeaf{"Cipsectunstatus", cipsectunnelentry.Cipsectunstatus}
+    return &(cipsectunnelentry.EntityData)
 }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetSegmentPath() string {
-    return "cipSecTunnelEntry" + "[cipSecTunIndex='" + fmt.Sprintf("%v", cipsectunnelentry.Cipsectunindex) + "']"
-}
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecTunIndex"] = cipsectunnelentry.Cipsectunindex
-    leafs["cipSecTunIkeTunnelIndex"] = cipsectunnelentry.Cipsectuniketunnelindex
-    leafs["cipSecTunIkeTunnelAlive"] = cipsectunnelentry.Cipsectuniketunnelalive
-    leafs["cipSecTunLocalAddr"] = cipsectunnelentry.Cipsectunlocaladdr
-    leafs["cipSecTunRemoteAddr"] = cipsectunnelentry.Cipsectunremoteaddr
-    leafs["cipSecTunKeyType"] = cipsectunnelentry.Cipsectunkeytype
-    leafs["cipSecTunEncapMode"] = cipsectunnelentry.Cipsectunencapmode
-    leafs["cipSecTunLifeSize"] = cipsectunnelentry.Cipsectunlifesize
-    leafs["cipSecTunLifeTime"] = cipsectunnelentry.Cipsectunlifetime
-    leafs["cipSecTunActiveTime"] = cipsectunnelentry.Cipsectunactivetime
-    leafs["cipSecTunSaLifeSizeThreshold"] = cipsectunnelentry.Cipsectunsalifesizethreshold
-    leafs["cipSecTunSaLifeTimeThreshold"] = cipsectunnelentry.Cipsectunsalifetimethreshold
-    leafs["cipSecTunTotalRefreshes"] = cipsectunnelentry.Cipsectuntotalrefreshes
-    leafs["cipSecTunExpiredSaInstances"] = cipsectunnelentry.Cipsectunexpiredsainstances
-    leafs["cipSecTunCurrentSaInstances"] = cipsectunnelentry.Cipsectuncurrentsainstances
-    leafs["cipSecTunInSaDiffHellmanGrp"] = cipsectunnelentry.Cipsectuninsadiffhellmangrp
-    leafs["cipSecTunInSaEncryptAlgo"] = cipsectunnelentry.Cipsectuninsaencryptalgo
-    leafs["cipSecTunInSaAhAuthAlgo"] = cipsectunnelentry.Cipsectuninsaahauthalgo
-    leafs["cipSecTunInSaEspAuthAlgo"] = cipsectunnelentry.Cipsectuninsaespauthalgo
-    leafs["cipSecTunInSaDecompAlgo"] = cipsectunnelentry.Cipsectuninsadecompalgo
-    leafs["cipSecTunOutSaDiffHellmanGrp"] = cipsectunnelentry.Cipsectunoutsadiffhellmangrp
-    leafs["cipSecTunOutSaEncryptAlgo"] = cipsectunnelentry.Cipsectunoutsaencryptalgo
-    leafs["cipSecTunOutSaAhAuthAlgo"] = cipsectunnelentry.Cipsectunoutsaahauthalgo
-    leafs["cipSecTunOutSaEspAuthAlgo"] = cipsectunnelentry.Cipsectunoutsaespauthalgo
-    leafs["cipSecTunOutSaCompAlgo"] = cipsectunnelentry.Cipsectunoutsacompalgo
-    leafs["cipSecTunInOctets"] = cipsectunnelentry.Cipsectuninoctets
-    leafs["cipSecTunHcInOctets"] = cipsectunnelentry.Cipsectunhcinoctets
-    leafs["cipSecTunInOctWraps"] = cipsectunnelentry.Cipsectuninoctwraps
-    leafs["cipSecTunInDecompOctets"] = cipsectunnelentry.Cipsectunindecompoctets
-    leafs["cipSecTunHcInDecompOctets"] = cipsectunnelentry.Cipsectunhcindecompoctets
-    leafs["cipSecTunInDecompOctWraps"] = cipsectunnelentry.Cipsectunindecompoctwraps
-    leafs["cipSecTunInPkts"] = cipsectunnelentry.Cipsectuninpkts
-    leafs["cipSecTunInDropPkts"] = cipsectunnelentry.Cipsectunindroppkts
-    leafs["cipSecTunInReplayDropPkts"] = cipsectunnelentry.Cipsectuninreplaydroppkts
-    leafs["cipSecTunInAuths"] = cipsectunnelentry.Cipsectuninauths
-    leafs["cipSecTunInAuthFails"] = cipsectunnelentry.Cipsectuninauthfails
-    leafs["cipSecTunInDecrypts"] = cipsectunnelentry.Cipsectunindecrypts
-    leafs["cipSecTunInDecryptFails"] = cipsectunnelentry.Cipsectunindecryptfails
-    leafs["cipSecTunOutOctets"] = cipsectunnelentry.Cipsectunoutoctets
-    leafs["cipSecTunHcOutOctets"] = cipsectunnelentry.Cipsectunhcoutoctets
-    leafs["cipSecTunOutOctWraps"] = cipsectunnelentry.Cipsectunoutoctwraps
-    leafs["cipSecTunOutUncompOctets"] = cipsectunnelentry.Cipsectunoutuncompoctets
-    leafs["cipSecTunHcOutUncompOctets"] = cipsectunnelentry.Cipsectunhcoutuncompoctets
-    leafs["cipSecTunOutUncompOctWraps"] = cipsectunnelentry.Cipsectunoutuncompoctwraps
-    leafs["cipSecTunOutPkts"] = cipsectunnelentry.Cipsectunoutpkts
-    leafs["cipSecTunOutDropPkts"] = cipsectunnelentry.Cipsectunoutdroppkts
-    leafs["cipSecTunOutAuths"] = cipsectunnelentry.Cipsectunoutauths
-    leafs["cipSecTunOutAuthFails"] = cipsectunnelentry.Cipsectunoutauthfails
-    leafs["cipSecTunOutEncrypts"] = cipsectunnelentry.Cipsectunoutencrypts
-    leafs["cipSecTunOutEncryptFails"] = cipsectunnelentry.Cipsectunoutencryptfails
-    leafs["cipSecTunStatus"] = cipsectunnelentry.Cipsectunstatus
-    return leafs
-}
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetYangName() string { return "cipSecTunnelEntry" }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) SetParent(parent types.Entity) { cipsectunnelentry.parent = parent }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetParent() types.Entity { return cipsectunnelentry.parent }
-
-func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnelentry) GetParentYangName() string { return "cipSecTunnelTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecendpttable
 // The IPsec Phase-2 Tunnel Endpoint Table.
@@ -2798,7 +1977,7 @@ func (cipsectunnelentry *CISCOIPSECFLOWMONITORMIB_Cipsectunneltable_Cipsectunnel
 // active endpoint associated with an IPsec
 //  Phase-2 Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Cipsecendpttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An IPsec Phase-2 Tunnel Endpoint entry. The type is slice of
@@ -2806,68 +1985,29 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecendpttable struct {
     Cipsecendptentry []CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry
 }
 
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetFilter() yfilter.YFilter { return cipsecendpttable.YFilter }
+func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetEntityData() *types.CommonEntityData {
+    cipsecendpttable.EntityData.YFilter = cipsecendpttable.YFilter
+    cipsecendpttable.EntityData.YangName = "cipSecEndPtTable"
+    cipsecendpttable.EntityData.BundleName = "cisco_ios_xe"
+    cipsecendpttable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecendpttable.EntityData.SegmentPath = "cipSecEndPtTable"
+    cipsecendpttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecendpttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecendpttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) SetFilter(yf yfilter.YFilter) { cipsecendpttable.YFilter = yf }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetGoName(yname string) string {
-    if yname == "cipSecEndPtEntry" { return "Cipsecendptentry" }
-    return ""
-}
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetSegmentPath() string {
-    return "cipSecEndPtTable"
-}
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecEndPtEntry" {
-        for _, c := range cipsecendpttable.Cipsecendptentry {
-            if cipsecendpttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry{}
-        cipsecendpttable.Cipsecendptentry = append(cipsecendpttable.Cipsecendptentry, child)
-        return &cipsecendpttable.Cipsecendptentry[len(cipsecendpttable.Cipsecendptentry)-1]
-    }
-    return nil
-}
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsecendpttable.EntityData.Children = make(map[string]types.YChild)
+    cipsecendpttable.EntityData.Children["cipSecEndPtEntry"] = types.YChild{"Cipsecendptentry", nil}
     for i := range cipsecendpttable.Cipsecendptentry {
-        children[cipsecendpttable.Cipsecendptentry[i].GetSegmentPath()] = &cipsecendpttable.Cipsecendptentry[i]
+        cipsecendpttable.EntityData.Children[types.GetSegmentPath(&cipsecendpttable.Cipsecendptentry[i])] = types.YChild{"Cipsecendptentry", &cipsecendpttable.Cipsecendptentry[i]}
     }
-    return children
+    cipsecendpttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsecendpttable.EntityData)
 }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetYangName() string { return "cipSecEndPtTable" }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) SetParent(parent types.Entity) { cipsecendpttable.parent = parent }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetParent() types.Entity { return cipsecendpttable.parent }
-
-func (cipsecendpttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry
 // An IPsec Phase-2 Tunnel Endpoint entry.
 type CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -2946,77 +2086,34 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry struct {
     Cipsecendptremoteport interface{}
 }
 
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetFilter() yfilter.YFilter { return cipsecendptentry.YFilter }
+func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetEntityData() *types.CommonEntityData {
+    cipsecendptentry.EntityData.YFilter = cipsecendptentry.YFilter
+    cipsecendptentry.EntityData.YangName = "cipSecEndPtEntry"
+    cipsecendptentry.EntityData.BundleName = "cisco_ios_xe"
+    cipsecendptentry.EntityData.ParentYangName = "cipSecEndPtTable"
+    cipsecendptentry.EntityData.SegmentPath = "cipSecEndPtEntry" + "[cipSecTunIndex='" + fmt.Sprintf("%v", cipsecendptentry.Cipsectunindex) + "']" + "[cipSecEndPtIndex='" + fmt.Sprintf("%v", cipsecendptentry.Cipsecendptindex) + "']"
+    cipsecendptentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecendptentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecendptentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) SetFilter(yf yfilter.YFilter) { cipsecendptentry.YFilter = yf }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetGoName(yname string) string {
-    if yname == "cipSecTunIndex" { return "Cipsectunindex" }
-    if yname == "cipSecEndPtIndex" { return "Cipsecendptindex" }
-    if yname == "cipSecEndPtLocalName" { return "Cipsecendptlocalname" }
-    if yname == "cipSecEndPtLocalType" { return "Cipsecendptlocaltype" }
-    if yname == "cipSecEndPtLocalAddr1" { return "Cipsecendptlocaladdr1" }
-    if yname == "cipSecEndPtLocalAddr2" { return "Cipsecendptlocaladdr2" }
-    if yname == "cipSecEndPtLocalProtocol" { return "Cipsecendptlocalprotocol" }
-    if yname == "cipSecEndPtLocalPort" { return "Cipsecendptlocalport" }
-    if yname == "cipSecEndPtRemoteName" { return "Cipsecendptremotename" }
-    if yname == "cipSecEndPtRemoteType" { return "Cipsecendptremotetype" }
-    if yname == "cipSecEndPtRemoteAddr1" { return "Cipsecendptremoteaddr1" }
-    if yname == "cipSecEndPtRemoteAddr2" { return "Cipsecendptremoteaddr2" }
-    if yname == "cipSecEndPtRemoteProtocol" { return "Cipsecendptremoteprotocol" }
-    if yname == "cipSecEndPtRemotePort" { return "Cipsecendptremoteport" }
-    return ""
+    cipsecendptentry.EntityData.Children = make(map[string]types.YChild)
+    cipsecendptentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecendptentry.EntityData.Leafs["cipSecTunIndex"] = types.YLeaf{"Cipsectunindex", cipsecendptentry.Cipsectunindex}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtIndex"] = types.YLeaf{"Cipsecendptindex", cipsecendptentry.Cipsecendptindex}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtLocalName"] = types.YLeaf{"Cipsecendptlocalname", cipsecendptentry.Cipsecendptlocalname}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtLocalType"] = types.YLeaf{"Cipsecendptlocaltype", cipsecendptentry.Cipsecendptlocaltype}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtLocalAddr1"] = types.YLeaf{"Cipsecendptlocaladdr1", cipsecendptentry.Cipsecendptlocaladdr1}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtLocalAddr2"] = types.YLeaf{"Cipsecendptlocaladdr2", cipsecendptentry.Cipsecendptlocaladdr2}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtLocalProtocol"] = types.YLeaf{"Cipsecendptlocalprotocol", cipsecendptentry.Cipsecendptlocalprotocol}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtLocalPort"] = types.YLeaf{"Cipsecendptlocalport", cipsecendptentry.Cipsecendptlocalport}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtRemoteName"] = types.YLeaf{"Cipsecendptremotename", cipsecendptentry.Cipsecendptremotename}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtRemoteType"] = types.YLeaf{"Cipsecendptremotetype", cipsecendptentry.Cipsecendptremotetype}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtRemoteAddr1"] = types.YLeaf{"Cipsecendptremoteaddr1", cipsecendptentry.Cipsecendptremoteaddr1}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtRemoteAddr2"] = types.YLeaf{"Cipsecendptremoteaddr2", cipsecendptentry.Cipsecendptremoteaddr2}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtRemoteProtocol"] = types.YLeaf{"Cipsecendptremoteprotocol", cipsecendptentry.Cipsecendptremoteprotocol}
+    cipsecendptentry.EntityData.Leafs["cipSecEndPtRemotePort"] = types.YLeaf{"Cipsecendptremoteport", cipsecendptentry.Cipsecendptremoteport}
+    return &(cipsecendptentry.EntityData)
 }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetSegmentPath() string {
-    return "cipSecEndPtEntry" + "[cipSecTunIndex='" + fmt.Sprintf("%v", cipsecendptentry.Cipsectunindex) + "']" + "[cipSecEndPtIndex='" + fmt.Sprintf("%v", cipsecendptentry.Cipsecendptindex) + "']"
-}
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecTunIndex"] = cipsecendptentry.Cipsectunindex
-    leafs["cipSecEndPtIndex"] = cipsecendptentry.Cipsecendptindex
-    leafs["cipSecEndPtLocalName"] = cipsecendptentry.Cipsecendptlocalname
-    leafs["cipSecEndPtLocalType"] = cipsecendptentry.Cipsecendptlocaltype
-    leafs["cipSecEndPtLocalAddr1"] = cipsecendptentry.Cipsecendptlocaladdr1
-    leafs["cipSecEndPtLocalAddr2"] = cipsecendptentry.Cipsecendptlocaladdr2
-    leafs["cipSecEndPtLocalProtocol"] = cipsecendptentry.Cipsecendptlocalprotocol
-    leafs["cipSecEndPtLocalPort"] = cipsecendptentry.Cipsecendptlocalport
-    leafs["cipSecEndPtRemoteName"] = cipsecendptentry.Cipsecendptremotename
-    leafs["cipSecEndPtRemoteType"] = cipsecendptentry.Cipsecendptremotetype
-    leafs["cipSecEndPtRemoteAddr1"] = cipsecendptentry.Cipsecendptremoteaddr1
-    leafs["cipSecEndPtRemoteAddr2"] = cipsecendptentry.Cipsecendptremoteaddr2
-    leafs["cipSecEndPtRemoteProtocol"] = cipsecendptentry.Cipsecendptremoteprotocol
-    leafs["cipSecEndPtRemotePort"] = cipsecendptentry.Cipsecendptremoteport
-    return leafs
-}
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetYangName() string { return "cipSecEndPtEntry" }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) SetParent(parent types.Entity) { cipsecendptentry.parent = parent }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetParent() types.Entity { return cipsecendptentry.parent }
-
-func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptentry) GetParentYangName() string { return "cipSecEndPtTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecspitable
 // The IPsec Phase-2 Security Protection Index Table.
@@ -3024,7 +2121,7 @@ func (cipsecendptentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpttable_Cipsecendptent
 // and expiring security
 //  association.
 type CISCOIPSECFLOWMONITORMIB_Cipsecspitable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with active and expiring
@@ -3033,70 +2130,31 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecspitable struct {
     Cipsecspientry []CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry
 }
 
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetFilter() yfilter.YFilter { return cipsecspitable.YFilter }
+func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetEntityData() *types.CommonEntityData {
+    cipsecspitable.EntityData.YFilter = cipsecspitable.YFilter
+    cipsecspitable.EntityData.YangName = "cipSecSpiTable"
+    cipsecspitable.EntityData.BundleName = "cisco_ios_xe"
+    cipsecspitable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecspitable.EntityData.SegmentPath = "cipSecSpiTable"
+    cipsecspitable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecspitable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecspitable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) SetFilter(yf yfilter.YFilter) { cipsecspitable.YFilter = yf }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetGoName(yname string) string {
-    if yname == "cipSecSpiEntry" { return "Cipsecspientry" }
-    return ""
-}
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetSegmentPath() string {
-    return "cipSecSpiTable"
-}
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecSpiEntry" {
-        for _, c := range cipsecspitable.Cipsecspientry {
-            if cipsecspitable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry{}
-        cipsecspitable.Cipsecspientry = append(cipsecspitable.Cipsecspientry, child)
-        return &cipsecspitable.Cipsecspientry[len(cipsecspitable.Cipsecspientry)-1]
-    }
-    return nil
-}
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsecspitable.EntityData.Children = make(map[string]types.YChild)
+    cipsecspitable.EntityData.Children["cipSecSpiEntry"] = types.YChild{"Cipsecspientry", nil}
     for i := range cipsecspitable.Cipsecspientry {
-        children[cipsecspitable.Cipsecspientry[i].GetSegmentPath()] = &cipsecspitable.Cipsecspientry[i]
+        cipsecspitable.EntityData.Children[types.GetSegmentPath(&cipsecspitable.Cipsecspientry[i])] = types.YChild{"Cipsecspientry", &cipsecspitable.Cipsecspientry[i]}
     }
-    return children
+    cipsecspitable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsecspitable.EntityData)
 }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetYangName() string { return "cipSecSpiTable" }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) SetParent(parent types.Entity) { cipsecspitable.parent = parent }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetParent() types.Entity { return cipsecspitable.parent }
-
-func (cipsecspitable *CISCOIPSECFLOWMONITORMIB_Cipsecspitable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry
 // Each entry contains the attributes associated with
 // active and expiring IPsec Phase-2 
 // security associations.
 type CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3124,61 +2182,26 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry struct {
     Cipsecspistatus interface{}
 }
 
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetFilter() yfilter.YFilter { return cipsecspientry.YFilter }
+func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetEntityData() *types.CommonEntityData {
+    cipsecspientry.EntityData.YFilter = cipsecspientry.YFilter
+    cipsecspientry.EntityData.YangName = "cipSecSpiEntry"
+    cipsecspientry.EntityData.BundleName = "cisco_ios_xe"
+    cipsecspientry.EntityData.ParentYangName = "cipSecSpiTable"
+    cipsecspientry.EntityData.SegmentPath = "cipSecSpiEntry" + "[cipSecTunIndex='" + fmt.Sprintf("%v", cipsecspientry.Cipsectunindex) + "']" + "[cipSecSpiIndex='" + fmt.Sprintf("%v", cipsecspientry.Cipsecspiindex) + "']"
+    cipsecspientry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecspientry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecspientry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) SetFilter(yf yfilter.YFilter) { cipsecspientry.YFilter = yf }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetGoName(yname string) string {
-    if yname == "cipSecTunIndex" { return "Cipsectunindex" }
-    if yname == "cipSecSpiIndex" { return "Cipsecspiindex" }
-    if yname == "cipSecSpiDirection" { return "Cipsecspidirection" }
-    if yname == "cipSecSpiValue" { return "Cipsecspivalue" }
-    if yname == "cipSecSpiProtocol" { return "Cipsecspiprotocol" }
-    if yname == "cipSecSpiStatus" { return "Cipsecspistatus" }
-    return ""
+    cipsecspientry.EntityData.Children = make(map[string]types.YChild)
+    cipsecspientry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecspientry.EntityData.Leafs["cipSecTunIndex"] = types.YLeaf{"Cipsectunindex", cipsecspientry.Cipsectunindex}
+    cipsecspientry.EntityData.Leafs["cipSecSpiIndex"] = types.YLeaf{"Cipsecspiindex", cipsecspientry.Cipsecspiindex}
+    cipsecspientry.EntityData.Leafs["cipSecSpiDirection"] = types.YLeaf{"Cipsecspidirection", cipsecspientry.Cipsecspidirection}
+    cipsecspientry.EntityData.Leafs["cipSecSpiValue"] = types.YLeaf{"Cipsecspivalue", cipsecspientry.Cipsecspivalue}
+    cipsecspientry.EntityData.Leafs["cipSecSpiProtocol"] = types.YLeaf{"Cipsecspiprotocol", cipsecspientry.Cipsecspiprotocol}
+    cipsecspientry.EntityData.Leafs["cipSecSpiStatus"] = types.YLeaf{"Cipsecspistatus", cipsecspientry.Cipsecspistatus}
+    return &(cipsecspientry.EntityData)
 }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetSegmentPath() string {
-    return "cipSecSpiEntry" + "[cipSecTunIndex='" + fmt.Sprintf("%v", cipsecspientry.Cipsectunindex) + "']" + "[cipSecSpiIndex='" + fmt.Sprintf("%v", cipsecspientry.Cipsecspiindex) + "']"
-}
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecTunIndex"] = cipsecspientry.Cipsectunindex
-    leafs["cipSecSpiIndex"] = cipsecspientry.Cipsecspiindex
-    leafs["cipSecSpiDirection"] = cipsecspientry.Cipsecspidirection
-    leafs["cipSecSpiValue"] = cipsecspientry.Cipsecspivalue
-    leafs["cipSecSpiProtocol"] = cipsecspientry.Cipsecspiprotocol
-    leafs["cipSecSpiStatus"] = cipsecspientry.Cipsecspistatus
-    return leafs
-}
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetYangName() string { return "cipSecSpiEntry" }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) SetParent(parent types.Entity) { cipsecspientry.parent = parent }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetParent() types.Entity { return cipsecspientry.parent }
-
-func (cipsecspientry *CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry) GetParentYangName() string { return "cipSecSpiTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry_Cipsecspidirection represents The direction of the SPI.
 type CISCOIPSECFLOWMONITORMIB_Cipsecspitable_Cipsecspientry_Cipsecspidirection string
@@ -3214,7 +2237,7 @@ const (
 // Each entry is related to a specific gateway which is 
 // identified by 'cmgwIndex'
 type CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes of an Phase-2 IPsec stats information
@@ -3225,63 +2248,24 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable struct {
     Cipsecphase2Gwstatsentry []CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry
 }
 
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetFilter() yfilter.YFilter { return cipsecphase2Gwstatstable.YFilter }
+func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetEntityData() *types.CommonEntityData {
+    cipsecphase2Gwstatstable.EntityData.YFilter = cipsecphase2Gwstatstable.YFilter
+    cipsecphase2Gwstatstable.EntityData.YangName = "cipSecPhase2GWStatsTable"
+    cipsecphase2Gwstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cipsecphase2Gwstatstable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecphase2Gwstatstable.EntityData.SegmentPath = "cipSecPhase2GWStatsTable"
+    cipsecphase2Gwstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecphase2Gwstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecphase2Gwstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) SetFilter(yf yfilter.YFilter) { cipsecphase2Gwstatstable.YFilter = yf }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetGoName(yname string) string {
-    if yname == "cipSecPhase2GWStatsEntry" { return "Cipsecphase2Gwstatsentry" }
-    return ""
-}
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetSegmentPath() string {
-    return "cipSecPhase2GWStatsTable"
-}
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecPhase2GWStatsEntry" {
-        for _, c := range cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry {
-            if cipsecphase2Gwstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry{}
-        cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry = append(cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry, child)
-        return &cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry[len(cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry)-1]
-    }
-    return nil
-}
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsecphase2Gwstatstable.EntityData.Children = make(map[string]types.YChild)
+    cipsecphase2Gwstatstable.EntityData.Children["cipSecPhase2GWStatsEntry"] = types.YChild{"Cipsecphase2Gwstatsentry", nil}
     for i := range cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry {
-        children[cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry[i].GetSegmentPath()] = &cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry[i]
+        cipsecphase2Gwstatstable.EntityData.Children[types.GetSegmentPath(&cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry[i])] = types.YChild{"Cipsecphase2Gwstatsentry", &cipsecphase2Gwstatstable.Cipsecphase2Gwstatsentry[i]}
     }
-    return children
+    cipsecphase2Gwstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsecphase2Gwstatstable.EntityData)
 }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetYangName() string { return "cipSecPhase2GWStatsTable" }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) SetParent(parent types.Entity) { cipsecphase2Gwstatstable.parent = parent }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetParent() types.Entity { return cipsecphase2Gwstatstable.parent }
-
-func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry
 // Each entry contains the attributes of an Phase-2 IPsec stats
@@ -3290,7 +2274,7 @@ func (cipsecphase2Gwstatstable *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstabl
 // There is only one entry for each gateway. The entry 
 // is created when a gateway up and cannot be deleted.
 type CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -3440,103 +2424,47 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry 
     Cipsecphase2Gwsyscapfails interface{}
 }
 
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetFilter() yfilter.YFilter { return cipsecphase2Gwstatsentry.YFilter }
+func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetEntityData() *types.CommonEntityData {
+    cipsecphase2Gwstatsentry.EntityData.YFilter = cipsecphase2Gwstatsentry.YFilter
+    cipsecphase2Gwstatsentry.EntityData.YangName = "cipSecPhase2GWStatsEntry"
+    cipsecphase2Gwstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cipsecphase2Gwstatsentry.EntityData.ParentYangName = "cipSecPhase2GWStatsTable"
+    cipsecphase2Gwstatsentry.EntityData.SegmentPath = "cipSecPhase2GWStatsEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cipsecphase2Gwstatsentry.Cmgwindex) + "']"
+    cipsecphase2Gwstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecphase2Gwstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecphase2Gwstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) SetFilter(yf yfilter.YFilter) { cipsecphase2Gwstatsentry.YFilter = yf }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetGoName(yname string) string {
-    if yname == "cmgwIndex" { return "Cmgwindex" }
-    if yname == "cipSecPhase2GWActiveTunnels" { return "Cipsecphase2Gwactivetunnels" }
-    if yname == "cipSecPhase2GWPreviousTunnels" { return "Cipsecphase2Gwprevioustunnels" }
-    if yname == "cipSecPhase2GWInOctets" { return "Cipsecphase2Gwinoctets" }
-    if yname == "cipSecPhase2GWInOctWraps" { return "Cipsecphase2Gwinoctwraps" }
-    if yname == "cipSecPhase2GWInDecompOctets" { return "Cipsecphase2Gwindecompoctets" }
-    if yname == "cipSecPhase2GWInDecompOctWraps" { return "Cipsecphase2Gwindecompoctwraps" }
-    if yname == "cipSecPhase2GWInPkts" { return "Cipsecphase2Gwinpkts" }
-    if yname == "cipSecPhase2GWInDrops" { return "Cipsecphase2Gwindrops" }
-    if yname == "cipSecPhase2GWInReplayDrops" { return "Cipsecphase2Gwinreplaydrops" }
-    if yname == "cipSecPhase2GWInAuths" { return "Cipsecphase2Gwinauths" }
-    if yname == "cipSecPhase2GWInAuthFails" { return "Cipsecphase2Gwinauthfails" }
-    if yname == "cipSecPhase2GWInDecrypts" { return "Cipsecphase2Gwindecrypts" }
-    if yname == "cipSecPhase2GWInDecryptFails" { return "Cipsecphase2Gwindecryptfails" }
-    if yname == "cipSecPhase2GWOutOctets" { return "Cipsecphase2Gwoutoctets" }
-    if yname == "cipSecPhase2GWOutOctWraps" { return "Cipsecphase2Gwoutoctwraps" }
-    if yname == "cipSecPhase2GWOutUncompOctets" { return "Cipsecphase2Gwoutuncompoctets" }
-    if yname == "cipSecPhase2GWOutUncompOctWraps" { return "Cipsecphase2Gwoutuncompoctwraps" }
-    if yname == "cipSecPhase2GWOutPkts" { return "Cipsecphase2Gwoutpkts" }
-    if yname == "cipSecPhase2GWOutDrops" { return "Cipsecphase2Gwoutdrops" }
-    if yname == "cipSecPhase2GWOutAuths" { return "Cipsecphase2Gwoutauths" }
-    if yname == "cipSecPhase2GWOutAuthFails" { return "Cipsecphase2Gwoutauthfails" }
-    if yname == "cipSecPhase2GWOutEncrypts" { return "Cipsecphase2Gwoutencrypts" }
-    if yname == "cipSecPhase2GWOutEncryptFails" { return "Cipsecphase2Gwoutencryptfails" }
-    if yname == "cipSecPhase2GWProtocolUseFails" { return "Cipsecphase2Gwprotocolusefails" }
-    if yname == "cipSecPhase2GWNoSaFails" { return "Cipsecphase2Gwnosafails" }
-    if yname == "cipSecPhase2GWSysCapFails" { return "Cipsecphase2Gwsyscapfails" }
-    return ""
+    cipsecphase2Gwstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cipsecphase2Gwstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cmgwIndex"] = types.YLeaf{"Cmgwindex", cipsecphase2Gwstatsentry.Cmgwindex}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWActiveTunnels"] = types.YLeaf{"Cipsecphase2Gwactivetunnels", cipsecphase2Gwstatsentry.Cipsecphase2Gwactivetunnels}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWPreviousTunnels"] = types.YLeaf{"Cipsecphase2Gwprevioustunnels", cipsecphase2Gwstatsentry.Cipsecphase2Gwprevioustunnels}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInOctets"] = types.YLeaf{"Cipsecphase2Gwinoctets", cipsecphase2Gwstatsentry.Cipsecphase2Gwinoctets}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInOctWraps"] = types.YLeaf{"Cipsecphase2Gwinoctwraps", cipsecphase2Gwstatsentry.Cipsecphase2Gwinoctwraps}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInDecompOctets"] = types.YLeaf{"Cipsecphase2Gwindecompoctets", cipsecphase2Gwstatsentry.Cipsecphase2Gwindecompoctets}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInDecompOctWraps"] = types.YLeaf{"Cipsecphase2Gwindecompoctwraps", cipsecphase2Gwstatsentry.Cipsecphase2Gwindecompoctwraps}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInPkts"] = types.YLeaf{"Cipsecphase2Gwinpkts", cipsecphase2Gwstatsentry.Cipsecphase2Gwinpkts}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInDrops"] = types.YLeaf{"Cipsecphase2Gwindrops", cipsecphase2Gwstatsentry.Cipsecphase2Gwindrops}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInReplayDrops"] = types.YLeaf{"Cipsecphase2Gwinreplaydrops", cipsecphase2Gwstatsentry.Cipsecphase2Gwinreplaydrops}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInAuths"] = types.YLeaf{"Cipsecphase2Gwinauths", cipsecphase2Gwstatsentry.Cipsecphase2Gwinauths}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInAuthFails"] = types.YLeaf{"Cipsecphase2Gwinauthfails", cipsecphase2Gwstatsentry.Cipsecphase2Gwinauthfails}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInDecrypts"] = types.YLeaf{"Cipsecphase2Gwindecrypts", cipsecphase2Gwstatsentry.Cipsecphase2Gwindecrypts}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWInDecryptFails"] = types.YLeaf{"Cipsecphase2Gwindecryptfails", cipsecphase2Gwstatsentry.Cipsecphase2Gwindecryptfails}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutOctets"] = types.YLeaf{"Cipsecphase2Gwoutoctets", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutoctets}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutOctWraps"] = types.YLeaf{"Cipsecphase2Gwoutoctwraps", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutoctwraps}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutUncompOctets"] = types.YLeaf{"Cipsecphase2Gwoutuncompoctets", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutuncompoctets}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutUncompOctWraps"] = types.YLeaf{"Cipsecphase2Gwoutuncompoctwraps", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutuncompoctwraps}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutPkts"] = types.YLeaf{"Cipsecphase2Gwoutpkts", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutpkts}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutDrops"] = types.YLeaf{"Cipsecphase2Gwoutdrops", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutdrops}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutAuths"] = types.YLeaf{"Cipsecphase2Gwoutauths", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutauths}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutAuthFails"] = types.YLeaf{"Cipsecphase2Gwoutauthfails", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutauthfails}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutEncrypts"] = types.YLeaf{"Cipsecphase2Gwoutencrypts", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutencrypts}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWOutEncryptFails"] = types.YLeaf{"Cipsecphase2Gwoutencryptfails", cipsecphase2Gwstatsentry.Cipsecphase2Gwoutencryptfails}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWProtocolUseFails"] = types.YLeaf{"Cipsecphase2Gwprotocolusefails", cipsecphase2Gwstatsentry.Cipsecphase2Gwprotocolusefails}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWNoSaFails"] = types.YLeaf{"Cipsecphase2Gwnosafails", cipsecphase2Gwstatsentry.Cipsecphase2Gwnosafails}
+    cipsecphase2Gwstatsentry.EntityData.Leafs["cipSecPhase2GWSysCapFails"] = types.YLeaf{"Cipsecphase2Gwsyscapfails", cipsecphase2Gwstatsentry.Cipsecphase2Gwsyscapfails}
+    return &(cipsecphase2Gwstatsentry.EntityData)
 }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetSegmentPath() string {
-    return "cipSecPhase2GWStatsEntry" + "[cmgwIndex='" + fmt.Sprintf("%v", cipsecphase2Gwstatsentry.Cmgwindex) + "']"
-}
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cmgwIndex"] = cipsecphase2Gwstatsentry.Cmgwindex
-    leafs["cipSecPhase2GWActiveTunnels"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwactivetunnels
-    leafs["cipSecPhase2GWPreviousTunnels"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwprevioustunnels
-    leafs["cipSecPhase2GWInOctets"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwinoctets
-    leafs["cipSecPhase2GWInOctWraps"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwinoctwraps
-    leafs["cipSecPhase2GWInDecompOctets"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwindecompoctets
-    leafs["cipSecPhase2GWInDecompOctWraps"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwindecompoctwraps
-    leafs["cipSecPhase2GWInPkts"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwinpkts
-    leafs["cipSecPhase2GWInDrops"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwindrops
-    leafs["cipSecPhase2GWInReplayDrops"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwinreplaydrops
-    leafs["cipSecPhase2GWInAuths"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwinauths
-    leafs["cipSecPhase2GWInAuthFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwinauthfails
-    leafs["cipSecPhase2GWInDecrypts"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwindecrypts
-    leafs["cipSecPhase2GWInDecryptFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwindecryptfails
-    leafs["cipSecPhase2GWOutOctets"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutoctets
-    leafs["cipSecPhase2GWOutOctWraps"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutoctwraps
-    leafs["cipSecPhase2GWOutUncompOctets"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutuncompoctets
-    leafs["cipSecPhase2GWOutUncompOctWraps"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutuncompoctwraps
-    leafs["cipSecPhase2GWOutPkts"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutpkts
-    leafs["cipSecPhase2GWOutDrops"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutdrops
-    leafs["cipSecPhase2GWOutAuths"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutauths
-    leafs["cipSecPhase2GWOutAuthFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutauthfails
-    leafs["cipSecPhase2GWOutEncrypts"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutencrypts
-    leafs["cipSecPhase2GWOutEncryptFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwoutencryptfails
-    leafs["cipSecPhase2GWProtocolUseFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwprotocolusefails
-    leafs["cipSecPhase2GWNoSaFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwnosafails
-    leafs["cipSecPhase2GWSysCapFails"] = cipsecphase2Gwstatsentry.Cipsecphase2Gwsyscapfails
-    return leafs
-}
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetYangName() string { return "cipSecPhase2GWStatsEntry" }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) SetParent(parent types.Entity) { cipsecphase2Gwstatsentry.parent = parent }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetParent() types.Entity { return cipsecphase2Gwstatsentry.parent }
-
-func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstable_Cipsecphase2Gwstatsentry) GetParentYangName() string { return "cipSecPhase2GWStatsTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable
 // The IPsec Phase-1 Internet Key Exchange Tunnel
@@ -3545,7 +2473,7 @@ func (cipsecphase2Gwstatsentry *CISCOIPSECFLOWMONITORMIB_Cipsecphase2Gwstatstabl
 // are maintained.  The maximum number of entries
 //  is specified by the cipSecHistTableSize object.
 type CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with a previously active
@@ -3554,70 +2482,31 @@ type CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable struct {
     Ciketunnelhistentry []CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry
 }
 
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetFilter() yfilter.YFilter { return ciketunnelhisttable.YFilter }
+func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetEntityData() *types.CommonEntityData {
+    ciketunnelhisttable.EntityData.YFilter = ciketunnelhisttable.YFilter
+    ciketunnelhisttable.EntityData.YangName = "cikeTunnelHistTable"
+    ciketunnelhisttable.EntityData.BundleName = "cisco_ios_xe"
+    ciketunnelhisttable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    ciketunnelhisttable.EntityData.SegmentPath = "cikeTunnelHistTable"
+    ciketunnelhisttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciketunnelhisttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciketunnelhisttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) SetFilter(yf yfilter.YFilter) { ciketunnelhisttable.YFilter = yf }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetGoName(yname string) string {
-    if yname == "cikeTunnelHistEntry" { return "Ciketunnelhistentry" }
-    return ""
-}
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetSegmentPath() string {
-    return "cikeTunnelHistTable"
-}
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cikeTunnelHistEntry" {
-        for _, c := range ciketunnelhisttable.Ciketunnelhistentry {
-            if ciketunnelhisttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry{}
-        ciketunnelhisttable.Ciketunnelhistentry = append(ciketunnelhisttable.Ciketunnelhistentry, child)
-        return &ciketunnelhisttable.Ciketunnelhistentry[len(ciketunnelhisttable.Ciketunnelhistentry)-1]
-    }
-    return nil
-}
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ciketunnelhisttable.EntityData.Children = make(map[string]types.YChild)
+    ciketunnelhisttable.EntityData.Children["cikeTunnelHistEntry"] = types.YChild{"Ciketunnelhistentry", nil}
     for i := range ciketunnelhisttable.Ciketunnelhistentry {
-        children[ciketunnelhisttable.Ciketunnelhistentry[i].GetSegmentPath()] = &ciketunnelhisttable.Ciketunnelhistentry[i]
+        ciketunnelhisttable.EntityData.Children[types.GetSegmentPath(&ciketunnelhisttable.Ciketunnelhistentry[i])] = types.YChild{"Ciketunnelhistentry", &ciketunnelhisttable.Ciketunnelhistentry[i]}
     }
-    return children
+    ciketunnelhisttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ciketunnelhisttable.EntityData)
 }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetYangName() string { return "cikeTunnelHistTable" }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) SetParent(parent types.Entity) { ciketunnelhisttable.parent = parent }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetParent() types.Entity { return ciketunnelhisttable.parent }
-
-func (ciketunnelhisttable *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry
 // Each entry contains the attributes
 // associated with a previously active IPsec 
 // Phase-1 IKE Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the IPsec Phase-1 IKE Tunnel History
@@ -3797,125 +2686,58 @@ type CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry struct {
     Ciketunhistoutp2Sadelrequests interface{}
 }
 
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetFilter() yfilter.YFilter { return ciketunnelhistentry.YFilter }
+func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetEntityData() *types.CommonEntityData {
+    ciketunnelhistentry.EntityData.YFilter = ciketunnelhistentry.YFilter
+    ciketunnelhistentry.EntityData.YangName = "cikeTunnelHistEntry"
+    ciketunnelhistentry.EntityData.BundleName = "cisco_ios_xe"
+    ciketunnelhistentry.EntityData.ParentYangName = "cikeTunnelHistTable"
+    ciketunnelhistentry.EntityData.SegmentPath = "cikeTunnelHistEntry" + "[cikeTunHistIndex='" + fmt.Sprintf("%v", ciketunnelhistentry.Ciketunhistindex) + "']"
+    ciketunnelhistentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ciketunnelhistentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ciketunnelhistentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) SetFilter(yf yfilter.YFilter) { ciketunnelhistentry.YFilter = yf }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetGoName(yname string) string {
-    if yname == "cikeTunHistIndex" { return "Ciketunhistindex" }
-    if yname == "cikeTunHistTermReason" { return "Ciketunhisttermreason" }
-    if yname == "cikeTunHistActiveIndex" { return "Ciketunhistactiveindex" }
-    if yname == "cikeTunHistPeerLocalType" { return "Ciketunhistpeerlocaltype" }
-    if yname == "cikeTunHistPeerLocalValue" { return "Ciketunhistpeerlocalvalue" }
-    if yname == "cikeTunHistPeerIntIndex" { return "Ciketunhistpeerintindex" }
-    if yname == "cikeTunHistPeerRemoteType" { return "Ciketunhistpeerremotetype" }
-    if yname == "cikeTunHistPeerRemoteValue" { return "Ciketunhistpeerremotevalue" }
-    if yname == "cikeTunHistLocalAddr" { return "Ciketunhistlocaladdr" }
-    if yname == "cikeTunHistLocalName" { return "Ciketunhistlocalname" }
-    if yname == "cikeTunHistRemoteAddr" { return "Ciketunhistremoteaddr" }
-    if yname == "cikeTunHistRemoteName" { return "Ciketunhistremotename" }
-    if yname == "cikeTunHistNegoMode" { return "Ciketunhistnegomode" }
-    if yname == "cikeTunHistDiffHellmanGrp" { return "Ciketunhistdiffhellmangrp" }
-    if yname == "cikeTunHistEncryptAlgo" { return "Ciketunhistencryptalgo" }
-    if yname == "cikeTunHistHashAlgo" { return "Ciketunhisthashalgo" }
-    if yname == "cikeTunHistAuthMethod" { return "Ciketunhistauthmethod" }
-    if yname == "cikeTunHistLifeTime" { return "Ciketunhistlifetime" }
-    if yname == "cikeTunHistStartTime" { return "Ciketunhiststarttime" }
-    if yname == "cikeTunHistActiveTime" { return "Ciketunhistactivetime" }
-    if yname == "cikeTunHistTotalRefreshes" { return "Ciketunhisttotalrefreshes" }
-    if yname == "cikeTunHistTotalSas" { return "Ciketunhisttotalsas" }
-    if yname == "cikeTunHistInOctets" { return "Ciketunhistinoctets" }
-    if yname == "cikeTunHistInPkts" { return "Ciketunhistinpkts" }
-    if yname == "cikeTunHistInDropPkts" { return "Ciketunhistindroppkts" }
-    if yname == "cikeTunHistInNotifys" { return "Ciketunhistinnotifys" }
-    if yname == "cikeTunHistInP2Exchgs" { return "Ciketunhistinp2Exchgs" }
-    if yname == "cikeTunHistInP2ExchgInvalids" { return "Ciketunhistinp2Exchginvalids" }
-    if yname == "cikeTunHistInP2ExchgRejects" { return "Ciketunhistinp2Exchgrejects" }
-    if yname == "cikeTunHistInP2SaDelRequests" { return "Ciketunhistinp2Sadelrequests" }
-    if yname == "cikeTunHistOutOctets" { return "Ciketunhistoutoctets" }
-    if yname == "cikeTunHistOutPkts" { return "Ciketunhistoutpkts" }
-    if yname == "cikeTunHistOutDropPkts" { return "Ciketunhistoutdroppkts" }
-    if yname == "cikeTunHistOutNotifys" { return "Ciketunhistoutnotifys" }
-    if yname == "cikeTunHistOutP2Exchgs" { return "Ciketunhistoutp2Exchgs" }
-    if yname == "cikeTunHistOutP2ExchgInvalids" { return "Ciketunhistoutp2Exchginvalids" }
-    if yname == "cikeTunHistOutP2ExchgRejects" { return "Ciketunhistoutp2Exchgrejects" }
-    if yname == "cikeTunHistOutP2SaDelRequests" { return "Ciketunhistoutp2Sadelrequests" }
-    return ""
+    ciketunnelhistentry.EntityData.Children = make(map[string]types.YChild)
+    ciketunnelhistentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistIndex"] = types.YLeaf{"Ciketunhistindex", ciketunnelhistentry.Ciketunhistindex}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistTermReason"] = types.YLeaf{"Ciketunhisttermreason", ciketunnelhistentry.Ciketunhisttermreason}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistActiveIndex"] = types.YLeaf{"Ciketunhistactiveindex", ciketunnelhistentry.Ciketunhistactiveindex}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistPeerLocalType"] = types.YLeaf{"Ciketunhistpeerlocaltype", ciketunnelhistentry.Ciketunhistpeerlocaltype}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistPeerLocalValue"] = types.YLeaf{"Ciketunhistpeerlocalvalue", ciketunnelhistentry.Ciketunhistpeerlocalvalue}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistPeerIntIndex"] = types.YLeaf{"Ciketunhistpeerintindex", ciketunnelhistentry.Ciketunhistpeerintindex}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistPeerRemoteType"] = types.YLeaf{"Ciketunhistpeerremotetype", ciketunnelhistentry.Ciketunhistpeerremotetype}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistPeerRemoteValue"] = types.YLeaf{"Ciketunhistpeerremotevalue", ciketunnelhistentry.Ciketunhistpeerremotevalue}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistLocalAddr"] = types.YLeaf{"Ciketunhistlocaladdr", ciketunnelhistentry.Ciketunhistlocaladdr}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistLocalName"] = types.YLeaf{"Ciketunhistlocalname", ciketunnelhistentry.Ciketunhistlocalname}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistRemoteAddr"] = types.YLeaf{"Ciketunhistremoteaddr", ciketunnelhistentry.Ciketunhistremoteaddr}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistRemoteName"] = types.YLeaf{"Ciketunhistremotename", ciketunnelhistentry.Ciketunhistremotename}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistNegoMode"] = types.YLeaf{"Ciketunhistnegomode", ciketunnelhistentry.Ciketunhistnegomode}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistDiffHellmanGrp"] = types.YLeaf{"Ciketunhistdiffhellmangrp", ciketunnelhistentry.Ciketunhistdiffhellmangrp}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistEncryptAlgo"] = types.YLeaf{"Ciketunhistencryptalgo", ciketunnelhistentry.Ciketunhistencryptalgo}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistHashAlgo"] = types.YLeaf{"Ciketunhisthashalgo", ciketunnelhistentry.Ciketunhisthashalgo}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistAuthMethod"] = types.YLeaf{"Ciketunhistauthmethod", ciketunnelhistentry.Ciketunhistauthmethod}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistLifeTime"] = types.YLeaf{"Ciketunhistlifetime", ciketunnelhistentry.Ciketunhistlifetime}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistStartTime"] = types.YLeaf{"Ciketunhiststarttime", ciketunnelhistentry.Ciketunhiststarttime}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistActiveTime"] = types.YLeaf{"Ciketunhistactivetime", ciketunnelhistentry.Ciketunhistactivetime}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistTotalRefreshes"] = types.YLeaf{"Ciketunhisttotalrefreshes", ciketunnelhistentry.Ciketunhisttotalrefreshes}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistTotalSas"] = types.YLeaf{"Ciketunhisttotalsas", ciketunnelhistentry.Ciketunhisttotalsas}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInOctets"] = types.YLeaf{"Ciketunhistinoctets", ciketunnelhistentry.Ciketunhistinoctets}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInPkts"] = types.YLeaf{"Ciketunhistinpkts", ciketunnelhistentry.Ciketunhistinpkts}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInDropPkts"] = types.YLeaf{"Ciketunhistindroppkts", ciketunnelhistentry.Ciketunhistindroppkts}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInNotifys"] = types.YLeaf{"Ciketunhistinnotifys", ciketunnelhistentry.Ciketunhistinnotifys}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInP2Exchgs"] = types.YLeaf{"Ciketunhistinp2Exchgs", ciketunnelhistentry.Ciketunhistinp2Exchgs}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInP2ExchgInvalids"] = types.YLeaf{"Ciketunhistinp2Exchginvalids", ciketunnelhistentry.Ciketunhistinp2Exchginvalids}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInP2ExchgRejects"] = types.YLeaf{"Ciketunhistinp2Exchgrejects", ciketunnelhistentry.Ciketunhistinp2Exchgrejects}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistInP2SaDelRequests"] = types.YLeaf{"Ciketunhistinp2Sadelrequests", ciketunnelhistentry.Ciketunhistinp2Sadelrequests}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutOctets"] = types.YLeaf{"Ciketunhistoutoctets", ciketunnelhistentry.Ciketunhistoutoctets}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutPkts"] = types.YLeaf{"Ciketunhistoutpkts", ciketunnelhistentry.Ciketunhistoutpkts}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutDropPkts"] = types.YLeaf{"Ciketunhistoutdroppkts", ciketunnelhistentry.Ciketunhistoutdroppkts}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutNotifys"] = types.YLeaf{"Ciketunhistoutnotifys", ciketunnelhistentry.Ciketunhistoutnotifys}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutP2Exchgs"] = types.YLeaf{"Ciketunhistoutp2Exchgs", ciketunnelhistentry.Ciketunhistoutp2Exchgs}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutP2ExchgInvalids"] = types.YLeaf{"Ciketunhistoutp2Exchginvalids", ciketunnelhistentry.Ciketunhistoutp2Exchginvalids}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutP2ExchgRejects"] = types.YLeaf{"Ciketunhistoutp2Exchgrejects", ciketunnelhistentry.Ciketunhistoutp2Exchgrejects}
+    ciketunnelhistentry.EntityData.Leafs["cikeTunHistOutP2SaDelRequests"] = types.YLeaf{"Ciketunhistoutp2Sadelrequests", ciketunnelhistentry.Ciketunhistoutp2Sadelrequests}
+    return &(ciketunnelhistentry.EntityData)
 }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetSegmentPath() string {
-    return "cikeTunnelHistEntry" + "[cikeTunHistIndex='" + fmt.Sprintf("%v", ciketunnelhistentry.Ciketunhistindex) + "']"
-}
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cikeTunHistIndex"] = ciketunnelhistentry.Ciketunhistindex
-    leafs["cikeTunHistTermReason"] = ciketunnelhistentry.Ciketunhisttermreason
-    leafs["cikeTunHistActiveIndex"] = ciketunnelhistentry.Ciketunhistactiveindex
-    leafs["cikeTunHistPeerLocalType"] = ciketunnelhistentry.Ciketunhistpeerlocaltype
-    leafs["cikeTunHistPeerLocalValue"] = ciketunnelhistentry.Ciketunhistpeerlocalvalue
-    leafs["cikeTunHistPeerIntIndex"] = ciketunnelhistentry.Ciketunhistpeerintindex
-    leafs["cikeTunHistPeerRemoteType"] = ciketunnelhistentry.Ciketunhistpeerremotetype
-    leafs["cikeTunHistPeerRemoteValue"] = ciketunnelhistentry.Ciketunhistpeerremotevalue
-    leafs["cikeTunHistLocalAddr"] = ciketunnelhistentry.Ciketunhistlocaladdr
-    leafs["cikeTunHistLocalName"] = ciketunnelhistentry.Ciketunhistlocalname
-    leafs["cikeTunHistRemoteAddr"] = ciketunnelhistentry.Ciketunhistremoteaddr
-    leafs["cikeTunHistRemoteName"] = ciketunnelhistentry.Ciketunhistremotename
-    leafs["cikeTunHistNegoMode"] = ciketunnelhistentry.Ciketunhistnegomode
-    leafs["cikeTunHistDiffHellmanGrp"] = ciketunnelhistentry.Ciketunhistdiffhellmangrp
-    leafs["cikeTunHistEncryptAlgo"] = ciketunnelhistentry.Ciketunhistencryptalgo
-    leafs["cikeTunHistHashAlgo"] = ciketunnelhistentry.Ciketunhisthashalgo
-    leafs["cikeTunHistAuthMethod"] = ciketunnelhistentry.Ciketunhistauthmethod
-    leafs["cikeTunHistLifeTime"] = ciketunnelhistentry.Ciketunhistlifetime
-    leafs["cikeTunHistStartTime"] = ciketunnelhistentry.Ciketunhiststarttime
-    leafs["cikeTunHistActiveTime"] = ciketunnelhistentry.Ciketunhistactivetime
-    leafs["cikeTunHistTotalRefreshes"] = ciketunnelhistentry.Ciketunhisttotalrefreshes
-    leafs["cikeTunHistTotalSas"] = ciketunnelhistentry.Ciketunhisttotalsas
-    leafs["cikeTunHistInOctets"] = ciketunnelhistentry.Ciketunhistinoctets
-    leafs["cikeTunHistInPkts"] = ciketunnelhistentry.Ciketunhistinpkts
-    leafs["cikeTunHistInDropPkts"] = ciketunnelhistentry.Ciketunhistindroppkts
-    leafs["cikeTunHistInNotifys"] = ciketunnelhistentry.Ciketunhistinnotifys
-    leafs["cikeTunHistInP2Exchgs"] = ciketunnelhistentry.Ciketunhistinp2Exchgs
-    leafs["cikeTunHistInP2ExchgInvalids"] = ciketunnelhistentry.Ciketunhistinp2Exchginvalids
-    leafs["cikeTunHistInP2ExchgRejects"] = ciketunnelhistentry.Ciketunhistinp2Exchgrejects
-    leafs["cikeTunHistInP2SaDelRequests"] = ciketunnelhistentry.Ciketunhistinp2Sadelrequests
-    leafs["cikeTunHistOutOctets"] = ciketunnelhistentry.Ciketunhistoutoctets
-    leafs["cikeTunHistOutPkts"] = ciketunnelhistentry.Ciketunhistoutpkts
-    leafs["cikeTunHistOutDropPkts"] = ciketunnelhistentry.Ciketunhistoutdroppkts
-    leafs["cikeTunHistOutNotifys"] = ciketunnelhistentry.Ciketunhistoutnotifys
-    leafs["cikeTunHistOutP2Exchgs"] = ciketunnelhistentry.Ciketunhistoutp2Exchgs
-    leafs["cikeTunHistOutP2ExchgInvalids"] = ciketunnelhistentry.Ciketunhistoutp2Exchginvalids
-    leafs["cikeTunHistOutP2ExchgRejects"] = ciketunnelhistentry.Ciketunhistoutp2Exchgrejects
-    leafs["cikeTunHistOutP2SaDelRequests"] = ciketunnelhistentry.Ciketunhistoutp2Sadelrequests
-    return leafs
-}
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetYangName() string { return "cikeTunnelHistEntry" }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) SetParent(parent types.Entity) { ciketunnelhistentry.parent = parent }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetParent() types.Entity { return ciketunnelhistentry.parent }
-
-func (ciketunnelhistentry *CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry) GetParentYangName() string { return "cikeTunnelHistTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry_Ciketunhisttermreason represents 7 = operator initiated check point request
 type CISCOIPSECFLOWMONITORMIB_Ciketunnelhisttable_Ciketunnelhistentry_Ciketunhisttermreason string
@@ -3944,7 +2766,7 @@ const (
 // of entries
 // is specified by the cipSecHistTableSize object.
 type CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with a previously active
@@ -3953,69 +2775,30 @@ type CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable struct {
     Cipsectunnelhistentry []CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry
 }
 
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetFilter() yfilter.YFilter { return cipsectunnelhisttable.YFilter }
+func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetEntityData() *types.CommonEntityData {
+    cipsectunnelhisttable.EntityData.YFilter = cipsectunnelhisttable.YFilter
+    cipsectunnelhisttable.EntityData.YangName = "cipSecTunnelHistTable"
+    cipsectunnelhisttable.EntityData.BundleName = "cisco_ios_xe"
+    cipsectunnelhisttable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsectunnelhisttable.EntityData.SegmentPath = "cipSecTunnelHistTable"
+    cipsectunnelhisttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsectunnelhisttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsectunnelhisttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) SetFilter(yf yfilter.YFilter) { cipsectunnelhisttable.YFilter = yf }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetGoName(yname string) string {
-    if yname == "cipSecTunnelHistEntry" { return "Cipsectunnelhistentry" }
-    return ""
-}
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetSegmentPath() string {
-    return "cipSecTunnelHistTable"
-}
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecTunnelHistEntry" {
-        for _, c := range cipsectunnelhisttable.Cipsectunnelhistentry {
-            if cipsectunnelhisttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry{}
-        cipsectunnelhisttable.Cipsectunnelhistentry = append(cipsectunnelhisttable.Cipsectunnelhistentry, child)
-        return &cipsectunnelhisttable.Cipsectunnelhistentry[len(cipsectunnelhisttable.Cipsectunnelhistentry)-1]
-    }
-    return nil
-}
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsectunnelhisttable.EntityData.Children = make(map[string]types.YChild)
+    cipsectunnelhisttable.EntityData.Children["cipSecTunnelHistEntry"] = types.YChild{"Cipsectunnelhistentry", nil}
     for i := range cipsectunnelhisttable.Cipsectunnelhistentry {
-        children[cipsectunnelhisttable.Cipsectunnelhistentry[i].GetSegmentPath()] = &cipsectunnelhisttable.Cipsectunnelhistentry[i]
+        cipsectunnelhisttable.EntityData.Children[types.GetSegmentPath(&cipsectunnelhisttable.Cipsectunnelhistentry[i])] = types.YChild{"Cipsectunnelhistentry", &cipsectunnelhisttable.Cipsectunnelhistentry[i]}
     }
-    return children
+    cipsectunnelhisttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsectunnelhisttable.EntityData)
 }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetYangName() string { return "cipSecTunnelHistTable" }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) SetParent(parent types.Entity) { cipsectunnelhisttable.parent = parent }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetParent() types.Entity { return cipsectunnelhisttable.parent }
-
-func (cipsectunnelhisttable *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry
 // Each entry contains the attributes associated with
 // a previously active IPsec Phase-2 Tunnel.
 type CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the IPsec Phase-2 Tunnel History
@@ -4263,147 +3046,69 @@ type CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry struct
     Cipsectunhistoutencryptfails interface{}
 }
 
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetFilter() yfilter.YFilter { return cipsectunnelhistentry.YFilter }
+func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetEntityData() *types.CommonEntityData {
+    cipsectunnelhistentry.EntityData.YFilter = cipsectunnelhistentry.YFilter
+    cipsectunnelhistentry.EntityData.YangName = "cipSecTunnelHistEntry"
+    cipsectunnelhistentry.EntityData.BundleName = "cisco_ios_xe"
+    cipsectunnelhistentry.EntityData.ParentYangName = "cipSecTunnelHistTable"
+    cipsectunnelhistentry.EntityData.SegmentPath = "cipSecTunnelHistEntry" + "[cipSecTunHistIndex='" + fmt.Sprintf("%v", cipsectunnelhistentry.Cipsectunhistindex) + "']"
+    cipsectunnelhistentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsectunnelhistentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsectunnelhistentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) SetFilter(yf yfilter.YFilter) { cipsectunnelhistentry.YFilter = yf }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetGoName(yname string) string {
-    if yname == "cipSecTunHistIndex" { return "Cipsectunhistindex" }
-    if yname == "cipSecTunHistTermReason" { return "Cipsectunhisttermreason" }
-    if yname == "cipSecTunHistActiveIndex" { return "Cipsectunhistactiveindex" }
-    if yname == "cipSecTunHistIkeTunnelIndex" { return "Cipsectunhistiketunnelindex" }
-    if yname == "cipSecTunHistLocalAddr" { return "Cipsectunhistlocaladdr" }
-    if yname == "cipSecTunHistRemoteAddr" { return "Cipsectunhistremoteaddr" }
-    if yname == "cipSecTunHistKeyType" { return "Cipsectunhistkeytype" }
-    if yname == "cipSecTunHistEncapMode" { return "Cipsectunhistencapmode" }
-    if yname == "cipSecTunHistLifeSize" { return "Cipsectunhistlifesize" }
-    if yname == "cipSecTunHistLifeTime" { return "Cipsectunhistlifetime" }
-    if yname == "cipSecTunHistStartTime" { return "Cipsectunhiststarttime" }
-    if yname == "cipSecTunHistActiveTime" { return "Cipsectunhistactivetime" }
-    if yname == "cipSecTunHistTotalRefreshes" { return "Cipsectunhisttotalrefreshes" }
-    if yname == "cipSecTunHistTotalSas" { return "Cipsectunhisttotalsas" }
-    if yname == "cipSecTunHistInSaDiffHellmanGrp" { return "Cipsectunhistinsadiffhellmangrp" }
-    if yname == "cipSecTunHistInSaEncryptAlgo" { return "Cipsectunhistinsaencryptalgo" }
-    if yname == "cipSecTunHistInSaAhAuthAlgo" { return "Cipsectunhistinsaahauthalgo" }
-    if yname == "cipSecTunHistInSaEspAuthAlgo" { return "Cipsectunhistinsaespauthalgo" }
-    if yname == "cipSecTunHistInSaDecompAlgo" { return "Cipsectunhistinsadecompalgo" }
-    if yname == "cipSecTunHistOutSaDiffHellmanGrp" { return "Cipsectunhistoutsadiffhellmangrp" }
-    if yname == "cipSecTunHistOutSaEncryptAlgo" { return "Cipsectunhistoutsaencryptalgo" }
-    if yname == "cipSecTunHistOutSaAhAuthAlgo" { return "Cipsectunhistoutsaahauthalgo" }
-    if yname == "cipSecTunHistOutSaEspAuthAlgo" { return "Cipsectunhistoutsaespauthalgo" }
-    if yname == "cipSecTunHistOutSaCompAlgo" { return "Cipsectunhistoutsacompalgo" }
-    if yname == "cipSecTunHistInOctets" { return "Cipsectunhistinoctets" }
-    if yname == "cipSecTunHistHcInOctets" { return "Cipsectunhisthcinoctets" }
-    if yname == "cipSecTunHistInOctWraps" { return "Cipsectunhistinoctwraps" }
-    if yname == "cipSecTunHistInDecompOctets" { return "Cipsectunhistindecompoctets" }
-    if yname == "cipSecTunHistHcInDecompOctets" { return "Cipsectunhisthcindecompoctets" }
-    if yname == "cipSecTunHistInDecompOctWraps" { return "Cipsectunhistindecompoctwraps" }
-    if yname == "cipSecTunHistInPkts" { return "Cipsectunhistinpkts" }
-    if yname == "cipSecTunHistInDropPkts" { return "Cipsectunhistindroppkts" }
-    if yname == "cipSecTunHistInReplayDropPkts" { return "Cipsectunhistinreplaydroppkts" }
-    if yname == "cipSecTunHistInAuths" { return "Cipsectunhistinauths" }
-    if yname == "cipSecTunHistInAuthFails" { return "Cipsectunhistinauthfails" }
-    if yname == "cipSecTunHistInDecrypts" { return "Cipsectunhistindecrypts" }
-    if yname == "cipSecTunHistInDecryptFails" { return "Cipsectunhistindecryptfails" }
-    if yname == "cipSecTunHistOutOctets" { return "Cipsectunhistoutoctets" }
-    if yname == "cipSecTunHistHcOutOctets" { return "Cipsectunhisthcoutoctets" }
-    if yname == "cipSecTunHistOutOctWraps" { return "Cipsectunhistoutoctwraps" }
-    if yname == "cipSecTunHistOutUncompOctets" { return "Cipsectunhistoutuncompoctets" }
-    if yname == "cipSecTunHistHcOutUncompOctets" { return "Cipsectunhisthcoutuncompoctets" }
-    if yname == "cipSecTunHistOutUncompOctWraps" { return "Cipsectunhistoutuncompoctwraps" }
-    if yname == "cipSecTunHistOutPkts" { return "Cipsectunhistoutpkts" }
-    if yname == "cipSecTunHistOutDropPkts" { return "Cipsectunhistoutdroppkts" }
-    if yname == "cipSecTunHistOutAuths" { return "Cipsectunhistoutauths" }
-    if yname == "cipSecTunHistOutAuthFails" { return "Cipsectunhistoutauthfails" }
-    if yname == "cipSecTunHistOutEncrypts" { return "Cipsectunhistoutencrypts" }
-    if yname == "cipSecTunHistOutEncryptFails" { return "Cipsectunhistoutencryptfails" }
-    return ""
+    cipsectunnelhistentry.EntityData.Children = make(map[string]types.YChild)
+    cipsectunnelhistentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistIndex"] = types.YLeaf{"Cipsectunhistindex", cipsectunnelhistentry.Cipsectunhistindex}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistTermReason"] = types.YLeaf{"Cipsectunhisttermreason", cipsectunnelhistentry.Cipsectunhisttermreason}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistActiveIndex"] = types.YLeaf{"Cipsectunhistactiveindex", cipsectunnelhistentry.Cipsectunhistactiveindex}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistIkeTunnelIndex"] = types.YLeaf{"Cipsectunhistiketunnelindex", cipsectunnelhistentry.Cipsectunhistiketunnelindex}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistLocalAddr"] = types.YLeaf{"Cipsectunhistlocaladdr", cipsectunnelhistentry.Cipsectunhistlocaladdr}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistRemoteAddr"] = types.YLeaf{"Cipsectunhistremoteaddr", cipsectunnelhistentry.Cipsectunhistremoteaddr}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistKeyType"] = types.YLeaf{"Cipsectunhistkeytype", cipsectunnelhistentry.Cipsectunhistkeytype}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistEncapMode"] = types.YLeaf{"Cipsectunhistencapmode", cipsectunnelhistentry.Cipsectunhistencapmode}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistLifeSize"] = types.YLeaf{"Cipsectunhistlifesize", cipsectunnelhistentry.Cipsectunhistlifesize}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistLifeTime"] = types.YLeaf{"Cipsectunhistlifetime", cipsectunnelhistentry.Cipsectunhistlifetime}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistStartTime"] = types.YLeaf{"Cipsectunhiststarttime", cipsectunnelhistentry.Cipsectunhiststarttime}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistActiveTime"] = types.YLeaf{"Cipsectunhistactivetime", cipsectunnelhistentry.Cipsectunhistactivetime}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistTotalRefreshes"] = types.YLeaf{"Cipsectunhisttotalrefreshes", cipsectunnelhistentry.Cipsectunhisttotalrefreshes}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistTotalSas"] = types.YLeaf{"Cipsectunhisttotalsas", cipsectunnelhistentry.Cipsectunhisttotalsas}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInSaDiffHellmanGrp"] = types.YLeaf{"Cipsectunhistinsadiffhellmangrp", cipsectunnelhistentry.Cipsectunhistinsadiffhellmangrp}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInSaEncryptAlgo"] = types.YLeaf{"Cipsectunhistinsaencryptalgo", cipsectunnelhistentry.Cipsectunhistinsaencryptalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInSaAhAuthAlgo"] = types.YLeaf{"Cipsectunhistinsaahauthalgo", cipsectunnelhistentry.Cipsectunhistinsaahauthalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInSaEspAuthAlgo"] = types.YLeaf{"Cipsectunhistinsaespauthalgo", cipsectunnelhistentry.Cipsectunhistinsaespauthalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInSaDecompAlgo"] = types.YLeaf{"Cipsectunhistinsadecompalgo", cipsectunnelhistentry.Cipsectunhistinsadecompalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutSaDiffHellmanGrp"] = types.YLeaf{"Cipsectunhistoutsadiffhellmangrp", cipsectunnelhistentry.Cipsectunhistoutsadiffhellmangrp}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutSaEncryptAlgo"] = types.YLeaf{"Cipsectunhistoutsaencryptalgo", cipsectunnelhistentry.Cipsectunhistoutsaencryptalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutSaAhAuthAlgo"] = types.YLeaf{"Cipsectunhistoutsaahauthalgo", cipsectunnelhistentry.Cipsectunhistoutsaahauthalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutSaEspAuthAlgo"] = types.YLeaf{"Cipsectunhistoutsaespauthalgo", cipsectunnelhistentry.Cipsectunhistoutsaespauthalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutSaCompAlgo"] = types.YLeaf{"Cipsectunhistoutsacompalgo", cipsectunnelhistentry.Cipsectunhistoutsacompalgo}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInOctets"] = types.YLeaf{"Cipsectunhistinoctets", cipsectunnelhistentry.Cipsectunhistinoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistHcInOctets"] = types.YLeaf{"Cipsectunhisthcinoctets", cipsectunnelhistentry.Cipsectunhisthcinoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInOctWraps"] = types.YLeaf{"Cipsectunhistinoctwraps", cipsectunnelhistentry.Cipsectunhistinoctwraps}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInDecompOctets"] = types.YLeaf{"Cipsectunhistindecompoctets", cipsectunnelhistentry.Cipsectunhistindecompoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistHcInDecompOctets"] = types.YLeaf{"Cipsectunhisthcindecompoctets", cipsectunnelhistentry.Cipsectunhisthcindecompoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInDecompOctWraps"] = types.YLeaf{"Cipsectunhistindecompoctwraps", cipsectunnelhistentry.Cipsectunhistindecompoctwraps}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInPkts"] = types.YLeaf{"Cipsectunhistinpkts", cipsectunnelhistentry.Cipsectunhistinpkts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInDropPkts"] = types.YLeaf{"Cipsectunhistindroppkts", cipsectunnelhistentry.Cipsectunhistindroppkts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInReplayDropPkts"] = types.YLeaf{"Cipsectunhistinreplaydroppkts", cipsectunnelhistentry.Cipsectunhistinreplaydroppkts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInAuths"] = types.YLeaf{"Cipsectunhistinauths", cipsectunnelhistentry.Cipsectunhistinauths}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInAuthFails"] = types.YLeaf{"Cipsectunhistinauthfails", cipsectunnelhistentry.Cipsectunhistinauthfails}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInDecrypts"] = types.YLeaf{"Cipsectunhistindecrypts", cipsectunnelhistentry.Cipsectunhistindecrypts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistInDecryptFails"] = types.YLeaf{"Cipsectunhistindecryptfails", cipsectunnelhistentry.Cipsectunhistindecryptfails}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutOctets"] = types.YLeaf{"Cipsectunhistoutoctets", cipsectunnelhistentry.Cipsectunhistoutoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistHcOutOctets"] = types.YLeaf{"Cipsectunhisthcoutoctets", cipsectunnelhistentry.Cipsectunhisthcoutoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutOctWraps"] = types.YLeaf{"Cipsectunhistoutoctwraps", cipsectunnelhistentry.Cipsectunhistoutoctwraps}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutUncompOctets"] = types.YLeaf{"Cipsectunhistoutuncompoctets", cipsectunnelhistentry.Cipsectunhistoutuncompoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistHcOutUncompOctets"] = types.YLeaf{"Cipsectunhisthcoutuncompoctets", cipsectunnelhistentry.Cipsectunhisthcoutuncompoctets}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutUncompOctWraps"] = types.YLeaf{"Cipsectunhistoutuncompoctwraps", cipsectunnelhistentry.Cipsectunhistoutuncompoctwraps}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutPkts"] = types.YLeaf{"Cipsectunhistoutpkts", cipsectunnelhistentry.Cipsectunhistoutpkts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutDropPkts"] = types.YLeaf{"Cipsectunhistoutdroppkts", cipsectunnelhistentry.Cipsectunhistoutdroppkts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutAuths"] = types.YLeaf{"Cipsectunhistoutauths", cipsectunnelhistentry.Cipsectunhistoutauths}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutAuthFails"] = types.YLeaf{"Cipsectunhistoutauthfails", cipsectunnelhistentry.Cipsectunhistoutauthfails}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutEncrypts"] = types.YLeaf{"Cipsectunhistoutencrypts", cipsectunnelhistentry.Cipsectunhistoutencrypts}
+    cipsectunnelhistentry.EntityData.Leafs["cipSecTunHistOutEncryptFails"] = types.YLeaf{"Cipsectunhistoutencryptfails", cipsectunnelhistentry.Cipsectunhistoutencryptfails}
+    return &(cipsectunnelhistentry.EntityData)
 }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetSegmentPath() string {
-    return "cipSecTunnelHistEntry" + "[cipSecTunHistIndex='" + fmt.Sprintf("%v", cipsectunnelhistentry.Cipsectunhistindex) + "']"
-}
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecTunHistIndex"] = cipsectunnelhistentry.Cipsectunhistindex
-    leafs["cipSecTunHistTermReason"] = cipsectunnelhistentry.Cipsectunhisttermreason
-    leafs["cipSecTunHistActiveIndex"] = cipsectunnelhistentry.Cipsectunhistactiveindex
-    leafs["cipSecTunHistIkeTunnelIndex"] = cipsectunnelhistentry.Cipsectunhistiketunnelindex
-    leafs["cipSecTunHistLocalAddr"] = cipsectunnelhistentry.Cipsectunhistlocaladdr
-    leafs["cipSecTunHistRemoteAddr"] = cipsectunnelhistentry.Cipsectunhistremoteaddr
-    leafs["cipSecTunHistKeyType"] = cipsectunnelhistentry.Cipsectunhistkeytype
-    leafs["cipSecTunHistEncapMode"] = cipsectunnelhistentry.Cipsectunhistencapmode
-    leafs["cipSecTunHistLifeSize"] = cipsectunnelhistentry.Cipsectunhistlifesize
-    leafs["cipSecTunHistLifeTime"] = cipsectunnelhistentry.Cipsectunhistlifetime
-    leafs["cipSecTunHistStartTime"] = cipsectunnelhistentry.Cipsectunhiststarttime
-    leafs["cipSecTunHistActiveTime"] = cipsectunnelhistentry.Cipsectunhistactivetime
-    leafs["cipSecTunHistTotalRefreshes"] = cipsectunnelhistentry.Cipsectunhisttotalrefreshes
-    leafs["cipSecTunHistTotalSas"] = cipsectunnelhistentry.Cipsectunhisttotalsas
-    leafs["cipSecTunHistInSaDiffHellmanGrp"] = cipsectunnelhistentry.Cipsectunhistinsadiffhellmangrp
-    leafs["cipSecTunHistInSaEncryptAlgo"] = cipsectunnelhistentry.Cipsectunhistinsaencryptalgo
-    leafs["cipSecTunHistInSaAhAuthAlgo"] = cipsectunnelhistentry.Cipsectunhistinsaahauthalgo
-    leafs["cipSecTunHistInSaEspAuthAlgo"] = cipsectunnelhistentry.Cipsectunhistinsaespauthalgo
-    leafs["cipSecTunHistInSaDecompAlgo"] = cipsectunnelhistentry.Cipsectunhistinsadecompalgo
-    leafs["cipSecTunHistOutSaDiffHellmanGrp"] = cipsectunnelhistentry.Cipsectunhistoutsadiffhellmangrp
-    leafs["cipSecTunHistOutSaEncryptAlgo"] = cipsectunnelhistentry.Cipsectunhistoutsaencryptalgo
-    leafs["cipSecTunHistOutSaAhAuthAlgo"] = cipsectunnelhistentry.Cipsectunhistoutsaahauthalgo
-    leafs["cipSecTunHistOutSaEspAuthAlgo"] = cipsectunnelhistentry.Cipsectunhistoutsaespauthalgo
-    leafs["cipSecTunHistOutSaCompAlgo"] = cipsectunnelhistentry.Cipsectunhistoutsacompalgo
-    leafs["cipSecTunHistInOctets"] = cipsectunnelhistentry.Cipsectunhistinoctets
-    leafs["cipSecTunHistHcInOctets"] = cipsectunnelhistentry.Cipsectunhisthcinoctets
-    leafs["cipSecTunHistInOctWraps"] = cipsectunnelhistentry.Cipsectunhistinoctwraps
-    leafs["cipSecTunHistInDecompOctets"] = cipsectunnelhistentry.Cipsectunhistindecompoctets
-    leafs["cipSecTunHistHcInDecompOctets"] = cipsectunnelhistentry.Cipsectunhisthcindecompoctets
-    leafs["cipSecTunHistInDecompOctWraps"] = cipsectunnelhistentry.Cipsectunhistindecompoctwraps
-    leafs["cipSecTunHistInPkts"] = cipsectunnelhistentry.Cipsectunhistinpkts
-    leafs["cipSecTunHistInDropPkts"] = cipsectunnelhistentry.Cipsectunhistindroppkts
-    leafs["cipSecTunHistInReplayDropPkts"] = cipsectunnelhistentry.Cipsectunhistinreplaydroppkts
-    leafs["cipSecTunHistInAuths"] = cipsectunnelhistentry.Cipsectunhistinauths
-    leafs["cipSecTunHistInAuthFails"] = cipsectunnelhistentry.Cipsectunhistinauthfails
-    leafs["cipSecTunHistInDecrypts"] = cipsectunnelhistentry.Cipsectunhistindecrypts
-    leafs["cipSecTunHistInDecryptFails"] = cipsectunnelhistentry.Cipsectunhistindecryptfails
-    leafs["cipSecTunHistOutOctets"] = cipsectunnelhistentry.Cipsectunhistoutoctets
-    leafs["cipSecTunHistHcOutOctets"] = cipsectunnelhistentry.Cipsectunhisthcoutoctets
-    leafs["cipSecTunHistOutOctWraps"] = cipsectunnelhistentry.Cipsectunhistoutoctwraps
-    leafs["cipSecTunHistOutUncompOctets"] = cipsectunnelhistentry.Cipsectunhistoutuncompoctets
-    leafs["cipSecTunHistHcOutUncompOctets"] = cipsectunnelhistentry.Cipsectunhisthcoutuncompoctets
-    leafs["cipSecTunHistOutUncompOctWraps"] = cipsectunnelhistentry.Cipsectunhistoutuncompoctwraps
-    leafs["cipSecTunHistOutPkts"] = cipsectunnelhistentry.Cipsectunhistoutpkts
-    leafs["cipSecTunHistOutDropPkts"] = cipsectunnelhistentry.Cipsectunhistoutdroppkts
-    leafs["cipSecTunHistOutAuths"] = cipsectunnelhistentry.Cipsectunhistoutauths
-    leafs["cipSecTunHistOutAuthFails"] = cipsectunnelhistentry.Cipsectunhistoutauthfails
-    leafs["cipSecTunHistOutEncrypts"] = cipsectunnelhistentry.Cipsectunhistoutencrypts
-    leafs["cipSecTunHistOutEncryptFails"] = cipsectunnelhistentry.Cipsectunhistoutencryptfails
-    return leafs
-}
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetYangName() string { return "cipSecTunnelHistEntry" }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) SetParent(parent types.Entity) { cipsectunnelhistentry.parent = parent }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetParent() types.Entity { return cipsectunnelhistentry.parent }
-
-func (cipsectunnelhistentry *CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry) GetParentYangName() string { return "cipSecTunnelHistTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry_Cipsectunhisttermreason represents 7 = operator initiated check point request
 type CISCOIPSECFLOWMONITORMIB_Cipsectunnelhisttable_Cipsectunnelhistentry_Cipsectunhisttermreason string
@@ -4432,7 +3137,7 @@ const (
 // The maximum number of entries
 // is specified by the cipSecHistTableSize object.
 type CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with a previously active
@@ -4441,69 +3146,30 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable struct {
     Cipsecendpthistentry []CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry
 }
 
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetFilter() yfilter.YFilter { return cipsecendpthisttable.YFilter }
+func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetEntityData() *types.CommonEntityData {
+    cipsecendpthisttable.EntityData.YFilter = cipsecendpthisttable.YFilter
+    cipsecendpthisttable.EntityData.YangName = "cipSecEndPtHistTable"
+    cipsecendpthisttable.EntityData.BundleName = "cisco_ios_xe"
+    cipsecendpthisttable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecendpthisttable.EntityData.SegmentPath = "cipSecEndPtHistTable"
+    cipsecendpthisttable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecendpthisttable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecendpthisttable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) SetFilter(yf yfilter.YFilter) { cipsecendpthisttable.YFilter = yf }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetGoName(yname string) string {
-    if yname == "cipSecEndPtHistEntry" { return "Cipsecendpthistentry" }
-    return ""
-}
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetSegmentPath() string {
-    return "cipSecEndPtHistTable"
-}
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecEndPtHistEntry" {
-        for _, c := range cipsecendpthisttable.Cipsecendpthistentry {
-            if cipsecendpthisttable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry{}
-        cipsecendpthisttable.Cipsecendpthistentry = append(cipsecendpthisttable.Cipsecendpthistentry, child)
-        return &cipsecendpthisttable.Cipsecendpthistentry[len(cipsecendpthisttable.Cipsecendpthistentry)-1]
-    }
-    return nil
-}
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsecendpthisttable.EntityData.Children = make(map[string]types.YChild)
+    cipsecendpthisttable.EntityData.Children["cipSecEndPtHistEntry"] = types.YChild{"Cipsecendpthistentry", nil}
     for i := range cipsecendpthisttable.Cipsecendpthistentry {
-        children[cipsecendpthisttable.Cipsecendpthistentry[i].GetSegmentPath()] = &cipsecendpthisttable.Cipsecendpthistentry[i]
+        cipsecendpthisttable.EntityData.Children[types.GetSegmentPath(&cipsecendpthisttable.Cipsecendpthistentry[i])] = types.YChild{"Cipsecendpthistentry", &cipsecendpthisttable.Cipsecendpthistentry[i]}
     }
-    return children
+    cipsecendpthisttable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsecendpthisttable.EntityData)
 }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetYangName() string { return "cipSecEndPtHistTable" }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) SetParent(parent types.Entity) { cipsecendpthisttable.parent = parent }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetParent() types.Entity { return cipsecendpthisttable.parent }
-
-func (cipsecendpthisttable *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry
 // Each entry contains the attributes associated with
 // a previously active IPsec Phase-2 Tunnel Endpoint.
 type CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The number of the previously active Endpoint
@@ -4585,79 +3251,35 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry struct {
     Cipsecendpthistremoteport interface{}
 }
 
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetFilter() yfilter.YFilter { return cipsecendpthistentry.YFilter }
+func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetEntityData() *types.CommonEntityData {
+    cipsecendpthistentry.EntityData.YFilter = cipsecendpthistentry.YFilter
+    cipsecendpthistentry.EntityData.YangName = "cipSecEndPtHistEntry"
+    cipsecendpthistentry.EntityData.BundleName = "cisco_ios_xe"
+    cipsecendpthistentry.EntityData.ParentYangName = "cipSecEndPtHistTable"
+    cipsecendpthistentry.EntityData.SegmentPath = "cipSecEndPtHistEntry" + "[cipSecEndPtHistIndex='" + fmt.Sprintf("%v", cipsecendpthistentry.Cipsecendpthistindex) + "']"
+    cipsecendpthistentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecendpthistentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecendpthistentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) SetFilter(yf yfilter.YFilter) { cipsecendpthistentry.YFilter = yf }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetGoName(yname string) string {
-    if yname == "cipSecEndPtHistIndex" { return "Cipsecendpthistindex" }
-    if yname == "cipSecEndPtHistTunIndex" { return "Cipsecendpthisttunindex" }
-    if yname == "cipSecEndPtHistActiveIndex" { return "Cipsecendpthistactiveindex" }
-    if yname == "cipSecEndPtHistLocalName" { return "Cipsecendpthistlocalname" }
-    if yname == "cipSecEndPtHistLocalType" { return "Cipsecendpthistlocaltype" }
-    if yname == "cipSecEndPtHistLocalAddr1" { return "Cipsecendpthistlocaladdr1" }
-    if yname == "cipSecEndPtHistLocalAddr2" { return "Cipsecendpthistlocaladdr2" }
-    if yname == "cipSecEndPtHistLocalProtocol" { return "Cipsecendpthistlocalprotocol" }
-    if yname == "cipSecEndPtHistLocalPort" { return "Cipsecendpthistlocalport" }
-    if yname == "cipSecEndPtHistRemoteName" { return "Cipsecendpthistremotename" }
-    if yname == "cipSecEndPtHistRemoteType" { return "Cipsecendpthistremotetype" }
-    if yname == "cipSecEndPtHistRemoteAddr1" { return "Cipsecendpthistremoteaddr1" }
-    if yname == "cipSecEndPtHistRemoteAddr2" { return "Cipsecendpthistremoteaddr2" }
-    if yname == "cipSecEndPtHistRemoteProtocol" { return "Cipsecendpthistremoteprotocol" }
-    if yname == "cipSecEndPtHistRemotePort" { return "Cipsecendpthistremoteport" }
-    return ""
+    cipsecendpthistentry.EntityData.Children = make(map[string]types.YChild)
+    cipsecendpthistentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistIndex"] = types.YLeaf{"Cipsecendpthistindex", cipsecendpthistentry.Cipsecendpthistindex}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistTunIndex"] = types.YLeaf{"Cipsecendpthisttunindex", cipsecendpthistentry.Cipsecendpthisttunindex}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistActiveIndex"] = types.YLeaf{"Cipsecendpthistactiveindex", cipsecendpthistentry.Cipsecendpthistactiveindex}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistLocalName"] = types.YLeaf{"Cipsecendpthistlocalname", cipsecendpthistentry.Cipsecendpthistlocalname}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistLocalType"] = types.YLeaf{"Cipsecendpthistlocaltype", cipsecendpthistentry.Cipsecendpthistlocaltype}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistLocalAddr1"] = types.YLeaf{"Cipsecendpthistlocaladdr1", cipsecendpthistentry.Cipsecendpthistlocaladdr1}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistLocalAddr2"] = types.YLeaf{"Cipsecendpthistlocaladdr2", cipsecendpthistentry.Cipsecendpthistlocaladdr2}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistLocalProtocol"] = types.YLeaf{"Cipsecendpthistlocalprotocol", cipsecendpthistentry.Cipsecendpthistlocalprotocol}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistLocalPort"] = types.YLeaf{"Cipsecendpthistlocalport", cipsecendpthistentry.Cipsecendpthistlocalport}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistRemoteName"] = types.YLeaf{"Cipsecendpthistremotename", cipsecendpthistentry.Cipsecendpthistremotename}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistRemoteType"] = types.YLeaf{"Cipsecendpthistremotetype", cipsecendpthistentry.Cipsecendpthistremotetype}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistRemoteAddr1"] = types.YLeaf{"Cipsecendpthistremoteaddr1", cipsecendpthistentry.Cipsecendpthistremoteaddr1}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistRemoteAddr2"] = types.YLeaf{"Cipsecendpthistremoteaddr2", cipsecendpthistentry.Cipsecendpthistremoteaddr2}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistRemoteProtocol"] = types.YLeaf{"Cipsecendpthistremoteprotocol", cipsecendpthistentry.Cipsecendpthistremoteprotocol}
+    cipsecendpthistentry.EntityData.Leafs["cipSecEndPtHistRemotePort"] = types.YLeaf{"Cipsecendpthistremoteport", cipsecendpthistentry.Cipsecendpthistremoteport}
+    return &(cipsecendpthistentry.EntityData)
 }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetSegmentPath() string {
-    return "cipSecEndPtHistEntry" + "[cipSecEndPtHistIndex='" + fmt.Sprintf("%v", cipsecendpthistentry.Cipsecendpthistindex) + "']"
-}
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecEndPtHistIndex"] = cipsecendpthistentry.Cipsecendpthistindex
-    leafs["cipSecEndPtHistTunIndex"] = cipsecendpthistentry.Cipsecendpthisttunindex
-    leafs["cipSecEndPtHistActiveIndex"] = cipsecendpthistentry.Cipsecendpthistactiveindex
-    leafs["cipSecEndPtHistLocalName"] = cipsecendpthistentry.Cipsecendpthistlocalname
-    leafs["cipSecEndPtHistLocalType"] = cipsecendpthistentry.Cipsecendpthistlocaltype
-    leafs["cipSecEndPtHistLocalAddr1"] = cipsecendpthistentry.Cipsecendpthistlocaladdr1
-    leafs["cipSecEndPtHistLocalAddr2"] = cipsecendpthistentry.Cipsecendpthistlocaladdr2
-    leafs["cipSecEndPtHistLocalProtocol"] = cipsecendpthistentry.Cipsecendpthistlocalprotocol
-    leafs["cipSecEndPtHistLocalPort"] = cipsecendpthistentry.Cipsecendpthistlocalport
-    leafs["cipSecEndPtHistRemoteName"] = cipsecendpthistentry.Cipsecendpthistremotename
-    leafs["cipSecEndPtHistRemoteType"] = cipsecendpthistentry.Cipsecendpthistremotetype
-    leafs["cipSecEndPtHistRemoteAddr1"] = cipsecendpthistentry.Cipsecendpthistremoteaddr1
-    leafs["cipSecEndPtHistRemoteAddr2"] = cipsecendpthistentry.Cipsecendpthistremoteaddr2
-    leafs["cipSecEndPtHistRemoteProtocol"] = cipsecendpthistentry.Cipsecendpthistremoteprotocol
-    leafs["cipSecEndPtHistRemotePort"] = cipsecendpthistentry.Cipsecendpthistremoteport
-    return leafs
-}
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetYangName() string { return "cipSecEndPtHistEntry" }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) SetParent(parent types.Entity) { cipsecendpthistentry.parent = parent }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetParent() types.Entity { return cipsecendpthistentry.parent }
-
-func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsecendpthistentry) GetParentYangName() string { return "cipSecEndPtHistTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikefailtable
 // The IPsec Phase-1 Failure Table.
@@ -4666,7 +3288,7 @@ func (cipsecendpthistentry *CISCOIPSECFLOWMONITORMIB_Cipsecendpthisttable_Cipsec
 // maintained.  The maximum number of entries
 // is specified by the cipSecFailTableSize object.
 type CISCOIPSECFLOWMONITORMIB_Cikefailtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with  an IPsec Phase-1
@@ -4675,70 +3297,31 @@ type CISCOIPSECFLOWMONITORMIB_Cikefailtable struct {
     Cikefailentry []CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry
 }
 
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetFilter() yfilter.YFilter { return cikefailtable.YFilter }
+func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetEntityData() *types.CommonEntityData {
+    cikefailtable.EntityData.YFilter = cikefailtable.YFilter
+    cikefailtable.EntityData.YangName = "cikeFailTable"
+    cikefailtable.EntityData.BundleName = "cisco_ios_xe"
+    cikefailtable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cikefailtable.EntityData.SegmentPath = "cikeFailTable"
+    cikefailtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikefailtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikefailtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) SetFilter(yf yfilter.YFilter) { cikefailtable.YFilter = yf }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetGoName(yname string) string {
-    if yname == "cikeFailEntry" { return "Cikefailentry" }
-    return ""
-}
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetSegmentPath() string {
-    return "cikeFailTable"
-}
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cikeFailEntry" {
-        for _, c := range cikefailtable.Cikefailentry {
-            if cikefailtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry{}
-        cikefailtable.Cikefailentry = append(cikefailtable.Cikefailentry, child)
-        return &cikefailtable.Cikefailentry[len(cikefailtable.Cikefailentry)-1]
-    }
-    return nil
-}
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cikefailtable.EntityData.Children = make(map[string]types.YChild)
+    cikefailtable.EntityData.Children["cikeFailEntry"] = types.YChild{"Cikefailentry", nil}
     for i := range cikefailtable.Cikefailentry {
-        children[cikefailtable.Cikefailentry[i].GetSegmentPath()] = &cikefailtable.Cikefailentry[i]
+        cikefailtable.EntityData.Children[types.GetSegmentPath(&cikefailtable.Cikefailentry[i])] = types.YChild{"Cikefailentry", &cikefailtable.Cikefailentry[i]}
     }
-    return children
+    cikefailtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cikefailtable.EntityData)
 }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetYangName() string { return "cikeFailTable" }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) SetParent(parent types.Entity) { cikefailtable.parent = parent }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetParent() types.Entity { return cikefailtable.parent }
-
-func (cikefailtable *CISCOIPSECFLOWMONITORMIB_Cikefailtable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry
 // Each entry contains the attributes associated
 // with
 //  an IPsec Phase-1 failure.
 type CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IPsec Phase-1 Failure Table index. The value
@@ -4789,67 +3372,29 @@ type CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry struct {
     Cikefailremoteaddr interface{}
 }
 
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetFilter() yfilter.YFilter { return cikefailentry.YFilter }
+func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetEntityData() *types.CommonEntityData {
+    cikefailentry.EntityData.YFilter = cikefailentry.YFilter
+    cikefailentry.EntityData.YangName = "cikeFailEntry"
+    cikefailentry.EntityData.BundleName = "cisco_ios_xe"
+    cikefailentry.EntityData.ParentYangName = "cikeFailTable"
+    cikefailentry.EntityData.SegmentPath = "cikeFailEntry" + "[cikeFailIndex='" + fmt.Sprintf("%v", cikefailentry.Cikefailindex) + "']"
+    cikefailentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cikefailentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cikefailentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) SetFilter(yf yfilter.YFilter) { cikefailentry.YFilter = yf }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetGoName(yname string) string {
-    if yname == "cikeFailIndex" { return "Cikefailindex" }
-    if yname == "cikeFailReason" { return "Cikefailreason" }
-    if yname == "cikeFailTime" { return "Cikefailtime" }
-    if yname == "cikeFailLocalType" { return "Cikefaillocaltype" }
-    if yname == "cikeFailLocalValue" { return "Cikefaillocalvalue" }
-    if yname == "cikeFailRemoteType" { return "Cikefailremotetype" }
-    if yname == "cikeFailRemoteValue" { return "Cikefailremotevalue" }
-    if yname == "cikeFailLocalAddr" { return "Cikefaillocaladdr" }
-    if yname == "cikeFailRemoteAddr" { return "Cikefailremoteaddr" }
-    return ""
+    cikefailentry.EntityData.Children = make(map[string]types.YChild)
+    cikefailentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cikefailentry.EntityData.Leafs["cikeFailIndex"] = types.YLeaf{"Cikefailindex", cikefailentry.Cikefailindex}
+    cikefailentry.EntityData.Leafs["cikeFailReason"] = types.YLeaf{"Cikefailreason", cikefailentry.Cikefailreason}
+    cikefailentry.EntityData.Leafs["cikeFailTime"] = types.YLeaf{"Cikefailtime", cikefailentry.Cikefailtime}
+    cikefailentry.EntityData.Leafs["cikeFailLocalType"] = types.YLeaf{"Cikefaillocaltype", cikefailentry.Cikefaillocaltype}
+    cikefailentry.EntityData.Leafs["cikeFailLocalValue"] = types.YLeaf{"Cikefaillocalvalue", cikefailentry.Cikefaillocalvalue}
+    cikefailentry.EntityData.Leafs["cikeFailRemoteType"] = types.YLeaf{"Cikefailremotetype", cikefailentry.Cikefailremotetype}
+    cikefailentry.EntityData.Leafs["cikeFailRemoteValue"] = types.YLeaf{"Cikefailremotevalue", cikefailentry.Cikefailremotevalue}
+    cikefailentry.EntityData.Leafs["cikeFailLocalAddr"] = types.YLeaf{"Cikefaillocaladdr", cikefailentry.Cikefaillocaladdr}
+    cikefailentry.EntityData.Leafs["cikeFailRemoteAddr"] = types.YLeaf{"Cikefailremoteaddr", cikefailentry.Cikefailremoteaddr}
+    return &(cikefailentry.EntityData)
 }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetSegmentPath() string {
-    return "cikeFailEntry" + "[cikeFailIndex='" + fmt.Sprintf("%v", cikefailentry.Cikefailindex) + "']"
-}
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cikeFailIndex"] = cikefailentry.Cikefailindex
-    leafs["cikeFailReason"] = cikefailentry.Cikefailreason
-    leafs["cikeFailTime"] = cikefailentry.Cikefailtime
-    leafs["cikeFailLocalType"] = cikefailentry.Cikefaillocaltype
-    leafs["cikeFailLocalValue"] = cikefailentry.Cikefaillocalvalue
-    leafs["cikeFailRemoteType"] = cikefailentry.Cikefailremotetype
-    leafs["cikeFailRemoteValue"] = cikefailentry.Cikefailremotevalue
-    leafs["cikeFailLocalAddr"] = cikefailentry.Cikefaillocaladdr
-    leafs["cikeFailRemoteAddr"] = cikefailentry.Cikefailremoteaddr
-    return leafs
-}
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetYangName() string { return "cikeFailEntry" }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) SetParent(parent types.Entity) { cikefailentry.parent = parent }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetParent() types.Entity { return cikefailentry.parent }
-
-func (cikefailentry *CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry) GetParentYangName() string { return "cikeFailTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry_Cikefailreason represents 17 = operator requested termination.
 type CISCOIPSECFLOWMONITORMIB_Cikefailtable_Cikefailentry_Cikefailreason string
@@ -4897,7 +3442,7 @@ const (
 // The maximum number of entries
 // is specified by the cipSecFailTableSize object.
 type CISCOIPSECFLOWMONITORMIB_Cipsecfailtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with an IPsec Phase-1
@@ -4906,69 +3451,30 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecfailtable struct {
     Cipsecfailentry []CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry
 }
 
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetFilter() yfilter.YFilter { return cipsecfailtable.YFilter }
+func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetEntityData() *types.CommonEntityData {
+    cipsecfailtable.EntityData.YFilter = cipsecfailtable.YFilter
+    cipsecfailtable.EntityData.YangName = "cipSecFailTable"
+    cipsecfailtable.EntityData.BundleName = "cisco_ios_xe"
+    cipsecfailtable.EntityData.ParentYangName = "CISCO-IPSEC-FLOW-MONITOR-MIB"
+    cipsecfailtable.EntityData.SegmentPath = "cipSecFailTable"
+    cipsecfailtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecfailtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecfailtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) SetFilter(yf yfilter.YFilter) { cipsecfailtable.YFilter = yf }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetGoName(yname string) string {
-    if yname == "cipSecFailEntry" { return "Cipsecfailentry" }
-    return ""
-}
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetSegmentPath() string {
-    return "cipSecFailTable"
-}
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cipSecFailEntry" {
-        for _, c := range cipsecfailtable.Cipsecfailentry {
-            if cipsecfailtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry{}
-        cipsecfailtable.Cipsecfailentry = append(cipsecfailtable.Cipsecfailentry, child)
-        return &cipsecfailtable.Cipsecfailentry[len(cipsecfailtable.Cipsecfailentry)-1]
-    }
-    return nil
-}
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cipsecfailtable.EntityData.Children = make(map[string]types.YChild)
+    cipsecfailtable.EntityData.Children["cipSecFailEntry"] = types.YChild{"Cipsecfailentry", nil}
     for i := range cipsecfailtable.Cipsecfailentry {
-        children[cipsecfailtable.Cipsecfailentry[i].GetSegmentPath()] = &cipsecfailtable.Cipsecfailentry[i]
+        cipsecfailtable.EntityData.Children[types.GetSegmentPath(&cipsecfailtable.Cipsecfailentry[i])] = types.YChild{"Cipsecfailentry", &cipsecfailtable.Cipsecfailentry[i]}
     }
-    return children
+    cipsecfailtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cipsecfailtable.EntityData)
 }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetYangName() string { return "cipSecFailTable" }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) SetParent(parent types.Entity) { cipsecfailtable.parent = parent }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetParent() types.Entity { return cipsecfailtable.parent }
-
-func (cipsecfailtable *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable) GetParentYangName() string { return "CISCO-IPSEC-FLOW-MONITOR-MIB" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry
 // Each entry contains the attributes associated with
 // an IPsec Phase-1 failure.
 type CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The IPsec Phase-2 Failure Table index. The value
@@ -5007,63 +3513,27 @@ type CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry struct {
     Cipsecfailpktdstaddr interface{}
 }
 
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetFilter() yfilter.YFilter { return cipsecfailentry.YFilter }
+func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetEntityData() *types.CommonEntityData {
+    cipsecfailentry.EntityData.YFilter = cipsecfailentry.YFilter
+    cipsecfailentry.EntityData.YangName = "cipSecFailEntry"
+    cipsecfailentry.EntityData.BundleName = "cisco_ios_xe"
+    cipsecfailentry.EntityData.ParentYangName = "cipSecFailTable"
+    cipsecfailentry.EntityData.SegmentPath = "cipSecFailEntry" + "[cipSecFailIndex='" + fmt.Sprintf("%v", cipsecfailentry.Cipsecfailindex) + "']"
+    cipsecfailentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cipsecfailentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cipsecfailentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) SetFilter(yf yfilter.YFilter) { cipsecfailentry.YFilter = yf }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetGoName(yname string) string {
-    if yname == "cipSecFailIndex" { return "Cipsecfailindex" }
-    if yname == "cipSecFailReason" { return "Cipsecfailreason" }
-    if yname == "cipSecFailTime" { return "Cipsecfailtime" }
-    if yname == "cipSecFailTunnelIndex" { return "Cipsecfailtunnelindex" }
-    if yname == "cipSecFailSaSpi" { return "Cipsecfailsaspi" }
-    if yname == "cipSecFailPktSrcAddr" { return "Cipsecfailpktsrcaddr" }
-    if yname == "cipSecFailPktDstAddr" { return "Cipsecfailpktdstaddr" }
-    return ""
+    cipsecfailentry.EntityData.Children = make(map[string]types.YChild)
+    cipsecfailentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cipsecfailentry.EntityData.Leafs["cipSecFailIndex"] = types.YLeaf{"Cipsecfailindex", cipsecfailentry.Cipsecfailindex}
+    cipsecfailentry.EntityData.Leafs["cipSecFailReason"] = types.YLeaf{"Cipsecfailreason", cipsecfailentry.Cipsecfailreason}
+    cipsecfailentry.EntityData.Leafs["cipSecFailTime"] = types.YLeaf{"Cipsecfailtime", cipsecfailentry.Cipsecfailtime}
+    cipsecfailentry.EntityData.Leafs["cipSecFailTunnelIndex"] = types.YLeaf{"Cipsecfailtunnelindex", cipsecfailentry.Cipsecfailtunnelindex}
+    cipsecfailentry.EntityData.Leafs["cipSecFailSaSpi"] = types.YLeaf{"Cipsecfailsaspi", cipsecfailentry.Cipsecfailsaspi}
+    cipsecfailentry.EntityData.Leafs["cipSecFailPktSrcAddr"] = types.YLeaf{"Cipsecfailpktsrcaddr", cipsecfailentry.Cipsecfailpktsrcaddr}
+    cipsecfailentry.EntityData.Leafs["cipSecFailPktDstAddr"] = types.YLeaf{"Cipsecfailpktdstaddr", cipsecfailentry.Cipsecfailpktdstaddr}
+    return &(cipsecfailentry.EntityData)
 }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetSegmentPath() string {
-    return "cipSecFailEntry" + "[cipSecFailIndex='" + fmt.Sprintf("%v", cipsecfailentry.Cipsecfailindex) + "']"
-}
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cipSecFailIndex"] = cipsecfailentry.Cipsecfailindex
-    leafs["cipSecFailReason"] = cipsecfailentry.Cipsecfailreason
-    leafs["cipSecFailTime"] = cipsecfailentry.Cipsecfailtime
-    leafs["cipSecFailTunnelIndex"] = cipsecfailentry.Cipsecfailtunnelindex
-    leafs["cipSecFailSaSpi"] = cipsecfailentry.Cipsecfailsaspi
-    leafs["cipSecFailPktSrcAddr"] = cipsecfailentry.Cipsecfailpktsrcaddr
-    leafs["cipSecFailPktDstAddr"] = cipsecfailentry.Cipsecfailpktdstaddr
-    return leafs
-}
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetYangName() string { return "cipSecFailEntry" }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) SetParent(parent types.Entity) { cipsecfailentry.parent = parent }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetParent() types.Entity { return cipsecfailentry.parent }
-
-func (cipsecfailentry *CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry) GetParentYangName() string { return "cipSecFailTable" }
 
 // CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry_Cipsecfailreason represents  16 = operator requested termination.
 type CISCOIPSECFLOWMONITORMIB_Cipsecfailtable_Cipsecfailentry_Cipsecfailreason string

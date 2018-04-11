@@ -25,7 +25,7 @@ func init() {
 
 // MPLSVPNMIB
 type MPLSVPNMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -60,88 +60,31 @@ type MPLSVPNMIB struct {
     Mplsvpnvrfroutetable MPLSVPNMIB_Mplsvpnvrfroutetable
 }
 
-func (mPLSVPNMIB *MPLSVPNMIB) GetFilter() yfilter.YFilter { return mPLSVPNMIB.YFilter }
+func (mPLSVPNMIB *MPLSVPNMIB) GetEntityData() *types.CommonEntityData {
+    mPLSVPNMIB.EntityData.YFilter = mPLSVPNMIB.YFilter
+    mPLSVPNMIB.EntityData.YangName = "MPLS-VPN-MIB"
+    mPLSVPNMIB.EntityData.BundleName = "cisco_ios_xe"
+    mPLSVPNMIB.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mPLSVPNMIB.EntityData.SegmentPath = "MPLS-VPN-MIB:MPLS-VPN-MIB"
+    mPLSVPNMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mPLSVPNMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mPLSVPNMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mPLSVPNMIB *MPLSVPNMIB) SetFilter(yf yfilter.YFilter) { mPLSVPNMIB.YFilter = yf }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetGoName(yname string) string {
-    if yname == "mplsVpnScalars" { return "Mplsvpnscalars" }
-    if yname == "mplsVpnInterfaceConfTable" { return "Mplsvpninterfaceconftable" }
-    if yname == "mplsVpnVrfTable" { return "Mplsvpnvrftable" }
-    if yname == "mplsVpnVrfRouteTargetTable" { return "Mplsvpnvrfroutetargettable" }
-    if yname == "mplsVpnVrfBgpNbrAddrTable" { return "Mplsvpnvrfbgpnbraddrtable" }
-    if yname == "mplsVpnVrfBgpNbrPrefixTable" { return "Mplsvpnvrfbgpnbrprefixtable" }
-    if yname == "mplsVpnVrfRouteTable" { return "Mplsvpnvrfroutetable" }
-    return ""
+    mPLSVPNMIB.EntityData.Children = make(map[string]types.YChild)
+    mPLSVPNMIB.EntityData.Children["mplsVpnScalars"] = types.YChild{"Mplsvpnscalars", &mPLSVPNMIB.Mplsvpnscalars}
+    mPLSVPNMIB.EntityData.Children["mplsVpnInterfaceConfTable"] = types.YChild{"Mplsvpninterfaceconftable", &mPLSVPNMIB.Mplsvpninterfaceconftable}
+    mPLSVPNMIB.EntityData.Children["mplsVpnVrfTable"] = types.YChild{"Mplsvpnvrftable", &mPLSVPNMIB.Mplsvpnvrftable}
+    mPLSVPNMIB.EntityData.Children["mplsVpnVrfRouteTargetTable"] = types.YChild{"Mplsvpnvrfroutetargettable", &mPLSVPNMIB.Mplsvpnvrfroutetargettable}
+    mPLSVPNMIB.EntityData.Children["mplsVpnVrfBgpNbrAddrTable"] = types.YChild{"Mplsvpnvrfbgpnbraddrtable", &mPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable}
+    mPLSVPNMIB.EntityData.Children["mplsVpnVrfBgpNbrPrefixTable"] = types.YChild{"Mplsvpnvrfbgpnbrprefixtable", &mPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable}
+    mPLSVPNMIB.EntityData.Children["mplsVpnVrfRouteTable"] = types.YChild{"Mplsvpnvrfroutetable", &mPLSVPNMIB.Mplsvpnvrfroutetable}
+    mPLSVPNMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mPLSVPNMIB.EntityData)
 }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetSegmentPath() string {
-    return "MPLS-VPN-MIB:MPLS-VPN-MIB"
-}
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnScalars" {
-        return &mPLSVPNMIB.Mplsvpnscalars
-    }
-    if childYangName == "mplsVpnInterfaceConfTable" {
-        return &mPLSVPNMIB.Mplsvpninterfaceconftable
-    }
-    if childYangName == "mplsVpnVrfTable" {
-        return &mPLSVPNMIB.Mplsvpnvrftable
-    }
-    if childYangName == "mplsVpnVrfRouteTargetTable" {
-        return &mPLSVPNMIB.Mplsvpnvrfroutetargettable
-    }
-    if childYangName == "mplsVpnVrfBgpNbrAddrTable" {
-        return &mPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable
-    }
-    if childYangName == "mplsVpnVrfBgpNbrPrefixTable" {
-        return &mPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable
-    }
-    if childYangName == "mplsVpnVrfRouteTable" {
-        return &mPLSVPNMIB.Mplsvpnvrfroutetable
-    }
-    return nil
-}
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mplsVpnScalars"] = &mPLSVPNMIB.Mplsvpnscalars
-    children["mplsVpnInterfaceConfTable"] = &mPLSVPNMIB.Mplsvpninterfaceconftable
-    children["mplsVpnVrfTable"] = &mPLSVPNMIB.Mplsvpnvrftable
-    children["mplsVpnVrfRouteTargetTable"] = &mPLSVPNMIB.Mplsvpnvrfroutetargettable
-    children["mplsVpnVrfBgpNbrAddrTable"] = &mPLSVPNMIB.Mplsvpnvrfbgpnbraddrtable
-    children["mplsVpnVrfBgpNbrPrefixTable"] = &mPLSVPNMIB.Mplsvpnvrfbgpnbrprefixtable
-    children["mplsVpnVrfRouteTable"] = &mPLSVPNMIB.Mplsvpnvrfroutetable
-    return children
-}
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetYangName() string { return "MPLS-VPN-MIB" }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mPLSVPNMIB *MPLSVPNMIB) SetParent(parent types.Entity) { mPLSVPNMIB.parent = parent }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetParent() types.Entity { return mPLSVPNMIB.parent }
-
-func (mPLSVPNMIB *MPLSVPNMIB) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpnscalars
 type MPLSVPNMIB_Mplsvpnscalars struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The number of VRFs which are configured on this node. The type is
@@ -169,65 +112,31 @@ type MPLSVPNMIB_Mplsvpnscalars struct {
     Mplsvpnvrfconfmaxpossibleroutes interface{}
 }
 
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetFilter() yfilter.YFilter { return mplsvpnscalars.YFilter }
+func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetEntityData() *types.CommonEntityData {
+    mplsvpnscalars.EntityData.YFilter = mplsvpnscalars.YFilter
+    mplsvpnscalars.EntityData.YangName = "mplsVpnScalars"
+    mplsvpnscalars.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnscalars.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpnscalars.EntityData.SegmentPath = "mplsVpnScalars"
+    mplsvpnscalars.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnscalars.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnscalars.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) SetFilter(yf yfilter.YFilter) { mplsvpnscalars.YFilter = yf }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetGoName(yname string) string {
-    if yname == "mplsVpnConfiguredVrfs" { return "Mplsvpnconfiguredvrfs" }
-    if yname == "mplsVpnActiveVrfs" { return "Mplsvpnactivevrfs" }
-    if yname == "mplsVpnConnectedInterfaces" { return "Mplsvpnconnectedinterfaces" }
-    if yname == "mplsVpnNotificationEnable" { return "Mplsvpnnotificationenable" }
-    if yname == "mplsVpnVrfConfMaxPossibleRoutes" { return "Mplsvpnvrfconfmaxpossibleroutes" }
-    return ""
+    mplsvpnscalars.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnscalars.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpnscalars.EntityData.Leafs["mplsVpnConfiguredVrfs"] = types.YLeaf{"Mplsvpnconfiguredvrfs", mplsvpnscalars.Mplsvpnconfiguredvrfs}
+    mplsvpnscalars.EntityData.Leafs["mplsVpnActiveVrfs"] = types.YLeaf{"Mplsvpnactivevrfs", mplsvpnscalars.Mplsvpnactivevrfs}
+    mplsvpnscalars.EntityData.Leafs["mplsVpnConnectedInterfaces"] = types.YLeaf{"Mplsvpnconnectedinterfaces", mplsvpnscalars.Mplsvpnconnectedinterfaces}
+    mplsvpnscalars.EntityData.Leafs["mplsVpnNotificationEnable"] = types.YLeaf{"Mplsvpnnotificationenable", mplsvpnscalars.Mplsvpnnotificationenable}
+    mplsvpnscalars.EntityData.Leafs["mplsVpnVrfConfMaxPossibleRoutes"] = types.YLeaf{"Mplsvpnvrfconfmaxpossibleroutes", mplsvpnscalars.Mplsvpnvrfconfmaxpossibleroutes}
+    return &(mplsvpnscalars.EntityData)
 }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetSegmentPath() string {
-    return "mplsVpnScalars"
-}
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnConfiguredVrfs"] = mplsvpnscalars.Mplsvpnconfiguredvrfs
-    leafs["mplsVpnActiveVrfs"] = mplsvpnscalars.Mplsvpnactivevrfs
-    leafs["mplsVpnConnectedInterfaces"] = mplsvpnscalars.Mplsvpnconnectedinterfaces
-    leafs["mplsVpnNotificationEnable"] = mplsvpnscalars.Mplsvpnnotificationenable
-    leafs["mplsVpnVrfConfMaxPossibleRoutes"] = mplsvpnscalars.Mplsvpnvrfconfmaxpossibleroutes
-    return leafs
-}
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetYangName() string { return "mplsVpnScalars" }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) SetParent(parent types.Entity) { mplsvpnscalars.parent = parent }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetParent() types.Entity { return mplsvpnscalars.parent }
-
-func (mplsvpnscalars *MPLSVPNMIB_Mplsvpnscalars) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpninterfaceconftable
 // This table specifies per-interface MPLS capability
 // and associated information.
 type MPLSVPNMIB_Mplsvpninterfaceconftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by an LSR for every interface capable of
@@ -237,63 +146,24 @@ type MPLSVPNMIB_Mplsvpninterfaceconftable struct {
     Mplsvpninterfaceconfentry []MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry
 }
 
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetFilter() yfilter.YFilter { return mplsvpninterfaceconftable.YFilter }
+func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetEntityData() *types.CommonEntityData {
+    mplsvpninterfaceconftable.EntityData.YFilter = mplsvpninterfaceconftable.YFilter
+    mplsvpninterfaceconftable.EntityData.YangName = "mplsVpnInterfaceConfTable"
+    mplsvpninterfaceconftable.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpninterfaceconftable.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpninterfaceconftable.EntityData.SegmentPath = "mplsVpnInterfaceConfTable"
+    mplsvpninterfaceconftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpninterfaceconftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpninterfaceconftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) SetFilter(yf yfilter.YFilter) { mplsvpninterfaceconftable.YFilter = yf }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetGoName(yname string) string {
-    if yname == "mplsVpnInterfaceConfEntry" { return "Mplsvpninterfaceconfentry" }
-    return ""
-}
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetSegmentPath() string {
-    return "mplsVpnInterfaceConfTable"
-}
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnInterfaceConfEntry" {
-        for _, c := range mplsvpninterfaceconftable.Mplsvpninterfaceconfentry {
-            if mplsvpninterfaceconftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry{}
-        mplsvpninterfaceconftable.Mplsvpninterfaceconfentry = append(mplsvpninterfaceconftable.Mplsvpninterfaceconfentry, child)
-        return &mplsvpninterfaceconftable.Mplsvpninterfaceconfentry[len(mplsvpninterfaceconftable.Mplsvpninterfaceconfentry)-1]
-    }
-    return nil
-}
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsvpninterfaceconftable.EntityData.Children = make(map[string]types.YChild)
+    mplsvpninterfaceconftable.EntityData.Children["mplsVpnInterfaceConfEntry"] = types.YChild{"Mplsvpninterfaceconfentry", nil}
     for i := range mplsvpninterfaceconftable.Mplsvpninterfaceconfentry {
-        children[mplsvpninterfaceconftable.Mplsvpninterfaceconfentry[i].GetSegmentPath()] = &mplsvpninterfaceconftable.Mplsvpninterfaceconfentry[i]
+        mplsvpninterfaceconftable.EntityData.Children[types.GetSegmentPath(&mplsvpninterfaceconftable.Mplsvpninterfaceconfentry[i])] = types.YChild{"Mplsvpninterfaceconfentry", &mplsvpninterfaceconftable.Mplsvpninterfaceconfentry[i]}
     }
-    return children
+    mplsvpninterfaceconftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsvpninterfaceconftable.EntityData)
 }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetYangName() string { return "mplsVpnInterfaceConfTable" }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) SetParent(parent types.Entity) { mplsvpninterfaceconftable.parent = parent }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetParent() types.Entity { return mplsvpninterfaceconftable.parent }
-
-func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry
 // An entry in this table is created by an LSR for
@@ -303,7 +173,7 @@ func (mplsvpninterfaceconftable *MPLSVPNMIB_Mplsvpninterfaceconftable) GetParent
 // Each entry in this table is meant to correspond to
 // an entry in the Interfaces Table.
 type MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
@@ -345,63 +215,27 @@ type MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry struct {
     Mplsvpninterfaceconfrowstatus interface{}
 }
 
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetFilter() yfilter.YFilter { return mplsvpninterfaceconfentry.YFilter }
+func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetEntityData() *types.CommonEntityData {
+    mplsvpninterfaceconfentry.EntityData.YFilter = mplsvpninterfaceconfentry.YFilter
+    mplsvpninterfaceconfentry.EntityData.YangName = "mplsVpnInterfaceConfEntry"
+    mplsvpninterfaceconfentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpninterfaceconfentry.EntityData.ParentYangName = "mplsVpnInterfaceConfTable"
+    mplsvpninterfaceconfentry.EntityData.SegmentPath = "mplsVpnInterfaceConfEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpninterfaceconfentry.Mplsvpnvrfname) + "']" + "[mplsVpnInterfaceConfIndex='" + fmt.Sprintf("%v", mplsvpninterfaceconfentry.Mplsvpninterfaceconfindex) + "']"
+    mplsvpninterfaceconfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpninterfaceconfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpninterfaceconfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) SetFilter(yf yfilter.YFilter) { mplsvpninterfaceconfentry.YFilter = yf }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfName" { return "Mplsvpnvrfname" }
-    if yname == "mplsVpnInterfaceConfIndex" { return "Mplsvpninterfaceconfindex" }
-    if yname == "mplsVpnInterfaceLabelEdgeType" { return "Mplsvpninterfacelabeledgetype" }
-    if yname == "mplsVpnInterfaceVpnClassification" { return "Mplsvpninterfacevpnclassification" }
-    if yname == "mplsVpnInterfaceVpnRouteDistProtocol" { return "Mplsvpninterfacevpnroutedistprotocol" }
-    if yname == "mplsVpnInterfaceConfStorageType" { return "Mplsvpninterfaceconfstoragetype" }
-    if yname == "mplsVpnInterfaceConfRowStatus" { return "Mplsvpninterfaceconfrowstatus" }
-    return ""
+    mplsvpninterfaceconfentry.EntityData.Children = make(map[string]types.YChild)
+    mplsvpninterfaceconfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnVrfName"] = types.YLeaf{"Mplsvpnvrfname", mplsvpninterfaceconfentry.Mplsvpnvrfname}
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnInterfaceConfIndex"] = types.YLeaf{"Mplsvpninterfaceconfindex", mplsvpninterfaceconfentry.Mplsvpninterfaceconfindex}
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnInterfaceLabelEdgeType"] = types.YLeaf{"Mplsvpninterfacelabeledgetype", mplsvpninterfaceconfentry.Mplsvpninterfacelabeledgetype}
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnInterfaceVpnClassification"] = types.YLeaf{"Mplsvpninterfacevpnclassification", mplsvpninterfaceconfentry.Mplsvpninterfacevpnclassification}
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnInterfaceVpnRouteDistProtocol"] = types.YLeaf{"Mplsvpninterfacevpnroutedistprotocol", mplsvpninterfaceconfentry.Mplsvpninterfacevpnroutedistprotocol}
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnInterfaceConfStorageType"] = types.YLeaf{"Mplsvpninterfaceconfstoragetype", mplsvpninterfaceconfentry.Mplsvpninterfaceconfstoragetype}
+    mplsvpninterfaceconfentry.EntityData.Leafs["mplsVpnInterfaceConfRowStatus"] = types.YLeaf{"Mplsvpninterfaceconfrowstatus", mplsvpninterfaceconfentry.Mplsvpninterfaceconfrowstatus}
+    return &(mplsvpninterfaceconfentry.EntityData)
 }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetSegmentPath() string {
-    return "mplsVpnInterfaceConfEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpninterfaceconfentry.Mplsvpnvrfname) + "']" + "[mplsVpnInterfaceConfIndex='" + fmt.Sprintf("%v", mplsvpninterfaceconfentry.Mplsvpninterfaceconfindex) + "']"
-}
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnVrfName"] = mplsvpninterfaceconfentry.Mplsvpnvrfname
-    leafs["mplsVpnInterfaceConfIndex"] = mplsvpninterfaceconfentry.Mplsvpninterfaceconfindex
-    leafs["mplsVpnInterfaceLabelEdgeType"] = mplsvpninterfaceconfentry.Mplsvpninterfacelabeledgetype
-    leafs["mplsVpnInterfaceVpnClassification"] = mplsvpninterfaceconfentry.Mplsvpninterfacevpnclassification
-    leafs["mplsVpnInterfaceVpnRouteDistProtocol"] = mplsvpninterfaceconfentry.Mplsvpninterfacevpnroutedistprotocol
-    leafs["mplsVpnInterfaceConfStorageType"] = mplsvpninterfaceconfentry.Mplsvpninterfaceconfstoragetype
-    leafs["mplsVpnInterfaceConfRowStatus"] = mplsvpninterfaceconfentry.Mplsvpninterfaceconfrowstatus
-    return leafs
-}
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetYangName() string { return "mplsVpnInterfaceConfEntry" }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) SetParent(parent types.Entity) { mplsvpninterfaceconfentry.parent = parent }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetParent() types.Entity { return mplsvpninterfaceconfentry.parent }
-
-func (mplsvpninterfaceconfentry *MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry) GetParentYangName() string { return "mplsVpnInterfaceConfTable" }
 
 // MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry_Mplsvpninterfacelabeledgetype represents (CE) bit MUST be set.
 type MPLSVPNMIB_Mplsvpninterfaceconftable_Mplsvpninterfaceconfentry_Mplsvpninterfacelabeledgetype string
@@ -432,7 +266,7 @@ const (
 // instance. The collection of all VRF instances
 // comprises an actual VPN.
 type MPLSVPNMIB_Mplsvpnvrftable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by an LSR for every VRF capable of
@@ -441,63 +275,24 @@ type MPLSVPNMIB_Mplsvpnvrftable struct {
     Mplsvpnvrfentry []MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry
 }
 
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetFilter() yfilter.YFilter { return mplsvpnvrftable.YFilter }
+func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrftable.EntityData.YFilter = mplsvpnvrftable.YFilter
+    mplsvpnvrftable.EntityData.YangName = "mplsVpnVrfTable"
+    mplsvpnvrftable.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrftable.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpnvrftable.EntityData.SegmentPath = "mplsVpnVrfTable"
+    mplsvpnvrftable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrftable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrftable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) SetFilter(yf yfilter.YFilter) { mplsvpnvrftable.YFilter = yf }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfEntry" { return "Mplsvpnvrfentry" }
-    return ""
-}
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetSegmentPath() string {
-    return "mplsVpnVrfTable"
-}
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnVrfEntry" {
-        for _, c := range mplsvpnvrftable.Mplsvpnvrfentry {
-            if mplsvpnvrftable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry{}
-        mplsvpnvrftable.Mplsvpnvrfentry = append(mplsvpnvrftable.Mplsvpnvrfentry, child)
-        return &mplsvpnvrftable.Mplsvpnvrfentry[len(mplsvpnvrftable.Mplsvpnvrfentry)-1]
-    }
-    return nil
-}
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsvpnvrftable.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrftable.EntityData.Children["mplsVpnVrfEntry"] = types.YChild{"Mplsvpnvrfentry", nil}
     for i := range mplsvpnvrftable.Mplsvpnvrfentry {
-        children[mplsvpnvrftable.Mplsvpnvrfentry[i].GetSegmentPath()] = &mplsvpnvrftable.Mplsvpnvrfentry[i]
+        mplsvpnvrftable.EntityData.Children[types.GetSegmentPath(&mplsvpnvrftable.Mplsvpnvrfentry[i])] = types.YChild{"Mplsvpnvrfentry", &mplsvpnvrftable.Mplsvpnvrfentry[i]}
     }
-    return children
+    mplsvpnvrftable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsvpnvrftable.EntityData)
 }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetYangName() string { return "mplsVpnVrfTable" }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) SetParent(parent types.Entity) { mplsvpnvrftable.parent = parent }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetParent() types.Entity { return mplsvpnvrftable.parent }
-
-func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry
 // An entry in this table is created by an LSR for
@@ -505,7 +300,7 @@ func (mplsvpnvrftable *MPLSVPNMIB_Mplsvpnvrftable) GetParentYangName() string { 
 // indexing provides an ordering of VRFs per-VPN
 // interface.
 type MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The human-readable name of this VPN. This MAY be
@@ -591,85 +386,38 @@ type MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry struct {
     Mplsvpnvrfperfcurrnumroutes interface{}
 }
 
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetFilter() yfilter.YFilter { return mplsvpnvrfentry.YFilter }
+func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfentry.EntityData.YFilter = mplsvpnvrfentry.YFilter
+    mplsvpnvrfentry.EntityData.YangName = "mplsVpnVrfEntry"
+    mplsvpnvrfentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfentry.EntityData.ParentYangName = "mplsVpnVrfTable"
+    mplsvpnvrfentry.EntityData.SegmentPath = "mplsVpnVrfEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfentry.Mplsvpnvrfname) + "']"
+    mplsvpnvrfentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) SetFilter(yf yfilter.YFilter) { mplsvpnvrfentry.YFilter = yf }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfName" { return "Mplsvpnvrfname" }
-    if yname == "mplsVpnVrfDescription" { return "Mplsvpnvrfdescription" }
-    if yname == "mplsVpnVrfRouteDistinguisher" { return "Mplsvpnvrfroutedistinguisher" }
-    if yname == "mplsVpnVrfCreationTime" { return "Mplsvpnvrfcreationtime" }
-    if yname == "mplsVpnVrfOperStatus" { return "Mplsvpnvrfoperstatus" }
-    if yname == "mplsVpnVrfActiveInterfaces" { return "Mplsvpnvrfactiveinterfaces" }
-    if yname == "mplsVpnVrfAssociatedInterfaces" { return "Mplsvpnvrfassociatedinterfaces" }
-    if yname == "mplsVpnVrfConfMidRouteThreshold" { return "Mplsvpnvrfconfmidroutethreshold" }
-    if yname == "mplsVpnVrfConfHighRouteThreshold" { return "Mplsvpnvrfconfhighroutethreshold" }
-    if yname == "mplsVpnVrfConfMaxRoutes" { return "Mplsvpnvrfconfmaxroutes" }
-    if yname == "mplsVpnVrfConfLastChanged" { return "Mplsvpnvrfconflastchanged" }
-    if yname == "mplsVpnVrfConfRowStatus" { return "Mplsvpnvrfconfrowstatus" }
-    if yname == "mplsVpnVrfConfStorageType" { return "Mplsvpnvrfconfstoragetype" }
-    if yname == "mplsVpnVrfSecIllegalLabelViolations" { return "Mplsvpnvrfsecillegallabelviolations" }
-    if yname == "mplsVpnVrfSecIllegalLabelRcvThresh" { return "Mplsvpnvrfsecillegallabelrcvthresh" }
-    if yname == "mplsVpnVrfPerfRoutesAdded" { return "Mplsvpnvrfperfroutesadded" }
-    if yname == "mplsVpnVrfPerfRoutesDeleted" { return "Mplsvpnvrfperfroutesdeleted" }
-    if yname == "mplsVpnVrfPerfCurrNumRoutes" { return "Mplsvpnvrfperfcurrnumroutes" }
-    return ""
+    mplsvpnvrfentry.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfName"] = types.YLeaf{"Mplsvpnvrfname", mplsvpnvrfentry.Mplsvpnvrfname}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfDescription"] = types.YLeaf{"Mplsvpnvrfdescription", mplsvpnvrfentry.Mplsvpnvrfdescription}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfRouteDistinguisher"] = types.YLeaf{"Mplsvpnvrfroutedistinguisher", mplsvpnvrfentry.Mplsvpnvrfroutedistinguisher}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfCreationTime"] = types.YLeaf{"Mplsvpnvrfcreationtime", mplsvpnvrfentry.Mplsvpnvrfcreationtime}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfOperStatus"] = types.YLeaf{"Mplsvpnvrfoperstatus", mplsvpnvrfentry.Mplsvpnvrfoperstatus}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfActiveInterfaces"] = types.YLeaf{"Mplsvpnvrfactiveinterfaces", mplsvpnvrfentry.Mplsvpnvrfactiveinterfaces}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfAssociatedInterfaces"] = types.YLeaf{"Mplsvpnvrfassociatedinterfaces", mplsvpnvrfentry.Mplsvpnvrfassociatedinterfaces}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfConfMidRouteThreshold"] = types.YLeaf{"Mplsvpnvrfconfmidroutethreshold", mplsvpnvrfentry.Mplsvpnvrfconfmidroutethreshold}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfConfHighRouteThreshold"] = types.YLeaf{"Mplsvpnvrfconfhighroutethreshold", mplsvpnvrfentry.Mplsvpnvrfconfhighroutethreshold}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfConfMaxRoutes"] = types.YLeaf{"Mplsvpnvrfconfmaxroutes", mplsvpnvrfentry.Mplsvpnvrfconfmaxroutes}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfConfLastChanged"] = types.YLeaf{"Mplsvpnvrfconflastchanged", mplsvpnvrfentry.Mplsvpnvrfconflastchanged}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfConfRowStatus"] = types.YLeaf{"Mplsvpnvrfconfrowstatus", mplsvpnvrfentry.Mplsvpnvrfconfrowstatus}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfConfStorageType"] = types.YLeaf{"Mplsvpnvrfconfstoragetype", mplsvpnvrfentry.Mplsvpnvrfconfstoragetype}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfSecIllegalLabelViolations"] = types.YLeaf{"Mplsvpnvrfsecillegallabelviolations", mplsvpnvrfentry.Mplsvpnvrfsecillegallabelviolations}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfSecIllegalLabelRcvThresh"] = types.YLeaf{"Mplsvpnvrfsecillegallabelrcvthresh", mplsvpnvrfentry.Mplsvpnvrfsecillegallabelrcvthresh}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfPerfRoutesAdded"] = types.YLeaf{"Mplsvpnvrfperfroutesadded", mplsvpnvrfentry.Mplsvpnvrfperfroutesadded}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfPerfRoutesDeleted"] = types.YLeaf{"Mplsvpnvrfperfroutesdeleted", mplsvpnvrfentry.Mplsvpnvrfperfroutesdeleted}
+    mplsvpnvrfentry.EntityData.Leafs["mplsVpnVrfPerfCurrNumRoutes"] = types.YLeaf{"Mplsvpnvrfperfcurrnumroutes", mplsvpnvrfentry.Mplsvpnvrfperfcurrnumroutes}
+    return &(mplsvpnvrfentry.EntityData)
 }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetSegmentPath() string {
-    return "mplsVpnVrfEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfentry.Mplsvpnvrfname) + "']"
-}
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnVrfName"] = mplsvpnvrfentry.Mplsvpnvrfname
-    leafs["mplsVpnVrfDescription"] = mplsvpnvrfentry.Mplsvpnvrfdescription
-    leafs["mplsVpnVrfRouteDistinguisher"] = mplsvpnvrfentry.Mplsvpnvrfroutedistinguisher
-    leafs["mplsVpnVrfCreationTime"] = mplsvpnvrfentry.Mplsvpnvrfcreationtime
-    leafs["mplsVpnVrfOperStatus"] = mplsvpnvrfentry.Mplsvpnvrfoperstatus
-    leafs["mplsVpnVrfActiveInterfaces"] = mplsvpnvrfentry.Mplsvpnvrfactiveinterfaces
-    leafs["mplsVpnVrfAssociatedInterfaces"] = mplsvpnvrfentry.Mplsvpnvrfassociatedinterfaces
-    leafs["mplsVpnVrfConfMidRouteThreshold"] = mplsvpnvrfentry.Mplsvpnvrfconfmidroutethreshold
-    leafs["mplsVpnVrfConfHighRouteThreshold"] = mplsvpnvrfentry.Mplsvpnvrfconfhighroutethreshold
-    leafs["mplsVpnVrfConfMaxRoutes"] = mplsvpnvrfentry.Mplsvpnvrfconfmaxroutes
-    leafs["mplsVpnVrfConfLastChanged"] = mplsvpnvrfentry.Mplsvpnvrfconflastchanged
-    leafs["mplsVpnVrfConfRowStatus"] = mplsvpnvrfentry.Mplsvpnvrfconfrowstatus
-    leafs["mplsVpnVrfConfStorageType"] = mplsvpnvrfentry.Mplsvpnvrfconfstoragetype
-    leafs["mplsVpnVrfSecIllegalLabelViolations"] = mplsvpnvrfentry.Mplsvpnvrfsecillegallabelviolations
-    leafs["mplsVpnVrfSecIllegalLabelRcvThresh"] = mplsvpnvrfentry.Mplsvpnvrfsecillegallabelrcvthresh
-    leafs["mplsVpnVrfPerfRoutesAdded"] = mplsvpnvrfentry.Mplsvpnvrfperfroutesadded
-    leafs["mplsVpnVrfPerfRoutesDeleted"] = mplsvpnvrfentry.Mplsvpnvrfperfroutesdeleted
-    leafs["mplsVpnVrfPerfCurrNumRoutes"] = mplsvpnvrfentry.Mplsvpnvrfperfcurrnumroutes
-    return leafs
-}
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetYangName() string { return "mplsVpnVrfEntry" }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) SetParent(parent types.Entity) { mplsvpnvrfentry.parent = parent }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetParent() types.Entity { return mplsvpnvrfentry.parent }
-
-func (mplsvpnvrfentry *MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry) GetParentYangName() string { return "mplsVpnVrfTable" }
 
 // MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry_Mplsvpnvrfoperstatus represents b. There are no interfaces associated with the VRF.
 type MPLSVPNMIB_Mplsvpnvrftable_Mplsvpnvrfentry_Mplsvpnvrfoperstatus string
@@ -685,7 +433,7 @@ const (
 // Each entry identifies a connectivity policy supported
 // as part of a VPN.
 type MPLSVPNMIB_Mplsvpnvrfroutetargettable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by an LSR for each route target
@@ -695,63 +443,24 @@ type MPLSVPNMIB_Mplsvpnvrfroutetargettable struct {
     Mplsvpnvrfroutetargetentry []MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry
 }
 
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetFilter() yfilter.YFilter { return mplsvpnvrfroutetargettable.YFilter }
+func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfroutetargettable.EntityData.YFilter = mplsvpnvrfroutetargettable.YFilter
+    mplsvpnvrfroutetargettable.EntityData.YangName = "mplsVpnVrfRouteTargetTable"
+    mplsvpnvrfroutetargettable.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfroutetargettable.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpnvrfroutetargettable.EntityData.SegmentPath = "mplsVpnVrfRouteTargetTable"
+    mplsvpnvrfroutetargettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfroutetargettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfroutetargettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) SetFilter(yf yfilter.YFilter) { mplsvpnvrfroutetargettable.YFilter = yf }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfRouteTargetEntry" { return "Mplsvpnvrfroutetargetentry" }
-    return ""
-}
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetSegmentPath() string {
-    return "mplsVpnVrfRouteTargetTable"
-}
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnVrfRouteTargetEntry" {
-        for _, c := range mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry {
-            if mplsvpnvrfroutetargettable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry{}
-        mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry = append(mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry, child)
-        return &mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry[len(mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry)-1]
-    }
-    return nil
-}
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsvpnvrfroutetargettable.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfroutetargettable.EntityData.Children["mplsVpnVrfRouteTargetEntry"] = types.YChild{"Mplsvpnvrfroutetargetentry", nil}
     for i := range mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry {
-        children[mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry[i].GetSegmentPath()] = &mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry[i]
+        mplsvpnvrfroutetargettable.EntityData.Children[types.GetSegmentPath(&mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry[i])] = types.YChild{"Mplsvpnvrfroutetargetentry", &mplsvpnvrfroutetargettable.Mplsvpnvrfroutetargetentry[i]}
     }
-    return children
+    mplsvpnvrfroutetargettable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsvpnvrfroutetargettable.EntityData)
 }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetYangName() string { return "mplsVpnVrfRouteTargetTable" }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) SetParent(parent types.Entity) { mplsvpnvrfroutetargettable.parent = parent }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetParent() types.Entity { return mplsvpnvrfroutetargettable.parent }
-
-func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry
 //  An entry in this table is created by an LSR for
@@ -759,7 +468,7 @@ func (mplsvpnvrfroutetargettable *MPLSVPNMIB_Mplsvpnvrfroutetargettable) GetPare
 // a MPLS/BGP VPN instance. The indexing provides an
 // ordering per-VRF instance.
 type MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
@@ -785,61 +494,26 @@ type MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry struct {
     Mplsvpnvrfroutetargetrowstatus interface{}
 }
 
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetFilter() yfilter.YFilter { return mplsvpnvrfroutetargetentry.YFilter }
+func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfroutetargetentry.EntityData.YFilter = mplsvpnvrfroutetargetentry.YFilter
+    mplsvpnvrfroutetargetentry.EntityData.YangName = "mplsVpnVrfRouteTargetEntry"
+    mplsvpnvrfroutetargetentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfroutetargetentry.EntityData.ParentYangName = "mplsVpnVrfRouteTargetTable"
+    mplsvpnvrfroutetargetentry.EntityData.SegmentPath = "mplsVpnVrfRouteTargetEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfroutetargetentry.Mplsvpnvrfname) + "']" + "[mplsVpnVrfRouteTargetIndex='" + fmt.Sprintf("%v", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetindex) + "']" + "[mplsVpnVrfRouteTargetType='" + fmt.Sprintf("%v", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype) + "']"
+    mplsvpnvrfroutetargetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfroutetargetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfroutetargetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) SetFilter(yf yfilter.YFilter) { mplsvpnvrfroutetargetentry.YFilter = yf }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfName" { return "Mplsvpnvrfname" }
-    if yname == "mplsVpnVrfRouteTargetIndex" { return "Mplsvpnvrfroutetargetindex" }
-    if yname == "mplsVpnVrfRouteTargetType" { return "Mplsvpnvrfroutetargettype" }
-    if yname == "mplsVpnVrfRouteTarget" { return "Mplsvpnvrfroutetarget" }
-    if yname == "mplsVpnVrfRouteTargetDescr" { return "Mplsvpnvrfroutetargetdescr" }
-    if yname == "mplsVpnVrfRouteTargetRowStatus" { return "Mplsvpnvrfroutetargetrowstatus" }
-    return ""
+    mplsvpnvrfroutetargetentry.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfroutetargetentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpnvrfroutetargetentry.EntityData.Leafs["mplsVpnVrfName"] = types.YLeaf{"Mplsvpnvrfname", mplsvpnvrfroutetargetentry.Mplsvpnvrfname}
+    mplsvpnvrfroutetargetentry.EntityData.Leafs["mplsVpnVrfRouteTargetIndex"] = types.YLeaf{"Mplsvpnvrfroutetargetindex", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetindex}
+    mplsvpnvrfroutetargetentry.EntityData.Leafs["mplsVpnVrfRouteTargetType"] = types.YLeaf{"Mplsvpnvrfroutetargettype", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype}
+    mplsvpnvrfroutetargetentry.EntityData.Leafs["mplsVpnVrfRouteTarget"] = types.YLeaf{"Mplsvpnvrfroutetarget", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetarget}
+    mplsvpnvrfroutetargetentry.EntityData.Leafs["mplsVpnVrfRouteTargetDescr"] = types.YLeaf{"Mplsvpnvrfroutetargetdescr", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetdescr}
+    mplsvpnvrfroutetargetentry.EntityData.Leafs["mplsVpnVrfRouteTargetRowStatus"] = types.YLeaf{"Mplsvpnvrfroutetargetrowstatus", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetrowstatus}
+    return &(mplsvpnvrfroutetargetentry.EntityData)
 }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetSegmentPath() string {
-    return "mplsVpnVrfRouteTargetEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfroutetargetentry.Mplsvpnvrfname) + "']" + "[mplsVpnVrfRouteTargetIndex='" + fmt.Sprintf("%v", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetindex) + "']" + "[mplsVpnVrfRouteTargetType='" + fmt.Sprintf("%v", mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype) + "']"
-}
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnVrfName"] = mplsvpnvrfroutetargetentry.Mplsvpnvrfname
-    leafs["mplsVpnVrfRouteTargetIndex"] = mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetindex
-    leafs["mplsVpnVrfRouteTargetType"] = mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargettype
-    leafs["mplsVpnVrfRouteTarget"] = mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetarget
-    leafs["mplsVpnVrfRouteTargetDescr"] = mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetdescr
-    leafs["mplsVpnVrfRouteTargetRowStatus"] = mplsvpnvrfroutetargetentry.Mplsvpnvrfroutetargetrowstatus
-    return leafs
-}
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetYangName() string { return "mplsVpnVrfRouteTargetEntry" }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) SetParent(parent types.Entity) { mplsvpnvrfroutetargetentry.parent = parent }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetParent() types.Entity { return mplsvpnvrfroutetargetentry.parent }
-
-func (mplsvpnvrfroutetargetentry *MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry) GetParentYangName() string { return "mplsVpnVrfRouteTargetTable" }
 
 // MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry_Mplsvpnvrfroutetargettype represents The route target export distribution type.
 type MPLSVPNMIB_Mplsvpnvrfroutetargettable_Mplsvpnvrfroutetargetentry_Mplsvpnvrfroutetargettype string
@@ -856,7 +530,7 @@ const (
 // Each entry in this table specifies a per-interface 
 // MPLS/EBGP neighbor.
 type MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by an LSR for every VRF capable of
@@ -866,63 +540,24 @@ type MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable struct {
     Mplsvpnvrfbgpnbraddrentry []MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry
 }
 
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetFilter() yfilter.YFilter { return mplsvpnvrfbgpnbraddrtable.YFilter }
+func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfbgpnbraddrtable.EntityData.YFilter = mplsvpnvrfbgpnbraddrtable.YFilter
+    mplsvpnvrfbgpnbraddrtable.EntityData.YangName = "mplsVpnVrfBgpNbrAddrTable"
+    mplsvpnvrfbgpnbraddrtable.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfbgpnbraddrtable.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpnvrfbgpnbraddrtable.EntityData.SegmentPath = "mplsVpnVrfBgpNbrAddrTable"
+    mplsvpnvrfbgpnbraddrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfbgpnbraddrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfbgpnbraddrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) SetFilter(yf yfilter.YFilter) { mplsvpnvrfbgpnbraddrtable.YFilter = yf }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfBgpNbrAddrEntry" { return "Mplsvpnvrfbgpnbraddrentry" }
-    return ""
-}
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetSegmentPath() string {
-    return "mplsVpnVrfBgpNbrAddrTable"
-}
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnVrfBgpNbrAddrEntry" {
-        for _, c := range mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry {
-            if mplsvpnvrfbgpnbraddrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry{}
-        mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry = append(mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry, child)
-        return &mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry[len(mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry)-1]
-    }
-    return nil
-}
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsvpnvrfbgpnbraddrtable.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfbgpnbraddrtable.EntityData.Children["mplsVpnVrfBgpNbrAddrEntry"] = types.YChild{"Mplsvpnvrfbgpnbraddrentry", nil}
     for i := range mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry {
-        children[mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry[i].GetSegmentPath()] = &mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry[i]
+        mplsvpnvrfbgpnbraddrtable.EntityData.Children[types.GetSegmentPath(&mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry[i])] = types.YChild{"Mplsvpnvrfbgpnbraddrentry", &mplsvpnvrfbgpnbraddrtable.Mplsvpnvrfbgpnbraddrentry[i]}
     }
-    return children
+    mplsvpnvrfbgpnbraddrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsvpnvrfbgpnbraddrtable.EntityData)
 }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetYangName() string { return "mplsVpnVrfBgpNbrAddrTable" }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) SetParent(parent types.Entity) { mplsvpnvrfbgpnbraddrtable.parent = parent }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetParent() types.Entity { return mplsvpnvrfbgpnbraddrtable.parent }
-
-func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry
 // An entry in this table is created by an LSR for
@@ -930,7 +565,7 @@ func (mplsvpnvrfbgpnbraddrtable *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable) GetParent
 // indexing provides an ordering of VRFs per-VPN
 // interface.
 type MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
@@ -965,65 +600,28 @@ type MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry struct {
     Mplsvpnvrfbgpnbrstoragetype interface{}
 }
 
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetFilter() yfilter.YFilter { return mplsvpnvrfbgpnbraddrentry.YFilter }
+func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfbgpnbraddrentry.EntityData.YFilter = mplsvpnvrfbgpnbraddrentry.YFilter
+    mplsvpnvrfbgpnbraddrentry.EntityData.YangName = "mplsVpnVrfBgpNbrAddrEntry"
+    mplsvpnvrfbgpnbraddrentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfbgpnbraddrentry.EntityData.ParentYangName = "mplsVpnVrfBgpNbrAddrTable"
+    mplsvpnvrfbgpnbraddrentry.EntityData.SegmentPath = "mplsVpnVrfBgpNbrAddrEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfname) + "']" + "[mplsVpnInterfaceConfIndex='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbraddrentry.Mplsvpninterfaceconfindex) + "']" + "[mplsVpnVrfBgpNbrIndex='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrindex) + "']"
+    mplsvpnvrfbgpnbraddrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfbgpnbraddrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfbgpnbraddrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) SetFilter(yf yfilter.YFilter) { mplsvpnvrfbgpnbraddrentry.YFilter = yf }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfName" { return "Mplsvpnvrfname" }
-    if yname == "mplsVpnInterfaceConfIndex" { return "Mplsvpninterfaceconfindex" }
-    if yname == "mplsVpnVrfBgpNbrIndex" { return "Mplsvpnvrfbgpnbrindex" }
-    if yname == "mplsVpnVrfBgpNbrRole" { return "Mplsvpnvrfbgpnbrrole" }
-    if yname == "mplsVpnVrfBgpNbrType" { return "Mplsvpnvrfbgpnbrtype" }
-    if yname == "mplsVpnVrfBgpNbrAddr" { return "Mplsvpnvrfbgpnbraddr" }
-    if yname == "mplsVpnVrfBgpNbrRowStatus" { return "Mplsvpnvrfbgpnbrrowstatus" }
-    if yname == "mplsVpnVrfBgpNbrStorageType" { return "Mplsvpnvrfbgpnbrstoragetype" }
-    return ""
+    mplsvpnvrfbgpnbraddrentry.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfName"] = types.YLeaf{"Mplsvpnvrfname", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfname}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnInterfaceConfIndex"] = types.YLeaf{"Mplsvpninterfaceconfindex", mplsvpnvrfbgpnbraddrentry.Mplsvpninterfaceconfindex}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfBgpNbrIndex"] = types.YLeaf{"Mplsvpnvrfbgpnbrindex", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrindex}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfBgpNbrRole"] = types.YLeaf{"Mplsvpnvrfbgpnbrrole", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrole}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfBgpNbrType"] = types.YLeaf{"Mplsvpnvrfbgpnbrtype", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrtype}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfBgpNbrAddr"] = types.YLeaf{"Mplsvpnvrfbgpnbraddr", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbraddr}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfBgpNbrRowStatus"] = types.YLeaf{"Mplsvpnvrfbgpnbrrowstatus", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrowstatus}
+    mplsvpnvrfbgpnbraddrentry.EntityData.Leafs["mplsVpnVrfBgpNbrStorageType"] = types.YLeaf{"Mplsvpnvrfbgpnbrstoragetype", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrstoragetype}
+    return &(mplsvpnvrfbgpnbraddrentry.EntityData)
 }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetSegmentPath() string {
-    return "mplsVpnVrfBgpNbrAddrEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfname) + "']" + "[mplsVpnInterfaceConfIndex='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbraddrentry.Mplsvpninterfaceconfindex) + "']" + "[mplsVpnVrfBgpNbrIndex='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrindex) + "']"
-}
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnVrfName"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfname
-    leafs["mplsVpnInterfaceConfIndex"] = mplsvpnvrfbgpnbraddrentry.Mplsvpninterfaceconfindex
-    leafs["mplsVpnVrfBgpNbrIndex"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrindex
-    leafs["mplsVpnVrfBgpNbrRole"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrole
-    leafs["mplsVpnVrfBgpNbrType"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrtype
-    leafs["mplsVpnVrfBgpNbrAddr"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbraddr
-    leafs["mplsVpnVrfBgpNbrRowStatus"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrrowstatus
-    leafs["mplsVpnVrfBgpNbrStorageType"] = mplsvpnvrfbgpnbraddrentry.Mplsvpnvrfbgpnbrstoragetype
-    return leafs
-}
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetYangName() string { return "mplsVpnVrfBgpNbrAddrEntry" }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) SetParent(parent types.Entity) { mplsvpnvrfbgpnbraddrentry.parent = parent }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetParent() types.Entity { return mplsvpnvrfbgpnbraddrentry.parent }
-
-func (mplsvpnvrfbgpnbraddrentry *MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry) GetParentYangName() string { return "mplsVpnVrfBgpNbrAddrTable" }
 
 // MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry_Mplsvpnvrfbgpnbrrole represents with respect to this VRF.
 type MPLSVPNMIB_Mplsvpnvrfbgpnbraddrtable_Mplsvpnvrfbgpnbraddrentry_Mplsvpnvrfbgpnbrrole string
@@ -1038,7 +636,7 @@ const (
 // This table specifies per-VRF vpnv4 multi-protocol
 // prefixes supported by BGP.
 type MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by an LSR for every BGP prefix associated
@@ -1048,63 +646,24 @@ type MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable struct {
     Mplsvpnvrfbgpnbrprefixentry []MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry
 }
 
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetFilter() yfilter.YFilter { return mplsvpnvrfbgpnbrprefixtable.YFilter }
+func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfbgpnbrprefixtable.EntityData.YFilter = mplsvpnvrfbgpnbrprefixtable.YFilter
+    mplsvpnvrfbgpnbrprefixtable.EntityData.YangName = "mplsVpnVrfBgpNbrPrefixTable"
+    mplsvpnvrfbgpnbrprefixtable.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfbgpnbrprefixtable.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpnvrfbgpnbrprefixtable.EntityData.SegmentPath = "mplsVpnVrfBgpNbrPrefixTable"
+    mplsvpnvrfbgpnbrprefixtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfbgpnbrprefixtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfbgpnbrprefixtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) SetFilter(yf yfilter.YFilter) { mplsvpnvrfbgpnbrprefixtable.YFilter = yf }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfBgpNbrPrefixEntry" { return "Mplsvpnvrfbgpnbrprefixentry" }
-    return ""
-}
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetSegmentPath() string {
-    return "mplsVpnVrfBgpNbrPrefixTable"
-}
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnVrfBgpNbrPrefixEntry" {
-        for _, c := range mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry {
-            if mplsvpnvrfbgpnbrprefixtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry{}
-        mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry = append(mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry, child)
-        return &mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry[len(mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry)-1]
-    }
-    return nil
-}
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsvpnvrfbgpnbrprefixtable.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfbgpnbrprefixtable.EntityData.Children["mplsVpnVrfBgpNbrPrefixEntry"] = types.YChild{"Mplsvpnvrfbgpnbrprefixentry", nil}
     for i := range mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry {
-        children[mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry[i].GetSegmentPath()] = &mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry[i]
+        mplsvpnvrfbgpnbrprefixtable.EntityData.Children[types.GetSegmentPath(&mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry[i])] = types.YChild{"Mplsvpnvrfbgpnbrprefixentry", &mplsvpnvrfbgpnbrprefixtable.Mplsvpnvrfbgpnbrprefixentry[i]}
     }
-    return children
+    mplsvpnvrfbgpnbrprefixtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsvpnvrfbgpnbrprefixtable.EntityData)
 }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetYangName() string { return "mplsVpnVrfBgpNbrPrefixTable" }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) SetParent(parent types.Entity) { mplsvpnvrfbgpnbrprefixtable.parent = parent }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetParent() types.Entity { return mplsvpnvrfbgpnbrprefixtable.parent }
-
-func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry
 // An entry in this table is created by an LSR for
@@ -1112,7 +671,7 @@ func (mplsvpnvrfbgpnbrprefixtable *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable) GetPa
 // MPLS/BGP VPN. The indexing provides an ordering of 
 // BGP prefixes per VRF.
 type MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
@@ -1199,79 +758,35 @@ type MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry struct {
     Mplsvpnvrfbgppathattrunknown interface{}
 }
 
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetFilter() yfilter.YFilter { return mplsvpnvrfbgpnbrprefixentry.YFilter }
+func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfbgpnbrprefixentry.EntityData.YFilter = mplsvpnvrfbgpnbrprefixentry.YFilter
+    mplsvpnvrfbgpnbrprefixentry.EntityData.YangName = "mplsVpnVrfBgpNbrPrefixEntry"
+    mplsvpnvrfbgpnbrprefixentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfbgpnbrprefixentry.EntityData.ParentYangName = "mplsVpnVrfBgpNbrPrefixTable"
+    mplsvpnvrfbgpnbrprefixentry.EntityData.SegmentPath = "mplsVpnVrfBgpNbrPrefixEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfname) + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefix='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefix) + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefixLen='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefixlen) + "']" + "[mplsVpnVrfBgpPathAttrPeer='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrpeer) + "']"
+    mplsvpnvrfbgpnbrprefixentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfbgpnbrprefixentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfbgpnbrprefixentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) SetFilter(yf yfilter.YFilter) { mplsvpnvrfbgpnbrprefixentry.YFilter = yf }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfName" { return "Mplsvpnvrfname" }
-    if yname == "mplsVpnVrfBgpPathAttrIpAddrPrefix" { return "Mplsvpnvrfbgppathattripaddrprefix" }
-    if yname == "mplsVpnVrfBgpPathAttrIpAddrPrefixLen" { return "Mplsvpnvrfbgppathattripaddrprefixlen" }
-    if yname == "mplsVpnVrfBgpPathAttrPeer" { return "Mplsvpnvrfbgppathattrpeer" }
-    if yname == "mplsVpnVrfBgpPathAttrOrigin" { return "Mplsvpnvrfbgppathattrorigin" }
-    if yname == "mplsVpnVrfBgpPathAttrASPathSegment" { return "Mplsvpnvrfbgppathattraspathsegment" }
-    if yname == "mplsVpnVrfBgpPathAttrNextHop" { return "Mplsvpnvrfbgppathattrnexthop" }
-    if yname == "mplsVpnVrfBgpPathAttrMultiExitDisc" { return "Mplsvpnvrfbgppathattrmultiexitdisc" }
-    if yname == "mplsVpnVrfBgpPathAttrLocalPref" { return "Mplsvpnvrfbgppathattrlocalpref" }
-    if yname == "mplsVpnVrfBgpPathAttrAtomicAggregate" { return "Mplsvpnvrfbgppathattratomicaggregate" }
-    if yname == "mplsVpnVrfBgpPathAttrAggregatorAS" { return "Mplsvpnvrfbgppathattraggregatoras" }
-    if yname == "mplsVpnVrfBgpPathAttrAggregatorAddr" { return "Mplsvpnvrfbgppathattraggregatoraddr" }
-    if yname == "mplsVpnVrfBgpPathAttrCalcLocalPref" { return "Mplsvpnvrfbgppathattrcalclocalpref" }
-    if yname == "mplsVpnVrfBgpPathAttrBest" { return "Mplsvpnvrfbgppathattrbest" }
-    if yname == "mplsVpnVrfBgpPathAttrUnknown" { return "Mplsvpnvrfbgppathattrunknown" }
-    return ""
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfName"] = types.YLeaf{"Mplsvpnvrfname", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfname}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrIpAddrPrefix"] = types.YLeaf{"Mplsvpnvrfbgppathattripaddrprefix", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefix}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrIpAddrPrefixLen"] = types.YLeaf{"Mplsvpnvrfbgppathattripaddrprefixlen", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefixlen}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrPeer"] = types.YLeaf{"Mplsvpnvrfbgppathattrpeer", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrpeer}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrOrigin"] = types.YLeaf{"Mplsvpnvrfbgppathattrorigin", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrorigin}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrASPathSegment"] = types.YLeaf{"Mplsvpnvrfbgppathattraspathsegment", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattraspathsegment}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrNextHop"] = types.YLeaf{"Mplsvpnvrfbgppathattrnexthop", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrnexthop}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrMultiExitDisc"] = types.YLeaf{"Mplsvpnvrfbgppathattrmultiexitdisc", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrmultiexitdisc}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrLocalPref"] = types.YLeaf{"Mplsvpnvrfbgppathattrlocalpref", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrlocalpref}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrAtomicAggregate"] = types.YLeaf{"Mplsvpnvrfbgppathattratomicaggregate", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattratomicaggregate}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrAggregatorAS"] = types.YLeaf{"Mplsvpnvrfbgppathattraggregatoras", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattraggregatoras}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrAggregatorAddr"] = types.YLeaf{"Mplsvpnvrfbgppathattraggregatoraddr", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattraggregatoraddr}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrCalcLocalPref"] = types.YLeaf{"Mplsvpnvrfbgppathattrcalclocalpref", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrcalclocalpref}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrBest"] = types.YLeaf{"Mplsvpnvrfbgppathattrbest", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrbest}
+    mplsvpnvrfbgpnbrprefixentry.EntityData.Leafs["mplsVpnVrfBgpPathAttrUnknown"] = types.YLeaf{"Mplsvpnvrfbgppathattrunknown", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrunknown}
+    return &(mplsvpnvrfbgpnbrprefixentry.EntityData)
 }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetSegmentPath() string {
-    return "mplsVpnVrfBgpNbrPrefixEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfname) + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefix='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefix) + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefixLen='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefixlen) + "']" + "[mplsVpnVrfBgpPathAttrPeer='" + fmt.Sprintf("%v", mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrpeer) + "']"
-}
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnVrfName"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfname
-    leafs["mplsVpnVrfBgpPathAttrIpAddrPrefix"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefix
-    leafs["mplsVpnVrfBgpPathAttrIpAddrPrefixLen"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattripaddrprefixlen
-    leafs["mplsVpnVrfBgpPathAttrPeer"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrpeer
-    leafs["mplsVpnVrfBgpPathAttrOrigin"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrorigin
-    leafs["mplsVpnVrfBgpPathAttrASPathSegment"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattraspathsegment
-    leafs["mplsVpnVrfBgpPathAttrNextHop"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrnexthop
-    leafs["mplsVpnVrfBgpPathAttrMultiExitDisc"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrmultiexitdisc
-    leafs["mplsVpnVrfBgpPathAttrLocalPref"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrlocalpref
-    leafs["mplsVpnVrfBgpPathAttrAtomicAggregate"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattratomicaggregate
-    leafs["mplsVpnVrfBgpPathAttrAggregatorAS"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattraggregatoras
-    leafs["mplsVpnVrfBgpPathAttrAggregatorAddr"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattraggregatoraddr
-    leafs["mplsVpnVrfBgpPathAttrCalcLocalPref"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrcalclocalpref
-    leafs["mplsVpnVrfBgpPathAttrBest"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrbest
-    leafs["mplsVpnVrfBgpPathAttrUnknown"] = mplsvpnvrfbgpnbrprefixentry.Mplsvpnvrfbgppathattrunknown
-    return leafs
-}
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetYangName() string { return "mplsVpnVrfBgpNbrPrefixEntry" }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) SetParent(parent types.Entity) { mplsvpnvrfbgpnbrprefixentry.parent = parent }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetParent() types.Entity { return mplsvpnvrfbgpnbrprefixentry.parent }
-
-func (mplsvpnvrfbgpnbrprefixentry *MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry) GetParentYangName() string { return "mplsVpnVrfBgpNbrPrefixTable" }
 
 // MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry_Mplsvpnvrfbgppathattratomicaggregate represents selecting a more specific route.
 type MPLSVPNMIB_Mplsvpnvrfbgpnbrprefixtable_Mplsvpnvrfbgpnbrprefixentry_Mplsvpnvrfbgppathattratomicaggregate string
@@ -1309,7 +824,7 @@ const (
 // that this table contains both BGP and IGP routes, as both may
 // appear in the same VRF.
 type MPLSVPNMIB_Mplsvpnvrfroutetable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in this table is created by an LSR for every route present
@@ -1320,63 +835,24 @@ type MPLSVPNMIB_Mplsvpnvrfroutetable struct {
     Mplsvpnvrfrouteentry []MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry
 }
 
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetFilter() yfilter.YFilter { return mplsvpnvrfroutetable.YFilter }
+func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfroutetable.EntityData.YFilter = mplsvpnvrfroutetable.YFilter
+    mplsvpnvrfroutetable.EntityData.YangName = "mplsVpnVrfRouteTable"
+    mplsvpnvrfroutetable.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfroutetable.EntityData.ParentYangName = "MPLS-VPN-MIB"
+    mplsvpnvrfroutetable.EntityData.SegmentPath = "mplsVpnVrfRouteTable"
+    mplsvpnvrfroutetable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfroutetable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfroutetable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) SetFilter(yf yfilter.YFilter) { mplsvpnvrfroutetable.YFilter = yf }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfRouteEntry" { return "Mplsvpnvrfrouteentry" }
-    return ""
-}
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetSegmentPath() string {
-    return "mplsVpnVrfRouteTable"
-}
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsVpnVrfRouteEntry" {
-        for _, c := range mplsvpnvrfroutetable.Mplsvpnvrfrouteentry {
-            if mplsvpnvrfroutetable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry{}
-        mplsvpnvrfroutetable.Mplsvpnvrfrouteentry = append(mplsvpnvrfroutetable.Mplsvpnvrfrouteentry, child)
-        return &mplsvpnvrfroutetable.Mplsvpnvrfrouteentry[len(mplsvpnvrfroutetable.Mplsvpnvrfrouteentry)-1]
-    }
-    return nil
-}
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsvpnvrfroutetable.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfroutetable.EntityData.Children["mplsVpnVrfRouteEntry"] = types.YChild{"Mplsvpnvrfrouteentry", nil}
     for i := range mplsvpnvrfroutetable.Mplsvpnvrfrouteentry {
-        children[mplsvpnvrfroutetable.Mplsvpnvrfrouteentry[i].GetSegmentPath()] = &mplsvpnvrfroutetable.Mplsvpnvrfrouteentry[i]
+        mplsvpnvrfroutetable.EntityData.Children[types.GetSegmentPath(&mplsvpnvrfroutetable.Mplsvpnvrfrouteentry[i])] = types.YChild{"Mplsvpnvrfrouteentry", &mplsvpnvrfroutetable.Mplsvpnvrfrouteentry[i]}
     }
-    return children
+    mplsvpnvrfroutetable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsvpnvrfroutetable.EntityData)
 }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetYangName() string { return "mplsVpnVrfRouteTable" }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) SetParent(parent types.Entity) { mplsvpnvrfroutetable.parent = parent }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetParent() types.Entity { return mplsvpnvrfroutetable.parent }
-
-func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetParentYangName() string { return "MPLS-VPN-MIB" }
 
 // MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry
 // An entry in this table is created by an LSR for every route
@@ -1385,7 +861,7 @@ func (mplsvpnvrfroutetable *MPLSVPNMIB_Mplsvpnvrfroutetable) GetParentYangName()
 // VPN. The indexing provides an ordering of VRFs per-VPN
 // interface.
 type MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with length: 0..31. Refers to
@@ -1475,7 +951,7 @@ type MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry struct {
     // which is a syntactically valid object identif-ier, and any implementation
     // conforming to ASN.1 and the Basic Encoding Rules must be able to generate
     // and recognize this value. The type is string with pattern:
-    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
+    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
     Mplsvpnvrfrouteinfo interface{}
 
     // The Autonomous System Number of the Next Hop. The semantics of this object
@@ -1523,91 +999,41 @@ type MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry struct {
     Mplsvpnvrfroutestoragetype interface{}
 }
 
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetFilter() yfilter.YFilter { return mplsvpnvrfrouteentry.YFilter }
+func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetEntityData() *types.CommonEntityData {
+    mplsvpnvrfrouteentry.EntityData.YFilter = mplsvpnvrfrouteentry.YFilter
+    mplsvpnvrfrouteentry.EntityData.YangName = "mplsVpnVrfRouteEntry"
+    mplsvpnvrfrouteentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsvpnvrfrouteentry.EntityData.ParentYangName = "mplsVpnVrfRouteTable"
+    mplsvpnvrfrouteentry.EntityData.SegmentPath = "mplsVpnVrfRouteEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfname) + "']" + "[mplsVpnVrfRouteDest='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutedest) + "']" + "[mplsVpnVrfRouteMask='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutemask) + "']" + "[mplsVpnVrfRouteTos='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutetos) + "']" + "[mplsVpnVrfRouteNextHop='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthop) + "']"
+    mplsvpnvrfrouteentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsvpnvrfrouteentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsvpnvrfrouteentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) SetFilter(yf yfilter.YFilter) { mplsvpnvrfrouteentry.YFilter = yf }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetGoName(yname string) string {
-    if yname == "mplsVpnVrfName" { return "Mplsvpnvrfname" }
-    if yname == "mplsVpnVrfRouteDest" { return "Mplsvpnvrfroutedest" }
-    if yname == "mplsVpnVrfRouteMask" { return "Mplsvpnvrfroutemask" }
-    if yname == "mplsVpnVrfRouteTos" { return "Mplsvpnvrfroutetos" }
-    if yname == "mplsVpnVrfRouteNextHop" { return "Mplsvpnvrfroutenexthop" }
-    if yname == "mplsVpnVrfRouteDestAddrType" { return "Mplsvpnvrfroutedestaddrtype" }
-    if yname == "mplsVpnVrfRouteMaskAddrType" { return "Mplsvpnvrfroutemaskaddrtype" }
-    if yname == "mplsVpnVrfRouteNextHopAddrType" { return "Mplsvpnvrfroutenexthopaddrtype" }
-    if yname == "mplsVpnVrfRouteIfIndex" { return "Mplsvpnvrfrouteifindex" }
-    if yname == "mplsVpnVrfRouteType" { return "Mplsvpnvrfroutetype" }
-    if yname == "mplsVpnVrfRouteProto" { return "Mplsvpnvrfrouteproto" }
-    if yname == "mplsVpnVrfRouteAge" { return "Mplsvpnvrfrouteage" }
-    if yname == "mplsVpnVrfRouteInfo" { return "Mplsvpnvrfrouteinfo" }
-    if yname == "mplsVpnVrfRouteNextHopAS" { return "Mplsvpnvrfroutenexthopas" }
-    if yname == "mplsVpnVrfRouteMetric1" { return "Mplsvpnvrfroutemetric1" }
-    if yname == "mplsVpnVrfRouteMetric2" { return "Mplsvpnvrfroutemetric2" }
-    if yname == "mplsVpnVrfRouteMetric3" { return "Mplsvpnvrfroutemetric3" }
-    if yname == "mplsVpnVrfRouteMetric4" { return "Mplsvpnvrfroutemetric4" }
-    if yname == "mplsVpnVrfRouteMetric5" { return "Mplsvpnvrfroutemetric5" }
-    if yname == "mplsVpnVrfRouteRowStatus" { return "Mplsvpnvrfrouterowstatus" }
-    if yname == "mplsVpnVrfRouteStorageType" { return "Mplsvpnvrfroutestoragetype" }
-    return ""
+    mplsvpnvrfrouteentry.EntityData.Children = make(map[string]types.YChild)
+    mplsvpnvrfrouteentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfName"] = types.YLeaf{"Mplsvpnvrfname", mplsvpnvrfrouteentry.Mplsvpnvrfname}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteDest"] = types.YLeaf{"Mplsvpnvrfroutedest", mplsvpnvrfrouteentry.Mplsvpnvrfroutedest}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMask"] = types.YLeaf{"Mplsvpnvrfroutemask", mplsvpnvrfrouteentry.Mplsvpnvrfroutemask}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteTos"] = types.YLeaf{"Mplsvpnvrfroutetos", mplsvpnvrfrouteentry.Mplsvpnvrfroutetos}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteNextHop"] = types.YLeaf{"Mplsvpnvrfroutenexthop", mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthop}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteDestAddrType"] = types.YLeaf{"Mplsvpnvrfroutedestaddrtype", mplsvpnvrfrouteentry.Mplsvpnvrfroutedestaddrtype}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMaskAddrType"] = types.YLeaf{"Mplsvpnvrfroutemaskaddrtype", mplsvpnvrfrouteentry.Mplsvpnvrfroutemaskaddrtype}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteNextHopAddrType"] = types.YLeaf{"Mplsvpnvrfroutenexthopaddrtype", mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthopaddrtype}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteIfIndex"] = types.YLeaf{"Mplsvpnvrfrouteifindex", mplsvpnvrfrouteentry.Mplsvpnvrfrouteifindex}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteType"] = types.YLeaf{"Mplsvpnvrfroutetype", mplsvpnvrfrouteentry.Mplsvpnvrfroutetype}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteProto"] = types.YLeaf{"Mplsvpnvrfrouteproto", mplsvpnvrfrouteentry.Mplsvpnvrfrouteproto}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteAge"] = types.YLeaf{"Mplsvpnvrfrouteage", mplsvpnvrfrouteentry.Mplsvpnvrfrouteage}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteInfo"] = types.YLeaf{"Mplsvpnvrfrouteinfo", mplsvpnvrfrouteentry.Mplsvpnvrfrouteinfo}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteNextHopAS"] = types.YLeaf{"Mplsvpnvrfroutenexthopas", mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthopas}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMetric1"] = types.YLeaf{"Mplsvpnvrfroutemetric1", mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric1}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMetric2"] = types.YLeaf{"Mplsvpnvrfroutemetric2", mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric2}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMetric3"] = types.YLeaf{"Mplsvpnvrfroutemetric3", mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric3}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMetric4"] = types.YLeaf{"Mplsvpnvrfroutemetric4", mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric4}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteMetric5"] = types.YLeaf{"Mplsvpnvrfroutemetric5", mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric5}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteRowStatus"] = types.YLeaf{"Mplsvpnvrfrouterowstatus", mplsvpnvrfrouteentry.Mplsvpnvrfrouterowstatus}
+    mplsvpnvrfrouteentry.EntityData.Leafs["mplsVpnVrfRouteStorageType"] = types.YLeaf{"Mplsvpnvrfroutestoragetype", mplsvpnvrfrouteentry.Mplsvpnvrfroutestoragetype}
+    return &(mplsvpnvrfrouteentry.EntityData)
 }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetSegmentPath() string {
-    return "mplsVpnVrfRouteEntry" + "[mplsVpnVrfName='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfname) + "']" + "[mplsVpnVrfRouteDest='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutedest) + "']" + "[mplsVpnVrfRouteMask='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutemask) + "']" + "[mplsVpnVrfRouteTos='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutetos) + "']" + "[mplsVpnVrfRouteNextHop='" + fmt.Sprintf("%v", mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthop) + "']"
-}
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsVpnVrfName"] = mplsvpnvrfrouteentry.Mplsvpnvrfname
-    leafs["mplsVpnVrfRouteDest"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutedest
-    leafs["mplsVpnVrfRouteMask"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemask
-    leafs["mplsVpnVrfRouteTos"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutetos
-    leafs["mplsVpnVrfRouteNextHop"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthop
-    leafs["mplsVpnVrfRouteDestAddrType"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutedestaddrtype
-    leafs["mplsVpnVrfRouteMaskAddrType"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemaskaddrtype
-    leafs["mplsVpnVrfRouteNextHopAddrType"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthopaddrtype
-    leafs["mplsVpnVrfRouteIfIndex"] = mplsvpnvrfrouteentry.Mplsvpnvrfrouteifindex
-    leafs["mplsVpnVrfRouteType"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutetype
-    leafs["mplsVpnVrfRouteProto"] = mplsvpnvrfrouteentry.Mplsvpnvrfrouteproto
-    leafs["mplsVpnVrfRouteAge"] = mplsvpnvrfrouteentry.Mplsvpnvrfrouteage
-    leafs["mplsVpnVrfRouteInfo"] = mplsvpnvrfrouteentry.Mplsvpnvrfrouteinfo
-    leafs["mplsVpnVrfRouteNextHopAS"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutenexthopas
-    leafs["mplsVpnVrfRouteMetric1"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric1
-    leafs["mplsVpnVrfRouteMetric2"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric2
-    leafs["mplsVpnVrfRouteMetric3"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric3
-    leafs["mplsVpnVrfRouteMetric4"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric4
-    leafs["mplsVpnVrfRouteMetric5"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutemetric5
-    leafs["mplsVpnVrfRouteRowStatus"] = mplsvpnvrfrouteentry.Mplsvpnvrfrouterowstatus
-    leafs["mplsVpnVrfRouteStorageType"] = mplsvpnvrfrouteentry.Mplsvpnvrfroutestoragetype
-    return leafs
-}
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetYangName() string { return "mplsVpnVrfRouteEntry" }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) SetParent(parent types.Entity) { mplsvpnvrfrouteentry.parent = parent }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetParent() types.Entity { return mplsvpnvrfrouteentry.parent }
-
-func (mplsvpnvrfrouteentry *MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry) GetParentYangName() string { return "mplsVpnVrfRouteTable" }
 
 // MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry_Mplsvpnvrfrouteproto represents hosts should support those protocols.
 type MPLSVPNMIB_Mplsvpnvrfroutetable_Mplsvpnvrfrouteentry_Mplsvpnvrfrouteproto string

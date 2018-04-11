@@ -24,29 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-mobileip-oper:pmipv6", reflect.TypeOf(Pmipv6{}))
 }
 
-// Pmipv6Role represents PMIPV6 Role Types
-type Pmipv6Role string
-
-const (
-    // WLAN
-    Pmipv6Role_wlan Pmipv6Role = "wlan"
-
-    // 3GPP
-    Pmipv6Role_gpp Pmipv6Role = "gpp"
-
-    // LTE
-    Pmipv6Role_lte Pmipv6Role = "lte"
-
-    // WiMAX
-    Pmipv6Role_wi_max Pmipv6Role = "wi-max"
-
-    // 3GMA
-    Pmipv6Role_gma Pmipv6Role = "gma"
-
-    // MAX Role
-    Pmipv6Role_rmax Pmipv6Role = "rmax"
-)
-
 // Pmipv6Encap represents ENCAP Types
 type Pmipv6Encap string
 
@@ -105,69 +82,59 @@ const (
     Pmipv6Addr_pmipv6_addr_ipv4_ipv6 Pmipv6Addr = "pmipv6-addr-ipv4-ipv6"
 )
 
+// Pmipv6Role represents PMIPV6 Role Types
+type Pmipv6Role string
+
+const (
+    // WLAN
+    Pmipv6Role_wlan Pmipv6Role = "wlan"
+
+    // 3GPP
+    Pmipv6Role_gpp Pmipv6Role = "gpp"
+
+    // LTE
+    Pmipv6Role_lte Pmipv6Role = "lte"
+
+    // WiMAX
+    Pmipv6Role_wi_max Pmipv6Role = "wi-max"
+
+    // 3GMA
+    Pmipv6Role_gma Pmipv6Role = "gma"
+
+    // MAX Role
+    Pmipv6Role_rmax Pmipv6Role = "rmax"
+)
+
 // Pmipv6
 // Proxy Mobile IPv6
 type Pmipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // None.
     Lma Pmipv6_Lma
 }
 
-func (pmipv6 *Pmipv6) GetFilter() yfilter.YFilter { return pmipv6.YFilter }
+func (pmipv6 *Pmipv6) GetEntityData() *types.CommonEntityData {
+    pmipv6.EntityData.YFilter = pmipv6.YFilter
+    pmipv6.EntityData.YangName = "pmipv6"
+    pmipv6.EntityData.BundleName = "cisco_ios_xr"
+    pmipv6.EntityData.ParentYangName = "Cisco-IOS-XR-ip-mobileip-oper"
+    pmipv6.EntityData.SegmentPath = "Cisco-IOS-XR-ip-mobileip-oper:pmipv6"
+    pmipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pmipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pmipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pmipv6 *Pmipv6) SetFilter(yf yfilter.YFilter) { pmipv6.YFilter = yf }
-
-func (pmipv6 *Pmipv6) GetGoName(yname string) string {
-    if yname == "lma" { return "Lma" }
-    return ""
+    pmipv6.EntityData.Children = make(map[string]types.YChild)
+    pmipv6.EntityData.Children["lma"] = types.YChild{"Lma", &pmipv6.Lma}
+    pmipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pmipv6.EntityData)
 }
-
-func (pmipv6 *Pmipv6) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-mobileip-oper:pmipv6"
-}
-
-func (pmipv6 *Pmipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lma" {
-        return &pmipv6.Lma
-    }
-    return nil
-}
-
-func (pmipv6 *Pmipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lma"] = &pmipv6.Lma
-    return children
-}
-
-func (pmipv6 *Pmipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pmipv6 *Pmipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pmipv6 *Pmipv6) GetYangName() string { return "pmipv6" }
-
-func (pmipv6 *Pmipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pmipv6 *Pmipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pmipv6 *Pmipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pmipv6 *Pmipv6) SetParent(parent types.Entity) { pmipv6.parent = parent }
-
-func (pmipv6 *Pmipv6) GetParent() types.Entity { return pmipv6.parent }
-
-func (pmipv6 *Pmipv6) GetParentYangName() string { return "Cisco-IOS-XR-ip-mobileip-oper" }
 
 // Pmipv6_Lma
 // None
 type Pmipv6_Lma struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // None.
@@ -183,74 +150,29 @@ type Pmipv6_Lma struct {
     ConfigVariables Pmipv6_Lma_ConfigVariables
 }
 
-func (lma *Pmipv6_Lma) GetFilter() yfilter.YFilter { return lma.YFilter }
+func (lma *Pmipv6_Lma) GetEntityData() *types.CommonEntityData {
+    lma.EntityData.YFilter = lma.YFilter
+    lma.EntityData.YangName = "lma"
+    lma.EntityData.BundleName = "cisco_ios_xr"
+    lma.EntityData.ParentYangName = "pmipv6"
+    lma.EntityData.SegmentPath = "lma"
+    lma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lma *Pmipv6_Lma) SetFilter(yf yfilter.YFilter) { lma.YFilter = yf }
-
-func (lma *Pmipv6_Lma) GetGoName(yname string) string {
-    if yname == "statistics" { return "Statistics" }
-    if yname == "bindings" { return "Bindings" }
-    if yname == "heartbeats" { return "Heartbeats" }
-    if yname == "config-variables" { return "ConfigVariables" }
-    return ""
+    lma.EntityData.Children = make(map[string]types.YChild)
+    lma.EntityData.Children["statistics"] = types.YChild{"Statistics", &lma.Statistics}
+    lma.EntityData.Children["bindings"] = types.YChild{"Bindings", &lma.Bindings}
+    lma.EntityData.Children["heartbeats"] = types.YChild{"Heartbeats", &lma.Heartbeats}
+    lma.EntityData.Children["config-variables"] = types.YChild{"ConfigVariables", &lma.ConfigVariables}
+    lma.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lma.EntityData)
 }
-
-func (lma *Pmipv6_Lma) GetSegmentPath() string {
-    return "lma"
-}
-
-func (lma *Pmipv6_Lma) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &lma.Statistics
-    }
-    if childYangName == "bindings" {
-        return &lma.Bindings
-    }
-    if childYangName == "heartbeats" {
-        return &lma.Heartbeats
-    }
-    if childYangName == "config-variables" {
-        return &lma.ConfigVariables
-    }
-    return nil
-}
-
-func (lma *Pmipv6_Lma) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &lma.Statistics
-    children["bindings"] = &lma.Bindings
-    children["heartbeats"] = &lma.Heartbeats
-    children["config-variables"] = &lma.ConfigVariables
-    return children
-}
-
-func (lma *Pmipv6_Lma) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lma *Pmipv6_Lma) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lma *Pmipv6_Lma) GetYangName() string { return "lma" }
-
-func (lma *Pmipv6_Lma) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lma *Pmipv6_Lma) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lma *Pmipv6_Lma) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lma *Pmipv6_Lma) SetParent(parent types.Entity) { lma.parent = parent }
-
-func (lma *Pmipv6_Lma) GetParent() types.Entity { return lma.parent }
-
-func (lma *Pmipv6_Lma) GetParentYangName() string { return "pmipv6" }
 
 // Pmipv6_Lma_Statistics
 // None
 type Pmipv6_Lma_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of CustomerStatistics.
@@ -266,74 +188,29 @@ type Pmipv6_Lma_Statistics struct {
     MagStatistics Pmipv6_Lma_Statistics_MagStatistics
 }
 
-func (statistics *Pmipv6_Lma_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Pmipv6_Lma_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "lma"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Pmipv6_Lma_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Pmipv6_Lma_Statistics) GetGoName(yname string) string {
-    if yname == "customer-statistics" { return "CustomerStatistics" }
-    if yname == "license" { return "License" }
-    if yname == "global" { return "Global" }
-    if yname == "mag-statistics" { return "MagStatistics" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["customer-statistics"] = types.YChild{"CustomerStatistics", &statistics.CustomerStatistics}
+    statistics.EntityData.Children["license"] = types.YChild{"License", &statistics.License}
+    statistics.EntityData.Children["global"] = types.YChild{"Global", &statistics.Global}
+    statistics.EntityData.Children["mag-statistics"] = types.YChild{"MagStatistics", &statistics.MagStatistics}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Pmipv6_Lma_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Pmipv6_Lma_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "customer-statistics" {
-        return &statistics.CustomerStatistics
-    }
-    if childYangName == "license" {
-        return &statistics.License
-    }
-    if childYangName == "global" {
-        return &statistics.Global
-    }
-    if childYangName == "mag-statistics" {
-        return &statistics.MagStatistics
-    }
-    return nil
-}
-
-func (statistics *Pmipv6_Lma_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["customer-statistics"] = &statistics.CustomerStatistics
-    children["license"] = &statistics.License
-    children["global"] = &statistics.Global
-    children["mag-statistics"] = &statistics.MagStatistics
-    return children
-}
-
-func (statistics *Pmipv6_Lma_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Pmipv6_Lma_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Pmipv6_Lma_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Pmipv6_Lma_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Pmipv6_Lma_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Pmipv6_Lma_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Pmipv6_Lma_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Pmipv6_Lma_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Pmipv6_Lma_Statistics) GetParentYangName() string { return "lma" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics
 // Table of CustomerStatistics
 type Pmipv6_Lma_Statistics_CustomerStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Customer statistics. The type is slice of
@@ -341,72 +218,33 @@ type Pmipv6_Lma_Statistics_CustomerStatistics struct {
     CustomerStatistic []Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic
 }
 
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetFilter() yfilter.YFilter { return customerStatistics.YFilter }
+func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetEntityData() *types.CommonEntityData {
+    customerStatistics.EntityData.YFilter = customerStatistics.YFilter
+    customerStatistics.EntityData.YangName = "customer-statistics"
+    customerStatistics.EntityData.BundleName = "cisco_ios_xr"
+    customerStatistics.EntityData.ParentYangName = "statistics"
+    customerStatistics.EntityData.SegmentPath = "customer-statistics"
+    customerStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    customerStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    customerStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) SetFilter(yf yfilter.YFilter) { customerStatistics.YFilter = yf }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetGoName(yname string) string {
-    if yname == "customer-statistic" { return "CustomerStatistic" }
-    return ""
-}
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetSegmentPath() string {
-    return "customer-statistics"
-}
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "customer-statistic" {
-        for _, c := range customerStatistics.CustomerStatistic {
-            if customerStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic{}
-        customerStatistics.CustomerStatistic = append(customerStatistics.CustomerStatistic, child)
-        return &customerStatistics.CustomerStatistic[len(customerStatistics.CustomerStatistic)-1]
-    }
-    return nil
-}
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    customerStatistics.EntityData.Children = make(map[string]types.YChild)
+    customerStatistics.EntityData.Children["customer-statistic"] = types.YChild{"CustomerStatistic", nil}
     for i := range customerStatistics.CustomerStatistic {
-        children[customerStatistics.CustomerStatistic[i].GetSegmentPath()] = &customerStatistics.CustomerStatistic[i]
+        customerStatistics.EntityData.Children[types.GetSegmentPath(&customerStatistics.CustomerStatistic[i])] = types.YChild{"CustomerStatistic", &customerStatistics.CustomerStatistic[i]}
     }
-    return children
+    customerStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(customerStatistics.EntityData)
 }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetYangName() string { return "customer-statistics" }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) SetParent(parent types.Entity) { customerStatistics.parent = parent }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetParent() types.Entity { return customerStatistics.parent }
-
-func (customerStatistics *Pmipv6_Lma_Statistics_CustomerStatistics) GetParentYangName() string { return "statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic
 // Customer statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Customer Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CustomerName interface{}
 
     // LMA Identifier. The type is string.
@@ -433,76 +271,33 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic struct {
     AccountingStatistics Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics
 }
 
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetFilter() yfilter.YFilter { return customerStatistic.YFilter }
+func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetEntityData() *types.CommonEntityData {
+    customerStatistic.EntityData.YFilter = customerStatistic.YFilter
+    customerStatistic.EntityData.YangName = "customer-statistic"
+    customerStatistic.EntityData.BundleName = "cisco_ios_xr"
+    customerStatistic.EntityData.ParentYangName = "customer-statistics"
+    customerStatistic.EntityData.SegmentPath = "customer-statistic" + "[customer-name='" + fmt.Sprintf("%v", customerStatistic.CustomerName) + "']"
+    customerStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    customerStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    customerStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) SetFilter(yf yfilter.YFilter) { customerStatistic.YFilter = yf }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetGoName(yname string) string {
-    if yname == "customer-name" { return "CustomerName" }
-    if yname == "lma-identifier" { return "LmaIdentifier" }
-    if yname == "bce-count" { return "BceCount" }
-    if yname == "handoff-count" { return "HandoffCount" }
-    if yname == "ipv4-mnp-count" { return "Ipv4MnpCount" }
-    if yname == "ipv6-mnp-count" { return "Ipv6MnpCount" }
-    if yname == "protocol-statistics" { return "ProtocolStatistics" }
-    if yname == "accounting-statistics" { return "AccountingStatistics" }
-    return ""
+    customerStatistic.EntityData.Children = make(map[string]types.YChild)
+    customerStatistic.EntityData.Children["protocol-statistics"] = types.YChild{"ProtocolStatistics", &customerStatistic.ProtocolStatistics}
+    customerStatistic.EntityData.Children["accounting-statistics"] = types.YChild{"AccountingStatistics", &customerStatistic.AccountingStatistics}
+    customerStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    customerStatistic.EntityData.Leafs["customer-name"] = types.YLeaf{"CustomerName", customerStatistic.CustomerName}
+    customerStatistic.EntityData.Leafs["lma-identifier"] = types.YLeaf{"LmaIdentifier", customerStatistic.LmaIdentifier}
+    customerStatistic.EntityData.Leafs["bce-count"] = types.YLeaf{"BceCount", customerStatistic.BceCount}
+    customerStatistic.EntityData.Leafs["handoff-count"] = types.YLeaf{"HandoffCount", customerStatistic.HandoffCount}
+    customerStatistic.EntityData.Leafs["ipv4-mnp-count"] = types.YLeaf{"Ipv4MnpCount", customerStatistic.Ipv4MnpCount}
+    customerStatistic.EntityData.Leafs["ipv6-mnp-count"] = types.YLeaf{"Ipv6MnpCount", customerStatistic.Ipv6MnpCount}
+    return &(customerStatistic.EntityData)
 }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetSegmentPath() string {
-    return "customer-statistic" + "[customer-name='" + fmt.Sprintf("%v", customerStatistic.CustomerName) + "']"
-}
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "protocol-statistics" {
-        return &customerStatistic.ProtocolStatistics
-    }
-    if childYangName == "accounting-statistics" {
-        return &customerStatistic.AccountingStatistics
-    }
-    return nil
-}
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["protocol-statistics"] = &customerStatistic.ProtocolStatistics
-    children["accounting-statistics"] = &customerStatistic.AccountingStatistics
-    return children
-}
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["customer-name"] = customerStatistic.CustomerName
-    leafs["lma-identifier"] = customerStatistic.LmaIdentifier
-    leafs["bce-count"] = customerStatistic.BceCount
-    leafs["handoff-count"] = customerStatistic.HandoffCount
-    leafs["ipv4-mnp-count"] = customerStatistic.Ipv4MnpCount
-    leafs["ipv6-mnp-count"] = customerStatistic.Ipv6MnpCount
-    return leafs
-}
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetYangName() string { return "customer-statistic" }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) SetParent(parent types.Entity) { customerStatistic.parent = parent }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetParent() types.Entity { return customerStatistic.parent }
-
-func (customerStatistic *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic) GetParentYangName() string { return "customer-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics
 // LMA Protocol Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PBU Receive Statistics.
@@ -524,84 +319,31 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     PbraReceiveStatistics Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics
 }
 
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetFilter() yfilter.YFilter { return protocolStatistics.YFilter }
+func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetEntityData() *types.CommonEntityData {
+    protocolStatistics.EntityData.YFilter = protocolStatistics.YFilter
+    protocolStatistics.EntityData.YangName = "protocol-statistics"
+    protocolStatistics.EntityData.BundleName = "cisco_ios_xr"
+    protocolStatistics.EntityData.ParentYangName = "customer-statistic"
+    protocolStatistics.EntityData.SegmentPath = "protocol-statistics"
+    protocolStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocolStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocolStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) SetFilter(yf yfilter.YFilter) { protocolStatistics.YFilter = yf }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetGoName(yname string) string {
-    if yname == "pbu-receive-statistics" { return "PbuReceiveStatistics" }
-    if yname == "pba-send-statistics" { return "PbaSendStatistics" }
-    if yname == "pbri-send-statistics" { return "PbriSendStatistics" }
-    if yname == "pbri-receive-statistics" { return "PbriReceiveStatistics" }
-    if yname == "pbra-send-statistics" { return "PbraSendStatistics" }
-    if yname == "pbra-receive-statistics" { return "PbraReceiveStatistics" }
-    return ""
+    protocolStatistics.EntityData.Children = make(map[string]types.YChild)
+    protocolStatistics.EntityData.Children["pbu-receive-statistics"] = types.YChild{"PbuReceiveStatistics", &protocolStatistics.PbuReceiveStatistics}
+    protocolStatistics.EntityData.Children["pba-send-statistics"] = types.YChild{"PbaSendStatistics", &protocolStatistics.PbaSendStatistics}
+    protocolStatistics.EntityData.Children["pbri-send-statistics"] = types.YChild{"PbriSendStatistics", &protocolStatistics.PbriSendStatistics}
+    protocolStatistics.EntityData.Children["pbri-receive-statistics"] = types.YChild{"PbriReceiveStatistics", &protocolStatistics.PbriReceiveStatistics}
+    protocolStatistics.EntityData.Children["pbra-send-statistics"] = types.YChild{"PbraSendStatistics", &protocolStatistics.PbraSendStatistics}
+    protocolStatistics.EntityData.Children["pbra-receive-statistics"] = types.YChild{"PbraReceiveStatistics", &protocolStatistics.PbraReceiveStatistics}
+    protocolStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(protocolStatistics.EntityData)
 }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetSegmentPath() string {
-    return "protocol-statistics"
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbu-receive-statistics" {
-        return &protocolStatistics.PbuReceiveStatistics
-    }
-    if childYangName == "pba-send-statistics" {
-        return &protocolStatistics.PbaSendStatistics
-    }
-    if childYangName == "pbri-send-statistics" {
-        return &protocolStatistics.PbriSendStatistics
-    }
-    if childYangName == "pbri-receive-statistics" {
-        return &protocolStatistics.PbriReceiveStatistics
-    }
-    if childYangName == "pbra-send-statistics" {
-        return &protocolStatistics.PbraSendStatistics
-    }
-    if childYangName == "pbra-receive-statistics" {
-        return &protocolStatistics.PbraReceiveStatistics
-    }
-    return nil
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pbu-receive-statistics"] = &protocolStatistics.PbuReceiveStatistics
-    children["pba-send-statistics"] = &protocolStatistics.PbaSendStatistics
-    children["pbri-send-statistics"] = &protocolStatistics.PbriSendStatistics
-    children["pbri-receive-statistics"] = &protocolStatistics.PbriReceiveStatistics
-    children["pbra-send-statistics"] = &protocolStatistics.PbraSendStatistics
-    children["pbra-receive-statistics"] = &protocolStatistics.PbraReceiveStatistics
-    return children
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetYangName() string { return "protocol-statistics" }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) SetParent(parent types.Entity) { protocolStatistics.parent = parent }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetParent() types.Entity { return protocolStatistics.parent }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics) GetParentYangName() string { return "customer-statistic" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics
 // PBU Receive Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBUs. The type is interface{} with range: 0..18446744073709551615.
@@ -611,58 +353,27 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     PbuDropCount interface{}
 }
 
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetFilter() yfilter.YFilter { return pbuReceiveStatistics.YFilter }
+func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbuReceiveStatistics.EntityData.YFilter = pbuReceiveStatistics.YFilter
+    pbuReceiveStatistics.EntityData.YangName = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbuReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbuReceiveStatistics.EntityData.SegmentPath = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbuReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbuReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbuReceiveStatistics.YFilter = yf }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbu-count" { return "PbuCount" }
-    if yname == "pbu-drop-count" { return "PbuDropCount" }
-    return ""
+    pbuReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbuReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbuReceiveStatistics.EntityData.Leafs["pbu-count"] = types.YLeaf{"PbuCount", pbuReceiveStatistics.PbuCount}
+    pbuReceiveStatistics.EntityData.Leafs["pbu-drop-count"] = types.YLeaf{"PbuDropCount", pbuReceiveStatistics.PbuDropCount}
+    return &(pbuReceiveStatistics.EntityData)
 }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetSegmentPath() string {
-    return "pbu-receive-statistics"
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbu-count"] = pbuReceiveStatistics.PbuCount
-    leafs["pbu-drop-count"] = pbuReceiveStatistics.PbuDropCount
-    return leafs
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetYangName() string { return "pbu-receive-statistics" }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) SetParent(parent types.Entity) { pbuReceiveStatistics.parent = parent }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetParent() types.Entity { return pbuReceiveStatistics.parent }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbuReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics
 // PBA Send Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBAs. The type is interface{} with range: 0..18446744073709551615.
@@ -776,110 +487,53 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     GreKeyOptRequiredCount interface{}
 }
 
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetFilter() yfilter.YFilter { return pbaSendStatistics.YFilter }
+func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbaSendStatistics.EntityData.YFilter = pbaSendStatistics.YFilter
+    pbaSendStatistics.EntityData.YangName = "pba-send-statistics"
+    pbaSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbaSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbaSendStatistics.EntityData.SegmentPath = "pba-send-statistics"
+    pbaSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbaSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbaSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) SetFilter(yf yfilter.YFilter) { pbaSendStatistics.YFilter = yf }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetGoName(yname string) string {
-    if yname == "pba-count" { return "PbaCount" }
-    if yname == "pba-drop-count" { return "PbaDropCount" }
-    if yname == "accepted-count" { return "AcceptedCount" }
-    if yname == "unknown-count" { return "UnknownCount" }
-    if yname == "unspecified-failure-count" { return "UnspecifiedFailureCount" }
-    if yname == "admin-failure-count" { return "AdminFailureCount" }
-    if yname == "resource-failure-count" { return "ResourceFailureCount" }
-    if yname == "home-reg-failure-count" { return "HomeRegFailureCount" }
-    if yname == "home-subnet-failure-count" { return "HomeSubnetFailureCount" }
-    if yname == "bad-sequence-failure-count" { return "BadSequenceFailureCount" }
-    if yname == "reg-type-failure-count" { return "RegTypeFailureCount" }
-    if yname == "authen-failure-count" { return "AuthenFailureCount" }
-    if yname == "proxy-reg-not-enabled-count" { return "ProxyRegNotEnabledCount" }
-    if yname == "not-lma-for-this-mn-count" { return "NotLmaForThisMnCount" }
-    if yname == "no-author-for-proxy-reg-count" { return "NoAuthorForProxyRegCount" }
-    if yname == "no-author-for-hnp-count" { return "NoAuthorForHnpCount" }
-    if yname == "timestamp-mismatch-count" { return "TimestampMismatchCount" }
-    if yname == "timestamp-lower-than-previous-accepted-count" { return "TimestampLowerThanPreviousAcceptedCount" }
-    if yname == "missing-hnp-opt-count" { return "MissingHnpOptCount" }
-    if yname == "received-hnps-do-not-match-bce-hnps-count" { return "ReceivedHnpsDoNotMatchBceHnpsCount" }
-    if yname == "missing-mn-id-opt-count" { return "MissingMnIdOptCount" }
-    if yname == "missing-hi-opt-count" { return "MissingHiOptCount" }
-    if yname == "missing-access-tech-type-opt-count" { return "MissingAccessTechTypeOptCount" }
-    if yname == "no-author-for-ipv4-mobility-count" { return "NoAuthorForIpv4MobilityCount" }
-    if yname == "no-author-for-ipv4-hoa-count" { return "NoAuthorForIpv4HoaCount" }
-    if yname == "no-author-for-ipv6-mobility-count" { return "NoAuthorForIpv6MobilityCount" }
-    if yname == "multiple-ipv4-ho-a-not-supported-count" { return "MultipleIpv4HoANotSupportedCount" }
-    if yname == "gre-key-opt-required-count" { return "GreKeyOptRequiredCount" }
-    return ""
+    pbaSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbaSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbaSendStatistics.EntityData.Leafs["pba-count"] = types.YLeaf{"PbaCount", pbaSendStatistics.PbaCount}
+    pbaSendStatistics.EntityData.Leafs["pba-drop-count"] = types.YLeaf{"PbaDropCount", pbaSendStatistics.PbaDropCount}
+    pbaSendStatistics.EntityData.Leafs["accepted-count"] = types.YLeaf{"AcceptedCount", pbaSendStatistics.AcceptedCount}
+    pbaSendStatistics.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", pbaSendStatistics.UnknownCount}
+    pbaSendStatistics.EntityData.Leafs["unspecified-failure-count"] = types.YLeaf{"UnspecifiedFailureCount", pbaSendStatistics.UnspecifiedFailureCount}
+    pbaSendStatistics.EntityData.Leafs["admin-failure-count"] = types.YLeaf{"AdminFailureCount", pbaSendStatistics.AdminFailureCount}
+    pbaSendStatistics.EntityData.Leafs["resource-failure-count"] = types.YLeaf{"ResourceFailureCount", pbaSendStatistics.ResourceFailureCount}
+    pbaSendStatistics.EntityData.Leafs["home-reg-failure-count"] = types.YLeaf{"HomeRegFailureCount", pbaSendStatistics.HomeRegFailureCount}
+    pbaSendStatistics.EntityData.Leafs["home-subnet-failure-count"] = types.YLeaf{"HomeSubnetFailureCount", pbaSendStatistics.HomeSubnetFailureCount}
+    pbaSendStatistics.EntityData.Leafs["bad-sequence-failure-count"] = types.YLeaf{"BadSequenceFailureCount", pbaSendStatistics.BadSequenceFailureCount}
+    pbaSendStatistics.EntityData.Leafs["reg-type-failure-count"] = types.YLeaf{"RegTypeFailureCount", pbaSendStatistics.RegTypeFailureCount}
+    pbaSendStatistics.EntityData.Leafs["authen-failure-count"] = types.YLeaf{"AuthenFailureCount", pbaSendStatistics.AuthenFailureCount}
+    pbaSendStatistics.EntityData.Leafs["proxy-reg-not-enabled-count"] = types.YLeaf{"ProxyRegNotEnabledCount", pbaSendStatistics.ProxyRegNotEnabledCount}
+    pbaSendStatistics.EntityData.Leafs["not-lma-for-this-mn-count"] = types.YLeaf{"NotLmaForThisMnCount", pbaSendStatistics.NotLmaForThisMnCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-proxy-reg-count"] = types.YLeaf{"NoAuthorForProxyRegCount", pbaSendStatistics.NoAuthorForProxyRegCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-hnp-count"] = types.YLeaf{"NoAuthorForHnpCount", pbaSendStatistics.NoAuthorForHnpCount}
+    pbaSendStatistics.EntityData.Leafs["timestamp-mismatch-count"] = types.YLeaf{"TimestampMismatchCount", pbaSendStatistics.TimestampMismatchCount}
+    pbaSendStatistics.EntityData.Leafs["timestamp-lower-than-previous-accepted-count"] = types.YLeaf{"TimestampLowerThanPreviousAcceptedCount", pbaSendStatistics.TimestampLowerThanPreviousAcceptedCount}
+    pbaSendStatistics.EntityData.Leafs["missing-hnp-opt-count"] = types.YLeaf{"MissingHnpOptCount", pbaSendStatistics.MissingHnpOptCount}
+    pbaSendStatistics.EntityData.Leafs["received-hnps-do-not-match-bce-hnps-count"] = types.YLeaf{"ReceivedHnpsDoNotMatchBceHnpsCount", pbaSendStatistics.ReceivedHnpsDoNotMatchBceHnpsCount}
+    pbaSendStatistics.EntityData.Leafs["missing-mn-id-opt-count"] = types.YLeaf{"MissingMnIdOptCount", pbaSendStatistics.MissingMnIdOptCount}
+    pbaSendStatistics.EntityData.Leafs["missing-hi-opt-count"] = types.YLeaf{"MissingHiOptCount", pbaSendStatistics.MissingHiOptCount}
+    pbaSendStatistics.EntityData.Leafs["missing-access-tech-type-opt-count"] = types.YLeaf{"MissingAccessTechTypeOptCount", pbaSendStatistics.MissingAccessTechTypeOptCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv4-mobility-count"] = types.YLeaf{"NoAuthorForIpv4MobilityCount", pbaSendStatistics.NoAuthorForIpv4MobilityCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv4-hoa-count"] = types.YLeaf{"NoAuthorForIpv4HoaCount", pbaSendStatistics.NoAuthorForIpv4HoaCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv6-mobility-count"] = types.YLeaf{"NoAuthorForIpv6MobilityCount", pbaSendStatistics.NoAuthorForIpv6MobilityCount}
+    pbaSendStatistics.EntityData.Leafs["multiple-ipv4-ho-a-not-supported-count"] = types.YLeaf{"MultipleIpv4HoANotSupportedCount", pbaSendStatistics.MultipleIpv4HoANotSupportedCount}
+    pbaSendStatistics.EntityData.Leafs["gre-key-opt-required-count"] = types.YLeaf{"GreKeyOptRequiredCount", pbaSendStatistics.GreKeyOptRequiredCount}
+    return &(pbaSendStatistics.EntityData)
 }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetSegmentPath() string {
-    return "pba-send-statistics"
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pba-count"] = pbaSendStatistics.PbaCount
-    leafs["pba-drop-count"] = pbaSendStatistics.PbaDropCount
-    leafs["accepted-count"] = pbaSendStatistics.AcceptedCount
-    leafs["unknown-count"] = pbaSendStatistics.UnknownCount
-    leafs["unspecified-failure-count"] = pbaSendStatistics.UnspecifiedFailureCount
-    leafs["admin-failure-count"] = pbaSendStatistics.AdminFailureCount
-    leafs["resource-failure-count"] = pbaSendStatistics.ResourceFailureCount
-    leafs["home-reg-failure-count"] = pbaSendStatistics.HomeRegFailureCount
-    leafs["home-subnet-failure-count"] = pbaSendStatistics.HomeSubnetFailureCount
-    leafs["bad-sequence-failure-count"] = pbaSendStatistics.BadSequenceFailureCount
-    leafs["reg-type-failure-count"] = pbaSendStatistics.RegTypeFailureCount
-    leafs["authen-failure-count"] = pbaSendStatistics.AuthenFailureCount
-    leafs["proxy-reg-not-enabled-count"] = pbaSendStatistics.ProxyRegNotEnabledCount
-    leafs["not-lma-for-this-mn-count"] = pbaSendStatistics.NotLmaForThisMnCount
-    leafs["no-author-for-proxy-reg-count"] = pbaSendStatistics.NoAuthorForProxyRegCount
-    leafs["no-author-for-hnp-count"] = pbaSendStatistics.NoAuthorForHnpCount
-    leafs["timestamp-mismatch-count"] = pbaSendStatistics.TimestampMismatchCount
-    leafs["timestamp-lower-than-previous-accepted-count"] = pbaSendStatistics.TimestampLowerThanPreviousAcceptedCount
-    leafs["missing-hnp-opt-count"] = pbaSendStatistics.MissingHnpOptCount
-    leafs["received-hnps-do-not-match-bce-hnps-count"] = pbaSendStatistics.ReceivedHnpsDoNotMatchBceHnpsCount
-    leafs["missing-mn-id-opt-count"] = pbaSendStatistics.MissingMnIdOptCount
-    leafs["missing-hi-opt-count"] = pbaSendStatistics.MissingHiOptCount
-    leafs["missing-access-tech-type-opt-count"] = pbaSendStatistics.MissingAccessTechTypeOptCount
-    leafs["no-author-for-ipv4-mobility-count"] = pbaSendStatistics.NoAuthorForIpv4MobilityCount
-    leafs["no-author-for-ipv4-hoa-count"] = pbaSendStatistics.NoAuthorForIpv4HoaCount
-    leafs["no-author-for-ipv6-mobility-count"] = pbaSendStatistics.NoAuthorForIpv6MobilityCount
-    leafs["multiple-ipv4-ho-a-not-supported-count"] = pbaSendStatistics.MultipleIpv4HoANotSupportedCount
-    leafs["gre-key-opt-required-count"] = pbaSendStatistics.GreKeyOptRequiredCount
-    return leafs
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetYangName() string { return "pba-send-statistics" }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) SetParent(parent types.Entity) { pbaSendStatistics.parent = parent }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetParent() types.Entity { return pbaSendStatistics.parent }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbaSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics
 // PBRI Send Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRIs. The type is interface{} with range:
@@ -930,78 +584,37 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     RevokingMnLocalPolicyCount interface{}
 }
 
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetFilter() yfilter.YFilter { return pbriSendStatistics.YFilter }
+func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbriSendStatistics.EntityData.YFilter = pbriSendStatistics.YFilter
+    pbriSendStatistics.EntityData.YangName = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbriSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbriSendStatistics.EntityData.SegmentPath = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbriSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbriSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) SetFilter(yf yfilter.YFilter) { pbriSendStatistics.YFilter = yf }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetGoName(yname string) string {
-    if yname == "pbri-count" { return "PbriCount" }
-    if yname == "pbri-drop-count" { return "PbriDropCount" }
-    if yname == "unspecified-count" { return "UnspecifiedCount" }
-    if yname == "admin-reason-count" { return "AdminReasonCount" }
-    if yname == "mag-handover-same-att-count" { return "MagHandoverSameAttCount" }
-    if yname == "mag-handover-different-att-count" { return "MagHandoverDifferentAttCount" }
-    if yname == "mag-handover-unknown-count" { return "MagHandoverUnknownCount" }
-    if yname == "user-session-termination-count" { return "UserSessionTerminationCount" }
-    if yname == "network-session-termination-count" { return "NetworkSessionTerminationCount" }
-    if yname == "out-of-sync-bce-state-count" { return "OutOfSyncBceStateCount" }
-    if yname == "per-peer-policy-count" { return "PerPeerPolicyCount" }
-    if yname == "revoking-mn-local-policy-count" { return "RevokingMnLocalPolicyCount" }
-    return ""
+    pbriSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbriSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbriSendStatistics.EntityData.Leafs["pbri-count"] = types.YLeaf{"PbriCount", pbriSendStatistics.PbriCount}
+    pbriSendStatistics.EntityData.Leafs["pbri-drop-count"] = types.YLeaf{"PbriDropCount", pbriSendStatistics.PbriDropCount}
+    pbriSendStatistics.EntityData.Leafs["unspecified-count"] = types.YLeaf{"UnspecifiedCount", pbriSendStatistics.UnspecifiedCount}
+    pbriSendStatistics.EntityData.Leafs["admin-reason-count"] = types.YLeaf{"AdminReasonCount", pbriSendStatistics.AdminReasonCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-same-att-count"] = types.YLeaf{"MagHandoverSameAttCount", pbriSendStatistics.MagHandoverSameAttCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-different-att-count"] = types.YLeaf{"MagHandoverDifferentAttCount", pbriSendStatistics.MagHandoverDifferentAttCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-unknown-count"] = types.YLeaf{"MagHandoverUnknownCount", pbriSendStatistics.MagHandoverUnknownCount}
+    pbriSendStatistics.EntityData.Leafs["user-session-termination-count"] = types.YLeaf{"UserSessionTerminationCount", pbriSendStatistics.UserSessionTerminationCount}
+    pbriSendStatistics.EntityData.Leafs["network-session-termination-count"] = types.YLeaf{"NetworkSessionTerminationCount", pbriSendStatistics.NetworkSessionTerminationCount}
+    pbriSendStatistics.EntityData.Leafs["out-of-sync-bce-state-count"] = types.YLeaf{"OutOfSyncBceStateCount", pbriSendStatistics.OutOfSyncBceStateCount}
+    pbriSendStatistics.EntityData.Leafs["per-peer-policy-count"] = types.YLeaf{"PerPeerPolicyCount", pbriSendStatistics.PerPeerPolicyCount}
+    pbriSendStatistics.EntityData.Leafs["revoking-mn-local-policy-count"] = types.YLeaf{"RevokingMnLocalPolicyCount", pbriSendStatistics.RevokingMnLocalPolicyCount}
+    return &(pbriSendStatistics.EntityData)
 }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetSegmentPath() string {
-    return "pbri-send-statistics"
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbri-count"] = pbriSendStatistics.PbriCount
-    leafs["pbri-drop-count"] = pbriSendStatistics.PbriDropCount
-    leafs["unspecified-count"] = pbriSendStatistics.UnspecifiedCount
-    leafs["admin-reason-count"] = pbriSendStatistics.AdminReasonCount
-    leafs["mag-handover-same-att-count"] = pbriSendStatistics.MagHandoverSameAttCount
-    leafs["mag-handover-different-att-count"] = pbriSendStatistics.MagHandoverDifferentAttCount
-    leafs["mag-handover-unknown-count"] = pbriSendStatistics.MagHandoverUnknownCount
-    leafs["user-session-termination-count"] = pbriSendStatistics.UserSessionTerminationCount
-    leafs["network-session-termination-count"] = pbriSendStatistics.NetworkSessionTerminationCount
-    leafs["out-of-sync-bce-state-count"] = pbriSendStatistics.OutOfSyncBceStateCount
-    leafs["per-peer-policy-count"] = pbriSendStatistics.PerPeerPolicyCount
-    leafs["revoking-mn-local-policy-count"] = pbriSendStatistics.RevokingMnLocalPolicyCount
-    return leafs
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetYangName() string { return "pbri-send-statistics" }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) SetParent(parent types.Entity) { pbriSendStatistics.parent = parent }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetParent() types.Entity { return pbriSendStatistics.parent }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics
 // PBRI Receive Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRIs. The type is interface{} with range:
@@ -1052,78 +665,37 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     RevokingMnLocalPolicyCount interface{}
 }
 
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetFilter() yfilter.YFilter { return pbriReceiveStatistics.YFilter }
+func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbriReceiveStatistics.EntityData.YFilter = pbriReceiveStatistics.YFilter
+    pbriReceiveStatistics.EntityData.YangName = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbriReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbriReceiveStatistics.EntityData.SegmentPath = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbriReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbriReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbriReceiveStatistics.YFilter = yf }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbri-count" { return "PbriCount" }
-    if yname == "pbri-drop-count" { return "PbriDropCount" }
-    if yname == "unspecified-count" { return "UnspecifiedCount" }
-    if yname == "admin-reason-count" { return "AdminReasonCount" }
-    if yname == "mag-handover-same-att-count" { return "MagHandoverSameAttCount" }
-    if yname == "mag-handover-different-att-count" { return "MagHandoverDifferentAttCount" }
-    if yname == "mag-handover-unknown-count" { return "MagHandoverUnknownCount" }
-    if yname == "user-session-termination-count" { return "UserSessionTerminationCount" }
-    if yname == "network-session-termination-count" { return "NetworkSessionTerminationCount" }
-    if yname == "out-of-sync-bce-state-count" { return "OutOfSyncBceStateCount" }
-    if yname == "per-peer-policy-count" { return "PerPeerPolicyCount" }
-    if yname == "revoking-mn-local-policy-count" { return "RevokingMnLocalPolicyCount" }
-    return ""
+    pbriReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbriReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbriReceiveStatistics.EntityData.Leafs["pbri-count"] = types.YLeaf{"PbriCount", pbriReceiveStatistics.PbriCount}
+    pbriReceiveStatistics.EntityData.Leafs["pbri-drop-count"] = types.YLeaf{"PbriDropCount", pbriReceiveStatistics.PbriDropCount}
+    pbriReceiveStatistics.EntityData.Leafs["unspecified-count"] = types.YLeaf{"UnspecifiedCount", pbriReceiveStatistics.UnspecifiedCount}
+    pbriReceiveStatistics.EntityData.Leafs["admin-reason-count"] = types.YLeaf{"AdminReasonCount", pbriReceiveStatistics.AdminReasonCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-same-att-count"] = types.YLeaf{"MagHandoverSameAttCount", pbriReceiveStatistics.MagHandoverSameAttCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-different-att-count"] = types.YLeaf{"MagHandoverDifferentAttCount", pbriReceiveStatistics.MagHandoverDifferentAttCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-unknown-count"] = types.YLeaf{"MagHandoverUnknownCount", pbriReceiveStatistics.MagHandoverUnknownCount}
+    pbriReceiveStatistics.EntityData.Leafs["user-session-termination-count"] = types.YLeaf{"UserSessionTerminationCount", pbriReceiveStatistics.UserSessionTerminationCount}
+    pbriReceiveStatistics.EntityData.Leafs["network-session-termination-count"] = types.YLeaf{"NetworkSessionTerminationCount", pbriReceiveStatistics.NetworkSessionTerminationCount}
+    pbriReceiveStatistics.EntityData.Leafs["out-of-sync-bce-state-count"] = types.YLeaf{"OutOfSyncBceStateCount", pbriReceiveStatistics.OutOfSyncBceStateCount}
+    pbriReceiveStatistics.EntityData.Leafs["per-peer-policy-count"] = types.YLeaf{"PerPeerPolicyCount", pbriReceiveStatistics.PerPeerPolicyCount}
+    pbriReceiveStatistics.EntityData.Leafs["revoking-mn-local-policy-count"] = types.YLeaf{"RevokingMnLocalPolicyCount", pbriReceiveStatistics.RevokingMnLocalPolicyCount}
+    return &(pbriReceiveStatistics.EntityData)
 }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetSegmentPath() string {
-    return "pbri-receive-statistics"
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbri-count"] = pbriReceiveStatistics.PbriCount
-    leafs["pbri-drop-count"] = pbriReceiveStatistics.PbriDropCount
-    leafs["unspecified-count"] = pbriReceiveStatistics.UnspecifiedCount
-    leafs["admin-reason-count"] = pbriReceiveStatistics.AdminReasonCount
-    leafs["mag-handover-same-att-count"] = pbriReceiveStatistics.MagHandoverSameAttCount
-    leafs["mag-handover-different-att-count"] = pbriReceiveStatistics.MagHandoverDifferentAttCount
-    leafs["mag-handover-unknown-count"] = pbriReceiveStatistics.MagHandoverUnknownCount
-    leafs["user-session-termination-count"] = pbriReceiveStatistics.UserSessionTerminationCount
-    leafs["network-session-termination-count"] = pbriReceiveStatistics.NetworkSessionTerminationCount
-    leafs["out-of-sync-bce-state-count"] = pbriReceiveStatistics.OutOfSyncBceStateCount
-    leafs["per-peer-policy-count"] = pbriReceiveStatistics.PerPeerPolicyCount
-    leafs["revoking-mn-local-policy-count"] = pbriReceiveStatistics.RevokingMnLocalPolicyCount
-    return leafs
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetYangName() string { return "pbri-receive-statistics" }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) SetParent(parent types.Entity) { pbriReceiveStatistics.parent = parent }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetParent() types.Entity { return pbriReceiveStatistics.parent }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbriReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics
 // PBRA Send Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRAs. The type is interface{} with range:
@@ -1174,78 +746,37 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     PbrNotSupportedCount interface{}
 }
 
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetFilter() yfilter.YFilter { return pbraSendStatistics.YFilter }
+func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbraSendStatistics.EntityData.YFilter = pbraSendStatistics.YFilter
+    pbraSendStatistics.EntityData.YangName = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbraSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbraSendStatistics.EntityData.SegmentPath = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbraSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbraSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) SetFilter(yf yfilter.YFilter) { pbraSendStatistics.YFilter = yf }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetGoName(yname string) string {
-    if yname == "pbra-count" { return "PbraCount" }
-    if yname == "pbra-drop-count" { return "PbraDropCount" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "partial-success-count" { return "PartialSuccessCount" }
-    if yname == "no-binding-count" { return "NoBindingCount" }
-    if yname == "hoa-required-count" { return "HoaRequiredCount" }
-    if yname == "no-author-for-global-revoc-count" { return "NoAuthorForGlobalRevocCount" }
-    if yname == "mn-identity-required-count" { return "MnIdentityRequiredCount" }
-    if yname == "mn-attached-count" { return "MnAttachedCount" }
-    if yname == "unknown-revoc-trigger-count" { return "UnknownRevocTriggerCount" }
-    if yname == "revoc-function-not-supported-count" { return "RevocFunctionNotSupportedCount" }
-    if yname == "pbr-not-supported-count" { return "PbrNotSupportedCount" }
-    return ""
+    pbraSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbraSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbraSendStatistics.EntityData.Leafs["pbra-count"] = types.YLeaf{"PbraCount", pbraSendStatistics.PbraCount}
+    pbraSendStatistics.EntityData.Leafs["pbra-drop-count"] = types.YLeaf{"PbraDropCount", pbraSendStatistics.PbraDropCount}
+    pbraSendStatistics.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", pbraSendStatistics.SuccessCount}
+    pbraSendStatistics.EntityData.Leafs["partial-success-count"] = types.YLeaf{"PartialSuccessCount", pbraSendStatistics.PartialSuccessCount}
+    pbraSendStatistics.EntityData.Leafs["no-binding-count"] = types.YLeaf{"NoBindingCount", pbraSendStatistics.NoBindingCount}
+    pbraSendStatistics.EntityData.Leafs["hoa-required-count"] = types.YLeaf{"HoaRequiredCount", pbraSendStatistics.HoaRequiredCount}
+    pbraSendStatistics.EntityData.Leafs["no-author-for-global-revoc-count"] = types.YLeaf{"NoAuthorForGlobalRevocCount", pbraSendStatistics.NoAuthorForGlobalRevocCount}
+    pbraSendStatistics.EntityData.Leafs["mn-identity-required-count"] = types.YLeaf{"MnIdentityRequiredCount", pbraSendStatistics.MnIdentityRequiredCount}
+    pbraSendStatistics.EntityData.Leafs["mn-attached-count"] = types.YLeaf{"MnAttachedCount", pbraSendStatistics.MnAttachedCount}
+    pbraSendStatistics.EntityData.Leafs["unknown-revoc-trigger-count"] = types.YLeaf{"UnknownRevocTriggerCount", pbraSendStatistics.UnknownRevocTriggerCount}
+    pbraSendStatistics.EntityData.Leafs["revoc-function-not-supported-count"] = types.YLeaf{"RevocFunctionNotSupportedCount", pbraSendStatistics.RevocFunctionNotSupportedCount}
+    pbraSendStatistics.EntityData.Leafs["pbr-not-supported-count"] = types.YLeaf{"PbrNotSupportedCount", pbraSendStatistics.PbrNotSupportedCount}
+    return &(pbraSendStatistics.EntityData)
 }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetSegmentPath() string {
-    return "pbra-send-statistics"
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbra-count"] = pbraSendStatistics.PbraCount
-    leafs["pbra-drop-count"] = pbraSendStatistics.PbraDropCount
-    leafs["success-count"] = pbraSendStatistics.SuccessCount
-    leafs["partial-success-count"] = pbraSendStatistics.PartialSuccessCount
-    leafs["no-binding-count"] = pbraSendStatistics.NoBindingCount
-    leafs["hoa-required-count"] = pbraSendStatistics.HoaRequiredCount
-    leafs["no-author-for-global-revoc-count"] = pbraSendStatistics.NoAuthorForGlobalRevocCount
-    leafs["mn-identity-required-count"] = pbraSendStatistics.MnIdentityRequiredCount
-    leafs["mn-attached-count"] = pbraSendStatistics.MnAttachedCount
-    leafs["unknown-revoc-trigger-count"] = pbraSendStatistics.UnknownRevocTriggerCount
-    leafs["revoc-function-not-supported-count"] = pbraSendStatistics.RevocFunctionNotSupportedCount
-    leafs["pbr-not-supported-count"] = pbraSendStatistics.PbrNotSupportedCount
-    return leafs
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetYangName() string { return "pbra-send-statistics" }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) SetParent(parent types.Entity) { pbraSendStatistics.parent = parent }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetParent() types.Entity { return pbraSendStatistics.parent }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics
 // PBRA Receive Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRAs. The type is interface{} with range:
@@ -1296,78 +827,37 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatisti
     PbrNotSupportedCount interface{}
 }
 
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetFilter() yfilter.YFilter { return pbraReceiveStatistics.YFilter }
+func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbraReceiveStatistics.EntityData.YFilter = pbraReceiveStatistics.YFilter
+    pbraReceiveStatistics.EntityData.YangName = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbraReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbraReceiveStatistics.EntityData.SegmentPath = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbraReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbraReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbraReceiveStatistics.YFilter = yf }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbra-count" { return "PbraCount" }
-    if yname == "pbra-drop-count" { return "PbraDropCount" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "partial-success-count" { return "PartialSuccessCount" }
-    if yname == "no-binding-count" { return "NoBindingCount" }
-    if yname == "hoa-required-count" { return "HoaRequiredCount" }
-    if yname == "no-author-for-global-revoc-count" { return "NoAuthorForGlobalRevocCount" }
-    if yname == "mn-identity-required-count" { return "MnIdentityRequiredCount" }
-    if yname == "mn-attached-count" { return "MnAttachedCount" }
-    if yname == "unknown-revoc-trigger-count" { return "UnknownRevocTriggerCount" }
-    if yname == "revoc-function-not-supported-count" { return "RevocFunctionNotSupportedCount" }
-    if yname == "pbr-not-supported-count" { return "PbrNotSupportedCount" }
-    return ""
+    pbraReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbraReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbraReceiveStatistics.EntityData.Leafs["pbra-count"] = types.YLeaf{"PbraCount", pbraReceiveStatistics.PbraCount}
+    pbraReceiveStatistics.EntityData.Leafs["pbra-drop-count"] = types.YLeaf{"PbraDropCount", pbraReceiveStatistics.PbraDropCount}
+    pbraReceiveStatistics.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", pbraReceiveStatistics.SuccessCount}
+    pbraReceiveStatistics.EntityData.Leafs["partial-success-count"] = types.YLeaf{"PartialSuccessCount", pbraReceiveStatistics.PartialSuccessCount}
+    pbraReceiveStatistics.EntityData.Leafs["no-binding-count"] = types.YLeaf{"NoBindingCount", pbraReceiveStatistics.NoBindingCount}
+    pbraReceiveStatistics.EntityData.Leafs["hoa-required-count"] = types.YLeaf{"HoaRequiredCount", pbraReceiveStatistics.HoaRequiredCount}
+    pbraReceiveStatistics.EntityData.Leafs["no-author-for-global-revoc-count"] = types.YLeaf{"NoAuthorForGlobalRevocCount", pbraReceiveStatistics.NoAuthorForGlobalRevocCount}
+    pbraReceiveStatistics.EntityData.Leafs["mn-identity-required-count"] = types.YLeaf{"MnIdentityRequiredCount", pbraReceiveStatistics.MnIdentityRequiredCount}
+    pbraReceiveStatistics.EntityData.Leafs["mn-attached-count"] = types.YLeaf{"MnAttachedCount", pbraReceiveStatistics.MnAttachedCount}
+    pbraReceiveStatistics.EntityData.Leafs["unknown-revoc-trigger-count"] = types.YLeaf{"UnknownRevocTriggerCount", pbraReceiveStatistics.UnknownRevocTriggerCount}
+    pbraReceiveStatistics.EntityData.Leafs["revoc-function-not-supported-count"] = types.YLeaf{"RevocFunctionNotSupportedCount", pbraReceiveStatistics.RevocFunctionNotSupportedCount}
+    pbraReceiveStatistics.EntityData.Leafs["pbr-not-supported-count"] = types.YLeaf{"PbrNotSupportedCount", pbraReceiveStatistics.PbrNotSupportedCount}
+    return &(pbraReceiveStatistics.EntityData)
 }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetSegmentPath() string {
-    return "pbra-receive-statistics"
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbra-count"] = pbraReceiveStatistics.PbraCount
-    leafs["pbra-drop-count"] = pbraReceiveStatistics.PbraDropCount
-    leafs["success-count"] = pbraReceiveStatistics.SuccessCount
-    leafs["partial-success-count"] = pbraReceiveStatistics.PartialSuccessCount
-    leafs["no-binding-count"] = pbraReceiveStatistics.NoBindingCount
-    leafs["hoa-required-count"] = pbraReceiveStatistics.HoaRequiredCount
-    leafs["no-author-for-global-revoc-count"] = pbraReceiveStatistics.NoAuthorForGlobalRevocCount
-    leafs["mn-identity-required-count"] = pbraReceiveStatistics.MnIdentityRequiredCount
-    leafs["mn-attached-count"] = pbraReceiveStatistics.MnAttachedCount
-    leafs["unknown-revoc-trigger-count"] = pbraReceiveStatistics.UnknownRevocTriggerCount
-    leafs["revoc-function-not-supported-count"] = pbraReceiveStatistics.RevocFunctionNotSupportedCount
-    leafs["pbr-not-supported-count"] = pbraReceiveStatistics.PbrNotSupportedCount
-    return leafs
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetYangName() string { return "pbra-receive-statistics" }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) SetParent(parent types.Entity) { pbraReceiveStatistics.parent = parent }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetParent() types.Entity { return pbraReceiveStatistics.parent }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_ProtocolStatistics_PbraReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics
 // LMA Accounting Statistics
 type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of Accounting Start Records Sent. The type is interface{} with range:
@@ -1383,60 +873,28 @@ type Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatis
     AccountingStopSentCount interface{}
 }
 
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetFilter() yfilter.YFilter { return accountingStatistics.YFilter }
+func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetEntityData() *types.CommonEntityData {
+    accountingStatistics.EntityData.YFilter = accountingStatistics.YFilter
+    accountingStatistics.EntityData.YangName = "accounting-statistics"
+    accountingStatistics.EntityData.BundleName = "cisco_ios_xr"
+    accountingStatistics.EntityData.ParentYangName = "customer-statistic"
+    accountingStatistics.EntityData.SegmentPath = "accounting-statistics"
+    accountingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) SetFilter(yf yfilter.YFilter) { accountingStatistics.YFilter = yf }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetGoName(yname string) string {
-    if yname == "accounting-start-sent-count" { return "AccountingStartSentCount" }
-    if yname == "accounting-update-sent-count" { return "AccountingUpdateSentCount" }
-    if yname == "accounting-stop-sent-count" { return "AccountingStopSentCount" }
-    return ""
+    accountingStatistics.EntityData.Children = make(map[string]types.YChild)
+    accountingStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    accountingStatistics.EntityData.Leafs["accounting-start-sent-count"] = types.YLeaf{"AccountingStartSentCount", accountingStatistics.AccountingStartSentCount}
+    accountingStatistics.EntityData.Leafs["accounting-update-sent-count"] = types.YLeaf{"AccountingUpdateSentCount", accountingStatistics.AccountingUpdateSentCount}
+    accountingStatistics.EntityData.Leafs["accounting-stop-sent-count"] = types.YLeaf{"AccountingStopSentCount", accountingStatistics.AccountingStopSentCount}
+    return &(accountingStatistics.EntityData)
 }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetSegmentPath() string {
-    return "accounting-statistics"
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["accounting-start-sent-count"] = accountingStatistics.AccountingStartSentCount
-    leafs["accounting-update-sent-count"] = accountingStatistics.AccountingUpdateSentCount
-    leafs["accounting-stop-sent-count"] = accountingStatistics.AccountingStopSentCount
-    return leafs
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetYangName() string { return "accounting-statistics" }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) SetParent(parent types.Entity) { accountingStatistics.parent = parent }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetParent() types.Entity { return accountingStatistics.parent }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_CustomerStatistics_CustomerStatistic_AccountingStatistics) GetParentYangName() string { return "customer-statistic" }
 
 // Pmipv6_Lma_Statistics_License
 // LMA License Statistics
 type Pmipv6_Lma_Statistics_License struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LMA Identifier. The type is string.
@@ -1454,62 +912,29 @@ type Pmipv6_Lma_Statistics_License struct {
     PeakBceCountResetTimestamp interface{}
 }
 
-func (license *Pmipv6_Lma_Statistics_License) GetFilter() yfilter.YFilter { return license.YFilter }
+func (license *Pmipv6_Lma_Statistics_License) GetEntityData() *types.CommonEntityData {
+    license.EntityData.YFilter = license.YFilter
+    license.EntityData.YangName = "license"
+    license.EntityData.BundleName = "cisco_ios_xr"
+    license.EntityData.ParentYangName = "statistics"
+    license.EntityData.SegmentPath = "license"
+    license.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    license.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    license.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (license *Pmipv6_Lma_Statistics_License) SetFilter(yf yfilter.YFilter) { license.YFilter = yf }
-
-func (license *Pmipv6_Lma_Statistics_License) GetGoName(yname string) string {
-    if yname == "lma-identifier" { return "LmaIdentifier" }
-    if yname == "bce-count" { return "BceCount" }
-    if yname == "peak-bce-count" { return "PeakBceCount" }
-    if yname == "peak-bce-count-reset-timestamp" { return "PeakBceCountResetTimestamp" }
-    return ""
+    license.EntityData.Children = make(map[string]types.YChild)
+    license.EntityData.Leafs = make(map[string]types.YLeaf)
+    license.EntityData.Leafs["lma-identifier"] = types.YLeaf{"LmaIdentifier", license.LmaIdentifier}
+    license.EntityData.Leafs["bce-count"] = types.YLeaf{"BceCount", license.BceCount}
+    license.EntityData.Leafs["peak-bce-count"] = types.YLeaf{"PeakBceCount", license.PeakBceCount}
+    license.EntityData.Leafs["peak-bce-count-reset-timestamp"] = types.YLeaf{"PeakBceCountResetTimestamp", license.PeakBceCountResetTimestamp}
+    return &(license.EntityData)
 }
-
-func (license *Pmipv6_Lma_Statistics_License) GetSegmentPath() string {
-    return "license"
-}
-
-func (license *Pmipv6_Lma_Statistics_License) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (license *Pmipv6_Lma_Statistics_License) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (license *Pmipv6_Lma_Statistics_License) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-identifier"] = license.LmaIdentifier
-    leafs["bce-count"] = license.BceCount
-    leafs["peak-bce-count"] = license.PeakBceCount
-    leafs["peak-bce-count-reset-timestamp"] = license.PeakBceCountResetTimestamp
-    return leafs
-}
-
-func (license *Pmipv6_Lma_Statistics_License) GetBundleName() string { return "cisco_ios_xr" }
-
-func (license *Pmipv6_Lma_Statistics_License) GetYangName() string { return "license" }
-
-func (license *Pmipv6_Lma_Statistics_License) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (license *Pmipv6_Lma_Statistics_License) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (license *Pmipv6_Lma_Statistics_License) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (license *Pmipv6_Lma_Statistics_License) SetParent(parent types.Entity) { license.parent = parent }
-
-func (license *Pmipv6_Lma_Statistics_License) GetParent() types.Entity { return license.parent }
-
-func (license *Pmipv6_Lma_Statistics_License) GetParentYangName() string { return "statistics" }
 
 // Pmipv6_Lma_Statistics_Global
 // Global Statistics
 type Pmipv6_Lma_Statistics_Global struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // LMA Identifier. The type is string.
@@ -1537,79 +962,33 @@ type Pmipv6_Lma_Statistics_Global struct {
     AccountingStatistics Pmipv6_Lma_Statistics_Global_AccountingStatistics
 }
 
-func (global *Pmipv6_Lma_Statistics_Global) GetFilter() yfilter.YFilter { return global.YFilter }
+func (global *Pmipv6_Lma_Statistics_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "statistics"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (global *Pmipv6_Lma_Statistics_Global) SetFilter(yf yfilter.YFilter) { global.YFilter = yf }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetGoName(yname string) string {
-    if yname == "lma-identifier" { return "LmaIdentifier" }
-    if yname == "bce-count" { return "BceCount" }
-    if yname == "handoff-count" { return "HandoffCount" }
-    if yname == "single-tenant-count" { return "SingleTenantCount" }
-    if yname == "multi-tenant-count" { return "MultiTenantCount" }
-    if yname == "packet-statistics" { return "PacketStatistics" }
-    if yname == "protocol-statistics" { return "ProtocolStatistics" }
-    if yname == "accounting-statistics" { return "AccountingStatistics" }
-    return ""
+    global.EntityData.Children = make(map[string]types.YChild)
+    global.EntityData.Children["packet-statistics"] = types.YChild{"PacketStatistics", &global.PacketStatistics}
+    global.EntityData.Children["protocol-statistics"] = types.YChild{"ProtocolStatistics", &global.ProtocolStatistics}
+    global.EntityData.Children["accounting-statistics"] = types.YChild{"AccountingStatistics", &global.AccountingStatistics}
+    global.EntityData.Leafs = make(map[string]types.YLeaf)
+    global.EntityData.Leafs["lma-identifier"] = types.YLeaf{"LmaIdentifier", global.LmaIdentifier}
+    global.EntityData.Leafs["bce-count"] = types.YLeaf{"BceCount", global.BceCount}
+    global.EntityData.Leafs["handoff-count"] = types.YLeaf{"HandoffCount", global.HandoffCount}
+    global.EntityData.Leafs["single-tenant-count"] = types.YLeaf{"SingleTenantCount", global.SingleTenantCount}
+    global.EntityData.Leafs["multi-tenant-count"] = types.YLeaf{"MultiTenantCount", global.MultiTenantCount}
+    return &(global.EntityData)
 }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetSegmentPath() string {
-    return "global"
-}
-
-func (global *Pmipv6_Lma_Statistics_Global) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "packet-statistics" {
-        return &global.PacketStatistics
-    }
-    if childYangName == "protocol-statistics" {
-        return &global.ProtocolStatistics
-    }
-    if childYangName == "accounting-statistics" {
-        return &global.AccountingStatistics
-    }
-    return nil
-}
-
-func (global *Pmipv6_Lma_Statistics_Global) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["packet-statistics"] = &global.PacketStatistics
-    children["protocol-statistics"] = &global.ProtocolStatistics
-    children["accounting-statistics"] = &global.AccountingStatistics
-    return children
-}
-
-func (global *Pmipv6_Lma_Statistics_Global) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lma-identifier"] = global.LmaIdentifier
-    leafs["bce-count"] = global.BceCount
-    leafs["handoff-count"] = global.HandoffCount
-    leafs["single-tenant-count"] = global.SingleTenantCount
-    leafs["multi-tenant-count"] = global.MultiTenantCount
-    return leafs
-}
-
-func (global *Pmipv6_Lma_Statistics_Global) GetBundleName() string { return "cisco_ios_xr" }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetYangName() string { return "global" }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (global *Pmipv6_Lma_Statistics_Global) SetParent(parent types.Entity) { global.parent = parent }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetParent() types.Entity { return global.parent }
-
-func (global *Pmipv6_Lma_Statistics_Global) GetParentYangName() string { return "statistics" }
 
 // Pmipv6_Lma_Statistics_Global_PacketStatistics
 // Packet Statistics
 type Pmipv6_Lma_Statistics_Global_PacketStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Checksumm errors. The type is interface{} with range:
@@ -1649,72 +1028,34 @@ type Pmipv6_Lma_Statistics_Global_PacketStatistics struct {
     PacketsSentIpv6 interface{}
 }
 
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetFilter() yfilter.YFilter { return packetStatistics.YFilter }
+func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetEntityData() *types.CommonEntityData {
+    packetStatistics.EntityData.YFilter = packetStatistics.YFilter
+    packetStatistics.EntityData.YangName = "packet-statistics"
+    packetStatistics.EntityData.BundleName = "cisco_ios_xr"
+    packetStatistics.EntityData.ParentYangName = "global"
+    packetStatistics.EntityData.SegmentPath = "packet-statistics"
+    packetStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) SetFilter(yf yfilter.YFilter) { packetStatistics.YFilter = yf }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetGoName(yname string) string {
-    if yname == "checksum-errors" { return "ChecksumErrors" }
-    if yname == "send-drops" { return "SendDrops" }
-    if yname == "receive-drops" { return "ReceiveDrops" }
-    if yname == "packets-received" { return "PacketsReceived" }
-    if yname == "packets-sent" { return "PacketsSent" }
-    if yname == "send-drops-ipv6" { return "SendDropsIpv6" }
-    if yname == "receive-drops-ipv6" { return "ReceiveDropsIpv6" }
-    if yname == "packets-received-ipv6" { return "PacketsReceivedIpv6" }
-    if yname == "packets-sent-ipv6" { return "PacketsSentIpv6" }
-    return ""
+    packetStatistics.EntityData.Children = make(map[string]types.YChild)
+    packetStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetStatistics.EntityData.Leafs["checksum-errors"] = types.YLeaf{"ChecksumErrors", packetStatistics.ChecksumErrors}
+    packetStatistics.EntityData.Leafs["send-drops"] = types.YLeaf{"SendDrops", packetStatistics.SendDrops}
+    packetStatistics.EntityData.Leafs["receive-drops"] = types.YLeaf{"ReceiveDrops", packetStatistics.ReceiveDrops}
+    packetStatistics.EntityData.Leafs["packets-received"] = types.YLeaf{"PacketsReceived", packetStatistics.PacketsReceived}
+    packetStatistics.EntityData.Leafs["packets-sent"] = types.YLeaf{"PacketsSent", packetStatistics.PacketsSent}
+    packetStatistics.EntityData.Leafs["send-drops-ipv6"] = types.YLeaf{"SendDropsIpv6", packetStatistics.SendDropsIpv6}
+    packetStatistics.EntityData.Leafs["receive-drops-ipv6"] = types.YLeaf{"ReceiveDropsIpv6", packetStatistics.ReceiveDropsIpv6}
+    packetStatistics.EntityData.Leafs["packets-received-ipv6"] = types.YLeaf{"PacketsReceivedIpv6", packetStatistics.PacketsReceivedIpv6}
+    packetStatistics.EntityData.Leafs["packets-sent-ipv6"] = types.YLeaf{"PacketsSentIpv6", packetStatistics.PacketsSentIpv6}
+    return &(packetStatistics.EntityData)
 }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetSegmentPath() string {
-    return "packet-statistics"
-}
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["checksum-errors"] = packetStatistics.ChecksumErrors
-    leafs["send-drops"] = packetStatistics.SendDrops
-    leafs["receive-drops"] = packetStatistics.ReceiveDrops
-    leafs["packets-received"] = packetStatistics.PacketsReceived
-    leafs["packets-sent"] = packetStatistics.PacketsSent
-    leafs["send-drops-ipv6"] = packetStatistics.SendDropsIpv6
-    leafs["receive-drops-ipv6"] = packetStatistics.ReceiveDropsIpv6
-    leafs["packets-received-ipv6"] = packetStatistics.PacketsReceivedIpv6
-    leafs["packets-sent-ipv6"] = packetStatistics.PacketsSentIpv6
-    return leafs
-}
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetYangName() string { return "packet-statistics" }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) SetParent(parent types.Entity) { packetStatistics.parent = parent }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetParent() types.Entity { return packetStatistics.parent }
-
-func (packetStatistics *Pmipv6_Lma_Statistics_Global_PacketStatistics) GetParentYangName() string { return "global" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics
 // LMA Protocol Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PBU Receive Statistics.
@@ -1736,84 +1077,31 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics struct {
     PbraReceiveStatistics Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics
 }
 
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetFilter() yfilter.YFilter { return protocolStatistics.YFilter }
+func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetEntityData() *types.CommonEntityData {
+    protocolStatistics.EntityData.YFilter = protocolStatistics.YFilter
+    protocolStatistics.EntityData.YangName = "protocol-statistics"
+    protocolStatistics.EntityData.BundleName = "cisco_ios_xr"
+    protocolStatistics.EntityData.ParentYangName = "global"
+    protocolStatistics.EntityData.SegmentPath = "protocol-statistics"
+    protocolStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocolStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocolStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) SetFilter(yf yfilter.YFilter) { protocolStatistics.YFilter = yf }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetGoName(yname string) string {
-    if yname == "pbu-receive-statistics" { return "PbuReceiveStatistics" }
-    if yname == "pba-send-statistics" { return "PbaSendStatistics" }
-    if yname == "pbri-send-statistics" { return "PbriSendStatistics" }
-    if yname == "pbri-receive-statistics" { return "PbriReceiveStatistics" }
-    if yname == "pbra-send-statistics" { return "PbraSendStatistics" }
-    if yname == "pbra-receive-statistics" { return "PbraReceiveStatistics" }
-    return ""
+    protocolStatistics.EntityData.Children = make(map[string]types.YChild)
+    protocolStatistics.EntityData.Children["pbu-receive-statistics"] = types.YChild{"PbuReceiveStatistics", &protocolStatistics.PbuReceiveStatistics}
+    protocolStatistics.EntityData.Children["pba-send-statistics"] = types.YChild{"PbaSendStatistics", &protocolStatistics.PbaSendStatistics}
+    protocolStatistics.EntityData.Children["pbri-send-statistics"] = types.YChild{"PbriSendStatistics", &protocolStatistics.PbriSendStatistics}
+    protocolStatistics.EntityData.Children["pbri-receive-statistics"] = types.YChild{"PbriReceiveStatistics", &protocolStatistics.PbriReceiveStatistics}
+    protocolStatistics.EntityData.Children["pbra-send-statistics"] = types.YChild{"PbraSendStatistics", &protocolStatistics.PbraSendStatistics}
+    protocolStatistics.EntityData.Children["pbra-receive-statistics"] = types.YChild{"PbraReceiveStatistics", &protocolStatistics.PbraReceiveStatistics}
+    protocolStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(protocolStatistics.EntityData)
 }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetSegmentPath() string {
-    return "protocol-statistics"
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbu-receive-statistics" {
-        return &protocolStatistics.PbuReceiveStatistics
-    }
-    if childYangName == "pba-send-statistics" {
-        return &protocolStatistics.PbaSendStatistics
-    }
-    if childYangName == "pbri-send-statistics" {
-        return &protocolStatistics.PbriSendStatistics
-    }
-    if childYangName == "pbri-receive-statistics" {
-        return &protocolStatistics.PbriReceiveStatistics
-    }
-    if childYangName == "pbra-send-statistics" {
-        return &protocolStatistics.PbraSendStatistics
-    }
-    if childYangName == "pbra-receive-statistics" {
-        return &protocolStatistics.PbraReceiveStatistics
-    }
-    return nil
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pbu-receive-statistics"] = &protocolStatistics.PbuReceiveStatistics
-    children["pba-send-statistics"] = &protocolStatistics.PbaSendStatistics
-    children["pbri-send-statistics"] = &protocolStatistics.PbriSendStatistics
-    children["pbri-receive-statistics"] = &protocolStatistics.PbriReceiveStatistics
-    children["pbra-send-statistics"] = &protocolStatistics.PbraSendStatistics
-    children["pbra-receive-statistics"] = &protocolStatistics.PbraReceiveStatistics
-    return children
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetYangName() string { return "protocol-statistics" }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) SetParent(parent types.Entity) { protocolStatistics.parent = parent }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetParent() types.Entity { return protocolStatistics.parent }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics) GetParentYangName() string { return "global" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics
 // PBU Receive Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBUs. The type is interface{} with range: 0..18446744073709551615.
@@ -1823,58 +1111,27 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics struct
     PbuDropCount interface{}
 }
 
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetFilter() yfilter.YFilter { return pbuReceiveStatistics.YFilter }
+func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbuReceiveStatistics.EntityData.YFilter = pbuReceiveStatistics.YFilter
+    pbuReceiveStatistics.EntityData.YangName = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbuReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbuReceiveStatistics.EntityData.SegmentPath = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbuReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbuReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbuReceiveStatistics.YFilter = yf }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbu-count" { return "PbuCount" }
-    if yname == "pbu-drop-count" { return "PbuDropCount" }
-    return ""
+    pbuReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbuReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbuReceiveStatistics.EntityData.Leafs["pbu-count"] = types.YLeaf{"PbuCount", pbuReceiveStatistics.PbuCount}
+    pbuReceiveStatistics.EntityData.Leafs["pbu-drop-count"] = types.YLeaf{"PbuDropCount", pbuReceiveStatistics.PbuDropCount}
+    return &(pbuReceiveStatistics.EntityData)
 }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetSegmentPath() string {
-    return "pbu-receive-statistics"
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbu-count"] = pbuReceiveStatistics.PbuCount
-    leafs["pbu-drop-count"] = pbuReceiveStatistics.PbuDropCount
-    return leafs
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetYangName() string { return "pbu-receive-statistics" }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) SetParent(parent types.Entity) { pbuReceiveStatistics.parent = parent }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetParent() types.Entity { return pbuReceiveStatistics.parent }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbuReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics
 // PBA Send Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBAs. The type is interface{} with range: 0..18446744073709551615.
@@ -1988,110 +1245,53 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics struct {
     GreKeyOptRequiredCount interface{}
 }
 
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetFilter() yfilter.YFilter { return pbaSendStatistics.YFilter }
+func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbaSendStatistics.EntityData.YFilter = pbaSendStatistics.YFilter
+    pbaSendStatistics.EntityData.YangName = "pba-send-statistics"
+    pbaSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbaSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbaSendStatistics.EntityData.SegmentPath = "pba-send-statistics"
+    pbaSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbaSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbaSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) SetFilter(yf yfilter.YFilter) { pbaSendStatistics.YFilter = yf }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetGoName(yname string) string {
-    if yname == "pba-count" { return "PbaCount" }
-    if yname == "pba-drop-count" { return "PbaDropCount" }
-    if yname == "accepted-count" { return "AcceptedCount" }
-    if yname == "unknown-count" { return "UnknownCount" }
-    if yname == "unspecified-failure-count" { return "UnspecifiedFailureCount" }
-    if yname == "admin-failure-count" { return "AdminFailureCount" }
-    if yname == "resource-failure-count" { return "ResourceFailureCount" }
-    if yname == "home-reg-failure-count" { return "HomeRegFailureCount" }
-    if yname == "home-subnet-failure-count" { return "HomeSubnetFailureCount" }
-    if yname == "bad-sequence-failure-count" { return "BadSequenceFailureCount" }
-    if yname == "reg-type-failure-count" { return "RegTypeFailureCount" }
-    if yname == "authen-failure-count" { return "AuthenFailureCount" }
-    if yname == "proxy-reg-not-enabled-count" { return "ProxyRegNotEnabledCount" }
-    if yname == "not-lma-for-this-mn-count" { return "NotLmaForThisMnCount" }
-    if yname == "no-author-for-proxy-reg-count" { return "NoAuthorForProxyRegCount" }
-    if yname == "no-author-for-hnp-count" { return "NoAuthorForHnpCount" }
-    if yname == "timestamp-mismatch-count" { return "TimestampMismatchCount" }
-    if yname == "timestamp-lower-than-previous-accepted-count" { return "TimestampLowerThanPreviousAcceptedCount" }
-    if yname == "missing-hnp-opt-count" { return "MissingHnpOptCount" }
-    if yname == "received-hnps-do-not-match-bce-hnps-count" { return "ReceivedHnpsDoNotMatchBceHnpsCount" }
-    if yname == "missing-mn-id-opt-count" { return "MissingMnIdOptCount" }
-    if yname == "missing-hi-opt-count" { return "MissingHiOptCount" }
-    if yname == "missing-access-tech-type-opt-count" { return "MissingAccessTechTypeOptCount" }
-    if yname == "no-author-for-ipv4-mobility-count" { return "NoAuthorForIpv4MobilityCount" }
-    if yname == "no-author-for-ipv4-hoa-count" { return "NoAuthorForIpv4HoaCount" }
-    if yname == "no-author-for-ipv6-mobility-count" { return "NoAuthorForIpv6MobilityCount" }
-    if yname == "multiple-ipv4-ho-a-not-supported-count" { return "MultipleIpv4HoANotSupportedCount" }
-    if yname == "gre-key-opt-required-count" { return "GreKeyOptRequiredCount" }
-    return ""
+    pbaSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbaSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbaSendStatistics.EntityData.Leafs["pba-count"] = types.YLeaf{"PbaCount", pbaSendStatistics.PbaCount}
+    pbaSendStatistics.EntityData.Leafs["pba-drop-count"] = types.YLeaf{"PbaDropCount", pbaSendStatistics.PbaDropCount}
+    pbaSendStatistics.EntityData.Leafs["accepted-count"] = types.YLeaf{"AcceptedCount", pbaSendStatistics.AcceptedCount}
+    pbaSendStatistics.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", pbaSendStatistics.UnknownCount}
+    pbaSendStatistics.EntityData.Leafs["unspecified-failure-count"] = types.YLeaf{"UnspecifiedFailureCount", pbaSendStatistics.UnspecifiedFailureCount}
+    pbaSendStatistics.EntityData.Leafs["admin-failure-count"] = types.YLeaf{"AdminFailureCount", pbaSendStatistics.AdminFailureCount}
+    pbaSendStatistics.EntityData.Leafs["resource-failure-count"] = types.YLeaf{"ResourceFailureCount", pbaSendStatistics.ResourceFailureCount}
+    pbaSendStatistics.EntityData.Leafs["home-reg-failure-count"] = types.YLeaf{"HomeRegFailureCount", pbaSendStatistics.HomeRegFailureCount}
+    pbaSendStatistics.EntityData.Leafs["home-subnet-failure-count"] = types.YLeaf{"HomeSubnetFailureCount", pbaSendStatistics.HomeSubnetFailureCount}
+    pbaSendStatistics.EntityData.Leafs["bad-sequence-failure-count"] = types.YLeaf{"BadSequenceFailureCount", pbaSendStatistics.BadSequenceFailureCount}
+    pbaSendStatistics.EntityData.Leafs["reg-type-failure-count"] = types.YLeaf{"RegTypeFailureCount", pbaSendStatistics.RegTypeFailureCount}
+    pbaSendStatistics.EntityData.Leafs["authen-failure-count"] = types.YLeaf{"AuthenFailureCount", pbaSendStatistics.AuthenFailureCount}
+    pbaSendStatistics.EntityData.Leafs["proxy-reg-not-enabled-count"] = types.YLeaf{"ProxyRegNotEnabledCount", pbaSendStatistics.ProxyRegNotEnabledCount}
+    pbaSendStatistics.EntityData.Leafs["not-lma-for-this-mn-count"] = types.YLeaf{"NotLmaForThisMnCount", pbaSendStatistics.NotLmaForThisMnCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-proxy-reg-count"] = types.YLeaf{"NoAuthorForProxyRegCount", pbaSendStatistics.NoAuthorForProxyRegCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-hnp-count"] = types.YLeaf{"NoAuthorForHnpCount", pbaSendStatistics.NoAuthorForHnpCount}
+    pbaSendStatistics.EntityData.Leafs["timestamp-mismatch-count"] = types.YLeaf{"TimestampMismatchCount", pbaSendStatistics.TimestampMismatchCount}
+    pbaSendStatistics.EntityData.Leafs["timestamp-lower-than-previous-accepted-count"] = types.YLeaf{"TimestampLowerThanPreviousAcceptedCount", pbaSendStatistics.TimestampLowerThanPreviousAcceptedCount}
+    pbaSendStatistics.EntityData.Leafs["missing-hnp-opt-count"] = types.YLeaf{"MissingHnpOptCount", pbaSendStatistics.MissingHnpOptCount}
+    pbaSendStatistics.EntityData.Leafs["received-hnps-do-not-match-bce-hnps-count"] = types.YLeaf{"ReceivedHnpsDoNotMatchBceHnpsCount", pbaSendStatistics.ReceivedHnpsDoNotMatchBceHnpsCount}
+    pbaSendStatistics.EntityData.Leafs["missing-mn-id-opt-count"] = types.YLeaf{"MissingMnIdOptCount", pbaSendStatistics.MissingMnIdOptCount}
+    pbaSendStatistics.EntityData.Leafs["missing-hi-opt-count"] = types.YLeaf{"MissingHiOptCount", pbaSendStatistics.MissingHiOptCount}
+    pbaSendStatistics.EntityData.Leafs["missing-access-tech-type-opt-count"] = types.YLeaf{"MissingAccessTechTypeOptCount", pbaSendStatistics.MissingAccessTechTypeOptCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv4-mobility-count"] = types.YLeaf{"NoAuthorForIpv4MobilityCount", pbaSendStatistics.NoAuthorForIpv4MobilityCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv4-hoa-count"] = types.YLeaf{"NoAuthorForIpv4HoaCount", pbaSendStatistics.NoAuthorForIpv4HoaCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv6-mobility-count"] = types.YLeaf{"NoAuthorForIpv6MobilityCount", pbaSendStatistics.NoAuthorForIpv6MobilityCount}
+    pbaSendStatistics.EntityData.Leafs["multiple-ipv4-ho-a-not-supported-count"] = types.YLeaf{"MultipleIpv4HoANotSupportedCount", pbaSendStatistics.MultipleIpv4HoANotSupportedCount}
+    pbaSendStatistics.EntityData.Leafs["gre-key-opt-required-count"] = types.YLeaf{"GreKeyOptRequiredCount", pbaSendStatistics.GreKeyOptRequiredCount}
+    return &(pbaSendStatistics.EntityData)
 }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetSegmentPath() string {
-    return "pba-send-statistics"
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pba-count"] = pbaSendStatistics.PbaCount
-    leafs["pba-drop-count"] = pbaSendStatistics.PbaDropCount
-    leafs["accepted-count"] = pbaSendStatistics.AcceptedCount
-    leafs["unknown-count"] = pbaSendStatistics.UnknownCount
-    leafs["unspecified-failure-count"] = pbaSendStatistics.UnspecifiedFailureCount
-    leafs["admin-failure-count"] = pbaSendStatistics.AdminFailureCount
-    leafs["resource-failure-count"] = pbaSendStatistics.ResourceFailureCount
-    leafs["home-reg-failure-count"] = pbaSendStatistics.HomeRegFailureCount
-    leafs["home-subnet-failure-count"] = pbaSendStatistics.HomeSubnetFailureCount
-    leafs["bad-sequence-failure-count"] = pbaSendStatistics.BadSequenceFailureCount
-    leafs["reg-type-failure-count"] = pbaSendStatistics.RegTypeFailureCount
-    leafs["authen-failure-count"] = pbaSendStatistics.AuthenFailureCount
-    leafs["proxy-reg-not-enabled-count"] = pbaSendStatistics.ProxyRegNotEnabledCount
-    leafs["not-lma-for-this-mn-count"] = pbaSendStatistics.NotLmaForThisMnCount
-    leafs["no-author-for-proxy-reg-count"] = pbaSendStatistics.NoAuthorForProxyRegCount
-    leafs["no-author-for-hnp-count"] = pbaSendStatistics.NoAuthorForHnpCount
-    leafs["timestamp-mismatch-count"] = pbaSendStatistics.TimestampMismatchCount
-    leafs["timestamp-lower-than-previous-accepted-count"] = pbaSendStatistics.TimestampLowerThanPreviousAcceptedCount
-    leafs["missing-hnp-opt-count"] = pbaSendStatistics.MissingHnpOptCount
-    leafs["received-hnps-do-not-match-bce-hnps-count"] = pbaSendStatistics.ReceivedHnpsDoNotMatchBceHnpsCount
-    leafs["missing-mn-id-opt-count"] = pbaSendStatistics.MissingMnIdOptCount
-    leafs["missing-hi-opt-count"] = pbaSendStatistics.MissingHiOptCount
-    leafs["missing-access-tech-type-opt-count"] = pbaSendStatistics.MissingAccessTechTypeOptCount
-    leafs["no-author-for-ipv4-mobility-count"] = pbaSendStatistics.NoAuthorForIpv4MobilityCount
-    leafs["no-author-for-ipv4-hoa-count"] = pbaSendStatistics.NoAuthorForIpv4HoaCount
-    leafs["no-author-for-ipv6-mobility-count"] = pbaSendStatistics.NoAuthorForIpv6MobilityCount
-    leafs["multiple-ipv4-ho-a-not-supported-count"] = pbaSendStatistics.MultipleIpv4HoANotSupportedCount
-    leafs["gre-key-opt-required-count"] = pbaSendStatistics.GreKeyOptRequiredCount
-    return leafs
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetYangName() string { return "pba-send-statistics" }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) SetParent(parent types.Entity) { pbaSendStatistics.parent = parent }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetParent() types.Entity { return pbaSendStatistics.parent }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbaSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics
 // PBRI Send Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRIs. The type is interface{} with range:
@@ -2142,78 +1342,37 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics struct {
     RevokingMnLocalPolicyCount interface{}
 }
 
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetFilter() yfilter.YFilter { return pbriSendStatistics.YFilter }
+func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbriSendStatistics.EntityData.YFilter = pbriSendStatistics.YFilter
+    pbriSendStatistics.EntityData.YangName = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbriSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbriSendStatistics.EntityData.SegmentPath = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbriSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbriSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) SetFilter(yf yfilter.YFilter) { pbriSendStatistics.YFilter = yf }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetGoName(yname string) string {
-    if yname == "pbri-count" { return "PbriCount" }
-    if yname == "pbri-drop-count" { return "PbriDropCount" }
-    if yname == "unspecified-count" { return "UnspecifiedCount" }
-    if yname == "admin-reason-count" { return "AdminReasonCount" }
-    if yname == "mag-handover-same-att-count" { return "MagHandoverSameAttCount" }
-    if yname == "mag-handover-different-att-count" { return "MagHandoverDifferentAttCount" }
-    if yname == "mag-handover-unknown-count" { return "MagHandoverUnknownCount" }
-    if yname == "user-session-termination-count" { return "UserSessionTerminationCount" }
-    if yname == "network-session-termination-count" { return "NetworkSessionTerminationCount" }
-    if yname == "out-of-sync-bce-state-count" { return "OutOfSyncBceStateCount" }
-    if yname == "per-peer-policy-count" { return "PerPeerPolicyCount" }
-    if yname == "revoking-mn-local-policy-count" { return "RevokingMnLocalPolicyCount" }
-    return ""
+    pbriSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbriSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbriSendStatistics.EntityData.Leafs["pbri-count"] = types.YLeaf{"PbriCount", pbriSendStatistics.PbriCount}
+    pbriSendStatistics.EntityData.Leafs["pbri-drop-count"] = types.YLeaf{"PbriDropCount", pbriSendStatistics.PbriDropCount}
+    pbriSendStatistics.EntityData.Leafs["unspecified-count"] = types.YLeaf{"UnspecifiedCount", pbriSendStatistics.UnspecifiedCount}
+    pbriSendStatistics.EntityData.Leafs["admin-reason-count"] = types.YLeaf{"AdminReasonCount", pbriSendStatistics.AdminReasonCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-same-att-count"] = types.YLeaf{"MagHandoverSameAttCount", pbriSendStatistics.MagHandoverSameAttCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-different-att-count"] = types.YLeaf{"MagHandoverDifferentAttCount", pbriSendStatistics.MagHandoverDifferentAttCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-unknown-count"] = types.YLeaf{"MagHandoverUnknownCount", pbriSendStatistics.MagHandoverUnknownCount}
+    pbriSendStatistics.EntityData.Leafs["user-session-termination-count"] = types.YLeaf{"UserSessionTerminationCount", pbriSendStatistics.UserSessionTerminationCount}
+    pbriSendStatistics.EntityData.Leafs["network-session-termination-count"] = types.YLeaf{"NetworkSessionTerminationCount", pbriSendStatistics.NetworkSessionTerminationCount}
+    pbriSendStatistics.EntityData.Leafs["out-of-sync-bce-state-count"] = types.YLeaf{"OutOfSyncBceStateCount", pbriSendStatistics.OutOfSyncBceStateCount}
+    pbriSendStatistics.EntityData.Leafs["per-peer-policy-count"] = types.YLeaf{"PerPeerPolicyCount", pbriSendStatistics.PerPeerPolicyCount}
+    pbriSendStatistics.EntityData.Leafs["revoking-mn-local-policy-count"] = types.YLeaf{"RevokingMnLocalPolicyCount", pbriSendStatistics.RevokingMnLocalPolicyCount}
+    return &(pbriSendStatistics.EntityData)
 }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetSegmentPath() string {
-    return "pbri-send-statistics"
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbri-count"] = pbriSendStatistics.PbriCount
-    leafs["pbri-drop-count"] = pbriSendStatistics.PbriDropCount
-    leafs["unspecified-count"] = pbriSendStatistics.UnspecifiedCount
-    leafs["admin-reason-count"] = pbriSendStatistics.AdminReasonCount
-    leafs["mag-handover-same-att-count"] = pbriSendStatistics.MagHandoverSameAttCount
-    leafs["mag-handover-different-att-count"] = pbriSendStatistics.MagHandoverDifferentAttCount
-    leafs["mag-handover-unknown-count"] = pbriSendStatistics.MagHandoverUnknownCount
-    leafs["user-session-termination-count"] = pbriSendStatistics.UserSessionTerminationCount
-    leafs["network-session-termination-count"] = pbriSendStatistics.NetworkSessionTerminationCount
-    leafs["out-of-sync-bce-state-count"] = pbriSendStatistics.OutOfSyncBceStateCount
-    leafs["per-peer-policy-count"] = pbriSendStatistics.PerPeerPolicyCount
-    leafs["revoking-mn-local-policy-count"] = pbriSendStatistics.RevokingMnLocalPolicyCount
-    return leafs
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetYangName() string { return "pbri-send-statistics" }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) SetParent(parent types.Entity) { pbriSendStatistics.parent = parent }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetParent() types.Entity { return pbriSendStatistics.parent }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics
 // PBRI Receive Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRIs. The type is interface{} with range:
@@ -2264,78 +1423,37 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics struc
     RevokingMnLocalPolicyCount interface{}
 }
 
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetFilter() yfilter.YFilter { return pbriReceiveStatistics.YFilter }
+func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbriReceiveStatistics.EntityData.YFilter = pbriReceiveStatistics.YFilter
+    pbriReceiveStatistics.EntityData.YangName = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbriReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbriReceiveStatistics.EntityData.SegmentPath = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbriReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbriReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbriReceiveStatistics.YFilter = yf }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbri-count" { return "PbriCount" }
-    if yname == "pbri-drop-count" { return "PbriDropCount" }
-    if yname == "unspecified-count" { return "UnspecifiedCount" }
-    if yname == "admin-reason-count" { return "AdminReasonCount" }
-    if yname == "mag-handover-same-att-count" { return "MagHandoverSameAttCount" }
-    if yname == "mag-handover-different-att-count" { return "MagHandoverDifferentAttCount" }
-    if yname == "mag-handover-unknown-count" { return "MagHandoverUnknownCount" }
-    if yname == "user-session-termination-count" { return "UserSessionTerminationCount" }
-    if yname == "network-session-termination-count" { return "NetworkSessionTerminationCount" }
-    if yname == "out-of-sync-bce-state-count" { return "OutOfSyncBceStateCount" }
-    if yname == "per-peer-policy-count" { return "PerPeerPolicyCount" }
-    if yname == "revoking-mn-local-policy-count" { return "RevokingMnLocalPolicyCount" }
-    return ""
+    pbriReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbriReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbriReceiveStatistics.EntityData.Leafs["pbri-count"] = types.YLeaf{"PbriCount", pbriReceiveStatistics.PbriCount}
+    pbriReceiveStatistics.EntityData.Leafs["pbri-drop-count"] = types.YLeaf{"PbriDropCount", pbriReceiveStatistics.PbriDropCount}
+    pbriReceiveStatistics.EntityData.Leafs["unspecified-count"] = types.YLeaf{"UnspecifiedCount", pbriReceiveStatistics.UnspecifiedCount}
+    pbriReceiveStatistics.EntityData.Leafs["admin-reason-count"] = types.YLeaf{"AdminReasonCount", pbriReceiveStatistics.AdminReasonCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-same-att-count"] = types.YLeaf{"MagHandoverSameAttCount", pbriReceiveStatistics.MagHandoverSameAttCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-different-att-count"] = types.YLeaf{"MagHandoverDifferentAttCount", pbriReceiveStatistics.MagHandoverDifferentAttCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-unknown-count"] = types.YLeaf{"MagHandoverUnknownCount", pbriReceiveStatistics.MagHandoverUnknownCount}
+    pbriReceiveStatistics.EntityData.Leafs["user-session-termination-count"] = types.YLeaf{"UserSessionTerminationCount", pbriReceiveStatistics.UserSessionTerminationCount}
+    pbriReceiveStatistics.EntityData.Leafs["network-session-termination-count"] = types.YLeaf{"NetworkSessionTerminationCount", pbriReceiveStatistics.NetworkSessionTerminationCount}
+    pbriReceiveStatistics.EntityData.Leafs["out-of-sync-bce-state-count"] = types.YLeaf{"OutOfSyncBceStateCount", pbriReceiveStatistics.OutOfSyncBceStateCount}
+    pbriReceiveStatistics.EntityData.Leafs["per-peer-policy-count"] = types.YLeaf{"PerPeerPolicyCount", pbriReceiveStatistics.PerPeerPolicyCount}
+    pbriReceiveStatistics.EntityData.Leafs["revoking-mn-local-policy-count"] = types.YLeaf{"RevokingMnLocalPolicyCount", pbriReceiveStatistics.RevokingMnLocalPolicyCount}
+    return &(pbriReceiveStatistics.EntityData)
 }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetSegmentPath() string {
-    return "pbri-receive-statistics"
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbri-count"] = pbriReceiveStatistics.PbriCount
-    leafs["pbri-drop-count"] = pbriReceiveStatistics.PbriDropCount
-    leafs["unspecified-count"] = pbriReceiveStatistics.UnspecifiedCount
-    leafs["admin-reason-count"] = pbriReceiveStatistics.AdminReasonCount
-    leafs["mag-handover-same-att-count"] = pbriReceiveStatistics.MagHandoverSameAttCount
-    leafs["mag-handover-different-att-count"] = pbriReceiveStatistics.MagHandoverDifferentAttCount
-    leafs["mag-handover-unknown-count"] = pbriReceiveStatistics.MagHandoverUnknownCount
-    leafs["user-session-termination-count"] = pbriReceiveStatistics.UserSessionTerminationCount
-    leafs["network-session-termination-count"] = pbriReceiveStatistics.NetworkSessionTerminationCount
-    leafs["out-of-sync-bce-state-count"] = pbriReceiveStatistics.OutOfSyncBceStateCount
-    leafs["per-peer-policy-count"] = pbriReceiveStatistics.PerPeerPolicyCount
-    leafs["revoking-mn-local-policy-count"] = pbriReceiveStatistics.RevokingMnLocalPolicyCount
-    return leafs
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetYangName() string { return "pbri-receive-statistics" }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) SetParent(parent types.Entity) { pbriReceiveStatistics.parent = parent }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetParent() types.Entity { return pbriReceiveStatistics.parent }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbriReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics
 // PBRA Send Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRAs. The type is interface{} with range:
@@ -2386,78 +1504,37 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics struct {
     PbrNotSupportedCount interface{}
 }
 
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetFilter() yfilter.YFilter { return pbraSendStatistics.YFilter }
+func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbraSendStatistics.EntityData.YFilter = pbraSendStatistics.YFilter
+    pbraSendStatistics.EntityData.YangName = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbraSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbraSendStatistics.EntityData.SegmentPath = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbraSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbraSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) SetFilter(yf yfilter.YFilter) { pbraSendStatistics.YFilter = yf }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetGoName(yname string) string {
-    if yname == "pbra-count" { return "PbraCount" }
-    if yname == "pbra-drop-count" { return "PbraDropCount" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "partial-success-count" { return "PartialSuccessCount" }
-    if yname == "no-binding-count" { return "NoBindingCount" }
-    if yname == "hoa-required-count" { return "HoaRequiredCount" }
-    if yname == "no-author-for-global-revoc-count" { return "NoAuthorForGlobalRevocCount" }
-    if yname == "mn-identity-required-count" { return "MnIdentityRequiredCount" }
-    if yname == "mn-attached-count" { return "MnAttachedCount" }
-    if yname == "unknown-revoc-trigger-count" { return "UnknownRevocTriggerCount" }
-    if yname == "revoc-function-not-supported-count" { return "RevocFunctionNotSupportedCount" }
-    if yname == "pbr-not-supported-count" { return "PbrNotSupportedCount" }
-    return ""
+    pbraSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbraSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbraSendStatistics.EntityData.Leafs["pbra-count"] = types.YLeaf{"PbraCount", pbraSendStatistics.PbraCount}
+    pbraSendStatistics.EntityData.Leafs["pbra-drop-count"] = types.YLeaf{"PbraDropCount", pbraSendStatistics.PbraDropCount}
+    pbraSendStatistics.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", pbraSendStatistics.SuccessCount}
+    pbraSendStatistics.EntityData.Leafs["partial-success-count"] = types.YLeaf{"PartialSuccessCount", pbraSendStatistics.PartialSuccessCount}
+    pbraSendStatistics.EntityData.Leafs["no-binding-count"] = types.YLeaf{"NoBindingCount", pbraSendStatistics.NoBindingCount}
+    pbraSendStatistics.EntityData.Leafs["hoa-required-count"] = types.YLeaf{"HoaRequiredCount", pbraSendStatistics.HoaRequiredCount}
+    pbraSendStatistics.EntityData.Leafs["no-author-for-global-revoc-count"] = types.YLeaf{"NoAuthorForGlobalRevocCount", pbraSendStatistics.NoAuthorForGlobalRevocCount}
+    pbraSendStatistics.EntityData.Leafs["mn-identity-required-count"] = types.YLeaf{"MnIdentityRequiredCount", pbraSendStatistics.MnIdentityRequiredCount}
+    pbraSendStatistics.EntityData.Leafs["mn-attached-count"] = types.YLeaf{"MnAttachedCount", pbraSendStatistics.MnAttachedCount}
+    pbraSendStatistics.EntityData.Leafs["unknown-revoc-trigger-count"] = types.YLeaf{"UnknownRevocTriggerCount", pbraSendStatistics.UnknownRevocTriggerCount}
+    pbraSendStatistics.EntityData.Leafs["revoc-function-not-supported-count"] = types.YLeaf{"RevocFunctionNotSupportedCount", pbraSendStatistics.RevocFunctionNotSupportedCount}
+    pbraSendStatistics.EntityData.Leafs["pbr-not-supported-count"] = types.YLeaf{"PbrNotSupportedCount", pbraSendStatistics.PbrNotSupportedCount}
+    return &(pbraSendStatistics.EntityData)
 }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetSegmentPath() string {
-    return "pbra-send-statistics"
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbra-count"] = pbraSendStatistics.PbraCount
-    leafs["pbra-drop-count"] = pbraSendStatistics.PbraDropCount
-    leafs["success-count"] = pbraSendStatistics.SuccessCount
-    leafs["partial-success-count"] = pbraSendStatistics.PartialSuccessCount
-    leafs["no-binding-count"] = pbraSendStatistics.NoBindingCount
-    leafs["hoa-required-count"] = pbraSendStatistics.HoaRequiredCount
-    leafs["no-author-for-global-revoc-count"] = pbraSendStatistics.NoAuthorForGlobalRevocCount
-    leafs["mn-identity-required-count"] = pbraSendStatistics.MnIdentityRequiredCount
-    leafs["mn-attached-count"] = pbraSendStatistics.MnAttachedCount
-    leafs["unknown-revoc-trigger-count"] = pbraSendStatistics.UnknownRevocTriggerCount
-    leafs["revoc-function-not-supported-count"] = pbraSendStatistics.RevocFunctionNotSupportedCount
-    leafs["pbr-not-supported-count"] = pbraSendStatistics.PbrNotSupportedCount
-    return leafs
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetYangName() string { return "pbra-send-statistics" }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) SetParent(parent types.Entity) { pbraSendStatistics.parent = parent }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetParent() types.Entity { return pbraSendStatistics.parent }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics
 // PBRA Receive Statistics
 type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRAs. The type is interface{} with range:
@@ -2508,78 +1585,37 @@ type Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics struc
     PbrNotSupportedCount interface{}
 }
 
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetFilter() yfilter.YFilter { return pbraReceiveStatistics.YFilter }
+func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbraReceiveStatistics.EntityData.YFilter = pbraReceiveStatistics.YFilter
+    pbraReceiveStatistics.EntityData.YangName = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbraReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbraReceiveStatistics.EntityData.SegmentPath = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbraReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbraReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbraReceiveStatistics.YFilter = yf }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbra-count" { return "PbraCount" }
-    if yname == "pbra-drop-count" { return "PbraDropCount" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "partial-success-count" { return "PartialSuccessCount" }
-    if yname == "no-binding-count" { return "NoBindingCount" }
-    if yname == "hoa-required-count" { return "HoaRequiredCount" }
-    if yname == "no-author-for-global-revoc-count" { return "NoAuthorForGlobalRevocCount" }
-    if yname == "mn-identity-required-count" { return "MnIdentityRequiredCount" }
-    if yname == "mn-attached-count" { return "MnAttachedCount" }
-    if yname == "unknown-revoc-trigger-count" { return "UnknownRevocTriggerCount" }
-    if yname == "revoc-function-not-supported-count" { return "RevocFunctionNotSupportedCount" }
-    if yname == "pbr-not-supported-count" { return "PbrNotSupportedCount" }
-    return ""
+    pbraReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbraReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbraReceiveStatistics.EntityData.Leafs["pbra-count"] = types.YLeaf{"PbraCount", pbraReceiveStatistics.PbraCount}
+    pbraReceiveStatistics.EntityData.Leafs["pbra-drop-count"] = types.YLeaf{"PbraDropCount", pbraReceiveStatistics.PbraDropCount}
+    pbraReceiveStatistics.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", pbraReceiveStatistics.SuccessCount}
+    pbraReceiveStatistics.EntityData.Leafs["partial-success-count"] = types.YLeaf{"PartialSuccessCount", pbraReceiveStatistics.PartialSuccessCount}
+    pbraReceiveStatistics.EntityData.Leafs["no-binding-count"] = types.YLeaf{"NoBindingCount", pbraReceiveStatistics.NoBindingCount}
+    pbraReceiveStatistics.EntityData.Leafs["hoa-required-count"] = types.YLeaf{"HoaRequiredCount", pbraReceiveStatistics.HoaRequiredCount}
+    pbraReceiveStatistics.EntityData.Leafs["no-author-for-global-revoc-count"] = types.YLeaf{"NoAuthorForGlobalRevocCount", pbraReceiveStatistics.NoAuthorForGlobalRevocCount}
+    pbraReceiveStatistics.EntityData.Leafs["mn-identity-required-count"] = types.YLeaf{"MnIdentityRequiredCount", pbraReceiveStatistics.MnIdentityRequiredCount}
+    pbraReceiveStatistics.EntityData.Leafs["mn-attached-count"] = types.YLeaf{"MnAttachedCount", pbraReceiveStatistics.MnAttachedCount}
+    pbraReceiveStatistics.EntityData.Leafs["unknown-revoc-trigger-count"] = types.YLeaf{"UnknownRevocTriggerCount", pbraReceiveStatistics.UnknownRevocTriggerCount}
+    pbraReceiveStatistics.EntityData.Leafs["revoc-function-not-supported-count"] = types.YLeaf{"RevocFunctionNotSupportedCount", pbraReceiveStatistics.RevocFunctionNotSupportedCount}
+    pbraReceiveStatistics.EntityData.Leafs["pbr-not-supported-count"] = types.YLeaf{"PbrNotSupportedCount", pbraReceiveStatistics.PbrNotSupportedCount}
+    return &(pbraReceiveStatistics.EntityData)
 }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetSegmentPath() string {
-    return "pbra-receive-statistics"
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbra-count"] = pbraReceiveStatistics.PbraCount
-    leafs["pbra-drop-count"] = pbraReceiveStatistics.PbraDropCount
-    leafs["success-count"] = pbraReceiveStatistics.SuccessCount
-    leafs["partial-success-count"] = pbraReceiveStatistics.PartialSuccessCount
-    leafs["no-binding-count"] = pbraReceiveStatistics.NoBindingCount
-    leafs["hoa-required-count"] = pbraReceiveStatistics.HoaRequiredCount
-    leafs["no-author-for-global-revoc-count"] = pbraReceiveStatistics.NoAuthorForGlobalRevocCount
-    leafs["mn-identity-required-count"] = pbraReceiveStatistics.MnIdentityRequiredCount
-    leafs["mn-attached-count"] = pbraReceiveStatistics.MnAttachedCount
-    leafs["unknown-revoc-trigger-count"] = pbraReceiveStatistics.UnknownRevocTriggerCount
-    leafs["revoc-function-not-supported-count"] = pbraReceiveStatistics.RevocFunctionNotSupportedCount
-    leafs["pbr-not-supported-count"] = pbraReceiveStatistics.PbrNotSupportedCount
-    return leafs
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetYangName() string { return "pbra-receive-statistics" }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) SetParent(parent types.Entity) { pbraReceiveStatistics.parent = parent }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetParent() types.Entity { return pbraReceiveStatistics.parent }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_Global_ProtocolStatistics_PbraReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_Global_AccountingStatistics
 // LMA Accounting Statistics
 type Pmipv6_Lma_Statistics_Global_AccountingStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of Accounting Start Records Sent. The type is interface{} with range:
@@ -2595,60 +1631,28 @@ type Pmipv6_Lma_Statistics_Global_AccountingStatistics struct {
     AccountingStopSentCount interface{}
 }
 
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetFilter() yfilter.YFilter { return accountingStatistics.YFilter }
+func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetEntityData() *types.CommonEntityData {
+    accountingStatistics.EntityData.YFilter = accountingStatistics.YFilter
+    accountingStatistics.EntityData.YangName = "accounting-statistics"
+    accountingStatistics.EntityData.BundleName = "cisco_ios_xr"
+    accountingStatistics.EntityData.ParentYangName = "global"
+    accountingStatistics.EntityData.SegmentPath = "accounting-statistics"
+    accountingStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accountingStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accountingStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) SetFilter(yf yfilter.YFilter) { accountingStatistics.YFilter = yf }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetGoName(yname string) string {
-    if yname == "accounting-start-sent-count" { return "AccountingStartSentCount" }
-    if yname == "accounting-update-sent-count" { return "AccountingUpdateSentCount" }
-    if yname == "accounting-stop-sent-count" { return "AccountingStopSentCount" }
-    return ""
+    accountingStatistics.EntityData.Children = make(map[string]types.YChild)
+    accountingStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    accountingStatistics.EntityData.Leafs["accounting-start-sent-count"] = types.YLeaf{"AccountingStartSentCount", accountingStatistics.AccountingStartSentCount}
+    accountingStatistics.EntityData.Leafs["accounting-update-sent-count"] = types.YLeaf{"AccountingUpdateSentCount", accountingStatistics.AccountingUpdateSentCount}
+    accountingStatistics.EntityData.Leafs["accounting-stop-sent-count"] = types.YLeaf{"AccountingStopSentCount", accountingStatistics.AccountingStopSentCount}
+    return &(accountingStatistics.EntityData)
 }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetSegmentPath() string {
-    return "accounting-statistics"
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["accounting-start-sent-count"] = accountingStatistics.AccountingStartSentCount
-    leafs["accounting-update-sent-count"] = accountingStatistics.AccountingUpdateSentCount
-    leafs["accounting-stop-sent-count"] = accountingStatistics.AccountingStopSentCount
-    return leafs
-}
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetYangName() string { return "accounting-statistics" }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) SetParent(parent types.Entity) { accountingStatistics.parent = parent }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetParent() types.Entity { return accountingStatistics.parent }
-
-func (accountingStatistics *Pmipv6_Lma_Statistics_Global_AccountingStatistics) GetParentYangName() string { return "global" }
 
 // Pmipv6_Lma_Statistics_MagStatistics
 // Table of MAGStatistics
 type Pmipv6_Lma_Statistics_MagStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Peer MAG statistics. The type is slice of
@@ -2656,72 +1660,33 @@ type Pmipv6_Lma_Statistics_MagStatistics struct {
     MagStatistic []Pmipv6_Lma_Statistics_MagStatistics_MagStatistic
 }
 
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetFilter() yfilter.YFilter { return magStatistics.YFilter }
+func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetEntityData() *types.CommonEntityData {
+    magStatistics.EntityData.YFilter = magStatistics.YFilter
+    magStatistics.EntityData.YangName = "mag-statistics"
+    magStatistics.EntityData.BundleName = "cisco_ios_xr"
+    magStatistics.EntityData.ParentYangName = "statistics"
+    magStatistics.EntityData.SegmentPath = "mag-statistics"
+    magStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    magStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    magStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) SetFilter(yf yfilter.YFilter) { magStatistics.YFilter = yf }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetGoName(yname string) string {
-    if yname == "mag-statistic" { return "MagStatistic" }
-    return ""
-}
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetSegmentPath() string {
-    return "mag-statistics"
-}
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mag-statistic" {
-        for _, c := range magStatistics.MagStatistic {
-            if magStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Statistics_MagStatistics_MagStatistic{}
-        magStatistics.MagStatistic = append(magStatistics.MagStatistic, child)
-        return &magStatistics.MagStatistic[len(magStatistics.MagStatistic)-1]
-    }
-    return nil
-}
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    magStatistics.EntityData.Children = make(map[string]types.YChild)
+    magStatistics.EntityData.Children["mag-statistic"] = types.YChild{"MagStatistic", nil}
     for i := range magStatistics.MagStatistic {
-        children[magStatistics.MagStatistic[i].GetSegmentPath()] = &magStatistics.MagStatistic[i]
+        magStatistics.EntityData.Children[types.GetSegmentPath(&magStatistics.MagStatistic[i])] = types.YChild{"MagStatistic", &magStatistics.MagStatistic[i]}
     }
-    return children
+    magStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(magStatistics.EntityData)
 }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetYangName() string { return "mag-statistics" }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) SetParent(parent types.Entity) { magStatistics.parent = parent }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetParent() types.Entity { return magStatistics.parent }
-
-func (magStatistics *Pmipv6_Lma_Statistics_MagStatistics) GetParentYangName() string { return "statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic
 // Peer MAG statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Peer MAG Name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MagName interface{}
 
     // LMA Identifier. The type is string.
@@ -2731,63 +1696,28 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic struct {
     ProtocolStatistics Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics
 }
 
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetFilter() yfilter.YFilter { return magStatistic.YFilter }
+func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetEntityData() *types.CommonEntityData {
+    magStatistic.EntityData.YFilter = magStatistic.YFilter
+    magStatistic.EntityData.YangName = "mag-statistic"
+    magStatistic.EntityData.BundleName = "cisco_ios_xr"
+    magStatistic.EntityData.ParentYangName = "mag-statistics"
+    magStatistic.EntityData.SegmentPath = "mag-statistic" + "[mag-name='" + fmt.Sprintf("%v", magStatistic.MagName) + "']"
+    magStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    magStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    magStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) SetFilter(yf yfilter.YFilter) { magStatistic.YFilter = yf }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetGoName(yname string) string {
-    if yname == "mag-name" { return "MagName" }
-    if yname == "lma-identifier" { return "LmaIdentifier" }
-    if yname == "protocol-statistics" { return "ProtocolStatistics" }
-    return ""
+    magStatistic.EntityData.Children = make(map[string]types.YChild)
+    magStatistic.EntityData.Children["protocol-statistics"] = types.YChild{"ProtocolStatistics", &magStatistic.ProtocolStatistics}
+    magStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    magStatistic.EntityData.Leafs["mag-name"] = types.YLeaf{"MagName", magStatistic.MagName}
+    magStatistic.EntityData.Leafs["lma-identifier"] = types.YLeaf{"LmaIdentifier", magStatistic.LmaIdentifier}
+    return &(magStatistic.EntityData)
 }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetSegmentPath() string {
-    return "mag-statistic" + "[mag-name='" + fmt.Sprintf("%v", magStatistic.MagName) + "']"
-}
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "protocol-statistics" {
-        return &magStatistic.ProtocolStatistics
-    }
-    return nil
-}
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["protocol-statistics"] = &magStatistic.ProtocolStatistics
-    return children
-}
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mag-name"] = magStatistic.MagName
-    leafs["lma-identifier"] = magStatistic.LmaIdentifier
-    return leafs
-}
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetYangName() string { return "mag-statistic" }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) SetParent(parent types.Entity) { magStatistic.parent = parent }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetParent() types.Entity { return magStatistic.parent }
-
-func (magStatistic *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic) GetParentYangName() string { return "mag-statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics
 // LMA Protocol Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PBU Receive Statistics.
@@ -2809,84 +1739,31 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics struct 
     PbraReceiveStatistics Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics
 }
 
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetFilter() yfilter.YFilter { return protocolStatistics.YFilter }
+func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetEntityData() *types.CommonEntityData {
+    protocolStatistics.EntityData.YFilter = protocolStatistics.YFilter
+    protocolStatistics.EntityData.YangName = "protocol-statistics"
+    protocolStatistics.EntityData.BundleName = "cisco_ios_xr"
+    protocolStatistics.EntityData.ParentYangName = "mag-statistic"
+    protocolStatistics.EntityData.SegmentPath = "protocol-statistics"
+    protocolStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    protocolStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    protocolStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) SetFilter(yf yfilter.YFilter) { protocolStatistics.YFilter = yf }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetGoName(yname string) string {
-    if yname == "pbu-receive-statistics" { return "PbuReceiveStatistics" }
-    if yname == "pba-send-statistics" { return "PbaSendStatistics" }
-    if yname == "pbri-send-statistics" { return "PbriSendStatistics" }
-    if yname == "pbri-receive-statistics" { return "PbriReceiveStatistics" }
-    if yname == "pbra-send-statistics" { return "PbraSendStatistics" }
-    if yname == "pbra-receive-statistics" { return "PbraReceiveStatistics" }
-    return ""
+    protocolStatistics.EntityData.Children = make(map[string]types.YChild)
+    protocolStatistics.EntityData.Children["pbu-receive-statistics"] = types.YChild{"PbuReceiveStatistics", &protocolStatistics.PbuReceiveStatistics}
+    protocolStatistics.EntityData.Children["pba-send-statistics"] = types.YChild{"PbaSendStatistics", &protocolStatistics.PbaSendStatistics}
+    protocolStatistics.EntityData.Children["pbri-send-statistics"] = types.YChild{"PbriSendStatistics", &protocolStatistics.PbriSendStatistics}
+    protocolStatistics.EntityData.Children["pbri-receive-statistics"] = types.YChild{"PbriReceiveStatistics", &protocolStatistics.PbriReceiveStatistics}
+    protocolStatistics.EntityData.Children["pbra-send-statistics"] = types.YChild{"PbraSendStatistics", &protocolStatistics.PbraSendStatistics}
+    protocolStatistics.EntityData.Children["pbra-receive-statistics"] = types.YChild{"PbraReceiveStatistics", &protocolStatistics.PbraReceiveStatistics}
+    protocolStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(protocolStatistics.EntityData)
 }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetSegmentPath() string {
-    return "protocol-statistics"
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pbu-receive-statistics" {
-        return &protocolStatistics.PbuReceiveStatistics
-    }
-    if childYangName == "pba-send-statistics" {
-        return &protocolStatistics.PbaSendStatistics
-    }
-    if childYangName == "pbri-send-statistics" {
-        return &protocolStatistics.PbriSendStatistics
-    }
-    if childYangName == "pbri-receive-statistics" {
-        return &protocolStatistics.PbriReceiveStatistics
-    }
-    if childYangName == "pbra-send-statistics" {
-        return &protocolStatistics.PbraSendStatistics
-    }
-    if childYangName == "pbra-receive-statistics" {
-        return &protocolStatistics.PbraReceiveStatistics
-    }
-    return nil
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pbu-receive-statistics"] = &protocolStatistics.PbuReceiveStatistics
-    children["pba-send-statistics"] = &protocolStatistics.PbaSendStatistics
-    children["pbri-send-statistics"] = &protocolStatistics.PbriSendStatistics
-    children["pbri-receive-statistics"] = &protocolStatistics.PbriReceiveStatistics
-    children["pbra-send-statistics"] = &protocolStatistics.PbraSendStatistics
-    children["pbra-receive-statistics"] = &protocolStatistics.PbraReceiveStatistics
-    return children
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetYangName() string { return "protocol-statistics" }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) SetParent(parent types.Entity) { protocolStatistics.parent = parent }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetParent() types.Entity { return protocolStatistics.parent }
-
-func (protocolStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics) GetParentYangName() string { return "mag-statistic" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics
 // PBU Receive Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBUs. The type is interface{} with range: 0..18446744073709551615.
@@ -2896,58 +1773,27 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuRece
     PbuDropCount interface{}
 }
 
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetFilter() yfilter.YFilter { return pbuReceiveStatistics.YFilter }
+func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbuReceiveStatistics.EntityData.YFilter = pbuReceiveStatistics.YFilter
+    pbuReceiveStatistics.EntityData.YangName = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbuReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbuReceiveStatistics.EntityData.SegmentPath = "pbu-receive-statistics"
+    pbuReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbuReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbuReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbuReceiveStatistics.YFilter = yf }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbu-count" { return "PbuCount" }
-    if yname == "pbu-drop-count" { return "PbuDropCount" }
-    return ""
+    pbuReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbuReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbuReceiveStatistics.EntityData.Leafs["pbu-count"] = types.YLeaf{"PbuCount", pbuReceiveStatistics.PbuCount}
+    pbuReceiveStatistics.EntityData.Leafs["pbu-drop-count"] = types.YLeaf{"PbuDropCount", pbuReceiveStatistics.PbuDropCount}
+    return &(pbuReceiveStatistics.EntityData)
 }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetSegmentPath() string {
-    return "pbu-receive-statistics"
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbu-count"] = pbuReceiveStatistics.PbuCount
-    leafs["pbu-drop-count"] = pbuReceiveStatistics.PbuDropCount
-    return leafs
-}
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetYangName() string { return "pbu-receive-statistics" }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) SetParent(parent types.Entity) { pbuReceiveStatistics.parent = parent }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetParent() types.Entity { return pbuReceiveStatistics.parent }
-
-func (pbuReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbuReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics
 // PBA Send Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBAs. The type is interface{} with range: 0..18446744073709551615.
@@ -3061,110 +1907,53 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSend
     GreKeyOptRequiredCount interface{}
 }
 
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetFilter() yfilter.YFilter { return pbaSendStatistics.YFilter }
+func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbaSendStatistics.EntityData.YFilter = pbaSendStatistics.YFilter
+    pbaSendStatistics.EntityData.YangName = "pba-send-statistics"
+    pbaSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbaSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbaSendStatistics.EntityData.SegmentPath = "pba-send-statistics"
+    pbaSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbaSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbaSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) SetFilter(yf yfilter.YFilter) { pbaSendStatistics.YFilter = yf }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetGoName(yname string) string {
-    if yname == "pba-count" { return "PbaCount" }
-    if yname == "pba-drop-count" { return "PbaDropCount" }
-    if yname == "accepted-count" { return "AcceptedCount" }
-    if yname == "unknown-count" { return "UnknownCount" }
-    if yname == "unspecified-failure-count" { return "UnspecifiedFailureCount" }
-    if yname == "admin-failure-count" { return "AdminFailureCount" }
-    if yname == "resource-failure-count" { return "ResourceFailureCount" }
-    if yname == "home-reg-failure-count" { return "HomeRegFailureCount" }
-    if yname == "home-subnet-failure-count" { return "HomeSubnetFailureCount" }
-    if yname == "bad-sequence-failure-count" { return "BadSequenceFailureCount" }
-    if yname == "reg-type-failure-count" { return "RegTypeFailureCount" }
-    if yname == "authen-failure-count" { return "AuthenFailureCount" }
-    if yname == "proxy-reg-not-enabled-count" { return "ProxyRegNotEnabledCount" }
-    if yname == "not-lma-for-this-mn-count" { return "NotLmaForThisMnCount" }
-    if yname == "no-author-for-proxy-reg-count" { return "NoAuthorForProxyRegCount" }
-    if yname == "no-author-for-hnp-count" { return "NoAuthorForHnpCount" }
-    if yname == "timestamp-mismatch-count" { return "TimestampMismatchCount" }
-    if yname == "timestamp-lower-than-previous-accepted-count" { return "TimestampLowerThanPreviousAcceptedCount" }
-    if yname == "missing-hnp-opt-count" { return "MissingHnpOptCount" }
-    if yname == "received-hnps-do-not-match-bce-hnps-count" { return "ReceivedHnpsDoNotMatchBceHnpsCount" }
-    if yname == "missing-mn-id-opt-count" { return "MissingMnIdOptCount" }
-    if yname == "missing-hi-opt-count" { return "MissingHiOptCount" }
-    if yname == "missing-access-tech-type-opt-count" { return "MissingAccessTechTypeOptCount" }
-    if yname == "no-author-for-ipv4-mobility-count" { return "NoAuthorForIpv4MobilityCount" }
-    if yname == "no-author-for-ipv4-hoa-count" { return "NoAuthorForIpv4HoaCount" }
-    if yname == "no-author-for-ipv6-mobility-count" { return "NoAuthorForIpv6MobilityCount" }
-    if yname == "multiple-ipv4-ho-a-not-supported-count" { return "MultipleIpv4HoANotSupportedCount" }
-    if yname == "gre-key-opt-required-count" { return "GreKeyOptRequiredCount" }
-    return ""
+    pbaSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbaSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbaSendStatistics.EntityData.Leafs["pba-count"] = types.YLeaf{"PbaCount", pbaSendStatistics.PbaCount}
+    pbaSendStatistics.EntityData.Leafs["pba-drop-count"] = types.YLeaf{"PbaDropCount", pbaSendStatistics.PbaDropCount}
+    pbaSendStatistics.EntityData.Leafs["accepted-count"] = types.YLeaf{"AcceptedCount", pbaSendStatistics.AcceptedCount}
+    pbaSendStatistics.EntityData.Leafs["unknown-count"] = types.YLeaf{"UnknownCount", pbaSendStatistics.UnknownCount}
+    pbaSendStatistics.EntityData.Leafs["unspecified-failure-count"] = types.YLeaf{"UnspecifiedFailureCount", pbaSendStatistics.UnspecifiedFailureCount}
+    pbaSendStatistics.EntityData.Leafs["admin-failure-count"] = types.YLeaf{"AdminFailureCount", pbaSendStatistics.AdminFailureCount}
+    pbaSendStatistics.EntityData.Leafs["resource-failure-count"] = types.YLeaf{"ResourceFailureCount", pbaSendStatistics.ResourceFailureCount}
+    pbaSendStatistics.EntityData.Leafs["home-reg-failure-count"] = types.YLeaf{"HomeRegFailureCount", pbaSendStatistics.HomeRegFailureCount}
+    pbaSendStatistics.EntityData.Leafs["home-subnet-failure-count"] = types.YLeaf{"HomeSubnetFailureCount", pbaSendStatistics.HomeSubnetFailureCount}
+    pbaSendStatistics.EntityData.Leafs["bad-sequence-failure-count"] = types.YLeaf{"BadSequenceFailureCount", pbaSendStatistics.BadSequenceFailureCount}
+    pbaSendStatistics.EntityData.Leafs["reg-type-failure-count"] = types.YLeaf{"RegTypeFailureCount", pbaSendStatistics.RegTypeFailureCount}
+    pbaSendStatistics.EntityData.Leafs["authen-failure-count"] = types.YLeaf{"AuthenFailureCount", pbaSendStatistics.AuthenFailureCount}
+    pbaSendStatistics.EntityData.Leafs["proxy-reg-not-enabled-count"] = types.YLeaf{"ProxyRegNotEnabledCount", pbaSendStatistics.ProxyRegNotEnabledCount}
+    pbaSendStatistics.EntityData.Leafs["not-lma-for-this-mn-count"] = types.YLeaf{"NotLmaForThisMnCount", pbaSendStatistics.NotLmaForThisMnCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-proxy-reg-count"] = types.YLeaf{"NoAuthorForProxyRegCount", pbaSendStatistics.NoAuthorForProxyRegCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-hnp-count"] = types.YLeaf{"NoAuthorForHnpCount", pbaSendStatistics.NoAuthorForHnpCount}
+    pbaSendStatistics.EntityData.Leafs["timestamp-mismatch-count"] = types.YLeaf{"TimestampMismatchCount", pbaSendStatistics.TimestampMismatchCount}
+    pbaSendStatistics.EntityData.Leafs["timestamp-lower-than-previous-accepted-count"] = types.YLeaf{"TimestampLowerThanPreviousAcceptedCount", pbaSendStatistics.TimestampLowerThanPreviousAcceptedCount}
+    pbaSendStatistics.EntityData.Leafs["missing-hnp-opt-count"] = types.YLeaf{"MissingHnpOptCount", pbaSendStatistics.MissingHnpOptCount}
+    pbaSendStatistics.EntityData.Leafs["received-hnps-do-not-match-bce-hnps-count"] = types.YLeaf{"ReceivedHnpsDoNotMatchBceHnpsCount", pbaSendStatistics.ReceivedHnpsDoNotMatchBceHnpsCount}
+    pbaSendStatistics.EntityData.Leafs["missing-mn-id-opt-count"] = types.YLeaf{"MissingMnIdOptCount", pbaSendStatistics.MissingMnIdOptCount}
+    pbaSendStatistics.EntityData.Leafs["missing-hi-opt-count"] = types.YLeaf{"MissingHiOptCount", pbaSendStatistics.MissingHiOptCount}
+    pbaSendStatistics.EntityData.Leafs["missing-access-tech-type-opt-count"] = types.YLeaf{"MissingAccessTechTypeOptCount", pbaSendStatistics.MissingAccessTechTypeOptCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv4-mobility-count"] = types.YLeaf{"NoAuthorForIpv4MobilityCount", pbaSendStatistics.NoAuthorForIpv4MobilityCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv4-hoa-count"] = types.YLeaf{"NoAuthorForIpv4HoaCount", pbaSendStatistics.NoAuthorForIpv4HoaCount}
+    pbaSendStatistics.EntityData.Leafs["no-author-for-ipv6-mobility-count"] = types.YLeaf{"NoAuthorForIpv6MobilityCount", pbaSendStatistics.NoAuthorForIpv6MobilityCount}
+    pbaSendStatistics.EntityData.Leafs["multiple-ipv4-ho-a-not-supported-count"] = types.YLeaf{"MultipleIpv4HoANotSupportedCount", pbaSendStatistics.MultipleIpv4HoANotSupportedCount}
+    pbaSendStatistics.EntityData.Leafs["gre-key-opt-required-count"] = types.YLeaf{"GreKeyOptRequiredCount", pbaSendStatistics.GreKeyOptRequiredCount}
+    return &(pbaSendStatistics.EntityData)
 }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetSegmentPath() string {
-    return "pba-send-statistics"
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pba-count"] = pbaSendStatistics.PbaCount
-    leafs["pba-drop-count"] = pbaSendStatistics.PbaDropCount
-    leafs["accepted-count"] = pbaSendStatistics.AcceptedCount
-    leafs["unknown-count"] = pbaSendStatistics.UnknownCount
-    leafs["unspecified-failure-count"] = pbaSendStatistics.UnspecifiedFailureCount
-    leafs["admin-failure-count"] = pbaSendStatistics.AdminFailureCount
-    leafs["resource-failure-count"] = pbaSendStatistics.ResourceFailureCount
-    leafs["home-reg-failure-count"] = pbaSendStatistics.HomeRegFailureCount
-    leafs["home-subnet-failure-count"] = pbaSendStatistics.HomeSubnetFailureCount
-    leafs["bad-sequence-failure-count"] = pbaSendStatistics.BadSequenceFailureCount
-    leafs["reg-type-failure-count"] = pbaSendStatistics.RegTypeFailureCount
-    leafs["authen-failure-count"] = pbaSendStatistics.AuthenFailureCount
-    leafs["proxy-reg-not-enabled-count"] = pbaSendStatistics.ProxyRegNotEnabledCount
-    leafs["not-lma-for-this-mn-count"] = pbaSendStatistics.NotLmaForThisMnCount
-    leafs["no-author-for-proxy-reg-count"] = pbaSendStatistics.NoAuthorForProxyRegCount
-    leafs["no-author-for-hnp-count"] = pbaSendStatistics.NoAuthorForHnpCount
-    leafs["timestamp-mismatch-count"] = pbaSendStatistics.TimestampMismatchCount
-    leafs["timestamp-lower-than-previous-accepted-count"] = pbaSendStatistics.TimestampLowerThanPreviousAcceptedCount
-    leafs["missing-hnp-opt-count"] = pbaSendStatistics.MissingHnpOptCount
-    leafs["received-hnps-do-not-match-bce-hnps-count"] = pbaSendStatistics.ReceivedHnpsDoNotMatchBceHnpsCount
-    leafs["missing-mn-id-opt-count"] = pbaSendStatistics.MissingMnIdOptCount
-    leafs["missing-hi-opt-count"] = pbaSendStatistics.MissingHiOptCount
-    leafs["missing-access-tech-type-opt-count"] = pbaSendStatistics.MissingAccessTechTypeOptCount
-    leafs["no-author-for-ipv4-mobility-count"] = pbaSendStatistics.NoAuthorForIpv4MobilityCount
-    leafs["no-author-for-ipv4-hoa-count"] = pbaSendStatistics.NoAuthorForIpv4HoaCount
-    leafs["no-author-for-ipv6-mobility-count"] = pbaSendStatistics.NoAuthorForIpv6MobilityCount
-    leafs["multiple-ipv4-ho-a-not-supported-count"] = pbaSendStatistics.MultipleIpv4HoANotSupportedCount
-    leafs["gre-key-opt-required-count"] = pbaSendStatistics.GreKeyOptRequiredCount
-    return leafs
-}
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetYangName() string { return "pba-send-statistics" }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) SetParent(parent types.Entity) { pbaSendStatistics.parent = parent }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetParent() types.Entity { return pbaSendStatistics.parent }
-
-func (pbaSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbaSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics
 // PBRI Send Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRIs. The type is interface{} with range:
@@ -3215,78 +2004,37 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSen
     RevokingMnLocalPolicyCount interface{}
 }
 
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetFilter() yfilter.YFilter { return pbriSendStatistics.YFilter }
+func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbriSendStatistics.EntityData.YFilter = pbriSendStatistics.YFilter
+    pbriSendStatistics.EntityData.YangName = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbriSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbriSendStatistics.EntityData.SegmentPath = "pbri-send-statistics"
+    pbriSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbriSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbriSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) SetFilter(yf yfilter.YFilter) { pbriSendStatistics.YFilter = yf }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetGoName(yname string) string {
-    if yname == "pbri-count" { return "PbriCount" }
-    if yname == "pbri-drop-count" { return "PbriDropCount" }
-    if yname == "unspecified-count" { return "UnspecifiedCount" }
-    if yname == "admin-reason-count" { return "AdminReasonCount" }
-    if yname == "mag-handover-same-att-count" { return "MagHandoverSameAttCount" }
-    if yname == "mag-handover-different-att-count" { return "MagHandoverDifferentAttCount" }
-    if yname == "mag-handover-unknown-count" { return "MagHandoverUnknownCount" }
-    if yname == "user-session-termination-count" { return "UserSessionTerminationCount" }
-    if yname == "network-session-termination-count" { return "NetworkSessionTerminationCount" }
-    if yname == "out-of-sync-bce-state-count" { return "OutOfSyncBceStateCount" }
-    if yname == "per-peer-policy-count" { return "PerPeerPolicyCount" }
-    if yname == "revoking-mn-local-policy-count" { return "RevokingMnLocalPolicyCount" }
-    return ""
+    pbriSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbriSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbriSendStatistics.EntityData.Leafs["pbri-count"] = types.YLeaf{"PbriCount", pbriSendStatistics.PbriCount}
+    pbriSendStatistics.EntityData.Leafs["pbri-drop-count"] = types.YLeaf{"PbriDropCount", pbriSendStatistics.PbriDropCount}
+    pbriSendStatistics.EntityData.Leafs["unspecified-count"] = types.YLeaf{"UnspecifiedCount", pbriSendStatistics.UnspecifiedCount}
+    pbriSendStatistics.EntityData.Leafs["admin-reason-count"] = types.YLeaf{"AdminReasonCount", pbriSendStatistics.AdminReasonCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-same-att-count"] = types.YLeaf{"MagHandoverSameAttCount", pbriSendStatistics.MagHandoverSameAttCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-different-att-count"] = types.YLeaf{"MagHandoverDifferentAttCount", pbriSendStatistics.MagHandoverDifferentAttCount}
+    pbriSendStatistics.EntityData.Leafs["mag-handover-unknown-count"] = types.YLeaf{"MagHandoverUnknownCount", pbriSendStatistics.MagHandoverUnknownCount}
+    pbriSendStatistics.EntityData.Leafs["user-session-termination-count"] = types.YLeaf{"UserSessionTerminationCount", pbriSendStatistics.UserSessionTerminationCount}
+    pbriSendStatistics.EntityData.Leafs["network-session-termination-count"] = types.YLeaf{"NetworkSessionTerminationCount", pbriSendStatistics.NetworkSessionTerminationCount}
+    pbriSendStatistics.EntityData.Leafs["out-of-sync-bce-state-count"] = types.YLeaf{"OutOfSyncBceStateCount", pbriSendStatistics.OutOfSyncBceStateCount}
+    pbriSendStatistics.EntityData.Leafs["per-peer-policy-count"] = types.YLeaf{"PerPeerPolicyCount", pbriSendStatistics.PerPeerPolicyCount}
+    pbriSendStatistics.EntityData.Leafs["revoking-mn-local-policy-count"] = types.YLeaf{"RevokingMnLocalPolicyCount", pbriSendStatistics.RevokingMnLocalPolicyCount}
+    return &(pbriSendStatistics.EntityData)
 }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetSegmentPath() string {
-    return "pbri-send-statistics"
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbri-count"] = pbriSendStatistics.PbriCount
-    leafs["pbri-drop-count"] = pbriSendStatistics.PbriDropCount
-    leafs["unspecified-count"] = pbriSendStatistics.UnspecifiedCount
-    leafs["admin-reason-count"] = pbriSendStatistics.AdminReasonCount
-    leafs["mag-handover-same-att-count"] = pbriSendStatistics.MagHandoverSameAttCount
-    leafs["mag-handover-different-att-count"] = pbriSendStatistics.MagHandoverDifferentAttCount
-    leafs["mag-handover-unknown-count"] = pbriSendStatistics.MagHandoverUnknownCount
-    leafs["user-session-termination-count"] = pbriSendStatistics.UserSessionTerminationCount
-    leafs["network-session-termination-count"] = pbriSendStatistics.NetworkSessionTerminationCount
-    leafs["out-of-sync-bce-state-count"] = pbriSendStatistics.OutOfSyncBceStateCount
-    leafs["per-peer-policy-count"] = pbriSendStatistics.PerPeerPolicyCount
-    leafs["revoking-mn-local-policy-count"] = pbriSendStatistics.RevokingMnLocalPolicyCount
-    return leafs
-}
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetYangName() string { return "pbri-send-statistics" }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) SetParent(parent types.Entity) { pbriSendStatistics.parent = parent }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetParent() types.Entity { return pbriSendStatistics.parent }
-
-func (pbriSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics
 // PBRI Receive Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRIs. The type is interface{} with range:
@@ -3337,78 +2085,37 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriRec
     RevokingMnLocalPolicyCount interface{}
 }
 
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetFilter() yfilter.YFilter { return pbriReceiveStatistics.YFilter }
+func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbriReceiveStatistics.EntityData.YFilter = pbriReceiveStatistics.YFilter
+    pbriReceiveStatistics.EntityData.YangName = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbriReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbriReceiveStatistics.EntityData.SegmentPath = "pbri-receive-statistics"
+    pbriReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbriReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbriReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbriReceiveStatistics.YFilter = yf }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbri-count" { return "PbriCount" }
-    if yname == "pbri-drop-count" { return "PbriDropCount" }
-    if yname == "unspecified-count" { return "UnspecifiedCount" }
-    if yname == "admin-reason-count" { return "AdminReasonCount" }
-    if yname == "mag-handover-same-att-count" { return "MagHandoverSameAttCount" }
-    if yname == "mag-handover-different-att-count" { return "MagHandoverDifferentAttCount" }
-    if yname == "mag-handover-unknown-count" { return "MagHandoverUnknownCount" }
-    if yname == "user-session-termination-count" { return "UserSessionTerminationCount" }
-    if yname == "network-session-termination-count" { return "NetworkSessionTerminationCount" }
-    if yname == "out-of-sync-bce-state-count" { return "OutOfSyncBceStateCount" }
-    if yname == "per-peer-policy-count" { return "PerPeerPolicyCount" }
-    if yname == "revoking-mn-local-policy-count" { return "RevokingMnLocalPolicyCount" }
-    return ""
+    pbriReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbriReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbriReceiveStatistics.EntityData.Leafs["pbri-count"] = types.YLeaf{"PbriCount", pbriReceiveStatistics.PbriCount}
+    pbriReceiveStatistics.EntityData.Leafs["pbri-drop-count"] = types.YLeaf{"PbriDropCount", pbriReceiveStatistics.PbriDropCount}
+    pbriReceiveStatistics.EntityData.Leafs["unspecified-count"] = types.YLeaf{"UnspecifiedCount", pbriReceiveStatistics.UnspecifiedCount}
+    pbriReceiveStatistics.EntityData.Leafs["admin-reason-count"] = types.YLeaf{"AdminReasonCount", pbriReceiveStatistics.AdminReasonCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-same-att-count"] = types.YLeaf{"MagHandoverSameAttCount", pbriReceiveStatistics.MagHandoverSameAttCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-different-att-count"] = types.YLeaf{"MagHandoverDifferentAttCount", pbriReceiveStatistics.MagHandoverDifferentAttCount}
+    pbriReceiveStatistics.EntityData.Leafs["mag-handover-unknown-count"] = types.YLeaf{"MagHandoverUnknownCount", pbriReceiveStatistics.MagHandoverUnknownCount}
+    pbriReceiveStatistics.EntityData.Leafs["user-session-termination-count"] = types.YLeaf{"UserSessionTerminationCount", pbriReceiveStatistics.UserSessionTerminationCount}
+    pbriReceiveStatistics.EntityData.Leafs["network-session-termination-count"] = types.YLeaf{"NetworkSessionTerminationCount", pbriReceiveStatistics.NetworkSessionTerminationCount}
+    pbriReceiveStatistics.EntityData.Leafs["out-of-sync-bce-state-count"] = types.YLeaf{"OutOfSyncBceStateCount", pbriReceiveStatistics.OutOfSyncBceStateCount}
+    pbriReceiveStatistics.EntityData.Leafs["per-peer-policy-count"] = types.YLeaf{"PerPeerPolicyCount", pbriReceiveStatistics.PerPeerPolicyCount}
+    pbriReceiveStatistics.EntityData.Leafs["revoking-mn-local-policy-count"] = types.YLeaf{"RevokingMnLocalPolicyCount", pbriReceiveStatistics.RevokingMnLocalPolicyCount}
+    return &(pbriReceiveStatistics.EntityData)
 }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetSegmentPath() string {
-    return "pbri-receive-statistics"
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbri-count"] = pbriReceiveStatistics.PbriCount
-    leafs["pbri-drop-count"] = pbriReceiveStatistics.PbriDropCount
-    leafs["unspecified-count"] = pbriReceiveStatistics.UnspecifiedCount
-    leafs["admin-reason-count"] = pbriReceiveStatistics.AdminReasonCount
-    leafs["mag-handover-same-att-count"] = pbriReceiveStatistics.MagHandoverSameAttCount
-    leafs["mag-handover-different-att-count"] = pbriReceiveStatistics.MagHandoverDifferentAttCount
-    leafs["mag-handover-unknown-count"] = pbriReceiveStatistics.MagHandoverUnknownCount
-    leafs["user-session-termination-count"] = pbriReceiveStatistics.UserSessionTerminationCount
-    leafs["network-session-termination-count"] = pbriReceiveStatistics.NetworkSessionTerminationCount
-    leafs["out-of-sync-bce-state-count"] = pbriReceiveStatistics.OutOfSyncBceStateCount
-    leafs["per-peer-policy-count"] = pbriReceiveStatistics.PerPeerPolicyCount
-    leafs["revoking-mn-local-policy-count"] = pbriReceiveStatistics.RevokingMnLocalPolicyCount
-    return leafs
-}
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetYangName() string { return "pbri-receive-statistics" }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) SetParent(parent types.Entity) { pbriReceiveStatistics.parent = parent }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetParent() types.Entity { return pbriReceiveStatistics.parent }
-
-func (pbriReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbriReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics
 // PBRA Send Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRAs. The type is interface{} with range:
@@ -3459,78 +2166,37 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSen
     PbrNotSupportedCount interface{}
 }
 
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetFilter() yfilter.YFilter { return pbraSendStatistics.YFilter }
+func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetEntityData() *types.CommonEntityData {
+    pbraSendStatistics.EntityData.YFilter = pbraSendStatistics.YFilter
+    pbraSendStatistics.EntityData.YangName = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbraSendStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbraSendStatistics.EntityData.SegmentPath = "pbra-send-statistics"
+    pbraSendStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbraSendStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbraSendStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) SetFilter(yf yfilter.YFilter) { pbraSendStatistics.YFilter = yf }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetGoName(yname string) string {
-    if yname == "pbra-count" { return "PbraCount" }
-    if yname == "pbra-drop-count" { return "PbraDropCount" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "partial-success-count" { return "PartialSuccessCount" }
-    if yname == "no-binding-count" { return "NoBindingCount" }
-    if yname == "hoa-required-count" { return "HoaRequiredCount" }
-    if yname == "no-author-for-global-revoc-count" { return "NoAuthorForGlobalRevocCount" }
-    if yname == "mn-identity-required-count" { return "MnIdentityRequiredCount" }
-    if yname == "mn-attached-count" { return "MnAttachedCount" }
-    if yname == "unknown-revoc-trigger-count" { return "UnknownRevocTriggerCount" }
-    if yname == "revoc-function-not-supported-count" { return "RevocFunctionNotSupportedCount" }
-    if yname == "pbr-not-supported-count" { return "PbrNotSupportedCount" }
-    return ""
+    pbraSendStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbraSendStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbraSendStatistics.EntityData.Leafs["pbra-count"] = types.YLeaf{"PbraCount", pbraSendStatistics.PbraCount}
+    pbraSendStatistics.EntityData.Leafs["pbra-drop-count"] = types.YLeaf{"PbraDropCount", pbraSendStatistics.PbraDropCount}
+    pbraSendStatistics.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", pbraSendStatistics.SuccessCount}
+    pbraSendStatistics.EntityData.Leafs["partial-success-count"] = types.YLeaf{"PartialSuccessCount", pbraSendStatistics.PartialSuccessCount}
+    pbraSendStatistics.EntityData.Leafs["no-binding-count"] = types.YLeaf{"NoBindingCount", pbraSendStatistics.NoBindingCount}
+    pbraSendStatistics.EntityData.Leafs["hoa-required-count"] = types.YLeaf{"HoaRequiredCount", pbraSendStatistics.HoaRequiredCount}
+    pbraSendStatistics.EntityData.Leafs["no-author-for-global-revoc-count"] = types.YLeaf{"NoAuthorForGlobalRevocCount", pbraSendStatistics.NoAuthorForGlobalRevocCount}
+    pbraSendStatistics.EntityData.Leafs["mn-identity-required-count"] = types.YLeaf{"MnIdentityRequiredCount", pbraSendStatistics.MnIdentityRequiredCount}
+    pbraSendStatistics.EntityData.Leafs["mn-attached-count"] = types.YLeaf{"MnAttachedCount", pbraSendStatistics.MnAttachedCount}
+    pbraSendStatistics.EntityData.Leafs["unknown-revoc-trigger-count"] = types.YLeaf{"UnknownRevocTriggerCount", pbraSendStatistics.UnknownRevocTriggerCount}
+    pbraSendStatistics.EntityData.Leafs["revoc-function-not-supported-count"] = types.YLeaf{"RevocFunctionNotSupportedCount", pbraSendStatistics.RevocFunctionNotSupportedCount}
+    pbraSendStatistics.EntityData.Leafs["pbr-not-supported-count"] = types.YLeaf{"PbrNotSupportedCount", pbraSendStatistics.PbrNotSupportedCount}
+    return &(pbraSendStatistics.EntityData)
 }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetSegmentPath() string {
-    return "pbra-send-statistics"
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbra-count"] = pbraSendStatistics.PbraCount
-    leafs["pbra-drop-count"] = pbraSendStatistics.PbraDropCount
-    leafs["success-count"] = pbraSendStatistics.SuccessCount
-    leafs["partial-success-count"] = pbraSendStatistics.PartialSuccessCount
-    leafs["no-binding-count"] = pbraSendStatistics.NoBindingCount
-    leafs["hoa-required-count"] = pbraSendStatistics.HoaRequiredCount
-    leafs["no-author-for-global-revoc-count"] = pbraSendStatistics.NoAuthorForGlobalRevocCount
-    leafs["mn-identity-required-count"] = pbraSendStatistics.MnIdentityRequiredCount
-    leafs["mn-attached-count"] = pbraSendStatistics.MnAttachedCount
-    leafs["unknown-revoc-trigger-count"] = pbraSendStatistics.UnknownRevocTriggerCount
-    leafs["revoc-function-not-supported-count"] = pbraSendStatistics.RevocFunctionNotSupportedCount
-    leafs["pbr-not-supported-count"] = pbraSendStatistics.PbrNotSupportedCount
-    return leafs
-}
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetYangName() string { return "pbra-send-statistics" }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) SetParent(parent types.Entity) { pbraSendStatistics.parent = parent }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetParent() types.Entity { return pbraSendStatistics.parent }
-
-func (pbraSendStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraSendStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics
 // PBRA Receive Statistics
 type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Count of PBRAs. The type is interface{} with range:
@@ -3581,158 +2247,82 @@ type Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraRec
     PbrNotSupportedCount interface{}
 }
 
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetFilter() yfilter.YFilter { return pbraReceiveStatistics.YFilter }
+func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetEntityData() *types.CommonEntityData {
+    pbraReceiveStatistics.EntityData.YFilter = pbraReceiveStatistics.YFilter
+    pbraReceiveStatistics.EntityData.YangName = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pbraReceiveStatistics.EntityData.ParentYangName = "protocol-statistics"
+    pbraReceiveStatistics.EntityData.SegmentPath = "pbra-receive-statistics"
+    pbraReceiveStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pbraReceiveStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pbraReceiveStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) SetFilter(yf yfilter.YFilter) { pbraReceiveStatistics.YFilter = yf }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetGoName(yname string) string {
-    if yname == "pbra-count" { return "PbraCount" }
-    if yname == "pbra-drop-count" { return "PbraDropCount" }
-    if yname == "success-count" { return "SuccessCount" }
-    if yname == "partial-success-count" { return "PartialSuccessCount" }
-    if yname == "no-binding-count" { return "NoBindingCount" }
-    if yname == "hoa-required-count" { return "HoaRequiredCount" }
-    if yname == "no-author-for-global-revoc-count" { return "NoAuthorForGlobalRevocCount" }
-    if yname == "mn-identity-required-count" { return "MnIdentityRequiredCount" }
-    if yname == "mn-attached-count" { return "MnAttachedCount" }
-    if yname == "unknown-revoc-trigger-count" { return "UnknownRevocTriggerCount" }
-    if yname == "revoc-function-not-supported-count" { return "RevocFunctionNotSupportedCount" }
-    if yname == "pbr-not-supported-count" { return "PbrNotSupportedCount" }
-    return ""
+    pbraReceiveStatistics.EntityData.Children = make(map[string]types.YChild)
+    pbraReceiveStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    pbraReceiveStatistics.EntityData.Leafs["pbra-count"] = types.YLeaf{"PbraCount", pbraReceiveStatistics.PbraCount}
+    pbraReceiveStatistics.EntityData.Leafs["pbra-drop-count"] = types.YLeaf{"PbraDropCount", pbraReceiveStatistics.PbraDropCount}
+    pbraReceiveStatistics.EntityData.Leafs["success-count"] = types.YLeaf{"SuccessCount", pbraReceiveStatistics.SuccessCount}
+    pbraReceiveStatistics.EntityData.Leafs["partial-success-count"] = types.YLeaf{"PartialSuccessCount", pbraReceiveStatistics.PartialSuccessCount}
+    pbraReceiveStatistics.EntityData.Leafs["no-binding-count"] = types.YLeaf{"NoBindingCount", pbraReceiveStatistics.NoBindingCount}
+    pbraReceiveStatistics.EntityData.Leafs["hoa-required-count"] = types.YLeaf{"HoaRequiredCount", pbraReceiveStatistics.HoaRequiredCount}
+    pbraReceiveStatistics.EntityData.Leafs["no-author-for-global-revoc-count"] = types.YLeaf{"NoAuthorForGlobalRevocCount", pbraReceiveStatistics.NoAuthorForGlobalRevocCount}
+    pbraReceiveStatistics.EntityData.Leafs["mn-identity-required-count"] = types.YLeaf{"MnIdentityRequiredCount", pbraReceiveStatistics.MnIdentityRequiredCount}
+    pbraReceiveStatistics.EntityData.Leafs["mn-attached-count"] = types.YLeaf{"MnAttachedCount", pbraReceiveStatistics.MnAttachedCount}
+    pbraReceiveStatistics.EntityData.Leafs["unknown-revoc-trigger-count"] = types.YLeaf{"UnknownRevocTriggerCount", pbraReceiveStatistics.UnknownRevocTriggerCount}
+    pbraReceiveStatistics.EntityData.Leafs["revoc-function-not-supported-count"] = types.YLeaf{"RevocFunctionNotSupportedCount", pbraReceiveStatistics.RevocFunctionNotSupportedCount}
+    pbraReceiveStatistics.EntityData.Leafs["pbr-not-supported-count"] = types.YLeaf{"PbrNotSupportedCount", pbraReceiveStatistics.PbrNotSupportedCount}
+    return &(pbraReceiveStatistics.EntityData)
 }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetSegmentPath() string {
-    return "pbra-receive-statistics"
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pbra-count"] = pbraReceiveStatistics.PbraCount
-    leafs["pbra-drop-count"] = pbraReceiveStatistics.PbraDropCount
-    leafs["success-count"] = pbraReceiveStatistics.SuccessCount
-    leafs["partial-success-count"] = pbraReceiveStatistics.PartialSuccessCount
-    leafs["no-binding-count"] = pbraReceiveStatistics.NoBindingCount
-    leafs["hoa-required-count"] = pbraReceiveStatistics.HoaRequiredCount
-    leafs["no-author-for-global-revoc-count"] = pbraReceiveStatistics.NoAuthorForGlobalRevocCount
-    leafs["mn-identity-required-count"] = pbraReceiveStatistics.MnIdentityRequiredCount
-    leafs["mn-attached-count"] = pbraReceiveStatistics.MnAttachedCount
-    leafs["unknown-revoc-trigger-count"] = pbraReceiveStatistics.UnknownRevocTriggerCount
-    leafs["revoc-function-not-supported-count"] = pbraReceiveStatistics.RevocFunctionNotSupportedCount
-    leafs["pbr-not-supported-count"] = pbraReceiveStatistics.PbrNotSupportedCount
-    return leafs
-}
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetYangName() string { return "pbra-receive-statistics" }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) SetParent(parent types.Entity) { pbraReceiveStatistics.parent = parent }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetParent() types.Entity { return pbraReceiveStatistics.parent }
-
-func (pbraReceiveStatistics *Pmipv6_Lma_Statistics_MagStatistics_MagStatistic_ProtocolStatistics_PbraReceiveStatistics) GetParentYangName() string { return "protocol-statistics" }
 
 // Pmipv6_Lma_Bindings
 // Table of Binding
 type Pmipv6_Lma_Bindings struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Binding Parameters. The type is slice of Pmipv6_Lma_Bindings_Binding.
     Binding []Pmipv6_Lma_Bindings_Binding
 }
 
-func (bindings *Pmipv6_Lma_Bindings) GetFilter() yfilter.YFilter { return bindings.YFilter }
+func (bindings *Pmipv6_Lma_Bindings) GetEntityData() *types.CommonEntityData {
+    bindings.EntityData.YFilter = bindings.YFilter
+    bindings.EntityData.YangName = "bindings"
+    bindings.EntityData.BundleName = "cisco_ios_xr"
+    bindings.EntityData.ParentYangName = "lma"
+    bindings.EntityData.SegmentPath = "bindings"
+    bindings.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    bindings.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    bindings.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (bindings *Pmipv6_Lma_Bindings) SetFilter(yf yfilter.YFilter) { bindings.YFilter = yf }
-
-func (bindings *Pmipv6_Lma_Bindings) GetGoName(yname string) string {
-    if yname == "binding" { return "Binding" }
-    return ""
-}
-
-func (bindings *Pmipv6_Lma_Bindings) GetSegmentPath() string {
-    return "bindings"
-}
-
-func (bindings *Pmipv6_Lma_Bindings) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "binding" {
-        for _, c := range bindings.Binding {
-            if bindings.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Bindings_Binding{}
-        bindings.Binding = append(bindings.Binding, child)
-        return &bindings.Binding[len(bindings.Binding)-1]
-    }
-    return nil
-}
-
-func (bindings *Pmipv6_Lma_Bindings) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    bindings.EntityData.Children = make(map[string]types.YChild)
+    bindings.EntityData.Children["binding"] = types.YChild{"Binding", nil}
     for i := range bindings.Binding {
-        children[bindings.Binding[i].GetSegmentPath()] = &bindings.Binding[i]
+        bindings.EntityData.Children[types.GetSegmentPath(&bindings.Binding[i])] = types.YChild{"Binding", &bindings.Binding[i]}
     }
-    return children
+    bindings.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(bindings.EntityData)
 }
-
-func (bindings *Pmipv6_Lma_Bindings) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (bindings *Pmipv6_Lma_Bindings) GetBundleName() string { return "cisco_ios_xr" }
-
-func (bindings *Pmipv6_Lma_Bindings) GetYangName() string { return "bindings" }
-
-func (bindings *Pmipv6_Lma_Bindings) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (bindings *Pmipv6_Lma_Bindings) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (bindings *Pmipv6_Lma_Bindings) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (bindings *Pmipv6_Lma_Bindings) SetParent(parent types.Entity) { bindings.parent = parent }
-
-func (bindings *Pmipv6_Lma_Bindings) GetParent() types.Entity { return bindings.parent }
-
-func (bindings *Pmipv6_Lma_Bindings) GetParentYangName() string { return "lma" }
 
 // Pmipv6_Lma_Bindings_Binding
 // Binding Parameters
 type Pmipv6_Lma_Bindings_Binding struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Peer MAG ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Peer MAG ID. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     MagName interface{}
 
-    // NAI String. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // NAI String. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     NaiString interface{}
 
-    // IMSI String. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // IMSI String. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     ImsiString interface{}
 
-    // Customer String. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
+    // Customer String. The type is string with pattern:
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CustomerName interface{}
 
     // Mobile Node Identifier. The type is string.
@@ -3763,11 +2353,11 @@ type Pmipv6_Lma_Bindings_Binding struct {
     Att interface{}
 
     // MN HOA. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Hoa interface{}
 
     // MN Default Router. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Dflt interface{}
 
     // Life Time of Binding. The type is interface{} with range: 0..4294967295.
@@ -3798,7 +2388,7 @@ type Pmipv6_Lma_Bindings_Binding struct {
     NumDmnpV6 interface{}
 
     // MN Home Network Prefixes. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Hnps interface{}
 
     // Ignore HoA/HNP. The type is bool.
@@ -3826,154 +2416,66 @@ type Pmipv6_Lma_Bindings_Binding struct {
     DmnpV6 []Pmipv6_Lma_Bindings_Binding_DmnpV6
 }
 
-func (binding *Pmipv6_Lma_Bindings_Binding) GetFilter() yfilter.YFilter { return binding.YFilter }
+func (binding *Pmipv6_Lma_Bindings_Binding) GetEntityData() *types.CommonEntityData {
+    binding.EntityData.YFilter = binding.YFilter
+    binding.EntityData.YangName = "binding"
+    binding.EntityData.BundleName = "cisco_ios_xr"
+    binding.EntityData.ParentYangName = "bindings"
+    binding.EntityData.SegmentPath = "binding"
+    binding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    binding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    binding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (binding *Pmipv6_Lma_Bindings_Binding) SetFilter(yf yfilter.YFilter) { binding.YFilter = yf }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetGoName(yname string) string {
-    if yname == "mag-name" { return "MagName" }
-    if yname == "nai-string" { return "NaiString" }
-    if yname == "imsi-string" { return "ImsiString" }
-    if yname == "customer-name" { return "CustomerName" }
-    if yname == "mnnai" { return "Mnnai" }
-    if yname == "customer-name-xr" { return "CustomerNameXr" }
-    if yname == "llid" { return "Llid" }
-    if yname == "peer-id" { return "PeerId" }
-    if yname == "phyintf" { return "Phyintf" }
-    if yname == "tunnel" { return "Tunnel" }
-    if yname == "state" { return "State" }
-    if yname == "apn" { return "Apn" }
-    if yname == "att" { return "Att" }
-    if yname == "hoa" { return "Hoa" }
-    if yname == "dflt" { return "Dflt" }
-    if yname == "lifetime" { return "Lifetime" }
-    if yname == "liferem" { return "Liferem" }
-    if yname == "refresh" { return "Refresh" }
-    if yname == "refresh-rem" { return "RefreshRem" }
-    if yname == "prefix-len" { return "PrefixLen" }
-    if yname == "num-hnps" { return "NumHnps" }
-    if yname == "num-coa" { return "NumCoa" }
-    if yname == "num-dmnp-v4" { return "NumDmnpV4" }
-    if yname == "num-dmnp-v6" { return "NumDmnpV6" }
-    if yname == "hnps" { return "Hnps" }
-    if yname == "ignore-home-address" { return "IgnoreHomeAddress" }
-    if yname == "up-stream-grekey" { return "UpStreamGrekey" }
-    if yname == "down-stream-grekey" { return "DownStreamGrekey" }
-    if yname == "vrfid" { return "Vrfid" }
-    if yname == "coa" { return "Coa" }
-    if yname == "dmnp-v4" { return "DmnpV4" }
-    if yname == "dmnp-v6" { return "DmnpV6" }
-    return ""
-}
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetSegmentPath() string {
-    return "binding"
-}
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "coa" {
-        for _, c := range binding.Coa {
-            if binding.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Bindings_Binding_Coa{}
-        binding.Coa = append(binding.Coa, child)
-        return &binding.Coa[len(binding.Coa)-1]
-    }
-    if childYangName == "dmnp-v4" {
-        for _, c := range binding.DmnpV4 {
-            if binding.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Bindings_Binding_DmnpV4{}
-        binding.DmnpV4 = append(binding.DmnpV4, child)
-        return &binding.DmnpV4[len(binding.DmnpV4)-1]
-    }
-    if childYangName == "dmnp-v6" {
-        for _, c := range binding.DmnpV6 {
-            if binding.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Bindings_Binding_DmnpV6{}
-        binding.DmnpV6 = append(binding.DmnpV6, child)
-        return &binding.DmnpV6[len(binding.DmnpV6)-1]
-    }
-    return nil
-}
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    binding.EntityData.Children = make(map[string]types.YChild)
+    binding.EntityData.Children["coa"] = types.YChild{"Coa", nil}
     for i := range binding.Coa {
-        children[binding.Coa[i].GetSegmentPath()] = &binding.Coa[i]
+        binding.EntityData.Children[types.GetSegmentPath(&binding.Coa[i])] = types.YChild{"Coa", &binding.Coa[i]}
     }
+    binding.EntityData.Children["dmnp-v4"] = types.YChild{"DmnpV4", nil}
     for i := range binding.DmnpV4 {
-        children[binding.DmnpV4[i].GetSegmentPath()] = &binding.DmnpV4[i]
+        binding.EntityData.Children[types.GetSegmentPath(&binding.DmnpV4[i])] = types.YChild{"DmnpV4", &binding.DmnpV4[i]}
     }
+    binding.EntityData.Children["dmnp-v6"] = types.YChild{"DmnpV6", nil}
     for i := range binding.DmnpV6 {
-        children[binding.DmnpV6[i].GetSegmentPath()] = &binding.DmnpV6[i]
+        binding.EntityData.Children[types.GetSegmentPath(&binding.DmnpV6[i])] = types.YChild{"DmnpV6", &binding.DmnpV6[i]}
     }
-    return children
+    binding.EntityData.Leafs = make(map[string]types.YLeaf)
+    binding.EntityData.Leafs["mag-name"] = types.YLeaf{"MagName", binding.MagName}
+    binding.EntityData.Leafs["nai-string"] = types.YLeaf{"NaiString", binding.NaiString}
+    binding.EntityData.Leafs["imsi-string"] = types.YLeaf{"ImsiString", binding.ImsiString}
+    binding.EntityData.Leafs["customer-name"] = types.YLeaf{"CustomerName", binding.CustomerName}
+    binding.EntityData.Leafs["mnnai"] = types.YLeaf{"Mnnai", binding.Mnnai}
+    binding.EntityData.Leafs["customer-name-xr"] = types.YLeaf{"CustomerNameXr", binding.CustomerNameXr}
+    binding.EntityData.Leafs["llid"] = types.YLeaf{"Llid", binding.Llid}
+    binding.EntityData.Leafs["peer-id"] = types.YLeaf{"PeerId", binding.PeerId}
+    binding.EntityData.Leafs["phyintf"] = types.YLeaf{"Phyintf", binding.Phyintf}
+    binding.EntityData.Leafs["tunnel"] = types.YLeaf{"Tunnel", binding.Tunnel}
+    binding.EntityData.Leafs["state"] = types.YLeaf{"State", binding.State}
+    binding.EntityData.Leafs["apn"] = types.YLeaf{"Apn", binding.Apn}
+    binding.EntityData.Leafs["att"] = types.YLeaf{"Att", binding.Att}
+    binding.EntityData.Leafs["hoa"] = types.YLeaf{"Hoa", binding.Hoa}
+    binding.EntityData.Leafs["dflt"] = types.YLeaf{"Dflt", binding.Dflt}
+    binding.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", binding.Lifetime}
+    binding.EntityData.Leafs["liferem"] = types.YLeaf{"Liferem", binding.Liferem}
+    binding.EntityData.Leafs["refresh"] = types.YLeaf{"Refresh", binding.Refresh}
+    binding.EntityData.Leafs["refresh-rem"] = types.YLeaf{"RefreshRem", binding.RefreshRem}
+    binding.EntityData.Leafs["prefix-len"] = types.YLeaf{"PrefixLen", binding.PrefixLen}
+    binding.EntityData.Leafs["num-hnps"] = types.YLeaf{"NumHnps", binding.NumHnps}
+    binding.EntityData.Leafs["num-coa"] = types.YLeaf{"NumCoa", binding.NumCoa}
+    binding.EntityData.Leafs["num-dmnp-v4"] = types.YLeaf{"NumDmnpV4", binding.NumDmnpV4}
+    binding.EntityData.Leafs["num-dmnp-v6"] = types.YLeaf{"NumDmnpV6", binding.NumDmnpV6}
+    binding.EntityData.Leafs["hnps"] = types.YLeaf{"Hnps", binding.Hnps}
+    binding.EntityData.Leafs["ignore-home-address"] = types.YLeaf{"IgnoreHomeAddress", binding.IgnoreHomeAddress}
+    binding.EntityData.Leafs["up-stream-grekey"] = types.YLeaf{"UpStreamGrekey", binding.UpStreamGrekey}
+    binding.EntityData.Leafs["down-stream-grekey"] = types.YLeaf{"DownStreamGrekey", binding.DownStreamGrekey}
+    binding.EntityData.Leafs["vrfid"] = types.YLeaf{"Vrfid", binding.Vrfid}
+    return &(binding.EntityData)
 }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mag-name"] = binding.MagName
-    leafs["nai-string"] = binding.NaiString
-    leafs["imsi-string"] = binding.ImsiString
-    leafs["customer-name"] = binding.CustomerName
-    leafs["mnnai"] = binding.Mnnai
-    leafs["customer-name-xr"] = binding.CustomerNameXr
-    leafs["llid"] = binding.Llid
-    leafs["peer-id"] = binding.PeerId
-    leafs["phyintf"] = binding.Phyintf
-    leafs["tunnel"] = binding.Tunnel
-    leafs["state"] = binding.State
-    leafs["apn"] = binding.Apn
-    leafs["att"] = binding.Att
-    leafs["hoa"] = binding.Hoa
-    leafs["dflt"] = binding.Dflt
-    leafs["lifetime"] = binding.Lifetime
-    leafs["liferem"] = binding.Liferem
-    leafs["refresh"] = binding.Refresh
-    leafs["refresh-rem"] = binding.RefreshRem
-    leafs["prefix-len"] = binding.PrefixLen
-    leafs["num-hnps"] = binding.NumHnps
-    leafs["num-coa"] = binding.NumCoa
-    leafs["num-dmnp-v4"] = binding.NumDmnpV4
-    leafs["num-dmnp-v6"] = binding.NumDmnpV6
-    leafs["hnps"] = binding.Hnps
-    leafs["ignore-home-address"] = binding.IgnoreHomeAddress
-    leafs["up-stream-grekey"] = binding.UpStreamGrekey
-    leafs["down-stream-grekey"] = binding.DownStreamGrekey
-    leafs["vrfid"] = binding.Vrfid
-    return leafs
-}
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetBundleName() string { return "cisco_ios_xr" }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetYangName() string { return "binding" }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) SetParent(parent types.Entity) { binding.parent = parent }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetParent() types.Entity { return binding.parent }
-
-func (binding *Pmipv6_Lma_Bindings_Binding) GetParentYangName() string { return "bindings" }
 
 // Pmipv6_Lma_Bindings_Binding_Coa
 // COA entries
 type Pmipv6_Lma_Bindings_Binding_Coa struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Link Layer Identifier. The type is string.
@@ -4035,228 +2537,116 @@ type Pmipv6_Lma_Bindings_Binding_Coa struct {
     Upkey interface{}
 
     // IPv4 CoA. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     CoaV4 interface{}
 
     // IPv6 CoA. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     CoaV6 interface{}
 }
 
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetFilter() yfilter.YFilter { return coa.YFilter }
+func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetEntityData() *types.CommonEntityData {
+    coa.EntityData.YFilter = coa.YFilter
+    coa.EntityData.YangName = "coa"
+    coa.EntityData.BundleName = "cisco_ios_xr"
+    coa.EntityData.ParentYangName = "binding"
+    coa.EntityData.SegmentPath = "coa"
+    coa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    coa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    coa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) SetFilter(yf yfilter.YFilter) { coa.YFilter = yf }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetGoName(yname string) string {
-    if yname == "llid" { return "Llid" }
-    if yname == "peer-name" { return "PeerName" }
-    if yname == "tunnel" { return "Tunnel" }
-    if yname == "e-label" { return "ELabel" }
-    if yname == "color" { return "Color" }
-    if yname == "roa-min-tf" { return "RoaMinTf" }
-    if yname == "pstate" { return "Pstate" }
-    if yname == "msisdn" { return "Msisdn" }
-    if yname == "imsi" { return "Imsi" }
-    if yname == "cdma-nai" { return "CdmaNai" }
-    if yname == "pgw-apn" { return "PgwApn" }
-    if yname == "pgw-trans-vrf" { return "PgwTransVrf" }
-    if yname == "att" { return "Att" }
-    if yname == "lifetime" { return "Lifetime" }
-    if yname == "lifetime-remaining" { return "LifetimeRemaining" }
-    if yname == "refresh" { return "Refresh" }
-    if yname == "refresh-rem" { return "RefreshRem" }
-    if yname == "dnkey" { return "Dnkey" }
-    if yname == "upkey" { return "Upkey" }
-    if yname == "coa-v4" { return "CoaV4" }
-    if yname == "coa-v6" { return "CoaV6" }
-    return ""
+    coa.EntityData.Children = make(map[string]types.YChild)
+    coa.EntityData.Leafs = make(map[string]types.YLeaf)
+    coa.EntityData.Leafs["llid"] = types.YLeaf{"Llid", coa.Llid}
+    coa.EntityData.Leafs["peer-name"] = types.YLeaf{"PeerName", coa.PeerName}
+    coa.EntityData.Leafs["tunnel"] = types.YLeaf{"Tunnel", coa.Tunnel}
+    coa.EntityData.Leafs["e-label"] = types.YLeaf{"ELabel", coa.ELabel}
+    coa.EntityData.Leafs["color"] = types.YLeaf{"Color", coa.Color}
+    coa.EntityData.Leafs["roa-min-tf"] = types.YLeaf{"RoaMinTf", coa.RoaMinTf}
+    coa.EntityData.Leafs["pstate"] = types.YLeaf{"Pstate", coa.Pstate}
+    coa.EntityData.Leafs["msisdn"] = types.YLeaf{"Msisdn", coa.Msisdn}
+    coa.EntityData.Leafs["imsi"] = types.YLeaf{"Imsi", coa.Imsi}
+    coa.EntityData.Leafs["cdma-nai"] = types.YLeaf{"CdmaNai", coa.CdmaNai}
+    coa.EntityData.Leafs["pgw-apn"] = types.YLeaf{"PgwApn", coa.PgwApn}
+    coa.EntityData.Leafs["pgw-trans-vrf"] = types.YLeaf{"PgwTransVrf", coa.PgwTransVrf}
+    coa.EntityData.Leafs["att"] = types.YLeaf{"Att", coa.Att}
+    coa.EntityData.Leafs["lifetime"] = types.YLeaf{"Lifetime", coa.Lifetime}
+    coa.EntityData.Leafs["lifetime-remaining"] = types.YLeaf{"LifetimeRemaining", coa.LifetimeRemaining}
+    coa.EntityData.Leafs["refresh"] = types.YLeaf{"Refresh", coa.Refresh}
+    coa.EntityData.Leafs["refresh-rem"] = types.YLeaf{"RefreshRem", coa.RefreshRem}
+    coa.EntityData.Leafs["dnkey"] = types.YLeaf{"Dnkey", coa.Dnkey}
+    coa.EntityData.Leafs["upkey"] = types.YLeaf{"Upkey", coa.Upkey}
+    coa.EntityData.Leafs["coa-v4"] = types.YLeaf{"CoaV4", coa.CoaV4}
+    coa.EntityData.Leafs["coa-v6"] = types.YLeaf{"CoaV6", coa.CoaV6}
+    return &(coa.EntityData)
 }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetSegmentPath() string {
-    return "coa"
-}
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["llid"] = coa.Llid
-    leafs["peer-name"] = coa.PeerName
-    leafs["tunnel"] = coa.Tunnel
-    leafs["e-label"] = coa.ELabel
-    leafs["color"] = coa.Color
-    leafs["roa-min-tf"] = coa.RoaMinTf
-    leafs["pstate"] = coa.Pstate
-    leafs["msisdn"] = coa.Msisdn
-    leafs["imsi"] = coa.Imsi
-    leafs["cdma-nai"] = coa.CdmaNai
-    leafs["pgw-apn"] = coa.PgwApn
-    leafs["pgw-trans-vrf"] = coa.PgwTransVrf
-    leafs["att"] = coa.Att
-    leafs["lifetime"] = coa.Lifetime
-    leafs["lifetime-remaining"] = coa.LifetimeRemaining
-    leafs["refresh"] = coa.Refresh
-    leafs["refresh-rem"] = coa.RefreshRem
-    leafs["dnkey"] = coa.Dnkey
-    leafs["upkey"] = coa.Upkey
-    leafs["coa-v4"] = coa.CoaV4
-    leafs["coa-v6"] = coa.CoaV6
-    return leafs
-}
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetBundleName() string { return "cisco_ios_xr" }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetYangName() string { return "coa" }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) SetParent(parent types.Entity) { coa.parent = parent }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetParent() types.Entity { return coa.parent }
-
-func (coa *Pmipv6_Lma_Bindings_Binding_Coa) GetParentYangName() string { return "binding" }
 
 // Pmipv6_Lma_Bindings_Binding_DmnpV4
 // IPv4 DMNP prefixes
 type Pmipv6_Lma_Bindings_Binding_DmnpV4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
     Pfxlen interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 }
 
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetFilter() yfilter.YFilter { return dmnpV4.YFilter }
+func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetEntityData() *types.CommonEntityData {
+    dmnpV4.EntityData.YFilter = dmnpV4.YFilter
+    dmnpV4.EntityData.YangName = "dmnp-v4"
+    dmnpV4.EntityData.BundleName = "cisco_ios_xr"
+    dmnpV4.EntityData.ParentYangName = "binding"
+    dmnpV4.EntityData.SegmentPath = "dmnp-v4"
+    dmnpV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmnpV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmnpV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) SetFilter(yf yfilter.YFilter) { dmnpV4.YFilter = yf }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetGoName(yname string) string {
-    if yname == "pfxlen" { return "Pfxlen" }
-    if yname == "prefix" { return "Prefix" }
-    return ""
+    dmnpV4.EntityData.Children = make(map[string]types.YChild)
+    dmnpV4.EntityData.Leafs = make(map[string]types.YLeaf)
+    dmnpV4.EntityData.Leafs["pfxlen"] = types.YLeaf{"Pfxlen", dmnpV4.Pfxlen}
+    dmnpV4.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", dmnpV4.Prefix}
+    return &(dmnpV4.EntityData)
 }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetSegmentPath() string {
-    return "dmnp-v4"
-}
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pfxlen"] = dmnpV4.Pfxlen
-    leafs["prefix"] = dmnpV4.Prefix
-    return leafs
-}
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetYangName() string { return "dmnp-v4" }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) SetParent(parent types.Entity) { dmnpV4.parent = parent }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetParent() types.Entity { return dmnpV4.parent }
-
-func (dmnpV4 *Pmipv6_Lma_Bindings_Binding_DmnpV4) GetParentYangName() string { return "binding" }
 
 // Pmipv6_Lma_Bindings_Binding_DmnpV6
 // IPv6 DMNP prefixes
 type Pmipv6_Lma_Bindings_Binding_DmnpV6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv6 prefix length. The type is interface{} with range: 0..255.
     Pfxlen interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Prefix interface{}
 }
 
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetFilter() yfilter.YFilter { return dmnpV6.YFilter }
+func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetEntityData() *types.CommonEntityData {
+    dmnpV6.EntityData.YFilter = dmnpV6.YFilter
+    dmnpV6.EntityData.YangName = "dmnp-v6"
+    dmnpV6.EntityData.BundleName = "cisco_ios_xr"
+    dmnpV6.EntityData.ParentYangName = "binding"
+    dmnpV6.EntityData.SegmentPath = "dmnp-v6"
+    dmnpV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dmnpV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dmnpV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) SetFilter(yf yfilter.YFilter) { dmnpV6.YFilter = yf }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetGoName(yname string) string {
-    if yname == "pfxlen" { return "Pfxlen" }
-    if yname == "prefix" { return "Prefix" }
-    return ""
+    dmnpV6.EntityData.Children = make(map[string]types.YChild)
+    dmnpV6.EntityData.Leafs = make(map[string]types.YLeaf)
+    dmnpV6.EntityData.Leafs["pfxlen"] = types.YLeaf{"Pfxlen", dmnpV6.Pfxlen}
+    dmnpV6.EntityData.Leafs["prefix"] = types.YLeaf{"Prefix", dmnpV6.Prefix}
+    return &(dmnpV6.EntityData)
 }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetSegmentPath() string {
-    return "dmnp-v6"
-}
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pfxlen"] = dmnpV6.Pfxlen
-    leafs["prefix"] = dmnpV6.Prefix
-    return leafs
-}
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetYangName() string { return "dmnp-v6" }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) SetParent(parent types.Entity) { dmnpV6.parent = parent }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetParent() types.Entity { return dmnpV6.parent }
-
-func (dmnpV6 *Pmipv6_Lma_Bindings_Binding_DmnpV6) GetParentYangName() string { return "binding" }
 
 // Pmipv6_Lma_Heartbeats
 // Table of Heartbeat
 type Pmipv6_Lma_Heartbeats struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Heartbeat information. The type is slice of
@@ -4264,75 +2654,36 @@ type Pmipv6_Lma_Heartbeats struct {
     Heartbeat []Pmipv6_Lma_Heartbeats_Heartbeat
 }
 
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetFilter() yfilter.YFilter { return heartbeats.YFilter }
+func (heartbeats *Pmipv6_Lma_Heartbeats) GetEntityData() *types.CommonEntityData {
+    heartbeats.EntityData.YFilter = heartbeats.YFilter
+    heartbeats.EntityData.YangName = "heartbeats"
+    heartbeats.EntityData.BundleName = "cisco_ios_xr"
+    heartbeats.EntityData.ParentYangName = "lma"
+    heartbeats.EntityData.SegmentPath = "heartbeats"
+    heartbeats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    heartbeats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    heartbeats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (heartbeats *Pmipv6_Lma_Heartbeats) SetFilter(yf yfilter.YFilter) { heartbeats.YFilter = yf }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetGoName(yname string) string {
-    if yname == "heartbeat" { return "Heartbeat" }
-    return ""
-}
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetSegmentPath() string {
-    return "heartbeats"
-}
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "heartbeat" {
-        for _, c := range heartbeats.Heartbeat {
-            if heartbeats.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_Heartbeats_Heartbeat{}
-        heartbeats.Heartbeat = append(heartbeats.Heartbeat, child)
-        return &heartbeats.Heartbeat[len(heartbeats.Heartbeat)-1]
-    }
-    return nil
-}
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    heartbeats.EntityData.Children = make(map[string]types.YChild)
+    heartbeats.EntityData.Children["heartbeat"] = types.YChild{"Heartbeat", nil}
     for i := range heartbeats.Heartbeat {
-        children[heartbeats.Heartbeat[i].GetSegmentPath()] = &heartbeats.Heartbeat[i]
+        heartbeats.EntityData.Children[types.GetSegmentPath(&heartbeats.Heartbeat[i])] = types.YChild{"Heartbeat", &heartbeats.Heartbeat[i]}
     }
-    return children
+    heartbeats.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(heartbeats.EntityData)
 }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetBundleName() string { return "cisco_ios_xr" }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetYangName() string { return "heartbeats" }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) SetParent(parent types.Entity) { heartbeats.parent = parent }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetParent() types.Entity { return heartbeats.parent }
-
-func (heartbeats *Pmipv6_Lma_Heartbeats) GetParentYangName() string { return "lma" }
 
 // Pmipv6_Lma_Heartbeats_Heartbeat
 // Heartbeat information
 type Pmipv6_Lma_Heartbeats_Heartbeat struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. IPv4 or IPv6 address. The type is one of the
     // following types: string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     PeerAddr interface{}
 
     // VRF Name. The type is string.
@@ -4348,19 +2699,19 @@ type Pmipv6_Lma_Heartbeats_Heartbeat struct {
     DestinationPort interface{}
 
     // Source IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SourceIpv4Address interface{}
 
     // Destination IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv4Address interface{}
 
     // Source IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     SourceIpv6Address interface{}
 
     // Destination IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     DestinationIpv6Address interface{}
 
     // Path Status. The type is bool.
@@ -4370,76 +2721,36 @@ type Pmipv6_Lma_Heartbeats_Heartbeat struct {
     Ipv6Path interface{}
 }
 
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetFilter() yfilter.YFilter { return heartbeat.YFilter }
+func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetEntityData() *types.CommonEntityData {
+    heartbeat.EntityData.YFilter = heartbeat.YFilter
+    heartbeat.EntityData.YangName = "heartbeat"
+    heartbeat.EntityData.BundleName = "cisco_ios_xr"
+    heartbeat.EntityData.ParentYangName = "heartbeats"
+    heartbeat.EntityData.SegmentPath = "heartbeat" + "[peer-addr='" + fmt.Sprintf("%v", heartbeat.PeerAddr) + "']"
+    heartbeat.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    heartbeat.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    heartbeat.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) SetFilter(yf yfilter.YFilter) { heartbeat.YFilter = yf }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetGoName(yname string) string {
-    if yname == "peer-addr" { return "PeerAddr" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "customer-name" { return "CustomerName" }
-    if yname == "source-port" { return "SourcePort" }
-    if yname == "destination-port" { return "DestinationPort" }
-    if yname == "source-ipv4-address" { return "SourceIpv4Address" }
-    if yname == "destination-ipv4-address" { return "DestinationIpv4Address" }
-    if yname == "source-ipv6-address" { return "SourceIpv6Address" }
-    if yname == "destination-ipv6-address" { return "DestinationIpv6Address" }
-    if yname == "status" { return "Status" }
-    if yname == "ipv6-path" { return "Ipv6Path" }
-    return ""
+    heartbeat.EntityData.Children = make(map[string]types.YChild)
+    heartbeat.EntityData.Leafs = make(map[string]types.YLeaf)
+    heartbeat.EntityData.Leafs["peer-addr"] = types.YLeaf{"PeerAddr", heartbeat.PeerAddr}
+    heartbeat.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", heartbeat.Vrf}
+    heartbeat.EntityData.Leafs["customer-name"] = types.YLeaf{"CustomerName", heartbeat.CustomerName}
+    heartbeat.EntityData.Leafs["source-port"] = types.YLeaf{"SourcePort", heartbeat.SourcePort}
+    heartbeat.EntityData.Leafs["destination-port"] = types.YLeaf{"DestinationPort", heartbeat.DestinationPort}
+    heartbeat.EntityData.Leafs["source-ipv4-address"] = types.YLeaf{"SourceIpv4Address", heartbeat.SourceIpv4Address}
+    heartbeat.EntityData.Leafs["destination-ipv4-address"] = types.YLeaf{"DestinationIpv4Address", heartbeat.DestinationIpv4Address}
+    heartbeat.EntityData.Leafs["source-ipv6-address"] = types.YLeaf{"SourceIpv6Address", heartbeat.SourceIpv6Address}
+    heartbeat.EntityData.Leafs["destination-ipv6-address"] = types.YLeaf{"DestinationIpv6Address", heartbeat.DestinationIpv6Address}
+    heartbeat.EntityData.Leafs["status"] = types.YLeaf{"Status", heartbeat.Status}
+    heartbeat.EntityData.Leafs["ipv6-path"] = types.YLeaf{"Ipv6Path", heartbeat.Ipv6Path}
+    return &(heartbeat.EntityData)
 }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetSegmentPath() string {
-    return "heartbeat" + "[peer-addr='" + fmt.Sprintf("%v", heartbeat.PeerAddr) + "']"
-}
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["peer-addr"] = heartbeat.PeerAddr
-    leafs["vrf"] = heartbeat.Vrf
-    leafs["customer-name"] = heartbeat.CustomerName
-    leafs["source-port"] = heartbeat.SourcePort
-    leafs["destination-port"] = heartbeat.DestinationPort
-    leafs["source-ipv4-address"] = heartbeat.SourceIpv4Address
-    leafs["destination-ipv4-address"] = heartbeat.DestinationIpv4Address
-    leafs["source-ipv6-address"] = heartbeat.SourceIpv6Address
-    leafs["destination-ipv6-address"] = heartbeat.DestinationIpv6Address
-    leafs["status"] = heartbeat.Status
-    leafs["ipv6-path"] = heartbeat.Ipv6Path
-    return leafs
-}
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetBundleName() string { return "cisco_ios_xr" }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetYangName() string { return "heartbeat" }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) SetParent(parent types.Entity) { heartbeat.parent = parent }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetParent() types.Entity { return heartbeat.parent }
-
-func (heartbeat *Pmipv6_Lma_Heartbeats_Heartbeat) GetParentYangName() string { return "heartbeats" }
 
 // Pmipv6_Lma_ConfigVariables
 // Global Configuration Variables
 type Pmipv6_Lma_ConfigVariables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table of CustomerVariables.
@@ -4449,64 +2760,27 @@ type Pmipv6_Lma_ConfigVariables struct {
     GlobalVariables Pmipv6_Lma_ConfigVariables_GlobalVariables
 }
 
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetFilter() yfilter.YFilter { return configVariables.YFilter }
+func (configVariables *Pmipv6_Lma_ConfigVariables) GetEntityData() *types.CommonEntityData {
+    configVariables.EntityData.YFilter = configVariables.YFilter
+    configVariables.EntityData.YangName = "config-variables"
+    configVariables.EntityData.BundleName = "cisco_ios_xr"
+    configVariables.EntityData.ParentYangName = "lma"
+    configVariables.EntityData.SegmentPath = "config-variables"
+    configVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    configVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    configVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (configVariables *Pmipv6_Lma_ConfigVariables) SetFilter(yf yfilter.YFilter) { configVariables.YFilter = yf }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetGoName(yname string) string {
-    if yname == "customer-variables" { return "CustomerVariables" }
-    if yname == "global-variables" { return "GlobalVariables" }
-    return ""
+    configVariables.EntityData.Children = make(map[string]types.YChild)
+    configVariables.EntityData.Children["customer-variables"] = types.YChild{"CustomerVariables", &configVariables.CustomerVariables}
+    configVariables.EntityData.Children["global-variables"] = types.YChild{"GlobalVariables", &configVariables.GlobalVariables}
+    configVariables.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(configVariables.EntityData)
 }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetSegmentPath() string {
-    return "config-variables"
-}
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "customer-variables" {
-        return &configVariables.CustomerVariables
-    }
-    if childYangName == "global-variables" {
-        return &configVariables.GlobalVariables
-    }
-    return nil
-}
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["customer-variables"] = &configVariables.CustomerVariables
-    children["global-variables"] = &configVariables.GlobalVariables
-    return children
-}
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetBundleName() string { return "cisco_ios_xr" }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetYangName() string { return "config-variables" }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) SetParent(parent types.Entity) { configVariables.parent = parent }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetParent() types.Entity { return configVariables.parent }
-
-func (configVariables *Pmipv6_Lma_ConfigVariables) GetParentYangName() string { return "lma" }
 
 // Pmipv6_Lma_ConfigVariables_CustomerVariables
 // Table of CustomerVariables
 type Pmipv6_Lma_ConfigVariables_CustomerVariables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Customer name string. The type is slice of
@@ -4514,72 +2788,33 @@ type Pmipv6_Lma_ConfigVariables_CustomerVariables struct {
     CustomerVariable []Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable
 }
 
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetFilter() yfilter.YFilter { return customerVariables.YFilter }
+func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetEntityData() *types.CommonEntityData {
+    customerVariables.EntityData.YFilter = customerVariables.YFilter
+    customerVariables.EntityData.YangName = "customer-variables"
+    customerVariables.EntityData.BundleName = "cisco_ios_xr"
+    customerVariables.EntityData.ParentYangName = "config-variables"
+    customerVariables.EntityData.SegmentPath = "customer-variables"
+    customerVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    customerVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    customerVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) SetFilter(yf yfilter.YFilter) { customerVariables.YFilter = yf }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetGoName(yname string) string {
-    if yname == "customer-variable" { return "CustomerVariable" }
-    return ""
-}
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetSegmentPath() string {
-    return "customer-variables"
-}
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "customer-variable" {
-        for _, c := range customerVariables.CustomerVariable {
-            if customerVariables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable{}
-        customerVariables.CustomerVariable = append(customerVariables.CustomerVariable, child)
-        return &customerVariables.CustomerVariable[len(customerVariables.CustomerVariable)-1]
-    }
-    return nil
-}
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    customerVariables.EntityData.Children = make(map[string]types.YChild)
+    customerVariables.EntityData.Children["customer-variable"] = types.YChild{"CustomerVariable", nil}
     for i := range customerVariables.CustomerVariable {
-        children[customerVariables.CustomerVariable[i].GetSegmentPath()] = &customerVariables.CustomerVariable[i]
+        customerVariables.EntityData.Children[types.GetSegmentPath(&customerVariables.CustomerVariable[i])] = types.YChild{"CustomerVariable", &customerVariables.CustomerVariable[i]}
     }
-    return children
+    customerVariables.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(customerVariables.EntityData)
 }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetBundleName() string { return "cisco_ios_xr" }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetYangName() string { return "customer-variables" }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) SetParent(parent types.Entity) { customerVariables.parent = parent }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetParent() types.Entity { return customerVariables.parent }
-
-func (customerVariables *Pmipv6_Lma_ConfigVariables_CustomerVariables) GetParentYangName() string { return "config-variables" }
 
 // Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable
 // Customer name string
 type Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Customer name. The type is string with pattern:
-    // [\w\-\.:,_@#%$\+=\|;]+.
+    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
     CustomerName interface{}
 
     // Customer Name. The type is string.
@@ -4595,67 +2830,30 @@ type Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable struct {
     MllService Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService
 }
 
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetFilter() yfilter.YFilter { return customerVariable.YFilter }
+func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetEntityData() *types.CommonEntityData {
+    customerVariable.EntityData.YFilter = customerVariable.YFilter
+    customerVariable.EntityData.YangName = "customer-variable"
+    customerVariable.EntityData.BundleName = "cisco_ios_xr"
+    customerVariable.EntityData.ParentYangName = "customer-variables"
+    customerVariable.EntityData.SegmentPath = "customer-variable" + "[customer-name='" + fmt.Sprintf("%v", customerVariable.CustomerName) + "']"
+    customerVariable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    customerVariable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    customerVariable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) SetFilter(yf yfilter.YFilter) { customerVariable.YFilter = yf }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetGoName(yname string) string {
-    if yname == "customer-name" { return "CustomerName" }
-    if yname == "cust-name" { return "CustName" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "auth-option" { return "AuthOption" }
-    if yname == "mll-service" { return "MllService" }
-    return ""
+    customerVariable.EntityData.Children = make(map[string]types.YChild)
+    customerVariable.EntityData.Children["mll-service"] = types.YChild{"MllService", &customerVariable.MllService}
+    customerVariable.EntityData.Leafs = make(map[string]types.YLeaf)
+    customerVariable.EntityData.Leafs["customer-name"] = types.YLeaf{"CustomerName", customerVariable.CustomerName}
+    customerVariable.EntityData.Leafs["cust-name"] = types.YLeaf{"CustName", customerVariable.CustName}
+    customerVariable.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", customerVariable.VrfName}
+    customerVariable.EntityData.Leafs["auth-option"] = types.YLeaf{"AuthOption", customerVariable.AuthOption}
+    return &(customerVariable.EntityData)
 }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetSegmentPath() string {
-    return "customer-variable" + "[customer-name='" + fmt.Sprintf("%v", customerVariable.CustomerName) + "']"
-}
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mll-service" {
-        return &customerVariable.MllService
-    }
-    return nil
-}
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mll-service"] = &customerVariable.MllService
-    return children
-}
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["customer-name"] = customerVariable.CustomerName
-    leafs["cust-name"] = customerVariable.CustName
-    leafs["vrf-name"] = customerVariable.VrfName
-    leafs["auth-option"] = customerVariable.AuthOption
-    return leafs
-}
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetBundleName() string { return "cisco_ios_xr" }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetYangName() string { return "customer-variable" }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) SetParent(parent types.Entity) { customerVariable.parent = parent }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetParent() types.Entity { return customerVariable.parent }
-
-func (customerVariable *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable) GetParentYangName() string { return "customer-variables" }
 
 // Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService
 // MLL service parameters
 type Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ignore Home Address. The type is bool.
@@ -4691,72 +2889,34 @@ type Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService st
     MnpIpv6CustCur interface{}
 }
 
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetFilter() yfilter.YFilter { return mllService.YFilter }
+func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetEntityData() *types.CommonEntityData {
+    mllService.EntityData.YFilter = mllService.YFilter
+    mllService.EntityData.YangName = "mll-service"
+    mllService.EntityData.BundleName = "cisco_ios_xr"
+    mllService.EntityData.ParentYangName = "customer-variable"
+    mllService.EntityData.SegmentPath = "mll-service"
+    mllService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mllService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mllService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) SetFilter(yf yfilter.YFilter) { mllService.YFilter = yf }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetGoName(yname string) string {
-    if yname == "ignore-hoa" { return "IgnoreHoa" }
-    if yname == "mnp-ipv4-lmn-max" { return "MnpIpv4LmnMax" }
-    if yname == "mnp-ipv6-lmn-max" { return "MnpIpv6LmnMax" }
-    if yname == "mnp-lmn-max" { return "MnpLmnMax" }
-    if yname == "mnp-ipv4-cust-max" { return "MnpIpv4CustMax" }
-    if yname == "mnp-ipv6-cust-max" { return "MnpIpv6CustMax" }
-    if yname == "mnp-cust-max" { return "MnpCustMax" }
-    if yname == "mnp-ipv4-cust-cur" { return "MnpIpv4CustCur" }
-    if yname == "mnp-ipv6-cust-cur" { return "MnpIpv6CustCur" }
-    return ""
+    mllService.EntityData.Children = make(map[string]types.YChild)
+    mllService.EntityData.Leafs = make(map[string]types.YLeaf)
+    mllService.EntityData.Leafs["ignore-hoa"] = types.YLeaf{"IgnoreHoa", mllService.IgnoreHoa}
+    mllService.EntityData.Leafs["mnp-ipv4-lmn-max"] = types.YLeaf{"MnpIpv4LmnMax", mllService.MnpIpv4LmnMax}
+    mllService.EntityData.Leafs["mnp-ipv6-lmn-max"] = types.YLeaf{"MnpIpv6LmnMax", mllService.MnpIpv6LmnMax}
+    mllService.EntityData.Leafs["mnp-lmn-max"] = types.YLeaf{"MnpLmnMax", mllService.MnpLmnMax}
+    mllService.EntityData.Leafs["mnp-ipv4-cust-max"] = types.YLeaf{"MnpIpv4CustMax", mllService.MnpIpv4CustMax}
+    mllService.EntityData.Leafs["mnp-ipv6-cust-max"] = types.YLeaf{"MnpIpv6CustMax", mllService.MnpIpv6CustMax}
+    mllService.EntityData.Leafs["mnp-cust-max"] = types.YLeaf{"MnpCustMax", mllService.MnpCustMax}
+    mllService.EntityData.Leafs["mnp-ipv4-cust-cur"] = types.YLeaf{"MnpIpv4CustCur", mllService.MnpIpv4CustCur}
+    mllService.EntityData.Leafs["mnp-ipv6-cust-cur"] = types.YLeaf{"MnpIpv6CustCur", mllService.MnpIpv6CustCur}
+    return &(mllService.EntityData)
 }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetSegmentPath() string {
-    return "mll-service"
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ignore-hoa"] = mllService.IgnoreHoa
-    leafs["mnp-ipv4-lmn-max"] = mllService.MnpIpv4LmnMax
-    leafs["mnp-ipv6-lmn-max"] = mllService.MnpIpv6LmnMax
-    leafs["mnp-lmn-max"] = mllService.MnpLmnMax
-    leafs["mnp-ipv4-cust-max"] = mllService.MnpIpv4CustMax
-    leafs["mnp-ipv6-cust-max"] = mllService.MnpIpv6CustMax
-    leafs["mnp-cust-max"] = mllService.MnpCustMax
-    leafs["mnp-ipv4-cust-cur"] = mllService.MnpIpv4CustCur
-    leafs["mnp-ipv6-cust-cur"] = mllService.MnpIpv6CustCur
-    return leafs
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetYangName() string { return "mll-service" }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) SetParent(parent types.Entity) { mllService.parent = parent }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetParent() types.Entity { return mllService.parent }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_CustomerVariables_CustomerVariable_MllService) GetParentYangName() string { return "customer-variable" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables
 // Global Configuration Variables
 type Pmipv6_Lma_ConfigVariables_GlobalVariables struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Domain Name. The type is string.
@@ -4842,160 +3002,63 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables struct {
     Cust []Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust
 }
 
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetFilter() yfilter.YFilter { return globalVariables.YFilter }
+func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetEntityData() *types.CommonEntityData {
+    globalVariables.EntityData.YFilter = globalVariables.YFilter
+    globalVariables.EntityData.YangName = "global-variables"
+    globalVariables.EntityData.BundleName = "cisco_ios_xr"
+    globalVariables.EntityData.ParentYangName = "config-variables"
+    globalVariables.EntityData.SegmentPath = "global-variables"
+    globalVariables.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    globalVariables.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    globalVariables.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) SetFilter(yf yfilter.YFilter) { globalVariables.YFilter = yf }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetGoName(yname string) string {
-    if yname == "domain" { return "Domain" }
-    if yname == "selfid" { return "Selfid" }
-    if yname == "apn-name" { return "ApnName" }
-    if yname == "role" { return "Role" }
-    if yname == "count" { return "Count" }
-    if yname == "peers" { return "Peers" }
-    if yname == "customers" { return "Customers" }
-    if yname == "num-network" { return "NumNetwork" }
-    if yname == "discover-mn" { return "DiscoverMn" }
-    if yname == "local-routing" { return "LocalRouting" }
-    if yname == "aaa-accounting" { return "AaaAccounting" }
-    if yname == "default-mn" { return "DefaultMn" }
-    if yname == "apn" { return "Apn" }
-    if yname == "learn-mag" { return "LearnMag" }
-    if yname == "session-mgr" { return "SessionMgr" }
-    if yname == "service" { return "Service" }
-    if yname == "profile" { return "Profile" }
-    if yname == "ddp" { return "Ddp" }
-    if yname == "ddt" { return "Ddt" }
-    if yname == "ddr" { return "Ddr" }
-    if yname == "parameters" { return "Parameters" }
-    if yname == "mll-service" { return "MllService" }
-    if yname == "intf" { return "Intf" }
-    if yname == "peer" { return "Peer" }
-    if yname == "network" { return "Network" }
-    if yname == "cust" { return "Cust" }
-    return ""
-}
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetSegmentPath() string {
-    return "global-variables"
-}
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "parameters" {
-        return &globalVariables.Parameters
-    }
-    if childYangName == "mll-service" {
-        return &globalVariables.MllService
-    }
-    if childYangName == "intf" {
-        for _, c := range globalVariables.Intf {
-            if globalVariables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf{}
-        globalVariables.Intf = append(globalVariables.Intf, child)
-        return &globalVariables.Intf[len(globalVariables.Intf)-1]
-    }
-    if childYangName == "peer" {
-        for _, c := range globalVariables.Peer {
-            if globalVariables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer{}
-        globalVariables.Peer = append(globalVariables.Peer, child)
-        return &globalVariables.Peer[len(globalVariables.Peer)-1]
-    }
-    if childYangName == "network" {
-        for _, c := range globalVariables.Network {
-            if globalVariables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_ConfigVariables_GlobalVariables_Network{}
-        globalVariables.Network = append(globalVariables.Network, child)
-        return &globalVariables.Network[len(globalVariables.Network)-1]
-    }
-    if childYangName == "cust" {
-        for _, c := range globalVariables.Cust {
-            if globalVariables.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust{}
-        globalVariables.Cust = append(globalVariables.Cust, child)
-        return &globalVariables.Cust[len(globalVariables.Cust)-1]
-    }
-    return nil
-}
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["parameters"] = &globalVariables.Parameters
-    children["mll-service"] = &globalVariables.MllService
+    globalVariables.EntityData.Children = make(map[string]types.YChild)
+    globalVariables.EntityData.Children["parameters"] = types.YChild{"Parameters", &globalVariables.Parameters}
+    globalVariables.EntityData.Children["mll-service"] = types.YChild{"MllService", &globalVariables.MllService}
+    globalVariables.EntityData.Children["intf"] = types.YChild{"Intf", nil}
     for i := range globalVariables.Intf {
-        children[globalVariables.Intf[i].GetSegmentPath()] = &globalVariables.Intf[i]
+        globalVariables.EntityData.Children[types.GetSegmentPath(&globalVariables.Intf[i])] = types.YChild{"Intf", &globalVariables.Intf[i]}
     }
+    globalVariables.EntityData.Children["peer"] = types.YChild{"Peer", nil}
     for i := range globalVariables.Peer {
-        children[globalVariables.Peer[i].GetSegmentPath()] = &globalVariables.Peer[i]
+        globalVariables.EntityData.Children[types.GetSegmentPath(&globalVariables.Peer[i])] = types.YChild{"Peer", &globalVariables.Peer[i]}
     }
+    globalVariables.EntityData.Children["network"] = types.YChild{"Network", nil}
     for i := range globalVariables.Network {
-        children[globalVariables.Network[i].GetSegmentPath()] = &globalVariables.Network[i]
+        globalVariables.EntityData.Children[types.GetSegmentPath(&globalVariables.Network[i])] = types.YChild{"Network", &globalVariables.Network[i]}
     }
+    globalVariables.EntityData.Children["cust"] = types.YChild{"Cust", nil}
     for i := range globalVariables.Cust {
-        children[globalVariables.Cust[i].GetSegmentPath()] = &globalVariables.Cust[i]
+        globalVariables.EntityData.Children[types.GetSegmentPath(&globalVariables.Cust[i])] = types.YChild{"Cust", &globalVariables.Cust[i]}
     }
-    return children
+    globalVariables.EntityData.Leafs = make(map[string]types.YLeaf)
+    globalVariables.EntityData.Leafs["domain"] = types.YLeaf{"Domain", globalVariables.Domain}
+    globalVariables.EntityData.Leafs["selfid"] = types.YLeaf{"Selfid", globalVariables.Selfid}
+    globalVariables.EntityData.Leafs["apn-name"] = types.YLeaf{"ApnName", globalVariables.ApnName}
+    globalVariables.EntityData.Leafs["role"] = types.YLeaf{"Role", globalVariables.Role}
+    globalVariables.EntityData.Leafs["count"] = types.YLeaf{"Count", globalVariables.Count}
+    globalVariables.EntityData.Leafs["peers"] = types.YLeaf{"Peers", globalVariables.Peers}
+    globalVariables.EntityData.Leafs["customers"] = types.YLeaf{"Customers", globalVariables.Customers}
+    globalVariables.EntityData.Leafs["num-network"] = types.YLeaf{"NumNetwork", globalVariables.NumNetwork}
+    globalVariables.EntityData.Leafs["discover-mn"] = types.YLeaf{"DiscoverMn", globalVariables.DiscoverMn}
+    globalVariables.EntityData.Leafs["local-routing"] = types.YLeaf{"LocalRouting", globalVariables.LocalRouting}
+    globalVariables.EntityData.Leafs["aaa-accounting"] = types.YLeaf{"AaaAccounting", globalVariables.AaaAccounting}
+    globalVariables.EntityData.Leafs["default-mn"] = types.YLeaf{"DefaultMn", globalVariables.DefaultMn}
+    globalVariables.EntityData.Leafs["apn"] = types.YLeaf{"Apn", globalVariables.Apn}
+    globalVariables.EntityData.Leafs["learn-mag"] = types.YLeaf{"LearnMag", globalVariables.LearnMag}
+    globalVariables.EntityData.Leafs["session-mgr"] = types.YLeaf{"SessionMgr", globalVariables.SessionMgr}
+    globalVariables.EntityData.Leafs["service"] = types.YLeaf{"Service", globalVariables.Service}
+    globalVariables.EntityData.Leafs["profile"] = types.YLeaf{"Profile", globalVariables.Profile}
+    globalVariables.EntityData.Leafs["ddp"] = types.YLeaf{"Ddp", globalVariables.Ddp}
+    globalVariables.EntityData.Leafs["ddt"] = types.YLeaf{"Ddt", globalVariables.Ddt}
+    globalVariables.EntityData.Leafs["ddr"] = types.YLeaf{"Ddr", globalVariables.Ddr}
+    return &(globalVariables.EntityData)
 }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["domain"] = globalVariables.Domain
-    leafs["selfid"] = globalVariables.Selfid
-    leafs["apn-name"] = globalVariables.ApnName
-    leafs["role"] = globalVariables.Role
-    leafs["count"] = globalVariables.Count
-    leafs["peers"] = globalVariables.Peers
-    leafs["customers"] = globalVariables.Customers
-    leafs["num-network"] = globalVariables.NumNetwork
-    leafs["discover-mn"] = globalVariables.DiscoverMn
-    leafs["local-routing"] = globalVariables.LocalRouting
-    leafs["aaa-accounting"] = globalVariables.AaaAccounting
-    leafs["default-mn"] = globalVariables.DefaultMn
-    leafs["apn"] = globalVariables.Apn
-    leafs["learn-mag"] = globalVariables.LearnMag
-    leafs["session-mgr"] = globalVariables.SessionMgr
-    leafs["service"] = globalVariables.Service
-    leafs["profile"] = globalVariables.Profile
-    leafs["ddp"] = globalVariables.Ddp
-    leafs["ddt"] = globalVariables.Ddt
-    leafs["ddr"] = globalVariables.Ddr
-    return leafs
-}
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetBundleName() string { return "cisco_ios_xr" }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetYangName() string { return "global-variables" }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) SetParent(parent types.Entity) { globalVariables.parent = parent }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetParent() types.Entity { return globalVariables.parent }
-
-func (globalVariables *Pmipv6_Lma_ConfigVariables_GlobalVariables) GetParentYangName() string { return "config-variables" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters
 // Domain Parameters
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Timestamp method in use. The type is bool.
@@ -5055,93 +3118,43 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters struct {
     SelfId Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId
 }
 
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetFilter() yfilter.YFilter { return parameters.YFilter }
+func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetEntityData() *types.CommonEntityData {
+    parameters.EntityData.YFilter = parameters.YFilter
+    parameters.EntityData.YangName = "parameters"
+    parameters.EntityData.BundleName = "cisco_ios_xr"
+    parameters.EntityData.ParentYangName = "global-variables"
+    parameters.EntityData.SegmentPath = "parameters"
+    parameters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    parameters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    parameters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) SetFilter(yf yfilter.YFilter) { parameters.YFilter = yf }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetGoName(yname string) string {
-    if yname == "timestamp" { return "Timestamp" }
-    if yname == "window" { return "Window" }
-    if yname == "auth-option" { return "AuthOption" }
-    if yname == "reg-time" { return "RegTime" }
-    if yname == "ref-time" { return "RefTime" }
-    if yname == "retx" { return "Retx" }
-    if yname == "ret-max" { return "RetMax" }
-    if yname == "bri-init" { return "BriInit" }
-    if yname == "bri-retries" { return "BriRetries" }
-    if yname == "bri-max" { return "BriMax" }
-    if yname == "max-bindings" { return "MaxBindings" }
-    if yname == "hnp" { return "Hnp" }
-    if yname == "encap" { return "Encap" }
-    if yname == "delete-time" { return "DeleteTime" }
-    if yname == "create-time" { return "CreateTime" }
-    if yname == "up-grekey" { return "UpGrekey" }
-    if yname == "down-grekey" { return "DownGrekey" }
-    if yname == "self-id" { return "SelfId" }
-    return ""
+    parameters.EntityData.Children = make(map[string]types.YChild)
+    parameters.EntityData.Children["self-id"] = types.YChild{"SelfId", &parameters.SelfId}
+    parameters.EntityData.Leafs = make(map[string]types.YLeaf)
+    parameters.EntityData.Leafs["timestamp"] = types.YLeaf{"Timestamp", parameters.Timestamp}
+    parameters.EntityData.Leafs["window"] = types.YLeaf{"Window", parameters.Window}
+    parameters.EntityData.Leafs["auth-option"] = types.YLeaf{"AuthOption", parameters.AuthOption}
+    parameters.EntityData.Leafs["reg-time"] = types.YLeaf{"RegTime", parameters.RegTime}
+    parameters.EntityData.Leafs["ref-time"] = types.YLeaf{"RefTime", parameters.RefTime}
+    parameters.EntityData.Leafs["retx"] = types.YLeaf{"Retx", parameters.Retx}
+    parameters.EntityData.Leafs["ret-max"] = types.YLeaf{"RetMax", parameters.RetMax}
+    parameters.EntityData.Leafs["bri-init"] = types.YLeaf{"BriInit", parameters.BriInit}
+    parameters.EntityData.Leafs["bri-retries"] = types.YLeaf{"BriRetries", parameters.BriRetries}
+    parameters.EntityData.Leafs["bri-max"] = types.YLeaf{"BriMax", parameters.BriMax}
+    parameters.EntityData.Leafs["max-bindings"] = types.YLeaf{"MaxBindings", parameters.MaxBindings}
+    parameters.EntityData.Leafs["hnp"] = types.YLeaf{"Hnp", parameters.Hnp}
+    parameters.EntityData.Leafs["encap"] = types.YLeaf{"Encap", parameters.Encap}
+    parameters.EntityData.Leafs["delete-time"] = types.YLeaf{"DeleteTime", parameters.DeleteTime}
+    parameters.EntityData.Leafs["create-time"] = types.YLeaf{"CreateTime", parameters.CreateTime}
+    parameters.EntityData.Leafs["up-grekey"] = types.YLeaf{"UpGrekey", parameters.UpGrekey}
+    parameters.EntityData.Leafs["down-grekey"] = types.YLeaf{"DownGrekey", parameters.DownGrekey}
+    return &(parameters.EntityData)
 }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetSegmentPath() string {
-    return "parameters"
-}
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "self-id" {
-        return &parameters.SelfId
-    }
-    return nil
-}
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["self-id"] = &parameters.SelfId
-    return children
-}
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["timestamp"] = parameters.Timestamp
-    leafs["window"] = parameters.Window
-    leafs["auth-option"] = parameters.AuthOption
-    leafs["reg-time"] = parameters.RegTime
-    leafs["ref-time"] = parameters.RefTime
-    leafs["retx"] = parameters.Retx
-    leafs["ret-max"] = parameters.RetMax
-    leafs["bri-init"] = parameters.BriInit
-    leafs["bri-retries"] = parameters.BriRetries
-    leafs["bri-max"] = parameters.BriMax
-    leafs["max-bindings"] = parameters.MaxBindings
-    leafs["hnp"] = parameters.Hnp
-    leafs["encap"] = parameters.Encap
-    leafs["delete-time"] = parameters.DeleteTime
-    leafs["create-time"] = parameters.CreateTime
-    leafs["up-grekey"] = parameters.UpGrekey
-    leafs["down-grekey"] = parameters.DownGrekey
-    return leafs
-}
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetBundleName() string { return "cisco_ios_xr" }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetYangName() string { return "parameters" }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) SetParent(parent types.Entity) { parameters.parent = parent }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetParent() types.Entity { return parameters.parent }
-
-func (parameters *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters) GetParentYangName() string { return "global-variables" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId
 // Self Identifier
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Identifier of PMIP Node. The type is string.
@@ -5151,70 +3164,37 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId struct {
     AddrType interface{}
 
     // IPV6 address of LMA/MAG. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Address interface{}
 
     // IPV4 addrress of LMA/MAG. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 }
 
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetFilter() yfilter.YFilter { return selfId.YFilter }
+func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetEntityData() *types.CommonEntityData {
+    selfId.EntityData.YFilter = selfId.YFilter
+    selfId.EntityData.YangName = "self-id"
+    selfId.EntityData.BundleName = "cisco_ios_xr"
+    selfId.EntityData.ParentYangName = "parameters"
+    selfId.EntityData.SegmentPath = "self-id"
+    selfId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    selfId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    selfId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) SetFilter(yf yfilter.YFilter) { selfId.YFilter = yf }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetGoName(yname string) string {
-    if yname == "entity" { return "Entity" }
-    if yname == "addr-type" { return "AddrType" }
-    if yname == "address" { return "Address" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    return ""
+    selfId.EntityData.Children = make(map[string]types.YChild)
+    selfId.EntityData.Leafs = make(map[string]types.YLeaf)
+    selfId.EntityData.Leafs["entity"] = types.YLeaf{"Entity", selfId.Entity}
+    selfId.EntityData.Leafs["addr-type"] = types.YLeaf{"AddrType", selfId.AddrType}
+    selfId.EntityData.Leafs["address"] = types.YLeaf{"Address", selfId.Address}
+    selfId.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", selfId.Ipv4Address}
+    return &(selfId.EntityData)
 }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetSegmentPath() string {
-    return "self-id"
-}
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["entity"] = selfId.Entity
-    leafs["addr-type"] = selfId.AddrType
-    leafs["address"] = selfId.Address
-    leafs["ipv4-address"] = selfId.Ipv4Address
-    return leafs
-}
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetBundleName() string { return "cisco_ios_xr" }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetYangName() string { return "self-id" }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) SetParent(parent types.Entity) { selfId.parent = parent }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetParent() types.Entity { return selfId.parent }
-
-func (selfId *Pmipv6_Lma_ConfigVariables_GlobalVariables_Parameters_SelfId) GetParentYangName() string { return "parameters" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService
 // MLL service parameters
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ignore Home Address. The type is bool.
@@ -5250,138 +3230,68 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService struct {
     MnpIpv6CustCur interface{}
 }
 
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetFilter() yfilter.YFilter { return mllService.YFilter }
+func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetEntityData() *types.CommonEntityData {
+    mllService.EntityData.YFilter = mllService.YFilter
+    mllService.EntityData.YangName = "mll-service"
+    mllService.EntityData.BundleName = "cisco_ios_xr"
+    mllService.EntityData.ParentYangName = "global-variables"
+    mllService.EntityData.SegmentPath = "mll-service"
+    mllService.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mllService.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mllService.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) SetFilter(yf yfilter.YFilter) { mllService.YFilter = yf }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetGoName(yname string) string {
-    if yname == "ignore-hoa" { return "IgnoreHoa" }
-    if yname == "mnp-ipv4-lmn-max" { return "MnpIpv4LmnMax" }
-    if yname == "mnp-ipv6-lmn-max" { return "MnpIpv6LmnMax" }
-    if yname == "mnp-lmn-max" { return "MnpLmnMax" }
-    if yname == "mnp-ipv4-cust-max" { return "MnpIpv4CustMax" }
-    if yname == "mnp-ipv6-cust-max" { return "MnpIpv6CustMax" }
-    if yname == "mnp-cust-max" { return "MnpCustMax" }
-    if yname == "mnp-ipv4-cust-cur" { return "MnpIpv4CustCur" }
-    if yname == "mnp-ipv6-cust-cur" { return "MnpIpv6CustCur" }
-    return ""
+    mllService.EntityData.Children = make(map[string]types.YChild)
+    mllService.EntityData.Leafs = make(map[string]types.YLeaf)
+    mllService.EntityData.Leafs["ignore-hoa"] = types.YLeaf{"IgnoreHoa", mllService.IgnoreHoa}
+    mllService.EntityData.Leafs["mnp-ipv4-lmn-max"] = types.YLeaf{"MnpIpv4LmnMax", mllService.MnpIpv4LmnMax}
+    mllService.EntityData.Leafs["mnp-ipv6-lmn-max"] = types.YLeaf{"MnpIpv6LmnMax", mllService.MnpIpv6LmnMax}
+    mllService.EntityData.Leafs["mnp-lmn-max"] = types.YLeaf{"MnpLmnMax", mllService.MnpLmnMax}
+    mllService.EntityData.Leafs["mnp-ipv4-cust-max"] = types.YLeaf{"MnpIpv4CustMax", mllService.MnpIpv4CustMax}
+    mllService.EntityData.Leafs["mnp-ipv6-cust-max"] = types.YLeaf{"MnpIpv6CustMax", mllService.MnpIpv6CustMax}
+    mllService.EntityData.Leafs["mnp-cust-max"] = types.YLeaf{"MnpCustMax", mllService.MnpCustMax}
+    mllService.EntityData.Leafs["mnp-ipv4-cust-cur"] = types.YLeaf{"MnpIpv4CustCur", mllService.MnpIpv4CustCur}
+    mllService.EntityData.Leafs["mnp-ipv6-cust-cur"] = types.YLeaf{"MnpIpv6CustCur", mllService.MnpIpv6CustCur}
+    return &(mllService.EntityData)
 }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetSegmentPath() string {
-    return "mll-service"
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ignore-hoa"] = mllService.IgnoreHoa
-    leafs["mnp-ipv4-lmn-max"] = mllService.MnpIpv4LmnMax
-    leafs["mnp-ipv6-lmn-max"] = mllService.MnpIpv6LmnMax
-    leafs["mnp-lmn-max"] = mllService.MnpLmnMax
-    leafs["mnp-ipv4-cust-max"] = mllService.MnpIpv4CustMax
-    leafs["mnp-ipv6-cust-max"] = mllService.MnpIpv6CustMax
-    leafs["mnp-cust-max"] = mllService.MnpCustMax
-    leafs["mnp-ipv4-cust-cur"] = mllService.MnpIpv4CustCur
-    leafs["mnp-ipv6-cust-cur"] = mllService.MnpIpv6CustCur
-    return leafs
-}
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetYangName() string { return "mll-service" }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) SetParent(parent types.Entity) { mllService.parent = parent }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetParent() types.Entity { return mllService.parent }
-
-func (mllService *Pmipv6_Lma_ConfigVariables_GlobalVariables_MllService) GetParentYangName() string { return "global-variables" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf
 // MAG Access List
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // APN Present. The type is bool.
     Apn interface{}
 
     // Access Interface Name. The type is string.
-    Interface interface{}
+    Interface_ interface{}
 
     // APN Name. The type is string.
     ApnName interface{}
 }
 
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetFilter() yfilter.YFilter { return intf.YFilter }
+func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetEntityData() *types.CommonEntityData {
+    intf.EntityData.YFilter = intf.YFilter
+    intf.EntityData.YangName = "intf"
+    intf.EntityData.BundleName = "cisco_ios_xr"
+    intf.EntityData.ParentYangName = "global-variables"
+    intf.EntityData.SegmentPath = "intf"
+    intf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    intf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    intf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) SetFilter(yf yfilter.YFilter) { intf.YFilter = yf }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetGoName(yname string) string {
-    if yname == "apn" { return "Apn" }
-    if yname == "interface" { return "Interface" }
-    if yname == "apn-name" { return "ApnName" }
-    return ""
+    intf.EntityData.Children = make(map[string]types.YChild)
+    intf.EntityData.Leafs = make(map[string]types.YLeaf)
+    intf.EntityData.Leafs["apn"] = types.YLeaf{"Apn", intf.Apn}
+    intf.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", intf.Interface_}
+    intf.EntityData.Leafs["apn-name"] = types.YLeaf{"ApnName", intf.ApnName}
+    return &(intf.EntityData)
 }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetSegmentPath() string {
-    return "intf"
-}
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["apn"] = intf.Apn
-    leafs["interface"] = intf.Interface
-    leafs["apn-name"] = intf.ApnName
-    return leafs
-}
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetYangName() string { return "intf" }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) SetParent(parent types.Entity) { intf.parent = parent }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetParent() types.Entity { return intf.parent }
-
-func (intf *Pmipv6_Lma_ConfigVariables_GlobalVariables_Intf) GetParentYangName() string { return "global-variables" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer
 // Peer Parameters
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Peer Name. The type is string.
@@ -5391,7 +3301,7 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer struct {
     VrfName interface{}
 
     // Peer static tunnel intf. The type is string.
-    Interface interface{}
+    Interface_ interface{}
 
     // Encapsulation Type. The type is Pmipv6Encap.
     Encap interface{}
@@ -5406,68 +3316,32 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer struct {
     Statictunnel interface{}
 }
 
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetFilter() yfilter.YFilter { return peer.YFilter }
+func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetEntityData() *types.CommonEntityData {
+    peer.EntityData.YFilter = peer.YFilter
+    peer.EntityData.YangName = "peer"
+    peer.EntityData.BundleName = "cisco_ios_xr"
+    peer.EntityData.ParentYangName = "global-variables"
+    peer.EntityData.SegmentPath = "peer"
+    peer.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    peer.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    peer.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) SetFilter(yf yfilter.YFilter) { peer.YFilter = yf }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetGoName(yname string) string {
-    if yname == "peer" { return "Peer" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "interface" { return "Interface" }
-    if yname == "encap" { return "Encap" }
-    if yname == "auth" { return "Auth" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "statictunnel" { return "Statictunnel" }
-    return ""
+    peer.EntityData.Children = make(map[string]types.YChild)
+    peer.EntityData.Leafs = make(map[string]types.YLeaf)
+    peer.EntityData.Leafs["peer"] = types.YLeaf{"Peer", peer.Peer}
+    peer.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", peer.VrfName}
+    peer.EntityData.Leafs["interface"] = types.YLeaf{"Interface_", peer.Interface_}
+    peer.EntityData.Leafs["encap"] = types.YLeaf{"Encap", peer.Encap}
+    peer.EntityData.Leafs["auth"] = types.YLeaf{"Auth", peer.Auth}
+    peer.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", peer.Vrf}
+    peer.EntityData.Leafs["statictunnel"] = types.YLeaf{"Statictunnel", peer.Statictunnel}
+    return &(peer.EntityData)
 }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetSegmentPath() string {
-    return "peer"
-}
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["peer"] = peer.Peer
-    leafs["vrf-name"] = peer.VrfName
-    leafs["interface"] = peer.Interface
-    leafs["encap"] = peer.Encap
-    leafs["auth"] = peer.Auth
-    leafs["vrf"] = peer.Vrf
-    leafs["statictunnel"] = peer.Statictunnel
-    return leafs
-}
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetBundleName() string { return "cisco_ios_xr" }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetYangName() string { return "peer" }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) SetParent(parent types.Entity) { peer.parent = parent }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetParent() types.Entity { return peer.parent }
-
-func (peer *Pmipv6_Lma_ConfigVariables_GlobalVariables_Peer) GetParentYangName() string { return "global-variables" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_Network
 // LMA Network Parameters
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Network struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPV4 pool Present. The type is bool.
@@ -5480,11 +3354,11 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Network struct {
     Network interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4 interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6 interface{}
 
     // v4 prefix len. The type is interface{} with range: 0..255.
@@ -5497,70 +3371,33 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Network struct {
     Mrnet interface{}
 }
 
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetFilter() yfilter.YFilter { return network.YFilter }
+func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetEntityData() *types.CommonEntityData {
+    network.EntityData.YFilter = network.YFilter
+    network.EntityData.YangName = "network"
+    network.EntityData.BundleName = "cisco_ios_xr"
+    network.EntityData.ParentYangName = "global-variables"
+    network.EntityData.SegmentPath = "network"
+    network.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    network.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    network.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) SetFilter(yf yfilter.YFilter) { network.YFilter = yf }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetGoName(yname string) string {
-    if yname == "v4pool" { return "V4Pool" }
-    if yname == "v6pool" { return "V6Pool" }
-    if yname == "network" { return "Network" }
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "ipv6" { return "Ipv6" }
-    if yname == "v4pfx-len" { return "V4PfxLen" }
-    if yname == "v6pfx-len" { return "V6PfxLen" }
-    if yname == "mrnet" { return "Mrnet" }
-    return ""
+    network.EntityData.Children = make(map[string]types.YChild)
+    network.EntityData.Leafs = make(map[string]types.YLeaf)
+    network.EntityData.Leafs["v4pool"] = types.YLeaf{"V4Pool", network.V4Pool}
+    network.EntityData.Leafs["v6pool"] = types.YLeaf{"V6Pool", network.V6Pool}
+    network.EntityData.Leafs["network"] = types.YLeaf{"Network", network.Network}
+    network.EntityData.Leafs["ipv4"] = types.YLeaf{"Ipv4", network.Ipv4}
+    network.EntityData.Leafs["ipv6"] = types.YLeaf{"Ipv6", network.Ipv6}
+    network.EntityData.Leafs["v4pfx-len"] = types.YLeaf{"V4PfxLen", network.V4PfxLen}
+    network.EntityData.Leafs["v6pfx-len"] = types.YLeaf{"V6PfxLen", network.V6PfxLen}
+    network.EntityData.Leafs["mrnet"] = types.YLeaf{"Mrnet", network.Mrnet}
+    return &(network.EntityData)
 }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetSegmentPath() string {
-    return "network"
-}
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["v4pool"] = network.V4Pool
-    leafs["v6pool"] = network.V6Pool
-    leafs["network"] = network.Network
-    leafs["ipv4"] = network.Ipv4
-    leafs["ipv6"] = network.Ipv6
-    leafs["v4pfx-len"] = network.V4PfxLen
-    leafs["v6pfx-len"] = network.V6PfxLen
-    leafs["mrnet"] = network.Mrnet
-    return leafs
-}
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetBundleName() string { return "cisco_ios_xr" }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetYangName() string { return "network" }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) SetParent(parent types.Entity) { network.parent = parent }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetParent() types.Entity { return network.parent }
-
-func (network *Pmipv6_Lma_ConfigVariables_GlobalVariables_Network) GetParentYangName() string { return "global-variables" }
 
 // Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust
 // Customer parameters
 type Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Customer Present. The type is bool.
@@ -5592,65 +3429,27 @@ type Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust struct {
     TVrfName interface{}
 }
 
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetFilter() yfilter.YFilter { return cust.YFilter }
+func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetEntityData() *types.CommonEntityData {
+    cust.EntityData.YFilter = cust.YFilter
+    cust.EntityData.YangName = "cust"
+    cust.EntityData.BundleName = "cisco_ios_xr"
+    cust.EntityData.ParentYangName = "global-variables"
+    cust.EntityData.SegmentPath = "cust"
+    cust.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    cust.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    cust.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) SetFilter(yf yfilter.YFilter) { cust.YFilter = yf }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetGoName(yname string) string {
-    if yname == "cust" { return "Cust" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "t-vrf" { return "TVrf" }
-    if yname == "auth-option" { return "AuthOption" }
-    if yname == "heart-beat" { return "HeartBeat" }
-    if yname == "reg-time" { return "RegTime" }
-    if yname == "cust-name" { return "CustName" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "t-vrf-name" { return "TVrfName" }
-    return ""
+    cust.EntityData.Children = make(map[string]types.YChild)
+    cust.EntityData.Leafs = make(map[string]types.YLeaf)
+    cust.EntityData.Leafs["cust"] = types.YLeaf{"Cust", cust.Cust}
+    cust.EntityData.Leafs["vrf"] = types.YLeaf{"Vrf", cust.Vrf}
+    cust.EntityData.Leafs["t-vrf"] = types.YLeaf{"TVrf", cust.TVrf}
+    cust.EntityData.Leafs["auth-option"] = types.YLeaf{"AuthOption", cust.AuthOption}
+    cust.EntityData.Leafs["heart-beat"] = types.YLeaf{"HeartBeat", cust.HeartBeat}
+    cust.EntityData.Leafs["reg-time"] = types.YLeaf{"RegTime", cust.RegTime}
+    cust.EntityData.Leafs["cust-name"] = types.YLeaf{"CustName", cust.CustName}
+    cust.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", cust.VrfName}
+    cust.EntityData.Leafs["t-vrf-name"] = types.YLeaf{"TVrfName", cust.TVrfName}
+    return &(cust.EntityData)
 }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetSegmentPath() string {
-    return "cust"
-}
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cust"] = cust.Cust
-    leafs["vrf"] = cust.Vrf
-    leafs["t-vrf"] = cust.TVrf
-    leafs["auth-option"] = cust.AuthOption
-    leafs["heart-beat"] = cust.HeartBeat
-    leafs["reg-time"] = cust.RegTime
-    leafs["cust-name"] = cust.CustName
-    leafs["vrf-name"] = cust.VrfName
-    leafs["t-vrf-name"] = cust.TVrfName
-    return leafs
-}
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetBundleName() string { return "cisco_ios_xr" }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetYangName() string { return "cust" }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) SetParent(parent types.Entity) { cust.parent = parent }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetParent() types.Entity { return cust.parent }
-
-func (cust *Pmipv6_Lma_ConfigVariables_GlobalVariables_Cust) GetParentYangName() string { return "global-variables" }
 

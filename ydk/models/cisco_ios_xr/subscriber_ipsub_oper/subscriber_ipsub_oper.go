@@ -24,6 +24,31 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber", reflect.TypeOf(IpSubscriber{}))
 }
 
+// IpsubMaParentIntfVlan represents Access interface VLAN type
+type IpsubMaParentIntfVlan string
+
+const (
+    // Plain
+    IpsubMaParentIntfVlan_plain IpsubMaParentIntfVlan = "plain"
+
+    // Ambiguous
+    IpsubMaParentIntfVlan_ambiguous IpsubMaParentIntfVlan = "ambiguous"
+)
+
+// IpsubMaParentIntfStateData represents Parent interface state
+type IpsubMaParentIntfStateData string
+
+const (
+    // Interface being deleted
+    IpsubMaParentIntfStateData_deleted IpsubMaParentIntfStateData = "deleted"
+
+    // Interface operationally down
+    IpsubMaParentIntfStateData_down IpsubMaParentIntfStateData = "down"
+
+    // Interface up
+    IpsubMaParentIntfStateData_up IpsubMaParentIntfStateData = "up"
+)
+
 // IpsubMaIntfStateData represents Interface states
 type IpsubMaIntfStateData string
 
@@ -80,31 +105,6 @@ const (
     IpsubMaIntfStateData_error IpsubMaIntfStateData = "error"
 )
 
-// IpsubMaParentIntfVlan represents Access interface VLAN type
-type IpsubMaParentIntfVlan string
-
-const (
-    // Plain
-    IpsubMaParentIntfVlan_plain IpsubMaParentIntfVlan = "plain"
-
-    // Ambiguous
-    IpsubMaParentIntfVlan_ambiguous IpsubMaParentIntfVlan = "ambiguous"
-)
-
-// IpsubMaParentIntfStateData represents Parent interface state
-type IpsubMaParentIntfStateData string
-
-const (
-    // Interface being deleted
-    IpsubMaParentIntfStateData_deleted IpsubMaParentIntfStateData = "deleted"
-
-    // Interface operationally down
-    IpsubMaParentIntfStateData_down IpsubMaParentIntfStateData = "down"
-
-    // Interface up
-    IpsubMaParentIntfStateData_up IpsubMaParentIntfStateData = "up"
-)
-
 // IpsubMaIntfInitiatorData represents Ipsub ma intf initiator data
 type IpsubMaIntfInitiatorData string
 
@@ -122,139 +122,68 @@ const (
 // IpSubscriber
 // IP subscriber operational data
 type IpSubscriber struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP subscriber operational data for a particular location.
     Nodes IpSubscriber_Nodes
 }
 
-func (ipSubscriber *IpSubscriber) GetFilter() yfilter.YFilter { return ipSubscriber.YFilter }
+func (ipSubscriber *IpSubscriber) GetEntityData() *types.CommonEntityData {
+    ipSubscriber.EntityData.YFilter = ipSubscriber.YFilter
+    ipSubscriber.EntityData.YangName = "ip-subscriber"
+    ipSubscriber.EntityData.BundleName = "cisco_ios_xr"
+    ipSubscriber.EntityData.ParentYangName = "Cisco-IOS-XR-subscriber-ipsub-oper"
+    ipSubscriber.EntityData.SegmentPath = "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber"
+    ipSubscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipSubscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipSubscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipSubscriber *IpSubscriber) SetFilter(yf yfilter.YFilter) { ipSubscriber.YFilter = yf }
-
-func (ipSubscriber *IpSubscriber) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    ipSubscriber.EntityData.Children = make(map[string]types.YChild)
+    ipSubscriber.EntityData.Children["nodes"] = types.YChild{"Nodes", &ipSubscriber.Nodes}
+    ipSubscriber.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipSubscriber.EntityData)
 }
-
-func (ipSubscriber *IpSubscriber) GetSegmentPath() string {
-    return "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber"
-}
-
-func (ipSubscriber *IpSubscriber) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &ipSubscriber.Nodes
-    }
-    return nil
-}
-
-func (ipSubscriber *IpSubscriber) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &ipSubscriber.Nodes
-    return children
-}
-
-func (ipSubscriber *IpSubscriber) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipSubscriber *IpSubscriber) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipSubscriber *IpSubscriber) GetYangName() string { return "ip-subscriber" }
-
-func (ipSubscriber *IpSubscriber) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipSubscriber *IpSubscriber) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipSubscriber *IpSubscriber) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipSubscriber *IpSubscriber) SetParent(parent types.Entity) { ipSubscriber.parent = parent }
-
-func (ipSubscriber *IpSubscriber) GetParent() types.Entity { return ipSubscriber.parent }
-
-func (ipSubscriber *IpSubscriber) GetParentYangName() string { return "Cisco-IOS-XR-subscriber-ipsub-oper" }
 
 // IpSubscriber_Nodes
 // IP subscriber operational data for a particular
 // location
 type IpSubscriber_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Location. For eg., 0/1/CPU0. The type is slice of IpSubscriber_Nodes_Node.
     Node []IpSubscriber_Nodes_Node
 }
 
-func (nodes *IpSubscriber_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *IpSubscriber_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "ip-subscriber"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *IpSubscriber_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *IpSubscriber_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *IpSubscriber_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *IpSubscriber_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpSubscriber_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *IpSubscriber_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *IpSubscriber_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *IpSubscriber_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *IpSubscriber_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *IpSubscriber_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *IpSubscriber_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *IpSubscriber_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *IpSubscriber_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *IpSubscriber_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *IpSubscriber_Nodes) GetParentYangName() string { return "ip-subscriber" }
 
 // IpSubscriber_Nodes_Node
 // Location. For eg., 0/1/CPU0
 type IpSubscriber_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The node ID to filter on. For eg., 0/1/CPU0. The
-    // type is string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // type is string with pattern:
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // IP subscriber interface summary.
@@ -267,71 +196,29 @@ type IpSubscriber_Nodes_Node struct {
     AccessInterfaces IpSubscriber_Nodes_Node_AccessInterfaces
 }
 
-func (node *IpSubscriber_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *IpSubscriber_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *IpSubscriber_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *IpSubscriber_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "summary" { return "Summary" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "access-interfaces" { return "AccessInterfaces" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["summary"] = types.YChild{"Summary", &node.Summary}
+    node.EntityData.Children["interfaces"] = types.YChild{"Interfaces", &node.Interfaces}
+    node.EntityData.Children["access-interfaces"] = types.YChild{"AccessInterfaces", &node.AccessInterfaces}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *IpSubscriber_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *IpSubscriber_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "summary" {
-        return &node.Summary
-    }
-    if childYangName == "interfaces" {
-        return &node.Interfaces
-    }
-    if childYangName == "access-interfaces" {
-        return &node.AccessInterfaces
-    }
-    return nil
-}
-
-func (node *IpSubscriber_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["summary"] = &node.Summary
-    children["interfaces"] = &node.Interfaces
-    children["access-interfaces"] = &node.AccessInterfaces
-    return children
-}
-
-func (node *IpSubscriber_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *IpSubscriber_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *IpSubscriber_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *IpSubscriber_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *IpSubscriber_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *IpSubscriber_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *IpSubscriber_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *IpSubscriber_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *IpSubscriber_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // IpSubscriber_Nodes_Node_Summary
 // IP subscriber interface summary
 type IpSubscriber_Nodes_Node_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Access interface summary statistics.
@@ -345,78 +232,31 @@ type IpSubscriber_Nodes_Node_Summary struct {
     Vrf []IpSubscriber_Nodes_Node_Summary_Vrf
 }
 
-func (summary *IpSubscriber_Nodes_Node_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *IpSubscriber_Nodes_Node_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "node"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *IpSubscriber_Nodes_Node_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetGoName(yname string) string {
-    if yname == "access-interface-summary" { return "AccessInterfaceSummary" }
-    if yname == "interface-counts" { return "InterfaceCounts" }
-    if yname == "vrf" { return "Vrf" }
-    return ""
-}
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-interface-summary" {
-        return &summary.AccessInterfaceSummary
-    }
-    if childYangName == "interface-counts" {
-        return &summary.InterfaceCounts
-    }
-    if childYangName == "vrf" {
-        for _, c := range summary.Vrf {
-            if summary.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpSubscriber_Nodes_Node_Summary_Vrf{}
-        summary.Vrf = append(summary.Vrf, child)
-        return &summary.Vrf[len(summary.Vrf)-1]
-    }
-    return nil
-}
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["access-interface-summary"] = &summary.AccessInterfaceSummary
-    children["interface-counts"] = &summary.InterfaceCounts
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Children["access-interface-summary"] = types.YChild{"AccessInterfaceSummary", &summary.AccessInterfaceSummary}
+    summary.EntityData.Children["interface-counts"] = types.YChild{"InterfaceCounts", &summary.InterfaceCounts}
+    summary.EntityData.Children["vrf"] = types.YChild{"Vrf", nil}
     for i := range summary.Vrf {
-        children[summary.Vrf[i].GetSegmentPath()] = &summary.Vrf[i]
+        summary.EntityData.Children[types.GetSegmentPath(&summary.Vrf[i])] = types.YChild{"Vrf", &summary.Vrf[i]}
     }
-    return children
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(summary.EntityData)
 }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetYangName() string { return "summary" }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *IpSubscriber_Nodes_Node_Summary) GetParentYangName() string { return "node" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary
 // Access interface summary statistics
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of interfaces with subscriber configuration. The type is interface{}
@@ -430,66 +270,28 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary struct {
     Ipv6Initiators IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators
 }
 
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetFilter() yfilter.YFilter { return accessInterfaceSummary.YFilter }
+func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetEntityData() *types.CommonEntityData {
+    accessInterfaceSummary.EntityData.YFilter = accessInterfaceSummary.YFilter
+    accessInterfaceSummary.EntityData.YangName = "access-interface-summary"
+    accessInterfaceSummary.EntityData.BundleName = "cisco_ios_xr"
+    accessInterfaceSummary.EntityData.ParentYangName = "summary"
+    accessInterfaceSummary.EntityData.SegmentPath = "access-interface-summary"
+    accessInterfaceSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterfaceSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterfaceSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) SetFilter(yf yfilter.YFilter) { accessInterfaceSummary.YFilter = yf }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetGoName(yname string) string {
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "initiators" { return "Initiators" }
-    if yname == "ipv6-initiators" { return "Ipv6Initiators" }
-    return ""
+    accessInterfaceSummary.EntityData.Children = make(map[string]types.YChild)
+    accessInterfaceSummary.EntityData.Children["initiators"] = types.YChild{"Initiators", &accessInterfaceSummary.Initiators}
+    accessInterfaceSummary.EntityData.Children["ipv6-initiators"] = types.YChild{"Ipv6Initiators", &accessInterfaceSummary.Ipv6Initiators}
+    accessInterfaceSummary.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessInterfaceSummary.EntityData.Leafs["interfaces"] = types.YLeaf{"Interfaces", accessInterfaceSummary.Interfaces}
+    return &(accessInterfaceSummary.EntityData)
 }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetSegmentPath() string {
-    return "access-interface-summary"
-}
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "initiators" {
-        return &accessInterfaceSummary.Initiators
-    }
-    if childYangName == "ipv6-initiators" {
-        return &accessInterfaceSummary.Ipv6Initiators
-    }
-    return nil
-}
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["initiators"] = &accessInterfaceSummary.Initiators
-    children["ipv6-initiators"] = &accessInterfaceSummary.Ipv6Initiators
-    return children
-}
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interfaces"] = accessInterfaceSummary.Interfaces
-    return leafs
-}
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetYangName() string { return "access-interface-summary" }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) SetParent(parent types.Entity) { accessInterfaceSummary.parent = parent }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetParent() types.Entity { return accessInterfaceSummary.parent }
-
-func (accessInterfaceSummary *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary) GetParentYangName() string { return "summary" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators
 // Summary counts per initiator
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP summary statistics.
@@ -499,64 +301,27 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators struct {
     PacketTrigger IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger
 }
 
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetFilter() yfilter.YFilter { return initiators.YFilter }
+func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetEntityData() *types.CommonEntityData {
+    initiators.EntityData.YFilter = initiators.YFilter
+    initiators.EntityData.YangName = "initiators"
+    initiators.EntityData.BundleName = "cisco_ios_xr"
+    initiators.EntityData.ParentYangName = "access-interface-summary"
+    initiators.EntityData.SegmentPath = "initiators"
+    initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) SetFilter(yf yfilter.YFilter) { initiators.YFilter = yf }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetGoName(yname string) string {
-    if yname == "dhcp" { return "Dhcp" }
-    if yname == "packet-trigger" { return "PacketTrigger" }
-    return ""
+    initiators.EntityData.Children = make(map[string]types.YChild)
+    initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &initiators.Dhcp}
+    initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &initiators.PacketTrigger}
+    initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(initiators.EntityData)
 }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetSegmentPath() string {
-    return "initiators"
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dhcp" {
-        return &initiators.Dhcp
-    }
-    if childYangName == "packet-trigger" {
-        return &initiators.PacketTrigger
-    }
-    return nil
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dhcp"] = &initiators.Dhcp
-    children["packet-trigger"] = &initiators.PacketTrigger
-    return children
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetYangName() string { return "initiators" }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) SetParent(parent types.Entity) { initiators.parent = parent }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetParent() types.Entity { return initiators.parent }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators) GetParentYangName() string { return "access-interface-summary" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp
 // DHCP summary statistics
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of first sign of life packets received for initiating protocol. The
@@ -568,58 +333,27 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp stru
     FsolBytes interface{}
 }
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetFilter() yfilter.YFilter { return dhcp.YFilter }
+func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetEntityData() *types.CommonEntityData {
+    dhcp.EntityData.YFilter = dhcp.YFilter
+    dhcp.EntityData.YangName = "dhcp"
+    dhcp.EntityData.BundleName = "cisco_ios_xr"
+    dhcp.EntityData.ParentYangName = "initiators"
+    dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) SetFilter(yf yfilter.YFilter) { dhcp.YFilter = yf }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetGoName(yname string) string {
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    return ""
+    dhcp.EntityData.Children = make(map[string]types.YChild)
+    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
+    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
+    return &(dhcp.EntityData)
 }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetSegmentPath() string {
-    return "dhcp"
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fsol-packets"] = dhcp.FsolPackets
-    leafs["fsol-bytes"] = dhcp.FsolBytes
-    return leafs
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetYangName() string { return "dhcp" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) SetParent(parent types.Entity) { dhcp.parent = parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetParent() types.Entity { return dhcp.parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_Dhcp) GetParentYangName() string { return "initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger
 // Packet trigger summary statistics
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of first sign of life packets received for initiating protocol. The
@@ -631,58 +365,27 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTri
     FsolBytes interface{}
 }
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetFilter() yfilter.YFilter { return packetTrigger.YFilter }
+func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetEntityData() *types.CommonEntityData {
+    packetTrigger.EntityData.YFilter = packetTrigger.YFilter
+    packetTrigger.EntityData.YangName = "packet-trigger"
+    packetTrigger.EntityData.BundleName = "cisco_ios_xr"
+    packetTrigger.EntityData.ParentYangName = "initiators"
+    packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) SetFilter(yf yfilter.YFilter) { packetTrigger.YFilter = yf }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetGoName(yname string) string {
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    return ""
+    packetTrigger.EntityData.Children = make(map[string]types.YChild)
+    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
+    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
+    return &(packetTrigger.EntityData)
 }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetSegmentPath() string {
-    return "packet-trigger"
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fsol-packets"] = packetTrigger.FsolPackets
-    leafs["fsol-bytes"] = packetTrigger.FsolBytes
-    return leafs
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetYangName() string { return "packet-trigger" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) SetParent(parent types.Entity) { packetTrigger.parent = parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetParent() types.Entity { return packetTrigger.parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Initiators_PacketTrigger) GetParentYangName() string { return "initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators
 // Summary counts per initiator for ipv6 session
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP summary statistics.
@@ -692,64 +395,27 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators struc
     PacketTrigger IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger
 }
 
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetFilter() yfilter.YFilter { return ipv6Initiators.YFilter }
+func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetEntityData() *types.CommonEntityData {
+    ipv6Initiators.EntityData.YFilter = ipv6Initiators.YFilter
+    ipv6Initiators.EntityData.YangName = "ipv6-initiators"
+    ipv6Initiators.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Initiators.EntityData.ParentYangName = "access-interface-summary"
+    ipv6Initiators.EntityData.SegmentPath = "ipv6-initiators"
+    ipv6Initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) SetFilter(yf yfilter.YFilter) { ipv6Initiators.YFilter = yf }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetGoName(yname string) string {
-    if yname == "dhcp" { return "Dhcp" }
-    if yname == "packet-trigger" { return "PacketTrigger" }
-    return ""
+    ipv6Initiators.EntityData.Children = make(map[string]types.YChild)
+    ipv6Initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &ipv6Initiators.Dhcp}
+    ipv6Initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger}
+    ipv6Initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Initiators.EntityData)
 }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetSegmentPath() string {
-    return "ipv6-initiators"
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dhcp" {
-        return &ipv6Initiators.Dhcp
-    }
-    if childYangName == "packet-trigger" {
-        return &ipv6Initiators.PacketTrigger
-    }
-    return nil
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dhcp"] = &ipv6Initiators.Dhcp
-    children["packet-trigger"] = &ipv6Initiators.PacketTrigger
-    return children
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetYangName() string { return "ipv6-initiators" }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) SetParent(parent types.Entity) { ipv6Initiators.parent = parent }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetParent() types.Entity { return ipv6Initiators.parent }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators) GetParentYangName() string { return "access-interface-summary" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp
 // DHCP summary statistics
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of first sign of life packets received for initiating protocol. The
@@ -761,58 +427,27 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp 
     FsolBytes interface{}
 }
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetFilter() yfilter.YFilter { return dhcp.YFilter }
+func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetEntityData() *types.CommonEntityData {
+    dhcp.EntityData.YFilter = dhcp.YFilter
+    dhcp.EntityData.YangName = "dhcp"
+    dhcp.EntityData.BundleName = "cisco_ios_xr"
+    dhcp.EntityData.ParentYangName = "ipv6-initiators"
+    dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) SetFilter(yf yfilter.YFilter) { dhcp.YFilter = yf }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetGoName(yname string) string {
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    return ""
+    dhcp.EntityData.Children = make(map[string]types.YChild)
+    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
+    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
+    return &(dhcp.EntityData)
 }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetSegmentPath() string {
-    return "dhcp"
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fsol-packets"] = dhcp.FsolPackets
-    leafs["fsol-bytes"] = dhcp.FsolBytes
-    return leafs
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetYangName() string { return "dhcp" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) SetParent(parent types.Entity) { dhcp.parent = parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetParent() types.Entity { return dhcp.parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Dhcp) GetParentYangName() string { return "ipv6-initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger
 // Packet trigger summary statistics
 type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Number of first sign of life packets received for initiating protocol. The
@@ -824,58 +459,27 @@ type IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_Packe
     FsolBytes interface{}
 }
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetFilter() yfilter.YFilter { return packetTrigger.YFilter }
+func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetEntityData() *types.CommonEntityData {
+    packetTrigger.EntityData.YFilter = packetTrigger.YFilter
+    packetTrigger.EntityData.YangName = "packet-trigger"
+    packetTrigger.EntityData.BundleName = "cisco_ios_xr"
+    packetTrigger.EntityData.ParentYangName = "ipv6-initiators"
+    packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) SetFilter(yf yfilter.YFilter) { packetTrigger.YFilter = yf }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetGoName(yname string) string {
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    return ""
+    packetTrigger.EntityData.Children = make(map[string]types.YChild)
+    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
+    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
+    return &(packetTrigger.EntityData)
 }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetSegmentPath() string {
-    return "packet-trigger"
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["fsol-packets"] = packetTrigger.FsolPackets
-    leafs["fsol-bytes"] = packetTrigger.FsolBytes
-    return leafs
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetYangName() string { return "packet-trigger" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) SetParent(parent types.Entity) { packetTrigger.parent = parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetParent() types.Entity { return packetTrigger.parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_AccessInterfaceSummary_Ipv6Initiators_PacketTrigger) GetParentYangName() string { return "ipv6-initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts
 // Initiator interface counts
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Initiators.
@@ -885,64 +489,27 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts struct {
     Ipv6Initiators IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators
 }
 
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetFilter() yfilter.YFilter { return interfaceCounts.YFilter }
+func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetEntityData() *types.CommonEntityData {
+    interfaceCounts.EntityData.YFilter = interfaceCounts.YFilter
+    interfaceCounts.EntityData.YangName = "interface-counts"
+    interfaceCounts.EntityData.BundleName = "cisco_ios_xr"
+    interfaceCounts.EntityData.ParentYangName = "summary"
+    interfaceCounts.EntityData.SegmentPath = "interface-counts"
+    interfaceCounts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaceCounts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaceCounts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) SetFilter(yf yfilter.YFilter) { interfaceCounts.YFilter = yf }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetGoName(yname string) string {
-    if yname == "initiators" { return "Initiators" }
-    if yname == "ipv6-initiators" { return "Ipv6Initiators" }
-    return ""
+    interfaceCounts.EntityData.Children = make(map[string]types.YChild)
+    interfaceCounts.EntityData.Children["initiators"] = types.YChild{"Initiators", &interfaceCounts.Initiators}
+    interfaceCounts.EntityData.Children["ipv6-initiators"] = types.YChild{"Ipv6Initiators", &interfaceCounts.Ipv6Initiators}
+    interfaceCounts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaceCounts.EntityData)
 }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetSegmentPath() string {
-    return "interface-counts"
-}
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "initiators" {
-        return &interfaceCounts.Initiators
-    }
-    if childYangName == "ipv6-initiators" {
-        return &interfaceCounts.Ipv6Initiators
-    }
-    return nil
-}
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["initiators"] = &interfaceCounts.Initiators
-    children["ipv6-initiators"] = &interfaceCounts.Ipv6Initiators
-    return children
-}
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetYangName() string { return "interface-counts" }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) SetParent(parent types.Entity) { interfaceCounts.parent = parent }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetParent() types.Entity { return interfaceCounts.parent }
-
-func (interfaceCounts *IpSubscriber_Nodes_Node_Summary_InterfaceCounts) GetParentYangName() string { return "summary" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators
 // Initiators
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP.
@@ -952,64 +519,27 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators struct {
     PacketTrigger IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger
 }
 
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetFilter() yfilter.YFilter { return initiators.YFilter }
+func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetEntityData() *types.CommonEntityData {
+    initiators.EntityData.YFilter = initiators.YFilter
+    initiators.EntityData.YangName = "initiators"
+    initiators.EntityData.BundleName = "cisco_ios_xr"
+    initiators.EntityData.ParentYangName = "interface-counts"
+    initiators.EntityData.SegmentPath = "initiators"
+    initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) SetFilter(yf yfilter.YFilter) { initiators.YFilter = yf }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetGoName(yname string) string {
-    if yname == "dhcp" { return "Dhcp" }
-    if yname == "packet-trigger" { return "PacketTrigger" }
-    return ""
+    initiators.EntityData.Children = make(map[string]types.YChild)
+    initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &initiators.Dhcp}
+    initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &initiators.PacketTrigger}
+    initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(initiators.EntityData)
 }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetSegmentPath() string {
-    return "initiators"
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dhcp" {
-        return &initiators.Dhcp
-    }
-    if childYangName == "packet-trigger" {
-        return &initiators.PacketTrigger
-    }
-    return nil
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dhcp"] = &initiators.Dhcp
-    children["packet-trigger"] = &initiators.PacketTrigger
-    return children
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetYangName() string { return "initiators" }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) SetParent(parent types.Entity) { initiators.parent = parent }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetParent() types.Entity { return initiators.parent }
-
-func (initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators) GetParentYangName() string { return "interface-counts" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp
 // DHCP
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid. The type is interface{} with range: 0..4294967295.
@@ -1062,84 +592,40 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp struct {
     TotalInterfaces interface{}
 }
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetFilter() yfilter.YFilter { return dhcp.YFilter }
+func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetEntityData() *types.CommonEntityData {
+    dhcp.EntityData.YFilter = dhcp.YFilter
+    dhcp.EntityData.YangName = "dhcp"
+    dhcp.EntityData.BundleName = "cisco_ios_xr"
+    dhcp.EntityData.ParentYangName = "initiators"
+    dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) SetFilter(yf yfilter.YFilter) { dhcp.YFilter = yf }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetGoName(yname string) string {
-    if yname == "invalid" { return "Invalid" }
-    if yname == "initialized" { return "Initialized" }
-    if yname == "session-creation-started" { return "SessionCreationStarted" }
-    if yname == "control-policy-executing" { return "ControlPolicyExecuting" }
-    if yname == "control-policy-executed" { return "ControlPolicyExecuted" }
-    if yname == "session-features-applied" { return "SessionFeaturesApplied" }
-    if yname == "vrf-configured" { return "VrfConfigured" }
-    if yname == "adding-adjacency" { return "AddingAdjacency" }
-    if yname == "adjacency-added" { return "AdjacencyAdded" }
-    if yname == "up" { return "Up" }
-    if yname == "down" { return "Down" }
-    if yname == "disconnecting" { return "Disconnecting" }
-    if yname == "disconnected" { return "Disconnected" }
-    if yname == "error" { return "Error" }
-    if yname == "total-interfaces" { return "TotalInterfaces" }
-    return ""
+    dhcp.EntityData.Children = make(map[string]types.YChild)
+    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcp.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", dhcp.Invalid}
+    dhcp.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", dhcp.Initialized}
+    dhcp.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", dhcp.SessionCreationStarted}
+    dhcp.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", dhcp.ControlPolicyExecuting}
+    dhcp.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", dhcp.ControlPolicyExecuted}
+    dhcp.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", dhcp.SessionFeaturesApplied}
+    dhcp.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", dhcp.VrfConfigured}
+    dhcp.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", dhcp.AddingAdjacency}
+    dhcp.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", dhcp.AdjacencyAdded}
+    dhcp.EntityData.Leafs["up"] = types.YLeaf{"Up", dhcp.Up}
+    dhcp.EntityData.Leafs["down"] = types.YLeaf{"Down", dhcp.Down}
+    dhcp.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", dhcp.Disconnecting}
+    dhcp.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", dhcp.Disconnected}
+    dhcp.EntityData.Leafs["error"] = types.YLeaf{"Error", dhcp.Error}
+    dhcp.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", dhcp.TotalInterfaces}
+    return &(dhcp.EntityData)
 }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetSegmentPath() string {
-    return "dhcp"
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["invalid"] = dhcp.Invalid
-    leafs["initialized"] = dhcp.Initialized
-    leafs["session-creation-started"] = dhcp.SessionCreationStarted
-    leafs["control-policy-executing"] = dhcp.ControlPolicyExecuting
-    leafs["control-policy-executed"] = dhcp.ControlPolicyExecuted
-    leafs["session-features-applied"] = dhcp.SessionFeaturesApplied
-    leafs["vrf-configured"] = dhcp.VrfConfigured
-    leafs["adding-adjacency"] = dhcp.AddingAdjacency
-    leafs["adjacency-added"] = dhcp.AdjacencyAdded
-    leafs["up"] = dhcp.Up
-    leafs["down"] = dhcp.Down
-    leafs["disconnecting"] = dhcp.Disconnecting
-    leafs["disconnected"] = dhcp.Disconnected
-    leafs["error"] = dhcp.Error
-    leafs["total-interfaces"] = dhcp.TotalInterfaces
-    return leafs
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetYangName() string { return "dhcp" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) SetParent(parent types.Entity) { dhcp.parent = parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetParent() types.Entity { return dhcp.parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_Dhcp) GetParentYangName() string { return "initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger
 // Packet trigger
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid. The type is interface{} with range: 0..4294967295.
@@ -1192,84 +678,40 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger st
     TotalInterfaces interface{}
 }
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetFilter() yfilter.YFilter { return packetTrigger.YFilter }
+func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetEntityData() *types.CommonEntityData {
+    packetTrigger.EntityData.YFilter = packetTrigger.YFilter
+    packetTrigger.EntityData.YangName = "packet-trigger"
+    packetTrigger.EntityData.BundleName = "cisco_ios_xr"
+    packetTrigger.EntityData.ParentYangName = "initiators"
+    packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) SetFilter(yf yfilter.YFilter) { packetTrigger.YFilter = yf }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetGoName(yname string) string {
-    if yname == "invalid" { return "Invalid" }
-    if yname == "initialized" { return "Initialized" }
-    if yname == "session-creation-started" { return "SessionCreationStarted" }
-    if yname == "control-policy-executing" { return "ControlPolicyExecuting" }
-    if yname == "control-policy-executed" { return "ControlPolicyExecuted" }
-    if yname == "session-features-applied" { return "SessionFeaturesApplied" }
-    if yname == "vrf-configured" { return "VrfConfigured" }
-    if yname == "adding-adjacency" { return "AddingAdjacency" }
-    if yname == "adjacency-added" { return "AdjacencyAdded" }
-    if yname == "up" { return "Up" }
-    if yname == "down" { return "Down" }
-    if yname == "disconnecting" { return "Disconnecting" }
-    if yname == "disconnected" { return "Disconnected" }
-    if yname == "error" { return "Error" }
-    if yname == "total-interfaces" { return "TotalInterfaces" }
-    return ""
+    packetTrigger.EntityData.Children = make(map[string]types.YChild)
+    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetTrigger.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", packetTrigger.Invalid}
+    packetTrigger.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", packetTrigger.Initialized}
+    packetTrigger.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", packetTrigger.SessionCreationStarted}
+    packetTrigger.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", packetTrigger.ControlPolicyExecuting}
+    packetTrigger.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", packetTrigger.ControlPolicyExecuted}
+    packetTrigger.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", packetTrigger.SessionFeaturesApplied}
+    packetTrigger.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", packetTrigger.VrfConfigured}
+    packetTrigger.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", packetTrigger.AddingAdjacency}
+    packetTrigger.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", packetTrigger.AdjacencyAdded}
+    packetTrigger.EntityData.Leafs["up"] = types.YLeaf{"Up", packetTrigger.Up}
+    packetTrigger.EntityData.Leafs["down"] = types.YLeaf{"Down", packetTrigger.Down}
+    packetTrigger.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", packetTrigger.Disconnecting}
+    packetTrigger.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", packetTrigger.Disconnected}
+    packetTrigger.EntityData.Leafs["error"] = types.YLeaf{"Error", packetTrigger.Error}
+    packetTrigger.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", packetTrigger.TotalInterfaces}
+    return &(packetTrigger.EntityData)
 }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetSegmentPath() string {
-    return "packet-trigger"
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["invalid"] = packetTrigger.Invalid
-    leafs["initialized"] = packetTrigger.Initialized
-    leafs["session-creation-started"] = packetTrigger.SessionCreationStarted
-    leafs["control-policy-executing"] = packetTrigger.ControlPolicyExecuting
-    leafs["control-policy-executed"] = packetTrigger.ControlPolicyExecuted
-    leafs["session-features-applied"] = packetTrigger.SessionFeaturesApplied
-    leafs["vrf-configured"] = packetTrigger.VrfConfigured
-    leafs["adding-adjacency"] = packetTrigger.AddingAdjacency
-    leafs["adjacency-added"] = packetTrigger.AdjacencyAdded
-    leafs["up"] = packetTrigger.Up
-    leafs["down"] = packetTrigger.Down
-    leafs["disconnecting"] = packetTrigger.Disconnecting
-    leafs["disconnected"] = packetTrigger.Disconnected
-    leafs["error"] = packetTrigger.Error
-    leafs["total-interfaces"] = packetTrigger.TotalInterfaces
-    return leafs
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetYangName() string { return "packet-trigger" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) SetParent(parent types.Entity) { packetTrigger.parent = parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetParent() types.Entity { return packetTrigger.parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Initiators_PacketTrigger) GetParentYangName() string { return "initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators
 // IPv6 Initiators
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP.
@@ -1279,64 +721,27 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators struct {
     PacketTrigger IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger
 }
 
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetFilter() yfilter.YFilter { return ipv6Initiators.YFilter }
+func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetEntityData() *types.CommonEntityData {
+    ipv6Initiators.EntityData.YFilter = ipv6Initiators.YFilter
+    ipv6Initiators.EntityData.YangName = "ipv6-initiators"
+    ipv6Initiators.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Initiators.EntityData.ParentYangName = "interface-counts"
+    ipv6Initiators.EntityData.SegmentPath = "ipv6-initiators"
+    ipv6Initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) SetFilter(yf yfilter.YFilter) { ipv6Initiators.YFilter = yf }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetGoName(yname string) string {
-    if yname == "dhcp" { return "Dhcp" }
-    if yname == "packet-trigger" { return "PacketTrigger" }
-    return ""
+    ipv6Initiators.EntityData.Children = make(map[string]types.YChild)
+    ipv6Initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &ipv6Initiators.Dhcp}
+    ipv6Initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger}
+    ipv6Initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Initiators.EntityData)
 }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetSegmentPath() string {
-    return "ipv6-initiators"
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dhcp" {
-        return &ipv6Initiators.Dhcp
-    }
-    if childYangName == "packet-trigger" {
-        return &ipv6Initiators.PacketTrigger
-    }
-    return nil
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dhcp"] = &ipv6Initiators.Dhcp
-    children["packet-trigger"] = &ipv6Initiators.PacketTrigger
-    return children
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetYangName() string { return "ipv6-initiators" }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) SetParent(parent types.Entity) { ipv6Initiators.parent = parent }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetParent() types.Entity { return ipv6Initiators.parent }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators) GetParentYangName() string { return "interface-counts" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp
 // DHCP
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid. The type is interface{} with range: 0..4294967295.
@@ -1389,84 +794,40 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp struct 
     TotalInterfaces interface{}
 }
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetFilter() yfilter.YFilter { return dhcp.YFilter }
+func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetEntityData() *types.CommonEntityData {
+    dhcp.EntityData.YFilter = dhcp.YFilter
+    dhcp.EntityData.YangName = "dhcp"
+    dhcp.EntityData.BundleName = "cisco_ios_xr"
+    dhcp.EntityData.ParentYangName = "ipv6-initiators"
+    dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) SetFilter(yf yfilter.YFilter) { dhcp.YFilter = yf }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetGoName(yname string) string {
-    if yname == "invalid" { return "Invalid" }
-    if yname == "initialized" { return "Initialized" }
-    if yname == "session-creation-started" { return "SessionCreationStarted" }
-    if yname == "control-policy-executing" { return "ControlPolicyExecuting" }
-    if yname == "control-policy-executed" { return "ControlPolicyExecuted" }
-    if yname == "session-features-applied" { return "SessionFeaturesApplied" }
-    if yname == "vrf-configured" { return "VrfConfigured" }
-    if yname == "adding-adjacency" { return "AddingAdjacency" }
-    if yname == "adjacency-added" { return "AdjacencyAdded" }
-    if yname == "up" { return "Up" }
-    if yname == "down" { return "Down" }
-    if yname == "disconnecting" { return "Disconnecting" }
-    if yname == "disconnected" { return "Disconnected" }
-    if yname == "error" { return "Error" }
-    if yname == "total-interfaces" { return "TotalInterfaces" }
-    return ""
+    dhcp.EntityData.Children = make(map[string]types.YChild)
+    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcp.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", dhcp.Invalid}
+    dhcp.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", dhcp.Initialized}
+    dhcp.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", dhcp.SessionCreationStarted}
+    dhcp.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", dhcp.ControlPolicyExecuting}
+    dhcp.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", dhcp.ControlPolicyExecuted}
+    dhcp.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", dhcp.SessionFeaturesApplied}
+    dhcp.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", dhcp.VrfConfigured}
+    dhcp.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", dhcp.AddingAdjacency}
+    dhcp.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", dhcp.AdjacencyAdded}
+    dhcp.EntityData.Leafs["up"] = types.YLeaf{"Up", dhcp.Up}
+    dhcp.EntityData.Leafs["down"] = types.YLeaf{"Down", dhcp.Down}
+    dhcp.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", dhcp.Disconnecting}
+    dhcp.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", dhcp.Disconnected}
+    dhcp.EntityData.Leafs["error"] = types.YLeaf{"Error", dhcp.Error}
+    dhcp.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", dhcp.TotalInterfaces}
+    return &(dhcp.EntityData)
 }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetSegmentPath() string {
-    return "dhcp"
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["invalid"] = dhcp.Invalid
-    leafs["initialized"] = dhcp.Initialized
-    leafs["session-creation-started"] = dhcp.SessionCreationStarted
-    leafs["control-policy-executing"] = dhcp.ControlPolicyExecuting
-    leafs["control-policy-executed"] = dhcp.ControlPolicyExecuted
-    leafs["session-features-applied"] = dhcp.SessionFeaturesApplied
-    leafs["vrf-configured"] = dhcp.VrfConfigured
-    leafs["adding-adjacency"] = dhcp.AddingAdjacency
-    leafs["adjacency-added"] = dhcp.AdjacencyAdded
-    leafs["up"] = dhcp.Up
-    leafs["down"] = dhcp.Down
-    leafs["disconnecting"] = dhcp.Disconnecting
-    leafs["disconnected"] = dhcp.Disconnected
-    leafs["error"] = dhcp.Error
-    leafs["total-interfaces"] = dhcp.TotalInterfaces
-    return leafs
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetYangName() string { return "dhcp" }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) SetParent(parent types.Entity) { dhcp.parent = parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetParent() types.Entity { return dhcp.parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_Dhcp) GetParentYangName() string { return "ipv6-initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger
 // Packet trigger
 type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Invalid. The type is interface{} with range: 0..4294967295.
@@ -1519,84 +880,40 @@ type IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigge
     TotalInterfaces interface{}
 }
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetFilter() yfilter.YFilter { return packetTrigger.YFilter }
+func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetEntityData() *types.CommonEntityData {
+    packetTrigger.EntityData.YFilter = packetTrigger.YFilter
+    packetTrigger.EntityData.YangName = "packet-trigger"
+    packetTrigger.EntityData.BundleName = "cisco_ios_xr"
+    packetTrigger.EntityData.ParentYangName = "ipv6-initiators"
+    packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) SetFilter(yf yfilter.YFilter) { packetTrigger.YFilter = yf }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetGoName(yname string) string {
-    if yname == "invalid" { return "Invalid" }
-    if yname == "initialized" { return "Initialized" }
-    if yname == "session-creation-started" { return "SessionCreationStarted" }
-    if yname == "control-policy-executing" { return "ControlPolicyExecuting" }
-    if yname == "control-policy-executed" { return "ControlPolicyExecuted" }
-    if yname == "session-features-applied" { return "SessionFeaturesApplied" }
-    if yname == "vrf-configured" { return "VrfConfigured" }
-    if yname == "adding-adjacency" { return "AddingAdjacency" }
-    if yname == "adjacency-added" { return "AdjacencyAdded" }
-    if yname == "up" { return "Up" }
-    if yname == "down" { return "Down" }
-    if yname == "disconnecting" { return "Disconnecting" }
-    if yname == "disconnected" { return "Disconnected" }
-    if yname == "error" { return "Error" }
-    if yname == "total-interfaces" { return "TotalInterfaces" }
-    return ""
+    packetTrigger.EntityData.Children = make(map[string]types.YChild)
+    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetTrigger.EntityData.Leafs["invalid"] = types.YLeaf{"Invalid", packetTrigger.Invalid}
+    packetTrigger.EntityData.Leafs["initialized"] = types.YLeaf{"Initialized", packetTrigger.Initialized}
+    packetTrigger.EntityData.Leafs["session-creation-started"] = types.YLeaf{"SessionCreationStarted", packetTrigger.SessionCreationStarted}
+    packetTrigger.EntityData.Leafs["control-policy-executing"] = types.YLeaf{"ControlPolicyExecuting", packetTrigger.ControlPolicyExecuting}
+    packetTrigger.EntityData.Leafs["control-policy-executed"] = types.YLeaf{"ControlPolicyExecuted", packetTrigger.ControlPolicyExecuted}
+    packetTrigger.EntityData.Leafs["session-features-applied"] = types.YLeaf{"SessionFeaturesApplied", packetTrigger.SessionFeaturesApplied}
+    packetTrigger.EntityData.Leafs["vrf-configured"] = types.YLeaf{"VrfConfigured", packetTrigger.VrfConfigured}
+    packetTrigger.EntityData.Leafs["adding-adjacency"] = types.YLeaf{"AddingAdjacency", packetTrigger.AddingAdjacency}
+    packetTrigger.EntityData.Leafs["adjacency-added"] = types.YLeaf{"AdjacencyAdded", packetTrigger.AdjacencyAdded}
+    packetTrigger.EntityData.Leafs["up"] = types.YLeaf{"Up", packetTrigger.Up}
+    packetTrigger.EntityData.Leafs["down"] = types.YLeaf{"Down", packetTrigger.Down}
+    packetTrigger.EntityData.Leafs["disconnecting"] = types.YLeaf{"Disconnecting", packetTrigger.Disconnecting}
+    packetTrigger.EntityData.Leafs["disconnected"] = types.YLeaf{"Disconnected", packetTrigger.Disconnected}
+    packetTrigger.EntityData.Leafs["error"] = types.YLeaf{"Error", packetTrigger.Error}
+    packetTrigger.EntityData.Leafs["total-interfaces"] = types.YLeaf{"TotalInterfaces", packetTrigger.TotalInterfaces}
+    return &(packetTrigger.EntityData)
 }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetSegmentPath() string {
-    return "packet-trigger"
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["invalid"] = packetTrigger.Invalid
-    leafs["initialized"] = packetTrigger.Initialized
-    leafs["session-creation-started"] = packetTrigger.SessionCreationStarted
-    leafs["control-policy-executing"] = packetTrigger.ControlPolicyExecuting
-    leafs["control-policy-executed"] = packetTrigger.ControlPolicyExecuted
-    leafs["session-features-applied"] = packetTrigger.SessionFeaturesApplied
-    leafs["vrf-configured"] = packetTrigger.VrfConfigured
-    leafs["adding-adjacency"] = packetTrigger.AddingAdjacency
-    leafs["adjacency-added"] = packetTrigger.AdjacencyAdded
-    leafs["up"] = packetTrigger.Up
-    leafs["down"] = packetTrigger.Down
-    leafs["disconnecting"] = packetTrigger.Disconnecting
-    leafs["disconnected"] = packetTrigger.Disconnected
-    leafs["error"] = packetTrigger.Error
-    leafs["total-interfaces"] = packetTrigger.TotalInterfaces
-    return leafs
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetYangName() string { return "packet-trigger" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) SetParent(parent types.Entity) { packetTrigger.parent = parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetParent() types.Entity { return packetTrigger.parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_Summary_InterfaceCounts_Ipv6Initiators_PacketTrigger) GetParentYangName() string { return "ipv6-initiators" }
 
 // IpSubscriber_Nodes_Node_Summary_Vrf
 // Array of VRFs with IPSUB interfaces
 type IpSubscriber_Nodes_Node_Summary_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IPv4 VRF. The type is string.
@@ -1614,150 +931,78 @@ type IpSubscriber_Nodes_Node_Summary_Vrf struct {
     Ipv6Interfaces interface{}
 }
 
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "summary"
+    vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "ipv6vrf-name" { return "Ipv6VrfName" }
-    if yname == "interfaces" { return "Interfaces" }
-    if yname == "ipv6-interfaces" { return "Ipv6Interfaces" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Leafs["ipv6vrf-name"] = types.YLeaf{"Ipv6VrfName", vrf.Ipv6VrfName}
+    vrf.EntityData.Leafs["interfaces"] = types.YLeaf{"Interfaces", vrf.Interfaces}
+    vrf.EntityData.Leafs["ipv6-interfaces"] = types.YLeaf{"Ipv6Interfaces", vrf.Ipv6Interfaces}
+    return &(vrf.EntityData)
 }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetSegmentPath() string {
-    return "vrf"
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    leafs["ipv6vrf-name"] = vrf.Ipv6VrfName
-    leafs["interfaces"] = vrf.Interfaces
-    leafs["ipv6-interfaces"] = vrf.Ipv6Interfaces
-    return leafs
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *IpSubscriber_Nodes_Node_Summary_Vrf) GetParentYangName() string { return "summary" }
 
 // IpSubscriber_Nodes_Node_Interfaces
 // IP subscriber interface table
 type IpSubscriber_Nodes_Node_Interfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP subscriber interface entry. The type is slice of
-    // IpSubscriber_Nodes_Node_Interfaces_Interface.
-    Interface []IpSubscriber_Nodes_Node_Interfaces_Interface
+    // IpSubscriber_Nodes_Node_Interfaces_Interface_.
+    Interface_ []IpSubscriber_Nodes_Node_Interfaces_Interface
 }
 
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetFilter() yfilter.YFilter { return interfaces.YFilter }
+func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetEntityData() *types.CommonEntityData {
+    interfaces.EntityData.YFilter = interfaces.YFilter
+    interfaces.EntityData.YangName = "interfaces"
+    interfaces.EntityData.BundleName = "cisco_ios_xr"
+    interfaces.EntityData.ParentYangName = "node"
+    interfaces.EntityData.SegmentPath = "interfaces"
+    interfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    interfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    interfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) SetFilter(yf yfilter.YFilter) { interfaces.YFilter = yf }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetGoName(yname string) string {
-    if yname == "interface" { return "Interface" }
-    return ""
-}
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetSegmentPath() string {
-    return "interfaces"
-}
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "interface" {
-        for _, c := range interfaces.Interface {
-            if interfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpSubscriber_Nodes_Node_Interfaces_Interface{}
-        interfaces.Interface = append(interfaces.Interface, child)
-        return &interfaces.Interface[len(interfaces.Interface)-1]
+    interfaces.EntityData.Children = make(map[string]types.YChild)
+    interfaces.EntityData.Children["interface"] = types.YChild{"Interface_", nil}
+    for i := range interfaces.Interface_ {
+        interfaces.EntityData.Children[types.GetSegmentPath(&interfaces.Interface_[i])] = types.YChild{"Interface_", &interfaces.Interface_[i]}
     }
-    return nil
+    interfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(interfaces.EntityData)
 }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range interfaces.Interface {
-        children[interfaces.Interface[i].GetSegmentPath()] = &interfaces.Interface[i]
-    }
-    return children
-}
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetYangName() string { return "interfaces" }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) SetParent(parent types.Entity) { interfaces.parent = parent }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetParent() types.Entity { return interfaces.parent }
-
-func (interfaces *IpSubscriber_Nodes_Node_Interfaces) GetParentYangName() string { return "node" }
 
 // IpSubscriber_Nodes_Node_Interfaces_Interface
 // IP subscriber interface entry
 type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Access interface through which this subscriber is accessible. The type is
-    // string with pattern: [a-zA-Z0-9./-]+.
+    // string with pattern: b'[a-zA-Z0-9./-]+'.
     AccessInterface interface{}
 
     // IPv4 Address of the subscriber. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     SubscriberIpv4Address interface{}
 
     // IPv6 Address of the subscriber. The type is string.
     SubscriberIpv6Address interface{}
 
     // MAC address of the subscriber. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SubscriberMacAddres interface{}
 
     // Subscriber label for this subscriber interface. The type is interface{}
@@ -1818,104 +1063,47 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface struct {
     Ipv6Vrf IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf
 }
 
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetFilter() yfilter.YFilter { return self.YFilter }
+func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetEntityData() *types.CommonEntityData {
+    self.EntityData.YFilter = self.YFilter
+    self.EntityData.YangName = "interface"
+    self.EntityData.BundleName = "cisco_ios_xr"
+    self.EntityData.ParentYangName = "interfaces"
+    self.EntityData.SegmentPath = "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
+    self.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    self.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    self.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) SetFilter(yf yfilter.YFilter) { self.YFilter = yf }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "access-interface" { return "AccessInterface" }
-    if yname == "subscriber-ipv4-address" { return "SubscriberIpv4Address" }
-    if yname == "subscriber-ipv6-address" { return "SubscriberIpv6Address" }
-    if yname == "subscriber-mac-addres" { return "SubscriberMacAddres" }
-    if yname == "subscriber-label" { return "SubscriberLabel" }
-    if yname == "interface-creation-time" { return "InterfaceCreationTime" }
-    if yname == "age" { return "Age" }
-    if yname == "initiator" { return "Initiator" }
-    if yname == "state" { return "State" }
-    if yname == "old-state" { return "OldState" }
-    if yname == "last-state-change-time" { return "LastStateChangeTime" }
-    if yname == "current-change-age" { return "CurrentChangeAge" }
-    if yname == "ipv6-initiator" { return "Ipv6Initiator" }
-    if yname == "ipv6-state" { return "Ipv6State" }
-    if yname == "ipv6-old-state" { return "Ipv6OldState" }
-    if yname == "ipv6-last-state-change-time" { return "Ipv6LastStateChangeTime" }
-    if yname == "ipv6-current-change-age" { return "Ipv6CurrentChangeAge" }
-    if yname == "is-l2-connected" { return "IsL2Connected" }
-    if yname == "session-type" { return "SessionType" }
-    if yname == "vrf" { return "Vrf" }
-    if yname == "ipv6vrf" { return "Ipv6Vrf" }
-    return ""
+    self.EntityData.Children = make(map[string]types.YChild)
+    self.EntityData.Children["vrf"] = types.YChild{"Vrf", &self.Vrf}
+    self.EntityData.Children["ipv6vrf"] = types.YChild{"Ipv6Vrf", &self.Ipv6Vrf}
+    self.EntityData.Leafs = make(map[string]types.YLeaf)
+    self.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", self.InterfaceName}
+    self.EntityData.Leafs["access-interface"] = types.YLeaf{"AccessInterface", self.AccessInterface}
+    self.EntityData.Leafs["subscriber-ipv4-address"] = types.YLeaf{"SubscriberIpv4Address", self.SubscriberIpv4Address}
+    self.EntityData.Leafs["subscriber-ipv6-address"] = types.YLeaf{"SubscriberIpv6Address", self.SubscriberIpv6Address}
+    self.EntityData.Leafs["subscriber-mac-addres"] = types.YLeaf{"SubscriberMacAddres", self.SubscriberMacAddres}
+    self.EntityData.Leafs["subscriber-label"] = types.YLeaf{"SubscriberLabel", self.SubscriberLabel}
+    self.EntityData.Leafs["interface-creation-time"] = types.YLeaf{"InterfaceCreationTime", self.InterfaceCreationTime}
+    self.EntityData.Leafs["age"] = types.YLeaf{"Age", self.Age}
+    self.EntityData.Leafs["initiator"] = types.YLeaf{"Initiator", self.Initiator}
+    self.EntityData.Leafs["state"] = types.YLeaf{"State", self.State}
+    self.EntityData.Leafs["old-state"] = types.YLeaf{"OldState", self.OldState}
+    self.EntityData.Leafs["last-state-change-time"] = types.YLeaf{"LastStateChangeTime", self.LastStateChangeTime}
+    self.EntityData.Leafs["current-change-age"] = types.YLeaf{"CurrentChangeAge", self.CurrentChangeAge}
+    self.EntityData.Leafs["ipv6-initiator"] = types.YLeaf{"Ipv6Initiator", self.Ipv6Initiator}
+    self.EntityData.Leafs["ipv6-state"] = types.YLeaf{"Ipv6State", self.Ipv6State}
+    self.EntityData.Leafs["ipv6-old-state"] = types.YLeaf{"Ipv6OldState", self.Ipv6OldState}
+    self.EntityData.Leafs["ipv6-last-state-change-time"] = types.YLeaf{"Ipv6LastStateChangeTime", self.Ipv6LastStateChangeTime}
+    self.EntityData.Leafs["ipv6-current-change-age"] = types.YLeaf{"Ipv6CurrentChangeAge", self.Ipv6CurrentChangeAge}
+    self.EntityData.Leafs["is-l2-connected"] = types.YLeaf{"IsL2Connected", self.IsL2Connected}
+    self.EntityData.Leafs["session-type"] = types.YLeaf{"SessionType", self.SessionType}
+    return &(self.EntityData)
 }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetSegmentPath() string {
-    return "interface" + "[interface-name='" + fmt.Sprintf("%v", self.InterfaceName) + "']"
-}
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "vrf" {
-        return &self.Vrf
-    }
-    if childYangName == "ipv6vrf" {
-        return &self.Ipv6Vrf
-    }
-    return nil
-}
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["vrf"] = &self.Vrf
-    children["ipv6vrf"] = &self.Ipv6Vrf
-    return children
-}
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = self.InterfaceName
-    leafs["access-interface"] = self.AccessInterface
-    leafs["subscriber-ipv4-address"] = self.SubscriberIpv4Address
-    leafs["subscriber-ipv6-address"] = self.SubscriberIpv6Address
-    leafs["subscriber-mac-addres"] = self.SubscriberMacAddres
-    leafs["subscriber-label"] = self.SubscriberLabel
-    leafs["interface-creation-time"] = self.InterfaceCreationTime
-    leafs["age"] = self.Age
-    leafs["initiator"] = self.Initiator
-    leafs["state"] = self.State
-    leafs["old-state"] = self.OldState
-    leafs["last-state-change-time"] = self.LastStateChangeTime
-    leafs["current-change-age"] = self.CurrentChangeAge
-    leafs["ipv6-initiator"] = self.Ipv6Initiator
-    leafs["ipv6-state"] = self.Ipv6State
-    leafs["ipv6-old-state"] = self.Ipv6OldState
-    leafs["ipv6-last-state-change-time"] = self.Ipv6LastStateChangeTime
-    leafs["ipv6-current-change-age"] = self.Ipv6CurrentChangeAge
-    leafs["is-l2-connected"] = self.IsL2Connected
-    leafs["session-type"] = self.SessionType
-    return leafs
-}
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetYangName() string { return "interface" }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) SetParent(parent types.Entity) { self.parent = parent }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetParent() types.Entity { return self.parent }
-
-func (self *IpSubscriber_Nodes_Node_Interfaces_Interface) GetParentYangName() string { return "interfaces" }
 
 // IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf
 // IPv4 VRF details
 type IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF name. The type is string.
@@ -1925,58 +1113,27 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf struct {
     TableName interface{}
 }
 
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetFilter() yfilter.YFilter { return vrf.YFilter }
+func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetEntityData() *types.CommonEntityData {
+    vrf.EntityData.YFilter = vrf.YFilter
+    vrf.EntityData.YangName = "vrf"
+    vrf.EntityData.BundleName = "cisco_ios_xr"
+    vrf.EntityData.ParentYangName = "interface"
+    vrf.EntityData.SegmentPath = "vrf"
+    vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) SetFilter(yf yfilter.YFilter) { vrf.YFilter = yf }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "table-name" { return "TableName" }
-    return ""
+    vrf.EntityData.Children = make(map[string]types.YChild)
+    vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", vrf.VrfName}
+    vrf.EntityData.Leafs["table-name"] = types.YLeaf{"TableName", vrf.TableName}
+    return &(vrf.EntityData)
 }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetSegmentPath() string {
-    return "vrf"
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = vrf.VrfName
-    leafs["table-name"] = vrf.TableName
-    return leafs
-}
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetYangName() string { return "vrf" }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) SetParent(parent types.Entity) { vrf.parent = parent }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetParent() types.Entity { return vrf.parent }
-
-func (vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Vrf) GetParentYangName() string { return "interface" }
 
 // IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf
 // IPv6 VRF details
 type IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VRF name. The type is string.
@@ -1986,58 +1143,27 @@ type IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf struct {
     TableName interface{}
 }
 
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetFilter() yfilter.YFilter { return ipv6Vrf.YFilter }
+func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetEntityData() *types.CommonEntityData {
+    ipv6Vrf.EntityData.YFilter = ipv6Vrf.YFilter
+    ipv6Vrf.EntityData.YangName = "ipv6vrf"
+    ipv6Vrf.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Vrf.EntityData.ParentYangName = "interface"
+    ipv6Vrf.EntityData.SegmentPath = "ipv6vrf"
+    ipv6Vrf.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Vrf.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Vrf.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) SetFilter(yf yfilter.YFilter) { ipv6Vrf.YFilter = yf }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetGoName(yname string) string {
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "table-name" { return "TableName" }
-    return ""
+    ipv6Vrf.EntityData.Children = make(map[string]types.YChild)
+    ipv6Vrf.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Vrf.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6Vrf.VrfName}
+    ipv6Vrf.EntityData.Leafs["table-name"] = types.YLeaf{"TableName", ipv6Vrf.TableName}
+    return &(ipv6Vrf.EntityData)
 }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetSegmentPath() string {
-    return "ipv6vrf"
-}
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vrf-name"] = ipv6Vrf.VrfName
-    leafs["table-name"] = ipv6Vrf.TableName
-    return leafs
-}
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetYangName() string { return "ipv6vrf" }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) SetParent(parent types.Entity) { ipv6Vrf.parent = parent }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetParent() types.Entity { return ipv6Vrf.parent }
-
-func (ipv6Vrf *IpSubscriber_Nodes_Node_Interfaces_Interface_Ipv6Vrf) GetParentYangName() string { return "interface" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces
 // IP subscriber access interface table
 type IpSubscriber_Nodes_Node_AccessInterfaces struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // IP subscriber access interface entry. The type is slice of
@@ -2045,72 +1171,33 @@ type IpSubscriber_Nodes_Node_AccessInterfaces struct {
     AccessInterface []IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface
 }
 
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetFilter() yfilter.YFilter { return accessInterfaces.YFilter }
+func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetEntityData() *types.CommonEntityData {
+    accessInterfaces.EntityData.YFilter = accessInterfaces.YFilter
+    accessInterfaces.EntityData.YangName = "access-interfaces"
+    accessInterfaces.EntityData.BundleName = "cisco_ios_xr"
+    accessInterfaces.EntityData.ParentYangName = "node"
+    accessInterfaces.EntityData.SegmentPath = "access-interfaces"
+    accessInterfaces.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterfaces.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterfaces.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) SetFilter(yf yfilter.YFilter) { accessInterfaces.YFilter = yf }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetGoName(yname string) string {
-    if yname == "access-interface" { return "AccessInterface" }
-    return ""
-}
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetSegmentPath() string {
-    return "access-interfaces"
-}
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "access-interface" {
-        for _, c := range accessInterfaces.AccessInterface {
-            if accessInterfaces.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface{}
-        accessInterfaces.AccessInterface = append(accessInterfaces.AccessInterface, child)
-        return &accessInterfaces.AccessInterface[len(accessInterfaces.AccessInterface)-1]
-    }
-    return nil
-}
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    accessInterfaces.EntityData.Children = make(map[string]types.YChild)
+    accessInterfaces.EntityData.Children["access-interface"] = types.YChild{"AccessInterface", nil}
     for i := range accessInterfaces.AccessInterface {
-        children[accessInterfaces.AccessInterface[i].GetSegmentPath()] = &accessInterfaces.AccessInterface[i]
+        accessInterfaces.EntityData.Children[types.GetSegmentPath(&accessInterfaces.AccessInterface[i])] = types.YChild{"AccessInterface", &accessInterfaces.AccessInterface[i]}
     }
-    return children
+    accessInterfaces.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(accessInterfaces.EntityData)
 }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetYangName() string { return "access-interfaces" }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) SetParent(parent types.Entity) { accessInterfaces.parent = parent }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetParent() types.Entity { return accessInterfaces.parent }
-
-func (accessInterfaces *IpSubscriber_Nodes_Node_AccessInterfaces) GetParentYangName() string { return "node" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface
 // IP subscriber access interface entry
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Interface creation time in Month Date HH:MM:SS format. The type is string.
@@ -2145,85 +1232,37 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface struct {
     SessionLimit IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit
 }
 
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetFilter() yfilter.YFilter { return accessInterface.YFilter }
+func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetEntityData() *types.CommonEntityData {
+    accessInterface.EntityData.YFilter = accessInterface.YFilter
+    accessInterface.EntityData.YangName = "access-interface"
+    accessInterface.EntityData.BundleName = "cisco_ios_xr"
+    accessInterface.EntityData.ParentYangName = "access-interfaces"
+    accessInterface.EntityData.SegmentPath = "access-interface" + "[interface-name='" + fmt.Sprintf("%v", accessInterface.InterfaceName) + "']"
+    accessInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    accessInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    accessInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) SetFilter(yf yfilter.YFilter) { accessInterface.YFilter = yf }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "interface-creation-time" { return "InterfaceCreationTime" }
-    if yname == "age" { return "Age" }
-    if yname == "interface-type" { return "InterfaceType" }
-    if yname == "state" { return "State" }
-    if yname == "ipv6-state" { return "Ipv6State" }
-    if yname == "vlan-type" { return "VlanType" }
-    if yname == "initiators" { return "Initiators" }
-    if yname == "ipv6-initiators" { return "Ipv6Initiators" }
-    if yname == "session-limit" { return "SessionLimit" }
-    return ""
+    accessInterface.EntityData.Children = make(map[string]types.YChild)
+    accessInterface.EntityData.Children["initiators"] = types.YChild{"Initiators", &accessInterface.Initiators}
+    accessInterface.EntityData.Children["ipv6-initiators"] = types.YChild{"Ipv6Initiators", &accessInterface.Ipv6Initiators}
+    accessInterface.EntityData.Children["session-limit"] = types.YChild{"SessionLimit", &accessInterface.SessionLimit}
+    accessInterface.EntityData.Leafs = make(map[string]types.YLeaf)
+    accessInterface.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", accessInterface.InterfaceName}
+    accessInterface.EntityData.Leafs["interface-creation-time"] = types.YLeaf{"InterfaceCreationTime", accessInterface.InterfaceCreationTime}
+    accessInterface.EntityData.Leafs["age"] = types.YLeaf{"Age", accessInterface.Age}
+    accessInterface.EntityData.Leafs["interface-type"] = types.YLeaf{"InterfaceType", accessInterface.InterfaceType}
+    accessInterface.EntityData.Leafs["state"] = types.YLeaf{"State", accessInterface.State}
+    accessInterface.EntityData.Leafs["ipv6-state"] = types.YLeaf{"Ipv6State", accessInterface.Ipv6State}
+    accessInterface.EntityData.Leafs["vlan-type"] = types.YLeaf{"VlanType", accessInterface.VlanType}
+    return &(accessInterface.EntityData)
 }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetSegmentPath() string {
-    return "access-interface" + "[interface-name='" + fmt.Sprintf("%v", accessInterface.InterfaceName) + "']"
-}
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "initiators" {
-        return &accessInterface.Initiators
-    }
-    if childYangName == "ipv6-initiators" {
-        return &accessInterface.Ipv6Initiators
-    }
-    if childYangName == "session-limit" {
-        return &accessInterface.SessionLimit
-    }
-    return nil
-}
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["initiators"] = &accessInterface.Initiators
-    children["ipv6-initiators"] = &accessInterface.Ipv6Initiators
-    children["session-limit"] = &accessInterface.SessionLimit
-    return children
-}
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = accessInterface.InterfaceName
-    leafs["interface-creation-time"] = accessInterface.InterfaceCreationTime
-    leafs["age"] = accessInterface.Age
-    leafs["interface-type"] = accessInterface.InterfaceType
-    leafs["state"] = accessInterface.State
-    leafs["ipv6-state"] = accessInterface.Ipv6State
-    leafs["vlan-type"] = accessInterface.VlanType
-    return leafs
-}
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetBundleName() string { return "cisco_ios_xr" }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetYangName() string { return "access-interface" }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) SetParent(parent types.Entity) { accessInterface.parent = parent }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetParent() types.Entity { return accessInterface.parent }
-
-func (accessInterface *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface) GetParentYangName() string { return "access-interfaces" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators
 // Configurational state-statistics for each
 // initiating protocol enabled on this parent
 // interface
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP information.
@@ -2233,64 +1272,27 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators struct 
     PacketTrigger IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger
 }
 
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetFilter() yfilter.YFilter { return initiators.YFilter }
+func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetEntityData() *types.CommonEntityData {
+    initiators.EntityData.YFilter = initiators.YFilter
+    initiators.EntityData.YangName = "initiators"
+    initiators.EntityData.BundleName = "cisco_ios_xr"
+    initiators.EntityData.ParentYangName = "access-interface"
+    initiators.EntityData.SegmentPath = "initiators"
+    initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) SetFilter(yf yfilter.YFilter) { initiators.YFilter = yf }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetGoName(yname string) string {
-    if yname == "dhcp" { return "Dhcp" }
-    if yname == "packet-trigger" { return "PacketTrigger" }
-    return ""
+    initiators.EntityData.Children = make(map[string]types.YChild)
+    initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &initiators.Dhcp}
+    initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &initiators.PacketTrigger}
+    initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(initiators.EntityData)
 }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetSegmentPath() string {
-    return "initiators"
-}
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dhcp" {
-        return &initiators.Dhcp
-    }
-    if childYangName == "packet-trigger" {
-        return &initiators.PacketTrigger
-    }
-    return nil
-}
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dhcp"] = &initiators.Dhcp
-    children["packet-trigger"] = &initiators.PacketTrigger
-    return children
-}
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetYangName() string { return "initiators" }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) SetParent(parent types.Entity) { initiators.parent = parent }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetParent() types.Entity { return initiators.parent }
-
-func (initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators) GetParentYangName() string { return "access-interface" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp
 // DHCP information
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ture if the initiator is configred. The type is bool.
@@ -2340,74 +1342,35 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp st
     FsolDroppedPacketsDupAddr interface{}
 }
 
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetFilter() yfilter.YFilter { return dhcp.YFilter }
+func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetEntityData() *types.CommonEntityData {
+    dhcp.EntityData.YFilter = dhcp.YFilter
+    dhcp.EntityData.YangName = "dhcp"
+    dhcp.EntityData.BundleName = "cisco_ios_xr"
+    dhcp.EntityData.ParentYangName = "initiators"
+    dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) SetFilter(yf yfilter.YFilter) { dhcp.YFilter = yf }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetGoName(yname string) string {
-    if yname == "is-configured" { return "IsConfigured" }
-    if yname == "unique-ip-check" { return "UniqueIpCheck" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    if yname == "fsol-dropped-packets" { return "FsolDroppedPackets" }
-    if yname == "fsol-dropped-bytes" { return "FsolDroppedBytes" }
-    if yname == "fsol-dropped-packets-flow" { return "FsolDroppedPacketsFlow" }
-    if yname == "fsol-dropped-packets-session-limit" { return "FsolDroppedPacketsSessionLimit" }
-    if yname == "fsol-dropped-packets-dup-addr" { return "FsolDroppedPacketsDupAddr" }
-    return ""
+    dhcp.EntityData.Children = make(map[string]types.YChild)
+    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcp.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", dhcp.IsConfigured}
+    dhcp.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", dhcp.UniqueIpCheck}
+    dhcp.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", dhcp.Sessions}
+    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
+    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
+    dhcp.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", dhcp.FsolDroppedPackets}
+    dhcp.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", dhcp.FsolDroppedBytes}
+    dhcp.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", dhcp.FsolDroppedPacketsFlow}
+    dhcp.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", dhcp.FsolDroppedPacketsSessionLimit}
+    dhcp.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", dhcp.FsolDroppedPacketsDupAddr}
+    return &(dhcp.EntityData)
 }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetSegmentPath() string {
-    return "dhcp"
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-configured"] = dhcp.IsConfigured
-    leafs["unique-ip-check"] = dhcp.UniqueIpCheck
-    leafs["sessions"] = dhcp.Sessions
-    leafs["fsol-packets"] = dhcp.FsolPackets
-    leafs["fsol-bytes"] = dhcp.FsolBytes
-    leafs["fsol-dropped-packets"] = dhcp.FsolDroppedPackets
-    leafs["fsol-dropped-bytes"] = dhcp.FsolDroppedBytes
-    leafs["fsol-dropped-packets-flow"] = dhcp.FsolDroppedPacketsFlow
-    leafs["fsol-dropped-packets-session-limit"] = dhcp.FsolDroppedPacketsSessionLimit
-    leafs["fsol-dropped-packets-dup-addr"] = dhcp.FsolDroppedPacketsDupAddr
-    return leafs
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetYangName() string { return "dhcp" }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) SetParent(parent types.Entity) { dhcp.parent = parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetParent() types.Entity { return dhcp.parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_Dhcp) GetParentYangName() string { return "initiators" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger
 // packet trigger information
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ture if the initiator is configred. The type is bool.
@@ -2457,76 +1420,37 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketT
     FsolDroppedPacketsDupAddr interface{}
 }
 
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetFilter() yfilter.YFilter { return packetTrigger.YFilter }
+func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetEntityData() *types.CommonEntityData {
+    packetTrigger.EntityData.YFilter = packetTrigger.YFilter
+    packetTrigger.EntityData.YangName = "packet-trigger"
+    packetTrigger.EntityData.BundleName = "cisco_ios_xr"
+    packetTrigger.EntityData.ParentYangName = "initiators"
+    packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) SetFilter(yf yfilter.YFilter) { packetTrigger.YFilter = yf }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetGoName(yname string) string {
-    if yname == "is-configured" { return "IsConfigured" }
-    if yname == "unique-ip-check" { return "UniqueIpCheck" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    if yname == "fsol-dropped-packets" { return "FsolDroppedPackets" }
-    if yname == "fsol-dropped-bytes" { return "FsolDroppedBytes" }
-    if yname == "fsol-dropped-packets-flow" { return "FsolDroppedPacketsFlow" }
-    if yname == "fsol-dropped-packets-session-limit" { return "FsolDroppedPacketsSessionLimit" }
-    if yname == "fsol-dropped-packets-dup-addr" { return "FsolDroppedPacketsDupAddr" }
-    return ""
+    packetTrigger.EntityData.Children = make(map[string]types.YChild)
+    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetTrigger.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", packetTrigger.IsConfigured}
+    packetTrigger.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", packetTrigger.UniqueIpCheck}
+    packetTrigger.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", packetTrigger.Sessions}
+    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
+    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", packetTrigger.FsolDroppedPackets}
+    packetTrigger.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", packetTrigger.FsolDroppedBytes}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", packetTrigger.FsolDroppedPacketsFlow}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", packetTrigger.FsolDroppedPacketsSessionLimit}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", packetTrigger.FsolDroppedPacketsDupAddr}
+    return &(packetTrigger.EntityData)
 }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetSegmentPath() string {
-    return "packet-trigger"
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-configured"] = packetTrigger.IsConfigured
-    leafs["unique-ip-check"] = packetTrigger.UniqueIpCheck
-    leafs["sessions"] = packetTrigger.Sessions
-    leafs["fsol-packets"] = packetTrigger.FsolPackets
-    leafs["fsol-bytes"] = packetTrigger.FsolBytes
-    leafs["fsol-dropped-packets"] = packetTrigger.FsolDroppedPackets
-    leafs["fsol-dropped-bytes"] = packetTrigger.FsolDroppedBytes
-    leafs["fsol-dropped-packets-flow"] = packetTrigger.FsolDroppedPacketsFlow
-    leafs["fsol-dropped-packets-session-limit"] = packetTrigger.FsolDroppedPacketsSessionLimit
-    leafs["fsol-dropped-packets-dup-addr"] = packetTrigger.FsolDroppedPacketsDupAddr
-    return leafs
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetYangName() string { return "packet-trigger" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) SetParent(parent types.Entity) { packetTrigger.parent = parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetParent() types.Entity { return packetTrigger.parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Initiators_PacketTrigger) GetParentYangName() string { return "initiators" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators
 // Configurational state-statistics for each
 // initiating protocol enabled on this parent
 // interface for IPv6 session
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DHCP information.
@@ -2536,64 +1460,27 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators str
     PacketTrigger IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger
 }
 
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetFilter() yfilter.YFilter { return ipv6Initiators.YFilter }
+func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetEntityData() *types.CommonEntityData {
+    ipv6Initiators.EntityData.YFilter = ipv6Initiators.YFilter
+    ipv6Initiators.EntityData.YangName = "ipv6-initiators"
+    ipv6Initiators.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Initiators.EntityData.ParentYangName = "access-interface"
+    ipv6Initiators.EntityData.SegmentPath = "ipv6-initiators"
+    ipv6Initiators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Initiators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Initiators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) SetFilter(yf yfilter.YFilter) { ipv6Initiators.YFilter = yf }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetGoName(yname string) string {
-    if yname == "dhcp" { return "Dhcp" }
-    if yname == "packet-trigger" { return "PacketTrigger" }
-    return ""
+    ipv6Initiators.EntityData.Children = make(map[string]types.YChild)
+    ipv6Initiators.EntityData.Children["dhcp"] = types.YChild{"Dhcp", &ipv6Initiators.Dhcp}
+    ipv6Initiators.EntityData.Children["packet-trigger"] = types.YChild{"PacketTrigger", &ipv6Initiators.PacketTrigger}
+    ipv6Initiators.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipv6Initiators.EntityData)
 }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetSegmentPath() string {
-    return "ipv6-initiators"
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dhcp" {
-        return &ipv6Initiators.Dhcp
-    }
-    if childYangName == "packet-trigger" {
-        return &ipv6Initiators.PacketTrigger
-    }
-    return nil
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["dhcp"] = &ipv6Initiators.Dhcp
-    children["packet-trigger"] = &ipv6Initiators.PacketTrigger
-    return children
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetYangName() string { return "ipv6-initiators" }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) SetParent(parent types.Entity) { ipv6Initiators.parent = parent }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetParent() types.Entity { return ipv6Initiators.parent }
-
-func (ipv6Initiators *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators) GetParentYangName() string { return "access-interface" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp
 // DHCP information
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ture if the initiator is configred. The type is bool.
@@ -2643,74 +1530,35 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhc
     FsolDroppedPacketsDupAddr interface{}
 }
 
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetFilter() yfilter.YFilter { return dhcp.YFilter }
+func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetEntityData() *types.CommonEntityData {
+    dhcp.EntityData.YFilter = dhcp.YFilter
+    dhcp.EntityData.YangName = "dhcp"
+    dhcp.EntityData.BundleName = "cisco_ios_xr"
+    dhcp.EntityData.ParentYangName = "ipv6-initiators"
+    dhcp.EntityData.SegmentPath = "dhcp"
+    dhcp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dhcp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dhcp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) SetFilter(yf yfilter.YFilter) { dhcp.YFilter = yf }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetGoName(yname string) string {
-    if yname == "is-configured" { return "IsConfigured" }
-    if yname == "unique-ip-check" { return "UniqueIpCheck" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    if yname == "fsol-dropped-packets" { return "FsolDroppedPackets" }
-    if yname == "fsol-dropped-bytes" { return "FsolDroppedBytes" }
-    if yname == "fsol-dropped-packets-flow" { return "FsolDroppedPacketsFlow" }
-    if yname == "fsol-dropped-packets-session-limit" { return "FsolDroppedPacketsSessionLimit" }
-    if yname == "fsol-dropped-packets-dup-addr" { return "FsolDroppedPacketsDupAddr" }
-    return ""
+    dhcp.EntityData.Children = make(map[string]types.YChild)
+    dhcp.EntityData.Leafs = make(map[string]types.YLeaf)
+    dhcp.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", dhcp.IsConfigured}
+    dhcp.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", dhcp.UniqueIpCheck}
+    dhcp.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", dhcp.Sessions}
+    dhcp.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", dhcp.FsolPackets}
+    dhcp.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", dhcp.FsolBytes}
+    dhcp.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", dhcp.FsolDroppedPackets}
+    dhcp.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", dhcp.FsolDroppedBytes}
+    dhcp.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", dhcp.FsolDroppedPacketsFlow}
+    dhcp.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", dhcp.FsolDroppedPacketsSessionLimit}
+    dhcp.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", dhcp.FsolDroppedPacketsDupAddr}
+    return &(dhcp.EntityData)
 }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetSegmentPath() string {
-    return "dhcp"
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-configured"] = dhcp.IsConfigured
-    leafs["unique-ip-check"] = dhcp.UniqueIpCheck
-    leafs["sessions"] = dhcp.Sessions
-    leafs["fsol-packets"] = dhcp.FsolPackets
-    leafs["fsol-bytes"] = dhcp.FsolBytes
-    leafs["fsol-dropped-packets"] = dhcp.FsolDroppedPackets
-    leafs["fsol-dropped-bytes"] = dhcp.FsolDroppedBytes
-    leafs["fsol-dropped-packets-flow"] = dhcp.FsolDroppedPacketsFlow
-    leafs["fsol-dropped-packets-session-limit"] = dhcp.FsolDroppedPacketsSessionLimit
-    leafs["fsol-dropped-packets-dup-addr"] = dhcp.FsolDroppedPacketsDupAddr
-    return leafs
-}
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetYangName() string { return "dhcp" }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) SetParent(parent types.Entity) { dhcp.parent = parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetParent() types.Entity { return dhcp.parent }
-
-func (dhcp *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Dhcp) GetParentYangName() string { return "ipv6-initiators" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger
 // packet trigger information
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ture if the initiator is configred. The type is bool.
@@ -2760,75 +1608,36 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_Pac
     FsolDroppedPacketsDupAddr interface{}
 }
 
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetFilter() yfilter.YFilter { return packetTrigger.YFilter }
+func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetEntityData() *types.CommonEntityData {
+    packetTrigger.EntityData.YFilter = packetTrigger.YFilter
+    packetTrigger.EntityData.YangName = "packet-trigger"
+    packetTrigger.EntityData.BundleName = "cisco_ios_xr"
+    packetTrigger.EntityData.ParentYangName = "ipv6-initiators"
+    packetTrigger.EntityData.SegmentPath = "packet-trigger"
+    packetTrigger.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetTrigger.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetTrigger.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) SetFilter(yf yfilter.YFilter) { packetTrigger.YFilter = yf }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetGoName(yname string) string {
-    if yname == "is-configured" { return "IsConfigured" }
-    if yname == "unique-ip-check" { return "UniqueIpCheck" }
-    if yname == "sessions" { return "Sessions" }
-    if yname == "fsol-packets" { return "FsolPackets" }
-    if yname == "fsol-bytes" { return "FsolBytes" }
-    if yname == "fsol-dropped-packets" { return "FsolDroppedPackets" }
-    if yname == "fsol-dropped-bytes" { return "FsolDroppedBytes" }
-    if yname == "fsol-dropped-packets-flow" { return "FsolDroppedPacketsFlow" }
-    if yname == "fsol-dropped-packets-session-limit" { return "FsolDroppedPacketsSessionLimit" }
-    if yname == "fsol-dropped-packets-dup-addr" { return "FsolDroppedPacketsDupAddr" }
-    return ""
+    packetTrigger.EntityData.Children = make(map[string]types.YChild)
+    packetTrigger.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetTrigger.EntityData.Leafs["is-configured"] = types.YLeaf{"IsConfigured", packetTrigger.IsConfigured}
+    packetTrigger.EntityData.Leafs["unique-ip-check"] = types.YLeaf{"UniqueIpCheck", packetTrigger.UniqueIpCheck}
+    packetTrigger.EntityData.Leafs["sessions"] = types.YLeaf{"Sessions", packetTrigger.Sessions}
+    packetTrigger.EntityData.Leafs["fsol-packets"] = types.YLeaf{"FsolPackets", packetTrigger.FsolPackets}
+    packetTrigger.EntityData.Leafs["fsol-bytes"] = types.YLeaf{"FsolBytes", packetTrigger.FsolBytes}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets"] = types.YLeaf{"FsolDroppedPackets", packetTrigger.FsolDroppedPackets}
+    packetTrigger.EntityData.Leafs["fsol-dropped-bytes"] = types.YLeaf{"FsolDroppedBytes", packetTrigger.FsolDroppedBytes}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets-flow"] = types.YLeaf{"FsolDroppedPacketsFlow", packetTrigger.FsolDroppedPacketsFlow}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets-session-limit"] = types.YLeaf{"FsolDroppedPacketsSessionLimit", packetTrigger.FsolDroppedPacketsSessionLimit}
+    packetTrigger.EntityData.Leafs["fsol-dropped-packets-dup-addr"] = types.YLeaf{"FsolDroppedPacketsDupAddr", packetTrigger.FsolDroppedPacketsDupAddr}
+    return &(packetTrigger.EntityData)
 }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetSegmentPath() string {
-    return "packet-trigger"
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-configured"] = packetTrigger.IsConfigured
-    leafs["unique-ip-check"] = packetTrigger.UniqueIpCheck
-    leafs["sessions"] = packetTrigger.Sessions
-    leafs["fsol-packets"] = packetTrigger.FsolPackets
-    leafs["fsol-bytes"] = packetTrigger.FsolBytes
-    leafs["fsol-dropped-packets"] = packetTrigger.FsolDroppedPackets
-    leafs["fsol-dropped-bytes"] = packetTrigger.FsolDroppedBytes
-    leafs["fsol-dropped-packets-flow"] = packetTrigger.FsolDroppedPacketsFlow
-    leafs["fsol-dropped-packets-session-limit"] = packetTrigger.FsolDroppedPacketsSessionLimit
-    leafs["fsol-dropped-packets-dup-addr"] = packetTrigger.FsolDroppedPacketsDupAddr
-    return leafs
-}
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetYangName() string { return "packet-trigger" }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) SetParent(parent types.Entity) { packetTrigger.parent = parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetParent() types.Entity { return packetTrigger.parent }
-
-func (packetTrigger *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_Ipv6Initiators_PacketTrigger) GetParentYangName() string { return "ipv6-initiators" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit
 // Configuration session limits for each session
 // limit source and type
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unclassified source session limits.
@@ -2838,169 +1647,72 @@ type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit struc
     Total IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total
 }
 
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetFilter() yfilter.YFilter { return sessionLimit.YFilter }
+func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetEntityData() *types.CommonEntityData {
+    sessionLimit.EntityData.YFilter = sessionLimit.YFilter
+    sessionLimit.EntityData.YangName = "session-limit"
+    sessionLimit.EntityData.BundleName = "cisco_ios_xr"
+    sessionLimit.EntityData.ParentYangName = "access-interface"
+    sessionLimit.EntityData.SegmentPath = "session-limit"
+    sessionLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    sessionLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    sessionLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) SetFilter(yf yfilter.YFilter) { sessionLimit.YFilter = yf }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetGoName(yname string) string {
-    if yname == "unclassified-source" { return "UnclassifiedSource" }
-    if yname == "total" { return "Total" }
-    return ""
+    sessionLimit.EntityData.Children = make(map[string]types.YChild)
+    sessionLimit.EntityData.Children["unclassified-source"] = types.YChild{"UnclassifiedSource", &sessionLimit.UnclassifiedSource}
+    sessionLimit.EntityData.Children["total"] = types.YChild{"Total", &sessionLimit.Total}
+    sessionLimit.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(sessionLimit.EntityData)
 }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetSegmentPath() string {
-    return "session-limit"
-}
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "unclassified-source" {
-        return &sessionLimit.UnclassifiedSource
-    }
-    if childYangName == "total" {
-        return &sessionLimit.Total
-    }
-    return nil
-}
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["unclassified-source"] = &sessionLimit.UnclassifiedSource
-    children["total"] = &sessionLimit.Total
-    return children
-}
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetBundleName() string { return "cisco_ios_xr" }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetYangName() string { return "session-limit" }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) SetParent(parent types.Entity) { sessionLimit.parent = parent }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetParent() types.Entity { return sessionLimit.parent }
-
-func (sessionLimit *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit) GetParentYangName() string { return "access-interface" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource
 // Unclassified source session limits
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per-VLAN limit category. The type is interface{} with range: 0..4294967295.
     PerVlan interface{}
 }
 
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetFilter() yfilter.YFilter { return unclassifiedSource.YFilter }
+func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetEntityData() *types.CommonEntityData {
+    unclassifiedSource.EntityData.YFilter = unclassifiedSource.YFilter
+    unclassifiedSource.EntityData.YangName = "unclassified-source"
+    unclassifiedSource.EntityData.BundleName = "cisco_ios_xr"
+    unclassifiedSource.EntityData.ParentYangName = "session-limit"
+    unclassifiedSource.EntityData.SegmentPath = "unclassified-source"
+    unclassifiedSource.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    unclassifiedSource.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    unclassifiedSource.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) SetFilter(yf yfilter.YFilter) { unclassifiedSource.YFilter = yf }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetGoName(yname string) string {
-    if yname == "per-vlan" { return "PerVlan" }
-    return ""
+    unclassifiedSource.EntityData.Children = make(map[string]types.YChild)
+    unclassifiedSource.EntityData.Leafs = make(map[string]types.YLeaf)
+    unclassifiedSource.EntityData.Leafs["per-vlan"] = types.YLeaf{"PerVlan", unclassifiedSource.PerVlan}
+    return &(unclassifiedSource.EntityData)
 }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetSegmentPath() string {
-    return "unclassified-source"
-}
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["per-vlan"] = unclassifiedSource.PerVlan
-    return leafs
-}
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetBundleName() string { return "cisco_ios_xr" }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetYangName() string { return "unclassified-source" }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) SetParent(parent types.Entity) { unclassifiedSource.parent = parent }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetParent() types.Entity { return unclassifiedSource.parent }
-
-func (unclassifiedSource *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_UnclassifiedSource) GetParentYangName() string { return "session-limit" }
 
 // IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total
 // All sources session limits
 type IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Per-VLAN limit category. The type is interface{} with range: 0..4294967295.
     PerVlan interface{}
 }
 
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetFilter() yfilter.YFilter { return total.YFilter }
+func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetEntityData() *types.CommonEntityData {
+    total.EntityData.YFilter = total.YFilter
+    total.EntityData.YangName = "total"
+    total.EntityData.BundleName = "cisco_ios_xr"
+    total.EntityData.ParentYangName = "session-limit"
+    total.EntityData.SegmentPath = "total"
+    total.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    total.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    total.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) SetFilter(yf yfilter.YFilter) { total.YFilter = yf }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetGoName(yname string) string {
-    if yname == "per-vlan" { return "PerVlan" }
-    return ""
+    total.EntityData.Children = make(map[string]types.YChild)
+    total.EntityData.Leafs = make(map[string]types.YLeaf)
+    total.EntityData.Leafs["per-vlan"] = types.YLeaf{"PerVlan", total.PerVlan}
+    return &(total.EntityData)
 }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetSegmentPath() string {
-    return "total"
-}
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["per-vlan"] = total.PerVlan
-    return leafs
-}
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetBundleName() string { return "cisco_ios_xr" }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetYangName() string { return "total" }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) SetParent(parent types.Entity) { total.parent = parent }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetParent() types.Entity { return total.parent }
-
-func (total *IpSubscriber_Nodes_Node_AccessInterfaces_AccessInterface_SessionLimit_Total) GetParentYangName() string { return "session-limit" }
 

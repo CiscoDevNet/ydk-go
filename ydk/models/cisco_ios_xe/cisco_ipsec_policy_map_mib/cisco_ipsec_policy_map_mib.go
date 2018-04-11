@@ -54,7 +54,7 @@ func init() {
 
 // CISCOIPSECPOLICYMAPMIB
 type CISCOIPSECPOLICYMAPMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The IPSec Phase-1 Internet Key Exchange Tunnel to Policy Mapping Table.
@@ -66,59 +66,22 @@ type CISCOIPSECPOLICYMAPMIB struct {
     Ipsecpolmaptable CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable
 }
 
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetFilter() yfilter.YFilter { return cISCOIPSECPOLICYMAPMIB.YFilter }
+func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIPSECPOLICYMAPMIB.EntityData.YFilter = cISCOIPSECPOLICYMAPMIB.YFilter
+    cISCOIPSECPOLICYMAPMIB.EntityData.YangName = "CISCO-IPSEC-POLICY-MAP-MIB"
+    cISCOIPSECPOLICYMAPMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIPSECPOLICYMAPMIB.EntityData.ParentYangName = "CISCO-IPSEC-POLICY-MAP-MIB"
+    cISCOIPSECPOLICYMAPMIB.EntityData.SegmentPath = "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB"
+    cISCOIPSECPOLICYMAPMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIPSECPOLICYMAPMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIPSECPOLICYMAPMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) SetFilter(yf yfilter.YFilter) { cISCOIPSECPOLICYMAPMIB.YFilter = yf }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetGoName(yname string) string {
-    if yname == "ikePolMapTable" { return "Ikepolmaptable" }
-    if yname == "ipSecPolMapTable" { return "Ipsecpolmaptable" }
-    return ""
+    cISCOIPSECPOLICYMAPMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIPSECPOLICYMAPMIB.EntityData.Children["ikePolMapTable"] = types.YChild{"Ikepolmaptable", &cISCOIPSECPOLICYMAPMIB.Ikepolmaptable}
+    cISCOIPSECPOLICYMAPMIB.EntityData.Children["ipSecPolMapTable"] = types.YChild{"Ipsecpolmaptable", &cISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable}
+    cISCOIPSECPOLICYMAPMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIPSECPOLICYMAPMIB.EntityData)
 }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetSegmentPath() string {
-    return "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB"
-}
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ikePolMapTable" {
-        return &cISCOIPSECPOLICYMAPMIB.Ikepolmaptable
-    }
-    if childYangName == "ipSecPolMapTable" {
-        return &cISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable
-    }
-    return nil
-}
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ikePolMapTable"] = &cISCOIPSECPOLICYMAPMIB.Ikepolmaptable
-    children["ipSecPolMapTable"] = &cISCOIPSECPOLICYMAPMIB.Ipsecpolmaptable
-    return children
-}
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetYangName() string { return "CISCO-IPSEC-POLICY-MAP-MIB" }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) SetParent(parent types.Entity) { cISCOIPSECPOLICYMAPMIB.parent = parent }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetParent() types.Entity { return cISCOIPSECPOLICYMAPMIB.parent }
-
-func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetParentYangName() string { return "CISCO-IPSEC-POLICY-MAP-MIB" }
 
 // CISCOIPSECPOLICYMAPMIB_Ikepolmaptable
 // The IPSec Phase-1 Internet Key Exchange Tunnel
@@ -126,7 +89,7 @@ func (cISCOIPSECPOLICYMAPMIB *CISCOIPSECPOLICYMAPMIB) GetParentYangName() string
 // this table for each active IPSec Phase-1
 // Tunnel.
 type CISCOIPSECPOLICYMAPMIB_Ikepolmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with mapping an active IPSec
@@ -135,70 +98,31 @@ type CISCOIPSECPOLICYMAPMIB_Ikepolmaptable struct {
     Ikepolmapentry []CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry
 }
 
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetFilter() yfilter.YFilter { return ikepolmaptable.YFilter }
+func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetEntityData() *types.CommonEntityData {
+    ikepolmaptable.EntityData.YFilter = ikepolmaptable.YFilter
+    ikepolmaptable.EntityData.YangName = "ikePolMapTable"
+    ikepolmaptable.EntityData.BundleName = "cisco_ios_xe"
+    ikepolmaptable.EntityData.ParentYangName = "CISCO-IPSEC-POLICY-MAP-MIB"
+    ikepolmaptable.EntityData.SegmentPath = "ikePolMapTable"
+    ikepolmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ikepolmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ikepolmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) SetFilter(yf yfilter.YFilter) { ikepolmaptable.YFilter = yf }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetGoName(yname string) string {
-    if yname == "ikePolMapEntry" { return "Ikepolmapentry" }
-    return ""
-}
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetSegmentPath() string {
-    return "ikePolMapTable"
-}
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ikePolMapEntry" {
-        for _, c := range ikepolmaptable.Ikepolmapentry {
-            if ikepolmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry{}
-        ikepolmaptable.Ikepolmapentry = append(ikepolmaptable.Ikepolmapentry, child)
-        return &ikepolmaptable.Ikepolmapentry[len(ikepolmaptable.Ikepolmapentry)-1]
-    }
-    return nil
-}
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ikepolmaptable.EntityData.Children = make(map[string]types.YChild)
+    ikepolmaptable.EntityData.Children["ikePolMapEntry"] = types.YChild{"Ikepolmapentry", nil}
     for i := range ikepolmaptable.Ikepolmapentry {
-        children[ikepolmaptable.Ikepolmapentry[i].GetSegmentPath()] = &ikepolmaptable.Ikepolmapentry[i]
+        ikepolmaptable.EntityData.Children[types.GetSegmentPath(&ikepolmaptable.Ikepolmapentry[i])] = types.YChild{"Ikepolmapentry", &ikepolmaptable.Ikepolmapentry[i]}
     }
-    return children
+    ikepolmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ikepolmaptable.EntityData)
 }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetYangName() string { return "ikePolMapTable" }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) SetParent(parent types.Entity) { ikepolmaptable.parent = parent }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetParent() types.Entity { return ikepolmaptable.parent }
-
-func (ikepolmaptable *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable) GetParentYangName() string { return "CISCO-IPSEC-POLICY-MAP-MIB" }
 
 // CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry
 // Each entry contains the attributes associated
 // with mapping an active IPSec Phase-1 IKE Tunnel
 // to it's configured Policy definition.
 type CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the IPSec Phase-1 Tunnel to Policy
@@ -216,60 +140,29 @@ type CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry struct {
     Ikepolmappolicynum interface{}
 }
 
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetFilter() yfilter.YFilter { return ikepolmapentry.YFilter }
+func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetEntityData() *types.CommonEntityData {
+    ikepolmapentry.EntityData.YFilter = ikepolmapentry.YFilter
+    ikepolmapentry.EntityData.YangName = "ikePolMapEntry"
+    ikepolmapentry.EntityData.BundleName = "cisco_ios_xe"
+    ikepolmapentry.EntityData.ParentYangName = "ikePolMapTable"
+    ikepolmapentry.EntityData.SegmentPath = "ikePolMapEntry" + "[ikePolMapTunIndex='" + fmt.Sprintf("%v", ikepolmapentry.Ikepolmaptunindex) + "']"
+    ikepolmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ikepolmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ikepolmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) SetFilter(yf yfilter.YFilter) { ikepolmapentry.YFilter = yf }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetGoName(yname string) string {
-    if yname == "ikePolMapTunIndex" { return "Ikepolmaptunindex" }
-    if yname == "ikePolMapPolicyNum" { return "Ikepolmappolicynum" }
-    return ""
+    ikepolmapentry.EntityData.Children = make(map[string]types.YChild)
+    ikepolmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ikepolmapentry.EntityData.Leafs["ikePolMapTunIndex"] = types.YLeaf{"Ikepolmaptunindex", ikepolmapentry.Ikepolmaptunindex}
+    ikepolmapentry.EntityData.Leafs["ikePolMapPolicyNum"] = types.YLeaf{"Ikepolmappolicynum", ikepolmapentry.Ikepolmappolicynum}
+    return &(ikepolmapentry.EntityData)
 }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetSegmentPath() string {
-    return "ikePolMapEntry" + "[ikePolMapTunIndex='" + fmt.Sprintf("%v", ikepolmapentry.Ikepolmaptunindex) + "']"
-}
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ikePolMapTunIndex"] = ikepolmapentry.Ikepolmaptunindex
-    leafs["ikePolMapPolicyNum"] = ikepolmapentry.Ikepolmappolicynum
-    return leafs
-}
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetYangName() string { return "ikePolMapEntry" }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) SetParent(parent types.Entity) { ikepolmapentry.parent = parent }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetParent() types.Entity { return ikepolmapentry.parent }
-
-func (ikepolmapentry *CISCOIPSECPOLICYMAPMIB_Ikepolmaptable_Ikepolmapentry) GetParentYangName() string { return "ikePolMapTable" }
 
 // CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable
 // The IPSec Phase-2 Tunnel to Policy Mapping Table.
 // There is one entry in this table for each active
 // IPSec Phase-2 Tunnel.
 type CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry contains the attributes associated with mapping an active IPSec
@@ -278,70 +171,31 @@ type CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable struct {
     Ipsecpolmapentry []CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry
 }
 
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetFilter() yfilter.YFilter { return ipsecpolmaptable.YFilter }
+func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetEntityData() *types.CommonEntityData {
+    ipsecpolmaptable.EntityData.YFilter = ipsecpolmaptable.YFilter
+    ipsecpolmaptable.EntityData.YangName = "ipSecPolMapTable"
+    ipsecpolmaptable.EntityData.BundleName = "cisco_ios_xe"
+    ipsecpolmaptable.EntityData.ParentYangName = "CISCO-IPSEC-POLICY-MAP-MIB"
+    ipsecpolmaptable.EntityData.SegmentPath = "ipSecPolMapTable"
+    ipsecpolmaptable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipsecpolmaptable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipsecpolmaptable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) SetFilter(yf yfilter.YFilter) { ipsecpolmaptable.YFilter = yf }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetGoName(yname string) string {
-    if yname == "ipSecPolMapEntry" { return "Ipsecpolmapentry" }
-    return ""
-}
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetSegmentPath() string {
-    return "ipSecPolMapTable"
-}
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipSecPolMapEntry" {
-        for _, c := range ipsecpolmaptable.Ipsecpolmapentry {
-            if ipsecpolmaptable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry{}
-        ipsecpolmaptable.Ipsecpolmapentry = append(ipsecpolmaptable.Ipsecpolmapentry, child)
-        return &ipsecpolmaptable.Ipsecpolmapentry[len(ipsecpolmaptable.Ipsecpolmapentry)-1]
-    }
-    return nil
-}
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    ipsecpolmaptable.EntityData.Children = make(map[string]types.YChild)
+    ipsecpolmaptable.EntityData.Children["ipSecPolMapEntry"] = types.YChild{"Ipsecpolmapentry", nil}
     for i := range ipsecpolmaptable.Ipsecpolmapentry {
-        children[ipsecpolmaptable.Ipsecpolmapentry[i].GetSegmentPath()] = &ipsecpolmaptable.Ipsecpolmapentry[i]
+        ipsecpolmaptable.EntityData.Children[types.GetSegmentPath(&ipsecpolmaptable.Ipsecpolmapentry[i])] = types.YChild{"Ipsecpolmapentry", &ipsecpolmaptable.Ipsecpolmapentry[i]}
     }
-    return children
+    ipsecpolmaptable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ipsecpolmaptable.EntityData)
 }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetYangName() string { return "ipSecPolMapTable" }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) SetParent(parent types.Entity) { ipsecpolmaptable.parent = parent }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetParent() types.Entity { return ipsecpolmaptable.parent }
-
-func (ipsecpolmaptable *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable) GetParentYangName() string { return "CISCO-IPSEC-POLICY-MAP-MIB" }
 
 // CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry
 // Each entry contains the attributes associated
 // with mapping an active IPSec Phase-2 Tunnel
 // to its configured Policy definition.
 type CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The index of the IPSec Phase-2 Tunnel to Policy
@@ -396,57 +250,23 @@ type CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry struct {
     Ipsecpolmapacestring interface{}
 }
 
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetFilter() yfilter.YFilter { return ipsecpolmapentry.YFilter }
+func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetEntityData() *types.CommonEntityData {
+    ipsecpolmapentry.EntityData.YFilter = ipsecpolmapentry.YFilter
+    ipsecpolmapentry.EntityData.YangName = "ipSecPolMapEntry"
+    ipsecpolmapentry.EntityData.BundleName = "cisco_ios_xe"
+    ipsecpolmapentry.EntityData.ParentYangName = "ipSecPolMapTable"
+    ipsecpolmapentry.EntityData.SegmentPath = "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + fmt.Sprintf("%v", ipsecpolmapentry.Ipsecpolmaptunindex) + "']"
+    ipsecpolmapentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    ipsecpolmapentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    ipsecpolmapentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) SetFilter(yf yfilter.YFilter) { ipsecpolmapentry.YFilter = yf }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetGoName(yname string) string {
-    if yname == "ipSecPolMapTunIndex" { return "Ipsecpolmaptunindex" }
-    if yname == "ipSecPolMapCryptoMapName" { return "Ipsecpolmapcryptomapname" }
-    if yname == "ipSecPolMapCryptoMapNum" { return "Ipsecpolmapcryptomapnum" }
-    if yname == "ipSecPolMapAclString" { return "Ipsecpolmapaclstring" }
-    if yname == "ipSecPolMapAceString" { return "Ipsecpolmapacestring" }
-    return ""
+    ipsecpolmapentry.EntityData.Children = make(map[string]types.YChild)
+    ipsecpolmapentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipsecpolmapentry.EntityData.Leafs["ipSecPolMapTunIndex"] = types.YLeaf{"Ipsecpolmaptunindex", ipsecpolmapentry.Ipsecpolmaptunindex}
+    ipsecpolmapentry.EntityData.Leafs["ipSecPolMapCryptoMapName"] = types.YLeaf{"Ipsecpolmapcryptomapname", ipsecpolmapentry.Ipsecpolmapcryptomapname}
+    ipsecpolmapentry.EntityData.Leafs["ipSecPolMapCryptoMapNum"] = types.YLeaf{"Ipsecpolmapcryptomapnum", ipsecpolmapentry.Ipsecpolmapcryptomapnum}
+    ipsecpolmapentry.EntityData.Leafs["ipSecPolMapAclString"] = types.YLeaf{"Ipsecpolmapaclstring", ipsecpolmapentry.Ipsecpolmapaclstring}
+    ipsecpolmapentry.EntityData.Leafs["ipSecPolMapAceString"] = types.YLeaf{"Ipsecpolmapacestring", ipsecpolmapentry.Ipsecpolmapacestring}
+    return &(ipsecpolmapentry.EntityData)
 }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetSegmentPath() string {
-    return "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + fmt.Sprintf("%v", ipsecpolmapentry.Ipsecpolmaptunindex) + "']"
-}
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ipSecPolMapTunIndex"] = ipsecpolmapentry.Ipsecpolmaptunindex
-    leafs["ipSecPolMapCryptoMapName"] = ipsecpolmapentry.Ipsecpolmapcryptomapname
-    leafs["ipSecPolMapCryptoMapNum"] = ipsecpolmapentry.Ipsecpolmapcryptomapnum
-    leafs["ipSecPolMapAclString"] = ipsecpolmapentry.Ipsecpolmapaclstring
-    leafs["ipSecPolMapAceString"] = ipsecpolmapentry.Ipsecpolmapacestring
-    return leafs
-}
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetYangName() string { return "ipSecPolMapEntry" }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) SetParent(parent types.Entity) { ipsecpolmapentry.parent = parent }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetParent() types.Entity { return ipsecpolmapentry.parent }
-
-func (ipsecpolmapentry *CISCOIPSECPOLICYMAPMIB_Ipsecpolmaptable_Ipsecpolmapentry) GetParentYangName() string { return "ipSecPolMapTable" }
 

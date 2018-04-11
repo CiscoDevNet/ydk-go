@@ -24,31 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-controller-optics-oper:optics-oper", reflect.TypeOf(OpticsOper{}))
 }
 
-// OpticsAmplifierGainRange represents Optics amplifier gain range
-type OpticsAmplifierGainRange string
-
-const (
-    // Invalid
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_invalid OpticsAmplifierGainRange = "optics-amplifier-gain-range-invalid"
-
-    // Normal
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_normal OpticsAmplifierGainRange = "optics-amplifier-gain-range-normal"
-
-    // Extended
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
-)
-
-// OpticsAmplifierControlMode represents Optics amplifier control mode
-type OpticsAmplifierControlMode string
-
-const (
-    // Automatic
-    OpticsAmplifierControlMode_automatic OpticsAmplifierControlMode = "automatic"
-
-    // Manual
-    OpticsAmplifierControlMode_manual OpticsAmplifierControlMode = "manual"
-)
-
 // EthernetPmd represents Ethernet Pmd Type
 type EthernetPmd string
 
@@ -144,24 +119,44 @@ const (
     EthernetPmd_optics_eth_undefined EthernetPmd = "optics-eth-undefined"
 )
 
-// OpticsWaveBand represents Optics wave band
-type OpticsWaveBand string
+// SonetApplicationCode represents Sonet application code
+type SonetApplicationCode string
 
 const (
-    // C BAND
-    OpticsWaveBand_c_band OpticsWaveBand = "c-band"
+    // Not Set
+    SonetApplicationCode_optics_sonet_not_set SonetApplicationCode = "optics-sonet-not-set"
 
-    // L BAND
-    OpticsWaveBand_l_band OpticsWaveBand = "l-band"
+    // VSR2000 3R2
+    SonetApplicationCode_optics_vsr2000_3r2 SonetApplicationCode = "optics-vsr2000-3r2"
 
-    // C ODD
-    OpticsWaveBand_c_band_odd OpticsWaveBand = "c-band-odd"
+    // VSR2000 3R3
+    SonetApplicationCode_optics_vsr2000_3r3 SonetApplicationCode = "optics-vsr2000-3r3"
 
-    // C EVEN
-    OpticsWaveBand_c_band_even OpticsWaveBand = "c-band-even"
+    // VSR2000 3R5
+    SonetApplicationCode_optics_vsr2000_3r5 SonetApplicationCode = "optics-vsr2000-3r5"
 
-    // Invalid
-    OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
+    // Undefined
+    SonetApplicationCode_optics_sonet_undefined SonetApplicationCode = "optics-sonet-undefined"
+)
+
+// OtnApplicationCode represents Otn application code
+type OtnApplicationCode string
+
+const (
+    // Not Set
+    OtnApplicationCode_optics_not_set OtnApplicationCode = "optics-not-set"
+
+    // P1L1 2D1
+    OtnApplicationCode_optics_p1l1_2d1 OtnApplicationCode = "optics-p1l1-2d1"
+
+    // P1S1 2D2
+    OtnApplicationCode_optics_p1s1_2d2 OtnApplicationCode = "optics-p1s1-2d2"
+
+    // P1L1 2D2
+    OtnApplicationCode_optics_p1l1_2d2 OtnApplicationCode = "optics-p1l1-2d2"
+
+    // Undefined
+    OtnApplicationCode_optics_undefined OtnApplicationCode = "optics-undefined"
 )
 
 // FiberConnector represents Fiber connector
@@ -184,93 +179,6 @@ const (
     FiberConnector_optics_undefined_connect_or FiberConnector = "optics-undefined-connect-or"
 )
 
-// OpticsFormFactor represents Optics form factor
-type OpticsFormFactor string
-
-const (
-    // Not set
-    OpticsFormFactor_not_set OpticsFormFactor = "not-set"
-
-    // Invalid
-    OpticsFormFactor_invalid OpticsFormFactor = "invalid"
-
-    // CPAK
-    OpticsFormFactor_cpak OpticsFormFactor = "cpak"
-
-    // CXP
-    OpticsFormFactor_cxp OpticsFormFactor = "cxp"
-
-    // SFP+
-    OpticsFormFactor_sfp_plus OpticsFormFactor = "sfp-plus"
-
-    // QSFP
-    OpticsFormFactor_qsfp OpticsFormFactor = "qsfp"
-
-    // QSFP+
-    OpticsFormFactor_qsfp_plus OpticsFormFactor = "qsfp-plus"
-
-    // QSFP28
-    OpticsFormFactor_qsfp28 OpticsFormFactor = "qsfp28"
-
-    // SFP
-    OpticsFormFactor_sfp OpticsFormFactor = "sfp"
-
-    // CFP
-    OpticsFormFactor_cfp OpticsFormFactor = "cfp"
-
-    // CFP2
-    OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
-
-    // CFP4
-    OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
-
-    // XFP
-    OpticsFormFactor_xfp OpticsFormFactor = "xfp"
-
-    // X2
-    OpticsFormFactor_x2 OpticsFormFactor = "x2"
-
-    // Non pluggable
-    OpticsFormFactor_non_pluggable OpticsFormFactor = "non-pluggable"
-
-    // Other
-    OpticsFormFactor_other OpticsFormFactor = "other"
-)
-
-// SonetApplicationCode represents Sonet application code
-type SonetApplicationCode string
-
-const (
-    // Not Set
-    SonetApplicationCode_optics_sonet_not_set SonetApplicationCode = "optics-sonet-not-set"
-
-    // VSR2000 3R2
-    SonetApplicationCode_optics_vsr2000_3r2 SonetApplicationCode = "optics-vsr2000-3r2"
-
-    // VSR2000 3R3
-    SonetApplicationCode_optics_vsr2000_3r3 SonetApplicationCode = "optics-vsr2000-3r3"
-
-    // VSR2000 3R5
-    SonetApplicationCode_optics_vsr2000_3r5 SonetApplicationCode = "optics-vsr2000-3r5"
-
-    // Undefined
-    SonetApplicationCode_optics_sonet_undefined SonetApplicationCode = "optics-sonet-undefined"
-)
-
-// OpticsControllerState represents Optics controller state
-type OpticsControllerState string
-
-const (
-    // Up
-    OpticsControllerState_optics_state_up OpticsControllerState = "optics-state-up"
-
-    // Down
-    OpticsControllerState_optics_state_down OpticsControllerState = "optics-state-down"
-
-    // Administratively Down
-    OpticsControllerState_optics_state_admin_down OpticsControllerState = "optics-state-admin-down"
-)
-
 // OpticsAmplifierSafetyControlMode represents Optics amplifier safety control mode
 type OpticsAmplifierSafetyControlMode string
 
@@ -285,21 +193,63 @@ const (
     OpticsAmplifierSafetyControlMode_optics_amplifier_safety_mode_disabled OpticsAmplifierSafetyControlMode = "optics-amplifier-safety-mode-disabled"
 )
 
-// OpticsLaserState represents Optics laser state
-type OpticsLaserState string
+// OpticsAmplifierGainRange represents Optics amplifier gain range
+type OpticsAmplifierGainRange string
 
 const (
-    // On
-    OpticsLaserState_on OpticsLaserState = "on"
+    // Invalid
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_invalid OpticsAmplifierGainRange = "optics-amplifier-gain-range-invalid"
 
-    // Off
-    OpticsLaserState_off OpticsLaserState = "off"
+    // Normal
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_normal OpticsAmplifierGainRange = "optics-amplifier-gain-range-normal"
 
-    // Unknown
-    OpticsLaserState_unknown OpticsLaserState = "unknown"
+    // Extended
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
+)
 
-    // Apr
-    OpticsLaserState_apr OpticsLaserState = "apr"
+// OpticsAmplifierControlMode represents Optics amplifier control mode
+type OpticsAmplifierControlMode string
+
+const (
+    // Automatic
+    OpticsAmplifierControlMode_automatic OpticsAmplifierControlMode = "automatic"
+
+    // Manual
+    OpticsAmplifierControlMode_manual OpticsAmplifierControlMode = "manual"
+)
+
+// OpticsPortStatus represents Optics port status
+type OpticsPortStatus string
+
+const (
+    // Active
+    OpticsPortStatus_active OpticsPortStatus = "active"
+
+    // Standby
+    OpticsPortStatus_standby OpticsPortStatus = "standby"
+)
+
+// OpticsPort represents Optics port
+type OpticsPort string
+
+const (
+    // Com
+    OpticsPort_com OpticsPort = "com"
+
+    // Line
+    OpticsPort_line OpticsPort = "line"
+
+    // Osc
+    OpticsPort_osc OpticsPort = "osc"
+
+    // Com Check
+    OpticsPort_com_check OpticsPort = "com-check"
+
+    // Working
+    OpticsPort_work OpticsPort = "work"
+
+    // Protected
+    OpticsPort_prot OpticsPort = "prot"
 )
 
 // OpticsFec represents Optics fec
@@ -323,17 +273,9 @@ const (
 
     // FEC ENABLED
     OpticsFec_fec_enabled OpticsFec = "fec-enabled"
-)
 
-// OpticsPortStatus represents Optics port status
-type OpticsPortStatus string
-
-const (
-    // Active
-    OpticsPortStatus_active OpticsPortStatus = "active"
-
-    // Standby
-    OpticsPortStatus_standby OpticsPortStatus = "standby"
+    // FEC DISABLED
+    OpticsFec_fec_not_set OpticsFec = "fec-not-set"
 )
 
 // OpticsPhy represents Optics phy type
@@ -512,58 +454,71 @@ const (
     OpticsPhy_one_geige OpticsPhy = "one-geige"
 )
 
-// OpticsTas represents Optics tas
-type OpticsTas string
+// OpticsFormFactor represents Optics form factor
+type OpticsFormFactor string
 
 const (
-    // Out Of Service
-    OpticsTas_tas_ui_oos OpticsTas = "tas-ui-oos"
+    // Not set
+    OpticsFormFactor_not_set OpticsFormFactor = "not-set"
 
-    // Maintenance
-    OpticsTas_tas_ui_main OpticsTas = "tas-ui-main"
+    // Invalid
+    OpticsFormFactor_invalid OpticsFormFactor = "invalid"
 
-    // In Service
-    OpticsTas_tas_ui_is OpticsTas = "tas-ui-is"
+    // CPAK
+    OpticsFormFactor_cpak OpticsFormFactor = "cpak"
 
-    // Automatic In Service
-    OpticsTas_tas_ui_ains OpticsTas = "tas-ui-ains"
+    // CXP
+    OpticsFormFactor_cxp OpticsFormFactor = "cxp"
+
+    // SFP+
+    OpticsFormFactor_sfp_plus OpticsFormFactor = "sfp-plus"
+
+    // QSFP
+    OpticsFormFactor_qsfp OpticsFormFactor = "qsfp"
+
+    // QSFP+
+    OpticsFormFactor_qsfp_plus OpticsFormFactor = "qsfp-plus"
+
+    // QSFP28
+    OpticsFormFactor_qsfp28 OpticsFormFactor = "qsfp28"
+
+    // SFP
+    OpticsFormFactor_sfp OpticsFormFactor = "sfp"
+
+    // CFP
+    OpticsFormFactor_cfp OpticsFormFactor = "cfp"
+
+    // CFP2
+    OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
+
+    // CFP4
+    OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
+
+    // XFP
+    OpticsFormFactor_xfp OpticsFormFactor = "xfp"
+
+    // X2
+    OpticsFormFactor_x2 OpticsFormFactor = "x2"
+
+    // Non pluggable
+    OpticsFormFactor_non_pluggable OpticsFormFactor = "non-pluggable"
+
+    // Other
+    OpticsFormFactor_other OpticsFormFactor = "other"
 )
 
-// Optics represents Optics
-type Optics string
+// OpticsControllerState represents Optics controller state
+type OpticsControllerState string
 
 const (
-    // Unknow Optics Type
-    Optics_optics_unknown Optics = "optics-unknown"
+    // Up
+    OpticsControllerState_optics_state_up OpticsControllerState = "optics-state-up"
 
-    // Grey Optics
-    Optics_optics_grey Optics = "optics-grey"
+    // Down
+    OpticsControllerState_optics_state_down OpticsControllerState = "optics-state-down"
 
-    // DWDM Optics
-    Optics_optics_dwdm Optics = "optics-dwdm"
-
-    // CWDM Optics
-    Optics_optics_cwdm Optics = "optics-cwdm"
-)
-
-// OtnApplicationCode represents Otn application code
-type OtnApplicationCode string
-
-const (
-    // Not Set
-    OtnApplicationCode_optics_not_set OtnApplicationCode = "optics-not-set"
-
-    // P1L1 2D1
-    OtnApplicationCode_optics_p1l1_2d1 OtnApplicationCode = "optics-p1l1-2d1"
-
-    // P1S1 2D2
-    OtnApplicationCode_optics_p1s1_2d2 OtnApplicationCode = "optics-p1s1-2d2"
-
-    // P1L1 2D2
-    OtnApplicationCode_optics_p1l1_2d2 OtnApplicationCode = "optics-p1l1-2d2"
-
-    // Undefined
-    OtnApplicationCode_optics_undefined OtnApplicationCode = "optics-undefined"
+    // Administratively Down
+    OpticsControllerState_optics_state_admin_down OpticsControllerState = "optics-state-admin-down"
 )
 
 // OpticsLedState represents Optics led state
@@ -592,92 +547,107 @@ const (
     OpticsLedState_red_flashing OpticsLedState = "red-flashing"
 )
 
-// OpticsPort represents Optics port
-type OpticsPort string
+// OpticsLaserState represents Optics laser state
+type OpticsLaserState string
 
 const (
-    // Com
-    OpticsPort_com OpticsPort = "com"
+    // On
+    OpticsLaserState_on OpticsLaserState = "on"
 
-    // Line
-    OpticsPort_line OpticsPort = "line"
+    // Off
+    OpticsLaserState_off OpticsLaserState = "off"
 
-    // Osc
-    OpticsPort_osc OpticsPort = "osc"
+    // Unknown
+    OpticsLaserState_unknown OpticsLaserState = "unknown"
 
-    // Com Check
-    OpticsPort_com_check OpticsPort = "com-check"
+    // Apr
+    OpticsLaserState_apr OpticsLaserState = "apr"
+)
 
-    // Working
-    OpticsPort_work OpticsPort = "work"
+// Optics represents Optics
+type Optics string
 
-    // Protected
-    OpticsPort_prot OpticsPort = "prot"
+const (
+    // Unknow Optics Type
+    Optics_optics_unknown Optics = "optics-unknown"
+
+    // Grey Optics
+    Optics_optics_grey Optics = "optics-grey"
+
+    // DWDM Optics
+    Optics_optics_dwdm Optics = "optics-dwdm"
+
+    // CWDM Optics
+    Optics_optics_cwdm Optics = "optics-cwdm"
+)
+
+// OpticsTas represents Optics tas
+type OpticsTas string
+
+const (
+    // Out Of Service
+    OpticsTas_tas_ui_oos OpticsTas = "tas-ui-oos"
+
+    // Maintenance
+    OpticsTas_tas_ui_main OpticsTas = "tas-ui-main"
+
+    // In Service
+    OpticsTas_tas_ui_is OpticsTas = "tas-ui-is"
+
+    // Automatic In Service
+    OpticsTas_tas_ui_ains OpticsTas = "tas-ui-ains"
+)
+
+// OpticsWaveBand represents Optics wave band
+type OpticsWaveBand string
+
+const (
+    // C BAND
+    OpticsWaveBand_c_band OpticsWaveBand = "c-band"
+
+    // L BAND
+    OpticsWaveBand_l_band OpticsWaveBand = "l-band"
+
+    // C ODD
+    OpticsWaveBand_c_band_odd OpticsWaveBand = "c-band-odd"
+
+    // C EVEN
+    OpticsWaveBand_c_band_even OpticsWaveBand = "c-band-even"
+
+    // Invalid
+    OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
 )
 
 // OpticsOper
 // Optics operational data
 type OpticsOper struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // All Optics Port operational data.
     OpticsPorts OpticsOper_OpticsPorts
 }
 
-func (opticsOper *OpticsOper) GetFilter() yfilter.YFilter { return opticsOper.YFilter }
+func (opticsOper *OpticsOper) GetEntityData() *types.CommonEntityData {
+    opticsOper.EntityData.YFilter = opticsOper.YFilter
+    opticsOper.EntityData.YangName = "optics-oper"
+    opticsOper.EntityData.BundleName = "cisco_ios_xr"
+    opticsOper.EntityData.ParentYangName = "Cisco-IOS-XR-controller-optics-oper"
+    opticsOper.EntityData.SegmentPath = "Cisco-IOS-XR-controller-optics-oper:optics-oper"
+    opticsOper.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsOper.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsOper.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsOper *OpticsOper) SetFilter(yf yfilter.YFilter) { opticsOper.YFilter = yf }
-
-func (opticsOper *OpticsOper) GetGoName(yname string) string {
-    if yname == "optics-ports" { return "OpticsPorts" }
-    return ""
+    opticsOper.EntityData.Children = make(map[string]types.YChild)
+    opticsOper.EntityData.Children["optics-ports"] = types.YChild{"OpticsPorts", &opticsOper.OpticsPorts}
+    opticsOper.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(opticsOper.EntityData)
 }
-
-func (opticsOper *OpticsOper) GetSegmentPath() string {
-    return "Cisco-IOS-XR-controller-optics-oper:optics-oper"
-}
-
-func (opticsOper *OpticsOper) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "optics-ports" {
-        return &opticsOper.OpticsPorts
-    }
-    return nil
-}
-
-func (opticsOper *OpticsOper) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["optics-ports"] = &opticsOper.OpticsPorts
-    return children
-}
-
-func (opticsOper *OpticsOper) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (opticsOper *OpticsOper) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsOper *OpticsOper) GetYangName() string { return "optics-oper" }
-
-func (opticsOper *OpticsOper) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsOper *OpticsOper) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsOper *OpticsOper) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsOper *OpticsOper) SetParent(parent types.Entity) { opticsOper.parent = parent }
-
-func (opticsOper *OpticsOper) GetParent() types.Entity { return opticsOper.parent }
-
-func (opticsOper *OpticsOper) GetParentYangName() string { return "Cisco-IOS-XR-controller-optics-oper" }
 
 // OpticsOper_OpticsPorts
 // All Optics Port operational data
 type OpticsOper_OpticsPorts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Optics operational data. The type is slice of
@@ -685,76 +655,43 @@ type OpticsOper_OpticsPorts struct {
     OpticsPort []OpticsOper_OpticsPorts_OpticsPort
 }
 
-func (opticsPorts *OpticsOper_OpticsPorts) GetFilter() yfilter.YFilter { return opticsPorts.YFilter }
+func (opticsPorts *OpticsOper_OpticsPorts) GetEntityData() *types.CommonEntityData {
+    opticsPorts.EntityData.YFilter = opticsPorts.YFilter
+    opticsPorts.EntityData.YangName = "optics-ports"
+    opticsPorts.EntityData.BundleName = "cisco_ios_xr"
+    opticsPorts.EntityData.ParentYangName = "optics-oper"
+    opticsPorts.EntityData.SegmentPath = "optics-ports"
+    opticsPorts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsPorts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsPorts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsPorts *OpticsOper_OpticsPorts) SetFilter(yf yfilter.YFilter) { opticsPorts.YFilter = yf }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetGoName(yname string) string {
-    if yname == "optics-port" { return "OpticsPort" }
-    return ""
-}
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetSegmentPath() string {
-    return "optics-ports"
-}
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "optics-port" {
-        for _, c := range opticsPorts.OpticsPort {
-            if opticsPorts.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort{}
-        opticsPorts.OpticsPort = append(opticsPorts.OpticsPort, child)
-        return &opticsPorts.OpticsPort[len(opticsPorts.OpticsPort)-1]
-    }
-    return nil
-}
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    opticsPorts.EntityData.Children = make(map[string]types.YChild)
+    opticsPorts.EntityData.Children["optics-port"] = types.YChild{"OpticsPort", nil}
     for i := range opticsPorts.OpticsPort {
-        children[opticsPorts.OpticsPort[i].GetSegmentPath()] = &opticsPorts.OpticsPort[i]
+        opticsPorts.EntityData.Children[types.GetSegmentPath(&opticsPorts.OpticsPort[i])] = types.YChild{"OpticsPort", &opticsPorts.OpticsPort[i]}
     }
-    return children
+    opticsPorts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(opticsPorts.EntityData)
 }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetYangName() string { return "optics-ports" }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsPorts *OpticsOper_OpticsPorts) SetParent(parent types.Entity) { opticsPorts.parent = parent }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetParent() types.Entity { return opticsPorts.parent }
-
-func (opticsPorts *OpticsOper_OpticsPorts) GetParentYangName() string { return "optics-oper" }
 
 // OpticsOper_OpticsPorts_OpticsPort
 // Optics operational data
 type OpticsOper_OpticsPorts_OpticsPort struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // [a-zA-Z0-9./-]+.
+    // b'[a-zA-Z0-9./-]+'.
     Name interface{}
 
     // Optics operational data.
-    OpticsDwdmCarrrierChannelMap OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap
+    OpticsDwdmCarrierChannelMap OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap
+
+    // Ots Spectrum Operational data.
+    OtsSpectrumInfo OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo
+
+    // Optics operational data.
+    OpticsDwdmCarrierChannelMapFlexi OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi
 
     // Optics operational data.
     OpticsInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo
@@ -766,76 +703,32 @@ type OpticsOper_OpticsPorts_OpticsPort struct {
     OpticsDbInfo OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo
 }
 
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetFilter() yfilter.YFilter { return opticsPort.YFilter }
+func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetEntityData() *types.CommonEntityData {
+    opticsPort.EntityData.YFilter = opticsPort.YFilter
+    opticsPort.EntityData.YangName = "optics-port"
+    opticsPort.EntityData.BundleName = "cisco_ios_xr"
+    opticsPort.EntityData.ParentYangName = "optics-ports"
+    opticsPort.EntityData.SegmentPath = "optics-port" + "[name='" + fmt.Sprintf("%v", opticsPort.Name) + "']"
+    opticsPort.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsPort.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsPort.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) SetFilter(yf yfilter.YFilter) { opticsPort.YFilter = yf }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "optics-dwdm-carrrier-channel-map" { return "OpticsDwdmCarrrierChannelMap" }
-    if yname == "optics-info" { return "OpticsInfo" }
-    if yname == "optics-lanes" { return "OpticsLanes" }
-    if yname == "optics-db-info" { return "OpticsDbInfo" }
-    return ""
+    opticsPort.EntityData.Children = make(map[string]types.YChild)
+    opticsPort.EntityData.Children["optics-dwdm-carrier-channel-map"] = types.YChild{"OpticsDwdmCarrierChannelMap", &opticsPort.OpticsDwdmCarrierChannelMap}
+    opticsPort.EntityData.Children["ots-spectrum-info"] = types.YChild{"OtsSpectrumInfo", &opticsPort.OtsSpectrumInfo}
+    opticsPort.EntityData.Children["optics-dwdm-carrier-channel-map-flexi"] = types.YChild{"OpticsDwdmCarrierChannelMapFlexi", &opticsPort.OpticsDwdmCarrierChannelMapFlexi}
+    opticsPort.EntityData.Children["optics-info"] = types.YChild{"OpticsInfo", &opticsPort.OpticsInfo}
+    opticsPort.EntityData.Children["optics-lanes"] = types.YChild{"OpticsLanes", &opticsPort.OpticsLanes}
+    opticsPort.EntityData.Children["optics-db-info"] = types.YChild{"OpticsDbInfo", &opticsPort.OpticsDbInfo}
+    opticsPort.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsPort.EntityData.Leafs["name"] = types.YLeaf{"Name", opticsPort.Name}
+    return &(opticsPort.EntityData)
 }
 
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetSegmentPath() string {
-    return "optics-port" + "[name='" + fmt.Sprintf("%v", opticsPort.Name) + "']"
-}
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "optics-dwdm-carrrier-channel-map" {
-        return &opticsPort.OpticsDwdmCarrrierChannelMap
-    }
-    if childYangName == "optics-info" {
-        return &opticsPort.OpticsInfo
-    }
-    if childYangName == "optics-lanes" {
-        return &opticsPort.OpticsLanes
-    }
-    if childYangName == "optics-db-info" {
-        return &opticsPort.OpticsDbInfo
-    }
-    return nil
-}
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["optics-dwdm-carrrier-channel-map"] = &opticsPort.OpticsDwdmCarrrierChannelMap
-    children["optics-info"] = &opticsPort.OpticsInfo
-    children["optics-lanes"] = &opticsPort.OpticsLanes
-    children["optics-db-info"] = &opticsPort.OpticsDbInfo
-    return children
-}
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = opticsPort.Name
-    return leafs
-}
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetYangName() string { return "optics-port" }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) SetParent(parent types.Entity) { opticsPort.parent = parent }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetParent() types.Entity { return opticsPort.parent }
-
-func (opticsPort *OpticsOper_OpticsPorts_OpticsPort) GetParentYangName() string { return "optics-ports" }
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap
 // Optics operational data
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap struct {
-    parent types.Entity
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // DWDM carrier band. The type is OpticsWaveBand.
@@ -850,78 +743,36 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap struct {
     DwdmCarrierMax interface{}
 
     // DWDM carrier mapping info. The type is slice of
-    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo.
-    DwdmCarrierMapInfo []OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo
+    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo.
+    DwdmCarrierMapInfo []OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo
 }
 
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetFilter() yfilter.YFilter { return opticsDwdmCarrrierChannelMap.YFilter }
+func (opticsDwdmCarrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrierChannelMap.EntityData.YFilter = opticsDwdmCarrierChannelMap.YFilter
+    opticsDwdmCarrierChannelMap.EntityData.YangName = "optics-dwdm-carrier-channel-map"
+    opticsDwdmCarrierChannelMap.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrierChannelMap.EntityData.ParentYangName = "optics-port"
+    opticsDwdmCarrierChannelMap.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map"
+    opticsDwdmCarrierChannelMap.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrierChannelMap.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrierChannelMap.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) SetFilter(yf yfilter.YFilter) { opticsDwdmCarrrierChannelMap.YFilter = yf }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetGoName(yname string) string {
-    if yname == "dwdm-carrier-band" { return "DwdmCarrierBand" }
-    if yname == "dwdm-carrier-min" { return "DwdmCarrierMin" }
-    if yname == "dwdm-carrier-max" { return "DwdmCarrierMax" }
-    if yname == "dwdm-carrier-map-info" { return "DwdmCarrierMapInfo" }
-    return ""
-}
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetSegmentPath() string {
-    return "optics-dwdm-carrrier-channel-map"
-}
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "dwdm-carrier-map-info" {
-        for _, c := range opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo {
-            if opticsDwdmCarrrierChannelMap.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo{}
-        opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo = append(opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, child)
-        return &opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[len(opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo)-1]
+    opticsDwdmCarrierChannelMap.EntityData.Children = make(map[string]types.YChild)
+    opticsDwdmCarrierChannelMap.EntityData.Children["dwdm-carrier-map-info"] = types.YChild{"DwdmCarrierMapInfo", nil}
+    for i := range opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo {
+        opticsDwdmCarrierChannelMap.EntityData.Children[types.GetSegmentPath(&opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i])] = types.YChild{"DwdmCarrierMapInfo", &opticsDwdmCarrierChannelMap.DwdmCarrierMapInfo[i]}
     }
-    return nil
+    opticsDwdmCarrierChannelMap.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsDwdmCarrierChannelMap.EntityData.Leafs["dwdm-carrier-band"] = types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrierChannelMap.DwdmCarrierBand}
+    opticsDwdmCarrierChannelMap.EntityData.Leafs["dwdm-carrier-min"] = types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrierChannelMap.DwdmCarrierMin}
+    opticsDwdmCarrierChannelMap.EntityData.Leafs["dwdm-carrier-max"] = types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrierChannelMap.DwdmCarrierMax}
+    return &(opticsDwdmCarrierChannelMap.EntityData)
 }
 
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo {
-        children[opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[i].GetSegmentPath()] = &opticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo[i]
-    }
-    return children
-}
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["dwdm-carrier-band"] = opticsDwdmCarrrierChannelMap.DwdmCarrierBand
-    leafs["dwdm-carrier-min"] = opticsDwdmCarrrierChannelMap.DwdmCarrierMin
-    leafs["dwdm-carrier-max"] = opticsDwdmCarrrierChannelMap.DwdmCarrierMax
-    return leafs
-}
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetYangName() string { return "optics-dwdm-carrrier-channel-map" }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) SetParent(parent types.Entity) { opticsDwdmCarrrierChannelMap.parent = parent }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetParent() types.Entity { return opticsDwdmCarrrierChannelMap.parent }
-
-func (opticsDwdmCarrrierChannelMap *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap) GetParentYangName() string { return "optics-port" }
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo
 // DWDM carrier mapping info
-type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo struct {
-    parent types.Entity
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // ITU channel number. The type is interface{} with range: 0..4294967295.
@@ -938,62 +789,238 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierM
     Wavelength interface{}
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetFilter() yfilter.YFilter { return dwdmCarrierMapInfo.YFilter }
+func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMap_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
+    dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
+    dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
+    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map"
+    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) SetFilter(yf yfilter.YFilter) { dwdmCarrierMapInfo.YFilter = yf }
-
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetGoName(yname string) string {
-    if yname == "itu-chan-num" { return "ItuChanNum" }
-    if yname == "g694-chan-num" { return "G694ChanNum" }
-    if yname == "frequency" { return "Frequency" }
-    if yname == "wavelength" { return "Wavelength" }
-    return ""
+    dwdmCarrierMapInfo.EntityData.Children = make(map[string]types.YChild)
+    dwdmCarrierMapInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    dwdmCarrierMapInfo.EntityData.Leafs["itu-chan-num"] = types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum}
+    dwdmCarrierMapInfo.EntityData.Leafs["g694-chan-num"] = types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum}
+    dwdmCarrierMapInfo.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency}
+    dwdmCarrierMapInfo.EntityData.Leafs["wavelength"] = types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength}
+    return &(dwdmCarrierMapInfo.EntityData)
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetSegmentPath() string {
-    return "dwdm-carrier-map-info"
+// OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo
+// Ots Spectrum Operational data
+type OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // OTS Spectrum information.
+    SpectrumInfo OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (otsSpectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo) GetEntityData() *types.CommonEntityData {
+    otsSpectrumInfo.EntityData.YFilter = otsSpectrumInfo.YFilter
+    otsSpectrumInfo.EntityData.YangName = "ots-spectrum-info"
+    otsSpectrumInfo.EntityData.BundleName = "cisco_ios_xr"
+    otsSpectrumInfo.EntityData.ParentYangName = "optics-port"
+    otsSpectrumInfo.EntityData.SegmentPath = "ots-spectrum-info"
+    otsSpectrumInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otsSpectrumInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otsSpectrumInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    otsSpectrumInfo.EntityData.Children = make(map[string]types.YChild)
+    otsSpectrumInfo.EntityData.Children["spectrum-info"] = types.YChild{"SpectrumInfo", &otsSpectrumInfo.SpectrumInfo}
+    otsSpectrumInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(otsSpectrumInfo.EntityData)
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo
+// OTS Spectrum information
+type OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Total number of slices in Spectrum. The type is interface{} with range:
+    // 0..4294967295.
+    TotalSpectrumSliceCount interface{}
+
+    // Spacing between spectrum slices. The type is interface{} with range:
+    // 0..4294967295.
+    SpectrumSliceSpacing interface{}
+
+    // Wavelength of first slice. The type is string with length: 0..32.
+    FirstSliceWavelength interface{}
+
+    // Power information of spectrum slice info. The type is slice of
+    // OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo.
+    SpectrumSlicePowerInfo []OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["itu-chan-num"] = dwdmCarrierMapInfo.ItuChanNum
-    leafs["g694-chan-num"] = dwdmCarrierMapInfo.G694ChanNum
-    leafs["frequency"] = dwdmCarrierMapInfo.Frequency
-    leafs["wavelength"] = dwdmCarrierMapInfo.Wavelength
-    return leafs
+func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo) GetEntityData() *types.CommonEntityData {
+    spectrumInfo.EntityData.YFilter = spectrumInfo.YFilter
+    spectrumInfo.EntityData.YangName = "spectrum-info"
+    spectrumInfo.EntityData.BundleName = "cisco_ios_xr"
+    spectrumInfo.EntityData.ParentYangName = "ots-spectrum-info"
+    spectrumInfo.EntityData.SegmentPath = "spectrum-info"
+    spectrumInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spectrumInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spectrumInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    spectrumInfo.EntityData.Children = make(map[string]types.YChild)
+    spectrumInfo.EntityData.Children["spectrum-slice-power-info"] = types.YChild{"SpectrumSlicePowerInfo", nil}
+    for i := range spectrumInfo.SpectrumSlicePowerInfo {
+        spectrumInfo.EntityData.Children[types.GetSegmentPath(&spectrumInfo.SpectrumSlicePowerInfo[i])] = types.YChild{"SpectrumSlicePowerInfo", &spectrumInfo.SpectrumSlicePowerInfo[i]}
+    }
+    spectrumInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    spectrumInfo.EntityData.Leafs["total-spectrum-slice-count"] = types.YLeaf{"TotalSpectrumSliceCount", spectrumInfo.TotalSpectrumSliceCount}
+    spectrumInfo.EntityData.Leafs["spectrum-slice-spacing"] = types.YLeaf{"SpectrumSliceSpacing", spectrumInfo.SpectrumSliceSpacing}
+    spectrumInfo.EntityData.Leafs["first-slice-wavelength"] = types.YLeaf{"FirstSliceWavelength", spectrumInfo.FirstSliceWavelength}
+    return &(spectrumInfo.EntityData)
 }
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetBundleName() string { return "cisco_ios_xr" }
+// OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo
+// Power information of spectrum slice info
+type OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetYangName() string { return "dwdm-carrier-map-info" }
+    // spectrum slice number. The type is interface{} with range: 0..4294967295.
+    SliceNum interface{}
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+    // Lower frequency of the specified PSD. The type is interface{} with range:
+    // 0..18446744073709551615.
+    LowerFrequency interface{}
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+    // Upper frequency of the specified PSD. The type is interface{} with range:
+    // 0..18446744073709551615.
+    UpperFrequency interface{}
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+    // Received Power in dBm multiplied by 100. The type is interface{} with
+    // range: -2147483648..2147483647.
+    RxPower interface{}
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) SetParent(parent types.Entity) { dwdmCarrierMapInfo.parent = parent }
+    // Transmit Power in dBm multiplied by 100. The type is interface{} with
+    // range: -2147483648..2147483647.
+    TxPower interface{}
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetParent() types.Entity { return dwdmCarrierMapInfo.parent }
+    // Received Power spectral density in microwatts per megahertz, uW/MHz. The
+    // type is string with length: 0..16.
+    RxPsd interface{}
 
-func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrrierChannelMap_DwdmCarrierMapInfo) GetParentYangName() string { return "optics-dwdm-carrrier-channel-map" }
+    // Transmit Power spectral density in microwatts per megahertz, uW/MHz. The
+    // type is string with length: 0..16.
+    TxPsd interface{}
+}
+
+func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OtsSpectrumInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetEntityData() *types.CommonEntityData {
+    spectrumSlicePowerInfo.EntityData.YFilter = spectrumSlicePowerInfo.YFilter
+    spectrumSlicePowerInfo.EntityData.YangName = "spectrum-slice-power-info"
+    spectrumSlicePowerInfo.EntityData.BundleName = "cisco_ios_xr"
+    spectrumSlicePowerInfo.EntityData.ParentYangName = "spectrum-info"
+    spectrumSlicePowerInfo.EntityData.SegmentPath = "spectrum-slice-power-info"
+    spectrumSlicePowerInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    spectrumSlicePowerInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    spectrumSlicePowerInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    spectrumSlicePowerInfo.EntityData.Children = make(map[string]types.YChild)
+    spectrumSlicePowerInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    spectrumSlicePowerInfo.EntityData.Leafs["slice-num"] = types.YLeaf{"SliceNum", spectrumSlicePowerInfo.SliceNum}
+    spectrumSlicePowerInfo.EntityData.Leafs["lower-frequency"] = types.YLeaf{"LowerFrequency", spectrumSlicePowerInfo.LowerFrequency}
+    spectrumSlicePowerInfo.EntityData.Leafs["upper-frequency"] = types.YLeaf{"UpperFrequency", spectrumSlicePowerInfo.UpperFrequency}
+    spectrumSlicePowerInfo.EntityData.Leafs["rx-power"] = types.YLeaf{"RxPower", spectrumSlicePowerInfo.RxPower}
+    spectrumSlicePowerInfo.EntityData.Leafs["tx-power"] = types.YLeaf{"TxPower", spectrumSlicePowerInfo.TxPower}
+    spectrumSlicePowerInfo.EntityData.Leafs["rx-psd"] = types.YLeaf{"RxPsd", spectrumSlicePowerInfo.RxPsd}
+    spectrumSlicePowerInfo.EntityData.Leafs["tx-psd"] = types.YLeaf{"TxPsd", spectrumSlicePowerInfo.TxPsd}
+    return &(spectrumSlicePowerInfo.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi
+// Optics operational data
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // DWDM carrier band. The type is OpticsWaveBand.
+    DwdmCarrierBand interface{}
+
+    // Lowest DWDM carrier supported. The type is interface{} with range:
+    // 0..4294967295.
+    DwdmCarrierMin interface{}
+
+    // Highest DWDM carrier supported. The type is interface{} with range:
+    // 0..4294967295.
+    DwdmCarrierMax interface{}
+
+    // DWDM carrier mapping info. The type is slice of
+    // OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo.
+    DwdmCarrierMapInfo []OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo
+}
+
+func (opticsDwdmCarrierChannelMapFlexi *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi) GetEntityData() *types.CommonEntityData {
+    opticsDwdmCarrierChannelMapFlexi.EntityData.YFilter = opticsDwdmCarrierChannelMapFlexi.YFilter
+    opticsDwdmCarrierChannelMapFlexi.EntityData.YangName = "optics-dwdm-carrier-channel-map-flexi"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.BundleName = "cisco_ios_xr"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.ParentYangName = "optics-port"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.SegmentPath = "optics-dwdm-carrier-channel-map-flexi"
+    opticsDwdmCarrierChannelMapFlexi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDwdmCarrierChannelMapFlexi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDwdmCarrierChannelMapFlexi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Children = make(map[string]types.YChild)
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Children["dwdm-carrier-map-info"] = types.YChild{"DwdmCarrierMapInfo", nil}
+    for i := range opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo {
+        opticsDwdmCarrierChannelMapFlexi.EntityData.Children[types.GetSegmentPath(&opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i])] = types.YChild{"DwdmCarrierMapInfo", &opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo[i]}
+    }
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs["dwdm-carrier-band"] = types.YLeaf{"DwdmCarrierBand", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierBand}
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs["dwdm-carrier-min"] = types.YLeaf{"DwdmCarrierMin", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMin}
+    opticsDwdmCarrierChannelMapFlexi.EntityData.Leafs["dwdm-carrier-max"] = types.YLeaf{"DwdmCarrierMax", opticsDwdmCarrierChannelMapFlexi.DwdmCarrierMax}
+    return &(opticsDwdmCarrierChannelMapFlexi.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo
+// DWDM carrier mapping info
+type OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // ITU channel number. The type is interface{} with range: 0..4294967295.
+    ItuChanNum interface{}
+
+    // G694 channel number. The type is interface{} with range:
+    // -2147483648..2147483647.
+    G694ChanNum interface{}
+
+    // Frequency. The type is string with length: 0..32.
+    Frequency interface{}
+
+    // Wavelength. The type is string with length: 0..32.
+    Wavelength interface{}
+}
+
+func (dwdmCarrierMapInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDwdmCarrierChannelMapFlexi_DwdmCarrierMapInfo) GetEntityData() *types.CommonEntityData {
+    dwdmCarrierMapInfo.EntityData.YFilter = dwdmCarrierMapInfo.YFilter
+    dwdmCarrierMapInfo.EntityData.YangName = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.BundleName = "cisco_ios_xr"
+    dwdmCarrierMapInfo.EntityData.ParentYangName = "optics-dwdm-carrier-channel-map-flexi"
+    dwdmCarrierMapInfo.EntityData.SegmentPath = "dwdm-carrier-map-info"
+    dwdmCarrierMapInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    dwdmCarrierMapInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    dwdmCarrierMapInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    dwdmCarrierMapInfo.EntityData.Children = make(map[string]types.YChild)
+    dwdmCarrierMapInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    dwdmCarrierMapInfo.EntityData.Leafs["itu-chan-num"] = types.YLeaf{"ItuChanNum", dwdmCarrierMapInfo.ItuChanNum}
+    dwdmCarrierMapInfo.EntityData.Leafs["g694-chan-num"] = types.YLeaf{"G694ChanNum", dwdmCarrierMapInfo.G694ChanNum}
+    dwdmCarrierMapInfo.EntityData.Leafs["frequency"] = types.YLeaf{"Frequency", dwdmCarrierMapInfo.Frequency}
+    dwdmCarrierMapInfo.EntityData.Leafs["wavelength"] = types.YLeaf{"Wavelength", dwdmCarrierMapInfo.Wavelength}
+    return &(dwdmCarrierMapInfo.EntityData)
+}
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo
 // Optics operational data
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Transport Admin State. The type is OpticsTas.
@@ -1161,6 +1188,10 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // Optics FEC. The type is OpticsFec.
     OpticsFec interface{}
 
+    // PM enabled or not. The type is interface{} with range:
+    // -2147483648..2147483647.
+    SkipSnmpPmTable interface{}
+
     // Showing port type. The type is OpticsPort.
     PortType interface{}
 
@@ -1229,6 +1260,12 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
 
     // osri config val. The type is bool.
     OsriConfigVal interface{}
+
+    // tx config val. The type is bool.
+    TxConfigVal interface{}
+
+    // rx config val. The type is bool.
+    RxConfigVal interface{}
 
     // safety control mode config val. The type is
     // OpticsAmplifierSafetyControlMode.
@@ -1309,6 +1346,16 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // optics type String. The type is string.
     OpticsTypeStr interface{}
 
+    // TX Enable. The type is bool.
+    TxEnable interface{}
+
+    // RX Enable. The type is bool.
+    RxEnable interface{}
+
+    // Rx Low threshold actual value in units of 0.1dBm. The type is interface{}
+    // with range: -2147483648..2147483647.
+    RxLowThresholdCurrent interface{}
+
     // Network SRLG information.
     NetworkSrlgInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo
 
@@ -1327,289 +1374,139 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // Extended optics parameters threshold values.
     ExtParamThresholdVal OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal
 
-    // OTS Spectrum information.
-    SpectrumInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo
+    // Extended DOM alarm Information.
+    ExtendedAlarmAlarmInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo
 
     // Lane information. The type is slice of
     // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData.
     LaneData []OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData
 }
 
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetFilter() yfilter.YFilter { return opticsInfo.YFilter }
+func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() *types.CommonEntityData {
+    opticsInfo.EntityData.YFilter = opticsInfo.YFilter
+    opticsInfo.EntityData.YangName = "optics-info"
+    opticsInfo.EntityData.BundleName = "cisco_ios_xr"
+    opticsInfo.EntityData.ParentYangName = "optics-port"
+    opticsInfo.EntityData.SegmentPath = "optics-info"
+    opticsInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) SetFilter(yf yfilter.YFilter) { opticsInfo.YFilter = yf }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetGoName(yname string) string {
-    if yname == "transport-admin-state" { return "TransportAdminState" }
-    if yname == "optics-present" { return "OpticsPresent" }
-    if yname == "optics-type" { return "OpticsType" }
-    if yname == "derived-optics-type" { return "DerivedOpticsType" }
-    if yname == "optics-module" { return "OpticsModule" }
-    if yname == "dwdm-carrier-band" { return "DwdmCarrierBand" }
-    if yname == "dwdm-carrier-channel" { return "DwdmCarrierChannel" }
-    if yname == "dwdm-carrier-frequency" { return "DwdmCarrierFrequency" }
-    if yname == "dwdm-carrier-wavelength" { return "DwdmCarrierWavelength" }
-    if yname == "grey-wavelength" { return "GreyWavelength" }
-    if yname == "rx-low-threshold" { return "RxLowThreshold" }
-    if yname == "rx-high-threshold" { return "RxHighThreshold" }
-    if yname == "lbc-high-threshold" { return "LbcHighThreshold" }
-    if yname == "tx-low-threshold" { return "TxLowThreshold" }
-    if yname == "tx-high-threshold" { return "TxHighThreshold" }
-    if yname == "lbc-th-high-default" { return "LbcThHighDefault" }
-    if yname == "lbc-th-low-default" { return "LbcThLowDefault" }
-    if yname == "temp-low-threshold" { return "TempLowThreshold" }
-    if yname == "temp-high-threshold" { return "TempHighThreshold" }
-    if yname == "volt-low-threshold" { return "VoltLowThreshold" }
-    if yname == "volt-high-threshold" { return "VoltHighThreshold" }
-    if yname == "cd" { return "Cd" }
-    if yname == "cd-min" { return "CdMin" }
-    if yname == "cd-max" { return "CdMax" }
-    if yname == "cd-low-threshold" { return "CdLowThreshold" }
-    if yname == "cd-high-threshold" { return "CdHighThreshold" }
-    if yname == "osnr-low-threshold" { return "OsnrLowThreshold" }
-    if yname == "dgd-high-threshold" { return "DgdHighThreshold" }
-    if yname == "polarization-mode-dispersion" { return "PolarizationModeDispersion" }
-    if yname == "second-order-polarization-mode-dispersion" { return "SecondOrderPolarizationModeDispersion" }
-    if yname == "optical-signal-to-noise-ratio" { return "OpticalSignalToNoiseRatio" }
-    if yname == "polarization-dependent-loss" { return "PolarizationDependentLoss" }
-    if yname == "polarization-change-rate" { return "PolarizationChangeRate" }
-    if yname == "differential-group-delay" { return "DifferentialGroupDelay" }
-    if yname == "phase-noise" { return "PhaseNoise" }
-    if yname == "pm-enable" { return "PmEnable" }
-    if yname == "laser-state" { return "LaserState" }
-    if yname == "led-state" { return "LedState" }
-    if yname == "controller-state" { return "ControllerState" }
-    if yname == "form-factor" { return "FormFactor" }
-    if yname == "phy-type" { return "PhyType" }
-    if yname == "cfg-tx-power" { return "CfgTxPower" }
-    if yname == "cfg-tx-power-configurable" { return "CfgTxPowerConfigurable" }
-    if yname == "temperature" { return "Temperature" }
-    if yname == "voltage" { return "Voltage" }
-    if yname == "display-volt-temp" { return "DisplayVoltTemp" }
-    if yname == "cd-configurable" { return "CdConfigurable" }
-    if yname == "optics-fec" { return "OpticsFec" }
-    if yname == "port-type" { return "PortType" }
-    if yname == "port-status" { return "PortStatus" }
-    if yname == "rx-voa-attenuation" { return "RxVoaAttenuation" }
-    if yname == "tx-voa-attenuation" { return "TxVoaAttenuation" }
-    if yname == "ampli-gain" { return "AmpliGain" }
-    if yname == "ampli-tilt" { return "AmpliTilt" }
-    if yname == "rx-power-th-configurable" { return "RxPowerThConfigurable" }
-    if yname == "tx-power-th-configurable" { return "TxPowerThConfigurable" }
-    if yname == "rx-voa-attenuation-config-val" { return "RxVoaAttenuationConfigVal" }
-    if yname == "tx-voa-attenuation-config-val" { return "TxVoaAttenuationConfigVal" }
-    if yname == "ampli-control-mode-config-val" { return "AmpliControlModeConfigVal" }
-    if yname == "ampli-gain-range-config-val" { return "AmpliGainRangeConfigVal" }
-    if yname == "ampli-gain-config-val" { return "AmpliGainConfigVal" }
-    if yname == "ampli-tilt-config-val" { return "AmpliTiltConfigVal" }
-    if yname == "ampli-channel-power-config-val" { return "AmpliChannelPowerConfigVal" }
-    if yname == "channel-power-max-delta-config-val" { return "ChannelPowerMaxDeltaConfigVal" }
-    if yname == "ampli-gain-thr-deg-low-config-val" { return "AmpliGainThrDegLowConfigVal" }
-    if yname == "ampli-gain-thr-deg-high-config-val" { return "AmpliGainThrDegHighConfigVal" }
-    if yname == "osri-config-val" { return "OsriConfigVal" }
-    if yname == "safety-control-mode-config-val" { return "SafetyControlModeConfigVal" }
-    if yname == "total-rx-power" { return "TotalRxPower" }
-    if yname == "total-tx-power" { return "TotalTxPower" }
-    if yname == "is-bo-configured" { return "IsBoConfigured" }
-    if yname == "is-ext-param-valid" { return "IsExtParamValid" }
-    if yname == "alarm-detected" { return "AlarmDetected" }
-    if yname == "rx-low-warning-threshold" { return "RxLowWarningThreshold" }
-    if yname == "rx-high-warning-threshold" { return "RxHighWarningThreshold" }
-    if yname == "tx-low-warning-threshold" { return "TxLowWarningThreshold" }
-    if yname == "tx-high-warning-threshold" { return "TxHighWarningThreshold" }
-    if yname == "lbc-th-high-warning-default" { return "LbcThHighWarningDefault" }
-    if yname == "lbc-th-low-warning-default" { return "LbcThLowWarningDefault" }
-    if yname == "temp-low-warning-threshold" { return "TempLowWarningThreshold" }
-    if yname == "temp-high-warning-threshold" { return "TempHighWarningThreshold" }
-    if yname == "volt-low-warning-threshold" { return "VoltLowWarningThreshold" }
-    if yname == "volt-high-warning-threshold" { return "VoltHighWarningThreshold" }
-    if yname == "ampli-gain-range" { return "AmpliGainRange" }
-    if yname == "safety-control-mode" { return "SafetyControlMode" }
-    if yname == "osri" { return "Osri" }
-    if yname == "description" { return "Description" }
-    if yname == "is-optics-type-string-valid" { return "IsOpticsTypeStringValid" }
-    if yname == "optics-type-str" { return "OpticsTypeStr" }
-    if yname == "network-srlg-info" { return "NetworkSrlgInfo" }
-    if yname == "optics-alarm-info" { return "OpticsAlarmInfo" }
-    if yname == "ots-alarm-info" { return "OtsAlarmInfo" }
-    if yname == "transceiver-info" { return "TransceiverInfo" }
-    if yname == "ext-param-val" { return "ExtParamVal" }
-    if yname == "ext-param-threshold-val" { return "ExtParamThresholdVal" }
-    if yname == "spectrum-info" { return "SpectrumInfo" }
-    if yname == "lane-data" { return "LaneData" }
-    return ""
-}
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetSegmentPath() string {
-    return "optics-info"
-}
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "network-srlg-info" {
-        return &opticsInfo.NetworkSrlgInfo
-    }
-    if childYangName == "optics-alarm-info" {
-        return &opticsInfo.OpticsAlarmInfo
-    }
-    if childYangName == "ots-alarm-info" {
-        return &opticsInfo.OtsAlarmInfo
-    }
-    if childYangName == "transceiver-info" {
-        return &opticsInfo.TransceiverInfo
-    }
-    if childYangName == "ext-param-val" {
-        return &opticsInfo.ExtParamVal
-    }
-    if childYangName == "ext-param-threshold-val" {
-        return &opticsInfo.ExtParamThresholdVal
-    }
-    if childYangName == "spectrum-info" {
-        return &opticsInfo.SpectrumInfo
-    }
-    if childYangName == "lane-data" {
-        for _, c := range opticsInfo.LaneData {
-            if opticsInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData{}
-        opticsInfo.LaneData = append(opticsInfo.LaneData, child)
-        return &opticsInfo.LaneData[len(opticsInfo.LaneData)-1]
-    }
-    return nil
-}
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["network-srlg-info"] = &opticsInfo.NetworkSrlgInfo
-    children["optics-alarm-info"] = &opticsInfo.OpticsAlarmInfo
-    children["ots-alarm-info"] = &opticsInfo.OtsAlarmInfo
-    children["transceiver-info"] = &opticsInfo.TransceiverInfo
-    children["ext-param-val"] = &opticsInfo.ExtParamVal
-    children["ext-param-threshold-val"] = &opticsInfo.ExtParamThresholdVal
-    children["spectrum-info"] = &opticsInfo.SpectrumInfo
+    opticsInfo.EntityData.Children = make(map[string]types.YChild)
+    opticsInfo.EntityData.Children["network-srlg-info"] = types.YChild{"NetworkSrlgInfo", &opticsInfo.NetworkSrlgInfo}
+    opticsInfo.EntityData.Children["optics-alarm-info"] = types.YChild{"OpticsAlarmInfo", &opticsInfo.OpticsAlarmInfo}
+    opticsInfo.EntityData.Children["ots-alarm-info"] = types.YChild{"OtsAlarmInfo", &opticsInfo.OtsAlarmInfo}
+    opticsInfo.EntityData.Children["transceiver-info"] = types.YChild{"TransceiverInfo", &opticsInfo.TransceiverInfo}
+    opticsInfo.EntityData.Children["ext-param-val"] = types.YChild{"ExtParamVal", &opticsInfo.ExtParamVal}
+    opticsInfo.EntityData.Children["ext-param-threshold-val"] = types.YChild{"ExtParamThresholdVal", &opticsInfo.ExtParamThresholdVal}
+    opticsInfo.EntityData.Children["extended-alarm-alarm-info"] = types.YChild{"ExtendedAlarmAlarmInfo", &opticsInfo.ExtendedAlarmAlarmInfo}
+    opticsInfo.EntityData.Children["lane-data"] = types.YChild{"LaneData", nil}
     for i := range opticsInfo.LaneData {
-        children[opticsInfo.LaneData[i].GetSegmentPath()] = &opticsInfo.LaneData[i]
+        opticsInfo.EntityData.Children[types.GetSegmentPath(&opticsInfo.LaneData[i])] = types.YChild{"LaneData", &opticsInfo.LaneData[i]}
     }
-    return children
+    opticsInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsInfo.EntityData.Leafs["transport-admin-state"] = types.YLeaf{"TransportAdminState", opticsInfo.TransportAdminState}
+    opticsInfo.EntityData.Leafs["optics-present"] = types.YLeaf{"OpticsPresent", opticsInfo.OpticsPresent}
+    opticsInfo.EntityData.Leafs["optics-type"] = types.YLeaf{"OpticsType", opticsInfo.OpticsType}
+    opticsInfo.EntityData.Leafs["derived-optics-type"] = types.YLeaf{"DerivedOpticsType", opticsInfo.DerivedOpticsType}
+    opticsInfo.EntityData.Leafs["optics-module"] = types.YLeaf{"OpticsModule", opticsInfo.OpticsModule}
+    opticsInfo.EntityData.Leafs["dwdm-carrier-band"] = types.YLeaf{"DwdmCarrierBand", opticsInfo.DwdmCarrierBand}
+    opticsInfo.EntityData.Leafs["dwdm-carrier-channel"] = types.YLeaf{"DwdmCarrierChannel", opticsInfo.DwdmCarrierChannel}
+    opticsInfo.EntityData.Leafs["dwdm-carrier-frequency"] = types.YLeaf{"DwdmCarrierFrequency", opticsInfo.DwdmCarrierFrequency}
+    opticsInfo.EntityData.Leafs["dwdm-carrier-wavelength"] = types.YLeaf{"DwdmCarrierWavelength", opticsInfo.DwdmCarrierWavelength}
+    opticsInfo.EntityData.Leafs["grey-wavelength"] = types.YLeaf{"GreyWavelength", opticsInfo.GreyWavelength}
+    opticsInfo.EntityData.Leafs["rx-low-threshold"] = types.YLeaf{"RxLowThreshold", opticsInfo.RxLowThreshold}
+    opticsInfo.EntityData.Leafs["rx-high-threshold"] = types.YLeaf{"RxHighThreshold", opticsInfo.RxHighThreshold}
+    opticsInfo.EntityData.Leafs["lbc-high-threshold"] = types.YLeaf{"LbcHighThreshold", opticsInfo.LbcHighThreshold}
+    opticsInfo.EntityData.Leafs["tx-low-threshold"] = types.YLeaf{"TxLowThreshold", opticsInfo.TxLowThreshold}
+    opticsInfo.EntityData.Leafs["tx-high-threshold"] = types.YLeaf{"TxHighThreshold", opticsInfo.TxHighThreshold}
+    opticsInfo.EntityData.Leafs["lbc-th-high-default"] = types.YLeaf{"LbcThHighDefault", opticsInfo.LbcThHighDefault}
+    opticsInfo.EntityData.Leafs["lbc-th-low-default"] = types.YLeaf{"LbcThLowDefault", opticsInfo.LbcThLowDefault}
+    opticsInfo.EntityData.Leafs["temp-low-threshold"] = types.YLeaf{"TempLowThreshold", opticsInfo.TempLowThreshold}
+    opticsInfo.EntityData.Leafs["temp-high-threshold"] = types.YLeaf{"TempHighThreshold", opticsInfo.TempHighThreshold}
+    opticsInfo.EntityData.Leafs["volt-low-threshold"] = types.YLeaf{"VoltLowThreshold", opticsInfo.VoltLowThreshold}
+    opticsInfo.EntityData.Leafs["volt-high-threshold"] = types.YLeaf{"VoltHighThreshold", opticsInfo.VoltHighThreshold}
+    opticsInfo.EntityData.Leafs["cd"] = types.YLeaf{"Cd", opticsInfo.Cd}
+    opticsInfo.EntityData.Leafs["cd-min"] = types.YLeaf{"CdMin", opticsInfo.CdMin}
+    opticsInfo.EntityData.Leafs["cd-max"] = types.YLeaf{"CdMax", opticsInfo.CdMax}
+    opticsInfo.EntityData.Leafs["cd-low-threshold"] = types.YLeaf{"CdLowThreshold", opticsInfo.CdLowThreshold}
+    opticsInfo.EntityData.Leafs["cd-high-threshold"] = types.YLeaf{"CdHighThreshold", opticsInfo.CdHighThreshold}
+    opticsInfo.EntityData.Leafs["osnr-low-threshold"] = types.YLeaf{"OsnrLowThreshold", opticsInfo.OsnrLowThreshold}
+    opticsInfo.EntityData.Leafs["dgd-high-threshold"] = types.YLeaf{"DgdHighThreshold", opticsInfo.DgdHighThreshold}
+    opticsInfo.EntityData.Leafs["polarization-mode-dispersion"] = types.YLeaf{"PolarizationModeDispersion", opticsInfo.PolarizationModeDispersion}
+    opticsInfo.EntityData.Leafs["second-order-polarization-mode-dispersion"] = types.YLeaf{"SecondOrderPolarizationModeDispersion", opticsInfo.SecondOrderPolarizationModeDispersion}
+    opticsInfo.EntityData.Leafs["optical-signal-to-noise-ratio"] = types.YLeaf{"OpticalSignalToNoiseRatio", opticsInfo.OpticalSignalToNoiseRatio}
+    opticsInfo.EntityData.Leafs["polarization-dependent-loss"] = types.YLeaf{"PolarizationDependentLoss", opticsInfo.PolarizationDependentLoss}
+    opticsInfo.EntityData.Leafs["polarization-change-rate"] = types.YLeaf{"PolarizationChangeRate", opticsInfo.PolarizationChangeRate}
+    opticsInfo.EntityData.Leafs["differential-group-delay"] = types.YLeaf{"DifferentialGroupDelay", opticsInfo.DifferentialGroupDelay}
+    opticsInfo.EntityData.Leafs["phase-noise"] = types.YLeaf{"PhaseNoise", opticsInfo.PhaseNoise}
+    opticsInfo.EntityData.Leafs["pm-enable"] = types.YLeaf{"PmEnable", opticsInfo.PmEnable}
+    opticsInfo.EntityData.Leafs["laser-state"] = types.YLeaf{"LaserState", opticsInfo.LaserState}
+    opticsInfo.EntityData.Leafs["led-state"] = types.YLeaf{"LedState", opticsInfo.LedState}
+    opticsInfo.EntityData.Leafs["controller-state"] = types.YLeaf{"ControllerState", opticsInfo.ControllerState}
+    opticsInfo.EntityData.Leafs["form-factor"] = types.YLeaf{"FormFactor", opticsInfo.FormFactor}
+    opticsInfo.EntityData.Leafs["phy-type"] = types.YLeaf{"PhyType", opticsInfo.PhyType}
+    opticsInfo.EntityData.Leafs["cfg-tx-power"] = types.YLeaf{"CfgTxPower", opticsInfo.CfgTxPower}
+    opticsInfo.EntityData.Leafs["cfg-tx-power-configurable"] = types.YLeaf{"CfgTxPowerConfigurable", opticsInfo.CfgTxPowerConfigurable}
+    opticsInfo.EntityData.Leafs["temperature"] = types.YLeaf{"Temperature", opticsInfo.Temperature}
+    opticsInfo.EntityData.Leafs["voltage"] = types.YLeaf{"Voltage", opticsInfo.Voltage}
+    opticsInfo.EntityData.Leafs["display-volt-temp"] = types.YLeaf{"DisplayVoltTemp", opticsInfo.DisplayVoltTemp}
+    opticsInfo.EntityData.Leafs["cd-configurable"] = types.YLeaf{"CdConfigurable", opticsInfo.CdConfigurable}
+    opticsInfo.EntityData.Leafs["optics-fec"] = types.YLeaf{"OpticsFec", opticsInfo.OpticsFec}
+    opticsInfo.EntityData.Leafs["skip-snmp-pm-table"] = types.YLeaf{"SkipSnmpPmTable", opticsInfo.SkipSnmpPmTable}
+    opticsInfo.EntityData.Leafs["port-type"] = types.YLeaf{"PortType", opticsInfo.PortType}
+    opticsInfo.EntityData.Leafs["port-status"] = types.YLeaf{"PortStatus", opticsInfo.PortStatus}
+    opticsInfo.EntityData.Leafs["rx-voa-attenuation"] = types.YLeaf{"RxVoaAttenuation", opticsInfo.RxVoaAttenuation}
+    opticsInfo.EntityData.Leafs["tx-voa-attenuation"] = types.YLeaf{"TxVoaAttenuation", opticsInfo.TxVoaAttenuation}
+    opticsInfo.EntityData.Leafs["ampli-gain"] = types.YLeaf{"AmpliGain", opticsInfo.AmpliGain}
+    opticsInfo.EntityData.Leafs["ampli-tilt"] = types.YLeaf{"AmpliTilt", opticsInfo.AmpliTilt}
+    opticsInfo.EntityData.Leafs["rx-power-th-configurable"] = types.YLeaf{"RxPowerThConfigurable", opticsInfo.RxPowerThConfigurable}
+    opticsInfo.EntityData.Leafs["tx-power-th-configurable"] = types.YLeaf{"TxPowerThConfigurable", opticsInfo.TxPowerThConfigurable}
+    opticsInfo.EntityData.Leafs["rx-voa-attenuation-config-val"] = types.YLeaf{"RxVoaAttenuationConfigVal", opticsInfo.RxVoaAttenuationConfigVal}
+    opticsInfo.EntityData.Leafs["tx-voa-attenuation-config-val"] = types.YLeaf{"TxVoaAttenuationConfigVal", opticsInfo.TxVoaAttenuationConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-control-mode-config-val"] = types.YLeaf{"AmpliControlModeConfigVal", opticsInfo.AmpliControlModeConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-gain-range-config-val"] = types.YLeaf{"AmpliGainRangeConfigVal", opticsInfo.AmpliGainRangeConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-gain-config-val"] = types.YLeaf{"AmpliGainConfigVal", opticsInfo.AmpliGainConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-tilt-config-val"] = types.YLeaf{"AmpliTiltConfigVal", opticsInfo.AmpliTiltConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-channel-power-config-val"] = types.YLeaf{"AmpliChannelPowerConfigVal", opticsInfo.AmpliChannelPowerConfigVal}
+    opticsInfo.EntityData.Leafs["channel-power-max-delta-config-val"] = types.YLeaf{"ChannelPowerMaxDeltaConfigVal", opticsInfo.ChannelPowerMaxDeltaConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-gain-thr-deg-low-config-val"] = types.YLeaf{"AmpliGainThrDegLowConfigVal", opticsInfo.AmpliGainThrDegLowConfigVal}
+    opticsInfo.EntityData.Leafs["ampli-gain-thr-deg-high-config-val"] = types.YLeaf{"AmpliGainThrDegHighConfigVal", opticsInfo.AmpliGainThrDegHighConfigVal}
+    opticsInfo.EntityData.Leafs["osri-config-val"] = types.YLeaf{"OsriConfigVal", opticsInfo.OsriConfigVal}
+    opticsInfo.EntityData.Leafs["tx-config-val"] = types.YLeaf{"TxConfigVal", opticsInfo.TxConfigVal}
+    opticsInfo.EntityData.Leafs["rx-config-val"] = types.YLeaf{"RxConfigVal", opticsInfo.RxConfigVal}
+    opticsInfo.EntityData.Leafs["safety-control-mode-config-val"] = types.YLeaf{"SafetyControlModeConfigVal", opticsInfo.SafetyControlModeConfigVal}
+    opticsInfo.EntityData.Leafs["total-rx-power"] = types.YLeaf{"TotalRxPower", opticsInfo.TotalRxPower}
+    opticsInfo.EntityData.Leafs["total-tx-power"] = types.YLeaf{"TotalTxPower", opticsInfo.TotalTxPower}
+    opticsInfo.EntityData.Leafs["is-bo-configured"] = types.YLeaf{"IsBoConfigured", opticsInfo.IsBoConfigured}
+    opticsInfo.EntityData.Leafs["is-ext-param-valid"] = types.YLeaf{"IsExtParamValid", opticsInfo.IsExtParamValid}
+    opticsInfo.EntityData.Leafs["alarm-detected"] = types.YLeaf{"AlarmDetected", opticsInfo.AlarmDetected}
+    opticsInfo.EntityData.Leafs["rx-low-warning-threshold"] = types.YLeaf{"RxLowWarningThreshold", opticsInfo.RxLowWarningThreshold}
+    opticsInfo.EntityData.Leafs["rx-high-warning-threshold"] = types.YLeaf{"RxHighWarningThreshold", opticsInfo.RxHighWarningThreshold}
+    opticsInfo.EntityData.Leafs["tx-low-warning-threshold"] = types.YLeaf{"TxLowWarningThreshold", opticsInfo.TxLowWarningThreshold}
+    opticsInfo.EntityData.Leafs["tx-high-warning-threshold"] = types.YLeaf{"TxHighWarningThreshold", opticsInfo.TxHighWarningThreshold}
+    opticsInfo.EntityData.Leafs["lbc-th-high-warning-default"] = types.YLeaf{"LbcThHighWarningDefault", opticsInfo.LbcThHighWarningDefault}
+    opticsInfo.EntityData.Leafs["lbc-th-low-warning-default"] = types.YLeaf{"LbcThLowWarningDefault", opticsInfo.LbcThLowWarningDefault}
+    opticsInfo.EntityData.Leafs["temp-low-warning-threshold"] = types.YLeaf{"TempLowWarningThreshold", opticsInfo.TempLowWarningThreshold}
+    opticsInfo.EntityData.Leafs["temp-high-warning-threshold"] = types.YLeaf{"TempHighWarningThreshold", opticsInfo.TempHighWarningThreshold}
+    opticsInfo.EntityData.Leafs["volt-low-warning-threshold"] = types.YLeaf{"VoltLowWarningThreshold", opticsInfo.VoltLowWarningThreshold}
+    opticsInfo.EntityData.Leafs["volt-high-warning-threshold"] = types.YLeaf{"VoltHighWarningThreshold", opticsInfo.VoltHighWarningThreshold}
+    opticsInfo.EntityData.Leafs["ampli-gain-range"] = types.YLeaf{"AmpliGainRange", opticsInfo.AmpliGainRange}
+    opticsInfo.EntityData.Leafs["safety-control-mode"] = types.YLeaf{"SafetyControlMode", opticsInfo.SafetyControlMode}
+    opticsInfo.EntityData.Leafs["osri"] = types.YLeaf{"Osri", opticsInfo.Osri}
+    opticsInfo.EntityData.Leafs["description"] = types.YLeaf{"Description", opticsInfo.Description}
+    opticsInfo.EntityData.Leafs["is-optics-type-string-valid"] = types.YLeaf{"IsOpticsTypeStringValid", opticsInfo.IsOpticsTypeStringValid}
+    opticsInfo.EntityData.Leafs["optics-type-str"] = types.YLeaf{"OpticsTypeStr", opticsInfo.OpticsTypeStr}
+    opticsInfo.EntityData.Leafs["tx-enable"] = types.YLeaf{"TxEnable", opticsInfo.TxEnable}
+    opticsInfo.EntityData.Leafs["rx-enable"] = types.YLeaf{"RxEnable", opticsInfo.RxEnable}
+    opticsInfo.EntityData.Leafs["rx-low-threshold-current"] = types.YLeaf{"RxLowThresholdCurrent", opticsInfo.RxLowThresholdCurrent}
+    return &(opticsInfo.EntityData)
 }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transport-admin-state"] = opticsInfo.TransportAdminState
-    leafs["optics-present"] = opticsInfo.OpticsPresent
-    leafs["optics-type"] = opticsInfo.OpticsType
-    leafs["derived-optics-type"] = opticsInfo.DerivedOpticsType
-    leafs["optics-module"] = opticsInfo.OpticsModule
-    leafs["dwdm-carrier-band"] = opticsInfo.DwdmCarrierBand
-    leafs["dwdm-carrier-channel"] = opticsInfo.DwdmCarrierChannel
-    leafs["dwdm-carrier-frequency"] = opticsInfo.DwdmCarrierFrequency
-    leafs["dwdm-carrier-wavelength"] = opticsInfo.DwdmCarrierWavelength
-    leafs["grey-wavelength"] = opticsInfo.GreyWavelength
-    leafs["rx-low-threshold"] = opticsInfo.RxLowThreshold
-    leafs["rx-high-threshold"] = opticsInfo.RxHighThreshold
-    leafs["lbc-high-threshold"] = opticsInfo.LbcHighThreshold
-    leafs["tx-low-threshold"] = opticsInfo.TxLowThreshold
-    leafs["tx-high-threshold"] = opticsInfo.TxHighThreshold
-    leafs["lbc-th-high-default"] = opticsInfo.LbcThHighDefault
-    leafs["lbc-th-low-default"] = opticsInfo.LbcThLowDefault
-    leafs["temp-low-threshold"] = opticsInfo.TempLowThreshold
-    leafs["temp-high-threshold"] = opticsInfo.TempHighThreshold
-    leafs["volt-low-threshold"] = opticsInfo.VoltLowThreshold
-    leafs["volt-high-threshold"] = opticsInfo.VoltHighThreshold
-    leafs["cd"] = opticsInfo.Cd
-    leafs["cd-min"] = opticsInfo.CdMin
-    leafs["cd-max"] = opticsInfo.CdMax
-    leafs["cd-low-threshold"] = opticsInfo.CdLowThreshold
-    leafs["cd-high-threshold"] = opticsInfo.CdHighThreshold
-    leafs["osnr-low-threshold"] = opticsInfo.OsnrLowThreshold
-    leafs["dgd-high-threshold"] = opticsInfo.DgdHighThreshold
-    leafs["polarization-mode-dispersion"] = opticsInfo.PolarizationModeDispersion
-    leafs["second-order-polarization-mode-dispersion"] = opticsInfo.SecondOrderPolarizationModeDispersion
-    leafs["optical-signal-to-noise-ratio"] = opticsInfo.OpticalSignalToNoiseRatio
-    leafs["polarization-dependent-loss"] = opticsInfo.PolarizationDependentLoss
-    leafs["polarization-change-rate"] = opticsInfo.PolarizationChangeRate
-    leafs["differential-group-delay"] = opticsInfo.DifferentialGroupDelay
-    leafs["phase-noise"] = opticsInfo.PhaseNoise
-    leafs["pm-enable"] = opticsInfo.PmEnable
-    leafs["laser-state"] = opticsInfo.LaserState
-    leafs["led-state"] = opticsInfo.LedState
-    leafs["controller-state"] = opticsInfo.ControllerState
-    leafs["form-factor"] = opticsInfo.FormFactor
-    leafs["phy-type"] = opticsInfo.PhyType
-    leafs["cfg-tx-power"] = opticsInfo.CfgTxPower
-    leafs["cfg-tx-power-configurable"] = opticsInfo.CfgTxPowerConfigurable
-    leafs["temperature"] = opticsInfo.Temperature
-    leafs["voltage"] = opticsInfo.Voltage
-    leafs["display-volt-temp"] = opticsInfo.DisplayVoltTemp
-    leafs["cd-configurable"] = opticsInfo.CdConfigurable
-    leafs["optics-fec"] = opticsInfo.OpticsFec
-    leafs["port-type"] = opticsInfo.PortType
-    leafs["port-status"] = opticsInfo.PortStatus
-    leafs["rx-voa-attenuation"] = opticsInfo.RxVoaAttenuation
-    leafs["tx-voa-attenuation"] = opticsInfo.TxVoaAttenuation
-    leafs["ampli-gain"] = opticsInfo.AmpliGain
-    leafs["ampli-tilt"] = opticsInfo.AmpliTilt
-    leafs["rx-power-th-configurable"] = opticsInfo.RxPowerThConfigurable
-    leafs["tx-power-th-configurable"] = opticsInfo.TxPowerThConfigurable
-    leafs["rx-voa-attenuation-config-val"] = opticsInfo.RxVoaAttenuationConfigVal
-    leafs["tx-voa-attenuation-config-val"] = opticsInfo.TxVoaAttenuationConfigVal
-    leafs["ampli-control-mode-config-val"] = opticsInfo.AmpliControlModeConfigVal
-    leafs["ampli-gain-range-config-val"] = opticsInfo.AmpliGainRangeConfigVal
-    leafs["ampli-gain-config-val"] = opticsInfo.AmpliGainConfigVal
-    leafs["ampli-tilt-config-val"] = opticsInfo.AmpliTiltConfigVal
-    leafs["ampli-channel-power-config-val"] = opticsInfo.AmpliChannelPowerConfigVal
-    leafs["channel-power-max-delta-config-val"] = opticsInfo.ChannelPowerMaxDeltaConfigVal
-    leafs["ampli-gain-thr-deg-low-config-val"] = opticsInfo.AmpliGainThrDegLowConfigVal
-    leafs["ampli-gain-thr-deg-high-config-val"] = opticsInfo.AmpliGainThrDegHighConfigVal
-    leafs["osri-config-val"] = opticsInfo.OsriConfigVal
-    leafs["safety-control-mode-config-val"] = opticsInfo.SafetyControlModeConfigVal
-    leafs["total-rx-power"] = opticsInfo.TotalRxPower
-    leafs["total-tx-power"] = opticsInfo.TotalTxPower
-    leafs["is-bo-configured"] = opticsInfo.IsBoConfigured
-    leafs["is-ext-param-valid"] = opticsInfo.IsExtParamValid
-    leafs["alarm-detected"] = opticsInfo.AlarmDetected
-    leafs["rx-low-warning-threshold"] = opticsInfo.RxLowWarningThreshold
-    leafs["rx-high-warning-threshold"] = opticsInfo.RxHighWarningThreshold
-    leafs["tx-low-warning-threshold"] = opticsInfo.TxLowWarningThreshold
-    leafs["tx-high-warning-threshold"] = opticsInfo.TxHighWarningThreshold
-    leafs["lbc-th-high-warning-default"] = opticsInfo.LbcThHighWarningDefault
-    leafs["lbc-th-low-warning-default"] = opticsInfo.LbcThLowWarningDefault
-    leafs["temp-low-warning-threshold"] = opticsInfo.TempLowWarningThreshold
-    leafs["temp-high-warning-threshold"] = opticsInfo.TempHighWarningThreshold
-    leafs["volt-low-warning-threshold"] = opticsInfo.VoltLowWarningThreshold
-    leafs["volt-high-warning-threshold"] = opticsInfo.VoltHighWarningThreshold
-    leafs["ampli-gain-range"] = opticsInfo.AmpliGainRange
-    leafs["safety-control-mode"] = opticsInfo.SafetyControlMode
-    leafs["osri"] = opticsInfo.Osri
-    leafs["description"] = opticsInfo.Description
-    leafs["is-optics-type-string-valid"] = opticsInfo.IsOpticsTypeStringValid
-    leafs["optics-type-str"] = opticsInfo.OpticsTypeStr
-    return leafs
-}
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetYangName() string { return "optics-info" }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) SetParent(parent types.Entity) { opticsInfo.parent = parent }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetParent() types.Entity { return opticsInfo.parent }
-
-func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetParentYangName() string { return "optics-port" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo
 // Network SRLG information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Network Srlg Array. The type is slice of
@@ -1617,68 +1514,29 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo struct {
     NetworkSrlgArray []OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray
 }
 
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetFilter() yfilter.YFilter { return networkSrlgInfo.YFilter }
+func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetEntityData() *types.CommonEntityData {
+    networkSrlgInfo.EntityData.YFilter = networkSrlgInfo.YFilter
+    networkSrlgInfo.EntityData.YangName = "network-srlg-info"
+    networkSrlgInfo.EntityData.BundleName = "cisco_ios_xr"
+    networkSrlgInfo.EntityData.ParentYangName = "optics-info"
+    networkSrlgInfo.EntityData.SegmentPath = "network-srlg-info"
+    networkSrlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) SetFilter(yf yfilter.YFilter) { networkSrlgInfo.YFilter = yf }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetGoName(yname string) string {
-    if yname == "network-srlg-array" { return "NetworkSrlgArray" }
-    return ""
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetSegmentPath() string {
-    return "network-srlg-info"
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "network-srlg-array" {
-        for _, c := range networkSrlgInfo.NetworkSrlgArray {
-            if networkSrlgInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray{}
-        networkSrlgInfo.NetworkSrlgArray = append(networkSrlgInfo.NetworkSrlgArray, child)
-        return &networkSrlgInfo.NetworkSrlgArray[len(networkSrlgInfo.NetworkSrlgArray)-1]
-    }
-    return nil
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    networkSrlgInfo.EntityData.Children = make(map[string]types.YChild)
+    networkSrlgInfo.EntityData.Children["network-srlg-array"] = types.YChild{"NetworkSrlgArray", nil}
     for i := range networkSrlgInfo.NetworkSrlgArray {
-        children[networkSrlgInfo.NetworkSrlgArray[i].GetSegmentPath()] = &networkSrlgInfo.NetworkSrlgArray[i]
+        networkSrlgInfo.EntityData.Children[types.GetSegmentPath(&networkSrlgInfo.NetworkSrlgArray[i])] = types.YChild{"NetworkSrlgArray", &networkSrlgInfo.NetworkSrlgArray[i]}
     }
-    return children
+    networkSrlgInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(networkSrlgInfo.EntityData)
 }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetYangName() string { return "network-srlg-info" }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) SetParent(parent types.Entity) { networkSrlgInfo.parent = parent }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetParent() types.Entity { return networkSrlgInfo.parent }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo) GetParentYangName() string { return "optics-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray
 // Network Srlg Array
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Array to maintain set number. The type is interface{} with range:
@@ -1689,58 +1547,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArr
     NetworkSrlg []interface{}
 }
 
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetFilter() yfilter.YFilter { return networkSrlgArray.YFilter }
+func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetEntityData() *types.CommonEntityData {
+    networkSrlgArray.EntityData.YFilter = networkSrlgArray.YFilter
+    networkSrlgArray.EntityData.YangName = "network-srlg-array"
+    networkSrlgArray.EntityData.BundleName = "cisco_ios_xr"
+    networkSrlgArray.EntityData.ParentYangName = "network-srlg-info"
+    networkSrlgArray.EntityData.SegmentPath = "network-srlg-array"
+    networkSrlgArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networkSrlgArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networkSrlgArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) SetFilter(yf yfilter.YFilter) { networkSrlgArray.YFilter = yf }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetGoName(yname string) string {
-    if yname == "set-number" { return "SetNumber" }
-    if yname == "network-srlg" { return "NetworkSrlg" }
-    return ""
+    networkSrlgArray.EntityData.Children = make(map[string]types.YChild)
+    networkSrlgArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkSrlgArray.EntityData.Leafs["set-number"] = types.YLeaf{"SetNumber", networkSrlgArray.SetNumber}
+    networkSrlgArray.EntityData.Leafs["network-srlg"] = types.YLeaf{"NetworkSrlg", networkSrlgArray.NetworkSrlg}
+    return &(networkSrlgArray.EntityData)
 }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetSegmentPath() string {
-    return "network-srlg-array"
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["set-number"] = networkSrlgArray.SetNumber
-    leafs["network-srlg"] = networkSrlgArray.NetworkSrlg
-    return leafs
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetYangName() string { return "network-srlg-array" }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) SetParent(parent types.Entity) { networkSrlgArray.parent = parent }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetParent() types.Entity { return networkSrlgArray.parent }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo_NetworkSrlgArray) GetParentYangName() string { return "network-srlg-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo
 // Optics Alarm Information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // High Rx Power in uints of 0.1 dBm.
@@ -1757,6 +1584,18 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo struct {
 
     // High laser bias current in units of percentage.
     HighLbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc
+
+    // Low Temperature alarm.
+    LowTemperature OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTemperature
+
+    // High Temperature alarm.
+    HighTemperature OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTemperature
+
+    // Low Voltage alarm.
+    LowVoltage OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowVoltage
+
+    // High Voltage alarm.
+    HighVoltage OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighVoltage
 
     // High Rx1 Power in uints of 0.1 dBm.
     HighRx1Power OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power
@@ -1876,274 +1715,73 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo struct {
     TxpwrMismatch OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch
 }
 
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetFilter() yfilter.YFilter { return opticsAlarmInfo.YFilter }
+func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetEntityData() *types.CommonEntityData {
+    opticsAlarmInfo.EntityData.YFilter = opticsAlarmInfo.YFilter
+    opticsAlarmInfo.EntityData.YangName = "optics-alarm-info"
+    opticsAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    opticsAlarmInfo.EntityData.ParentYangName = "optics-info"
+    opticsAlarmInfo.EntityData.SegmentPath = "optics-alarm-info"
+    opticsAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) SetFilter(yf yfilter.YFilter) { opticsAlarmInfo.YFilter = yf }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetGoName(yname string) string {
-    if yname == "high-rx-power" { return "HighRxPower" }
-    if yname == "low-rx-power" { return "LowRxPower" }
-    if yname == "high-tx-power" { return "HighTxPower" }
-    if yname == "low-tx-power" { return "LowTxPower" }
-    if yname == "high-lbc" { return "HighLbc" }
-    if yname == "high-rx1-power" { return "HighRx1Power" }
-    if yname == "high-rx2-power" { return "HighRx2Power" }
-    if yname == "high-rx3-power" { return "HighRx3Power" }
-    if yname == "high-rx4-power" { return "HighRx4Power" }
-    if yname == "low-rx1-power" { return "LowRx1Power" }
-    if yname == "low-rx2-power" { return "LowRx2Power" }
-    if yname == "low-rx3-power" { return "LowRx3Power" }
-    if yname == "low-rx4-power" { return "LowRx4Power" }
-    if yname == "high-tx1-power" { return "HighTx1Power" }
-    if yname == "high-tx2-power" { return "HighTx2Power" }
-    if yname == "high-tx3-power" { return "HighTx3Power" }
-    if yname == "high-tx4-power" { return "HighTx4Power" }
-    if yname == "low-tx1-power" { return "LowTx1Power" }
-    if yname == "low-tx2-power" { return "LowTx2Power" }
-    if yname == "low-tx3-power" { return "LowTx3Power" }
-    if yname == "low-tx4-power" { return "LowTx4Power" }
-    if yname == "high-tx1lbc" { return "HighTx1Lbc" }
-    if yname == "high-tx2lbc" { return "HighTx2Lbc" }
-    if yname == "high-tx3lbc" { return "HighTx3Lbc" }
-    if yname == "high-tx4lbc" { return "HighTx4Lbc" }
-    if yname == "low-tx1lbc" { return "LowTx1Lbc" }
-    if yname == "low-tx2lbc" { return "LowTx2Lbc" }
-    if yname == "low-tx3lbc" { return "LowTx3Lbc" }
-    if yname == "low-tx4lbc" { return "LowTx4Lbc" }
-    if yname == "rx-los" { return "RxLos" }
-    if yname == "tx-los" { return "TxLos" }
-    if yname == "rx-lol" { return "RxLol" }
-    if yname == "tx-lol" { return "TxLol" }
-    if yname == "tx-fault" { return "TxFault" }
-    if yname == "hidgd" { return "Hidgd" }
-    if yname == "oorcd" { return "Oorcd" }
-    if yname == "osnr" { return "Osnr" }
-    if yname == "wvlool" { return "Wvlool" }
-    if yname == "mea" { return "Mea" }
-    if yname == "imp-removal" { return "ImpRemoval" }
-    if yname == "rx-loc" { return "RxLoc" }
-    if yname == "amp-gain-deg-low" { return "AmpGainDegLow" }
-    if yname == "amp-gain-deg-high" { return "AmpGainDegHigh" }
-    if yname == "txpwr-mismatch" { return "TxpwrMismatch" }
-    return ""
+    opticsAlarmInfo.EntityData.Children = make(map[string]types.YChild)
+    opticsAlarmInfo.EntityData.Children["high-rx-power"] = types.YChild{"HighRxPower", &opticsAlarmInfo.HighRxPower}
+    opticsAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &opticsAlarmInfo.LowRxPower}
+    opticsAlarmInfo.EntityData.Children["high-tx-power"] = types.YChild{"HighTxPower", &opticsAlarmInfo.HighTxPower}
+    opticsAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &opticsAlarmInfo.LowTxPower}
+    opticsAlarmInfo.EntityData.Children["high-lbc"] = types.YChild{"HighLbc", &opticsAlarmInfo.HighLbc}
+    opticsAlarmInfo.EntityData.Children["low-temperature"] = types.YChild{"LowTemperature", &opticsAlarmInfo.LowTemperature}
+    opticsAlarmInfo.EntityData.Children["high-temperature"] = types.YChild{"HighTemperature", &opticsAlarmInfo.HighTemperature}
+    opticsAlarmInfo.EntityData.Children["low-voltage"] = types.YChild{"LowVoltage", &opticsAlarmInfo.LowVoltage}
+    opticsAlarmInfo.EntityData.Children["high-voltage"] = types.YChild{"HighVoltage", &opticsAlarmInfo.HighVoltage}
+    opticsAlarmInfo.EntityData.Children["high-rx1-power"] = types.YChild{"HighRx1Power", &opticsAlarmInfo.HighRx1Power}
+    opticsAlarmInfo.EntityData.Children["high-rx2-power"] = types.YChild{"HighRx2Power", &opticsAlarmInfo.HighRx2Power}
+    opticsAlarmInfo.EntityData.Children["high-rx3-power"] = types.YChild{"HighRx3Power", &opticsAlarmInfo.HighRx3Power}
+    opticsAlarmInfo.EntityData.Children["high-rx4-power"] = types.YChild{"HighRx4Power", &opticsAlarmInfo.HighRx4Power}
+    opticsAlarmInfo.EntityData.Children["low-rx1-power"] = types.YChild{"LowRx1Power", &opticsAlarmInfo.LowRx1Power}
+    opticsAlarmInfo.EntityData.Children["low-rx2-power"] = types.YChild{"LowRx2Power", &opticsAlarmInfo.LowRx2Power}
+    opticsAlarmInfo.EntityData.Children["low-rx3-power"] = types.YChild{"LowRx3Power", &opticsAlarmInfo.LowRx3Power}
+    opticsAlarmInfo.EntityData.Children["low-rx4-power"] = types.YChild{"LowRx4Power", &opticsAlarmInfo.LowRx4Power}
+    opticsAlarmInfo.EntityData.Children["high-tx1-power"] = types.YChild{"HighTx1Power", &opticsAlarmInfo.HighTx1Power}
+    opticsAlarmInfo.EntityData.Children["high-tx2-power"] = types.YChild{"HighTx2Power", &opticsAlarmInfo.HighTx2Power}
+    opticsAlarmInfo.EntityData.Children["high-tx3-power"] = types.YChild{"HighTx3Power", &opticsAlarmInfo.HighTx3Power}
+    opticsAlarmInfo.EntityData.Children["high-tx4-power"] = types.YChild{"HighTx4Power", &opticsAlarmInfo.HighTx4Power}
+    opticsAlarmInfo.EntityData.Children["low-tx1-power"] = types.YChild{"LowTx1Power", &opticsAlarmInfo.LowTx1Power}
+    opticsAlarmInfo.EntityData.Children["low-tx2-power"] = types.YChild{"LowTx2Power", &opticsAlarmInfo.LowTx2Power}
+    opticsAlarmInfo.EntityData.Children["low-tx3-power"] = types.YChild{"LowTx3Power", &opticsAlarmInfo.LowTx3Power}
+    opticsAlarmInfo.EntityData.Children["low-tx4-power"] = types.YChild{"LowTx4Power", &opticsAlarmInfo.LowTx4Power}
+    opticsAlarmInfo.EntityData.Children["high-tx1lbc"] = types.YChild{"HighTx1Lbc", &opticsAlarmInfo.HighTx1Lbc}
+    opticsAlarmInfo.EntityData.Children["high-tx2lbc"] = types.YChild{"HighTx2Lbc", &opticsAlarmInfo.HighTx2Lbc}
+    opticsAlarmInfo.EntityData.Children["high-tx3lbc"] = types.YChild{"HighTx3Lbc", &opticsAlarmInfo.HighTx3Lbc}
+    opticsAlarmInfo.EntityData.Children["high-tx4lbc"] = types.YChild{"HighTx4Lbc", &opticsAlarmInfo.HighTx4Lbc}
+    opticsAlarmInfo.EntityData.Children["low-tx1lbc"] = types.YChild{"LowTx1Lbc", &opticsAlarmInfo.LowTx1Lbc}
+    opticsAlarmInfo.EntityData.Children["low-tx2lbc"] = types.YChild{"LowTx2Lbc", &opticsAlarmInfo.LowTx2Lbc}
+    opticsAlarmInfo.EntityData.Children["low-tx3lbc"] = types.YChild{"LowTx3Lbc", &opticsAlarmInfo.LowTx3Lbc}
+    opticsAlarmInfo.EntityData.Children["low-tx4lbc"] = types.YChild{"LowTx4Lbc", &opticsAlarmInfo.LowTx4Lbc}
+    opticsAlarmInfo.EntityData.Children["rx-los"] = types.YChild{"RxLos", &opticsAlarmInfo.RxLos}
+    opticsAlarmInfo.EntityData.Children["tx-los"] = types.YChild{"TxLos", &opticsAlarmInfo.TxLos}
+    opticsAlarmInfo.EntityData.Children["rx-lol"] = types.YChild{"RxLol", &opticsAlarmInfo.RxLol}
+    opticsAlarmInfo.EntityData.Children["tx-lol"] = types.YChild{"TxLol", &opticsAlarmInfo.TxLol}
+    opticsAlarmInfo.EntityData.Children["tx-fault"] = types.YChild{"TxFault", &opticsAlarmInfo.TxFault}
+    opticsAlarmInfo.EntityData.Children["hidgd"] = types.YChild{"Hidgd", &opticsAlarmInfo.Hidgd}
+    opticsAlarmInfo.EntityData.Children["oorcd"] = types.YChild{"Oorcd", &opticsAlarmInfo.Oorcd}
+    opticsAlarmInfo.EntityData.Children["osnr"] = types.YChild{"Osnr", &opticsAlarmInfo.Osnr}
+    opticsAlarmInfo.EntityData.Children["wvlool"] = types.YChild{"Wvlool", &opticsAlarmInfo.Wvlool}
+    opticsAlarmInfo.EntityData.Children["mea"] = types.YChild{"Mea", &opticsAlarmInfo.Mea}
+    opticsAlarmInfo.EntityData.Children["imp-removal"] = types.YChild{"ImpRemoval", &opticsAlarmInfo.ImpRemoval}
+    opticsAlarmInfo.EntityData.Children["rx-loc"] = types.YChild{"RxLoc", &opticsAlarmInfo.RxLoc}
+    opticsAlarmInfo.EntityData.Children["amp-gain-deg-low"] = types.YChild{"AmpGainDegLow", &opticsAlarmInfo.AmpGainDegLow}
+    opticsAlarmInfo.EntityData.Children["amp-gain-deg-high"] = types.YChild{"AmpGainDegHigh", &opticsAlarmInfo.AmpGainDegHigh}
+    opticsAlarmInfo.EntityData.Children["txpwr-mismatch"] = types.YChild{"TxpwrMismatch", &opticsAlarmInfo.TxpwrMismatch}
+    opticsAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(opticsAlarmInfo.EntityData)
 }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetSegmentPath() string {
-    return "optics-alarm-info"
-}
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "high-rx-power" {
-        return &opticsAlarmInfo.HighRxPower
-    }
-    if childYangName == "low-rx-power" {
-        return &opticsAlarmInfo.LowRxPower
-    }
-    if childYangName == "high-tx-power" {
-        return &opticsAlarmInfo.HighTxPower
-    }
-    if childYangName == "low-tx-power" {
-        return &opticsAlarmInfo.LowTxPower
-    }
-    if childYangName == "high-lbc" {
-        return &opticsAlarmInfo.HighLbc
-    }
-    if childYangName == "high-rx1-power" {
-        return &opticsAlarmInfo.HighRx1Power
-    }
-    if childYangName == "high-rx2-power" {
-        return &opticsAlarmInfo.HighRx2Power
-    }
-    if childYangName == "high-rx3-power" {
-        return &opticsAlarmInfo.HighRx3Power
-    }
-    if childYangName == "high-rx4-power" {
-        return &opticsAlarmInfo.HighRx4Power
-    }
-    if childYangName == "low-rx1-power" {
-        return &opticsAlarmInfo.LowRx1Power
-    }
-    if childYangName == "low-rx2-power" {
-        return &opticsAlarmInfo.LowRx2Power
-    }
-    if childYangName == "low-rx3-power" {
-        return &opticsAlarmInfo.LowRx3Power
-    }
-    if childYangName == "low-rx4-power" {
-        return &opticsAlarmInfo.LowRx4Power
-    }
-    if childYangName == "high-tx1-power" {
-        return &opticsAlarmInfo.HighTx1Power
-    }
-    if childYangName == "high-tx2-power" {
-        return &opticsAlarmInfo.HighTx2Power
-    }
-    if childYangName == "high-tx3-power" {
-        return &opticsAlarmInfo.HighTx3Power
-    }
-    if childYangName == "high-tx4-power" {
-        return &opticsAlarmInfo.HighTx4Power
-    }
-    if childYangName == "low-tx1-power" {
-        return &opticsAlarmInfo.LowTx1Power
-    }
-    if childYangName == "low-tx2-power" {
-        return &opticsAlarmInfo.LowTx2Power
-    }
-    if childYangName == "low-tx3-power" {
-        return &opticsAlarmInfo.LowTx3Power
-    }
-    if childYangName == "low-tx4-power" {
-        return &opticsAlarmInfo.LowTx4Power
-    }
-    if childYangName == "high-tx1lbc" {
-        return &opticsAlarmInfo.HighTx1Lbc
-    }
-    if childYangName == "high-tx2lbc" {
-        return &opticsAlarmInfo.HighTx2Lbc
-    }
-    if childYangName == "high-tx3lbc" {
-        return &opticsAlarmInfo.HighTx3Lbc
-    }
-    if childYangName == "high-tx4lbc" {
-        return &opticsAlarmInfo.HighTx4Lbc
-    }
-    if childYangName == "low-tx1lbc" {
-        return &opticsAlarmInfo.LowTx1Lbc
-    }
-    if childYangName == "low-tx2lbc" {
-        return &opticsAlarmInfo.LowTx2Lbc
-    }
-    if childYangName == "low-tx3lbc" {
-        return &opticsAlarmInfo.LowTx3Lbc
-    }
-    if childYangName == "low-tx4lbc" {
-        return &opticsAlarmInfo.LowTx4Lbc
-    }
-    if childYangName == "rx-los" {
-        return &opticsAlarmInfo.RxLos
-    }
-    if childYangName == "tx-los" {
-        return &opticsAlarmInfo.TxLos
-    }
-    if childYangName == "rx-lol" {
-        return &opticsAlarmInfo.RxLol
-    }
-    if childYangName == "tx-lol" {
-        return &opticsAlarmInfo.TxLol
-    }
-    if childYangName == "tx-fault" {
-        return &opticsAlarmInfo.TxFault
-    }
-    if childYangName == "hidgd" {
-        return &opticsAlarmInfo.Hidgd
-    }
-    if childYangName == "oorcd" {
-        return &opticsAlarmInfo.Oorcd
-    }
-    if childYangName == "osnr" {
-        return &opticsAlarmInfo.Osnr
-    }
-    if childYangName == "wvlool" {
-        return &opticsAlarmInfo.Wvlool
-    }
-    if childYangName == "mea" {
-        return &opticsAlarmInfo.Mea
-    }
-    if childYangName == "imp-removal" {
-        return &opticsAlarmInfo.ImpRemoval
-    }
-    if childYangName == "rx-loc" {
-        return &opticsAlarmInfo.RxLoc
-    }
-    if childYangName == "amp-gain-deg-low" {
-        return &opticsAlarmInfo.AmpGainDegLow
-    }
-    if childYangName == "amp-gain-deg-high" {
-        return &opticsAlarmInfo.AmpGainDegHigh
-    }
-    if childYangName == "txpwr-mismatch" {
-        return &opticsAlarmInfo.TxpwrMismatch
-    }
-    return nil
-}
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["high-rx-power"] = &opticsAlarmInfo.HighRxPower
-    children["low-rx-power"] = &opticsAlarmInfo.LowRxPower
-    children["high-tx-power"] = &opticsAlarmInfo.HighTxPower
-    children["low-tx-power"] = &opticsAlarmInfo.LowTxPower
-    children["high-lbc"] = &opticsAlarmInfo.HighLbc
-    children["high-rx1-power"] = &opticsAlarmInfo.HighRx1Power
-    children["high-rx2-power"] = &opticsAlarmInfo.HighRx2Power
-    children["high-rx3-power"] = &opticsAlarmInfo.HighRx3Power
-    children["high-rx4-power"] = &opticsAlarmInfo.HighRx4Power
-    children["low-rx1-power"] = &opticsAlarmInfo.LowRx1Power
-    children["low-rx2-power"] = &opticsAlarmInfo.LowRx2Power
-    children["low-rx3-power"] = &opticsAlarmInfo.LowRx3Power
-    children["low-rx4-power"] = &opticsAlarmInfo.LowRx4Power
-    children["high-tx1-power"] = &opticsAlarmInfo.HighTx1Power
-    children["high-tx2-power"] = &opticsAlarmInfo.HighTx2Power
-    children["high-tx3-power"] = &opticsAlarmInfo.HighTx3Power
-    children["high-tx4-power"] = &opticsAlarmInfo.HighTx4Power
-    children["low-tx1-power"] = &opticsAlarmInfo.LowTx1Power
-    children["low-tx2-power"] = &opticsAlarmInfo.LowTx2Power
-    children["low-tx3-power"] = &opticsAlarmInfo.LowTx3Power
-    children["low-tx4-power"] = &opticsAlarmInfo.LowTx4Power
-    children["high-tx1lbc"] = &opticsAlarmInfo.HighTx1Lbc
-    children["high-tx2lbc"] = &opticsAlarmInfo.HighTx2Lbc
-    children["high-tx3lbc"] = &opticsAlarmInfo.HighTx3Lbc
-    children["high-tx4lbc"] = &opticsAlarmInfo.HighTx4Lbc
-    children["low-tx1lbc"] = &opticsAlarmInfo.LowTx1Lbc
-    children["low-tx2lbc"] = &opticsAlarmInfo.LowTx2Lbc
-    children["low-tx3lbc"] = &opticsAlarmInfo.LowTx3Lbc
-    children["low-tx4lbc"] = &opticsAlarmInfo.LowTx4Lbc
-    children["rx-los"] = &opticsAlarmInfo.RxLos
-    children["tx-los"] = &opticsAlarmInfo.TxLos
-    children["rx-lol"] = &opticsAlarmInfo.RxLol
-    children["tx-lol"] = &opticsAlarmInfo.TxLol
-    children["tx-fault"] = &opticsAlarmInfo.TxFault
-    children["hidgd"] = &opticsAlarmInfo.Hidgd
-    children["oorcd"] = &opticsAlarmInfo.Oorcd
-    children["osnr"] = &opticsAlarmInfo.Osnr
-    children["wvlool"] = &opticsAlarmInfo.Wvlool
-    children["mea"] = &opticsAlarmInfo.Mea
-    children["imp-removal"] = &opticsAlarmInfo.ImpRemoval
-    children["rx-loc"] = &opticsAlarmInfo.RxLoc
-    children["amp-gain-deg-low"] = &opticsAlarmInfo.AmpGainDegLow
-    children["amp-gain-deg-high"] = &opticsAlarmInfo.AmpGainDegHigh
-    children["txpwr-mismatch"] = &opticsAlarmInfo.TxpwrMismatch
-    return children
-}
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetYangName() string { return "optics-alarm-info" }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) SetParent(parent types.Entity) { opticsAlarmInfo.parent = parent }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetParent() types.Entity { return opticsAlarmInfo.parent }
-
-func (opticsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo) GetParentYangName() string { return "optics-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower
 // High Rx Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2153,58 +1791,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower st
     Counter interface{}
 }
 
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetFilter() yfilter.YFilter { return highRxPower.YFilter }
+func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetEntityData() *types.CommonEntityData {
+    highRxPower.EntityData.YFilter = highRxPower.YFilter
+    highRxPower.EntityData.YangName = "high-rx-power"
+    highRxPower.EntityData.BundleName = "cisco_ios_xr"
+    highRxPower.EntityData.ParentYangName = "optics-alarm-info"
+    highRxPower.EntityData.SegmentPath = "high-rx-power"
+    highRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) SetFilter(yf yfilter.YFilter) { highRxPower.YFilter = yf }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRxPower.EntityData.Children = make(map[string]types.YChild)
+    highRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRxPower.IsDetected}
+    highRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRxPower.Counter}
+    return &(highRxPower.EntityData)
 }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetSegmentPath() string {
-    return "high-rx-power"
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRxPower.IsDetected
-    leafs["counter"] = highRxPower.Counter
-    return leafs
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetYangName() string { return "high-rx-power" }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) SetParent(parent types.Entity) { highRxPower.parent = parent }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetParent() types.Entity { return highRxPower.parent }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRxPower) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower
 // Low Rx Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2214,58 +1821,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower str
     Counter interface{}
 }
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetFilter() yfilter.YFilter { return lowRxPower.YFilter }
+func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetEntityData() *types.CommonEntityData {
+    lowRxPower.EntityData.YFilter = lowRxPower.YFilter
+    lowRxPower.EntityData.YangName = "low-rx-power"
+    lowRxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowRxPower.EntityData.ParentYangName = "optics-alarm-info"
+    lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) SetFilter(yf yfilter.YFilter) { lowRxPower.YFilter = yf }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRxPower.EntityData.Children = make(map[string]types.YChild)
+    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
+    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    return &(lowRxPower.EntityData)
 }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetSegmentPath() string {
-    return "low-rx-power"
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRxPower.IsDetected
-    leafs["counter"] = lowRxPower.Counter
-    return leafs
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetYangName() string { return "low-rx-power" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) SetParent(parent types.Entity) { lowRxPower.parent = parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetParent() types.Entity { return lowRxPower.parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRxPower) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower
 // High Tx Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2275,58 +1851,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower st
     Counter interface{}
 }
 
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetFilter() yfilter.YFilter { return highTxPower.YFilter }
+func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetEntityData() *types.CommonEntityData {
+    highTxPower.EntityData.YFilter = highTxPower.YFilter
+    highTxPower.EntityData.YangName = "high-tx-power"
+    highTxPower.EntityData.BundleName = "cisco_ios_xr"
+    highTxPower.EntityData.ParentYangName = "optics-alarm-info"
+    highTxPower.EntityData.SegmentPath = "high-tx-power"
+    highTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) SetFilter(yf yfilter.YFilter) { highTxPower.YFilter = yf }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTxPower.EntityData.Children = make(map[string]types.YChild)
+    highTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTxPower.IsDetected}
+    highTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTxPower.Counter}
+    return &(highTxPower.EntityData)
 }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetSegmentPath() string {
-    return "high-tx-power"
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTxPower.IsDetected
-    leafs["counter"] = highTxPower.Counter
-    return leafs
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetYangName() string { return "high-tx-power" }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) SetParent(parent types.Entity) { highTxPower.parent = parent }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetParent() types.Entity { return highTxPower.parent }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTxPower) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower
 // Low Tx Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2336,58 +1881,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower str
     Counter interface{}
 }
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetFilter() yfilter.YFilter { return lowTxPower.YFilter }
+func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetEntityData() *types.CommonEntityData {
+    lowTxPower.EntityData.YFilter = lowTxPower.YFilter
+    lowTxPower.EntityData.YangName = "low-tx-power"
+    lowTxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowTxPower.EntityData.ParentYangName = "optics-alarm-info"
+    lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) SetFilter(yf yfilter.YFilter) { lowTxPower.YFilter = yf }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTxPower.EntityData.Children = make(map[string]types.YChild)
+    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
+    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    return &(lowTxPower.EntityData)
 }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetSegmentPath() string {
-    return "low-tx-power"
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTxPower.IsDetected
-    leafs["counter"] = lowTxPower.Counter
-    return leafs
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetYangName() string { return "low-tx-power" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) SetParent(parent types.Entity) { lowTxPower.parent = parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetParent() types.Entity { return lowTxPower.parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTxPower) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc
 // High laser bias current in units of percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2397,58 +1911,147 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc struct
     Counter interface{}
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetFilter() yfilter.YFilter { return highLbc.YFilter }
+func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetEntityData() *types.CommonEntityData {
+    highLbc.EntityData.YFilter = highLbc.YFilter
+    highLbc.EntityData.YangName = "high-lbc"
+    highLbc.EntityData.BundleName = "cisco_ios_xr"
+    highLbc.EntityData.ParentYangName = "optics-alarm-info"
+    highLbc.EntityData.SegmentPath = "high-lbc"
+    highLbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) SetFilter(yf yfilter.YFilter) { highLbc.YFilter = yf }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highLbc.EntityData.Children = make(map[string]types.YChild)
+    highLbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highLbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highLbc.IsDetected}
+    highLbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highLbc.Counter}
+    return &(highLbc.EntityData)
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetSegmentPath() string {
-    return "high-lbc"
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTemperature
+// Low Temperature alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTemperature struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (lowTemperature *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTemperature) GetEntityData() *types.CommonEntityData {
+    lowTemperature.EntityData.YFilter = lowTemperature.YFilter
+    lowTemperature.EntityData.YangName = "low-temperature"
+    lowTemperature.EntityData.BundleName = "cisco_ios_xr"
+    lowTemperature.EntityData.ParentYangName = "optics-alarm-info"
+    lowTemperature.EntityData.SegmentPath = "low-temperature"
+    lowTemperature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTemperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTemperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    lowTemperature.EntityData.Children = make(map[string]types.YChild)
+    lowTemperature.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTemperature.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTemperature.IsDetected}
+    lowTemperature.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTemperature.Counter}
+    return &(lowTemperature.EntityData)
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTemperature
+// High Temperature alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTemperature struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highLbc.IsDetected
-    leafs["counter"] = highLbc.Counter
-    return leafs
+func (highTemperature *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTemperature) GetEntityData() *types.CommonEntityData {
+    highTemperature.EntityData.YFilter = highTemperature.YFilter
+    highTemperature.EntityData.YangName = "high-temperature"
+    highTemperature.EntityData.BundleName = "cisco_ios_xr"
+    highTemperature.EntityData.ParentYangName = "optics-alarm-info"
+    highTemperature.EntityData.SegmentPath = "high-temperature"
+    highTemperature.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTemperature.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTemperature.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    highTemperature.EntityData.Children = make(map[string]types.YChild)
+    highTemperature.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTemperature.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTemperature.IsDetected}
+    highTemperature.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTemperature.Counter}
+    return &(highTemperature.EntityData)
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetBundleName() string { return "cisco_ios_xr" }
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowVoltage
+// Low Voltage alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowVoltage struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetYangName() string { return "high-lbc" }
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+func (lowVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowVoltage) GetEntityData() *types.CommonEntityData {
+    lowVoltage.EntityData.YFilter = lowVoltage.YFilter
+    lowVoltage.EntityData.YangName = "low-voltage"
+    lowVoltage.EntityData.BundleName = "cisco_ios_xr"
+    lowVoltage.EntityData.ParentYangName = "optics-alarm-info"
+    lowVoltage.EntityData.SegmentPath = "low-voltage"
+    lowVoltage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowVoltage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowVoltage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+    lowVoltage.EntityData.Children = make(map[string]types.YChild)
+    lowVoltage.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowVoltage.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowVoltage.IsDetected}
+    lowVoltage.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowVoltage.Counter}
+    return &(lowVoltage.EntityData)
+}
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) SetParent(parent types.Entity) { highLbc.parent = parent }
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighVoltage
+// High Voltage alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighVoltage struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetParent() types.Entity { return highLbc.parent }
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighLbc) GetParentYangName() string { return "optics-alarm-info" }
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (highVoltage *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighVoltage) GetEntityData() *types.CommonEntityData {
+    highVoltage.EntityData.YFilter = highVoltage.YFilter
+    highVoltage.EntityData.YangName = "high-voltage"
+    highVoltage.EntityData.BundleName = "cisco_ios_xr"
+    highVoltage.EntityData.ParentYangName = "optics-alarm-info"
+    highVoltage.EntityData.SegmentPath = "high-voltage"
+    highVoltage.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highVoltage.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highVoltage.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    highVoltage.EntityData.Children = make(map[string]types.YChild)
+    highVoltage.EntityData.Leafs = make(map[string]types.YLeaf)
+    highVoltage.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highVoltage.IsDetected}
+    highVoltage.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highVoltage.Counter}
+    return &(highVoltage.EntityData)
+}
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power
 // High Rx1 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2458,58 +2061,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power s
     Counter interface{}
 }
 
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetFilter() yfilter.YFilter { return highRx1Power.YFilter }
+func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetEntityData() *types.CommonEntityData {
+    highRx1Power.EntityData.YFilter = highRx1Power.YFilter
+    highRx1Power.EntityData.YangName = "high-rx1-power"
+    highRx1Power.EntityData.BundleName = "cisco_ios_xr"
+    highRx1Power.EntityData.ParentYangName = "optics-alarm-info"
+    highRx1Power.EntityData.SegmentPath = "high-rx1-power"
+    highRx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) SetFilter(yf yfilter.YFilter) { highRx1Power.YFilter = yf }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRx1Power.EntityData.Children = make(map[string]types.YChild)
+    highRx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx1Power.IsDetected}
+    highRx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx1Power.Counter}
+    return &(highRx1Power.EntityData)
 }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetSegmentPath() string {
-    return "high-rx1-power"
-}
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRx1Power.IsDetected
-    leafs["counter"] = highRx1Power.Counter
-    return leafs
-}
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetYangName() string { return "high-rx1-power" }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) SetParent(parent types.Entity) { highRx1Power.parent = parent }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetParent() types.Entity { return highRx1Power.parent }
-
-func (highRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx1Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power
 // High Rx2 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2519,58 +2091,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power s
     Counter interface{}
 }
 
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetFilter() yfilter.YFilter { return highRx2Power.YFilter }
+func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetEntityData() *types.CommonEntityData {
+    highRx2Power.EntityData.YFilter = highRx2Power.YFilter
+    highRx2Power.EntityData.YangName = "high-rx2-power"
+    highRx2Power.EntityData.BundleName = "cisco_ios_xr"
+    highRx2Power.EntityData.ParentYangName = "optics-alarm-info"
+    highRx2Power.EntityData.SegmentPath = "high-rx2-power"
+    highRx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) SetFilter(yf yfilter.YFilter) { highRx2Power.YFilter = yf }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRx2Power.EntityData.Children = make(map[string]types.YChild)
+    highRx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx2Power.IsDetected}
+    highRx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx2Power.Counter}
+    return &(highRx2Power.EntityData)
 }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetSegmentPath() string {
-    return "high-rx2-power"
-}
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRx2Power.IsDetected
-    leafs["counter"] = highRx2Power.Counter
-    return leafs
-}
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetYangName() string { return "high-rx2-power" }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) SetParent(parent types.Entity) { highRx2Power.parent = parent }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetParent() types.Entity { return highRx2Power.parent }
-
-func (highRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx2Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power
 // High Rx3 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2580,58 +2121,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power s
     Counter interface{}
 }
 
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetFilter() yfilter.YFilter { return highRx3Power.YFilter }
+func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetEntityData() *types.CommonEntityData {
+    highRx3Power.EntityData.YFilter = highRx3Power.YFilter
+    highRx3Power.EntityData.YangName = "high-rx3-power"
+    highRx3Power.EntityData.BundleName = "cisco_ios_xr"
+    highRx3Power.EntityData.ParentYangName = "optics-alarm-info"
+    highRx3Power.EntityData.SegmentPath = "high-rx3-power"
+    highRx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) SetFilter(yf yfilter.YFilter) { highRx3Power.YFilter = yf }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRx3Power.EntityData.Children = make(map[string]types.YChild)
+    highRx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx3Power.IsDetected}
+    highRx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx3Power.Counter}
+    return &(highRx3Power.EntityData)
 }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetSegmentPath() string {
-    return "high-rx3-power"
-}
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRx3Power.IsDetected
-    leafs["counter"] = highRx3Power.Counter
-    return leafs
-}
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetYangName() string { return "high-rx3-power" }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) SetParent(parent types.Entity) { highRx3Power.parent = parent }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetParent() types.Entity { return highRx3Power.parent }
-
-func (highRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx3Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power
 // High Rx4 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2641,58 +2151,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power s
     Counter interface{}
 }
 
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetFilter() yfilter.YFilter { return highRx4Power.YFilter }
+func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetEntityData() *types.CommonEntityData {
+    highRx4Power.EntityData.YFilter = highRx4Power.YFilter
+    highRx4Power.EntityData.YangName = "high-rx4-power"
+    highRx4Power.EntityData.BundleName = "cisco_ios_xr"
+    highRx4Power.EntityData.ParentYangName = "optics-alarm-info"
+    highRx4Power.EntityData.SegmentPath = "high-rx4-power"
+    highRx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) SetFilter(yf yfilter.YFilter) { highRx4Power.YFilter = yf }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRx4Power.EntityData.Children = make(map[string]types.YChild)
+    highRx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRx4Power.IsDetected}
+    highRx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRx4Power.Counter}
+    return &(highRx4Power.EntityData)
 }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetSegmentPath() string {
-    return "high-rx4-power"
-}
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRx4Power.IsDetected
-    leafs["counter"] = highRx4Power.Counter
-    return leafs
-}
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetYangName() string { return "high-rx4-power" }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) SetParent(parent types.Entity) { highRx4Power.parent = parent }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetParent() types.Entity { return highRx4Power.parent }
-
-func (highRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighRx4Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power
 // Low Rx1 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2702,58 +2181,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power st
     Counter interface{}
 }
 
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetFilter() yfilter.YFilter { return lowRx1Power.YFilter }
+func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetEntityData() *types.CommonEntityData {
+    lowRx1Power.EntityData.YFilter = lowRx1Power.YFilter
+    lowRx1Power.EntityData.YangName = "low-rx1-power"
+    lowRx1Power.EntityData.BundleName = "cisco_ios_xr"
+    lowRx1Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowRx1Power.EntityData.SegmentPath = "low-rx1-power"
+    lowRx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) SetFilter(yf yfilter.YFilter) { lowRx1Power.YFilter = yf }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRx1Power.EntityData.Children = make(map[string]types.YChild)
+    lowRx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx1Power.IsDetected}
+    lowRx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx1Power.Counter}
+    return &(lowRx1Power.EntityData)
 }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetSegmentPath() string {
-    return "low-rx1-power"
-}
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRx1Power.IsDetected
-    leafs["counter"] = lowRx1Power.Counter
-    return leafs
-}
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetYangName() string { return "low-rx1-power" }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) SetParent(parent types.Entity) { lowRx1Power.parent = parent }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetParent() types.Entity { return lowRx1Power.parent }
-
-func (lowRx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx1Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power
 // Low Rx2 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2763,58 +2211,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power st
     Counter interface{}
 }
 
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetFilter() yfilter.YFilter { return lowRx2Power.YFilter }
+func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetEntityData() *types.CommonEntityData {
+    lowRx2Power.EntityData.YFilter = lowRx2Power.YFilter
+    lowRx2Power.EntityData.YangName = "low-rx2-power"
+    lowRx2Power.EntityData.BundleName = "cisco_ios_xr"
+    lowRx2Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowRx2Power.EntityData.SegmentPath = "low-rx2-power"
+    lowRx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) SetFilter(yf yfilter.YFilter) { lowRx2Power.YFilter = yf }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRx2Power.EntityData.Children = make(map[string]types.YChild)
+    lowRx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx2Power.IsDetected}
+    lowRx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx2Power.Counter}
+    return &(lowRx2Power.EntityData)
 }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetSegmentPath() string {
-    return "low-rx2-power"
-}
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRx2Power.IsDetected
-    leafs["counter"] = lowRx2Power.Counter
-    return leafs
-}
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetYangName() string { return "low-rx2-power" }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) SetParent(parent types.Entity) { lowRx2Power.parent = parent }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetParent() types.Entity { return lowRx2Power.parent }
-
-func (lowRx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx2Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power
 // Low Rx3 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2824,58 +2241,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power st
     Counter interface{}
 }
 
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetFilter() yfilter.YFilter { return lowRx3Power.YFilter }
+func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetEntityData() *types.CommonEntityData {
+    lowRx3Power.EntityData.YFilter = lowRx3Power.YFilter
+    lowRx3Power.EntityData.YangName = "low-rx3-power"
+    lowRx3Power.EntityData.BundleName = "cisco_ios_xr"
+    lowRx3Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowRx3Power.EntityData.SegmentPath = "low-rx3-power"
+    lowRx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) SetFilter(yf yfilter.YFilter) { lowRx3Power.YFilter = yf }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRx3Power.EntityData.Children = make(map[string]types.YChild)
+    lowRx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx3Power.IsDetected}
+    lowRx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx3Power.Counter}
+    return &(lowRx3Power.EntityData)
 }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetSegmentPath() string {
-    return "low-rx3-power"
-}
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRx3Power.IsDetected
-    leafs["counter"] = lowRx3Power.Counter
-    return leafs
-}
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetYangName() string { return "low-rx3-power" }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) SetParent(parent types.Entity) { lowRx3Power.parent = parent }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetParent() types.Entity { return lowRx3Power.parent }
-
-func (lowRx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx3Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power
 // Low Rx4 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2885,58 +2271,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power st
     Counter interface{}
 }
 
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetFilter() yfilter.YFilter { return lowRx4Power.YFilter }
+func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetEntityData() *types.CommonEntityData {
+    lowRx4Power.EntityData.YFilter = lowRx4Power.YFilter
+    lowRx4Power.EntityData.YangName = "low-rx4-power"
+    lowRx4Power.EntityData.BundleName = "cisco_ios_xr"
+    lowRx4Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowRx4Power.EntityData.SegmentPath = "low-rx4-power"
+    lowRx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) SetFilter(yf yfilter.YFilter) { lowRx4Power.YFilter = yf }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRx4Power.EntityData.Children = make(map[string]types.YChild)
+    lowRx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRx4Power.IsDetected}
+    lowRx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRx4Power.Counter}
+    return &(lowRx4Power.EntityData)
 }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetSegmentPath() string {
-    return "low-rx4-power"
-}
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRx4Power.IsDetected
-    leafs["counter"] = lowRx4Power.Counter
-    return leafs
-}
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetYangName() string { return "low-rx4-power" }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) SetParent(parent types.Entity) { lowRx4Power.parent = parent }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetParent() types.Entity { return lowRx4Power.parent }
-
-func (lowRx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowRx4Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power
 // High Tx1 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -2946,58 +2301,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power s
     Counter interface{}
 }
 
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetFilter() yfilter.YFilter { return highTx1Power.YFilter }
+func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetEntityData() *types.CommonEntityData {
+    highTx1Power.EntityData.YFilter = highTx1Power.YFilter
+    highTx1Power.EntityData.YangName = "high-tx1-power"
+    highTx1Power.EntityData.BundleName = "cisco_ios_xr"
+    highTx1Power.EntityData.ParentYangName = "optics-alarm-info"
+    highTx1Power.EntityData.SegmentPath = "high-tx1-power"
+    highTx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) SetFilter(yf yfilter.YFilter) { highTx1Power.YFilter = yf }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx1Power.EntityData.Children = make(map[string]types.YChild)
+    highTx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx1Power.IsDetected}
+    highTx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx1Power.Counter}
+    return &(highTx1Power.EntityData)
 }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetSegmentPath() string {
-    return "high-tx1-power"
-}
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx1Power.IsDetected
-    leafs["counter"] = highTx1Power.Counter
-    return leafs
-}
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetYangName() string { return "high-tx1-power" }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) SetParent(parent types.Entity) { highTx1Power.parent = parent }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetParent() types.Entity { return highTx1Power.parent }
-
-func (highTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power
 // High Tx2 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3007,58 +2331,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power s
     Counter interface{}
 }
 
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetFilter() yfilter.YFilter { return highTx2Power.YFilter }
+func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetEntityData() *types.CommonEntityData {
+    highTx2Power.EntityData.YFilter = highTx2Power.YFilter
+    highTx2Power.EntityData.YangName = "high-tx2-power"
+    highTx2Power.EntityData.BundleName = "cisco_ios_xr"
+    highTx2Power.EntityData.ParentYangName = "optics-alarm-info"
+    highTx2Power.EntityData.SegmentPath = "high-tx2-power"
+    highTx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) SetFilter(yf yfilter.YFilter) { highTx2Power.YFilter = yf }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx2Power.EntityData.Children = make(map[string]types.YChild)
+    highTx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx2Power.IsDetected}
+    highTx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx2Power.Counter}
+    return &(highTx2Power.EntityData)
 }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetSegmentPath() string {
-    return "high-tx2-power"
-}
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx2Power.IsDetected
-    leafs["counter"] = highTx2Power.Counter
-    return leafs
-}
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetYangName() string { return "high-tx2-power" }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) SetParent(parent types.Entity) { highTx2Power.parent = parent }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetParent() types.Entity { return highTx2Power.parent }
-
-func (highTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power
 // High Tx3 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3068,58 +2361,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power s
     Counter interface{}
 }
 
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetFilter() yfilter.YFilter { return highTx3Power.YFilter }
+func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetEntityData() *types.CommonEntityData {
+    highTx3Power.EntityData.YFilter = highTx3Power.YFilter
+    highTx3Power.EntityData.YangName = "high-tx3-power"
+    highTx3Power.EntityData.BundleName = "cisco_ios_xr"
+    highTx3Power.EntityData.ParentYangName = "optics-alarm-info"
+    highTx3Power.EntityData.SegmentPath = "high-tx3-power"
+    highTx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) SetFilter(yf yfilter.YFilter) { highTx3Power.YFilter = yf }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx3Power.EntityData.Children = make(map[string]types.YChild)
+    highTx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx3Power.IsDetected}
+    highTx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx3Power.Counter}
+    return &(highTx3Power.EntityData)
 }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetSegmentPath() string {
-    return "high-tx3-power"
-}
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx3Power.IsDetected
-    leafs["counter"] = highTx3Power.Counter
-    return leafs
-}
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetYangName() string { return "high-tx3-power" }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) SetParent(parent types.Entity) { highTx3Power.parent = parent }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetParent() types.Entity { return highTx3Power.parent }
-
-func (highTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power
 // High Tx4 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3129,58 +2391,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power s
     Counter interface{}
 }
 
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetFilter() yfilter.YFilter { return highTx4Power.YFilter }
+func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetEntityData() *types.CommonEntityData {
+    highTx4Power.EntityData.YFilter = highTx4Power.YFilter
+    highTx4Power.EntityData.YangName = "high-tx4-power"
+    highTx4Power.EntityData.BundleName = "cisco_ios_xr"
+    highTx4Power.EntityData.ParentYangName = "optics-alarm-info"
+    highTx4Power.EntityData.SegmentPath = "high-tx4-power"
+    highTx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) SetFilter(yf yfilter.YFilter) { highTx4Power.YFilter = yf }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx4Power.EntityData.Children = make(map[string]types.YChild)
+    highTx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx4Power.IsDetected}
+    highTx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx4Power.Counter}
+    return &(highTx4Power.EntityData)
 }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetSegmentPath() string {
-    return "high-tx4-power"
-}
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx4Power.IsDetected
-    leafs["counter"] = highTx4Power.Counter
-    return leafs
-}
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetYangName() string { return "high-tx4-power" }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) SetParent(parent types.Entity) { highTx4Power.parent = parent }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetParent() types.Entity { return highTx4Power.parent }
-
-func (highTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power
 // Low Tx1 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3190,58 +2421,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power st
     Counter interface{}
 }
 
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetFilter() yfilter.YFilter { return lowTx1Power.YFilter }
+func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetEntityData() *types.CommonEntityData {
+    lowTx1Power.EntityData.YFilter = lowTx1Power.YFilter
+    lowTx1Power.EntityData.YangName = "low-tx1-power"
+    lowTx1Power.EntityData.BundleName = "cisco_ios_xr"
+    lowTx1Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx1Power.EntityData.SegmentPath = "low-tx1-power"
+    lowTx1Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx1Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx1Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) SetFilter(yf yfilter.YFilter) { lowTx1Power.YFilter = yf }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx1Power.EntityData.Children = make(map[string]types.YChild)
+    lowTx1Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx1Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx1Power.IsDetected}
+    lowTx1Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx1Power.Counter}
+    return &(lowTx1Power.EntityData)
 }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetSegmentPath() string {
-    return "low-tx1-power"
-}
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx1Power.IsDetected
-    leafs["counter"] = lowTx1Power.Counter
-    return leafs
-}
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetYangName() string { return "low-tx1-power" }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) SetParent(parent types.Entity) { lowTx1Power.parent = parent }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetParent() types.Entity { return lowTx1Power.parent }
-
-func (lowTx1Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power
 // Low Tx2 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3251,58 +2451,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power st
     Counter interface{}
 }
 
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetFilter() yfilter.YFilter { return lowTx2Power.YFilter }
+func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetEntityData() *types.CommonEntityData {
+    lowTx2Power.EntityData.YFilter = lowTx2Power.YFilter
+    lowTx2Power.EntityData.YangName = "low-tx2-power"
+    lowTx2Power.EntityData.BundleName = "cisco_ios_xr"
+    lowTx2Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx2Power.EntityData.SegmentPath = "low-tx2-power"
+    lowTx2Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx2Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx2Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) SetFilter(yf yfilter.YFilter) { lowTx2Power.YFilter = yf }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx2Power.EntityData.Children = make(map[string]types.YChild)
+    lowTx2Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx2Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx2Power.IsDetected}
+    lowTx2Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx2Power.Counter}
+    return &(lowTx2Power.EntityData)
 }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetSegmentPath() string {
-    return "low-tx2-power"
-}
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx2Power.IsDetected
-    leafs["counter"] = lowTx2Power.Counter
-    return leafs
-}
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetYangName() string { return "low-tx2-power" }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) SetParent(parent types.Entity) { lowTx2Power.parent = parent }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetParent() types.Entity { return lowTx2Power.parent }
-
-func (lowTx2Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power
 // Low Tx3 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3312,58 +2481,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power st
     Counter interface{}
 }
 
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetFilter() yfilter.YFilter { return lowTx3Power.YFilter }
+func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetEntityData() *types.CommonEntityData {
+    lowTx3Power.EntityData.YFilter = lowTx3Power.YFilter
+    lowTx3Power.EntityData.YangName = "low-tx3-power"
+    lowTx3Power.EntityData.BundleName = "cisco_ios_xr"
+    lowTx3Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx3Power.EntityData.SegmentPath = "low-tx3-power"
+    lowTx3Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx3Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx3Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) SetFilter(yf yfilter.YFilter) { lowTx3Power.YFilter = yf }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx3Power.EntityData.Children = make(map[string]types.YChild)
+    lowTx3Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx3Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx3Power.IsDetected}
+    lowTx3Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx3Power.Counter}
+    return &(lowTx3Power.EntityData)
 }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetSegmentPath() string {
-    return "low-tx3-power"
-}
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx3Power.IsDetected
-    leafs["counter"] = lowTx3Power.Counter
-    return leafs
-}
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetYangName() string { return "low-tx3-power" }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) SetParent(parent types.Entity) { lowTx3Power.parent = parent }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetParent() types.Entity { return lowTx3Power.parent }
-
-func (lowTx3Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power
 // Low Tx4 Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3373,59 +2511,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power st
     Counter interface{}
 }
 
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetFilter() yfilter.YFilter { return lowTx4Power.YFilter }
+func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetEntityData() *types.CommonEntityData {
+    lowTx4Power.EntityData.YFilter = lowTx4Power.YFilter
+    lowTx4Power.EntityData.YangName = "low-tx4-power"
+    lowTx4Power.EntityData.BundleName = "cisco_ios_xr"
+    lowTx4Power.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx4Power.EntityData.SegmentPath = "low-tx4-power"
+    lowTx4Power.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx4Power.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx4Power.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) SetFilter(yf yfilter.YFilter) { lowTx4Power.YFilter = yf }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx4Power.EntityData.Children = make(map[string]types.YChild)
+    lowTx4Power.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx4Power.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx4Power.IsDetected}
+    lowTx4Power.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx4Power.Counter}
+    return &(lowTx4Power.EntityData)
 }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetSegmentPath() string {
-    return "low-tx4-power"
-}
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx4Power.IsDetected
-    leafs["counter"] = lowTx4Power.Counter
-    return leafs
-}
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetYangName() string { return "low-tx4-power" }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) SetParent(parent types.Entity) { lowTx4Power.parent = parent }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetParent() types.Entity { return lowTx4Power.parent }
-
-func (lowTx4Power *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Power) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc
 // High Tx1 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3435,59 +2542,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc str
     Counter interface{}
 }
 
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetFilter() yfilter.YFilter { return highTx1Lbc.YFilter }
+func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetEntityData() *types.CommonEntityData {
+    highTx1Lbc.EntityData.YFilter = highTx1Lbc.YFilter
+    highTx1Lbc.EntityData.YangName = "high-tx1lbc"
+    highTx1Lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx1Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx1Lbc.EntityData.SegmentPath = "high-tx1lbc"
+    highTx1Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx1Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx1Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) SetFilter(yf yfilter.YFilter) { highTx1Lbc.YFilter = yf }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx1Lbc.EntityData.Children = make(map[string]types.YChild)
+    highTx1Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx1Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx1Lbc.IsDetected}
+    highTx1Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx1Lbc.Counter}
+    return &(highTx1Lbc.EntityData)
 }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetSegmentPath() string {
-    return "high-tx1lbc"
-}
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx1Lbc.IsDetected
-    leafs["counter"] = highTx1Lbc.Counter
-    return leafs
-}
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetYangName() string { return "high-tx1lbc" }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) SetParent(parent types.Entity) { highTx1Lbc.parent = parent }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetParent() types.Entity { return highTx1Lbc.parent }
-
-func (highTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx1Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc
 // High Tx2 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3497,59 +2573,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc str
     Counter interface{}
 }
 
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetFilter() yfilter.YFilter { return highTx2Lbc.YFilter }
+func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetEntityData() *types.CommonEntityData {
+    highTx2Lbc.EntityData.YFilter = highTx2Lbc.YFilter
+    highTx2Lbc.EntityData.YangName = "high-tx2lbc"
+    highTx2Lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx2Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx2Lbc.EntityData.SegmentPath = "high-tx2lbc"
+    highTx2Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx2Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx2Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) SetFilter(yf yfilter.YFilter) { highTx2Lbc.YFilter = yf }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx2Lbc.EntityData.Children = make(map[string]types.YChild)
+    highTx2Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx2Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx2Lbc.IsDetected}
+    highTx2Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx2Lbc.Counter}
+    return &(highTx2Lbc.EntityData)
 }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetSegmentPath() string {
-    return "high-tx2lbc"
-}
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx2Lbc.IsDetected
-    leafs["counter"] = highTx2Lbc.Counter
-    return leafs
-}
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetYangName() string { return "high-tx2lbc" }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) SetParent(parent types.Entity) { highTx2Lbc.parent = parent }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetParent() types.Entity { return highTx2Lbc.parent }
-
-func (highTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx2Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc
 // High Tx3 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3559,59 +2604,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc str
     Counter interface{}
 }
 
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetFilter() yfilter.YFilter { return highTx3Lbc.YFilter }
+func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetEntityData() *types.CommonEntityData {
+    highTx3Lbc.EntityData.YFilter = highTx3Lbc.YFilter
+    highTx3Lbc.EntityData.YangName = "high-tx3lbc"
+    highTx3Lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx3Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx3Lbc.EntityData.SegmentPath = "high-tx3lbc"
+    highTx3Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx3Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx3Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) SetFilter(yf yfilter.YFilter) { highTx3Lbc.YFilter = yf }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx3Lbc.EntityData.Children = make(map[string]types.YChild)
+    highTx3Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx3Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx3Lbc.IsDetected}
+    highTx3Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx3Lbc.Counter}
+    return &(highTx3Lbc.EntityData)
 }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetSegmentPath() string {
-    return "high-tx3lbc"
-}
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx3Lbc.IsDetected
-    leafs["counter"] = highTx3Lbc.Counter
-    return leafs
-}
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetYangName() string { return "high-tx3lbc" }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) SetParent(parent types.Entity) { highTx3Lbc.parent = parent }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetParent() types.Entity { return highTx3Lbc.parent }
-
-func (highTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx3Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc
 // High Tx4 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3621,59 +2635,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc str
     Counter interface{}
 }
 
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetFilter() yfilter.YFilter { return highTx4Lbc.YFilter }
+func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetEntityData() *types.CommonEntityData {
+    highTx4Lbc.EntityData.YFilter = highTx4Lbc.YFilter
+    highTx4Lbc.EntityData.YangName = "high-tx4lbc"
+    highTx4Lbc.EntityData.BundleName = "cisco_ios_xr"
+    highTx4Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    highTx4Lbc.EntityData.SegmentPath = "high-tx4lbc"
+    highTx4Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTx4Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTx4Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) SetFilter(yf yfilter.YFilter) { highTx4Lbc.YFilter = yf }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTx4Lbc.EntityData.Children = make(map[string]types.YChild)
+    highTx4Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTx4Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTx4Lbc.IsDetected}
+    highTx4Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTx4Lbc.Counter}
+    return &(highTx4Lbc.EntityData)
 }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetSegmentPath() string {
-    return "high-tx4lbc"
-}
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTx4Lbc.IsDetected
-    leafs["counter"] = highTx4Lbc.Counter
-    return leafs
-}
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetYangName() string { return "high-tx4lbc" }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) SetParent(parent types.Entity) { highTx4Lbc.parent = parent }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetParent() types.Entity { return highTx4Lbc.parent }
-
-func (highTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_HighTx4Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc
 // Low Tx1 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3683,59 +2666,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc stru
     Counter interface{}
 }
 
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetFilter() yfilter.YFilter { return lowTx1Lbc.YFilter }
+func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetEntityData() *types.CommonEntityData {
+    lowTx1Lbc.EntityData.YFilter = lowTx1Lbc.YFilter
+    lowTx1Lbc.EntityData.YangName = "low-tx1lbc"
+    lowTx1Lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx1Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx1Lbc.EntityData.SegmentPath = "low-tx1lbc"
+    lowTx1Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx1Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx1Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) SetFilter(yf yfilter.YFilter) { lowTx1Lbc.YFilter = yf }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx1Lbc.EntityData.Children = make(map[string]types.YChild)
+    lowTx1Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx1Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx1Lbc.IsDetected}
+    lowTx1Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx1Lbc.Counter}
+    return &(lowTx1Lbc.EntityData)
 }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetSegmentPath() string {
-    return "low-tx1lbc"
-}
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx1Lbc.IsDetected
-    leafs["counter"] = lowTx1Lbc.Counter
-    return leafs
-}
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetYangName() string { return "low-tx1lbc" }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) SetParent(parent types.Entity) { lowTx1Lbc.parent = parent }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetParent() types.Entity { return lowTx1Lbc.parent }
-
-func (lowTx1Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx1Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc
 // Low Tx2 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3745,59 +2697,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc stru
     Counter interface{}
 }
 
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetFilter() yfilter.YFilter { return lowTx2Lbc.YFilter }
+func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetEntityData() *types.CommonEntityData {
+    lowTx2Lbc.EntityData.YFilter = lowTx2Lbc.YFilter
+    lowTx2Lbc.EntityData.YangName = "low-tx2lbc"
+    lowTx2Lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx2Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx2Lbc.EntityData.SegmentPath = "low-tx2lbc"
+    lowTx2Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx2Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx2Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) SetFilter(yf yfilter.YFilter) { lowTx2Lbc.YFilter = yf }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx2Lbc.EntityData.Children = make(map[string]types.YChild)
+    lowTx2Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx2Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx2Lbc.IsDetected}
+    lowTx2Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx2Lbc.Counter}
+    return &(lowTx2Lbc.EntityData)
 }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetSegmentPath() string {
-    return "low-tx2lbc"
-}
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx2Lbc.IsDetected
-    leafs["counter"] = lowTx2Lbc.Counter
-    return leafs
-}
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetYangName() string { return "low-tx2lbc" }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) SetParent(parent types.Entity) { lowTx2Lbc.parent = parent }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetParent() types.Entity { return lowTx2Lbc.parent }
-
-func (lowTx2Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx2Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc
 // Low Tx3 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3807,59 +2728,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc stru
     Counter interface{}
 }
 
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetFilter() yfilter.YFilter { return lowTx3Lbc.YFilter }
+func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetEntityData() *types.CommonEntityData {
+    lowTx3Lbc.EntityData.YFilter = lowTx3Lbc.YFilter
+    lowTx3Lbc.EntityData.YangName = "low-tx3lbc"
+    lowTx3Lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx3Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx3Lbc.EntityData.SegmentPath = "low-tx3lbc"
+    lowTx3Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx3Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx3Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) SetFilter(yf yfilter.YFilter) { lowTx3Lbc.YFilter = yf }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx3Lbc.EntityData.Children = make(map[string]types.YChild)
+    lowTx3Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx3Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx3Lbc.IsDetected}
+    lowTx3Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx3Lbc.Counter}
+    return &(lowTx3Lbc.EntityData)
 }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetSegmentPath() string {
-    return "low-tx3lbc"
-}
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx3Lbc.IsDetected
-    leafs["counter"] = lowTx3Lbc.Counter
-    return leafs
-}
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetYangName() string { return "low-tx3lbc" }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) SetParent(parent types.Entity) { lowTx3Lbc.parent = parent }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetParent() types.Entity { return lowTx3Lbc.parent }
-
-func (lowTx3Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx3Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc
 // Low Tx4 laser bias current in units of
 // percentage
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3869,58 +2759,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc stru
     Counter interface{}
 }
 
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetFilter() yfilter.YFilter { return lowTx4Lbc.YFilter }
+func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetEntityData() *types.CommonEntityData {
+    lowTx4Lbc.EntityData.YFilter = lowTx4Lbc.YFilter
+    lowTx4Lbc.EntityData.YangName = "low-tx4lbc"
+    lowTx4Lbc.EntityData.BundleName = "cisco_ios_xr"
+    lowTx4Lbc.EntityData.ParentYangName = "optics-alarm-info"
+    lowTx4Lbc.EntityData.SegmentPath = "low-tx4lbc"
+    lowTx4Lbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTx4Lbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTx4Lbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) SetFilter(yf yfilter.YFilter) { lowTx4Lbc.YFilter = yf }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTx4Lbc.EntityData.Children = make(map[string]types.YChild)
+    lowTx4Lbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTx4Lbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTx4Lbc.IsDetected}
+    lowTx4Lbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTx4Lbc.Counter}
+    return &(lowTx4Lbc.EntityData)
 }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetSegmentPath() string {
-    return "low-tx4lbc"
-}
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTx4Lbc.IsDetected
-    leafs["counter"] = lowTx4Lbc.Counter
-    return leafs
-}
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetYangName() string { return "low-tx4lbc" }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) SetParent(parent types.Entity) { lowTx4Lbc.parent = parent }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetParent() types.Entity { return lowTx4Lbc.parent }
-
-func (lowTx4Lbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_LowTx4Lbc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos
 // RX LOS
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3930,58 +2789,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos struct {
     Counter interface{}
 }
 
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetFilter() yfilter.YFilter { return rxLos.YFilter }
+func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetEntityData() *types.CommonEntityData {
+    rxLos.EntityData.YFilter = rxLos.YFilter
+    rxLos.EntityData.YangName = "rx-los"
+    rxLos.EntityData.BundleName = "cisco_ios_xr"
+    rxLos.EntityData.ParentYangName = "optics-alarm-info"
+    rxLos.EntityData.SegmentPath = "rx-los"
+    rxLos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) SetFilter(yf yfilter.YFilter) { rxLos.YFilter = yf }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    rxLos.EntityData.Children = make(map[string]types.YChild)
+    rxLos.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLos.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLos.IsDetected}
+    rxLos.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLos.Counter}
+    return &(rxLos.EntityData)
 }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetSegmentPath() string {
-    return "rx-los"
-}
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = rxLos.IsDetected
-    leafs["counter"] = rxLos.Counter
-    return leafs
-}
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetYangName() string { return "rx-los" }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) SetParent(parent types.Entity) { rxLos.parent = parent }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetParent() types.Entity { return rxLos.parent }
-
-func (rxLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLos) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos
 // TX LOS
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -3991,58 +2819,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos struct {
     Counter interface{}
 }
 
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetFilter() yfilter.YFilter { return txLos.YFilter }
+func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetEntityData() *types.CommonEntityData {
+    txLos.EntityData.YFilter = txLos.YFilter
+    txLos.EntityData.YangName = "tx-los"
+    txLos.EntityData.BundleName = "cisco_ios_xr"
+    txLos.EntityData.ParentYangName = "optics-alarm-info"
+    txLos.EntityData.SegmentPath = "tx-los"
+    txLos.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLos.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLos.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) SetFilter(yf yfilter.YFilter) { txLos.YFilter = yf }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    txLos.EntityData.Children = make(map[string]types.YChild)
+    txLos.EntityData.Leafs = make(map[string]types.YLeaf)
+    txLos.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txLos.IsDetected}
+    txLos.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txLos.Counter}
+    return &(txLos.EntityData)
 }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetSegmentPath() string {
-    return "tx-los"
-}
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = txLos.IsDetected
-    leafs["counter"] = txLos.Counter
-    return leafs
-}
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetYangName() string { return "tx-los" }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) SetParent(parent types.Entity) { txLos.parent = parent }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetParent() types.Entity { return txLos.parent }
-
-func (txLos *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLos) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol
 // RX LOL
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4052,58 +2849,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol struct {
     Counter interface{}
 }
 
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetFilter() yfilter.YFilter { return rxLol.YFilter }
+func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetEntityData() *types.CommonEntityData {
+    rxLol.EntityData.YFilter = rxLol.YFilter
+    rxLol.EntityData.YangName = "rx-lol"
+    rxLol.EntityData.BundleName = "cisco_ios_xr"
+    rxLol.EntityData.ParentYangName = "optics-alarm-info"
+    rxLol.EntityData.SegmentPath = "rx-lol"
+    rxLol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) SetFilter(yf yfilter.YFilter) { rxLol.YFilter = yf }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    rxLol.EntityData.Children = make(map[string]types.YChild)
+    rxLol.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLol.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLol.IsDetected}
+    rxLol.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLol.Counter}
+    return &(rxLol.EntityData)
 }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetSegmentPath() string {
-    return "rx-lol"
-}
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = rxLol.IsDetected
-    leafs["counter"] = rxLol.Counter
-    return leafs
-}
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetYangName() string { return "rx-lol" }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) SetParent(parent types.Entity) { rxLol.parent = parent }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetParent() types.Entity { return rxLol.parent }
-
-func (rxLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLol) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol
 // TX LOL
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4113,58 +2879,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol struct {
     Counter interface{}
 }
 
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetFilter() yfilter.YFilter { return txLol.YFilter }
+func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetEntityData() *types.CommonEntityData {
+    txLol.EntityData.YFilter = txLol.YFilter
+    txLol.EntityData.YangName = "tx-lol"
+    txLol.EntityData.BundleName = "cisco_ios_xr"
+    txLol.EntityData.ParentYangName = "optics-alarm-info"
+    txLol.EntityData.SegmentPath = "tx-lol"
+    txLol.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txLol.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txLol.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) SetFilter(yf yfilter.YFilter) { txLol.YFilter = yf }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    txLol.EntityData.Children = make(map[string]types.YChild)
+    txLol.EntityData.Leafs = make(map[string]types.YLeaf)
+    txLol.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txLol.IsDetected}
+    txLol.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txLol.Counter}
+    return &(txLol.EntityData)
 }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetSegmentPath() string {
-    return "tx-lol"
-}
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = txLol.IsDetected
-    leafs["counter"] = txLol.Counter
-    return leafs
-}
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetYangName() string { return "tx-lol" }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) SetParent(parent types.Entity) { txLol.parent = parent }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetParent() types.Entity { return txLol.parent }
-
-func (txLol *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxLol) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault
 // TX Fault
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4174,58 +2909,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault struct
     Counter interface{}
 }
 
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetFilter() yfilter.YFilter { return txFault.YFilter }
+func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetEntityData() *types.CommonEntityData {
+    txFault.EntityData.YFilter = txFault.YFilter
+    txFault.EntityData.YangName = "tx-fault"
+    txFault.EntityData.BundleName = "cisco_ios_xr"
+    txFault.EntityData.ParentYangName = "optics-alarm-info"
+    txFault.EntityData.SegmentPath = "tx-fault"
+    txFault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txFault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txFault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) SetFilter(yf yfilter.YFilter) { txFault.YFilter = yf }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    txFault.EntityData.Children = make(map[string]types.YChild)
+    txFault.EntityData.Leafs = make(map[string]types.YLeaf)
+    txFault.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txFault.IsDetected}
+    txFault.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txFault.Counter}
+    return &(txFault.EntityData)
 }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetSegmentPath() string {
-    return "tx-fault"
-}
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = txFault.IsDetected
-    leafs["counter"] = txFault.Counter
-    return leafs
-}
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetYangName() string { return "tx-fault" }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) SetParent(parent types.Entity) { txFault.parent = parent }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetParent() types.Entity { return txFault.parent }
-
-func (txFault *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxFault) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd
 // HI DGD
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4235,58 +2939,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd struct {
     Counter interface{}
 }
 
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetFilter() yfilter.YFilter { return hidgd.YFilter }
+func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetEntityData() *types.CommonEntityData {
+    hidgd.EntityData.YFilter = hidgd.YFilter
+    hidgd.EntityData.YangName = "hidgd"
+    hidgd.EntityData.BundleName = "cisco_ios_xr"
+    hidgd.EntityData.ParentYangName = "optics-alarm-info"
+    hidgd.EntityData.SegmentPath = "hidgd"
+    hidgd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hidgd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hidgd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) SetFilter(yf yfilter.YFilter) { hidgd.YFilter = yf }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    hidgd.EntityData.Children = make(map[string]types.YChild)
+    hidgd.EntityData.Leafs = make(map[string]types.YLeaf)
+    hidgd.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hidgd.IsDetected}
+    hidgd.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hidgd.Counter}
+    return &(hidgd.EntityData)
 }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetSegmentPath() string {
-    return "hidgd"
-}
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = hidgd.IsDetected
-    leafs["counter"] = hidgd.Counter
-    return leafs
-}
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetYangName() string { return "hidgd" }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) SetParent(parent types.Entity) { hidgd.parent = parent }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetParent() types.Entity { return hidgd.parent }
-
-func (hidgd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Hidgd) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd
 // OOR CD
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4296,58 +2969,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd struct {
     Counter interface{}
 }
 
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetFilter() yfilter.YFilter { return oorcd.YFilter }
+func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetEntityData() *types.CommonEntityData {
+    oorcd.EntityData.YFilter = oorcd.YFilter
+    oorcd.EntityData.YangName = "oorcd"
+    oorcd.EntityData.BundleName = "cisco_ios_xr"
+    oorcd.EntityData.ParentYangName = "optics-alarm-info"
+    oorcd.EntityData.SegmentPath = "oorcd"
+    oorcd.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    oorcd.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    oorcd.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) SetFilter(yf yfilter.YFilter) { oorcd.YFilter = yf }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    oorcd.EntityData.Children = make(map[string]types.YChild)
+    oorcd.EntityData.Leafs = make(map[string]types.YLeaf)
+    oorcd.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", oorcd.IsDetected}
+    oorcd.EntityData.Leafs["counter"] = types.YLeaf{"Counter", oorcd.Counter}
+    return &(oorcd.EntityData)
 }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetSegmentPath() string {
-    return "oorcd"
-}
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = oorcd.IsDetected
-    leafs["counter"] = oorcd.Counter
-    return leafs
-}
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetBundleName() string { return "cisco_ios_xr" }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetYangName() string { return "oorcd" }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) SetParent(parent types.Entity) { oorcd.parent = parent }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetParent() types.Entity { return oorcd.parent }
-
-func (oorcd *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Oorcd) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr
 // OSNR
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4357,58 +2999,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr struct {
     Counter interface{}
 }
 
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetFilter() yfilter.YFilter { return osnr.YFilter }
+func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetEntityData() *types.CommonEntityData {
+    osnr.EntityData.YFilter = osnr.YFilter
+    osnr.EntityData.YangName = "osnr"
+    osnr.EntityData.BundleName = "cisco_ios_xr"
+    osnr.EntityData.ParentYangName = "optics-alarm-info"
+    osnr.EntityData.SegmentPath = "osnr"
+    osnr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    osnr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    osnr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) SetFilter(yf yfilter.YFilter) { osnr.YFilter = yf }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    osnr.EntityData.Children = make(map[string]types.YChild)
+    osnr.EntityData.Leafs = make(map[string]types.YLeaf)
+    osnr.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", osnr.IsDetected}
+    osnr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", osnr.Counter}
+    return &(osnr.EntityData)
 }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetSegmentPath() string {
-    return "osnr"
-}
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = osnr.IsDetected
-    leafs["counter"] = osnr.Counter
-    return leafs
-}
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetBundleName() string { return "cisco_ios_xr" }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetYangName() string { return "osnr" }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) SetParent(parent types.Entity) { osnr.parent = parent }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetParent() types.Entity { return osnr.parent }
-
-func (osnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Osnr) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool
 // WVL OOL
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4418,58 +3029,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool struct 
     Counter interface{}
 }
 
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetFilter() yfilter.YFilter { return wvlool.YFilter }
+func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetEntityData() *types.CommonEntityData {
+    wvlool.EntityData.YFilter = wvlool.YFilter
+    wvlool.EntityData.YangName = "wvlool"
+    wvlool.EntityData.BundleName = "cisco_ios_xr"
+    wvlool.EntityData.ParentYangName = "optics-alarm-info"
+    wvlool.EntityData.SegmentPath = "wvlool"
+    wvlool.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    wvlool.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    wvlool.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) SetFilter(yf yfilter.YFilter) { wvlool.YFilter = yf }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    wvlool.EntityData.Children = make(map[string]types.YChild)
+    wvlool.EntityData.Leafs = make(map[string]types.YLeaf)
+    wvlool.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", wvlool.IsDetected}
+    wvlool.EntityData.Leafs["counter"] = types.YLeaf{"Counter", wvlool.Counter}
+    return &(wvlool.EntityData)
 }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetSegmentPath() string {
-    return "wvlool"
-}
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = wvlool.IsDetected
-    leafs["counter"] = wvlool.Counter
-    return leafs
-}
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetBundleName() string { return "cisco_ios_xr" }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetYangName() string { return "wvlool" }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) SetParent(parent types.Entity) { wvlool.parent = parent }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetParent() types.Entity { return wvlool.parent }
-
-func (wvlool *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Wvlool) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea
 // MEA
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4479,58 +3059,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea struct {
     Counter interface{}
 }
 
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetFilter() yfilter.YFilter { return mea.YFilter }
+func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetEntityData() *types.CommonEntityData {
+    mea.EntityData.YFilter = mea.YFilter
+    mea.EntityData.YangName = "mea"
+    mea.EntityData.BundleName = "cisco_ios_xr"
+    mea.EntityData.ParentYangName = "optics-alarm-info"
+    mea.EntityData.SegmentPath = "mea"
+    mea.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    mea.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    mea.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) SetFilter(yf yfilter.YFilter) { mea.YFilter = yf }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    mea.EntityData.Children = make(map[string]types.YChild)
+    mea.EntityData.Leafs = make(map[string]types.YLeaf)
+    mea.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", mea.IsDetected}
+    mea.EntityData.Leafs["counter"] = types.YLeaf{"Counter", mea.Counter}
+    return &(mea.EntityData)
 }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetSegmentPath() string {
-    return "mea"
-}
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = mea.IsDetected
-    leafs["counter"] = mea.Counter
-    return leafs
-}
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetBundleName() string { return "cisco_ios_xr" }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetYangName() string { return "mea" }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) SetParent(parent types.Entity) { mea.parent = parent }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetParent() types.Entity { return mea.parent }
-
-func (mea *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_Mea) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval
 // IMPROPER REM
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4540,58 +3089,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval str
     Counter interface{}
 }
 
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetFilter() yfilter.YFilter { return impRemoval.YFilter }
+func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetEntityData() *types.CommonEntityData {
+    impRemoval.EntityData.YFilter = impRemoval.YFilter
+    impRemoval.EntityData.YangName = "imp-removal"
+    impRemoval.EntityData.BundleName = "cisco_ios_xr"
+    impRemoval.EntityData.ParentYangName = "optics-alarm-info"
+    impRemoval.EntityData.SegmentPath = "imp-removal"
+    impRemoval.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    impRemoval.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    impRemoval.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) SetFilter(yf yfilter.YFilter) { impRemoval.YFilter = yf }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    impRemoval.EntityData.Children = make(map[string]types.YChild)
+    impRemoval.EntityData.Leafs = make(map[string]types.YLeaf)
+    impRemoval.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", impRemoval.IsDetected}
+    impRemoval.EntityData.Leafs["counter"] = types.YLeaf{"Counter", impRemoval.Counter}
+    return &(impRemoval.EntityData)
 }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetSegmentPath() string {
-    return "imp-removal"
-}
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = impRemoval.IsDetected
-    leafs["counter"] = impRemoval.Counter
-    return leafs
-}
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetBundleName() string { return "cisco_ios_xr" }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetYangName() string { return "imp-removal" }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) SetParent(parent types.Entity) { impRemoval.parent = parent }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetParent() types.Entity { return impRemoval.parent }
-
-func (impRemoval *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_ImpRemoval) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc
 // Rx LOC
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4601,58 +3119,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc struct {
     Counter interface{}
 }
 
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetFilter() yfilter.YFilter { return rxLoc.YFilter }
+func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetEntityData() *types.CommonEntityData {
+    rxLoc.EntityData.YFilter = rxLoc.YFilter
+    rxLoc.EntityData.YangName = "rx-loc"
+    rxLoc.EntityData.BundleName = "cisco_ios_xr"
+    rxLoc.EntityData.ParentYangName = "optics-alarm-info"
+    rxLoc.EntityData.SegmentPath = "rx-loc"
+    rxLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) SetFilter(yf yfilter.YFilter) { rxLoc.YFilter = yf }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    rxLoc.EntityData.Children = make(map[string]types.YChild)
+    rxLoc.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLoc.IsDetected}
+    rxLoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLoc.Counter}
+    return &(rxLoc.EntityData)
 }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetSegmentPath() string {
-    return "rx-loc"
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = rxLoc.IsDetected
-    leafs["counter"] = rxLoc.Counter
-    return leafs
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetYangName() string { return "rx-loc" }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) SetParent(parent types.Entity) { rxLoc.parent = parent }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetParent() types.Entity { return rxLoc.parent }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_RxLoc) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow
 // Ampli Gain Deg Low
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4662,58 +3149,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow 
     Counter interface{}
 }
 
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetFilter() yfilter.YFilter { return ampGainDegLow.YFilter }
+func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetEntityData() *types.CommonEntityData {
+    ampGainDegLow.EntityData.YFilter = ampGainDegLow.YFilter
+    ampGainDegLow.EntityData.YangName = "amp-gain-deg-low"
+    ampGainDegLow.EntityData.BundleName = "cisco_ios_xr"
+    ampGainDegLow.EntityData.ParentYangName = "optics-alarm-info"
+    ampGainDegLow.EntityData.SegmentPath = "amp-gain-deg-low"
+    ampGainDegLow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ampGainDegLow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ampGainDegLow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) SetFilter(yf yfilter.YFilter) { ampGainDegLow.YFilter = yf }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    ampGainDegLow.EntityData.Children = make(map[string]types.YChild)
+    ampGainDegLow.EntityData.Leafs = make(map[string]types.YLeaf)
+    ampGainDegLow.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegLow.IsDetected}
+    ampGainDegLow.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegLow.Counter}
+    return &(ampGainDegLow.EntityData)
 }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetSegmentPath() string {
-    return "amp-gain-deg-low"
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = ampGainDegLow.IsDetected
-    leafs["counter"] = ampGainDegLow.Counter
-    return leafs
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetYangName() string { return "amp-gain-deg-low" }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) SetParent(parent types.Entity) { ampGainDegLow.parent = parent }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetParent() types.Entity { return ampGainDegLow.parent }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegLow) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh
 // Ampli Gain Deg High
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4723,58 +3179,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh
     Counter interface{}
 }
 
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetFilter() yfilter.YFilter { return ampGainDegHigh.YFilter }
+func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetEntityData() *types.CommonEntityData {
+    ampGainDegHigh.EntityData.YFilter = ampGainDegHigh.YFilter
+    ampGainDegHigh.EntityData.YangName = "amp-gain-deg-high"
+    ampGainDegHigh.EntityData.BundleName = "cisco_ios_xr"
+    ampGainDegHigh.EntityData.ParentYangName = "optics-alarm-info"
+    ampGainDegHigh.EntityData.SegmentPath = "amp-gain-deg-high"
+    ampGainDegHigh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ampGainDegHigh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ampGainDegHigh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) SetFilter(yf yfilter.YFilter) { ampGainDegHigh.YFilter = yf }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    ampGainDegHigh.EntityData.Children = make(map[string]types.YChild)
+    ampGainDegHigh.EntityData.Leafs = make(map[string]types.YLeaf)
+    ampGainDegHigh.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegHigh.IsDetected}
+    ampGainDegHigh.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegHigh.Counter}
+    return &(ampGainDegHigh.EntityData)
 }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetSegmentPath() string {
-    return "amp-gain-deg-high"
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = ampGainDegHigh.IsDetected
-    leafs["counter"] = ampGainDegHigh.Counter
-    return leafs
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetYangName() string { return "amp-gain-deg-high" }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) SetParent(parent types.Entity) { ampGainDegHigh.parent = parent }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetParent() types.Entity { return ampGainDegHigh.parent }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_AmpGainDegHigh) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch
 // TX POWER PROV MISMATCH
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4784,58 +3209,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch 
     Counter interface{}
 }
 
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetFilter() yfilter.YFilter { return txpwrMismatch.YFilter }
+func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetEntityData() *types.CommonEntityData {
+    txpwrMismatch.EntityData.YFilter = txpwrMismatch.YFilter
+    txpwrMismatch.EntityData.YangName = "txpwr-mismatch"
+    txpwrMismatch.EntityData.BundleName = "cisco_ios_xr"
+    txpwrMismatch.EntityData.ParentYangName = "optics-alarm-info"
+    txpwrMismatch.EntityData.SegmentPath = "txpwr-mismatch"
+    txpwrMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    txpwrMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    txpwrMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) SetFilter(yf yfilter.YFilter) { txpwrMismatch.YFilter = yf }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    txpwrMismatch.EntityData.Children = make(map[string]types.YChild)
+    txpwrMismatch.EntityData.Leafs = make(map[string]types.YLeaf)
+    txpwrMismatch.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", txpwrMismatch.IsDetected}
+    txpwrMismatch.EntityData.Leafs["counter"] = types.YLeaf{"Counter", txpwrMismatch.Counter}
+    return &(txpwrMismatch.EntityData)
 }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetSegmentPath() string {
-    return "txpwr-mismatch"
-}
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = txpwrMismatch.IsDetected
-    leafs["counter"] = txpwrMismatch.Counter
-    return leafs
-}
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetBundleName() string { return "cisco_ios_xr" }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetYangName() string { return "txpwr-mismatch" }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) SetParent(parent types.Entity) { txpwrMismatch.parent = parent }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetParent() types.Entity { return txpwrMismatch.parent }
-
-func (txpwrMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OpticsAlarmInfo_TxpwrMismatch) GetParentYangName() string { return "optics-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo
 // Ots Alarm Information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Low Tx Power in uints of 0.1 dBm.
@@ -4875,114 +3269,37 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo struct {
     AutoAmpliCtrlRunning OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning
 }
 
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetFilter() yfilter.YFilter { return otsAlarmInfo.YFilter }
+func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetEntityData() *types.CommonEntityData {
+    otsAlarmInfo.EntityData.YFilter = otsAlarmInfo.YFilter
+    otsAlarmInfo.EntityData.YangName = "ots-alarm-info"
+    otsAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    otsAlarmInfo.EntityData.ParentYangName = "optics-info"
+    otsAlarmInfo.EntityData.SegmentPath = "ots-alarm-info"
+    otsAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    otsAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    otsAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) SetFilter(yf yfilter.YFilter) { otsAlarmInfo.YFilter = yf }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetGoName(yname string) string {
-    if yname == "low-tx-power" { return "LowTxPower" }
-    if yname == "low-rx-power" { return "LowRxPower" }
-    if yname == "rx-los-p" { return "RxLosP" }
-    if yname == "rx-loc" { return "RxLoc" }
-    if yname == "amp-gain-deg-low" { return "AmpGainDegLow" }
-    if yname == "amp-gain-deg-high" { return "AmpGainDegHigh" }
-    if yname == "auto-laser-shut" { return "AutoLaserShut" }
-    if yname == "auto-power-red" { return "AutoPowerRed" }
-    if yname == "auto-ampli-ctrl-disabled" { return "AutoAmpliCtrlDisabled" }
-    if yname == "auto-ampli-ctrl-config-mismatch" { return "AutoAmpliCtrlConfigMismatch" }
-    if yname == "switch-to-protect" { return "SwitchToProtect" }
-    if yname == "auto-ampli-ctrl-running" { return "AutoAmpliCtrlRunning" }
-    return ""
+    otsAlarmInfo.EntityData.Children = make(map[string]types.YChild)
+    otsAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &otsAlarmInfo.LowTxPower}
+    otsAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &otsAlarmInfo.LowRxPower}
+    otsAlarmInfo.EntityData.Children["rx-los-p"] = types.YChild{"RxLosP", &otsAlarmInfo.RxLosP}
+    otsAlarmInfo.EntityData.Children["rx-loc"] = types.YChild{"RxLoc", &otsAlarmInfo.RxLoc}
+    otsAlarmInfo.EntityData.Children["amp-gain-deg-low"] = types.YChild{"AmpGainDegLow", &otsAlarmInfo.AmpGainDegLow}
+    otsAlarmInfo.EntityData.Children["amp-gain-deg-high"] = types.YChild{"AmpGainDegHigh", &otsAlarmInfo.AmpGainDegHigh}
+    otsAlarmInfo.EntityData.Children["auto-laser-shut"] = types.YChild{"AutoLaserShut", &otsAlarmInfo.AutoLaserShut}
+    otsAlarmInfo.EntityData.Children["auto-power-red"] = types.YChild{"AutoPowerRed", &otsAlarmInfo.AutoPowerRed}
+    otsAlarmInfo.EntityData.Children["auto-ampli-ctrl-disabled"] = types.YChild{"AutoAmpliCtrlDisabled", &otsAlarmInfo.AutoAmpliCtrlDisabled}
+    otsAlarmInfo.EntityData.Children["auto-ampli-ctrl-config-mismatch"] = types.YChild{"AutoAmpliCtrlConfigMismatch", &otsAlarmInfo.AutoAmpliCtrlConfigMismatch}
+    otsAlarmInfo.EntityData.Children["switch-to-protect"] = types.YChild{"SwitchToProtect", &otsAlarmInfo.SwitchToProtect}
+    otsAlarmInfo.EntityData.Children["auto-ampli-ctrl-running"] = types.YChild{"AutoAmpliCtrlRunning", &otsAlarmInfo.AutoAmpliCtrlRunning}
+    otsAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(otsAlarmInfo.EntityData)
 }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetSegmentPath() string {
-    return "ots-alarm-info"
-}
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "low-tx-power" {
-        return &otsAlarmInfo.LowTxPower
-    }
-    if childYangName == "low-rx-power" {
-        return &otsAlarmInfo.LowRxPower
-    }
-    if childYangName == "rx-los-p" {
-        return &otsAlarmInfo.RxLosP
-    }
-    if childYangName == "rx-loc" {
-        return &otsAlarmInfo.RxLoc
-    }
-    if childYangName == "amp-gain-deg-low" {
-        return &otsAlarmInfo.AmpGainDegLow
-    }
-    if childYangName == "amp-gain-deg-high" {
-        return &otsAlarmInfo.AmpGainDegHigh
-    }
-    if childYangName == "auto-laser-shut" {
-        return &otsAlarmInfo.AutoLaserShut
-    }
-    if childYangName == "auto-power-red" {
-        return &otsAlarmInfo.AutoPowerRed
-    }
-    if childYangName == "auto-ampli-ctrl-disabled" {
-        return &otsAlarmInfo.AutoAmpliCtrlDisabled
-    }
-    if childYangName == "auto-ampli-ctrl-config-mismatch" {
-        return &otsAlarmInfo.AutoAmpliCtrlConfigMismatch
-    }
-    if childYangName == "switch-to-protect" {
-        return &otsAlarmInfo.SwitchToProtect
-    }
-    if childYangName == "auto-ampli-ctrl-running" {
-        return &otsAlarmInfo.AutoAmpliCtrlRunning
-    }
-    return nil
-}
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["low-tx-power"] = &otsAlarmInfo.LowTxPower
-    children["low-rx-power"] = &otsAlarmInfo.LowRxPower
-    children["rx-los-p"] = &otsAlarmInfo.RxLosP
-    children["rx-loc"] = &otsAlarmInfo.RxLoc
-    children["amp-gain-deg-low"] = &otsAlarmInfo.AmpGainDegLow
-    children["amp-gain-deg-high"] = &otsAlarmInfo.AmpGainDegHigh
-    children["auto-laser-shut"] = &otsAlarmInfo.AutoLaserShut
-    children["auto-power-red"] = &otsAlarmInfo.AutoPowerRed
-    children["auto-ampli-ctrl-disabled"] = &otsAlarmInfo.AutoAmpliCtrlDisabled
-    children["auto-ampli-ctrl-config-mismatch"] = &otsAlarmInfo.AutoAmpliCtrlConfigMismatch
-    children["switch-to-protect"] = &otsAlarmInfo.SwitchToProtect
-    children["auto-ampli-ctrl-running"] = &otsAlarmInfo.AutoAmpliCtrlRunning
-    return children
-}
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetYangName() string { return "ots-alarm-info" }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) SetParent(parent types.Entity) { otsAlarmInfo.parent = parent }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetParent() types.Entity { return otsAlarmInfo.parent }
-
-func (otsAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo) GetParentYangName() string { return "optics-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower
 // Low Tx Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -4992,58 +3309,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower struct
     Counter interface{}
 }
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetFilter() yfilter.YFilter { return lowTxPower.YFilter }
+func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetEntityData() *types.CommonEntityData {
+    lowTxPower.EntityData.YFilter = lowTxPower.YFilter
+    lowTxPower.EntityData.YangName = "low-tx-power"
+    lowTxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowTxPower.EntityData.ParentYangName = "ots-alarm-info"
+    lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) SetFilter(yf yfilter.YFilter) { lowTxPower.YFilter = yf }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTxPower.EntityData.Children = make(map[string]types.YChild)
+    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
+    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    return &(lowTxPower.EntityData)
 }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetSegmentPath() string {
-    return "low-tx-power"
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTxPower.IsDetected
-    leafs["counter"] = lowTxPower.Counter
-    return leafs
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetYangName() string { return "low-tx-power" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) SetParent(parent types.Entity) { lowTxPower.parent = parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetParent() types.Entity { return lowTxPower.parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowTxPower) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower
 // Low Rx Power in uints of 0.1 dBm
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5053,58 +3339,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower struct
     Counter interface{}
 }
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetFilter() yfilter.YFilter { return lowRxPower.YFilter }
+func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetEntityData() *types.CommonEntityData {
+    lowRxPower.EntityData.YFilter = lowRxPower.YFilter
+    lowRxPower.EntityData.YangName = "low-rx-power"
+    lowRxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowRxPower.EntityData.ParentYangName = "ots-alarm-info"
+    lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) SetFilter(yf yfilter.YFilter) { lowRxPower.YFilter = yf }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRxPower.EntityData.Children = make(map[string]types.YChild)
+    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
+    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    return &(lowRxPower.EntityData)
 }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetSegmentPath() string {
-    return "low-rx-power"
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRxPower.IsDetected
-    leafs["counter"] = lowRxPower.Counter
-    return leafs
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetYangName() string { return "low-rx-power" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) SetParent(parent types.Entity) { lowRxPower.parent = parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetParent() types.Entity { return lowRxPower.parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_LowRxPower) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP
 // Rx LOS_P
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5114,58 +3369,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP struct {
     Counter interface{}
 }
 
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetFilter() yfilter.YFilter { return rxLosP.YFilter }
+func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetEntityData() *types.CommonEntityData {
+    rxLosP.EntityData.YFilter = rxLosP.YFilter
+    rxLosP.EntityData.YangName = "rx-los-p"
+    rxLosP.EntityData.BundleName = "cisco_ios_xr"
+    rxLosP.EntityData.ParentYangName = "ots-alarm-info"
+    rxLosP.EntityData.SegmentPath = "rx-los-p"
+    rxLosP.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLosP.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLosP.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) SetFilter(yf yfilter.YFilter) { rxLosP.YFilter = yf }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    rxLosP.EntityData.Children = make(map[string]types.YChild)
+    rxLosP.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLosP.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLosP.IsDetected}
+    rxLosP.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLosP.Counter}
+    return &(rxLosP.EntityData)
 }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetSegmentPath() string {
-    return "rx-los-p"
-}
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = rxLosP.IsDetected
-    leafs["counter"] = rxLosP.Counter
-    return leafs
-}
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetYangName() string { return "rx-los-p" }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) SetParent(parent types.Entity) { rxLosP.parent = parent }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetParent() types.Entity { return rxLosP.parent }
-
-func (rxLosP *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLosP) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc
 // Rx LOC
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5175,58 +3399,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc struct {
     Counter interface{}
 }
 
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetFilter() yfilter.YFilter { return rxLoc.YFilter }
+func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetEntityData() *types.CommonEntityData {
+    rxLoc.EntityData.YFilter = rxLoc.YFilter
+    rxLoc.EntityData.YangName = "rx-loc"
+    rxLoc.EntityData.BundleName = "cisco_ios_xr"
+    rxLoc.EntityData.ParentYangName = "ots-alarm-info"
+    rxLoc.EntityData.SegmentPath = "rx-loc"
+    rxLoc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    rxLoc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    rxLoc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) SetFilter(yf yfilter.YFilter) { rxLoc.YFilter = yf }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    rxLoc.EntityData.Children = make(map[string]types.YChild)
+    rxLoc.EntityData.Leafs = make(map[string]types.YLeaf)
+    rxLoc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", rxLoc.IsDetected}
+    rxLoc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", rxLoc.Counter}
+    return &(rxLoc.EntityData)
 }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetSegmentPath() string {
-    return "rx-loc"
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = rxLoc.IsDetected
-    leafs["counter"] = rxLoc.Counter
-    return leafs
-}
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetYangName() string { return "rx-loc" }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) SetParent(parent types.Entity) { rxLoc.parent = parent }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetParent() types.Entity { return rxLoc.parent }
-
-func (rxLoc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_RxLoc) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow
 // Ampli Gain Deg Low
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5236,58 +3429,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow str
     Counter interface{}
 }
 
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetFilter() yfilter.YFilter { return ampGainDegLow.YFilter }
+func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetEntityData() *types.CommonEntityData {
+    ampGainDegLow.EntityData.YFilter = ampGainDegLow.YFilter
+    ampGainDegLow.EntityData.YangName = "amp-gain-deg-low"
+    ampGainDegLow.EntityData.BundleName = "cisco_ios_xr"
+    ampGainDegLow.EntityData.ParentYangName = "ots-alarm-info"
+    ampGainDegLow.EntityData.SegmentPath = "amp-gain-deg-low"
+    ampGainDegLow.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ampGainDegLow.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ampGainDegLow.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) SetFilter(yf yfilter.YFilter) { ampGainDegLow.YFilter = yf }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    ampGainDegLow.EntityData.Children = make(map[string]types.YChild)
+    ampGainDegLow.EntityData.Leafs = make(map[string]types.YLeaf)
+    ampGainDegLow.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegLow.IsDetected}
+    ampGainDegLow.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegLow.Counter}
+    return &(ampGainDegLow.EntityData)
 }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetSegmentPath() string {
-    return "amp-gain-deg-low"
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = ampGainDegLow.IsDetected
-    leafs["counter"] = ampGainDegLow.Counter
-    return leafs
-}
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetYangName() string { return "amp-gain-deg-low" }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) SetParent(parent types.Entity) { ampGainDegLow.parent = parent }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetParent() types.Entity { return ampGainDegLow.parent }
-
-func (ampGainDegLow *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegLow) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh
 // Ampli Gain Deg High
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5297,58 +3459,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh st
     Counter interface{}
 }
 
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetFilter() yfilter.YFilter { return ampGainDegHigh.YFilter }
+func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetEntityData() *types.CommonEntityData {
+    ampGainDegHigh.EntityData.YFilter = ampGainDegHigh.YFilter
+    ampGainDegHigh.EntityData.YangName = "amp-gain-deg-high"
+    ampGainDegHigh.EntityData.BundleName = "cisco_ios_xr"
+    ampGainDegHigh.EntityData.ParentYangName = "ots-alarm-info"
+    ampGainDegHigh.EntityData.SegmentPath = "amp-gain-deg-high"
+    ampGainDegHigh.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ampGainDegHigh.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ampGainDegHigh.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) SetFilter(yf yfilter.YFilter) { ampGainDegHigh.YFilter = yf }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    ampGainDegHigh.EntityData.Children = make(map[string]types.YChild)
+    ampGainDegHigh.EntityData.Leafs = make(map[string]types.YLeaf)
+    ampGainDegHigh.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", ampGainDegHigh.IsDetected}
+    ampGainDegHigh.EntityData.Leafs["counter"] = types.YLeaf{"Counter", ampGainDegHigh.Counter}
+    return &(ampGainDegHigh.EntityData)
 }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetSegmentPath() string {
-    return "amp-gain-deg-high"
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = ampGainDegHigh.IsDetected
-    leafs["counter"] = ampGainDegHigh.Counter
-    return leafs
-}
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetYangName() string { return "amp-gain-deg-high" }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) SetParent(parent types.Entity) { ampGainDegHigh.parent = parent }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetParent() types.Entity { return ampGainDegHigh.parent }
-
-func (ampGainDegHigh *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AmpGainDegHigh) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut
 // Auto Laser Shut
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5358,58 +3489,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut str
     Counter interface{}
 }
 
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetFilter() yfilter.YFilter { return autoLaserShut.YFilter }
+func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetEntityData() *types.CommonEntityData {
+    autoLaserShut.EntityData.YFilter = autoLaserShut.YFilter
+    autoLaserShut.EntityData.YangName = "auto-laser-shut"
+    autoLaserShut.EntityData.BundleName = "cisco_ios_xr"
+    autoLaserShut.EntityData.ParentYangName = "ots-alarm-info"
+    autoLaserShut.EntityData.SegmentPath = "auto-laser-shut"
+    autoLaserShut.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoLaserShut.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoLaserShut.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) SetFilter(yf yfilter.YFilter) { autoLaserShut.YFilter = yf }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    autoLaserShut.EntityData.Children = make(map[string]types.YChild)
+    autoLaserShut.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoLaserShut.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoLaserShut.IsDetected}
+    autoLaserShut.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoLaserShut.Counter}
+    return &(autoLaserShut.EntityData)
 }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetSegmentPath() string {
-    return "auto-laser-shut"
-}
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = autoLaserShut.IsDetected
-    leafs["counter"] = autoLaserShut.Counter
-    return leafs
-}
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetYangName() string { return "auto-laser-shut" }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) SetParent(parent types.Entity) { autoLaserShut.parent = parent }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetParent() types.Entity { return autoLaserShut.parent }
-
-func (autoLaserShut *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoLaserShut) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed
 // Auto Power Red
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5419,58 +3519,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed stru
     Counter interface{}
 }
 
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetFilter() yfilter.YFilter { return autoPowerRed.YFilter }
+func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetEntityData() *types.CommonEntityData {
+    autoPowerRed.EntityData.YFilter = autoPowerRed.YFilter
+    autoPowerRed.EntityData.YangName = "auto-power-red"
+    autoPowerRed.EntityData.BundleName = "cisco_ios_xr"
+    autoPowerRed.EntityData.ParentYangName = "ots-alarm-info"
+    autoPowerRed.EntityData.SegmentPath = "auto-power-red"
+    autoPowerRed.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoPowerRed.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoPowerRed.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) SetFilter(yf yfilter.YFilter) { autoPowerRed.YFilter = yf }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    autoPowerRed.EntityData.Children = make(map[string]types.YChild)
+    autoPowerRed.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoPowerRed.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoPowerRed.IsDetected}
+    autoPowerRed.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoPowerRed.Counter}
+    return &(autoPowerRed.EntityData)
 }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetSegmentPath() string {
-    return "auto-power-red"
-}
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = autoPowerRed.IsDetected
-    leafs["counter"] = autoPowerRed.Counter
-    return leafs
-}
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetYangName() string { return "auto-power-red" }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) SetParent(parent types.Entity) { autoPowerRed.parent = parent }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetParent() types.Entity { return autoPowerRed.parent }
-
-func (autoPowerRed *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoPowerRed) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled
 // Auto Ampli Ctrl Disabled
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5480,58 +3549,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisa
     Counter interface{}
 }
 
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetFilter() yfilter.YFilter { return autoAmpliCtrlDisabled.YFilter }
+func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetEntityData() *types.CommonEntityData {
+    autoAmpliCtrlDisabled.EntityData.YFilter = autoAmpliCtrlDisabled.YFilter
+    autoAmpliCtrlDisabled.EntityData.YangName = "auto-ampli-ctrl-disabled"
+    autoAmpliCtrlDisabled.EntityData.BundleName = "cisco_ios_xr"
+    autoAmpliCtrlDisabled.EntityData.ParentYangName = "ots-alarm-info"
+    autoAmpliCtrlDisabled.EntityData.SegmentPath = "auto-ampli-ctrl-disabled"
+    autoAmpliCtrlDisabled.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoAmpliCtrlDisabled.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoAmpliCtrlDisabled.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) SetFilter(yf yfilter.YFilter) { autoAmpliCtrlDisabled.YFilter = yf }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    autoAmpliCtrlDisabled.EntityData.Children = make(map[string]types.YChild)
+    autoAmpliCtrlDisabled.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoAmpliCtrlDisabled.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoAmpliCtrlDisabled.IsDetected}
+    autoAmpliCtrlDisabled.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoAmpliCtrlDisabled.Counter}
+    return &(autoAmpliCtrlDisabled.EntityData)
 }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetSegmentPath() string {
-    return "auto-ampli-ctrl-disabled"
-}
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = autoAmpliCtrlDisabled.IsDetected
-    leafs["counter"] = autoAmpliCtrlDisabled.Counter
-    return leafs
-}
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetYangName() string { return "auto-ampli-ctrl-disabled" }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) SetParent(parent types.Entity) { autoAmpliCtrlDisabled.parent = parent }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetParent() types.Entity { return autoAmpliCtrlDisabled.parent }
-
-func (autoAmpliCtrlDisabled *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlDisabled) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch
 // Auto Ampli Ctrl Config Mismatch
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5541,58 +3579,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConf
     Counter interface{}
 }
 
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetFilter() yfilter.YFilter { return autoAmpliCtrlConfigMismatch.YFilter }
+func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetEntityData() *types.CommonEntityData {
+    autoAmpliCtrlConfigMismatch.EntityData.YFilter = autoAmpliCtrlConfigMismatch.YFilter
+    autoAmpliCtrlConfigMismatch.EntityData.YangName = "auto-ampli-ctrl-config-mismatch"
+    autoAmpliCtrlConfigMismatch.EntityData.BundleName = "cisco_ios_xr"
+    autoAmpliCtrlConfigMismatch.EntityData.ParentYangName = "ots-alarm-info"
+    autoAmpliCtrlConfigMismatch.EntityData.SegmentPath = "auto-ampli-ctrl-config-mismatch"
+    autoAmpliCtrlConfigMismatch.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoAmpliCtrlConfigMismatch.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoAmpliCtrlConfigMismatch.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) SetFilter(yf yfilter.YFilter) { autoAmpliCtrlConfigMismatch.YFilter = yf }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    autoAmpliCtrlConfigMismatch.EntityData.Children = make(map[string]types.YChild)
+    autoAmpliCtrlConfigMismatch.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoAmpliCtrlConfigMismatch.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoAmpliCtrlConfigMismatch.IsDetected}
+    autoAmpliCtrlConfigMismatch.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoAmpliCtrlConfigMismatch.Counter}
+    return &(autoAmpliCtrlConfigMismatch.EntityData)
 }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetSegmentPath() string {
-    return "auto-ampli-ctrl-config-mismatch"
-}
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = autoAmpliCtrlConfigMismatch.IsDetected
-    leafs["counter"] = autoAmpliCtrlConfigMismatch.Counter
-    return leafs
-}
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetYangName() string { return "auto-ampli-ctrl-config-mismatch" }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) SetParent(parent types.Entity) { autoAmpliCtrlConfigMismatch.parent = parent }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetParent() types.Entity { return autoAmpliCtrlConfigMismatch.parent }
-
-func (autoAmpliCtrlConfigMismatch *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlConfigMismatch) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect
 // Switch To Protect
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5602,58 +3609,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect s
     Counter interface{}
 }
 
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetFilter() yfilter.YFilter { return switchToProtect.YFilter }
+func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetEntityData() *types.CommonEntityData {
+    switchToProtect.EntityData.YFilter = switchToProtect.YFilter
+    switchToProtect.EntityData.YangName = "switch-to-protect"
+    switchToProtect.EntityData.BundleName = "cisco_ios_xr"
+    switchToProtect.EntityData.ParentYangName = "ots-alarm-info"
+    switchToProtect.EntityData.SegmentPath = "switch-to-protect"
+    switchToProtect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    switchToProtect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    switchToProtect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) SetFilter(yf yfilter.YFilter) { switchToProtect.YFilter = yf }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    switchToProtect.EntityData.Children = make(map[string]types.YChild)
+    switchToProtect.EntityData.Leafs = make(map[string]types.YLeaf)
+    switchToProtect.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", switchToProtect.IsDetected}
+    switchToProtect.EntityData.Leafs["counter"] = types.YLeaf{"Counter", switchToProtect.Counter}
+    return &(switchToProtect.EntityData)
 }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetSegmentPath() string {
-    return "switch-to-protect"
-}
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = switchToProtect.IsDetected
-    leafs["counter"] = switchToProtect.Counter
-    return leafs
-}
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetBundleName() string { return "cisco_ios_xr" }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetYangName() string { return "switch-to-protect" }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) SetParent(parent types.Entity) { switchToProtect.parent = parent }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetParent() types.Entity { return switchToProtect.parent }
-
-func (switchToProtect *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_SwitchToProtect) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning
 // Auto Ampli Ctrl Running
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -5663,58 +3639,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunn
     Counter interface{}
 }
 
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetFilter() yfilter.YFilter { return autoAmpliCtrlRunning.YFilter }
+func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetEntityData() *types.CommonEntityData {
+    autoAmpliCtrlRunning.EntityData.YFilter = autoAmpliCtrlRunning.YFilter
+    autoAmpliCtrlRunning.EntityData.YangName = "auto-ampli-ctrl-running"
+    autoAmpliCtrlRunning.EntityData.BundleName = "cisco_ios_xr"
+    autoAmpliCtrlRunning.EntityData.ParentYangName = "ots-alarm-info"
+    autoAmpliCtrlRunning.EntityData.SegmentPath = "auto-ampli-ctrl-running"
+    autoAmpliCtrlRunning.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    autoAmpliCtrlRunning.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    autoAmpliCtrlRunning.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) SetFilter(yf yfilter.YFilter) { autoAmpliCtrlRunning.YFilter = yf }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    autoAmpliCtrlRunning.EntityData.Children = make(map[string]types.YChild)
+    autoAmpliCtrlRunning.EntityData.Leafs = make(map[string]types.YLeaf)
+    autoAmpliCtrlRunning.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", autoAmpliCtrlRunning.IsDetected}
+    autoAmpliCtrlRunning.EntityData.Leafs["counter"] = types.YLeaf{"Counter", autoAmpliCtrlRunning.Counter}
+    return &(autoAmpliCtrlRunning.EntityData)
 }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetSegmentPath() string {
-    return "auto-ampli-ctrl-running"
-}
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = autoAmpliCtrlRunning.IsDetected
-    leafs["counter"] = autoAmpliCtrlRunning.Counter
-    return leafs
-}
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetBundleName() string { return "cisco_ios_xr" }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetYangName() string { return "auto-ampli-ctrl-running" }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) SetParent(parent types.Entity) { autoAmpliCtrlRunning.parent = parent }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetParent() types.Entity { return autoAmpliCtrlRunning.parent }
-
-func (autoAmpliCtrlRunning *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_OtsAlarmInfo_AutoAmpliCtrlRunning) GetParentYangName() string { return "ots-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo
 // Transceiver Vendor Details
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Vendor Information. The type is string.
@@ -5767,86 +3712,41 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo struct {
     InternalTemperature interface{}
 }
 
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetFilter() yfilter.YFilter { return transceiverInfo.YFilter }
+func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetEntityData() *types.CommonEntityData {
+    transceiverInfo.EntityData.YFilter = transceiverInfo.YFilter
+    transceiverInfo.EntityData.YangName = "transceiver-info"
+    transceiverInfo.EntityData.BundleName = "cisco_ios_xr"
+    transceiverInfo.EntityData.ParentYangName = "optics-info"
+    transceiverInfo.EntityData.SegmentPath = "transceiver-info"
+    transceiverInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    transceiverInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    transceiverInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) SetFilter(yf yfilter.YFilter) { transceiverInfo.YFilter = yf }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetGoName(yname string) string {
-    if yname == "vendor-info" { return "VendorInfo" }
-    if yname == "adapter-vendor-info" { return "AdapterVendorInfo" }
-    if yname == "date" { return "Date" }
-    if yname == "optics-vendor-rev" { return "OpticsVendorRev" }
-    if yname == "optics-serial-no" { return "OpticsSerialNo" }
-    if yname == "optics-vendor-part" { return "OpticsVendorPart" }
-    if yname == "optics-type" { return "OpticsType" }
-    if yname == "vendor-name" { return "VendorName" }
-    if yname == "oui-no" { return "OuiNo" }
-    if yname == "optics-pid" { return "OpticsPid" }
-    if yname == "optics-vid" { return "OpticsVid" }
-    if yname == "connector-type" { return "ConnectorType" }
-    if yname == "otn-application-code" { return "OtnApplicationCode" }
-    if yname == "sonet-application-code" { return "SonetApplicationCode" }
-    if yname == "ethernet-compliance-code" { return "EthernetComplianceCode" }
-    if yname == "internal-temperature" { return "InternalTemperature" }
-    return ""
+    transceiverInfo.EntityData.Children = make(map[string]types.YChild)
+    transceiverInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    transceiverInfo.EntityData.Leafs["vendor-info"] = types.YLeaf{"VendorInfo", transceiverInfo.VendorInfo}
+    transceiverInfo.EntityData.Leafs["adapter-vendor-info"] = types.YLeaf{"AdapterVendorInfo", transceiverInfo.AdapterVendorInfo}
+    transceiverInfo.EntityData.Leafs["date"] = types.YLeaf{"Date", transceiverInfo.Date}
+    transceiverInfo.EntityData.Leafs["optics-vendor-rev"] = types.YLeaf{"OpticsVendorRev", transceiverInfo.OpticsVendorRev}
+    transceiverInfo.EntityData.Leafs["optics-serial-no"] = types.YLeaf{"OpticsSerialNo", transceiverInfo.OpticsSerialNo}
+    transceiverInfo.EntityData.Leafs["optics-vendor-part"] = types.YLeaf{"OpticsVendorPart", transceiverInfo.OpticsVendorPart}
+    transceiverInfo.EntityData.Leafs["optics-type"] = types.YLeaf{"OpticsType", transceiverInfo.OpticsType}
+    transceiverInfo.EntityData.Leafs["vendor-name"] = types.YLeaf{"VendorName", transceiverInfo.VendorName}
+    transceiverInfo.EntityData.Leafs["oui-no"] = types.YLeaf{"OuiNo", transceiverInfo.OuiNo}
+    transceiverInfo.EntityData.Leafs["optics-pid"] = types.YLeaf{"OpticsPid", transceiverInfo.OpticsPid}
+    transceiverInfo.EntityData.Leafs["optics-vid"] = types.YLeaf{"OpticsVid", transceiverInfo.OpticsVid}
+    transceiverInfo.EntityData.Leafs["connector-type"] = types.YLeaf{"ConnectorType", transceiverInfo.ConnectorType}
+    transceiverInfo.EntityData.Leafs["otn-application-code"] = types.YLeaf{"OtnApplicationCode", transceiverInfo.OtnApplicationCode}
+    transceiverInfo.EntityData.Leafs["sonet-application-code"] = types.YLeaf{"SonetApplicationCode", transceiverInfo.SonetApplicationCode}
+    transceiverInfo.EntityData.Leafs["ethernet-compliance-code"] = types.YLeaf{"EthernetComplianceCode", transceiverInfo.EthernetComplianceCode}
+    transceiverInfo.EntityData.Leafs["internal-temperature"] = types.YLeaf{"InternalTemperature", transceiverInfo.InternalTemperature}
+    return &(transceiverInfo.EntityData)
 }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetSegmentPath() string {
-    return "transceiver-info"
-}
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["vendor-info"] = transceiverInfo.VendorInfo
-    leafs["adapter-vendor-info"] = transceiverInfo.AdapterVendorInfo
-    leafs["date"] = transceiverInfo.Date
-    leafs["optics-vendor-rev"] = transceiverInfo.OpticsVendorRev
-    leafs["optics-serial-no"] = transceiverInfo.OpticsSerialNo
-    leafs["optics-vendor-part"] = transceiverInfo.OpticsVendorPart
-    leafs["optics-type"] = transceiverInfo.OpticsType
-    leafs["vendor-name"] = transceiverInfo.VendorName
-    leafs["oui-no"] = transceiverInfo.OuiNo
-    leafs["optics-pid"] = transceiverInfo.OpticsPid
-    leafs["optics-vid"] = transceiverInfo.OpticsVid
-    leafs["connector-type"] = transceiverInfo.ConnectorType
-    leafs["otn-application-code"] = transceiverInfo.OtnApplicationCode
-    leafs["sonet-application-code"] = transceiverInfo.SonetApplicationCode
-    leafs["ethernet-compliance-code"] = transceiverInfo.EthernetComplianceCode
-    leafs["internal-temperature"] = transceiverInfo.InternalTemperature
-    return leafs
-}
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetYangName() string { return "transceiver-info" }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) SetParent(parent types.Entity) { transceiverInfo.parent = parent }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetParent() types.Entity { return transceiverInfo.parent }
-
-func (transceiverInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_TransceiverInfo) GetParentYangName() string { return "optics-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal
 // Extended optics parameters
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Signal to Noise Ratio on Lane 1. The type is interface{} with range:
@@ -5938,98 +3838,47 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal struct {
     UncorrectedBerInstantaneous interface{}
 }
 
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetFilter() yfilter.YFilter { return extParamVal.YFilter }
+func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetEntityData() *types.CommonEntityData {
+    extParamVal.EntityData.YFilter = extParamVal.YFilter
+    extParamVal.EntityData.YangName = "ext-param-val"
+    extParamVal.EntityData.BundleName = "cisco_ios_xr"
+    extParamVal.EntityData.ParentYangName = "optics-info"
+    extParamVal.EntityData.SegmentPath = "ext-param-val"
+    extParamVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    extParamVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    extParamVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) SetFilter(yf yfilter.YFilter) { extParamVal.YFilter = yf }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetGoName(yname string) string {
-    if yname == "snr-lane1" { return "SnrLane1" }
-    if yname == "snr-lane2" { return "SnrLane2" }
-    if yname == "isi-correction-lane1" { return "IsiCorrectionLane1" }
-    if yname == "isi-correction-lane2" { return "IsiCorrectionLane2" }
-    if yname == "pam-rate-lane1" { return "PamRateLane1" }
-    if yname == "pam-rate-lane2" { return "PamRateLane2" }
-    if yname == "pre-fec-ber" { return "PreFecBer" }
-    if yname == "uncorrected-ber" { return "UncorrectedBer" }
-    if yname == "tec-current-lane1" { return "TecCurrentLane1" }
-    if yname == "tec-current-lane2" { return "TecCurrentLane2" }
-    if yname == "laser-diff-frequency-lane1" { return "LaserDiffFrequencyLane1" }
-    if yname == "laser-diff-frequency-lane2" { return "LaserDiffFrequencyLane2" }
-    if yname == "laser-diff-temperature-lane1" { return "LaserDiffTemperatureLane1" }
-    if yname == "laser-diff-temperature-lane2" { return "LaserDiffTemperatureLane2" }
-    if yname == "pre-fec-ber-latched-min" { return "PreFecBerLatchedMin" }
-    if yname == "pre-fec-ber-latched-max" { return "PreFecBerLatchedMax" }
-    if yname == "pre-fec-ber-accumulated" { return "PreFecBerAccumulated" }
-    if yname == "pre-fec-ber-instantaneous" { return "PreFecBerInstantaneous" }
-    if yname == "uncorrected-ber-latched-min" { return "UncorrectedBerLatchedMin" }
-    if yname == "uncorrected-ber-latched-max" { return "UncorrectedBerLatchedMax" }
-    if yname == "uncorrected-ber-accumulated" { return "UncorrectedBerAccumulated" }
-    if yname == "uncorrected-ber-instantaneous" { return "UncorrectedBerInstantaneous" }
-    return ""
+    extParamVal.EntityData.Children = make(map[string]types.YChild)
+    extParamVal.EntityData.Leafs = make(map[string]types.YLeaf)
+    extParamVal.EntityData.Leafs["snr-lane1"] = types.YLeaf{"SnrLane1", extParamVal.SnrLane1}
+    extParamVal.EntityData.Leafs["snr-lane2"] = types.YLeaf{"SnrLane2", extParamVal.SnrLane2}
+    extParamVal.EntityData.Leafs["isi-correction-lane1"] = types.YLeaf{"IsiCorrectionLane1", extParamVal.IsiCorrectionLane1}
+    extParamVal.EntityData.Leafs["isi-correction-lane2"] = types.YLeaf{"IsiCorrectionLane2", extParamVal.IsiCorrectionLane2}
+    extParamVal.EntityData.Leafs["pam-rate-lane1"] = types.YLeaf{"PamRateLane1", extParamVal.PamRateLane1}
+    extParamVal.EntityData.Leafs["pam-rate-lane2"] = types.YLeaf{"PamRateLane2", extParamVal.PamRateLane2}
+    extParamVal.EntityData.Leafs["pre-fec-ber"] = types.YLeaf{"PreFecBer", extParamVal.PreFecBer}
+    extParamVal.EntityData.Leafs["uncorrected-ber"] = types.YLeaf{"UncorrectedBer", extParamVal.UncorrectedBer}
+    extParamVal.EntityData.Leafs["tec-current-lane1"] = types.YLeaf{"TecCurrentLane1", extParamVal.TecCurrentLane1}
+    extParamVal.EntityData.Leafs["tec-current-lane2"] = types.YLeaf{"TecCurrentLane2", extParamVal.TecCurrentLane2}
+    extParamVal.EntityData.Leafs["laser-diff-frequency-lane1"] = types.YLeaf{"LaserDiffFrequencyLane1", extParamVal.LaserDiffFrequencyLane1}
+    extParamVal.EntityData.Leafs["laser-diff-frequency-lane2"] = types.YLeaf{"LaserDiffFrequencyLane2", extParamVal.LaserDiffFrequencyLane2}
+    extParamVal.EntityData.Leafs["laser-diff-temperature-lane1"] = types.YLeaf{"LaserDiffTemperatureLane1", extParamVal.LaserDiffTemperatureLane1}
+    extParamVal.EntityData.Leafs["laser-diff-temperature-lane2"] = types.YLeaf{"LaserDiffTemperatureLane2", extParamVal.LaserDiffTemperatureLane2}
+    extParamVal.EntityData.Leafs["pre-fec-ber-latched-min"] = types.YLeaf{"PreFecBerLatchedMin", extParamVal.PreFecBerLatchedMin}
+    extParamVal.EntityData.Leafs["pre-fec-ber-latched-max"] = types.YLeaf{"PreFecBerLatchedMax", extParamVal.PreFecBerLatchedMax}
+    extParamVal.EntityData.Leafs["pre-fec-ber-accumulated"] = types.YLeaf{"PreFecBerAccumulated", extParamVal.PreFecBerAccumulated}
+    extParamVal.EntityData.Leafs["pre-fec-ber-instantaneous"] = types.YLeaf{"PreFecBerInstantaneous", extParamVal.PreFecBerInstantaneous}
+    extParamVal.EntityData.Leafs["uncorrected-ber-latched-min"] = types.YLeaf{"UncorrectedBerLatchedMin", extParamVal.UncorrectedBerLatchedMin}
+    extParamVal.EntityData.Leafs["uncorrected-ber-latched-max"] = types.YLeaf{"UncorrectedBerLatchedMax", extParamVal.UncorrectedBerLatchedMax}
+    extParamVal.EntityData.Leafs["uncorrected-ber-accumulated"] = types.YLeaf{"UncorrectedBerAccumulated", extParamVal.UncorrectedBerAccumulated}
+    extParamVal.EntityData.Leafs["uncorrected-ber-instantaneous"] = types.YLeaf{"UncorrectedBerInstantaneous", extParamVal.UncorrectedBerInstantaneous}
+    return &(extParamVal.EntityData)
 }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetSegmentPath() string {
-    return "ext-param-val"
-}
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["snr-lane1"] = extParamVal.SnrLane1
-    leafs["snr-lane2"] = extParamVal.SnrLane2
-    leafs["isi-correction-lane1"] = extParamVal.IsiCorrectionLane1
-    leafs["isi-correction-lane2"] = extParamVal.IsiCorrectionLane2
-    leafs["pam-rate-lane1"] = extParamVal.PamRateLane1
-    leafs["pam-rate-lane2"] = extParamVal.PamRateLane2
-    leafs["pre-fec-ber"] = extParamVal.PreFecBer
-    leafs["uncorrected-ber"] = extParamVal.UncorrectedBer
-    leafs["tec-current-lane1"] = extParamVal.TecCurrentLane1
-    leafs["tec-current-lane2"] = extParamVal.TecCurrentLane2
-    leafs["laser-diff-frequency-lane1"] = extParamVal.LaserDiffFrequencyLane1
-    leafs["laser-diff-frequency-lane2"] = extParamVal.LaserDiffFrequencyLane2
-    leafs["laser-diff-temperature-lane1"] = extParamVal.LaserDiffTemperatureLane1
-    leafs["laser-diff-temperature-lane2"] = extParamVal.LaserDiffTemperatureLane2
-    leafs["pre-fec-ber-latched-min"] = extParamVal.PreFecBerLatchedMin
-    leafs["pre-fec-ber-latched-max"] = extParamVal.PreFecBerLatchedMax
-    leafs["pre-fec-ber-accumulated"] = extParamVal.PreFecBerAccumulated
-    leafs["pre-fec-ber-instantaneous"] = extParamVal.PreFecBerInstantaneous
-    leafs["uncorrected-ber-latched-min"] = extParamVal.UncorrectedBerLatchedMin
-    leafs["uncorrected-ber-latched-max"] = extParamVal.UncorrectedBerLatchedMax
-    leafs["uncorrected-ber-accumulated"] = extParamVal.UncorrectedBerAccumulated
-    leafs["uncorrected-ber-instantaneous"] = extParamVal.UncorrectedBerInstantaneous
-    return leafs
-}
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetBundleName() string { return "cisco_ios_xr" }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetYangName() string { return "ext-param-val" }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) SetParent(parent types.Entity) { extParamVal.parent = parent }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetParent() types.Entity { return extParamVal.parent }
-
-func (extParamVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamVal) GetParentYangName() string { return "optics-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal
 // Extended optics parameters threshold values
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // High threshold alarm for SNR. The type is interface{} with range:
@@ -6289,358 +4138,1133 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal struct {
     UncorrectedBerInstantaneousWarnLowThreshold interface{}
 }
 
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetFilter() yfilter.YFilter { return extParamThresholdVal.YFilter }
+func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetEntityData() *types.CommonEntityData {
+    extParamThresholdVal.EntityData.YFilter = extParamThresholdVal.YFilter
+    extParamThresholdVal.EntityData.YangName = "ext-param-threshold-val"
+    extParamThresholdVal.EntityData.BundleName = "cisco_ios_xr"
+    extParamThresholdVal.EntityData.ParentYangName = "optics-info"
+    extParamThresholdVal.EntityData.SegmentPath = "ext-param-threshold-val"
+    extParamThresholdVal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    extParamThresholdVal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    extParamThresholdVal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) SetFilter(yf yfilter.YFilter) { extParamThresholdVal.YFilter = yf }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetGoName(yname string) string {
-    if yname == "snr-alarm-high-threshold" { return "SnrAlarmHighThreshold" }
-    if yname == "snr-alarm-low-threshold" { return "SnrAlarmLowThreshold" }
-    if yname == "snr-warn-high-threshold" { return "SnrWarnHighThreshold" }
-    if yname == "snr-warn-low-threshold" { return "SnrWarnLowThreshold" }
-    if yname == "isi-correction-alarm-high-threshold" { return "IsiCorrectionAlarmHighThreshold" }
-    if yname == "isi-correction-alarm-low-threshold" { return "IsiCorrectionAlarmLowThreshold" }
-    if yname == "isi-correction-warn-high-threshold" { return "IsiCorrectionWarnHighThreshold" }
-    if yname == "isi-correction-warn-low-threshold" { return "IsiCorrectionWarnLowThreshold" }
-    if yname == "pam-rate-alarm-high-threshold" { return "PamRateAlarmHighThreshold" }
-    if yname == "pam-rate-alarm-low-threshold" { return "PamRateAlarmLowThreshold" }
-    if yname == "pam-rate-warn-high-threshold" { return "PamRateWarnHighThreshold" }
-    if yname == "pam-rate-warn-low-threshold" { return "PamRateWarnLowThreshold" }
-    if yname == "pre-fec-ber-alarm-high-threshold" { return "PreFecBerAlarmHighThreshold" }
-    if yname == "pre-fec-ber-alarm-low-threshold" { return "PreFecBerAlarmLowThreshold" }
-    if yname == "pre-fec-ber-warn-high-threshold" { return "PreFecBerWarnHighThreshold" }
-    if yname == "pre-fec-ber-warn-low-threshold" { return "PreFecBerWarnLowThreshold" }
-    if yname == "uncorrected-ber-alarm-high-threshold" { return "UncorrectedBerAlarmHighThreshold" }
-    if yname == "uncorrected-ber-alarm-low-threshold" { return "UncorrectedBerAlarmLowThreshold" }
-    if yname == "uncorrected-ber-warn-high-threshold" { return "UncorrectedBerWarnHighThreshold" }
-    if yname == "uncorrected-ber-warn-low-threshold" { return "UncorrectedBerWarnLowThreshold" }
-    if yname == "tec-current-alarm-high-threshold" { return "TecCurrentAlarmHighThreshold" }
-    if yname == "tec-current-alarm-low-threshold" { return "TecCurrentAlarmLowThreshold" }
-    if yname == "tec-current-warn-high-threshold" { return "TecCurrentWarnHighThreshold" }
-    if yname == "tec-current-warn-low-threshold" { return "TecCurrentWarnLowThreshold" }
-    if yname == "laser-diff-frequency-alarm-high-threshold" { return "LaserDiffFrequencyAlarmHighThreshold" }
-    if yname == "laser-diff-frequency-alarm-low-threshold" { return "LaserDiffFrequencyAlarmLowThreshold" }
-    if yname == "laser-diff-frequency-warn-high-threshold" { return "LaserDiffFrequencyWarnHighThreshold" }
-    if yname == "laser-diff-frequency-warn-low-threshold" { return "LaserDiffFrequencyWarnLowThreshold" }
-    if yname == "laser-diff-temperature-alarm-high-threshold" { return "LaserDiffTemperatureAlarmHighThreshold" }
-    if yname == "laser-diff-temperature-alarm-low-threshold" { return "LaserDiffTemperatureAlarmLowThreshold" }
-    if yname == "laser-diff-temperature-warn-high-threshold" { return "LaserDiffTemperatureWarnHighThreshold" }
-    if yname == "laser-diff-temperature-warn-low-threshold" { return "LaserDiffTemperatureWarnLowThreshold" }
-    if yname == "pre-fec-ber-latched-min-alarm-high-threshold" { return "PreFecBerLatchedMinAlarmHighThreshold" }
-    if yname == "pre-fec-ber-latched-min-alarm-low-threshold" { return "PreFecBerLatchedMinAlarmLowThreshold" }
-    if yname == "pre-fec-ber-latched-min-warn-high-threshold" { return "PreFecBerLatchedMinWarnHighThreshold" }
-    if yname == "pre-fec-ber-latched-min-warn-low-threshold" { return "PreFecBerLatchedMinWarnLowThreshold" }
-    if yname == "pre-fec-ber-latched-max-alarm-high-threshold" { return "PreFecBerLatchedMaxAlarmHighThreshold" }
-    if yname == "pre-fec-ber-latched-max-alarm-low-threshold" { return "PreFecBerLatchedMaxAlarmLowThreshold" }
-    if yname == "pre-fec-ber-latched-max-warn-high-threshold" { return "PreFecBerLatchedMaxWarnHighThreshold" }
-    if yname == "pre-fec-ber-latched-max-warn-low-threshold" { return "PreFecBerLatchedMaxWarnLowThreshold" }
-    if yname == "pre-fec-ber-accumulated-alarm-high-threshold" { return "PreFecBerAccumulatedAlarmHighThreshold" }
-    if yname == "pre-fec-ber-accumulated-alarm-low-threshold" { return "PreFecBerAccumulatedAlarmLowThreshold" }
-    if yname == "pre-fec-ber-accumulated-warn-high-threshold" { return "PreFecBerAccumulatedWarnHighThreshold" }
-    if yname == "pre-fec-ber-accumulated-warn-low-threshold" { return "PreFecBerAccumulatedWarnLowThreshold" }
-    if yname == "pre-fec-ber-instantaneous-alarm-high-threshold" { return "PreFecBerInstantaneousAlarmHighThreshold" }
-    if yname == "pre-fec-ber-instantaneous-alarm-low-threshold" { return "PreFecBerInstantaneousAlarmLowThreshold" }
-    if yname == "pre-fec-ber-instantaneous-warn-high-threshold" { return "PreFecBerInstantaneousWarnHighThreshold" }
-    if yname == "pre-fec-ber-instantaneous-warn-low-threshold" { return "PreFecBerInstantaneousWarnLowThreshold" }
-    if yname == "uncorrected-ber-latched-min-alarm-high-threshold" { return "UncorrectedBerLatchedMinAlarmHighThreshold" }
-    if yname == "uncorrected-ber-latched-min-alarm-low-threshold" { return "UncorrectedBerLatchedMinAlarmLowThreshold" }
-    if yname == "uncorrected-ber-latched-min-warn-high-threshold" { return "UncorrectedBerLatchedMinWarnHighThreshold" }
-    if yname == "uncorrected-ber-latched-min-warn-low-threshold" { return "UncorrectedBerLatchedMinWarnLowThreshold" }
-    if yname == "uncorrected-ber-latched-max-alarm-high-threshold" { return "UncorrectedBerLatchedMaxAlarmHighThreshold" }
-    if yname == "uncorrected-ber-latched-max-alarm-low-threshold" { return "UncorrectedBerLatchedMaxAlarmLowThreshold" }
-    if yname == "uncorrected-ber-latched-max-warn-high-threshold" { return "UncorrectedBerLatchedMaxWarnHighThreshold" }
-    if yname == "uncorrected-ber-latched-max-warn-low-threshold" { return "UncorrectedBerLatchedMaxWarnLowThreshold" }
-    if yname == "uncorrected-ber-accumulated-alarm-high-threshold" { return "UncorrectedBerAccumulatedAlarmHighThreshold" }
-    if yname == "uncorrected-ber-accumulated-alarm-low-threshold" { return "UncorrectedBerAccumulatedAlarmLowThreshold" }
-    if yname == "uncorrected-ber-accumulated-warn-high-threshold" { return "UncorrectedBerAccumulatedWarnHighThreshold" }
-    if yname == "uncorrected-ber-accumulated-warn-low-threshold" { return "UncorrectedBerAccumulatedWarnLowThreshold" }
-    if yname == "uncorrected-ber-instantaneous-alarm-high-threshold" { return "UncorrectedBerInstantaneousAlarmHighThreshold" }
-    if yname == "uncorrected-ber-instantaneous-alarm-low-threshold" { return "UncorrectedBerInstantaneousAlarmLowThreshold" }
-    if yname == "uncorrected-ber-instantaneous-warn-high-threshold" { return "UncorrectedBerInstantaneousWarnHighThreshold" }
-    if yname == "uncorrected-ber-instantaneous-warn-low-threshold" { return "UncorrectedBerInstantaneousWarnLowThreshold" }
-    return ""
+    extParamThresholdVal.EntityData.Children = make(map[string]types.YChild)
+    extParamThresholdVal.EntityData.Leafs = make(map[string]types.YLeaf)
+    extParamThresholdVal.EntityData.Leafs["snr-alarm-high-threshold"] = types.YLeaf{"SnrAlarmHighThreshold", extParamThresholdVal.SnrAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["snr-alarm-low-threshold"] = types.YLeaf{"SnrAlarmLowThreshold", extParamThresholdVal.SnrAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["snr-warn-high-threshold"] = types.YLeaf{"SnrWarnHighThreshold", extParamThresholdVal.SnrWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["snr-warn-low-threshold"] = types.YLeaf{"SnrWarnLowThreshold", extParamThresholdVal.SnrWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["isi-correction-alarm-high-threshold"] = types.YLeaf{"IsiCorrectionAlarmHighThreshold", extParamThresholdVal.IsiCorrectionAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["isi-correction-alarm-low-threshold"] = types.YLeaf{"IsiCorrectionAlarmLowThreshold", extParamThresholdVal.IsiCorrectionAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["isi-correction-warn-high-threshold"] = types.YLeaf{"IsiCorrectionWarnHighThreshold", extParamThresholdVal.IsiCorrectionWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["isi-correction-warn-low-threshold"] = types.YLeaf{"IsiCorrectionWarnLowThreshold", extParamThresholdVal.IsiCorrectionWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pam-rate-alarm-high-threshold"] = types.YLeaf{"PamRateAlarmHighThreshold", extParamThresholdVal.PamRateAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pam-rate-alarm-low-threshold"] = types.YLeaf{"PamRateAlarmLowThreshold", extParamThresholdVal.PamRateAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pam-rate-warn-high-threshold"] = types.YLeaf{"PamRateWarnHighThreshold", extParamThresholdVal.PamRateWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pam-rate-warn-low-threshold"] = types.YLeaf{"PamRateWarnLowThreshold", extParamThresholdVal.PamRateWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-alarm-high-threshold"] = types.YLeaf{"PreFecBerAlarmHighThreshold", extParamThresholdVal.PreFecBerAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-alarm-low-threshold"] = types.YLeaf{"PreFecBerAlarmLowThreshold", extParamThresholdVal.PreFecBerAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-warn-high-threshold"] = types.YLeaf{"PreFecBerWarnHighThreshold", extParamThresholdVal.PreFecBerWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-warn-low-threshold"] = types.YLeaf{"PreFecBerWarnLowThreshold", extParamThresholdVal.PreFecBerWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerAlarmHighThreshold", extParamThresholdVal.UncorrectedBerAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerAlarmLowThreshold", extParamThresholdVal.UncorrectedBerAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-warn-high-threshold"] = types.YLeaf{"UncorrectedBerWarnHighThreshold", extParamThresholdVal.UncorrectedBerWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-warn-low-threshold"] = types.YLeaf{"UncorrectedBerWarnLowThreshold", extParamThresholdVal.UncorrectedBerWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["tec-current-alarm-high-threshold"] = types.YLeaf{"TecCurrentAlarmHighThreshold", extParamThresholdVal.TecCurrentAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["tec-current-alarm-low-threshold"] = types.YLeaf{"TecCurrentAlarmLowThreshold", extParamThresholdVal.TecCurrentAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["tec-current-warn-high-threshold"] = types.YLeaf{"TecCurrentWarnHighThreshold", extParamThresholdVal.TecCurrentWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["tec-current-warn-low-threshold"] = types.YLeaf{"TecCurrentWarnLowThreshold", extParamThresholdVal.TecCurrentWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-alarm-high-threshold"] = types.YLeaf{"LaserDiffFrequencyAlarmHighThreshold", extParamThresholdVal.LaserDiffFrequencyAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-alarm-low-threshold"] = types.YLeaf{"LaserDiffFrequencyAlarmLowThreshold", extParamThresholdVal.LaserDiffFrequencyAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-warn-high-threshold"] = types.YLeaf{"LaserDiffFrequencyWarnHighThreshold", extParamThresholdVal.LaserDiffFrequencyWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-frequency-warn-low-threshold"] = types.YLeaf{"LaserDiffFrequencyWarnLowThreshold", extParamThresholdVal.LaserDiffFrequencyWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-alarm-high-threshold"] = types.YLeaf{"LaserDiffTemperatureAlarmHighThreshold", extParamThresholdVal.LaserDiffTemperatureAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-alarm-low-threshold"] = types.YLeaf{"LaserDiffTemperatureAlarmLowThreshold", extParamThresholdVal.LaserDiffTemperatureAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-warn-high-threshold"] = types.YLeaf{"LaserDiffTemperatureWarnHighThreshold", extParamThresholdVal.LaserDiffTemperatureWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["laser-diff-temperature-warn-low-threshold"] = types.YLeaf{"LaserDiffTemperatureWarnLowThreshold", extParamThresholdVal.LaserDiffTemperatureWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-alarm-high-threshold"] = types.YLeaf{"PreFecBerLatchedMinAlarmHighThreshold", extParamThresholdVal.PreFecBerLatchedMinAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-alarm-low-threshold"] = types.YLeaf{"PreFecBerLatchedMinAlarmLowThreshold", extParamThresholdVal.PreFecBerLatchedMinAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-warn-high-threshold"] = types.YLeaf{"PreFecBerLatchedMinWarnHighThreshold", extParamThresholdVal.PreFecBerLatchedMinWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-min-warn-low-threshold"] = types.YLeaf{"PreFecBerLatchedMinWarnLowThreshold", extParamThresholdVal.PreFecBerLatchedMinWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-alarm-high-threshold"] = types.YLeaf{"PreFecBerLatchedMaxAlarmHighThreshold", extParamThresholdVal.PreFecBerLatchedMaxAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-alarm-low-threshold"] = types.YLeaf{"PreFecBerLatchedMaxAlarmLowThreshold", extParamThresholdVal.PreFecBerLatchedMaxAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-warn-high-threshold"] = types.YLeaf{"PreFecBerLatchedMaxWarnHighThreshold", extParamThresholdVal.PreFecBerLatchedMaxWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-latched-max-warn-low-threshold"] = types.YLeaf{"PreFecBerLatchedMaxWarnLowThreshold", extParamThresholdVal.PreFecBerLatchedMaxWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-alarm-high-threshold"] = types.YLeaf{"PreFecBerAccumulatedAlarmHighThreshold", extParamThresholdVal.PreFecBerAccumulatedAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-alarm-low-threshold"] = types.YLeaf{"PreFecBerAccumulatedAlarmLowThreshold", extParamThresholdVal.PreFecBerAccumulatedAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-warn-high-threshold"] = types.YLeaf{"PreFecBerAccumulatedWarnHighThreshold", extParamThresholdVal.PreFecBerAccumulatedWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-accumulated-warn-low-threshold"] = types.YLeaf{"PreFecBerAccumulatedWarnLowThreshold", extParamThresholdVal.PreFecBerAccumulatedWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-alarm-high-threshold"] = types.YLeaf{"PreFecBerInstantaneousAlarmHighThreshold", extParamThresholdVal.PreFecBerInstantaneousAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-alarm-low-threshold"] = types.YLeaf{"PreFecBerInstantaneousAlarmLowThreshold", extParamThresholdVal.PreFecBerInstantaneousAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-warn-high-threshold"] = types.YLeaf{"PreFecBerInstantaneousWarnHighThreshold", extParamThresholdVal.PreFecBerInstantaneousWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["pre-fec-ber-instantaneous-warn-low-threshold"] = types.YLeaf{"PreFecBerInstantaneousWarnLowThreshold", extParamThresholdVal.PreFecBerInstantaneousWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinAlarmHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMinAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinAlarmLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMinAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-warn-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinWarnHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMinWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-min-warn-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMinWarnLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMinWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxAlarmHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxAlarmLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-warn-high-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxWarnHighThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-latched-max-warn-low-threshold"] = types.YLeaf{"UncorrectedBerLatchedMaxWarnLowThreshold", extParamThresholdVal.UncorrectedBerLatchedMaxWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedAlarmHighThreshold", extParamThresholdVal.UncorrectedBerAccumulatedAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedAlarmLowThreshold", extParamThresholdVal.UncorrectedBerAccumulatedAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-warn-high-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedWarnHighThreshold", extParamThresholdVal.UncorrectedBerAccumulatedWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-accumulated-warn-low-threshold"] = types.YLeaf{"UncorrectedBerAccumulatedWarnLowThreshold", extParamThresholdVal.UncorrectedBerAccumulatedWarnLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-alarm-high-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousAlarmHighThreshold", extParamThresholdVal.UncorrectedBerInstantaneousAlarmHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-alarm-low-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousAlarmLowThreshold", extParamThresholdVal.UncorrectedBerInstantaneousAlarmLowThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-warn-high-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousWarnHighThreshold", extParamThresholdVal.UncorrectedBerInstantaneousWarnHighThreshold}
+    extParamThresholdVal.EntityData.Leafs["uncorrected-ber-instantaneous-warn-low-threshold"] = types.YLeaf{"UncorrectedBerInstantaneousWarnLowThreshold", extParamThresholdVal.UncorrectedBerInstantaneousWarnLowThreshold}
+    return &(extParamThresholdVal.EntityData)
 }
 
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetSegmentPath() string {
-    return "ext-param-threshold-val"
-}
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["snr-alarm-high-threshold"] = extParamThresholdVal.SnrAlarmHighThreshold
-    leafs["snr-alarm-low-threshold"] = extParamThresholdVal.SnrAlarmLowThreshold
-    leafs["snr-warn-high-threshold"] = extParamThresholdVal.SnrWarnHighThreshold
-    leafs["snr-warn-low-threshold"] = extParamThresholdVal.SnrWarnLowThreshold
-    leafs["isi-correction-alarm-high-threshold"] = extParamThresholdVal.IsiCorrectionAlarmHighThreshold
-    leafs["isi-correction-alarm-low-threshold"] = extParamThresholdVal.IsiCorrectionAlarmLowThreshold
-    leafs["isi-correction-warn-high-threshold"] = extParamThresholdVal.IsiCorrectionWarnHighThreshold
-    leafs["isi-correction-warn-low-threshold"] = extParamThresholdVal.IsiCorrectionWarnLowThreshold
-    leafs["pam-rate-alarm-high-threshold"] = extParamThresholdVal.PamRateAlarmHighThreshold
-    leafs["pam-rate-alarm-low-threshold"] = extParamThresholdVal.PamRateAlarmLowThreshold
-    leafs["pam-rate-warn-high-threshold"] = extParamThresholdVal.PamRateWarnHighThreshold
-    leafs["pam-rate-warn-low-threshold"] = extParamThresholdVal.PamRateWarnLowThreshold
-    leafs["pre-fec-ber-alarm-high-threshold"] = extParamThresholdVal.PreFecBerAlarmHighThreshold
-    leafs["pre-fec-ber-alarm-low-threshold"] = extParamThresholdVal.PreFecBerAlarmLowThreshold
-    leafs["pre-fec-ber-warn-high-threshold"] = extParamThresholdVal.PreFecBerWarnHighThreshold
-    leafs["pre-fec-ber-warn-low-threshold"] = extParamThresholdVal.PreFecBerWarnLowThreshold
-    leafs["uncorrected-ber-alarm-high-threshold"] = extParamThresholdVal.UncorrectedBerAlarmHighThreshold
-    leafs["uncorrected-ber-alarm-low-threshold"] = extParamThresholdVal.UncorrectedBerAlarmLowThreshold
-    leafs["uncorrected-ber-warn-high-threshold"] = extParamThresholdVal.UncorrectedBerWarnHighThreshold
-    leafs["uncorrected-ber-warn-low-threshold"] = extParamThresholdVal.UncorrectedBerWarnLowThreshold
-    leafs["tec-current-alarm-high-threshold"] = extParamThresholdVal.TecCurrentAlarmHighThreshold
-    leafs["tec-current-alarm-low-threshold"] = extParamThresholdVal.TecCurrentAlarmLowThreshold
-    leafs["tec-current-warn-high-threshold"] = extParamThresholdVal.TecCurrentWarnHighThreshold
-    leafs["tec-current-warn-low-threshold"] = extParamThresholdVal.TecCurrentWarnLowThreshold
-    leafs["laser-diff-frequency-alarm-high-threshold"] = extParamThresholdVal.LaserDiffFrequencyAlarmHighThreshold
-    leafs["laser-diff-frequency-alarm-low-threshold"] = extParamThresholdVal.LaserDiffFrequencyAlarmLowThreshold
-    leafs["laser-diff-frequency-warn-high-threshold"] = extParamThresholdVal.LaserDiffFrequencyWarnHighThreshold
-    leafs["laser-diff-frequency-warn-low-threshold"] = extParamThresholdVal.LaserDiffFrequencyWarnLowThreshold
-    leafs["laser-diff-temperature-alarm-high-threshold"] = extParamThresholdVal.LaserDiffTemperatureAlarmHighThreshold
-    leafs["laser-diff-temperature-alarm-low-threshold"] = extParamThresholdVal.LaserDiffTemperatureAlarmLowThreshold
-    leafs["laser-diff-temperature-warn-high-threshold"] = extParamThresholdVal.LaserDiffTemperatureWarnHighThreshold
-    leafs["laser-diff-temperature-warn-low-threshold"] = extParamThresholdVal.LaserDiffTemperatureWarnLowThreshold
-    leafs["pre-fec-ber-latched-min-alarm-high-threshold"] = extParamThresholdVal.PreFecBerLatchedMinAlarmHighThreshold
-    leafs["pre-fec-ber-latched-min-alarm-low-threshold"] = extParamThresholdVal.PreFecBerLatchedMinAlarmLowThreshold
-    leafs["pre-fec-ber-latched-min-warn-high-threshold"] = extParamThresholdVal.PreFecBerLatchedMinWarnHighThreshold
-    leafs["pre-fec-ber-latched-min-warn-low-threshold"] = extParamThresholdVal.PreFecBerLatchedMinWarnLowThreshold
-    leafs["pre-fec-ber-latched-max-alarm-high-threshold"] = extParamThresholdVal.PreFecBerLatchedMaxAlarmHighThreshold
-    leafs["pre-fec-ber-latched-max-alarm-low-threshold"] = extParamThresholdVal.PreFecBerLatchedMaxAlarmLowThreshold
-    leafs["pre-fec-ber-latched-max-warn-high-threshold"] = extParamThresholdVal.PreFecBerLatchedMaxWarnHighThreshold
-    leafs["pre-fec-ber-latched-max-warn-low-threshold"] = extParamThresholdVal.PreFecBerLatchedMaxWarnLowThreshold
-    leafs["pre-fec-ber-accumulated-alarm-high-threshold"] = extParamThresholdVal.PreFecBerAccumulatedAlarmHighThreshold
-    leafs["pre-fec-ber-accumulated-alarm-low-threshold"] = extParamThresholdVal.PreFecBerAccumulatedAlarmLowThreshold
-    leafs["pre-fec-ber-accumulated-warn-high-threshold"] = extParamThresholdVal.PreFecBerAccumulatedWarnHighThreshold
-    leafs["pre-fec-ber-accumulated-warn-low-threshold"] = extParamThresholdVal.PreFecBerAccumulatedWarnLowThreshold
-    leafs["pre-fec-ber-instantaneous-alarm-high-threshold"] = extParamThresholdVal.PreFecBerInstantaneousAlarmHighThreshold
-    leafs["pre-fec-ber-instantaneous-alarm-low-threshold"] = extParamThresholdVal.PreFecBerInstantaneousAlarmLowThreshold
-    leafs["pre-fec-ber-instantaneous-warn-high-threshold"] = extParamThresholdVal.PreFecBerInstantaneousWarnHighThreshold
-    leafs["pre-fec-ber-instantaneous-warn-low-threshold"] = extParamThresholdVal.PreFecBerInstantaneousWarnLowThreshold
-    leafs["uncorrected-ber-latched-min-alarm-high-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMinAlarmHighThreshold
-    leafs["uncorrected-ber-latched-min-alarm-low-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMinAlarmLowThreshold
-    leafs["uncorrected-ber-latched-min-warn-high-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMinWarnHighThreshold
-    leafs["uncorrected-ber-latched-min-warn-low-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMinWarnLowThreshold
-    leafs["uncorrected-ber-latched-max-alarm-high-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMaxAlarmHighThreshold
-    leafs["uncorrected-ber-latched-max-alarm-low-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMaxAlarmLowThreshold
-    leafs["uncorrected-ber-latched-max-warn-high-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMaxWarnHighThreshold
-    leafs["uncorrected-ber-latched-max-warn-low-threshold"] = extParamThresholdVal.UncorrectedBerLatchedMaxWarnLowThreshold
-    leafs["uncorrected-ber-accumulated-alarm-high-threshold"] = extParamThresholdVal.UncorrectedBerAccumulatedAlarmHighThreshold
-    leafs["uncorrected-ber-accumulated-alarm-low-threshold"] = extParamThresholdVal.UncorrectedBerAccumulatedAlarmLowThreshold
-    leafs["uncorrected-ber-accumulated-warn-high-threshold"] = extParamThresholdVal.UncorrectedBerAccumulatedWarnHighThreshold
-    leafs["uncorrected-ber-accumulated-warn-low-threshold"] = extParamThresholdVal.UncorrectedBerAccumulatedWarnLowThreshold
-    leafs["uncorrected-ber-instantaneous-alarm-high-threshold"] = extParamThresholdVal.UncorrectedBerInstantaneousAlarmHighThreshold
-    leafs["uncorrected-ber-instantaneous-alarm-low-threshold"] = extParamThresholdVal.UncorrectedBerInstantaneousAlarmLowThreshold
-    leafs["uncorrected-ber-instantaneous-warn-high-threshold"] = extParamThresholdVal.UncorrectedBerInstantaneousWarnHighThreshold
-    leafs["uncorrected-ber-instantaneous-warn-low-threshold"] = extParamThresholdVal.UncorrectedBerInstantaneousWarnLowThreshold
-    return leafs
-}
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetBundleName() string { return "cisco_ios_xr" }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetYangName() string { return "ext-param-threshold-val" }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) SetParent(parent types.Entity) { extParamThresholdVal.parent = parent }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetParent() types.Entity { return extParamThresholdVal.parent }
-
-func (extParamThresholdVal *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtParamThresholdVal) GetParentYangName() string { return "optics-info" }
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo
-// OTS Spectrum information
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo struct {
-    parent types.Entity
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo
+// Extended DOM alarm Information
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Total number of slices in Spectrum. The type is interface{} with range:
-    // 0..4294967295.
-    TotalSpectrumSliceCount interface{}
+    // Low SNR Alarm for Lane1.
+    LoSnr OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr
 
-    // Spacing between spectrum slices. The type is interface{} with range:
-    // 0..4294967295.
-    SpectrumSliceSpacing interface{}
+    // High SNR Alarm for Lane1.
+    HiSnr1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr1
 
-    // Wavelength of first slice. The type is string with length: 0..32.
-    FirstSliceWavelength interface{}
+    // Low SNR Alarm for Lane2.
+    LoSnr1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr1
 
-    // Power information of spectrum slice info. The type is slice of
-    // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo.
-    SpectrumSlicePowerInfo []OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo
+    // High SNR Alarm for Lane2.
+    HiSnr2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr2
+
+    // Low ISI Correction Alarm for Lane1.
+    LoIsi1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi1
+
+    // High ISI Correction Alarm for Lane1.
+    HiIsi1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi1
+
+    // Low ISI Correction Alarm for Lane2.
+    LoIsi2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi2
+
+    // High ISI Correction Alarm for Lane2.
+    HiIsi2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi2
+
+    // Low PAM Rate Alarm for Lane1.
+    LoPam1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam1
+
+    // High PAM Rate Alarm for Lane1.
+    HiPam1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam1
+
+    // Low PAM Rate Alarm for Lane2.
+    LoPam2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam2
+
+    // High PAM Rate Alarm for Lane2.
+    HiPam2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam2
+
+    // Low TEC Current Alarm for Lane1.
+    LoTec1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec1
+
+    // High TEC Current Alarm for Lane1.
+    HiTec1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec1
+
+    // Low TEC Current Alarm for Lane2.
+    LoTec2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec2
+
+    // High TEC Current Alarm for Lane2.
+    HiTec2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec2
+
+    // Low Laser Differential Frequency Alarm for Lane1.
+    LoLaserFreq1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq1
+
+    // High Laser Differential Frequency Alarm for Lane1.
+    HiLaserFreq1 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq1
+
+    // Low Laser Differential Frequency Alarm for Lane2.
+    LoLaserFreq2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq2
+
+    // High Laser Differential Frequency Alarm for Lane2.
+    HiLaserFreq2 OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq2
+
+    // High Pre FEC BER Current Accumulated Alarm.
+    HiPreFecberCurAcc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCurAcc
+
+    // High Pre FEC BER Min Alarm.
+    HiPreFecberMin OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMin
+
+    // High Pre FEC BER Max Alarm.
+    HiPreFecberMax OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMax
+
+    // High Pre FEC BER Prior Accumulated Alarm.
+    HiPreFecberPriorAcc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberPriorAcc
+
+    // High Pre FEC BER Current Alarm.
+    HiPreFecberCur OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCur
+
+    // High Uncorrected BER Current Accumulated Alarm.
+    HiUncorrectedBerCurAcc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCurAcc
+
+    // High Uncorrected BER Min Alarm.
+    HiUncorrectedBerMin OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMin
+
+    // High Uncorrected BER Max Alarm.
+    HiUncorrectedBerMax OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMax
+
+    // High Uncorrected BER Prior Accumulated Alarm.
+    HiUncorrectedBerPriorAcc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerPriorAcc
+
+    // High Uncorrected BER Current Alarm.
+    HiUncorrectedBerCur OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCur
 }
 
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetFilter() yfilter.YFilter { return spectrumInfo.YFilter }
+func (extendedAlarmAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo) GetEntityData() *types.CommonEntityData {
+    extendedAlarmAlarmInfo.EntityData.YFilter = extendedAlarmAlarmInfo.YFilter
+    extendedAlarmAlarmInfo.EntityData.YangName = "extended-alarm-alarm-info"
+    extendedAlarmAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    extendedAlarmAlarmInfo.EntityData.ParentYangName = "optics-info"
+    extendedAlarmAlarmInfo.EntityData.SegmentPath = "extended-alarm-alarm-info"
+    extendedAlarmAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    extendedAlarmAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    extendedAlarmAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) SetFilter(yf yfilter.YFilter) { spectrumInfo.YFilter = yf }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetGoName(yname string) string {
-    if yname == "total-spectrum-slice-count" { return "TotalSpectrumSliceCount" }
-    if yname == "spectrum-slice-spacing" { return "SpectrumSliceSpacing" }
-    if yname == "first-slice-wavelength" { return "FirstSliceWavelength" }
-    if yname == "spectrum-slice-power-info" { return "SpectrumSlicePowerInfo" }
-    return ""
+    extendedAlarmAlarmInfo.EntityData.Children = make(map[string]types.YChild)
+    extendedAlarmAlarmInfo.EntityData.Children["lo-snr"] = types.YChild{"LoSnr", &extendedAlarmAlarmInfo.LoSnr}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-snr1"] = types.YChild{"HiSnr1", &extendedAlarmAlarmInfo.HiSnr1}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-snr1"] = types.YChild{"LoSnr1", &extendedAlarmAlarmInfo.LoSnr1}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-snr2"] = types.YChild{"HiSnr2", &extendedAlarmAlarmInfo.HiSnr2}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-isi1"] = types.YChild{"LoIsi1", &extendedAlarmAlarmInfo.LoIsi1}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-isi1"] = types.YChild{"HiIsi1", &extendedAlarmAlarmInfo.HiIsi1}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-isi2"] = types.YChild{"LoIsi2", &extendedAlarmAlarmInfo.LoIsi2}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-isi2"] = types.YChild{"HiIsi2", &extendedAlarmAlarmInfo.HiIsi2}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-pam1"] = types.YChild{"LoPam1", &extendedAlarmAlarmInfo.LoPam1}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pam1"] = types.YChild{"HiPam1", &extendedAlarmAlarmInfo.HiPam1}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-pam2"] = types.YChild{"LoPam2", &extendedAlarmAlarmInfo.LoPam2}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pam2"] = types.YChild{"HiPam2", &extendedAlarmAlarmInfo.HiPam2}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-tec1"] = types.YChild{"LoTec1", &extendedAlarmAlarmInfo.LoTec1}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-tec1"] = types.YChild{"HiTec1", &extendedAlarmAlarmInfo.HiTec1}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-tec2"] = types.YChild{"LoTec2", &extendedAlarmAlarmInfo.LoTec2}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-tec2"] = types.YChild{"HiTec2", &extendedAlarmAlarmInfo.HiTec2}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-laser-freq1"] = types.YChild{"LoLaserFreq1", &extendedAlarmAlarmInfo.LoLaserFreq1}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-laser-freq1"] = types.YChild{"HiLaserFreq1", &extendedAlarmAlarmInfo.HiLaserFreq1}
+    extendedAlarmAlarmInfo.EntityData.Children["lo-laser-freq2"] = types.YChild{"LoLaserFreq2", &extendedAlarmAlarmInfo.LoLaserFreq2}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-laser-freq2"] = types.YChild{"HiLaserFreq2", &extendedAlarmAlarmInfo.HiLaserFreq2}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-cur-acc"] = types.YChild{"HiPreFecberCurAcc", &extendedAlarmAlarmInfo.HiPreFecberCurAcc}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-min"] = types.YChild{"HiPreFecberMin", &extendedAlarmAlarmInfo.HiPreFecberMin}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-max"] = types.YChild{"HiPreFecberMax", &extendedAlarmAlarmInfo.HiPreFecberMax}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-prior-acc"] = types.YChild{"HiPreFecberPriorAcc", &extendedAlarmAlarmInfo.HiPreFecberPriorAcc}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-pre-fecber-cur"] = types.YChild{"HiPreFecberCur", &extendedAlarmAlarmInfo.HiPreFecberCur}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-cur-acc"] = types.YChild{"HiUncorrectedBerCurAcc", &extendedAlarmAlarmInfo.HiUncorrectedBerCurAcc}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-min"] = types.YChild{"HiUncorrectedBerMin", &extendedAlarmAlarmInfo.HiUncorrectedBerMin}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-max"] = types.YChild{"HiUncorrectedBerMax", &extendedAlarmAlarmInfo.HiUncorrectedBerMax}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-prior-acc"] = types.YChild{"HiUncorrectedBerPriorAcc", &extendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc}
+    extendedAlarmAlarmInfo.EntityData.Children["hi-uncorrected-ber-cur"] = types.YChild{"HiUncorrectedBerCur", &extendedAlarmAlarmInfo.HiUncorrectedBerCur}
+    extendedAlarmAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(extendedAlarmAlarmInfo.EntityData)
 }
 
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetSegmentPath() string {
-    return "spectrum-info"
-}
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "spectrum-slice-power-info" {
-        for _, c := range spectrumInfo.SpectrumSlicePowerInfo {
-            if spectrumInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo{}
-        spectrumInfo.SpectrumSlicePowerInfo = append(spectrumInfo.SpectrumSlicePowerInfo, child)
-        return &spectrumInfo.SpectrumSlicePowerInfo[len(spectrumInfo.SpectrumSlicePowerInfo)-1]
-    }
-    return nil
-}
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range spectrumInfo.SpectrumSlicePowerInfo {
-        children[spectrumInfo.SpectrumSlicePowerInfo[i].GetSegmentPath()] = &spectrumInfo.SpectrumSlicePowerInfo[i]
-    }
-    return children
-}
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["total-spectrum-slice-count"] = spectrumInfo.TotalSpectrumSliceCount
-    leafs["spectrum-slice-spacing"] = spectrumInfo.SpectrumSliceSpacing
-    leafs["first-slice-wavelength"] = spectrumInfo.FirstSliceWavelength
-    return leafs
-}
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetYangName() string { return "spectrum-info" }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) SetParent(parent types.Entity) { spectrumInfo.parent = parent }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetParent() types.Entity { return spectrumInfo.parent }
-
-func (spectrumInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo) GetParentYangName() string { return "optics-info" }
-
-// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo
-// Power information of spectrum slice info
-type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo struct {
-    parent types.Entity
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr
+// Low SNR Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // spectrum slice number. The type is interface{} with range: 0..4294967295.
-    SliceNum interface{}
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
 
-    // Lower frequency of the specified PSD. The type is interface{} with range:
-    // 0..18446744073709551615.
-    LowerFrequency interface{}
-
-    // Upper frequency of the specified PSD. The type is interface{} with range:
-    // 0..18446744073709551615.
-    UpperFrequency interface{}
-
-    // Received Power in dBm. The type is string with length: 0..32.
-    RxPower interface{}
-
-    // Transmit Power in dBm. The type is string with length: 0..32.
-    TxPower interface{}
-
-    // Received Power spectral density in microwatts per megahertz, uW/MHz. The
-    // type is string with length: 0..32.
-    RxPsd interface{}
-
-    // Transmit Power spectral density in microwatts per megahertz, uW/MHz. The
-    // type is string with length: 0..32.
-    TxPsd interface{}
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
 }
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetFilter() yfilter.YFilter { return spectrumSlicePowerInfo.YFilter }
+func (loSnr *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr) GetEntityData() *types.CommonEntityData {
+    loSnr.EntityData.YFilter = loSnr.YFilter
+    loSnr.EntityData.YangName = "lo-snr"
+    loSnr.EntityData.BundleName = "cisco_ios_xr"
+    loSnr.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loSnr.EntityData.SegmentPath = "lo-snr"
+    loSnr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loSnr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loSnr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) SetFilter(yf yfilter.YFilter) { spectrumSlicePowerInfo.YFilter = yf }
-
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetGoName(yname string) string {
-    if yname == "slice-num" { return "SliceNum" }
-    if yname == "lower-frequency" { return "LowerFrequency" }
-    if yname == "upper-frequency" { return "UpperFrequency" }
-    if yname == "rx-power" { return "RxPower" }
-    if yname == "tx-power" { return "TxPower" }
-    if yname == "rx-psd" { return "RxPsd" }
-    if yname == "tx-psd" { return "TxPsd" }
-    return ""
+    loSnr.EntityData.Children = make(map[string]types.YChild)
+    loSnr.EntityData.Leafs = make(map[string]types.YLeaf)
+    loSnr.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loSnr.IsDetected}
+    loSnr.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loSnr.Counter}
+    return &(loSnr.EntityData)
 }
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetSegmentPath() string {
-    return "spectrum-slice-power-info"
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr1
+// High SNR Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
 }
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
+func (hiSnr1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr1) GetEntityData() *types.CommonEntityData {
+    hiSnr1.EntityData.YFilter = hiSnr1.YFilter
+    hiSnr1.EntityData.YangName = "hi-snr1"
+    hiSnr1.EntityData.BundleName = "cisco_ios_xr"
+    hiSnr1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiSnr1.EntityData.SegmentPath = "hi-snr1"
+    hiSnr1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiSnr1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiSnr1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiSnr1.EntityData.Children = make(map[string]types.YChild)
+    hiSnr1.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiSnr1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiSnr1.IsDetected}
+    hiSnr1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiSnr1.Counter}
+    return &(hiSnr1.EntityData)
 }
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr1
+// Low SNR Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
 }
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["slice-num"] = spectrumSlicePowerInfo.SliceNum
-    leafs["lower-frequency"] = spectrumSlicePowerInfo.LowerFrequency
-    leafs["upper-frequency"] = spectrumSlicePowerInfo.UpperFrequency
-    leafs["rx-power"] = spectrumSlicePowerInfo.RxPower
-    leafs["tx-power"] = spectrumSlicePowerInfo.TxPower
-    leafs["rx-psd"] = spectrumSlicePowerInfo.RxPsd
-    leafs["tx-psd"] = spectrumSlicePowerInfo.TxPsd
-    return leafs
+func (loSnr1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoSnr1) GetEntityData() *types.CommonEntityData {
+    loSnr1.EntityData.YFilter = loSnr1.YFilter
+    loSnr1.EntityData.YangName = "lo-snr1"
+    loSnr1.EntityData.BundleName = "cisco_ios_xr"
+    loSnr1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loSnr1.EntityData.SegmentPath = "lo-snr1"
+    loSnr1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loSnr1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loSnr1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loSnr1.EntityData.Children = make(map[string]types.YChild)
+    loSnr1.EntityData.Leafs = make(map[string]types.YLeaf)
+    loSnr1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loSnr1.IsDetected}
+    loSnr1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loSnr1.Counter}
+    return &(loSnr1.EntityData)
 }
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetBundleName() string { return "cisco_ios_xr" }
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr2
+// High SNR Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetYangName() string { return "spectrum-slice-power-info" }
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
+func (hiSnr2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiSnr2) GetEntityData() *types.CommonEntityData {
+    hiSnr2.EntityData.YFilter = hiSnr2.YFilter
+    hiSnr2.EntityData.YangName = "hi-snr2"
+    hiSnr2.EntityData.BundleName = "cisco_ios_xr"
+    hiSnr2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiSnr2.EntityData.SegmentPath = "hi-snr2"
+    hiSnr2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiSnr2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiSnr2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
+    hiSnr2.EntityData.Children = make(map[string]types.YChild)
+    hiSnr2.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiSnr2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiSnr2.IsDetected}
+    hiSnr2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiSnr2.Counter}
+    return &(hiSnr2.EntityData)
+}
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) SetParent(parent types.Entity) { spectrumSlicePowerInfo.parent = parent }
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi1
+// Low ISI Correction Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetParent() types.Entity { return spectrumSlicePowerInfo.parent }
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
 
-func (spectrumSlicePowerInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_SpectrumInfo_SpectrumSlicePowerInfo) GetParentYangName() string { return "spectrum-info" }
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loIsi1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi1) GetEntityData() *types.CommonEntityData {
+    loIsi1.EntityData.YFilter = loIsi1.YFilter
+    loIsi1.EntityData.YangName = "lo-isi1"
+    loIsi1.EntityData.BundleName = "cisco_ios_xr"
+    loIsi1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loIsi1.EntityData.SegmentPath = "lo-isi1"
+    loIsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loIsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loIsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loIsi1.EntityData.Children = make(map[string]types.YChild)
+    loIsi1.EntityData.Leafs = make(map[string]types.YLeaf)
+    loIsi1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loIsi1.IsDetected}
+    loIsi1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loIsi1.Counter}
+    return &(loIsi1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi1
+// High ISI Correction Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiIsi1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi1) GetEntityData() *types.CommonEntityData {
+    hiIsi1.EntityData.YFilter = hiIsi1.YFilter
+    hiIsi1.EntityData.YangName = "hi-isi1"
+    hiIsi1.EntityData.BundleName = "cisco_ios_xr"
+    hiIsi1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiIsi1.EntityData.SegmentPath = "hi-isi1"
+    hiIsi1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiIsi1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiIsi1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiIsi1.EntityData.Children = make(map[string]types.YChild)
+    hiIsi1.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiIsi1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiIsi1.IsDetected}
+    hiIsi1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiIsi1.Counter}
+    return &(hiIsi1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi2
+// Low ISI Correction Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loIsi2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoIsi2) GetEntityData() *types.CommonEntityData {
+    loIsi2.EntityData.YFilter = loIsi2.YFilter
+    loIsi2.EntityData.YangName = "lo-isi2"
+    loIsi2.EntityData.BundleName = "cisco_ios_xr"
+    loIsi2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loIsi2.EntityData.SegmentPath = "lo-isi2"
+    loIsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loIsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loIsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loIsi2.EntityData.Children = make(map[string]types.YChild)
+    loIsi2.EntityData.Leafs = make(map[string]types.YLeaf)
+    loIsi2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loIsi2.IsDetected}
+    loIsi2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loIsi2.Counter}
+    return &(loIsi2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi2
+// High ISI Correction Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiIsi2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiIsi2) GetEntityData() *types.CommonEntityData {
+    hiIsi2.EntityData.YFilter = hiIsi2.YFilter
+    hiIsi2.EntityData.YangName = "hi-isi2"
+    hiIsi2.EntityData.BundleName = "cisco_ios_xr"
+    hiIsi2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiIsi2.EntityData.SegmentPath = "hi-isi2"
+    hiIsi2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiIsi2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiIsi2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiIsi2.EntityData.Children = make(map[string]types.YChild)
+    hiIsi2.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiIsi2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiIsi2.IsDetected}
+    hiIsi2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiIsi2.Counter}
+    return &(hiIsi2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam1
+// Low PAM Rate Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loPam1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam1) GetEntityData() *types.CommonEntityData {
+    loPam1.EntityData.YFilter = loPam1.YFilter
+    loPam1.EntityData.YangName = "lo-pam1"
+    loPam1.EntityData.BundleName = "cisco_ios_xr"
+    loPam1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loPam1.EntityData.SegmentPath = "lo-pam1"
+    loPam1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loPam1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loPam1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loPam1.EntityData.Children = make(map[string]types.YChild)
+    loPam1.EntityData.Leafs = make(map[string]types.YLeaf)
+    loPam1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loPam1.IsDetected}
+    loPam1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loPam1.Counter}
+    return &(loPam1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam1
+// High PAM Rate Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPam1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam1) GetEntityData() *types.CommonEntityData {
+    hiPam1.EntityData.YFilter = hiPam1.YFilter
+    hiPam1.EntityData.YangName = "hi-pam1"
+    hiPam1.EntityData.BundleName = "cisco_ios_xr"
+    hiPam1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPam1.EntityData.SegmentPath = "hi-pam1"
+    hiPam1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPam1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPam1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPam1.EntityData.Children = make(map[string]types.YChild)
+    hiPam1.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPam1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPam1.IsDetected}
+    hiPam1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPam1.Counter}
+    return &(hiPam1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam2
+// Low PAM Rate Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loPam2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoPam2) GetEntityData() *types.CommonEntityData {
+    loPam2.EntityData.YFilter = loPam2.YFilter
+    loPam2.EntityData.YangName = "lo-pam2"
+    loPam2.EntityData.BundleName = "cisco_ios_xr"
+    loPam2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loPam2.EntityData.SegmentPath = "lo-pam2"
+    loPam2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loPam2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loPam2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loPam2.EntityData.Children = make(map[string]types.YChild)
+    loPam2.EntityData.Leafs = make(map[string]types.YLeaf)
+    loPam2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loPam2.IsDetected}
+    loPam2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loPam2.Counter}
+    return &(loPam2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam2
+// High PAM Rate Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPam2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPam2) GetEntityData() *types.CommonEntityData {
+    hiPam2.EntityData.YFilter = hiPam2.YFilter
+    hiPam2.EntityData.YangName = "hi-pam2"
+    hiPam2.EntityData.BundleName = "cisco_ios_xr"
+    hiPam2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPam2.EntityData.SegmentPath = "hi-pam2"
+    hiPam2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPam2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPam2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPam2.EntityData.Children = make(map[string]types.YChild)
+    hiPam2.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPam2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPam2.IsDetected}
+    hiPam2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPam2.Counter}
+    return &(hiPam2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec1
+// Low TEC Current Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loTec1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec1) GetEntityData() *types.CommonEntityData {
+    loTec1.EntityData.YFilter = loTec1.YFilter
+    loTec1.EntityData.YangName = "lo-tec1"
+    loTec1.EntityData.BundleName = "cisco_ios_xr"
+    loTec1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loTec1.EntityData.SegmentPath = "lo-tec1"
+    loTec1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loTec1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loTec1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loTec1.EntityData.Children = make(map[string]types.YChild)
+    loTec1.EntityData.Leafs = make(map[string]types.YLeaf)
+    loTec1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loTec1.IsDetected}
+    loTec1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loTec1.Counter}
+    return &(loTec1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec1
+// High TEC Current Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiTec1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec1) GetEntityData() *types.CommonEntityData {
+    hiTec1.EntityData.YFilter = hiTec1.YFilter
+    hiTec1.EntityData.YangName = "hi-tec1"
+    hiTec1.EntityData.BundleName = "cisco_ios_xr"
+    hiTec1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiTec1.EntityData.SegmentPath = "hi-tec1"
+    hiTec1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiTec1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiTec1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiTec1.EntityData.Children = make(map[string]types.YChild)
+    hiTec1.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiTec1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiTec1.IsDetected}
+    hiTec1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiTec1.Counter}
+    return &(hiTec1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec2
+// Low TEC Current Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loTec2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoTec2) GetEntityData() *types.CommonEntityData {
+    loTec2.EntityData.YFilter = loTec2.YFilter
+    loTec2.EntityData.YangName = "lo-tec2"
+    loTec2.EntityData.BundleName = "cisco_ios_xr"
+    loTec2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loTec2.EntityData.SegmentPath = "lo-tec2"
+    loTec2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loTec2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loTec2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loTec2.EntityData.Children = make(map[string]types.YChild)
+    loTec2.EntityData.Leafs = make(map[string]types.YLeaf)
+    loTec2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loTec2.IsDetected}
+    loTec2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loTec2.Counter}
+    return &(loTec2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec2
+// High TEC Current Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiTec2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiTec2) GetEntityData() *types.CommonEntityData {
+    hiTec2.EntityData.YFilter = hiTec2.YFilter
+    hiTec2.EntityData.YangName = "hi-tec2"
+    hiTec2.EntityData.BundleName = "cisco_ios_xr"
+    hiTec2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiTec2.EntityData.SegmentPath = "hi-tec2"
+    hiTec2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiTec2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiTec2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiTec2.EntityData.Children = make(map[string]types.YChild)
+    hiTec2.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiTec2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiTec2.IsDetected}
+    hiTec2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiTec2.Counter}
+    return &(hiTec2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq1
+// Low Laser Differential Frequency Alarm for Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loLaserFreq1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq1) GetEntityData() *types.CommonEntityData {
+    loLaserFreq1.EntityData.YFilter = loLaserFreq1.YFilter
+    loLaserFreq1.EntityData.YangName = "lo-laser-freq1"
+    loLaserFreq1.EntityData.BundleName = "cisco_ios_xr"
+    loLaserFreq1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loLaserFreq1.EntityData.SegmentPath = "lo-laser-freq1"
+    loLaserFreq1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loLaserFreq1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loLaserFreq1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loLaserFreq1.EntityData.Children = make(map[string]types.YChild)
+    loLaserFreq1.EntityData.Leafs = make(map[string]types.YLeaf)
+    loLaserFreq1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loLaserFreq1.IsDetected}
+    loLaserFreq1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loLaserFreq1.Counter}
+    return &(loLaserFreq1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq1
+// High Laser Differential Frequency Alarm for
+// Lane1
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq1 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiLaserFreq1 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq1) GetEntityData() *types.CommonEntityData {
+    hiLaserFreq1.EntityData.YFilter = hiLaserFreq1.YFilter
+    hiLaserFreq1.EntityData.YangName = "hi-laser-freq1"
+    hiLaserFreq1.EntityData.BundleName = "cisco_ios_xr"
+    hiLaserFreq1.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiLaserFreq1.EntityData.SegmentPath = "hi-laser-freq1"
+    hiLaserFreq1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiLaserFreq1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiLaserFreq1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiLaserFreq1.EntityData.Children = make(map[string]types.YChild)
+    hiLaserFreq1.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiLaserFreq1.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiLaserFreq1.IsDetected}
+    hiLaserFreq1.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiLaserFreq1.Counter}
+    return &(hiLaserFreq1.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq2
+// Low Laser Differential Frequency Alarm for Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (loLaserFreq2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_LoLaserFreq2) GetEntityData() *types.CommonEntityData {
+    loLaserFreq2.EntityData.YFilter = loLaserFreq2.YFilter
+    loLaserFreq2.EntityData.YangName = "lo-laser-freq2"
+    loLaserFreq2.EntityData.BundleName = "cisco_ios_xr"
+    loLaserFreq2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    loLaserFreq2.EntityData.SegmentPath = "lo-laser-freq2"
+    loLaserFreq2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    loLaserFreq2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    loLaserFreq2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    loLaserFreq2.EntityData.Children = make(map[string]types.YChild)
+    loLaserFreq2.EntityData.Leafs = make(map[string]types.YLeaf)
+    loLaserFreq2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", loLaserFreq2.IsDetected}
+    loLaserFreq2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", loLaserFreq2.Counter}
+    return &(loLaserFreq2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq2
+// High Laser Differential Frequency Alarm for
+// Lane2
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq2 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiLaserFreq2 *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiLaserFreq2) GetEntityData() *types.CommonEntityData {
+    hiLaserFreq2.EntityData.YFilter = hiLaserFreq2.YFilter
+    hiLaserFreq2.EntityData.YangName = "hi-laser-freq2"
+    hiLaserFreq2.EntityData.BundleName = "cisco_ios_xr"
+    hiLaserFreq2.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiLaserFreq2.EntityData.SegmentPath = "hi-laser-freq2"
+    hiLaserFreq2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiLaserFreq2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiLaserFreq2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiLaserFreq2.EntityData.Children = make(map[string]types.YChild)
+    hiLaserFreq2.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiLaserFreq2.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiLaserFreq2.IsDetected}
+    hiLaserFreq2.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiLaserFreq2.Counter}
+    return &(hiLaserFreq2.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCurAcc
+// High Pre FEC BER Current Accumulated Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCurAcc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPreFecberCurAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCurAcc) GetEntityData() *types.CommonEntityData {
+    hiPreFecberCurAcc.EntityData.YFilter = hiPreFecberCurAcc.YFilter
+    hiPreFecberCurAcc.EntityData.YangName = "hi-pre-fecber-cur-acc"
+    hiPreFecberCurAcc.EntityData.BundleName = "cisco_ios_xr"
+    hiPreFecberCurAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPreFecberCurAcc.EntityData.SegmentPath = "hi-pre-fecber-cur-acc"
+    hiPreFecberCurAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPreFecberCurAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPreFecberCurAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPreFecberCurAcc.EntityData.Children = make(map[string]types.YChild)
+    hiPreFecberCurAcc.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPreFecberCurAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberCurAcc.IsDetected}
+    hiPreFecberCurAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberCurAcc.Counter}
+    return &(hiPreFecberCurAcc.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMin
+// High Pre FEC BER Min Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMin struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPreFecberMin *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMin) GetEntityData() *types.CommonEntityData {
+    hiPreFecberMin.EntityData.YFilter = hiPreFecberMin.YFilter
+    hiPreFecberMin.EntityData.YangName = "hi-pre-fecber-min"
+    hiPreFecberMin.EntityData.BundleName = "cisco_ios_xr"
+    hiPreFecberMin.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPreFecberMin.EntityData.SegmentPath = "hi-pre-fecber-min"
+    hiPreFecberMin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPreFecberMin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPreFecberMin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPreFecberMin.EntityData.Children = make(map[string]types.YChild)
+    hiPreFecberMin.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPreFecberMin.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberMin.IsDetected}
+    hiPreFecberMin.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberMin.Counter}
+    return &(hiPreFecberMin.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMax
+// High Pre FEC BER Max Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMax struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPreFecberMax *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberMax) GetEntityData() *types.CommonEntityData {
+    hiPreFecberMax.EntityData.YFilter = hiPreFecberMax.YFilter
+    hiPreFecberMax.EntityData.YangName = "hi-pre-fecber-max"
+    hiPreFecberMax.EntityData.BundleName = "cisco_ios_xr"
+    hiPreFecberMax.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPreFecberMax.EntityData.SegmentPath = "hi-pre-fecber-max"
+    hiPreFecberMax.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPreFecberMax.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPreFecberMax.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPreFecberMax.EntityData.Children = make(map[string]types.YChild)
+    hiPreFecberMax.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPreFecberMax.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberMax.IsDetected}
+    hiPreFecberMax.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberMax.Counter}
+    return &(hiPreFecberMax.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberPriorAcc
+// High Pre FEC BER Prior Accumulated Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberPriorAcc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPreFecberPriorAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberPriorAcc) GetEntityData() *types.CommonEntityData {
+    hiPreFecberPriorAcc.EntityData.YFilter = hiPreFecberPriorAcc.YFilter
+    hiPreFecberPriorAcc.EntityData.YangName = "hi-pre-fecber-prior-acc"
+    hiPreFecberPriorAcc.EntityData.BundleName = "cisco_ios_xr"
+    hiPreFecberPriorAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPreFecberPriorAcc.EntityData.SegmentPath = "hi-pre-fecber-prior-acc"
+    hiPreFecberPriorAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPreFecberPriorAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPreFecberPriorAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPreFecberPriorAcc.EntityData.Children = make(map[string]types.YChild)
+    hiPreFecberPriorAcc.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPreFecberPriorAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberPriorAcc.IsDetected}
+    hiPreFecberPriorAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberPriorAcc.Counter}
+    return &(hiPreFecberPriorAcc.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCur
+// High Pre FEC BER Current Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCur struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiPreFecberCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiPreFecberCur) GetEntityData() *types.CommonEntityData {
+    hiPreFecberCur.EntityData.YFilter = hiPreFecberCur.YFilter
+    hiPreFecberCur.EntityData.YangName = "hi-pre-fecber-cur"
+    hiPreFecberCur.EntityData.BundleName = "cisco_ios_xr"
+    hiPreFecberCur.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiPreFecberCur.EntityData.SegmentPath = "hi-pre-fecber-cur"
+    hiPreFecberCur.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiPreFecberCur.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiPreFecberCur.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiPreFecberCur.EntityData.Children = make(map[string]types.YChild)
+    hiPreFecberCur.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiPreFecberCur.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiPreFecberCur.IsDetected}
+    hiPreFecberCur.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiPreFecberCur.Counter}
+    return &(hiPreFecberCur.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCurAcc
+// High Uncorrected BER Current Accumulated Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCurAcc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiUncorrectedBerCurAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCurAcc) GetEntityData() *types.CommonEntityData {
+    hiUncorrectedBerCurAcc.EntityData.YFilter = hiUncorrectedBerCurAcc.YFilter
+    hiUncorrectedBerCurAcc.EntityData.YangName = "hi-uncorrected-ber-cur-acc"
+    hiUncorrectedBerCurAcc.EntityData.BundleName = "cisco_ios_xr"
+    hiUncorrectedBerCurAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiUncorrectedBerCurAcc.EntityData.SegmentPath = "hi-uncorrected-ber-cur-acc"
+    hiUncorrectedBerCurAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiUncorrectedBerCurAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiUncorrectedBerCurAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiUncorrectedBerCurAcc.EntityData.Children = make(map[string]types.YChild)
+    hiUncorrectedBerCurAcc.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiUncorrectedBerCurAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerCurAcc.IsDetected}
+    hiUncorrectedBerCurAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerCurAcc.Counter}
+    return &(hiUncorrectedBerCurAcc.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMin
+// High Uncorrected BER Min Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMin struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiUncorrectedBerMin *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMin) GetEntityData() *types.CommonEntityData {
+    hiUncorrectedBerMin.EntityData.YFilter = hiUncorrectedBerMin.YFilter
+    hiUncorrectedBerMin.EntityData.YangName = "hi-uncorrected-ber-min"
+    hiUncorrectedBerMin.EntityData.BundleName = "cisco_ios_xr"
+    hiUncorrectedBerMin.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiUncorrectedBerMin.EntityData.SegmentPath = "hi-uncorrected-ber-min"
+    hiUncorrectedBerMin.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiUncorrectedBerMin.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiUncorrectedBerMin.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiUncorrectedBerMin.EntityData.Children = make(map[string]types.YChild)
+    hiUncorrectedBerMin.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiUncorrectedBerMin.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerMin.IsDetected}
+    hiUncorrectedBerMin.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerMin.Counter}
+    return &(hiUncorrectedBerMin.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMax
+// High Uncorrected BER Max Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMax struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiUncorrectedBerMax *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerMax) GetEntityData() *types.CommonEntityData {
+    hiUncorrectedBerMax.EntityData.YFilter = hiUncorrectedBerMax.YFilter
+    hiUncorrectedBerMax.EntityData.YangName = "hi-uncorrected-ber-max"
+    hiUncorrectedBerMax.EntityData.BundleName = "cisco_ios_xr"
+    hiUncorrectedBerMax.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiUncorrectedBerMax.EntityData.SegmentPath = "hi-uncorrected-ber-max"
+    hiUncorrectedBerMax.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiUncorrectedBerMax.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiUncorrectedBerMax.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiUncorrectedBerMax.EntityData.Children = make(map[string]types.YChild)
+    hiUncorrectedBerMax.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiUncorrectedBerMax.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerMax.IsDetected}
+    hiUncorrectedBerMax.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerMax.Counter}
+    return &(hiUncorrectedBerMax.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerPriorAcc
+// High Uncorrected BER Prior Accumulated Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerPriorAcc struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiUncorrectedBerPriorAcc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerPriorAcc) GetEntityData() *types.CommonEntityData {
+    hiUncorrectedBerPriorAcc.EntityData.YFilter = hiUncorrectedBerPriorAcc.YFilter
+    hiUncorrectedBerPriorAcc.EntityData.YangName = "hi-uncorrected-ber-prior-acc"
+    hiUncorrectedBerPriorAcc.EntityData.BundleName = "cisco_ios_xr"
+    hiUncorrectedBerPriorAcc.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiUncorrectedBerPriorAcc.EntityData.SegmentPath = "hi-uncorrected-ber-prior-acc"
+    hiUncorrectedBerPriorAcc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiUncorrectedBerPriorAcc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiUncorrectedBerPriorAcc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiUncorrectedBerPriorAcc.EntityData.Children = make(map[string]types.YChild)
+    hiUncorrectedBerPriorAcc.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiUncorrectedBerPriorAcc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerPriorAcc.IsDetected}
+    hiUncorrectedBerPriorAcc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerPriorAcc.Counter}
+    return &(hiUncorrectedBerPriorAcc.EntityData)
+}
+
+// OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCur
+// High Uncorrected BER Current Alarm
+type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCur struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Is defect detected?. The type is bool.
+    IsDetected interface{}
+
+    // Alarm counter. The type is interface{} with range: 0..4294967295.
+    Counter interface{}
+}
+
+func (hiUncorrectedBerCur *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_ExtendedAlarmAlarmInfo_HiUncorrectedBerCur) GetEntityData() *types.CommonEntityData {
+    hiUncorrectedBerCur.EntityData.YFilter = hiUncorrectedBerCur.YFilter
+    hiUncorrectedBerCur.EntityData.YangName = "hi-uncorrected-ber-cur"
+    hiUncorrectedBerCur.EntityData.BundleName = "cisco_ios_xr"
+    hiUncorrectedBerCur.EntityData.ParentYangName = "extended-alarm-alarm-info"
+    hiUncorrectedBerCur.EntityData.SegmentPath = "hi-uncorrected-ber-cur"
+    hiUncorrectedBerCur.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    hiUncorrectedBerCur.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    hiUncorrectedBerCur.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    hiUncorrectedBerCur.EntityData.Children = make(map[string]types.YChild)
+    hiUncorrectedBerCur.EntityData.Leafs = make(map[string]types.YLeaf)
+    hiUncorrectedBerCur.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", hiUncorrectedBerCur.IsDetected}
+    hiUncorrectedBerCur.EntityData.Leafs["counter"] = types.YLeaf{"Counter", hiUncorrectedBerCur.Counter}
+    return &(hiUncorrectedBerCur.EntityData)
+}
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData
 // Lane information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The index number of the lane. The type is interface{} with range:
@@ -6683,77 +5307,35 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData struct {
     LaneAlarmInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo
 }
 
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetFilter() yfilter.YFilter { return laneData.YFilter }
+func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetEntityData() *types.CommonEntityData {
+    laneData.EntityData.YFilter = laneData.YFilter
+    laneData.EntityData.YangName = "lane-data"
+    laneData.EntityData.BundleName = "cisco_ios_xr"
+    laneData.EntityData.ParentYangName = "optics-info"
+    laneData.EntityData.SegmentPath = "lane-data"
+    laneData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    laneData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    laneData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) SetFilter(yf yfilter.YFilter) { laneData.YFilter = yf }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetGoName(yname string) string {
-    if yname == "lane-index" { return "LaneIndex" }
-    if yname == "laser-bias-current-percent" { return "LaserBiasCurrentPercent" }
-    if yname == "laser-bias-current-milli-amps" { return "LaserBiasCurrentMilliAmps" }
-    if yname == "transmit-power" { return "TransmitPower" }
-    if yname == "receive-power" { return "ReceivePower" }
-    if yname == "receive-signal-power" { return "ReceiveSignalPower" }
-    if yname == "transmit-signal-power" { return "TransmitSignalPower" }
-    if yname == "output-frequency" { return "OutputFrequency" }
-    if yname == "frequency-offset" { return "FrequencyOffset" }
-    if yname == "lane-alarm-info" { return "LaneAlarmInfo" }
-    return ""
+    laneData.EntityData.Children = make(map[string]types.YChild)
+    laneData.EntityData.Children["lane-alarm-info"] = types.YChild{"LaneAlarmInfo", &laneData.LaneAlarmInfo}
+    laneData.EntityData.Leafs = make(map[string]types.YLeaf)
+    laneData.EntityData.Leafs["lane-index"] = types.YLeaf{"LaneIndex", laneData.LaneIndex}
+    laneData.EntityData.Leafs["laser-bias-current-percent"] = types.YLeaf{"LaserBiasCurrentPercent", laneData.LaserBiasCurrentPercent}
+    laneData.EntityData.Leafs["laser-bias-current-milli-amps"] = types.YLeaf{"LaserBiasCurrentMilliAmps", laneData.LaserBiasCurrentMilliAmps}
+    laneData.EntityData.Leafs["transmit-power"] = types.YLeaf{"TransmitPower", laneData.TransmitPower}
+    laneData.EntityData.Leafs["receive-power"] = types.YLeaf{"ReceivePower", laneData.ReceivePower}
+    laneData.EntityData.Leafs["receive-signal-power"] = types.YLeaf{"ReceiveSignalPower", laneData.ReceiveSignalPower}
+    laneData.EntityData.Leafs["transmit-signal-power"] = types.YLeaf{"TransmitSignalPower", laneData.TransmitSignalPower}
+    laneData.EntityData.Leafs["output-frequency"] = types.YLeaf{"OutputFrequency", laneData.OutputFrequency}
+    laneData.EntityData.Leafs["frequency-offset"] = types.YLeaf{"FrequencyOffset", laneData.FrequencyOffset}
+    return &(laneData.EntityData)
 }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetSegmentPath() string {
-    return "lane-data"
-}
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lane-alarm-info" {
-        return &laneData.LaneAlarmInfo
-    }
-    return nil
-}
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lane-alarm-info"] = &laneData.LaneAlarmInfo
-    return children
-}
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lane-index"] = laneData.LaneIndex
-    leafs["laser-bias-current-percent"] = laneData.LaserBiasCurrentPercent
-    leafs["laser-bias-current-milli-amps"] = laneData.LaserBiasCurrentMilliAmps
-    leafs["transmit-power"] = laneData.TransmitPower
-    leafs["receive-power"] = laneData.ReceivePower
-    leafs["receive-signal-power"] = laneData.ReceiveSignalPower
-    leafs["transmit-signal-power"] = laneData.TransmitSignalPower
-    leafs["output-frequency"] = laneData.OutputFrequency
-    leafs["frequency-offset"] = laneData.FrequencyOffset
-    return leafs
-}
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetBundleName() string { return "cisco_ios_xr" }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetYangName() string { return "lane-data" }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) SetParent(parent types.Entity) { laneData.parent = parent }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetParent() types.Entity { return laneData.parent }
-
-func (laneData *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData) GetParentYangName() string { return "optics-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo
 // Lane Alarm Information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // High Rx Power.
@@ -6772,79 +5354,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo struct 
     HighLbc OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc
 }
 
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetFilter() yfilter.YFilter { return laneAlarmInfo.YFilter }
+func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetEntityData() *types.CommonEntityData {
+    laneAlarmInfo.EntityData.YFilter = laneAlarmInfo.YFilter
+    laneAlarmInfo.EntityData.YangName = "lane-alarm-info"
+    laneAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    laneAlarmInfo.EntityData.ParentYangName = "lane-data"
+    laneAlarmInfo.EntityData.SegmentPath = "lane-alarm-info"
+    laneAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    laneAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    laneAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) SetFilter(yf yfilter.YFilter) { laneAlarmInfo.YFilter = yf }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetGoName(yname string) string {
-    if yname == "high-rx-power" { return "HighRxPower" }
-    if yname == "low-rx-power" { return "LowRxPower" }
-    if yname == "high-tx-power" { return "HighTxPower" }
-    if yname == "low-tx-power" { return "LowTxPower" }
-    if yname == "high-lbc" { return "HighLbc" }
-    return ""
+    laneAlarmInfo.EntityData.Children = make(map[string]types.YChild)
+    laneAlarmInfo.EntityData.Children["high-rx-power"] = types.YChild{"HighRxPower", &laneAlarmInfo.HighRxPower}
+    laneAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &laneAlarmInfo.LowRxPower}
+    laneAlarmInfo.EntityData.Children["high-tx-power"] = types.YChild{"HighTxPower", &laneAlarmInfo.HighTxPower}
+    laneAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &laneAlarmInfo.LowTxPower}
+    laneAlarmInfo.EntityData.Children["high-lbc"] = types.YChild{"HighLbc", &laneAlarmInfo.HighLbc}
+    laneAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(laneAlarmInfo.EntityData)
 }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetSegmentPath() string {
-    return "lane-alarm-info"
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "high-rx-power" {
-        return &laneAlarmInfo.HighRxPower
-    }
-    if childYangName == "low-rx-power" {
-        return &laneAlarmInfo.LowRxPower
-    }
-    if childYangName == "high-tx-power" {
-        return &laneAlarmInfo.HighTxPower
-    }
-    if childYangName == "low-tx-power" {
-        return &laneAlarmInfo.LowTxPower
-    }
-    if childYangName == "high-lbc" {
-        return &laneAlarmInfo.HighLbc
-    }
-    return nil
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["high-rx-power"] = &laneAlarmInfo.HighRxPower
-    children["low-rx-power"] = &laneAlarmInfo.LowRxPower
-    children["high-tx-power"] = &laneAlarmInfo.HighTxPower
-    children["low-tx-power"] = &laneAlarmInfo.LowTxPower
-    children["high-lbc"] = &laneAlarmInfo.HighLbc
-    return children
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetYangName() string { return "lane-alarm-info" }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) SetParent(parent types.Entity) { laneAlarmInfo.parent = parent }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetParent() types.Entity { return laneAlarmInfo.parent }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo) GetParentYangName() string { return "lane-data" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower
 // High Rx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -6854,58 +5387,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxP
     Counter interface{}
 }
 
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetFilter() yfilter.YFilter { return highRxPower.YFilter }
+func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetEntityData() *types.CommonEntityData {
+    highRxPower.EntityData.YFilter = highRxPower.YFilter
+    highRxPower.EntityData.YangName = "high-rx-power"
+    highRxPower.EntityData.BundleName = "cisco_ios_xr"
+    highRxPower.EntityData.ParentYangName = "lane-alarm-info"
+    highRxPower.EntityData.SegmentPath = "high-rx-power"
+    highRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) SetFilter(yf yfilter.YFilter) { highRxPower.YFilter = yf }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRxPower.EntityData.Children = make(map[string]types.YChild)
+    highRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRxPower.IsDetected}
+    highRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRxPower.Counter}
+    return &(highRxPower.EntityData)
 }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetSegmentPath() string {
-    return "high-rx-power"
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRxPower.IsDetected
-    leafs["counter"] = highRxPower.Counter
-    return leafs
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetYangName() string { return "high-rx-power" }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) SetParent(parent types.Entity) { highRxPower.parent = parent }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetParent() types.Entity { return highRxPower.parent }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighRxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower
 // Low Rx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -6915,58 +5417,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPo
     Counter interface{}
 }
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetFilter() yfilter.YFilter { return lowRxPower.YFilter }
+func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetEntityData() *types.CommonEntityData {
+    lowRxPower.EntityData.YFilter = lowRxPower.YFilter
+    lowRxPower.EntityData.YangName = "low-rx-power"
+    lowRxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowRxPower.EntityData.ParentYangName = "lane-alarm-info"
+    lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) SetFilter(yf yfilter.YFilter) { lowRxPower.YFilter = yf }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRxPower.EntityData.Children = make(map[string]types.YChild)
+    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
+    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    return &(lowRxPower.EntityData)
 }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetSegmentPath() string {
-    return "low-rx-power"
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRxPower.IsDetected
-    leafs["counter"] = lowRxPower.Counter
-    return leafs
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetYangName() string { return "low-rx-power" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) SetParent(parent types.Entity) { lowRxPower.parent = parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetParent() types.Entity { return lowRxPower.parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowRxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower
 // High Tx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -6976,58 +5447,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxP
     Counter interface{}
 }
 
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetFilter() yfilter.YFilter { return highTxPower.YFilter }
+func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetEntityData() *types.CommonEntityData {
+    highTxPower.EntityData.YFilter = highTxPower.YFilter
+    highTxPower.EntityData.YangName = "high-tx-power"
+    highTxPower.EntityData.BundleName = "cisco_ios_xr"
+    highTxPower.EntityData.ParentYangName = "lane-alarm-info"
+    highTxPower.EntityData.SegmentPath = "high-tx-power"
+    highTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) SetFilter(yf yfilter.YFilter) { highTxPower.YFilter = yf }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTxPower.EntityData.Children = make(map[string]types.YChild)
+    highTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTxPower.IsDetected}
+    highTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTxPower.Counter}
+    return &(highTxPower.EntityData)
 }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetSegmentPath() string {
-    return "high-tx-power"
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTxPower.IsDetected
-    leafs["counter"] = highTxPower.Counter
-    return leafs
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetYangName() string { return "high-tx-power" }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) SetParent(parent types.Entity) { highTxPower.parent = parent }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetParent() types.Entity { return highTxPower.parent }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighTxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower
 // Low Tx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7037,58 +5477,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPo
     Counter interface{}
 }
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetFilter() yfilter.YFilter { return lowTxPower.YFilter }
+func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetEntityData() *types.CommonEntityData {
+    lowTxPower.EntityData.YFilter = lowTxPower.YFilter
+    lowTxPower.EntityData.YangName = "low-tx-power"
+    lowTxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowTxPower.EntityData.ParentYangName = "lane-alarm-info"
+    lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) SetFilter(yf yfilter.YFilter) { lowTxPower.YFilter = yf }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTxPower.EntityData.Children = make(map[string]types.YChild)
+    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
+    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    return &(lowTxPower.EntityData)
 }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetSegmentPath() string {
-    return "low-tx-power"
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTxPower.IsDetected
-    leafs["counter"] = lowTxPower.Counter
-    return leafs
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetYangName() string { return "low-tx-power" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) SetParent(parent types.Entity) { lowTxPower.parent = parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetParent() types.Entity { return lowTxPower.parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_LowTxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc
 // High laser bias current
 type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7098,58 +5507,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc
     Counter interface{}
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetFilter() yfilter.YFilter { return highLbc.YFilter }
+func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetEntityData() *types.CommonEntityData {
+    highLbc.EntityData.YFilter = highLbc.YFilter
+    highLbc.EntityData.YangName = "high-lbc"
+    highLbc.EntityData.BundleName = "cisco_ios_xr"
+    highLbc.EntityData.ParentYangName = "lane-alarm-info"
+    highLbc.EntityData.SegmentPath = "high-lbc"
+    highLbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) SetFilter(yf yfilter.YFilter) { highLbc.YFilter = yf }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highLbc.EntityData.Children = make(map[string]types.YChild)
+    highLbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highLbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highLbc.IsDetected}
+    highLbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highLbc.Counter}
+    return &(highLbc.EntityData)
 }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetSegmentPath() string {
-    return "high-lbc"
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highLbc.IsDetected
-    leafs["counter"] = highLbc.Counter
-    return leafs
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetYangName() string { return "high-lbc" }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) SetParent(parent types.Entity) { highLbc.parent = parent }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetParent() types.Entity { return highLbc.parent }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_LaneData_LaneAlarmInfo_HighLbc) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes
 // All Optics Port operational data
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Lane Information. The type is slice of
@@ -7157,68 +5535,29 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes struct {
     OpticsLane []OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane
 }
 
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetFilter() yfilter.YFilter { return opticsLanes.YFilter }
+func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetEntityData() *types.CommonEntityData {
+    opticsLanes.EntityData.YFilter = opticsLanes.YFilter
+    opticsLanes.EntityData.YangName = "optics-lanes"
+    opticsLanes.EntityData.BundleName = "cisco_ios_xr"
+    opticsLanes.EntityData.ParentYangName = "optics-port"
+    opticsLanes.EntityData.SegmentPath = "optics-lanes"
+    opticsLanes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsLanes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsLanes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) SetFilter(yf yfilter.YFilter) { opticsLanes.YFilter = yf }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetGoName(yname string) string {
-    if yname == "optics-lane" { return "OpticsLane" }
-    return ""
-}
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetSegmentPath() string {
-    return "optics-lanes"
-}
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "optics-lane" {
-        for _, c := range opticsLanes.OpticsLane {
-            if opticsLanes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane{}
-        opticsLanes.OpticsLane = append(opticsLanes.OpticsLane, child)
-        return &opticsLanes.OpticsLane[len(opticsLanes.OpticsLane)-1]
-    }
-    return nil
-}
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    opticsLanes.EntityData.Children = make(map[string]types.YChild)
+    opticsLanes.EntityData.Children["optics-lane"] = types.YChild{"OpticsLane", nil}
     for i := range opticsLanes.OpticsLane {
-        children[opticsLanes.OpticsLane[i].GetSegmentPath()] = &opticsLanes.OpticsLane[i]
+        opticsLanes.EntityData.Children[types.GetSegmentPath(&opticsLanes.OpticsLane[i])] = types.YChild{"OpticsLane", &opticsLanes.OpticsLane[i]}
     }
-    return children
+    opticsLanes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(opticsLanes.EntityData)
 }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetYangName() string { return "optics-lanes" }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) SetParent(parent types.Entity) { opticsLanes.parent = parent }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetParent() types.Entity { return opticsLanes.parent }
-
-func (opticsLanes *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes) GetParentYangName() string { return "optics-port" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane
 // Lane Information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Lane Index. The type is interface{} with range:
@@ -7265,79 +5604,36 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane struct {
     LaneAlarmInfo OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo
 }
 
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetFilter() yfilter.YFilter { return opticsLane.YFilter }
+func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetEntityData() *types.CommonEntityData {
+    opticsLane.EntityData.YFilter = opticsLane.YFilter
+    opticsLane.EntityData.YangName = "optics-lane"
+    opticsLane.EntityData.BundleName = "cisco_ios_xr"
+    opticsLane.EntityData.ParentYangName = "optics-lanes"
+    opticsLane.EntityData.SegmentPath = "optics-lane" + "[number='" + fmt.Sprintf("%v", opticsLane.Number) + "']"
+    opticsLane.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsLane.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsLane.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) SetFilter(yf yfilter.YFilter) { opticsLane.YFilter = yf }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetGoName(yname string) string {
-    if yname == "number" { return "Number" }
-    if yname == "lane-index" { return "LaneIndex" }
-    if yname == "laser-bias-current-percent" { return "LaserBiasCurrentPercent" }
-    if yname == "laser-bias-current-milli-amps" { return "LaserBiasCurrentMilliAmps" }
-    if yname == "transmit-power" { return "TransmitPower" }
-    if yname == "receive-power" { return "ReceivePower" }
-    if yname == "receive-signal-power" { return "ReceiveSignalPower" }
-    if yname == "transmit-signal-power" { return "TransmitSignalPower" }
-    if yname == "output-frequency" { return "OutputFrequency" }
-    if yname == "frequency-offset" { return "FrequencyOffset" }
-    if yname == "lane-alarm-info" { return "LaneAlarmInfo" }
-    return ""
+    opticsLane.EntityData.Children = make(map[string]types.YChild)
+    opticsLane.EntityData.Children["lane-alarm-info"] = types.YChild{"LaneAlarmInfo", &opticsLane.LaneAlarmInfo}
+    opticsLane.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsLane.EntityData.Leafs["number"] = types.YLeaf{"Number", opticsLane.Number}
+    opticsLane.EntityData.Leafs["lane-index"] = types.YLeaf{"LaneIndex", opticsLane.LaneIndex}
+    opticsLane.EntityData.Leafs["laser-bias-current-percent"] = types.YLeaf{"LaserBiasCurrentPercent", opticsLane.LaserBiasCurrentPercent}
+    opticsLane.EntityData.Leafs["laser-bias-current-milli-amps"] = types.YLeaf{"LaserBiasCurrentMilliAmps", opticsLane.LaserBiasCurrentMilliAmps}
+    opticsLane.EntityData.Leafs["transmit-power"] = types.YLeaf{"TransmitPower", opticsLane.TransmitPower}
+    opticsLane.EntityData.Leafs["receive-power"] = types.YLeaf{"ReceivePower", opticsLane.ReceivePower}
+    opticsLane.EntityData.Leafs["receive-signal-power"] = types.YLeaf{"ReceiveSignalPower", opticsLane.ReceiveSignalPower}
+    opticsLane.EntityData.Leafs["transmit-signal-power"] = types.YLeaf{"TransmitSignalPower", opticsLane.TransmitSignalPower}
+    opticsLane.EntityData.Leafs["output-frequency"] = types.YLeaf{"OutputFrequency", opticsLane.OutputFrequency}
+    opticsLane.EntityData.Leafs["frequency-offset"] = types.YLeaf{"FrequencyOffset", opticsLane.FrequencyOffset}
+    return &(opticsLane.EntityData)
 }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetSegmentPath() string {
-    return "optics-lane" + "[number='" + fmt.Sprintf("%v", opticsLane.Number) + "']"
-}
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lane-alarm-info" {
-        return &opticsLane.LaneAlarmInfo
-    }
-    return nil
-}
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lane-alarm-info"] = &opticsLane.LaneAlarmInfo
-    return children
-}
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["number"] = opticsLane.Number
-    leafs["lane-index"] = opticsLane.LaneIndex
-    leafs["laser-bias-current-percent"] = opticsLane.LaserBiasCurrentPercent
-    leafs["laser-bias-current-milli-amps"] = opticsLane.LaserBiasCurrentMilliAmps
-    leafs["transmit-power"] = opticsLane.TransmitPower
-    leafs["receive-power"] = opticsLane.ReceivePower
-    leafs["receive-signal-power"] = opticsLane.ReceiveSignalPower
-    leafs["transmit-signal-power"] = opticsLane.TransmitSignalPower
-    leafs["output-frequency"] = opticsLane.OutputFrequency
-    leafs["frequency-offset"] = opticsLane.FrequencyOffset
-    return leafs
-}
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetYangName() string { return "optics-lane" }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) SetParent(parent types.Entity) { opticsLane.parent = parent }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetParent() types.Entity { return opticsLane.parent }
-
-func (opticsLane *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane) GetParentYangName() string { return "optics-lanes" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo
 // Lane Alarm Information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // High Rx Power.
@@ -7356,79 +5652,30 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo stru
     HighLbc OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc
 }
 
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetFilter() yfilter.YFilter { return laneAlarmInfo.YFilter }
+func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetEntityData() *types.CommonEntityData {
+    laneAlarmInfo.EntityData.YFilter = laneAlarmInfo.YFilter
+    laneAlarmInfo.EntityData.YangName = "lane-alarm-info"
+    laneAlarmInfo.EntityData.BundleName = "cisco_ios_xr"
+    laneAlarmInfo.EntityData.ParentYangName = "optics-lane"
+    laneAlarmInfo.EntityData.SegmentPath = "lane-alarm-info"
+    laneAlarmInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    laneAlarmInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    laneAlarmInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) SetFilter(yf yfilter.YFilter) { laneAlarmInfo.YFilter = yf }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetGoName(yname string) string {
-    if yname == "high-rx-power" { return "HighRxPower" }
-    if yname == "low-rx-power" { return "LowRxPower" }
-    if yname == "high-tx-power" { return "HighTxPower" }
-    if yname == "low-tx-power" { return "LowTxPower" }
-    if yname == "high-lbc" { return "HighLbc" }
-    return ""
+    laneAlarmInfo.EntityData.Children = make(map[string]types.YChild)
+    laneAlarmInfo.EntityData.Children["high-rx-power"] = types.YChild{"HighRxPower", &laneAlarmInfo.HighRxPower}
+    laneAlarmInfo.EntityData.Children["low-rx-power"] = types.YChild{"LowRxPower", &laneAlarmInfo.LowRxPower}
+    laneAlarmInfo.EntityData.Children["high-tx-power"] = types.YChild{"HighTxPower", &laneAlarmInfo.HighTxPower}
+    laneAlarmInfo.EntityData.Children["low-tx-power"] = types.YChild{"LowTxPower", &laneAlarmInfo.LowTxPower}
+    laneAlarmInfo.EntityData.Children["high-lbc"] = types.YChild{"HighLbc", &laneAlarmInfo.HighLbc}
+    laneAlarmInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(laneAlarmInfo.EntityData)
 }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetSegmentPath() string {
-    return "lane-alarm-info"
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "high-rx-power" {
-        return &laneAlarmInfo.HighRxPower
-    }
-    if childYangName == "low-rx-power" {
-        return &laneAlarmInfo.LowRxPower
-    }
-    if childYangName == "high-tx-power" {
-        return &laneAlarmInfo.HighTxPower
-    }
-    if childYangName == "low-tx-power" {
-        return &laneAlarmInfo.LowTxPower
-    }
-    if childYangName == "high-lbc" {
-        return &laneAlarmInfo.HighLbc
-    }
-    return nil
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["high-rx-power"] = &laneAlarmInfo.HighRxPower
-    children["low-rx-power"] = &laneAlarmInfo.LowRxPower
-    children["high-tx-power"] = &laneAlarmInfo.HighTxPower
-    children["low-tx-power"] = &laneAlarmInfo.LowTxPower
-    children["high-lbc"] = &laneAlarmInfo.HighLbc
-    return children
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetYangName() string { return "lane-alarm-info" }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) SetParent(parent types.Entity) { laneAlarmInfo.parent = parent }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetParent() types.Entity { return laneAlarmInfo.parent }
-
-func (laneAlarmInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo) GetParentYangName() string { return "optics-lane" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower
 // High Rx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7438,58 +5685,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_High
     Counter interface{}
 }
 
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetFilter() yfilter.YFilter { return highRxPower.YFilter }
+func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetEntityData() *types.CommonEntityData {
+    highRxPower.EntityData.YFilter = highRxPower.YFilter
+    highRxPower.EntityData.YangName = "high-rx-power"
+    highRxPower.EntityData.BundleName = "cisco_ios_xr"
+    highRxPower.EntityData.ParentYangName = "lane-alarm-info"
+    highRxPower.EntityData.SegmentPath = "high-rx-power"
+    highRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) SetFilter(yf yfilter.YFilter) { highRxPower.YFilter = yf }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highRxPower.EntityData.Children = make(map[string]types.YChild)
+    highRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    highRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highRxPower.IsDetected}
+    highRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highRxPower.Counter}
+    return &(highRxPower.EntityData)
 }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetSegmentPath() string {
-    return "high-rx-power"
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highRxPower.IsDetected
-    leafs["counter"] = highRxPower.Counter
-    return leafs
-}
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetYangName() string { return "high-rx-power" }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) SetParent(parent types.Entity) { highRxPower.parent = parent }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetParent() types.Entity { return highRxPower.parent }
-
-func (highRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighRxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower
 // Low Rx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7499,58 +5715,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowR
     Counter interface{}
 }
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetFilter() yfilter.YFilter { return lowRxPower.YFilter }
+func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetEntityData() *types.CommonEntityData {
+    lowRxPower.EntityData.YFilter = lowRxPower.YFilter
+    lowRxPower.EntityData.YangName = "low-rx-power"
+    lowRxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowRxPower.EntityData.ParentYangName = "lane-alarm-info"
+    lowRxPower.EntityData.SegmentPath = "low-rx-power"
+    lowRxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowRxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowRxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) SetFilter(yf yfilter.YFilter) { lowRxPower.YFilter = yf }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowRxPower.EntityData.Children = make(map[string]types.YChild)
+    lowRxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowRxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowRxPower.IsDetected}
+    lowRxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowRxPower.Counter}
+    return &(lowRxPower.EntityData)
 }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetSegmentPath() string {
-    return "low-rx-power"
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowRxPower.IsDetected
-    leafs["counter"] = lowRxPower.Counter
-    return leafs
-}
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetYangName() string { return "low-rx-power" }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) SetParent(parent types.Entity) { lowRxPower.parent = parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetParent() types.Entity { return lowRxPower.parent }
-
-func (lowRxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowRxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower
 // High Tx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7560,58 +5745,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_High
     Counter interface{}
 }
 
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetFilter() yfilter.YFilter { return highTxPower.YFilter }
+func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetEntityData() *types.CommonEntityData {
+    highTxPower.EntityData.YFilter = highTxPower.YFilter
+    highTxPower.EntityData.YangName = "high-tx-power"
+    highTxPower.EntityData.BundleName = "cisco_ios_xr"
+    highTxPower.EntityData.ParentYangName = "lane-alarm-info"
+    highTxPower.EntityData.SegmentPath = "high-tx-power"
+    highTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) SetFilter(yf yfilter.YFilter) { highTxPower.YFilter = yf }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highTxPower.EntityData.Children = make(map[string]types.YChild)
+    highTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    highTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highTxPower.IsDetected}
+    highTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highTxPower.Counter}
+    return &(highTxPower.EntityData)
 }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetSegmentPath() string {
-    return "high-tx-power"
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highTxPower.IsDetected
-    leafs["counter"] = highTxPower.Counter
-    return leafs
-}
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetYangName() string { return "high-tx-power" }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) SetParent(parent types.Entity) { highTxPower.parent = parent }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetParent() types.Entity { return highTxPower.parent }
-
-func (highTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighTxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower
 // Low Tx Power
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7621,58 +5775,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowT
     Counter interface{}
 }
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetFilter() yfilter.YFilter { return lowTxPower.YFilter }
+func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetEntityData() *types.CommonEntityData {
+    lowTxPower.EntityData.YFilter = lowTxPower.YFilter
+    lowTxPower.EntityData.YangName = "low-tx-power"
+    lowTxPower.EntityData.BundleName = "cisco_ios_xr"
+    lowTxPower.EntityData.ParentYangName = "lane-alarm-info"
+    lowTxPower.EntityData.SegmentPath = "low-tx-power"
+    lowTxPower.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lowTxPower.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lowTxPower.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) SetFilter(yf yfilter.YFilter) { lowTxPower.YFilter = yf }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    lowTxPower.EntityData.Children = make(map[string]types.YChild)
+    lowTxPower.EntityData.Leafs = make(map[string]types.YLeaf)
+    lowTxPower.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", lowTxPower.IsDetected}
+    lowTxPower.EntityData.Leafs["counter"] = types.YLeaf{"Counter", lowTxPower.Counter}
+    return &(lowTxPower.EntityData)
 }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetSegmentPath() string {
-    return "low-tx-power"
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = lowTxPower.IsDetected
-    leafs["counter"] = lowTxPower.Counter
-    return leafs
-}
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetYangName() string { return "low-tx-power" }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) SetParent(parent types.Entity) { lowTxPower.parent = parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetParent() types.Entity { return lowTxPower.parent }
-
-func (lowTxPower *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_LowTxPower) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc
 // High laser bias current
 type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Is defect detected?. The type is bool.
@@ -7682,58 +5805,27 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_High
     Counter interface{}
 }
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetFilter() yfilter.YFilter { return highLbc.YFilter }
+func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetEntityData() *types.CommonEntityData {
+    highLbc.EntityData.YFilter = highLbc.YFilter
+    highLbc.EntityData.YangName = "high-lbc"
+    highLbc.EntityData.BundleName = "cisco_ios_xr"
+    highLbc.EntityData.ParentYangName = "lane-alarm-info"
+    highLbc.EntityData.SegmentPath = "high-lbc"
+    highLbc.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    highLbc.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    highLbc.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) SetFilter(yf yfilter.YFilter) { highLbc.YFilter = yf }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetGoName(yname string) string {
-    if yname == "is-detected" { return "IsDetected" }
-    if yname == "counter" { return "Counter" }
-    return ""
+    highLbc.EntityData.Children = make(map[string]types.YChild)
+    highLbc.EntityData.Leafs = make(map[string]types.YLeaf)
+    highLbc.EntityData.Leafs["is-detected"] = types.YLeaf{"IsDetected", highLbc.IsDetected}
+    highLbc.EntityData.Leafs["counter"] = types.YLeaf{"Counter", highLbc.Counter}
+    return &(highLbc.EntityData)
 }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetSegmentPath() string {
-    return "high-lbc"
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-detected"] = highLbc.IsDetected
-    leafs["counter"] = highLbc.Counter
-    return leafs
-}
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetBundleName() string { return "cisco_ios_xr" }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetYangName() string { return "high-lbc" }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) SetParent(parent types.Entity) { highLbc.parent = parent }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetParent() types.Entity { return highLbc.parent }
-
-func (highLbc *OpticsOper_OpticsPorts_OpticsPort_OpticsLanes_OpticsLane_LaneAlarmInfo_HighLbc) GetParentYangName() string { return "lane-alarm-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo
 // Optics operational data
 type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Transport Admin State. The type is OpticsTas.
@@ -7747,63 +5839,28 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo struct {
     NetworkSrlgInfo OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo
 }
 
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetFilter() yfilter.YFilter { return opticsDbInfo.YFilter }
+func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetEntityData() *types.CommonEntityData {
+    opticsDbInfo.EntityData.YFilter = opticsDbInfo.YFilter
+    opticsDbInfo.EntityData.YangName = "optics-db-info"
+    opticsDbInfo.EntityData.BundleName = "cisco_ios_xr"
+    opticsDbInfo.EntityData.ParentYangName = "optics-port"
+    opticsDbInfo.EntityData.SegmentPath = "optics-db-info"
+    opticsDbInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    opticsDbInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    opticsDbInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) SetFilter(yf yfilter.YFilter) { opticsDbInfo.YFilter = yf }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetGoName(yname string) string {
-    if yname == "transport-admin-state" { return "TransportAdminState" }
-    if yname == "controller-state" { return "ControllerState" }
-    if yname == "network-srlg-info" { return "NetworkSrlgInfo" }
-    return ""
+    opticsDbInfo.EntityData.Children = make(map[string]types.YChild)
+    opticsDbInfo.EntityData.Children["network-srlg-info"] = types.YChild{"NetworkSrlgInfo", &opticsDbInfo.NetworkSrlgInfo}
+    opticsDbInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    opticsDbInfo.EntityData.Leafs["transport-admin-state"] = types.YLeaf{"TransportAdminState", opticsDbInfo.TransportAdminState}
+    opticsDbInfo.EntityData.Leafs["controller-state"] = types.YLeaf{"ControllerState", opticsDbInfo.ControllerState}
+    return &(opticsDbInfo.EntityData)
 }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetSegmentPath() string {
-    return "optics-db-info"
-}
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "network-srlg-info" {
-        return &opticsDbInfo.NetworkSrlgInfo
-    }
-    return nil
-}
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["network-srlg-info"] = &opticsDbInfo.NetworkSrlgInfo
-    return children
-}
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["transport-admin-state"] = opticsDbInfo.TransportAdminState
-    leafs["controller-state"] = opticsDbInfo.ControllerState
-    return leafs
-}
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetYangName() string { return "optics-db-info" }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) SetParent(parent types.Entity) { opticsDbInfo.parent = parent }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetParent() types.Entity { return opticsDbInfo.parent }
-
-func (opticsDbInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo) GetParentYangName() string { return "optics-port" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo
 // Network SRLG information
 type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Network Srlg Array. The type is slice of
@@ -7811,68 +5868,29 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo struct {
     NetworkSrlgArray []OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray
 }
 
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetFilter() yfilter.YFilter { return networkSrlgInfo.YFilter }
+func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetEntityData() *types.CommonEntityData {
+    networkSrlgInfo.EntityData.YFilter = networkSrlgInfo.YFilter
+    networkSrlgInfo.EntityData.YangName = "network-srlg-info"
+    networkSrlgInfo.EntityData.BundleName = "cisco_ios_xr"
+    networkSrlgInfo.EntityData.ParentYangName = "optics-db-info"
+    networkSrlgInfo.EntityData.SegmentPath = "network-srlg-info"
+    networkSrlgInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networkSrlgInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networkSrlgInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) SetFilter(yf yfilter.YFilter) { networkSrlgInfo.YFilter = yf }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetGoName(yname string) string {
-    if yname == "network-srlg-array" { return "NetworkSrlgArray" }
-    return ""
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetSegmentPath() string {
-    return "network-srlg-info"
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "network-srlg-array" {
-        for _, c := range networkSrlgInfo.NetworkSrlgArray {
-            if networkSrlgInfo.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray{}
-        networkSrlgInfo.NetworkSrlgArray = append(networkSrlgInfo.NetworkSrlgArray, child)
-        return &networkSrlgInfo.NetworkSrlgArray[len(networkSrlgInfo.NetworkSrlgArray)-1]
-    }
-    return nil
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    networkSrlgInfo.EntityData.Children = make(map[string]types.YChild)
+    networkSrlgInfo.EntityData.Children["network-srlg-array"] = types.YChild{"NetworkSrlgArray", nil}
     for i := range networkSrlgInfo.NetworkSrlgArray {
-        children[networkSrlgInfo.NetworkSrlgArray[i].GetSegmentPath()] = &networkSrlgInfo.NetworkSrlgArray[i]
+        networkSrlgInfo.EntityData.Children[types.GetSegmentPath(&networkSrlgInfo.NetworkSrlgArray[i])] = types.YChild{"NetworkSrlgArray", &networkSrlgInfo.NetworkSrlgArray[i]}
     }
-    return children
+    networkSrlgInfo.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(networkSrlgInfo.EntityData)
 }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetYangName() string { return "network-srlg-info" }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) SetParent(parent types.Entity) { networkSrlgInfo.parent = parent }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetParent() types.Entity { return networkSrlgInfo.parent }
-
-func (networkSrlgInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo) GetParentYangName() string { return "optics-db-info" }
 
 // OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray
 // Network Srlg Array
 type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Array to maintain set number. The type is interface{} with range:
@@ -7883,51 +5901,20 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgA
     NetworkSrlg []interface{}
 }
 
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetFilter() yfilter.YFilter { return networkSrlgArray.YFilter }
+func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetEntityData() *types.CommonEntityData {
+    networkSrlgArray.EntityData.YFilter = networkSrlgArray.YFilter
+    networkSrlgArray.EntityData.YangName = "network-srlg-array"
+    networkSrlgArray.EntityData.BundleName = "cisco_ios_xr"
+    networkSrlgArray.EntityData.ParentYangName = "network-srlg-info"
+    networkSrlgArray.EntityData.SegmentPath = "network-srlg-array"
+    networkSrlgArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    networkSrlgArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    networkSrlgArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) SetFilter(yf yfilter.YFilter) { networkSrlgArray.YFilter = yf }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetGoName(yname string) string {
-    if yname == "set-number" { return "SetNumber" }
-    if yname == "network-srlg" { return "NetworkSrlg" }
-    return ""
+    networkSrlgArray.EntityData.Children = make(map[string]types.YChild)
+    networkSrlgArray.EntityData.Leafs = make(map[string]types.YLeaf)
+    networkSrlgArray.EntityData.Leafs["set-number"] = types.YLeaf{"SetNumber", networkSrlgArray.SetNumber}
+    networkSrlgArray.EntityData.Leafs["network-srlg"] = types.YLeaf{"NetworkSrlg", networkSrlgArray.NetworkSrlg}
+    return &(networkSrlgArray.EntityData)
 }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetSegmentPath() string {
-    return "network-srlg-array"
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["set-number"] = networkSrlgArray.SetNumber
-    leafs["network-srlg"] = networkSrlgArray.NetworkSrlg
-    return leafs
-}
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetBundleName() string { return "cisco_ios_xr" }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetYangName() string { return "network-srlg-array" }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) SetParent(parent types.Entity) { networkSrlgArray.parent = parent }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetParent() types.Entity { return networkSrlgArray.parent }
-
-func (networkSrlgArray *OpticsOper_OpticsPorts_OpticsPort_OpticsDbInfo_NetworkSrlgInfo_NetworkSrlgArray) GetParentYangName() string { return "network-srlg-info" }
 

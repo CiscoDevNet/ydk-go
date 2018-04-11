@@ -31,7 +31,7 @@ func init() {
 // IpUdp
 // Global IP UDP configuration
 type IpUdp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // UDP receive Queue Size. The type is interface{} with range: 40..800.
@@ -44,67 +44,29 @@ type IpUdp struct {
     Directory IpUdp_Directory
 }
 
-func (ipUdp *IpUdp) GetFilter() yfilter.YFilter { return ipUdp.YFilter }
+func (ipUdp *IpUdp) GetEntityData() *types.CommonEntityData {
+    ipUdp.EntityData.YFilter = ipUdp.YFilter
+    ipUdp.EntityData.YangName = "ip-udp"
+    ipUdp.EntityData.BundleName = "cisco_ios_xr"
+    ipUdp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-udp-cfg"
+    ipUdp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-cfg:ip-udp"
+    ipUdp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipUdp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipUdp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipUdp *IpUdp) SetFilter(yf yfilter.YFilter) { ipUdp.YFilter = yf }
-
-func (ipUdp *IpUdp) GetGoName(yname string) string {
-    if yname == "receive-q" { return "ReceiveQ" }
-    if yname == "num-thread" { return "NumThread" }
-    if yname == "directory" { return "Directory" }
-    return ""
+    ipUdp.EntityData.Children = make(map[string]types.YChild)
+    ipUdp.EntityData.Children["num-thread"] = types.YChild{"NumThread", &ipUdp.NumThread}
+    ipUdp.EntityData.Children["directory"] = types.YChild{"Directory", &ipUdp.Directory}
+    ipUdp.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipUdp.EntityData.Leafs["receive-q"] = types.YLeaf{"ReceiveQ", ipUdp.ReceiveQ}
+    return &(ipUdp.EntityData)
 }
-
-func (ipUdp *IpUdp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-udp-cfg:ip-udp"
-}
-
-func (ipUdp *IpUdp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "num-thread" {
-        return &ipUdp.NumThread
-    }
-    if childYangName == "directory" {
-        return &ipUdp.Directory
-    }
-    return nil
-}
-
-func (ipUdp *IpUdp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["num-thread"] = &ipUdp.NumThread
-    children["directory"] = &ipUdp.Directory
-    return children
-}
-
-func (ipUdp *IpUdp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["receive-q"] = ipUdp.ReceiveQ
-    return leafs
-}
-
-func (ipUdp *IpUdp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipUdp *IpUdp) GetYangName() string { return "ip-udp" }
-
-func (ipUdp *IpUdp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipUdp *IpUdp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipUdp *IpUdp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipUdp *IpUdp) SetParent(parent types.Entity) { ipUdp.parent = parent }
-
-func (ipUdp *IpUdp) GetParent() types.Entity { return ipUdp.parent }
-
-func (ipUdp *IpUdp) GetParentYangName() string { return "Cisco-IOS-XR-ip-udp-cfg" }
 
 // IpUdp_NumThread
 // UDP InQueue and OutQueue threads
 // This type is a presence type.
 type IpUdp_NumThread struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // InQ Threads. The type is interface{} with range: 1..16. This attribute is
@@ -116,120 +78,57 @@ type IpUdp_NumThread struct {
     UdpOutQThreads interface{}
 }
 
-func (numThread *IpUdp_NumThread) GetFilter() yfilter.YFilter { return numThread.YFilter }
+func (numThread *IpUdp_NumThread) GetEntityData() *types.CommonEntityData {
+    numThread.EntityData.YFilter = numThread.YFilter
+    numThread.EntityData.YangName = "num-thread"
+    numThread.EntityData.BundleName = "cisco_ios_xr"
+    numThread.EntityData.ParentYangName = "ip-udp"
+    numThread.EntityData.SegmentPath = "num-thread"
+    numThread.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    numThread.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    numThread.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (numThread *IpUdp_NumThread) SetFilter(yf yfilter.YFilter) { numThread.YFilter = yf }
-
-func (numThread *IpUdp_NumThread) GetGoName(yname string) string {
-    if yname == "udp-in-q-threads" { return "UdpInQThreads" }
-    if yname == "udp-out-q-threads" { return "UdpOutQThreads" }
-    return ""
+    numThread.EntityData.Children = make(map[string]types.YChild)
+    numThread.EntityData.Leafs = make(map[string]types.YLeaf)
+    numThread.EntityData.Leafs["udp-in-q-threads"] = types.YLeaf{"UdpInQThreads", numThread.UdpInQThreads}
+    numThread.EntityData.Leafs["udp-out-q-threads"] = types.YLeaf{"UdpOutQThreads", numThread.UdpOutQThreads}
+    return &(numThread.EntityData)
 }
-
-func (numThread *IpUdp_NumThread) GetSegmentPath() string {
-    return "num-thread"
-}
-
-func (numThread *IpUdp_NumThread) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (numThread *IpUdp_NumThread) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (numThread *IpUdp_NumThread) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["udp-in-q-threads"] = numThread.UdpInQThreads
-    leafs["udp-out-q-threads"] = numThread.UdpOutQThreads
-    return leafs
-}
-
-func (numThread *IpUdp_NumThread) GetBundleName() string { return "cisco_ios_xr" }
-
-func (numThread *IpUdp_NumThread) GetYangName() string { return "num-thread" }
-
-func (numThread *IpUdp_NumThread) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (numThread *IpUdp_NumThread) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (numThread *IpUdp_NumThread) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (numThread *IpUdp_NumThread) SetParent(parent types.Entity) { numThread.parent = parent }
-
-func (numThread *IpUdp_NumThread) GetParent() types.Entity { return numThread.parent }
-
-func (numThread *IpUdp_NumThread) GetParentYangName() string { return "ip-udp" }
 
 // IpUdp_Directory
 // UDP directory details
 // This type is a presence type.
 type IpUdp_Directory struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Directory name. The type is string. This attribute is mandatory.
     Directoryname interface{}
 
-    // Set number of Debug files. The type is interface{} with range: 1..5000.
-    // This attribute is mandatory.
+    // Set number of Debug files. The type is interface{} with range: 1..5000. The
+    // default value is 256.
     MaxUdpDebugFiles interface{}
 
     // Set size of debug files in bytes. The type is interface{} with range:
-    // 1024..4294967295. This attribute is mandatory. Units are byte.
+    // 1024..4294967295. Units are byte.
     MaxFileSizeFiles interface{}
 }
 
-func (directory *IpUdp_Directory) GetFilter() yfilter.YFilter { return directory.YFilter }
+func (directory *IpUdp_Directory) GetEntityData() *types.CommonEntityData {
+    directory.EntityData.YFilter = directory.YFilter
+    directory.EntityData.YangName = "directory"
+    directory.EntityData.BundleName = "cisco_ios_xr"
+    directory.EntityData.ParentYangName = "ip-udp"
+    directory.EntityData.SegmentPath = "directory"
+    directory.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    directory.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    directory.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (directory *IpUdp_Directory) SetFilter(yf yfilter.YFilter) { directory.YFilter = yf }
-
-func (directory *IpUdp_Directory) GetGoName(yname string) string {
-    if yname == "directoryname" { return "Directoryname" }
-    if yname == "max-udp-debug-files" { return "MaxUdpDebugFiles" }
-    if yname == "max-file-size-files" { return "MaxFileSizeFiles" }
-    return ""
+    directory.EntityData.Children = make(map[string]types.YChild)
+    directory.EntityData.Leafs = make(map[string]types.YLeaf)
+    directory.EntityData.Leafs["directoryname"] = types.YLeaf{"Directoryname", directory.Directoryname}
+    directory.EntityData.Leafs["max-udp-debug-files"] = types.YLeaf{"MaxUdpDebugFiles", directory.MaxUdpDebugFiles}
+    directory.EntityData.Leafs["max-file-size-files"] = types.YLeaf{"MaxFileSizeFiles", directory.MaxFileSizeFiles}
+    return &(directory.EntityData)
 }
-
-func (directory *IpUdp_Directory) GetSegmentPath() string {
-    return "directory"
-}
-
-func (directory *IpUdp_Directory) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (directory *IpUdp_Directory) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (directory *IpUdp_Directory) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["directoryname"] = directory.Directoryname
-    leafs["max-udp-debug-files"] = directory.MaxUdpDebugFiles
-    leafs["max-file-size-files"] = directory.MaxFileSizeFiles
-    return leafs
-}
-
-func (directory *IpUdp_Directory) GetBundleName() string { return "cisco_ios_xr" }
-
-func (directory *IpUdp_Directory) GetYangName() string { return "directory" }
-
-func (directory *IpUdp_Directory) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (directory *IpUdp_Directory) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (directory *IpUdp_Directory) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (directory *IpUdp_Directory) SetParent(parent types.Entity) { directory.parent = parent }
-
-func (directory *IpUdp_Directory) GetParent() types.Entity { return directory.parent }
-
-func (directory *IpUdp_Directory) GetParentYangName() string { return "ip-udp" }
 

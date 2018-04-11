@@ -29,26 +29,32 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-bundlemgr-cfg:lacp", reflect.TypeOf(Lacp{}))
 }
 
-// BundleMaximumActiveLinksMode represents Bundle maximum active links mode
-type BundleMaximumActiveLinksMode string
+// BfdMode represents Bfd mode
+type BfdMode string
 
 const (
-    // Default
-    BundleMaximumActiveLinksMode_default_ BundleMaximumActiveLinksMode = "default"
+    // BFD mode not configured on per-bundle basis
+    BfdMode_no_cfg BfdMode = "no-cfg"
 
-    // Hot standby
-    BundleMaximumActiveLinksMode_hot_standby BundleMaximumActiveLinksMode = "hot-standby"
+    // BFD mode Cisco
+    BfdMode_cisco BfdMode = "cisco"
+
+    // BFD mode IETF
+    BfdMode_ietf BfdMode = "ietf"
 )
 
-// BundleCiscoExtTypes represents Bundle cisco ext types
-type BundleCiscoExtTypes string
+// ChurnLogging represents Churn logging
+type ChurnLogging string
 
 const (
-    // LON signaling disabled
-    BundleCiscoExtTypes_lon_signaling_off BundleCiscoExtTypes = "lon-signaling-off"
+    // Logging for actor churn only
+    ChurnLogging_actor ChurnLogging = "actor"
 
-    // LON signaling enabled
-    BundleCiscoExtTypes_lon_signaling_on BundleCiscoExtTypes = "lon-signaling-on"
+    // Logging for partner churn only
+    ChurnLogging_partner ChurnLogging = "partner"
+
+    // Logging for actor and partner churn
+    ChurnLogging_both ChurnLogging = "both"
 )
 
 // BundleMode represents Bundle mode
@@ -63,6 +69,64 @@ const (
 
     // Passive
     BundleMode_passive BundleMode = "passive"
+)
+
+// BundleMinimumBandwidthRange represents Bundle minimum bandwidth range
+type BundleMinimumBandwidthRange string
+
+const (
+    // None
+    BundleMinimumBandwidthRange_none BundleMinimumBandwidthRange = "none"
+
+    // kbps
+    BundleMinimumBandwidthRange_kbps BundleMinimumBandwidthRange = "kbps"
+
+    // mbps
+    BundleMinimumBandwidthRange_mbps BundleMinimumBandwidthRange = "mbps"
+
+    // gbps
+    BundleMinimumBandwidthRange_gbps BundleMinimumBandwidthRange = "gbps"
+)
+
+// PeriodShortEnum represents Period short enum
+type PeriodShortEnum string
+
+const (
+    // Use the standard LACP short period (1s)
+    PeriodShortEnum_true PeriodShortEnum = "true"
+)
+
+// BundleCiscoExtTypes represents Bundle cisco ext types
+type BundleCiscoExtTypes string
+
+const (
+    // LON signaling disabled
+    BundleCiscoExtTypes_lon_signaling_off BundleCiscoExtTypes = "lon-signaling-off"
+
+    // LON signaling enabled
+    BundleCiscoExtTypes_lon_signaling_on BundleCiscoExtTypes = "lon-signaling-on"
+)
+
+// BundleMaximumActiveLinksMode represents Bundle maximum active links mode
+type BundleMaximumActiveLinksMode string
+
+const (
+    // Default
+    BundleMaximumActiveLinksMode_default_ BundleMaximumActiveLinksMode = "default"
+
+    // Hot standby
+    BundleMaximumActiveLinksMode_hot_standby BundleMaximumActiveLinksMode = "hot-standby"
+)
+
+// MlacpSwitchover represents Mlacp switchover
+type MlacpSwitchover string
+
+const (
+    // Brute force shutdown
+    MlacpSwitchover_brute_force MlacpSwitchover = "brute-force"
+
+    // Revertive behavior
+    MlacpSwitchover_revertive MlacpSwitchover = "revertive"
 )
 
 // BundleLoadBalance represents Bundle load balance
@@ -87,89 +151,6 @@ const (
     BundleLoadBalance_destination_ip BundleLoadBalance = "destination-ip"
 )
 
-// ChurnLogging represents Churn logging
-type ChurnLogging string
-
-const (
-    // Logging for actor churn only
-    ChurnLogging_actor ChurnLogging = "actor"
-
-    // Logging for partner churn only
-    ChurnLogging_partner ChurnLogging = "partner"
-
-    // Logging for actor and partner churn
-    ChurnLogging_both ChurnLogging = "both"
-)
-
-// MlacpSwitchover represents Mlacp switchover
-type MlacpSwitchover string
-
-const (
-    // Brute force shutdown
-    MlacpSwitchover_brute_force MlacpSwitchover = "brute-force"
-
-    // Revertive behavior
-    MlacpSwitchover_revertive MlacpSwitchover = "revertive"
-)
-
-// MlacpMaximizeParameter represents Mlacp maximize parameter
-type MlacpMaximizeParameter string
-
-const (
-    // Maximize the number of operational links
-    MlacpMaximizeParameter_links MlacpMaximizeParameter = "links"
-
-    // Maximize the operational bandwidth
-    MlacpMaximizeParameter_bandwidth MlacpMaximizeParameter = "bandwidth"
-)
-
-// BfdMode represents Bfd mode
-type BfdMode string
-
-const (
-    // BFD mode not configured on per-bundle basis
-    BfdMode_no_cfg BfdMode = "no-cfg"
-
-    // BFD mode Cisco
-    BfdMode_cisco BfdMode = "cisco"
-
-    // BFD mode IETF
-    BfdMode_ietf BfdMode = "ietf"
-)
-
-// PeriodShortEnum represents Period short enum
-type PeriodShortEnum string
-
-const (
-    // Use the standard LACP short period (1s)
-    PeriodShortEnum_true PeriodShortEnum = "true"
-)
-
-// BundleMinimumBandwidthRange represents Bundle minimum bandwidth range
-type BundleMinimumBandwidthRange string
-
-const (
-    // None
-    BundleMinimumBandwidthRange_none BundleMinimumBandwidthRange = "none"
-
-    // kbps
-    BundleMinimumBandwidthRange_kbps BundleMinimumBandwidthRange = "kbps"
-
-    // mbps
-    BundleMinimumBandwidthRange_mbps BundleMinimumBandwidthRange = "mbps"
-
-    // gbps
-    BundleMinimumBandwidthRange_gbps BundleMinimumBandwidthRange = "gbps"
-)
-
-// BundlePeriod represents Bundle period
-type BundlePeriod string
-
-const (
-    // Use the standard LACP short period (1s)
-    BundlePeriod_true BundlePeriod = "true"
-)
-
 // BundlePortActivity represents Bundle port activity
 type BundlePortActivity string
 
@@ -187,14 +168,33 @@ const (
     BundlePortActivity_inherit BundlePortActivity = "inherit"
 )
 
+// MlacpMaximizeParameter represents Mlacp maximize parameter
+type MlacpMaximizeParameter string
+
+const (
+    // Maximize the number of operational links
+    MlacpMaximizeParameter_links MlacpMaximizeParameter = "links"
+
+    // Maximize the operational bandwidth
+    MlacpMaximizeParameter_bandwidth MlacpMaximizeParameter = "bandwidth"
+)
+
+// BundlePeriod represents Bundle period
+type BundlePeriod string
+
+const (
+    // Use the standard LACP short period (1s)
+    BundlePeriod_true BundlePeriod = "true"
+)
+
 // Lacp
 // Link Aggregation Control Protocol commands
 type Lacp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Unique identifier for this system. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     SystemMac interface{}
 
     // Priority for this system. Lower value is higher priority. The type is
@@ -202,51 +202,20 @@ type Lacp struct {
     SystemPriority interface{}
 }
 
-func (lacp *Lacp) GetFilter() yfilter.YFilter { return lacp.YFilter }
+func (lacp *Lacp) GetEntityData() *types.CommonEntityData {
+    lacp.EntityData.YFilter = lacp.YFilter
+    lacp.EntityData.YangName = "lacp"
+    lacp.EntityData.BundleName = "cisco_ios_xr"
+    lacp.EntityData.ParentYangName = "Cisco-IOS-XR-bundlemgr-cfg"
+    lacp.EntityData.SegmentPath = "Cisco-IOS-XR-bundlemgr-cfg:lacp"
+    lacp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lacp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lacp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lacp *Lacp) SetFilter(yf yfilter.YFilter) { lacp.YFilter = yf }
-
-func (lacp *Lacp) GetGoName(yname string) string {
-    if yname == "system-mac" { return "SystemMac" }
-    if yname == "system-priority" { return "SystemPriority" }
-    return ""
+    lacp.EntityData.Children = make(map[string]types.YChild)
+    lacp.EntityData.Leafs = make(map[string]types.YLeaf)
+    lacp.EntityData.Leafs["system-mac"] = types.YLeaf{"SystemMac", lacp.SystemMac}
+    lacp.EntityData.Leafs["system-priority"] = types.YLeaf{"SystemPriority", lacp.SystemPriority}
+    return &(lacp.EntityData)
 }
-
-func (lacp *Lacp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-bundlemgr-cfg:lacp"
-}
-
-func (lacp *Lacp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lacp *Lacp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lacp *Lacp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["system-mac"] = lacp.SystemMac
-    leafs["system-priority"] = lacp.SystemPriority
-    return leafs
-}
-
-func (lacp *Lacp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lacp *Lacp) GetYangName() string { return "lacp" }
-
-func (lacp *Lacp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lacp *Lacp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lacp *Lacp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lacp *Lacp) SetParent(parent types.Entity) { lacp.parent = parent }
-
-func (lacp *Lacp) GetParent() types.Entity { return lacp.parent }
-
-func (lacp *Lacp) GetParentYangName() string { return "Cisco-IOS-XR-bundlemgr-cfg" }
 

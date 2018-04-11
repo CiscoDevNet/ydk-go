@@ -27,66 +27,33 @@ func init() {
 // PlatformPtp
 // PTP PD operational data
 type PlatformPtp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PTP PD Servo information.
     PlatformPtpServo PlatformPtp_PlatformPtpServo
 }
 
-func (platformPtp *PlatformPtp) GetFilter() yfilter.YFilter { return platformPtp.YFilter }
+func (platformPtp *PlatformPtp) GetEntityData() *types.CommonEntityData {
+    platformPtp.EntityData.YFilter = platformPtp.YFilter
+    platformPtp.EntityData.YangName = "platform-ptp"
+    platformPtp.EntityData.BundleName = "cisco_ios_xr"
+    platformPtp.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-ptp-pd-oper"
+    platformPtp.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp"
+    platformPtp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    platformPtp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    platformPtp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (platformPtp *PlatformPtp) SetFilter(yf yfilter.YFilter) { platformPtp.YFilter = yf }
-
-func (platformPtp *PlatformPtp) GetGoName(yname string) string {
-    if yname == "platform-ptp-servo" { return "PlatformPtpServo" }
-    return ""
+    platformPtp.EntityData.Children = make(map[string]types.YChild)
+    platformPtp.EntityData.Children["platform-ptp-servo"] = types.YChild{"PlatformPtpServo", &platformPtp.PlatformPtpServo}
+    platformPtp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(platformPtp.EntityData)
 }
-
-func (platformPtp *PlatformPtp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-asr9k-ptp-pd-oper:platform-ptp"
-}
-
-func (platformPtp *PlatformPtp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "platform-ptp-servo" {
-        return &platformPtp.PlatformPtpServo
-    }
-    return nil
-}
-
-func (platformPtp *PlatformPtp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["platform-ptp-servo"] = &platformPtp.PlatformPtpServo
-    return children
-}
-
-func (platformPtp *PlatformPtp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (platformPtp *PlatformPtp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (platformPtp *PlatformPtp) GetYangName() string { return "platform-ptp" }
-
-func (platformPtp *PlatformPtp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (platformPtp *PlatformPtp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (platformPtp *PlatformPtp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (platformPtp *PlatformPtp) SetParent(parent types.Entity) { platformPtp.parent = parent }
-
-func (platformPtp *PlatformPtp) GetParent() types.Entity { return platformPtp.parent }
-
-func (platformPtp *PlatformPtp) GetParentYangName() string { return "Cisco-IOS-XR-asr9k-ptp-pd-oper" }
 
 // PlatformPtp_PlatformPtpServo
 // PTP PD Servo information
 type PlatformPtp_PlatformPtpServo struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // lock status of device. The type is interface{} with range: 0..65535.
@@ -184,135 +151,52 @@ type PlatformPtp_PlatformPtpServo struct {
     PreReceivedT4 PlatformPtp_PlatformPtpServo_PreReceivedT4
 }
 
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetFilter() yfilter.YFilter { return platformPtpServo.YFilter }
+func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetEntityData() *types.CommonEntityData {
+    platformPtpServo.EntityData.YFilter = platformPtpServo.YFilter
+    platformPtpServo.EntityData.YangName = "platform-ptp-servo"
+    platformPtpServo.EntityData.BundleName = "cisco_ios_xr"
+    platformPtpServo.EntityData.ParentYangName = "platform-ptp"
+    platformPtpServo.EntityData.SegmentPath = "platform-ptp-servo"
+    platformPtpServo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    platformPtpServo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    platformPtpServo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) SetFilter(yf yfilter.YFilter) { platformPtpServo.YFilter = yf }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetGoName(yname string) string {
-    if yname == "lock-status" { return "LockStatus" }
-    if yname == "running" { return "Running" }
-    if yname == "device-status" { return "DeviceStatus" }
-    if yname == "log-level" { return "LogLevel" }
-    if yname == "phase-accuracy-last" { return "PhaseAccuracyLast" }
-    if yname == "num-sync-timestamp" { return "NumSyncTimestamp" }
-    if yname == "num-delay-timestamp" { return "NumDelayTimestamp" }
-    if yname == "num-set-time" { return "NumSetTime" }
-    if yname == "num-step-time" { return "NumStepTime" }
-    if yname == "num-adjust-freq" { return "NumAdjustFreq" }
-    if yname == "num-adjust-freq-time" { return "NumAdjustFreqTime" }
-    if yname == "last-adjust-freq" { return "LastAdjustFreq" }
-    if yname == "last-step-time" { return "LastStepTime" }
-    if yname == "num-discard-sync-timestamp" { return "NumDiscardSyncTimestamp" }
-    if yname == "num-discard-delay-timestamp" { return "NumDiscardDelayTimestamp" }
-    if yname == "flagof-last-set-time" { return "FlagofLastSetTime" }
-    if yname == "offset-from-master" { return "OffsetFromMaster" }
-    if yname == "mean-path-delay" { return "MeanPathDelay" }
-    if yname == "last-set-time" { return "LastSetTime" }
-    if yname == "last-received-t1" { return "LastReceivedT1" }
-    if yname == "last-received-t2" { return "LastReceivedT2" }
-    if yname == "last-received-t3" { return "LastReceivedT3" }
-    if yname == "last-received-t4" { return "LastReceivedT4" }
-    if yname == "pre-received-t1" { return "PreReceivedT1" }
-    if yname == "pre-received-t2" { return "PreReceivedT2" }
-    if yname == "pre-received-t3" { return "PreReceivedT3" }
-    if yname == "pre-received-t4" { return "PreReceivedT4" }
-    return ""
+    platformPtpServo.EntityData.Children = make(map[string]types.YChild)
+    platformPtpServo.EntityData.Children["last-set-time"] = types.YChild{"LastSetTime", &platformPtpServo.LastSetTime}
+    platformPtpServo.EntityData.Children["last-received-t1"] = types.YChild{"LastReceivedT1", &platformPtpServo.LastReceivedT1}
+    platformPtpServo.EntityData.Children["last-received-t2"] = types.YChild{"LastReceivedT2", &platformPtpServo.LastReceivedT2}
+    platformPtpServo.EntityData.Children["last-received-t3"] = types.YChild{"LastReceivedT3", &platformPtpServo.LastReceivedT3}
+    platformPtpServo.EntityData.Children["last-received-t4"] = types.YChild{"LastReceivedT4", &platformPtpServo.LastReceivedT4}
+    platformPtpServo.EntityData.Children["pre-received-t1"] = types.YChild{"PreReceivedT1", &platformPtpServo.PreReceivedT1}
+    platformPtpServo.EntityData.Children["pre-received-t2"] = types.YChild{"PreReceivedT2", &platformPtpServo.PreReceivedT2}
+    platformPtpServo.EntityData.Children["pre-received-t3"] = types.YChild{"PreReceivedT3", &platformPtpServo.PreReceivedT3}
+    platformPtpServo.EntityData.Children["pre-received-t4"] = types.YChild{"PreReceivedT4", &platformPtpServo.PreReceivedT4}
+    platformPtpServo.EntityData.Leafs = make(map[string]types.YLeaf)
+    platformPtpServo.EntityData.Leafs["lock-status"] = types.YLeaf{"LockStatus", platformPtpServo.LockStatus}
+    platformPtpServo.EntityData.Leafs["running"] = types.YLeaf{"Running", platformPtpServo.Running}
+    platformPtpServo.EntityData.Leafs["device-status"] = types.YLeaf{"DeviceStatus", platformPtpServo.DeviceStatus}
+    platformPtpServo.EntityData.Leafs["log-level"] = types.YLeaf{"LogLevel", platformPtpServo.LogLevel}
+    platformPtpServo.EntityData.Leafs["phase-accuracy-last"] = types.YLeaf{"PhaseAccuracyLast", platformPtpServo.PhaseAccuracyLast}
+    platformPtpServo.EntityData.Leafs["num-sync-timestamp"] = types.YLeaf{"NumSyncTimestamp", platformPtpServo.NumSyncTimestamp}
+    platformPtpServo.EntityData.Leafs["num-delay-timestamp"] = types.YLeaf{"NumDelayTimestamp", platformPtpServo.NumDelayTimestamp}
+    platformPtpServo.EntityData.Leafs["num-set-time"] = types.YLeaf{"NumSetTime", platformPtpServo.NumSetTime}
+    platformPtpServo.EntityData.Leafs["num-step-time"] = types.YLeaf{"NumStepTime", platformPtpServo.NumStepTime}
+    platformPtpServo.EntityData.Leafs["num-adjust-freq"] = types.YLeaf{"NumAdjustFreq", platformPtpServo.NumAdjustFreq}
+    platformPtpServo.EntityData.Leafs["num-adjust-freq-time"] = types.YLeaf{"NumAdjustFreqTime", platformPtpServo.NumAdjustFreqTime}
+    platformPtpServo.EntityData.Leafs["last-adjust-freq"] = types.YLeaf{"LastAdjustFreq", platformPtpServo.LastAdjustFreq}
+    platformPtpServo.EntityData.Leafs["last-step-time"] = types.YLeaf{"LastStepTime", platformPtpServo.LastStepTime}
+    platformPtpServo.EntityData.Leafs["num-discard-sync-timestamp"] = types.YLeaf{"NumDiscardSyncTimestamp", platformPtpServo.NumDiscardSyncTimestamp}
+    platformPtpServo.EntityData.Leafs["num-discard-delay-timestamp"] = types.YLeaf{"NumDiscardDelayTimestamp", platformPtpServo.NumDiscardDelayTimestamp}
+    platformPtpServo.EntityData.Leafs["flagof-last-set-time"] = types.YLeaf{"FlagofLastSetTime", platformPtpServo.FlagofLastSetTime}
+    platformPtpServo.EntityData.Leafs["offset-from-master"] = types.YLeaf{"OffsetFromMaster", platformPtpServo.OffsetFromMaster}
+    platformPtpServo.EntityData.Leafs["mean-path-delay"] = types.YLeaf{"MeanPathDelay", platformPtpServo.MeanPathDelay}
+    return &(platformPtpServo.EntityData)
 }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetSegmentPath() string {
-    return "platform-ptp-servo"
-}
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "last-set-time" {
-        return &platformPtpServo.LastSetTime
-    }
-    if childYangName == "last-received-t1" {
-        return &platformPtpServo.LastReceivedT1
-    }
-    if childYangName == "last-received-t2" {
-        return &platformPtpServo.LastReceivedT2
-    }
-    if childYangName == "last-received-t3" {
-        return &platformPtpServo.LastReceivedT3
-    }
-    if childYangName == "last-received-t4" {
-        return &platformPtpServo.LastReceivedT4
-    }
-    if childYangName == "pre-received-t1" {
-        return &platformPtpServo.PreReceivedT1
-    }
-    if childYangName == "pre-received-t2" {
-        return &platformPtpServo.PreReceivedT2
-    }
-    if childYangName == "pre-received-t3" {
-        return &platformPtpServo.PreReceivedT3
-    }
-    if childYangName == "pre-received-t4" {
-        return &platformPtpServo.PreReceivedT4
-    }
-    return nil
-}
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["last-set-time"] = &platformPtpServo.LastSetTime
-    children["last-received-t1"] = &platformPtpServo.LastReceivedT1
-    children["last-received-t2"] = &platformPtpServo.LastReceivedT2
-    children["last-received-t3"] = &platformPtpServo.LastReceivedT3
-    children["last-received-t4"] = &platformPtpServo.LastReceivedT4
-    children["pre-received-t1"] = &platformPtpServo.PreReceivedT1
-    children["pre-received-t2"] = &platformPtpServo.PreReceivedT2
-    children["pre-received-t3"] = &platformPtpServo.PreReceivedT3
-    children["pre-received-t4"] = &platformPtpServo.PreReceivedT4
-    return children
-}
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["lock-status"] = platformPtpServo.LockStatus
-    leafs["running"] = platformPtpServo.Running
-    leafs["device-status"] = platformPtpServo.DeviceStatus
-    leafs["log-level"] = platformPtpServo.LogLevel
-    leafs["phase-accuracy-last"] = platformPtpServo.PhaseAccuracyLast
-    leafs["num-sync-timestamp"] = platformPtpServo.NumSyncTimestamp
-    leafs["num-delay-timestamp"] = platformPtpServo.NumDelayTimestamp
-    leafs["num-set-time"] = platformPtpServo.NumSetTime
-    leafs["num-step-time"] = platformPtpServo.NumStepTime
-    leafs["num-adjust-freq"] = platformPtpServo.NumAdjustFreq
-    leafs["num-adjust-freq-time"] = platformPtpServo.NumAdjustFreqTime
-    leafs["last-adjust-freq"] = platformPtpServo.LastAdjustFreq
-    leafs["last-step-time"] = platformPtpServo.LastStepTime
-    leafs["num-discard-sync-timestamp"] = platformPtpServo.NumDiscardSyncTimestamp
-    leafs["num-discard-delay-timestamp"] = platformPtpServo.NumDiscardDelayTimestamp
-    leafs["flagof-last-set-time"] = platformPtpServo.FlagofLastSetTime
-    leafs["offset-from-master"] = platformPtpServo.OffsetFromMaster
-    leafs["mean-path-delay"] = platformPtpServo.MeanPathDelay
-    return leafs
-}
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetBundleName() string { return "cisco_ios_xr" }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetYangName() string { return "platform-ptp-servo" }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) SetParent(parent types.Entity) { platformPtpServo.parent = parent }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetParent() types.Entity { return platformPtpServo.parent }
-
-func (platformPtpServo *PlatformPtp_PlatformPtpServo) GetParentYangName() string { return "platform-ptp" }
 
 // PlatformPtp_PlatformPtpServo_LastSetTime
 // last input of setTime
 type PlatformPtp_PlatformPtpServo_LastSetTime struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -322,58 +206,27 @@ type PlatformPtp_PlatformPtpServo_LastSetTime struct {
     NanoSecond interface{}
 }
 
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetFilter() yfilter.YFilter { return lastSetTime.YFilter }
+func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetEntityData() *types.CommonEntityData {
+    lastSetTime.EntityData.YFilter = lastSetTime.YFilter
+    lastSetTime.EntityData.YangName = "last-set-time"
+    lastSetTime.EntityData.BundleName = "cisco_ios_xr"
+    lastSetTime.EntityData.ParentYangName = "platform-ptp-servo"
+    lastSetTime.EntityData.SegmentPath = "last-set-time"
+    lastSetTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastSetTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastSetTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) SetFilter(yf yfilter.YFilter) { lastSetTime.YFilter = yf }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    lastSetTime.EntityData.Children = make(map[string]types.YChild)
+    lastSetTime.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastSetTime.EntityData.Leafs["second"] = types.YLeaf{"Second", lastSetTime.Second}
+    lastSetTime.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", lastSetTime.NanoSecond}
+    return &(lastSetTime.EntityData)
 }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetSegmentPath() string {
-    return "last-set-time"
-}
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = lastSetTime.Second
-    leafs["nano-second"] = lastSetTime.NanoSecond
-    return leafs
-}
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetYangName() string { return "last-set-time" }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) SetParent(parent types.Entity) { lastSetTime.parent = parent }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetParent() types.Entity { return lastSetTime.parent }
-
-func (lastSetTime *PlatformPtp_PlatformPtpServo_LastSetTime) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_LastReceivedT1
 // last T1 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_LastReceivedT1 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -383,58 +236,27 @@ type PlatformPtp_PlatformPtpServo_LastReceivedT1 struct {
     NanoSecond interface{}
 }
 
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetFilter() yfilter.YFilter { return lastReceivedT1.YFilter }
+func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetEntityData() *types.CommonEntityData {
+    lastReceivedT1.EntityData.YFilter = lastReceivedT1.YFilter
+    lastReceivedT1.EntityData.YangName = "last-received-t1"
+    lastReceivedT1.EntityData.BundleName = "cisco_ios_xr"
+    lastReceivedT1.EntityData.ParentYangName = "platform-ptp-servo"
+    lastReceivedT1.EntityData.SegmentPath = "last-received-t1"
+    lastReceivedT1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastReceivedT1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastReceivedT1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) SetFilter(yf yfilter.YFilter) { lastReceivedT1.YFilter = yf }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    lastReceivedT1.EntityData.Children = make(map[string]types.YChild)
+    lastReceivedT1.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastReceivedT1.EntityData.Leafs["second"] = types.YLeaf{"Second", lastReceivedT1.Second}
+    lastReceivedT1.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", lastReceivedT1.NanoSecond}
+    return &(lastReceivedT1.EntityData)
 }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetSegmentPath() string {
-    return "last-received-t1"
-}
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = lastReceivedT1.Second
-    leafs["nano-second"] = lastReceivedT1.NanoSecond
-    return leafs
-}
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetYangName() string { return "last-received-t1" }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) SetParent(parent types.Entity) { lastReceivedT1.parent = parent }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetParent() types.Entity { return lastReceivedT1.parent }
-
-func (lastReceivedT1 *PlatformPtp_PlatformPtpServo_LastReceivedT1) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_LastReceivedT2
 // last T2 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_LastReceivedT2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -444,58 +266,27 @@ type PlatformPtp_PlatformPtpServo_LastReceivedT2 struct {
     NanoSecond interface{}
 }
 
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetFilter() yfilter.YFilter { return lastReceivedT2.YFilter }
+func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetEntityData() *types.CommonEntityData {
+    lastReceivedT2.EntityData.YFilter = lastReceivedT2.YFilter
+    lastReceivedT2.EntityData.YangName = "last-received-t2"
+    lastReceivedT2.EntityData.BundleName = "cisco_ios_xr"
+    lastReceivedT2.EntityData.ParentYangName = "platform-ptp-servo"
+    lastReceivedT2.EntityData.SegmentPath = "last-received-t2"
+    lastReceivedT2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastReceivedT2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastReceivedT2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) SetFilter(yf yfilter.YFilter) { lastReceivedT2.YFilter = yf }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    lastReceivedT2.EntityData.Children = make(map[string]types.YChild)
+    lastReceivedT2.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastReceivedT2.EntityData.Leafs["second"] = types.YLeaf{"Second", lastReceivedT2.Second}
+    lastReceivedT2.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", lastReceivedT2.NanoSecond}
+    return &(lastReceivedT2.EntityData)
 }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetSegmentPath() string {
-    return "last-received-t2"
-}
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = lastReceivedT2.Second
-    leafs["nano-second"] = lastReceivedT2.NanoSecond
-    return leafs
-}
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetYangName() string { return "last-received-t2" }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) SetParent(parent types.Entity) { lastReceivedT2.parent = parent }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetParent() types.Entity { return lastReceivedT2.parent }
-
-func (lastReceivedT2 *PlatformPtp_PlatformPtpServo_LastReceivedT2) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_LastReceivedT3
 // last T3 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_LastReceivedT3 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -505,58 +296,27 @@ type PlatformPtp_PlatformPtpServo_LastReceivedT3 struct {
     NanoSecond interface{}
 }
 
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetFilter() yfilter.YFilter { return lastReceivedT3.YFilter }
+func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetEntityData() *types.CommonEntityData {
+    lastReceivedT3.EntityData.YFilter = lastReceivedT3.YFilter
+    lastReceivedT3.EntityData.YangName = "last-received-t3"
+    lastReceivedT3.EntityData.BundleName = "cisco_ios_xr"
+    lastReceivedT3.EntityData.ParentYangName = "platform-ptp-servo"
+    lastReceivedT3.EntityData.SegmentPath = "last-received-t3"
+    lastReceivedT3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastReceivedT3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastReceivedT3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) SetFilter(yf yfilter.YFilter) { lastReceivedT3.YFilter = yf }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    lastReceivedT3.EntityData.Children = make(map[string]types.YChild)
+    lastReceivedT3.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastReceivedT3.EntityData.Leafs["second"] = types.YLeaf{"Second", lastReceivedT3.Second}
+    lastReceivedT3.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", lastReceivedT3.NanoSecond}
+    return &(lastReceivedT3.EntityData)
 }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetSegmentPath() string {
-    return "last-received-t3"
-}
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = lastReceivedT3.Second
-    leafs["nano-second"] = lastReceivedT3.NanoSecond
-    return leafs
-}
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetYangName() string { return "last-received-t3" }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) SetParent(parent types.Entity) { lastReceivedT3.parent = parent }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetParent() types.Entity { return lastReceivedT3.parent }
-
-func (lastReceivedT3 *PlatformPtp_PlatformPtpServo_LastReceivedT3) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_LastReceivedT4
 // last T4 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_LastReceivedT4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -566,58 +326,27 @@ type PlatformPtp_PlatformPtpServo_LastReceivedT4 struct {
     NanoSecond interface{}
 }
 
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetFilter() yfilter.YFilter { return lastReceivedT4.YFilter }
+func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetEntityData() *types.CommonEntityData {
+    lastReceivedT4.EntityData.YFilter = lastReceivedT4.YFilter
+    lastReceivedT4.EntityData.YangName = "last-received-t4"
+    lastReceivedT4.EntityData.BundleName = "cisco_ios_xr"
+    lastReceivedT4.EntityData.ParentYangName = "platform-ptp-servo"
+    lastReceivedT4.EntityData.SegmentPath = "last-received-t4"
+    lastReceivedT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lastReceivedT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lastReceivedT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) SetFilter(yf yfilter.YFilter) { lastReceivedT4.YFilter = yf }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    lastReceivedT4.EntityData.Children = make(map[string]types.YChild)
+    lastReceivedT4.EntityData.Leafs = make(map[string]types.YLeaf)
+    lastReceivedT4.EntityData.Leafs["second"] = types.YLeaf{"Second", lastReceivedT4.Second}
+    lastReceivedT4.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", lastReceivedT4.NanoSecond}
+    return &(lastReceivedT4.EntityData)
 }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetSegmentPath() string {
-    return "last-received-t4"
-}
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = lastReceivedT4.Second
-    leafs["nano-second"] = lastReceivedT4.NanoSecond
-    return leafs
-}
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetYangName() string { return "last-received-t4" }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) SetParent(parent types.Entity) { lastReceivedT4.parent = parent }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetParent() types.Entity { return lastReceivedT4.parent }
-
-func (lastReceivedT4 *PlatformPtp_PlatformPtpServo_LastReceivedT4) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_PreReceivedT1
 // pre T1 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_PreReceivedT1 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -627,58 +356,27 @@ type PlatformPtp_PlatformPtpServo_PreReceivedT1 struct {
     NanoSecond interface{}
 }
 
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetFilter() yfilter.YFilter { return preReceivedT1.YFilter }
+func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetEntityData() *types.CommonEntityData {
+    preReceivedT1.EntityData.YFilter = preReceivedT1.YFilter
+    preReceivedT1.EntityData.YangName = "pre-received-t1"
+    preReceivedT1.EntityData.BundleName = "cisco_ios_xr"
+    preReceivedT1.EntityData.ParentYangName = "platform-ptp-servo"
+    preReceivedT1.EntityData.SegmentPath = "pre-received-t1"
+    preReceivedT1.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    preReceivedT1.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    preReceivedT1.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) SetFilter(yf yfilter.YFilter) { preReceivedT1.YFilter = yf }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    preReceivedT1.EntityData.Children = make(map[string]types.YChild)
+    preReceivedT1.EntityData.Leafs = make(map[string]types.YLeaf)
+    preReceivedT1.EntityData.Leafs["second"] = types.YLeaf{"Second", preReceivedT1.Second}
+    preReceivedT1.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", preReceivedT1.NanoSecond}
+    return &(preReceivedT1.EntityData)
 }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetSegmentPath() string {
-    return "pre-received-t1"
-}
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = preReceivedT1.Second
-    leafs["nano-second"] = preReceivedT1.NanoSecond
-    return leafs
-}
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetBundleName() string { return "cisco_ios_xr" }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetYangName() string { return "pre-received-t1" }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) SetParent(parent types.Entity) { preReceivedT1.parent = parent }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetParent() types.Entity { return preReceivedT1.parent }
-
-func (preReceivedT1 *PlatformPtp_PlatformPtpServo_PreReceivedT1) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_PreReceivedT2
 // pre T2 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_PreReceivedT2 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -688,58 +386,27 @@ type PlatformPtp_PlatformPtpServo_PreReceivedT2 struct {
     NanoSecond interface{}
 }
 
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetFilter() yfilter.YFilter { return preReceivedT2.YFilter }
+func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetEntityData() *types.CommonEntityData {
+    preReceivedT2.EntityData.YFilter = preReceivedT2.YFilter
+    preReceivedT2.EntityData.YangName = "pre-received-t2"
+    preReceivedT2.EntityData.BundleName = "cisco_ios_xr"
+    preReceivedT2.EntityData.ParentYangName = "platform-ptp-servo"
+    preReceivedT2.EntityData.SegmentPath = "pre-received-t2"
+    preReceivedT2.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    preReceivedT2.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    preReceivedT2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) SetFilter(yf yfilter.YFilter) { preReceivedT2.YFilter = yf }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    preReceivedT2.EntityData.Children = make(map[string]types.YChild)
+    preReceivedT2.EntityData.Leafs = make(map[string]types.YLeaf)
+    preReceivedT2.EntityData.Leafs["second"] = types.YLeaf{"Second", preReceivedT2.Second}
+    preReceivedT2.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", preReceivedT2.NanoSecond}
+    return &(preReceivedT2.EntityData)
 }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetSegmentPath() string {
-    return "pre-received-t2"
-}
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = preReceivedT2.Second
-    leafs["nano-second"] = preReceivedT2.NanoSecond
-    return leafs
-}
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetBundleName() string { return "cisco_ios_xr" }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetYangName() string { return "pre-received-t2" }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) SetParent(parent types.Entity) { preReceivedT2.parent = parent }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetParent() types.Entity { return preReceivedT2.parent }
-
-func (preReceivedT2 *PlatformPtp_PlatformPtpServo_PreReceivedT2) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_PreReceivedT3
 // pre T3 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_PreReceivedT3 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -749,58 +416,27 @@ type PlatformPtp_PlatformPtpServo_PreReceivedT3 struct {
     NanoSecond interface{}
 }
 
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetFilter() yfilter.YFilter { return preReceivedT3.YFilter }
+func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetEntityData() *types.CommonEntityData {
+    preReceivedT3.EntityData.YFilter = preReceivedT3.YFilter
+    preReceivedT3.EntityData.YangName = "pre-received-t3"
+    preReceivedT3.EntityData.BundleName = "cisco_ios_xr"
+    preReceivedT3.EntityData.ParentYangName = "platform-ptp-servo"
+    preReceivedT3.EntityData.SegmentPath = "pre-received-t3"
+    preReceivedT3.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    preReceivedT3.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    preReceivedT3.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) SetFilter(yf yfilter.YFilter) { preReceivedT3.YFilter = yf }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    preReceivedT3.EntityData.Children = make(map[string]types.YChild)
+    preReceivedT3.EntityData.Leafs = make(map[string]types.YLeaf)
+    preReceivedT3.EntityData.Leafs["second"] = types.YLeaf{"Second", preReceivedT3.Second}
+    preReceivedT3.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", preReceivedT3.NanoSecond}
+    return &(preReceivedT3.EntityData)
 }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetSegmentPath() string {
-    return "pre-received-t3"
-}
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = preReceivedT3.Second
-    leafs["nano-second"] = preReceivedT3.NanoSecond
-    return leafs
-}
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetBundleName() string { return "cisco_ios_xr" }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetYangName() string { return "pre-received-t3" }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) SetParent(parent types.Entity) { preReceivedT3.parent = parent }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetParent() types.Entity { return preReceivedT3.parent }
-
-func (preReceivedT3 *PlatformPtp_PlatformPtpServo_PreReceivedT3) GetParentYangName() string { return "platform-ptp-servo" }
 
 // PlatformPtp_PlatformPtpServo_PreReceivedT4
 // pre T4 timestamp reveiced
 type PlatformPtp_PlatformPtpServo_PreReceivedT4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // value of second. The type is interface{} with range: 0..4294967295.
@@ -810,51 +446,20 @@ type PlatformPtp_PlatformPtpServo_PreReceivedT4 struct {
     NanoSecond interface{}
 }
 
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetFilter() yfilter.YFilter { return preReceivedT4.YFilter }
+func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetEntityData() *types.CommonEntityData {
+    preReceivedT4.EntityData.YFilter = preReceivedT4.YFilter
+    preReceivedT4.EntityData.YangName = "pre-received-t4"
+    preReceivedT4.EntityData.BundleName = "cisco_ios_xr"
+    preReceivedT4.EntityData.ParentYangName = "platform-ptp-servo"
+    preReceivedT4.EntityData.SegmentPath = "pre-received-t4"
+    preReceivedT4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    preReceivedT4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    preReceivedT4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) SetFilter(yf yfilter.YFilter) { preReceivedT4.YFilter = yf }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetGoName(yname string) string {
-    if yname == "second" { return "Second" }
-    if yname == "nano-second" { return "NanoSecond" }
-    return ""
+    preReceivedT4.EntityData.Children = make(map[string]types.YChild)
+    preReceivedT4.EntityData.Leafs = make(map[string]types.YLeaf)
+    preReceivedT4.EntityData.Leafs["second"] = types.YLeaf{"Second", preReceivedT4.Second}
+    preReceivedT4.EntityData.Leafs["nano-second"] = types.YLeaf{"NanoSecond", preReceivedT4.NanoSecond}
+    return &(preReceivedT4.EntityData)
 }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetSegmentPath() string {
-    return "pre-received-t4"
-}
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["second"] = preReceivedT4.Second
-    leafs["nano-second"] = preReceivedT4.NanoSecond
-    return leafs
-}
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetYangName() string { return "pre-received-t4" }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) SetParent(parent types.Entity) { preReceivedT4.parent = parent }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetParent() types.Entity { return preReceivedT4.parent }
-
-func (preReceivedT4 *PlatformPtp_PlatformPtpServo_PreReceivedT4) GetParentYangName() string { return "platform-ptp-servo" }
 

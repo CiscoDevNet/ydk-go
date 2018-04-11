@@ -28,11 +28,39 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ospf"))
 }
 
-type IfLinkType struct {
+type Ospf struct {
 }
 
-func (id IfLinkType) String() string {
-	return "ietf-ospf:if-link-type"
+func (id Ospf) String() string {
+	return "ietf-ospf:ospf"
+}
+
+type Ospfv2 struct {
+}
+
+func (id Ospfv2) String() string {
+	return "ietf-ospf:ospfv2"
+}
+
+type Ospfv3 struct {
+}
+
+func (id Ospfv3) String() string {
+	return "ietf-ospf:ospfv3"
+}
+
+type OperationMode struct {
+}
+
+func (id OperationMode) String() string {
+	return "ietf-ospf:operation-mode"
+}
+
+type ShipsInTheNight struct {
+}
+
+func (id ShipsInTheNight) String() string {
+	return "ietf-ospf:ships-in-the-night"
 }
 
 type AreaType struct {
@@ -49,27 +77,6 @@ func (id Normal) String() string {
 	return "ietf-ospf:normal"
 }
 
-type Nssa struct {
-}
-
-func (id Nssa) String() string {
-	return "ietf-ospf:nssa"
-}
-
-type ShipsInTheNight struct {
-}
-
-func (id ShipsInTheNight) String() string {
-	return "ietf-ospf:ships-in-the-night"
-}
-
-type Ospfv3 struct {
-}
-
-func (id Ospfv3) String() string {
-	return "ietf-ospf:ospfv3"
-}
-
 type Stub struct {
 }
 
@@ -77,18 +84,18 @@ func (id Stub) String() string {
 	return "ietf-ospf:stub"
 }
 
-type IfLinkTypeVirtualLink struct {
+type Nssa struct {
 }
 
-func (id IfLinkTypeVirtualLink) String() string {
-	return "ietf-ospf:if-link-type-virtual-link"
+func (id Nssa) String() string {
+	return "ietf-ospf:nssa"
 }
 
-type Ospfv2 struct {
+type IfLinkType struct {
 }
 
-func (id Ospfv2) String() string {
-	return "ietf-ospf:ospfv2"
+func (id IfLinkType) String() string {
+	return "ietf-ospf:if-link-type"
 }
 
 type IfLinkTypeNormal struct {
@@ -98,6 +105,13 @@ func (id IfLinkTypeNormal) String() string {
 	return "ietf-ospf:if-link-type-normal"
 }
 
+type IfLinkTypeVirtualLink struct {
+}
+
+func (id IfLinkTypeVirtualLink) String() string {
+	return "ietf-ospf:if-link-type-virtual-link"
+}
+
 type IfLinkTypeShamLink struct {
 }
 
@@ -105,19 +119,31 @@ func (id IfLinkTypeShamLink) String() string {
 	return "ietf-ospf:if-link-type-sham-link"
 }
 
-type OperationMode struct {
-}
+// IfStateType represents OSPF interface state type.
+type IfStateType string
 
-func (id OperationMode) String() string {
-	return "ietf-ospf:operation-mode"
-}
+const (
+    // Interface down state
+    IfStateType_Down IfStateType = "Down"
 
-type Ospf struct {
-}
+    // Interface loopback state
+    IfStateType_Loopback IfStateType = "Loopback"
 
-func (id Ospf) String() string {
-	return "ietf-ospf:ospf"
-}
+    // Interface waiting state
+    IfStateType_Waiting IfStateType = "Waiting"
+
+    // Interface point-to-point state
+    IfStateType_Point_to_Point IfStateType = "Point-to-Point"
+
+    // Interface Designated Router (DR) state
+    IfStateType_DR IfStateType = "DR"
+
+    // Interface Backup Designated Router (BDR) state
+    IfStateType_BDR IfStateType = "BDR"
+
+    // Interface Other Designated Router state
+    IfStateType_DR_Other IfStateType = "DR-Other"
+)
 
 // NbrStateType represents OSPF neighbor state type.
 type NbrStateType string
@@ -148,50 +174,15 @@ const (
     NbrStateType_Full NbrStateType = "Full"
 )
 
-// IfStateType represents OSPF interface state type.
-type IfStateType string
+// RestartHelperStatusType represents Restart helper status type.
+type RestartHelperStatusType string
 
 const (
-    // Interface down state
-    IfStateType_Down IfStateType = "Down"
+    // Restart helper status not helping.
+    RestartHelperStatusType_Not_Helping RestartHelperStatusType = "Not-Helping"
 
-    // Interface loopback state
-    IfStateType_Loopback IfStateType = "Loopback"
-
-    // Interface waiting state
-    IfStateType_Waiting IfStateType = "Waiting"
-
-    // Interface point-to-point state
-    IfStateType_Point_to_Point IfStateType = "Point-to-Point"
-
-    // Interface Designated Router (DR) state
-    IfStateType_DR IfStateType = "DR"
-
-    // Interface Backup Designated Router (BDR) state
-    IfStateType_BDR IfStateType = "BDR"
-
-    // Interface Other Designated Router state
-    IfStateType_DR_Other IfStateType = "DR-Other"
-)
-
-// PacketType represents OSPF packet type.
-type PacketType string
-
-const (
-    // OSPF hello packet.
-    PacketType_Hello PacketType = "Hello"
-
-    // OSPF database description packet.
-    PacketType_Database_Descripton PacketType = "Database-Descripton"
-
-    // OSPF link state request packet.
-    PacketType_Link_State_Request PacketType = "Link-State-Request"
-
-    // OSPF link state update packet.
-    PacketType_Link_State_Update PacketType = "Link-State-Update"
-
-    // OSPF link state acknowlegement packet.
-    PacketType_Link_State_Ack PacketType = "Link-State-Ack"
+    // Restart helper status helping.
+    RestartHelperStatusType_Helping RestartHelperStatusType = "Helping"
 )
 
 // RestartExitReasonType represents as a helper.
@@ -214,6 +205,26 @@ const (
     RestartExitReasonType_TopologyChanged RestartExitReasonType = "TopologyChanged"
 )
 
+// PacketType represents OSPF packet type.
+type PacketType string
+
+const (
+    // OSPF hello packet.
+    PacketType_Hello PacketType = "Hello"
+
+    // OSPF database description packet.
+    PacketType_Database_Descripton PacketType = "Database-Descripton"
+
+    // OSPF link state request packet.
+    PacketType_Link_State_Request PacketType = "Link-State-Request"
+
+    // OSPF link state update packet.
+    PacketType_Link_State_Update PacketType = "Link-State-Update"
+
+    // OSPF link state acknowlegement packet.
+    PacketType_Link_State_Ack PacketType = "Link-State-Ack"
+)
+
 // NssaTranslatorStateType represents OSPF NSSA translator state type.
 type NssaTranslatorStateType string
 
@@ -226,17 +237,6 @@ const (
 
     // NSSA translator disabled state.
     NssaTranslatorStateType_Disabled NssaTranslatorStateType = "Disabled"
-)
-
-// RestartHelperStatusType represents Restart helper status type.
-type RestartHelperStatusType string
-
-const (
-    // Restart helper status not helping.
-    RestartHelperStatusType_Not_Helping RestartHelperStatusType = "Not-Helping"
-
-    // Restart helper status helping.
-    RestartHelperStatusType_Helping RestartHelperStatusType = "Helping"
 )
 
 // RestartStatusType represents OSPF graceful restart status type.

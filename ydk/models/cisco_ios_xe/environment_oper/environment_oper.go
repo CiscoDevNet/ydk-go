@@ -23,25 +23,29 @@ func init() {
 type SensorUnitsType string
 
 const (
-    SensorUnitsType_Watts SensorUnitsType = "Watts"
+    SensorUnitsType_watts SensorUnitsType = "watts"
 
-    SensorUnitsType_Celsius SensorUnitsType = "Celsius"
+    SensorUnitsType_celsius SensorUnitsType = "celsius"
 
-    SensorUnitsType_milliVolts SensorUnitsType = "milliVolts"
+    SensorUnitsType_millivolts SensorUnitsType = "millivolts"
 
-    SensorUnitsType_Amperes SensorUnitsType = "Amperes"
+    SensorUnitsType_amperes SensorUnitsType = "amperes"
 
-    SensorUnitsType_Volts_DC SensorUnitsType = "Volts-DC"
+    SensorUnitsType_volts_dc SensorUnitsType = "volts-dc"
 
-    SensorUnitsType_Volts_AC SensorUnitsType = "Volts-AC"
+    SensorUnitsType_volts_ac SensorUnitsType = "volts-ac"
 
-    SensorUnitsType_milliAmperes SensorUnitsType = "milliAmperes"
+    SensorUnitsType_milliamperes SensorUnitsType = "milliamperes"
+
+    SensorUnitsType_unknown SensorUnitsType = "unknown"
+
+    SensorUnitsType_revolutions_per_minute SensorUnitsType = "revolutions-per-minute"
 )
 
 // EnvironmentSensors
 // Data nodes for Environmental Monitoring
 type EnvironmentSensors struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The list of components on the device chasis. The type is slice of
@@ -49,68 +53,29 @@ type EnvironmentSensors struct {
     EnvironmentSensor []EnvironmentSensors_EnvironmentSensor
 }
 
-func (environmentSensors *EnvironmentSensors) GetFilter() yfilter.YFilter { return environmentSensors.YFilter }
+func (environmentSensors *EnvironmentSensors) GetEntityData() *types.CommonEntityData {
+    environmentSensors.EntityData.YFilter = environmentSensors.YFilter
+    environmentSensors.EntityData.YangName = "environment-sensors"
+    environmentSensors.EntityData.BundleName = "cisco_ios_xe"
+    environmentSensors.EntityData.ParentYangName = "Cisco-IOS-XE-environment-oper"
+    environmentSensors.EntityData.SegmentPath = "Cisco-IOS-XE-environment-oper:environment-sensors"
+    environmentSensors.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    environmentSensors.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    environmentSensors.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (environmentSensors *EnvironmentSensors) SetFilter(yf yfilter.YFilter) { environmentSensors.YFilter = yf }
-
-func (environmentSensors *EnvironmentSensors) GetGoName(yname string) string {
-    if yname == "environment-sensor" { return "EnvironmentSensor" }
-    return ""
-}
-
-func (environmentSensors *EnvironmentSensors) GetSegmentPath() string {
-    return "Cisco-IOS-XE-environment-oper:environment-sensors"
-}
-
-func (environmentSensors *EnvironmentSensors) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "environment-sensor" {
-        for _, c := range environmentSensors.EnvironmentSensor {
-            if environmentSensors.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := EnvironmentSensors_EnvironmentSensor{}
-        environmentSensors.EnvironmentSensor = append(environmentSensors.EnvironmentSensor, child)
-        return &environmentSensors.EnvironmentSensor[len(environmentSensors.EnvironmentSensor)-1]
-    }
-    return nil
-}
-
-func (environmentSensors *EnvironmentSensors) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    environmentSensors.EntityData.Children = make(map[string]types.YChild)
+    environmentSensors.EntityData.Children["environment-sensor"] = types.YChild{"EnvironmentSensor", nil}
     for i := range environmentSensors.EnvironmentSensor {
-        children[environmentSensors.EnvironmentSensor[i].GetSegmentPath()] = &environmentSensors.EnvironmentSensor[i]
+        environmentSensors.EntityData.Children[types.GetSegmentPath(&environmentSensors.EnvironmentSensor[i])] = types.YChild{"EnvironmentSensor", &environmentSensors.EnvironmentSensor[i]}
     }
-    return children
+    environmentSensors.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(environmentSensors.EntityData)
 }
-
-func (environmentSensors *EnvironmentSensors) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (environmentSensors *EnvironmentSensors) GetBundleName() string { return "cisco_ios_xe" }
-
-func (environmentSensors *EnvironmentSensors) GetYangName() string { return "environment-sensors" }
-
-func (environmentSensors *EnvironmentSensors) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (environmentSensors *EnvironmentSensors) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (environmentSensors *EnvironmentSensors) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (environmentSensors *EnvironmentSensors) SetParent(parent types.Entity) { environmentSensors.parent = parent }
-
-func (environmentSensors *EnvironmentSensors) GetParent() types.Entity { return environmentSensors.parent }
-
-func (environmentSensors *EnvironmentSensors) GetParentYangName() string { return "Cisco-IOS-XE-environment-oper" }
 
 // EnvironmentSensors_EnvironmentSensor
 // The list of components on the device chasis
 type EnvironmentSensors_EnvironmentSensor struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Name of the sensor component. This includes all
@@ -131,59 +96,45 @@ type EnvironmentSensors_EnvironmentSensor struct {
     // Units corresponding to the current-reading value. The type is
     // SensorUnitsType.
     SensorUnits interface{}
+
+    // Alarm threshold under which a critical alarm will be signaled. The type is
+    // interface{} with range: -2147483648..2147483647.
+    LowCriticalThreshold interface{}
+
+    // No alarm above this threshold. The type is interface{} with range:
+    // -2147483648..2147483647.
+    LowNormalThreshold interface{}
+
+    // No alarm below this threshold. The type is interface{} with range:
+    // -2147483648..2147483647.
+    HighNormalThreshold interface{}
+
+    // Alarm threshold over which a critical  alarm will be signaled. The type is
+    // interface{} with range: -2147483648..2147483647.
+    HighCriticalThreshold interface{}
 }
 
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetFilter() yfilter.YFilter { return environmentSensor.YFilter }
+func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetEntityData() *types.CommonEntityData {
+    environmentSensor.EntityData.YFilter = environmentSensor.YFilter
+    environmentSensor.EntityData.YangName = "environment-sensor"
+    environmentSensor.EntityData.BundleName = "cisco_ios_xe"
+    environmentSensor.EntityData.ParentYangName = "environment-sensors"
+    environmentSensor.EntityData.SegmentPath = "environment-sensor" + "[name='" + fmt.Sprintf("%v", environmentSensor.Name) + "']" + "[location='" + fmt.Sprintf("%v", environmentSensor.Location) + "']"
+    environmentSensor.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    environmentSensor.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    environmentSensor.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) SetFilter(yf yfilter.YFilter) { environmentSensor.YFilter = yf }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetGoName(yname string) string {
-    if yname == "name" { return "Name" }
-    if yname == "location" { return "Location" }
-    if yname == "state" { return "State" }
-    if yname == "current-reading" { return "CurrentReading" }
-    if yname == "sensor-units" { return "SensorUnits" }
-    return ""
+    environmentSensor.EntityData.Children = make(map[string]types.YChild)
+    environmentSensor.EntityData.Leafs = make(map[string]types.YLeaf)
+    environmentSensor.EntityData.Leafs["name"] = types.YLeaf{"Name", environmentSensor.Name}
+    environmentSensor.EntityData.Leafs["location"] = types.YLeaf{"Location", environmentSensor.Location}
+    environmentSensor.EntityData.Leafs["state"] = types.YLeaf{"State", environmentSensor.State}
+    environmentSensor.EntityData.Leafs["current-reading"] = types.YLeaf{"CurrentReading", environmentSensor.CurrentReading}
+    environmentSensor.EntityData.Leafs["sensor-units"] = types.YLeaf{"SensorUnits", environmentSensor.SensorUnits}
+    environmentSensor.EntityData.Leafs["low-critical-threshold"] = types.YLeaf{"LowCriticalThreshold", environmentSensor.LowCriticalThreshold}
+    environmentSensor.EntityData.Leafs["low-normal-threshold"] = types.YLeaf{"LowNormalThreshold", environmentSensor.LowNormalThreshold}
+    environmentSensor.EntityData.Leafs["high-normal-threshold"] = types.YLeaf{"HighNormalThreshold", environmentSensor.HighNormalThreshold}
+    environmentSensor.EntityData.Leafs["high-critical-threshold"] = types.YLeaf{"HighCriticalThreshold", environmentSensor.HighCriticalThreshold}
+    return &(environmentSensor.EntityData)
 }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetSegmentPath() string {
-    return "environment-sensor" + "[name='" + fmt.Sprintf("%v", environmentSensor.Name) + "']" + "[location='" + fmt.Sprintf("%v", environmentSensor.Location) + "']"
-}
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["name"] = environmentSensor.Name
-    leafs["location"] = environmentSensor.Location
-    leafs["state"] = environmentSensor.State
-    leafs["current-reading"] = environmentSensor.CurrentReading
-    leafs["sensor-units"] = environmentSensor.SensorUnits
-    return leafs
-}
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetBundleName() string { return "cisco_ios_xe" }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetYangName() string { return "environment-sensor" }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) SetParent(parent types.Entity) { environmentSensor.parent = parent }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetParent() types.Entity { return environmentSensor.parent }
-
-func (environmentSensor *EnvironmentSensors_EnvironmentSensor) GetParentYangName() string { return "environment-sensors" }
 

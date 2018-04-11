@@ -44,6 +44,96 @@ const (
     LptsPcbQuery_packet LptsPcbQuery = "packet"
 )
 
+// MessageTypeIgmp represents LPTS IGMP message types
+type MessageTypeIgmp string
+
+const (
+    // IGMP Packet type: Membership query
+    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
+
+    // IGMP Packet type: V1 membership report
+    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
+
+    // IGMP Packet type: DVMRP
+    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
+
+    // IGMP Packet type: PIM version 1
+    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
+
+    // IGMP Packet type: Cisco Trace Messages
+    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
+
+    // IGMP Packet type: V2 membership report
+    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
+
+    // IGMP Packet type: V2 leave group
+    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
+
+    // IGMP Packet type: Multicast traceroute response
+    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
+
+    // IGMP Packet type: MulticastTraceroute
+    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
+
+    // IGMP Packet type: V3 membership report
+    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
+
+    // IGMP Packet type: Multicast router
+    // advertisement
+    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
+
+    // IGMP Packet type: Multicast router solicitation
+    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
+
+    // IGMP Packet type: Multicast router termination
+    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
+)
+
+// MessageTypeIgmp_ represents LPTS IGMP message types
+type MessageTypeIgmp_ string
+
+const (
+    // IGMP Packet type: Membership query
+    MessageTypeIgmp__membership_query MessageTypeIgmp_ = "membership-query"
+
+    // IGMP Packet type: V1 membership report
+    MessageTypeIgmp__v1_membership_report MessageTypeIgmp_ = "v1-membership-report"
+
+    // IGMP Packet type: DVMRP
+    MessageTypeIgmp__dvmrp MessageTypeIgmp_ = "dvmrp"
+
+    // IGMP Packet type: PIM version 1
+    MessageTypeIgmp__pi_mv1 MessageTypeIgmp_ = "pi-mv1"
+
+    // IGMP Packet type: Cisco Trace Messages
+    MessageTypeIgmp__cisco_trace_messages MessageTypeIgmp_ = "cisco-trace-messages"
+
+    // IGMP Packet type: V2 membership report
+    MessageTypeIgmp__v2_membership_report MessageTypeIgmp_ = "v2-membership-report"
+
+    // IGMP Packet type: V2 leave group
+    MessageTypeIgmp__v2_leave_group MessageTypeIgmp_ = "v2-leave-group"
+
+    // IGMP Packet type: Multicast traceroute response
+    MessageTypeIgmp__multicast_traceroute_response MessageTypeIgmp_ = "multicast-traceroute-response"
+
+    // IGMP Packet type: MulticastTraceroute
+    MessageTypeIgmp__multicast_traceroute MessageTypeIgmp_ = "multicast-traceroute"
+
+    // IGMP Packet type: V3 membership report
+    MessageTypeIgmp__v3_membership_report MessageTypeIgmp_ = "v3-membership-report"
+
+    // IGMP Packet type: Multicast router
+    // advertisement
+    MessageTypeIgmp__multicast_router_advertisement MessageTypeIgmp_ = "multicast-router-advertisement"
+
+    // IGMP Packet type: Multicast router solicitation
+    MessageTypeIgmp__multicast_router_solicitation MessageTypeIgmp_ = "multicast-router-solicitation"
+
+    // IGMP Packet type: Multicast router termination
+    MessageTypeIgmp__multicast_router_termination MessageTypeIgmp_ = "multicast-router-termination"
+)
+
 // MessageTypeIcmpv6 represents LPTS ICMPv6 message types
 type MessageTypeIcmpv6 string
 
@@ -154,6 +244,116 @@ const (
     MessageTypeIcmpv6_fmipv6_messages MessageTypeIcmpv6 = "fmipv6-messages"
 )
 
+// MessageTypeIcmpv6_ represents LPTS ICMPv6 message types
+type MessageTypeIcmpv6_ string
+
+const (
+    // ICMPv6 Packet type: Destination unreachable
+    MessageTypeIcmpv6__destination_unreachable MessageTypeIcmpv6_ = "destination-unreachable"
+
+    // ICMPv6 Packet type: packet too big
+    MessageTypeIcmpv6__packet_too_big MessageTypeIcmpv6_ = "packet-too-big"
+
+    // ICMPv6 Packet type: Time exceeded
+    MessageTypeIcmpv6__time_exceeded MessageTypeIcmpv6_ = "time-exceeded"
+
+    // ICMPv6 Packet type: Parameter problem
+    MessageTypeIcmpv6__parameter_problem MessageTypeIcmpv6_ = "parameter-problem"
+
+    // ICMPv6 Packet type: Echo request
+    MessageTypeIcmpv6__echo_request MessageTypeIcmpv6_ = "echo-request"
+
+    // ICMPv6 Packet type: Echo reply
+    MessageTypeIcmpv6__echo_reply MessageTypeIcmpv6_ = "echo-reply"
+
+    // ICMPv6 Packet type: Multicast listener query
+    MessageTypeIcmpv6__multicast_listener_query MessageTypeIcmpv6_ = "multicast-listener-query"
+
+    // ICMPv6 Packet type: Multicast listener report
+    MessageTypeIcmpv6__multicast_listener_report MessageTypeIcmpv6_ = "multicast-listener-report"
+
+    // ICMPv6 Packet type: Multicast listener done
+    MessageTypeIcmpv6__multicast_listener_done MessageTypeIcmpv6_ = "multicast-listener-done"
+
+    // ICMPv6 Packet type: Router solicitation
+    MessageTypeIcmpv6__router_solicitation MessageTypeIcmpv6_ = "router-solicitation"
+
+    // ICMPv6 Packet type: Router advertisement
+    MessageTypeIcmpv6__router_advertisement MessageTypeIcmpv6_ = "router-advertisement"
+
+    // ICMPv6 Packet type: Neighbor solicitation
+    MessageTypeIcmpv6__neighbor_solicitation MessageTypeIcmpv6_ = "neighbor-solicitation"
+
+    // ICMPv6 Packet type: Neighbor advertisement
+    MessageTypeIcmpv6__neighbor_advertisement MessageTypeIcmpv6_ = "neighbor-advertisement"
+
+    // ICMPv6 Packet type: Redirect message
+    MessageTypeIcmpv6__redirect_message MessageTypeIcmpv6_ = "redirect-message"
+
+    // ICMPv6 Packet type: Router renumbering
+    MessageTypeIcmpv6__router_renumbering MessageTypeIcmpv6_ = "router-renumbering"
+
+    // ICMPv6 Packet type: Node information query
+    MessageTypeIcmpv6__node_information_query MessageTypeIcmpv6_ = "node-information-query"
+
+    // ICMPv6 Packet type: Node information reply
+    MessageTypeIcmpv6__node_information_reply MessageTypeIcmpv6_ = "node-information-reply"
+
+    // ICMPv6 Packet type: Inverse neighbor discovery
+    // solicitation message
+    MessageTypeIcmpv6__inverse_neighbor_discovery_solicitaion MessageTypeIcmpv6_ = "inverse-neighbor-discovery-solicitaion"
+
+    // ICMPv6 Packet type: Inverse neighbor discovery
+    // advertisement message
+    MessageTypeIcmpv6__inverse_neighbor_discover_advertisement MessageTypeIcmpv6_ = "inverse-neighbor-discover-advertisement"
+
+    // ICMPv6 Packet type: Version 2 multicast
+    // listener report
+    MessageTypeIcmpv6__v2_multicast_listener_report MessageTypeIcmpv6_ = "v2-multicast-listener-report"
+
+    // ICMPv6 Packet type: Home agent address
+    // discovery request message
+    MessageTypeIcmpv6__home_agent_address_discovery_request MessageTypeIcmpv6_ = "home-agent-address-discovery-request"
+
+    // ICMPv6 Packet type: Home agent address
+    // discovery reply message
+    MessageTypeIcmpv6__home_agent_address_discovery_reply MessageTypeIcmpv6_ = "home-agent-address-discovery-reply"
+
+    // ICMPv6 Packet type: Mobile prefix solicitation
+    MessageTypeIcmpv6__mobile_prefix_solicitation MessageTypeIcmpv6_ = "mobile-prefix-solicitation"
+
+    // ICMPv6 Packet type: Mobile prefix advertisement
+    MessageTypeIcmpv6__mobile_prefix_advertisement MessageTypeIcmpv6_ = "mobile-prefix-advertisement"
+
+    // ICMPv6 Packet type: Certification path
+    // solicitation message
+    MessageTypeIcmpv6__certification_path_solicitation_message MessageTypeIcmpv6_ = "certification-path-solicitation-message"
+
+    // ICMPv6 Packet type: Certification path
+    // advertisement message
+    MessageTypeIcmpv6__certification_path_advertisement_message MessageTypeIcmpv6_ = "certification-path-advertisement-message"
+
+    // ICMPv6 Packet type: ICMP messages utilized by
+    // experimental mobility  protocols such as
+    // seamoby
+    MessageTypeIcmpv6__experimental_mobility_protocols MessageTypeIcmpv6_ = "experimental-mobility-protocols"
+
+    // ICMPv6 Packet type: Multicast router
+    // advertisement
+    MessageTypeIcmpv6__multicast_router_advertisement MessageTypeIcmpv6_ = "multicast-router-advertisement"
+
+    // ICMPv6 Packet type: Multicast router
+    // solicitation
+    MessageTypeIcmpv6__multicast_router_solicitation MessageTypeIcmpv6_ = "multicast-router-solicitation"
+
+    // ICMPv6 Packet type: Multicast router
+    // termination
+    MessageTypeIcmpv6__multicast_router_termination MessageTypeIcmpv6_ = "multicast-router-termination"
+
+    // ICMPv6 Packet type: FMIPv6 messages
+    MessageTypeIcmpv6__fmipv6_messages MessageTypeIcmpv6_ = "fmipv6-messages"
+)
+
 // MessageTypeIcmp represents LPTS ICMP message types
 type MessageTypeIcmp string
 
@@ -231,94 +431,81 @@ const (
     MessageTypeIcmp_domain_name_request MessageTypeIcmp = "domain-name-request"
 )
 
-// MessageTypeIgmp represents LPTS IGMP message types
-type MessageTypeIgmp string
+// MessageTypeIcmp_ represents LPTS ICMP message types
+type MessageTypeIcmp_ string
 
 const (
-    // IGMP Packet type: Membership query
-    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
+    // ICMP Packet type: Echo reply
+    MessageTypeIcmp__echo_reply MessageTypeIcmp_ = "echo-reply"
 
-    // IGMP Packet type: V1 membership report
-    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
+    // ICMP Packet type: Destination unreachable
+    MessageTypeIcmp__destination_unreachable MessageTypeIcmp_ = "destination-unreachable"
 
-    // IGMP Packet type: DVMRP
-    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
+    // ICMP Packet type: Source quench
+    MessageTypeIcmp__source_quench MessageTypeIcmp_ = "source-quench"
 
-    // IGMP Packet type: PIM version 1
-    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
+    // ICMP Packet type: Redirect
+    MessageTypeIcmp__redirect MessageTypeIcmp_ = "redirect"
 
-    // IGMP Packet type: Cisco Trace Messages
-    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
+    // ICMP Packet type: Alternate host address
+    MessageTypeIcmp__alternate_host_address MessageTypeIcmp_ = "alternate-host-address"
 
-    // IGMP Packet type: V2 membership report
-    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
+    // ICMP Packet type: Echo
+    MessageTypeIcmp__echo MessageTypeIcmp_ = "echo"
 
-    // IGMP Packet type: V2 leave group
-    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
+    // ICMP Packet type: Router advertisement
+    MessageTypeIcmp__router_advertisement MessageTypeIcmp_ = "router-advertisement"
 
-    // IGMP Packet type: Multicast traceroute response
-    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
+    // ICMP Packet type: Router selection
+    MessageTypeIcmp__router_selection MessageTypeIcmp_ = "router-selection"
 
-    // IGMP Packet type: MulticastTraceroute
-    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
+    // ICMP Packet type: Time exceeded
+    MessageTypeIcmp__time_exceeded MessageTypeIcmp_ = "time-exceeded"
 
-    // IGMP Packet type: V3 membership report
-    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
+    // ICMP Packet type: Parameter problem
+    MessageTypeIcmp__parameter_problem MessageTypeIcmp_ = "parameter-problem"
 
-    // IGMP Packet type: Multicast router
-    // advertisement
-    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
+    // ICMP Packet type: Time stamp
+    MessageTypeIcmp__time_stamp MessageTypeIcmp_ = "time-stamp"
 
-    // IGMP Packet type: Multicast router solicitation
-    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
+    // ICMP Packet type: Time stamp reply
+    MessageTypeIcmp__time_stamp_reply MessageTypeIcmp_ = "time-stamp-reply"
 
-    // IGMP Packet type: Multicast router termination
-    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
-)
+    // ICMP Packet type: Information request
+    MessageTypeIcmp__information_request MessageTypeIcmp_ = "information-request"
 
-// MessageTypeIgmp represents LPTS IGMP message types
-type MessageTypeIgmp string
+    // ICMP Packet type: Information reply
+    MessageTypeIcmp__information_reply MessageTypeIcmp_ = "information-reply"
 
-const (
-    // IGMP Packet type: Membership query
-    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
+    // ICMP Packet type: Address mask request
+    MessageTypeIcmp__address_mask_request MessageTypeIcmp_ = "address-mask-request"
 
-    // IGMP Packet type: V1 membership report
-    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
+    // ICMP Packet type: Address mask reply
+    MessageTypeIcmp__address_mask_reply MessageTypeIcmp_ = "address-mask-reply"
 
-    // IGMP Packet type: DVMRP
-    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
+    // ICMP Packet type: Trace route
+    MessageTypeIcmp__trace_route MessageTypeIcmp_ = "trace-route"
 
-    // IGMP Packet type: PIM version 1
-    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
+    // ICMP Packet type: Datagram Conversion error
+    MessageTypeIcmp__datagram_conversion_error MessageTypeIcmp_ = "datagram-conversion-error"
 
-    // IGMP Packet type: Cisco Trace Messages
-    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
+    // ICMP Packet type: Mobile host redirect
+    MessageTypeIcmp__mobile_host_redirect MessageTypeIcmp_ = "mobile-host-redirect"
 
-    // IGMP Packet type: V2 membership report
-    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
+    // ICMP Packet type: IPv6 where-are-you
+    MessageTypeIcmp__where_are_you MessageTypeIcmp_ = "where-are-you"
 
-    // IGMP Packet type: V2 leave group
-    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
+    // ICMP Packet type: IPv6 i-am-here
+    MessageTypeIcmp__iam_here MessageTypeIcmp_ = "iam-here"
 
-    // IGMP Packet type: Multicast traceroute response
-    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
+    // ICMP Packet type: Mobile registration request
+    MessageTypeIcmp__mobile_registration_request MessageTypeIcmp_ = "mobile-registration-request"
 
-    // IGMP Packet type: MulticastTraceroute
-    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
+    // ICMP Packet type: Mobile registration reply
+    MessageTypeIcmp__mobile_registration_reply MessageTypeIcmp_ = "mobile-registration-reply"
 
-    // IGMP Packet type: V3 membership report
-    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
-
-    // IGMP Packet type: Multicast router
-    // advertisement
-    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
-
-    // IGMP Packet type: Multicast router solicitation
-    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
-
-    // IGMP Packet type: Multicast router termination
-    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
+    // ICMP Packet type: Domain name request
+    MessageTypeIcmp__domain_name_request MessageTypeIcmp_ = "domain-name-request"
 )
 
 // Packet represents Packet type
@@ -336,83 +523,6 @@ const (
 
     // Packet type unknown
     Packet_unknown Packet = "unknown"
-)
-
-// MessageTypeIcmp represents LPTS ICMP message types
-type MessageTypeIcmp string
-
-const (
-    // ICMP Packet type: Echo reply
-    MessageTypeIcmp_echo_reply MessageTypeIcmp = "echo-reply"
-
-    // ICMP Packet type: Destination unreachable
-    MessageTypeIcmp_destination_unreachable MessageTypeIcmp = "destination-unreachable"
-
-    // ICMP Packet type: Source quench
-    MessageTypeIcmp_source_quench MessageTypeIcmp = "source-quench"
-
-    // ICMP Packet type: Redirect
-    MessageTypeIcmp_redirect MessageTypeIcmp = "redirect"
-
-    // ICMP Packet type: Alternate host address
-    MessageTypeIcmp_alternate_host_address MessageTypeIcmp = "alternate-host-address"
-
-    // ICMP Packet type: Echo
-    MessageTypeIcmp_echo MessageTypeIcmp = "echo"
-
-    // ICMP Packet type: Router advertisement
-    MessageTypeIcmp_router_advertisement MessageTypeIcmp = "router-advertisement"
-
-    // ICMP Packet type: Router selection
-    MessageTypeIcmp_router_selection MessageTypeIcmp = "router-selection"
-
-    // ICMP Packet type: Time exceeded
-    MessageTypeIcmp_time_exceeded MessageTypeIcmp = "time-exceeded"
-
-    // ICMP Packet type: Parameter problem
-    MessageTypeIcmp_parameter_problem MessageTypeIcmp = "parameter-problem"
-
-    // ICMP Packet type: Time stamp
-    MessageTypeIcmp_time_stamp MessageTypeIcmp = "time-stamp"
-
-    // ICMP Packet type: Time stamp reply
-    MessageTypeIcmp_time_stamp_reply MessageTypeIcmp = "time-stamp-reply"
-
-    // ICMP Packet type: Information request
-    MessageTypeIcmp_information_request MessageTypeIcmp = "information-request"
-
-    // ICMP Packet type: Information reply
-    MessageTypeIcmp_information_reply MessageTypeIcmp = "information-reply"
-
-    // ICMP Packet type: Address mask request
-    MessageTypeIcmp_address_mask_request MessageTypeIcmp = "address-mask-request"
-
-    // ICMP Packet type: Address mask reply
-    MessageTypeIcmp_address_mask_reply MessageTypeIcmp = "address-mask-reply"
-
-    // ICMP Packet type: Trace route
-    MessageTypeIcmp_trace_route MessageTypeIcmp = "trace-route"
-
-    // ICMP Packet type: Datagram Conversion error
-    MessageTypeIcmp_datagram_conversion_error MessageTypeIcmp = "datagram-conversion-error"
-
-    // ICMP Packet type: Mobile host redirect
-    MessageTypeIcmp_mobile_host_redirect MessageTypeIcmp = "mobile-host-redirect"
-
-    // ICMP Packet type: IPv6 where-are-you
-    MessageTypeIcmp_where_are_you MessageTypeIcmp = "where-are-you"
-
-    // ICMP Packet type: IPv6 i-am-here
-    MessageTypeIcmp_iam_here MessageTypeIcmp = "iam-here"
-
-    // ICMP Packet type: Mobile registration request
-    MessageTypeIcmp_mobile_registration_request MessageTypeIcmp = "mobile-registration-request"
-
-    // ICMP Packet type: Mobile registration reply
-    MessageTypeIcmp_mobile_registration_reply MessageTypeIcmp = "mobile-registration-reply"
-
-    // ICMP Packet type: Domain name request
-    MessageTypeIcmp_domain_name_request MessageTypeIcmp = "domain-name-request"
 )
 
 // AddrFamily represents Address Family Types
@@ -557,179 +667,36 @@ const (
     UdpAddressFamily_ipv6 UdpAddressFamily = "ipv6"
 )
 
-// MessageTypeIcmpv6 represents LPTS ICMPv6 message types
-type MessageTypeIcmpv6 string
-
-const (
-    // ICMPv6 Packet type: Destination unreachable
-    MessageTypeIcmpv6_destination_unreachable MessageTypeIcmpv6 = "destination-unreachable"
-
-    // ICMPv6 Packet type: packet too big
-    MessageTypeIcmpv6_packet_too_big MessageTypeIcmpv6 = "packet-too-big"
-
-    // ICMPv6 Packet type: Time exceeded
-    MessageTypeIcmpv6_time_exceeded MessageTypeIcmpv6 = "time-exceeded"
-
-    // ICMPv6 Packet type: Parameter problem
-    MessageTypeIcmpv6_parameter_problem MessageTypeIcmpv6 = "parameter-problem"
-
-    // ICMPv6 Packet type: Echo request
-    MessageTypeIcmpv6_echo_request MessageTypeIcmpv6 = "echo-request"
-
-    // ICMPv6 Packet type: Echo reply
-    MessageTypeIcmpv6_echo_reply MessageTypeIcmpv6 = "echo-reply"
-
-    // ICMPv6 Packet type: Multicast listener query
-    MessageTypeIcmpv6_multicast_listener_query MessageTypeIcmpv6 = "multicast-listener-query"
-
-    // ICMPv6 Packet type: Multicast listener report
-    MessageTypeIcmpv6_multicast_listener_report MessageTypeIcmpv6 = "multicast-listener-report"
-
-    // ICMPv6 Packet type: Multicast listener done
-    MessageTypeIcmpv6_multicast_listener_done MessageTypeIcmpv6 = "multicast-listener-done"
-
-    // ICMPv6 Packet type: Router solicitation
-    MessageTypeIcmpv6_router_solicitation MessageTypeIcmpv6 = "router-solicitation"
-
-    // ICMPv6 Packet type: Router advertisement
-    MessageTypeIcmpv6_router_advertisement MessageTypeIcmpv6 = "router-advertisement"
-
-    // ICMPv6 Packet type: Neighbor solicitation
-    MessageTypeIcmpv6_neighbor_solicitation MessageTypeIcmpv6 = "neighbor-solicitation"
-
-    // ICMPv6 Packet type: Neighbor advertisement
-    MessageTypeIcmpv6_neighbor_advertisement MessageTypeIcmpv6 = "neighbor-advertisement"
-
-    // ICMPv6 Packet type: Redirect message
-    MessageTypeIcmpv6_redirect_message MessageTypeIcmpv6 = "redirect-message"
-
-    // ICMPv6 Packet type: Router renumbering
-    MessageTypeIcmpv6_router_renumbering MessageTypeIcmpv6 = "router-renumbering"
-
-    // ICMPv6 Packet type: Node information query
-    MessageTypeIcmpv6_node_information_query MessageTypeIcmpv6 = "node-information-query"
-
-    // ICMPv6 Packet type: Node information reply
-    MessageTypeIcmpv6_node_information_reply MessageTypeIcmpv6 = "node-information-reply"
-
-    // ICMPv6 Packet type: Inverse neighbor discovery
-    // solicitation message
-    MessageTypeIcmpv6_inverse_neighbor_discovery_solicitaion MessageTypeIcmpv6 = "inverse-neighbor-discovery-solicitaion"
-
-    // ICMPv6 Packet type: Inverse neighbor discovery
-    // advertisement message
-    MessageTypeIcmpv6_inverse_neighbor_discover_advertisement MessageTypeIcmpv6 = "inverse-neighbor-discover-advertisement"
-
-    // ICMPv6 Packet type: Version 2 multicast
-    // listener report
-    MessageTypeIcmpv6_v2_multicast_listener_report MessageTypeIcmpv6 = "v2-multicast-listener-report"
-
-    // ICMPv6 Packet type: Home agent address
-    // discovery request message
-    MessageTypeIcmpv6_home_agent_address_discovery_request MessageTypeIcmpv6 = "home-agent-address-discovery-request"
-
-    // ICMPv6 Packet type: Home agent address
-    // discovery reply message
-    MessageTypeIcmpv6_home_agent_address_discovery_reply MessageTypeIcmpv6 = "home-agent-address-discovery-reply"
-
-    // ICMPv6 Packet type: Mobile prefix solicitation
-    MessageTypeIcmpv6_mobile_prefix_solicitation MessageTypeIcmpv6 = "mobile-prefix-solicitation"
-
-    // ICMPv6 Packet type: Mobile prefix advertisement
-    MessageTypeIcmpv6_mobile_prefix_advertisement MessageTypeIcmpv6 = "mobile-prefix-advertisement"
-
-    // ICMPv6 Packet type: Certification path
-    // solicitation message
-    MessageTypeIcmpv6_certification_path_solicitation_message MessageTypeIcmpv6 = "certification-path-solicitation-message"
-
-    // ICMPv6 Packet type: Certification path
-    // advertisement message
-    MessageTypeIcmpv6_certification_path_advertisement_message MessageTypeIcmpv6 = "certification-path-advertisement-message"
-
-    // ICMPv6 Packet type: ICMP messages utilized by
-    // experimental mobility  protocols such as
-    // seamoby
-    MessageTypeIcmpv6_experimental_mobility_protocols MessageTypeIcmpv6 = "experimental-mobility-protocols"
-
-    // ICMPv6 Packet type: Multicast router
-    // advertisement
-    MessageTypeIcmpv6_multicast_router_advertisement MessageTypeIcmpv6 = "multicast-router-advertisement"
-
-    // ICMPv6 Packet type: Multicast router
-    // solicitation
-    MessageTypeIcmpv6_multicast_router_solicitation MessageTypeIcmpv6 = "multicast-router-solicitation"
-
-    // ICMPv6 Packet type: Multicast router
-    // termination
-    MessageTypeIcmpv6_multicast_router_termination MessageTypeIcmpv6 = "multicast-router-termination"
-
-    // ICMPv6 Packet type: FMIPv6 messages
-    MessageTypeIcmpv6_fmipv6_messages MessageTypeIcmpv6 = "fmipv6-messages"
-)
-
 // Udp
 // IP UDP Operational Data
 type Udp struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Node-specific UDP operational data.
     Nodes Udp_Nodes
 }
 
-func (udp *Udp) GetFilter() yfilter.YFilter { return udp.YFilter }
+func (udp *Udp) GetEntityData() *types.CommonEntityData {
+    udp.EntityData.YFilter = udp.YFilter
+    udp.EntityData.YangName = "udp"
+    udp.EntityData.BundleName = "cisco_ios_xr"
+    udp.EntityData.ParentYangName = "Cisco-IOS-XR-ip-udp-oper"
+    udp.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-oper:udp"
+    udp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    udp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    udp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (udp *Udp) SetFilter(yf yfilter.YFilter) { udp.YFilter = yf }
-
-func (udp *Udp) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    udp.EntityData.Children = make(map[string]types.YChild)
+    udp.EntityData.Children["nodes"] = types.YChild{"Nodes", &udp.Nodes}
+    udp.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(udp.EntityData)
 }
-
-func (udp *Udp) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-udp-oper:udp"
-}
-
-func (udp *Udp) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &udp.Nodes
-    }
-    return nil
-}
-
-func (udp *Udp) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &udp.Nodes
-    return children
-}
-
-func (udp *Udp) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (udp *Udp) GetBundleName() string { return "cisco_ios_xr" }
-
-func (udp *Udp) GetYangName() string { return "udp" }
-
-func (udp *Udp) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (udp *Udp) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (udp *Udp) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (udp *Udp) SetParent(parent types.Entity) { udp.parent = parent }
-
-func (udp *Udp) GetParent() types.Entity { return udp.parent }
-
-func (udp *Udp) GetParentYangName() string { return "Cisco-IOS-XR-ip-udp-oper" }
 
 // Udp_Nodes
 // Node-specific UDP operational data
 type Udp_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // UDP operational data for a particular node. The type is slice of
@@ -737,133 +704,60 @@ type Udp_Nodes struct {
     Node []Udp_Nodes_Node
 }
 
-func (nodes *Udp_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *Udp_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "udp"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *Udp_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *Udp_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *Udp_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *Udp_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Udp_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *Udp_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *Udp_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *Udp_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *Udp_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *Udp_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *Udp_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *Udp_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *Udp_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *Udp_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *Udp_Nodes) GetParentYangName() string { return "udp" }
 
 // Udp_Nodes_Node
 // UDP operational data for a particular node
 type Udp_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Statistical UDP operational data for a node.
     Statistics Udp_Nodes_Node_Statistics
 }
 
-func (node *Udp_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *Udp_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *Udp_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *Udp_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "statistics" { return "Statistics" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *Udp_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *Udp_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &node.Statistics
-    }
-    return nil
-}
-
-func (node *Udp_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &node.Statistics
-    return children
-}
-
-func (node *Udp_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *Udp_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *Udp_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *Udp_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *Udp_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *Udp_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *Udp_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *Udp_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *Udp_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // Udp_Nodes_Node_Statistics
 // Statistical UDP operational data for a node
 type Udp_Nodes_Node_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // UDP Traffic statistics for IPv4.
@@ -873,64 +767,27 @@ type Udp_Nodes_Node_Statistics struct {
     Ipv6Traffic Udp_Nodes_Node_Statistics_Ipv6Traffic
 }
 
-func (statistics *Udp_Nodes_Node_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *Udp_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "node"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *Udp_Nodes_Node_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetGoName(yname string) string {
-    if yname == "ipv4-traffic" { return "Ipv4Traffic" }
-    if yname == "ipv6-traffic" { return "Ipv6Traffic" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["ipv4-traffic"] = types.YChild{"Ipv4Traffic", &statistics.Ipv4Traffic}
+    statistics.EntityData.Children["ipv6-traffic"] = types.YChild{"Ipv6Traffic", &statistics.Ipv6Traffic}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *Udp_Nodes_Node_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4-traffic" {
-        return &statistics.Ipv4Traffic
-    }
-    if childYangName == "ipv6-traffic" {
-        return &statistics.Ipv6Traffic
-    }
-    return nil
-}
-
-func (statistics *Udp_Nodes_Node_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ipv4-traffic"] = &statistics.Ipv4Traffic
-    children["ipv6-traffic"] = &statistics.Ipv6Traffic
-    return children
-}
-
-func (statistics *Udp_Nodes_Node_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *Udp_Nodes_Node_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *Udp_Nodes_Node_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *Udp_Nodes_Node_Statistics) GetParentYangName() string { return "node" }
 
 // Udp_Nodes_Node_Statistics_Ipv4Traffic
 // UDP Traffic statistics for IPv4
 type Udp_Nodes_Node_Statistics_Ipv4Traffic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // UDP Received. The type is interface{} with range: 0..4294967295.
@@ -953,66 +810,31 @@ type Udp_Nodes_Node_Statistics_Ipv4Traffic struct {
     UdpDroppedPackets interface{}
 }
 
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetFilter() yfilter.YFilter { return ipv4Traffic.YFilter }
+func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetEntityData() *types.CommonEntityData {
+    ipv4Traffic.EntityData.YFilter = ipv4Traffic.YFilter
+    ipv4Traffic.EntityData.YangName = "ipv4-traffic"
+    ipv4Traffic.EntityData.BundleName = "cisco_ios_xr"
+    ipv4Traffic.EntityData.ParentYangName = "statistics"
+    ipv4Traffic.EntityData.SegmentPath = "ipv4-traffic"
+    ipv4Traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4Traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4Traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) SetFilter(yf yfilter.YFilter) { ipv4Traffic.YFilter = yf }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetGoName(yname string) string {
-    if yname == "udp-input-packets" { return "UdpInputPackets" }
-    if yname == "udp-checksum-error-packets" { return "UdpChecksumErrorPackets" }
-    if yname == "udp-no-port-packets" { return "UdpNoPortPackets" }
-    if yname == "udp-bad-length-packets" { return "UdpBadLengthPackets" }
-    if yname == "udp-output-packets" { return "UdpOutputPackets" }
-    if yname == "udp-dropped-packets" { return "UdpDroppedPackets" }
-    return ""
+    ipv4Traffic.EntityData.Children = make(map[string]types.YChild)
+    ipv4Traffic.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4Traffic.EntityData.Leafs["udp-input-packets"] = types.YLeaf{"UdpInputPackets", ipv4Traffic.UdpInputPackets}
+    ipv4Traffic.EntityData.Leafs["udp-checksum-error-packets"] = types.YLeaf{"UdpChecksumErrorPackets", ipv4Traffic.UdpChecksumErrorPackets}
+    ipv4Traffic.EntityData.Leafs["udp-no-port-packets"] = types.YLeaf{"UdpNoPortPackets", ipv4Traffic.UdpNoPortPackets}
+    ipv4Traffic.EntityData.Leafs["udp-bad-length-packets"] = types.YLeaf{"UdpBadLengthPackets", ipv4Traffic.UdpBadLengthPackets}
+    ipv4Traffic.EntityData.Leafs["udp-output-packets"] = types.YLeaf{"UdpOutputPackets", ipv4Traffic.UdpOutputPackets}
+    ipv4Traffic.EntityData.Leafs["udp-dropped-packets"] = types.YLeaf{"UdpDroppedPackets", ipv4Traffic.UdpDroppedPackets}
+    return &(ipv4Traffic.EntityData)
 }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetSegmentPath() string {
-    return "ipv4-traffic"
-}
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["udp-input-packets"] = ipv4Traffic.UdpInputPackets
-    leafs["udp-checksum-error-packets"] = ipv4Traffic.UdpChecksumErrorPackets
-    leafs["udp-no-port-packets"] = ipv4Traffic.UdpNoPortPackets
-    leafs["udp-bad-length-packets"] = ipv4Traffic.UdpBadLengthPackets
-    leafs["udp-output-packets"] = ipv4Traffic.UdpOutputPackets
-    leafs["udp-dropped-packets"] = ipv4Traffic.UdpDroppedPackets
-    return leafs
-}
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetYangName() string { return "ipv4-traffic" }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) SetParent(parent types.Entity) { ipv4Traffic.parent = parent }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetParent() types.Entity { return ipv4Traffic.parent }
-
-func (ipv4Traffic *Udp_Nodes_Node_Statistics_Ipv4Traffic) GetParentYangName() string { return "statistics" }
 
 // Udp_Nodes_Node_Statistics_Ipv6Traffic
 // UDP Traffic statistics for IPv6
 type Udp_Nodes_Node_Statistics_Ipv6Traffic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // UDP Received. The type is interface{} with range: 0..4294967295.
@@ -1035,125 +857,57 @@ type Udp_Nodes_Node_Statistics_Ipv6Traffic struct {
     UdpDroppedPackets interface{}
 }
 
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetFilter() yfilter.YFilter { return ipv6Traffic.YFilter }
+func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetEntityData() *types.CommonEntityData {
+    ipv6Traffic.EntityData.YFilter = ipv6Traffic.YFilter
+    ipv6Traffic.EntityData.YangName = "ipv6-traffic"
+    ipv6Traffic.EntityData.BundleName = "cisco_ios_xr"
+    ipv6Traffic.EntityData.ParentYangName = "statistics"
+    ipv6Traffic.EntityData.SegmentPath = "ipv6-traffic"
+    ipv6Traffic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6Traffic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6Traffic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) SetFilter(yf yfilter.YFilter) { ipv6Traffic.YFilter = yf }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetGoName(yname string) string {
-    if yname == "udp-input-packets" { return "UdpInputPackets" }
-    if yname == "udp-checksum-error-packets" { return "UdpChecksumErrorPackets" }
-    if yname == "udp-no-port-packets" { return "UdpNoPortPackets" }
-    if yname == "udp-bad-length-packets" { return "UdpBadLengthPackets" }
-    if yname == "udp-output-packets" { return "UdpOutputPackets" }
-    if yname == "udp-dropped-packets" { return "UdpDroppedPackets" }
-    return ""
+    ipv6Traffic.EntityData.Children = make(map[string]types.YChild)
+    ipv6Traffic.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6Traffic.EntityData.Leafs["udp-input-packets"] = types.YLeaf{"UdpInputPackets", ipv6Traffic.UdpInputPackets}
+    ipv6Traffic.EntityData.Leafs["udp-checksum-error-packets"] = types.YLeaf{"UdpChecksumErrorPackets", ipv6Traffic.UdpChecksumErrorPackets}
+    ipv6Traffic.EntityData.Leafs["udp-no-port-packets"] = types.YLeaf{"UdpNoPortPackets", ipv6Traffic.UdpNoPortPackets}
+    ipv6Traffic.EntityData.Leafs["udp-bad-length-packets"] = types.YLeaf{"UdpBadLengthPackets", ipv6Traffic.UdpBadLengthPackets}
+    ipv6Traffic.EntityData.Leafs["udp-output-packets"] = types.YLeaf{"UdpOutputPackets", ipv6Traffic.UdpOutputPackets}
+    ipv6Traffic.EntityData.Leafs["udp-dropped-packets"] = types.YLeaf{"UdpDroppedPackets", ipv6Traffic.UdpDroppedPackets}
+    return &(ipv6Traffic.EntityData)
 }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetSegmentPath() string {
-    return "ipv6-traffic"
-}
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["udp-input-packets"] = ipv6Traffic.UdpInputPackets
-    leafs["udp-checksum-error-packets"] = ipv6Traffic.UdpChecksumErrorPackets
-    leafs["udp-no-port-packets"] = ipv6Traffic.UdpNoPortPackets
-    leafs["udp-bad-length-packets"] = ipv6Traffic.UdpBadLengthPackets
-    leafs["udp-output-packets"] = ipv6Traffic.UdpOutputPackets
-    leafs["udp-dropped-packets"] = ipv6Traffic.UdpDroppedPackets
-    return leafs
-}
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetYangName() string { return "ipv6-traffic" }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) SetParent(parent types.Entity) { ipv6Traffic.parent = parent }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetParent() types.Entity { return ipv6Traffic.parent }
-
-func (ipv6Traffic *Udp_Nodes_Node_Statistics_Ipv6Traffic) GetParentYangName() string { return "statistics" }
 
 // UdpConnection
 // udp connection
 type UdpConnection struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of UDP connections nodes.
     Nodes UdpConnection_Nodes
 }
 
-func (udpConnection *UdpConnection) GetFilter() yfilter.YFilter { return udpConnection.YFilter }
+func (udpConnection *UdpConnection) GetEntityData() *types.CommonEntityData {
+    udpConnection.EntityData.YFilter = udpConnection.YFilter
+    udpConnection.EntityData.YangName = "udp-connection"
+    udpConnection.EntityData.BundleName = "cisco_ios_xr"
+    udpConnection.EntityData.ParentYangName = "Cisco-IOS-XR-ip-udp-oper"
+    udpConnection.EntityData.SegmentPath = "Cisco-IOS-XR-ip-udp-oper:udp-connection"
+    udpConnection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    udpConnection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    udpConnection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (udpConnection *UdpConnection) SetFilter(yf yfilter.YFilter) { udpConnection.YFilter = yf }
-
-func (udpConnection *UdpConnection) GetGoName(yname string) string {
-    if yname == "nodes" { return "Nodes" }
-    return ""
+    udpConnection.EntityData.Children = make(map[string]types.YChild)
+    udpConnection.EntityData.Children["nodes"] = types.YChild{"Nodes", &udpConnection.Nodes}
+    udpConnection.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(udpConnection.EntityData)
 }
-
-func (udpConnection *UdpConnection) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ip-udp-oper:udp-connection"
-}
-
-func (udpConnection *UdpConnection) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "nodes" {
-        return &udpConnection.Nodes
-    }
-    return nil
-}
-
-func (udpConnection *UdpConnection) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["nodes"] = &udpConnection.Nodes
-    return children
-}
-
-func (udpConnection *UdpConnection) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (udpConnection *UdpConnection) GetBundleName() string { return "cisco_ios_xr" }
-
-func (udpConnection *UdpConnection) GetYangName() string { return "udp-connection" }
-
-func (udpConnection *UdpConnection) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (udpConnection *UdpConnection) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (udpConnection *UdpConnection) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (udpConnection *UdpConnection) SetParent(parent types.Entity) { udpConnection.parent = parent }
-
-func (udpConnection *UdpConnection) GetParent() types.Entity { return udpConnection.parent }
-
-func (udpConnection *UdpConnection) GetParentYangName() string { return "Cisco-IOS-XR-ip-udp-oper" }
 
 // UdpConnection_Nodes
 // List of UDP connections nodes
 type UdpConnection_Nodes struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Information about a particular node. The type is slice of
@@ -1161,72 +915,33 @@ type UdpConnection_Nodes struct {
     Node []UdpConnection_Nodes_Node
 }
 
-func (nodes *UdpConnection_Nodes) GetFilter() yfilter.YFilter { return nodes.YFilter }
+func (nodes *UdpConnection_Nodes) GetEntityData() *types.CommonEntityData {
+    nodes.EntityData.YFilter = nodes.YFilter
+    nodes.EntityData.YangName = "nodes"
+    nodes.EntityData.BundleName = "cisco_ios_xr"
+    nodes.EntityData.ParentYangName = "udp-connection"
+    nodes.EntityData.SegmentPath = "nodes"
+    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (nodes *UdpConnection_Nodes) SetFilter(yf yfilter.YFilter) { nodes.YFilter = yf }
-
-func (nodes *UdpConnection_Nodes) GetGoName(yname string) string {
-    if yname == "node" { return "Node" }
-    return ""
-}
-
-func (nodes *UdpConnection_Nodes) GetSegmentPath() string {
-    return "nodes"
-}
-
-func (nodes *UdpConnection_Nodes) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "node" {
-        for _, c := range nodes.Node {
-            if nodes.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node{}
-        nodes.Node = append(nodes.Node, child)
-        return &nodes.Node[len(nodes.Node)-1]
-    }
-    return nil
-}
-
-func (nodes *UdpConnection_Nodes) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    nodes.EntityData.Children = make(map[string]types.YChild)
+    nodes.EntityData.Children["node"] = types.YChild{"Node", nil}
     for i := range nodes.Node {
-        children[nodes.Node[i].GetSegmentPath()] = &nodes.Node[i]
+        nodes.EntityData.Children[types.GetSegmentPath(&nodes.Node[i])] = types.YChild{"Node", &nodes.Node[i]}
     }
-    return children
+    nodes.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(nodes.EntityData)
 }
-
-func (nodes *UdpConnection_Nodes) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (nodes *UdpConnection_Nodes) GetBundleName() string { return "cisco_ios_xr" }
-
-func (nodes *UdpConnection_Nodes) GetYangName() string { return "nodes" }
-
-func (nodes *UdpConnection_Nodes) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (nodes *UdpConnection_Nodes) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (nodes *UdpConnection_Nodes) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (nodes *UdpConnection_Nodes) SetParent(parent types.Entity) { nodes.parent = parent }
-
-func (nodes *UdpConnection_Nodes) GetParent() types.Entity { return nodes.parent }
-
-func (nodes *UdpConnection_Nodes) GetParentYangName() string { return "udp-connection" }
 
 // UdpConnection_Nodes_Node
 // Information about a particular node
 type UdpConnection_Nodes_Node struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
+    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
     NodeName interface{}
 
     // Statistics of UDP connections.
@@ -1242,76 +957,30 @@ type UdpConnection_Nodes_Node struct {
     PcbBriefs UdpConnection_Nodes_Node_PcbBriefs
 }
 
-func (node *UdpConnection_Nodes_Node) GetFilter() yfilter.YFilter { return node.YFilter }
+func (node *UdpConnection_Nodes_Node) GetEntityData() *types.CommonEntityData {
+    node.EntityData.YFilter = node.YFilter
+    node.EntityData.YangName = "node"
+    node.EntityData.BundleName = "cisco_ios_xr"
+    node.EntityData.ParentYangName = "nodes"
+    node.EntityData.SegmentPath = "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
+    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (node *UdpConnection_Nodes_Node) SetFilter(yf yfilter.YFilter) { node.YFilter = yf }
-
-func (node *UdpConnection_Nodes_Node) GetGoName(yname string) string {
-    if yname == "node-name" { return "NodeName" }
-    if yname == "statistics" { return "Statistics" }
-    if yname == "lpts" { return "Lpts" }
-    if yname == "pcb-details" { return "PcbDetails" }
-    if yname == "pcb-briefs" { return "PcbBriefs" }
-    return ""
+    node.EntityData.Children = make(map[string]types.YChild)
+    node.EntityData.Children["statistics"] = types.YChild{"Statistics", &node.Statistics}
+    node.EntityData.Children["lpts"] = types.YChild{"Lpts", &node.Lpts}
+    node.EntityData.Children["pcb-details"] = types.YChild{"PcbDetails", &node.PcbDetails}
+    node.EntityData.Children["pcb-briefs"] = types.YChild{"PcbBriefs", &node.PcbBriefs}
+    node.EntityData.Leafs = make(map[string]types.YLeaf)
+    node.EntityData.Leafs["node-name"] = types.YLeaf{"NodeName", node.NodeName}
+    return &(node.EntityData)
 }
-
-func (node *UdpConnection_Nodes_Node) GetSegmentPath() string {
-    return "node" + "[node-name='" + fmt.Sprintf("%v", node.NodeName) + "']"
-}
-
-func (node *UdpConnection_Nodes_Node) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "statistics" {
-        return &node.Statistics
-    }
-    if childYangName == "lpts" {
-        return &node.Lpts
-    }
-    if childYangName == "pcb-details" {
-        return &node.PcbDetails
-    }
-    if childYangName == "pcb-briefs" {
-        return &node.PcbBriefs
-    }
-    return nil
-}
-
-func (node *UdpConnection_Nodes_Node) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["statistics"] = &node.Statistics
-    children["lpts"] = &node.Lpts
-    children["pcb-details"] = &node.PcbDetails
-    children["pcb-briefs"] = &node.PcbBriefs
-    return children
-}
-
-func (node *UdpConnection_Nodes_Node) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["node-name"] = node.NodeName
-    return leafs
-}
-
-func (node *UdpConnection_Nodes_Node) GetBundleName() string { return "cisco_ios_xr" }
-
-func (node *UdpConnection_Nodes_Node) GetYangName() string { return "node" }
-
-func (node *UdpConnection_Nodes_Node) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (node *UdpConnection_Nodes_Node) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (node *UdpConnection_Nodes_Node) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (node *UdpConnection_Nodes_Node) SetParent(parent types.Entity) { node.parent = parent }
-
-func (node *UdpConnection_Nodes_Node) GetParent() types.Entity { return node.parent }
-
-func (node *UdpConnection_Nodes_Node) GetParentYangName() string { return "nodes" }
 
 // UdpConnection_Nodes_Node_Statistics
 // Statistics of UDP connections
 type UdpConnection_Nodes_Node_Statistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Table listing clients.
@@ -1324,69 +993,28 @@ type UdpConnection_Nodes_Node_Statistics struct {
     PcbStatistics UdpConnection_Nodes_Node_Statistics_PcbStatistics
 }
 
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetFilter() yfilter.YFilter { return statistics.YFilter }
+func (statistics *UdpConnection_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+    statistics.EntityData.YFilter = statistics.YFilter
+    statistics.EntityData.YangName = "statistics"
+    statistics.EntityData.BundleName = "cisco_ios_xr"
+    statistics.EntityData.ParentYangName = "node"
+    statistics.EntityData.SegmentPath = "statistics"
+    statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (statistics *UdpConnection_Nodes_Node_Statistics) SetFilter(yf yfilter.YFilter) { statistics.YFilter = yf }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetGoName(yname string) string {
-    if yname == "clients" { return "Clients" }
-    if yname == "summary" { return "Summary" }
-    if yname == "pcb-statistics" { return "PcbStatistics" }
-    return ""
+    statistics.EntityData.Children = make(map[string]types.YChild)
+    statistics.EntityData.Children["clients"] = types.YChild{"Clients", &statistics.Clients}
+    statistics.EntityData.Children["summary"] = types.YChild{"Summary", &statistics.Summary}
+    statistics.EntityData.Children["pcb-statistics"] = types.YChild{"PcbStatistics", &statistics.PcbStatistics}
+    statistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(statistics.EntityData)
 }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetSegmentPath() string {
-    return "statistics"
-}
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "clients" {
-        return &statistics.Clients
-    }
-    if childYangName == "summary" {
-        return &statistics.Summary
-    }
-    if childYangName == "pcb-statistics" {
-        return &statistics.PcbStatistics
-    }
-    return nil
-}
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["clients"] = &statistics.Clients
-    children["summary"] = &statistics.Summary
-    children["pcb-statistics"] = &statistics.PcbStatistics
-    return children
-}
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetYangName() string { return "statistics" }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) SetParent(parent types.Entity) { statistics.parent = parent }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetParent() types.Entity { return statistics.parent }
-
-func (statistics *UdpConnection_Nodes_Node_Statistics) GetParentYangName() string { return "node" }
 
 // UdpConnection_Nodes_Node_Statistics_Clients
 // Table listing clients
 type UdpConnection_Nodes_Node_Statistics_Clients struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Describing Client ID. The type is slice of
@@ -1394,68 +1022,29 @@ type UdpConnection_Nodes_Node_Statistics_Clients struct {
     Client []UdpConnection_Nodes_Node_Statistics_Clients_Client
 }
 
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetFilter() yfilter.YFilter { return clients.YFilter }
+func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetEntityData() *types.CommonEntityData {
+    clients.EntityData.YFilter = clients.YFilter
+    clients.EntityData.YangName = "clients"
+    clients.EntityData.BundleName = "cisco_ios_xr"
+    clients.EntityData.ParentYangName = "statistics"
+    clients.EntityData.SegmentPath = "clients"
+    clients.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    clients.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    clients.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) SetFilter(yf yfilter.YFilter) { clients.YFilter = yf }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetGoName(yname string) string {
-    if yname == "client" { return "Client" }
-    return ""
-}
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetSegmentPath() string {
-    return "clients"
-}
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "client" {
-        for _, c := range clients.Client {
-            if clients.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_Statistics_Clients_Client{}
-        clients.Client = append(clients.Client, child)
-        return &clients.Client[len(clients.Client)-1]
-    }
-    return nil
-}
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    clients.EntityData.Children = make(map[string]types.YChild)
+    clients.EntityData.Children["client"] = types.YChild{"Client", nil}
     for i := range clients.Client {
-        children[clients.Client[i].GetSegmentPath()] = &clients.Client[i]
+        clients.EntityData.Children[types.GetSegmentPath(&clients.Client[i])] = types.YChild{"Client", &clients.Client[i]}
     }
-    return children
+    clients.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(clients.EntityData)
 }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetBundleName() string { return "cisco_ios_xr" }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetYangName() string { return "clients" }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) SetParent(parent types.Entity) { clients.parent = parent }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetParent() types.Entity { return clients.parent }
-
-func (clients *UdpConnection_Nodes_Node_Statistics_Clients) GetParentYangName() string { return "statistics" }
 
 // UdpConnection_Nodes_Node_Statistics_Clients_Client
 // Describing Client ID
 type UdpConnection_Nodes_Node_Statistics_Clients_Client struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Displaying client's aggregated statistics. The
@@ -1486,68 +1075,32 @@ type UdpConnection_Nodes_Node_Statistics_Clients_Client struct {
     Ipv6SentPackets interface{}
 }
 
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetFilter() yfilter.YFilter { return client.YFilter }
+func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetEntityData() *types.CommonEntityData {
+    client.EntityData.YFilter = client.YFilter
+    client.EntityData.YangName = "client"
+    client.EntityData.BundleName = "cisco_ios_xr"
+    client.EntityData.ParentYangName = "clients"
+    client.EntityData.SegmentPath = "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
+    client.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    client.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) SetFilter(yf yfilter.YFilter) { client.YFilter = yf }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetGoName(yname string) string {
-    if yname == "client-id" { return "ClientId" }
-    if yname == "client-jid" { return "ClientJid" }
-    if yname == "client-name" { return "ClientName" }
-    if yname == "ipv4-received-packets" { return "Ipv4ReceivedPackets" }
-    if yname == "ipv4-sent-packets" { return "Ipv4SentPackets" }
-    if yname == "ipv6-received-packets" { return "Ipv6ReceivedPackets" }
-    if yname == "ipv6-sent-packets" { return "Ipv6SentPackets" }
-    return ""
+    client.EntityData.Children = make(map[string]types.YChild)
+    client.EntityData.Leafs = make(map[string]types.YLeaf)
+    client.EntityData.Leafs["client-id"] = types.YLeaf{"ClientId", client.ClientId}
+    client.EntityData.Leafs["client-jid"] = types.YLeaf{"ClientJid", client.ClientJid}
+    client.EntityData.Leafs["client-name"] = types.YLeaf{"ClientName", client.ClientName}
+    client.EntityData.Leafs["ipv4-received-packets"] = types.YLeaf{"Ipv4ReceivedPackets", client.Ipv4ReceivedPackets}
+    client.EntityData.Leafs["ipv4-sent-packets"] = types.YLeaf{"Ipv4SentPackets", client.Ipv4SentPackets}
+    client.EntityData.Leafs["ipv6-received-packets"] = types.YLeaf{"Ipv6ReceivedPackets", client.Ipv6ReceivedPackets}
+    client.EntityData.Leafs["ipv6-sent-packets"] = types.YLeaf{"Ipv6SentPackets", client.Ipv6SentPackets}
+    return &(client.EntityData)
 }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetSegmentPath() string {
-    return "client" + "[client-id='" + fmt.Sprintf("%v", client.ClientId) + "']"
-}
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["client-id"] = client.ClientId
-    leafs["client-jid"] = client.ClientJid
-    leafs["client-name"] = client.ClientName
-    leafs["ipv4-received-packets"] = client.Ipv4ReceivedPackets
-    leafs["ipv4-sent-packets"] = client.Ipv4SentPackets
-    leafs["ipv6-received-packets"] = client.Ipv6ReceivedPackets
-    leafs["ipv6-sent-packets"] = client.Ipv6SentPackets
-    return leafs
-}
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetBundleName() string { return "cisco_ios_xr" }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetYangName() string { return "client" }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) SetParent(parent types.Entity) { client.parent = parent }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetParent() types.Entity { return client.parent }
-
-func (client *UdpConnection_Nodes_Node_Statistics_Clients_Client) GetParentYangName() string { return "clients" }
 
 // UdpConnection_Nodes_Node_Statistics_Summary
 // Summary statistics across all UDP connections
 type UdpConnection_Nodes_Node_Statistics_Summary struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Total packets received. The type is interface{} with range: 0..4294967295.
@@ -1588,75 +1141,36 @@ type UdpConnection_Nodes_Node_Statistics_Summary struct {
     FailedClonePackets interface{}
 }
 
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetFilter() yfilter.YFilter { return summary.YFilter }
+func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetEntityData() *types.CommonEntityData {
+    summary.EntityData.YFilter = summary.YFilter
+    summary.EntityData.YangName = "summary"
+    summary.EntityData.BundleName = "cisco_ios_xr"
+    summary.EntityData.ParentYangName = "statistics"
+    summary.EntityData.SegmentPath = "summary"
+    summary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    summary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) SetFilter(yf yfilter.YFilter) { summary.YFilter = yf }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetGoName(yname string) string {
-    if yname == "received-total-packets" { return "ReceivedTotalPackets" }
-    if yname == "received-no-port-packets" { return "ReceivedNoPortPackets" }
-    if yname == "received-bad-checksum-packets" { return "ReceivedBadChecksumPackets" }
-    if yname == "received-too-short-packets" { return "ReceivedTooShortPackets" }
-    if yname == "received-drop-packets" { return "ReceivedDropPackets" }
-    if yname == "sent-total-packets" { return "SentTotalPackets" }
-    if yname == "sent-error-packets" { return "SentErrorPackets" }
-    if yname == "forward-broadcast-packets" { return "ForwardBroadcastPackets" }
-    if yname == "cloned-packets" { return "ClonedPackets" }
-    if yname == "failed-clone-packets" { return "FailedClonePackets" }
-    return ""
+    summary.EntityData.Children = make(map[string]types.YChild)
+    summary.EntityData.Leafs = make(map[string]types.YLeaf)
+    summary.EntityData.Leafs["received-total-packets"] = types.YLeaf{"ReceivedTotalPackets", summary.ReceivedTotalPackets}
+    summary.EntityData.Leafs["received-no-port-packets"] = types.YLeaf{"ReceivedNoPortPackets", summary.ReceivedNoPortPackets}
+    summary.EntityData.Leafs["received-bad-checksum-packets"] = types.YLeaf{"ReceivedBadChecksumPackets", summary.ReceivedBadChecksumPackets}
+    summary.EntityData.Leafs["received-too-short-packets"] = types.YLeaf{"ReceivedTooShortPackets", summary.ReceivedTooShortPackets}
+    summary.EntityData.Leafs["received-drop-packets"] = types.YLeaf{"ReceivedDropPackets", summary.ReceivedDropPackets}
+    summary.EntityData.Leafs["sent-total-packets"] = types.YLeaf{"SentTotalPackets", summary.SentTotalPackets}
+    summary.EntityData.Leafs["sent-error-packets"] = types.YLeaf{"SentErrorPackets", summary.SentErrorPackets}
+    summary.EntityData.Leafs["forward-broadcast-packets"] = types.YLeaf{"ForwardBroadcastPackets", summary.ForwardBroadcastPackets}
+    summary.EntityData.Leafs["cloned-packets"] = types.YLeaf{"ClonedPackets", summary.ClonedPackets}
+    summary.EntityData.Leafs["failed-clone-packets"] = types.YLeaf{"FailedClonePackets", summary.FailedClonePackets}
+    return &(summary.EntityData)
 }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetSegmentPath() string {
-    return "summary"
-}
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-total-packets"] = summary.ReceivedTotalPackets
-    leafs["received-no-port-packets"] = summary.ReceivedNoPortPackets
-    leafs["received-bad-checksum-packets"] = summary.ReceivedBadChecksumPackets
-    leafs["received-too-short-packets"] = summary.ReceivedTooShortPackets
-    leafs["received-drop-packets"] = summary.ReceivedDropPackets
-    leafs["sent-total-packets"] = summary.SentTotalPackets
-    leafs["sent-error-packets"] = summary.SentErrorPackets
-    leafs["forward-broadcast-packets"] = summary.ForwardBroadcastPackets
-    leafs["cloned-packets"] = summary.ClonedPackets
-    leafs["failed-clone-packets"] = summary.FailedClonePackets
-    return leafs
-}
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetBundleName() string { return "cisco_ios_xr" }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetYangName() string { return "summary" }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) SetParent(parent types.Entity) { summary.parent = parent }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetParent() types.Entity { return summary.parent }
-
-func (summary *UdpConnection_Nodes_Node_Statistics_Summary) GetParentYangName() string { return "statistics" }
 
 // UdpConnection_Nodes_Node_Statistics_PcbStatistics
 // Table listing the UDP connections for which
 // statistics are provided
 type UdpConnection_Nodes_Node_Statistics_PcbStatistics struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Satistics associated with a particular PCB. The type is slice of
@@ -1664,68 +1178,29 @@ type UdpConnection_Nodes_Node_Statistics_PcbStatistics struct {
     PcbStatistic []UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic
 }
 
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetFilter() yfilter.YFilter { return pcbStatistics.YFilter }
+func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetEntityData() *types.CommonEntityData {
+    pcbStatistics.EntityData.YFilter = pcbStatistics.YFilter
+    pcbStatistics.EntityData.YangName = "pcb-statistics"
+    pcbStatistics.EntityData.BundleName = "cisco_ios_xr"
+    pcbStatistics.EntityData.ParentYangName = "statistics"
+    pcbStatistics.EntityData.SegmentPath = "pcb-statistics"
+    pcbStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) SetFilter(yf yfilter.YFilter) { pcbStatistics.YFilter = yf }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetGoName(yname string) string {
-    if yname == "pcb-statistic" { return "PcbStatistic" }
-    return ""
-}
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetSegmentPath() string {
-    return "pcb-statistics"
-}
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pcb-statistic" {
-        for _, c := range pcbStatistics.PcbStatistic {
-            if pcbStatistics.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic{}
-        pcbStatistics.PcbStatistic = append(pcbStatistics.PcbStatistic, child)
-        return &pcbStatistics.PcbStatistic[len(pcbStatistics.PcbStatistic)-1]
-    }
-    return nil
-}
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pcbStatistics.EntityData.Children = make(map[string]types.YChild)
+    pcbStatistics.EntityData.Children["pcb-statistic"] = types.YChild{"PcbStatistic", nil}
     for i := range pcbStatistics.PcbStatistic {
-        children[pcbStatistics.PcbStatistic[i].GetSegmentPath()] = &pcbStatistics.PcbStatistic[i]
+        pcbStatistics.EntityData.Children[types.GetSegmentPath(&pcbStatistics.PcbStatistic[i])] = types.YChild{"PcbStatistic", &pcbStatistics.PcbStatistic[i]}
     }
-    return children
+    pcbStatistics.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pcbStatistics.EntityData)
 }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetYangName() string { return "pcb-statistics" }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) SetParent(parent types.Entity) { pcbStatistics.parent = parent }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetParent() types.Entity { return pcbStatistics.parent }
-
-func (pcbStatistics *UdpConnection_Nodes_Node_Statistics_PcbStatistics) GetParentYangName() string { return "statistics" }
 
 // UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic
 // Satistics associated with a particular PCB
 type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Protocol Control Block address. The type is
@@ -1745,70 +1220,30 @@ type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic struct {
     Receive UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive
 }
 
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetFilter() yfilter.YFilter { return pcbStatistic.YFilter }
+func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetEntityData() *types.CommonEntityData {
+    pcbStatistic.EntityData.YFilter = pcbStatistic.YFilter
+    pcbStatistic.EntityData.YangName = "pcb-statistic"
+    pcbStatistic.EntityData.BundleName = "cisco_ios_xr"
+    pcbStatistic.EntityData.ParentYangName = "pcb-statistics"
+    pcbStatistic.EntityData.SegmentPath = "pcb-statistic" + "[pcb-address='" + fmt.Sprintf("%v", pcbStatistic.PcbAddress) + "']"
+    pcbStatistic.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbStatistic.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbStatistic.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) SetFilter(yf yfilter.YFilter) { pcbStatistic.YFilter = yf }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetGoName(yname string) string {
-    if yname == "pcb-address" { return "PcbAddress" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "is-paw-socket" { return "IsPawSocket" }
-    if yname == "send" { return "Send" }
-    if yname == "receive" { return "Receive" }
-    return ""
+    pcbStatistic.EntityData.Children = make(map[string]types.YChild)
+    pcbStatistic.EntityData.Children["send"] = types.YChild{"Send", &pcbStatistic.Send}
+    pcbStatistic.EntityData.Children["receive"] = types.YChild{"Receive", &pcbStatistic.Receive}
+    pcbStatistic.EntityData.Leafs = make(map[string]types.YLeaf)
+    pcbStatistic.EntityData.Leafs["pcb-address"] = types.YLeaf{"PcbAddress", pcbStatistic.PcbAddress}
+    pcbStatistic.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", pcbStatistic.VrfId}
+    pcbStatistic.EntityData.Leafs["is-paw-socket"] = types.YLeaf{"IsPawSocket", pcbStatistic.IsPawSocket}
+    return &(pcbStatistic.EntityData)
 }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetSegmentPath() string {
-    return "pcb-statistic" + "[pcb-address='" + fmt.Sprintf("%v", pcbStatistic.PcbAddress) + "']"
-}
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "send" {
-        return &pcbStatistic.Send
-    }
-    if childYangName == "receive" {
-        return &pcbStatistic.Receive
-    }
-    return nil
-}
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["send"] = &pcbStatistic.Send
-    children["receive"] = &pcbStatistic.Receive
-    return children
-}
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pcb-address"] = pcbStatistic.PcbAddress
-    leafs["vrf-id"] = pcbStatistic.VrfId
-    leafs["is-paw-socket"] = pcbStatistic.IsPawSocket
-    return leafs
-}
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetYangName() string { return "pcb-statistic" }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) SetParent(parent types.Entity) { pcbStatistic.parent = parent }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetParent() types.Entity { return pcbStatistic.parent }
-
-func (pcbStatistic *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic) GetParentYangName() string { return "pcb-statistics" }
 
 // UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send
 // UDP send statistics
 type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Bytes received from application. The type is interface{} with range:
@@ -1836,66 +1271,31 @@ type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send struct 
     FailedQueuedNetIoPackets interface{}
 }
 
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetFilter() yfilter.YFilter { return send.YFilter }
+func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetEntityData() *types.CommonEntityData {
+    send.EntityData.YFilter = send.YFilter
+    send.EntityData.YangName = "send"
+    send.EntityData.BundleName = "cisco_ios_xr"
+    send.EntityData.ParentYangName = "pcb-statistic"
+    send.EntityData.SegmentPath = "send"
+    send.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    send.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    send.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) SetFilter(yf yfilter.YFilter) { send.YFilter = yf }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetGoName(yname string) string {
-    if yname == "received-application-bytes" { return "ReceivedApplicationBytes" }
-    if yname == "received-xipc-pulses" { return "ReceivedXipcPulses" }
-    if yname == "sent-network-packets" { return "SentNetworkPackets" }
-    if yname == "sent-net-io-packets" { return "SentNetIoPackets" }
-    if yname == "failed-queued-network-packets" { return "FailedQueuedNetworkPackets" }
-    if yname == "failed-queued-net-io-packets" { return "FailedQueuedNetIoPackets" }
-    return ""
+    send.EntityData.Children = make(map[string]types.YChild)
+    send.EntityData.Leafs = make(map[string]types.YLeaf)
+    send.EntityData.Leafs["received-application-bytes"] = types.YLeaf{"ReceivedApplicationBytes", send.ReceivedApplicationBytes}
+    send.EntityData.Leafs["received-xipc-pulses"] = types.YLeaf{"ReceivedXipcPulses", send.ReceivedXipcPulses}
+    send.EntityData.Leafs["sent-network-packets"] = types.YLeaf{"SentNetworkPackets", send.SentNetworkPackets}
+    send.EntityData.Leafs["sent-net-io-packets"] = types.YLeaf{"SentNetIoPackets", send.SentNetIoPackets}
+    send.EntityData.Leafs["failed-queued-network-packets"] = types.YLeaf{"FailedQueuedNetworkPackets", send.FailedQueuedNetworkPackets}
+    send.EntityData.Leafs["failed-queued-net-io-packets"] = types.YLeaf{"FailedQueuedNetIoPackets", send.FailedQueuedNetIoPackets}
+    return &(send.EntityData)
 }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetSegmentPath() string {
-    return "send"
-}
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-application-bytes"] = send.ReceivedApplicationBytes
-    leafs["received-xipc-pulses"] = send.ReceivedXipcPulses
-    leafs["sent-network-packets"] = send.SentNetworkPackets
-    leafs["sent-net-io-packets"] = send.SentNetIoPackets
-    leafs["failed-queued-network-packets"] = send.FailedQueuedNetworkPackets
-    leafs["failed-queued-net-io-packets"] = send.FailedQueuedNetIoPackets
-    return leafs
-}
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetBundleName() string { return "cisco_ios_xr" }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetYangName() string { return "send" }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) SetParent(parent types.Entity) { send.parent = parent }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetParent() types.Entity { return send.parent }
-
-func (send *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Send) GetParentYangName() string { return "pcb-statistic" }
 
 // UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive
 // UDP receive statistics
 type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Packets received from network. The type is interface{} with range:
@@ -1919,123 +1319,56 @@ type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive stru
     QueuedApplicationSocketPackets interface{}
 }
 
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetFilter() yfilter.YFilter { return receive.YFilter }
+func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetEntityData() *types.CommonEntityData {
+    receive.EntityData.YFilter = receive.YFilter
+    receive.EntityData.YangName = "receive"
+    receive.EntityData.BundleName = "cisco_ios_xr"
+    receive.EntityData.ParentYangName = "pcb-statistic"
+    receive.EntityData.SegmentPath = "receive"
+    receive.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    receive.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    receive.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) SetFilter(yf yfilter.YFilter) { receive.YFilter = yf }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetGoName(yname string) string {
-    if yname == "received-network-packets" { return "ReceivedNetworkPackets" }
-    if yname == "failed-queued-application-packets" { return "FailedQueuedApplicationPackets" }
-    if yname == "queued-application-packets" { return "QueuedApplicationPackets" }
-    if yname == "failed-queued-application-socket-packets" { return "FailedQueuedApplicationSocketPackets" }
-    if yname == "queued-application-socket-packets" { return "QueuedApplicationSocketPackets" }
-    return ""
+    receive.EntityData.Children = make(map[string]types.YChild)
+    receive.EntityData.Leafs = make(map[string]types.YLeaf)
+    receive.EntityData.Leafs["received-network-packets"] = types.YLeaf{"ReceivedNetworkPackets", receive.ReceivedNetworkPackets}
+    receive.EntityData.Leafs["failed-queued-application-packets"] = types.YLeaf{"FailedQueuedApplicationPackets", receive.FailedQueuedApplicationPackets}
+    receive.EntityData.Leafs["queued-application-packets"] = types.YLeaf{"QueuedApplicationPackets", receive.QueuedApplicationPackets}
+    receive.EntityData.Leafs["failed-queued-application-socket-packets"] = types.YLeaf{"FailedQueuedApplicationSocketPackets", receive.FailedQueuedApplicationSocketPackets}
+    receive.EntityData.Leafs["queued-application-socket-packets"] = types.YLeaf{"QueuedApplicationSocketPackets", receive.QueuedApplicationSocketPackets}
+    return &(receive.EntityData)
 }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetSegmentPath() string {
-    return "receive"
-}
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["received-network-packets"] = receive.ReceivedNetworkPackets
-    leafs["failed-queued-application-packets"] = receive.FailedQueuedApplicationPackets
-    leafs["queued-application-packets"] = receive.QueuedApplicationPackets
-    leafs["failed-queued-application-socket-packets"] = receive.FailedQueuedApplicationSocketPackets
-    leafs["queued-application-socket-packets"] = receive.QueuedApplicationSocketPackets
-    return leafs
-}
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetBundleName() string { return "cisco_ios_xr" }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetYangName() string { return "receive" }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) SetParent(parent types.Entity) { receive.parent = parent }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetParent() types.Entity { return receive.parent }
-
-func (receive *UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic_Receive) GetParentYangName() string { return "pcb-statistic" }
 
 // UdpConnection_Nodes_Node_Lpts
 // LPTS statistical data
 type UdpConnection_Nodes_Node_Lpts struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of query options.
     Queries UdpConnection_Nodes_Node_Lpts_Queries
 }
 
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetFilter() yfilter.YFilter { return lpts.YFilter }
+func (lpts *UdpConnection_Nodes_Node_Lpts) GetEntityData() *types.CommonEntityData {
+    lpts.EntityData.YFilter = lpts.YFilter
+    lpts.EntityData.YangName = "lpts"
+    lpts.EntityData.BundleName = "cisco_ios_xr"
+    lpts.EntityData.ParentYangName = "node"
+    lpts.EntityData.SegmentPath = "lpts"
+    lpts.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lpts.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lpts.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lpts *UdpConnection_Nodes_Node_Lpts) SetFilter(yf yfilter.YFilter) { lpts.YFilter = yf }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetGoName(yname string) string {
-    if yname == "queries" { return "Queries" }
-    return ""
+    lpts.EntityData.Children = make(map[string]types.YChild)
+    lpts.EntityData.Children["queries"] = types.YChild{"Queries", &lpts.Queries}
+    lpts.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(lpts.EntityData)
 }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetSegmentPath() string {
-    return "lpts"
-}
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "queries" {
-        return &lpts.Queries
-    }
-    return nil
-}
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["queries"] = &lpts.Queries
-    return children
-}
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetYangName() string { return "lpts" }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) SetParent(parent types.Entity) { lpts.parent = parent }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetParent() types.Entity { return lpts.parent }
-
-func (lpts *UdpConnection_Nodes_Node_Lpts) GetParentYangName() string { return "node" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries
 // List of query options
 type UdpConnection_Nodes_Node_Lpts_Queries struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Query option. The type is slice of
@@ -2043,68 +1376,29 @@ type UdpConnection_Nodes_Node_Lpts_Queries struct {
     Query []UdpConnection_Nodes_Node_Lpts_Queries_Query
 }
 
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetFilter() yfilter.YFilter { return queries.YFilter }
+func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetEntityData() *types.CommonEntityData {
+    queries.EntityData.YFilter = queries.YFilter
+    queries.EntityData.YangName = "queries"
+    queries.EntityData.BundleName = "cisco_ios_xr"
+    queries.EntityData.ParentYangName = "lpts"
+    queries.EntityData.SegmentPath = "queries"
+    queries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    queries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    queries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) SetFilter(yf yfilter.YFilter) { queries.YFilter = yf }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetGoName(yname string) string {
-    if yname == "query" { return "Query" }
-    return ""
-}
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetSegmentPath() string {
-    return "queries"
-}
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "query" {
-        for _, c := range queries.Query {
-            if queries.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_Lpts_Queries_Query{}
-        queries.Query = append(queries.Query, child)
-        return &queries.Query[len(queries.Query)-1]
-    }
-    return nil
-}
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    queries.EntityData.Children = make(map[string]types.YChild)
+    queries.EntityData.Children["query"] = types.YChild{"Query", nil}
     for i := range queries.Query {
-        children[queries.Query[i].GetSegmentPath()] = &queries.Query[i]
+        queries.EntityData.Children[types.GetSegmentPath(&queries.Query[i])] = types.YChild{"Query", &queries.Query[i]}
     }
-    return children
+    queries.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(queries.EntityData)
 }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetBundleName() string { return "cisco_ios_xr" }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetYangName() string { return "queries" }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) SetParent(parent types.Entity) { queries.parent = parent }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetParent() types.Entity { return queries.parent }
-
-func (queries *UdpConnection_Nodes_Node_Lpts_Queries) GetParentYangName() string { return "lpts" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query
 // Query option
 type UdpConnection_Nodes_Node_Lpts_Queries_Query struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Query option. The type is LptsPcbQuery.
@@ -2114,61 +1408,27 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query struct {
     Pcbs UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs
 }
 
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetFilter() yfilter.YFilter { return query.YFilter }
+func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetEntityData() *types.CommonEntityData {
+    query.EntityData.YFilter = query.YFilter
+    query.EntityData.YangName = "query"
+    query.EntityData.BundleName = "cisco_ios_xr"
+    query.EntityData.ParentYangName = "queries"
+    query.EntityData.SegmentPath = "query" + "[query-name='" + fmt.Sprintf("%v", query.QueryName) + "']"
+    query.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    query.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    query.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) SetFilter(yf yfilter.YFilter) { query.YFilter = yf }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetGoName(yname string) string {
-    if yname == "query-name" { return "QueryName" }
-    if yname == "pcbs" { return "Pcbs" }
-    return ""
+    query.EntityData.Children = make(map[string]types.YChild)
+    query.EntityData.Children["pcbs"] = types.YChild{"Pcbs", &query.Pcbs}
+    query.EntityData.Leafs = make(map[string]types.YLeaf)
+    query.EntityData.Leafs["query-name"] = types.YLeaf{"QueryName", query.QueryName}
+    return &(query.EntityData)
 }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetSegmentPath() string {
-    return "query" + "[query-name='" + fmt.Sprintf("%v", query.QueryName) + "']"
-}
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pcbs" {
-        return &query.Pcbs
-    }
-    return nil
-}
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["pcbs"] = &query.Pcbs
-    return children
-}
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["query-name"] = query.QueryName
-    return leafs
-}
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetBundleName() string { return "cisco_ios_xr" }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetYangName() string { return "query" }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) SetParent(parent types.Entity) { query.parent = parent }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetParent() types.Entity { return query.parent }
-
-func (query *UdpConnection_Nodes_Node_Lpts_Queries_Query) GetParentYangName() string { return "queries" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs
 // List of PCBs
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A PCB information. The type is slice of
@@ -2176,68 +1436,29 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs struct {
     Pcb []UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb
 }
 
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetFilter() yfilter.YFilter { return pcbs.YFilter }
+func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetEntityData() *types.CommonEntityData {
+    pcbs.EntityData.YFilter = pcbs.YFilter
+    pcbs.EntityData.YangName = "pcbs"
+    pcbs.EntityData.BundleName = "cisco_ios_xr"
+    pcbs.EntityData.ParentYangName = "query"
+    pcbs.EntityData.SegmentPath = "pcbs"
+    pcbs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) SetFilter(yf yfilter.YFilter) { pcbs.YFilter = yf }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetGoName(yname string) string {
-    if yname == "pcb" { return "Pcb" }
-    return ""
-}
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetSegmentPath() string {
-    return "pcbs"
-}
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pcb" {
-        for _, c := range pcbs.Pcb {
-            if pcbs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb{}
-        pcbs.Pcb = append(pcbs.Pcb, child)
-        return &pcbs.Pcb[len(pcbs.Pcb)-1]
-    }
-    return nil
-}
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pcbs.EntityData.Children = make(map[string]types.YChild)
+    pcbs.EntityData.Children["pcb"] = types.YChild{"Pcb", nil}
     for i := range pcbs.Pcb {
-        children[pcbs.Pcb[i].GetSegmentPath()] = &pcbs.Pcb[i]
+        pcbs.EntityData.Children[types.GetSegmentPath(&pcbs.Pcb[i])] = types.YChild{"Pcb", &pcbs.Pcb[i]}
     }
-    return children
+    pcbs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pcbs.EntityData)
 }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetYangName() string { return "pcbs" }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) SetParent(parent types.Entity) { pcbs.parent = parent }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetParent() types.Entity { return pcbs.parent }
-
-func (pcbs *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs) GetParentYangName() string { return "query" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb
 // A PCB information
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. PCB address. The type is interface{} with range:
@@ -2263,213 +1484,104 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb struct {
     Common UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common
 }
 
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetFilter() yfilter.YFilter { return pcb.YFilter }
+func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetEntityData() *types.CommonEntityData {
+    pcb.EntityData.YFilter = pcb.YFilter
+    pcb.EntityData.YangName = "pcb"
+    pcb.EntityData.BundleName = "cisco_ios_xr"
+    pcb.EntityData.ParentYangName = "pcbs"
+    pcb.EntityData.SegmentPath = "pcb" + "[pcb-address='" + fmt.Sprintf("%v", pcb.PcbAddress) + "']"
+    pcb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) SetFilter(yf yfilter.YFilter) { pcb.YFilter = yf }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetGoName(yname string) string {
-    if yname == "pcb-address" { return "PcbAddress" }
-    if yname == "l4-protocol" { return "L4Protocol" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "foreign-port" { return "ForeignPort" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "foreign-address" { return "ForeignAddress" }
-    if yname == "common" { return "Common" }
-    return ""
+    pcb.EntityData.Children = make(map[string]types.YChild)
+    pcb.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &pcb.LocalAddress}
+    pcb.EntityData.Children["foreign-address"] = types.YChild{"ForeignAddress", &pcb.ForeignAddress}
+    pcb.EntityData.Children["common"] = types.YChild{"Common", &pcb.Common}
+    pcb.EntityData.Leafs = make(map[string]types.YLeaf)
+    pcb.EntityData.Leafs["pcb-address"] = types.YLeaf{"PcbAddress", pcb.PcbAddress}
+    pcb.EntityData.Leafs["l4-protocol"] = types.YLeaf{"L4Protocol", pcb.L4Protocol}
+    pcb.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", pcb.LocalPort}
+    pcb.EntityData.Leafs["foreign-port"] = types.YLeaf{"ForeignPort", pcb.ForeignPort}
+    return &(pcb.EntityData)
 }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetSegmentPath() string {
-    return "pcb" + "[pcb-address='" + fmt.Sprintf("%v", pcb.PcbAddress) + "']"
-}
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "local-address" {
-        return &pcb.LocalAddress
-    }
-    if childYangName == "foreign-address" {
-        return &pcb.ForeignAddress
-    }
-    if childYangName == "common" {
-        return &pcb.Common
-    }
-    return nil
-}
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["local-address"] = &pcb.LocalAddress
-    children["foreign-address"] = &pcb.ForeignAddress
-    children["common"] = &pcb.Common
-    return children
-}
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pcb-address"] = pcb.PcbAddress
-    leafs["l4-protocol"] = pcb.L4Protocol
-    leafs["local-port"] = pcb.LocalPort
-    leafs["foreign-port"] = pcb.ForeignPort
-    return leafs
-}
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetYangName() string { return "pcb" }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) SetParent(parent types.Entity) { pcb.parent = parent }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetParent() types.Entity { return pcb.parent }
-
-func (pcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb) GetParentYangName() string { return "pcbs" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress
 // Local IP address
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is AddrFamily.
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetFilter() yfilter.YFilter { return localAddress.YFilter }
+func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetEntityData() *types.CommonEntityData {
+    localAddress.EntityData.YFilter = localAddress.YFilter
+    localAddress.EntityData.YangName = "local-address"
+    localAddress.EntityData.BundleName = "cisco_ios_xr"
+    localAddress.EntityData.ParentYangName = "pcb"
+    localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) SetFilter(yf yfilter.YFilter) { localAddress.YFilter = yf }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    localAddress.EntityData.Children = make(map[string]types.YChild)
+    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    localAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", localAddress.AfName}
+    localAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", localAddress.Ipv4Address}
+    localAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", localAddress.Ipv6Address}
+    return &(localAddress.EntityData)
 }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetSegmentPath() string {
-    return "local-address"
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = localAddress.AfName
-    leafs["ipv4-address"] = localAddress.Ipv4Address
-    leafs["ipv6-address"] = localAddress.Ipv6Address
-    return leafs
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetYangName() string { return "local-address" }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) SetParent(parent types.Entity) { localAddress.parent = parent }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetParent() types.Entity { return localAddress.parent }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress) GetParentYangName() string { return "pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress
 // Remote IP address
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is AddrFamily.
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetFilter() yfilter.YFilter { return foreignAddress.YFilter }
+func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetEntityData() *types.CommonEntityData {
+    foreignAddress.EntityData.YFilter = foreignAddress.YFilter
+    foreignAddress.EntityData.YangName = "foreign-address"
+    foreignAddress.EntityData.BundleName = "cisco_ios_xr"
+    foreignAddress.EntityData.ParentYangName = "pcb"
+    foreignAddress.EntityData.SegmentPath = "foreign-address"
+    foreignAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    foreignAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    foreignAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) SetFilter(yf yfilter.YFilter) { foreignAddress.YFilter = yf }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    foreignAddress.EntityData.Children = make(map[string]types.YChild)
+    foreignAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    foreignAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", foreignAddress.AfName}
+    foreignAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", foreignAddress.Ipv4Address}
+    foreignAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", foreignAddress.Ipv6Address}
+    return &(foreignAddress.EntityData)
 }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetSegmentPath() string {
-    return "foreign-address"
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = foreignAddress.AfName
-    leafs["ipv4-address"] = foreignAddress.Ipv4Address
-    leafs["ipv6-address"] = foreignAddress.Ipv6Address
-    return leafs
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetYangName() string { return "foreign-address" }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) SetParent(parent types.Entity) { foreignAddress.parent = parent }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetParent() types.Entity { return foreignAddress.parent }
-
-func (foreignAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress) GetParentYangName() string { return "pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common
 // Common PCB information
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Address Family. The type is AddrFamily.
@@ -2479,61 +1591,27 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common struct {
     LptsPcb UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb
 }
 
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetFilter() yfilter.YFilter { return common.YFilter }
+func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetEntityData() *types.CommonEntityData {
+    common.EntityData.YFilter = common.YFilter
+    common.EntityData.YangName = "common"
+    common.EntityData.BundleName = "cisco_ios_xr"
+    common.EntityData.ParentYangName = "pcb"
+    common.EntityData.SegmentPath = "common"
+    common.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    common.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    common.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) SetFilter(yf yfilter.YFilter) { common.YFilter = yf }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "lpts-pcb" { return "LptsPcb" }
-    return ""
+    common.EntityData.Children = make(map[string]types.YChild)
+    common.EntityData.Children["lpts-pcb"] = types.YChild{"LptsPcb", &common.LptsPcb}
+    common.EntityData.Leafs = make(map[string]types.YLeaf)
+    common.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", common.AfName}
+    return &(common.EntityData)
 }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetSegmentPath() string {
-    return "common"
-}
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "lpts-pcb" {
-        return &common.LptsPcb
-    }
-    return nil
-}
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["lpts-pcb"] = &common.LptsPcb
-    return children
-}
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = common.AfName
-    return leafs
-}
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetBundleName() string { return "cisco_ios_xr" }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetYangName() string { return "common" }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) SetParent(parent types.Entity) { common.parent = parent }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetParent() types.Entity { return common.parent }
-
-func (common *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common) GetParentYangName() string { return "pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb
 // LPTS PCB information
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Minimum TTL. The type is interface{} with range: 0..255.
@@ -2556,87 +1634,34 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb struct 
     Filter []UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter
 }
 
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetFilter() yfilter.YFilter { return lptsPcb.YFilter }
+func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetEntityData() *types.CommonEntityData {
+    lptsPcb.EntityData.YFilter = lptsPcb.YFilter
+    lptsPcb.EntityData.YangName = "lpts-pcb"
+    lptsPcb.EntityData.BundleName = "cisco_ios_xr"
+    lptsPcb.EntityData.ParentYangName = "common"
+    lptsPcb.EntityData.SegmentPath = "lpts-pcb"
+    lptsPcb.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lptsPcb.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lptsPcb.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) SetFilter(yf yfilter.YFilter) { lptsPcb.YFilter = yf }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetGoName(yname string) string {
-    if yname == "ttl" { return "Ttl" }
-    if yname == "flow-types-info" { return "FlowTypesInfo" }
-    if yname == "options" { return "Options" }
-    if yname == "lpts-flags" { return "LptsFlags" }
-    if yname == "accept-mask" { return "AcceptMask" }
-    if yname == "filter" { return "Filter" }
-    return ""
-}
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetSegmentPath() string {
-    return "lpts-pcb"
-}
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "options" {
-        return &lptsPcb.Options
-    }
-    if childYangName == "lpts-flags" {
-        return &lptsPcb.LptsFlags
-    }
-    if childYangName == "accept-mask" {
-        return &lptsPcb.AcceptMask
-    }
-    if childYangName == "filter" {
-        for _, c := range lptsPcb.Filter {
-            if lptsPcb.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter{}
-        lptsPcb.Filter = append(lptsPcb.Filter, child)
-        return &lptsPcb.Filter[len(lptsPcb.Filter)-1]
-    }
-    return nil
-}
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["options"] = &lptsPcb.Options
-    children["lpts-flags"] = &lptsPcb.LptsFlags
-    children["accept-mask"] = &lptsPcb.AcceptMask
+    lptsPcb.EntityData.Children = make(map[string]types.YChild)
+    lptsPcb.EntityData.Children["options"] = types.YChild{"Options", &lptsPcb.Options}
+    lptsPcb.EntityData.Children["lpts-flags"] = types.YChild{"LptsFlags", &lptsPcb.LptsFlags}
+    lptsPcb.EntityData.Children["accept-mask"] = types.YChild{"AcceptMask", &lptsPcb.AcceptMask}
+    lptsPcb.EntityData.Children["filter"] = types.YChild{"Filter", nil}
     for i := range lptsPcb.Filter {
-        children[lptsPcb.Filter[i].GetSegmentPath()] = &lptsPcb.Filter[i]
+        lptsPcb.EntityData.Children[types.GetSegmentPath(&lptsPcb.Filter[i])] = types.YChild{"Filter", &lptsPcb.Filter[i]}
     }
-    return children
+    lptsPcb.EntityData.Leafs = make(map[string]types.YLeaf)
+    lptsPcb.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", lptsPcb.Ttl}
+    lptsPcb.EntityData.Leafs["flow-types-info"] = types.YLeaf{"FlowTypesInfo", lptsPcb.FlowTypesInfo}
+    return &(lptsPcb.EntityData)
 }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ttl"] = lptsPcb.Ttl
-    leafs["flow-types-info"] = lptsPcb.FlowTypesInfo
-    return leafs
-}
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetYangName() string { return "lpts-pcb" }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) SetParent(parent types.Entity) { lptsPcb.parent = parent }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetParent() types.Entity { return lptsPcb.parent }
-
-func (lptsPcb *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb) GetParentYangName() string { return "common" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options
 // Receive options
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Receive filter enabled. The type is bool.
@@ -2646,58 +1671,27 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options
     IsIpSla interface{}
 }
 
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetFilter() yfilter.YFilter { return options.YFilter }
+func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetEntityData() *types.CommonEntityData {
+    options.EntityData.YFilter = options.YFilter
+    options.EntityData.YangName = "options"
+    options.EntityData.BundleName = "cisco_ios_xr"
+    options.EntityData.ParentYangName = "lpts-pcb"
+    options.EntityData.SegmentPath = "options"
+    options.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    options.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    options.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) SetFilter(yf yfilter.YFilter) { options.YFilter = yf }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetGoName(yname string) string {
-    if yname == "is-receive-filter" { return "IsReceiveFilter" }
-    if yname == "is-ip-sla" { return "IsIpSla" }
-    return ""
+    options.EntityData.Children = make(map[string]types.YChild)
+    options.EntityData.Leafs = make(map[string]types.YLeaf)
+    options.EntityData.Leafs["is-receive-filter"] = types.YLeaf{"IsReceiveFilter", options.IsReceiveFilter}
+    options.EntityData.Leafs["is-ip-sla"] = types.YLeaf{"IsIpSla", options.IsIpSla}
+    return &(options.EntityData)
 }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetSegmentPath() string {
-    return "options"
-}
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-receive-filter"] = options.IsReceiveFilter
-    leafs["is-ip-sla"] = options.IsIpSla
-    return leafs
-}
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetBundleName() string { return "cisco_ios_xr" }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetYangName() string { return "options" }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) SetParent(parent types.Entity) { options.parent = parent }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetParent() types.Entity { return options.parent }
-
-func (options *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Options) GetParentYangName() string { return "lpts-pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags
 // LPTS flags
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // PCB bound. The type is bool.
@@ -2710,60 +1704,28 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFla
     IsIgnoreVrfFilter interface{}
 }
 
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetFilter() yfilter.YFilter { return lptsFlags.YFilter }
+func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetEntityData() *types.CommonEntityData {
+    lptsFlags.EntityData.YFilter = lptsFlags.YFilter
+    lptsFlags.EntityData.YangName = "lpts-flags"
+    lptsFlags.EntityData.BundleName = "cisco_ios_xr"
+    lptsFlags.EntityData.ParentYangName = "lpts-pcb"
+    lptsFlags.EntityData.SegmentPath = "lpts-flags"
+    lptsFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    lptsFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    lptsFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) SetFilter(yf yfilter.YFilter) { lptsFlags.YFilter = yf }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetGoName(yname string) string {
-    if yname == "is-pcb-bound" { return "IsPcbBound" }
-    if yname == "is-local-address-ignore" { return "IsLocalAddressIgnore" }
-    if yname == "is-ignore-vrf-filter" { return "IsIgnoreVrfFilter" }
-    return ""
+    lptsFlags.EntityData.Children = make(map[string]types.YChild)
+    lptsFlags.EntityData.Leafs = make(map[string]types.YLeaf)
+    lptsFlags.EntityData.Leafs["is-pcb-bound"] = types.YLeaf{"IsPcbBound", lptsFlags.IsPcbBound}
+    lptsFlags.EntityData.Leafs["is-local-address-ignore"] = types.YLeaf{"IsLocalAddressIgnore", lptsFlags.IsLocalAddressIgnore}
+    lptsFlags.EntityData.Leafs["is-ignore-vrf-filter"] = types.YLeaf{"IsIgnoreVrfFilter", lptsFlags.IsIgnoreVrfFilter}
+    return &(lptsFlags.EntityData)
 }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetSegmentPath() string {
-    return "lpts-flags"
-}
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-pcb-bound"] = lptsFlags.IsPcbBound
-    leafs["is-local-address-ignore"] = lptsFlags.IsLocalAddressIgnore
-    leafs["is-ignore-vrf-filter"] = lptsFlags.IsIgnoreVrfFilter
-    return leafs
-}
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetBundleName() string { return "cisco_ios_xr" }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetYangName() string { return "lpts-flags" }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) SetParent(parent types.Entity) { lptsFlags.parent = parent }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetParent() types.Entity { return lptsFlags.parent }
-
-func (lptsFlags *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_LptsFlags) GetParentYangName() string { return "lpts-pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask
 // AcceptMask
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Set interface. The type is bool.
@@ -2785,69 +1747,34 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptM
     IsLocalPort interface{}
 }
 
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetFilter() yfilter.YFilter { return acceptMask.YFilter }
+func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetEntityData() *types.CommonEntityData {
+    acceptMask.EntityData.YFilter = acceptMask.YFilter
+    acceptMask.EntityData.YangName = "accept-mask"
+    acceptMask.EntityData.BundleName = "cisco_ios_xr"
+    acceptMask.EntityData.ParentYangName = "lpts-pcb"
+    acceptMask.EntityData.SegmentPath = "accept-mask"
+    acceptMask.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    acceptMask.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    acceptMask.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) SetFilter(yf yfilter.YFilter) { acceptMask.YFilter = yf }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetGoName(yname string) string {
-    if yname == "is-interface" { return "IsInterface" }
-    if yname == "is-packet-type" { return "IsPacketType" }
-    if yname == "is-remote-address" { return "IsRemoteAddress" }
-    if yname == "is-remote-port" { return "IsRemotePort" }
-    if yname == "is-local-address" { return "IsLocalAddress" }
-    if yname == "is-local-port" { return "IsLocalPort" }
-    return ""
+    acceptMask.EntityData.Children = make(map[string]types.YChild)
+    acceptMask.EntityData.Leafs = make(map[string]types.YLeaf)
+    acceptMask.EntityData.Leafs["is-interface"] = types.YLeaf{"IsInterface", acceptMask.IsInterface}
+    acceptMask.EntityData.Leafs["is-packet-type"] = types.YLeaf{"IsPacketType", acceptMask.IsPacketType}
+    acceptMask.EntityData.Leafs["is-remote-address"] = types.YLeaf{"IsRemoteAddress", acceptMask.IsRemoteAddress}
+    acceptMask.EntityData.Leafs["is-remote-port"] = types.YLeaf{"IsRemotePort", acceptMask.IsRemotePort}
+    acceptMask.EntityData.Leafs["is-local-address"] = types.YLeaf{"IsLocalAddress", acceptMask.IsLocalAddress}
+    acceptMask.EntityData.Leafs["is-local-port"] = types.YLeaf{"IsLocalPort", acceptMask.IsLocalPort}
+    return &(acceptMask.EntityData)
 }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetSegmentPath() string {
-    return "accept-mask"
-}
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["is-interface"] = acceptMask.IsInterface
-    leafs["is-packet-type"] = acceptMask.IsPacketType
-    leafs["is-remote-address"] = acceptMask.IsRemoteAddress
-    leafs["is-remote-port"] = acceptMask.IsRemotePort
-    leafs["is-local-address"] = acceptMask.IsLocalAddress
-    leafs["is-local-port"] = acceptMask.IsLocalPort
-    return leafs
-}
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetBundleName() string { return "cisco_ios_xr" }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetYangName() string { return "accept-mask" }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) SetParent(parent types.Entity) { acceptMask.parent = parent }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetParent() types.Entity { return acceptMask.parent }
-
-func (acceptMask *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_AcceptMask) GetParentYangName() string { return "lpts-pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter
 // Interface Filters
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface name. The type is string with pattern: [a-zA-Z0-9./-]+.
+    // Interface name. The type is string with pattern: b'[a-zA-Z0-9./-]+'.
     InterfaceName interface{}
 
     // Remote address length. The type is interface{} with range: 0..65535.
@@ -2881,298 +1808,151 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter 
     LocalAddress UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress
 }
 
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetFilter() yfilter.YFilter { return filter.YFilter }
+func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetEntityData() *types.CommonEntityData {
+    filter.EntityData.YFilter = filter.YFilter
+    filter.EntityData.YangName = "filter"
+    filter.EntityData.BundleName = "cisco_ios_xr"
+    filter.EntityData.ParentYangName = "lpts-pcb"
+    filter.EntityData.SegmentPath = "filter"
+    filter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    filter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    filter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) SetFilter(yf yfilter.YFilter) { filter.YFilter = yf }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetGoName(yname string) string {
-    if yname == "interface-name" { return "InterfaceName" }
-    if yname == "remote-length" { return "RemoteLength" }
-    if yname == "local-length" { return "LocalLength" }
-    if yname == "receive-remote-port" { return "ReceiveRemotePort" }
-    if yname == "receive-local-port" { return "ReceiveLocalPort" }
-    if yname == "priority" { return "Priority" }
-    if yname == "ttl" { return "Ttl" }
-    if yname == "flow-types-info" { return "FlowTypesInfo" }
-    if yname == "packet-type" { return "PacketType" }
-    if yname == "remote-address" { return "RemoteAddress" }
-    if yname == "local-address" { return "LocalAddress" }
-    return ""
+    filter.EntityData.Children = make(map[string]types.YChild)
+    filter.EntityData.Children["packet-type"] = types.YChild{"PacketType", &filter.PacketType}
+    filter.EntityData.Children["remote-address"] = types.YChild{"RemoteAddress", &filter.RemoteAddress}
+    filter.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &filter.LocalAddress}
+    filter.EntityData.Leafs = make(map[string]types.YLeaf)
+    filter.EntityData.Leafs["interface-name"] = types.YLeaf{"InterfaceName", filter.InterfaceName}
+    filter.EntityData.Leafs["remote-length"] = types.YLeaf{"RemoteLength", filter.RemoteLength}
+    filter.EntityData.Leafs["local-length"] = types.YLeaf{"LocalLength", filter.LocalLength}
+    filter.EntityData.Leafs["receive-remote-port"] = types.YLeaf{"ReceiveRemotePort", filter.ReceiveRemotePort}
+    filter.EntityData.Leafs["receive-local-port"] = types.YLeaf{"ReceiveLocalPort", filter.ReceiveLocalPort}
+    filter.EntityData.Leafs["priority"] = types.YLeaf{"Priority", filter.Priority}
+    filter.EntityData.Leafs["ttl"] = types.YLeaf{"Ttl", filter.Ttl}
+    filter.EntityData.Leafs["flow-types-info"] = types.YLeaf{"FlowTypesInfo", filter.FlowTypesInfo}
+    return &(filter.EntityData)
 }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetSegmentPath() string {
-    return "filter"
-}
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "packet-type" {
-        return &filter.PacketType
-    }
-    if childYangName == "remote-address" {
-        return &filter.RemoteAddress
-    }
-    if childYangName == "local-address" {
-        return &filter.LocalAddress
-    }
-    return nil
-}
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["packet-type"] = &filter.PacketType
-    children["remote-address"] = &filter.RemoteAddress
-    children["local-address"] = &filter.LocalAddress
-    return children
-}
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["interface-name"] = filter.InterfaceName
-    leafs["remote-length"] = filter.RemoteLength
-    leafs["local-length"] = filter.LocalLength
-    leafs["receive-remote-port"] = filter.ReceiveRemotePort
-    leafs["receive-local-port"] = filter.ReceiveLocalPort
-    leafs["priority"] = filter.Priority
-    leafs["ttl"] = filter.Ttl
-    leafs["flow-types-info"] = filter.FlowTypesInfo
-    return leafs
-}
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetBundleName() string { return "cisco_ios_xr" }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetYangName() string { return "filter" }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) SetParent(parent types.Entity) { filter.parent = parent }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetParent() types.Entity { return filter.parent }
-
-func (filter *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter) GetParentYangName() string { return "lpts-pcb" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType
 // Protocol-specific packet type
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Type. The type is Packet.
-    Type interface{}
+    Type_ interface{}
 
-    // ICMP message type. The type is MessageTypeIcmp.
+    // ICMP message type. The type is MessageTypeIcmp_.
     IcmpMessageType interface{}
 
-    // ICMPv6 message type. The type is MessageTypeIcmpv6.
+    // ICMPv6 message type. The type is MessageTypeIcmpv6_.
     IcmPv6MessageType interface{}
 
-    // IGMP message type. The type is MessageTypeIgmp.
+    // IGMP message type. The type is MessageTypeIgmp_.
     IgmpMessageType interface{}
 
     // Message type in number. The type is interface{} with range: 0..4294967295.
     MessageId interface{}
 }
 
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetFilter() yfilter.YFilter { return packetType.YFilter }
+func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetEntityData() *types.CommonEntityData {
+    packetType.EntityData.YFilter = packetType.YFilter
+    packetType.EntityData.YangName = "packet-type"
+    packetType.EntityData.BundleName = "cisco_ios_xr"
+    packetType.EntityData.ParentYangName = "filter"
+    packetType.EntityData.SegmentPath = "packet-type"
+    packetType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    packetType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    packetType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) SetFilter(yf yfilter.YFilter) { packetType.YFilter = yf }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetGoName(yname string) string {
-    if yname == "type" { return "Type" }
-    if yname == "icmp-message-type" { return "IcmpMessageType" }
-    if yname == "icm-pv6-message-type" { return "IcmPv6MessageType" }
-    if yname == "igmp-message-type" { return "IgmpMessageType" }
-    if yname == "message-id" { return "MessageId" }
-    return ""
+    packetType.EntityData.Children = make(map[string]types.YChild)
+    packetType.EntityData.Leafs = make(map[string]types.YLeaf)
+    packetType.EntityData.Leafs["type"] = types.YLeaf{"Type_", packetType.Type_}
+    packetType.EntityData.Leafs["icmp-message-type"] = types.YLeaf{"IcmpMessageType", packetType.IcmpMessageType}
+    packetType.EntityData.Leafs["icm-pv6-message-type"] = types.YLeaf{"IcmPv6MessageType", packetType.IcmPv6MessageType}
+    packetType.EntityData.Leafs["igmp-message-type"] = types.YLeaf{"IgmpMessageType", packetType.IgmpMessageType}
+    packetType.EntityData.Leafs["message-id"] = types.YLeaf{"MessageId", packetType.MessageId}
+    return &(packetType.EntityData)
 }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetSegmentPath() string {
-    return "packet-type"
-}
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["type"] = packetType.Type
-    leafs["icmp-message-type"] = packetType.IcmpMessageType
-    leafs["icm-pv6-message-type"] = packetType.IcmPv6MessageType
-    leafs["igmp-message-type"] = packetType.IgmpMessageType
-    leafs["message-id"] = packetType.MessageId
-    return leafs
-}
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetBundleName() string { return "cisco_ios_xr" }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetYangName() string { return "packet-type" }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) SetParent(parent types.Entity) { packetType.parent = parent }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetParent() types.Entity { return packetType.parent }
-
-func (packetType *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_PacketType) GetParentYangName() string { return "filter" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress
 // Remote address
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is AddrFamily.
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetFilter() yfilter.YFilter { return remoteAddress.YFilter }
+func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetEntityData() *types.CommonEntityData {
+    remoteAddress.EntityData.YFilter = remoteAddress.YFilter
+    remoteAddress.EntityData.YangName = "remote-address"
+    remoteAddress.EntityData.BundleName = "cisco_ios_xr"
+    remoteAddress.EntityData.ParentYangName = "filter"
+    remoteAddress.EntityData.SegmentPath = "remote-address"
+    remoteAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    remoteAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    remoteAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) SetFilter(yf yfilter.YFilter) { remoteAddress.YFilter = yf }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    remoteAddress.EntityData.Children = make(map[string]types.YChild)
+    remoteAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    remoteAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", remoteAddress.AfName}
+    remoteAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", remoteAddress.Ipv4Address}
+    remoteAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", remoteAddress.Ipv6Address}
+    return &(remoteAddress.EntityData)
 }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetSegmentPath() string {
-    return "remote-address"
-}
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = remoteAddress.AfName
-    leafs["ipv4-address"] = remoteAddress.Ipv4Address
-    leafs["ipv6-address"] = remoteAddress.Ipv6Address
-    return leafs
-}
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetYangName() string { return "remote-address" }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) SetParent(parent types.Entity) { remoteAddress.parent = parent }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetParent() types.Entity { return remoteAddress.parent }
-
-func (remoteAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_RemoteAddress) GetParentYangName() string { return "filter" }
 
 // UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress
 // Local address
 type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is AddrFamily.
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetFilter() yfilter.YFilter { return localAddress.YFilter }
+func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetEntityData() *types.CommonEntityData {
+    localAddress.EntityData.YFilter = localAddress.YFilter
+    localAddress.EntityData.YangName = "local-address"
+    localAddress.EntityData.BundleName = "cisco_ios_xr"
+    localAddress.EntityData.ParentYangName = "filter"
+    localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) SetFilter(yf yfilter.YFilter) { localAddress.YFilter = yf }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    localAddress.EntityData.Children = make(map[string]types.YChild)
+    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    localAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", localAddress.AfName}
+    localAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", localAddress.Ipv4Address}
+    localAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", localAddress.Ipv6Address}
+    return &(localAddress.EntityData)
 }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetSegmentPath() string {
-    return "local-address"
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = localAddress.AfName
-    leafs["ipv4-address"] = localAddress.Ipv4Address
-    leafs["ipv6-address"] = localAddress.Ipv6Address
-    return leafs
-}
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetYangName() string { return "local-address" }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) SetParent(parent types.Entity) { localAddress.parent = parent }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetParent() types.Entity { return localAddress.parent }
-
-func (localAddress *UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_LocalAddress) GetParentYangName() string { return "filter" }
 
 // UdpConnection_Nodes_Node_PcbDetails
 // Detail information for list of UDP connections
 // .
 type UdpConnection_Nodes_Node_PcbDetails struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Detail information about a UDP connection. The type is slice of
@@ -3180,68 +1960,29 @@ type UdpConnection_Nodes_Node_PcbDetails struct {
     PcbDetail []UdpConnection_Nodes_Node_PcbDetails_PcbDetail
 }
 
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetFilter() yfilter.YFilter { return pcbDetails.YFilter }
+func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetEntityData() *types.CommonEntityData {
+    pcbDetails.EntityData.YFilter = pcbDetails.YFilter
+    pcbDetails.EntityData.YangName = "pcb-details"
+    pcbDetails.EntityData.BundleName = "cisco_ios_xr"
+    pcbDetails.EntityData.ParentYangName = "node"
+    pcbDetails.EntityData.SegmentPath = "pcb-details"
+    pcbDetails.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbDetails.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbDetails.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) SetFilter(yf yfilter.YFilter) { pcbDetails.YFilter = yf }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetGoName(yname string) string {
-    if yname == "pcb-detail" { return "PcbDetail" }
-    return ""
-}
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetSegmentPath() string {
-    return "pcb-details"
-}
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pcb-detail" {
-        for _, c := range pcbDetails.PcbDetail {
-            if pcbDetails.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_PcbDetails_PcbDetail{}
-        pcbDetails.PcbDetail = append(pcbDetails.PcbDetail, child)
-        return &pcbDetails.PcbDetail[len(pcbDetails.PcbDetail)-1]
-    }
-    return nil
-}
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pcbDetails.EntityData.Children = make(map[string]types.YChild)
+    pcbDetails.EntityData.Children["pcb-detail"] = types.YChild{"PcbDetail", nil}
     for i := range pcbDetails.PcbDetail {
-        children[pcbDetails.PcbDetail[i].GetSegmentPath()] = &pcbDetails.PcbDetail[i]
+        pcbDetails.EntityData.Children[types.GetSegmentPath(&pcbDetails.PcbDetail[i])] = types.YChild{"PcbDetail", &pcbDetails.PcbDetail[i]}
     }
-    return children
+    pcbDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pcbDetails.EntityData)
 }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetYangName() string { return "pcb-details" }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) SetParent(parent types.Entity) { pcbDetails.parent = parent }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetParent() types.Entity { return pcbDetails.parent }
-
-func (pcbDetails *UdpConnection_Nodes_Node_PcbDetails) GetParentYangName() string { return "node" }
 
 // UdpConnection_Nodes_Node_PcbDetails_PcbDetail
 // Detail information about a UDP connection
 type UdpConnection_Nodes_Node_PcbDetails_PcbDetail struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Protocol Control Block address. The type is
@@ -3276,216 +2017,107 @@ type UdpConnection_Nodes_Node_PcbDetails_PcbDetail struct {
     ForeignAddress UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress
 }
 
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetFilter() yfilter.YFilter { return pcbDetail.YFilter }
+func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetEntityData() *types.CommonEntityData {
+    pcbDetail.EntityData.YFilter = pcbDetail.YFilter
+    pcbDetail.EntityData.YangName = "pcb-detail"
+    pcbDetail.EntityData.BundleName = "cisco_ios_xr"
+    pcbDetail.EntityData.ParentYangName = "pcb-details"
+    pcbDetail.EntityData.SegmentPath = "pcb-detail" + "[pcb-address='" + fmt.Sprintf("%v", pcbDetail.PcbAddress) + "']"
+    pcbDetail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbDetail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbDetail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) SetFilter(yf yfilter.YFilter) { pcbDetail.YFilter = yf }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetGoName(yname string) string {
-    if yname == "pcb-address" { return "PcbAddress" }
-    if yname == "af-name" { return "AfName" }
-    if yname == "local-process-id" { return "LocalProcessId" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "foreign-port" { return "ForeignPort" }
-    if yname == "receive-queue" { return "ReceiveQueue" }
-    if yname == "send-queue" { return "SendQueue" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "foreign-address" { return "ForeignAddress" }
-    return ""
+    pcbDetail.EntityData.Children = make(map[string]types.YChild)
+    pcbDetail.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &pcbDetail.LocalAddress}
+    pcbDetail.EntityData.Children["foreign-address"] = types.YChild{"ForeignAddress", &pcbDetail.ForeignAddress}
+    pcbDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    pcbDetail.EntityData.Leafs["pcb-address"] = types.YLeaf{"PcbAddress", pcbDetail.PcbAddress}
+    pcbDetail.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", pcbDetail.AfName}
+    pcbDetail.EntityData.Leafs["local-process-id"] = types.YLeaf{"LocalProcessId", pcbDetail.LocalProcessId}
+    pcbDetail.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", pcbDetail.LocalPort}
+    pcbDetail.EntityData.Leafs["foreign-port"] = types.YLeaf{"ForeignPort", pcbDetail.ForeignPort}
+    pcbDetail.EntityData.Leafs["receive-queue"] = types.YLeaf{"ReceiveQueue", pcbDetail.ReceiveQueue}
+    pcbDetail.EntityData.Leafs["send-queue"] = types.YLeaf{"SendQueue", pcbDetail.SendQueue}
+    pcbDetail.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", pcbDetail.VrfId}
+    return &(pcbDetail.EntityData)
 }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetSegmentPath() string {
-    return "pcb-detail" + "[pcb-address='" + fmt.Sprintf("%v", pcbDetail.PcbAddress) + "']"
-}
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "local-address" {
-        return &pcbDetail.LocalAddress
-    }
-    if childYangName == "foreign-address" {
-        return &pcbDetail.ForeignAddress
-    }
-    return nil
-}
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["local-address"] = &pcbDetail.LocalAddress
-    children["foreign-address"] = &pcbDetail.ForeignAddress
-    return children
-}
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pcb-address"] = pcbDetail.PcbAddress
-    leafs["af-name"] = pcbDetail.AfName
-    leafs["local-process-id"] = pcbDetail.LocalProcessId
-    leafs["local-port"] = pcbDetail.LocalPort
-    leafs["foreign-port"] = pcbDetail.ForeignPort
-    leafs["receive-queue"] = pcbDetail.ReceiveQueue
-    leafs["send-queue"] = pcbDetail.SendQueue
-    leafs["vrf-id"] = pcbDetail.VrfId
-    return leafs
-}
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetYangName() string { return "pcb-detail" }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) SetParent(parent types.Entity) { pcbDetail.parent = parent }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetParent() types.Entity { return pcbDetail.parent }
-
-func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetParentYangName() string { return "pcb-details" }
 
 // UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress
 // Local address
 type UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is UdpAddressFamily.
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetFilter() yfilter.YFilter { return localAddress.YFilter }
+func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetEntityData() *types.CommonEntityData {
+    localAddress.EntityData.YFilter = localAddress.YFilter
+    localAddress.EntityData.YangName = "local-address"
+    localAddress.EntityData.BundleName = "cisco_ios_xr"
+    localAddress.EntityData.ParentYangName = "pcb-detail"
+    localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) SetFilter(yf yfilter.YFilter) { localAddress.YFilter = yf }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    localAddress.EntityData.Children = make(map[string]types.YChild)
+    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    localAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", localAddress.AfName}
+    localAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", localAddress.Ipv4Address}
+    localAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", localAddress.Ipv6Address}
+    return &(localAddress.EntityData)
 }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetSegmentPath() string {
-    return "local-address"
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = localAddress.AfName
-    leafs["ipv4-address"] = localAddress.Ipv4Address
-    leafs["ipv6-address"] = localAddress.Ipv6Address
-    return leafs
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetYangName() string { return "local-address" }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) SetParent(parent types.Entity) { localAddress.parent = parent }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetParent() types.Entity { return localAddress.parent }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress) GetParentYangName() string { return "pcb-detail" }
 
 // UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress
 // Foreign address
 type UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is UdpAddressFamily.
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetFilter() yfilter.YFilter { return foreignAddress.YFilter }
+func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetEntityData() *types.CommonEntityData {
+    foreignAddress.EntityData.YFilter = foreignAddress.YFilter
+    foreignAddress.EntityData.YangName = "foreign-address"
+    foreignAddress.EntityData.BundleName = "cisco_ios_xr"
+    foreignAddress.EntityData.ParentYangName = "pcb-detail"
+    foreignAddress.EntityData.SegmentPath = "foreign-address"
+    foreignAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    foreignAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    foreignAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) SetFilter(yf yfilter.YFilter) { foreignAddress.YFilter = yf }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    foreignAddress.EntityData.Children = make(map[string]types.YChild)
+    foreignAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    foreignAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", foreignAddress.AfName}
+    foreignAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", foreignAddress.Ipv4Address}
+    foreignAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", foreignAddress.Ipv6Address}
+    return &(foreignAddress.EntityData)
 }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetSegmentPath() string {
-    return "foreign-address"
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = foreignAddress.AfName
-    leafs["ipv4-address"] = foreignAddress.Ipv4Address
-    leafs["ipv6-address"] = foreignAddress.Ipv6Address
-    return leafs
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetYangName() string { return "foreign-address" }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) SetParent(parent types.Entity) { foreignAddress.parent = parent }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetParent() types.Entity { return foreignAddress.parent }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress) GetParentYangName() string { return "pcb-detail" }
 
 // UdpConnection_Nodes_Node_PcbBriefs
 // Brief information for list of UDP connections.
 type UdpConnection_Nodes_Node_PcbBriefs struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Brief information about a UDP connection. The type is slice of
@@ -3493,68 +2125,29 @@ type UdpConnection_Nodes_Node_PcbBriefs struct {
     PcbBrief []UdpConnection_Nodes_Node_PcbBriefs_PcbBrief
 }
 
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetFilter() yfilter.YFilter { return pcbBriefs.YFilter }
+func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetEntityData() *types.CommonEntityData {
+    pcbBriefs.EntityData.YFilter = pcbBriefs.YFilter
+    pcbBriefs.EntityData.YangName = "pcb-briefs"
+    pcbBriefs.EntityData.BundleName = "cisco_ios_xr"
+    pcbBriefs.EntityData.ParentYangName = "node"
+    pcbBriefs.EntityData.SegmentPath = "pcb-briefs"
+    pcbBriefs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbBriefs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbBriefs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) SetFilter(yf yfilter.YFilter) { pcbBriefs.YFilter = yf }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetGoName(yname string) string {
-    if yname == "pcb-brief" { return "PcbBrief" }
-    return ""
-}
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetSegmentPath() string {
-    return "pcb-briefs"
-}
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "pcb-brief" {
-        for _, c := range pcbBriefs.PcbBrief {
-            if pcbBriefs.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := UdpConnection_Nodes_Node_PcbBriefs_PcbBrief{}
-        pcbBriefs.PcbBrief = append(pcbBriefs.PcbBrief, child)
-        return &pcbBriefs.PcbBrief[len(pcbBriefs.PcbBrief)-1]
-    }
-    return nil
-}
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pcbBriefs.EntityData.Children = make(map[string]types.YChild)
+    pcbBriefs.EntityData.Children["pcb-brief"] = types.YChild{"PcbBrief", nil}
     for i := range pcbBriefs.PcbBrief {
-        children[pcbBriefs.PcbBrief[i].GetSegmentPath()] = &pcbBriefs.PcbBrief[i]
+        pcbBriefs.EntityData.Children[types.GetSegmentPath(&pcbBriefs.PcbBrief[i])] = types.YChild{"PcbBrief", &pcbBriefs.PcbBrief[i]}
     }
-    return children
+    pcbBriefs.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pcbBriefs.EntityData)
 }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetYangName() string { return "pcb-briefs" }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) SetParent(parent types.Entity) { pcbBriefs.parent = parent }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetParent() types.Entity { return pcbBriefs.parent }
-
-func (pcbBriefs *UdpConnection_Nodes_Node_PcbBriefs) GetParentYangName() string { return "node" }
 
 // UdpConnection_Nodes_Node_PcbBriefs_PcbBrief
 // Brief information about a UDP connection
 type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Protocol Control Block address. The type is
@@ -3586,207 +2179,99 @@ type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief struct {
     ForeignAddress UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress
 }
 
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetFilter() yfilter.YFilter { return pcbBrief.YFilter }
+func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetEntityData() *types.CommonEntityData {
+    pcbBrief.EntityData.YFilter = pcbBrief.YFilter
+    pcbBrief.EntityData.YangName = "pcb-brief"
+    pcbBrief.EntityData.BundleName = "cisco_ios_xr"
+    pcbBrief.EntityData.ParentYangName = "pcb-briefs"
+    pcbBrief.EntityData.SegmentPath = "pcb-brief" + "[pcb-address='" + fmt.Sprintf("%v", pcbBrief.PcbAddress) + "']"
+    pcbBrief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pcbBrief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pcbBrief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) SetFilter(yf yfilter.YFilter) { pcbBrief.YFilter = yf }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetGoName(yname string) string {
-    if yname == "pcb-address" { return "PcbAddress" }
-    if yname == "af-name" { return "AfName" }
-    if yname == "local-port" { return "LocalPort" }
-    if yname == "foreign-port" { return "ForeignPort" }
-    if yname == "receive-queue" { return "ReceiveQueue" }
-    if yname == "send-queue" { return "SendQueue" }
-    if yname == "vrf-id" { return "VrfId" }
-    if yname == "local-address" { return "LocalAddress" }
-    if yname == "foreign-address" { return "ForeignAddress" }
-    return ""
+    pcbBrief.EntityData.Children = make(map[string]types.YChild)
+    pcbBrief.EntityData.Children["local-address"] = types.YChild{"LocalAddress", &pcbBrief.LocalAddress}
+    pcbBrief.EntityData.Children["foreign-address"] = types.YChild{"ForeignAddress", &pcbBrief.ForeignAddress}
+    pcbBrief.EntityData.Leafs = make(map[string]types.YLeaf)
+    pcbBrief.EntityData.Leafs["pcb-address"] = types.YLeaf{"PcbAddress", pcbBrief.PcbAddress}
+    pcbBrief.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", pcbBrief.AfName}
+    pcbBrief.EntityData.Leafs["local-port"] = types.YLeaf{"LocalPort", pcbBrief.LocalPort}
+    pcbBrief.EntityData.Leafs["foreign-port"] = types.YLeaf{"ForeignPort", pcbBrief.ForeignPort}
+    pcbBrief.EntityData.Leafs["receive-queue"] = types.YLeaf{"ReceiveQueue", pcbBrief.ReceiveQueue}
+    pcbBrief.EntityData.Leafs["send-queue"] = types.YLeaf{"SendQueue", pcbBrief.SendQueue}
+    pcbBrief.EntityData.Leafs["vrf-id"] = types.YLeaf{"VrfId", pcbBrief.VrfId}
+    return &(pcbBrief.EntityData)
 }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetSegmentPath() string {
-    return "pcb-brief" + "[pcb-address='" + fmt.Sprintf("%v", pcbBrief.PcbAddress) + "']"
-}
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "local-address" {
-        return &pcbBrief.LocalAddress
-    }
-    if childYangName == "foreign-address" {
-        return &pcbBrief.ForeignAddress
-    }
-    return nil
-}
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["local-address"] = &pcbBrief.LocalAddress
-    children["foreign-address"] = &pcbBrief.ForeignAddress
-    return children
-}
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["pcb-address"] = pcbBrief.PcbAddress
-    leafs["af-name"] = pcbBrief.AfName
-    leafs["local-port"] = pcbBrief.LocalPort
-    leafs["foreign-port"] = pcbBrief.ForeignPort
-    leafs["receive-queue"] = pcbBrief.ReceiveQueue
-    leafs["send-queue"] = pcbBrief.SendQueue
-    leafs["vrf-id"] = pcbBrief.VrfId
-    return leafs
-}
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetYangName() string { return "pcb-brief" }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) SetParent(parent types.Entity) { pcbBrief.parent = parent }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetParent() types.Entity { return pcbBrief.parent }
-
-func (pcbBrief *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief) GetParentYangName() string { return "pcb-briefs" }
 
 // UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress
 // Local address
 type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is UdpAddressFamily.
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetFilter() yfilter.YFilter { return localAddress.YFilter }
+func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetEntityData() *types.CommonEntityData {
+    localAddress.EntityData.YFilter = localAddress.YFilter
+    localAddress.EntityData.YangName = "local-address"
+    localAddress.EntityData.BundleName = "cisco_ios_xr"
+    localAddress.EntityData.ParentYangName = "pcb-brief"
+    localAddress.EntityData.SegmentPath = "local-address"
+    localAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    localAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    localAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) SetFilter(yf yfilter.YFilter) { localAddress.YFilter = yf }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    localAddress.EntityData.Children = make(map[string]types.YChild)
+    localAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    localAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", localAddress.AfName}
+    localAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", localAddress.Ipv4Address}
+    localAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", localAddress.Ipv6Address}
+    return &(localAddress.EntityData)
 }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetSegmentPath() string {
-    return "local-address"
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = localAddress.AfName
-    leafs["ipv4-address"] = localAddress.Ipv4Address
-    leafs["ipv6-address"] = localAddress.Ipv6Address
-    return leafs
-}
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetYangName() string { return "local-address" }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) SetParent(parent types.Entity) { localAddress.parent = parent }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetParent() types.Entity { return localAddress.parent }
-
-func (localAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress) GetParentYangName() string { return "pcb-brief" }
 
 // UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress
 // Foreign address
 type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // AFName. The type is UdpAddressFamily.
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 }
 
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetFilter() yfilter.YFilter { return foreignAddress.YFilter }
+func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetEntityData() *types.CommonEntityData {
+    foreignAddress.EntityData.YFilter = foreignAddress.YFilter
+    foreignAddress.EntityData.YangName = "foreign-address"
+    foreignAddress.EntityData.BundleName = "cisco_ios_xr"
+    foreignAddress.EntityData.ParentYangName = "pcb-brief"
+    foreignAddress.EntityData.SegmentPath = "foreign-address"
+    foreignAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    foreignAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    foreignAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) SetFilter(yf yfilter.YFilter) { foreignAddress.YFilter = yf }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetGoName(yname string) string {
-    if yname == "af-name" { return "AfName" }
-    if yname == "ipv4-address" { return "Ipv4Address" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    return ""
+    foreignAddress.EntityData.Children = make(map[string]types.YChild)
+    foreignAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    foreignAddress.EntityData.Leafs["af-name"] = types.YLeaf{"AfName", foreignAddress.AfName}
+    foreignAddress.EntityData.Leafs["ipv4-address"] = types.YLeaf{"Ipv4Address", foreignAddress.Ipv4Address}
+    foreignAddress.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", foreignAddress.Ipv6Address}
+    return &(foreignAddress.EntityData)
 }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetSegmentPath() string {
-    return "foreign-address"
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["af-name"] = foreignAddress.AfName
-    leafs["ipv4-address"] = foreignAddress.Ipv4Address
-    leafs["ipv6-address"] = foreignAddress.Ipv6Address
-    return leafs
-}
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetYangName() string { return "foreign-address" }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) SetParent(parent types.Entity) { foreignAddress.parent = parent }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetParent() types.Entity { return foreignAddress.parent }
-
-func (foreignAddress *UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress) GetParentYangName() string { return "pcb-brief" }
 

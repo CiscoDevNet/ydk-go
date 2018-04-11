@@ -15,27 +15,9 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cdp_oper"))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-cdp-oper cdp-neighbour-details}", reflect.TypeOf(CdpNeighbourDetails{}))
-    ydk.RegisterEntity("Cisco-IOS-XE-cdp-oper:cdp-neighbour-details", reflect.TypeOf(CdpNeighbourDetails{}))
+    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XE-cdp-oper cdp-neighbor-details}", reflect.TypeOf(CdpNeighborDetails{}))
+    ydk.RegisterEntity("Cisco-IOS-XE-cdp-oper:cdp-neighbor-details", reflect.TypeOf(CdpNeighborDetails{}))
 }
-
-// CdpEnableDisable represents CDP type enable or disable
-type CdpEnableDisable string
-
-const (
-    CdpEnableDisable_cdp_disable CdpEnableDisable = "cdp-disable"
-
-    CdpEnableDisable_cdp_enable CdpEnableDisable = "cdp-enable"
-)
-
-// CdpYesNo represents CDP type yes or no
-type CdpYesNo string
-
-const (
-    CdpYesNo_cdp_no CdpYesNo = "cdp-no"
-
-    CdpYesNo_cdp_yes CdpYesNo = "cdp-yes"
-)
 
 // CdpDuplex represents CDP duplex modes
 type CdpDuplex string
@@ -52,6 +34,17 @@ const (
     CdpDuplex_cdp_full_duplex_mismatch CdpDuplex = "cdp-full-duplex-mismatch"
 )
 
+// CdpAdvVersion represents CDP advertized version information
+type CdpAdvVersion string
+
+const (
+    CdpAdvVersion_cdp_advertised_none CdpAdvVersion = "cdp-advertised-none"
+
+    CdpAdvVersion_cdp_advertised_v1 CdpAdvVersion = "cdp-advertised-v1"
+
+    CdpAdvVersion_cdp_advertised_v2 CdpAdvVersion = "cdp-advertised-v2"
+)
+
 // CdpUnidirectionalMode represents CDP unidirectional modes
 type CdpUnidirectionalMode string
 
@@ -65,90 +58,58 @@ const (
     CdpUnidirectionalMode_cdp_uni_mode_unknown CdpUnidirectionalMode = "cdp-uni-mode-unknown"
 )
 
-// CdpAdvVersion represents CDP advertized version information
-type CdpAdvVersion string
+// CdpYesNo represents CDP type yes or no
+type CdpYesNo string
 
 const (
-    CdpAdvVersion_cdp_advertised_none CdpAdvVersion = "cdp-advertised-none"
+    CdpYesNo_cdp_no CdpYesNo = "cdp-no"
 
-    CdpAdvVersion_cdp_advertised_v1 CdpAdvVersion = "cdp-advertised-v1"
-
-    CdpAdvVersion_cdp_advertised_v2 CdpAdvVersion = "cdp-advertised-v2"
+    CdpYesNo_cdp_yes CdpYesNo = "cdp-yes"
 )
 
-// CdpNeighbourDetails
-// Cisco CDP neighbour operational data
-type CdpNeighbourDetails struct {
-    parent types.Entity
+// CdpEnableDisable represents CDP type enable or disable
+type CdpEnableDisable string
+
+const (
+    CdpEnableDisable_cdp_disable CdpEnableDisable = "cdp-disable"
+
+    CdpEnableDisable_cdp_enable CdpEnableDisable = "cdp-enable"
+)
+
+// CdpNeighborDetails
+// Cisco CDP neighbor operational data
+type CdpNeighborDetails struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of CDP neighbour details. The type is slice of
-    // CdpNeighbourDetails_CdpNeighbourDetail.
-    CdpNeighbourDetail []CdpNeighbourDetails_CdpNeighbourDetail
+    // List of CDP neighbor details. The type is slice of
+    // CdpNeighborDetails_CdpNeighborDetail.
+    CdpNeighborDetail []CdpNeighborDetails_CdpNeighborDetail
 }
 
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetFilter() yfilter.YFilter { return cdpNeighbourDetails.YFilter }
+func (cdpNeighborDetails *CdpNeighborDetails) GetEntityData() *types.CommonEntityData {
+    cdpNeighborDetails.EntityData.YFilter = cdpNeighborDetails.YFilter
+    cdpNeighborDetails.EntityData.YangName = "cdp-neighbor-details"
+    cdpNeighborDetails.EntityData.BundleName = "cisco_ios_xe"
+    cdpNeighborDetails.EntityData.ParentYangName = "Cisco-IOS-XE-cdp-oper"
+    cdpNeighborDetails.EntityData.SegmentPath = "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details"
+    cdpNeighborDetails.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpNeighborDetails.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpNeighborDetails.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdpNeighbourDetails *CdpNeighbourDetails) SetFilter(yf yfilter.YFilter) { cdpNeighbourDetails.YFilter = yf }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetGoName(yname string) string {
-    if yname == "cdp-neighbour-detail" { return "CdpNeighbourDetail" }
-    return ""
-}
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetSegmentPath() string {
-    return "Cisco-IOS-XE-cdp-oper:cdp-neighbour-details"
-}
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdp-neighbour-detail" {
-        for _, c := range cdpNeighbourDetails.CdpNeighbourDetail {
-            if cdpNeighbourDetails.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CdpNeighbourDetails_CdpNeighbourDetail{}
-        cdpNeighbourDetails.CdpNeighbourDetail = append(cdpNeighbourDetails.CdpNeighbourDetail, child)
-        return &cdpNeighbourDetails.CdpNeighbourDetail[len(cdpNeighbourDetails.CdpNeighbourDetail)-1]
+    cdpNeighborDetails.EntityData.Children = make(map[string]types.YChild)
+    cdpNeighborDetails.EntityData.Children["cdp-neighbor-detail"] = types.YChild{"CdpNeighborDetail", nil}
+    for i := range cdpNeighborDetails.CdpNeighborDetail {
+        cdpNeighborDetails.EntityData.Children[types.GetSegmentPath(&cdpNeighborDetails.CdpNeighborDetail[i])] = types.YChild{"CdpNeighborDetail", &cdpNeighborDetails.CdpNeighborDetail[i]}
     }
-    return nil
+    cdpNeighborDetails.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdpNeighborDetails.EntityData)
 }
 
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    for i := range cdpNeighbourDetails.CdpNeighbourDetail {
-        children[cdpNeighbourDetails.CdpNeighbourDetail[i].GetSegmentPath()] = &cdpNeighbourDetails.CdpNeighbourDetail[i]
-    }
-    return children
-}
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetYangName() string { return "cdp-neighbour-details" }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) SetParent(parent types.Entity) { cdpNeighbourDetails.parent = parent }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetParent() types.Entity { return cdpNeighbourDetails.parent }
-
-func (cdpNeighbourDetails *CdpNeighbourDetails) GetParentYangName() string { return "Cisco-IOS-XE-cdp-oper" }
-
-// CdpNeighbourDetails_CdpNeighbourDetail
-// List of CDP neighbour details
-type CdpNeighbourDetails_CdpNeighbourDetail struct {
-    parent types.Entity
+// CdpNeighborDetails_CdpNeighborDetail
+// List of CDP neighbor details
+type CdpNeighborDetails_CdpNeighborDetail struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Device number of this device, Used as a key in the
@@ -226,23 +187,23 @@ type CdpNeighbourDetails_CdpNeighbourDetail struct {
 
     // Device's management addresses. The type is one of the following types:
     // string with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     MgmtAddress interface{}
 
     // IPv4 address of the device. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     IpAddress interface{}
 
     // IPv6 address of the device. The type is one of the following types: string
     // with pattern:
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
     // or string with pattern:
-    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
     Ipv6Address interface{}
 
     // CLNS address of the device. The type is string.
@@ -263,136 +224,68 @@ type CdpNeighbourDetails_CdpNeighbourDetail struct {
     TableId interface{}
 
     // CDP Protocol Hello message.
-    HelloMessage CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage
+    HelloMessage CdpNeighborDetails_CdpNeighborDetail_HelloMessage
 
     // This field used to keep inline power.
-    PowerRequest CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest
+    PowerRequest CdpNeighborDetails_CdpNeighborDetail_PowerRequest
 
     // This field used to keep inline power.
-    PowerAvailable CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable
+    PowerAvailable CdpNeighborDetails_CdpNeighborDetail_PowerAvailable
 
     // Spare pair PoE TLV is a one octet long. This has following field: Bit      
     // Function                            value/Meaning 0    4-pair PoE Supported
     // 0=No/1=Yes 1    Spare pair Detection/Classification required   0=No/1=Yes 2
     // PD Spare Pair Desired State                    0=Disabled/1=Enabled 3   
     // PSE Spare Pair Operational State               0=No/1=Yes 4:7   Reserved .
-    SparePair CdpNeighbourDetails_CdpNeighbourDetail_SparePair
+    SparePair CdpNeighborDetails_CdpNeighborDetail_SparePair
 }
 
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetFilter() yfilter.YFilter { return cdpNeighbourDetail.YFilter }
+func (cdpNeighborDetail *CdpNeighborDetails_CdpNeighborDetail) GetEntityData() *types.CommonEntityData {
+    cdpNeighborDetail.EntityData.YFilter = cdpNeighborDetail.YFilter
+    cdpNeighborDetail.EntityData.YangName = "cdp-neighbor-detail"
+    cdpNeighborDetail.EntityData.BundleName = "cisco_ios_xe"
+    cdpNeighborDetail.EntityData.ParentYangName = "cdp-neighbor-details"
+    cdpNeighborDetail.EntityData.SegmentPath = "cdp-neighbor-detail" + "[device-id='" + fmt.Sprintf("%v", cdpNeighborDetail.DeviceId) + "']"
+    cdpNeighborDetail.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdpNeighborDetail.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdpNeighborDetail.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) SetFilter(yf yfilter.YFilter) { cdpNeighbourDetail.YFilter = yf }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetGoName(yname string) string {
-    if yname == "device-id" { return "DeviceId" }
-    if yname == "device-name" { return "DeviceName" }
-    if yname == "local-intf-name" { return "LocalIntfName" }
-    if yname == "port-id" { return "PortId" }
-    if yname == "capability" { return "Capability" }
-    if yname == "platform-name" { return "PlatformName" }
-    if yname == "version" { return "Version" }
-    if yname == "duplex" { return "Duplex" }
-    if yname == "adv-version" { return "AdvVersion" }
-    if yname == "vty-mgmt-domain" { return "VtyMgmtDomain" }
-    if yname == "native-vlan" { return "NativeVlan" }
-    if yname == "vvid-tag" { return "VvidTag" }
-    if yname == "vvid" { return "Vvid" }
-    if yname == "power" { return "Power" }
-    if yname == "unidirectional-mode" { return "UnidirectionalMode" }
-    if yname == "mgmt-address" { return "MgmtAddress" }
-    if yname == "ip-address" { return "IpAddress" }
-    if yname == "ipv6-address" { return "Ipv6Address" }
-    if yname == "clns-address" { return "ClnsAddress" }
-    if yname == "decnet-addr" { return "DecnetAddr" }
-    if yname == "novell-addr" { return "NovellAddr" }
-    if yname == "second-port-status" { return "SecondPortStatus" }
-    if yname == "table-id" { return "TableId" }
-    if yname == "hello-message" { return "HelloMessage" }
-    if yname == "power-request" { return "PowerRequest" }
-    if yname == "power-available" { return "PowerAvailable" }
-    if yname == "spare-pair" { return "SparePair" }
-    return ""
+    cdpNeighborDetail.EntityData.Children = make(map[string]types.YChild)
+    cdpNeighborDetail.EntityData.Children["hello-message"] = types.YChild{"HelloMessage", &cdpNeighborDetail.HelloMessage}
+    cdpNeighborDetail.EntityData.Children["power-request"] = types.YChild{"PowerRequest", &cdpNeighborDetail.PowerRequest}
+    cdpNeighborDetail.EntityData.Children["power-available"] = types.YChild{"PowerAvailable", &cdpNeighborDetail.PowerAvailable}
+    cdpNeighborDetail.EntityData.Children["spare-pair"] = types.YChild{"SparePair", &cdpNeighborDetail.SparePair}
+    cdpNeighborDetail.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdpNeighborDetail.EntityData.Leafs["device-id"] = types.YLeaf{"DeviceId", cdpNeighborDetail.DeviceId}
+    cdpNeighborDetail.EntityData.Leafs["device-name"] = types.YLeaf{"DeviceName", cdpNeighborDetail.DeviceName}
+    cdpNeighborDetail.EntityData.Leafs["local-intf-name"] = types.YLeaf{"LocalIntfName", cdpNeighborDetail.LocalIntfName}
+    cdpNeighborDetail.EntityData.Leafs["port-id"] = types.YLeaf{"PortId", cdpNeighborDetail.PortId}
+    cdpNeighborDetail.EntityData.Leafs["capability"] = types.YLeaf{"Capability", cdpNeighborDetail.Capability}
+    cdpNeighborDetail.EntityData.Leafs["platform-name"] = types.YLeaf{"PlatformName", cdpNeighborDetail.PlatformName}
+    cdpNeighborDetail.EntityData.Leafs["version"] = types.YLeaf{"Version", cdpNeighborDetail.Version}
+    cdpNeighborDetail.EntityData.Leafs["duplex"] = types.YLeaf{"Duplex", cdpNeighborDetail.Duplex}
+    cdpNeighborDetail.EntityData.Leafs["adv-version"] = types.YLeaf{"AdvVersion", cdpNeighborDetail.AdvVersion}
+    cdpNeighborDetail.EntityData.Leafs["vty-mgmt-domain"] = types.YLeaf{"VtyMgmtDomain", cdpNeighborDetail.VtyMgmtDomain}
+    cdpNeighborDetail.EntityData.Leafs["native-vlan"] = types.YLeaf{"NativeVlan", cdpNeighborDetail.NativeVlan}
+    cdpNeighborDetail.EntityData.Leafs["vvid-tag"] = types.YLeaf{"VvidTag", cdpNeighborDetail.VvidTag}
+    cdpNeighborDetail.EntityData.Leafs["vvid"] = types.YLeaf{"Vvid", cdpNeighborDetail.Vvid}
+    cdpNeighborDetail.EntityData.Leafs["power"] = types.YLeaf{"Power", cdpNeighborDetail.Power}
+    cdpNeighborDetail.EntityData.Leafs["unidirectional-mode"] = types.YLeaf{"UnidirectionalMode", cdpNeighborDetail.UnidirectionalMode}
+    cdpNeighborDetail.EntityData.Leafs["mgmt-address"] = types.YLeaf{"MgmtAddress", cdpNeighborDetail.MgmtAddress}
+    cdpNeighborDetail.EntityData.Leafs["ip-address"] = types.YLeaf{"IpAddress", cdpNeighborDetail.IpAddress}
+    cdpNeighborDetail.EntityData.Leafs["ipv6-address"] = types.YLeaf{"Ipv6Address", cdpNeighborDetail.Ipv6Address}
+    cdpNeighborDetail.EntityData.Leafs["clns-address"] = types.YLeaf{"ClnsAddress", cdpNeighborDetail.ClnsAddress}
+    cdpNeighborDetail.EntityData.Leafs["decnet-addr"] = types.YLeaf{"DecnetAddr", cdpNeighborDetail.DecnetAddr}
+    cdpNeighborDetail.EntityData.Leafs["novell-addr"] = types.YLeaf{"NovellAddr", cdpNeighborDetail.NovellAddr}
+    cdpNeighborDetail.EntityData.Leafs["second-port-status"] = types.YLeaf{"SecondPortStatus", cdpNeighborDetail.SecondPortStatus}
+    cdpNeighborDetail.EntityData.Leafs["table-id"] = types.YLeaf{"TableId", cdpNeighborDetail.TableId}
+    return &(cdpNeighborDetail.EntityData)
 }
 
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetSegmentPath() string {
-    return "cdp-neighbour-detail" + "[device-id='" + fmt.Sprintf("%v", cdpNeighbourDetail.DeviceId) + "']"
-}
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "hello-message" {
-        return &cdpNeighbourDetail.HelloMessage
-    }
-    if childYangName == "power-request" {
-        return &cdpNeighbourDetail.PowerRequest
-    }
-    if childYangName == "power-available" {
-        return &cdpNeighbourDetail.PowerAvailable
-    }
-    if childYangName == "spare-pair" {
-        return &cdpNeighbourDetail.SparePair
-    }
-    return nil
-}
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["hello-message"] = &cdpNeighbourDetail.HelloMessage
-    children["power-request"] = &cdpNeighbourDetail.PowerRequest
-    children["power-available"] = &cdpNeighbourDetail.PowerAvailable
-    children["spare-pair"] = &cdpNeighbourDetail.SparePair
-    return children
-}
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["device-id"] = cdpNeighbourDetail.DeviceId
-    leafs["device-name"] = cdpNeighbourDetail.DeviceName
-    leafs["local-intf-name"] = cdpNeighbourDetail.LocalIntfName
-    leafs["port-id"] = cdpNeighbourDetail.PortId
-    leafs["capability"] = cdpNeighbourDetail.Capability
-    leafs["platform-name"] = cdpNeighbourDetail.PlatformName
-    leafs["version"] = cdpNeighbourDetail.Version
-    leafs["duplex"] = cdpNeighbourDetail.Duplex
-    leafs["adv-version"] = cdpNeighbourDetail.AdvVersion
-    leafs["vty-mgmt-domain"] = cdpNeighbourDetail.VtyMgmtDomain
-    leafs["native-vlan"] = cdpNeighbourDetail.NativeVlan
-    leafs["vvid-tag"] = cdpNeighbourDetail.VvidTag
-    leafs["vvid"] = cdpNeighbourDetail.Vvid
-    leafs["power"] = cdpNeighbourDetail.Power
-    leafs["unidirectional-mode"] = cdpNeighbourDetail.UnidirectionalMode
-    leafs["mgmt-address"] = cdpNeighbourDetail.MgmtAddress
-    leafs["ip-address"] = cdpNeighbourDetail.IpAddress
-    leafs["ipv6-address"] = cdpNeighbourDetail.Ipv6Address
-    leafs["clns-address"] = cdpNeighbourDetail.ClnsAddress
-    leafs["decnet-addr"] = cdpNeighbourDetail.DecnetAddr
-    leafs["novell-addr"] = cdpNeighbourDetail.NovellAddr
-    leafs["second-port-status"] = cdpNeighbourDetail.SecondPortStatus
-    leafs["table-id"] = cdpNeighbourDetail.TableId
-    return leafs
-}
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetYangName() string { return "cdp-neighbour-detail" }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) SetParent(parent types.Entity) { cdpNeighbourDetail.parent = parent }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetParent() types.Entity { return cdpNeighbourDetail.parent }
-
-func (cdpNeighbourDetail *CdpNeighbourDetails_CdpNeighbourDetail) GetParentYangName() string { return "cdp-neighbour-details" }
-
-// CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage
+// CdpNeighborDetails_CdpNeighborDetail_HelloMessage
 // CDP Protocol Hello message
-type CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage struct {
-    parent types.Entity
+type CdpNeighborDetails_CdpNeighborDetail_HelloMessage struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // OUI - org unique identifier for Cisco is 0x00000C. The type is string.
@@ -410,62 +303,29 @@ type CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage struct {
     PayloadLen interface{}
 }
 
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetFilter() yfilter.YFilter { return helloMessage.YFilter }
+func (helloMessage *CdpNeighborDetails_CdpNeighborDetail_HelloMessage) GetEntityData() *types.CommonEntityData {
+    helloMessage.EntityData.YFilter = helloMessage.YFilter
+    helloMessage.EntityData.YangName = "hello-message"
+    helloMessage.EntityData.BundleName = "cisco_ios_xe"
+    helloMessage.EntityData.ParentYangName = "cdp-neighbor-detail"
+    helloMessage.EntityData.SegmentPath = "hello-message"
+    helloMessage.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    helloMessage.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    helloMessage.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) SetFilter(yf yfilter.YFilter) { helloMessage.YFilter = yf }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetGoName(yname string) string {
-    if yname == "oui" { return "Oui" }
-    if yname == "protocol-id" { return "ProtocolId" }
-    if yname == "payload-value" { return "PayloadValue" }
-    if yname == "payload-len" { return "PayloadLen" }
-    return ""
+    helloMessage.EntityData.Children = make(map[string]types.YChild)
+    helloMessage.EntityData.Leafs = make(map[string]types.YLeaf)
+    helloMessage.EntityData.Leafs["oui"] = types.YLeaf{"Oui", helloMessage.Oui}
+    helloMessage.EntityData.Leafs["protocol-id"] = types.YLeaf{"ProtocolId", helloMessage.ProtocolId}
+    helloMessage.EntityData.Leafs["payload-value"] = types.YLeaf{"PayloadValue", helloMessage.PayloadValue}
+    helloMessage.EntityData.Leafs["payload-len"] = types.YLeaf{"PayloadLen", helloMessage.PayloadLen}
+    return &(helloMessage.EntityData)
 }
 
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetSegmentPath() string {
-    return "hello-message"
-}
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["oui"] = helloMessage.Oui
-    leafs["protocol-id"] = helloMessage.ProtocolId
-    leafs["payload-value"] = helloMessage.PayloadValue
-    leafs["payload-len"] = helloMessage.PayloadLen
-    return leafs
-}
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetBundleName() string { return "cisco_ios_xe" }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetYangName() string { return "hello-message" }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) SetParent(parent types.Entity) { helloMessage.parent = parent }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetParent() types.Entity { return helloMessage.parent }
-
-func (helloMessage *CdpNeighbourDetails_CdpNeighbourDetail_HelloMessage) GetParentYangName() string { return "cdp-neighbour-detail" }
-
-// CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest
+// CdpNeighborDetails_CdpNeighborDetail_PowerRequest
 // This field used to keep inline power
-type CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest struct {
-    parent types.Entity
+type CdpNeighborDetails_CdpNeighborDetail_PowerRequest struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The last power request ID received echoes the Request-ID field last
@@ -486,60 +346,28 @@ type CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest struct {
     PowerRequestLevel interface{}
 }
 
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetFilter() yfilter.YFilter { return powerRequest.YFilter }
+func (powerRequest *CdpNeighborDetails_CdpNeighborDetail_PowerRequest) GetEntityData() *types.CommonEntityData {
+    powerRequest.EntityData.YFilter = powerRequest.YFilter
+    powerRequest.EntityData.YangName = "power-request"
+    powerRequest.EntityData.BundleName = "cisco_ios_xe"
+    powerRequest.EntityData.ParentYangName = "cdp-neighbor-detail"
+    powerRequest.EntityData.SegmentPath = "power-request"
+    powerRequest.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    powerRequest.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    powerRequest.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) SetFilter(yf yfilter.YFilter) { powerRequest.YFilter = yf }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetGoName(yname string) string {
-    if yname == "power-request-id" { return "PowerRequestId" }
-    if yname == "power-man-id" { return "PowerManId" }
-    if yname == "power-request-level" { return "PowerRequestLevel" }
-    return ""
+    powerRequest.EntityData.Children = make(map[string]types.YChild)
+    powerRequest.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerRequest.EntityData.Leafs["power-request-id"] = types.YLeaf{"PowerRequestId", powerRequest.PowerRequestId}
+    powerRequest.EntityData.Leafs["power-man-id"] = types.YLeaf{"PowerManId", powerRequest.PowerManId}
+    powerRequest.EntityData.Leafs["power-request-level"] = types.YLeaf{"PowerRequestLevel", powerRequest.PowerRequestLevel}
+    return &(powerRequest.EntityData)
 }
 
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetSegmentPath() string {
-    return "power-request"
-}
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["power-request-id"] = powerRequest.PowerRequestId
-    leafs["power-man-id"] = powerRequest.PowerManId
-    leafs["power-request-level"] = powerRequest.PowerRequestLevel
-    return leafs
-}
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetBundleName() string { return "cisco_ios_xe" }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetYangName() string { return "power-request" }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) SetParent(parent types.Entity) { powerRequest.parent = parent }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetParent() types.Entity { return powerRequest.parent }
-
-func (powerRequest *CdpNeighbourDetails_CdpNeighbourDetail_PowerRequest) GetParentYangName() string { return "cdp-neighbour-detail" }
-
-// CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable
+// CdpNeighborDetails_CdpNeighborDetail_PowerAvailable
 // This field used to keep inline power
-type CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable struct {
-    parent types.Entity
+type CdpNeighborDetails_CdpNeighborDetail_PowerAvailable struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The last power request ID received echoes the Request-ID field last
@@ -565,59 +393,26 @@ type CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable struct {
     PowerManLevel interface{}
 }
 
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetFilter() yfilter.YFilter { return powerAvailable.YFilter }
+func (powerAvailable *CdpNeighborDetails_CdpNeighborDetail_PowerAvailable) GetEntityData() *types.CommonEntityData {
+    powerAvailable.EntityData.YFilter = powerAvailable.YFilter
+    powerAvailable.EntityData.YangName = "power-available"
+    powerAvailable.EntityData.BundleName = "cisco_ios_xe"
+    powerAvailable.EntityData.ParentYangName = "cdp-neighbor-detail"
+    powerAvailable.EntityData.SegmentPath = "power-available"
+    powerAvailable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    powerAvailable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    powerAvailable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) SetFilter(yf yfilter.YFilter) { powerAvailable.YFilter = yf }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetGoName(yname string) string {
-    if yname == "power-request-id" { return "PowerRequestId" }
-    if yname == "power-man-id" { return "PowerManId" }
-    if yname == "power-available" { return "PowerAvailable" }
-    if yname == "power-man-level" { return "PowerManLevel" }
-    return ""
+    powerAvailable.EntityData.Children = make(map[string]types.YChild)
+    powerAvailable.EntityData.Leafs = make(map[string]types.YLeaf)
+    powerAvailable.EntityData.Leafs["power-request-id"] = types.YLeaf{"PowerRequestId", powerAvailable.PowerRequestId}
+    powerAvailable.EntityData.Leafs["power-man-id"] = types.YLeaf{"PowerManId", powerAvailable.PowerManId}
+    powerAvailable.EntityData.Leafs["power-available"] = types.YLeaf{"PowerAvailable", powerAvailable.PowerAvailable}
+    powerAvailable.EntityData.Leafs["power-man-level"] = types.YLeaf{"PowerManLevel", powerAvailable.PowerManLevel}
+    return &(powerAvailable.EntityData)
 }
 
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetSegmentPath() string {
-    return "power-available"
-}
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["power-request-id"] = powerAvailable.PowerRequestId
-    leafs["power-man-id"] = powerAvailable.PowerManId
-    leafs["power-available"] = powerAvailable.PowerAvailable
-    leafs["power-man-level"] = powerAvailable.PowerManLevel
-    return leafs
-}
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetYangName() string { return "power-available" }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) SetParent(parent types.Entity) { powerAvailable.parent = parent }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetParent() types.Entity { return powerAvailable.parent }
-
-func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) GetParentYangName() string { return "cdp-neighbour-detail" }
-
-// CdpNeighbourDetails_CdpNeighbourDetail_SparePair
+// CdpNeighborDetails_CdpNeighborDetail_SparePair
 // Spare pair PoE TLV is a one octet long.
 // This has following field:
 // Bit            Function                            value/Meaning
@@ -627,8 +422,8 @@ func (powerAvailable *CdpNeighbourDetails_CdpNeighbourDetail_PowerAvailable) Get
 // 3    PSE Spare Pair Operational State               0=No/1=Yes
 // 4:7   Reserved
 // 
-type CdpNeighbourDetails_CdpNeighbourDetail_SparePair struct {
-    parent types.Entity
+type CdpNeighborDetails_CdpNeighborDetail_SparePair struct {
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Spare pair PoE TLV is a one octet long this field represents 4-pair PoE
@@ -648,55 +443,22 @@ type CdpNeighbourDetails_CdpNeighbourDetail_SparePair struct {
     SparePairPseOperational interface{}
 }
 
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetFilter() yfilter.YFilter { return sparePair.YFilter }
+func (sparePair *CdpNeighborDetails_CdpNeighborDetail_SparePair) GetEntityData() *types.CommonEntityData {
+    sparePair.EntityData.YFilter = sparePair.YFilter
+    sparePair.EntityData.YangName = "spare-pair"
+    sparePair.EntityData.BundleName = "cisco_ios_xe"
+    sparePair.EntityData.ParentYangName = "cdp-neighbor-detail"
+    sparePair.EntityData.SegmentPath = "spare-pair"
+    sparePair.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    sparePair.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    sparePair.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) SetFilter(yf yfilter.YFilter) { sparePair.YFilter = yf }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetGoName(yname string) string {
-    if yname == "spare-pair-poe" { return "SparePairPoe" }
-    if yname == "spare-pair-detection-required" { return "SparePairDetectionRequired" }
-    if yname == "spare-pair-pd-config" { return "SparePairPdConfig" }
-    if yname == "spare-pair-pse-operational" { return "SparePairPseOperational" }
-    return ""
+    sparePair.EntityData.Children = make(map[string]types.YChild)
+    sparePair.EntityData.Leafs = make(map[string]types.YLeaf)
+    sparePair.EntityData.Leafs["spare-pair-poe"] = types.YLeaf{"SparePairPoe", sparePair.SparePairPoe}
+    sparePair.EntityData.Leafs["spare-pair-detection-required"] = types.YLeaf{"SparePairDetectionRequired", sparePair.SparePairDetectionRequired}
+    sparePair.EntityData.Leafs["spare-pair-pd-config"] = types.YLeaf{"SparePairPdConfig", sparePair.SparePairPdConfig}
+    sparePair.EntityData.Leafs["spare-pair-pse-operational"] = types.YLeaf{"SparePairPseOperational", sparePair.SparePairPseOperational}
+    return &(sparePair.EntityData)
 }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetSegmentPath() string {
-    return "spare-pair"
-}
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["spare-pair-poe"] = sparePair.SparePairPoe
-    leafs["spare-pair-detection-required"] = sparePair.SparePairDetectionRequired
-    leafs["spare-pair-pd-config"] = sparePair.SparePairPdConfig
-    leafs["spare-pair-pse-operational"] = sparePair.SparePairPseOperational
-    return leafs
-}
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetBundleName() string { return "cisco_ios_xe" }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetYangName() string { return "spare-pair" }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) SetParent(parent types.Entity) { sparePair.parent = parent }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetParent() types.Entity { return sparePair.parent }
-
-func (sparePair *CdpNeighbourDetails_CdpNeighbourDetail_SparePair) GetParentYangName() string { return "cdp-neighbour-detail" }
 

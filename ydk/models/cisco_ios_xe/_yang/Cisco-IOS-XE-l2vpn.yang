@@ -39,12 +39,34 @@ module Cisco-IOS-XE-l2vpn {
 
   description
     "Cisco XE Native Layer 2 Virtual Private Network (L2VPN) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-11-27 {
+     description
+       "Added Change 25GE name";
+  }
+
+  revision 2017-11-14 {
+    description
+      "This revision has changes for new 40 and 100GE interface addition";
+  }
+
+  revision 2017-09-15 {
+    description
+      "This revision has changes for new 2gig interface addition";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-08-10 {
+    description
+      "Add mtu for l2 vfi";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -563,6 +585,11 @@ module Cisco-IOS-XE-l2vpn {
         type uint16 {
           range "1..16384";
         }
+      }
+      leaf mtu {
+        description
+          "MTU size in bytes";
+        type uint32;
       }
       list neighbor {
         description
@@ -1272,6 +1299,36 @@ module Cisco-IOS-XE-l2vpn {
     }
   }
 
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-interface-xconnect-grouping {
+      if-feature ios-features:l2vpn;
+    }
+  }
+
   augment "/ios:native/ios:interface/ios:Port-channel" {
     uses config-interface-xconnect-grouping  {
       if-feature ios-features:l2vpn;   
@@ -1294,6 +1351,36 @@ module Cisco-IOS-XE-l2vpn {
   }
 
   augment "/ios:native/ios:interface/ios:TenGigabitEthernet/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet/ios-eth:service/ios-eth:instance" {
+    uses config-interface-efp-xconnect-grouping {
+      if-feature ios-features:efp;
+    }
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE/ios-eth:service/ios-eth:instance" {
     uses config-interface-efp-xconnect-grouping {
       if-feature ios-features:efp;
     }

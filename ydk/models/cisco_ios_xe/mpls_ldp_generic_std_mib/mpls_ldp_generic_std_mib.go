@@ -27,7 +27,7 @@ func init() {
 
 // MPLSLDPGENERICSTDMIB
 type MPLSLDPGENERICSTDMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The MPLS LDP Entity Generic Label Range (LR) Table.  The purpose of this
@@ -38,54 +38,21 @@ type MPLSLDPGENERICSTDMIB struct {
     Mplsldpentitygenericlrtable MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable
 }
 
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetFilter() yfilter.YFilter { return mPLSLDPGENERICSTDMIB.YFilter }
+func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetEntityData() *types.CommonEntityData {
+    mPLSLDPGENERICSTDMIB.EntityData.YFilter = mPLSLDPGENERICSTDMIB.YFilter
+    mPLSLDPGENERICSTDMIB.EntityData.YangName = "MPLS-LDP-GENERIC-STD-MIB"
+    mPLSLDPGENERICSTDMIB.EntityData.BundleName = "cisco_ios_xe"
+    mPLSLDPGENERICSTDMIB.EntityData.ParentYangName = "MPLS-LDP-GENERIC-STD-MIB"
+    mPLSLDPGENERICSTDMIB.EntityData.SegmentPath = "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB"
+    mPLSLDPGENERICSTDMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mPLSLDPGENERICSTDMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mPLSLDPGENERICSTDMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) SetFilter(yf yfilter.YFilter) { mPLSLDPGENERICSTDMIB.YFilter = yf }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetGoName(yname string) string {
-    if yname == "mplsLdpEntityGenericLRTable" { return "Mplsldpentitygenericlrtable" }
-    return ""
+    mPLSLDPGENERICSTDMIB.EntityData.Children = make(map[string]types.YChild)
+    mPLSLDPGENERICSTDMIB.EntityData.Children["mplsLdpEntityGenericLRTable"] = types.YChild{"Mplsldpentitygenericlrtable", &mPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable}
+    mPLSLDPGENERICSTDMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mPLSLDPGENERICSTDMIB.EntityData)
 }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetSegmentPath() string {
-    return "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB"
-}
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsLdpEntityGenericLRTable" {
-        return &mPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable
-    }
-    return nil
-}
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["mplsLdpEntityGenericLRTable"] = &mPLSLDPGENERICSTDMIB.Mplsldpentitygenericlrtable
-    return children
-}
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetYangName() string { return "MPLS-LDP-GENERIC-STD-MIB" }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) SetParent(parent types.Entity) { mPLSLDPGENERICSTDMIB.parent = parent }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetParent() types.Entity { return mPLSLDPGENERICSTDMIB.parent }
-
-func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetParentYangName() string { return "MPLS-LDP-GENERIC-STD-MIB" }
 
 // MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable
 // The MPLS LDP Entity Generic Label Range (LR)
@@ -99,7 +66,7 @@ func (mPLSLDPGENERICSTDMIB *MPLSLDPGENERICSTDMIB) GetParentYangName() string { r
 // one entry in this table.  In other words, this table
 // 'extends' the mpldLdpEntityTable for Generic Labels.
 type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // A row in the LDP Entity Generic Label Range (LR) Table.  One entry in this
@@ -114,63 +81,24 @@ type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable struct {
     Mplsldpentitygenericlrentry []MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry
 }
 
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetFilter() yfilter.YFilter { return mplsldpentitygenericlrtable.YFilter }
+func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetEntityData() *types.CommonEntityData {
+    mplsldpentitygenericlrtable.EntityData.YFilter = mplsldpentitygenericlrtable.YFilter
+    mplsldpentitygenericlrtable.EntityData.YangName = "mplsLdpEntityGenericLRTable"
+    mplsldpentitygenericlrtable.EntityData.BundleName = "cisco_ios_xe"
+    mplsldpentitygenericlrtable.EntityData.ParentYangName = "MPLS-LDP-GENERIC-STD-MIB"
+    mplsldpentitygenericlrtable.EntityData.SegmentPath = "mplsLdpEntityGenericLRTable"
+    mplsldpentitygenericlrtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsldpentitygenericlrtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsldpentitygenericlrtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) SetFilter(yf yfilter.YFilter) { mplsldpentitygenericlrtable.YFilter = yf }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetGoName(yname string) string {
-    if yname == "mplsLdpEntityGenericLREntry" { return "Mplsldpentitygenericlrentry" }
-    return ""
-}
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetSegmentPath() string {
-    return "mplsLdpEntityGenericLRTable"
-}
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "mplsLdpEntityGenericLREntry" {
-        for _, c := range mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry {
-            if mplsldpentitygenericlrtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry{}
-        mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry = append(mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry, child)
-        return &mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[len(mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry)-1]
-    }
-    return nil
-}
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    mplsldpentitygenericlrtable.EntityData.Children = make(map[string]types.YChild)
+    mplsldpentitygenericlrtable.EntityData.Children["mplsLdpEntityGenericLREntry"] = types.YChild{"Mplsldpentitygenericlrentry", nil}
     for i := range mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry {
-        children[mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[i].GetSegmentPath()] = &mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[i]
+        mplsldpentitygenericlrtable.EntityData.Children[types.GetSegmentPath(&mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[i])] = types.YChild{"Mplsldpentitygenericlrentry", &mplsldpentitygenericlrtable.Mplsldpentitygenericlrentry[i]}
     }
-    return children
+    mplsldpentitygenericlrtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(mplsldpentitygenericlrtable.EntityData)
 }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetYangName() string { return "mplsLdpEntityGenericLRTable" }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) SetParent(parent types.Entity) { mplsldpentitygenericlrtable.parent = parent }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetParent() types.Entity { return mplsldpentitygenericlrtable.parent }
-
-func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable) GetParentYangName() string { return "MPLS-LDP-GENERIC-STD-MIB" }
 
 // MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry
 // A row in the LDP Entity Generic Label
@@ -189,7 +117,7 @@ func (mplsldpentitygenericlrtable *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrta
 // A row will not be created unless a unique and
 // non-overlapping range is specified.
 type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string. Refers to
@@ -245,65 +173,28 @@ type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentr
     Mplsldpentitygenericlrrowstatus interface{}
 }
 
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetFilter() yfilter.YFilter { return mplsldpentitygenericlrentry.YFilter }
+func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetEntityData() *types.CommonEntityData {
+    mplsldpentitygenericlrentry.EntityData.YFilter = mplsldpentitygenericlrentry.YFilter
+    mplsldpentitygenericlrentry.EntityData.YangName = "mplsLdpEntityGenericLREntry"
+    mplsldpentitygenericlrentry.EntityData.BundleName = "cisco_ios_xe"
+    mplsldpentitygenericlrentry.EntityData.ParentYangName = "mplsLdpEntityGenericLRTable"
+    mplsldpentitygenericlrentry.EntityData.SegmentPath = "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentityindex) + "']" + "[mplsLdpEntityGenericLRMin='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmin) + "']" + "[mplsLdpEntityGenericLRMax='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmax) + "']"
+    mplsldpentitygenericlrentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    mplsldpentitygenericlrentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    mplsldpentitygenericlrentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) SetFilter(yf yfilter.YFilter) { mplsldpentitygenericlrentry.YFilter = yf }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetGoName(yname string) string {
-    if yname == "mplsLdpEntityLdpId" { return "Mplsldpentityldpid" }
-    if yname == "mplsLdpEntityIndex" { return "Mplsldpentityindex" }
-    if yname == "mplsLdpEntityGenericLRMin" { return "Mplsldpentitygenericlrmin" }
-    if yname == "mplsLdpEntityGenericLRMax" { return "Mplsldpentitygenericlrmax" }
-    if yname == "mplsLdpEntityGenericLabelSpace" { return "Mplsldpentitygenericlabelspace" }
-    if yname == "mplsLdpEntityGenericIfIndexOrZero" { return "Mplsldpentitygenericifindexorzero" }
-    if yname == "mplsLdpEntityGenericLRStorageType" { return "Mplsldpentitygenericlrstoragetype" }
-    if yname == "mplsLdpEntityGenericLRRowStatus" { return "Mplsldpentitygenericlrrowstatus" }
-    return ""
+    mplsldpentitygenericlrentry.EntityData.Children = make(map[string]types.YChild)
+    mplsldpentitygenericlrentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityLdpId"] = types.YLeaf{"Mplsldpentityldpid", mplsldpentitygenericlrentry.Mplsldpentityldpid}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityIndex"] = types.YLeaf{"Mplsldpentityindex", mplsldpentitygenericlrentry.Mplsldpentityindex}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRMin"] = types.YLeaf{"Mplsldpentitygenericlrmin", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmin}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRMax"] = types.YLeaf{"Mplsldpentitygenericlrmax", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmax}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLabelSpace"] = types.YLeaf{"Mplsldpentitygenericlabelspace", mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericIfIndexOrZero"] = types.YLeaf{"Mplsldpentitygenericifindexorzero", mplsldpentitygenericlrentry.Mplsldpentitygenericifindexorzero}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRStorageType"] = types.YLeaf{"Mplsldpentitygenericlrstoragetype", mplsldpentitygenericlrentry.Mplsldpentitygenericlrstoragetype}
+    mplsldpentitygenericlrentry.EntityData.Leafs["mplsLdpEntityGenericLRRowStatus"] = types.YLeaf{"Mplsldpentitygenericlrrowstatus", mplsldpentitygenericlrentry.Mplsldpentitygenericlrrowstatus}
+    return &(mplsldpentitygenericlrentry.EntityData)
 }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetSegmentPath() string {
-    return "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentityindex) + "']" + "[mplsLdpEntityGenericLRMin='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmin) + "']" + "[mplsLdpEntityGenericLRMax='" + fmt.Sprintf("%v", mplsldpentitygenericlrentry.Mplsldpentitygenericlrmax) + "']"
-}
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["mplsLdpEntityLdpId"] = mplsldpentitygenericlrentry.Mplsldpentityldpid
-    leafs["mplsLdpEntityIndex"] = mplsldpentitygenericlrentry.Mplsldpentityindex
-    leafs["mplsLdpEntityGenericLRMin"] = mplsldpentitygenericlrentry.Mplsldpentitygenericlrmin
-    leafs["mplsLdpEntityGenericLRMax"] = mplsldpentitygenericlrentry.Mplsldpentitygenericlrmax
-    leafs["mplsLdpEntityGenericLabelSpace"] = mplsldpentitygenericlrentry.Mplsldpentitygenericlabelspace
-    leafs["mplsLdpEntityGenericIfIndexOrZero"] = mplsldpentitygenericlrentry.Mplsldpentitygenericifindexorzero
-    leafs["mplsLdpEntityGenericLRStorageType"] = mplsldpentitygenericlrentry.Mplsldpentitygenericlrstoragetype
-    leafs["mplsLdpEntityGenericLRRowStatus"] = mplsldpentitygenericlrentry.Mplsldpentitygenericlrrowstatus
-    return leafs
-}
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetYangName() string { return "mplsLdpEntityGenericLREntry" }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) SetParent(parent types.Entity) { mplsldpentitygenericlrentry.parent = parent }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetParent() types.Entity { return mplsldpentitygenericlrentry.parent }
-
-func (mplsldpentitygenericlrentry *MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry) GetParentYangName() string { return "mplsLdpEntityGenericLRTable" }
 
 // MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace represents means that the label space type is per Interface.
 type MPLSLDPGENERICSTDMIB_Mplsldpentitygenericlrtable_Mplsldpentitygenericlrentry_Mplsldpentitygenericlabelspace string

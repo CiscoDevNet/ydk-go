@@ -20,7 +20,7 @@ func init() {
 
 // CISCOIETFPWENETMIB
 type CISCOIETFPWENETMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains the index to the Ethernet tables   associated with this
@@ -40,71 +40,30 @@ type CISCOIETFPWENETMIB struct {
     Cpwvcenetstatstable CISCOIETFPWENETMIB_Cpwvcenetstatstable
 }
 
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetFilter() yfilter.YFilter { return cISCOIETFPWENETMIB.YFilter }
+func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetEntityData() *types.CommonEntityData {
+    cISCOIETFPWENETMIB.EntityData.YFilter = cISCOIETFPWENETMIB.YFilter
+    cISCOIETFPWENETMIB.EntityData.YangName = "CISCO-IETF-PW-ENET-MIB"
+    cISCOIETFPWENETMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCOIETFPWENETMIB.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cISCOIETFPWENETMIB.EntityData.SegmentPath = "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB"
+    cISCOIETFPWENETMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCOIETFPWENETMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCOIETFPWENETMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) SetFilter(yf yfilter.YFilter) { cISCOIETFPWENETMIB.YFilter = yf }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetGoName(yname string) string {
-    if yname == "cpwVcEnetTable" { return "Cpwvcenettable" }
-    if yname == "cpwVcEnetMplsPriMappingTable" { return "Cpwvcenetmplsprimappingtable" }
-    if yname == "cpwVcEnetStatsTable" { return "Cpwvcenetstatstable" }
-    return ""
+    cISCOIETFPWENETMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCOIETFPWENETMIB.EntityData.Children["cpwVcEnetTable"] = types.YChild{"Cpwvcenettable", &cISCOIETFPWENETMIB.Cpwvcenettable}
+    cISCOIETFPWENETMIB.EntityData.Children["cpwVcEnetMplsPriMappingTable"] = types.YChild{"Cpwvcenetmplsprimappingtable", &cISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable}
+    cISCOIETFPWENETMIB.EntityData.Children["cpwVcEnetStatsTable"] = types.YChild{"Cpwvcenetstatstable", &cISCOIETFPWENETMIB.Cpwvcenetstatstable}
+    cISCOIETFPWENETMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCOIETFPWENETMIB.EntityData)
 }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetSegmentPath() string {
-    return "CISCO-IETF-PW-ENET-MIB:CISCO-IETF-PW-ENET-MIB"
-}
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpwVcEnetTable" {
-        return &cISCOIETFPWENETMIB.Cpwvcenettable
-    }
-    if childYangName == "cpwVcEnetMplsPriMappingTable" {
-        return &cISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable
-    }
-    if childYangName == "cpwVcEnetStatsTable" {
-        return &cISCOIETFPWENETMIB.Cpwvcenetstatstable
-    }
-    return nil
-}
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cpwVcEnetTable"] = &cISCOIETFPWENETMIB.Cpwvcenettable
-    children["cpwVcEnetMplsPriMappingTable"] = &cISCOIETFPWENETMIB.Cpwvcenetmplsprimappingtable
-    children["cpwVcEnetStatsTable"] = &cISCOIETFPWENETMIB.Cpwvcenetstatstable
-    return children
-}
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetYangName() string { return "CISCO-IETF-PW-ENET-MIB" }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) SetParent(parent types.Entity) { cISCOIETFPWENETMIB.parent = parent }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetParent() types.Entity { return cISCOIETFPWENETMIB.parent }
-
-func (cISCOIETFPWENETMIB *CISCOIETFPWENETMIB) GetParentYangName() string { return "CISCO-IETF-PW-ENET-MIB" }
 
 // CISCOIETFPWENETMIB_Cpwvcenettable
 // This table contains the index to the Ethernet tables  
 // associated with this ETH VC, the VLAN configuration and  
 // VLAN mode.
 type CISCOIETFPWENETMIB_Cpwvcenettable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table is indexed by the same index that was created   for the
@@ -120,63 +79,24 @@ type CISCOIETFPWENETMIB_Cpwvcenettable struct {
     Cpwvcenetentry []CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry
 }
 
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetFilter() yfilter.YFilter { return cpwvcenettable.YFilter }
+func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetEntityData() *types.CommonEntityData {
+    cpwvcenettable.EntityData.YFilter = cpwvcenettable.YFilter
+    cpwvcenettable.EntityData.YangName = "cpwVcEnetTable"
+    cpwvcenettable.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcenettable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cpwvcenettable.EntityData.SegmentPath = "cpwVcEnetTable"
+    cpwvcenettable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcenettable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcenettable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) SetFilter(yf yfilter.YFilter) { cpwvcenettable.YFilter = yf }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetGoName(yname string) string {
-    if yname == "cpwVcEnetEntry" { return "Cpwvcenetentry" }
-    return ""
-}
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetSegmentPath() string {
-    return "cpwVcEnetTable"
-}
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpwVcEnetEntry" {
-        for _, c := range cpwvcenettable.Cpwvcenetentry {
-            if cpwvcenettable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry{}
-        cpwvcenettable.Cpwvcenetentry = append(cpwvcenettable.Cpwvcenetentry, child)
-        return &cpwvcenettable.Cpwvcenetentry[len(cpwvcenettable.Cpwvcenetentry)-1]
-    }
-    return nil
-}
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cpwvcenettable.EntityData.Children = make(map[string]types.YChild)
+    cpwvcenettable.EntityData.Children["cpwVcEnetEntry"] = types.YChild{"Cpwvcenetentry", nil}
     for i := range cpwvcenettable.Cpwvcenetentry {
-        children[cpwvcenettable.Cpwvcenetentry[i].GetSegmentPath()] = &cpwvcenettable.Cpwvcenetentry[i]
+        cpwvcenettable.EntityData.Children[types.GetSegmentPath(&cpwvcenettable.Cpwvcenetentry[i])] = types.YChild{"Cpwvcenetentry", &cpwvcenettable.Cpwvcenetentry[i]}
     }
-    return children
+    cpwvcenettable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cpwvcenettable.EntityData)
 }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetYangName() string { return "cpwVcEnetTable" }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) SetParent(parent types.Entity) { cpwvcenettable.parent = parent }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetParent() types.Entity { return cpwvcenettable.parent }
-
-func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetParentYangName() string { return "CISCO-IETF-PW-ENET-MIB" }
 
 // CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry
 // This table is indexed by the same index that was created  
@@ -194,7 +114,7 @@ func (cpwvcenettable *CISCOIETFPWENETMIB_Cpwvcenettable) GetParentYangName() str
 // This table provides Ethernet port mapping and VLAN  
 // configuration for each Ethernet VC.
 type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -263,65 +183,28 @@ type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry struct {
     Cpwvcenetstoragetype interface{}
 }
 
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetFilter() yfilter.YFilter { return cpwvcenetentry.YFilter }
+func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetEntityData() *types.CommonEntityData {
+    cpwvcenetentry.EntityData.YFilter = cpwvcenetentry.YFilter
+    cpwvcenetentry.EntityData.YangName = "cpwVcEnetEntry"
+    cpwvcenetentry.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcenetentry.EntityData.ParentYangName = "cpwVcEnetTable"
+    cpwvcenetentry.EntityData.SegmentPath = "cpwVcEnetEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetentry.Cpwvcindex) + "']" + "[cpwVcEnetPwVlan='" + fmt.Sprintf("%v", cpwvcenetentry.Cpwvcenetpwvlan) + "']"
+    cpwvcenetentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcenetentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcenetentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) SetFilter(yf yfilter.YFilter) { cpwvcenetentry.YFilter = yf }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetGoName(yname string) string {
-    if yname == "cpwVcIndex" { return "Cpwvcindex" }
-    if yname == "cpwVcEnetPwVlan" { return "Cpwvcenetpwvlan" }
-    if yname == "cpwVcEnetVlanMode" { return "Cpwvcenetvlanmode" }
-    if yname == "cpwVcEnetPortVlan" { return "Cpwvcenetportvlan" }
-    if yname == "cpwVcEnetVcIfIndex" { return "Cpwvcenetvcifindex" }
-    if yname == "cpwVcEnetPortIfIndex" { return "Cpwvcenetportifindex" }
-    if yname == "cpwVcEnetRowStatus" { return "Cpwvcenetrowstatus" }
-    if yname == "cpwVcEnetStorageType" { return "Cpwvcenetstoragetype" }
-    return ""
+    cpwvcenetentry.EntityData.Children = make(map[string]types.YChild)
+    cpwvcenetentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpwvcenetentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcenetentry.Cpwvcindex}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetPwVlan"] = types.YLeaf{"Cpwvcenetpwvlan", cpwvcenetentry.Cpwvcenetpwvlan}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetVlanMode"] = types.YLeaf{"Cpwvcenetvlanmode", cpwvcenetentry.Cpwvcenetvlanmode}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetPortVlan"] = types.YLeaf{"Cpwvcenetportvlan", cpwvcenetentry.Cpwvcenetportvlan}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetVcIfIndex"] = types.YLeaf{"Cpwvcenetvcifindex", cpwvcenetentry.Cpwvcenetvcifindex}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetPortIfIndex"] = types.YLeaf{"Cpwvcenetportifindex", cpwvcenetentry.Cpwvcenetportifindex}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetRowStatus"] = types.YLeaf{"Cpwvcenetrowstatus", cpwvcenetentry.Cpwvcenetrowstatus}
+    cpwvcenetentry.EntityData.Leafs["cpwVcEnetStorageType"] = types.YLeaf{"Cpwvcenetstoragetype", cpwvcenetentry.Cpwvcenetstoragetype}
+    return &(cpwvcenetentry.EntityData)
 }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetSegmentPath() string {
-    return "cpwVcEnetEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetentry.Cpwvcindex) + "']" + "[cpwVcEnetPwVlan='" + fmt.Sprintf("%v", cpwvcenetentry.Cpwvcenetpwvlan) + "']"
-}
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cpwVcIndex"] = cpwvcenetentry.Cpwvcindex
-    leafs["cpwVcEnetPwVlan"] = cpwvcenetentry.Cpwvcenetpwvlan
-    leafs["cpwVcEnetVlanMode"] = cpwvcenetentry.Cpwvcenetvlanmode
-    leafs["cpwVcEnetPortVlan"] = cpwvcenetentry.Cpwvcenetportvlan
-    leafs["cpwVcEnetVcIfIndex"] = cpwvcenetentry.Cpwvcenetvcifindex
-    leafs["cpwVcEnetPortIfIndex"] = cpwvcenetentry.Cpwvcenetportifindex
-    leafs["cpwVcEnetRowStatus"] = cpwvcenetentry.Cpwvcenetrowstatus
-    leafs["cpwVcEnetStorageType"] = cpwvcenetentry.Cpwvcenetstoragetype
-    return leafs
-}
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetYangName() string { return "cpwVcEnetEntry" }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) SetParent(parent types.Entity) { cpwvcenetentry.parent = parent }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetParent() types.Entity { return cpwvcenetentry.parent }
-
-func (cpwvcenetentry *CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry) GetParentYangName() string { return "cpwVcEnetTable" }
 
 // CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode represents   is not required. 
 type CISCOIETFPWENETMIB_Cpwvcenettable_Cpwvcenetentry_Cpwvcenetvlanmode string
@@ -351,7 +234,7 @@ const (
 // classified to this VC. Note that the EXP bit value of the VC 
 // is configured in the CISCO-IETF-PW-MPLS-MIB.
 type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry is created if special classification based on   the PRI bits is
@@ -360,69 +243,30 @@ type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable struct {
     Cpwvcenetmplsprimappingtableentry []CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry
 }
 
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetFilter() yfilter.YFilter { return cpwvcenetmplsprimappingtable.YFilter }
+func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetEntityData() *types.CommonEntityData {
+    cpwvcenetmplsprimappingtable.EntityData.YFilter = cpwvcenetmplsprimappingtable.YFilter
+    cpwvcenetmplsprimappingtable.EntityData.YangName = "cpwVcEnetMplsPriMappingTable"
+    cpwvcenetmplsprimappingtable.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcenetmplsprimappingtable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cpwvcenetmplsprimappingtable.EntityData.SegmentPath = "cpwVcEnetMplsPriMappingTable"
+    cpwvcenetmplsprimappingtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcenetmplsprimappingtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcenetmplsprimappingtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) SetFilter(yf yfilter.YFilter) { cpwvcenetmplsprimappingtable.YFilter = yf }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetGoName(yname string) string {
-    if yname == "cpwVcEnetMplsPriMappingTableEntry" { return "Cpwvcenetmplsprimappingtableentry" }
-    return ""
-}
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetSegmentPath() string {
-    return "cpwVcEnetMplsPriMappingTable"
-}
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpwVcEnetMplsPriMappingTableEntry" {
-        for _, c := range cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry {
-            if cpwvcenetmplsprimappingtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry{}
-        cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry = append(cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry, child)
-        return &cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[len(cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry)-1]
-    }
-    return nil
-}
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cpwvcenetmplsprimappingtable.EntityData.Children = make(map[string]types.YChild)
+    cpwvcenetmplsprimappingtable.EntityData.Children["cpwVcEnetMplsPriMappingTableEntry"] = types.YChild{"Cpwvcenetmplsprimappingtableentry", nil}
     for i := range cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry {
-        children[cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[i].GetSegmentPath()] = &cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[i]
+        cpwvcenetmplsprimappingtable.EntityData.Children[types.GetSegmentPath(&cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[i])] = types.YChild{"Cpwvcenetmplsprimappingtableentry", &cpwvcenetmplsprimappingtable.Cpwvcenetmplsprimappingtableentry[i]}
     }
-    return children
+    cpwvcenetmplsprimappingtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cpwvcenetmplsprimappingtable.EntityData)
 }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetYangName() string { return "cpwVcEnetMplsPriMappingTable" }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) SetParent(parent types.Entity) { cpwvcenetmplsprimappingtable.parent = parent }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetParent() types.Entity { return cpwvcenetmplsprimappingtable.parent }
-
-func (cpwvcenetmplsprimappingtable *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable) GetParentYangName() string { return "CISCO-IETF-PW-ENET-MIB" }
 
 // CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry
 // Each entry is created if special classification based on  
 // the PRI bits is required for this VC.
 type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -449,63 +293,30 @@ type CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtabl
     Cpwvcenetmplsprimappingstoragetype interface{}
 }
 
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetFilter() yfilter.YFilter { return cpwvcenetmplsprimappingtableentry.YFilter }
+func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetEntityData() *types.CommonEntityData {
+    cpwvcenetmplsprimappingtableentry.EntityData.YFilter = cpwvcenetmplsprimappingtableentry.YFilter
+    cpwvcenetmplsprimappingtableentry.EntityData.YangName = "cpwVcEnetMplsPriMappingTableEntry"
+    cpwvcenetmplsprimappingtableentry.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcenetmplsprimappingtableentry.EntityData.ParentYangName = "cpwVcEnetMplsPriMappingTable"
+    cpwvcenetmplsprimappingtableentry.EntityData.SegmentPath = "cpwVcEnetMplsPriMappingTableEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetmplsprimappingtableentry.Cpwvcindex) + "']"
+    cpwvcenetmplsprimappingtableentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcenetmplsprimappingtableentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcenetmplsprimappingtableentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) SetFilter(yf yfilter.YFilter) { cpwvcenetmplsprimappingtableentry.YFilter = yf }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetGoName(yname string) string {
-    if yname == "cpwVcIndex" { return "Cpwvcindex" }
-    if yname == "cpwVcEnetMplsPriMapping" { return "Cpwvcenetmplsprimapping" }
-    if yname == "cpwVcEnetMplsPriMappingRowStatus" { return "Cpwvcenetmplsprimappingrowstatus" }
-    if yname == "cpwVcEnetMplsPriMappingStorageType" { return "Cpwvcenetmplsprimappingstoragetype" }
-    return ""
+    cpwvcenetmplsprimappingtableentry.EntityData.Children = make(map[string]types.YChild)
+    cpwvcenetmplsprimappingtableentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcenetmplsprimappingtableentry.Cpwvcindex}
+    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcEnetMplsPriMapping"] = types.YLeaf{"Cpwvcenetmplsprimapping", cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimapping}
+    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcEnetMplsPriMappingRowStatus"] = types.YLeaf{"Cpwvcenetmplsprimappingrowstatus", cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimappingrowstatus}
+    cpwvcenetmplsprimappingtableentry.EntityData.Leafs["cpwVcEnetMplsPriMappingStorageType"] = types.YLeaf{"Cpwvcenetmplsprimappingstoragetype", cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimappingstoragetype}
+    return &(cpwvcenetmplsprimappingtableentry.EntityData)
 }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetSegmentPath() string {
-    return "cpwVcEnetMplsPriMappingTableEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetmplsprimappingtableentry.Cpwvcindex) + "']"
-}
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cpwVcIndex"] = cpwvcenetmplsprimappingtableentry.Cpwvcindex
-    leafs["cpwVcEnetMplsPriMapping"] = cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimapping
-    leafs["cpwVcEnetMplsPriMappingRowStatus"] = cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimappingrowstatus
-    leafs["cpwVcEnetMplsPriMappingStorageType"] = cpwvcenetmplsprimappingtableentry.Cpwvcenetmplsprimappingstoragetype
-    return leafs
-}
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetYangName() string { return "cpwVcEnetMplsPriMappingTableEntry" }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) SetParent(parent types.Entity) { cpwvcenetmplsprimappingtableentry.parent = parent }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetParent() types.Entity { return cpwvcenetmplsprimappingtableentry.parent }
-
-func (cpwvcenetmplsprimappingtableentry *CISCOIETFPWENETMIB_Cpwvcenetmplsprimappingtable_Cpwvcenetmplsprimappingtableentry) GetParentYangName() string { return "cpwVcEnetMplsPriMappingTable" }
 
 // CISCOIETFPWENETMIB_Cpwvcenetstatstable
 // This table contains statistical counters specific for  
 // Ethernet PW.
 type CISCOIETFPWENETMIB_Cpwvcenetstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Each entry represents the statistics gathered for the   VC carrying the
@@ -515,70 +326,31 @@ type CISCOIETFPWENETMIB_Cpwvcenetstatstable struct {
     Cpwvcenetstatsentry []CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry
 }
 
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetFilter() yfilter.YFilter { return cpwvcenetstatstable.YFilter }
+func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetEntityData() *types.CommonEntityData {
+    cpwvcenetstatstable.EntityData.YFilter = cpwvcenetstatstable.YFilter
+    cpwvcenetstatstable.EntityData.YangName = "cpwVcEnetStatsTable"
+    cpwvcenetstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcenetstatstable.EntityData.ParentYangName = "CISCO-IETF-PW-ENET-MIB"
+    cpwvcenetstatstable.EntityData.SegmentPath = "cpwVcEnetStatsTable"
+    cpwvcenetstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcenetstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcenetstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) SetFilter(yf yfilter.YFilter) { cpwvcenetstatstable.YFilter = yf }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetGoName(yname string) string {
-    if yname == "cpwVcEnetStatsEntry" { return "Cpwvcenetstatsentry" }
-    return ""
-}
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetSegmentPath() string {
-    return "cpwVcEnetStatsTable"
-}
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cpwVcEnetStatsEntry" {
-        for _, c := range cpwvcenetstatstable.Cpwvcenetstatsentry {
-            if cpwvcenetstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry{}
-        cpwvcenetstatstable.Cpwvcenetstatsentry = append(cpwvcenetstatstable.Cpwvcenetstatsentry, child)
-        return &cpwvcenetstatstable.Cpwvcenetstatsentry[len(cpwvcenetstatstable.Cpwvcenetstatsentry)-1]
-    }
-    return nil
-}
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cpwvcenetstatstable.EntityData.Children = make(map[string]types.YChild)
+    cpwvcenetstatstable.EntityData.Children["cpwVcEnetStatsEntry"] = types.YChild{"Cpwvcenetstatsentry", nil}
     for i := range cpwvcenetstatstable.Cpwvcenetstatsentry {
-        children[cpwvcenetstatstable.Cpwvcenetstatsentry[i].GetSegmentPath()] = &cpwvcenetstatstable.Cpwvcenetstatsentry[i]
+        cpwvcenetstatstable.EntityData.Children[types.GetSegmentPath(&cpwvcenetstatstable.Cpwvcenetstatsentry[i])] = types.YChild{"Cpwvcenetstatsentry", &cpwvcenetstatstable.Cpwvcenetstatsentry[i]}
     }
-    return children
+    cpwvcenetstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cpwvcenetstatstable.EntityData)
 }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetYangName() string { return "cpwVcEnetStatsTable" }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) SetParent(parent types.Entity) { cpwvcenetstatstable.parent = parent }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetParent() types.Entity { return cpwvcenetstatstable.parent }
-
-func (cpwvcenetstatstable *CISCOIETFPWENETMIB_Cpwvcenetstatstable) GetParentYangName() string { return "CISCO-IETF-PW-ENET-MIB" }
 
 // CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry
 // Each entry represents the statistics gathered for the  
 // VC carrying the Ethernet packets since this VC was  
 // first created in the cpwVcEnetTable.
 type CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 0..4294967295.
@@ -600,53 +372,21 @@ type CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry struct {
     Cpwvcenetstatsillegallength interface{}
 }
 
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetFilter() yfilter.YFilter { return cpwvcenetstatsentry.YFilter }
+func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetEntityData() *types.CommonEntityData {
+    cpwvcenetstatsentry.EntityData.YFilter = cpwvcenetstatsentry.YFilter
+    cpwvcenetstatsentry.EntityData.YangName = "cpwVcEnetStatsEntry"
+    cpwvcenetstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cpwvcenetstatsentry.EntityData.ParentYangName = "cpwVcEnetStatsTable"
+    cpwvcenetstatsentry.EntityData.SegmentPath = "cpwVcEnetStatsEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetstatsentry.Cpwvcindex) + "']"
+    cpwvcenetstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cpwvcenetstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cpwvcenetstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) SetFilter(yf yfilter.YFilter) { cpwvcenetstatsentry.YFilter = yf }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetGoName(yname string) string {
-    if yname == "cpwVcIndex" { return "Cpwvcindex" }
-    if yname == "cpwVcEnetStatsIllegalVlan" { return "Cpwvcenetstatsillegalvlan" }
-    if yname == "cpwVcEnetStatsIllegalLength" { return "Cpwvcenetstatsillegallength" }
-    return ""
+    cpwvcenetstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cpwvcenetstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cpwvcenetstatsentry.EntityData.Leafs["cpwVcIndex"] = types.YLeaf{"Cpwvcindex", cpwvcenetstatsentry.Cpwvcindex}
+    cpwvcenetstatsentry.EntityData.Leafs["cpwVcEnetStatsIllegalVlan"] = types.YLeaf{"Cpwvcenetstatsillegalvlan", cpwvcenetstatsentry.Cpwvcenetstatsillegalvlan}
+    cpwvcenetstatsentry.EntityData.Leafs["cpwVcEnetStatsIllegalLength"] = types.YLeaf{"Cpwvcenetstatsillegallength", cpwvcenetstatsentry.Cpwvcenetstatsillegallength}
+    return &(cpwvcenetstatsentry.EntityData)
 }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetSegmentPath() string {
-    return "cpwVcEnetStatsEntry" + "[cpwVcIndex='" + fmt.Sprintf("%v", cpwvcenetstatsentry.Cpwvcindex) + "']"
-}
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["cpwVcIndex"] = cpwvcenetstatsentry.Cpwvcindex
-    leafs["cpwVcEnetStatsIllegalVlan"] = cpwvcenetstatsentry.Cpwvcenetstatsillegalvlan
-    leafs["cpwVcEnetStatsIllegalLength"] = cpwvcenetstatsentry.Cpwvcenetstatsillegallength
-    return leafs
-}
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetYangName() string { return "cpwVcEnetStatsEntry" }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) SetParent(parent types.Entity) { cpwvcenetstatsentry.parent = parent }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetParent() types.Entity { return cpwvcenetstatsentry.parent }
-
-func (cpwvcenetstatsentry *CISCOIETFPWENETMIB_Cpwvcenetstatstable_Cpwvcenetstatsentry) GetParentYangName() string { return "cpwVcEnetStatsTable" }
 

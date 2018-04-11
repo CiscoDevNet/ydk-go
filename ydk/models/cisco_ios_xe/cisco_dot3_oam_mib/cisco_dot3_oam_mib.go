@@ -81,7 +81,7 @@ func init() {
 
 // CISCODOT3OAMMIB
 type CISCODOT3OAMMIB struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This table contains the primary controls and status for the OAM
@@ -160,79 +160,26 @@ type CISCODOT3OAMMIB struct {
     Cdot3Oameventlogtable CISCODOT3OAMMIB_Cdot3Oameventlogtable
 }
 
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetFilter() yfilter.YFilter { return cISCODOT3OAMMIB.YFilter }
+func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetEntityData() *types.CommonEntityData {
+    cISCODOT3OAMMIB.EntityData.YFilter = cISCODOT3OAMMIB.YFilter
+    cISCODOT3OAMMIB.EntityData.YangName = "CISCO-DOT3-OAM-MIB"
+    cISCODOT3OAMMIB.EntityData.BundleName = "cisco_ios_xe"
+    cISCODOT3OAMMIB.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cISCODOT3OAMMIB.EntityData.SegmentPath = "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB"
+    cISCODOT3OAMMIB.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cISCODOT3OAMMIB.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cISCODOT3OAMMIB.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) SetFilter(yf yfilter.YFilter) { cISCODOT3OAMMIB.YFilter = yf }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetGoName(yname string) string {
-    if yname == "cdot3OamTable" { return "Cdot3Oamtable" }
-    if yname == "cdot3OamPeerTable" { return "Cdot3Oampeertable" }
-    if yname == "cdot3OamLoopbackTable" { return "Cdot3Oamloopbacktable" }
-    if yname == "cdot3OamStatsTable" { return "Cdot3Oamstatstable" }
-    if yname == "cdot3OamEventConfigTable" { return "Cdot3Oameventconfigtable" }
-    if yname == "cdot3OamEventLogTable" { return "Cdot3Oameventlogtable" }
-    return ""
+    cISCODOT3OAMMIB.EntityData.Children = make(map[string]types.YChild)
+    cISCODOT3OAMMIB.EntityData.Children["cdot3OamTable"] = types.YChild{"Cdot3Oamtable", &cISCODOT3OAMMIB.Cdot3Oamtable}
+    cISCODOT3OAMMIB.EntityData.Children["cdot3OamPeerTable"] = types.YChild{"Cdot3Oampeertable", &cISCODOT3OAMMIB.Cdot3Oampeertable}
+    cISCODOT3OAMMIB.EntityData.Children["cdot3OamLoopbackTable"] = types.YChild{"Cdot3Oamloopbacktable", &cISCODOT3OAMMIB.Cdot3Oamloopbacktable}
+    cISCODOT3OAMMIB.EntityData.Children["cdot3OamStatsTable"] = types.YChild{"Cdot3Oamstatstable", &cISCODOT3OAMMIB.Cdot3Oamstatstable}
+    cISCODOT3OAMMIB.EntityData.Children["cdot3OamEventConfigTable"] = types.YChild{"Cdot3Oameventconfigtable", &cISCODOT3OAMMIB.Cdot3Oameventconfigtable}
+    cISCODOT3OAMMIB.EntityData.Children["cdot3OamEventLogTable"] = types.YChild{"Cdot3Oameventlogtable", &cISCODOT3OAMMIB.Cdot3Oameventlogtable}
+    cISCODOT3OAMMIB.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cISCODOT3OAMMIB.EntityData)
 }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetSegmentPath() string {
-    return "CISCO-DOT3-OAM-MIB:CISCO-DOT3-OAM-MIB"
-}
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamTable" {
-        return &cISCODOT3OAMMIB.Cdot3Oamtable
-    }
-    if childYangName == "cdot3OamPeerTable" {
-        return &cISCODOT3OAMMIB.Cdot3Oampeertable
-    }
-    if childYangName == "cdot3OamLoopbackTable" {
-        return &cISCODOT3OAMMIB.Cdot3Oamloopbacktable
-    }
-    if childYangName == "cdot3OamStatsTable" {
-        return &cISCODOT3OAMMIB.Cdot3Oamstatstable
-    }
-    if childYangName == "cdot3OamEventConfigTable" {
-        return &cISCODOT3OAMMIB.Cdot3Oameventconfigtable
-    }
-    if childYangName == "cdot3OamEventLogTable" {
-        return &cISCODOT3OAMMIB.Cdot3Oameventlogtable
-    }
-    return nil
-}
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["cdot3OamTable"] = &cISCODOT3OAMMIB.Cdot3Oamtable
-    children["cdot3OamPeerTable"] = &cISCODOT3OAMMIB.Cdot3Oampeertable
-    children["cdot3OamLoopbackTable"] = &cISCODOT3OAMMIB.Cdot3Oamloopbacktable
-    children["cdot3OamStatsTable"] = &cISCODOT3OAMMIB.Cdot3Oamstatstable
-    children["cdot3OamEventConfigTable"] = &cISCODOT3OAMMIB.Cdot3Oameventconfigtable
-    children["cdot3OamEventLogTable"] = &cISCODOT3OAMMIB.Cdot3Oameventlogtable
-    return children
-}
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetYangName() string { return "CISCO-DOT3-OAM-MIB" }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) SetParent(parent types.Entity) { cISCODOT3OAMMIB.parent = parent }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetParent() types.Entity { return cISCODOT3OAMMIB.parent }
-
-func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oamtable
 // This table contains the primary controls and status for the
@@ -240,7 +187,7 @@ func (cISCODOT3OAMMIB *CISCODOT3OAMMIB) GetParentYangName() string { return "CIS
 // one row in this table for each Ethernet like interface in the
 // system that supports the OAM functions defined in [802.3ah].
 type CISCODOT3OAMMIB_Cdot3Oamtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information on the Ethernet OAM function
@@ -252,63 +199,24 @@ type CISCODOT3OAMMIB_Cdot3Oamtable struct {
     Cdot3Oamentry []CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry
 }
 
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetFilter() yfilter.YFilter { return cdot3Oamtable.YFilter }
+func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetEntityData() *types.CommonEntityData {
+    cdot3Oamtable.EntityData.YFilter = cdot3Oamtable.YFilter
+    cdot3Oamtable.EntityData.YangName = "cdot3OamTable"
+    cdot3Oamtable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oamtable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3Oamtable.EntityData.SegmentPath = "cdot3OamTable"
+    cdot3Oamtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oamtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oamtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) SetFilter(yf yfilter.YFilter) { cdot3Oamtable.YFilter = yf }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetGoName(yname string) string {
-    if yname == "cdot3OamEntry" { return "Cdot3Oamentry" }
-    return ""
-}
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetSegmentPath() string {
-    return "cdot3OamTable"
-}
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamEntry" {
-        for _, c := range cdot3Oamtable.Cdot3Oamentry {
-            if cdot3Oamtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry{}
-        cdot3Oamtable.Cdot3Oamentry = append(cdot3Oamtable.Cdot3Oamentry, child)
-        return &cdot3Oamtable.Cdot3Oamentry[len(cdot3Oamtable.Cdot3Oamentry)-1]
-    }
-    return nil
-}
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdot3Oamtable.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oamtable.EntityData.Children["cdot3OamEntry"] = types.YChild{"Cdot3Oamentry", nil}
     for i := range cdot3Oamtable.Cdot3Oamentry {
-        children[cdot3Oamtable.Cdot3Oamentry[i].GetSegmentPath()] = &cdot3Oamtable.Cdot3Oamentry[i]
+        cdot3Oamtable.EntityData.Children[types.GetSegmentPath(&cdot3Oamtable.Cdot3Oamentry[i])] = types.YChild{"Cdot3Oamentry", &cdot3Oamtable.Cdot3Oamentry[i]}
     }
-    return children
+    cdot3Oamtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdot3Oamtable.EntityData)
 }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetYangName() string { return "cdot3OamTable" }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) SetParent(parent types.Entity) { cdot3Oamtable.parent = parent }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetParent() types.Entity { return cdot3Oamtable.parent }
-
-func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry
 // An entry in the table, containing information on the Ethernet
@@ -320,7 +228,7 @@ func (cdot3Oamtable *CISCODOT3OAMMIB_Cdot3Oamtable) GetParentYangName() string {
 // A cdot3OamEntry is indexed in the cdot3OamTable by the ifIndex
 // object of the Interfaces MIB.  
 type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -429,63 +337,27 @@ type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry struct {
     Cdot3Oamfunctionssupported interface{}
 }
 
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetFilter() yfilter.YFilter { return cdot3Oamentry.YFilter }
+func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetEntityData() *types.CommonEntityData {
+    cdot3Oamentry.EntityData.YFilter = cdot3Oamentry.YFilter
+    cdot3Oamentry.EntityData.YangName = "cdot3OamEntry"
+    cdot3Oamentry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oamentry.EntityData.ParentYangName = "cdot3OamTable"
+    cdot3Oamentry.EntityData.SegmentPath = "cdot3OamEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamentry.Ifindex) + "']"
+    cdot3Oamentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oamentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oamentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) SetFilter(yf yfilter.YFilter) { cdot3Oamentry.YFilter = yf }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cdot3OamAdminState" { return "Cdot3Oamadminstate" }
-    if yname == "cdot3OamOperStatus" { return "Cdot3Oamoperstatus" }
-    if yname == "cdot3OamMode" { return "Cdot3Oammode" }
-    if yname == "cdot3OamMaxOamPduSize" { return "Cdot3Oammaxoampdusize" }
-    if yname == "cdot3OamConfigRevision" { return "Cdot3Oamconfigrevision" }
-    if yname == "cdot3OamFunctionsSupported" { return "Cdot3Oamfunctionssupported" }
-    return ""
+    cdot3Oamentry.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oamentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdot3Oamentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oamentry.Ifindex}
+    cdot3Oamentry.EntityData.Leafs["cdot3OamAdminState"] = types.YLeaf{"Cdot3Oamadminstate", cdot3Oamentry.Cdot3Oamadminstate}
+    cdot3Oamentry.EntityData.Leafs["cdot3OamOperStatus"] = types.YLeaf{"Cdot3Oamoperstatus", cdot3Oamentry.Cdot3Oamoperstatus}
+    cdot3Oamentry.EntityData.Leafs["cdot3OamMode"] = types.YLeaf{"Cdot3Oammode", cdot3Oamentry.Cdot3Oammode}
+    cdot3Oamentry.EntityData.Leafs["cdot3OamMaxOamPduSize"] = types.YLeaf{"Cdot3Oammaxoampdusize", cdot3Oamentry.Cdot3Oammaxoampdusize}
+    cdot3Oamentry.EntityData.Leafs["cdot3OamConfigRevision"] = types.YLeaf{"Cdot3Oamconfigrevision", cdot3Oamentry.Cdot3Oamconfigrevision}
+    cdot3Oamentry.EntityData.Leafs["cdot3OamFunctionsSupported"] = types.YLeaf{"Cdot3Oamfunctionssupported", cdot3Oamentry.Cdot3Oamfunctionssupported}
+    return &(cdot3Oamentry.EntityData)
 }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetSegmentPath() string {
-    return "cdot3OamEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamentry.Ifindex) + "']"
-}
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cdot3Oamentry.Ifindex
-    leafs["cdot3OamAdminState"] = cdot3Oamentry.Cdot3Oamadminstate
-    leafs["cdot3OamOperStatus"] = cdot3Oamentry.Cdot3Oamoperstatus
-    leafs["cdot3OamMode"] = cdot3Oamentry.Cdot3Oammode
-    leafs["cdot3OamMaxOamPduSize"] = cdot3Oamentry.Cdot3Oammaxoampdusize
-    leafs["cdot3OamConfigRevision"] = cdot3Oamentry.Cdot3Oamconfigrevision
-    leafs["cdot3OamFunctionsSupported"] = cdot3Oamentry.Cdot3Oamfunctionssupported
-    return leafs
-}
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetYangName() string { return "cdot3OamEntry" }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) SetParent(parent types.Entity) { cdot3Oamentry.parent = parent }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetParent() types.Entity { return cdot3Oamentry.parent }
-
-func (cdot3Oamentry *CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry) GetParentYangName() string { return "cdot3OamTable" }
 
 // CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate represents to operate over this interface.  
 type CISCODOT3OAMMIB_Cdot3Oamtable_Cdot3Oamentry_Cdot3Oamadminstate string
@@ -538,7 +410,7 @@ const (
 // table for each entry in the cdot3OamTable for which information
 // on the peer OAM entity is available.  
 type CISCODOT3OAMMIB_Cdot3Oampeertable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information on the peer OAM entity for a
@@ -553,63 +425,24 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable struct {
     Cdot3Oampeerentry []CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry
 }
 
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetFilter() yfilter.YFilter { return cdot3Oampeertable.YFilter }
+func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetEntityData() *types.CommonEntityData {
+    cdot3Oampeertable.EntityData.YFilter = cdot3Oampeertable.YFilter
+    cdot3Oampeertable.EntityData.YangName = "cdot3OamPeerTable"
+    cdot3Oampeertable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oampeertable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3Oampeertable.EntityData.SegmentPath = "cdot3OamPeerTable"
+    cdot3Oampeertable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oampeertable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oampeertable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) SetFilter(yf yfilter.YFilter) { cdot3Oampeertable.YFilter = yf }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetGoName(yname string) string {
-    if yname == "cdot3OamPeerEntry" { return "Cdot3Oampeerentry" }
-    return ""
-}
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetSegmentPath() string {
-    return "cdot3OamPeerTable"
-}
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamPeerEntry" {
-        for _, c := range cdot3Oampeertable.Cdot3Oampeerentry {
-            if cdot3Oampeertable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry{}
-        cdot3Oampeertable.Cdot3Oampeerentry = append(cdot3Oampeertable.Cdot3Oampeerentry, child)
-        return &cdot3Oampeertable.Cdot3Oampeerentry[len(cdot3Oampeertable.Cdot3Oampeerentry)-1]
-    }
-    return nil
-}
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdot3Oampeertable.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oampeertable.EntityData.Children["cdot3OamPeerEntry"] = types.YChild{"Cdot3Oampeerentry", nil}
     for i := range cdot3Oampeertable.Cdot3Oampeerentry {
-        children[cdot3Oampeertable.Cdot3Oampeerentry[i].GetSegmentPath()] = &cdot3Oampeertable.Cdot3Oampeerentry[i]
+        cdot3Oampeertable.EntityData.Children[types.GetSegmentPath(&cdot3Oampeertable.Cdot3Oampeerentry[i])] = types.YChild{"Cdot3Oampeerentry", &cdot3Oampeertable.Cdot3Oampeerentry[i]}
     }
-    return children
+    cdot3Oampeertable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdot3Oampeertable.EntityData)
 }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetYangName() string { return "cdot3OamPeerTable" }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) SetParent(parent types.Entity) { cdot3Oampeertable.parent = parent }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetParent() types.Entity { return cdot3Oampeertable.parent }
-
-func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry
 // An entry in the table, containing information on the peer OAM
@@ -623,7 +456,7 @@ func (cdot3Oampeertable *CISCODOT3OAMMIB_Cdot3Oampeertable) GetParentYangName() 
 // cdot3OamOperStatus is disabled(1), linkFault(2),
 // passiveWait(3), activeSendLocal(4). or nonOperHalfDuplex(10)). 
 type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -632,7 +465,7 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
 
     // The MAC address of the peer OAM entity.  The MAC address is derived from
     // the most recently received OAMPDU. The type is string with pattern:
-    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
     Cdot3Oampeermacaddress interface{}
 
     // The OUI of the OAM peer as reflected in the latest Information OAMPDU
@@ -701,65 +534,28 @@ type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry struct {
     Cdot3Oampeerfunctionssupported interface{}
 }
 
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetFilter() yfilter.YFilter { return cdot3Oampeerentry.YFilter }
+func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetEntityData() *types.CommonEntityData {
+    cdot3Oampeerentry.EntityData.YFilter = cdot3Oampeerentry.YFilter
+    cdot3Oampeerentry.EntityData.YangName = "cdot3OamPeerEntry"
+    cdot3Oampeerentry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oampeerentry.EntityData.ParentYangName = "cdot3OamPeerTable"
+    cdot3Oampeerentry.EntityData.SegmentPath = "cdot3OamPeerEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oampeerentry.Ifindex) + "']"
+    cdot3Oampeerentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oampeerentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oampeerentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) SetFilter(yf yfilter.YFilter) { cdot3Oampeerentry.YFilter = yf }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cdot3OamPeerMacAddress" { return "Cdot3Oampeermacaddress" }
-    if yname == "cdot3OamPeerVendorOui" { return "Cdot3Oampeervendoroui" }
-    if yname == "cdot3OamPeerVendorInfo" { return "Cdot3Oampeervendorinfo" }
-    if yname == "cdot3OamPeerMode" { return "Cdot3Oampeermode" }
-    if yname == "cdot3OamPeerMaxOamPduSize" { return "Cdot3Oampeermaxoampdusize" }
-    if yname == "cdot3OamPeerConfigRevision" { return "Cdot3Oampeerconfigrevision" }
-    if yname == "cdot3OamPeerFunctionsSupported" { return "Cdot3Oampeerfunctionssupported" }
-    return ""
+    cdot3Oampeerentry.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oampeerentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdot3Oampeerentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oampeerentry.Ifindex}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerMacAddress"] = types.YLeaf{"Cdot3Oampeermacaddress", cdot3Oampeerentry.Cdot3Oampeermacaddress}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerVendorOui"] = types.YLeaf{"Cdot3Oampeervendoroui", cdot3Oampeerentry.Cdot3Oampeervendoroui}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerVendorInfo"] = types.YLeaf{"Cdot3Oampeervendorinfo", cdot3Oampeerentry.Cdot3Oampeervendorinfo}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerMode"] = types.YLeaf{"Cdot3Oampeermode", cdot3Oampeerentry.Cdot3Oampeermode}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerMaxOamPduSize"] = types.YLeaf{"Cdot3Oampeermaxoampdusize", cdot3Oampeerentry.Cdot3Oampeermaxoampdusize}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerConfigRevision"] = types.YLeaf{"Cdot3Oampeerconfigrevision", cdot3Oampeerentry.Cdot3Oampeerconfigrevision}
+    cdot3Oampeerentry.EntityData.Leafs["cdot3OamPeerFunctionsSupported"] = types.YLeaf{"Cdot3Oampeerfunctionssupported", cdot3Oampeerentry.Cdot3Oampeerfunctionssupported}
+    return &(cdot3Oampeerentry.EntityData)
 }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetSegmentPath() string {
-    return "cdot3OamPeerEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oampeerentry.Ifindex) + "']"
-}
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cdot3Oampeerentry.Ifindex
-    leafs["cdot3OamPeerMacAddress"] = cdot3Oampeerentry.Cdot3Oampeermacaddress
-    leafs["cdot3OamPeerVendorOui"] = cdot3Oampeerentry.Cdot3Oampeervendoroui
-    leafs["cdot3OamPeerVendorInfo"] = cdot3Oampeerentry.Cdot3Oampeervendorinfo
-    leafs["cdot3OamPeerMode"] = cdot3Oampeerentry.Cdot3Oampeermode
-    leafs["cdot3OamPeerMaxOamPduSize"] = cdot3Oampeerentry.Cdot3Oampeermaxoampdusize
-    leafs["cdot3OamPeerConfigRevision"] = cdot3Oampeerentry.Cdot3Oampeerconfigrevision
-    leafs["cdot3OamPeerFunctionsSupported"] = cdot3Oampeerentry.Cdot3Oampeerfunctionssupported
-    return leafs
-}
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetYangName() string { return "cdot3OamPeerEntry" }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) SetParent(parent types.Entity) { cdot3Oampeerentry.parent = parent }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetParent() types.Entity { return cdot3Oampeerentry.parent }
-
-func (cdot3Oampeerentry *CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry) GetParentYangName() string { return "cdot3OamPeerTable" }
 
 // CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode represents active or passive mode, respectively. 
 type CISCODOT3OAMMIB_Cdot3Oampeertable_Cdot3Oampeerentry_Cdot3Oampeermode string
@@ -788,7 +584,7 @@ const (
 // Loopback is thus an intrusive operation that prohibits normal
 // data flow and should be used accordingly.  
 type CISCODOT3OAMMIB_Cdot3Oamloopbacktable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing information on the loopback status for a
@@ -800,63 +596,24 @@ type CISCODOT3OAMMIB_Cdot3Oamloopbacktable struct {
     Cdot3Oamloopbackentry []CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry
 }
 
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetFilter() yfilter.YFilter { return cdot3Oamloopbacktable.YFilter }
+func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetEntityData() *types.CommonEntityData {
+    cdot3Oamloopbacktable.EntityData.YFilter = cdot3Oamloopbacktable.YFilter
+    cdot3Oamloopbacktable.EntityData.YangName = "cdot3OamLoopbackTable"
+    cdot3Oamloopbacktable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oamloopbacktable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3Oamloopbacktable.EntityData.SegmentPath = "cdot3OamLoopbackTable"
+    cdot3Oamloopbacktable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oamloopbacktable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oamloopbacktable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) SetFilter(yf yfilter.YFilter) { cdot3Oamloopbacktable.YFilter = yf }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetGoName(yname string) string {
-    if yname == "cdot3OamLoopbackEntry" { return "Cdot3Oamloopbackentry" }
-    return ""
-}
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetSegmentPath() string {
-    return "cdot3OamLoopbackTable"
-}
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamLoopbackEntry" {
-        for _, c := range cdot3Oamloopbacktable.Cdot3Oamloopbackentry {
-            if cdot3Oamloopbacktable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry{}
-        cdot3Oamloopbacktable.Cdot3Oamloopbackentry = append(cdot3Oamloopbacktable.Cdot3Oamloopbackentry, child)
-        return &cdot3Oamloopbacktable.Cdot3Oamloopbackentry[len(cdot3Oamloopbacktable.Cdot3Oamloopbackentry)-1]
-    }
-    return nil
-}
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdot3Oamloopbacktable.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oamloopbacktable.EntityData.Children["cdot3OamLoopbackEntry"] = types.YChild{"Cdot3Oamloopbackentry", nil}
     for i := range cdot3Oamloopbacktable.Cdot3Oamloopbackentry {
-        children[cdot3Oamloopbacktable.Cdot3Oamloopbackentry[i].GetSegmentPath()] = &cdot3Oamloopbacktable.Cdot3Oamloopbackentry[i]
+        cdot3Oamloopbacktable.EntityData.Children[types.GetSegmentPath(&cdot3Oamloopbacktable.Cdot3Oamloopbackentry[i])] = types.YChild{"Cdot3Oamloopbackentry", &cdot3Oamloopbacktable.Cdot3Oamloopbackentry[i]}
     }
-    return children
+    cdot3Oamloopbacktable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdot3Oamloopbacktable.EntityData)
 }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetYangName() string { return "cdot3OamLoopbackTable" }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) SetParent(parent types.Entity) { cdot3Oamloopbacktable.parent = parent }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetParent() types.Entity { return cdot3Oamloopbacktable.parent }
-
-func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry
 // An entry in the table, containing information on the loopback
@@ -866,7 +623,7 @@ func (cdot3Oamloopbacktable *CISCODOT3OAMMIB_Cdot3Oamloopbacktable) GetParentYan
 // interface can be determined from the cdot3OamLoopbackStatus
 // object.  
 type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -921,55 +678,23 @@ type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry struct {
     Cdot3Oamloopbackignorerx interface{}
 }
 
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetFilter() yfilter.YFilter { return cdot3Oamloopbackentry.YFilter }
+func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetEntityData() *types.CommonEntityData {
+    cdot3Oamloopbackentry.EntityData.YFilter = cdot3Oamloopbackentry.YFilter
+    cdot3Oamloopbackentry.EntityData.YangName = "cdot3OamLoopbackEntry"
+    cdot3Oamloopbackentry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oamloopbackentry.EntityData.ParentYangName = "cdot3OamLoopbackTable"
+    cdot3Oamloopbackentry.EntityData.SegmentPath = "cdot3OamLoopbackEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamloopbackentry.Ifindex) + "']"
+    cdot3Oamloopbackentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oamloopbackentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oamloopbackentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) SetFilter(yf yfilter.YFilter) { cdot3Oamloopbackentry.YFilter = yf }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cdot3OamLoopbackStatus" { return "Cdot3Oamloopbackstatus" }
-    if yname == "cdot3OamLoopbackIgnoreRx" { return "Cdot3Oamloopbackignorerx" }
-    return ""
+    cdot3Oamloopbackentry.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oamloopbackentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdot3Oamloopbackentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oamloopbackentry.Ifindex}
+    cdot3Oamloopbackentry.EntityData.Leafs["cdot3OamLoopbackStatus"] = types.YLeaf{"Cdot3Oamloopbackstatus", cdot3Oamloopbackentry.Cdot3Oamloopbackstatus}
+    cdot3Oamloopbackentry.EntityData.Leafs["cdot3OamLoopbackIgnoreRx"] = types.YLeaf{"Cdot3Oamloopbackignorerx", cdot3Oamloopbackentry.Cdot3Oamloopbackignorerx}
+    return &(cdot3Oamloopbackentry.EntityData)
 }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetSegmentPath() string {
-    return "cdot3OamLoopbackEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamloopbackentry.Ifindex) + "']"
-}
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cdot3Oamloopbackentry.Ifindex
-    leafs["cdot3OamLoopbackStatus"] = cdot3Oamloopbackentry.Cdot3Oamloopbackstatus
-    leafs["cdot3OamLoopbackIgnoreRx"] = cdot3Oamloopbackentry.Cdot3Oamloopbackignorerx
-    return leafs
-}
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetYangName() string { return "cdot3OamLoopbackEntry" }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) SetParent(parent types.Entity) { cdot3Oamloopbackentry.parent = parent }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetParent() types.Entity { return cdot3Oamloopbackentry.parent }
-
-func (cdot3Oamloopbackentry *CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry) GetParentYangName() string { return "cdot3OamLoopbackTable" }
 
 // CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx represents ignore loopback commands (ignore(1)).  
 type CISCODOT3OAMMIB_Cdot3Oamloopbacktable_Cdot3Oamloopbackentry_Cdot3Oamloopbackignorerx string
@@ -1007,7 +732,7 @@ const (
 // protocol is a slow protocol, the counters increment at a slow
 // rate. 
 type CISCODOT3OAMMIB_Cdot3Oamstatstable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the table, containing statistics information on the Ethernet
@@ -1018,63 +743,24 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable struct {
     Cdot3Oamstatsentry []CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry
 }
 
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetFilter() yfilter.YFilter { return cdot3Oamstatstable.YFilter }
+func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetEntityData() *types.CommonEntityData {
+    cdot3Oamstatstable.EntityData.YFilter = cdot3Oamstatstable.YFilter
+    cdot3Oamstatstable.EntityData.YangName = "cdot3OamStatsTable"
+    cdot3Oamstatstable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oamstatstable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3Oamstatstable.EntityData.SegmentPath = "cdot3OamStatsTable"
+    cdot3Oamstatstable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oamstatstable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oamstatstable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) SetFilter(yf yfilter.YFilter) { cdot3Oamstatstable.YFilter = yf }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetGoName(yname string) string {
-    if yname == "cdot3OamStatsEntry" { return "Cdot3Oamstatsentry" }
-    return ""
-}
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetSegmentPath() string {
-    return "cdot3OamStatsTable"
-}
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamStatsEntry" {
-        for _, c := range cdot3Oamstatstable.Cdot3Oamstatsentry {
-            if cdot3Oamstatstable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry{}
-        cdot3Oamstatstable.Cdot3Oamstatsentry = append(cdot3Oamstatstable.Cdot3Oamstatsentry, child)
-        return &cdot3Oamstatstable.Cdot3Oamstatsentry[len(cdot3Oamstatstable.Cdot3Oamstatsentry)-1]
-    }
-    return nil
-}
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdot3Oamstatstable.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oamstatstable.EntityData.Children["cdot3OamStatsEntry"] = types.YChild{"Cdot3Oamstatsentry", nil}
     for i := range cdot3Oamstatstable.Cdot3Oamstatsentry {
-        children[cdot3Oamstatstable.Cdot3Oamstatsentry[i].GetSegmentPath()] = &cdot3Oamstatstable.Cdot3Oamstatsentry[i]
+        cdot3Oamstatstable.EntityData.Children[types.GetSegmentPath(&cdot3Oamstatstable.Cdot3Oamstatsentry[i])] = types.YChild{"Cdot3Oamstatsentry", &cdot3Oamstatstable.Cdot3Oamstatsentry[i]}
     }
-    return children
+    cdot3Oamstatstable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdot3Oamstatstable.EntityData)
 }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetYangName() string { return "cdot3OamStatsTable" }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) SetParent(parent types.Entity) { cdot3Oamstatstable.parent = parent }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetParent() types.Entity { return cdot3Oamstatstable.parent }
-
-func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry
 // An entry in the table, containing statistics information on
@@ -1083,7 +769,7 @@ func (cdot3Oamstatstable *CISCODOT3OAMMIB_Cdot3Oamstatstable) GetParentYangName(
 // in the cdot3OamTable.  Counters are maintained across
 // transitions in cdot3OamOperStatus.  
 type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1239,85 +925,38 @@ type CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry struct {
     Cdot3Oamframeslostduetooam interface{}
 }
 
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetFilter() yfilter.YFilter { return cdot3Oamstatsentry.YFilter }
+func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetEntityData() *types.CommonEntityData {
+    cdot3Oamstatsentry.EntityData.YFilter = cdot3Oamstatsentry.YFilter
+    cdot3Oamstatsentry.EntityData.YangName = "cdot3OamStatsEntry"
+    cdot3Oamstatsentry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oamstatsentry.EntityData.ParentYangName = "cdot3OamStatsTable"
+    cdot3Oamstatsentry.EntityData.SegmentPath = "cdot3OamStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamstatsentry.Ifindex) + "']"
+    cdot3Oamstatsentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oamstatsentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oamstatsentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) SetFilter(yf yfilter.YFilter) { cdot3Oamstatsentry.YFilter = yf }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cdot3OamInformationTx" { return "Cdot3Oaminformationtx" }
-    if yname == "cdot3OamInformationRx" { return "Cdot3Oaminformationrx" }
-    if yname == "cdot3OamUniqueEventNotificationTx" { return "Cdot3Oamuniqueeventnotificationtx" }
-    if yname == "cdot3OamUniqueEventNotificationRx" { return "Cdot3Oamuniqueeventnotificationrx" }
-    if yname == "cdot3OamDuplicateEventNotificationTx" { return "Cdot3Oamduplicateeventnotificationtx" }
-    if yname == "cdot3OamDuplicateEventNotificationRx" { return "Cdot3Oamduplicateeventnotificationrx" }
-    if yname == "cdot3OamLoopbackControlTx" { return "Cdot3Oamloopbackcontroltx" }
-    if yname == "cdot3OamLoopbackControlRx" { return "Cdot3Oamloopbackcontrolrx" }
-    if yname == "cdot3OamVariableRequestTx" { return "Cdot3Oamvariablerequesttx" }
-    if yname == "cdot3OamVariableRequestRx" { return "Cdot3Oamvariablerequestrx" }
-    if yname == "cdot3OamVariableResponseTx" { return "Cdot3Oamvariableresponsetx" }
-    if yname == "cdot3OamVariableResponseRx" { return "Cdot3Oamvariableresponserx" }
-    if yname == "cdot3OamOrgSpecificTx" { return "Cdot3Oamorgspecifictx" }
-    if yname == "cdot3OamOrgSpecificRx" { return "Cdot3Oamorgspecificrx" }
-    if yname == "cdot3OamUnsupportedCodesTx" { return "Cdot3Oamunsupportedcodestx" }
-    if yname == "cdot3OamUnsupportedCodesRx" { return "Cdot3Oamunsupportedcodesrx" }
-    if yname == "cdot3OamFramesLostDueToOam" { return "Cdot3Oamframeslostduetooam" }
-    return ""
+    cdot3Oamstatsentry.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oamstatsentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdot3Oamstatsentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oamstatsentry.Ifindex}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamInformationTx"] = types.YLeaf{"Cdot3Oaminformationtx", cdot3Oamstatsentry.Cdot3Oaminformationtx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamInformationRx"] = types.YLeaf{"Cdot3Oaminformationrx", cdot3Oamstatsentry.Cdot3Oaminformationrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUniqueEventNotificationTx"] = types.YLeaf{"Cdot3Oamuniqueeventnotificationtx", cdot3Oamstatsentry.Cdot3Oamuniqueeventnotificationtx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUniqueEventNotificationRx"] = types.YLeaf{"Cdot3Oamuniqueeventnotificationrx", cdot3Oamstatsentry.Cdot3Oamuniqueeventnotificationrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamDuplicateEventNotificationTx"] = types.YLeaf{"Cdot3Oamduplicateeventnotificationtx", cdot3Oamstatsentry.Cdot3Oamduplicateeventnotificationtx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamDuplicateEventNotificationRx"] = types.YLeaf{"Cdot3Oamduplicateeventnotificationrx", cdot3Oamstatsentry.Cdot3Oamduplicateeventnotificationrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamLoopbackControlTx"] = types.YLeaf{"Cdot3Oamloopbackcontroltx", cdot3Oamstatsentry.Cdot3Oamloopbackcontroltx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamLoopbackControlRx"] = types.YLeaf{"Cdot3Oamloopbackcontrolrx", cdot3Oamstatsentry.Cdot3Oamloopbackcontrolrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableRequestTx"] = types.YLeaf{"Cdot3Oamvariablerequesttx", cdot3Oamstatsentry.Cdot3Oamvariablerequesttx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableRequestRx"] = types.YLeaf{"Cdot3Oamvariablerequestrx", cdot3Oamstatsentry.Cdot3Oamvariablerequestrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableResponseTx"] = types.YLeaf{"Cdot3Oamvariableresponsetx", cdot3Oamstatsentry.Cdot3Oamvariableresponsetx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamVariableResponseRx"] = types.YLeaf{"Cdot3Oamvariableresponserx", cdot3Oamstatsentry.Cdot3Oamvariableresponserx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamOrgSpecificTx"] = types.YLeaf{"Cdot3Oamorgspecifictx", cdot3Oamstatsentry.Cdot3Oamorgspecifictx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamOrgSpecificRx"] = types.YLeaf{"Cdot3Oamorgspecificrx", cdot3Oamstatsentry.Cdot3Oamorgspecificrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUnsupportedCodesTx"] = types.YLeaf{"Cdot3Oamunsupportedcodestx", cdot3Oamstatsentry.Cdot3Oamunsupportedcodestx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamUnsupportedCodesRx"] = types.YLeaf{"Cdot3Oamunsupportedcodesrx", cdot3Oamstatsentry.Cdot3Oamunsupportedcodesrx}
+    cdot3Oamstatsentry.EntityData.Leafs["cdot3OamFramesLostDueToOam"] = types.YLeaf{"Cdot3Oamframeslostduetooam", cdot3Oamstatsentry.Cdot3Oamframeslostduetooam}
+    return &(cdot3Oamstatsentry.EntityData)
 }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetSegmentPath() string {
-    return "cdot3OamStatsEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oamstatsentry.Ifindex) + "']"
-}
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cdot3Oamstatsentry.Ifindex
-    leafs["cdot3OamInformationTx"] = cdot3Oamstatsentry.Cdot3Oaminformationtx
-    leafs["cdot3OamInformationRx"] = cdot3Oamstatsentry.Cdot3Oaminformationrx
-    leafs["cdot3OamUniqueEventNotificationTx"] = cdot3Oamstatsentry.Cdot3Oamuniqueeventnotificationtx
-    leafs["cdot3OamUniqueEventNotificationRx"] = cdot3Oamstatsentry.Cdot3Oamuniqueeventnotificationrx
-    leafs["cdot3OamDuplicateEventNotificationTx"] = cdot3Oamstatsentry.Cdot3Oamduplicateeventnotificationtx
-    leafs["cdot3OamDuplicateEventNotificationRx"] = cdot3Oamstatsentry.Cdot3Oamduplicateeventnotificationrx
-    leafs["cdot3OamLoopbackControlTx"] = cdot3Oamstatsentry.Cdot3Oamloopbackcontroltx
-    leafs["cdot3OamLoopbackControlRx"] = cdot3Oamstatsentry.Cdot3Oamloopbackcontrolrx
-    leafs["cdot3OamVariableRequestTx"] = cdot3Oamstatsentry.Cdot3Oamvariablerequesttx
-    leafs["cdot3OamVariableRequestRx"] = cdot3Oamstatsentry.Cdot3Oamvariablerequestrx
-    leafs["cdot3OamVariableResponseTx"] = cdot3Oamstatsentry.Cdot3Oamvariableresponsetx
-    leafs["cdot3OamVariableResponseRx"] = cdot3Oamstatsentry.Cdot3Oamvariableresponserx
-    leafs["cdot3OamOrgSpecificTx"] = cdot3Oamstatsentry.Cdot3Oamorgspecifictx
-    leafs["cdot3OamOrgSpecificRx"] = cdot3Oamstatsentry.Cdot3Oamorgspecificrx
-    leafs["cdot3OamUnsupportedCodesTx"] = cdot3Oamstatsentry.Cdot3Oamunsupportedcodestx
-    leafs["cdot3OamUnsupportedCodesRx"] = cdot3Oamstatsentry.Cdot3Oamunsupportedcodesrx
-    leafs["cdot3OamFramesLostDueToOam"] = cdot3Oamstatsentry.Cdot3Oamframeslostduetooam
-    return leafs
-}
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetYangName() string { return "cdot3OamStatsEntry" }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) SetParent(parent types.Entity) { cdot3Oamstatsentry.parent = parent }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetParent() types.Entity { return cdot3Oamstatsentry.parent }
-
-func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry) GetParentYangName() string { return "cdot3OamStatsTable" }
 
 // CISCODOT3OAMMIB_Cdot3Oameventconfigtable
 // Ethernet OAM includes the ability to generate and receive
@@ -1352,7 +991,7 @@ func (cdot3Oamstatsentry *CISCODOT3OAMMIB_Cdot3Oamstatstable_Cdot3Oamstatsentry)
 // not threshold crossing events but which can be
 // enabled/disabled via this table.  
 type CISCODOT3OAMMIB_Cdot3Oameventconfigtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Entries are automatically created and deleted from this table, and exist
@@ -1366,63 +1005,24 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable struct {
     Cdot3Oameventconfigentry []CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry
 }
 
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetFilter() yfilter.YFilter { return cdot3Oameventconfigtable.YFilter }
+func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetEntityData() *types.CommonEntityData {
+    cdot3Oameventconfigtable.EntityData.YFilter = cdot3Oameventconfigtable.YFilter
+    cdot3Oameventconfigtable.EntityData.YangName = "cdot3OamEventConfigTable"
+    cdot3Oameventconfigtable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oameventconfigtable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3Oameventconfigtable.EntityData.SegmentPath = "cdot3OamEventConfigTable"
+    cdot3Oameventconfigtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oameventconfigtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oameventconfigtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) SetFilter(yf yfilter.YFilter) { cdot3Oameventconfigtable.YFilter = yf }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetGoName(yname string) string {
-    if yname == "cdot3OamEventConfigEntry" { return "Cdot3Oameventconfigentry" }
-    return ""
-}
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetSegmentPath() string {
-    return "cdot3OamEventConfigTable"
-}
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamEventConfigEntry" {
-        for _, c := range cdot3Oameventconfigtable.Cdot3Oameventconfigentry {
-            if cdot3Oameventconfigtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry{}
-        cdot3Oameventconfigtable.Cdot3Oameventconfigentry = append(cdot3Oameventconfigtable.Cdot3Oameventconfigentry, child)
-        return &cdot3Oameventconfigtable.Cdot3Oameventconfigentry[len(cdot3Oameventconfigtable.Cdot3Oameventconfigentry)-1]
-    }
-    return nil
-}
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdot3Oameventconfigtable.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oameventconfigtable.EntityData.Children["cdot3OamEventConfigEntry"] = types.YChild{"Cdot3Oameventconfigentry", nil}
     for i := range cdot3Oameventconfigtable.Cdot3Oameventconfigentry {
-        children[cdot3Oameventconfigtable.Cdot3Oameventconfigentry[i].GetSegmentPath()] = &cdot3Oameventconfigtable.Cdot3Oameventconfigentry[i]
+        cdot3Oameventconfigtable.EntityData.Children[types.GetSegmentPath(&cdot3Oameventconfigtable.Cdot3Oameventconfigentry[i])] = types.YChild{"Cdot3Oameventconfigentry", &cdot3Oameventconfigtable.Cdot3Oameventconfigentry[i]}
     }
-    return children
+    cdot3Oameventconfigtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdot3Oameventconfigtable.EntityData)
 }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetYangName() string { return "cdot3OamEventConfigTable" }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) SetParent(parent types.Entity) { cdot3Oameventconfigtable.parent = parent }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetParent() types.Entity { return cdot3Oameventconfigtable.parent }
-
-func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry
 // Entries are automatically created and deleted from this
@@ -1435,7 +1035,7 @@ func (cdot3Oameventconfigtable *CISCODOT3OAMMIB_Cdot3Oameventconfigtable) GetPar
 // sends Event Notification OAMPDUs to its OAM peer, and when
 // certain event flags are set or cleared in OAMPDUs. 
 type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1628,83 +1228,37 @@ type CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry struct {
     Cdot3Oamcriticaleventenable interface{}
 }
 
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetFilter() yfilter.YFilter { return cdot3Oameventconfigentry.YFilter }
+func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetEntityData() *types.CommonEntityData {
+    cdot3Oameventconfigentry.EntityData.YFilter = cdot3Oameventconfigentry.YFilter
+    cdot3Oameventconfigentry.EntityData.YangName = "cdot3OamEventConfigEntry"
+    cdot3Oameventconfigentry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oameventconfigentry.EntityData.ParentYangName = "cdot3OamEventConfigTable"
+    cdot3Oameventconfigentry.EntityData.SegmentPath = "cdot3OamEventConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oameventconfigentry.Ifindex) + "']"
+    cdot3Oameventconfigentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oameventconfigentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oameventconfigentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) SetFilter(yf yfilter.YFilter) { cdot3Oameventconfigentry.YFilter = yf }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cdot3OamErrSymPeriodWindowHi" { return "Cdot3Oamerrsymperiodwindowhi" }
-    if yname == "cdot3OamErrSymPeriodWindowLo" { return "Cdot3Oamerrsymperiodwindowlo" }
-    if yname == "cdot3OamErrSymPeriodThresholdHi" { return "Cdot3Oamerrsymperiodthresholdhi" }
-    if yname == "cdot3OamErrSymPeriodThresholdLo" { return "Cdot3Oamerrsymperiodthresholdlo" }
-    if yname == "cdot3OamErrSymPeriodEvNotifEnable" { return "Cdot3Oamerrsymperiodevnotifenable" }
-    if yname == "cdot3OamErrFramePeriodWindow" { return "Cdot3Oamerrframeperiodwindow" }
-    if yname == "cdot3OamErrFramePeriodThreshold" { return "Cdot3Oamerrframeperiodthreshold" }
-    if yname == "cdot3OamErrFramePeriodEvNotifEnable" { return "Cdot3Oamerrframeperiodevnotifenable" }
-    if yname == "cdot3OamErrFrameWindow" { return "Cdot3Oamerrframewindow" }
-    if yname == "cdot3OamErrFrameThreshold" { return "Cdot3Oamerrframethreshold" }
-    if yname == "cdot3OamErrFrameEvNotifEnable" { return "Cdot3Oamerrframeevnotifenable" }
-    if yname == "cdot3OamErrFrameSecsSummaryWindow" { return "Cdot3Oamerrframesecssummarywindow" }
-    if yname == "cdot3OamErrFrameSecsSummaryThreshold" { return "Cdot3Oamerrframesecssummarythreshold" }
-    if yname == "cdot3OamErrFrameSecsEvNotifEnable" { return "Cdot3Oamerrframesecsevnotifenable" }
-    if yname == "cdot3OamDyingGaspEnable" { return "Cdot3Oamdyinggaspenable" }
-    if yname == "cdot3OamCriticalEventEnable" { return "Cdot3Oamcriticaleventenable" }
-    return ""
+    cdot3Oameventconfigentry.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oameventconfigentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdot3Oameventconfigentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oameventconfigentry.Ifindex}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodWindowHi"] = types.YLeaf{"Cdot3Oamerrsymperiodwindowhi", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodwindowhi}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodWindowLo"] = types.YLeaf{"Cdot3Oamerrsymperiodwindowlo", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodwindowlo}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodThresholdHi"] = types.YLeaf{"Cdot3Oamerrsymperiodthresholdhi", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodthresholdhi}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodThresholdLo"] = types.YLeaf{"Cdot3Oamerrsymperiodthresholdlo", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodthresholdlo}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrSymPeriodEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrsymperiodevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrsymperiodevnotifenable}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFramePeriodWindow"] = types.YLeaf{"Cdot3Oamerrframeperiodwindow", cdot3Oameventconfigentry.Cdot3Oamerrframeperiodwindow}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFramePeriodThreshold"] = types.YLeaf{"Cdot3Oamerrframeperiodthreshold", cdot3Oameventconfigentry.Cdot3Oamerrframeperiodthreshold}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFramePeriodEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrframeperiodevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrframeperiodevnotifenable}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameWindow"] = types.YLeaf{"Cdot3Oamerrframewindow", cdot3Oameventconfigentry.Cdot3Oamerrframewindow}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameThreshold"] = types.YLeaf{"Cdot3Oamerrframethreshold", cdot3Oameventconfigentry.Cdot3Oamerrframethreshold}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrframeevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrframeevnotifenable}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameSecsSummaryWindow"] = types.YLeaf{"Cdot3Oamerrframesecssummarywindow", cdot3Oameventconfigentry.Cdot3Oamerrframesecssummarywindow}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameSecsSummaryThreshold"] = types.YLeaf{"Cdot3Oamerrframesecssummarythreshold", cdot3Oameventconfigentry.Cdot3Oamerrframesecssummarythreshold}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamErrFrameSecsEvNotifEnable"] = types.YLeaf{"Cdot3Oamerrframesecsevnotifenable", cdot3Oameventconfigentry.Cdot3Oamerrframesecsevnotifenable}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamDyingGaspEnable"] = types.YLeaf{"Cdot3Oamdyinggaspenable", cdot3Oameventconfigentry.Cdot3Oamdyinggaspenable}
+    cdot3Oameventconfigentry.EntityData.Leafs["cdot3OamCriticalEventEnable"] = types.YLeaf{"Cdot3Oamcriticaleventenable", cdot3Oameventconfigentry.Cdot3Oamcriticaleventenable}
+    return &(cdot3Oameventconfigentry.EntityData)
 }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetSegmentPath() string {
-    return "cdot3OamEventConfigEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oameventconfigentry.Ifindex) + "']"
-}
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cdot3Oameventconfigentry.Ifindex
-    leafs["cdot3OamErrSymPeriodWindowHi"] = cdot3Oameventconfigentry.Cdot3Oamerrsymperiodwindowhi
-    leafs["cdot3OamErrSymPeriodWindowLo"] = cdot3Oameventconfigentry.Cdot3Oamerrsymperiodwindowlo
-    leafs["cdot3OamErrSymPeriodThresholdHi"] = cdot3Oameventconfigentry.Cdot3Oamerrsymperiodthresholdhi
-    leafs["cdot3OamErrSymPeriodThresholdLo"] = cdot3Oameventconfigentry.Cdot3Oamerrsymperiodthresholdlo
-    leafs["cdot3OamErrSymPeriodEvNotifEnable"] = cdot3Oameventconfigentry.Cdot3Oamerrsymperiodevnotifenable
-    leafs["cdot3OamErrFramePeriodWindow"] = cdot3Oameventconfigentry.Cdot3Oamerrframeperiodwindow
-    leafs["cdot3OamErrFramePeriodThreshold"] = cdot3Oameventconfigentry.Cdot3Oamerrframeperiodthreshold
-    leafs["cdot3OamErrFramePeriodEvNotifEnable"] = cdot3Oameventconfigentry.Cdot3Oamerrframeperiodevnotifenable
-    leafs["cdot3OamErrFrameWindow"] = cdot3Oameventconfigentry.Cdot3Oamerrframewindow
-    leafs["cdot3OamErrFrameThreshold"] = cdot3Oameventconfigentry.Cdot3Oamerrframethreshold
-    leafs["cdot3OamErrFrameEvNotifEnable"] = cdot3Oameventconfigentry.Cdot3Oamerrframeevnotifenable
-    leafs["cdot3OamErrFrameSecsSummaryWindow"] = cdot3Oameventconfigentry.Cdot3Oamerrframesecssummarywindow
-    leafs["cdot3OamErrFrameSecsSummaryThreshold"] = cdot3Oameventconfigentry.Cdot3Oamerrframesecssummarythreshold
-    leafs["cdot3OamErrFrameSecsEvNotifEnable"] = cdot3Oameventconfigentry.Cdot3Oamerrframesecsevnotifenable
-    leafs["cdot3OamDyingGaspEnable"] = cdot3Oameventconfigentry.Cdot3Oamdyinggaspenable
-    leafs["cdot3OamCriticalEventEnable"] = cdot3Oameventconfigentry.Cdot3Oamcriticaleventenable
-    return leafs
-}
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetYangName() string { return "cdot3OamEventConfigEntry" }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) SetParent(parent types.Entity) { cdot3Oameventconfigentry.parent = parent }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetParent() types.Entity { return cdot3Oameventconfigentry.parent }
-
-func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oameventconfigentry) GetParentYangName() string { return "cdot3OamEventConfigTable" }
 
 // CISCODOT3OAMMIB_Cdot3Oameventlogtable
 // This table records a history of the events that have occurred
@@ -1728,7 +1282,7 @@ func (cdot3Oameventconfigentry *CISCODOT3OAMMIB_Cdot3Oameventconfigtable_Cdot3Oa
 // entries are automatically deleted to make room for newer
 // entries. 
 type CISCODOT3OAMMIB_Cdot3Oameventlogtable struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // An entry in the cdot3OamEventLogTable.  Entries are automatically created
@@ -1743,63 +1297,24 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable struct {
     Cdot3Oameventlogentry []CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry
 }
 
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetFilter() yfilter.YFilter { return cdot3Oameventlogtable.YFilter }
+func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetEntityData() *types.CommonEntityData {
+    cdot3Oameventlogtable.EntityData.YFilter = cdot3Oameventlogtable.YFilter
+    cdot3Oameventlogtable.EntityData.YangName = "cdot3OamEventLogTable"
+    cdot3Oameventlogtable.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oameventlogtable.EntityData.ParentYangName = "CISCO-DOT3-OAM-MIB"
+    cdot3Oameventlogtable.EntityData.SegmentPath = "cdot3OamEventLogTable"
+    cdot3Oameventlogtable.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oameventlogtable.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oameventlogtable.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) SetFilter(yf yfilter.YFilter) { cdot3Oameventlogtable.YFilter = yf }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetGoName(yname string) string {
-    if yname == "cdot3OamEventLogEntry" { return "Cdot3Oameventlogentry" }
-    return ""
-}
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetSegmentPath() string {
-    return "cdot3OamEventLogTable"
-}
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "cdot3OamEventLogEntry" {
-        for _, c := range cdot3Oameventlogtable.Cdot3Oameventlogentry {
-            if cdot3Oameventlogtable.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry{}
-        cdot3Oameventlogtable.Cdot3Oameventlogentry = append(cdot3Oameventlogtable.Cdot3Oameventlogentry, child)
-        return &cdot3Oameventlogtable.Cdot3Oameventlogentry[len(cdot3Oameventlogtable.Cdot3Oameventlogentry)-1]
-    }
-    return nil
-}
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    cdot3Oameventlogtable.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oameventlogtable.EntityData.Children["cdot3OamEventLogEntry"] = types.YChild{"Cdot3Oameventlogentry", nil}
     for i := range cdot3Oameventlogtable.Cdot3Oameventlogentry {
-        children[cdot3Oameventlogtable.Cdot3Oameventlogentry[i].GetSegmentPath()] = &cdot3Oameventlogtable.Cdot3Oameventlogentry[i]
+        cdot3Oameventlogtable.EntityData.Children[types.GetSegmentPath(&cdot3Oameventlogtable.Cdot3Oameventlogentry[i])] = types.YChild{"Cdot3Oameventlogentry", &cdot3Oameventlogtable.Cdot3Oameventlogentry[i]}
     }
-    return children
+    cdot3Oameventlogtable.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(cdot3Oameventlogtable.EntityData)
 }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetYangName() string { return "cdot3OamEventLogTable" }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) SetParent(parent types.Entity) { cdot3Oameventlogtable.parent = parent }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetParent() types.Entity { return cdot3Oameventlogtable.parent }
-
-func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetParentYangName() string { return "CISCO-DOT3-OAM-MIB" }
 
 // CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry
 // An entry in the cdot3OamEventLogTable.  Entries are
@@ -1813,7 +1328,7 @@ func (cdot3Oameventlogtable *CISCODOT3OAMMIB_Cdot3Oameventlogtable) GetParentYan
 // each new entry, and when the maximum value is reached the
 // value restarts at zero.  
 type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. The type is string with range: 1..2147483647.
@@ -1945,75 +1460,33 @@ type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry struct {
     Cdot3Oameventlogeventtotal interface{}
 }
 
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetFilter() yfilter.YFilter { return cdot3Oameventlogentry.YFilter }
+func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetEntityData() *types.CommonEntityData {
+    cdot3Oameventlogentry.EntityData.YFilter = cdot3Oameventlogentry.YFilter
+    cdot3Oameventlogentry.EntityData.YangName = "cdot3OamEventLogEntry"
+    cdot3Oameventlogentry.EntityData.BundleName = "cisco_ios_xe"
+    cdot3Oameventlogentry.EntityData.ParentYangName = "cdot3OamEventLogTable"
+    cdot3Oameventlogentry.EntityData.SegmentPath = "cdot3OamEventLogEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oameventlogentry.Ifindex) + "']" + "[cdot3OamEventLogIndex='" + fmt.Sprintf("%v", cdot3Oameventlogentry.Cdot3Oameventlogindex) + "']"
+    cdot3Oameventlogentry.EntityData.CapabilitiesTable = cisco_ios_xe.GetCapabilities()
+    cdot3Oameventlogentry.EntityData.NamespaceTable = cisco_ios_xe.GetNamespaces()
+    cdot3Oameventlogentry.EntityData.BundleYangModelsLocation = cisco_ios_xe.GetModelsPath()
 
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) SetFilter(yf yfilter.YFilter) { cdot3Oameventlogentry.YFilter = yf }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetGoName(yname string) string {
-    if yname == "ifIndex" { return "Ifindex" }
-    if yname == "cdot3OamEventLogIndex" { return "Cdot3Oameventlogindex" }
-    if yname == "cdot3OamEventLogTimestamp" { return "Cdot3Oameventlogtimestamp" }
-    if yname == "cdot3OamEventLogOui" { return "Cdot3Oameventlogoui" }
-    if yname == "cdot3OamEventLogType" { return "Cdot3Oameventlogtype" }
-    if yname == "cdot3OamEventLogLocation" { return "Cdot3Oameventloglocation" }
-    if yname == "cdot3OamEventLogWindowHi" { return "Cdot3Oameventlogwindowhi" }
-    if yname == "cdot3OamEventLogWindowLo" { return "Cdot3Oameventlogwindowlo" }
-    if yname == "cdot3OamEventLogThresholdHi" { return "Cdot3Oameventlogthresholdhi" }
-    if yname == "cdot3OamEventLogThresholdLo" { return "Cdot3Oameventlogthresholdlo" }
-    if yname == "cdot3OamEventLogValue" { return "Cdot3Oameventlogvalue" }
-    if yname == "cdot3OamEventLogRunningTotal" { return "Cdot3Oameventlogrunningtotal" }
-    if yname == "cdot3OamEventLogEventTotal" { return "Cdot3Oameventlogeventtotal" }
-    return ""
+    cdot3Oameventlogentry.EntityData.Children = make(map[string]types.YChild)
+    cdot3Oameventlogentry.EntityData.Leafs = make(map[string]types.YLeaf)
+    cdot3Oameventlogentry.EntityData.Leafs["ifIndex"] = types.YLeaf{"Ifindex", cdot3Oameventlogentry.Ifindex}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogIndex"] = types.YLeaf{"Cdot3Oameventlogindex", cdot3Oameventlogentry.Cdot3Oameventlogindex}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogTimestamp"] = types.YLeaf{"Cdot3Oameventlogtimestamp", cdot3Oameventlogentry.Cdot3Oameventlogtimestamp}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogOui"] = types.YLeaf{"Cdot3Oameventlogoui", cdot3Oameventlogentry.Cdot3Oameventlogoui}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogType"] = types.YLeaf{"Cdot3Oameventlogtype", cdot3Oameventlogentry.Cdot3Oameventlogtype}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogLocation"] = types.YLeaf{"Cdot3Oameventloglocation", cdot3Oameventlogentry.Cdot3Oameventloglocation}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogWindowHi"] = types.YLeaf{"Cdot3Oameventlogwindowhi", cdot3Oameventlogentry.Cdot3Oameventlogwindowhi}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogWindowLo"] = types.YLeaf{"Cdot3Oameventlogwindowlo", cdot3Oameventlogentry.Cdot3Oameventlogwindowlo}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogThresholdHi"] = types.YLeaf{"Cdot3Oameventlogthresholdhi", cdot3Oameventlogentry.Cdot3Oameventlogthresholdhi}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogThresholdLo"] = types.YLeaf{"Cdot3Oameventlogthresholdlo", cdot3Oameventlogentry.Cdot3Oameventlogthresholdlo}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogValue"] = types.YLeaf{"Cdot3Oameventlogvalue", cdot3Oameventlogentry.Cdot3Oameventlogvalue}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogRunningTotal"] = types.YLeaf{"Cdot3Oameventlogrunningtotal", cdot3Oameventlogentry.Cdot3Oameventlogrunningtotal}
+    cdot3Oameventlogentry.EntityData.Leafs["cdot3OamEventLogEventTotal"] = types.YLeaf{"Cdot3Oameventlogeventtotal", cdot3Oameventlogentry.Cdot3Oameventlogeventtotal}
+    return &(cdot3Oameventlogentry.EntityData)
 }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetSegmentPath() string {
-    return "cdot3OamEventLogEntry" + "[ifIndex='" + fmt.Sprintf("%v", cdot3Oameventlogentry.Ifindex) + "']" + "[cdot3OamEventLogIndex='" + fmt.Sprintf("%v", cdot3Oameventlogentry.Cdot3Oameventlogindex) + "']"
-}
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["ifIndex"] = cdot3Oameventlogentry.Ifindex
-    leafs["cdot3OamEventLogIndex"] = cdot3Oameventlogentry.Cdot3Oameventlogindex
-    leafs["cdot3OamEventLogTimestamp"] = cdot3Oameventlogentry.Cdot3Oameventlogtimestamp
-    leafs["cdot3OamEventLogOui"] = cdot3Oameventlogentry.Cdot3Oameventlogoui
-    leafs["cdot3OamEventLogType"] = cdot3Oameventlogentry.Cdot3Oameventlogtype
-    leafs["cdot3OamEventLogLocation"] = cdot3Oameventlogentry.Cdot3Oameventloglocation
-    leafs["cdot3OamEventLogWindowHi"] = cdot3Oameventlogentry.Cdot3Oameventlogwindowhi
-    leafs["cdot3OamEventLogWindowLo"] = cdot3Oameventlogentry.Cdot3Oameventlogwindowlo
-    leafs["cdot3OamEventLogThresholdHi"] = cdot3Oameventlogentry.Cdot3Oameventlogthresholdhi
-    leafs["cdot3OamEventLogThresholdLo"] = cdot3Oameventlogentry.Cdot3Oameventlogthresholdlo
-    leafs["cdot3OamEventLogValue"] = cdot3Oameventlogentry.Cdot3Oameventlogvalue
-    leafs["cdot3OamEventLogRunningTotal"] = cdot3Oameventlogentry.Cdot3Oameventlogrunningtotal
-    leafs["cdot3OamEventLogEventTotal"] = cdot3Oameventlogentry.Cdot3Oameventlogeventtotal
-    return leafs
-}
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetBundleName() string { return "cisco_ios_xe" }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetYangName() string { return "cdot3OamEventLogEntry" }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetBundleYangModelsLocation() string { return cisco_ios_xe.GetModelsPath() }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xe.GetCapabilities() }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetNamespaceTable() map[string]string {
-    return cisco_ios_xe.GetNamespaces() }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) SetParent(parent types.Entity) { cdot3Oameventlogentry.parent = parent }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetParent() types.Entity { return cdot3Oameventlogentry.parent }
-
-func (cdot3Oameventlogentry *CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry) GetParentYangName() string { return "cdot3OamEventLogTable" }
 
 // CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation represents received from the OAM peer via Ethernet OAM (remote(2)).
 type CISCODOT3OAMMIB_Cdot3Oameventlogtable_Cdot3Oameventlogentry_Cdot3Oameventloglocation string

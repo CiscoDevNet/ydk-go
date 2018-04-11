@@ -18,14 +18,6 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package asr9k_lc_ethctrl_cfg"))
 }
 
-// PermitPluggable represents Permit pluggable
-type PermitPluggable string
-
-const (
-    // ALL types
-    PermitPluggable_all PermitPluggable = "all"
-)
-
 // EtherCtrlTransportMode represents Ether ctrl transport mode
 type EtherCtrlTransportMode string
 
@@ -46,5 +38,13 @@ type PermitPluggablePid string
 const (
     // ALL PIDs
     PermitPluggablePid_all PermitPluggablePid = "all"
+)
+
+// PermitPluggable represents Permit pluggable
+type PermitPluggable string
+
+const (
+    // ALL types
+    PermitPluggable_all PermitPluggable = "all"
 )
 

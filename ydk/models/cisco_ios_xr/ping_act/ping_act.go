@@ -23,7 +23,7 @@ func init() {
 // Ping
 // Send echo messages
 type Ping struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -33,63 +33,26 @@ type Ping struct {
     Output Ping_Output
 }
 
-func (ping *Ping) GetFilter() yfilter.YFilter { return ping.YFilter }
+func (ping *Ping) GetEntityData() *types.CommonEntityData {
+    ping.EntityData.YFilter = ping.YFilter
+    ping.EntityData.YangName = "ping"
+    ping.EntityData.BundleName = "cisco_ios_xr"
+    ping.EntityData.ParentYangName = "Cisco-IOS-XR-ping-act"
+    ping.EntityData.SegmentPath = "Cisco-IOS-XR-ping-act:ping"
+    ping.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ping.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ping.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ping *Ping) SetFilter(yf yfilter.YFilter) { ping.YFilter = yf }
-
-func (ping *Ping) GetGoName(yname string) string {
-    if yname == "input" { return "Input" }
-    if yname == "output" { return "Output" }
-    return ""
+    ping.EntityData.Children = make(map[string]types.YChild)
+    ping.EntityData.Children["input"] = types.YChild{"Input", &ping.Input}
+    ping.EntityData.Children["output"] = types.YChild{"Output", &ping.Output}
+    ping.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(ping.EntityData)
 }
-
-func (ping *Ping) GetSegmentPath() string {
-    return "Cisco-IOS-XR-ping-act:ping"
-}
-
-func (ping *Ping) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "input" {
-        return &ping.Input
-    }
-    if childYangName == "output" {
-        return &ping.Output
-    }
-    return nil
-}
-
-func (ping *Ping) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["input"] = &ping.Input
-    children["output"] = &ping.Output
-    return children
-}
-
-func (ping *Ping) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (ping *Ping) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ping *Ping) GetYangName() string { return "ping" }
-
-func (ping *Ping) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ping *Ping) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ping *Ping) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ping *Ping) SetParent(parent types.Entity) { ping.parent = parent }
-
-func (ping *Ping) GetParent() types.Entity { return ping.parent }
-
-func (ping *Ping) GetParentYangName() string { return "Cisco-IOS-XR-ping-act" }
 
 // Ping_Input
 type Ping_Input struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
@@ -102,77 +65,30 @@ type Ping_Input struct {
     Ipv6 Ping_Input_Ipv6
 }
 
-func (input *Ping_Input) GetFilter() yfilter.YFilter { return input.YFilter }
+func (input *Ping_Input) GetEntityData() *types.CommonEntityData {
+    input.EntityData.YFilter = input.YFilter
+    input.EntityData.YangName = "input"
+    input.EntityData.BundleName = "cisco_ios_xr"
+    input.EntityData.ParentYangName = "ping"
+    input.EntityData.SegmentPath = "input"
+    input.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    input.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    input.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (input *Ping_Input) SetFilter(yf yfilter.YFilter) { input.YFilter = yf }
-
-func (input *Ping_Input) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "ipv6" { return "Ipv6" }
-    return ""
-}
-
-func (input *Ping_Input) GetSegmentPath() string {
-    return "input"
-}
-
-func (input *Ping_Input) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "destination" {
-        return &input.Destination
-    }
-    if childYangName == "ipv4" {
-        for _, c := range input.Ipv4 {
-            if input.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ping_Input_Ipv4{}
-        input.Ipv4 = append(input.Ipv4, child)
-        return &input.Ipv4[len(input.Ipv4)-1]
-    }
-    if childYangName == "ipv6" {
-        return &input.Ipv6
-    }
-    return nil
-}
-
-func (input *Ping_Input) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["destination"] = &input.Destination
+    input.EntityData.Children = make(map[string]types.YChild)
+    input.EntityData.Children["destination"] = types.YChild{"Destination", &input.Destination}
+    input.EntityData.Children["ipv4"] = types.YChild{"Ipv4", nil}
     for i := range input.Ipv4 {
-        children[input.Ipv4[i].GetSegmentPath()] = &input.Ipv4[i]
+        input.EntityData.Children[types.GetSegmentPath(&input.Ipv4[i])] = types.YChild{"Ipv4", &input.Ipv4[i]}
     }
-    children["ipv6"] = &input.Ipv6
-    return children
+    input.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &input.Ipv6}
+    input.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(input.EntityData)
 }
-
-func (input *Ping_Input) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (input *Ping_Input) GetBundleName() string { return "cisco_ios_xr" }
-
-func (input *Ping_Input) GetYangName() string { return "input" }
-
-func (input *Ping_Input) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (input *Ping_Input) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (input *Ping_Input) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (input *Ping_Input) SetParent(parent types.Entity) { input.parent = parent }
-
-func (input *Ping_Input) GetParent() types.Entity { return input.parent }
-
-func (input *Ping_Input) GetParentYangName() string { return "ping" }
 
 // Ping_Input_Destination
 type Ping_Input_Destination struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ping destination address or hostname. The type is string. This attribute is
@@ -195,7 +111,8 @@ type Ping_Input_Destination struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Pattern of payload data. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -227,83 +144,39 @@ type Ping_Input_Destination struct {
     OutgoingInterface interface{}
 }
 
-func (destination *Ping_Input_Destination) GetFilter() yfilter.YFilter { return destination.YFilter }
+func (destination *Ping_Input_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "input"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (destination *Ping_Input_Destination) SetFilter(yf yfilter.YFilter) { destination.YFilter = yf }
-
-func (destination *Ping_Input_Destination) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "repeat-count" { return "RepeatCount" }
-    if yname == "data-size" { return "DataSize" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "interval" { return "Interval" }
-    if yname == "pattern" { return "Pattern" }
-    if yname == "sweep" { return "Sweep" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source" { return "Source" }
-    if yname == "verbose" { return "Verbose" }
-    if yname == "type-of-service" { return "TypeOfService" }
-    if yname == "do-not-frag" { return "DoNotFrag" }
-    if yname == "validate" { return "Validate" }
-    if yname == "priority" { return "Priority" }
-    if yname == "outgoing-interface" { return "OutgoingInterface" }
-    return ""
+    destination.EntityData.Children = make(map[string]types.YChild)
+    destination.EntityData.Leafs = make(map[string]types.YLeaf)
+    destination.EntityData.Leafs["destination"] = types.YLeaf{"Destination", destination.Destination}
+    destination.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", destination.RepeatCount}
+    destination.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", destination.DataSize}
+    destination.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", destination.Timeout}
+    destination.EntityData.Leafs["interval"] = types.YLeaf{"Interval", destination.Interval}
+    destination.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", destination.Pattern}
+    destination.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", destination.Sweep}
+    destination.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", destination.VrfName}
+    destination.EntityData.Leafs["source"] = types.YLeaf{"Source", destination.Source}
+    destination.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", destination.Verbose}
+    destination.EntityData.Leafs["type-of-service"] = types.YLeaf{"TypeOfService", destination.TypeOfService}
+    destination.EntityData.Leafs["do-not-frag"] = types.YLeaf{"DoNotFrag", destination.DoNotFrag}
+    destination.EntityData.Leafs["validate"] = types.YLeaf{"Validate", destination.Validate}
+    destination.EntityData.Leafs["priority"] = types.YLeaf{"Priority", destination.Priority}
+    destination.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", destination.OutgoingInterface}
+    return &(destination.EntityData)
 }
-
-func (destination *Ping_Input_Destination) GetSegmentPath() string {
-    return "destination"
-}
-
-func (destination *Ping_Input_Destination) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (destination *Ping_Input_Destination) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (destination *Ping_Input_Destination) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = destination.Destination
-    leafs["repeat-count"] = destination.RepeatCount
-    leafs["data-size"] = destination.DataSize
-    leafs["timeout"] = destination.Timeout
-    leafs["interval"] = destination.Interval
-    leafs["pattern"] = destination.Pattern
-    leafs["sweep"] = destination.Sweep
-    leafs["vrf-name"] = destination.VrfName
-    leafs["source"] = destination.Source
-    leafs["verbose"] = destination.Verbose
-    leafs["type-of-service"] = destination.TypeOfService
-    leafs["do-not-frag"] = destination.DoNotFrag
-    leafs["validate"] = destination.Validate
-    leafs["priority"] = destination.Priority
-    leafs["outgoing-interface"] = destination.OutgoingInterface
-    return leafs
-}
-
-func (destination *Ping_Input_Destination) GetBundleName() string { return "cisco_ios_xr" }
-
-func (destination *Ping_Input_Destination) GetYangName() string { return "destination" }
-
-func (destination *Ping_Input_Destination) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (destination *Ping_Input_Destination) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (destination *Ping_Input_Destination) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (destination *Ping_Input_Destination) SetParent(parent types.Entity) { destination.parent = parent }
-
-func (destination *Ping_Input_Destination) GetParent() types.Entity { return destination.parent }
-
-func (destination *Ping_Input_Destination) GetParentYangName() string { return "input" }
 
 // Ping_Input_Ipv4
 type Ping_Input_Ipv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Ping destination address or hostname. The type is
@@ -326,7 +199,8 @@ type Ping_Input_Ipv4 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Pattern of payload data. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -351,79 +225,37 @@ type Ping_Input_Ipv4 struct {
     Validate interface{}
 }
 
-func (ipv4 *Ping_Input_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
+func (ipv4 *Ping_Input_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "input"
+    ipv4.EntityData.SegmentPath = "ipv4" + "[destination='" + fmt.Sprintf("%v", ipv4.Destination) + "']"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4 *Ping_Input_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *Ping_Input_Ipv4) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "repeat-count" { return "RepeatCount" }
-    if yname == "data-size" { return "DataSize" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "interval" { return "Interval" }
-    if yname == "pattern" { return "Pattern" }
-    if yname == "sweep" { return "Sweep" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source" { return "Source" }
-    if yname == "verbose" { return "Verbose" }
-    if yname == "type-of-service" { return "TypeOfService" }
-    if yname == "do-not-frag" { return "DoNotFrag" }
-    if yname == "validate" { return "Validate" }
-    return ""
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv4.Destination}
+    ipv4.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv4.RepeatCount}
+    ipv4.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv4.DataSize}
+    ipv4.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv4.Timeout}
+    ipv4.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv4.Interval}
+    ipv4.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv4.Pattern}
+    ipv4.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv4.Sweep}
+    ipv4.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv4.VrfName}
+    ipv4.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv4.Source}
+    ipv4.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", ipv4.Verbose}
+    ipv4.EntityData.Leafs["type-of-service"] = types.YLeaf{"TypeOfService", ipv4.TypeOfService}
+    ipv4.EntityData.Leafs["do-not-frag"] = types.YLeaf{"DoNotFrag", ipv4.DoNotFrag}
+    ipv4.EntityData.Leafs["validate"] = types.YLeaf{"Validate", ipv4.Validate}
+    return &(ipv4.EntityData)
 }
-
-func (ipv4 *Ping_Input_Ipv4) GetSegmentPath() string {
-    return "ipv4" + "[destination='" + fmt.Sprintf("%v", ipv4.Destination) + "']"
-}
-
-func (ipv4 *Ping_Input_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv4 *Ping_Input_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv4 *Ping_Input_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv4.Destination
-    leafs["repeat-count"] = ipv4.RepeatCount
-    leafs["data-size"] = ipv4.DataSize
-    leafs["timeout"] = ipv4.Timeout
-    leafs["interval"] = ipv4.Interval
-    leafs["pattern"] = ipv4.Pattern
-    leafs["sweep"] = ipv4.Sweep
-    leafs["vrf-name"] = ipv4.VrfName
-    leafs["source"] = ipv4.Source
-    leafs["verbose"] = ipv4.Verbose
-    leafs["type-of-service"] = ipv4.TypeOfService
-    leafs["do-not-frag"] = ipv4.DoNotFrag
-    leafs["validate"] = ipv4.Validate
-    return leafs
-}
-
-func (ipv4 *Ping_Input_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *Ping_Input_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *Ping_Input_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *Ping_Input_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *Ping_Input_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *Ping_Input_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *Ping_Input_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *Ping_Input_Ipv4) GetParentYangName() string { return "input" }
 
 // Ping_Input_Ipv6
 type Ping_Input_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ping destination address or hostname. The type is string. This attribute is
@@ -446,7 +278,8 @@ type Ping_Input_Ipv6 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Pattern of payload data. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -469,135 +302,61 @@ type Ping_Input_Ipv6 struct {
     OutgoingInterface interface{}
 }
 
-func (ipv6 *Ping_Input_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *Ping_Input_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "input"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *Ping_Input_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *Ping_Input_Ipv6) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "repeat-count" { return "RepeatCount" }
-    if yname == "data-size" { return "DataSize" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "interval" { return "Interval" }
-    if yname == "pattern" { return "Pattern" }
-    if yname == "sweep" { return "Sweep" }
-    if yname == "vrf-name" { return "VrfName" }
-    if yname == "source" { return "Source" }
-    if yname == "verbose" { return "Verbose" }
-    if yname == "priority" { return "Priority" }
-    if yname == "outgoing-interface" { return "OutgoingInterface" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv6.Destination}
+    ipv6.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv6.RepeatCount}
+    ipv6.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv6.DataSize}
+    ipv6.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv6.Timeout}
+    ipv6.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv6.Interval}
+    ipv6.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv6.Pattern}
+    ipv6.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv6.Sweep}
+    ipv6.EntityData.Leafs["vrf-name"] = types.YLeaf{"VrfName", ipv6.VrfName}
+    ipv6.EntityData.Leafs["source"] = types.YLeaf{"Source", ipv6.Source}
+    ipv6.EntityData.Leafs["verbose"] = types.YLeaf{"Verbose", ipv6.Verbose}
+    ipv6.EntityData.Leafs["priority"] = types.YLeaf{"Priority", ipv6.Priority}
+    ipv6.EntityData.Leafs["outgoing-interface"] = types.YLeaf{"OutgoingInterface", ipv6.OutgoingInterface}
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *Ping_Input_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *Ping_Input_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (ipv6 *Ping_Input_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (ipv6 *Ping_Input_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv6.Destination
-    leafs["repeat-count"] = ipv6.RepeatCount
-    leafs["data-size"] = ipv6.DataSize
-    leafs["timeout"] = ipv6.Timeout
-    leafs["interval"] = ipv6.Interval
-    leafs["pattern"] = ipv6.Pattern
-    leafs["sweep"] = ipv6.Sweep
-    leafs["vrf-name"] = ipv6.VrfName
-    leafs["source"] = ipv6.Source
-    leafs["verbose"] = ipv6.Verbose
-    leafs["priority"] = ipv6.Priority
-    leafs["outgoing-interface"] = ipv6.OutgoingInterface
-    return leafs
-}
-
-func (ipv6 *Ping_Input_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *Ping_Input_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *Ping_Input_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *Ping_Input_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *Ping_Input_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *Ping_Input_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *Ping_Input_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *Ping_Input_Ipv6) GetParentYangName() string { return "input" }
 
 // Ping_Output
 type Ping_Output struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     
     PingResponse Ping_Output_PingResponse
 }
 
-func (output *Ping_Output) GetFilter() yfilter.YFilter { return output.YFilter }
+func (output *Ping_Output) GetEntityData() *types.CommonEntityData {
+    output.EntityData.YFilter = output.YFilter
+    output.EntityData.YangName = "output"
+    output.EntityData.BundleName = "cisco_ios_xr"
+    output.EntityData.ParentYangName = "ping"
+    output.EntityData.SegmentPath = "output"
+    output.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    output.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    output.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (output *Ping_Output) SetFilter(yf yfilter.YFilter) { output.YFilter = yf }
-
-func (output *Ping_Output) GetGoName(yname string) string {
-    if yname == "ping-response" { return "PingResponse" }
-    return ""
+    output.EntityData.Children = make(map[string]types.YChild)
+    output.EntityData.Children["ping-response"] = types.YChild{"PingResponse", &output.PingResponse}
+    output.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(output.EntityData)
 }
-
-func (output *Ping_Output) GetSegmentPath() string {
-    return "output"
-}
-
-func (output *Ping_Output) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ping-response" {
-        return &output.PingResponse
-    }
-    return nil
-}
-
-func (output *Ping_Output) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["ping-response"] = &output.PingResponse
-    return children
-}
-
-func (output *Ping_Output) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (output *Ping_Output) GetBundleName() string { return "cisco_ios_xr" }
-
-func (output *Ping_Output) GetYangName() string { return "output" }
-
-func (output *Ping_Output) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (output *Ping_Output) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (output *Ping_Output) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (output *Ping_Output) SetParent(parent types.Entity) { output.parent = parent }
-
-func (output *Ping_Output) GetParent() types.Entity { return output.parent }
-
-func (output *Ping_Output) GetParentYangName() string { return "ping" }
 
 // Ping_Output_PingResponse
 type Ping_Output_PingResponse struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is slice of Ping_Output_PingResponse_Ipv4.
@@ -607,72 +366,29 @@ type Ping_Output_PingResponse struct {
     Ipv6 Ping_Output_PingResponse_Ipv6
 }
 
-func (pingResponse *Ping_Output_PingResponse) GetFilter() yfilter.YFilter { return pingResponse.YFilter }
+func (pingResponse *Ping_Output_PingResponse) GetEntityData() *types.CommonEntityData {
+    pingResponse.EntityData.YFilter = pingResponse.YFilter
+    pingResponse.EntityData.YangName = "ping-response"
+    pingResponse.EntityData.BundleName = "cisco_ios_xr"
+    pingResponse.EntityData.ParentYangName = "output"
+    pingResponse.EntityData.SegmentPath = "ping-response"
+    pingResponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    pingResponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    pingResponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (pingResponse *Ping_Output_PingResponse) SetFilter(yf yfilter.YFilter) { pingResponse.YFilter = yf }
-
-func (pingResponse *Ping_Output_PingResponse) GetGoName(yname string) string {
-    if yname == "ipv4" { return "Ipv4" }
-    if yname == "ipv6" { return "Ipv6" }
-    return ""
-}
-
-func (pingResponse *Ping_Output_PingResponse) GetSegmentPath() string {
-    return "ping-response"
-}
-
-func (pingResponse *Ping_Output_PingResponse) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "ipv4" {
-        for _, c := range pingResponse.Ipv4 {
-            if pingResponse.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ping_Output_PingResponse_Ipv4{}
-        pingResponse.Ipv4 = append(pingResponse.Ipv4, child)
-        return &pingResponse.Ipv4[len(pingResponse.Ipv4)-1]
-    }
-    if childYangName == "ipv6" {
-        return &pingResponse.Ipv6
-    }
-    return nil
-}
-
-func (pingResponse *Ping_Output_PingResponse) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    pingResponse.EntityData.Children = make(map[string]types.YChild)
+    pingResponse.EntityData.Children["ipv4"] = types.YChild{"Ipv4", nil}
     for i := range pingResponse.Ipv4 {
-        children[pingResponse.Ipv4[i].GetSegmentPath()] = &pingResponse.Ipv4[i]
+        pingResponse.EntityData.Children[types.GetSegmentPath(&pingResponse.Ipv4[i])] = types.YChild{"Ipv4", &pingResponse.Ipv4[i]}
     }
-    children["ipv6"] = &pingResponse.Ipv6
-    return children
+    pingResponse.EntityData.Children["ipv6"] = types.YChild{"Ipv6", &pingResponse.Ipv6}
+    pingResponse.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(pingResponse.EntityData)
 }
-
-func (pingResponse *Ping_Output_PingResponse) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (pingResponse *Ping_Output_PingResponse) GetBundleName() string { return "cisco_ios_xr" }
-
-func (pingResponse *Ping_Output_PingResponse) GetYangName() string { return "ping-response" }
-
-func (pingResponse *Ping_Output_PingResponse) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (pingResponse *Ping_Output_PingResponse) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (pingResponse *Ping_Output_PingResponse) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (pingResponse *Ping_Output_PingResponse) SetParent(parent types.Entity) { pingResponse.parent = parent }
-
-func (pingResponse *Ping_Output_PingResponse) GetParent() types.Entity { return pingResponse.parent }
-
-func (pingResponse *Ping_Output_PingResponse) GetParentYangName() string { return "output" }
 
 // Ping_Output_PingResponse_Ipv4
 type Ping_Output_PingResponse_Ipv4 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Ping destination address or hostname. The type is
@@ -695,7 +411,8 @@ type Ping_Output_PingResponse_Ipv4 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Pattern of payload data. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -743,159 +460,70 @@ type Ping_Output_PingResponse_Ipv4 struct {
     Replies Ping_Output_PingResponse_Ipv4_Replies
 }
 
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetFilter() yfilter.YFilter { return ipv4.YFilter }
+func (ipv4 *Ping_Output_PingResponse_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "cisco_ios_xr"
+    ipv4.EntityData.ParentYangName = "ping-response"
+    ipv4.EntityData.SegmentPath = "ipv4" + "[destination='" + fmt.Sprintf("%v", ipv4.Destination) + "']"
+    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv4 *Ping_Output_PingResponse_Ipv4) SetFilter(yf yfilter.YFilter) { ipv4.YFilter = yf }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "repeat-count" { return "RepeatCount" }
-    if yname == "data-size" { return "DataSize" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "interval" { return "Interval" }
-    if yname == "pattern" { return "Pattern" }
-    if yname == "sweep" { return "Sweep" }
-    if yname == "hits" { return "Hits" }
-    if yname == "total" { return "Total" }
-    if yname == "success-rate" { return "SuccessRate" }
-    if yname == "rtt-min" { return "RttMin" }
-    if yname == "rtt-avg" { return "RttAvg" }
-    if yname == "rtt-max" { return "RttMax" }
-    if yname == "sweep-min" { return "SweepMin" }
-    if yname == "sweep-max" { return "SweepMax" }
-    if yname == "rotate-pattern" { return "RotatePattern" }
-    if yname == "ping-error-response" { return "PingErrorResponse" }
-    if yname == "replies" { return "Replies" }
-    return ""
+    ipv4.EntityData.Children = make(map[string]types.YChild)
+    ipv4.EntityData.Children["replies"] = types.YChild{"Replies", &ipv4.Replies}
+    ipv4.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv4.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv4.Destination}
+    ipv4.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv4.RepeatCount}
+    ipv4.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv4.DataSize}
+    ipv4.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv4.Timeout}
+    ipv4.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv4.Interval}
+    ipv4.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv4.Pattern}
+    ipv4.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv4.Sweep}
+    ipv4.EntityData.Leafs["hits"] = types.YLeaf{"Hits", ipv4.Hits}
+    ipv4.EntityData.Leafs["total"] = types.YLeaf{"Total", ipv4.Total}
+    ipv4.EntityData.Leafs["success-rate"] = types.YLeaf{"SuccessRate", ipv4.SuccessRate}
+    ipv4.EntityData.Leafs["rtt-min"] = types.YLeaf{"RttMin", ipv4.RttMin}
+    ipv4.EntityData.Leafs["rtt-avg"] = types.YLeaf{"RttAvg", ipv4.RttAvg}
+    ipv4.EntityData.Leafs["rtt-max"] = types.YLeaf{"RttMax", ipv4.RttMax}
+    ipv4.EntityData.Leafs["sweep-min"] = types.YLeaf{"SweepMin", ipv4.SweepMin}
+    ipv4.EntityData.Leafs["sweep-max"] = types.YLeaf{"SweepMax", ipv4.SweepMax}
+    ipv4.EntityData.Leafs["rotate-pattern"] = types.YLeaf{"RotatePattern", ipv4.RotatePattern}
+    ipv4.EntityData.Leafs["ping-error-response"] = types.YLeaf{"PingErrorResponse", ipv4.PingErrorResponse}
+    return &(ipv4.EntityData)
 }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetSegmentPath() string {
-    return "ipv4" + "[destination='" + fmt.Sprintf("%v", ipv4.Destination) + "']"
-}
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "replies" {
-        return &ipv4.Replies
-    }
-    return nil
-}
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["replies"] = &ipv4.Replies
-    return children
-}
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv4.Destination
-    leafs["repeat-count"] = ipv4.RepeatCount
-    leafs["data-size"] = ipv4.DataSize
-    leafs["timeout"] = ipv4.Timeout
-    leafs["interval"] = ipv4.Interval
-    leafs["pattern"] = ipv4.Pattern
-    leafs["sweep"] = ipv4.Sweep
-    leafs["hits"] = ipv4.Hits
-    leafs["total"] = ipv4.Total
-    leafs["success-rate"] = ipv4.SuccessRate
-    leafs["rtt-min"] = ipv4.RttMin
-    leafs["rtt-avg"] = ipv4.RttAvg
-    leafs["rtt-max"] = ipv4.RttMax
-    leafs["sweep-min"] = ipv4.SweepMin
-    leafs["sweep-max"] = ipv4.SweepMax
-    leafs["rotate-pattern"] = ipv4.RotatePattern
-    leafs["ping-error-response"] = ipv4.PingErrorResponse
-    return leafs
-}
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetYangName() string { return "ipv4" }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) SetParent(parent types.Entity) { ipv4.parent = parent }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetParent() types.Entity { return ipv4.parent }
-
-func (ipv4 *Ping_Output_PingResponse_Ipv4) GetParentYangName() string { return "ping-response" }
 
 // Ping_Output_PingResponse_Ipv4_Replies
 type Ping_Output_PingResponse_Ipv4_Replies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is slice of Ping_Output_PingResponse_Ipv4_Replies_Reply.
     Reply []Ping_Output_PingResponse_Ipv4_Replies_Reply
 }
 
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetFilter() yfilter.YFilter { return replies.YFilter }
+func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetEntityData() *types.CommonEntityData {
+    replies.EntityData.YFilter = replies.YFilter
+    replies.EntityData.YangName = "replies"
+    replies.EntityData.BundleName = "cisco_ios_xr"
+    replies.EntityData.ParentYangName = "ipv4"
+    replies.EntityData.SegmentPath = "replies"
+    replies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    replies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    replies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) SetFilter(yf yfilter.YFilter) { replies.YFilter = yf }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetGoName(yname string) string {
-    if yname == "reply" { return "Reply" }
-    return ""
-}
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetSegmentPath() string {
-    return "replies"
-}
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "reply" {
-        for _, c := range replies.Reply {
-            if replies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ping_Output_PingResponse_Ipv4_Replies_Reply{}
-        replies.Reply = append(replies.Reply, child)
-        return &replies.Reply[len(replies.Reply)-1]
-    }
-    return nil
-}
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    replies.EntityData.Children = make(map[string]types.YChild)
+    replies.EntityData.Children["reply"] = types.YChild{"Reply", nil}
     for i := range replies.Reply {
-        children[replies.Reply[i].GetSegmentPath()] = &replies.Reply[i]
+        replies.EntityData.Children[types.GetSegmentPath(&replies.Reply[i])] = types.YChild{"Reply", &replies.Reply[i]}
     }
-    return children
+    replies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(replies.EntityData)
 }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetYangName() string { return "replies" }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) SetParent(parent types.Entity) { replies.parent = parent }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetParent() types.Entity { return replies.parent }
-
-func (replies *Ping_Output_PingResponse_Ipv4_Replies) GetParentYangName() string { return "ipv4" }
 
 // Ping_Output_PingResponse_Ipv4_Replies_Reply
 type Ping_Output_PingResponse_Ipv4_Replies_Reply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of the reply list. The type is interface{}
@@ -909,62 +537,27 @@ type Ping_Output_PingResponse_Ipv4_Replies_Reply struct {
     BroadcastReplyAddresses Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses
 }
 
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetFilter() yfilter.YFilter { return reply.YFilter }
+func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetEntityData() *types.CommonEntityData {
+    reply.EntityData.YFilter = reply.YFilter
+    reply.EntityData.YangName = "reply"
+    reply.EntityData.BundleName = "cisco_ios_xr"
+    reply.EntityData.ParentYangName = "replies"
+    reply.EntityData.SegmentPath = "reply" + "[reply-index='" + fmt.Sprintf("%v", reply.ReplyIndex) + "']"
+    reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) SetFilter(yf yfilter.YFilter) { reply.YFilter = yf }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetGoName(yname string) string {
-    if yname == "reply-index" { return "ReplyIndex" }
-    if yname == "result" { return "Result" }
-    if yname == "broadcast-reply-addresses" { return "BroadcastReplyAddresses" }
-    return ""
+    reply.EntityData.Children = make(map[string]types.YChild)
+    reply.EntityData.Children["broadcast-reply-addresses"] = types.YChild{"BroadcastReplyAddresses", &reply.BroadcastReplyAddresses}
+    reply.EntityData.Leafs = make(map[string]types.YLeaf)
+    reply.EntityData.Leafs["reply-index"] = types.YLeaf{"ReplyIndex", reply.ReplyIndex}
+    reply.EntityData.Leafs["result"] = types.YLeaf{"Result", reply.Result}
+    return &(reply.EntityData)
 }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetSegmentPath() string {
-    return "reply" + "[reply-index='" + fmt.Sprintf("%v", reply.ReplyIndex) + "']"
-}
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "broadcast-reply-addresses" {
-        return &reply.BroadcastReplyAddresses
-    }
-    return nil
-}
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["broadcast-reply-addresses"] = &reply.BroadcastReplyAddresses
-    return children
-}
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reply-index"] = reply.ReplyIndex
-    leafs["result"] = reply.Result
-    return leafs
-}
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetYangName() string { return "reply" }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) SetParent(parent types.Entity) { reply.parent = parent }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetParent() types.Entity { return reply.parent }
-
-func (reply *Ping_Output_PingResponse_Ipv4_Replies_Reply) GetParentYangName() string { return "replies" }
 
 // Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses
 type Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is slice of
@@ -972,67 +565,28 @@ type Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses struct 
     BroadcastReplyAddress []Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress
 }
 
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetFilter() yfilter.YFilter { return broadcastReplyAddresses.YFilter }
+func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetEntityData() *types.CommonEntityData {
+    broadcastReplyAddresses.EntityData.YFilter = broadcastReplyAddresses.YFilter
+    broadcastReplyAddresses.EntityData.YangName = "broadcast-reply-addresses"
+    broadcastReplyAddresses.EntityData.BundleName = "cisco_ios_xr"
+    broadcastReplyAddresses.EntityData.ParentYangName = "reply"
+    broadcastReplyAddresses.EntityData.SegmentPath = "broadcast-reply-addresses"
+    broadcastReplyAddresses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    broadcastReplyAddresses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    broadcastReplyAddresses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) SetFilter(yf yfilter.YFilter) { broadcastReplyAddresses.YFilter = yf }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetGoName(yname string) string {
-    if yname == "broadcast-reply-address" { return "BroadcastReplyAddress" }
-    return ""
-}
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetSegmentPath() string {
-    return "broadcast-reply-addresses"
-}
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "broadcast-reply-address" {
-        for _, c := range broadcastReplyAddresses.BroadcastReplyAddress {
-            if broadcastReplyAddresses.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress{}
-        broadcastReplyAddresses.BroadcastReplyAddress = append(broadcastReplyAddresses.BroadcastReplyAddress, child)
-        return &broadcastReplyAddresses.BroadcastReplyAddress[len(broadcastReplyAddresses.BroadcastReplyAddress)-1]
-    }
-    return nil
-}
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    broadcastReplyAddresses.EntityData.Children = make(map[string]types.YChild)
+    broadcastReplyAddresses.EntityData.Children["broadcast-reply-address"] = types.YChild{"BroadcastReplyAddress", nil}
     for i := range broadcastReplyAddresses.BroadcastReplyAddress {
-        children[broadcastReplyAddresses.BroadcastReplyAddress[i].GetSegmentPath()] = &broadcastReplyAddresses.BroadcastReplyAddress[i]
+        broadcastReplyAddresses.EntityData.Children[types.GetSegmentPath(&broadcastReplyAddresses.BroadcastReplyAddress[i])] = types.YChild{"BroadcastReplyAddress", &broadcastReplyAddresses.BroadcastReplyAddress[i]}
     }
-    return children
+    broadcastReplyAddresses.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(broadcastReplyAddresses.EntityData)
 }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetBundleName() string { return "cisco_ios_xr" }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetYangName() string { return "broadcast-reply-addresses" }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) SetParent(parent types.Entity) { broadcastReplyAddresses.parent = parent }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetParent() types.Entity { return broadcastReplyAddresses.parent }
-
-func (broadcastReplyAddresses *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses) GetParentYangName() string { return "reply" }
 
 // Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress
 type Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Broadcast reply address. The type is string.
@@ -1042,57 +596,26 @@ type Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_Broadca
     Result interface{}
 }
 
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetFilter() yfilter.YFilter { return broadcastReplyAddress.YFilter }
+func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetEntityData() *types.CommonEntityData {
+    broadcastReplyAddress.EntityData.YFilter = broadcastReplyAddress.YFilter
+    broadcastReplyAddress.EntityData.YangName = "broadcast-reply-address"
+    broadcastReplyAddress.EntityData.BundleName = "cisco_ios_xr"
+    broadcastReplyAddress.EntityData.ParentYangName = "broadcast-reply-addresses"
+    broadcastReplyAddress.EntityData.SegmentPath = "broadcast-reply-address" + "[reply-address='" + fmt.Sprintf("%v", broadcastReplyAddress.ReplyAddress) + "']"
+    broadcastReplyAddress.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    broadcastReplyAddress.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    broadcastReplyAddress.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) SetFilter(yf yfilter.YFilter) { broadcastReplyAddress.YFilter = yf }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetGoName(yname string) string {
-    if yname == "reply-address" { return "ReplyAddress" }
-    if yname == "result" { return "Result" }
-    return ""
+    broadcastReplyAddress.EntityData.Children = make(map[string]types.YChild)
+    broadcastReplyAddress.EntityData.Leafs = make(map[string]types.YLeaf)
+    broadcastReplyAddress.EntityData.Leafs["reply-address"] = types.YLeaf{"ReplyAddress", broadcastReplyAddress.ReplyAddress}
+    broadcastReplyAddress.EntityData.Leafs["result"] = types.YLeaf{"Result", broadcastReplyAddress.Result}
+    return &(broadcastReplyAddress.EntityData)
 }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetSegmentPath() string {
-    return "broadcast-reply-address" + "[reply-address='" + fmt.Sprintf("%v", broadcastReplyAddress.ReplyAddress) + "']"
-}
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reply-address"] = broadcastReplyAddress.ReplyAddress
-    leafs["result"] = broadcastReplyAddress.Result
-    return leafs
-}
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetBundleName() string { return "cisco_ios_xr" }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetYangName() string { return "broadcast-reply-address" }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) SetParent(parent types.Entity) { broadcastReplyAddress.parent = parent }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetParent() types.Entity { return broadcastReplyAddress.parent }
-
-func (broadcastReplyAddress *Ping_Output_PingResponse_Ipv4_Replies_Reply_BroadcastReplyAddresses_BroadcastReplyAddress) GetParentYangName() string { return "broadcast-reply-addresses" }
 
 // Ping_Output_PingResponse_Ipv6
 type Ping_Output_PingResponse_Ipv6 struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Ping destination address or hostname. The type is string. This attribute is
@@ -1115,7 +638,8 @@ type Ping_Output_PingResponse_Ipv6 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
+    // Pattern of payload data. The type is string with pattern:
+    // b'[0-9a-fA-F]{1,8}'.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -1160,157 +684,69 @@ type Ping_Output_PingResponse_Ipv6 struct {
     Replies Ping_Output_PingResponse_Ipv6_Replies
 }
 
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetFilter() yfilter.YFilter { return ipv6.YFilter }
+func (ipv6 *Ping_Output_PingResponse_Ipv6) GetEntityData() *types.CommonEntityData {
+    ipv6.EntityData.YFilter = ipv6.YFilter
+    ipv6.EntityData.YangName = "ipv6"
+    ipv6.EntityData.BundleName = "cisco_ios_xr"
+    ipv6.EntityData.ParentYangName = "ping-response"
+    ipv6.EntityData.SegmentPath = "ipv6"
+    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (ipv6 *Ping_Output_PingResponse_Ipv6) SetFilter(yf yfilter.YFilter) { ipv6.YFilter = yf }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetGoName(yname string) string {
-    if yname == "destination" { return "Destination" }
-    if yname == "repeat-count" { return "RepeatCount" }
-    if yname == "data-size" { return "DataSize" }
-    if yname == "timeout" { return "Timeout" }
-    if yname == "interval" { return "Interval" }
-    if yname == "pattern" { return "Pattern" }
-    if yname == "sweep" { return "Sweep" }
-    if yname == "sweep-min" { return "SweepMin" }
-    if yname == "sweep-max" { return "SweepMax" }
-    if yname == "rotate-pattern" { return "RotatePattern" }
-    if yname == "hits" { return "Hits" }
-    if yname == "total" { return "Total" }
-    if yname == "success-rate" { return "SuccessRate" }
-    if yname == "rtt-min" { return "RttMin" }
-    if yname == "rtt-avg" { return "RttAvg" }
-    if yname == "rtt-max" { return "RttMax" }
-    if yname == "replies" { return "Replies" }
-    return ""
+    ipv6.EntityData.Children = make(map[string]types.YChild)
+    ipv6.EntityData.Children["replies"] = types.YChild{"Replies", &ipv6.Replies}
+    ipv6.EntityData.Leafs = make(map[string]types.YLeaf)
+    ipv6.EntityData.Leafs["destination"] = types.YLeaf{"Destination", ipv6.Destination}
+    ipv6.EntityData.Leafs["repeat-count"] = types.YLeaf{"RepeatCount", ipv6.RepeatCount}
+    ipv6.EntityData.Leafs["data-size"] = types.YLeaf{"DataSize", ipv6.DataSize}
+    ipv6.EntityData.Leafs["timeout"] = types.YLeaf{"Timeout", ipv6.Timeout}
+    ipv6.EntityData.Leafs["interval"] = types.YLeaf{"Interval", ipv6.Interval}
+    ipv6.EntityData.Leafs["pattern"] = types.YLeaf{"Pattern", ipv6.Pattern}
+    ipv6.EntityData.Leafs["sweep"] = types.YLeaf{"Sweep", ipv6.Sweep}
+    ipv6.EntityData.Leafs["sweep-min"] = types.YLeaf{"SweepMin", ipv6.SweepMin}
+    ipv6.EntityData.Leafs["sweep-max"] = types.YLeaf{"SweepMax", ipv6.SweepMax}
+    ipv6.EntityData.Leafs["rotate-pattern"] = types.YLeaf{"RotatePattern", ipv6.RotatePattern}
+    ipv6.EntityData.Leafs["hits"] = types.YLeaf{"Hits", ipv6.Hits}
+    ipv6.EntityData.Leafs["total"] = types.YLeaf{"Total", ipv6.Total}
+    ipv6.EntityData.Leafs["success-rate"] = types.YLeaf{"SuccessRate", ipv6.SuccessRate}
+    ipv6.EntityData.Leafs["rtt-min"] = types.YLeaf{"RttMin", ipv6.RttMin}
+    ipv6.EntityData.Leafs["rtt-avg"] = types.YLeaf{"RttAvg", ipv6.RttAvg}
+    ipv6.EntityData.Leafs["rtt-max"] = types.YLeaf{"RttMax", ipv6.RttMax}
+    return &(ipv6.EntityData)
 }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetSegmentPath() string {
-    return "ipv6"
-}
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "replies" {
-        return &ipv6.Replies
-    }
-    return nil
-}
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    children["replies"] = &ipv6.Replies
-    return children
-}
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["destination"] = ipv6.Destination
-    leafs["repeat-count"] = ipv6.RepeatCount
-    leafs["data-size"] = ipv6.DataSize
-    leafs["timeout"] = ipv6.Timeout
-    leafs["interval"] = ipv6.Interval
-    leafs["pattern"] = ipv6.Pattern
-    leafs["sweep"] = ipv6.Sweep
-    leafs["sweep-min"] = ipv6.SweepMin
-    leafs["sweep-max"] = ipv6.SweepMax
-    leafs["rotate-pattern"] = ipv6.RotatePattern
-    leafs["hits"] = ipv6.Hits
-    leafs["total"] = ipv6.Total
-    leafs["success-rate"] = ipv6.SuccessRate
-    leafs["rtt-min"] = ipv6.RttMin
-    leafs["rtt-avg"] = ipv6.RttAvg
-    leafs["rtt-max"] = ipv6.RttMax
-    return leafs
-}
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetBundleName() string { return "cisco_ios_xr" }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetYangName() string { return "ipv6" }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) SetParent(parent types.Entity) { ipv6.parent = parent }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetParent() types.Entity { return ipv6.parent }
-
-func (ipv6 *Ping_Output_PingResponse_Ipv6) GetParentYangName() string { return "ping-response" }
 
 // Ping_Output_PingResponse_Ipv6_Replies
 type Ping_Output_PingResponse_Ipv6_Replies struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // The type is slice of Ping_Output_PingResponse_Ipv6_Replies_Reply.
     Reply []Ping_Output_PingResponse_Ipv6_Replies_Reply
 }
 
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetFilter() yfilter.YFilter { return replies.YFilter }
+func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetEntityData() *types.CommonEntityData {
+    replies.EntityData.YFilter = replies.YFilter
+    replies.EntityData.YangName = "replies"
+    replies.EntityData.BundleName = "cisco_ios_xr"
+    replies.EntityData.ParentYangName = "ipv6"
+    replies.EntityData.SegmentPath = "replies"
+    replies.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    replies.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    replies.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) SetFilter(yf yfilter.YFilter) { replies.YFilter = yf }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetGoName(yname string) string {
-    if yname == "reply" { return "Reply" }
-    return ""
-}
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetSegmentPath() string {
-    return "replies"
-}
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    if childYangName == "reply" {
-        for _, c := range replies.Reply {
-            if replies.GetSegmentPath() == segmentPath {
-                return &c
-            }
-        }
-        child := Ping_Output_PingResponse_Ipv6_Replies_Reply{}
-        replies.Reply = append(replies.Reply, child)
-        return &replies.Reply[len(replies.Reply)-1]
-    }
-    return nil
-}
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
+    replies.EntityData.Children = make(map[string]types.YChild)
+    replies.EntityData.Children["reply"] = types.YChild{"Reply", nil}
     for i := range replies.Reply {
-        children[replies.Reply[i].GetSegmentPath()] = &replies.Reply[i]
+        replies.EntityData.Children[types.GetSegmentPath(&replies.Reply[i])] = types.YChild{"Reply", &replies.Reply[i]}
     }
-    return children
+    replies.EntityData.Leafs = make(map[string]types.YLeaf)
+    return &(replies.EntityData)
 }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    return leafs
-}
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetBundleName() string { return "cisco_ios_xr" }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetYangName() string { return "replies" }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) SetParent(parent types.Entity) { replies.parent = parent }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetParent() types.Entity { return replies.parent }
-
-func (replies *Ping_Output_PingResponse_Ipv6_Replies) GetParentYangName() string { return "ipv6" }
 
 // Ping_Output_PingResponse_Ipv6_Replies_Reply
 type Ping_Output_PingResponse_Ipv6_Replies_Reply struct {
-    parent types.Entity
+    EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // This attribute is a key. Index of the reply list. The type is interface{}
@@ -1321,51 +757,20 @@ type Ping_Output_PingResponse_Ipv6_Replies_Reply struct {
     Result interface{}
 }
 
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetFilter() yfilter.YFilter { return reply.YFilter }
+func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetEntityData() *types.CommonEntityData {
+    reply.EntityData.YFilter = reply.YFilter
+    reply.EntityData.YangName = "reply"
+    reply.EntityData.BundleName = "cisco_ios_xr"
+    reply.EntityData.ParentYangName = "replies"
+    reply.EntityData.SegmentPath = "reply" + "[reply-index='" + fmt.Sprintf("%v", reply.ReplyIndex) + "']"
+    reply.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    reply.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    reply.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) SetFilter(yf yfilter.YFilter) { reply.YFilter = yf }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetGoName(yname string) string {
-    if yname == "reply-index" { return "ReplyIndex" }
-    if yname == "result" { return "Result" }
-    return ""
+    reply.EntityData.Children = make(map[string]types.YChild)
+    reply.EntityData.Leafs = make(map[string]types.YLeaf)
+    reply.EntityData.Leafs["reply-index"] = types.YLeaf{"ReplyIndex", reply.ReplyIndex}
+    reply.EntityData.Leafs["result"] = types.YLeaf{"Result", reply.Result}
+    return &(reply.EntityData)
 }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetSegmentPath() string {
-    return "reply" + "[reply-index='" + fmt.Sprintf("%v", reply.ReplyIndex) + "']"
-}
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetChildByName(childYangName string, segmentPath string) types.Entity {
-    return nil
-}
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetChildren() map[string]types.Entity {
-    children := make(map[string]types.Entity)
-    return children
-}
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetLeafs() map[string]interface{} {
-    leafs := make(map[string]interface{})
-    leafs["reply-index"] = reply.ReplyIndex
-    leafs["result"] = reply.Result
-    return leafs
-}
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetBundleName() string { return "cisco_ios_xr" }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetYangName() string { return "reply" }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetBundleYangModelsLocation() string { return cisco_ios_xr.GetModelsPath() }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetCapabilitiesTable() map[string]string {
-    return cisco_ios_xr.GetCapabilities() }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetNamespaceTable() map[string]string {
-    return cisco_ios_xr.GetNamespaces() }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) SetParent(parent types.Entity) { reply.parent = parent }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetParent() types.Entity { return reply.parent }
-
-func (reply *Ping_Output_PingResponse_Ipv6_Replies_Reply) GetParentYangName() string { return "replies" }
 
