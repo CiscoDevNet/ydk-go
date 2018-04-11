@@ -76,8 +76,8 @@ func configIsis(isis *isisCfg.Isis) {
 
 	// loopback interface
 	instance.Interfaces = isisCfg.Isis_Instances_Instance_Interfaces{
-		Interface: make([]isisCfg.Isis_Instances_Instance_Interfaces_Interface, 2) }
-	intrface := &instance.Interfaces.Interface[0]
+		Interface_: make([]isisCfg.Isis_Instances_Instance_Interfaces_Interface, 2) }
+	intrface := &instance.Interfaces.Interface_[0]
 	intrface.InterfaceName = "Loopback0"
 	intrface.Running = types.Empty{}
 	intrface.State = isisCfg.IsisInterfaceState_passive
@@ -93,14 +93,14 @@ func configIsis(isis *isisCfg.Isis) {
 
 	//		segment routing
 	prefixSID := &interfaceAf.InterfaceAfData.PrefixSid
-	prefixSID.Type = isisCfg.Isissid1_absolute
+	prefixSID.Type_ = isisCfg.Isissid1_absolute
 	prefixSID.Value = 16042
 	prefixSID.Php = isisCfg.IsisphpFlag_enable
 	prefixSID.ExplicitNull = isisCfg.IsisexplicitNullFlag_disable
 	prefixSID.NflagClear = isisCfg.NflagClear_disable
 
 	// gi0/0/0/0 interface
-	intrface = &instance.Interfaces.Interface[1]
+	intrface = &instance.Interfaces.Interface_[1]
 	intrface.InterfaceName = "GigabitEthernet0/0/0/0"
 	intrface.Running = types.Empty{}
 	intrface.PointToPoint = types.Empty{}
